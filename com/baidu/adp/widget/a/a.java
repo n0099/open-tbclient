@@ -56,7 +56,7 @@ public class a {
         this.IE = new C0014a();
         this.Is = bitmap;
         this.isGif = z;
-        kU();
+        kT();
     }
 
     public a(Bitmap bitmap, boolean z, String str) {
@@ -74,7 +74,7 @@ public class a {
         this.Is = bitmap;
         this.isGif = z;
         this.url = str;
-        kU();
+        kT();
     }
 
     public a(Bitmap bitmap, boolean z, String str, Rect rect) {
@@ -93,7 +93,7 @@ public class a {
         this.isGif = z;
         this.url = str;
         this.IA = rect;
-        kU();
+        kT();
     }
 
     public a(Bitmap bitmap, boolean z, String str, byte[] bArr) {
@@ -112,7 +112,7 @@ public class a {
         this.isGif = z;
         this.url = str;
         this.Iu = bArr;
-        kU();
+        kT();
     }
 
     public a(b bVar) {
@@ -131,7 +131,7 @@ public class a {
         this.Iz = true;
     }
 
-    private void kU() {
+    private void kT() {
         byte[] ninePatchChunk;
         if (this.Is != null && (ninePatchChunk = this.Is.getNinePatchChunk()) != null && ninePatchChunk.length > 0 && NinePatch.isNinePatchChunk(ninePatchChunk)) {
             this.IB = true;
@@ -139,7 +139,7 @@ public class a {
         }
     }
 
-    public boolean kV() {
+    public boolean kU() {
         return this.Iz;
     }
 
@@ -209,7 +209,7 @@ public class a {
         return this.Is.getHeight() * this.Is.getRowBytes();
     }
 
-    public boolean kW() {
+    public boolean kV() {
         if (this.It && !this.Ix.get()) {
             if (this.Is != null) {
                 Bitmap bitmap = this.Is;
@@ -226,16 +226,16 @@ public class a {
         return false;
     }
 
-    public Bitmap kX() {
+    public Bitmap kW() {
         this.It = false;
         return this.Is;
     }
 
-    public boolean kY() {
+    public boolean kX() {
         return this.Is != null;
     }
 
-    public BitmapDrawable kZ() {
+    public BitmapDrawable kY() {
         if (this.Is == null) {
             return null;
         }
@@ -255,7 +255,7 @@ public class a {
         return this.url;
     }
 
-    public byte[] la() {
+    public byte[] kZ() {
         byte[] byteArray;
         if (this.Is == null) {
             return null;
@@ -268,15 +268,15 @@ public class a {
         return byteArray;
     }
 
-    public Rect lb() {
+    public Rect la() {
         return this.IA;
     }
 
-    public byte[] lc() {
+    public byte[] lb() {
         return this.Iu;
     }
 
-    public BitmapShader ld() {
+    public BitmapShader lc() {
         if (this.Is == null) {
             return null;
         }
@@ -288,7 +288,7 @@ public class a {
         this.Ix.set(z);
     }
 
-    public boolean le() {
+    public boolean ld() {
         return this.IB;
     }
 }

@@ -29,11 +29,11 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class b {
-    private BdUniqueId aON;
+    private BdUniqueId aOO;
     private final o cUG;
     private List<ThreadInfo> cUI;
     private a cUJ;
-    private final List<com.baidu.adp.widget.ListView.f> cgM;
+    private final List<com.baidu.adp.widget.ListView.f> cgN;
     private HashMap<Long, ThreadInfo> cUH = new HashMap<>();
     private CustomMessageListener cUK = new CustomMessageListener(CmdConfigCustom.PERSONALIZED_MAINTAB_ON_RESULT) { // from class: com.baidu.tieba.homepage.personalize.b.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,8 +69,8 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (!StringUtils.isNull(str) && !u.v(b.this.cgM) && !u.v(b.this.cUI)) {
-                    Iterator it = b.this.cgM.iterator();
+                if (!StringUtils.isNull(str) && !u.v(b.this.cgN) && !u.v(b.this.cUI)) {
+                    Iterator it = b.this.cgN.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
@@ -80,8 +80,8 @@ public class b {
                             com.baidu.tieba.card.data.c cVar = (com.baidu.tieba.card.data.c) fVar;
                             if (cVar.MF() != null && cVar.MF().getTid() != null && cVar.MF().getTid().equals(str)) {
                                 it.remove();
-                                com.baidu.tieba.homepage.personalize.model.b.bA(b.this.cgM);
-                                b.this.cUG.br(new ArrayList(b.this.cgM));
+                                com.baidu.tieba.homepage.personalize.model.b.bA(b.this.cgN);
+                                b.this.cUG.br(new ArrayList(b.this.cgN));
                                 break;
                             }
                         }
@@ -101,12 +101,12 @@ public class b {
     };
 
     public b(List<com.baidu.adp.widget.ListView.f> list, o oVar) {
-        this.cgM = list;
+        this.cgN = list;
         this.cUG = oVar;
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        this.aON = bdUniqueId;
+        this.aOO = bdUniqueId;
         this.cUK.setTag(bdUniqueId);
         this.cUK.setSelfListener(false);
         this.cxe.setTag(bdUniqueId);
@@ -151,11 +151,11 @@ public class b {
             int ah = k.ah(TbadkCoreApplication.getInst());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i = 1;
-            if (am.vQ().vS()) {
+            if (am.vR().vT()) {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(b.this.aON);
+            requestGetMyPostNetMessage.setTag(b.this.aOO);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, ag, ah, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -163,7 +163,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, GetMyPostResIdl getMyPostResIdl) {
-        if (i == 0 && !u.v(this.cgM) && !u.v(this.cUI) && this.cUG != null && getMyPostResIdl != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
+        if (i == 0 && !u.v(this.cgN) && !u.v(this.cUI) && this.cUG != null && getMyPostResIdl != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
             a(builder2, getMyPostResIdl.data.user_info);
@@ -173,9 +173,9 @@ public class b {
             bl blVar = new bl();
             blVar.a(build);
             if (l.B(blVar)) {
-                this.cgM.add(0, com.baidu.tieba.homepage.personalize.model.d.S(blVar));
-                com.baidu.tieba.homepage.personalize.model.b.bA(this.cgM);
-                this.cUG.br(new ArrayList(this.cgM));
+                this.cgN.add(0, com.baidu.tieba.homepage.personalize.model.d.S(blVar));
+                com.baidu.tieba.homepage.personalize.model.b.bA(this.cgN);
+                this.cUG.br(new ArrayList(this.cgN));
                 this.cUI.add(0, build);
                 this.cUH.put(build.tid, build);
             }

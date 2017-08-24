@@ -113,7 +113,7 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
         boolean z2;
         int i;
         boolean z3 = false;
-        if (str == null || str2 == null || str3 == null || str4 == null || !i.gI(str)) {
+        if (str == null || str2 == null || str3 == null || str4 == null || !i.gL(str)) {
             return false;
         }
         try {

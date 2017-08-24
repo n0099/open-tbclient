@@ -19,7 +19,7 @@ public class c extends com.baidu.tieba.card.data.b implements r {
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean Xg() {
+    public boolean Xd() {
         return true;
     }
 

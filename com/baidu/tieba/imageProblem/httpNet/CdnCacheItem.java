@@ -100,7 +100,7 @@ public class CdnCacheItem implements Serializable {
                 this.ipHashMap.remove(tBIPListItem.cdnIp);
                 this.ipList.remove(i2);
                 long currentTimeMillis = System.currentTimeMillis();
-                aAX();
+                aAS();
                 this.disableIpMap.put(tBIPListItem.cdnIp, Long.valueOf(currentTimeMillis));
             }
             if (tBIPListItem.ipRank < 0) {
@@ -151,7 +151,7 @@ public class CdnCacheItem implements Serializable {
     public void setIpList(ArrayList<String> arrayList, boolean z, boolean z2) {
         if (arrayList != null && arrayList.size() != 0) {
             synchronized (mLock) {
-                aAX();
+                aAS();
                 if (z2) {
                     this.ipList.clear();
                     this.ipHashMap.clear();
@@ -161,7 +161,7 @@ public class CdnCacheItem implements Serializable {
                 for (int i = 0; i < size; i++) {
                     String str = arrayList.get(i);
                     Long l = this.disableIpMap.get(str);
-                    if (l != null && System.currentTimeMillis() - l.longValue() >= aAY()) {
+                    if (l != null && System.currentTimeMillis() - l.longValue() >= aAT()) {
                         this.disableIpMap.remove(str);
                     }
                     if (this.ipHashMap.get(str) == null && this.disableIpMap.get(str) == null) {
@@ -175,13 +175,13 @@ public class CdnCacheItem implements Serializable {
         }
     }
 
-    private void aAX() {
+    private void aAS() {
         if (this.disableIpMap == null) {
             this.disableIpMap = new HashMap<>();
         }
     }
 
-    private int aAY() {
+    private int aAT() {
         if (this.ipDisableTime < 0) {
             return 3600000;
         }

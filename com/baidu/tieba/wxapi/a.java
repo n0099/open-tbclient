@@ -37,7 +37,7 @@ public class a {
     private IWXAPI gKi = WXAPIFactory.createWXAPI(TbadkApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID, false);
     private ConcurrentHashMap<String, IWXAPIEventHandler> gKj = new ConcurrentHashMap<>();
 
-    public static a bBz() {
+    public static a bBr() {
         if (gKh == null) {
             synchronized (a.class) {
                 if (gKh == null) {

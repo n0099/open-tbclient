@@ -5,22 +5,22 @@ import tbclient.TwAnchorProfitItem;
 import tbclient.TwZhiBoUser;
 /* loaded from: classes.dex */
 public class ag {
-    private TwZhiBoUser XB;
-    private List<TwAnchorProfitItem> XC;
+    private TwZhiBoUser XC;
+    private List<TwAnchorProfitItem> XD;
 
-    public TwZhiBoUser qi() {
-        return this.XB;
-    }
-
-    public void a(TwZhiBoUser twZhiBoUser) {
-        this.XB = twZhiBoUser;
-    }
-
-    public List<TwAnchorProfitItem> qj() {
+    public TwZhiBoUser qj() {
         return this.XC;
     }
 
+    public void a(TwZhiBoUser twZhiBoUser) {
+        this.XC = twZhiBoUser;
+    }
+
+    public List<TwAnchorProfitItem> qk() {
+        return this.XD;
+    }
+
     public void p(List<TwAnchorProfitItem> list) {
-        this.XC = list;
+        this.XD = list;
     }
 }

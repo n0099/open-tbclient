@@ -60,7 +60,7 @@ public class e extends BaseAdapter {
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.acI.setText(fVar.tA());
+        aVar.acI.setText(fVar.tB());
         if (StringUtils.isNull(fVar.getDesc())) {
             aVar.acJ.setVisibility(8);
         } else {

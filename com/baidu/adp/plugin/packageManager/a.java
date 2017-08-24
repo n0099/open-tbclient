@@ -82,7 +82,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
             if (this.Fu != null) {
-                return Boolean.valueOf(bj(this.Fu.apkPath));
+                return Boolean.valueOf(bk(this.Fu.apkPath));
             }
             return false;
         }
@@ -112,15 +112,15 @@ public class a {
             a.this.jy();
         }
 
-        private boolean bj(String str) {
+        private boolean bk(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
             try {
                 e.i(new File(str));
-                com.baidu.adp.plugin.b.a.jr().e("plugin_del_unuse", "delete_unuse", str, null);
+                com.baidu.adp.plugin.b.a.jr().c("plugin_del_unuse", "delete_unuse", str, null);
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.jr().e("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
+                com.baidu.adp.plugin.b.a.jr().c("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
             }
             int length = str.length();
             if (length >= 4) {
@@ -128,9 +128,9 @@ public class a {
                 if (file.exists() && file.isDirectory()) {
                     try {
                         e.i(file);
-                        com.baidu.adp.plugin.b.a.jr().e("plugin_del_unuse", "delete_unuse", str, null);
+                        com.baidu.adp.plugin.b.a.jr().c("plugin_del_unuse", "delete_unuse", str, null);
                     } catch (Throwable th2) {
-                        com.baidu.adp.plugin.b.a.jr().e("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
+                        com.baidu.adp.plugin.b.a.jr().c("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
                     }
                 }
                 return true;

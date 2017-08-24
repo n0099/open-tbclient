@@ -30,9 +30,9 @@ public class BdExpandListView extends BdListView {
     public interface a {
         void G(float f);
 
-        void li();
+        void lh();
 
-        void lj();
+        void li();
     }
 
     public BdExpandListView(Context context, AttributeSet attributeSet) {
@@ -66,9 +66,9 @@ public class BdExpandListView extends BdListView {
                 case 1:
                 case 3:
                     if (this.Jn) {
-                        lg();
+                        lf();
                     } else {
-                        this.Js.li();
+                        this.Js.lh();
                     }
                     new Handler().postDelayed(new Runnable() { // from class: com.baidu.adp.widget.ListView.BdExpandListView.1
                         @Override // java.lang.Runnable
@@ -126,12 +126,12 @@ public class BdExpandListView extends BdListView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void lg() {
+    public void lf() {
         if (this.Jm != null) {
             if (this.Ji.getHeight() >= this.Jm.Jx - (this.Jr / 2)) {
-                lh();
+                lg();
             } else {
-                this.Js.li();
+                this.Js.lh();
             }
             this.mScroller.startScroll(0, this.Ji.getHeight(), 0, this.Jm.Jv - this.Ji.getHeight(), 200);
             invalidate();
@@ -139,9 +139,9 @@ public class BdExpandListView extends BdListView {
         }
     }
 
-    public void lh() {
+    public void lg() {
         if (this.Js != null) {
-            this.Js.lj();
+            this.Js.li();
         }
     }
 

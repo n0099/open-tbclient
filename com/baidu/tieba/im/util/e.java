@@ -126,7 +126,7 @@ public class e {
         }
     }
 
-    private static final String mD(String str) {
+    private static final String mI(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -155,7 +155,7 @@ public class e {
         return sb.toString();
     }
 
-    private static final String mE(String str) {
+    private static final String mJ(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -187,19 +187,19 @@ public class e {
             return null;
         }
         if (i == 1) {
-            String mD = (str.length() <= 1 || str.charAt(0) != '[') ? null : mD(str);
-            if (TextUtils.isEmpty(mD)) {
-                mD = str;
+            String mI = (str.length() <= 1 || str.charAt(0) != '[') ? null : mI(str);
+            if (TextUtils.isEmpty(mI)) {
+                mI = str;
             }
-            if (mD == null) {
+            if (mI == null) {
                 return null;
             }
-            Matcher matcher = aiB.matcher(mD);
+            Matcher matcher = aiB.matcher(mI);
             while (matcher.find()) {
                 String group = matcher.group();
-                mD = mD.replace(group, group.replace("#(", "[").replace(")", "]"));
+                mI = mI.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return mD;
+            return mI;
         } else if (i == 2) {
             return TbadkCoreApplication.getInst().getApp().getString(d.l.last_msg_pic);
         } else {
@@ -207,7 +207,7 @@ public class e {
                 return TbadkCoreApplication.getInst().getApp().getString(d.l.last_msg_voice);
             }
             if (i == 11) {
-                return mF(str);
+                return mK(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.getInst().getApp().getString(d.l.last_msg_reply_card);
@@ -296,7 +296,7 @@ public class e {
                         return TbadkCoreApplication.getInst().getApp().getString(d.l.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return mE(str);
+                    return mJ(str);
                 } else {
                     return null;
                 }
@@ -328,7 +328,7 @@ public class e {
         return y(chatMessage);
     }
 
-    private static String mF(String str) {
+    private static String mK(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -448,19 +448,19 @@ public class e {
 
     public static com.baidu.tieba.im.data.d a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return mG(commonMsgPojo.getContent());
+            return mL(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static com.baidu.tieba.im.data.d mG(String str) {
+    public static com.baidu.tieba.im.data.d mL(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return mH(jSONArray.getJSONObject(0).optString("msg_src"));
+                return mM(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -469,7 +469,7 @@ public class e {
         }
     }
 
-    public static com.baidu.tieba.im.data.d mH(String str) {
+    public static com.baidu.tieba.im.data.d mM(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
             return null;

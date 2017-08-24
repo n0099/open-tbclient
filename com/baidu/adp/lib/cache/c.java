@@ -15,9 +15,9 @@ public abstract class c<T> {
     protected LinkedList<String> uV = new LinkedList<>();
     private Object uW = new Object();
 
-    public abstract String P(String str);
+    public abstract String Q(String str);
 
-    protected abstract boolean Q(String str);
+    protected abstract boolean R(String str);
 
     protected abstract ContentValues a(g<T> gVar);
 
@@ -43,7 +43,7 @@ public abstract class c<T> {
         }
     }
 
-    public g<T> R(String str) {
+    public g<T> S(String str) {
         try {
             return c(this.uQ.cs(), str);
         } catch (Throwable th) {
@@ -67,7 +67,7 @@ public abstract class c<T> {
                 }
             }
             if (this.uS != null && (e = this.uS.e(gVar)) != null) {
-                S(e);
+                T(e);
             }
         } catch (Throwable th) {
             this.uQ.a(th, "addOrUpdateTextCacheItem");
@@ -89,7 +89,7 @@ public abstract class c<T> {
         }
     }
 
-    public int S(String str) {
+    public int T(String str) {
         try {
             return this.uQ.cs().delete(this.uR, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
@@ -98,13 +98,13 @@ public abstract class c<T> {
         }
     }
 
-    public void T(String str) {
+    public void U(String str) {
         this.uU = 0;
         synchronized (this.uW) {
             this.uV.clear();
         }
-        if (Q(str)) {
-            BdCacheService.eQ().eR().af(str);
+        if (R(str)) {
+            BdCacheService.eQ().eR().ag(str);
         }
     }
 
@@ -119,7 +119,7 @@ public abstract class c<T> {
         }
     }
 
-    public void U(String str) {
+    public void V(String str) {
         if (this.uT != null) {
             Cursor cursor = null;
             try {
@@ -148,7 +148,7 @@ public abstract class c<T> {
         }
     }
 
-    public void V(String str) {
+    public void W(String str) {
         if (this.uS != null) {
             Cursor cursor = null;
             try {

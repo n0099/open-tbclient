@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class ImageProblemView extends c {
-    private View aZh;
-    private ScrollView cic;
+    private View aZi;
+    private ScrollView cie;
     ImageProblemActivity dJi;
     private Button dJj;
     private LinearLayout mLayout;
@@ -23,16 +23,16 @@ public class ImageProblemView extends c {
         super(imageProblemActivity.getPageContext());
         this.dJi = imageProblemActivity;
         this.dJi.setContentView(d.j.image_problem_activity);
-        this.aZh = this.dJi.findViewById(d.h.parent);
+        this.aZi = this.dJi.findViewById(d.h.parent);
         this.mNavigationBar = (NavigationBar) this.dJi.findViewById(d.h.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(this.dJi.getPageContext().getString(d.l.image_problem));
-        this.cic = (ScrollView) this.dJi.findViewById(d.h.scrollView);
+        this.cie = (ScrollView) this.dJi.findViewById(d.h.scrollView);
         this.dJj = (Button) this.dJi.findViewById(d.h.check_btn);
         this.dJj.setOnClickListener(imageProblemActivity);
         this.mLayout = new LinearLayout(this.dJi.getPageContext().getPageActivity());
         this.mLayout.setOrientation(1);
-        this.cic.addView(this.mLayout);
+        this.cie.addView(this.mLayout);
         Iterator<ImageProblemAssistant.TestTask> it = imageProblemAssistant.dJc.iterator();
         while (it.hasNext()) {
             ImageProblemItemView imageProblemItemView = new ImageProblemItemView(this.dJi.getPageContext().getPageActivity());
@@ -108,7 +108,7 @@ public class ImageProblemView extends c {
 
     public void onChangeSkinType(int i) {
         this.dJi.getLayoutMode().ah(i == 1);
-        this.dJi.getLayoutMode().t(this.aZh);
+        this.dJi.getLayoutMode().t(this.aZi);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

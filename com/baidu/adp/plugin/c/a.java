@@ -62,8 +62,8 @@ public class a {
                 if (message == null) {
                     return false;
                 }
-                String aF = c.kh().aF(message.getCmd());
-                if (TextUtils.isEmpty(aF) || c.kh().bD(aF)) {
+                String aF = c.kg().aF(message.getCmd());
+                if (TextUtils.isEmpty(aF) || c.kg().bE(aF)) {
                     return false;
                 }
                 if (!PluginCenter.getInstance().hasInstance(aF)) {

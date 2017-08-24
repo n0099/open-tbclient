@@ -94,7 +94,7 @@ public class a extends BaseAdapter {
         C0129a c0129a;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (obj == null) {
-            c0129a = bAo();
+            c0129a = bAg();
         } else {
             c0129a = (C0129a) obj;
         }
@@ -102,7 +102,7 @@ public class a extends BaseAdapter {
             this.gHa.a(c0129a.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
-        c0129a.bHa.setText(metaData.getName_show());
+        c0129a.bHb.setText(metaData.getName_show());
         c0129a.dEv.setTagData(metaData);
         c0129a.dEb.setTag(portrait);
         if (this.gHb) {
@@ -116,12 +116,12 @@ public class a extends BaseAdapter {
         return c0129a;
     }
 
-    private C0129a bAo() {
+    private C0129a bAg() {
         C0129a c0129a = new C0129a();
         c0129a.rootView = LayoutInflater.from(this.mContext).inflate(d.j.invite_friend_list_item, (ViewGroup) null);
         c0129a.dEb = (HeadImageView) c0129a.rootView.findViewById(d.h.photo);
         c0129a.dEb.setIsRound(false);
-        c0129a.bHa = (TextView) c0129a.rootView.findViewById(d.h.txt_user_name);
+        c0129a.bHb = (TextView) c0129a.rootView.findViewById(d.h.txt_user_name);
         c0129a.dEv = (TbCheckBox) c0129a.rootView.findViewById(d.h.ckb_select);
         if (this.dEr != null) {
             c0129a.dEv.setStatedChangedListener(this.dEr);
@@ -134,7 +134,7 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0129a {
-        public TextView bHa;
+        public TextView bHb;
         public HeadImageView dEb;
         public TbCheckBox dEv;
         public View rootView;

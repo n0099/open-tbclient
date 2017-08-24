@@ -82,9 +82,9 @@ public class BdToast {
         this.mTextView.setLineSpacing(0.0f, f);
     }
 
-    public BdToast tx() {
+    public BdToast ty() {
         this.AG = new Toast(this.mContext);
-        ty();
+        tz();
         if (this.acv != -1) {
             ai.c(this.act, this.acv);
             this.act.setVisibility(0);
@@ -104,14 +104,14 @@ public class BdToast {
         this.mGravity = i;
         this.wy = i2;
         this.wz = i3;
-        return tx();
+        return ty();
     }
 
     public static BdToast a(Context context, int i, int i2, int i3) {
         return new BdToast(context).l(i, i2, i3);
     }
 
-    private void ty() {
+    private void tz() {
         if (acs != null && acs.get() != null) {
             acs.get().cancel();
         }
@@ -124,7 +124,7 @@ public class BdToast {
         }
     }
 
-    public BdToast tz() {
+    public BdToast tA() {
         this.mTextView.setText(this.acu);
         this.AG.setGravity(this.mGravity, this.wy, this.wz);
         this.AG.setDuration(this.mDuration);
@@ -133,26 +133,26 @@ public class BdToast {
     }
 
     public static BdToast a(Context context, CharSequence charSequence) {
-        return new BdToast(context).b(charSequence).tx();
+        return new BdToast(context).b(charSequence).ty();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).b(charSequence).cq(i).tx();
+        return new BdToast(context).b(charSequence).cq(i).ty();
     }
 
     public static BdToast b(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).b(charSequence).co(i).tx();
+        return new BdToast(context).b(charSequence).co(i).ty();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, int i2) {
-        return new BdToast(context).b(charSequence).co(i).cq(i2).tx();
+        return new BdToast(context).b(charSequence).co(i).cq(i2).ty();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).b(charSequence).co(acx.get(defaultIcon).intValue()).tx();
+        return new BdToast(context).b(charSequence).co(acx.get(defaultIcon).intValue()).ty();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).b(charSequence).co(acx.get(defaultIcon).intValue()).cq(i).tx();
+        return new BdToast(context).b(charSequence).co(acx.get(defaultIcon).intValue()).cq(i).ty();
     }
 }

@@ -28,7 +28,7 @@ public class l {
         return this.pname;
     }
 
-    public void eE(String str) {
+    public void eI(String str) {
         this.pname = str;
     }
 
@@ -36,7 +36,7 @@ public class l {
         return this.pid;
     }
 
-    public void eF(String str) {
+    public void eJ(String str) {
         this.pid = str;
     }
 

@@ -155,21 +155,21 @@ public class a extends com.baidu.adp.framework.a.d {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, r.aV(stringBuffer.toString()));
+        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, r.aW(stringBuffer.toString()));
     }
 
     private void d(HttpMessage httpMessage) {
-        z.a vw = z.vw();
-        if (vw != null) {
-            httpMessage.addParam("stTime", String.valueOf(vw.mTime));
-            httpMessage.addParam("stSize", String.valueOf(vw.ahk));
-            httpMessage.addParam("stTimesNum", String.valueOf(vw.ahl));
-            httpMessage.addParam("stMode", String.valueOf(vw.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(vw.mMethod));
+        z.a vx = z.vx();
+        if (vx != null) {
+            httpMessage.addParam("stTime", String.valueOf(vx.mTime));
+            httpMessage.addParam("stSize", String.valueOf(vx.ahk));
+            httpMessage.addParam("stTimesNum", String.valueOf(vx.ahl));
+            httpMessage.addParam("stMode", String.valueOf(vx.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(vx.mMethod));
         }
         int cJ = z.cJ(0);
-        if (cJ == 0 && vw != null) {
-            cJ = vw.ahl;
+        if (cJ == 0 && vx != null) {
+            cJ = vx.ahl;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(cJ));
     }

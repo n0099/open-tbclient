@@ -55,7 +55,7 @@ public class VoiceSendModel extends BdBaseModel {
         /* renamed from: s */
         public String doInBackground(Object... objArr) {
             try {
-                return this.dAv.mA(this.dAt);
+                return this.dAv.mF(this.dAt);
             } catch (Exception e) {
                 return null;
             }

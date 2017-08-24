@@ -7,41 +7,41 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class TbRichTextData extends OrmObject {
-    private SpannableStringBuilder aQM;
-    private TbRichTextImageInfo aQN;
-    private ArrayList<a> aQO;
-    private TbRichTextTextInfo aQP;
-    private TbRichTextEmotionInfo aQQ;
-    private e aQR;
-    private TbRichTextLinkImageInfo aQS;
-    private TbRichTextLinkButtonInfo aQT;
-    private TbRichTextGraffitiInfo aQU;
-    private TbRichTextMemeInfo aQV;
-    private int aQW;
-    private boolean aQX;
+    private SpannableStringBuilder aQN;
+    private TbRichTextImageInfo aQO;
+    private ArrayList<a> aQP;
+    private TbRichTextTextInfo aQQ;
+    private TbRichTextEmotionInfo aQR;
+    private e aQS;
+    private TbRichTextLinkImageInfo aQT;
+    private TbRichTextLinkButtonInfo aQU;
+    private TbRichTextGraffitiInfo aQV;
+    private TbRichTextMemeInfo aQW;
+    private int aQX;
+    private boolean aQY;
     private TbRichTextVoiceInfo aph;
     private int mType;
 
     public TbRichTextData() {
         this.mType = 0;
-        this.aQM = null;
         this.aQN = null;
         this.aQO = null;
-        this.aph = null;
         this.aQP = null;
-        this.aQX = false;
+        this.aph = null;
+        this.aQQ = null;
+        this.aQY = false;
     }
 
     public TbRichTextData(int i) {
         this.mType = 0;
-        this.aQM = null;
         this.aQN = null;
         this.aQO = null;
-        this.aph = null;
         this.aQP = null;
-        this.aQX = false;
+        this.aph = null;
+        this.aQQ = null;
+        this.aQY = false;
         this.mType = i;
-        this.aQP = new TbRichTextTextInfo();
+        this.aQQ = new TbRichTextTextInfo();
     }
 
     public int getType() {
@@ -49,15 +49,15 @@ public class TbRichTextData extends OrmObject {
     }
 
     public ArrayList<a> Is() {
-        if (this.aQO == null) {
-            this.aQO = new ArrayList<>();
+        if (this.aQP == null) {
+            this.aQP = new ArrayList<>();
         }
-        return this.aQO;
+        return this.aQP;
     }
 
     public void Q(int i, int i2) {
-        if (this.aQO != null) {
-            Iterator<a> it = this.aQO.iterator();
+        if (this.aQP != null) {
+            Iterator<a> it = this.aQP.iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 Rect bounds = next.getBounds();
@@ -69,8 +69,8 @@ public class TbRichTextData extends OrmObject {
     }
 
     public void R(int i, int i2) {
-        if (this.aQO != null) {
-            Iterator<a> it = this.aQO.iterator();
+        if (this.aQP != null) {
+            Iterator<a> it = this.aQP.iterator();
             while (it.hasNext()) {
                 it.next().setBounds(0, 0, i, i2);
             }
@@ -79,17 +79,17 @@ public class TbRichTextData extends OrmObject {
 
     public void append(CharSequence charSequence) {
         if ((this.mType == 1 || this.mType == 768) && charSequence != null) {
-            if (this.aQM == null) {
-                this.aQM = new SpannableStringBuilder("");
+            if (this.aQN == null) {
+                this.aQN = new SpannableStringBuilder("");
             }
-            this.aQM.append(charSequence);
-            this.aQP.charLength = this.aQM.length();
+            this.aQN.append(charSequence);
+            this.aQQ.charLength = this.aQN.length();
         }
     }
 
     public void setVideoUrl(String str) {
         if (this.mType == 32 && str != null) {
-            this.aQM = new SpannableStringBuilder(str);
+            this.aQN = new SpannableStringBuilder(str);
         }
     }
 
@@ -97,23 +97,23 @@ public class TbRichTextData extends OrmObject {
         if (this.mType != 8) {
             return null;
         }
-        return this.aQN;
+        return this.aQO;
     }
 
     public void a(TbRichTextImageInfo tbRichTextImageInfo) {
         if (this.mType == 8) {
-            this.aQN = tbRichTextImageInfo;
+            this.aQO = tbRichTextImageInfo;
         }
     }
 
     public SpannableStringBuilder Iu() {
-        return this.aQM;
+        return this.aQN;
     }
 
     public void b(SpannableStringBuilder spannableStringBuilder) {
-        if (this.aQM != null) {
-            this.aQM.clear();
-            this.aQM.append((CharSequence) spannableStringBuilder);
+        if (this.aQN != null) {
+            this.aQN.clear();
+            this.aQN.append((CharSequence) spannableStringBuilder);
         }
     }
 
@@ -132,15 +132,15 @@ public class TbRichTextData extends OrmObject {
 
     public String toString() {
         if (this.mType == 1) {
-            if (this.aQM != null) {
-                return this.aQM.toString();
+            if (this.aQN != null) {
+                return this.aQN.toString();
             }
         } else if (this.mType == 8) {
-            if (this.aQN != null) {
-                return this.aQN.II();
+            if (this.aQO != null) {
+                return this.aQO.II();
             }
-        } else if (this.mType == 17 && this.aQQ != null) {
-            return this.aQQ.mGifInfo.mSharpText;
+        } else if (this.mType == 17 && this.aQR != null) {
+            return this.aQR.mGifInfo.mSharpText;
         }
         return "";
     }
@@ -160,12 +160,12 @@ public class TbRichTextData extends OrmObject {
         if (this.mType != 1) {
             return null;
         }
-        return this.aQP;
+        return this.aQQ;
     }
 
     public void a(e eVar) {
         if (this.mType == 32) {
-            this.aQR = eVar;
+            this.aQS = eVar;
         }
     }
 
@@ -173,71 +173,71 @@ public class TbRichTextData extends OrmObject {
         if (this.mType != 32) {
             return null;
         }
-        return this.aQR;
+        return this.aQS;
     }
 
     public void a(TbRichTextEmotionInfo tbRichTextEmotionInfo) {
         if (this.mType == 17) {
-            this.aQQ = tbRichTextEmotionInfo;
+            this.aQR = tbRichTextEmotionInfo;
         }
     }
 
     public void a(TbRichTextMemeInfo tbRichTextMemeInfo) {
         if (this.mType == 20) {
-            this.aQV = tbRichTextMemeInfo;
+            this.aQW = tbRichTextMemeInfo;
         }
     }
 
     public TbRichTextEmotionInfo Iy() {
-        return this.aQQ;
+        return this.aQR;
     }
 
     public TbRichTextMemeInfo Iz() {
-        return this.aQV;
-    }
-
-    public int IA() {
         return this.aQW;
     }
 
+    public int IA() {
+        return this.aQX;
+    }
+
     public void fy(int i) {
-        this.aQW = i;
+        this.aQX = i;
     }
 
     public TbRichTextLinkImageInfo IB() {
         if (this.mType != 1280) {
             return null;
         }
-        return this.aQS;
-    }
-
-    public void a(TbRichTextLinkImageInfo tbRichTextLinkImageInfo) {
-        this.aQS = tbRichTextLinkImageInfo;
-    }
-
-    public TbRichTextLinkButtonInfo IC() {
         return this.aQT;
     }
 
+    public void a(TbRichTextLinkImageInfo tbRichTextLinkImageInfo) {
+        this.aQT = tbRichTextLinkImageInfo;
+    }
+
+    public TbRichTextLinkButtonInfo IC() {
+        return this.aQU;
+    }
+
     public void a(TbRichTextLinkButtonInfo tbRichTextLinkButtonInfo) {
-        this.aQT = tbRichTextLinkButtonInfo;
+        this.aQU = tbRichTextLinkButtonInfo;
     }
 
     public TbRichTextGraffitiInfo ID() {
-        return this.aQU;
+        return this.aQV;
     }
 
     public void a(TbRichTextGraffitiInfo tbRichTextGraffitiInfo) {
         if (this.mType == 1536) {
-            this.aQU = tbRichTextGraffitiInfo;
+            this.aQV = tbRichTextGraffitiInfo;
         }
     }
 
     public void ch(boolean z) {
-        this.aQX = z;
+        this.aQY = z;
     }
 
     public boolean IE() {
-        return this.aQX;
+        return this.aQY;
     }
 }

@@ -45,7 +45,7 @@ public class k {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aU(String str);
+        void aV(String str);
 
         View hO();
     }
@@ -103,7 +103,7 @@ public class k {
                 } else {
                     AG = new Toast(BdBaseApplication.getInst().getApp());
                     AG.setDuration(0);
-                    AH.aU(str);
+                    AH.aV(str);
                     AG.setView(AH.hO());
                 }
                 AG.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
@@ -112,7 +112,7 @@ public class k {
                     if (AH == null || AH.hO() == null) {
                         AG.setText(str);
                     } else {
-                        AH.aU(str);
+                        AH.aV(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -440,11 +440,11 @@ public class k {
     }
 
     public static boolean hL() {
-        String aT;
+        String aU;
         String str = Build.DISPLAY;
-        if (str != null && str.contains("Flyme") && (aT = aT(str)) != null && aT.length() >= 3) {
-            int g = com.baidu.adp.lib.g.b.g(aT(aT.substring(0, 1)), 0);
-            int g2 = com.baidu.adp.lib.g.b.g(aT(aT.substring(1, 2)), 0);
+        if (str != null && str.contains("Flyme") && (aU = aU(str)) != null && aU.length() >= 3) {
+            int g = com.baidu.adp.lib.g.b.g(aU(aU.substring(0, 1)), 0);
+            int g2 = com.baidu.adp.lib.g.b.g(aU(aU.substring(1, 2)), 0);
             if (g > 3) {
                 return true;
             }
@@ -455,7 +455,7 @@ public class k {
         return false;
     }
 
-    public static String aT(String str) {
+    public static String aU(String str) {
         if (str == null) {
             return null;
         }

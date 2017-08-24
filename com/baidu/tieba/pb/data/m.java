@@ -15,35 +15,35 @@ import tbclient.PbPage.DataRes;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class m implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId eGw = BdUniqueId.gen();
-    private boolean eGx;
-    private ArrayList<MuteUser> eGy;
+    public static final BdUniqueId eGy = BdUniqueId.gen();
+    private ArrayList<MuteUser> eGA;
+    private boolean eGz;
     private long praiseNum;
-    public int eGu = -1;
-    private boolean eGq = false;
+    public int eGw = -1;
+    private boolean eGs = false;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return eGw;
+        return eGy;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (dataRes.thread != null && dataRes.thread.agree != null) {
                 this.praiseNum = dataRes.thread.agree.agree_num.longValue();
-                this.eGx = dataRes.thread.agree.has_agree.intValue() == 1;
-                this.eGu = dataRes.thread.agree.agree_type.intValue();
+                this.eGz = dataRes.thread.agree.has_agree.intValue() == 1;
+                this.eGw = dataRes.thread.agree.agree_type.intValue();
             }
-            if (this.eGy == null) {
-                this.eGy = new ArrayList<>();
+            if (this.eGA == null) {
+                this.eGA = new ArrayList<>();
             }
-            this.eGy.clear();
+            this.eGA.clear();
             if (dataRes.new_agree_user != null && dataRes.new_agree_user.size() > 0) {
                 for (SimpleUser simpleUser : dataRes.new_agree_user) {
                     if (simpleUser != null) {
                         MuteUser muteUser = new MuteUser();
                         muteUser.parserProtobuf(simpleUser);
-                        this.eGy.add(muteUser);
+                        this.eGA.add(muteUser);
                     }
                 }
             }
@@ -70,20 +70,20 @@ public class m implements com.baidu.adp.widget.ListView.f {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
         int g = com.baidu.adp.lib.util.k.g(textView.getContext(), d.f.ds36);
-        if (u.v(this.eGy)) {
+        if (u.v(this.eGA)) {
             return sb.toString();
         }
         String accountNameShow = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow() : "";
-        if (!this.eGx || TextUtils.isEmpty(accountNameShow)) {
+        if (!this.eGz || TextUtils.isEmpty(accountNameShow)) {
             i = 0;
         } else {
-            int i2 = (this.eGu == 4 || this.eGu == 1) ? 1 : 0;
-            sb.append(Q(this.eGu, accountNameShow)).append("、");
+            int i2 = (this.eGw == 4 || this.eGw == 1) ? 1 : 0;
+            sb.append(Q(this.eGw, accountNameShow)).append("、");
             sb2.append(accountNameShow).append("、");
             i = i2;
         }
         TextPaint paint = textView.getPaint();
-        Iterator<MuteUser> it = this.eGy.iterator();
+        Iterator<MuteUser> it = this.eGA.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -106,24 +106,24 @@ public class m implements com.baidu.adp.widget.ListView.f {
         return sb3;
     }
 
-    public boolean aQt() {
-        return this.eGx;
+    public boolean aQo() {
+        return this.eGz;
     }
 
-    public ArrayList<MuteUser> aQu() {
-        return this.eGy;
+    public ArrayList<MuteUser> aQp() {
+        return this.eGA;
     }
 
     public void oV(int i) {
-        if (!this.eGx) {
+        if (!this.eGz) {
             oW(i);
             return;
         }
-        this.eGu = i;
-        this.eGx = true;
+        this.eGw = i;
+        this.eGz = true;
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
         if (currentAccountName != null) {
-            Iterator<MuteUser> it = this.eGy.iterator();
+            Iterator<MuteUser> it = this.eGA.iterator();
             while (it.hasNext()) {
                 MuteUser next = it.next();
                 if (currentAccountName.equals(next.getUserName())) {
@@ -143,35 +143,35 @@ public class m implements com.baidu.adp.widget.ListView.f {
                 muteUser.setNickName(TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow());
             }
             muteUser.agreeType = i;
-            if (this.eGy == null) {
-                this.eGy = new ArrayList<>();
+            if (this.eGA == null) {
+                this.eGA = new ArrayList<>();
             }
-            this.eGy.add(0, muteUser);
+            this.eGA.add(0, muteUser);
             if (this.praiseNum < 0) {
                 this.praiseNum = 0L;
             }
             this.praiseNum++;
-            this.eGx = true;
-            this.eGu = i;
+            this.eGz = true;
+            this.eGw = i;
         }
     }
 
-    public void aQv() {
+    public void aQq() {
         if (TbadkCoreApplication.isLogin()) {
             this.praiseNum--;
             if (this.praiseNum < 0) {
                 this.praiseNum = 0L;
             }
-            this.eGx = false;
-            this.eGu = -1;
-            if (!u.v(this.eGy)) {
+            this.eGz = false;
+            this.eGw = -1;
+            if (!u.v(this.eGA)) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!StringUtils.isNull(currentAccount)) {
-                    Iterator<MuteUser> it = this.eGy.iterator();
+                    Iterator<MuteUser> it = this.eGA.iterator();
                     while (it.hasNext()) {
                         MuteUser next = it.next();
                         if (next != null && currentAccount.equals(next.getUserId())) {
-                            this.eGy.remove(next);
+                            this.eGA.remove(next);
                             return;
                         }
                     }
@@ -181,10 +181,10 @@ public class m implements com.baidu.adp.widget.ListView.f {
     }
 
     public void iR(boolean z) {
-        this.eGq = z;
+        this.eGs = z;
     }
 
-    public boolean aQw() {
-        return this.eGq;
+    public boolean aQr() {
+        return this.eGs;
     }
 }

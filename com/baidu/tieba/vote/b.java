@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.widget.vote.a {
-    private long aBe;
+    private long aBf;
     private String afX;
     private boolean isSelected = false;
     private int mId;
@@ -15,7 +15,7 @@ public class b implements com.baidu.tbadk.widget.vote.a {
         this.mId = i;
         this.afX = str;
         this.mUrl = str2;
-        this.aBe = j;
+        this.aBf = j;
     }
 
     public void setSelected(boolean z) {
@@ -27,11 +27,11 @@ public class b implements com.baidu.tbadk.widget.vote.a {
     }
 
     public void setNum(long j) {
-        this.aBe = j;
+        this.aBf = j;
     }
 
     public long getNum() {
-        return this.aBe;
+        return this.aBf;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -51,7 +51,7 @@ public class b implements com.baidu.tbadk.widget.vote.a {
 
     @Override // com.baidu.tbadk.widget.vote.a
     public String CF() {
-        return this.aBe + TbadkCoreApplication.getInst().getString(d.l.vote_unit);
+        return this.aBf + TbadkCoreApplication.getInst().getString(d.l.vote_unit);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a

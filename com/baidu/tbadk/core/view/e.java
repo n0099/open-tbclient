@@ -86,7 +86,7 @@ public class e {
             this.alF = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.core.view.e.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
-                    e.this.wF();
+                    e.this.wG();
                 }
             };
             this.aly.getViewTreeObserver().addOnGlobalLayoutListener(this.alF);
@@ -95,22 +95,22 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wF() {
+    public void wG() {
         if (this.aly != null) {
             int height = this.aly.getHeight();
             if (height > this.mScreenHeight) {
                 this.mScreenHeight = height;
             }
-            int wG = wG();
+            int wH = wH();
             if (this.alG > 0 && this.alG <= this.alA.height) {
-                wG -= this.alG;
+                wH -= this.alG;
             }
-            if (wG != this.alz) {
+            if (wH != this.alz) {
                 int i = this.mScreenHeight;
-                int i2 = i - wG;
+                int i2 = i - wH;
                 if (i2 == 0) {
                     this.alA.height = i;
-                    wH();
+                    wI();
                 } else {
                     this.alA.height = i - i2;
                     dj(200);
@@ -118,12 +118,12 @@ public class e {
                         TbadkCoreApplication.getInst().setKeyboardHeight(i2);
                     }
                 }
-                this.alz = wG;
+                this.alz = wH;
             }
         }
     }
 
-    private int wG() {
+    private int wH() {
         Rect rect = new Rect();
         this.aly.getWindowVisibleDisplayFrame(rect);
         return rect.bottom;
@@ -134,7 +134,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wH() {
+    public void wI() {
         this.aly.requestLayout();
     }
 
@@ -146,7 +146,7 @@ public class e {
         this.alB = new Runnable() { // from class: com.baidu.tbadk.core.view.e.2
             @Override // java.lang.Runnable
             public void run() {
-                e.this.wH();
+                e.this.wI();
             }
         };
         com.baidu.adp.lib.g.e.ga().postDelayed(this.alB, i);

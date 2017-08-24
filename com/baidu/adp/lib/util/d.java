@@ -41,7 +41,7 @@ public class d {
         this.mBitmapHash.clear();
     }
 
-    public Bitmap aC(String str) {
+    public Bitmap aD(String str) {
         return BitmapFactory.decodeFile(str);
     }
 

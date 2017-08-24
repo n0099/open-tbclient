@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends ClickableSpan {
-    private String aRi;
-    private int aRj;
+    private String aRj;
+    private int aRk;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -45,7 +45,7 @@ public class b extends ClickableSpan {
     }
 
     public void fA(int i) {
-        this.aRj = i;
+        this.aRk = i;
     }
 
     public void setColor(int i) {
@@ -60,8 +60,8 @@ public class b extends ClickableSpan {
         this.urlType = i;
     }
 
-    public void gZ(String str) {
-        this.aRi = str;
+    public void hc(String str) {
+        this.aRj = str;
     }
 
     public String getLink() {
@@ -78,13 +78,13 @@ public class b extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.aRj == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.aRk == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = ai.getColor(d.e.cp_bg_line_c);
             } else {
                 textPaint.bgColor = ai.getColor(d.e.cp_bg_line_z);
             }
-        } else if (this.aRj == 2) {
+        } else if (this.aRk == 2) {
             textPaint.bgColor = ai.getColor(d.e.transparent);
         }
     }
@@ -93,7 +93,7 @@ public class b extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aRi));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aRj));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {

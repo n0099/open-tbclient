@@ -49,13 +49,13 @@ public class d implements f {
     private Runnable gor = new Runnable() { // from class: com.baidu.tieba.view.d.4
         @Override // java.lang.Runnable
         public void run() {
-            d.this.bvb();
+            d.this.buU();
         }
     };
     private View.OnClickListener gos = new View.OnClickListener() { // from class: com.baidu.tieba.view.d.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.this.aZg();
+            d.this.aZb();
         }
     };
 
@@ -79,7 +79,7 @@ public class d implements f {
     }
 
     @Override // com.baidu.tieba.view.f
-    public void Wq() {
+    public void Wn() {
         if (this.gxH != null && this.gxH.getParent() == null) {
             this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.gxH, (View.OnClickListener) null);
@@ -93,7 +93,7 @@ public class d implements f {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     d.this.m(6, false);
-                    com.baidu.tieba.j.a.bje().E(6, false);
+                    com.baidu.tieba.j.a.biZ().E(6, false);
                     TiebaStatic.log(new aj("c10601"));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new DressupCenterActivityConfig(d.this.mContext)));
                 }
@@ -104,7 +104,7 @@ public class d implements f {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     d.this.m(5, false);
-                    com.baidu.tieba.j.a.bje().E(5, false);
+                    com.baidu.tieba.j.a.biZ().E(5, false);
                     TiebaStatic.log(new aj("c10598"));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MORE, new IntentConfig(view.getContext())));
                 }
@@ -182,7 +182,7 @@ public class d implements f {
         }
     }
 
-    public void aZf() {
+    public void aZa() {
         if (!this.gxL) {
             this.gxL = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_person_tab_feedback_tips", false);
             if (!this.gxL) {
@@ -201,14 +201,14 @@ public class d implements f {
         }
     }
 
-    public void aZg() {
+    public void aZb() {
         this.mHandler.removeCallbacks(this.goq);
         this.mHandler.removeCallbacks(this.gor);
-        bvb();
+        buU();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvb() {
+    public void buU() {
         com.baidu.adp.lib.g.g.a(this.gxK);
     }
 

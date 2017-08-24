@@ -14,7 +14,7 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends BaseAdapter {
-    private com.baidu.tbadk.img.b azc;
+    private com.baidu.tbadk.img.b azd;
     private AlbumActivity gBZ;
     private String gCo;
     private int gCp;
@@ -23,7 +23,7 @@ public class d extends BaseAdapter {
 
     public d(AlbumActivity albumActivity) {
         this.gBZ = albumActivity;
-        this.azc = albumActivity.anq();
+        this.azd = albumActivity.ank();
         this.mWidth = (int) this.gBZ.getResources().getDimension(d.f.ds120);
         this.gCp = com.baidu.adp.lib.util.k.ag(this.gBZ.getPageContext().getPageActivity()) / 2;
     }
@@ -78,7 +78,7 @@ public class d extends BaseAdapter {
         if (item != null) {
             if (!TextUtils.isEmpty(item.getName())) {
                 item.getName();
-                aVar.gCs.setText(com.baidu.adp.lib.util.k.a(aVar.gCs.getPaint(), item.getName(), this.gCp) + "(" + item.nF() + ")");
+                aVar.gCs.setText(com.baidu.adp.lib.util.k.a(aVar.gCs.getPaint(), item.getName(), this.gCp) + "(" + item.nG() + ")");
             } else {
                 aVar.gCs.setText("");
             }
@@ -88,16 +88,16 @@ public class d extends BaseAdapter {
             } else {
                 aVar.gCt.setVisibility(8);
             }
-            ImageFileInfo nG = item.nG();
-            if (nG != null) {
-                nG.clearPageActions();
-                nG.addPageAction(com.baidu.tbadk.img.effect.d.M(this.mWidth, this.mWidth));
-                com.baidu.adp.widget.a.a a2 = this.azc.a(nG, false);
-                aVar.gCr.setTag(nG.toCachedKey(false));
+            ImageFileInfo nH = item.nH();
+            if (nH != null) {
+                nH.clearPageActions();
+                nH.addPageAction(com.baidu.tbadk.img.effect.d.M(this.mWidth, this.mWidth));
+                com.baidu.adp.widget.a.a a2 = this.azd.a(nH, false);
+                aVar.gCr.setTag(nH.toCachedKey(false));
                 if (a2 != null) {
                     aVar.gCr.invalidate();
                 } else {
-                    this.azc.a(nG, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.d.1
+                    this.azd.a(nH, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.d.1
                         @Override // com.baidu.tbadk.imageManager.b
                         public void a(com.baidu.adp.widget.a.a aVar3, String str, boolean z) {
                             HeadImageView headImageView = (HeadImageView) viewGroup.findViewWithTag(str);

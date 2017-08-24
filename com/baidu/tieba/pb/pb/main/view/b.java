@@ -11,22 +11,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class b {
-    private int[] eVR;
-    private SoftReference<ImageView> eVT;
-    private int eVU;
-    private a eVV;
+    private int[] eVT;
+    private SoftReference<ImageView> eVV;
     private int eVW;
-    private BitmapFactory.Options eVY;
+    private a eVX;
+    private int eVY;
+    private BitmapFactory.Options eWa;
     private Bitmap mBitmap;
-    private int eVX = 1;
+    private int eVZ = 1;
     private Handler mHandler = new Handler();
     private int mIndex = -1;
-    private boolean eVS = false;
+    private boolean eVU = false;
     private boolean mIsRunning = false;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aVj();
+        void aVe();
     }
 
     public static b b(ImageView imageView, int i, int i2, int i3) {
@@ -35,45 +35,45 @@ public class b {
 
     public b(ImageView imageView, int i, int i2, int i3) {
         this.mBitmap = null;
-        this.eVR = pF(i);
-        this.eVT = new SoftReference<>(imageView);
-        this.eVU = 1000 / i2;
-        this.eVW = i3;
-        imageView.setImageResource(this.eVR[0]);
+        this.eVT = pF(i);
+        this.eVV = new SoftReference<>(imageView);
+        this.eVW = 1000 / i2;
+        this.eVY = i3;
+        imageView.setImageResource(this.eVT[0]);
         if (Build.VERSION.SDK_INT >= 11) {
             Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
             this.mBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-            this.eVY = new BitmapFactory.Options();
-            this.eVY.inBitmap = this.mBitmap;
-            this.eVY.inMutable = true;
-            this.eVY.inSampleSize = 1;
+            this.eWa = new BitmapFactory.Options();
+            this.eWa.inBitmap = this.mBitmap;
+            this.eWa.inMutable = true;
+            this.eWa.inSampleSize = 1;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int aVi() {
+    public int aVd() {
         this.mIndex++;
-        if (this.mIndex + 1 >= this.eVR.length) {
-            this.eVX++;
+        if (this.mIndex + 1 >= this.eVT.length) {
+            this.eVZ++;
         }
-        if (this.mIndex >= this.eVR.length) {
+        if (this.mIndex >= this.eVT.length) {
             this.mIndex = 0;
         }
-        return this.eVR[this.mIndex];
+        return this.eVT[this.mIndex];
     }
 
     public synchronized void start() {
-        this.eVS = true;
+        this.eVU = true;
         if (!this.mIsRunning) {
             this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     Bitmap bitmap;
-                    ImageView imageView = (ImageView) b.this.eVT.get();
-                    if (!b.this.eVS || imageView == null || b.this.eVX > b.this.eVW) {
+                    ImageView imageView = (ImageView) b.this.eVV.get();
+                    if (!b.this.eVU || imageView == null || b.this.eVZ > b.this.eVY) {
                         b.this.mIsRunning = false;
-                        if (b.this.eVV != null) {
-                            b.this.eVV.aVj();
+                        if (b.this.eVX != null) {
+                            b.this.eVX.aVe();
                         }
                         if (b.this.mBitmap != null && !b.this.mBitmap.isRecycled()) {
                             b.this.mBitmap.recycle();
@@ -83,12 +83,12 @@ public class b {
                         return;
                     }
                     b.this.mIsRunning = true;
-                    b.this.mHandler.postDelayed(this, b.this.eVU);
+                    b.this.mHandler.postDelayed(this, b.this.eVW);
                     if (imageView.isShown()) {
-                        int aVi = b.this.aVi();
+                        int aVd = b.this.aVd();
                         if (b.this.mBitmap != null && !b.this.mBitmap.isRecycled()) {
                             try {
-                                bitmap = BitmapFactory.decodeResource(imageView.getResources(), aVi, b.this.eVY);
+                                bitmap = BitmapFactory.decodeResource(imageView.getResources(), aVd, b.this.eWa);
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 bitmap = null;
@@ -97,12 +97,12 @@ public class b {
                                 imageView.setImageBitmap(bitmap);
                                 return;
                             }
-                            imageView.setImageResource(aVi);
+                            imageView.setImageResource(aVd);
                             b.this.mBitmap.recycle();
                             b.this.mBitmap = null;
                             return;
                         }
-                        imageView.setImageResource(aVi);
+                        imageView.setImageResource(aVd);
                     }
                 }
             });
@@ -110,12 +110,12 @@ public class b {
     }
 
     public synchronized void stop() {
-        this.eVS = false;
-        this.eVT.clear();
+        this.eVU = false;
+        this.eVV.clear();
     }
 
     public void a(a aVar) {
-        this.eVV = aVar;
+        this.eVX = aVar;
     }
 
     private int[] pF(int i) {

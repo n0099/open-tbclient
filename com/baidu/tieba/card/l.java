@@ -18,44 +18,44 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class l extends n {
     private bl akl;
-    private View.OnClickListener bHW;
     private View.OnClickListener bHX;
-    public TextView bHZ;
-    public EntelechyUserLikeButton bIa;
-    private com.baidu.tieba.card.data.l bIb;
-    private CommonUserLikeButton.a bIc;
+    private View.OnClickListener bHY;
+    public TextView bIa;
+    public EntelechyUserLikeButton bIb;
+    private com.baidu.tieba.card.data.l bIc;
+    private CommonUserLikeButton.a bId;
     private int mSkinType;
-    private TbPageContext oV;
+    private TbPageContext oW;
 
     public l(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.bIc = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.card.l.1
+        this.bId = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.card.l.1
             @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
             public void dw(int i) {
                 l.this.hu(i);
             }
         };
-        this.bHW = new View.OnClickListener() { // from class: com.baidu.tieba.card.l.2
+        this.bHX = new View.OnClickListener() { // from class: com.baidu.tieba.card.l.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (l.this.akl != null && l.this.akl.getAuthor() != null && !StringUtils.isNull(l.this.akl.getAuthor().getName_show()) && !StringUtils.isNull(l.this.akl.getAuthor().getUserId()) && l.this.akl.rK() != null) {
-                    if (l.this.WA() != null) {
-                        l.this.WA().a(view, l.this.bIb);
+                if (l.this.akl != null && l.this.akl.getAuthor() != null && !StringUtils.isNull(l.this.akl.getAuthor().getName_show()) && !StringUtils.isNull(l.this.akl.getAuthor().getUserId()) && l.this.akl.rL() != null) {
+                    if (l.this.Wx() != null) {
+                        l.this.Wx().a(view, l.this.bIc);
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(l.this.oV.getPageActivity(), l.this.akl.getAuthor().getUserId(), l.this.akl.getAuthor().getName_show(), l.this.akl.rK(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(l.this.oW.getPageActivity(), l.this.akl.getAuthor().getUserId(), l.this.akl.getAuthor().getName_show(), l.this.akl.rL(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
-        this.bHX = new View.OnClickListener() { // from class: com.baidu.tieba.card.l.3
+        this.bHY = new View.OnClickListener() { // from class: com.baidu.tieba.card.l.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (l.this.WA() != null) {
-                    l.this.WA().a(view, l.this.bIb);
+                if (l.this.Wx() != null) {
+                    l.this.Wx().a(view, l.this.bIc);
                 }
             }
         };
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +63,7 @@ public class l extends n {
     public void a(com.baidu.tieba.card.data.l lVar) {
         super.a(lVar);
         if (lVar != null && lVar.threadData != null) {
-            this.bIb = lVar;
+            this.bIc = lVar;
             this.akl = lVar.threadData;
         }
     }
@@ -81,8 +81,8 @@ public class l extends n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hu(int i) {
-        if (this.bHZ != null) {
-            this.bHZ.setText(String.format(this.oV.getResources().getString(d.l.fans_default_name_god_user), al.u(i)));
+        if (this.bIa != null) {
+            this.bIa.setText(String.format(this.oW.getResources().getString(d.l.fans_default_name_god_user), al.u(i)));
         }
     }
 }

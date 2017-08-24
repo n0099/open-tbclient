@@ -14,15 +14,15 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a extends b {
     private b.InterfaceC0043b abY;
-    private f ckZ;
-    private int cpm;
+    private f cla;
+    private int cpn;
     private List<x> mDatas;
 
     public a(f fVar, b.InterfaceC0043b interfaceC0043b) {
         super(fVar.getActivity());
-        this.cpm = 0;
+        this.cpn = 0;
         if (fVar != null && interfaceC0043b != null) {
-            this.ckZ = fVar;
+            this.cla = fVar;
             this.abY = interfaceC0043b;
         }
     }
@@ -33,8 +33,8 @@ public class a extends b {
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
                 x xVar = new x();
-                xVar.name = this.ckZ.getResources().getString(d.l.attention_users_thread);
-                xVar.cmw = 6;
+                xVar.name = this.cla.getResources().getString(d.l.attention_users_thread);
+                xVar.cmx = 6;
                 this.mDatas.add(xVar);
             }
             ArrayList arrayList = new ArrayList();
@@ -48,14 +48,14 @@ public class a extends b {
         }
     }
 
-    public List<x> ahF() {
+    public List<x> ahz() {
         return this.mDatas;
     }
 
     @Override // com.baidu.tbadk.core.dialog.b
-    public b tu() {
+    public b tv() {
         View cj;
-        super.tu();
+        super.tv();
         if (this.mDatas != null && (cj = cj(this.mDatas.size())) != null && (cj.findViewById(d.h.dialog_item_btn) instanceof TextView)) {
             ai.i((TextView) cj.findViewById(d.h.dialog_item_btn), d.e.cp_link_tip_a);
         }

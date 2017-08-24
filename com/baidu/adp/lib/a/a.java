@@ -35,9 +35,9 @@ public class a {
         this.vG = null;
         this.vH = 0L;
         SharedPreferences config = getConfig();
-        this.vF = config.getLong(ah("c.tieba.baidu.com"), 0L);
-        this.vG = config.getString(ai("c.tieba.baidu.com"), null);
-        this.vH = config.getLong(aj("c.tieba.baidu.com"), 0L);
+        this.vF = config.getLong(ai("c.tieba.baidu.com"), 0L);
+        this.vG = config.getString(aj("c.tieba.baidu.com"), null);
+        this.vH = config.getLong(ak("c.tieba.baidu.com"), 0L);
     }
 
     public void b(String str, String str2, boolean z, boolean z2) {
@@ -69,7 +69,7 @@ public class a {
                         a(host, host2, z, "newday", z2);
                     } else if (System.currentTimeMillis() - j2 > 3600000) {
                         if (TextUtils.isEmpty(host2)) {
-                            host2 = ag(host);
+                            host2 = ah(host);
                         }
                         if (!TextUtils.equals(host2, str3) || str3 == null) {
                             a(host, host2, z, "ipchange", z2);
@@ -86,7 +86,7 @@ public class a {
     private void a(String str, String str2, boolean z, String str3, boolean z2) {
         if (!TextUtils.isEmpty(str)) {
             if (str2 == null) {
-                str2 = ag(str);
+                str2 = ah(str);
             }
             if (str2 != null) {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -103,9 +103,9 @@ public class a {
                 }
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
                 SharedPreferences config = getConfig();
-                EditorHelper.putLong(config, ah(str), currentTimeMillis);
-                EditorHelper.putString(config, ai(str), str2);
-                EditorHelper.putLong(config, aj(str), currentTimeMillis2);
+                EditorHelper.putLong(config, ai(str), currentTimeMillis);
+                EditorHelper.putString(config, aj(str), str2);
+                EditorHelper.putLong(config, ak(str), currentTimeMillis2);
                 this.vF = currentTimeMillis;
                 this.vH = currentTimeMillis2;
                 this.vG = str2;
@@ -113,7 +113,7 @@ public class a {
         }
     }
 
-    private String ag(String str) {
+    private String ah(String str) {
         try {
             return InetAddress.getByName(str).getHostAddress();
         } catch (UnknownHostException e) {
@@ -127,15 +127,15 @@ public class a {
         return BdBaseApplication.getInst().getSharedPreferences("adp", 0);
     }
 
-    private String ah(String str) {
+    private String ai(String str) {
         return str + "-lastLogTime";
     }
 
-    private String ai(String str) {
+    private String aj(String str) {
         return str + "-lastIpAddress";
     }
 
-    private String aj(String str) {
+    private String ak(String str) {
         return str + "-lastGetIpTime";
     }
 }

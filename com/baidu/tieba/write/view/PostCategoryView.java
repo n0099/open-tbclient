@@ -20,8 +20,8 @@ import com.baidu.tieba.frs.x;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PostCategoryView extends TextView {
-    private MorePopupWindow So;
-    private LinearLayout cct;
+    private MorePopupWindow Sp;
+    private LinearLayout ccu;
     private TabMenuPopView cyG;
     private View cys;
     private boolean gFR;
@@ -40,14 +40,14 @@ public class PostCategoryView extends TextView {
         this.gFU.setBounds(0, 0, this.gFU.getIntrinsicWidth(), this.gFT.getIntrinsicHeight());
         setCompoundDrawables(null, null, this.gFT, null);
         setPadding(0, 0, k.g(getContext(), d.f.ds50), 0);
-        this.cct = (LinearLayout) LayoutInflater.from(this.mContext).inflate(d.j.pop_category, (ViewGroup) null);
-        this.gFS = (LinearLayout) this.cct.findViewById(d.h.pop_category_layout);
+        this.ccu = (LinearLayout) LayoutInflater.from(this.mContext).inflate(d.j.pop_category, (ViewGroup) null);
+        this.gFS = (LinearLayout) this.ccu.findViewById(d.h.pop_category_layout);
         this.cyG = (TabMenuPopView) this.gFS.findViewById(d.h.pop_category_view);
-        this.cys = this.cct.findViewById(d.h.pop_category_grav);
+        this.cys = this.ccu.findViewById(d.h.pop_category_grav);
         this.cys.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PostCategoryView.this.bzP();
+                PostCategoryView.this.bzH();
             }
         });
     }
@@ -60,17 +60,17 @@ public class PostCategoryView extends TextView {
         this.cyG.setOnItemClickCallBack(aVar);
     }
 
-    public void bzO() {
+    public void bzG() {
         if (this.gFR) {
             setCompoundDrawables(null, null, this.gFT, null);
             this.gFR = false;
         } else {
             a(this);
-            if (this.So != null) {
-                this.So.refresh();
-                this.So.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
-                this.So.setHeight(-1);
-                this.So.showWindowInCustomPosition(0, 0);
+            if (this.Sp != null) {
+                this.Sp.refresh();
+                this.Sp.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
+                this.Sp.setHeight(-1);
+                this.Sp.showWindowInCustomPosition(0, 0);
                 setCompoundDrawables(null, null, this.gFU, null);
                 this.gFR = true;
             }
@@ -79,24 +79,24 @@ public class PostCategoryView extends TextView {
     }
 
     private void a(final PostCategoryView postCategoryView) {
-        if (this.So == null) {
-            this.So = new MorePopupWindow((Activity) this.mContext, this.cct, this, ai.getDrawable(d.g.transparent_bg), new d.a() { // from class: com.baidu.tieba.write.view.PostCategoryView.2
+        if (this.Sp == null) {
+            this.Sp = new MorePopupWindow((Activity) this.mContext, this.ccu, this, ai.getDrawable(d.g.transparent_bg), new d.a() { // from class: com.baidu.tieba.write.view.PostCategoryView.2
                 @Override // com.baidu.tbadk.core.view.d.a
-                public void ot() {
+                public void ou() {
                 }
 
                 @Override // com.baidu.tbadk.core.view.d.a
-                public void ou() {
-                    if (PostCategoryView.this.So != null) {
-                        PostCategoryView.this.So.dismiss();
+                public void ov() {
+                    if (PostCategoryView.this.Sp != null) {
+                        PostCategoryView.this.Sp.dismiss();
                     }
                 }
             });
-            this.So.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.3
+            this.Sp.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.3
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     if (postCategoryView != null) {
-                        postCategoryView.bzO();
+                        postCategoryView.bzG();
                     }
                 }
             });
@@ -114,9 +114,9 @@ public class PostCategoryView extends TextView {
         }
     }
 
-    public void bzP() {
-        if (this.So != null) {
-            this.So.dismiss();
+    public void bzH() {
+        if (this.Sp != null) {
+            this.Sp.dismiss();
         }
     }
 }

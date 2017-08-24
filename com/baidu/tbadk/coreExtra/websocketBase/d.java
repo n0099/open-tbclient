@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    private c azD;
-    private b azE;
-    private a azF;
+    private c azE;
+    private b azF;
+    private a azG;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -20,32 +20,32 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class c extends Handler {
-        private final WeakReference<d> azI;
+        private final WeakReference<d> azJ;
 
         c(d dVar) {
-            this.azI = new WeakReference<>(dVar);
+            this.azJ = new WeakReference<>(dVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             d dVar;
             super.handleMessage(message);
-            if (message.what == 0 && (dVar = this.azI.get()) != null) {
+            if (message.what == 0 && (dVar = this.azJ.get()) != null) {
                 dVar.Cc();
             }
         }
     }
 
     public d(String str, b bVar) {
-        this.azD = null;
         this.azE = null;
         this.azF = null;
-        this.azD = new c(this);
-        this.azE = bVar;
-        this.azD.sendEmptyMessageDelayed(0, 50000L);
-        this.azF = new a();
-        this.azF.setSelfExecute(true);
-        this.azF.execute(Cb() + str);
+        this.azG = null;
+        this.azE = new c(this);
+        this.azF = bVar;
+        this.azE.sendEmptyMessageDelayed(0, 50000L);
+        this.azG = new a();
+        this.azG.setSelfExecute(true);
+        this.azG.execute(Cb() + str);
     }
 
     private String Cb() {
@@ -63,21 +63,21 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Cc() {
-        if (this.azF != null) {
-            this.azF.cancel(true);
+        if (this.azG != null) {
+            this.azG.cancel(true);
         }
-        if (this.azD != null) {
-            this.azD.removeMessages(0);
+        if (this.azE != null) {
+            this.azE.removeMessages(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Void, Boolean> {
-        Process azG;
+        Process azH;
 
         private a() {
-            this.azG = null;
+            this.azH = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,19 +88,19 @@ public class d {
             if (strArr != null && strArr.length >= 1) {
                 try {
                     try {
-                        this.azG = Runtime.getRuntime().exec(strArr[0]);
-                        boolean z2 = this.azG.waitFor() == 0;
-                        this.azG.destroy();
+                        this.azH = Runtime.getRuntime().exec(strArr[0]);
+                        boolean z2 = this.azH.waitFor() == 0;
+                        this.azH.destroy();
                         z = z2;
                     } catch (IOException e) {
                         e.printStackTrace();
-                        this.azG.destroy();
+                        this.azH.destroy();
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
-                        this.azG.destroy();
+                        this.azH.destroy();
                     }
                 } catch (Throwable th) {
-                    this.azG.destroy();
+                    this.azH.destroy();
                     throw th;
                 }
             }
@@ -111,18 +111,18 @@ public class d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.azG != null) {
+            if (this.azH != null) {
                 try {
-                    this.azG.destroy();
+                    this.azH.destroy();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            if (d.this.azE != null) {
-                d.this.azE.bv(false);
+            if (d.this.azF != null) {
+                d.this.azF.bv(false);
             }
-            if (d.this.azD != null) {
-                d.this.azD.removeMessages(0);
+            if (d.this.azE != null) {
+                d.this.azE.removeMessages(0);
             }
         }
 
@@ -130,11 +130,11 @@ public class d {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (d.this.azE != null) {
-                d.this.azE.bv(bool == null ? false : bool.booleanValue());
+            if (d.this.azF != null) {
+                d.this.azF.bv(bool == null ? false : bool.booleanValue());
             }
-            if (d.this.azD != null) {
-                d.this.azD.removeMessages(0);
+            if (d.this.azE != null) {
+                d.this.azE.removeMessages(0);
             }
         }
     }

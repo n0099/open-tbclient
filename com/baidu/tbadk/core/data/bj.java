@@ -7,9 +7,9 @@ import org.json.JSONObject;
 import tbclient.TaskInfo;
 /* loaded from: classes.dex */
 public class bj {
-    private long YX;
-    private String YY;
+    private long YY;
     private String YZ;
+    private String Za;
     private long endTime;
     private long forumId;
     private String forumName;
@@ -27,11 +27,11 @@ public class bj {
         return this.forumId + "";
     }
 
-    public long rg() {
-        return this.YX;
+    public long rh() {
+        return this.YY;
     }
 
-    public long rh() {
+    public long ri() {
         return this.endTime;
     }
 
@@ -43,23 +43,23 @@ public class bj {
         return this.threadId + "";
     }
 
-    public String ri() {
-        return this.YY;
-    }
-
     public String rj() {
         return this.YZ;
     }
 
-    public int rk() {
-        return this.mWidth;
+    public String rk() {
+        return this.Za;
     }
 
     public int rl() {
+        return this.mWidth;
+    }
+
+    public int rm() {
         return this.mHeight;
     }
 
-    public String pH() {
+    public String pI() {
         return this.obj_id;
     }
 
@@ -69,9 +69,9 @@ public class bj {
             this.forumId = taskInfo.forum_id.longValue();
             this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
             this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
-            this.YY = taskInfo.bgimg;
-            this.YZ = taskInfo.thread_img;
-            this.YX = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
+            this.YZ = taskInfo.bgimg;
+            this.Za = taskInfo.thread_img;
+            this.YY = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
             this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
             String str = taskInfo.thread_img_size;
             if (str != null) {
@@ -100,10 +100,10 @@ public class bj {
                 this.forumId = jSONObject.optLong("forum_id");
                 this.taskId = jSONObject.optLong(InterviewLiveActivityConfig.KEY_TASK_ID);
                 this.threadId = jSONObject.optLong("thread_id");
-                this.YY = jSONObject.optString("bgimg");
-                this.YX = jSONObject.optLong("start_time");
+                this.YZ = jSONObject.optString("bgimg");
+                this.YY = jSONObject.optLong("start_time");
                 this.endTime = jSONObject.optLong("end_time");
-                this.YZ = jSONObject.optString("thread_img");
+                this.Za = jSONObject.optString("thread_img");
                 String optString = jSONObject.optString("thread_img_size");
                 if (optString != null && optString.length() > 0) {
                     String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);

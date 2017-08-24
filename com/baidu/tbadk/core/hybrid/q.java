@@ -31,12 +31,12 @@ public class q {
     }
 
     private static q a(int i, String str, String str2, Map<String, Object> map, long j, boolean z) {
-        return new q(i, str, str2, map, null, z ? ua() : null, j);
+        return new q(i, str, str2, map, null, z ? ub() : null, j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static q a(Map<String, Object> map, long j, n nVar) {
-        return new a(1, null, null, map, null, ua(), nVar, j);
+        return new a(1, null, null, map, null, ub(), nVar, j);
     }
 
     public static q a(String str, String str2, Map<String, Object> map, long j, boolean z) {
@@ -47,14 +47,14 @@ public class q {
         if (nVar == null) {
             throw new IllegalArgumentException("handler can't be null.");
         }
-        return new a(2, str, str2, map, null, ua(), nVar, j);
+        return new a(2, str, str2, map, null, ub(), nVar, j);
     }
 
     public static q c(String str, Map<String, Object> map) {
         return new q(3, null, null, null, map, str, -1L);
     }
 
-    private String tY() {
+    private String tZ() {
         switch (this.type) {
             case 1:
                 return "ping";
@@ -67,7 +67,7 @@ public class q {
         }
     }
 
-    public String tZ() throws JSONException {
+    public String ua() throws JSONException {
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(this.cmd)) {
             jSONObject.put(IntentConfig.CMD, this.cmd);
@@ -85,7 +85,7 @@ public class q {
             a(this.aef, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
-        jSONObject.put("messageType", tY());
+        jSONObject.put("messageType", tZ());
         if (!TextUtils.isEmpty(this.aeg)) {
             jSONObject.put("callbackId", this.aeg);
         }
@@ -93,10 +93,10 @@ public class q {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void j(JSONObject jSONObject) {
+    public void k(JSONObject jSONObject) {
     }
 
-    private static String ua() {
+    private static String ub() {
         return "TBCWebViewJsBridge_callback_ID_" + aed.getAndIncrement();
     }
 
@@ -124,7 +124,7 @@ public class q {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.q
-        protected void j(JSONObject jSONObject) {
+        protected void k(JSONObject jSONObject) {
             this.aei.a(this, jSONObject);
         }
 

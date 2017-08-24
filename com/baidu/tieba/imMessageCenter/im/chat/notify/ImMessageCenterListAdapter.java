@@ -73,7 +73,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.a.b {
             if (!com.baidu.tbadk.coreExtra.messageCenter.b.zw().zA()) {
                 str = "";
             } else {
-                if (!f.ayz().isAcceptNotify()) {
+                if (!f.ayu().isAcceptNotify()) {
                     str = "";
                     i = 0;
                 }
@@ -110,7 +110,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.a.b {
             if (String.valueOf(5).equals(imMessageCenterShowItemData.getOwnerName())) {
                 if (!com.baidu.tbadk.coreExtra.messageCenter.b.zw().zQ()) {
                     str = "";
-                } else if (!com.baidu.tieba.im.settingcache.c.ayw().isAcceptNotify()) {
+                } else if (!com.baidu.tieba.im.settingcache.c.ayr().isAcceptNotify()) {
                     str = "";
                 }
             }

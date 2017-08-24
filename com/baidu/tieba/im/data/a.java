@@ -48,7 +48,7 @@ public class a {
         this.status = i;
     }
 
-    public int aup() {
+    public int auk() {
         return this.doz;
     }
 

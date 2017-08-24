@@ -9,7 +9,7 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 public class PersonCenterFragmentStatic {
     static {
         MQ();
-        com.baidu.tieba.j.a.bje();
+        com.baidu.tieba.j.a.biZ();
     }
 
     private static void MQ() {

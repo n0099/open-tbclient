@@ -198,7 +198,7 @@ public class a {
         return dir.get(str);
     }
 
-    public static List<TbFaceManager.RichUnit> lC(String str) {
+    public static List<TbFaceManager.RichUnit> lF(String str) {
         String str2;
         String str3;
         String str4;
@@ -235,10 +235,10 @@ public class a {
                     if (TextUtils.isEmpty(str2)) {
                         str4 = str2;
                     } else {
-                        arrayList.add(lD(str2));
+                        arrayList.add(lG(str2));
                         str4 = "";
                     }
-                    arrayList.add(be(str3, name));
+                    arrayList.add(bf(str3, name));
                 }
                 int i3 = i2;
                 str5 = str4;
@@ -249,19 +249,19 @@ public class a {
             i++;
         }
         if (!TextUtils.isEmpty(str2)) {
-            arrayList.add(lD(str2));
+            arrayList.add(lG(str2));
         }
         return arrayList;
     }
 
-    private static TbFaceManager.RichUnit lD(String str) {
+    private static TbFaceManager.RichUnit lG(String str) {
         TbFaceManager.RichUnit richUnit = new TbFaceManager.RichUnit();
         richUnit.text = str;
         richUnit.type = 0;
         return richUnit;
     }
 
-    private static TbFaceManager.RichUnit be(String str, String str2) {
+    private static TbFaceManager.RichUnit bf(String str, String str2) {
         String substring = str.substring(2, str.length() - 1);
         TbFaceManager.RichUnit richUnit = new TbFaceManager.RichUnit();
         richUnit.text = str2;
@@ -355,16 +355,16 @@ public class a {
 
     private static SpannableString b(ArrayList<com.baidu.tbadk.widget.richText.a> arrayList, String str, String str2) {
         SpannableString spannableString = null;
-        int fH = TbFaceManager.Ew().fH(str);
-        if (fH != 0) {
+        int fL = TbFaceManager.Ew().fL(str);
+        if (fL != 0) {
             spannableString = new SpannableString(str2 + " ");
-            com.baidu.tbadk.widget.richText.a aVar = new com.baidu.tbadk.widget.richText.a(TbadkCoreApplication.getInst(), fH);
+            com.baidu.tbadk.widget.richText.a aVar = new com.baidu.tbadk.widget.richText.a(TbadkCoreApplication.getInst(), fL);
             if (arrayList != null) {
                 arrayList.add(aVar);
             }
-            a.C0057a gj = TbFaceManager.Ew().gj(str);
-            if (gj != null) {
-                int width = (int) (0.5d * gj.getWidth());
+            a.C0057a gn = TbFaceManager.Ew().gn(str);
+            if (gn != null) {
+                int width = (int) (0.5d * gn.getWidth());
                 aVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 aVar.setBounds(new Rect(0, 0, 0, 0));

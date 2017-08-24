@@ -27,7 +27,7 @@ public final class Util {
         GREATER
     }
 
-    public static boolean kr() {
+    public static boolean kq() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -62,16 +62,16 @@ public final class Util {
     }
 
     public static final boolean k(long j) {
-        long kt = kt();
+        long ks = ks();
         if (j <= 0) {
-            return kt <= 0 || kt >= 31457280;
+            return ks <= 0 || ks >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < kt;
+        return (j2 <= 31457280 ? j2 : 31457280L) < ks;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE] complete} */
@@ -205,15 +205,15 @@ public final class Util {
         }
     }
 
-    public static File bJ(String str) {
-        PluginSetting bm = PluginPackageManager.jE().bm(str);
-        if (bm == null || bm.apkPath == null || bm.apkPath.length() <= ".apk".length()) {
+    public static File bK(String str) {
+        PluginSetting bn = PluginPackageManager.jE().bn(str);
+        if (bn == null || bn.apkPath == null || bn.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(bm.apkPath.substring(0, bm.apkPath.length() - ".apk".length()));
+        return new File(bn.apkPath.substring(0, bn.apkPath.length() - ".apk".length()));
     }
 
-    public static File ks() {
+    public static File kr() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -336,7 +336,7 @@ public final class Util {
         return pluginSetting.packageName + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bK(String str) {
+    public static String bL(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -347,10 +347,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return ks() + File.separator + e(pluginSetting);
+        return kr() + File.separator + e(pluginSetting);
     }
 
-    public static long kt() {
+    public static long ks() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

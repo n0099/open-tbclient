@@ -15,7 +15,7 @@ import java.util.List;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
 public class g extends i {
-    private VoteView cpC;
+    private VoteView cpD;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -29,14 +29,14 @@ public class g extends i {
             findViewById = ((ViewStub) this.mRootView.findViewById(d.h.text_vote_view_stub)).inflate();
         }
         if (findViewById != null) {
-            this.cpC = (VoteView) findViewById;
-            this.cpC.setWidth(com.baidu.adp.lib.util.k.g(getContext(), d.f.ds560));
-            this.cpC.setProgressBarHeight(com.baidu.adp.lib.util.k.g(getContext(), d.f.ds20));
-            this.cpC.setDescTextColorResId(d.e.cp_cont_b);
-            this.cpC.setProgressBarTopMargin(com.baidu.adp.lib.util.k.g(getContext(), d.f.ds8));
-            this.cpC.setDescTopMargin(0);
+            this.cpD = (VoteView) findViewById;
+            this.cpD.setWidth(com.baidu.adp.lib.util.k.g(getContext(), d.f.ds560));
+            this.cpD.setProgressBarHeight(com.baidu.adp.lib.util.k.g(getContext(), d.f.ds20));
+            this.cpD.setDescTextColorResId(d.e.cp_cont_b);
+            this.cpD.setProgressBarTopMargin(com.baidu.adp.lib.util.k.g(getContext(), d.f.ds8));
+            this.cpD.setDescTopMargin(0);
             try {
-                ((ViewGroup.MarginLayoutParams) this.cpS.getLayoutParams()).topMargin = com.baidu.adp.lib.util.k.g(getContext(), d.f.ds38);
+                ((ViewGroup.MarginLayoutParams) this.cpT.getLayoutParams()).topMargin = com.baidu.adp.lib.util.k.g(getContext(), d.f.ds38);
             } catch (ClassCastException e) {
             }
         }
@@ -44,19 +44,19 @@ public class g extends i {
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
     protected void iY(int i) {
-        if (this.cpC != null) {
-            this.cpC.onChangeSkinType(i);
+        if (this.cpD != null) {
+            this.cpD.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
     protected void H(bl blVar) {
-        if (blVar != null && blVar.rt() != null) {
-            long longValue = blVar.rt().total_poll.longValue();
+        if (blVar != null && blVar.ru() != null) {
+            long longValue = blVar.ru().total_poll.longValue();
             if (longValue < 0) {
                 longValue = 0;
             }
-            List<PollOption> list = blVar.rt().options;
+            List<PollOption> list = blVar.ru().options;
             if (list != null && !list.isEmpty()) {
                 LinkedList linkedList = new LinkedList();
                 for (PollOption pollOption : list) {
@@ -71,12 +71,12 @@ public class g extends i {
                     }
                 }
                 if (linkedList.size() > 0) {
-                    this.cpC.setBoallotsForListView(linkedList);
-                    this.cpC.onChangeSkinType(getSkinType());
-                    this.cpC.setVisibility(0);
+                    this.cpD.setBoallotsForListView(linkedList);
+                    this.cpD.onChangeSkinType(getSkinType());
+                    this.cpD.setVisibility(0);
                     return;
                 }
-                this.cpC.setVisibility(8);
+                this.cpD.setVisibility(8);
             }
         }
     }

@@ -31,7 +31,7 @@ import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com.baidu.tieba.frs.tab.b {
-    private TbPageContext bFN;
+    private TbPageContext bFO;
     public int cxP;
     private final LinearLayout cxQ;
     private final e cxR;
@@ -72,28 +72,28 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
         boolean iV(int i);
     }
 
-    public void ajH() {
+    public void ajB() {
         final at atVar;
-        if (this.bFN != null) {
+        if (this.bFO != null) {
             ArrayList arrayList = new ArrayList();
-            if (this.mData != null && this.mData.size() > 0 && this.mData.get(0) != null && (atVar = this.mData.get(0).cyk) != null && atVar.cmA != null) {
-                for (as asVar : atVar.cmA) {
+            if (this.mData != null && this.mData.size() > 0 && this.mData.get(0) != null && (atVar = this.mData.get(0).cyk) != null && atVar.cmB != null) {
+                for (as asVar : atVar.cmB) {
                     if (asVar != null) {
                         arrayList.add(asVar.name);
                     }
                 }
-                com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.bFN.getPageActivity());
+                com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.bFO.getPageActivity());
                 bVar.a(arrayList, new b.InterfaceC0043b() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.4
                     @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0043b
                     public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view) {
-                        if (atVar.cmA.size() > i && atVar.cmA.get(i) != null) {
+                        if (atVar.cmB.size() > i && atVar.cmB.get(i) != null) {
                             bVar2.dismiss();
-                            HorizontalTabView.this.c(HorizontalTabView.this.ju(atVar.cmA.get(i).cmw));
+                            HorizontalTabView.this.c(HorizontalTabView.this.ju(atVar.cmB.get(i).cmx));
                         }
                     }
                 });
-                bVar.d(this.bFN);
-                bVar.tu();
+                bVar.d(this.bFO);
+                bVar.tv();
             }
         }
     }
@@ -122,7 +122,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
             if (jz(dVar.cuL)) {
                 if (this.cyg != null && !TextUtils.isEmpty(dVar.url)) {
                     an anVar2 = new an();
-                    anVar2.cmO = dVar.url;
+                    anVar2.cmP = dVar.url;
                     this.cyg.a(dVar.cuL, -1, anVar2);
                 }
             } else if (dVar.cuL == 301) {
@@ -134,10 +134,10 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
                     z = true;
                 } else {
                     an anVar3 = new an();
-                    anVar3.cmO = dVar.url;
+                    anVar3.cmP = dVar.url;
                     anVar3.stType = dVar.name;
                     this.cyg.a(dVar.cuL, 0, anVar3);
-                    if (anVar3.cmP) {
+                    if (anVar3.cmQ) {
                         return;
                     }
                     z = false;
@@ -155,7 +155,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
                     anVar = null;
                 } else {
                     anVar = new an();
-                    anVar.cmO = dVar.url;
+                    anVar.cmP = dVar.url;
                     anVar.stType = dVar.name;
                 }
                 if (this.cyg != null && z) {
@@ -175,7 +175,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
             if (jz(tabItemView.getTabId())) {
                 if (this.cyg != null && !TextUtils.isEmpty(tabItemView.getUrl())) {
                     an anVar2 = new an();
-                    anVar2.cmO = tabItemView.getUrl();
+                    anVar2.cmP = tabItemView.getUrl();
                     this.cyg.a(tabItemView.getTabId(), -1, anVar2);
                 }
             } else if (tabItemView.getTabId() == 301) {
@@ -213,21 +213,21 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
                     }
                 }
                 if (this.cxT.getState() == TabItemView.cyl || this.cxT.getState() == TabItemView.cyn) {
-                    this.cxR.ajK();
+                    this.cxR.ajE();
                     boolean z2 = this.cxT.getState() == TabItemView.cyl;
                     this.cxT.setState(TabItemView.cym);
                     d jv = jv(this.cxT.getTabId());
                     if (jv != null) {
                         if (!TextUtils.isEmpty(jv.url)) {
                             an anVar3 = new an();
-                            anVar3.cmO = jv.url;
+                            anVar3.cmP = jv.url;
                             anVar3.stType = jv.name;
                             anVar = anVar3;
                         }
-                        if (jv.cyk != null && jv.cyk.cmA != null && jv.cyk.cmA.size() > 0) {
-                            for (as asVar : jv.cyk.cmA) {
+                        if (jv.cyk != null && jv.cyk.cmB != null && jv.cyk.cmB.size() > 0) {
+                            for (as asVar : jv.cyk.cmB) {
                                 if (asVar != null && asVar.isSelected) {
-                                    i = asVar.cmw;
+                                    i = asVar.cmx;
                                 }
                             }
                         }
@@ -287,7 +287,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
                         if (HorizontalTabView.this.cyc != null) {
                             HorizontalTabView.this.cyc.a(HorizontalTabView.this.ju(1));
                         }
-                        HorizontalTabView.this.ajH();
+                        HorizontalTabView.this.ajB();
                         return;
                     }
                     return;
@@ -307,7 +307,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
                 }
             }
         };
-        this.bFN = tbPageContext;
+        this.bFO = tbPageContext;
         this.cxQ = new LinearLayout(tbPageContext.getPageActivity());
         this.cxQ.setOrientation(0);
         this.cxQ.setGravity(16);
@@ -353,7 +353,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
                         if (HorizontalTabView.this.cyc != null) {
                             HorizontalTabView.this.cyc.a(HorizontalTabView.this.ju(1));
                         }
-                        HorizontalTabView.this.ajH();
+                        HorizontalTabView.this.ajB();
                         return;
                     }
                     return;
@@ -418,7 +418,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
                         if (HorizontalTabView.this.cyc != null) {
                             HorizontalTabView.this.cyc.a(HorizontalTabView.this.ju(1));
                         }
-                        HorizontalTabView.this.ajH();
+                        HorizontalTabView.this.ajB();
                         return;
                     }
                     return;
@@ -483,18 +483,18 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
             if (jv.cyk == null || dVar.cyk == null) {
                 return false;
             }
-            if (jv.cyk.cmA == null && dVar.cyk.cmA == null) {
+            if (jv.cyk.cmB == null && dVar.cyk.cmB == null) {
                 return false;
             }
-            if ((jv.cyk.cmA != null || dVar.cyk.cmA == null) && (dVar.cyk.cmA != null || jv.cyk.cmA == null)) {
-                int size = jv.cyk.cmA.size();
-                if (size != dVar.cyk.cmA.size()) {
+            if ((jv.cyk.cmB != null || dVar.cyk.cmB == null) && (dVar.cyk.cmB != null || jv.cyk.cmB == null)) {
+                int size = jv.cyk.cmB.size();
+                if (size != dVar.cyk.cmB.size()) {
                     return true;
                 }
                 for (int i = 0; i < size; i++) {
-                    as asVar = dVar.cyk.cmA.get(i);
-                    as asVar2 = jv.cyk.cmA.get(i);
-                    if (asVar.cmw != asVar2.cmw || !asVar.name.equals(asVar2.name)) {
+                    as asVar = dVar.cyk.cmB.get(i);
+                    as asVar2 = jv.cyk.cmB.get(i);
+                    if (asVar.cmx != asVar2.cmx || !asVar.name.equals(asVar2.name)) {
                         return true;
                     }
                 }
@@ -513,25 +513,25 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
             this.cxS.addAll(list);
             if (list != null && list.size() > 0 && (dVar = list.get(0)) != null && dVar.cuL == 1) {
                 at atVar2 = dVar.cyk;
-                if (atVar2 != null && atVar2.cmA != null) {
-                    atVar2.cmA.clear();
+                if (atVar2 != null && atVar2.cmB != null) {
+                    atVar2.cmB.clear();
                     atVar = atVar2;
                 } else {
                     at atVar3 = new at();
-                    atVar3.cmA = new ArrayList();
+                    atVar3.cmB = new ArrayList();
                     atVar = atVar3;
                 }
                 if (u.u(list) > 1) {
                     as asVar = new as();
-                    asVar.cmw = 1;
+                    asVar.cmx = 1;
                     asVar.name = getContext().getString(d.l.chosen_pb_title);
-                    atVar.cmA.add(asVar);
+                    atVar.cmB.add(asVar);
                     for (d dVar2 : list) {
                         if (dVar2 != null && dVar2.cuL != 1) {
                             as asVar2 = new as();
-                            asVar2.cmw = dVar2.cuL;
+                            asVar2.cmx = dVar2.cuL;
                             asVar2.name = dVar2.name;
-                            atVar.cmA.add(asVar2);
+                            atVar.cmB.add(asVar2);
                         }
                     }
                     dVar.cyk = atVar;
@@ -622,7 +622,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com
 
     private boolean jw(int i) {
         d jv = jv(i);
-        return (jv == null || jv.cyk == null || jv.cyk.cmA == null || jv.cyk.cmA.size() <= 0) ? false : true;
+        return (jv == null || jv.cyk == null || jv.cyk.cmB == null || jv.cyk.cmB.size() <= 0) ? false : true;
     }
 
     public void setFakeTab(com.baidu.tieba.frs.tab.b bVar) {

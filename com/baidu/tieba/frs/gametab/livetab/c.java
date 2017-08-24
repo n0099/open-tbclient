@@ -11,7 +11,7 @@ public class c extends com.baidu.tbadk.mainTab.b {
     private b cwb = new b();
 
     public c() {
-        EX().aHH = this.cwb;
+        EX().aHI = this.cwb;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -23,8 +23,8 @@ public class c extends com.baidu.tbadk.mainTab.b {
     public com.baidu.tbadk.mainTab.c EW() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 2;
-        cVar.aHI = d.l.frs_live;
-        cVar.aHN = com.baidu.tbadk.mainTab.c.aHL;
+        cVar.aHJ = d.l.frs_live;
+        cVar.aHO = com.baidu.tbadk.mainTab.c.aHM;
         return cVar;
     }
 
@@ -36,9 +36,9 @@ public class c extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator aT(Context context) {
-        this.aHu = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
-        this.aHu.setTextSize(2.0f);
-        return this.aHu;
+        this.aHv = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
+        this.aHv.setTextSize(2.0f);
+        return this.aHv;
     }
 
     public void setForumId(String str) {

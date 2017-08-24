@@ -25,15 +25,15 @@ import java.util.concurrent.TimeoutException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
-    private static a Pk = null;
+    private static a Pl = null;
     private static final String k = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata/";
     private static final String l = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata/ls.db";
     private String b = null;
     private boolean c = false;
     private boolean d = false;
-    private double Pl = 0.0d;
-    private double NY = 0.0d;
     private double Pm = 0.0d;
+    private double NY = 0.0d;
+    private double Pn = 0.0d;
     private double h = 0.0d;
     private double i = 0.0d;
     private volatile boolean j = false;
@@ -260,8 +260,8 @@ public final class a {
                 this.b = str;
                 if (rawQuery.moveToFirst()) {
                     this.NY = rawQuery.getDouble(1) - 1235.4323d;
-                    this.Pl = rawQuery.getDouble(2) - 4326.0d;
-                    this.Pm = rawQuery.getDouble(3) - 2367.3217d;
+                    this.Pm = rawQuery.getDouble(2) - 4326.0d;
+                    this.Pn = rawQuery.getDouble(3) - 2367.3217d;
                     this.c = true;
                 }
                 if (rawQuery != null) {
@@ -302,7 +302,7 @@ public final class a {
         double d;
         boolean z = false;
         double d2 = 0.0d;
-        if (!aVar.b() || !com.baidu.location.a.e.mw().g()) {
+        if (!aVar.b() || !com.baidu.location.a.e.mv().g()) {
             return;
         }
         System.currentTimeMillis();
@@ -359,6 +359,27 @@ public final class a {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str, List<ScanResult> list) {
+        SQLiteDatabase sQLiteDatabase;
+        if (str == null || str.equals(this.b)) {
+            sQLiteDatabase = null;
+        } else {
+            sQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(l, (SQLiteDatabase.CursorFactory) null);
+            a(str, sQLiteDatabase);
+        }
+        if (list != null) {
+            if (sQLiteDatabase == null) {
+                sQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(l, (SQLiteDatabase.CursorFactory) null);
+            }
+            a(list, sQLiteDatabase);
+        }
+        if (sQLiteDatabase == null || !sQLiteDatabase.isOpen()) {
+            return;
+        }
+        sQLiteDatabase.close();
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:104:0x0111 A[EDGE_INSN: B:104:0x0111->B:46:0x0111 ?: BREAK  , SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:74:0x01b3 A[Catch: Exception -> 0x0098, all -> 0x00fd, TRY_LEAVE, TryCatch #7 {Exception -> 0x0098, all -> 0x00fd, blocks: (B:14:0x0061, B:16:0x0067, B:18:0x006d, B:21:0x0094, B:33:0x00d1, B:35:0x00d7, B:37:0x00f8, B:74:0x01b3, B:56:0x0133, B:58:0x0147, B:61:0x0153, B:65:0x0168, B:67:0x017d, B:68:0x0189, B:70:0x0195, B:73:0x01a6, B:48:0x0114), top: B:89:0x0061 }] */
     /*
@@ -411,8 +432,8 @@ public final class a {
                         if (i7 > 8 && i7 > i6) {
                             cursor.moveToNext();
                         } else if (this.c) {
-                            Location.distanceBetween(d6, d5, this.Pm, this.NY, new float[1]);
-                            if (fArr[0] > this.Pl + 2000.0d) {
+                            Location.distanceBetween(d6, d5, this.Pn, this.NY, new float[1]);
+                            if (fArr[0] > this.Pm + 2000.0d) {
                                 cursor.moveToNext();
                             } else {
                                 z3 = true;
@@ -539,9 +560,9 @@ public final class a {
             z3 = true;
         } else if (this.c) {
             d2 = this.NY;
-            d = this.Pm;
-            d3 = this.Pl;
-            z2 = com.baidu.location.a.e.mw().g();
+            d = this.Pn;
+            d3 = this.Pm;
+            z2 = com.baidu.location.a.e.mv().g();
             z3 = true;
         } else {
             z2 = false;
@@ -556,27 +577,6 @@ public final class a {
         } else {
             return String.format(Locale.CHINA, "{\"result\":{\"time\":\"" + com.baidu.location.h.i.a() + "\",\"error\":\"66\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%f\",\"isCellChanged\":\"%b\"}}", Double.valueOf(d2), Double.valueOf(d), Double.valueOf(d3), Boolean.valueOf(z2));
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str, List<ScanResult> list) {
-        SQLiteDatabase sQLiteDatabase;
-        if (str == null || str.equals(this.b)) {
-            sQLiteDatabase = null;
-        } else {
-            sQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(l, (SQLiteDatabase.CursorFactory) null);
-            a(str, sQLiteDatabase);
-        }
-        if (list != null) {
-            if (sQLiteDatabase == null) {
-                sQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(l, (SQLiteDatabase.CursorFactory) null);
-            }
-            a(list, sQLiteDatabase);
-        }
-        if (sQLiteDatabase == null || !sQLiteDatabase.isOpen()) {
-            return;
-        }
-        sQLiteDatabase.close();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -606,10 +606,10 @@ public final class a {
     public static synchronized a mQ() {
         a aVar;
         synchronized (a.class) {
-            if (Pk == null) {
-                Pk = new a();
+            if (Pl == null) {
+                Pl = new a();
             }
-            aVar = Pk;
+            aVar = Pl;
         }
         return aVar;
     }
@@ -648,7 +648,7 @@ public final class a {
     }
 
     public void a(String str, com.baidu.location.f.a aVar, com.baidu.location.f.i iVar, BDLocation bDLocation) {
-        boolean z = (aVar.b() && com.baidu.location.a.e.mw().g()) ? false : true;
+        boolean z = (aVar.b() && com.baidu.location.a.e.mv().g()) ? false : true;
         boolean z2 = bDLocation == null || bDLocation.getLocType() != 161 || (!"wf".equals(bDLocation.getNetworkLocationType()) && bDLocation.getRadius() >= 300.0f);
         if (iVar.a == null) {
             z2 = true;
@@ -677,7 +677,7 @@ public final class a {
             }
             stringBuffer.append("&uptype=oldoff");
             stringBuffer.append(com.baidu.location.h.c.ns().a(false));
-            stringBuffer.append(com.baidu.location.a.a.mu().c());
+            stringBuffer.append(com.baidu.location.a.a.mt().c());
             stringBuffer.toString();
         }
         return a;

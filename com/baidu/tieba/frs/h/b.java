@@ -14,7 +14,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends j.a {
-    public HeadPendantClickableView bGv;
+    public HeadPendantClickableView bGw;
     public View cCD;
     public HeadImageView cCE;
     public TextView cCF;
@@ -52,24 +52,24 @@ public class b extends j.a {
         this.cCD = this.mRootView.findViewById(d.h.card_home_page_normal_thread_top_line);
         this.cCE = (HeadImageView) this.mRootView.findViewById(d.h.card_home_page_normal_thread_user_header);
         this.cCE.setPageId(bdUniqueId);
-        this.bGv = (HeadPendantClickableView) this.mRootView.findViewById(d.h.card_home_page_normal_thread_user_pendant_header);
-        this.bGv.setPageId(bdUniqueId);
+        this.bGw = (HeadPendantClickableView) this.mRootView.findViewById(d.h.card_home_page_normal_thread_user_pendant_header);
+        this.bGw.setPageId(bdUniqueId);
         this.cCE.setDefaultResource(17170445);
         this.cCE.setDefaultErrorResource(d.g.icon_default_avatar100);
         this.cCE.setDefaultBgResource(d.e.cp_bg_line_e);
         this.cCE.setRadius(k.g(tbPageContext.getPageActivity(), d.f.ds70));
-        if (this.bGv.getHeadView() != null) {
-            this.bGv.getHeadView().setIsRound(true);
-            this.bGv.getHeadView().setDrawBorder(false);
-            this.bGv.getHeadView().setDefaultResource(17170445);
-            this.bGv.getHeadView().setDefaultErrorResource(d.g.icon_default_avatar100);
-            this.bGv.getHeadView().setDefaultBgResource(d.e.cp_bg_line_e);
-            this.bGv.getHeadView().setRadius(k.g(tbPageContext.getPageActivity(), d.f.ds70));
+        if (this.bGw.getHeadView() != null) {
+            this.bGw.getHeadView().setIsRound(true);
+            this.bGw.getHeadView().setDrawBorder(false);
+            this.bGw.getHeadView().setDefaultResource(17170445);
+            this.bGw.getHeadView().setDefaultErrorResource(d.g.icon_default_avatar100);
+            this.bGw.getHeadView().setDefaultBgResource(d.e.cp_bg_line_e);
+            this.bGw.getHeadView().setRadius(k.g(tbPageContext.getPageActivity(), d.f.ds70));
         }
-        this.bGv.wD();
-        if (this.bGv.getPendantView() != null) {
-            this.bGv.getPendantView().setIsRound(true);
-            this.bGv.getPendantView().setDrawBorder(false);
+        this.bGw.wE();
+        if (this.bGw.getPendantView() != null) {
+            this.bGw.getPendantView().setIsRound(true);
+            this.bGw.getPendantView().setDrawBorder(false);
         }
         this.cCF = (TextView) this.mRootView.findViewById(d.h.frs_wefan_tv_username);
         this.cCG = (TextView) this.mRootView.findViewById(d.h.frs_wefan_tv_tips);

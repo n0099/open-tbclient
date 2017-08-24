@@ -77,9 +77,9 @@ public class a {
                 com.baidu.location.c.h.mP().b();
             }
             if (this.No.mIsNeedDeviceDirect || this.No.isNeedAltitude) {
-                f.mx().a(this.No.mIsNeedDeviceDirect);
-                f.mx().b(this.No.isNeedAltitude);
-                f.mx().b();
+                f.mw().a(this.No.mIsNeedDeviceDirect);
+                f.mw().b(this.No.isNeedAltitude);
+                f.mw().b();
             }
         }
 
@@ -132,8 +132,8 @@ public class a {
 
         public void a(BDLocation bDLocation, int i) {
             BDLocation bDLocation2 = new BDLocation(bDLocation);
-            if (f.mx().g() && (bDLocation2.getLocType() == 161 || bDLocation2.getLocType() == 66)) {
-                bDLocation2.setAltitude(f.mx().my());
+            if (f.mw().g() && (bDLocation2.getLocType() == 161 || bDLocation2.getLocType() == 66)) {
+                bDLocation2.setAltitude(f.mw().mx());
             }
             if (i == 21) {
                 a(27, "locStr", bDLocation2);
@@ -213,7 +213,7 @@ public class a {
         }
     }
 
-    public static a mu() {
+    public static a mt() {
         if (Nm == null) {
             Nm = new a();
         }
@@ -263,9 +263,9 @@ public class a {
 
     public void a(String str) {
         BDLocation bDLocation = new BDLocation(str);
-        Address b = e.mw().b(bDLocation);
-        String e = e.mw().e();
-        List<Poi> f = e.mw().f();
+        Address b = e.mv().b(bDLocation);
+        String e = e.mv().e();
+        List<Poi> f = e.mv().f();
         if (b != null) {
             bDLocation.setAddr(b);
         }
@@ -290,7 +290,7 @@ public class a {
             this.c.remove(a);
         }
         com.baidu.location.c.h.mP().c();
-        f.mx().c();
+        f.mw().c();
         e();
     }
 
@@ -332,7 +332,7 @@ public class a {
         a.No.scanSpan = message.getData().getInt("scanSpan", a.No.scanSpan);
         if (a.No.scanSpan < 1000) {
             com.baidu.location.c.h.mP().e();
-            f.mx().c();
+            f.mw().c();
             this.a = false;
         } else {
             com.baidu.location.c.h.mP().d();
@@ -341,9 +341,9 @@ public class a {
         if (a.No.scanSpan <= 999 || i >= 1000) {
             z = false;
         } else if (a.No.mIsNeedDeviceDirect || a.No.isNeedAltitude) {
-            f.mx().a(a.No.mIsNeedDeviceDirect);
-            f.mx().b(a.No.isNeedAltitude);
-            f.mx().b();
+            f.mw().a(a.No.mIsNeedDeviceDirect);
+            f.mw().b(a.No.isNeedAltitude);
+            f.mw().b();
         }
         a.No.openGps = message.getData().getBoolean("openGPS", a.No.openGps);
         String string = message.getData().getString("coorType");
@@ -359,7 +359,7 @@ public class a {
         }
         locationClientOption2.addrType = string2;
         if (!com.baidu.location.h.i.f.equals(a.No.addrType)) {
-            e.mw().i();
+            e.mv().i();
         }
         a.No.timeOut = message.getData().getInt("timeOut", a.No.timeOut);
         a.No.location_change_notify = message.getData().getBoolean("location_change_notify", a.No.location_change_notify);

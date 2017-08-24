@@ -20,11 +20,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    private static final Pattern aLJ = Pattern.compile("#.+?#", 2);
+    private static final Pattern aLK = Pattern.compile("#.+?#", 2);
 
     public static boolean cd(boolean z) {
         boolean appResponseToIntentClass;
-        if (PluginPackageManager.jE().bl("com.baidu.tieba.pluginHotTopic")) {
+        if (PluginPackageManager.jE().bm("com.baidu.tieba.pluginHotTopic")) {
             if (z) {
                 appResponseToIntentClass = TbadkCoreApplication.getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
             } else {
@@ -36,7 +36,7 @@ public class a {
     }
 
     public static boolean GM() {
-        return PluginPackageManager.jE().br("com.baidu.tieba.pluginHotTopic");
+        return PluginPackageManager.jE().bs("com.baidu.tieba.pluginHotTopic");
     }
 
     public static boolean a(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
@@ -76,7 +76,7 @@ public class a {
         final Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.cT(str);
+            aVar.cW(str);
             if (TextUtils.isEmpty(str2)) {
                 aVar.b(d.l.know, new a.b() { // from class: com.baidu.tbadk.plugins.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -99,15 +99,15 @@ public class a {
                     }
                 });
             }
-            aVar.b(tbPageContext).tr();
+            aVar.b(tbPageContext).ts();
         }
     }
 
-    public static SpannableString gD(String str) {
+    public static SpannableString gG(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = aLJ.matcher(str);
+        Matcher matcher = aLK.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             spannableString.setSpan(new b(18, "") { // from class: com.baidu.tbadk.plugins.a.4

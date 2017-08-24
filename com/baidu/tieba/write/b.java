@@ -60,13 +60,13 @@ public class b {
     private View.OnClickListener gos = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.8
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.byk();
+            b.this.byc();
         }
     };
     private Runnable gor = new Runnable() { // from class: com.baidu.tieba.write.b.9
         @Override // java.lang.Runnable
         public void run() {
-            b.this.bvb();
+            b.this.buU();
         }
     };
     private Runnable goq = new Runnable() { // from class: com.baidu.tieba.write.b.10
@@ -91,7 +91,7 @@ public class b {
         this.gBn = forumWriteData;
     }
 
-    public void sR(String str) {
+    public void sW(String str) {
         this.gBo = str;
     }
 
@@ -232,12 +232,12 @@ public class b {
             }
             onChangeSkinType();
             if (ge) {
-                byj();
+                byb();
             }
         }
     }
 
-    public void byj() {
+    public void byb() {
         if (!this.gBp && this.gAY != null) {
             this.gBp = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_write_url_tips", false);
             if (!this.gBp) {
@@ -260,16 +260,16 @@ public class b {
         }
     }
 
-    public void byk() {
+    public void byc() {
         if (this.gAY != null) {
             this.gAY.removeCallbacks(this.goq);
             this.gAY.removeCallbacks(this.gor);
         }
-        bvb();
+        buU();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvb() {
+    public void buU() {
         g.a(this.gBq);
     }
 
@@ -333,13 +333,13 @@ public class b {
         }
     }
 
-    public void byl() {
+    public void byd() {
         d(this.gBk, this.gBj);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(View view, View view2) {
-        byk();
+        byc();
         if (this.gBl != null) {
             com.baidu.adp.lib.g.e.ga().removeCallbacks(this.gBl);
         }
@@ -369,7 +369,7 @@ public class b {
     }
 
     public void onDestroy() {
-        byk();
+        byc();
         if (this.gAY != null && this.gAY.getParent() == this.abM) {
             this.abM.removeView(this.gAY);
         }

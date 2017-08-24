@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.at;
 public class ChatMessageActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ChatMessageActivityConfig.class, ChatMessageActivity.class);
-        aqC();
+        aqw();
     }
 
-    private static void aqC() {
-        at.wf().a(new at.a() { // from class: com.baidu.tieba.imMessageCenter.chatmessage.ChatMessageActivityStatic.1
+    private static void aqw() {
+        at.wg().a(new at.a() { // from class: com.baidu.tieba.imMessageCenter.chatmessage.ChatMessageActivityStatic.1
             @Override // com.baidu.tbadk.core.util.at.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {

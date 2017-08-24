@@ -16,14 +16,14 @@ public class b extends a {
     private b() {
     }
 
-    public static b ayv() {
+    public static b ayq() {
         return dAA;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: bn */
-    public GroupSettingItemData bl(String str, String str2) {
+    /* renamed from: bo */
+    public GroupSettingItemData bm(String str, String str2) {
         GroupSettingItemData groupSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
@@ -49,24 +49,24 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void aux() {
+    public void aus() {
         super.m(GroupSettingItemData.class);
     }
 
     public void b(String str, String str2, boolean z, h<Void> hVar) {
-        GroupSettingItemData bl = bl(str, str2);
-        if (bl != null) {
-            bl.setAlreadyApply(z);
-            bl.setLastApplyTimeStamp(System.currentTimeMillis());
-            a(bl, hVar);
+        GroupSettingItemData bm = bm(str, str2);
+        if (bm != null) {
+            bm.setAlreadyApply(z);
+            bm.setLastApplyTimeStamp(System.currentTimeMillis());
+            a(bm, hVar);
         }
     }
 
     public void c(String str, String str2, boolean z, h<Void> hVar) {
-        GroupSettingItemData bl = bl(str, str2);
-        if (bl != null) {
-            bl.setInGroup(z);
-            a(bl, hVar);
+        GroupSettingItemData bm = bm(str, str2);
+        if (bm != null) {
+            bm.setInGroup(z);
+            a(bm, hVar);
         }
     }
 
@@ -76,9 +76,9 @@ public class b extends a {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.t
             public Boolean doInBackground() {
-                GroupSettingItemData bl = b.this.bl(str, str2);
-                if (bl != null && bl.isAlreadyApply()) {
-                    if (System.currentTimeMillis() - bl.getLastApplyTimeStamp() <= j) {
+                GroupSettingItemData bm = b.this.bm(str, str2);
+                if (bm != null && bm.isAlreadyApply()) {
+                    if (System.currentTimeMillis() - bm.getLastApplyTimeStamp() <= j) {
                         return false;
                     }
                 }
@@ -88,8 +88,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> ayu() {
-        return com.baidu.tbadk.core.c.a.tn().cQ("tb.im_group_setting");
+    protected l<String> ayp() {
+        return com.baidu.tbadk.core.c.a.to().cT("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -104,13 +104,13 @@ public class b extends a {
                 }
                 return;
             }
-            l<String> ayu = ayu();
+            l<String> ayp = ayp();
             String str = uid + "@" + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
             synchronized (this.dAx) {
                 this.dAx.put(str, groupSettingItemData);
             }
-            ayu.k(str, jsonStrWithObject);
+            ayp.k(str, jsonStrWithObject);
         }
     }
 
@@ -135,7 +135,7 @@ public class b extends a {
                 @Override // com.baidu.tbadk.util.t
                 /* renamed from: Lp */
                 public Void doInBackground() {
-                    b.this.ayu().k(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.ayp().k(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, hVar);
@@ -153,7 +153,7 @@ public class b extends a {
                 @Override // com.baidu.tbadk.util.t
                 /* renamed from: Lp */
                 public Void doInBackground() {
-                    b.this.ayu().remove(str3);
+                    b.this.ayp().remove(str3);
                     return null;
                 }
             }, hVar);

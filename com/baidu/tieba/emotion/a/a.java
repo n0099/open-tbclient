@@ -22,7 +22,7 @@ import java.util.Iterator;
 public class a implements e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     public boolean fX() {
-        return h.oX().pd();
+        return h.oY().pe();
     }
 
     private String H(String str, boolean z) {
@@ -33,7 +33,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: c */
     public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
-        return c.Ex().gp(H(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
+        return c.Ex().gt(H(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,29 +58,29 @@ public class a implements e<com.baidu.adp.widget.a.a> {
         if (valueOf == null || valueOf2 == null || valueOf3 == null) {
             return null;
         }
-        ArrayList<com.baidu.tbadk.editortools.emotiontool.c> abA = g.aby().abA();
-        if (g.aby().jz(valueOf2) && valueOf3.booleanValue() && !new File(g.aby().I(valueOf2, true)).exists()) {
+        ArrayList<com.baidu.tbadk.editortools.emotiontool.c> abx = g.abv().abx();
+        if (g.abv().jC(valueOf2) && valueOf3.booleanValue() && !new File(g.abv().I(valueOf2, true)).exists()) {
             valueOf3 = false;
         }
         boolean booleanValue = valueOf3.booleanValue();
-        if (g.aby().jB(valueOf2) && valueOf3.booleanValue()) {
-            String I = g.aby().I(valueOf2, true);
-            valueOf = g.aby().jA(valueOf2);
+        if (g.abv().jE(valueOf2) && valueOf3.booleanValue()) {
+            String I = g.abv().I(valueOf2, true);
+            valueOf = g.abv().jD(valueOf2);
             if (!new File(k.zW + "/" + TbConfig.getTempDirName() + "/.emotions/" + valueOf + "/" + I).exists()) {
                 valueOf3 = false;
                 str3 = valueOf;
                 if (!valueOf3.booleanValue()) {
-                    String I2 = g.aby().I(valueOf2, true);
-                    Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = abA.iterator();
+                    String I2 = g.abv().I(valueOf2, true);
+                    Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = abx.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             aVar2 = null;
                             break;
                         }
                         com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-                        if (next.fK(valueOf2)) {
+                        if (next.fO(valueOf2)) {
                             if (next.Do()) {
-                                aVar2 = next.fM(valueOf2);
+                                aVar2 = next.fQ(valueOf2);
                             } else {
                                 aVar2 = a(next.getGroupId(), I2, aVar);
                             }
@@ -90,11 +90,11 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                         aVar2 = a(str3, I2, aVar);
                     }
                 } else {
-                    String I3 = g.aby().I(valueOf2, false);
-                    if (booleanValue && g.aby().jB(valueOf2)) {
+                    String I3 = g.abv().I(valueOf2, false);
+                    if (booleanValue && g.abv().jE(valueOf2)) {
                         I3.replaceFirst("s_", "d_");
                     }
-                    Iterator<com.baidu.tbadk.editortools.emotiontool.c> it2 = abA.iterator();
+                    Iterator<com.baidu.tbadk.editortools.emotiontool.c> it2 = abx.iterator();
                     com.baidu.adp.widget.a.a aVar4 = null;
                     while (true) {
                         if (!it2.hasNext()) {
@@ -102,10 +102,10 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                             break;
                         }
                         com.baidu.tbadk.editortools.emotiontool.c next2 = it2.next();
-                        if (!next2.fK(valueOf2)) {
+                        if (!next2.fO(valueOf2)) {
                             aVar3 = aVar4;
                         } else if (next2.Do()) {
-                            aVar3 = next2.fL(valueOf2);
+                            aVar3 = next2.fP(valueOf2);
                         } else {
                             Bitmap b2 = b(next2.getGroupId(), I3, aVar);
                             if (b2 == null) {
@@ -142,11 +142,11 @@ public class a implements e<com.baidu.adp.widget.a.a> {
         String valueOf2 = objArr[1] == null ? "" : String.valueOf(objArr[1]);
         Boolean valueOf3 = Boolean.valueOf(String.valueOf(objArr[2]));
         String valueOf4 = objArr[3] == null ? "" : String.valueOf(objArr[3]);
-        if (valueOf == null || valueOf2 == null || valueOf3 == null || valueOf4 == null || (k = (iVar = new i()).k(valueOf4, false)) == null || !iVar.wq()) {
+        if (valueOf == null || valueOf2 == null || valueOf3 == null || valueOf4 == null || (k = (iVar = new i()).k(valueOf4, false)) == null || !iVar.wr()) {
             return null;
         }
         synchronized (BitmapHelper.lockForSyncImageDecoder) {
-            String I = g.aby().I(valueOf2, valueOf3.booleanValue());
+            String I = g.abv().I(valueOf2, valueOf3.booleanValue());
             String str3 = ".emotions/" + valueOf;
             if (valueOf3.booleanValue()) {
                 com.baidu.adp.lib.Disk.ops.a aVar3 = new com.baidu.adp.lib.Disk.ops.a(str3, I, DiskFileOperate.Action.WRITE);
@@ -159,14 +159,14 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                     dVar.f(aVar3);
                     aVar.xL = dVar;
                 }
-                Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = g.aby().abA().iterator();
+                Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = g.abv().abx().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         aVar2 = null;
                         break;
                     }
                     com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-                    if (next.fK(valueOf2)) {
+                    if (next.fO(valueOf2)) {
                         aVar2 = a(next.getGroupId(), I, aVar);
                         break;
                     }

@@ -14,10 +14,10 @@ import com.baidu.tieba.d;
 public class a extends View {
     private Paint CZ;
     private int DF;
-    private int eUM;
-    private float eUN;
-    private boolean eUO;
-    private Bitmap eUP;
+    private int eUO;
+    private float eUP;
+    private boolean eUQ;
+    private Bitmap eUR;
     private Paint mPaint;
     private int mRadius;
 
@@ -32,27 +32,27 @@ public class a extends View {
     public a(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, d.n.ChooseColorView);
-        this.eUM = obtainStyledAttributes.getColor(d.n.ChooseColorView_chooseColor, ViewCompat.MEASURED_STATE_MASK);
+        this.eUO = obtainStyledAttributes.getColor(d.n.ChooseColorView_chooseColor, ViewCompat.MEASURED_STATE_MASK);
         this.DF = obtainStyledAttributes.getColor(d.n.ChooseColorView_chooseBorderColor, -1);
-        this.eUN = obtainStyledAttributes.getDimension(d.n.ChooseColorView_chooseBorderWidth, getResources().getDimensionPixelSize(d.f.ds4));
+        this.eUP = obtainStyledAttributes.getDimension(d.n.ChooseColorView_chooseBorderWidth, getResources().getDimensionPixelSize(d.f.ds4));
         init();
     }
 
     private void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.eUM);
+        this.mPaint.setColor(this.eUO);
         this.CZ = new Paint();
         this.CZ.setColor(this.DF);
         this.CZ.setAntiAlias(true);
         this.CZ.setStyle(Paint.Style.STROKE);
-        this.CZ.setStrokeWidth(this.eUN);
-        this.eUP = BitmapFactory.decodeResource(getResources(), d.g.icon_select_n);
+        this.CZ.setStrokeWidth(this.eUP);
+        this.eUR = BitmapFactory.decodeResource(getResources(), d.g.icon_select_n);
     }
 
     public void setChooseColor(int i) {
-        this.eUM = i;
-        this.mPaint.setColor(this.eUM);
+        this.eUO = i;
+        this.mPaint.setColor(this.eUO);
     }
 
     public void setRadius(int i) {
@@ -60,11 +60,11 @@ public class a extends View {
     }
 
     public int getChooseColor() {
-        return this.eUM;
+        return this.eUO;
     }
 
     public void setIsChooseView(boolean z) {
-        this.eUO = z;
+        this.eUQ = z;
         invalidate();
     }
 
@@ -73,8 +73,8 @@ public class a extends View {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mPaint);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.CZ);
-        if (this.eUO) {
-            canvas.drawBitmap(this.eUP, getWidth() - this.eUP.getWidth(), 0.0f, (Paint) null);
+        if (this.eUQ) {
+            canvas.drawBitmap(this.eUR, getWidth() - this.eUR.getWidth(), 0.0f, (Paint) null);
         }
     }
 }

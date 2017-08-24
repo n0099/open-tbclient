@@ -50,11 +50,11 @@ public class g {
             if (z2) {
                 z = z2;
             } else {
-                String aM = aM(str);
-                File file = new File(aM);
+                String aN = aN(str);
+                File file = new File(aN);
                 if (file.exists()) {
                     if (file.length() > 0) {
-                        boolean loadSoLibrary = loadSoLibrary(aM, sb);
+                        boolean loadSoLibrary = loadSoLibrary(aN, sb);
                         if (loadSoLibrary) {
                             sb.append("-Succ2-");
                             z = loadSoLibrary;
@@ -67,7 +67,7 @@ public class g {
                         z = z2;
                     }
                 } else {
-                    a aVar = new a(str, aM, sb, hVar);
+                    a aVar = new a(str, aN, sb, hVar);
                     aVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
                     aVar.execute(new Object[0]);
                     return false;
@@ -99,11 +99,11 @@ public class g {
             }
         }
         if (!z2) {
-            String aM = aM(str);
-            File file = new File(aM);
+            String aN = aN(str);
+            File file = new File(aN);
             if (file.exists()) {
                 if (file.length() > 0) {
-                    boolean loadSoLibrary = loadSoLibrary(aM, sb);
+                    boolean loadSoLibrary = loadSoLibrary(aN, sb);
                     if (loadSoLibrary) {
                         sb.append("-Succ2-");
                         z = loadSoLibrary;
@@ -126,7 +126,7 @@ public class g {
     }
 
     private boolean a(String str, StringBuilder sb) {
-        boolean loadSoLibrary = loadSoLibrary(aL(str), sb);
+        boolean loadSoLibrary = loadSoLibrary(aM(str), sb);
         if (!loadSoLibrary) {
             try {
                 System.loadLibrary(str);
@@ -160,11 +160,11 @@ public class g {
         }
     }
 
-    private String aL(String str) {
+    private String aM(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + Plugin.SO_LIB_DIR_NAME + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
-    private String aM(String str) {
+    private String aN(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
@@ -216,9 +216,9 @@ public class g {
                                     }
                                 }
                                 byteArrayOutputStream.flush();
-                                String aM = aM(str2);
-                                a(aM, byteArrayOutputStream.toByteArray(), sb);
-                                if (loadSoLibrary(aM, sb)) {
+                                String aN = aN(str2);
+                                a(aN, byteArrayOutputStream.toByteArray(), sb);
+                                if (loadSoLibrary(aN, sb)) {
                                     sb.append("-Succ5-");
                                     z = true;
                                     com.baidu.adp.lib.g.a.e(byteArrayOutputStream);

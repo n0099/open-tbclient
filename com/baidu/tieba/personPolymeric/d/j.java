@@ -15,25 +15,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.m> {
-    private HTypeListView aYK;
+    private HTypeListView aYL;
     private TextView abZ;
-    private com.baidu.tieba.personPolymeric.a.o fnc;
-    private View.OnClickListener fng;
+    private com.baidu.tieba.personPolymeric.a.o fne;
+    private View.OnClickListener fni;
     private View mRootView;
     private long uid;
 
     public j(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fng = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.d.j.1
+        this.fni = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.d.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                j.this.aZp();
+                j.this.aZk();
             }
         };
         this.mRootView = getView();
         this.abZ = (TextView) this.mRootView.findViewById(d.h.card_person_vedio_list_title);
-        this.aYK = (HTypeListView) this.mRootView.findViewById(d.h.card_person_vedio_view_pager);
-        this.fnc = new com.baidu.tieba.personPolymeric.a.o(this.mTbPageContext, this.aYK);
+        this.aYL = (HTypeListView) this.mRootView.findViewById(d.h.card_person_vedio_view_pager);
+        this.fne = new com.baidu.tieba.personPolymeric.a.o(this.mTbPageContext, this.aYL);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -53,18 +53,18 @@ public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.m mVar) {
-        if (mVar == null || u.v(mVar.fmv)) {
+        if (mVar == null || u.v(mVar.fmx)) {
             this.mRootView.setVisibility(8);
             return;
         }
         this.uid = mVar.uid;
         this.abZ.setText(d.l.msglist_video);
-        this.aYK.setData(cN(mVar.fmv));
-        this.fnc.P(this.fng);
+        this.aYL.setData(cN(mVar.fmx));
+        this.fne.L(this.fni);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aZp() {
+    public void aZk() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoListActivityConfig(this.mContext).createNormalCfg(this.uid, "personal")));
     }
 

@@ -14,45 +14,45 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes.dex */
 public class a implements c.m {
-    private IntBuffer bCa;
     private IntBuffer bCb;
-    protected float bCc;
+    private IntBuffer bCc;
     protected float bCd;
     protected float bCe;
-    protected Bitmap bCf;
+    protected float bCf;
     protected Bitmap bCg;
     protected Bitmap bCh;
     protected Bitmap bCi;
     protected Bitmap bCj;
     protected Bitmap bCk;
-    protected float bCl;
+    protected Bitmap bCl;
     protected float bCm;
-    int bCo;
+    protected float bCn;
+    int bCp;
     private int bgColor;
     public Context context;
-    protected float bCn = 0.0f;
+    protected float bCo = 0.0f;
     private int one = 65536;
-    private Queue<com.baidu.tieba.b.a.b> bCp = new ConcurrentLinkedQueue();
-    private Queue<com.baidu.tieba.b.a.c> bCq = new ConcurrentLinkedQueue();
-    private int bCr = 0;
-    private int[] bCs = {this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one};
-    private int[] bCt = {this.one, 0, 0, 0, this.one, this.one, 0, this.one};
-    private int[] bBZ = new int[1];
+    private Queue<com.baidu.tieba.b.a.b> bCq = new ConcurrentLinkedQueue();
+    private Queue<com.baidu.tieba.b.a.c> bCr = new ConcurrentLinkedQueue();
+    private int bCs = 0;
+    private int[] bCt = {this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one};
+    private int[] bCu = {this.one, 0, 0, 0, this.one, this.one, 0, this.one};
+    private int[] bCa = new int[1];
 
     public a(Context context) {
         this.context = context;
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.bCs.length * 4);
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.bCt.length * 4);
         allocateDirect.order(ByteOrder.nativeOrder());
-        this.bCa = allocateDirect.asIntBuffer();
-        this.bCa.put(this.bCs);
-        this.bCa.position(0);
-        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(this.bCt.length * 4 * 6);
-        allocateDirect2.order(ByteOrder.nativeOrder());
-        this.bCb = allocateDirect2.asIntBuffer();
-        for (int i = 0; i < 6; i++) {
-            this.bCb.put(this.bCt);
-        }
+        this.bCb = allocateDirect.asIntBuffer();
+        this.bCb.put(this.bCt);
         this.bCb.position(0);
+        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(this.bCu.length * 4 * 6);
+        allocateDirect2.order(ByteOrder.nativeOrder());
+        this.bCc = allocateDirect2.asIntBuffer();
+        for (int i = 0; i < 6; i++) {
+            this.bCc.put(this.bCu);
+        }
+        this.bCc.position(0);
     }
 
     @Override // com.baidu.tieba.b.d.c.m
@@ -71,64 +71,64 @@ public class a implements c.m {
         gl10.glHint(3152, 4354);
         gl10.glEnableClientState(32884);
         gl10.glEnableClientState(32888);
-        gl10.glVertexPointer(3, 5132, 0, this.bCa);
-        gl10.glTexCoordPointer(2, 5132, 0, this.bCb);
-        gl10.glTranslatef(this.bCl, this.bCm, this.bCn);
-        if (this.bCq != null && this.bCq.size() != 0 && (peek = this.bCq.peek()) != null) {
-            if (peek.Ve() == 2) {
-                peek.d(this.bCl, this.bCm, this.bCn, this.bCo);
-                this.bCq.poll();
-            } else if (peek.Ve() == -1) {
-                if (!peek.Vd()) {
+        gl10.glVertexPointer(3, 5132, 0, this.bCb);
+        gl10.glTexCoordPointer(2, 5132, 0, this.bCc);
+        gl10.glTranslatef(this.bCm, this.bCn, this.bCo);
+        if (this.bCr != null && this.bCr.size() != 0 && (peek = this.bCr.peek()) != null) {
+            if (peek.Vb() == 2) {
+                peek.d(this.bCm, this.bCn, this.bCo, this.bCp);
+                this.bCr.poll();
+            } else if (peek.Vb() == -1) {
+                if (!peek.Va()) {
                     peek.hj(2);
                 } else {
                     peek.hj(0);
                 }
-            } else if (peek.Ve() == 0) {
-                peek.a(this.bCl, this.bCm, this.bCn, this.bCo);
-                float f = peek.f(this.bCl, this.bCm, this.bCn, this.bCo);
-                float g = peek.g(this.bCl, this.bCm, this.bCn, this.bCo);
-                float h = peek.h(this.bCl, this.bCm, this.bCn, this.bCo);
-                this.bCl = f;
-                this.bCm = g;
-                this.bCn = h;
+            } else if (peek.Vb() == 0) {
+                peek.a(this.bCm, this.bCn, this.bCo, this.bCp);
+                float f = peek.f(this.bCm, this.bCn, this.bCo, this.bCp);
+                float g = peek.g(this.bCm, this.bCn, this.bCo, this.bCp);
+                float h = peek.h(this.bCm, this.bCn, this.bCo, this.bCp);
+                this.bCm = f;
+                this.bCn = g;
+                this.bCo = h;
                 peek.hj(1);
-            } else if (peek.Ve() == 1) {
-                if (peek.b(this.bCl, this.bCm, this.bCn, this.bCo)) {
+            } else if (peek.Vb() == 1) {
+                if (peek.b(this.bCm, this.bCn, this.bCo, this.bCp)) {
                     peek.hj(2);
                 } else {
-                    peek.c(this.bCl, this.bCm, this.bCn, this.bCo);
-                    float f2 = peek.f(this.bCl, this.bCm, this.bCn, this.bCo);
-                    float g2 = peek.g(this.bCl, this.bCm, this.bCn, this.bCo);
-                    float h2 = peek.h(this.bCl, this.bCm, this.bCn, this.bCo);
-                    this.bCl = f2;
-                    this.bCm = g2;
-                    this.bCn = h2;
+                    peek.c(this.bCm, this.bCn, this.bCo, this.bCp);
+                    float f2 = peek.f(this.bCm, this.bCn, this.bCo, this.bCp);
+                    float g2 = peek.g(this.bCm, this.bCn, this.bCo, this.bCp);
+                    float h2 = peek.h(this.bCm, this.bCn, this.bCo, this.bCp);
+                    this.bCm = f2;
+                    this.bCn = g2;
+                    this.bCo = h2;
                 }
             }
         }
-        gl10.glRotatef(this.bCc, 1.0f, 0.0f, 0.0f);
-        gl10.glRotatef(this.bCd, 0.0f, 1.0f, 0.0f);
-        gl10.glRotatef(this.bCe, 0.0f, 0.0f, 1.0f);
+        gl10.glRotatef(this.bCd, 1.0f, 0.0f, 0.0f);
+        gl10.glRotatef(this.bCe, 0.0f, 1.0f, 0.0f);
+        gl10.glRotatef(this.bCf, 0.0f, 0.0f, 1.0f);
         for (int i = 0; i < 6; i++) {
             switch (i) {
                 case 0:
-                    GLUtils.texImage2D(3553, 0, this.bCf, 0);
-                    break;
-                case 1:
                     GLUtils.texImage2D(3553, 0, this.bCg, 0);
                     break;
-                case 2:
+                case 1:
                     GLUtils.texImage2D(3553, 0, this.bCh, 0);
                     break;
-                case 3:
+                case 2:
                     GLUtils.texImage2D(3553, 0, this.bCi, 0);
                     break;
-                case 4:
+                case 3:
                     GLUtils.texImage2D(3553, 0, this.bCj, 0);
                     break;
-                case 5:
+                case 4:
                     GLUtils.texImage2D(3553, 0, this.bCk, 0);
+                    break;
+                case 5:
+                    GLUtils.texImage2D(3553, 0, this.bCl, 0);
                     break;
             }
             gl10.glDrawArrays(5, i * 4, 4);
@@ -136,15 +136,15 @@ public class a implements c.m {
         gl10.glDisableClientState(32888);
         gl10.glDisableClientState(32884);
         double d2 = 0.0d;
-        if (this.bCp != null && this.bCp.size() != 0) {
-            com.baidu.tieba.b.a.b peek2 = this.bCp.peek();
+        if (this.bCq != null && this.bCq.size() != 0) {
+            com.baidu.tieba.b.a.b peek2 = this.bCq.peek();
             if (peek2 != null) {
-                if (peek2.Ve() == 2) {
-                    peek2.d(this.bCc, this.bCd, this.bCe, this.bCo);
-                    this.bCp.poll();
+                if (peek2.Vb() == 2) {
+                    peek2.d(this.bCd, this.bCe, this.bCf, this.bCp);
+                    this.bCq.poll();
                     return;
-                } else if (peek2.Ve() == -1) {
-                    if (!peek2.Vd()) {
+                } else if (peek2.Vb() == -1) {
+                    if (!peek2.Va()) {
                         peek2.hj(2);
                         return;
                     } else {
@@ -152,29 +152,29 @@ public class a implements c.m {
                         return;
                     }
                 } else {
-                    if (peek2.Ve() == 0) {
-                        peek2.a(this.bCc, this.bCd, this.bCe, this.bCo);
-                        double e = peek2.e(this.bCc, this.bCd, this.bCe, this.bCo);
+                    if (peek2.Vb() == 0) {
+                        peek2.a(this.bCd, this.bCe, this.bCf, this.bCp);
+                        double e = peek2.e(this.bCd, this.bCe, this.bCf, this.bCp);
                         peek2.hj(1);
                         d = e;
-                    } else if (peek2.Ve() == 1) {
-                        if (peek2.b(this.bCc, this.bCd, this.bCe, this.bCo)) {
+                    } else if (peek2.Vb() == 1) {
+                        if (peek2.b(this.bCd, this.bCe, this.bCf, this.bCp)) {
                             peek2.hj(2);
                             return;
                         } else {
-                            peek2.c(this.bCc, this.bCd, this.bCe, this.bCo);
-                            d = peek2.e(this.bCc, this.bCd, this.bCe, this.bCo);
+                            peek2.c(this.bCd, this.bCe, this.bCf, this.bCp);
+                            d = peek2.e(this.bCd, this.bCe, this.bCf, this.bCp);
                         }
                     }
-                    Vf();
+                    Vc();
                     d2 = d;
                 }
             }
             d = 0.0d;
-            Vf();
+            Vc();
             d2 = d;
         }
-        this.bCc = (float) (this.bCc + d2);
+        this.bCd = (float) (this.bCd + d2);
     }
 
     @Override // com.baidu.tieba.b.d.c.m
@@ -183,7 +183,7 @@ public class a implements c.m {
         gl10.glViewport(0, 0, i, i2);
         gl10.glMatrixMode(5889);
         gl10.glLoadIdentity();
-        switch (this.bCr) {
+        switch (this.bCs) {
             case 0:
                 a(gl10, f);
                 break;
@@ -224,47 +224,47 @@ public class a implements c.m {
         gl10.glEnable(2929);
         gl10.glDepthFunc(515);
         gl10.glEnable(3553);
-        gl10.glGenTextures(1, this.bBZ, 0);
-        gl10.glBindTexture(3553, this.bBZ[0]);
+        gl10.glGenTextures(1, this.bCa, 0);
+        gl10.glBindTexture(3553, this.bCa[0]);
         gl10.glEnable(32925);
         gl10.glTexParameterf(3553, 10241, 9729.0f);
         gl10.glTexParameterf(3553, 10240, 9729.0f);
     }
 
-    public void Vf() {
-        this.bCo++;
+    public void Vc() {
+        this.bCp++;
     }
 
-    public boolean Vg() {
-        this.bCo = 0;
+    public boolean Vd() {
+        this.bCp = 0;
         return true;
     }
 
-    public void Vh() {
-        this.bCc = 0.0f;
+    public void Ve() {
         this.bCd = 0.0f;
         this.bCe = 0.0f;
+        this.bCf = 0.0f;
     }
 
-    public void wr() {
+    public void ws() {
+        this.bCr.clear();
         this.bCq.clear();
-        this.bCp.clear();
-        Vg();
-        Vh();
+        Vd();
+        Ve();
     }
 
     public void a(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3, Bitmap bitmap4, Bitmap bitmap5, Bitmap bitmap6) {
-        this.bCf = bitmap;
-        this.bCg = bitmap2;
-        this.bCh = bitmap3;
-        this.bCi = bitmap4;
-        this.bCj = bitmap5;
-        this.bCk = bitmap6;
+        this.bCg = bitmap;
+        this.bCh = bitmap2;
+        this.bCi = bitmap3;
+        this.bCj = bitmap4;
+        this.bCk = bitmap5;
+        this.bCl = bitmap6;
     }
 
     public void a(com.baidu.tieba.b.a.b bVar) {
         if (bVar != null) {
-            this.bCp.add(bVar);
+            this.bCq.add(bVar);
         }
     }
 
@@ -279,6 +279,6 @@ public class a implements c.m {
     }
 
     public void R(float f) {
-        this.bCn = f;
+        this.bCo = f;
     }
 }

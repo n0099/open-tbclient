@@ -13,10 +13,10 @@ import com.baidu.tieba.card.u;
 import com.baidu.tieba.card.x;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a>> {
-    public BdUniqueId aON;
+    public BdUniqueId aOO;
     private com.baidu.tieba.homepage.concern.view.a cSk;
     private x cSl;
-    private TbPageContext<?> oV;
+    private TbPageContext<?> oW;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
@@ -28,7 +28,7 @@ public class b extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
                     boolean z = view == b.this.cSk.getHeaderImg();
                     aj ajVar = new aj("c12352");
                     ajVar.r("obj_locate", z ? 1 : 2);
-                    ajVar.aa("obj_type", kVar.Xe());
+                    ajVar.aa("obj_type", kVar.Xb());
                     ajVar.aa("tid", kVar.threadData.getTid());
                     ajVar.g("fid", kVar.threadData.getFid());
                     ajVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
@@ -36,7 +36,7 @@ public class b extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
                 }
             }
         };
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,8 +44,8 @@ public class b extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: x */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a> onCreateViewHolder(ViewGroup viewGroup) {
-        this.cSk = new com.baidu.tieba.homepage.concern.view.a(this.oV);
-        this.cSk.j(this.aON);
+        this.cSk = new com.baidu.tieba.homepage.concern.view.a(this.oW);
+        this.cSk.j(this.aOO);
         return new com.baidu.tieba.card.a.a<>(this.cSk);
     }
 
@@ -54,13 +54,13 @@ public class b extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a> aVar) {
-        if (kVar == null || aVar == null || aVar.Xy() == null) {
+        if (kVar == null || aVar == null || aVar.Xv() == null) {
             return null;
         }
         kVar.hw(i + 1);
-        u.WX().a(kVar.jl("c12351"));
-        aVar.Xy().a(kVar);
-        aVar.Xy().b(this.cSl);
+        u.WU().a(kVar.jo("c12351"));
+        aVar.Xv().a(kVar);
+        aVar.Xv().b(this.cSl);
         return aVar.getView();
     }
 }

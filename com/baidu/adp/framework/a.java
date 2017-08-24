@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a pP;
-    private SparseArray<String> pQ;
+    private static volatile a pQ;
+    private SparseArray<String> pR;
 
     public static a cA() {
-        if (pP == null) {
+        if (pQ == null) {
             synchronized (a.class) {
-                if (pP == null) {
-                    pP = new a();
+                if (pQ == null) {
+                    pQ = new a();
                 }
             }
         }
-        return pP;
+        return pQ;
     }
 
     private a() {
-        this.pQ = null;
-        this.pQ = new SparseArray<>();
+        this.pR = null;
+        this.pR = new SparseArray<>();
     }
 
     public void e(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                G(str);
+                H(str);
             }
         }
     }
 
-    private void G(String str) {
+    private void H(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.pQ.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.pQ.get(i) + " 重复");
+                    if (this.pR.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.pR.get(i) + " 重复");
                     }
-                    this.pQ.put(i, name);
+                    this.pR.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -60,7 +60,7 @@ public class a {
     }
 
     public String J(int i) {
-        String str = this.pQ.get(i);
+        String str = this.pR.get(i);
         if (str != null) {
             return str;
         }

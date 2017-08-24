@@ -19,16 +19,16 @@ public class e {
 
     private static ShareFromFrsMsgData e(com.baidu.tieba.tbadkCore.i iVar) {
         ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(iVar.aPO().getImage_url());
-        shareFromFrsMsgData.setName(iVar.aPO().getName());
-        shareFromFrsMsgData.setMemberNum(iVar.aPO().getMember_num());
-        shareFromFrsMsgData.setPostNum(iVar.aPO().getPost_num());
-        shareFromFrsMsgData.setContent(iVar.aPO().getSlogan());
+        shareFromFrsMsgData.setImageUrl(iVar.aPJ().getImage_url());
+        shareFromFrsMsgData.setName(iVar.aPJ().getName());
+        shareFromFrsMsgData.setMemberNum(iVar.aPJ().getMember_num());
+        shareFromFrsMsgData.setPostNum(iVar.aPJ().getPost_num());
+        shareFromFrsMsgData.setContent(iVar.aPJ().getSlogan());
         return shareFromFrsMsgData;
     }
 
     private static void a(final com.baidu.tieba.frs.f fVar, com.baidu.tieba.tbadkCore.i iVar, final ShareFromFrsMsgData shareFromFrsMsgData, final long j, final String str, final String str2) {
-        if (iVar != null && iVar.aPO() != null) {
+        if (iVar != null && iVar.aPJ() != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(fVar.getPageContext().getPageActivity());
             final com.baidu.tieba.frs.view.d dVar = new com.baidu.tieba.frs.view.d(fVar.getPageContext().getPageActivity());
             dVar.setPageId(fVar.getUniqueId());
@@ -51,7 +51,7 @@ public class e {
                 }
             });
             aVar.as(true);
-            aVar.b(fVar.getPageContext()).tr();
+            aVar.b(fVar.getPageContext()).ts();
             if (!com.baidu.adp.lib.util.j.isEmpty(shareFromFrsMsgData.getImageUrl())) {
                 dVar.K(shareFromFrsMsgData.getImageUrl(), false);
             }
@@ -59,7 +59,7 @@ public class e {
     }
 
     public static void a(final com.baidu.tieba.frs.f fVar, com.baidu.tieba.tbadkCore.i iVar, final int i, final String str, final long j) {
-        if (iVar != null && iVar.aPO() != null) {
+        if (iVar != null && iVar.aPJ() != null) {
             final ShareFromFrsMsgData e = e(iVar);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(fVar.getPageContext().getPageActivity());
             final com.baidu.tieba.frs.view.d dVar = new com.baidu.tieba.frs.view.d(fVar.getPageContext().getPageActivity());
@@ -83,7 +83,7 @@ public class e {
                 }
             });
             aVar.as(true);
-            aVar.b(fVar.getPageContext()).tr();
+            aVar.b(fVar.getPageContext()).ts();
             if (!com.baidu.adp.lib.util.j.isEmpty(e.getImageUrl())) {
                 dVar.K(e.getImageUrl(), false);
             }

@@ -45,7 +45,7 @@ public class PersonalChatActivityStatic {
                         @Override // com.baidu.tbadk.util.t
                         /* renamed from: Lp */
                         public Void doInBackground() {
-                            return l.auL().q(linkedList);
+                            return l.auG().q(linkedList);
                         }
                     }, new h<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -64,7 +64,7 @@ public class PersonalChatActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        at.wf().a(new at.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.3
+        at.wg().a(new at.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.3
             @Override // com.baidu.tbadk.core.util.at.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -91,7 +91,7 @@ public class PersonalChatActivityStatic {
         });
     }
 
-    public static e azc() {
+    public static e ayX() {
         return dCK;
     }
 

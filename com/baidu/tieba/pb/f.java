@@ -8,18 +8,18 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
 public class f {
-    private static String eDN = TbadkCoreApplication.getInst().getContext().getString(d.l.ueg_host_msg);
+    private static String eDP = TbadkCoreApplication.getInst().getContext().getString(d.l.ueg_host_msg);
 
-    public static void pf(String str) {
+    public static void pk(String str) {
         if (!al.isEmpty(str)) {
-            eDN = str;
+            eDP = str;
         }
     }
 
     public static boolean T(bl blVar) {
         if (TbadkCoreApplication.isLogin()) {
             if (blVar != null && blVar.aaW) {
-                BdToast.a(TbadkCoreApplication.getInst().getContext(), eDN).tz();
+                BdToast.a(TbadkCoreApplication.getInst().getContext(), eDP).tA();
                 return true;
             }
             return false;
@@ -30,7 +30,7 @@ public class f {
     public static boolean d(PostData postData) {
         if (TbadkCoreApplication.isLogin()) {
             if (postData != null && postData.gkt) {
-                BdToast.a(TbadkCoreApplication.getInst().getContext(), eDN).tz();
+                BdToast.a(TbadkCoreApplication.getInst().getContext(), eDP).tA();
                 return true;
             }
             return false;
@@ -40,7 +40,7 @@ public class f {
 
     public static boolean iL(boolean z) {
         if (z) {
-            BdToast.a(TbadkCoreApplication.getInst().getContext(), eDN).tz();
+            BdToast.a(TbadkCoreApplication.getInst().getContext(), eDP).tA();
             return true;
         }
         return false;

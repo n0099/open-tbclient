@@ -5,26 +5,26 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
     private ArrayList<f> acH;
-    private int fgp = 0;
-    private boolean fgq = true;
+    private int fgr = 0;
+    private boolean fgs = true;
 
     public void an(ArrayList<f> arrayList) {
         this.acH = arrayList;
     }
 
     public void qh(int i) {
-        this.fgp = i;
+        this.fgr = i;
     }
 
-    public boolean aXL() {
-        return this.fgq;
+    public boolean aXG() {
+        return this.fgs;
     }
 
     public void kl(boolean z) {
-        this.fgq = z;
+        this.fgs = z;
     }
 
-    public ArrayList<f> aXM() {
+    public ArrayList<f> aXH() {
         return this.acH;
     }
 }

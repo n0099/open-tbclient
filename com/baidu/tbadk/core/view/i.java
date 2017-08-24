@@ -43,7 +43,7 @@ public class i {
     private ViewGroup mContentView;
     private Context mContext;
     private int mWindowHeight;
-    private TbPageContext oV;
+    private TbPageContext oW;
     private PopupWindow alV = null;
     private an alW = null;
     private SparseArray<String> alK = null;
@@ -65,7 +65,7 @@ public class i {
                     i.this.alX.remove(aVar);
                 }
             }
-            i.this.wO();
+            i.this.wP();
         }
     };
     private View.OnClickListener amk = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.i.2
@@ -74,7 +74,7 @@ public class i {
             if (i.this.alW != null && i.this.alV != null) {
                 ArrayList<Integer> arrayList = new ArrayList<>();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.NEG_FEED_BACK_DELETE, i.this.l(arrayList)));
-                i.this.wM();
+                i.this.wN();
                 c cVar = new c();
                 cVar.alo = 1500L;
                 cVar.d(i.this.mContext.getResources().getString(d.l.reduce_related_thread_recommend));
@@ -97,14 +97,14 @@ public class i {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            i.this.wM();
+            i.this.wN();
         }
     };
 
     public i(TbPageContext tbPageContext, View view) {
         this.mContext = null;
         this.mContext = tbPageContext.getPageActivity();
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
         this.amf = view;
         init();
     }
@@ -114,9 +114,9 @@ public class i {
         this.amc = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds6);
         this.alY = com.baidu.adp.lib.util.k.ag(this.mContext) - (this.amb * 2);
         this.ama = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds120);
-        this.ami = new g(this.oV);
+        this.ami = new g(this.oW);
         this.ami.a(this.alN);
-        this.oV.registerListener(this.amm);
+        this.oW.registerListener(this.amm);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -128,10 +128,10 @@ public class i {
         }
     }
 
-    public void wL() {
+    public void wM() {
         if (this.mContext != null && this.alK != null && this.alK.size() != 0) {
             View contentView = getContentView();
-            this.mWindowHeight = wN();
+            this.mWindowHeight = wO();
             this.alV = new PopupWindow(contentView, this.alY, this.mWindowHeight);
             this.alV.setFocusable(true);
             this.alV.setTouchable(true);
@@ -177,7 +177,7 @@ public class i {
         return this.mContentView;
     }
 
-    private int wN() {
+    private int wO() {
         if (this.mContentView == null) {
             return 0;
         }
@@ -256,7 +256,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wO() {
+    public void wP() {
         int size = this.alX.size();
         if (size > 0) {
             String string = this.mContext.getResources().getString(d.l.feedback_selected_reason, Integer.valueOf(size));
@@ -273,7 +273,7 @@ public class i {
     public void setData(an anVar) {
         if (anVar != null) {
             this.alW = anVar;
-            this.alK = anVar.qw();
+            this.alK = anVar.qx();
             this.ami.setData(anVar);
         }
     }
@@ -290,7 +290,7 @@ public class i {
         this.ami.setDefaultReasonArray(strArr);
     }
 
-    public void wM() {
+    public void wN() {
         if (this.alV != null) {
             this.alV.dismiss();
             this.alV = null;
@@ -304,13 +304,13 @@ public class i {
     /* JADX INFO: Access modifiers changed from: protected */
     public void onDetachedFromWindow() {
         MessageManager.getInstance().unRegisterListener(this.amm);
-        wM();
+        wN();
     }
 
     private void resetState() {
         if (this.amj && this.alX.size() != 0) {
             this.alX.clear();
-            wO();
+            wP();
         }
     }
 }

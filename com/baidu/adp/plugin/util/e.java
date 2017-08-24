@@ -16,7 +16,7 @@ public final class e {
     private static WeakReference<byte[]> GT;
     private static Object mSync = new Object();
 
-    public static Signature[] bI(String str) throws CertificateEncodingException, IOException {
+    public static Signature[] bJ(String str) throws CertificateEncodingException, IOException {
         byte[] bArr;
         byte[] bArr2;
         WeakReference<byte[]> weakReference;

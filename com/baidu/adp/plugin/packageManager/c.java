@@ -73,7 +73,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
             if (this.packageName != null) {
-                bk(this.packageName);
+                bl(this.packageName);
             }
             return true;
         }
@@ -100,19 +100,19 @@ public class c {
             c.this.jy();
         }
 
-        private void bk(String str) {
+        private void bl(String str) {
             File[] listFiles;
-            File ks = Util.ks();
-            String bK = Util.bK(str);
-            if (ks != null && ks.exists() && (listFiles = ks.listFiles()) != null) {
+            File kr = Util.kr();
+            String bL = Util.bL(str);
+            if (kr != null && kr.exists() && (listFiles = kr.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
-                    if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bK)) {
+                    if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bL)) {
                         try {
                             e.i(listFiles[i]);
-                            com.baidu.adp.plugin.b.a.jr().e("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
+                            com.baidu.adp.plugin.b.a.jr().c("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
                         } catch (Throwable th) {
-                            com.baidu.adp.plugin.b.a.jr().f("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
+                            com.baidu.adp.plugin.b.a.jr().d("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
                         }
                     }
                 }

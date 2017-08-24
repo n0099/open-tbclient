@@ -28,8 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends c<PbActivity> {
-    private com.baidu.tbadk.widget.vote.b aSN;
-    private PbActivity eIu;
+    private com.baidu.tbadk.widget.vote.b aSO;
+    private PbActivity eIw;
     private View gyI;
     private VotePhotoGroupView gyJ;
     private VoteTextGroupView gyK;
@@ -56,7 +56,7 @@ public class a extends c<PbActivity> {
         }
     }
 
-    public void bxr() {
+    public void bxk() {
         if (this.gyJ != null) {
             this.gyJ.setPadding(0, 0, 0, 0);
         }
@@ -68,7 +68,7 @@ public class a extends c<PbActivity> {
         this.gyS = new ArrayList();
         this.gyT = false;
         this.maxWidth = 0;
-        this.aSN = new com.baidu.tbadk.widget.vote.b() { // from class: com.baidu.tieba.vote.a.2
+        this.aSO = new com.baidu.tbadk.widget.vote.b() { // from class: com.baidu.tieba.vote.a.2
             @Override // com.baidu.tbadk.widget.vote.b
             public void a(com.baidu.tbadk.widget.vote.a aVar, int i, boolean z) {
                 if (a.this.gyR != null && a.this.gyR.getOptions() != null && i >= 0 && i < a.this.gyR.getOptions().size()) {
@@ -89,9 +89,9 @@ public class a extends c<PbActivity> {
                         }
                         k.showToast(TbadkCoreApplication.getInst(), string);
                     } else if (responsedMessage instanceof AddVoteHttpProtoResponse) {
-                        a.this.bxt();
+                        a.this.bxm();
                     } else if (responsedMessage instanceof AddVoteSocketResponse) {
-                        a.this.bxt();
+                        a.this.bxm();
                     }
                 }
             }
@@ -99,8 +99,8 @@ public class a extends c<PbActivity> {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.vote.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view.getId() == d.h.btn_pb_vote && a.this.eIu != null && a.this.eIu.checkUpIsLogin() && a.this.gyR != null && a.this.mForumId > 0 && a.this.mThreadId > 0 && !a.this.gyT) {
-                    AddVoteModel addVoteModel = new AddVoteModel(a.this.eIu);
+                if (view.getId() == d.h.btn_pb_vote && a.this.eIw != null && a.this.eIw.checkUpIsLogin() && a.this.gyR != null && a.this.mForumId > 0 && a.this.mThreadId > 0 && !a.this.gyT) {
+                    AddVoteModel addVoteModel = new AddVoteModel(a.this.eIw);
                     StringBuilder sb = new StringBuilder();
                     List<com.baidu.tbadk.widget.vote.a> options = a.this.gyR.getOptions();
                     if (options != null) {
@@ -117,7 +117,7 @@ public class a extends c<PbActivity> {
                             sb.deleteCharAt(sb.length() - 1);
                         }
                         if (TextUtils.isEmpty(sb.toString())) {
-                            UtilHelper.showToast(a.this.eIu.getActivity(), d.l.vote_checked_less_one);
+                            UtilHelper.showToast(a.this.eIw.getActivity(), d.l.vote_checked_less_one);
                             return;
                         }
                         addVoteModel.a(a.this.mForumId, a.this.mThreadId, sb.toString());
@@ -126,22 +126,22 @@ public class a extends c<PbActivity> {
                 }
             }
         };
-        this.eIu = pbActivity;
+        this.eIw = pbActivity;
         pbActivity.registerListener(this.gyV);
         this.maxWidth = k.ag(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds120);
         this.gyU = new com.baidu.tbadk.core.view.c();
     }
 
     public void a(View view, f fVar) {
-        if (fVar != null && fVar.aPO() != null && fVar.aPQ() != null && view != null) {
-            this.mForumId = com.baidu.adp.lib.g.b.d(fVar.aPO().getId(), 0L);
-            this.mThreadId = com.baidu.adp.lib.g.b.d(fVar.aPQ().getId(), 0L);
-            if (fVar.aPQ().sr() && fVar.aPQ().rt() != null) {
+        if (fVar != null && fVar.aPJ() != null && fVar.aPL() != null && view != null) {
+            this.mForumId = com.baidu.adp.lib.g.b.d(fVar.aPJ().getId(), 0L);
+            this.mThreadId = com.baidu.adp.lib.g.b.d(fVar.aPL().getId(), 0L);
+            if (fVar.aPL().ss() && fVar.aPL().ru() != null) {
                 if (this.gyI == null) {
                     this.gyI = ((ViewStub) view.findViewById(d.h.vote_card_layout)).inflate();
                     this.gyQ = (TextView) this.gyI.findViewById(d.h.btn_pb_vote);
-                    this.gyR = fVar.aPN();
-                    b((PostData) u.c(fVar.aPS(), 0), this.gyI);
+                    this.gyR = fVar.aPI();
+                    b((PostData) u.c(fVar.aPN(), 0), this.gyI);
                     a(this.gyR, false);
                 }
                 if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
@@ -164,8 +164,8 @@ public class a extends c<PbActivity> {
         this.gyP = (TextView) view.findViewById(d.h.pb_item_vote_location_address);
         h hVar = null;
         if (postData != null) {
-            this.gyO.setText(postData.bti());
-            hVar = postData.btj();
+            this.gyO.setText(postData.btb());
+            hVar = postData.btc();
         }
         if (hVar != null && !TextUtils.isEmpty(hVar.getName()) && !TextUtils.isEmpty(hVar.getName().trim())) {
             final String name = hVar.getName();
@@ -178,9 +178,9 @@ public class a extends c<PbActivity> {
                 public void onClick(View view2) {
                     if (TbadkCoreApplication.getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(lat) && !StringUtils.isNull(lng)) {
                         if (!i.hr()) {
-                            a.this.eIu.showToast(d.l.neterror);
+                            a.this.eIw.showToast(d.l.neterror);
                         } else {
-                            com.baidu.tbadk.browser.a.T(a.this.eIu.getPageContext().getPageActivity(), String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", lat + Constants.ACCEPT_TIME_SEPARATOR_SP + lng, name, name, a.this.mContext.getString(d.l.app_info_for_map)));
+                            com.baidu.tbadk.browser.a.T(a.this.eIw.getPageContext().getPageActivity(), String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", lat + Constants.ACCEPT_TIME_SEPARATOR_SP + lng, name, name, a.this.mContext.getString(d.l.app_info_for_map)));
                         }
                     }
                 }
@@ -200,12 +200,12 @@ public class a extends c<PbActivity> {
                     }
                 }
             }
-            aZq();
+            aZl();
             if (this.gyR.getVoteType() == 1) {
                 if (this.gyR.getStatus() == 2 || this.gyR.getIsPolled() == 1) {
                     mY(z);
                 } else {
-                    bxs();
+                    bxl();
                 }
             } else if (this.gyR.getVoteType() == 2) {
                 if (this.gyR.getStatus() == 2 || this.gyR.getIsPolled() == 1) {
@@ -220,25 +220,25 @@ public class a extends c<PbActivity> {
     private void H(int i, boolean z) {
         if (this.gyI != null && this.gyR != null) {
             this.gyJ = (VotePhotoGroupView) this.gyI.findViewById(d.h.picvote_view);
-            this.gyJ.setOnVoteCheckedChangedListener(this.aSN);
+            this.gyJ.setOnVoteCheckedChangedListener(this.aSO);
             this.gyJ.setVisibility(0);
             this.gyJ.setMode(i);
             this.gyJ.a(this.gyR.getOptions(), z, this.gyR.getIsPolled() == 1);
         }
     }
 
-    private void aZq() {
+    private void aZl() {
         if (this.gyI != null && this.gyR != null) {
             ((TextView) this.gyI.findViewById(d.h.tv_vote_endtime)).setText(this.gyR.getTips());
             ((TextView) this.gyI.findViewById(d.h.vote_num)).setText(getPageContext().getPageActivity().getString(d.l.pb_vote_num, new Object[]{Long.valueOf(this.gyR.getTotalNum())}));
-            bxu();
+            bxn();
         }
     }
 
-    private void bxs() {
+    private void bxl() {
         if (this.gyI != null && this.gyR != null) {
             this.gyK = (VoteTextGroupView) this.gyI.findViewById(d.h.textvote_view);
-            this.gyK.setOnVoteCheckedChangedListener(this.aSN);
+            this.gyK.setOnVoteCheckedChangedListener(this.aSO);
             this.gyK.setVisibility(0);
             this.gyK.setMode(this.gyR.getIsMulti() == 1 ? 1 : 2);
             this.gyK.I(this.gyR.getOptions());
@@ -261,10 +261,10 @@ public class a extends c<PbActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bxt() {
+    public void bxm() {
         if (this.gyR != null) {
-            if (this.gyU != null && this.eIu != null) {
-                this.gyU.c(this.eIu.getActivity().getString(d.l.vote_succ));
+            if (this.gyU != null && this.eIw != null) {
+                this.gyU.c(this.eIw.getActivity().getString(d.l.vote_succ));
             }
             this.gyR.setIsPolled(1);
             this.gyR.setTotalNum(this.gyR.getTotalNum() + 1);
@@ -294,12 +294,12 @@ public class a extends c<PbActivity> {
 
     public void onChangeSkinType() {
         if (this.gyI != null) {
-            com.baidu.tbadk.o.a.a(this.eIu.getPageContext(), this.gyI);
+            com.baidu.tbadk.o.a.a(this.eIw.getPageContext(), this.gyI);
         }
-        bxu();
+        bxn();
     }
 
-    private void bxu() {
+    private void bxn() {
         if (this.gyQ != null && this.gyR != null) {
             if (this.gyR.getStatus() == 2) {
                 ai.j(this.gyQ, d.g.bg_gray_circle);

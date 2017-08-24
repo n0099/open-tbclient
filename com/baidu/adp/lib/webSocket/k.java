@@ -109,14 +109,14 @@ public class k {
     /* loaded from: classes.dex */
     public static class a extends h {
         public byte[] Cb;
-        public long qt;
         public long qu;
+        public long qv;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(byte[] bArr, long j, long j2) {
             this.Cb = bArr;
-            this.qt = j;
-            this.qu = j2;
+            this.qu = j;
+            this.qv = j2;
         }
     }
 

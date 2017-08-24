@@ -24,7 +24,7 @@ public class Static {
                 GroupNewsPojo p;
                 PluginNetConfigInfos parse;
                 int i = 0;
-                if (TbadkCoreApplication.getInst().isMainProcess(true) && c.kh().ke().getPlugins().size() != 0 && customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && !TextUtils.isEmpty(p.getCmd())) {
+                if (TbadkCoreApplication.getInst().isMainProcess(true) && c.kg().kd().getPlugins().size() != 0 && customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && !TextUtils.isEmpty(p.getCmd())) {
                     String content = p.getContent();
                     if (!TextUtils.isEmpty(content)) {
                         try {
@@ -44,7 +44,7 @@ public class Static {
                                     if (Util.I(string, jP) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
                                         PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
                                         PluginNetConfigInfos.PluginConfig pluginConfig2 = PluginPackageManager.jE().getPluginConfig(pluginConfig.package_name);
-                                        d.kb().kc().addOrUpdateConfig(pluginConfig);
+                                        d.ka().kb().addOrUpdateConfig(pluginConfig);
                                         if (pluginConfig2 == null) {
                                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, pluginConfig));
                                             return;

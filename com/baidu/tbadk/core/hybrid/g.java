@@ -36,9 +36,9 @@ public class g extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
-        e.cW("page " + str + " load finished.");
+        e.cZ("page " + str + " load finished.");
         if (!this.adz.contains(str)) {
-            this.adr.df(str);
+            this.adr.di(str);
         }
         this.adz.clear();
         if (this.ady != null) {
@@ -88,7 +88,7 @@ public class g extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public void onReceivedError(WebView webView, int i, String str, String str2) {
-        e.cW("Failed url " + str2 + " with description:" + str);
+        e.cZ("Failed url " + str2 + " with description:" + str);
         this.adz.add(str2);
         if (this.ady != null) {
             this.ady.onReceivedError(webView, i, str, str2);

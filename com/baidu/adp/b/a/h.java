@@ -37,7 +37,7 @@ public class h extends k {
             dVar.DB.a(canvas, this.DS, this.Dc, this.mPaint);
         } else if (dVar.iN()) {
             if (this.DW) {
-                a(canvas, dVar.DB.kX());
+                a(canvas, dVar.DB.kW());
                 return;
             }
             this.DS.set(0, 0, dVar.getWidth(), dVar.getHeight());

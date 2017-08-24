@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.ai;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    private TextView fnF;
-    private TextView fnG;
-    private View fnH;
-    private View fnI;
-    private s fnJ;
+    private TextView fnH;
+    private TextView fnI;
+    private View fnJ;
+    private View fnK;
+    private s fnL;
     private Context mContext;
     private View mRootView;
     private int mCurrentPage = 0;
@@ -22,41 +22,41 @@ public class p implements View.OnClickListener {
 
     public p(Context context, s sVar) {
         this.mContext = context;
-        this.fnJ = sVar;
+        this.fnL = sVar;
     }
 
-    public View Ym() {
+    public View Yj() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(d.j.person_button_header_view, (ViewGroup) null);
-        this.fnF = (TextView) this.mRootView.findViewById(d.h.fourm_name_btn);
-        this.fnG = (TextView) this.mRootView.findViewById(d.h.reply_btn);
-        this.fnH = this.mRootView.findViewById(d.h.fourm_name_divider);
-        this.fnI = this.mRootView.findViewById(d.h.reply_btn_divider);
-        Wo();
-        this.fnF.setTextColor(this.anl);
-        this.fnG.setTextColor(this.anm);
+        this.fnH = (TextView) this.mRootView.findViewById(d.h.fourm_name_btn);
+        this.fnI = (TextView) this.mRootView.findViewById(d.h.reply_btn);
+        this.fnJ = this.mRootView.findViewById(d.h.fourm_name_divider);
+        this.fnK = this.mRootView.findViewById(d.h.reply_btn_divider);
+        Wl();
+        this.fnH.setTextColor(this.anl);
+        this.fnI.setTextColor(this.anm);
         return this.mRootView;
     }
 
-    private void Wo() {
-        this.fnF.setOnClickListener(this);
-        this.fnG.setOnClickListener(this);
+    private void Wl() {
+        this.fnH.setOnClickListener(this);
+        this.fnI.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == d.h.fourm_name_btn) {
             this.mCurrentPage = 0;
-            this.fnJ.qr(0);
-            this.fnH.setVisibility(0);
-            this.fnI.setVisibility(4);
-            this.fnF.setTextColor(this.anl);
-            this.fnG.setTextColor(this.anm);
+            this.fnL.qr(0);
+            this.fnJ.setVisibility(0);
+            this.fnK.setVisibility(4);
+            this.fnH.setTextColor(this.anl);
+            this.fnI.setTextColor(this.anm);
         } else if (view.getId() == d.h.reply_btn) {
-            this.fnJ.qr(1);
-            this.fnH.setVisibility(4);
-            this.fnI.setVisibility(0);
-            this.fnF.setTextColor(this.anm);
-            this.fnG.setTextColor(this.anl);
+            this.fnL.qr(1);
+            this.fnJ.setVisibility(4);
+            this.fnK.setVisibility(0);
+            this.fnH.setTextColor(this.anm);
+            this.fnI.setTextColor(this.anl);
             this.mCurrentPage = 1;
         }
     }
@@ -65,23 +65,23 @@ public class p implements View.OnClickListener {
         this.anl = ai.getColor(d.e.cp_cont_b);
         this.anm = ai.getColor(d.e.cp_cont_f);
         ai.j(this.mRootView, d.g.item_person_header_attention_bg_selector);
-        ai.k(this.fnH, d.e.cp_cont_b);
-        ai.k(this.fnI, d.e.cp_cont_b);
+        ai.k(this.fnJ, d.e.cp_cont_b);
+        ai.k(this.fnK, d.e.cp_cont_b);
         pk(this.mCurrentPage);
     }
 
     public void pk(int i) {
         this.mCurrentPage = i;
         if (i == 0) {
-            this.fnH.setVisibility(0);
-            this.fnI.setVisibility(4);
-            this.fnF.setTextColor(this.anl);
-            this.fnG.setTextColor(this.anm);
+            this.fnJ.setVisibility(0);
+            this.fnK.setVisibility(4);
+            this.fnH.setTextColor(this.anl);
+            this.fnI.setTextColor(this.anm);
         } else if (i == 1) {
-            this.fnH.setVisibility(4);
-            this.fnI.setVisibility(0);
-            this.fnF.setTextColor(this.anm);
-            this.fnG.setTextColor(this.anl);
+            this.fnJ.setVisibility(4);
+            this.fnK.setVisibility(0);
+            this.fnH.setTextColor(this.anm);
+            this.fnI.setTextColor(this.anl);
         }
     }
 }

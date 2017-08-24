@@ -62,7 +62,7 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes.dex */
     public static class a {
-        public TextView bGh;
+        public TextView bGi;
         public BarImageView gEA;
         private Drawable gEB;
         private Drawable gEC;
@@ -71,7 +71,7 @@ public class b extends BaseAdapter {
 
         public a(View view) {
             if (view != null) {
-                this.bGh = (TextView) view.findViewById(d.h.transmit_forum_name);
+                this.bGi = (TextView) view.findViewById(d.h.transmit_forum_name);
                 this.gEz = (CheckBox) view.findViewById(d.h.transmit_check_box);
                 this.gEA = (BarImageView) view.findViewById(d.h.forum_avatar);
             }
@@ -79,8 +79,8 @@ public class b extends BaseAdapter {
 
         public void b(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.bGh.setText(transmitForumData.forumName);
-                this.gEz.setChecked(transmitForumData.abk);
+                this.bGi.setText(transmitForumData.forumName);
+                this.gEz.setChecked(transmitForumData.checked);
                 this.gEA.c(transmitForumData.avatar, 10, false);
                 if (transmitForumData.abl) {
                     this.gEz.setButtonDrawable(this.gEB);
@@ -92,7 +92,7 @@ public class b extends BaseAdapter {
 
         public void xd() {
             if (b.gEy != this.mSkinType) {
-                ai.i(this.bGh, d.e.cp_cont_b);
+                ai.i(this.bGi, d.e.cp_cont_b);
                 this.gEB = ai.getDrawable(d.g.icon_list_confirm_d);
                 this.gEC = ai.getDrawable(d.g.transmit_check_box);
             }

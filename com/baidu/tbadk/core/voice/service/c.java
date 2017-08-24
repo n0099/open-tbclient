@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.voice.service;
 public interface c {
     void dE(int i);
 
-    boolean eD(String str);
+    boolean eH(String str);
 
     int getErrorNo();
 

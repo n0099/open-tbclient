@@ -17,11 +17,11 @@ public class s {
             com.baidu.adp.lib.util.k.showToast(context, d.l.download_error);
             return;
         }
-        File dv = com.baidu.tbadk.core.util.k.dv(str.replace(".", "_") + ".apk");
-        if (dv != null) {
+        File dy = com.baidu.tbadk.core.util.k.dy(str.replace(".", "_") + ".apk");
+        if (dy != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(dv, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(dy, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }

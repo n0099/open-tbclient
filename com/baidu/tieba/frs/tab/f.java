@@ -89,7 +89,7 @@ public class f implements a {
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             if (f.this.cyB != null) {
-                f.this.cyB.ajK();
+                f.this.cyB.ajE();
             }
             if (f.this.cyC != null && f.this.cye != null) {
                 for (as asVar : f.this.mData) {
@@ -100,7 +100,7 @@ public class f implements a {
                 as asVar2 = (as) f.this.cyC.getItem(i);
                 if (asVar2 != null) {
                     asVar2.isSelected = true;
-                    f.this.cye.jA(asVar2.cmw);
+                    f.this.cye.jA(asVar2.cmx);
                 }
             }
         }
@@ -122,7 +122,7 @@ public class f implements a {
         if (context != null && eVar != null) {
             this.mContext = context;
             this.cyB = eVar;
-            this.cye = eVar.ajL();
+            this.cye = eVar.ajF();
             initView();
         }
     }
@@ -144,7 +144,7 @@ public class f implements a {
     }
 
     @Override // com.baidu.tieba.frs.tab.a
-    public int ajI() {
+    public int ajC() {
         return 0;
     }
 }

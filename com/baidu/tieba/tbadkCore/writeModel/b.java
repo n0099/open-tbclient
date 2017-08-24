@@ -26,15 +26,15 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean bun() {
+    public boolean bug() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean buo() {
+    public boolean buh() {
         return this.errorCode == 1990055;
     }
 
-    public boolean bup() {
+    public boolean bui() {
         return this.errorCode == 227001;
     }
 
@@ -50,7 +50,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData aBC() {
+    public AntiData aBx() {
         return this.antiData;
     }
 
@@ -94,19 +94,19 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String buq() {
+    public String buj() {
         return this.gnd;
     }
 
-    public void ss(String str) {
+    public void sx(String str) {
         this.gnd = str;
     }
 
-    public String bur() {
+    public String buk() {
         return this.gne;
     }
 
-    public void st(String str) {
+    public void sy(String str) {
         this.gne = str;
     }
 

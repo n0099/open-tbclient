@@ -15,11 +15,11 @@ public class a {
     private static Boolean gmd = true;
     private static Boolean gme = true;
 
-    public static void sg(String str) {
+    public static void sl(String str) {
         Y(13, str);
     }
 
-    public static void btU() {
+    public static void btN() {
         ty(2);
     }
 
@@ -33,11 +33,11 @@ public class a {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().k("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
     }
 
-    public static ArrayList<String> btV() {
+    public static ArrayList<String> btO() {
         return tz(0);
     }
 
-    public static ArrayList<String> btW() {
+    public static ArrayList<String> btP() {
         return tz(1);
     }
 
@@ -68,11 +68,11 @@ public class a {
         return arrayList;
     }
 
-    public static void sh(String str) {
+    public static void sm(String str) {
         Z(0, str);
     }
 
-    public static void si(String str) {
+    public static void sn(String str) {
         Z(1, str);
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    public static void sj(String str) {
+    public static void so(String str) {
         aa(0, str);
     }
 
@@ -114,11 +114,11 @@ public class a {
         }
     }
 
-    public static void btX() {
+    public static void btQ() {
         tA(0);
     }
 
-    public static void btY() {
+    public static void btR() {
         tA(1);
     }
 
@@ -126,17 +126,17 @@ public class a {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         switch (i) {
             case 0:
-                mainDBDatabaseManager.E("delete from search_data");
+                mainDBDatabaseManager.F("delete from search_data");
                 return;
             case 1:
-                mainDBDatabaseManager.E("delete from search_post_data");
+                mainDBDatabaseManager.F("delete from search_post_data");
                 return;
             default:
                 return;
         }
     }
 
-    public static ArrayList<MarkData> btZ() {
+    public static ArrayList<MarkData> btS() {
         Cursor cursor;
         Throwable th;
         Exception e;
@@ -217,7 +217,7 @@ public class a {
         }
     }
 
-    public static void bua() {
+    public static void btT() {
         if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             try {
@@ -249,15 +249,15 @@ public class a {
                         }
                         String string = rawQuery.getString(rawQuery.getColumnIndex("nodisturb_start_time"));
                         if (TextUtils.isEmpty(string)) {
-                            com.baidu.tbadk.coreExtra.messageCenter.b.zw().eO(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                            com.baidu.tbadk.coreExtra.messageCenter.b.zw().eS(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.b.zw().eO(string);
+                            com.baidu.tbadk.coreExtra.messageCenter.b.zw().eS(string);
                         }
                         String string2 = rawQuery.getString(rawQuery.getColumnIndex("nodisturb_end_time"));
                         if (TextUtils.isEmpty(string2)) {
-                            com.baidu.tbadk.coreExtra.messageCenter.b.zw().eP(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                            com.baidu.tbadk.coreExtra.messageCenter.b.zw().eT(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.b.zw().eP(string2);
+                            com.baidu.tbadk.coreExtra.messageCenter.b.zw().eT(string2);
                         }
                         if (rawQuery.getInt(rawQuery.getColumnIndex("remind_light")) == 0) {
                             com.baidu.tbadk.coreExtra.messageCenter.b.zw().bb(false);
@@ -280,8 +280,8 @@ public class a {
                         com.baidu.tbadk.coreExtra.messageCenter.b.zw().aY(false);
                         com.baidu.tbadk.coreExtra.messageCenter.b.zw().aV(true);
                         com.baidu.tbadk.coreExtra.messageCenter.b.zw().aZ(false);
-                        com.baidu.tbadk.coreExtra.messageCenter.b.zw().eO(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
-                        com.baidu.tbadk.coreExtra.messageCenter.b.zw().eP(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.zw().eS(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.zw().eT(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                     }
                     com.baidu.adp.lib.g.a.e(rawQuery);
                 } catch (Exception e) {

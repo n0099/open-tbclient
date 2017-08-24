@@ -32,8 +32,8 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
                     if (optJSONArray != null && optJSONArray.length() != 0) {
                         JSONObject jSONObject2 = (JSONObject) optJSONArray.get(0);
                         this.addLinkResponseData.gDL = jSONObject2.optInt("link_type");
-                        this.addLinkResponseData.XI = jSONObject2.optString("link_title");
-                        this.addLinkResponseData.XJ = jSONObject2.optString("link_abstract");
+                        this.addLinkResponseData.XJ = jSONObject2.optString("link_title");
+                        this.addLinkResponseData.XK = jSONObject2.optString("link_abstract");
                         this.addLinkResponseData.gDM = jSONObject2.optString("link_head_pic");
                         this.addLinkResponseData.gDN = jSONObject2.optString("link_head_small_pic");
                         this.addLinkResponseData.gDO = jSONObject2.optString("link_head_big_pic");
@@ -43,7 +43,7 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
                         this.addLinkResponseData.gDQ = jSONObject2.optInt("video_from", 0);
                         this.addLinkResponseData.videoHeight = jSONObject2.optInt("video_height", 0);
                         this.addLinkResponseData.videoWidth = jSONObject2.optInt("video_width", 0);
-                        this.addLinkResponseData.fCl = jSONObject2.optLong("video_size", 0L);
+                        this.addLinkResponseData.fCn = jSONObject2.optLong("video_size", 0L);
                         this.addLinkResponseData.gDU = jSONObject2.optInt("thumbnail_height", 0);
                         this.addLinkResponseData.gDT = jSONObject2.optInt("thumbnail_width", 0);
                         this.addLinkResponseData.gDS = jSONObject2.optInt("thumbnail_pid", 0);

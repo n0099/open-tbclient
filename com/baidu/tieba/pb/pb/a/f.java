@@ -18,7 +18,7 @@ public class f extends l<j, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bi */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        return new a(new com.baidu.tieba.pb.view.g(this.eIu.getPageContext()));
+        return new a(new com.baidu.tieba.pb.view.g(this.eIw.getPageContext()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,18 +28,18 @@ public class f extends l<j, a> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, a aVar) {
         super.onFillViewHolder(i, view, viewGroup, jVar, aVar);
         if (jVar != null && aVar != null) {
-            aVar.eHm.setData(jVar);
+            aVar.eHo.setData(jVar);
         }
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a extends j.a {
-        public com.baidu.tieba.pb.view.g eHm;
+        public com.baidu.tieba.pb.view.g eHo;
 
         public a(com.baidu.tieba.pb.view.g gVar) {
             super(gVar);
-            this.eHm = gVar;
+            this.eHo = gVar;
         }
     }
 }

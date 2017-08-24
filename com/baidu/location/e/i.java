@@ -11,12 +11,12 @@ import java.util.concurrent.Callable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Callable<BDLocation> {
-    final /* synthetic */ d PX;
+    final /* synthetic */ d PW;
     final /* synthetic */ String[] a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar, String[] strArr) {
-        this.PX = dVar;
+        this.PW = dVar;
         this.a = strArr;
     }
 
@@ -32,7 +32,7 @@ public class i implements Callable<BDLocation> {
         Cursor cursor;
         BDLocation bDLocation;
         Context context3;
-        Uri cb;
+        Uri ce;
         e eVar;
         Cursor cursor2 = null;
         BDLocation bDLocation2 = new BDLocation();
@@ -40,7 +40,7 @@ public class i implements Callable<BDLocation> {
             context = d.c;
             ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(d.b, 0);
             if (resolveContentProvider == null) {
-                hVar = this.PX.Ps;
+                hVar = this.PW.Pt;
                 String[] na = hVar.na();
                 providerInfo = resolveContentProvider;
                 for (String str : na) {
@@ -57,8 +57,8 @@ public class i implements Callable<BDLocation> {
                 try {
                     context3 = d.c;
                     ContentResolver contentResolver = context3.getContentResolver();
-                    cb = d.cb(providerInfo.authority);
-                    Cursor query = contentResolver.query(cb, this.a, null, null, null);
+                    ce = d.ce(providerInfo.authority);
+                    Cursor query = contentResolver.query(ce, this.a, null, null, null);
                     try {
                         bDLocation = j.f(query);
                         if (query != null) {
@@ -104,7 +104,7 @@ public class i implements Callable<BDLocation> {
             } else {
                 j.a aVar = new j.a(this.a);
                 try {
-                    eVar = this.PX.Pq;
+                    eVar = this.PW.Pr;
                     cursor2 = eVar.a(aVar);
                     bDLocation2 = j.f(cursor2);
                     if (cursor2 != null) {

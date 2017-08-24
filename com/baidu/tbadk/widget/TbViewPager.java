@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbConfig;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private float aOJ;
+    private float aOK;
     private boolean aqj;
     private int mDuration;
     private int mTouchSlop;
@@ -110,15 +110,15 @@ public class TbViewPager extends ViewPager {
             case 5:
             case 6:
                 aS(true);
-                this.aOJ = motionEvent.getX();
+                this.aOK = motionEvent.getX();
                 break;
             case 1:
             case 3:
                 aS(false);
-                this.aOJ = 0.0f;
+                this.aOK = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.aOJ;
+                float x = motionEvent.getX() - this.aOK;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
                         aS(false);

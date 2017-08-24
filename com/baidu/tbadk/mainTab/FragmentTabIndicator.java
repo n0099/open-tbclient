@@ -20,47 +20,47 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FragmentTabIndicator extends FrameLayout {
-    private int aHA;
+    private TextView aHA;
     private int aHB;
-    private HashMap<String, a> aHC;
-    private int aHv;
-    public int aHw;
-    private int aHx;
+    private int aHC;
+    private HashMap<String, a> aHD;
+    private int aHw;
+    public int aHx;
     private int aHy;
-    private TextView aHz;
+    private int aHz;
     private ImageView act;
 
     public FragmentTabIndicator(Context context) {
         super(context);
-        this.aHv = 0;
-        this.aHC = new HashMap<>();
+        this.aHw = 0;
+        this.aHD = new HashMap<>();
         init();
     }
 
     public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aHv = 0;
-        this.aHC = new HashMap<>();
+        this.aHw = 0;
+        this.aHD = new HashMap<>();
         init();
     }
 
     private void init() {
-        this.aHA = getResources().getDimensionPixelSize(d.f.ds2);
-        this.aHB = getResources().getDimensionPixelSize(d.f.ds12);
-        this.aHz = new TextView(getContext());
+        this.aHB = getResources().getDimensionPixelSize(d.f.ds2);
+        this.aHC = getResources().getDimensionPixelSize(d.f.ds12);
+        this.aHA = new TextView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.aHz.setLayoutParams(layoutParams);
-        this.aHz.setGravity(17);
-        this.aHz.setDuplicateParentStateEnabled(true);
-        addView(this.aHz);
+        this.aHA.setLayoutParams(layoutParams);
+        this.aHA.setGravity(17);
+        this.aHA.setDuplicateParentStateEnabled(true);
+        addView(this.aHA);
     }
 
     public void setContentTvTopMargin(int i) {
-        if (this.aHz.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aHz.getLayoutParams();
+        if (this.aHA.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aHA.getLayoutParams();
             layoutParams.topMargin = i;
-            this.aHz.setLayoutParams(layoutParams);
+            this.aHA.setLayoutParams(layoutParams);
         }
     }
 
@@ -69,7 +69,7 @@ public class FragmentTabIndicator extends FrameLayout {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        for (Map.Entry<String, a> entry : this.aHC.entrySet()) {
+        for (Map.Entry<String, a> entry : this.aHD.entrySet()) {
             a value = entry.getValue();
             ViewGroup.LayoutParams layoutParams = value.view.getLayoutParams();
             if (layoutParams.width == -2) {
@@ -86,20 +86,20 @@ public class FragmentTabIndicator extends FrameLayout {
         int i5;
         int measuredHeight;
         super.onLayout(z, i, i2, i3, i4);
-        Iterator<Map.Entry<String, a>> it = this.aHC.entrySet().iterator();
-        while (it.hasNext() && this.aHz.getText() != null) {
+        Iterator<Map.Entry<String, a>> it = this.aHD.entrySet().iterator();
+        while (it.hasNext() && this.aHA.getText() != null) {
             a value = it.next().getValue();
             int measuredWidth2 = value.view.getMeasuredWidth();
             int measuredHeight2 = value.view.getMeasuredHeight();
-            int measureText = (int) this.aHz.getPaint().measureText(this.aHz.getText().toString());
-            if (value.aHD) {
+            int measureText = (int) this.aHA.getPaint().measureText(this.aHA.getText().toString());
+            if (value.aHE) {
                 measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.wy;
             } else {
                 measuredWidth = ((getMeasuredWidth() / 2) - value.wy) - (measureText / 2);
             }
-            if (this.aHv == 1) {
-                i5 = measuredWidth - this.aHB;
-                measuredHeight = this.aHA;
+            if (this.aHw == 1) {
+                i5 = measuredWidth - this.aHC;
+                measuredHeight = this.aHB;
             } else {
                 i5 = measuredWidth;
                 measuredHeight = (getMeasuredHeight() / 2) - (value.view.getMeasuredHeight() / 2);
@@ -109,63 +109,63 @@ public class FragmentTabIndicator extends FrameLayout {
     }
 
     public void setTipPosType(int i) {
-        this.aHv = i;
+        this.aHw = i;
     }
 
     public void a(String str, a aVar) {
         if (aVar.view != null) {
             addView(aVar.view);
-            this.aHC.put(str, aVar);
+            this.aHD.put(str, aVar);
         }
     }
 
-    public a gx(String str) {
-        return this.aHC.get(str);
+    public a gA(String str) {
+        return this.aHD.get(str);
     }
 
     public void setText(int i) {
-        this.aHz.setText(i);
+        this.aHA.setText(i);
     }
 
     public void setText(String str) {
-        this.aHz.setText(str);
-        this.aHz.setContentDescription(str);
+        this.aHA.setText(str);
+        this.aHA.setContentDescription(str);
     }
 
     public void setCheckDescriptionText(boolean z) {
-        String charSequence = this.aHz.getText().toString();
+        String charSequence = this.aHA.getText().toString();
         if (z) {
             charSequence = getContext().getString(d.l.talk_checked_tip) + charSequence;
         }
-        this.aHz.setContentDescription(charSequence);
+        this.aHA.setContentDescription(charSequence);
     }
 
     public void setTextSpan(SpannableString spannableString) {
-        this.aHz.setText(spannableString);
+        this.aHA.setText(spannableString);
     }
 
     public void setCompoundDrawablesTopResId(int i) {
-        this.aHx = i;
-    }
-
-    public void setCompoundDrawablesRightResId(int i) {
         this.aHy = i;
     }
 
+    public void setCompoundDrawablesRightResId(int i) {
+        this.aHz = i;
+    }
+
     public void setCompoundDrawablePadding(int i) {
-        this.aHz.setCompoundDrawablePadding(i);
+        this.aHA.setCompoundDrawablePadding(i);
     }
 
     public void setTextSize(float f) {
-        this.aHz.setTextSize(f);
+        this.aHA.setTextSize(f);
     }
 
     public void setTextSize(int i, float f) {
-        this.aHz.setTextSize(i, f);
+        this.aHA.setTextSize(i, f);
     }
 
     public void setTextColorResId(int i) {
-        this.aHw = i;
+        this.aHx = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -175,35 +175,35 @@ public class FragmentTabIndicator extends FrameLayout {
     }
 
     public void dt(int i) {
-        ai.c(this.aHz, this.aHw, 1);
-        if (this.aHz != null) {
-            if (this.aHz.getText() != null && al.isEmpty(this.aHz.getText().toString())) {
-                this.act.setImageDrawable(ai.c((Resources) null, this.aHx));
+        ai.c(this.aHA, this.aHx, 1);
+        if (this.aHA != null) {
+            if (this.aHA.getText() != null && al.isEmpty(this.aHA.getText().toString())) {
+                this.act.setImageDrawable(ai.c((Resources) null, this.aHy));
             } else {
-                this.aHz.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ai.c((Resources) null, this.aHx), ai.getDrawable(this.aHy), (Drawable) null);
+                this.aHA.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ai.c((Resources) null, this.aHy), ai.getDrawable(this.aHz), (Drawable) null);
             }
         }
-        for (Map.Entry<String, a> entry : this.aHC.entrySet()) {
+        for (Map.Entry<String, a> entry : this.aHD.entrySet()) {
             entry.getValue().dt(i);
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aHE;
-        public FragmentTabIndicator aHG;
+        public int aHF;
+        public FragmentTabIndicator aHH;
         public View view;
         public int wy;
-        public boolean aHD = true;
-        public int aHF = d.e.common_color_10225;
+        public boolean aHE = true;
+        public int aHG = d.e.common_color_10225;
 
         public void dt(int i) {
-            if (this.aHE != 0) {
-                ai.j(this.view, this.aHE);
+            if (this.aHF != 0) {
+                ai.j(this.view, this.aHF);
             }
             if (this.view instanceof TextView) {
-                if (this.aHF != 0) {
-                    ai.c((TextView) this.view, this.aHF, 1);
+                if (this.aHG != 0) {
+                    ai.c((TextView) this.view, this.aHG, 1);
                 }
                 int b = b((TextView) this.view);
                 if (b > 0 && b < 10) {
@@ -229,18 +229,18 @@ public class FragmentTabIndicator extends FrameLayout {
     }
 
     public void EY() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aHz.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aHA.getLayoutParams();
         layoutParams.width = -2;
-        this.aHz.setLayoutParams(layoutParams);
+        this.aHA.setLayoutParams(layoutParams);
     }
 
     public TextView getContentTv() {
-        return this.aHz;
+        return this.aHA;
     }
 
     public void N(int i, int i2) {
-        if (this.aHz != null) {
-            this.aHz.setVisibility(8);
+        if (this.aHA != null) {
+            this.aHA.setVisibility(8);
         }
         this.act = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -1);
@@ -255,6 +255,6 @@ public class FragmentTabIndicator extends FrameLayout {
         }
         this.act.setLayoutParams(layoutParams);
         addView(this.act);
-        this.act.setImageDrawable(ai.c((Resources) null, this.aHx));
+        this.act.setImageDrawable(ai.c((Resources) null, this.aHy));
     }
 }

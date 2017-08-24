@@ -13,7 +13,7 @@ public class a {
     private a() {
     }
 
-    public static a aoK() {
+    public static a aoE() {
         return cSX;
     }
 

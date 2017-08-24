@@ -3,32 +3,32 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class d {
-    private EmotionGroupType bYe;
-    private int bYf;
+    private EmotionGroupType bYf;
     private int bYg;
     private int bYh;
     private int bYi;
-    private com.baidu.tbadk.editortools.emotiontool.c bYj;
-    private int bYk;
+    private int bYj;
+    private com.baidu.tbadk.editortools.emotiontool.c bYk;
     private int bYl;
+    private int bYm;
     private int column;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.bYj = cVar;
+        this.bYk = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c abp() {
-        return this.bYj;
+    public com.baidu.tbadk.editortools.emotiontool.c abm() {
+        return this.bYk;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.bYe = emotionGroupType;
+        this.bYf = emotionGroupType;
     }
 
-    public EmotionGroupType abq() {
-        return this.bYe;
+    public EmotionGroupType abn() {
+        return this.bYf;
     }
 
     public void eR(int i) {
@@ -43,44 +43,44 @@ public class d {
         this.column = i;
     }
 
-    public int abr() {
+    public int abo() {
         return this.column;
     }
 
     public void hX(int i) {
-        this.bYl = i;
+        this.bYm = i;
     }
 
-    public int abs() {
-        return this.bYl;
+    public int abp() {
+        return this.bYm;
     }
 
     public void hY(int i) {
-        this.bYk = i;
+        this.bYl = i;
     }
 
-    public int abt() {
-        return this.bYk;
+    public int abq() {
+        return this.bYl;
     }
 
     public void hZ(int i) {
-        this.bYf = i;
+        this.bYg = i;
     }
 
-    public int abu() {
-        return this.bYf;
+    public int abr() {
+        return this.bYg;
     }
 
     public void ia(int i) {
-        this.bYh = i;
+        this.bYi = i;
     }
 
-    public int abv() {
-        return this.bYh;
+    public int abs() {
+        return this.bYi;
     }
 
     public void setEndIndex(int i) {
-        this.bYi = i;
+        this.bYj = i;
     }
 
     public void setIndex(int i) {
@@ -92,10 +92,10 @@ public class d {
     }
 
     public void ib(int i) {
-        this.bYg = i;
+        this.bYh = i;
     }
 
-    public int abw() {
-        return this.bYg;
+    public int abt() {
+        return this.bYh;
     }
 }

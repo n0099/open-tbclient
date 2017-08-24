@@ -31,7 +31,7 @@ public class f {
         void nf(boolean z);
     }
 
-    public static f byW() {
+    public static f byO() {
         if (gCy == null) {
             synchronized (f.class) {
                 if (gCy == null) {

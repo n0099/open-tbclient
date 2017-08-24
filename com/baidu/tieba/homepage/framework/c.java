@@ -81,15 +81,15 @@ public class c {
         }
     }
 
-    public void lq(String str) {
+    public void lt(String str) {
         if (this.cTx != null) {
-            this.cTx.lq(str);
+            this.cTx.lt(str);
         }
     }
 
-    public void aoJ() {
+    public void aoD() {
         if (this.cTx != null) {
-            this.cTx.aoJ();
+            this.cTx.aoD();
         }
     }
 
@@ -97,14 +97,14 @@ public class c {
         return this.uniqueId;
     }
 
-    public TbPageContext<BaseFragmentActivity> aoN() {
+    public TbPageContext<BaseFragmentActivity> aoH() {
         return this.cTv;
     }
 
     public void a(com.baidu.tieba.lego.model.a aVar) {
     }
 
-    public com.baidu.tieba.lego.model.a aoO() {
+    public com.baidu.tieba.lego.model.a aoI() {
         return null;
     }
 
@@ -112,7 +112,7 @@ public class c {
         this.cRb = aVar;
     }
 
-    public a aoP() {
+    public a aoJ() {
         return this.cRb;
     }
 }

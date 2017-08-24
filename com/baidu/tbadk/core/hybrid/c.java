@@ -51,7 +51,7 @@ public class c extends WebChromeClient {
         }
 
         public boolean P(String str, String str2) {
-            return !TextUtils.isEmpty(str2) && w.dd(str) && str2.startsWith("ctieba://");
+            return !TextUtils.isEmpty(str2) && w.dg(str) && str2.startsWith("ctieba://");
         }
 
         public String Q(String str, String str2) {
@@ -252,13 +252,13 @@ public class c extends WebChromeClient {
             try {
                 this.adq.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class).invoke(this.adq, valueCallback);
             } catch (IllegalAccessException e) {
-                e.cW(e.getMessage());
+                e.cZ(e.getMessage());
             } catch (NoSuchMethodException e2) {
-                e.cW(e2.getMessage());
+                e.cZ(e2.getMessage());
             } catch (InvocationTargetException e3) {
-                e.cW(e3.getMessage());
+                e.cZ(e3.getMessage());
             } catch (Throwable th) {
-                e.cW(th.getMessage());
+                e.cZ(th.getMessage());
             }
         }
     }
@@ -268,13 +268,13 @@ public class c extends WebChromeClient {
             try {
                 this.adq.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class, String.class).invoke(this.adq, valueCallback, str);
             } catch (IllegalAccessException e) {
-                e.cW(e.getMessage());
+                e.cZ(e.getMessage());
             } catch (NoSuchMethodException e2) {
-                e.cW(e2.getMessage());
+                e.cZ(e2.getMessage());
             } catch (InvocationTargetException e3) {
-                e.cW(e3.getMessage());
+                e.cZ(e3.getMessage());
             } catch (Throwable th) {
-                e.cW(th.getMessage());
+                e.cZ(th.getMessage());
             }
         }
     }
@@ -284,13 +284,13 @@ public class c extends WebChromeClient {
             try {
                 this.adq.getClass().getDeclaredMethod("openFileChooser", ValueCallback.class, String.class, String.class).invoke(this.adq, valueCallback, str, str2);
             } catch (IllegalAccessException e) {
-                e.cW(e.getMessage());
+                e.cZ(e.getMessage());
             } catch (NoSuchMethodException e2) {
-                e.cW(e2.getMessage());
+                e.cZ(e2.getMessage());
             } catch (InvocationTargetException e3) {
-                e.cW(e3.getMessage());
+                e.cZ(e3.getMessage());
             } catch (Throwable th) {
-                e.cW(th.getMessage());
+                e.cZ(th.getMessage());
             }
         }
     }

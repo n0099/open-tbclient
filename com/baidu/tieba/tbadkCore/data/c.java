@@ -14,15 +14,15 @@ public class c {
     private ArrayList<a> gjc = new ArrayList<>();
     private ArrayList<b> gjd = new ArrayList<>();
 
-    public String bsD() {
+    public String bsw() {
         return this.gjb;
     }
 
-    public List<a> bsE() {
+    public List<a> bsx() {
         return this.gjc;
     }
 
-    public List<b> bsF() {
+    public List<b> bsy() {
         return this.gjd;
     }
 

@@ -18,9 +18,9 @@ public abstract class a {
 
     public abstract void a(ChatSetting chatSetting, h<Void> hVar);
 
-    protected abstract l<String> ayu();
+    protected abstract l<String> ayp();
 
-    public abstract ChatSetting bl(String str, String str2);
+    public abstract ChatSetting bm(String str, String str2);
 
     public void m(Class<? extends ChatSetting> cls) {
         String str;
@@ -34,12 +34,12 @@ public abstract class a {
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + "@";
             synchronized (this.dAx) {
-                l<String> ayu = ayu();
-                List<l.c<String>> b = q.b(ayu);
+                l<String> ayp = ayp();
+                List<l.c<String>> b = q.b(ayp);
                 if (b != null) {
                     for (l.c<String> cVar : b) {
                         String str4 = cVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = ayu.get(str4)) != null) {
+                        if (str4 != null && str4.startsWith(str3) && (str = ayp.get(str4)) != null) {
                             this.dAx.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
@@ -49,27 +49,27 @@ public abstract class a {
     }
 
     public void g(String str, String str2, boolean z) {
-        ChatSetting bl = bl(str, str2);
-        if (bl != null) {
-            bl.setAcceptNotify(z);
-            a(bl);
+        ChatSetting bm = bm(str, str2);
+        if (bm != null) {
+            bm.setAcceptNotify(z);
+            a(bm);
         }
     }
 
     public void a(String str, String str2, boolean z, h<Void> hVar) {
-        ChatSetting bl = bl(str, str2);
-        if (bl != null) {
-            bl.setAcceptNotify(z);
-            a(bl, hVar);
+        ChatSetting bm = bm(str, str2);
+        if (bm != null) {
+            bm.setAcceptNotify(z);
+            a(bm, hVar);
         }
     }
 
-    public boolean bm(String str, String str2) {
-        ChatSetting bl = bl(str, str2);
-        if (bl == null) {
+    public boolean bn(String str, String str2) {
+        ChatSetting bm = bm(str, str2);
+        if (bm == null) {
             return false;
         }
-        return bl.isAcceptNotify();
+        return bm.isAcceptNotify();
     }
 
     public void a(final String str, final String str2, h<Boolean> hVar) {
@@ -78,11 +78,11 @@ public abstract class a {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.t
             public Boolean doInBackground() {
-                ChatSetting bl = a.this.bl(str, str2);
-                if (bl == null) {
+                ChatSetting bm = a.this.bm(str, str2);
+                if (bm == null) {
                     return false;
                 }
-                return Boolean.valueOf(bl.isAcceptNotify());
+                return Boolean.valueOf(bm.isAcceptNotify());
             }
         }, hVar);
     }

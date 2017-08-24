@@ -14,7 +14,7 @@ public class a {
     private String mTitle;
     private int mWidth;
 
-    public String bsB() {
+    public String bsu() {
         return this.giY;
     }
 
@@ -26,7 +26,7 @@ public class a {
         return this.mHeight;
     }
 
-    public String bsC() {
+    public String bsv() {
         return this.giZ;
     }
 

@@ -63,11 +63,11 @@ public class HeadPendantView extends FrameLayout {
         init();
     }
 
-    public boolean wC() {
+    public boolean wD() {
         return this.akR;
     }
 
-    public void wD() {
+    public void wE() {
         this.akP = true;
         if (this.akN == null) {
             this.akN = new TbImageView(this.mContext);
@@ -100,7 +100,7 @@ public class HeadPendantView extends FrameLayout {
         }
     }
 
-    public void et(String str) {
+    public void ex(String str) {
         if (this.akN != null) {
             if (!StringUtils.isNull(str)) {
                 this.akR = true;
@@ -156,7 +156,7 @@ public class HeadPendantView extends FrameLayout {
                 paint.setColor(this.akI);
                 canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, getWidth() / 2.0f, paint);
             }
-            if (this.akG && !this.isBigV && !wC()) {
+            if (this.akG && !this.isBigV && !wD()) {
                 Drawable drawable = this.akJ == null ? ai.getDrawable(d.g.pic_home_shen_avatar) : this.akJ;
                 if (drawable != null) {
                     int g = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds30);

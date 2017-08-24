@@ -12,7 +12,7 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 class c extends BaseAdapter {
-    private final TbPageContextSupport aIR;
+    private final TbPageContextSupport aIS;
     private TbCheckBox.a dEr;
     private b dEs = null;
     private ViewGroup dEt = null;
@@ -25,7 +25,7 @@ class c extends BaseAdapter {
     }
 
     public c(TbPageContextSupport tbPageContextSupport, boolean z) {
-        this.aIR = tbPageContextSupport;
+        this.aIS = tbPageContextSupport;
         this.dEu = z;
     }
 
@@ -83,7 +83,7 @@ class c extends BaseAdapter {
     private a a(Object obj, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = azA();
+            aVar2 = azv();
         } else {
             aVar2 = (a) obj;
         }
@@ -91,14 +91,14 @@ class c extends BaseAdapter {
             this.dEs.a(aVar2.rootView, aVar);
         }
         a(aVar, aVar2, aVar.AO());
-        aVar2.bHa.setText(aVar.getUserName());
+        aVar2.bHb.setText(aVar.getUserName());
         if (this.dEu) {
             aVar2.dEv.setVisibility(8);
         } else {
             aVar2.dEv.setTagData(aVar);
         }
-        if (this.aIR instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.aIR).getLayoutMode().t(aVar2.rootView);
+        if (this.aIS instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.aIS).getLayoutMode().t(aVar2.rootView);
         }
         return aVar2;
     }
@@ -110,12 +110,12 @@ class c extends BaseAdapter {
         }
     }
 
-    private a azA() {
+    private a azv() {
         a aVar = new a();
-        aVar.rootView = LayoutInflater.from(this.aIR.getPageContext().getContext()).inflate(d.j.invite_friend_list_item, (ViewGroup) null);
+        aVar.rootView = LayoutInflater.from(this.aIS.getPageContext().getContext()).inflate(d.j.invite_friend_list_item, (ViewGroup) null);
         aVar.dEb = (HeadImageView) aVar.rootView.findViewById(d.h.photo);
         aVar.dEb.setIsRound(false);
-        aVar.bHa = (TextView) aVar.rootView.findViewById(d.h.txt_user_name);
+        aVar.bHb = (TextView) aVar.rootView.findViewById(d.h.txt_user_name);
         aVar.dEv = (TbCheckBox) aVar.rootView.findViewById(d.h.ckb_select);
         if (this.dEr != null) {
             aVar.dEv.setStatedChangedListener(this.dEr);
@@ -126,7 +126,7 @@ class c extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public class a {
-        public TextView bHa;
+        public TextView bHb;
         public HeadImageView dEb;
         public TbCheckBox dEv;
         public View rootView;

@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> RT = null;
-    protected static boolean RV = false;
-    protected String RQ = "183322726";
-    protected boolean RU = true;
-    protected transient List<String> RR = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> RU = null;
+    protected static boolean RW = false;
+    protected String RR = "183322726";
+    protected boolean RV = true;
+    protected transient List<String> RS = new ArrayList(5);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -33,10 +33,7 @@ public abstract class b {
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nS();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nY();
+    public abstract void nT();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void nZ();
@@ -49,6 +46,9 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void oc();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void od();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static b b(BaseFragmentActivity baseFragmentActivity) {
@@ -70,33 +70,33 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (RT == null) {
-            RT = new WeakReference<>(tbPageContext);
+        if (RU == null) {
+            RU = new WeakReference<>(tbPageContext);
             return;
         }
-        RT.clear();
-        RT = null;
-        RT = new WeakReference<>(tbPageContext);
+        RU.clear();
+        RU = null;
+        RU = new WeakReference<>(tbPageContext);
     }
 
-    public boolean nX() {
-        return RV;
+    public boolean nY() {
+        return RW;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ad(boolean z) {
-        this.RU = z;
+        this.RV = z;
     }
 
-    public boolean nR() {
-        return this.RU;
+    public boolean nS() {
+        return this.RV;
     }
 
-    public void nT() {
-        if (RT != null) {
-            RT.get();
-            RT.clear();
-            RT = null;
+    public void nU() {
+        if (RU != null) {
+            RU.get();
+            RU.clear();
+            RU = null;
         }
     }
 }

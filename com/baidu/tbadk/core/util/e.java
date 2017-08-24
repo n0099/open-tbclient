@@ -18,14 +18,14 @@ public class e {
         }
     };
 
-    public static e uG() {
+    public static e uH() {
         return new e();
     }
 
     private e() {
     }
 
-    public void b(String str, int i, int i2) {
+    public void c(String str, int i, int i2) {
         if (!this.afW && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
@@ -53,7 +53,7 @@ public class e {
     }
 
     public void showToast(String str, int i) {
-        b(str, i, com.baidu.adp.lib.util.k.dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+        c(str, i, com.baidu.adp.lib.util.k.dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
     }
 
     public void showToast(int i, int i2) {
@@ -61,7 +61,7 @@ public class e {
     }
 
     public void m(int i, int i2, int i3) {
-        b(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
+        c(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
     }
 
     public void onPause() {

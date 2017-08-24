@@ -75,7 +75,7 @@ public class UserIconLayout extends LinearLayout {
                 if (aw.aO(UserIconLayout.this.mContext) && UserIconLayout.this.akl != null && UserIconLayout.this.akl.getAuthor() != null && UserIconLayout.this.akl.getAuthor().getTShowInfoNew() != null) {
                     ArrayList<IconData> tShowInfoNew = UserIconLayout.this.akl.getAuthor().getTShowInfoNew();
                     if (u.u(tShowInfoNew) != 0 && u.c(tShowInfoNew, 0) != null && (url = UserIconLayout.this.akl.getAuthor().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.aa(UserIconLayout.this.mContext) instanceof TbPageContext)) {
-                        at.wf().c((TbPageContext) com.baidu.adp.base.i.aa(UserIconLayout.this.mContext), new String[]{url});
+                        at.wg().c((TbPageContext) com.baidu.adp.base.i.aa(UserIconLayout.this.mContext), new String[]{url});
                     }
                 }
             }
@@ -83,11 +83,11 @@ public class UserIconLayout extends LinearLayout {
         this.aoY = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.UserIconLayout.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (UserIconLayout.this.akl != null && UserIconLayout.this.akl.getAuthor() != null && !StringUtils.isNull(UserIconLayout.this.akl.getAuthor().getName_show()) && !StringUtils.isNull(UserIconLayout.this.akl.getAuthor().getUserId()) && UserIconLayout.this.akl.rK() != null) {
-                    if (UserIconLayout.this.akl.sJ() != null && UserIconLayout.this.akl.sJ().channelId > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(UserIconLayout.this.mContext, UserIconLayout.this.akl.sJ().channelId, UserIconLayout.this.akl.sJ().mCurrentPage)));
+                if (UserIconLayout.this.akl != null && UserIconLayout.this.akl.getAuthor() != null && !StringUtils.isNull(UserIconLayout.this.akl.getAuthor().getName_show()) && !StringUtils.isNull(UserIconLayout.this.akl.getAuthor().getUserId()) && UserIconLayout.this.akl.rL() != null) {
+                    if (UserIconLayout.this.akl.sK() != null && UserIconLayout.this.akl.sK().channelId > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(UserIconLayout.this.mContext, UserIconLayout.this.akl.sK().channelId, UserIconLayout.this.akl.sK().mCurrentPage)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(UserIconLayout.this.mContext, UserIconLayout.this.akl.getAuthor().getUserId(), UserIconLayout.this.akl.getAuthor().getName_show(), UserIconLayout.this.akl.rK(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(UserIconLayout.this.mContext, UserIconLayout.this.akl.getAuthor().getUserId(), UserIconLayout.this.akl.getAuthor().getName_show(), UserIconLayout.this.akl.rL(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                     }
                     if (UserIconLayout.this.aoX != null) {
                         UserIconLayout.this.aoX.onClick(view);
@@ -98,8 +98,8 @@ public class UserIconLayout extends LinearLayout {
         this.apO = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.UserIconLayout.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (UserIconLayout.this.akl != null && UserIconLayout.this.akl.sJ() != null && UserIconLayout.this.akl.sJ().channelId > 0) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(UserIconLayout.this.mContext, UserIconLayout.this.akl.sJ().channelId, UserIconLayout.this.akl.sJ().mCurrentPage)));
+                if (UserIconLayout.this.akl != null && UserIconLayout.this.akl.sK() != null && UserIconLayout.this.akl.sK().channelId > 0) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(UserIconLayout.this.mContext, UserIconLayout.this.akl.sK().channelId, UserIconLayout.this.akl.sK().mCurrentPage)));
                 }
             }
         };
@@ -132,7 +132,7 @@ public class UserIconLayout extends LinearLayout {
                 if (aw.aO(UserIconLayout.this.mContext) && UserIconLayout.this.akl != null && UserIconLayout.this.akl.getAuthor() != null && UserIconLayout.this.akl.getAuthor().getTShowInfoNew() != null) {
                     ArrayList<IconData> tShowInfoNew = UserIconLayout.this.akl.getAuthor().getTShowInfoNew();
                     if (u.u(tShowInfoNew) != 0 && u.c(tShowInfoNew, 0) != null && (url = UserIconLayout.this.akl.getAuthor().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.aa(UserIconLayout.this.mContext) instanceof TbPageContext)) {
-                        at.wf().c((TbPageContext) com.baidu.adp.base.i.aa(UserIconLayout.this.mContext), new String[]{url});
+                        at.wg().c((TbPageContext) com.baidu.adp.base.i.aa(UserIconLayout.this.mContext), new String[]{url});
                     }
                 }
             }
@@ -140,11 +140,11 @@ public class UserIconLayout extends LinearLayout {
         this.aoY = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.UserIconLayout.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (UserIconLayout.this.akl != null && UserIconLayout.this.akl.getAuthor() != null && !StringUtils.isNull(UserIconLayout.this.akl.getAuthor().getName_show()) && !StringUtils.isNull(UserIconLayout.this.akl.getAuthor().getUserId()) && UserIconLayout.this.akl.rK() != null) {
-                    if (UserIconLayout.this.akl.sJ() != null && UserIconLayout.this.akl.sJ().channelId > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(UserIconLayout.this.mContext, UserIconLayout.this.akl.sJ().channelId, UserIconLayout.this.akl.sJ().mCurrentPage)));
+                if (UserIconLayout.this.akl != null && UserIconLayout.this.akl.getAuthor() != null && !StringUtils.isNull(UserIconLayout.this.akl.getAuthor().getName_show()) && !StringUtils.isNull(UserIconLayout.this.akl.getAuthor().getUserId()) && UserIconLayout.this.akl.rL() != null) {
+                    if (UserIconLayout.this.akl.sK() != null && UserIconLayout.this.akl.sK().channelId > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(UserIconLayout.this.mContext, UserIconLayout.this.akl.sK().channelId, UserIconLayout.this.akl.sK().mCurrentPage)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(UserIconLayout.this.mContext, UserIconLayout.this.akl.getAuthor().getUserId(), UserIconLayout.this.akl.getAuthor().getName_show(), UserIconLayout.this.akl.rK(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(UserIconLayout.this.mContext, UserIconLayout.this.akl.getAuthor().getUserId(), UserIconLayout.this.akl.getAuthor().getName_show(), UserIconLayout.this.akl.rL(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                     }
                     if (UserIconLayout.this.aoX != null) {
                         UserIconLayout.this.aoX.onClick(view);
@@ -155,8 +155,8 @@ public class UserIconLayout extends LinearLayout {
         this.apO = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.UserIconLayout.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (UserIconLayout.this.akl != null && UserIconLayout.this.akl.sJ() != null && UserIconLayout.this.akl.sJ().channelId > 0) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(UserIconLayout.this.mContext, UserIconLayout.this.akl.sJ().channelId, UserIconLayout.this.akl.sJ().mCurrentPage)));
+                if (UserIconLayout.this.akl != null && UserIconLayout.this.akl.sK() != null && UserIconLayout.this.akl.sK().channelId > 0) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(UserIconLayout.this.mContext, UserIconLayout.this.akl.sK().channelId, UserIconLayout.this.akl.sK().mCurrentPage)));
                 }
             }
         };
@@ -184,7 +184,7 @@ public class UserIconLayout extends LinearLayout {
         this.apn = new UserIconBox(this.mContext);
         this.apo = new UserIconBox(this.mContext);
         this.apH = new TextView(this.mContext);
-        this.aps = com.baidu.tbadk.ala.b.nC().h(this.mContext, 1);
+        this.aps = com.baidu.tbadk.ala.b.nD().h(this.mContext, 1);
         if (this.aps != null) {
             this.aps.setVisibility(8);
         }
@@ -238,8 +238,8 @@ public class UserIconLayout extends LinearLayout {
                 }
             }
             int i2 = 3;
-            if (this.akl.sJ() != null && this.akl.sJ().channelId > 0) {
-                this.apH.setText(v.u(this.akl.sJ().channelName, 20));
+            if (this.akl.sK() != null && this.akl.sK().channelId > 0) {
+                this.apH.setText(v.u(this.akl.sK().channelName, 20));
                 this.apo.setVisibility(8);
                 this.apn.setVisibility(8);
                 if (this.apK) {
@@ -260,10 +260,10 @@ public class UserIconLayout extends LinearLayout {
                 if (this.apL) {
                     if (this.apN) {
                         this.apH.setText(ae(this.akl.getAuthor().getSealPrefix(), v.u(name_show, 20)));
-                        int aS = com.baidu.adp.lib.util.j.aS(name_show);
-                        if (aS >= 20) {
+                        int aT = com.baidu.adp.lib.util.j.aT(name_show);
+                        if (aT >= 20) {
                             i2 = 1;
-                        } else if (aS >= 16) {
+                        } else if (aT >= 16) {
                             i2 = 2;
                         }
                         i = i2;
@@ -338,7 +338,7 @@ public class UserIconLayout extends LinearLayout {
 
     public void onChangeSkinType() {
         setUserTextColor(this.akl);
-        if (this.akl != null && this.akl.sJ() != null && this.akl.sJ().channelId > 0) {
+        if (this.akl != null && this.akl.sK() != null && this.akl.sK().channelId > 0) {
             ai.i(this.apH, d.e.cp_cont_b);
         }
         if (this.apI != null) {

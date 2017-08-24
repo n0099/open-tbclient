@@ -43,12 +43,12 @@ public class e extends i {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                     String str = (String) customResponsedMessage.getData();
-                    if (!StringUtils.isNull(str) && e.this.coU.afN() != null) {
-                        com.baidu.tieba.tbadkCore.i afN = e.this.coU.afN();
-                        afN.ai(afN.rV(str));
-                        e.this.cjK.a(afN.getThreadList(), afN);
-                        if (com.baidu.tieba.tbadkCore.c.brc() != null) {
-                            com.baidu.tieba.tbadkCore.c.brc().aa(e.this.coU.getForumName(), false);
+                    if (!StringUtils.isNull(str) && e.this.coV.afH() != null) {
+                        com.baidu.tieba.tbadkCore.i afH = e.this.coV.afH();
+                        afH.ai(afH.sa(str));
+                        e.this.cjL.a(afH.getThreadList(), afH);
+                        if (com.baidu.tieba.tbadkCore.c.bqV() != null) {
+                            com.baidu.tieba.tbadkCore.c.bqV().aa(e.this.coV.getForumName(), false);
                         }
                     }
                 }
@@ -62,7 +62,7 @@ public class e extends i {
                 if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                     GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                     if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                        errorString2 = e.this.coU.getResources().getString(d.l.neterror);
+                        errorString2 = e.this.coV.getResources().getString(d.l.neterror);
                     } else {
                         errorString2 = getMyPostHttpResponseMessage.getErrorString();
                     }
@@ -70,7 +70,7 @@ public class e extends i {
                 } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                     GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                     if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                        errorString = e.this.coU.getResources().getString(d.l.neterror);
+                        errorString = e.this.coV.getResources().getString(d.l.neterror);
                     } else {
                         errorString = getMyPostSocketResponseMessage.getErrorString();
                     }
@@ -82,34 +82,34 @@ public class e extends i {
         this.cxe.getHttpMessageListener().setSelfListener(true);
         this.cxd.setSelfListener(false);
         fVar.registerListener(this.cxd);
-        this.coU.registerListener(this.cxe);
-        this.coU.registerListener(this.cxc);
+        this.coV.registerListener(this.cxe);
+        this.coV.registerListener(this.cxc);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, GetMyPostResIdl getMyPostResIdl) {
         if (i != 0) {
-            this.coU.showToast(str);
+            this.coV.showToast(str);
             return;
         }
-        com.baidu.tieba.tbadkCore.i afN = this.coU.afN();
-        if (afN != null && afN.aPO() != null && getMyPostResIdl != null && this.cjK != null && this.cjT != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
+        com.baidu.tieba.tbadkCore.i afH = this.coV.afH();
+        if (afH != null && afH.aPJ() != null && getMyPostResIdl != null && this.cjL != null && this.cjU != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
             ao aoVar = new ao();
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
             a(builder2, getMyPostResIdl.data.user_info);
             builder.author = builder2.build(true);
             builder.cheak_repeat = 1;
-            builder.fname = afN.aPO().getName();
+            builder.fname = afH.aPJ().getName();
             aoVar.a(builder.build(true));
             aoVar.bX(3);
-            this.cjT.a(aoVar);
-            ArrayList<com.baidu.adp.widget.ListView.f> a = this.cxq.a(false, true, afN.getThreadList(), null);
+            this.cjU.a(aoVar);
+            ArrayList<com.baidu.adp.widget.ListView.f> a = this.cxq.a(false, true, afH.getThreadList(), null);
             if (a != null) {
-                afN.aB(a);
-                afN.bsa();
-                this.cjK.a(a, afN);
-                this.cjK.iJ(0);
+                afH.aB(a);
+                afH.brT();
+                this.cjL.a(a, afH);
+                this.cjL.iJ(0);
             }
         }
     }
@@ -128,16 +128,16 @@ public class e extends i {
     }
 
     public void a(PostWriteCallBackData postWriteCallBackData) {
-        if (this.cjT != null) {
-            if (this.cjT.ajl() == 2 || this.cjT.ajl() == 3 || this.cjT.ajl() == 7) {
-                int ajd = this.cjT.ajd();
-                if (y.agA().iL(1) == null) {
-                    ajd = 0;
+        if (this.cjU != null) {
+            if (this.cjU.ajf() == 2 || this.cjU.ajf() == 3 || this.cjU.ajf() == 7) {
+                int aiX = this.cjU.aiX();
+                if (y.agu().iL(1) == null) {
+                    aiX = 0;
                 }
-                if (ajd == 0 && postWriteCallBackData != null) {
+                if (aiX == 0 && postWriteCallBackData != null) {
                     final long d = com.baidu.adp.lib.g.b.d(postWriteCallBackData.getPostId(), 0L);
                     final long d2 = com.baidu.adp.lib.g.b.d(postWriteCallBackData.getThreadId(), 0L);
-                    final long d3 = com.baidu.adp.lib.g.b.d(this.coU.getForumId(), 0L);
+                    final long d3 = com.baidu.adp.lib.g.b.d(this.coV.getForumId(), 0L);
                     if (d != 0 && d2 != 0 && d3 != 0) {
                         com.baidu.adp.lib.g.e.ga().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.mc.e.4
                             @Override // java.lang.Runnable
@@ -146,12 +146,12 @@ public class e extends i {
                                 int ah = com.baidu.adp.lib.util.k.ah(TbadkCoreApplication.getInst());
                                 float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                                 int i = 1;
-                                if (am.vQ().vS()) {
+                                if (am.vR().vT()) {
                                     i = 2;
                                 }
                                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
                                 requestGetMyPostNetMessage.setParams(d2, d, d3, ag, ah, f, i);
-                                e.this.coU.sendMessage(requestGetMyPostNetMessage);
+                                e.this.coV.sendMessage(requestGetMyPostNetMessage);
                             }
                         }, 1000L);
                     }

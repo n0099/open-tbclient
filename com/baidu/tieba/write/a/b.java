@@ -41,7 +41,7 @@ public class b {
         }
     }
 
-    public void sX(String str) {
+    public void tc(String str) {
         try {
             b(new JSONObject(str), true);
         } catch (Exception e) {
@@ -49,11 +49,11 @@ public class b {
         }
     }
 
-    public ArrayList<MetaData> bzf() {
+    public ArrayList<MetaData> byX() {
         return this.gDV;
     }
 
-    public HashMap<String, String> bzg() {
+    public HashMap<String, String> byY() {
         return this.gDW;
     }
 }

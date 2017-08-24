@@ -18,7 +18,7 @@ import tbclient.Userlike.DataRes;
 public class a {
     private d cSF = new d();
     private final c cSE = new c();
-    private final int beW = b.getInstance().getInt("home_page_max_thread_count", 300);
+    private final int beX = b.getInstance().getInt("home_page_max_thread_count", 300);
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -41,7 +41,7 @@ public class a {
                 if (n.B(blVar)) {
                     n nVar = new n(blVar);
                     if (nVar != null) {
-                        nVar.XU = blVar.getTid();
+                        nVar.XV = blVar.getTid();
                     }
                     if (nVar != null && nVar.isValid()) {
                         linkedList.add(nVar);
@@ -49,8 +49,8 @@ public class a {
                 } else if (k.B(blVar)) {
                     k kVar = new k(blVar);
                     if (kVar != null) {
-                        kVar.XU = blVar.getTid();
-                        kVar.jj(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+                        kVar.XV = blVar.getTid();
+                        kVar.jm(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                     }
                     if (kVar != null && kVar.isValid()) {
                         linkedList.add(kVar);
@@ -59,7 +59,7 @@ public class a {
                     l lVar = new l();
                     if (lVar != null) {
                         lVar.threadData = blVar;
-                        lVar.jj(lVar.threadData.isLinkThread() ? "4" : "1");
+                        lVar.jm(lVar.threadData.isLinkThread() ? "4" : "1");
                         lVar.isLinkThread = false;
                     }
                     if (lVar.threadData != null && lVar.isValid() && !StringUtils.isNull(lVar.threadData.getId()) && !"0".equals(lVar.threadData.getTid())) {
@@ -68,7 +68,7 @@ public class a {
                 }
             }
         }
-        this.cSE.aTU = linkedList;
+        this.cSE.aTV = linkedList;
         return this.cSE;
     }
 

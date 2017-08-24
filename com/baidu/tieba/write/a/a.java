@@ -1,8 +1,8 @@
 package com.baidu.tieba.write.a;
 /* loaded from: classes.dex */
 public class a {
-    public String XI;
     public String XJ;
+    public String XK;
     public String gDM;
     public String gDN;
     public String gDO;
@@ -11,7 +11,7 @@ public class a {
     public boolean gDK = false;
     public int gDL = 1;
     public String videoUrl = "";
-    public long fCl = 0;
+    public long fCn = 0;
     public int videoDuration = 0;
     public String gDP = "";
     public int gDQ = 0;

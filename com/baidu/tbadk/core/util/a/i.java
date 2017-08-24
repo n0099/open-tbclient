@@ -21,7 +21,7 @@ public class i implements a.InterfaceC0005a {
     private static int ajE = 0;
     private static int ajF = 0;
     private static int ajJ = 0;
-    private volatile com.baidu.adp.lib.network.http.c pZ = null;
+    private volatile com.baidu.adp.lib.network.http.c qa = null;
     private HashMap<String, String> ajx = null;
     private com.baidu.adp.lib.network.http.g ajy = new com.baidu.adp.lib.network.http.g();
     public boolean ajB = false;
@@ -37,7 +37,7 @@ public class i implements a.InterfaceC0005a {
     private boolean mUseHttpAutoSwitch = TbadkCoreApplication.getInst().isHttpAutoSwitch();
     private boolean ajI = false;
 
-    public boolean wq() {
+    public boolean wr() {
         return this.ajG;
     }
 
@@ -45,7 +45,7 @@ public class i implements a.InterfaceC0005a {
         return this.ajy;
     }
 
-    public void wr() {
+    public void ws() {
         this.ajC = null;
         this.xe = "";
         this.ajG = false;
@@ -56,14 +56,14 @@ public class i implements a.InterfaceC0005a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE, IPUT, IGET]}, finally: {[IGET, INVOKE, IPUT, IGET, CONSTRUCTOR, IGET, IGET, INVOKE, INVOKE, INVOKE, INVOKE, IPUT, CONSTRUCTOR, IGET, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IF] complete} */
-    private final byte[] en(String str) {
+    private final byte[] er(String str) {
         StringBuffer stringBuffer = new StringBuffer();
         try {
             try {
-                wr();
+                ws();
                 if (this.ajw != null) {
                     cancel();
-                    this.pZ = null;
+                    this.qa = null;
                 }
                 this.ajw = new com.baidu.adp.lib.network.http.e();
                 this.ajw.fJ().setUrl(str);
@@ -72,8 +72,8 @@ public class i implements a.InterfaceC0005a {
                         this.ajw.fJ().n(entry.getKey(), entry.getValue());
                     }
                 }
-                this.pZ = new com.baidu.adp.lib.network.http.c(this.ajw);
-                this.pZ.d(ajz, 0, 0);
+                this.qa = new com.baidu.adp.lib.network.http.c(this.ajw);
+                this.qa.d(ajz, 0, 0);
                 this.ajy = this.ajw.fK();
                 byte[] bArr = this.ajw.fK().xx;
                 this.responseCode = this.ajw.fK().responseCode;
@@ -141,11 +141,11 @@ public class i implements a.InterfaceC0005a {
         }
     }
 
-    public byte[] eo(String str) {
-        return en(str);
+    public byte[] es(String str) {
+        return er(str);
     }
 
-    private boolean ws() {
+    private boolean wt() {
         if (this.ajy.xu) {
             return false;
         }
@@ -169,7 +169,7 @@ public class i implements a.InterfaceC0005a {
         int i2 = 0;
         if (!this.mUseHttpClient) {
             try {
-                byte[] en = en(str);
+                byte[] er = er(str);
                 int i3 = ajD + 1;
                 ajD = i3;
                 if (i3 <= 2 && this.responseCode != 200) {
@@ -181,7 +181,7 @@ public class i implements a.InterfaceC0005a {
                 if (ajD == 2) {
                     r.a("A2T", ajF, this.errorCode, ajE);
                 }
-                if (true == ws()) {
+                if (true == wt()) {
                     this.mUseHttpClient = true;
                     this.ajI = true;
                     TbadkCoreApplication.getInst().setHttpClientOpen(true);
@@ -189,7 +189,7 @@ public class i implements a.InterfaceC0005a {
                     ajD = 0;
                     ajF = 0;
                 }
-                if (en == null) {
+                if (er == null) {
                     return null;
                 }
                 if (this.ajw != null && this.ajw.fK().xw != null) {
@@ -211,7 +211,7 @@ public class i implements a.InterfaceC0005a {
                         if (TextUtils.isEmpty(str3) || str3.equalsIgnoreCase("OK")) {
                             this.ajH = false;
                             i = i2;
-                            return (this.ajG || (!z && i == 0) || !new String(en, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) ? en : copyOfRange(en, 23, en.length);
+                            return (this.ajG || (!z && i == 0) || !new String(er, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) ? er : copyOfRange(er, 23, er.length);
                         }
                         this.ajH = true;
                     }
@@ -227,7 +227,7 @@ public class i implements a.InterfaceC0005a {
         StringBuilder sb = new StringBuilder(20);
         try {
             try {
-                wr();
+                ws();
                 if (this.ajA != null) {
                     cancel();
                 }
@@ -245,7 +245,7 @@ public class i implements a.InterfaceC0005a {
                 this.responseCode = this.ajw.fK().responseCode;
                 this.errorCode = this.ajw.fK().xv;
                 this.ajG = this.ajw.fK().fQ();
-                if (this.mUseHttpAutoSwitch && true == ws()) {
+                if (this.mUseHttpAutoSwitch && true == wt()) {
                     this.mUseHttpClient = false;
                     TbadkCoreApplication.getInst().setHttpClientOpen(false);
                     ajE = 0;
@@ -272,7 +272,7 @@ public class i implements a.InterfaceC0005a {
                     this.dataSize = 0;
                 }
                 this.isGif = this.ajA.isGif();
-                this.ajH = this.ajA.wp();
+                this.ajH = this.ajA.wq();
                 int size = this.ajw.fL().size();
                 if (size > 0) {
                     sb.append("_ipsize:");
@@ -422,8 +422,8 @@ public class i implements a.InterfaceC0005a {
 
     @Override // com.baidu.adp.lib.f.a.InterfaceC0005a
     public void cancel() {
-        if (this.pZ != null) {
-            this.pZ.cancel();
+        if (this.qa != null) {
+            this.qa.cancel();
         }
         if (this.ajA != null) {
             this.ajA.cancel();
@@ -431,7 +431,7 @@ public class i implements a.InterfaceC0005a {
         }
     }
 
-    public boolean wt() {
+    public boolean wu() {
         if (this.ajA == null) {
             return false;
         }

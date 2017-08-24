@@ -114,8 +114,8 @@ public abstract class a {
         if (this.Dh.DK != null) {
             canvas.concat(this.Dh.DK);
         }
-        if (dVar.DB != null && dVar.DB.le()) {
-            if ((dVar.DB.kX().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.DB.kX().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.Db != null) {
+        if (dVar.DB != null && dVar.DB.ld()) {
+            if ((dVar.DB.kW().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.DB.kW().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.Db != null) {
                 canvas.concat(this.Db);
             }
             this.Dg.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());

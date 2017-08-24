@@ -8,13 +8,13 @@ import tbclient.LabelInfo;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class ax extends bl {
-    public static final BdUniqueId Yv = BdUniqueId.gen();
-    private List<PhotoLiveCardData> Yw;
-    private int Yx = 0;
+    public static final BdUniqueId Yw = BdUniqueId.gen();
+    private List<PhotoLiveCardData> Yx;
+    private int Yy = 0;
     private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
 
     public void r(List<PhotoLiveCardData> list) {
-        this.Yw = list;
+        this.Yx = list;
     }
 
     public void a(bl blVar, int i) {
@@ -22,26 +22,26 @@ public class ax extends bl {
             setAuthor(blVar.getAuthor());
             setTitle(blVar.getTitle());
             setPhotoLiveCover(blVar.getPhotoLiveCover());
-            cJ(blVar.rK());
-            cF(blVar.getTid());
-            m(blVar.rz());
+            cM(blVar.rL());
+            cI(blVar.getTid());
+            m(blVar.rA());
             setAddress(blVar.getAddress());
             setId(blVar.getId());
             setThreadType(blVar.getThreadType());
-            a(blVar.rv());
-            bR(blVar.rx());
+            a(blVar.rw());
+            bR(blVar.ry());
             setPost_num(blVar.getPost_num());
-            cK(blVar.rN());
-            cF(blVar.getTid());
-            setExpressionDatas(blVar.rY());
-            setShowExpressionViewIndexList(blVar.rY());
+            cN(blVar.rO());
+            cI(blVar.getTid());
+            setExpressionDatas(blVar.rZ());
+            setShowExpressionViewIndexList(blVar.rZ());
             setId(blVar.getId());
-            a(blVar.qw());
-            this.aaF = blVar.sb();
-            this.aaG = blVar.sc();
-            this.aaH = blVar.sd();
+            a(blVar.qx());
+            this.aaF = blVar.sc();
+            this.aaG = blVar.sd();
+            this.aaH = blVar.se();
             if (getShowStyle() < 0) {
-                this.Yx = getRandom(3, i);
+                this.Yy = getRandom(3, i);
             }
         }
     }
@@ -57,21 +57,21 @@ public class ax extends bl {
                 metaData.setFansNum(zhiBoInfoTW.user.fans_num.intValue());
                 setAuthor(metaData);
             }
-            cK(zhiBoInfoTW.content);
+            cN(zhiBoInfoTW.content);
             setFid(zhiBoInfoTW.forum_id.longValue());
             setExpressionDatas(s(zhiBoInfoTW.labelInfo));
             bR(zhiBoInfoTW.reply_num.intValue());
-            cJ(zhiBoInfoTW.forum_name);
+            cM(zhiBoInfoTW.forum_name);
             setPhotoLiveCover(zhiBoInfoTW.livecover_src);
             m(zhiBoInfoTW.last_modified_time.longValue());
             setPost_num(zhiBoInfoTW.post_num.intValue());
             setTitle(zhiBoInfoTW.title);
             setShowExpressionViewIndexList(s(zhiBoInfoTW.labelInfo));
-            this.Yx = getRandom(3, i);
-            cF(String.valueOf(zhiBoInfoTW.thread_id));
+            this.Yy = getRandom(3, i);
+            cI(String.valueOf(zhiBoInfoTW.thread_id));
             setId(String.valueOf(zhiBoInfoTW.thread_id));
             setThreadType(33);
-            cJ(zhiBoInfoTW.forum_name);
+            cM(zhiBoInfoTW.forum_name);
         }
     }
 
@@ -140,11 +140,11 @@ public class ax extends bl {
     }
 
     public int getShowStyle() {
-        return this.Yx;
+        return this.Yy;
     }
 
     @Override // com.baidu.tbadk.core.data.bl, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return Yv;
+        return Yw;
     }
 }

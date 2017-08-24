@@ -5,7 +5,7 @@ public abstract class a {
 
     public abstract void a(e eVar);
 
-    public abstract String am(String str);
+    public abstract String an(String str);
 
     public static final a ft() {
         return wM;

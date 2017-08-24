@@ -42,7 +42,7 @@ public class m extends a {
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
     public boolean fX() {
         if (this.akb) {
-            return com.baidu.tbadk.core.h.oX().oZ();
+            return com.baidu.tbadk.core.h.oY().pa();
         }
         return true;
     }
@@ -54,14 +54,14 @@ public class m extends a {
         if (this.aka) {
             return null;
         }
-        com.baidu.adp.widget.a.a go = com.baidu.tbadk.imageManager.c.Ex().go(str);
-        if (go != null) {
-            go.IE.IG = "memory";
-            go.IE.IH = 0L;
-            go.IE.II = true;
-            return go;
+        com.baidu.adp.widget.a.a gs = com.baidu.tbadk.imageManager.c.Ex().gs(str);
+        if (gs != null) {
+            gs.IE.IG = "memory";
+            gs.IE.IH = 0L;
+            gs.IE.II = true;
+            return gs;
         }
-        return go;
+        return gs;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,7 +75,7 @@ public class m extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    protected String c(String str, int i, int i2) {
+    protected String d(String str, int i, int i2) {
         return this.ajY + str;
     }
 
@@ -103,12 +103,12 @@ public class m extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wu() {
+    public boolean wv() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wv() {
+    public boolean ww() {
         return false;
     }
 
@@ -121,7 +121,7 @@ public class m extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int ww() {
+    public int wx() {
         return this.akc;
     }
 }

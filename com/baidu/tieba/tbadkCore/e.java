@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes.dex */
 public class e implements com.baidu.adp.widget.ListView.f {
-    private int eGl;
+    private int eGn;
     private String ebZ;
     private String icon;
     private String obj_id;
@@ -14,12 +14,12 @@ public class e implements com.baidu.adp.widget.ListView.f {
     private String url;
     private int weight;
 
-    public int aQr() {
-        return this.eGl;
+    public int aQm() {
+        return this.eGn;
     }
 
     public void td(int i) {
-        this.eGl = i;
+        this.eGn = i;
     }
 
     public String getIcon() {
@@ -58,11 +58,11 @@ public class e implements com.baidu.adp.widget.ListView.f {
         this.time = i;
     }
 
-    public String brd() {
+    public String bqW() {
         return this.obj_id;
     }
 
-    public String aHd() {
+    public String aGY() {
         return this.ebZ;
     }
 

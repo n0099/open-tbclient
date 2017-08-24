@@ -59,7 +59,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         this.mRunnable = new Runnable() { // from class: com.baidu.adp.widget.BdSwitchView.BdSwitchView.1
             @Override // java.lang.Runnable
             public void run() {
-                BdSwitchView.this.kA();
+                BdSwitchView.this.kz();
             }
         };
         init(context);
@@ -79,7 +79,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         this.mRunnable = new Runnable() { // from class: com.baidu.adp.widget.BdSwitchView.BdSwitchView.1
             @Override // java.lang.Runnable
             public void run() {
-                BdSwitchView.this.kA();
+                BdSwitchView.this.kz();
             }
         };
         init(context);
@@ -227,35 +227,35 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         invalidate();
     }
 
-    public void kw() {
+    public void kv() {
         if (this.mState != SwitchState.ON) {
             a(SwitchState.ON, false);
         }
     }
 
-    public void kx() {
+    public void kw() {
         if (this.mState != SwitchState.OFF) {
             a(SwitchState.OFF, false);
         }
     }
 
-    public void ky() {
+    public void kx() {
         a(SwitchState.ON, true);
     }
 
     public void P(boolean z) {
         if (this.mState != SwitchState.ON) {
-            ky();
+            kx();
         }
     }
 
-    public void kz() {
+    public void ky() {
         a(SwitchState.OFF, true);
     }
 
     public void Q(boolean z) {
         if (this.mState != SwitchState.OFF) {
-            kz();
+            ky();
         }
     }
 
@@ -269,7 +269,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kA() {
+    public void kz() {
         if (this.mState == SwitchState.ON) {
             a(SwitchState.OFF, true);
         } else if (this.mState == SwitchState.OFF) {

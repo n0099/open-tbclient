@@ -12,7 +12,7 @@ public class d {
     }
 
     public boolean iN() {
-        return this.DB != null && this.DB.kY();
+        return this.DB != null && this.DB.kX();
     }
 
     public boolean isAvailable() {

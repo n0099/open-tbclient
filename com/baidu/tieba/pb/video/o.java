@@ -24,15 +24,15 @@ import java.util.Random;
 /* loaded from: classes.dex */
 public class o extends j.a {
     private TbPageContext acr;
-    public View bZZ;
+    public View caa;
     public TextView ctK;
-    public TbImageView fan;
-    public ImageView fao;
-    public TextView fap;
-    public TextView faq;
+    public TbImageView fap;
+    public ImageView faq;
     public TextView far;
-    public View fas;
-    public View fat;
+    public TextView fas;
+    public TextView fat;
+    public View fau;
+    public View fav;
     public View rootView;
 
     public o(TbPageContext tbPageContext, View view) {
@@ -40,72 +40,72 @@ public class o extends j.a {
         if (tbPageContext != null && view != null) {
             this.rootView = view;
             this.acr = tbPageContext;
-            this.fan = (TbImageView) view.findViewById(d.h.video_thumbnail_view);
-            this.fao = (ImageView) view.findViewById(d.h.channel_icon_view);
-            this.fan.setDefaultBgResource(d.g.pic_bg_video_frs);
-            this.fan.setDefaultErrorResource(d.g.pic_bg_video_frs);
-            this.fap = (TextView) view.findViewById(d.h.video_title_view);
-            this.faq = (TextView) view.findViewById(d.h.channel_name_view);
+            this.fap = (TbImageView) view.findViewById(d.h.video_thumbnail_view);
+            this.faq = (ImageView) view.findViewById(d.h.channel_icon_view);
+            this.fap.setDefaultBgResource(d.g.pic_bg_video_frs);
+            this.fap.setDefaultErrorResource(d.g.pic_bg_video_frs);
+            this.far = (TextView) view.findViewById(d.h.video_title_view);
+            this.fas = (TextView) view.findViewById(d.h.channel_name_view);
             this.ctK = (TextView) view.findViewById(d.h.video_play_count_view);
-            this.far = (TextView) view.findViewById(d.h.video_duration_view);
-            this.fas = view.findViewById(d.h.divider_view);
-            this.fat = view.findViewById(d.h.top_divider_view);
-            this.bZZ = view.findViewById(d.h.top_divider_line);
+            this.fat = (TextView) view.findViewById(d.h.video_duration_view);
+            this.fau = view.findViewById(d.h.divider_view);
+            this.fav = view.findViewById(d.h.top_divider_view);
+            this.caa = view.findViewById(d.h.top_divider_line);
         }
     }
 
     public void a(final k kVar) {
         if (kVar != null) {
-            this.fan.c(kVar.fah, 10, false);
-            this.fap.setText(kVar.fai);
+            this.fap.c(kVar.faj, 10, false);
+            this.far.setText(kVar.fak);
             if (kVar.videoDuration <= 0) {
-                this.far.setText("");
+                this.fat.setText("");
             } else {
-                this.far.setText(al.cZ(kVar.videoDuration * 1000));
+                this.fat.setText(al.cZ(kVar.videoDuration * 1000));
             }
-            this.ctK.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.video_play_count), al.u(kVar.faj)));
+            this.ctK.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.video_play_count), al.u(kVar.fal)));
             if (!StringUtils.isNull(kVar.channelName)) {
-                this.faq.setText(al.e(kVar.channelName, 14, "..."));
-                this.faq.setVisibility(0);
-                this.fao.setVisibility(0);
-            } else {
-                if (!StringUtils.isNull(kVar.Wz)) {
-                    this.faq.setText(al.e(kVar.Wz, 14, "..."));
-                    this.faq.setVisibility(0);
-                } else {
-                    this.faq.setVisibility(8);
-                }
-                this.fao.setVisibility(8);
-            }
-            if (kVar.fak) {
+                this.fas.setText(al.f(kVar.channelName, 14, "..."));
                 this.fas.setVisibility(0);
+                this.faq.setVisibility(0);
             } else {
-                this.fas.setVisibility(8);
+                if (!StringUtils.isNull(kVar.WA)) {
+                    this.fas.setText(al.f(kVar.WA, 14, "..."));
+                    this.fas.setVisibility(0);
+                } else {
+                    this.fas.setVisibility(8);
+                }
+                this.faq.setVisibility(8);
             }
-            if (kVar.fal) {
-                this.fat.setVisibility(0);
+            if (kVar.fam) {
+                this.fau.setVisibility(0);
             } else {
-                this.fat.setVisibility(8);
+                this.fau.setVisibility(8);
+            }
+            if (kVar.fan) {
+                this.fav.setVisibility(0);
+            } else {
+                this.fav.setVisibility(8);
             }
             if (kVar.ctl) {
-                this.bZZ.setVisibility(0);
+                this.caa.setVisibility(0);
             } else {
-                this.bZZ.setVisibility(8);
+                this.caa.setVisibility(8);
             }
             this.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.o.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (kVar != null) {
-                        o.this.pQ(kVar.threadId);
+                        o.this.pV(kVar.threadId);
                         aj ajVar = new aj("c11927");
                         ajVar.r("obj_locate", kVar.position);
                         ajVar.aa("tid", kVar.threadId);
                         ajVar.g("fid", kVar.forumId);
-                        ajVar.aa("obj_param1", kVar.fag);
+                        ajVar.aa("obj_param1", kVar.fai);
                         ajVar.aa("obj_param2", "1");
                         ajVar.g("obj_param3", System.currentTimeMillis() / 1000);
-                        ajVar.aa("obj_name", kVar.fae);
-                        ajVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, kVar.faf);
+                        ajVar.aa("obj_name", kVar.fag);
+                        ajVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, kVar.fah);
                         ajVar.g("obj_id", kVar.channelId);
                         TiebaStatic.log(ajVar);
                     }
@@ -117,7 +117,7 @@ public class o extends j.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pQ(String str) {
+    public void pV(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.acr.getPageActivity()).createNormalCfg(str, null, null)));
         this.acr.getPageActivity().finish();
     }
@@ -125,7 +125,7 @@ public class o extends j.a {
     public void Bf() {
         this.acr.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
         this.acr.getLayoutMode().t(this.rootView);
-        ai.j(this.fao, d.g.icon_weiba);
+        ai.j(this.faq, d.g.icon_weiba);
     }
 
     private void a(k kVar, ArrayList<String> arrayList) {
@@ -153,11 +153,11 @@ public class o extends j.a {
                 ajVar.r("obj_locate", kVar.position);
                 ajVar.aa("tid", kVar.threadId);
                 ajVar.g("fid", kVar.forumId);
-                ajVar.aa("obj_param1", kVar.fag);
+                ajVar.aa("obj_param1", kVar.fai);
                 ajVar.aa("obj_param2", "1");
                 ajVar.g("obj_param3", System.currentTimeMillis() / 1000);
-                ajVar.aa("obj_name", kVar.fae);
-                ajVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, kVar.faf);
+                ajVar.aa("obj_name", kVar.fag);
+                ajVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, kVar.fah);
                 ajVar.g("obj_id", kVar.channelId);
                 TiebaStatic.log(ajVar);
             }

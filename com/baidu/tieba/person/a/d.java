@@ -12,45 +12,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private HTypeListView aYK;
-    private b fgc;
-    private a fgd;
-    private com.baidu.tieba.personCenter.a.b fge;
+    private HTypeListView aYL;
+    private b fge;
+    private a fgf;
+    private com.baidu.tieba.personCenter.a.b fgg;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdUniqueId mId;
     private TbPageContext mTbPageContext;
 
     public d(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.aYK = hTypeListView;
+        this.aYL = hTypeListView;
         this.mId = tbPageContext.getUniqueId();
         initAdapters();
     }
 
     private void initAdapters() {
-        this.fgc = new b(this.mTbPageContext, k.aBa);
-        this.fgd = new a(this.mTbPageContext, com.baidu.tieba.person.data.a.fgg);
-        this.fge = new com.baidu.tieba.personCenter.a.b(this.mTbPageContext.getPageActivity(), h.ffM);
-        this.mAdapters.add(this.fgc);
-        this.mAdapters.add(this.fgd);
+        this.fge = new b(this.mTbPageContext, k.aBb);
+        this.fgf = new a(this.mTbPageContext, com.baidu.tieba.person.data.a.fgi);
+        this.fgg = new com.baidu.tieba.personCenter.a.b(this.mTbPageContext.getPageActivity(), h.ffO);
         this.mAdapters.add(this.fge);
-        this.aYK.addAdapters(this.mAdapters);
+        this.mAdapters.add(this.fgf);
+        this.mAdapters.add(this.fgg);
+        this.aYL.addAdapters(this.mAdapters);
     }
 
     public void setDatas(List<f> list) {
-        if (this.aYK != null) {
-            this.aYK.setData(list);
+        if (this.aYL != null) {
+            this.aYL.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.aYK != null && (this.aYK.getAdapter() instanceof j)) {
-            ((j) this.aYK.getAdapter()).notifyDataSetChanged();
+        if (this.aYL != null && (this.aYL.getAdapter() instanceof j)) {
+            ((j) this.aYL.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.fgc.t(onClickListener);
-        this.fgd.t(onClickListener);
+        this.fge.p(onClickListener);
+        this.fgf.p(onClickListener);
     }
 }

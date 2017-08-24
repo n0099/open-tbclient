@@ -94,15 +94,15 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String pQ() {
+    public String pR() {
         return this.gjw;
     }
 
-    public String bsP() {
+    public String bsI() {
         return this.gju;
     }
 
-    public String bsQ() {
+    public String bsJ() {
         return this.gjx;
     }
 }

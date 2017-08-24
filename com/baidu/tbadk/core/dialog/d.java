@@ -49,13 +49,13 @@ public class d {
         this.acq = new e(this.acr);
     }
 
-    public d cV(String str) {
+    public d cY(String str) {
         this.mTitle = str;
         return this;
     }
 
     public d cl(int i) {
-        return cV(this.acr.getResources().getString(i));
+        return cY(this.acr.getResources().getString(i));
     }
 
     public d a(ArrayList<f> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -69,7 +69,7 @@ public class d {
         return this;
     }
 
-    public d tv() {
+    public d tw() {
         if (!this.abO) {
             this.abO = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -98,7 +98,7 @@ public class d {
         this.acq.setData(this.mItems);
     }
 
-    public d tw() {
+    public d tx() {
         if (!this.abO) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }

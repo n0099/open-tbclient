@@ -19,13 +19,13 @@ public class b implements CustomMessageTask.CustomRunnable<bl> {
         if (customMessage != null && (customMessage.getData() instanceof bl)) {
             bl data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
-                com.baidu.tieba.frs.e.b.ajF().a(this.cwv, data, 1);
+                com.baidu.tieba.frs.e.b.ajz().a(this.cwv, data, 1);
             } else if (customMessage.getCmd() == 2921016) {
-                com.baidu.tieba.frs.e.b.ajF().a(this.cwv, data, 2);
+                com.baidu.tieba.frs.e.b.ajz().a(this.cwv, data, 2);
             } else if (customMessage.getCmd() == 2921019) {
-                com.baidu.tieba.frs.e.b.ajF().a(this.cwv, data, 4);
+                com.baidu.tieba.frs.e.b.ajz().a(this.cwv, data, 4);
             } else if (customMessage.getCmd() == 2921017) {
-                com.baidu.tieba.frs.e.b.ajF().a(this.cwv, data);
+                com.baidu.tieba.frs.e.b.ajz().a(this.cwv, data);
             }
         }
         return null;

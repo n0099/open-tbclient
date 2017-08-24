@@ -58,7 +58,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                                 dataRes = ((ConcernPageHttpResMessage) responsedMessage).getResultData();
                             }
                             ConcernNetModel.this.cSA.b(dataRes, z);
-                            l.boN().boP();
+                            l.boG().boI();
                             return;
                         }
                     }
@@ -87,8 +87,8 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
             }
         };
         setUniqueId(bdUniqueId);
-        UJ();
-        VY();
+        UH();
+        VV();
         registerListener(this.mNetMessageListener);
         registerListener(this.cSC);
     }
@@ -101,14 +101,14 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         this.cSB = aVar;
     }
 
-    public void lq(String str) {
+    public void lt(String str) {
         ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
         concernPageRequestMessage.setPageTag(str);
         concernPageRequestMessage.setTag(getUniqueId());
         sendMessage(concernPageRequestMessage);
     }
 
-    public void aoJ() {
+    public void aoD() {
         CheckRedNotifyReqMessage checkRedNotifyReqMessage = new CheckRedNotifyReqMessage();
         checkRedNotifyReqMessage.setTag(getUniqueId());
         sendMessage(checkRedNotifyReqMessage);
@@ -126,7 +126,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    private void VY() {
+    private void VV() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309474);
         bVar.setResponsedClass(ConcernPageSocketResMessage.class);
         bVar.m(true);
@@ -137,7 +137,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         MessageManager.getInstance().registerTask(bVar2);
     }
 
-    private void UJ() {
+    private void UH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, com.baidu.tieba.tbadkCore.a.a.az(TbConfig.URL_CONCERN_PAGE, 309474));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);

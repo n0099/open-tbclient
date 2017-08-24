@@ -1,7 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public interface a {
-    void Py();
+    void Px();
 
     void a(int i, com.baidu.tieba.person.data.c cVar);
 

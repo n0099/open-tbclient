@@ -30,7 +30,7 @@ public class c {
     private ServiceConnection mServiceConnection = new b();
     private ArrayList<Message> GD = new ArrayList<>();
 
-    public static c kh() {
+    public static c kg() {
         if (GA == null) {
             synchronized (c.class) {
                 if (GA == null) {
@@ -55,7 +55,7 @@ public class c {
         }
     }
 
-    public PluginSettings ke() {
+    public PluginSettings kd() {
         return this.Gt;
     }
 
@@ -71,11 +71,11 @@ public class c {
 
     public void a(String str, PluginSetting pluginSetting, boolean z) {
         if (this.Gt.insertOrUpdatePluginSetting(str, pluginSetting) && z) {
-            com.baidu.adp.plugin.packageManager.pluginSettings.b.kd().save(this.Gt.m7clone(), null);
+            com.baidu.adp.plugin.packageManager.pluginSettings.b.kc().save(this.Gt.m7clone(), null);
         }
     }
 
-    public void bA(String str) {
+    public void bB(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
@@ -87,7 +87,7 @@ public class c {
         }
     }
 
-    public void bB(String str) {
+    public void bC(String str) {
         if (this.Gt.removePluginSetting(str)) {
             Bundle bundle = new Bundle();
             bundle.putString(PluginSettingIOService.KEY_SETTING_NAME, str);
@@ -95,7 +95,7 @@ public class c {
         }
     }
 
-    public void bo(String str) {
+    public void bp(String str) {
         PluginSetting findPluginSetting = findPluginSetting(str);
         if (findPluginSetting != null && !findPluginSetting.forbidden) {
             findPluginSetting.forbidden = true;
@@ -106,7 +106,7 @@ public class c {
         }
     }
 
-    public void bp(String str) {
+    public void bq(String str) {
         PluginSetting findPluginSetting = findPluginSetting(str);
         if (findPluginSetting != null && findPluginSetting.forbidden) {
             findPluginSetting.forbidden = false;
@@ -128,7 +128,7 @@ public class c {
         }
     }
 
-    public void bC(String str) {
+    public void bD(String str) {
         PluginSetting findPluginSetting = findPluginSetting(str);
         if (findPluginSetting != null) {
             findPluginSetting.enable = true;
@@ -144,7 +144,7 @@ public class c {
         if (findPluginSetting != null) {
             findPluginSetting.setAbandon_apk_path(str2);
             if (z) {
-                com.baidu.adp.plugin.packageManager.pluginSettings.b.kd().save(this.Gt.m7clone(), null);
+                com.baidu.adp.plugin.packageManager.pluginSettings.b.kc().save(this.Gt.m7clone(), null);
             }
         }
     }
@@ -169,7 +169,7 @@ public class c {
         }
     }
 
-    public boolean bD(String str) {
+    public boolean bE(String str) {
         PluginSetting findPluginSetting = findPluginSetting(str);
         if (findPluginSetting == null) {
             return true;
@@ -185,17 +185,17 @@ public class c {
         }
     }
 
-    public void bE(String str) {
+    public void bF(String str) {
         if (this.Gt.findPluginSetting(str) != null) {
-            bB(str);
-            bA("");
+            bC(str);
+            bB("");
         }
     }
 
-    public void bF(String str) {
+    public void bG(String str) {
         if (this.Gt.findPluginSetting(str) != null) {
-            bB(str);
-            bA("");
+            bC(str);
+            bB("");
         }
     }
 
@@ -206,7 +206,7 @@ public class c {
         if (obtain != null) {
             obtain.setData(bundle);
             try {
-                if (this.GB == null || !kj()) {
+                if (this.GB == null || !ki()) {
                     this.GD.add(obtain);
                     f.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.mServiceConnection, 1);
                 } else {
@@ -223,7 +223,7 @@ public class c {
         if (obtain != null) {
             obtain.setData(bundle);
             try {
-                if (this.GB == null || !kj()) {
+                if (this.GB == null || !ki()) {
                     this.GD.add(obtain);
                     f.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.mServiceConnection, 1);
                 } else {
@@ -352,7 +352,7 @@ public class c {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             c.this.GB = new Messenger(iBinder);
-            c.this.ki();
+            c.this.kh();
             if (c.this.GD.size() > 0) {
                 Iterator it = c.this.GD.iterator();
                 while (it.hasNext()) {
@@ -374,7 +374,7 @@ public class c {
     }
 
     public void a(final e eVar) {
-        com.baidu.adp.plugin.packageManager.pluginSettings.b.kd().a(new e() { // from class: com.baidu.adp.plugin.packageManager.pluginSettings.c.1
+        com.baidu.adp.plugin.packageManager.pluginSettings.b.kc().a(new e() { // from class: com.baidu.adp.plugin.packageManager.pluginSettings.c.1
             @Override // com.baidu.adp.plugin.packageManager.pluginSettings.e
             public void a(PluginSettings pluginSettings) {
                 if (pluginSettings != null) {
@@ -385,13 +385,13 @@ public class c {
                 }
             }
         });
-        if (this.GB == null || !kj()) {
+        if (this.GB == null || !ki()) {
             f.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.mServiceConnection, 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ki() {
+    public void kh() {
         Message obtain = Message.obtain(null, 1, null);
         if (obtain != null) {
             try {
@@ -406,7 +406,7 @@ public class c {
         }
     }
 
-    private boolean kj() {
+    private boolean ki() {
         List<ActivityManager.RunningServiceInfo> list;
         try {
             list = ((ActivityManager) BdBaseApplication.getInst().getSystemService("activity")).getRunningServices(100);

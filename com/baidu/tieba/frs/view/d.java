@@ -15,7 +15,7 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends LinearLayout {
-    private LinearLayout aMd;
+    private LinearLayout aMe;
     private EditText cCh;
     private HeadImageView cCi;
     private TextView cCj;
@@ -47,7 +47,7 @@ public class d extends LinearLayout {
     private void bk(Context context) {
         LayoutInflater.from(context).inflate(d.j.frs_share_card_view, this);
         setOrientation(1);
-        this.aMd = (LinearLayout) findViewById(d.h.share_content);
+        this.aMe = (LinearLayout) findViewById(d.h.share_content);
         this.name = (TextView) findViewById(d.h.frs_card_name);
         this.cCh = (EditText) findViewById(d.h.chat_msg);
         this.cCi = (HeadImageView) findViewById(d.h.frs_card_img);
@@ -57,13 +57,13 @@ public class d extends LinearLayout {
         ai.c(this.cCh, d.e.cp_cont_b, 2);
         this.cCh.setHintTextColor(ai.getColor(d.e.cp_cont_e));
         this.cCh.setPadding(context.getResources().getDimensionPixelSize(d.f.ds20), 0, 0, 0);
-        akw();
+        akq();
     }
 
-    public void akw() {
-        this.aMd.setFocusable(true);
-        this.aMd.setFocusableInTouchMode(true);
-        this.aMd.requestFocus();
+    public void akq() {
+        this.aMe.setFocusable(true);
+        this.aMe.setFocusableInTouchMode(true);
+        this.aMe.requestFocus();
     }
 
     public String getLeaveMsg() {
@@ -82,18 +82,18 @@ public class d extends LinearLayout {
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
         this.cCl = shareFromFrsMsgData;
-        wP();
+        wQ();
     }
 
-    private void wP() {
-        this.name.setText(ed(this.cCl.getName()));
+    private void wQ() {
+        this.name.setText(eh(this.cCl.getName()));
         BdLog.e("mData.getImageUrl()的图片URL" + this.cCl.getImageUrl());
         this.cCi.c(this.cCl.getImageUrl(), 15, false);
         this.cCk.setText(al.z(this.cCl.getMemberNum()));
         this.cCj.setText(al.z(this.cCl.getPostNum()));
     }
 
-    private String ed(String str) {
+    private String eh(String str) {
         return al.j(str, 18) + this.context.getString(d.l.forum);
     }
 }

@@ -17,14 +17,14 @@ public class a implements View.OnClickListener {
     private boolean czn;
     private boolean czo;
     private PopupWindow czp;
-    private TbPageContext oV;
+    private TbPageContext oW;
     private int czm = d.l.attention_post_update_tip;
     private Handler mHandler = new Handler();
     private Runnable czq = new Runnable() { // from class: com.baidu.tieba.frs.g.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.oV != null && a.this.amf != null) {
-                Activity pageActivity = a.this.oV.getPageActivity();
+            if (a.this.oW != null && a.this.amf != null) {
+                Activity pageActivity = a.this.oW.getPageActivity();
                 int g = k.g(pageActivity, d.f.ds64);
                 View f = a.this.f(pageActivity, a.this.czm);
                 int[] iArr = new int[2];
@@ -37,7 +37,7 @@ public class a implements View.OnClickListener {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (a.this.czp != null) {
-                            a.this.ajP();
+                            a.this.ajJ();
                         }
                     }
                 }, 3000L);
@@ -46,13 +46,13 @@ public class a implements View.OnClickListener {
     };
 
     public a(TbPageContext tbPageContext, boolean z) {
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
         this.czo = z;
     }
 
-    public void aq(View view) {
+    public void ap(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (this.oV != null && view != null && !StringUtils.isNull(currentAccount)) {
+        if (this.oW != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.amf = view;
             if (this.czn) {
                 this.czm = d.l.smart_frs_tip;
@@ -97,10 +97,10 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ajP();
+        ajJ();
     }
 
-    public void ajP() {
+    public void ajJ() {
         if (this.czp != null) {
             this.czp.dismiss();
             this.czp = null;
@@ -113,6 +113,6 @@ public class a implements View.OnClickListener {
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        ajP();
+        ajJ();
     }
 }

@@ -6,7 +6,7 @@ import tbclient.FrsPage.StarInfo;
 /* loaded from: classes.dex */
 public class h {
     private int gia = 0;
-    private int aAm = 0;
+    private int aAn = 0;
     private String gib = null;
     private String gic = null;
     private int gie = 0;
@@ -21,19 +21,19 @@ public class h {
     private long gin = 0;
     private String gio = null;
 
-    public int brT() {
+    public int brM() {
         return this.gia;
     }
 
-    public boolean brU() {
+    public boolean brN() {
         return this.gim;
     }
 
-    public long brV() {
+    public long brO() {
         return this.gin;
     }
 
-    public String brW() {
+    public String brP() {
         return this.gio;
     }
 
@@ -47,7 +47,7 @@ public class h {
                 if (fans != null) {
                     this.gie = fans.is_get.intValue();
                     this.gif = fans.num.intValue();
-                    this.aAm = fans.open.intValue();
+                    this.aAn = fans.open.intValue();
                     this.gik = fans.left_time.intValue();
                 }
                 this.gil = this.gik;

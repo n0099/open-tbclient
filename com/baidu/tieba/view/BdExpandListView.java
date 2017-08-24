@@ -37,16 +37,16 @@ public class BdExpandListView extends BdTypeListView {
     public interface a {
         void G(float f);
 
-        void li();
+        void lh();
 
-        void lj();
+        void li();
     }
 
     public void setStarForum(boolean z) {
         this.gxl = z;
     }
 
-    public boolean bsm() {
+    public boolean bsf() {
         return this.gxl;
     }
 
@@ -108,10 +108,10 @@ public class BdExpandListView extends BdTypeListView {
                 case 3:
                     if (this.Jn) {
                         setClickEventEnabled(false);
-                        lg();
+                        lf();
                         this.Jn = false;
                     } else if (this.gxi != null) {
-                        this.gxi.li();
+                        this.gxi.lh();
                     }
                     this.mHandler.removeCallbacks(this.gxm);
                     this.mHandler.postDelayed(this.gxm, 200L);
@@ -170,21 +170,21 @@ public class BdExpandListView extends BdTypeListView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void lg() {
+    public void lf() {
         if (this.gxh != null) {
             if (this.Ji.getHeight() >= this.gxh.Jx - (this.Jr / 2)) {
-                lh();
+                lg();
             } else if (this.gxi != null) {
-                this.gxi.li();
+                this.gxi.lh();
             }
             this.mScroller.startScroll(0, this.Ji.getHeight(), 0, this.gxh.Jv - this.Ji.getHeight(), 200);
             invalidate();
         }
     }
 
-    public void lh() {
+    public void lg() {
         if (this.gxi != null) {
-            this.gxi.lj();
+            this.gxi.li();
         }
     }
 
@@ -205,7 +205,7 @@ public class BdExpandListView extends BdTypeListView {
         if (this.Ji != null && !this.Jn) {
             this.Jn = true;
             this.mScroller.startScroll(0, getOriginalHeight() + this.Jr, 0, -this.Jr, 200);
-            lh();
+            lg();
             invalidate();
             this.mHandler.removeCallbacks(this.gxm);
             this.mHandler.postDelayed(this.gxm, 200L);

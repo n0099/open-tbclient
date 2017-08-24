@@ -11,7 +11,7 @@ public class a {
     private List<ForumInfo> dWw;
     private BdUniqueId mBdUniqueId;
     private InterfaceC0105a dWx = null;
-    private com.baidu.adp.framework.listener.a bFy = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440) { // from class: com.baidu.tieba.likedForum.a.1
+    private com.baidu.adp.framework.listener.a bFz = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440) { // from class: com.baidu.tieba.likedForum.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -45,8 +45,8 @@ public class a {
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.bFy.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.bFy);
+        this.bFz.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.bFz);
     }
 
     public boolean Fw() {
@@ -56,7 +56,7 @@ public class a {
         return false;
     }
 
-    public void aEu() {
+    public void aEp() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, this.mBdUniqueId);
         MessageManager.getInstance().removeMessage(309440, this.mBdUniqueId);
     }
@@ -66,6 +66,6 @@ public class a {
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.bFy);
+        MessageManager.getInstance().unRegisterListener(this.bFz);
     }
 }

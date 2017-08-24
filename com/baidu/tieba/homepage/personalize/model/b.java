@@ -30,7 +30,7 @@ public class b {
                 if ((fVar instanceof r) && (fVar2 instanceof r)) {
                     r rVar = (r) fVar;
                     r rVar2 = (r) fVar2;
-                    if (rVar.Xg()) {
+                    if (rVar.Xd()) {
                         rVar2.dG(false);
                         if (rVar2 instanceof com.baidu.tieba.homepage.personalize.c.c) {
                             rVar.dH(false);
@@ -65,14 +65,14 @@ public class b {
                 if ((fVar instanceof com.baidu.tieba.card.data.c) && (MF = (cVar = (com.baidu.tieba.card.data.c) fVar).MF()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.g.b.d(MF.getTid(), 0L)))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.ji(threadPersonalized.abtest_tag);
+                    cVar.jl(threadPersonalized.abtest_tag);
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {
                         SparseArray<String> sparseArray = new SparseArray<>();
                         for (DislikeReason dislikeReason : list2) {
                             sparseArray.put(dislikeReason.dislike_id.intValue(), dislikeReason.dislike_reason);
                         }
-                        cVar.XV = sparseArray;
+                        cVar.XW = sparseArray;
                     }
                 }
             }

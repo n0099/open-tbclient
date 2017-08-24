@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class ad {
-    public boolean eGG;
-    public boolean ePa;
-    public int ePb;
-    public int ePc;
-    public boolean ePd;
+    public boolean eGI;
+    public boolean ePc;
+    public int ePd;
+    public int ePe;
+    public boolean ePf;
     public boolean isAlive;
     public boolean isSquence;
     public int loadType;

@@ -28,25 +28,25 @@ public class j {
         adO.add("ico");
     }
 
-    public static boolean cX(String str) {
+    public static boolean da(String str) {
         return (TextUtils.isEmpty(str) || str.contains("/api")) ? false : true;
     }
 
-    public static boolean cY(String str) {
+    public static boolean db(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return TextUtils.equals(MimeTypeMap.getFileExtensionFromUrl(str), "js");
     }
 
-    public static boolean cZ(String str) {
+    public static boolean dc(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return TextUtils.equals(MimeTypeMap.getFileExtensionFromUrl(str), "css");
     }
 
-    public static String tV() {
+    public static String tW() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("_client_type=%s", "2")).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         sb.append(String.format("apid=%s", "2")).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);

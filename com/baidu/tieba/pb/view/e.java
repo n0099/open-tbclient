@@ -21,55 +21,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e extends ViewGroup {
-    private int fbD;
-    private int fbE;
     private int fbF;
     private int fbG;
-    private float fbH;
-    private float fbI;
-    private int fbJ;
-    private boolean fbK;
-    private ImageView fbL;
-    private List<ImageView> fbM;
-    private TextView fbN;
-    private List<TextView> fbO;
-    private boolean fbP;
-    private int fbQ;
-    private int fbR;
-    private boolean fbS;
-    private AnimatorSet fbT;
-    private AnimatorSet fbU;
+    private int fbH;
+    private int fbI;
+    private float fbJ;
+    private float fbK;
+    private int fbL;
+    private boolean fbM;
+    private ImageView fbN;
+    private List<ImageView> fbO;
+    private TextView fbP;
+    private List<TextView> fbQ;
+    private boolean fbR;
+    private int fbS;
+    private int fbT;
+    private boolean fbU;
     private AnimatorSet fbV;
-    private Interpolator fbW;
-    private Interpolator fbX;
+    private AnimatorSet fbW;
+    private AnimatorSet fbX;
     private Interpolator fbY;
+    private Interpolator fbZ;
+    private Interpolator fca;
     private int mRadius;
     private int mScreenWidth;
 
     public e(Context context) {
         super(context);
-        this.fbF = 30;
-        this.fbG = k.g(getContext(), d.f.ds112);
-        this.fbH = 200.0f;
-        this.fbI = 340.0f;
-        this.fbK = false;
-        this.fbW = new OvershootInterpolator();
-        this.fbX = new DecelerateInterpolator();
-        this.fbY = new AccelerateDecelerateInterpolator();
+        this.fbH = 30;
+        this.fbI = k.g(getContext(), d.f.ds112);
+        this.fbJ = 200.0f;
+        this.fbK = 340.0f;
+        this.fbM = false;
+        this.fbY = new OvershootInterpolator();
+        this.fbZ = new DecelerateInterpolator();
+        this.fca = new AccelerateDecelerateInterpolator();
         init();
     }
 
     private void init() {
-        this.fbD = getResources().getDimensionPixelSize(d.f.ds132);
-        this.fbE = getResources().getDimensionPixelSize(d.f.ds162);
-        this.fbM = new ArrayList();
+        this.fbF = getResources().getDimensionPixelSize(d.f.ds132);
+        this.fbG = getResources().getDimensionPixelSize(d.f.ds162);
+        this.fbO = new ArrayList();
         for (int i = 0; i < 4; i++) {
             ImageView imageView = new ImageView(getContext());
             imageView.setVisibility(4);
-            this.fbM.add(imageView);
+            this.fbO.add(imageView);
             addView(imageView);
         }
-        this.fbO = new ArrayList();
+        this.fbQ = new ArrayList();
         for (int i2 = 0; i2 < 4; i2++) {
             TextView textView = new TextView(getContext());
             switch (i2) {
@@ -91,12 +91,12 @@ public class e extends ViewGroup {
             textView.setTextColor(-1);
             textView.setGravity(17);
             textView.setVisibility(4);
-            this.fbO.add(textView);
+            this.fbQ.add(textView);
             addView(textView);
         }
         this.mScreenWidth = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getWidth();
-        this.fbQ = k.g(getContext(), d.f.ds70);
-        this.fbR = k.g(getContext(), d.f.ds52);
+        this.fbS = k.g(getContext(), d.f.ds70);
+        this.fbT = k.g(getContext(), d.f.ds52);
     }
 
     private static int a(float f, int i, int i2, int i3, int i4) {
@@ -111,10 +111,10 @@ public class e extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.mRadius = a(Math.abs(this.fbI - this.fbH), this.fbM.size(), this.fbD, this.fbF, 100);
-        this.fbJ = a(Math.abs(this.fbI - this.fbH), this.fbM.size(), this.fbE, this.fbF, 100);
-        int i3 = (this.fbJ * 2) + this.fbE + this.fbF + this.fbQ;
-        int i4 = this.fbJ + this.fbE + this.fbG;
+        this.mRadius = a(Math.abs(this.fbK - this.fbJ), this.fbO.size(), this.fbF, this.fbH, 100);
+        this.fbL = a(Math.abs(this.fbK - this.fbJ), this.fbO.size(), this.fbG, this.fbH, 100);
+        int i3 = (this.fbL * 2) + this.fbG + this.fbH + this.fbS;
+        int i4 = this.fbL + this.fbG + this.fbI;
         if (i3 > this.mScreenWidth) {
             i3 = this.mScreenWidth;
         }
@@ -122,14 +122,14 @@ public class e extends ViewGroup {
         int i5 = 0;
         while (true) {
             int i6 = i5;
-            if (i6 < this.fbM.size()) {
-                int i7 = this.fbD;
-                if (this.fbL != null && i6 == this.fbM.indexOf(this.fbL)) {
-                    i7 = this.fbE;
+            if (i6 < this.fbO.size()) {
+                int i7 = this.fbF;
+                if (this.fbN != null && i6 == this.fbO.indexOf(this.fbN)) {
+                    i7 = this.fbG;
                 }
                 int i8 = i7;
-                this.fbM.get(i6).measure(View.MeasureSpec.makeMeasureSpec(i8, 1073741824), View.MeasureSpec.makeMeasureSpec(i8, 1073741824));
-                this.fbO.get(i6).measure(View.MeasureSpec.makeMeasureSpec(this.fbQ, 1073741824), View.MeasureSpec.makeMeasureSpec(this.fbR, 1073741824));
+                this.fbO.get(i6).measure(View.MeasureSpec.makeMeasureSpec(i8, 1073741824), View.MeasureSpec.makeMeasureSpec(i8, 1073741824));
+                this.fbQ.get(i6).measure(View.MeasureSpec.makeMeasureSpec(this.fbS, 1073741824), View.MeasureSpec.makeMeasureSpec(this.fbT, 1073741824));
                 i5 = i6 + 1;
             } else {
                 return;
@@ -140,19 +140,19 @@ public class e extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5;
-        if (!this.fbS) {
+        if (!this.fbU) {
             int width = getWidth() / 2;
-            int height = getHeight() - this.fbG;
-            int i6 = this.fbK ? this.mRadius : 0;
-            float size = (this.fbI - this.fbH) / (this.fbM.size() - 1);
+            int height = getHeight() - this.fbI;
+            int i6 = this.fbM ? this.mRadius : 0;
+            float size = (this.fbK - this.fbJ) / (this.fbO.size() - 1);
             int i7 = 0;
-            float f = this.fbH;
+            float f = this.fbJ;
             while (true) {
                 int i8 = i7;
-                if (i8 < this.fbM.size()) {
-                    Rect a = a(width, height, i6, f, this.fbD);
-                    this.fbM.get(i8).layout(a.left, a.top, a.right, a.bottom);
-                    int g = this.fbJ + k.g(getContext(), d.f.ds106);
+                if (i8 < this.fbO.size()) {
+                    Rect a = a(width, height, i6, f, this.fbF);
+                    this.fbO.get(i8).layout(a.left, a.top, a.right, a.bottom);
+                    int g = this.fbL + k.g(getContext(), d.f.ds106);
                     if (i8 == 0) {
                         i5 = 10;
                     } else if (i8 == 1) {
@@ -166,8 +166,8 @@ public class e extends ViewGroup {
                     }
                     double cos = width + (g * Math.cos(Math.toRadians(i5 + f)));
                     double sin = (g * Math.sin(Math.toRadians(i5 + f))) + height;
-                    TextView textView = this.fbO.get(i8);
-                    textView.layout((int) (cos - (this.fbQ / 2)), (int) (sin - (this.fbR / 2)), (int) (cos + (this.fbQ / 2)), (int) (sin + (this.fbR / 2)));
+                    TextView textView = this.fbQ.get(i8);
+                    textView.layout((int) (cos - (this.fbS / 2)), (int) (sin - (this.fbT / 2)), (int) (cos + (this.fbS / 2)), (int) (sin + (this.fbT / 2)));
                     textView.setRotation((i8 == 0 || i8 == 3) ? i5 * (-3) : -i5);
                     f += size;
                     i7 = i8 + 1;
@@ -180,29 +180,29 @@ public class e extends ViewGroup {
 
     private void d(View view, int i, long j) {
         int width = getWidth() / 2;
-        int height = getHeight() - this.fbG;
-        float size = (this.fbI - this.fbH) / (this.fbM.size() - 1);
-        Rect a = a(width, height, this.mRadius, this.fbH + (i * size), this.fbD);
-        Rect a2 = a(width, height, 0, this.fbH + (i * size), this.fbD);
-        this.fbT = new AnimatorSet();
-        float f = this.fbK ? 1.0f : 0.0f;
-        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("alpha", f, 1.0f - f), PropertyValuesHolder.ofFloat("X", this.fbK ? a.left : a2.left, this.fbK ? a2.left : a.left), PropertyValuesHolder.ofFloat("Y", this.fbK ? a.top : a2.top, this.fbK ? a2.top : a.top));
+        int height = getHeight() - this.fbI;
+        float size = (this.fbK - this.fbJ) / (this.fbO.size() - 1);
+        Rect a = a(width, height, this.mRadius, this.fbJ + (i * size), this.fbF);
+        Rect a2 = a(width, height, 0, this.fbJ + (i * size), this.fbF);
+        this.fbV = new AnimatorSet();
+        float f = this.fbM ? 1.0f : 0.0f;
+        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("alpha", f, 1.0f - f), PropertyValuesHolder.ofFloat("X", this.fbM ? a.left : a2.left, this.fbM ? a2.left : a.left), PropertyValuesHolder.ofFloat("Y", this.fbM ? a.top : a2.top, this.fbM ? a2.top : a.top));
         ofPropertyValuesHolder.setDuration(j);
-        this.fbT.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.1
+        this.fbV.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                e.this.fbS = true;
-                if (!e.this.fbK) {
+                e.this.fbU = true;
+                if (!e.this.fbM) {
                     e.this.setVisibility(8);
                     int i2 = 0;
                     while (true) {
                         int i3 = i2;
-                        if (i3 < e.this.fbM.size()) {
-                            ImageView imageView = (ImageView) e.this.fbM.get(i3);
+                        if (i3 < e.this.fbO.size()) {
+                            ImageView imageView = (ImageView) e.this.fbO.get(i3);
                             if (imageView.getTag() != null) {
                                 ((com.baidu.tieba.pb.pb.main.view.b) imageView.getTag()).stop();
                             }
@@ -217,7 +217,7 @@ public class e extends ViewGroup {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                if (!e.this.fbK) {
+                if (!e.this.fbM) {
                     e.this.setVisibility(8);
                 }
             }
@@ -226,33 +226,33 @@ public class e extends ViewGroup {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        Rect a3 = a(width, height, this.mRadius + k.g(getContext(), d.f.ds16), this.fbH + (i * size), this.fbD);
+        Rect a3 = a(width, height, this.mRadius + k.g(getContext(), d.f.ds16), this.fbJ + (i * size), this.fbF);
         ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("X", a.left, a3.left), PropertyValuesHolder.ofFloat("Y", a.top, a3.top));
         ofPropertyValuesHolder2.setDuration(2L);
         ObjectAnimator ofPropertyValuesHolder3 = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("X", a3.left, a.left), PropertyValuesHolder.ofFloat("Y", a3.top, a.top));
         ofPropertyValuesHolder3.setDuration(2L);
-        if (!this.fbK) {
-            this.fbT.play(ofPropertyValuesHolder);
-            this.fbT.setInterpolator(this.fbW);
+        if (!this.fbM) {
+            this.fbV.play(ofPropertyValuesHolder);
+            this.fbV.setInterpolator(this.fbY);
         } else {
-            this.fbT.playSequentially(ofPropertyValuesHolder2, ofPropertyValuesHolder3, ofPropertyValuesHolder);
-            this.fbT.setInterpolator(this.fbX);
-            this.fbT.setDuration(4 + j);
+            this.fbV.playSequentially(ofPropertyValuesHolder2, ofPropertyValuesHolder3, ofPropertyValuesHolder);
+            this.fbV.setInterpolator(this.fbZ);
+            this.fbV.setDuration(4 + j);
         }
-        this.fbT.start();
+        this.fbV.start();
     }
 
-    public boolean apW() {
-        return this.fbK;
+    public boolean apQ() {
+        return this.fbM;
     }
 
-    public void aWV() {
+    public void aWQ() {
         int i;
         int i2 = 0;
-        while (i2 < this.fbM.size()) {
-            ImageView imageView = this.fbM.get(i2);
+        while (i2 < this.fbO.size()) {
+            ImageView imageView = this.fbO.get(i2);
             imageView.setVisibility(0);
-            if (!this.fbK) {
+            if (!this.fbM) {
                 if (i2 == 0) {
                     i = d.b.big_praise;
                 } else if (i2 == 1) {
@@ -273,70 +273,70 @@ public class e extends ViewGroup {
             d(imageView, i2, 200L);
             i2++;
         }
-        this.fbK = this.fbK ? false : true;
+        this.fbM = this.fbM ? false : true;
         invalidate();
     }
 
     public void bn(int i, int i2) {
-        if (!this.fbK) {
-            aWX();
+        if (!this.fbM) {
+            aWS();
             return;
         }
         Rect rect = new Rect();
         getGlobalVisibleRect(rect);
         if (!rect.contains(i, i2)) {
-            aWW();
+            aWR();
             return;
         }
         int i3 = 0;
         while (true) {
             int i4 = i3;
-            if (i4 < this.fbM.size()) {
-                ImageView imageView = this.fbM.get(i4);
+            if (i4 < this.fbO.size()) {
+                ImageView imageView = this.fbO.get(i4);
                 imageView.getGlobalVisibleRect(rect);
-                if (!rect.contains(i, i2) || this.fbP) {
+                if (!rect.contains(i, i2) || this.fbR) {
                     i3 = i4 + 1;
                 } else {
                     i(imageView);
                     return;
                 }
             } else {
-                aWW();
+                aWR();
                 return;
             }
         }
     }
 
     public void i(ImageView imageView) {
-        if (imageView != null && this.fbL != imageView && !this.fbP) {
-            aWX();
-            this.fbL = imageView;
-            float size = (this.fbI - this.fbH) / (this.fbM.size() - 1);
-            Rect a = a(getWidth() / 2, getHeight() - this.fbG, this.mRadius, this.fbH + (this.fbM.indexOf(imageView) * size), this.fbD);
-            Rect a2 = a(getWidth() / 2, getHeight() - this.fbG, this.fbJ, (size * this.fbM.indexOf(imageView)) + this.fbH, this.fbD);
-            this.fbU = new AnimatorSet();
+        if (imageView != null && this.fbN != imageView && !this.fbR) {
+            aWS();
+            this.fbN = imageView;
+            float size = (this.fbK - this.fbJ) / (this.fbO.size() - 1);
+            Rect a = a(getWidth() / 2, getHeight() - this.fbI, this.mRadius, this.fbJ + (this.fbO.indexOf(imageView) * size), this.fbF);
+            Rect a2 = a(getWidth() / 2, getHeight() - this.fbI, this.fbL, (size * this.fbO.indexOf(imageView)) + this.fbJ, this.fbF);
+            this.fbW = new AnimatorSet();
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "scaleX", 1.0f, 1.3f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(imageView, "scaleY", 1.0f, 1.3f);
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(imageView, "X", a.left, a2.left);
             ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(imageView, "Y", a.top, a2.top);
-            if (this.fbM.indexOf(this.fbL) > -1) {
-                this.fbN = this.fbO.get(this.fbM.indexOf(this.fbL));
-                this.fbN.setVisibility(0);
-                this.fbN.setAlpha(0.0f);
+            if (this.fbO.indexOf(this.fbN) > -1) {
+                this.fbP = this.fbQ.get(this.fbO.indexOf(this.fbN));
+                this.fbP.setVisibility(0);
+                this.fbP.setAlpha(0.0f);
             }
-            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.fbN, "alpha", 0.0f, 1.0f);
-            this.fbU.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.fbN, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.fbN, "scaleY", 0.0f, 1.0f));
-            this.fbU.setInterpolator(this.fbX);
-            this.fbU.setDuration(100L);
-            this.fbU.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.2
+            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.fbP, "alpha", 0.0f, 1.0f);
+            this.fbW.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.fbP, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.fbP, "scaleY", 0.0f, 1.0f));
+            this.fbW.setInterpolator(this.fbZ);
+            this.fbW.setDuration(100L);
+            this.fbW.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.2
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    e.this.fbP = true;
+                    e.this.fbR = true;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    e.this.fbP = false;
+                    e.this.fbR = false;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -347,38 +347,38 @@ public class e extends ViewGroup {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.fbP = true;
-            this.fbU.start();
+            this.fbR = true;
+            this.fbW.start();
         }
     }
 
-    public void aWW() {
-        if (this.fbL != null && !this.fbP) {
-            float size = (this.fbI - this.fbH) / (this.fbM.size() - 1);
-            Rect a = a(getWidth() / 2, getHeight() - this.fbG, this.mRadius, this.fbH + (this.fbM.indexOf(this.fbL) * size), this.fbD);
-            Rect a2 = a(getWidth() / 2, getHeight() - this.fbG, this.fbJ, (size * this.fbM.indexOf(this.fbL)) + this.fbH, this.fbE);
-            this.fbV = new AnimatorSet();
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.fbL, "scaleX", 1.3f, 1.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.fbL, "scaleY", 1.3f, 1.0f);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.fbL, "X", a2.left, a.left);
-            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.fbL, "Y", a2.top, a.top);
-            if (this.fbN != null) {
-                ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.fbN, "alpha", 1.0f, 0.0f);
-                this.fbV.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.fbN, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.fbN, "scaleY", 0.0f, 1.0f));
+    public void aWR() {
+        if (this.fbN != null && !this.fbR) {
+            float size = (this.fbK - this.fbJ) / (this.fbO.size() - 1);
+            Rect a = a(getWidth() / 2, getHeight() - this.fbI, this.mRadius, this.fbJ + (this.fbO.indexOf(this.fbN) * size), this.fbF);
+            Rect a2 = a(getWidth() / 2, getHeight() - this.fbI, this.fbL, (size * this.fbO.indexOf(this.fbN)) + this.fbJ, this.fbG);
+            this.fbX = new AnimatorSet();
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.fbN, "scaleX", 1.3f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.fbN, "scaleY", 1.3f, 1.0f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.fbN, "X", a2.left, a.left);
+            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.fbN, "Y", a2.top, a.top);
+            if (this.fbP != null) {
+                ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.fbP, "alpha", 1.0f, 0.0f);
+                this.fbX.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.fbP, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.fbP, "scaleY", 0.0f, 1.0f));
             } else {
-                this.fbV.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4);
+                this.fbX.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4);
             }
-            this.fbV.setInterpolator(this.fbX);
-            this.fbV.setDuration(100L);
-            this.fbV.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.3
+            this.fbX.setInterpolator(this.fbZ);
+            this.fbX.setDuration(100L);
+            this.fbX.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.3
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    e.this.fbP = true;
+                    e.this.fbR = true;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    e.this.fbP = false;
+                    e.this.fbR = false;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -389,68 +389,68 @@ public class e extends ViewGroup {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.fbP = true;
-            this.fbV.start();
-            if (this.fbN != null) {
-                this.fbN.setVisibility(4);
+            this.fbR = true;
+            this.fbX.start();
+            if (this.fbP != null) {
+                this.fbP.setVisibility(4);
             }
-            this.fbL = null;
             this.fbN = null;
+            this.fbP = null;
         }
     }
 
     public int bo(int i, int i2) {
-        if (!this.fbK) {
-            aWX();
+        if (!this.fbM) {
+            aWS();
             return -1;
         }
         Rect rect = new Rect();
         getGlobalVisibleRect(rect);
         if (!rect.contains(i, i2)) {
-            aWW();
+            aWR();
             return -1;
         }
         int i3 = 0;
         while (true) {
             int i4 = i3;
-            if (i4 >= this.fbM.size()) {
+            if (i4 >= this.fbO.size()) {
                 return -1;
             }
-            this.fbM.get(i4).getGlobalVisibleRect(rect);
+            this.fbO.get(i4).getGlobalVisibleRect(rect);
             if (!rect.contains(i, i2)) {
                 i3 = i4 + 1;
             } else {
-                aWW();
+                aWR();
                 return i4 + 1;
             }
         }
     }
 
-    public void aWX() {
-        if (this.fbT != null && this.fbT.isStarted()) {
-            this.fbT.cancel();
-            this.fbT = null;
-        }
-        if (this.fbU != null && this.fbU.isStarted()) {
-            this.fbU.cancel();
-            this.fbU = null;
-        }
+    public void aWS() {
         if (this.fbV != null && this.fbV.isStarted()) {
             this.fbV.cancel();
             this.fbV = null;
         }
+        if (this.fbW != null && this.fbW.isStarted()) {
+            this.fbW.cancel();
+            this.fbW = null;
+        }
+        if (this.fbX != null && this.fbX.isStarted()) {
+            this.fbX.cancel();
+            this.fbX = null;
+        }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.fbM.size()) {
-                ImageView imageView = this.fbM.get(i2);
-                Rect a = a(getWidth() / 2, getHeight() - this.fbG, this.mRadius, (((this.fbI - this.fbH) / (this.fbM.size() - 1)) * i2) + this.fbH, this.fbD);
+            if (i2 < this.fbO.size()) {
+                ImageView imageView = this.fbO.get(i2);
+                Rect a = a(getWidth() / 2, getHeight() - this.fbI, this.mRadius, (((this.fbK - this.fbJ) / (this.fbO.size() - 1)) * i2) + this.fbJ, this.fbF);
                 imageView.setX(a.left);
                 imageView.setY(a.top);
                 imageView.setScaleX(1.0f);
                 imageView.setScaleY(1.0f);
                 imageView.invalidate();
-                TextView textView = this.fbO.get(i2);
+                TextView textView = this.fbQ.get(i2);
                 textView.setAlpha(0.0f);
                 textView.setScaleX(1.0f);
                 textView.setScaleY(1.0f);

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.frs.entelechy.b.b {
-    private float avS = 0.16875f;
+    private float avT = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, i iVar) {
@@ -27,7 +27,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
                 Iterator<com.baidu.adp.widget.ListView.f> it = threadList.iterator();
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.f next = it.next();
-                    if (next.getType() == bl.Zb) {
+                    if (next.getType() == bl.Zc) {
                         arrayList.add(next);
                         it.remove();
                     }
@@ -45,12 +45,12 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(boolean z, com.baidu.tieba.frs.entelechy.b.d dVar, f fVar, com.baidu.tieba.frs.i iVar, i iVar2) {
         if (fVar != null && iVar != null && iVar2 != null && dVar != null && iVar.getListView() != null) {
-            fVar.akb();
+            fVar.ajV();
             if (z) {
                 dVar.a(iVar.getListView(), iVar.getListView().getHeaderViewsCount());
             }
-            if (iVar2 != null && iVar2.aPO() != null) {
-                iVar.a(iVar2.aPO().getFrsBannerData());
+            if (iVar2 != null && iVar2.aPJ() != null) {
+                iVar.a(iVar2.aPJ().getFrsBannerData());
             }
         }
     }
@@ -70,7 +70,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public void ak(View view) {
+    public void aj(View view) {
         view.setVisibility(8);
     }
 }

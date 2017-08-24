@@ -16,10 +16,10 @@ import protobuf.QueryUserInfos.DataRes;
 import protobuf.QueryUserInfos.IconInfo;
 /* loaded from: classes2.dex */
 public class g {
-    private final View aZh;
-    private final TextView bgX;
+    private final View aZi;
+    private final TextView bgY;
     private final UserIconBox cBm;
-    private final HeadImageView clO;
+    private final HeadImageView clP;
     private final PersonalTalkSettingActivity dDJ;
     private TbSettingTextTipView dDN;
     private TbSettingTextTipView dDO;
@@ -33,8 +33,8 @@ public class g {
     public g(PersonalTalkSettingActivity personalTalkSettingActivity) {
         this.dDJ = personalTalkSettingActivity;
         this.dDJ.setContentView(d.j.p2ptalk_setting_activity);
-        this.aZh = this.dDJ.findViewById(d.h.person_talk_setting_parent);
-        this.mNavigationBar = (NavigationBar) this.aZh.findViewById(d.h.view_navigation_bar);
+        this.aZi = this.dDJ.findViewById(d.h.person_talk_setting_parent);
+        this.mNavigationBar = (NavigationBar) this.aZi.findViewById(d.h.view_navigation_bar);
         this.mNavigationBar.setTitleText(this.dDJ.getPageContext().getString(d.l.talk_detail));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.dDR = (PersonaltalkSettingViewBlackManView) this.dDJ.findViewById(d.h.black_status_view);
@@ -47,15 +47,15 @@ public class g {
         this.dDO.setOnClickListener(this.dDJ);
         this.dDP.setOnClickListener(this.dDJ);
         this.dDQ.setOnClickListener(this.dDJ);
-        this.clO = (HeadImageView) this.dDJ.findViewById(d.h.photo);
-        this.clO.setIsRound(true);
+        this.clP = (HeadImageView) this.dDJ.findViewById(d.h.photo);
+        this.clP.setIsRound(true);
         this.mName = (TextView) this.dDJ.findViewById(d.h.name);
         this.cBm = (UserIconBox) this.dDJ.findViewById(d.h.user_icon_box);
-        this.bgX = (TextView) this.dDJ.findViewById(d.h.user_desc);
+        this.bgY = (TextView) this.dDJ.findViewById(d.h.user_desc);
     }
 
     public void onChangeSkinType(int i) {
-        this.dDJ.getLayoutMode().t(this.aZh);
+        this.dDJ.getLayoutMode().t(this.aZi);
         this.mNavigationBar.onChangeSkinType(this.dDJ.getPageContext(), i);
     }
 
@@ -76,9 +76,9 @@ public class g {
 
     public void e(f fVar) {
         if (fVar != null) {
-            h(fVar.azn(), fVar.azm().sex.intValue());
-            gX(fVar.azl());
-            a(fVar.azm());
+            h(fVar.azi(), fVar.azh().sex.intValue());
+            gX(fVar.azg());
+            a(fVar.azh());
             f(fVar);
         }
     }
@@ -96,7 +96,7 @@ public class g {
             } else {
                 this.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, d.g.icon_pop_girl, 0);
             }
-            this.bgX.setText(dataRes.intro);
+            this.bgY.setText(dataRes.intro);
             if (this.cBm != null) {
                 LinkedList linkedList = new LinkedList();
                 for (IconInfo iconInfo : dataRes.iconInfo) {
@@ -112,9 +112,9 @@ public class g {
 
     public void f(f fVar) {
         String str;
-        if (fVar != null && fVar.azm() != null && (str = fVar.azm().portrait) != null && str.length() > 0) {
-            this.clO.setImageResource(0);
-            this.clO.c(str, 12, false);
+        if (fVar != null && fVar.azh() != null && (str = fVar.azh().portrait) != null && str.length() > 0) {
+            this.clP.setImageResource(0);
+            this.clP.c(str, 12, false);
         }
     }
 

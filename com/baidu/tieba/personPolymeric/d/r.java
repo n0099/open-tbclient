@@ -15,16 +15,16 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class r extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.l> {
     private ImageView ctJ;
-    private TbImageView foa;
-    private TextView fob;
-    private com.baidu.tieba.personPolymeric.c.l foc;
+    private TbImageView foc;
+    private TextView fod;
+    private com.baidu.tieba.personPolymeric.c.l foe;
     private View mRootView;
 
     public r(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.foa = (TbImageView) this.mRootView.findViewById(d.h.polymeric_vedio_pic);
-        this.fob = (TextView) this.mRootView.findViewById(d.h.polymeric_vedio_des);
+        this.foc = (TbImageView) this.mRootView.findViewById(d.h.polymeric_vedio_pic);
+        this.fod = (TextView) this.mRootView.findViewById(d.h.polymeric_vedio_des);
         this.ctJ = (ImageView) this.mRootView.findViewById(d.h.polymeric_vedio_play_icon);
         this.mRootView.setOnClickListener(this);
     }
@@ -34,7 +34,7 @@ public class r extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ai.k(this.mRootView, d.e.cp_bg_line_d);
-            ai.c(this.fob, d.e.cp_cont_b, 1);
+            ai.c(this.fod, d.e.cp_cont_b, 1);
             ai.c(this.ctJ, d.g.icon_play_video, i);
         }
     }
@@ -48,9 +48,9 @@ public class r extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.l lVar) {
         if (lVar != null) {
-            this.foc = lVar;
-            this.foa.c(lVar.Xa, 10, false);
-            this.fob.setText(lVar.title);
+            this.foe = lVar;
+            this.foc.c(lVar.Xb, 10, false);
+            this.fod.setText(lVar.title);
             d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -58,7 +58,7 @@ public class r extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.mRootView == view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(this.foc.XU, this.foc.postId, "person_page")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(this.foe.XV, this.foe.postId, "person_page")));
         }
     }
 }

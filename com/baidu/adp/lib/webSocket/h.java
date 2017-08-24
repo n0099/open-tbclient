@@ -44,10 +44,10 @@ public class h {
         this.BH = null;
         this.BH = new g.a() { // from class: com.baidu.adp.lib.webSocket.h.1
             @Override // com.baidu.adp.lib.webSocket.g.a
-            public void I(String str) {
+            public void J(String str) {
                 Iterator it = h.this.BG.iterator();
                 while (it.hasNext()) {
-                    ((g.a) it.next()).I(str);
+                    ((g.a) it.next()).J(str);
                 }
             }
 
@@ -140,7 +140,7 @@ public class h {
         this.BF = new i();
         try {
             l lVar = new l();
-            lVar.aY(this.BE);
+            lVar.aZ(this.BE);
             this.BF.a(this.BB, this.BD, this.BH, lVar, this.BC);
             return true;
         } catch (WebSocketException e) {

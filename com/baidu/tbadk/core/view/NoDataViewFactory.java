@@ -110,14 +110,14 @@ public class NoDataViewFactory {
         }
 
         public static d dk(int i) {
-            return eu(TbadkCoreApplication.getInst().getResources().getString(i));
+            return ey(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 
         public static d C(int i, int i2) {
             return ad(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
         }
 
-        public static d eu(String str) {
+        public static d ey(String str) {
             d dVar = new d();
             dVar.mSubTitle = str;
             return dVar;

@@ -34,7 +34,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     TiebaStatic.log(new aj("c11703").r("obj_type", 2).aa(InterviewLiveActivityConfig.KEY_TASK_ID, str).aa("obj_to", str2));
                     if (!TextUtils.isEmpty(str2)) {
                         if (str2.startsWith("http") || str2.startsWith("https")) {
-                            at.wf().c(getPageContext(), new String[]{str2});
+                            at.wg().c(getPageContext(), new String[]{str2});
                         } else {
                             Intent parseUri = Intent.parseUri(str2, 1);
                             parseUri.setFlags(276824064);

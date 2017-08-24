@@ -71,7 +71,7 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
             Object createData = createData(((MvcHttpMessage) getOrginalMessage()).getResponseDataClass());
             if (createData instanceof j) {
                 this.data = (D) createData;
-                this.data.n(jSONObject);
+                this.data.o(jSONObject);
             }
         }
     }
@@ -90,11 +90,11 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
                 if (cacheKey != null && !TextUtils.isEmpty(Fa) && bArr != null) {
                     if (eVar.Fb()) {
-                        l<byte[]> L = a.tn().L(Fa, currentAccount);
+                        l<byte[]> L = a.to().L(Fa, currentAccount);
                         if (L != null) {
                             L.k(cacheKey, bArr);
                         }
-                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (M = a.tn().M(Fa, currentAccount)) != null) {
+                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (M = a.to().M(Fa, currentAccount)) != null) {
                         try {
                             M.k(cacheKey, new String(bArr, "UTF-8"));
                         } catch (UnsupportedEncodingException e) {

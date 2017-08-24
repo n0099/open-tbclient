@@ -60,7 +60,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     private IndicatorView dMF;
     private View dMG;
     private a dMA = null;
-    private String beB = null;
+    private String beC = null;
     private boolean dMH = true;
     public boolean dMI = true;
     private final int[] dMJ = {d.g.bg_startpage1, d.g.bg_startpage2, d.g.bg_startpage3, d.g.bg_startpage4};
@@ -75,7 +75,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 if (GuideActivity.this.dME != null) {
                     GuideActivity.this.dME.setOnScrollOutListener(null);
                 }
-                if (!GuideActivity.this.beB.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
+                if (!GuideActivity.this.beC.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
                     GuideActivity.this.KU();
                 }
                 CompatibleUtile.setAnim(GuideActivity.this.getPageContext().getPageActivity(), 0, d.a.left);
@@ -86,7 +86,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     public View.OnClickListener dMO = new View.OnClickListener() { // from class: com.baidu.tieba.launcherGuide.tblauncher.GuideActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            GuideActivity.this.aCh();
+            GuideActivity.this.aCc();
         }
     };
     private final ViewPager.OnPageChangeListener dMP = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.launcherGuide.tblauncher.GuideActivity.4
@@ -157,14 +157,14 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         if (bundle != null) {
-            this.beB = bundle.getString("from_page");
+            this.beC = bundle.getString("from_page");
             this.dML = bundle.getInt(GuildActivityConfig.GUIDE_TYPE);
         } else if (getIntent() != null) {
-            this.beB = getIntent().getStringExtra("from_page");
+            this.beC = getIntent().getStringExtra("from_page");
             this.dML = getIntent().getIntExtra(GuildActivityConfig.GUIDE_TYPE, 1);
         }
-        if (TextUtils.isEmpty(this.beB)) {
-            this.beB = "";
+        if (TextUtils.isEmpty(this.beC)) {
+            this.beC = "";
         }
         switch (this.dML) {
             case 3:
@@ -176,13 +176,13 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
         try {
             setContentView(d.j.guide_activity);
-            UJ();
+            UH();
             this.dMI = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("jump_to_new_user_guide", true);
             if (this.dMI) {
-                aCj();
+                aCe();
             }
             try {
-                aCg();
+                aCb();
                 this.dMD = new b();
                 this.dME = (BaseViewPager) findViewById(d.h.guide_pager);
                 this.dME.setAdapter(this.dMD);
@@ -218,11 +218,11 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 this.dMG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.launcherGuide.tblauncher.GuideActivity.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        GuideActivity.this.aCh();
+                        GuideActivity.this.aCc();
                     }
                 });
                 TiebaStatic.log("new_user_guide_pv");
-                if (this.beB != null && this.beB.equals(GuildActivityConfig.FROM_LOGO_PAGE)) {
+                if (this.beC != null && this.beC.equals(GuildActivityConfig.FROM_LOGO_PAGE)) {
                     this.dMA = new a();
                     this.dMA.setSelfExecute(true);
                     this.dMA.execute(new String[0]);
@@ -230,28 +230,28 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 }
                 this.dMA = null;
             } catch (OutOfMemoryError e) {
-                aCi();
+                aCd();
                 TbadkApplication.getInst().onAppMemoryLow();
                 BdLog.detailException(e);
                 this.dMH = true;
                 this.dMI = false;
-                aCh();
+                aCc();
             } catch (RuntimeException e2) {
-                aCi();
+                aCd();
                 TbadkApplication.getInst().onAppMemoryLow();
                 BdLog.detailException(e2);
                 this.dMH = true;
                 this.dMI = false;
-                aCh();
+                aCc();
             }
         } catch (RuntimeException e3) {
             this.dMH = true;
             this.dMI = false;
-            aCh();
+            aCc();
         }
     }
 
-    private void aCg() {
+    private void aCb() {
         Bitmap d;
         this.dMB = new ArrayList<>();
         this.dMC = new ArrayList<>();
@@ -267,7 +267,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     break;
             }
             if (d == null) {
-                aCh();
+                aCc();
                 return;
             }
             this.dMN.add(d);
@@ -291,8 +291,8 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCh() {
-        if (this.beB != null && !this.beB.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
+    public void aCc() {
+        if (this.beC != null && !this.beC.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
             KU();
         }
         closeActivity();
@@ -317,14 +317,14 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        aCi();
+        aCd();
         if (this.dMA != null) {
             this.dMA.cancel(true);
             this.dMA = null;
         }
     }
 
-    protected void aCi() {
+    protected void aCd() {
         if (this.dME != null) {
             this.dME.setBackgroundDrawable(null);
         }
@@ -366,7 +366,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
-                aCh();
+                aCc();
                 return true;
             default:
                 return super.onKeyDown(i, keyEvent);
@@ -390,7 +390,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     }
                 }
             } else {
-                aCk();
+                aCf();
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("jump_to_new_user_guide", false);
             }
             if (isFirstUse && com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("has_shown_app_guide", false)) {
@@ -411,7 +411,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    public void UJ() {
+    public void UH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.JUMP_TO_NEW_GUIDE_HTTP_CMD, TbConfig.SERVER_ADDRESS + TbConfig.JUMP_TO_NEW_USER_CHOOSE_BAR);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(ShowNewUserGuideResponseMessage.class);
@@ -419,7 +419,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         registerListener(this.dMQ);
     }
 
-    public void aCj() {
+    public void aCe() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (TextUtils.isEmpty(currentAccount)) {
             this.dMI = false;
@@ -430,14 +430,14 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         sendMessage(httpMessage);
     }
 
-    public void aCk() {
+    public void aCf() {
         if (NewUserGuideActivityConfig.canResponse()) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.NEW_USER_GUIDE_PAGE, new NewUserGuideActivityConfig(getPageContext().getPageActivity(), false, true)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCl() {
+    public void aCg() {
         Intent intent = new Intent();
         intent.addCategory("android.intent.category.LAUNCHER");
         intent.setAction("android.intent.action.MAIN");
@@ -452,7 +452,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aCm() {
+    public boolean aCh() {
         try {
             ContentResolver contentResolver = getContentResolver();
             String an = an(getBaseContext(), "com.android.launcher.permission.READ_SETTINGS");
@@ -504,7 +504,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(GuideActivity.this.aCm());
+            return Boolean.valueOf(GuideActivity.this.aCh());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -512,7 +512,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             if (!bool.booleanValue()) {
-                GuideActivity.this.aCl();
+                GuideActivity.this.aCg();
             }
         }
     }

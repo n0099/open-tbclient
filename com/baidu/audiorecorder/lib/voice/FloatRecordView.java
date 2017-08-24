@@ -52,15 +52,15 @@ public class FloatRecordView implements com.baidu.tieba.im.chat.c {
     public void onShowRecordTime(int i) {
     }
 
-    public LinearLayout lM() {
+    public LinearLayout lL() {
         return this.Lb;
     }
 
-    public LinearLayout lN() {
+    public LinearLayout lM() {
         return this.Lc;
     }
 
-    public LinearLayout lO() {
+    public LinearLayout lN() {
         return this.Ld;
     }
 
@@ -103,7 +103,7 @@ public class FloatRecordView implements com.baidu.tieba.im.chat.c {
         this.Lb.setVisibility(8);
     }
 
-    public void lP() {
+    public void lO() {
         this.Lc.setVisibility(0);
     }
 

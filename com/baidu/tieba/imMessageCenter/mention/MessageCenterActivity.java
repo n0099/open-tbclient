@@ -23,11 +23,11 @@ public class MessageCenterActivity extends BaseFragmentActivity {
 
     private void initView() {
         setContentView(d.j.message_center_activity);
-        Ws();
+        Wp();
         getSupportFragmentManager().beginTransaction().add(d.h.fragment_container, new g()).commit();
     }
 
-    private void Ws() {
+    private void Wp() {
         this.cJO = (NavigationBar) findViewById(d.h.navigation_bar);
         this.cJO.setTitleText(d.l.my_message);
         this.cJO.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivity.1

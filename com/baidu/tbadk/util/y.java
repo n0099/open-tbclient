@@ -26,7 +26,7 @@ public class y {
         return "";
     }
 
-    public static String gV(String str) {
+    public static String gY(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -75,7 +75,7 @@ public class y {
         return str3;
     }
 
-    public static Bundle gW(String str) {
+    public static Bundle gZ(String str) {
         URL url;
         String query;
         String[] split;
@@ -105,17 +105,17 @@ public class y {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aNa;
+        public String aNb;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aNa = "";
+            this.aNb = "";
             this.BDUSS = str;
-            this.aNa = str2;
+            this.aNb = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aNa != null ? this.aNa.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aNb != null ? this.aNb.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -131,7 +131,7 @@ public class y {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aNa == null ? aVar.aNa == null : this.aNa.equals(aVar.aNa);
+                return this.aNb == null ? aVar.aNb == null : this.aNb.equals(aVar.aNb);
             }
             return false;
         }

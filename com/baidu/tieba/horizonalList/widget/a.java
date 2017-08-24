@@ -318,7 +318,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void apR() {
+    public void apL() {
         boolean z = false;
         T adapter = getAdapter();
         boolean z2 = !(adapter == null || adapter.getCount() == 0) || isInFilterMode();
@@ -398,7 +398,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
             } else {
                 a.this.rememberSyncState();
             }
-            a.this.apR();
+            a.this.apL();
             a.this.requestLayout();
         }
 
@@ -415,7 +415,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
             a.this.cZc = -1;
             a.this.cZd = Long.MIN_VALUE;
             a.this.mNeedSync = false;
-            a.this.apR();
+            a.this.apL();
             a.this.requestLayout();
         }
     }
@@ -501,7 +501,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
         super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
         accessibilityNodeInfo.setClassName(a.class.getName());
-        accessibilityNodeInfo.setScrollable(apS());
+        accessibilityNodeInfo.setScrollable(apM());
         View selectedView = getSelectedView();
         if (selectedView != null) {
             accessibilityNodeInfo.setEnabled(selectedView.isEnabled());
@@ -513,7 +513,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         super.onInitializeAccessibilityEvent(accessibilityEvent);
         accessibilityEvent.setClassName(a.class.getName());
-        accessibilityEvent.setScrollable(apS());
+        accessibilityEvent.setScrollable(apM());
         View selectedView = getSelectedView();
         if (selectedView != null) {
             accessibilityEvent.setEnabled(selectedView.isEnabled());
@@ -524,7 +524,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
         accessibilityEvent.setItemCount(getCount());
     }
 
-    private boolean apS() {
+    private boolean apM() {
         int count;
         T adapter = getAdapter();
         if (adapter == null || (count = adapter.getCount()) <= 0) {

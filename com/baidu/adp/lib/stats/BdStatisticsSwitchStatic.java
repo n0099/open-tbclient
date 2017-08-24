@@ -6,7 +6,7 @@ public class BdStatisticsSwitchStatic extends com.baidu.adp.lib.b.a {
     }
 
     public static boolean ge() {
-        return com.baidu.adp.lib.b.d.fh().al("newUrlForPerf") == 1;
+        return com.baidu.adp.lib.b.d.fh().am("newUrlForPerf") == 1;
     }
 
     @Override // com.baidu.adp.lib.b.a

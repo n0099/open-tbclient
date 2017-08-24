@@ -8,23 +8,23 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class n {
-    public long Wb;
-    public long eMi;
-    public long eMj;
-    public int eMk;
+    public long Wc;
+    public long eMk;
+    public long eMl;
+    public int eMm;
     public long mForumId;
 
     public n() {
         Eo();
     }
 
-    public void aRV() {
+    public void aRQ() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_SET_DECLARE);
-        httpMessage.addParam("tid", this.Wb);
-        httpMessage.addParam("author_uid", this.eMi);
-        httpMessage.addParam("declare_id", this.eMj);
+        httpMessage.addParam("tid", this.Wc);
+        httpMessage.addParam("author_uid", this.eMk);
+        httpMessage.addParam("declare_id", this.eMl);
         httpMessage.addParam("forum_id", this.mForumId);
-        httpMessage.addParam("operation", this.eMk);
+        httpMessage.addParam("operation", this.eMm);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 

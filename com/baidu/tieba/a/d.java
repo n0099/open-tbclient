@@ -8,13 +8,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends e<com.baidu.tbadk.data.e, com.baidu.tbadk.j.b> {
-    private View.OnClickListener aYX;
-    private com.baidu.tbadk.j.b aYY;
-    private TbPageContext oV;
+    private View.OnClickListener aYY;
+    private com.baidu.tbadk.j.b aYZ;
+    private TbPageContext oW;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,9 +22,9 @@ public class d extends e<com.baidu.tbadk.data.e, com.baidu.tbadk.j.b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: f */
     public com.baidu.tbadk.j.b onCreateViewHolder(ViewGroup viewGroup) {
-        this.aYY = new com.baidu.tbadk.j.b(LayoutInflater.from(this.mContext).inflate(d.j.entrance_story_pics_layout, viewGroup, false), this.oV);
-        this.aYY.aGe.setItemOnclickListener(this.aYX);
-        return this.aYY;
+        this.aYZ = new com.baidu.tbadk.j.b(LayoutInflater.from(this.mContext).inflate(d.j.entrance_story_pics_layout, viewGroup, false), this.oW);
+        this.aYZ.aGf.setItemOnclickListener(this.aYY);
+        return this.aYZ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,6 +40,6 @@ public class d extends e<com.baidu.tbadk.data.e, com.baidu.tbadk.j.b> {
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.aYX = onClickListener;
+        this.aYY = onClickListener;
     }
 }

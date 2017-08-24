@@ -6,7 +6,7 @@ public class h {
     private String mErrorString;
 
     /* renamed from: tv  reason: collision with root package name */
-    private boolean f1tv;
+    private boolean f2tv;
 
     public g yl() {
         return this.arT;
@@ -17,11 +17,11 @@ public class h {
     }
 
     public boolean isSuccess() {
-        return this.f1tv;
+        return this.f2tv;
     }
 
     public void ay(boolean z) {
-        this.f1tv = z;
+        this.f2tv = z;
     }
 
     public int getErrorCode() {

@@ -5,72 +5,72 @@ import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.util.aj;
 /* loaded from: classes.dex */
 public class n extends c {
-    public bl bcM;
-    public static final BdUniqueId bKw = BdUniqueId.gen();
+    public bl bcN;
     public static final BdUniqueId bKx = BdUniqueId.gen();
-    public static String bKy = "";
+    public static final BdUniqueId bKy = BdUniqueId.gen();
     public static String bKz = "";
     public static String bKA = "";
     public static String bKB = "";
     public static String bKC = "";
     public static String bKD = "";
     public static String bKE = "";
-    public boolean bKr = false;
-    public boolean bKF = true;
+    public static String bKF = "";
+    public boolean bKs = false;
+    public boolean bKG = true;
     public int sourceType = 0;
 
     public n(bl blVar) {
-        this.bcM = blVar;
+        this.bcN = blVar;
     }
 
     public static boolean B(bl blVar) {
-        return (blVar == null || blVar.rW() == null) ? false : true;
+        return (blVar == null || blVar.rX() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        if (this.bcM == null) {
-            return bKw;
-        }
-        if (this.bcM.rI() || this.bcM.rJ()) {
+        if (this.bcN == null) {
             return bKx;
         }
-        return bKw;
+        if (this.bcN.rJ() || this.bcN.rK()) {
+            return bKy;
+        }
+        return bKx;
     }
 
     @Override // com.baidu.tieba.card.data.c
     public bl MF() {
-        return this.bcM;
+        return this.bcN;
     }
 
-    public aj jl(String str) {
-        aj jk = jk(str);
-        if (jk != null && this.bcM != null) {
-            jk.g("fid", this.bcM.getFid());
-            jk.aa("tid", this.bcM.getTid());
-            jk.r("obj_type", 2);
+    public aj jo(String str) {
+        aj jn = jn(str);
+        if (jn != null && this.bcN != null) {
+            jn.g("fid", this.bcN.getFid());
+            jn.aa("tid", this.bcN.getTid());
+            jn.r("obj_type", 2);
         }
-        return jk;
+        return jn;
     }
 
-    public aj Xk() {
-        aj v = v(bKB, true);
+    public aj Xh() {
+        aj v = v(bKC, true);
         if (v != null && MF() != null) {
             bl MF = MF();
-            v.r("obj_name", MF.sU() != null && (MF.sU().aBw() != null || MF.sU().Iv() != null) ? 1 : 0);
+            v.r("obj_name", MF.sV() != null && (MF.sV().aBr() != null || MF.sV().Iv() != null) ? 1 : 0);
         }
         return v;
     }
 
     public aj C(bl blVar) {
-        return (blVar.sJ() == null || blVar.sJ().channelId <= 0) ? v(bKC, true) : v(bKD, true);
+        return (blVar.sK() == null || blVar.sK().channelId <= 0) ? v(bKD, true) : v(bKE, true);
     }
 
-    public aj Xm() {
-        return v(bKz, true);
+    public aj Xj() {
+        return v(bKA, true);
     }
 
     public aj D(bl blVar) {
-        return (blVar.sJ() == null || blVar.sJ().channelId <= 0) ? v(bKy, true) : v(bKE, true);
+        return (blVar.sK() == null || blVar.sK().channelId <= 0) ? v(bKz, true) : v(bKF, true);
     }
 }

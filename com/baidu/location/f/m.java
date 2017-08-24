@@ -10,7 +10,7 @@ public class m {
     private boolean c = false;
     private boolean e = false;
     private double NY = 0.0d;
-    private double Pm = 0.0d;
+    private double Pn = 0.0d;
     public int b = 0;
 
     public m(List<String> list, String str, String str2, String str3) {
@@ -46,7 +46,7 @@ public class m {
             if (!split[2].equals("") && !split[split.length - 3].equals("") && !split[split.length - 2].equals("") && !split[split.length - 1].equals("")) {
                 try {
                     this.NY = Double.valueOf(split[split.length - 3]).doubleValue();
-                    this.Pm = Double.valueOf(split[split.length - 2]).doubleValue();
+                    this.Pn = Double.valueOf(split[split.length - 2]).doubleValue();
                 } catch (Exception e) {
                 }
                 this.e = true;
@@ -64,6 +64,6 @@ public class m {
     }
 
     public double c() {
-        return this.Pm;
+        return this.Pn;
     }
 }

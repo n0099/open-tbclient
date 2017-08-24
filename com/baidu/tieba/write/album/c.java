@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c extends PagerAdapter {
-    private com.baidu.tbadk.img.b azc;
+    private com.baidu.tbadk.img.b azd;
     private AlbumActivity gBZ;
     private Map<Integer, Boolean> gCk = new HashMap();
     private ColorDrawable gCl;
@@ -25,7 +25,7 @@ public class c extends PagerAdapter {
 
     public c(AlbumActivity albumActivity, com.baidu.tbadk.img.b bVar) {
         this.gBZ = albumActivity;
-        this.azc = bVar;
+        this.azd = bVar;
         this.mp = com.baidu.adp.lib.util.k.ag(this.gBZ.getPageContext().getContext());
         this.mMaxHeight = com.baidu.adp.lib.util.k.ah(this.gBZ.getPageContext().getContext()) - ((int) this.gBZ.getResources().getDimension(d.f.ds166));
         this.gCl = new ColorDrawable(this.gBZ.getResources().getColor(d.e.black_alpha100));
@@ -80,11 +80,11 @@ public class c extends PagerAdapter {
             oC.clearPageActions();
             oC.addPageAction(com.baidu.tbadk.img.effect.d.M(this.mp, this.mMaxHeight));
             tbImageView.setTag(oC.toCachedKey(false));
-            if (this.azc.a(oC, false) != null) {
+            if (this.azd.a(oC, false) != null) {
                 tbImageView.invalidate();
                 this.gCk.put(Integer.valueOf(i), true);
             } else {
-                this.azc.a(oC, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.c.1
+                this.azd.a(oC, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.c.1
                     @Override // com.baidu.tbadk.imageManager.b
                     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
                         TbImageView tbImageView2 = (TbImageView) viewGroup.findViewWithTag(str);

@@ -21,11 +21,11 @@ public class c {
         this.adg = i;
     }
 
-    public int tL() {
+    public int tM() {
         return this.adg;
     }
 
-    public int tM() {
+    public int tN() {
         return this.adh;
     }
 

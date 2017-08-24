@@ -18,7 +18,7 @@ public class bq {
         }
     }
 
-    public void i(JSONObject jSONObject) {
+    public void j(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.channelId = jSONObject.optLong("channel_id", 0L);

@@ -18,7 +18,7 @@ public class be {
         return this.forumName;
     }
 
-    public int ra() {
+    public int rb() {
         return this.forumLevel;
     }
 

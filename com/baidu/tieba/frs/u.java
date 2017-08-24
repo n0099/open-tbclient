@@ -11,13 +11,13 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class u extends d<v, w> {
-    private final LinkedList<com.baidu.tbadk.k.f> cms;
-    private final LinkedList<RelativeLayout> cmt;
+    private final LinkedList<com.baidu.tbadk.k.f> cmt;
+    private final LinkedList<RelativeLayout> cmu;
 
     public u(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cms = new LinkedList<>();
         this.cmt = new LinkedList<>();
+        this.cmu = new LinkedList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,10 +30,10 @@ public class u extends d<v, w> {
         relativeLayout.setGravity(17);
         com.baidu.tbadk.k.f fVar = new com.baidu.tbadk.k.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(d.f.ds140));
         fVar.J(relativeLayout);
-        this.cms.add(fVar);
-        this.cmt.add(relativeLayout);
+        this.cmt.add(fVar);
+        this.cmu.add(relativeLayout);
         w wVar = new w(relativeLayout);
-        wVar.cmv = fVar;
+        wVar.cmw = fVar;
         return wVar;
     }
 
@@ -42,8 +42,8 @@ public class u extends d<v, w> {
     @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, v vVar, w wVar) {
-        if (wVar != null && wVar.cmv != null) {
-            wVar.cmv.onChangeSkinType();
+        if (wVar != null && wVar.cmw != null) {
+            wVar.cmw.onChangeSkinType();
         }
         return view;
     }
@@ -51,18 +51,18 @@ public class u extends d<v, w> {
     @Override // com.baidu.tieba.frs.d
     public void release() {
         super.release();
-        if (this.cms.size() != 0 && this.cmt.size() == this.cms.size()) {
+        if (this.cmt.size() != 0 && this.cmu.size() == this.cmt.size()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.cms.size()) {
+                if (i2 >= this.cmt.size()) {
                     break;
                 }
-                this.cms.get(i2).I(this.cmt.get(i2));
+                this.cmt.get(i2).I(this.cmu.get(i2));
                 i = i2 + 1;
             }
         }
-        this.cms.clear();
         this.cmt.clear();
+        this.cmu.clear();
     }
 }

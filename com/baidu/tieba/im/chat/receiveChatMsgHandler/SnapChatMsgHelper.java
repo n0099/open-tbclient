@@ -10,11 +10,11 @@ public class SnapChatMsgHelper extends b {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.SnapChatMsgHelper.1
             boolean dmv = ChatStatusManager.getInst().getIsOpen(3);
-            String aMA = ChatStatusManager.getInst().getCurId(3);
+            String aMB = ChatStatusManager.getInst().getCurId(3);
 
             @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-            public boolean lH(String str) {
-                return !TextUtils.isEmpty(str) && this.dmv && str.equals(this.aMA);
+            public boolean lK(String str) {
+                return !TextUtils.isEmpty(str) && this.dmv && str.equals(this.aMB);
             }
         }, false);
     }

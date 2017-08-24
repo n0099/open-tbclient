@@ -64,13 +64,13 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e extends com.baidu.adp.base.c<g> implements k.b {
-    private final CustomMessageListener aZq;
+    private final CustomMessageListener aZr;
     private View anK;
-    private View bNy;
-    private NoNetworkView ber;
-    private NavigationBar cdy;
-    private RelativeLayout cgz;
-    private final CustomMessageListener ckL;
+    private View bNz;
+    private NoNetworkView bes;
+    private NavigationBar cdz;
+    private RelativeLayout cgA;
+    private final CustomMessageListener ckM;
     private ImMessageCenterModel dDc;
     private ImMessageCenterShowItemData dDe;
     private BdListView dDf;
@@ -106,7 +106,7 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
         this.dGb = false;
         this.dGc = true;
         this.dGd = 16;
-        this.aZq = new CustomMessageListener(CmdConfigCustom.CMD_RE_LOGIN_FROM_KUANG) { // from class: com.baidu.tieba.imMessageCenter.mention.e.1
+        this.aZr = new CustomMessageListener(CmdConfigCustom.CMD_RE_LOGIN_FROM_KUANG) { // from class: com.baidu.tieba.imMessageCenter.mention.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -216,17 +216,17 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
                         if (customMessage != null && imMessageCenterShowItemData != null) {
                             imMessageCenterShowItemData.setUnReadCount(0);
                             if (imMessageCenterShowItemData.getOwnerName().equals("2")) {
-                                com.baidu.tieba.im.db.d.auz().lY("apply_join_group");
+                                com.baidu.tieba.im.db.d.auu().md("apply_join_group");
                             } else if (imMessageCenterShowItemData.getOwnerName().equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-                                com.baidu.tieba.im.db.d.auz().lY("group_intro_change");
-                                com.baidu.tieba.im.db.d.auz().lY("group_name_change");
-                                com.baidu.tieba.im.db.d.auz().lY("group_notice_change");
-                                com.baidu.tieba.im.db.d.auz().lY("group_level_up");
-                                com.baidu.tieba.im.db.d.auz().lY("dismiss_group");
-                                com.baidu.tieba.im.db.d.auz().lY("kick_out");
-                                com.baidu.tieba.im.db.d.auz().lY("group_activitys_change");
+                                com.baidu.tieba.im.db.d.auu().md("group_intro_change");
+                                com.baidu.tieba.im.db.d.auu().md("group_name_change");
+                                com.baidu.tieba.im.db.d.auu().md("group_notice_change");
+                                com.baidu.tieba.im.db.d.auu().md("group_level_up");
+                                com.baidu.tieba.im.db.d.auu().md("dismiss_group");
+                                com.baidu.tieba.im.db.d.auu().md("kick_out");
+                                com.baidu.tieba.im.db.d.auu().md("group_activitys_change");
                             } else if (imMessageCenterShowItemData.getOwnerName().equals("6")) {
-                                com.baidu.tieba.im.db.d.auz().lY("live_notify");
+                                com.baidu.tieba.im.db.d.auu().md("live_notify");
                             }
                         }
                         return null;
@@ -262,7 +262,7 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
                 e.this.dDe = e.this.dFZ.getItem(i);
                 e.this.c(e.this.dDe);
                 if (e.this.dDj != null) {
-                    e.this.dDj.tu();
+                    e.this.dDj.tv();
                     return true;
                 }
                 return true;
@@ -304,7 +304,7 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
                 }
             }
         };
-        this.ckL = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.imMessageCenter.mention.e.7
+        this.ckM = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.imMessageCenter.mention.e.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -316,7 +316,7 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
         this.dFY = gVar;
     }
 
-    public void j(Bundle bundle) {
+    public void i(Bundle bundle) {
         if (MentionActivityConfig.jumpInTab != -1) {
             this.dGd = MentionActivityConfig.jumpInTab;
             MentionActivityConfig.jumpInTab = -1;
@@ -325,7 +325,7 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
         }
     }
 
-    public void ahz() {
+    public void aht() {
         if (this.dFZ != null) {
             this.dFZ.notifyDataSetChanged();
         }
@@ -335,18 +335,18 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
         MessageManager.getInstance().unRegisterListener(this.dlO);
     }
 
-    public View Ym() {
+    public View Yj() {
         this.dDl = 3;
         this.rootView = LayoutInflater.from(this.dFY.getPageContext().getPageActivity()).inflate(d.j.chat_list_activity, (ViewGroup) null, false);
         initData();
-        ah(this.rootView);
+        ag(this.rootView);
         TiebaStatic.eventStat(this.dFY.getPageContext().getPageActivity(), "enter_chatlist", "chatlistclick", 1, new Object[0]);
         registerListener();
-        Yn();
+        Yk();
         return this.rootView;
     }
 
-    protected void Yn() {
+    protected void Yk() {
         this.dDf.startPullRefresh();
         this.dGa = isLogin();
         if (!this.dGa) {
@@ -361,7 +361,7 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
         this.dFY.registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.dlO);
         this.dFY.registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.dlO);
         this.dFY.registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.dlO);
-        this.dFY.registerListener(this.aZq);
+        this.dFY.registerListener(this.aZr);
         this.dFY.registerListener(this.dGf);
     }
 
@@ -395,11 +395,11 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
     private void initData() {
         this.dDc = new ImMessageCenterModel();
         gT(com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_shut_down_validate", false) ? false : true);
-        this.dFY.registerListener(this.ckL);
+        this.dFY.registerListener(this.ckM);
     }
 
-    private void ah(View view) {
-        this.cgz = (RelativeLayout) view.findViewById(d.h.chat_list);
+    private void ag(View view) {
+        this.cgA = (RelativeLayout) view.findViewById(d.h.chat_list);
         this.dDi = (ShutDownValidateTipView) view.findViewById(d.h.view_no_validate);
         this.dDi.setVisibility(8);
         this.dDi.setShutDownClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.9
@@ -410,23 +410,23 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
                 e.this.gR(false);
             }
         });
-        this.cdy = (NavigationBar) this.cgz.findViewById(d.h.view_navigation_bar);
-        this.dGe = (TextView) this.cdy.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.j.maintab_title_layout, (View.OnClickListener) null).findViewById(d.h.title_textview);
+        this.cdz = (NavigationBar) this.cgA.findViewById(d.h.view_navigation_bar);
+        this.dGe = (TextView) this.cdz.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.j.maintab_title_layout, (View.OnClickListener) null).findViewById(d.h.title_textview);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
         int dimension = (int) this.dFY.getResources().getDimension(d.f.ds16);
         layoutParams.setMargins(dimension, dimension, 0, dimension);
         this.dGe.setLayoutParams(layoutParams);
         this.dGe.setText(d.l.my_message);
-        this.cdy.switchNaviBarStatus(isLogin());
+        this.cdz.switchNaviBarStatus(isLogin());
         if (!isLogin()) {
-            this.cdy.setRegisterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.10
+            this.cdz.setRegisterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.10
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     TiebaStatic.eventStat(e.this.mContext.getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
                     aw.aM(e.this.mContext.getPageActivity());
                 }
             });
-            this.cdy.setLoginClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.11
+            this.cdz.setLoginClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.11
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     TiebaStatic.eventStat(e.this.mContext.getPageActivity(), "notlogin_4", "click", 1, new Object[0]);
@@ -437,11 +437,11 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
         this.anK = new TextView(this.dFY.getPageContext().getPageActivity());
         this.anK.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.k.g(this.dFY.getPageContext().getPageActivity(), d.f.ds98)));
         BdListViewHelper.a(this.anK, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.i.hr());
-        this.ber = (NoNetworkView) this.cgz.findViewById(d.h.view_no_network);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ber.getLayoutParams();
+        this.bes = (NoNetworkView) this.cgA.findViewById(d.h.view_no_network);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bes.getLayoutParams();
         layoutParams2.setMargins(0, com.baidu.adp.lib.util.k.dip2px(this.mContext.getContext(), 44.0f) + UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-        this.ber.setLayoutParams(layoutParams2);
-        this.ber.a(new NoNetworkView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.e.12
+        this.bes.setLayoutParams(layoutParams2);
+        this.bes.a(new NoNetworkView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.e.12
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void aM(boolean z) {
                 e.this.gY(z);
@@ -455,9 +455,9 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
         this.dDf.setAdapter((ListAdapter) this.dFZ);
         this.dDf.setOnItemClickListener(this.dDn);
         this.dDf.setOnItemLongClickListener(this.dDo);
-        this.bNy = new View(this.dFY.getFragmentActivity());
-        this.bNy.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.util.k.g(this.dFY.getFragmentActivity(), d.f.ds150)));
-        this.dDf.addFooterView(this.bNy);
+        this.bNz = new View(this.dFY.getFragmentActivity());
+        this.bNz.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.util.k.g(this.dFY.getFragmentActivity(), d.f.ds150)));
+        this.dDf.addFooterView(this.bNz);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -469,8 +469,8 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.dFY.getPageContext(), i);
         }
-        this.ber.onChangeSkinType(getPageContext(), i);
-        this.cdy.onChangeSkinType(tbPageContext, i);
+        this.bes.onChangeSkinType(getPageContext(), i);
+        this.cdz.onChangeSkinType(tbPageContext, i);
         if (this.dDi != null) {
             this.dDi.onChangeSkinType(i);
         }
@@ -479,7 +479,7 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
             this.dFZ.notifyDataSetChanged();
         }
         if (tbPageContext != null) {
-            tbPageContext.getLayoutMode().t(this.cgz);
+            tbPageContext.getLayoutMode().t(this.cgA);
             return true;
         }
         return true;
@@ -487,13 +487,13 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
 
     private void hb(boolean z) {
         if (z) {
-            azh();
+            azc();
         } else {
-            azi();
+            azd();
         }
     }
 
-    private void azh() {
+    private void azc() {
         NoDataViewFactory.b bVar = null;
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
             bVar = NoDataViewFactory.b.a(new NoDataViewFactory.a(this.dFY.getResources().getString(d.l.maintab_imcenter_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.13
@@ -505,11 +505,11 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
                 }
             }));
         }
-        this.mNoDataView = NoDataViewFactory.a(this.dFY.getPageContext().getPageActivity(), this.cgz, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.dFY.getResources().getDimension(d.f.ds320)), NoDataViewFactory.d.dk(d.l.no_recent_chat), bVar);
+        this.mNoDataView = NoDataViewFactory.a(this.dFY.getPageContext().getPageActivity(), this.cgA, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.dFY.getResources().getDimension(d.f.ds320)), NoDataViewFactory.d.dk(d.l.no_recent_chat), bVar);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void azi() {
+    private void azd() {
         NoDataViewFactory.a aVar = new NoDataViewFactory.a(this.dFY.getResources().getString(d.l.maintab_imcenter_unlogin_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.14
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -521,7 +521,7 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
         int dimensionPixelSize2 = this.dFY.getResources().getDimensionPixelSize(d.f.ds480);
         int dimensionPixelSize3 = this.dFY.getResources().getDimensionPixelSize(d.f.ds360);
         int dimensionPixelSize4 = this.dFY.getResources().getDimensionPixelSize(d.f.ds60);
-        this.mNoDataView = NoDataViewFactory.a(this.dFY.getPageContext().getPageActivity(), this.cgz, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, d.g.pic_msg_unlogin, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.B(d.l.msg_center_unlogin_tip, dimensionPixelSize4), NoDataViewFactory.b.a(aVar, this.dFY.getResources().getDimensionPixelSize(d.f.ds20)));
+        this.mNoDataView = NoDataViewFactory.a(this.dFY.getPageContext().getPageActivity(), this.cgA, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, d.g.pic_msg_unlogin, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.B(d.l.msg_center_unlogin_tip, dimensionPixelSize4), NoDataViewFactory.b.a(aVar, this.dFY.getResources().getDimensionPixelSize(d.f.ds20)));
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -562,7 +562,7 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
 
     public void gR(boolean z) {
         if (z) {
-            if (azj() && this.dDi.getVisibility() != 0) {
+            if (aze() && this.dDi.getVisibility() != 0) {
                 this.dDi.setVisibility(0);
             }
         } else if (this.dDi.getVisibility() != 8) {
@@ -579,7 +579,7 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
             return;
         }
         if (this.mNoDataView != null) {
-            this.cgz.removeView(this.mNoDataView);
+            this.cgA.removeView(this.mNoDataView);
         }
         hb(z);
         if (this.mNoDataView != null) {
@@ -588,7 +588,7 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
         this.dDf.setVisibility(8);
     }
 
-    public boolean azj() {
+    public boolean aze() {
         return this.dDm;
     }
 
@@ -675,6 +675,6 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
     }
 
     public void hc(boolean z) {
-        this.cdy.setVisibility(z ? 0 : 8);
+        this.cdz.setVisibility(z ? 0 : 8);
     }
 }

@@ -7,8 +7,8 @@ import org.json.JSONObject;
 import tbclient.App;
 /* loaded from: classes.dex */
 public class l extends PostData {
-    public String UX;
     public String UY;
+    public String UZ;
     public String csz;
     public String forumId;
     private AppData gjE;
@@ -25,18 +25,18 @@ public class l extends PostData {
         this.gjE = new AppData(app);
     }
 
-    public AppData bsV() {
+    public AppData bsO() {
         return this.gjE;
     }
 
-    public AdvertAppInfo.ILegoAdvert bsW() {
+    public AdvertAppInfo.ILegoAdvert bsP() {
         if (this.gjE == null) {
             return null;
         }
         return this.gjE.legoCard;
     }
 
-    public String bsX() {
+    public String bsQ() {
         return this.gjE == null ? "" : this.gjE.id;
     }
 
@@ -44,10 +44,10 @@ public class l extends PostData {
         if (this.gjE == null) {
             return false;
         }
-        return this.gjE.py();
+        return this.gjE.pz();
     }
 
-    public int bsY() {
+    public int bsR() {
         if (this.gjE == null || this.gjE.goods == null) {
             return -1;
         }
@@ -62,63 +62,63 @@ public class l extends PostData {
         return g;
     }
 
-    public AdvertAppInfo bsZ() {
+    public AdvertAppInfo bsS() {
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
         if (this.gjE != null) {
-            advertAppInfo.Vb = this.gjE;
-            advertAppInfo.UJ = this.gjE.id;
-            advertAppInfo.UK = this.gjE.name;
-            advertAppInfo.UL = this.gjE.url_type;
-            advertAppInfo.UM = this.gjE.url;
+            advertAppInfo.Vc = this.gjE;
+            advertAppInfo.UK = this.gjE.id;
+            advertAppInfo.UL = this.gjE.name;
+            advertAppInfo.UM = this.gjE.url_type;
+            advertAppInfo.UN = this.gjE.url;
             advertAppInfo.deepUrl = this.gjE.deepUrl;
-            advertAppInfo.UN = this.gjE.apk_url;
-            advertAppInfo.UO = this.gjE.apk_name;
+            advertAppInfo.UO = this.gjE.apk_url;
+            advertAppInfo.UQ = this.gjE.apk_name;
             advertAppInfo.adPosition = this.gjE.pos_name.trim();
-            advertAppInfo.UQ = this.gjE.first_name;
-            advertAppInfo.UR = this.gjE.second_name;
+            advertAppInfo.UR = this.gjE.first_name;
+            advertAppInfo.US = this.gjE.second_name;
             advertAppInfo.cpid = this.gjE.cpid;
             advertAppInfo.abtest = this.gjE.abtest;
-            advertAppInfo.US = this.gjE.plan_id;
+            advertAppInfo.UT = this.gjE.plan_id;
             advertAppInfo.userId = this.gjE.user_id;
-            advertAppInfo.UT = this.gjE.verify;
+            advertAppInfo.UU = this.gjE.verify;
             advertAppInfo.price = this.gjE.price;
             advertAppInfo.extensionInfo = this.gjE.ext_info;
-            advertAppInfo.UU = this.gjE.app_time * 1000;
+            advertAppInfo.UV = this.gjE.app_time * 1000;
             advertAppInfo.legoCard = this.gjE.legoCard;
             if (this.gjE.goods != null) {
-                advertAppInfo.UV.Vg = this.gjE.goods.pop_window_text;
-                advertAppInfo.UV.Vc = this.gjE.goods.id;
-                advertAppInfo.UV.Vf = this.gjE.goods.thread_pic;
-                advertAppInfo.UV.Vh = this.gjE.goods.goods_style;
-                advertAppInfo.UV.Vd = this.gjE.goods.thread_title;
-                advertAppInfo.UV.Ve = this.gjE.goods.thread_content;
-                advertAppInfo.UV.userName = this.gjE.goods.user_name;
-                advertAppInfo.UV.userPortrait = this.gjE.goods.user_portrait;
-                advertAppInfo.UV.buttonText = this.gjE.goods.button_text;
-                advertAppInfo.UV.Vk = this.gjE.goods.button_url;
+                advertAppInfo.UW.Vh = this.gjE.goods.pop_window_text;
+                advertAppInfo.UW.Vd = this.gjE.goods.id;
+                advertAppInfo.UW.Vg = this.gjE.goods.thread_pic;
+                advertAppInfo.UW.Vi = this.gjE.goods.goods_style;
+                advertAppInfo.UW.Ve = this.gjE.goods.thread_title;
+                advertAppInfo.UW.Vf = this.gjE.goods.thread_content;
+                advertAppInfo.UW.userName = this.gjE.goods.user_name;
+                advertAppInfo.UW.userPortrait = this.gjE.goods.user_portrait;
+                advertAppInfo.UW.buttonText = this.gjE.goods.button_text;
+                advertAppInfo.UW.Vl = this.gjE.goods.button_url;
                 if (this.gjE.goods.thread_pic_list != null) {
-                    advertAppInfo.UV.Vl = new ArrayList();
-                    advertAppInfo.UV.Vl.addAll(this.gjE.goods.thread_pic_list);
+                    advertAppInfo.UW.Vm = new ArrayList();
+                    advertAppInfo.UW.Vm.addAll(this.gjE.goods.thread_pic_list);
                 }
-                advertAppInfo.UV.Vm = this.gjE.goods.video_info;
-                advertAppInfo.UV.Vn = this.gjE.goods.tag_name;
-                advertAppInfo.UV.adSource = this.gjE.goods.ad_source;
-                advertAppInfo.UV.Vo = this.gjE.goods.tag_name_url;
-                advertAppInfo.UV.tagRatio = this.gjE.goods.tagRatio;
-                advertAppInfo.UV.lego_card = this.gjE.goods.lego_card;
+                advertAppInfo.UW.Vn = this.gjE.goods.video_info;
+                advertAppInfo.UW.Vo = this.gjE.goods.tag_name;
+                advertAppInfo.UW.adSource = this.gjE.goods.ad_source;
+                advertAppInfo.UW.Vp = this.gjE.goods.tag_name_url;
+                advertAppInfo.UW.tagRatio = this.gjE.goods.tagRatio;
+                advertAppInfo.UW.lego_card = this.gjE.goods.lego_card;
             }
-            advertAppInfo.Uo = "PB";
+            advertAppInfo.Up = "PB";
         }
         return advertAppInfo;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        if (bsY() == 1001 || bsY() == -1001) {
-            return AdvertAppInfo.Uz;
+        if (bsR() == 1001 || bsR() == -1001) {
+            return AdvertAppInfo.UB;
         }
-        if (bsW() != null) {
-            return AdvertAppInfo.UH;
+        if (bsP() != null) {
+            return AdvertAppInfo.UI;
         }
         return null;
     }

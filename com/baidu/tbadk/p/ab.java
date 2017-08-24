@@ -31,6 +31,6 @@ public class ab extends com.baidu.adp.lib.b.a {
     }
 
     public static boolean ge() {
-        return com.baidu.adp.lib.b.d.fh().al("nickname_activity") == 1;
+        return com.baidu.adp.lib.b.d.fh().am("nickname_activity") == 1;
     }
 }

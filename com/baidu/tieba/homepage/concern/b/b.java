@@ -7,16 +7,16 @@ import com.baidu.tbadk.core.data.MetaData;
 public class b extends com.baidu.tieba.card.data.b implements f {
     public static final BdUniqueId cSy = BdUniqueId.gen();
     public c cSz;
-    public MetaData cmQ;
+    public MetaData cmR;
 
-    public void aoH() {
-        this.cmQ = new MetaData();
-        this.cmQ.setPortrait(this.cSz.getPortrait());
-        this.cmQ.setName_show(this.cSz.getName());
-        this.cmQ.setUserId(this.cSz.getUserId());
-        this.cmQ.setIsBigV(this.cSz.isGod());
-        this.cmQ.setIsLike(this.cSz.getIsLike());
-        this.cmQ.setFansNum(this.cSz.getFansNum());
+    public void aoB() {
+        this.cmR = new MetaData();
+        this.cmR.setPortrait(this.cSz.getPortrait());
+        this.cmR.setName_show(this.cSz.getName());
+        this.cmR.setUserId(this.cSz.getUserId());
+        this.cmR.setIsBigV(this.cSz.isGod());
+        this.cmR.setIsLike(this.cSz.getIsLike());
+        this.cmR.setFansNum(this.cSz.getFansNum());
     }
 
     @Override // com.baidu.adp.widget.ListView.f

@@ -9,11 +9,11 @@ public class a {
         this.gKw = str;
     }
 
-    public EncryptAlgorithm bBD() {
+    public EncryptAlgorithm bBv() {
         return this.gKv;
     }
 
-    public String bBE() {
+    public String bBw() {
         return this.gKw;
     }
 }

@@ -22,7 +22,7 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> implements CacheModel.a<m>, NetModel.b<l, m> {
-    private com.baidu.tbadk.mvc.d.a bON;
+    private com.baidu.tbadk.mvc.d.a bOO;
     private FeedData dFM;
     private f dFN;
     private ReplyMessageActivity dGF;
@@ -38,7 +38,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    ReplyMeModelController.this.dGF.azZ();
+                    ReplyMeModelController.this.dGF.azU();
                 }
             }
         };
@@ -55,18 +55,18 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
         this.dGI.a(this);
         this.dGI.setUniqueId(getUniqueId());
         this.dFN = new f();
-        this.bON = new com.baidu.tbadk.mvc.d.a();
+        this.bOO = new com.baidu.tbadk.mvc.d.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Yk() {
-        if (!this.dGH.xc() && this.bON.FG() && azY()) {
-            this.bON.bU(true);
-            this.bON.bW(true);
+    public boolean Yh() {
+        if (!this.dGH.xc() && this.bOO.FG() && azT()) {
+            this.bOO.bU(true);
+            this.bOO.bW(true);
             this.dGG.h(this.dFM);
             this.dGH.setNeedCache(false);
             this.dGH.Fw();
-            this.dGF.b(this.bON);
+            this.dGF.b(this.bOO);
             return true;
         }
         return false;
@@ -74,7 +74,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean dO(boolean z) {
-        if (this.dGH.xc() || !azY()) {
+        if (this.dGH.xc() || !azT()) {
             return false;
         }
         this.dFM = null;
@@ -84,22 +84,22 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
         return true;
     }
 
-    protected boolean azY() {
+    protected boolean azT() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
         if (this.dFN != null && this.dFN.dGt != null) {
             this.dFN.dGt.clear();
         }
-        this.dGF.azZ();
+        this.dGF.azU();
         this.dGF.a(this.dFN);
         return false;
     }
 
-    public boolean Yj() {
-        if (azY()) {
+    public boolean Yg() {
+        if (azT()) {
             if (this.dGF != null) {
-                this.dGF.aAa();
+                this.dGF.azV();
             }
             this.dGI.a((com.baidu.tbadk.mvc.b.e) this.dGG);
             return true;
@@ -109,30 +109,30 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
 
     protected boolean a(l lVar, m mVar) {
         if (lVar.getUpdateType() != 4) {
-            this.dFN.aAh().clear();
+            this.dFN.aAc().clear();
         }
         this.dFN.a(mVar);
-        if (mVar != null && mVar.aAh() != null && mVar.aAh().size() > 0) {
-            this.dFM = mVar.aAh().get(mVar.aAh().size() - 1);
-            if (this.dFN.qH() != null) {
-                this.bON.bV(this.dFN.qH().qD() == 1);
+        if (mVar != null && mVar.aAc() != null && mVar.aAc().size() > 0) {
+            this.dFM = mVar.aAc().get(mVar.aAc().size() - 1);
+            if (this.dFN.qI() != null) {
+                this.bOO.bV(this.dFN.qI().qE() == 1);
             } else {
-                this.bON.bV(true);
+                this.bOO.bV(true);
             }
             if (lVar != null) {
                 lVar.toNextPage();
             }
-            this.bON.bW(true);
+            this.bOO.bW(true);
         } else {
             this.dFM = null;
-            this.bON.bV(false);
-            this.bON.bW(false);
+            this.bOO.bV(false);
+            this.bOO.bW(false);
         }
-        this.bON.bU(false);
-        this.bON.bT(false);
+        this.bOO.bU(false);
+        this.bOO.bT(false);
         com.baidu.tbadk.coreExtra.messageCenter.a.yZ().zo();
         this.dGF.a(this.dFN);
-        this.dGF.b(this.bON);
+        this.dGF.b(this.bOO);
         return false;
     }
 
@@ -154,7 +154,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<m> mvcHttpResponsedMessage, MvcHttpMessage<l, m> mvcHttpMessage, MvcNetMessage<l, m> mvcNetMessage) {
         m mVar;
-        this.dGF.azZ();
+        this.dGF.azU();
         if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
             mVar = mvcHttpResponsedMessage.getData();
             r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
@@ -183,7 +183,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<m, ?> mvcSocketResponsedMessage, MvcSocketMessage<l, m> mvcSocketMessage, MvcNetMessage<l, m> mvcNetMessage) {
         m mVar;
-        this.dGF.azZ();
+        this.dGF.azU();
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
             mVar = mvcSocketResponsedMessage.getData();
             r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;

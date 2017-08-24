@@ -159,7 +159,7 @@ public class i {
     private static int hn() {
         int i;
         String networkOperator = ((TelephonyManager) BdBaseApplication.getInst().getContext().getSystemService("phone")).getNetworkOperator();
-        if (networkOperator == null || networkOperator.length() < 4 || j.aP(networkOperator)) {
+        if (networkOperator == null || networkOperator.length() < 4 || j.aQ(networkOperator)) {
             return 0;
         }
         String substring = networkOperator.substring(0, 3);
@@ -352,7 +352,7 @@ public class i {
         return Ao;
     }
 
-    public static boolean aN(String str) {
+    public static boolean aO(String str) {
         if (mPattern.matcher(str).find()) {
             return true;
         }

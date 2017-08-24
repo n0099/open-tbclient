@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class DiskFileOperate {
+    protected volatile byte[] mData;
     protected volatile Object mLock;
     protected String mName;
     private OutputStream mOutputStream;
@@ -13,13 +14,12 @@ public class DiskFileOperate {
     private String tA;
     private String tB;
     private e.a tC;
-    private OperateType tr;
-    protected boolean ts;
-    protected Action tt;
-    protected volatile byte[] tu;
+    private OperateType ts;
+    protected boolean tt;
+    protected Action tu;
 
     /* renamed from: tv  reason: collision with root package name */
-    private volatile boolean f0tv;
+    private volatile boolean f1tv;
     private boolean tw;
     private File tx;
     private boolean ty;
@@ -46,14 +46,14 @@ public class DiskFileOperate {
     }
 
     public DiskFileOperate(String str, String str2, Action action) {
-        this.tr = OperateType.MUST_SUCCESS;
-        this.ts = false;
-        this.tt = Action.READ;
-        this.tu = null;
+        this.ts = OperateType.MUST_SUCCESS;
+        this.tt = false;
+        this.tu = Action.READ;
+        this.mData = null;
         this.mLock = null;
         this.mName = null;
         this.mPath = null;
-        this.f0tv = false;
+        this.f1tv = false;
         this.tw = true;
         this.mOutputStream = null;
         this.tx = null;
@@ -64,18 +64,18 @@ public class DiskFileOperate {
         this.tC = null;
         this.mPath = str;
         this.mName = str2;
-        this.tt = action;
+        this.tu = action;
     }
 
     public DiskFileOperate(String str, String str2, String str3, String str4, Action action) {
-        this.tr = OperateType.MUST_SUCCESS;
-        this.ts = false;
-        this.tt = Action.READ;
-        this.tu = null;
+        this.ts = OperateType.MUST_SUCCESS;
+        this.tt = false;
+        this.tu = Action.READ;
+        this.mData = null;
         this.mLock = null;
         this.mName = null;
         this.mPath = null;
-        this.f0tv = false;
+        this.f1tv = false;
         this.tw = true;
         this.mOutputStream = null;
         this.tx = null;
@@ -88,7 +88,7 @@ public class DiskFileOperate {
         this.mName = str2;
         this.tA = str3;
         this.tB = str4;
-        this.tt = action;
+        this.tu = action;
     }
 
     public void k(Object obj) {
@@ -108,11 +108,11 @@ public class DiskFileOperate {
     }
 
     public byte[] getData() {
-        return this.tu;
+        return this.mData;
     }
 
     public void setData(byte[] bArr) {
-        this.tu = bArr;
+        this.mData = bArr;
     }
 
     public String getName() {
@@ -124,7 +124,7 @@ public class DiskFileOperate {
     }
 
     public Action ea() {
-        return this.tt;
+        return this.tu;
     }
 
     public boolean n(byte[] bArr) {
@@ -136,19 +136,19 @@ public class DiskFileOperate {
     }
 
     public boolean isSuccess() {
-        return this.f0tv;
+        return this.f1tv;
     }
 
     public void setSuccess(boolean z) {
-        this.f0tv = z;
+        this.f1tv = z;
     }
 
     public void s(boolean z) {
-        this.ts = z;
+        this.tt = z;
     }
 
     public String ec() {
-        if (this.ts && this.mName != null) {
+        if (this.tt && this.mName != null) {
             int hashCode = this.mName.hashCode();
             if (hashCode < 0) {
                 hashCode *= -1;
@@ -163,7 +163,7 @@ public class DiskFileOperate {
     }
 
     public String ed() {
-        if (this.ts && this.tB != null) {
+        if (this.tt && this.tB != null) {
             int hashCode = this.tB.hashCode();
             if (hashCode < 0) {
                 hashCode *= -1;
@@ -178,11 +178,11 @@ public class DiskFileOperate {
     }
 
     public OperateType ee() {
-        return this.tr;
+        return this.ts;
     }
 
     public void a(OperateType operateType) {
-        this.tr = operateType;
+        this.ts = operateType;
     }
 
     public void p(boolean z) {

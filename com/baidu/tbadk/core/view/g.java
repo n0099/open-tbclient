@@ -20,15 +20,15 @@ public class g {
     private String[] alL;
     private LinearLayout alM;
     private CompoundButton.OnCheckedChangeListener alN;
-    private TbPageContext oV;
+    private TbPageContext oW;
 
     public g(TbPageContext tbPageContext) {
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
     }
 
     public void setData(an anVar) {
         if (anVar != null) {
-            this.alK = anVar.qw();
+            this.alK = anVar.qx();
         }
     }
 
@@ -46,17 +46,17 @@ public class g {
 
     public View getView() {
         if (this.alM == null) {
-            this.alM = new LinearLayout(this.oV.getPageActivity());
+            this.alM = new LinearLayout(this.oW.getPageActivity());
             this.alM.setOrientation(1);
         }
-        List<List<a>> wI = wI();
-        if (u.v(wI)) {
+        List<List<a>> wJ = wJ();
+        if (u.v(wJ)) {
             return null;
         }
-        int size = wI.size();
+        int size = wJ.size();
         int i = 0;
         while (i < size) {
-            View a2 = a(wI.get(i), i == size + (-1), this.alM.getChildAt(i));
+            View a2 = a(wJ.get(i), i == size + (-1), this.alM.getChildAt(i));
             if (a2 != null && a2.getParent() == null) {
                 this.alM.addView(a2);
             }
@@ -65,12 +65,12 @@ public class g {
         return this.alM;
     }
 
-    private List<List<a>> wI() {
+    private List<List<a>> wJ() {
         int i;
         int i2;
         int i3 = -1;
         if (this.alK == null || this.alK.size() == 0) {
-            return wJ();
+            return wK();
         }
         int size = this.alK.size();
         int i4 = this.alJ ? 0 : -1;
@@ -99,7 +99,7 @@ public class g {
         return arrayList;
     }
 
-    private List<List<a>> wJ() {
+    private List<List<a>> wK() {
         if (this.alL == null || this.alL.length <= 0) {
             return null;
         }
@@ -127,7 +127,7 @@ public class g {
         if (view instanceof LinearLayout) {
             linearLayout = (LinearLayout) view;
         } else {
-            linearLayout = (LinearLayout) LayoutInflater.from(this.oV.getPageActivity()).inflate(d.j.neg_feedback_reason_item, (ViewGroup) this.alM, false);
+            linearLayout = (LinearLayout) LayoutInflater.from(this.oW.getPageActivity()).inflate(d.j.neg_feedback_reason_item, (ViewGroup) this.alM, false);
         }
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(d.h.left_reason);
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(d.h.right_reason);

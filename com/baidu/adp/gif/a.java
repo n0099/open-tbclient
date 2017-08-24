@@ -1,44 +1,44 @@
 package com.baidu.adp.gif;
 /* loaded from: classes.dex */
 public interface a {
-    com.baidu.adp.widget.a.a K(String str);
+    com.baidu.adp.widget.a.a L(String str);
 
     com.baidu.adp.widget.a.a g(byte[] bArr, int i, int i2);
 
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0002a implements a {
-        private static a sR;
-        private int sS;
-        private final d sT = new d();
+        private static a sS;
+        private int sT;
+        private final d sU = new d();
 
         public C0002a() {
-            this.sS = 0;
-            if (NSGif.sU) {
-                this.sS = 0;
+            this.sT = 0;
+            if (NSGif.sV) {
+                this.sT = 0;
             } else {
-                this.sS = 1;
+                this.sT = 1;
             }
         }
 
         public static synchronized a dN() {
             a aVar;
             synchronized (C0002a.class) {
-                if (sR == null) {
-                    sR = new C0002a();
+                if (sS == null) {
+                    sS = new C0002a();
                 }
-                aVar = sR;
+                aVar = sS;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
-        public com.baidu.adp.widget.a.a K(String str) {
-            if (this.sS != 0) {
+        public com.baidu.adp.widget.a.a L(String str) {
+            if (this.sT != 0) {
                 return null;
             }
             try {
-                return this.sT.K(str);
+                return this.sU.L(str);
             } catch (Exception e) {
                 return null;
             }
@@ -46,11 +46,11 @@ public interface a {
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.a.a g(byte[] bArr, int i, int i2) {
-            if (this.sS != 0) {
+            if (this.sT != 0) {
                 return null;
             }
             try {
-                return this.sT.g(bArr, i, i2);
+                return this.sU.g(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

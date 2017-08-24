@@ -181,7 +181,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void rQ(String str) {
+    public void rV(String str) {
         this.ghg = str;
     }
 
@@ -218,7 +218,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.yuelaou_locate = this.aoG;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.biO().biR();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.biJ().biM();
         builder.load_type = Integer.valueOf(this.mLoadType);
         builder.obj_locate = this.ghg;
         builder.obj_source = this.ghh;

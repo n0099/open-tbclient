@@ -69,21 +69,21 @@ public abstract class a {
             if (isCancelled()) {
                 return null;
             }
-            String uQ = wVar.uQ();
+            String uR = wVar.uR();
             if (isCancelled()) {
                 return null;
             }
             d dVar2 = new d();
-            if (wVar.vl().wi().isRequestSuccess()) {
-                dVar2.videoUrl = sr(uQ);
+            if (wVar.vm().wj().isRequestSuccess()) {
+                dVar2.videoUrl = sw(uR);
                 return dVar2;
             }
-            if (wVar.vl().wi().vo()) {
-                dVar2.errorNo = wVar.vl().wi().aiT;
+            if (wVar.vm().wj().vp()) {
+                dVar2.errorNo = wVar.vm().wj().aiT;
             } else {
-                dVar2.errorNo = wVar.vl().wi().xv;
+                dVar2.errorNo = wVar.vm().wj().xv;
             }
-            dVar2.errorMessage = wVar.vl().wi().mErrorString;
+            dVar2.errorMessage = wVar.vm().wj().mErrorString;
             return dVar2;
         }
     }
@@ -113,7 +113,7 @@ public abstract class a {
         return null;
     }
 
-    private String sr(String str) {
+    private String sw(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

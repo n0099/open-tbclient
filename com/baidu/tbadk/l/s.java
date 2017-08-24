@@ -6,12 +6,11 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class s extends q {
-    private static s aLm = null;
-    private boolean aKM = false;
+    private static s aLn = null;
     private boolean aKN = false;
     private boolean aKO = false;
     private boolean aKP = false;
-    private long aKQ = -1;
+    private boolean aKQ = false;
     private long aKR = -1;
     private long aKS = -1;
     private long aKT = -1;
@@ -33,117 +32,118 @@ public class s extends q {
     private long aLj = -1;
     private long aLk = -1;
     private long aLl = -1;
+    private long aLm = -1;
 
     public boolean GE() {
-        return this.aKN;
+        return this.aKO;
     }
 
     public void cb(boolean z) {
-        this.aKM = z;
+        this.aKN = z;
     }
 
     public void T(long j) {
-        this.aKQ = j;
-    }
-
-    public void cc(boolean z) {
-        this.aKP = z;
-    }
-
-    public void U(long j) {
         this.aKR = j;
     }
 
-    public void V(long j) {
+    public void cc(boolean z) {
+        this.aKQ = z;
+    }
+
+    public void U(long j) {
         this.aKS = j;
     }
 
-    public void W(long j) {
+    public void V(long j) {
         this.aKT = j;
     }
 
-    public void X(long j) {
-        this.aKX = j;
-    }
-
-    public void Y(long j) {
-        this.aKW = j;
-    }
-
-    public void Z(long j) {
+    public void W(long j) {
         this.aKU = j;
     }
 
-    public void aa(long j) {
-        this.aKV = j;
-    }
-
-    public void ab(long j) {
-        this.aLj = j;
-    }
-
-    public void ac(long j) {
-        this.aLg = j;
-    }
-
-    public void ad(long j) {
-        this.aLh = j;
-    }
-
-    public void ae(long j) {
-        this.aLi = j;
-    }
-
-    public void af(long j) {
-        this.aLk = j;
-    }
-
-    public void ag(long j) {
-        this.aLl = j;
-        this.aKN = true;
-    }
-
-    public void ah(long j) {
+    public void X(long j) {
         this.aKY = j;
     }
 
-    public void ai(long j) {
+    public void Y(long j) {
+        this.aKX = j;
+    }
+
+    public void Z(long j) {
+        this.aKV = j;
+    }
+
+    public void aa(long j) {
+        this.aKW = j;
+    }
+
+    public void ab(long j) {
+        this.aLk = j;
+    }
+
+    public void ac(long j) {
+        this.aLh = j;
+    }
+
+    public void ad(long j) {
+        this.aLi = j;
+    }
+
+    public void ae(long j) {
+        this.aLj = j;
+    }
+
+    public void af(long j) {
+        this.aLl = j;
+    }
+
+    public void ag(long j) {
+        this.aLm = j;
+        this.aKO = true;
+    }
+
+    public void ah(long j) {
         this.aKZ = j;
     }
 
-    public void aj(long j) {
-        this.aLb = j;
-    }
-
-    public void ak(long j) {
+    public void ai(long j) {
         this.aLa = j;
     }
 
-    public void al(long j) {
+    public void aj(long j) {
         this.aLc = j;
     }
 
-    public void am(long j) {
+    public void ak(long j) {
+        this.aLb = j;
+    }
+
+    public void al(long j) {
         this.aLd = j;
     }
 
-    public void an(long j) {
+    public void am(long j) {
         this.aLe = j;
     }
 
-    public void ao(long j) {
+    public void an(long j) {
         this.aLf = j;
     }
 
+    public void ao(long j) {
+        this.aLg = j;
+    }
+
     public static s GF() {
-        if (aLm == null) {
+        if (aLn == null) {
             synchronized (s.class) {
-                if (aLm == null) {
-                    aLm = new s();
+                if (aLn == null) {
+                    aLn = new s();
                 }
             }
         }
-        return aLm;
+        return aLn;
     }
 
     public void GG() {
@@ -154,36 +154,36 @@ public class s extends q {
         } else {
             j = ((Long) runTask.getData()).longValue();
         }
-        long j2 = (this.aLl - this.aKQ) - j;
-        if (j2 > 0 && !this.aKO && r.Gz().GA()) {
-            this.aKO = true;
-            long j3 = this.aKR - this.aKQ;
-            long j4 = this.aLj - this.aKQ;
+        long j2 = (this.aLm - this.aKR) - j;
+        if (j2 > 0 && !this.aKP && r.Gz().GA()) {
+            this.aKP = true;
+            long j3 = this.aKS - this.aKR;
+            long j4 = this.aLk - this.aKR;
             long j5 = -1;
-            if (this.aLh > 0) {
-                j5 = this.aLi - this.aLh;
+            if (this.aLi > 0) {
+                j5 = this.aLj - this.aLi;
             }
-            long j6 = this.aLl - this.aLk;
+            long j6 = this.aLm - this.aLl;
             com.baidu.adp.lib.stats.a fV = fV();
             fV.p("procname", "main");
             fV.p("appc", String.valueOf(j3));
-            fV.p("loadclass", String.valueOf(this.aKS));
-            fV.p("sapiinit", String.valueOf(this.aKT));
-            fV.p("acctinit", String.valueOf(this.aKU));
-            fV.p("iminit", String.valueOf(this.aKV));
-            fV.p("plugininit", String.valueOf(this.aKW));
-            fV.p("patchloaded", String.valueOf(this.aKX));
-            fV.p("naslibinit", String.valueOf(this.aKY));
-            fV.p("websocketinit", String.valueOf(this.aKZ));
-            fV.p("settinginit", String.valueOf(this.aLa));
-            fV.p("toastinit", String.valueOf(this.aLb));
-            fV.p("tiebastaticinit", String.valueOf(this.aLc));
-            fV.p("locationinit", String.valueOf(this.aLd));
-            fV.p("cdninit", String.valueOf(this.aLe));
-            fV.p("messagesetinit", String.valueOf(this.aLf));
+            fV.p("loadclass", String.valueOf(this.aKT));
+            fV.p("sapiinit", String.valueOf(this.aKU));
+            fV.p("acctinit", String.valueOf(this.aKV));
+            fV.p("iminit", String.valueOf(this.aKW));
+            fV.p("plugininit", String.valueOf(this.aKX));
+            fV.p("patchloaded", String.valueOf(this.aKY));
+            fV.p("naslibinit", String.valueOf(this.aKZ));
+            fV.p("websocketinit", String.valueOf(this.aLa));
+            fV.p("settinginit", String.valueOf(this.aLb));
+            fV.p("toastinit", String.valueOf(this.aLc));
+            fV.p("tiebastaticinit", String.valueOf(this.aLd));
+            fV.p("locationinit", String.valueOf(this.aLe));
+            fV.p("cdninit", String.valueOf(this.aLf));
+            fV.p("messagesetinit", String.valueOf(this.aLg));
             fV.p("logores", String.valueOf(j4));
-            if (this.aLg > 0 && this.aLh > 0 && j5 > 0) {
-                fV.p("adc", String.valueOf(this.aLg));
+            if (this.aLh > 0 && this.aLi > 0 && j5 > 0) {
+                fV.p("adc", String.valueOf(this.aLh));
                 fV.p("adshow", String.valueOf(j5));
                 fV.p("hasad", "1");
             } else {
@@ -191,10 +191,10 @@ public class s extends q {
             }
             fV.p("tabc", String.valueOf(j6));
             fV.p("costt", String.valueOf(j2));
-            fV.p("newinst", this.aKM ? "1" : "0");
-            fV.d("pluginloadsync", Boolean.valueOf(this.aKP));
+            fV.p("newinst", this.aKN ? "1" : "0");
+            fV.d("pluginloadsync", Boolean.valueOf(this.aKQ));
             BdStatisticsManager.getInstance().performance("startt", fV);
-            oc();
+            od();
         }
     }
 
@@ -207,10 +207,9 @@ public class s extends q {
         }
     }
 
-    private void oc() {
-        this.aKM = false;
+    private void od() {
         this.aKN = false;
-        this.aKQ = -1L;
+        this.aKO = false;
         this.aKR = -1L;
         this.aKS = -1L;
         this.aKT = -1L;
@@ -218,13 +217,13 @@ public class s extends q {
         this.aKV = -1L;
         this.aKW = -1L;
         this.aKX = -1L;
+        this.aKY = -1L;
+        this.aLk = -1L;
+        this.aLi = -1L;
         this.aLj = -1L;
         this.aLh = -1L;
-        this.aLi = -1L;
-        this.aLg = -1L;
-        this.aLk = -1L;
         this.aLl = -1L;
-        this.aKY = -1L;
+        this.aLm = -1L;
         this.aKZ = -1L;
         this.aLa = -1L;
         this.aLb = -1L;
@@ -232,5 +231,6 @@ public class s extends q {
         this.aLd = -1L;
         this.aLe = -1L;
         this.aLf = -1L;
+        this.aLg = -1L;
     }
 }

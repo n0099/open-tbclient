@@ -13,7 +13,7 @@ public interface a {
 
     void i(Context context, int i);
 
-    Class<?> uw();
+    Class<?> ux();
 
-    String ux();
+    String uy();
 }

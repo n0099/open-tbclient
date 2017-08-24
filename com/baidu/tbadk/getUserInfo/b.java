@@ -14,20 +14,20 @@ import com.baidu.tbadk.data.PayMemberInfoData;
 import com.baidu.tbadk.data.UserData;
 /* loaded from: classes.dex */
 public class b {
-    private static b aFt;
+    private static b aFu;
 
     private b() {
     }
 
     public static b En() {
-        if (aFt == null) {
+        if (aFu == null) {
             synchronized (b.class) {
-                if (aFt == null) {
-                    aFt = new b();
+                if (aFu == null) {
+                    aFu = new b();
                 }
             }
         }
-        return aFt;
+        return aFu;
     }
 
     public void Eo() {

@@ -107,10 +107,6 @@ public class g extends com.baidu.location.h.f {
         }
     }
 
-    private Handler f() {
-        return this.f;
-    }
-
     private void g() {
         try {
             File file = new File(com.baidu.location.h.h.a + "/grtcf.dat");
@@ -194,7 +190,11 @@ public class g extends com.baidu.location.h.f {
         }
     }
 
-    public static g mA() {
+    private Handler mA() {
+        return this.f;
+    }
+
+    public static g mz() {
         if (NZ == null) {
             NZ = new g();
         }
@@ -268,7 +268,7 @@ public class g extends com.baidu.location.h.f {
                     if (jSONObject.has("u1_md5")) {
                         this.d = jSONObject.getString("u1_md5");
                     }
-                    f().post(new n(this));
+                    mA().post(new n(this));
                 }
                 if (jSONObject.has("ison")) {
                     this.e = jSONObject.getInt("ison");
@@ -282,8 +282,8 @@ public class g extends com.baidu.location.h.f {
 
     public void c() {
         if (System.currentTimeMillis() - com.baidu.location.h.d.nt().b() > 86400000) {
-            f().postDelayed(new l(this), 10000L);
-            f().postDelayed(new m(this), TbConfig.NOTIFY_SOUND_INTERVAL);
+            mA().postDelayed(new l(this), 10000L);
+            mA().postDelayed(new m(this), TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 }

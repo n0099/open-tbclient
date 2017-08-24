@@ -43,10 +43,10 @@ import java.util.List;
 public abstract class b {
     private static HashMap<Integer, String> cBG = new HashMap<>();
     private static HashSet<Integer> cBH = new HashSet<>();
-    protected View aZh;
+    protected View aZi;
     protected TbPageContext acr;
-    protected View bAn;
-    protected int bsh;
+    protected View bAo;
+    protected int bsj;
     protected TextView cAP;
     protected TextView cAQ;
     protected TextView cAR;
@@ -96,10 +96,10 @@ public abstract class b {
     protected int cBx;
     protected int cBy;
     protected boolean cBz;
-    protected TextView cdW;
-    public TextView ciY;
-    protected com.baidu.tieba.frs.f ckZ;
-    protected i cpa;
+    protected TextView cdX;
+    public TextView ciZ;
+    protected com.baidu.tieba.frs.f cla;
+    protected i cpb;
     protected String mForumId;
     protected String mForumName;
     protected Handler mHandler;
@@ -128,9 +128,9 @@ public abstract class b {
                     k.showToast(b.this.acr.getPageActivity(), d.l.book_plugin_not_install_tip);
                     return;
                 }
-                at.wf().c(b.this.acr, new String[]{url});
-                a.C0121a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", eVar.brd(), b.this.ckZ.getForumId(), b.this.ckZ.getForumName(), null);
-                a.ci("obj_url", eVar.getUrl());
+                at.wg().c(b.this.acr, new String[]{url});
+                a.C0121a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", eVar.bqW(), b.this.cla.getForumId(), b.this.cla.getForumName(), null);
+                a.ck("obj_url", eVar.getUrl());
                 a.save();
             }
         }
@@ -138,7 +138,7 @@ public abstract class b {
 
     public abstract void a(ForumData forumData, i iVar);
 
-    public abstract void ahb();
+    public abstract void agV();
 
     public abstract void changeSkinType(int i);
 
@@ -154,7 +154,7 @@ public abstract class b {
         cBG.put(5, "c0127");
     }
 
-    public boolean akr() {
+    public boolean akl() {
         return this.cBz;
     }
 
@@ -204,7 +204,7 @@ public abstract class b {
         });
     }
 
-    public boolean aks() {
+    public boolean akm() {
         int[] iArr = new int[2];
         try {
             this.cBj.getLocationOnScreen(iArr);
@@ -215,26 +215,26 @@ public abstract class b {
     }
 
     public View getView() {
-        return this.aZh;
+        return this.aZi;
     }
 
-    public View akt() {
+    public View akn() {
         return this.cAV;
     }
 
-    public BarImageView akj() {
+    public BarImageView akd() {
         return this.cBl;
     }
 
-    public TextView aku() {
-        return this.cdW;
+    public TextView ako() {
+        return this.cdX;
     }
 
-    public TextView akv() {
-        return this.ciY;
+    public TextView akp() {
+        return this.ciZ;
     }
 
-    public boolean akh() {
+    public boolean akb() {
         return this.cBD;
     }
 
@@ -247,7 +247,7 @@ public abstract class b {
         }
     }
 
-    public boolean aki() {
+    public boolean akc() {
         return this.cBE;
     }
 
@@ -271,7 +271,7 @@ public abstract class b {
 
     public void a(int i, String str, int i2, float f, boolean z) {
         this.cBr = str;
-        this.bsh = i2;
+        this.bsj = i2;
         if (i == 0) {
             this.cBz = false;
             this.cBI = false;
@@ -283,13 +283,13 @@ public abstract class b {
         this.cBL.setVisibility(8);
         this.cBM.setVisibility(0);
         if (z && !this.cBI) {
-            ahc();
+            agW();
             this.cBI = true;
         }
         c(false, f);
     }
 
-    protected void ahc() {
+    protected void agW() {
     }
 
     public void jK(int i) {
@@ -309,25 +309,25 @@ public abstract class b {
         if (i == 0) {
             this.cBD = false;
             this.cAS.setText(d.l.sign);
-            agX();
+            agR();
             return;
         }
         this.cBD = true;
         this.cAS.setText(d.l.signed);
-        agW();
+        agQ();
     }
 
-    protected void agX() {
+    protected void agR() {
     }
 
-    protected void agW() {
+    protected void agQ() {
     }
 
     public void setMemberType(int i) {
         this.mMemberType = i;
     }
 
-    public void ahd() {
+    public void agX() {
         if (this.mMemberType != 0) {
             ai.c(this.cBj, d.g.icon_speed_orange);
         } else {
@@ -366,7 +366,7 @@ public abstract class b {
     public void c(boolean z, float f) {
     }
 
-    public void agM() {
+    public void agG() {
     }
 
     public void n(int i, int i2, int i3, int i4) {

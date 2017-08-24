@@ -82,7 +82,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
                 aVar2.dkv = (HeadImageView) view.findViewById(d.h.reply_and_at_head);
                 aVar2.dkv.setIsRound(true);
                 aVar2.dkv.setDrawBorder(false);
-                aVar2.auN = view.findViewById(d.h.line);
+                aVar2.auO = view.findViewById(d.h.line);
                 aVar2.dkz = (TextView) view.findViewById(d.h.new_message);
                 aVar2.dkw = (TextView) view.findViewById(d.h.desc_view);
                 aVar = aVar2;
@@ -91,7 +91,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
             }
             ai.c(aVar.dkw, d.e.cp_cont_b, 1);
             ai.j(view, d.g.list_selector);
-            ai.j(aVar.auN, d.e.cp_bg_line_b);
+            ai.j(aVar.auO, d.e.cp_bg_line_b);
             ai.c(aVar.dkz, d.e.common_color_10225, 1);
             aVar.dDw.setVisibility(8);
             ai.c(aVar.dDw, d.g.icon_message_arrow);
@@ -121,12 +121,12 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
             b.a aVar3 = view != null ? (b.a) view.getTag() : null;
             if (aVar3 == null) {
                 view = LayoutInflater.from(this.mContext).inflate(d.j.chat_list_item, viewGroup, false);
-                aVar3 = super.aG(view);
+                aVar3 = super.aF(view);
                 view.setTag(aVar3);
             }
-            ai.j(aVar3.auN, d.e.cp_bg_line_b);
+            ai.j(aVar3.auO, d.e.cp_bg_line_b);
             aVar3.dku.setVisibility(0);
-            aVar3.auN.setVisibility(0);
+            aVar3.auO.setVisibility(0);
             if (item != null) {
                 super.a(aVar3, item);
                 super.d(aVar3, item);
@@ -195,7 +195,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
 
     /* loaded from: classes2.dex */
     private class a {
-        public View auN;
+        public View auO;
         public LinearLayout dDv;
         public TbImageView dDw;
         public HeadImageView dkv;
@@ -203,7 +203,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
         public TextView dkz;
 
         private a() {
-            this.auN = null;
+            this.auO = null;
         }
     }
 

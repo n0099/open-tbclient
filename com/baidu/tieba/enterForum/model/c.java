@@ -12,30 +12,30 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class c {
     private TbPageContext<?> acr;
-    private ViewEventCenter bYw;
-    private SoftReference<com.baidu.tieba.enterForum.c.d> bZS;
-    private com.baidu.tieba.enterForum.a.b bZT;
+    private ViewEventCenter bYx;
+    private SoftReference<com.baidu.tieba.enterForum.c.d> bZT;
+    private com.baidu.tieba.enterForum.a.b bZU;
 
     public c(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
         this.acr = tbPageContext;
-        this.bYw = viewEventCenter;
+        this.bYx = viewEventCenter;
     }
 
-    public com.baidu.tieba.enterForum.c.d acr() {
-        if (this.bZS == null) {
+    public com.baidu.tieba.enterForum.c.d acn() {
+        if (this.bZT == null) {
             return null;
         }
-        return this.bZS.get();
+        return this.bZT.get();
     }
 
-    public void acs() {
+    public void aco() {
         com.baidu.tieba.enterForum.c.d dVar = new com.baidu.tieba.enterForum.c.d(this.acr.getPageActivity());
-        dVar.setEventCenter(this.bYw);
-        this.bZS = new SoftReference<>(dVar);
+        dVar.setEventCenter(this.bYx);
+        this.bZT = new SoftReference<>(dVar);
     }
 
     public List<g> getDataList() {
-        return TbadkCoreApplication.getInst().getSkinType() != 2 ? e(this.bZT.getDataList(), false) : this.bZT.getDataList();
+        return TbadkCoreApplication.getInst().getSkinType() != 2 ? e(this.bZU.getDataList(), false) : this.bZU.getDataList();
     }
 
     public void b(g gVar) {
@@ -43,17 +43,17 @@ public class c {
         if (dataList != null) {
             dataList.remove(gVar);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.bZT.D(e(dataList, true));
+                this.bZU.D(e(dataList, true));
             } else {
-                this.bZT.D(dataList);
+                this.bZU.D(dataList);
             }
         }
     }
 
     public void as(List<g> list) {
         com.baidu.tieba.enterForum.c.d dVar;
-        if (this.bZS != null && list != null && (dVar = this.bZS.get()) != null) {
-            dVar.acI();
+        if (this.bZT != null && list != null && (dVar = this.bZT.get()) != null) {
+            dVar.acE();
             at(list);
         }
     }
@@ -80,33 +80,33 @@ public class c {
     }
 
     public void at(List<g> list) {
-        com.baidu.tieba.enterForum.c.d dVar = this.bZS.get();
+        com.baidu.tieba.enterForum.c.d dVar = this.bZT.get();
         if (dVar != null) {
-            if (this.bZT == null) {
-                act();
+            if (this.bZU == null) {
+                acp();
             }
-            dVar.setGridAdapterIfNeeded(this.bZT);
+            dVar.setGridAdapterIfNeeded(this.bZU);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.bZT.D(e(list, true));
+                this.bZU.D(e(list, true));
             } else {
-                this.bZT.D(list);
+                this.bZU.D(list);
             }
-            this.bZT.b(this.acr, TbadkCoreApplication.getInst().getSkinType());
+            this.bZU.b(this.acr, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void act() {
-        this.bZT = new com.baidu.tieba.enterForum.a.b(this.acr, e.class, d.j.home_like_item_in_edit_grid, this.bYw);
-        this.bZT.bX(false);
+    private void acp() {
+        this.bZU = new com.baidu.tieba.enterForum.a.b(this.acr, e.class, d.j.home_like_item_in_edit_grid, this.bYx);
+        this.bZU.bX(false);
     }
 
     public void n(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.bZS.get() != null) {
-                this.bZS.get().n(tbPageContext);
+            if (this.bZT.get() != null) {
+                this.bZT.get().n(tbPageContext);
             }
-            if (this.bZT != null) {
-                this.bZT.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+            if (this.bZU != null) {
+                this.bZU.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

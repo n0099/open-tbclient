@@ -13,25 +13,25 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class af {
-    private boolean eGG;
-    private String eMH;
-    private com.baidu.tieba.pb.data.f eMX;
-    private int eMY;
-    private boolean ePn;
+    private boolean eGI;
+    private String eMJ;
+    private com.baidu.tieba.pb.data.f eMZ;
+    private int eNa;
+    private boolean ePp;
     private boolean hasMore;
     private boolean isSquence;
     private String mPostId;
     private int mRequestType;
     private BdUniqueId mTag;
     private boolean isLoading = false;
-    private int aTZ = 1;
-    private int bMX = 1;
-    private boolean ePm = false;
-    private PbModel.a eNd = null;
+    private int aUa = 1;
+    private int bMY = 1;
+    private boolean ePo = false;
+    private PbModel.a eNf = null;
     private com.baidu.adp.framework.listener.a dLs = new com.baidu.adp.framework.listener.a(CmdConfigHttp.PB_PAGE_HTTP_CMD, 302001) { // from class: com.baidu.tieba.pb.pb.main.af.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && !af.this.ePm && responsedMessage.getOrginalMessage().getTag() == af.this.mTag && !responsedMessage.hasError()) {
+            if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && !af.this.ePo && responsedMessage.getOrginalMessage().getTag() == af.this.mTag && !responsedMessage.hasError()) {
                 if (responsedMessage instanceof pbPageSocketResponseMessage) {
                     af.this.a((pbPageSocketResponseMessage) responsedMessage);
                 }
@@ -50,17 +50,17 @@ public class af {
         MessageManager.getInstance().unRegisterListener(this.dLs);
     }
 
-    public boolean px(String str) {
+    public boolean pC(String str) {
         if (str == null || !this.hasMore) {
             return false;
         }
-        this.eMH = str;
+        this.eMJ = str;
         return pm(1);
     }
 
-    public boolean aTn() {
-        this.ePn = !this.ePn;
-        this.mPostId = aRp();
+    public boolean aTi() {
+        this.ePp = !this.ePp;
+        this.mPostId = aRk();
         pm(6);
         return true;
     }
@@ -73,22 +73,22 @@ public class af {
         this.isLoading = true;
         PbPageRequestMessage pbPageRequestMessage = new PbPageRequestMessage();
         pbPageRequestMessage.setUpdateType(i);
-        pbPageRequestMessage.setLastids(com.baidu.tbadk.distribute.a.aBf);
+        pbPageRequestMessage.setLastids(com.baidu.tbadk.distribute.a.aBg);
         try {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (this.eMH == null || this.eMH.length() == 0) {
+        if (this.eMJ == null || this.eMJ.length() == 0) {
             this.isLoading = false;
             return false;
         }
-        pbPageRequestMessage.set_kz(com.baidu.adp.lib.g.b.d(this.eMH, 0L));
+        pbPageRequestMessage.set_kz(com.baidu.adp.lib.g.b.d(this.eMJ, 0L));
         pbPageRequestMessage.set_rn(30);
         pbPageRequestMessage.set_with_floor(1);
         int ag = com.baidu.adp.lib.util.k.ag(TbadkCoreApplication.getInst().getApp());
         int ah = com.baidu.adp.lib.util.k.ah(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = com.baidu.tbadk.core.util.am.vQ().vS() ? 2 : 1;
+        int i2 = com.baidu.tbadk.core.util.am.vR().vT() ? 2 : 1;
         pbPageRequestMessage.set_scr_w(Integer.valueOf(ag));
         pbPageRequestMessage.set_scr_h(Integer.valueOf(ah));
         pbPageRequestMessage.set_scr_dip(f);
@@ -96,7 +96,7 @@ public class af {
         if (!this.isSquence) {
             pbPageRequestMessage.set_r(1);
         }
-        if (this.ePn) {
+        if (this.ePp) {
             pbPageRequestMessage.set_lz(1);
         }
         switch (i) {
@@ -104,11 +104,11 @@ public class af {
                 pbPageRequestMessage.set_back(0);
                 pbPageRequestMessage.set_banner(0);
                 if (!this.isSquence) {
-                    if (this.aTZ - 1 > 0) {
-                        pbPageRequestMessage.set_pn(Integer.valueOf(this.aTZ - 1));
+                    if (this.aUa - 1 > 0) {
+                        pbPageRequestMessage.set_pn(Integer.valueOf(this.aUa - 1));
                     }
-                } else if (this.aTZ < this.bMX) {
-                    pbPageRequestMessage.set_pn(Integer.valueOf(this.aTZ + 1));
+                } else if (this.aUa < this.bMY) {
+                    pbPageRequestMessage.set_pn(Integer.valueOf(this.aUa + 1));
                 }
                 if (this.mPostId != null && this.mPostId.length() > 0) {
                     pbPageRequestMessage.set_pid(com.baidu.adp.lib.g.b.d(this.mPostId, 0L));
@@ -125,41 +125,41 @@ public class af {
                 pbPageRequestMessage.set_banner(0);
                 break;
         }
-        pbPageRequestMessage.setIsFromMark(Boolean.valueOf(this.eGG));
+        pbPageRequestMessage.setIsFromMark(Boolean.valueOf(this.eGI));
         pbPageRequestMessage.setTag(this.mTag);
         pbPageRequestMessage.setContext(TbadkCoreApplication.getInst().getContext());
         MessageManager.getInstance().sendMessage(pbPageRequestMessage);
         return true;
     }
 
-    private String aRp() {
-        if (this.eMX == null || this.eMX.aPS() == null) {
+    private String aRk() {
+        if (this.eMZ == null || this.eMZ.aPN() == null) {
             return "";
         }
-        ArrayList<PostData> aPS = this.eMX.aPS();
-        if (com.baidu.tbadk.core.util.u.u(aPS) == 0) {
+        ArrayList<PostData> aPN = this.eMZ.aPN();
+        if (com.baidu.tbadk.core.util.u.u(aPN) == 0) {
             return "";
         }
-        Iterator<PostData> it = aPS.iterator();
+        Iterator<PostData> it = aPN.iterator();
         while (it.hasNext()) {
             PostData next = it.next();
-            if (next != null && next.getAuthor() != null && next.getAuthor().getUserId() != null && pv(next.getAuthor().getUserId())) {
+            if (next != null && next.getAuthor() != null && next.getAuthor().getUserId() != null && pA(next.getAuthor().getUserId())) {
                 return next.getId();
             }
         }
         return "";
     }
 
-    public boolean pv(String str) {
-        if (getPbData() == null || getPbData().aPQ() == null || getPbData().aPQ().getAuthor() == null || StringUtils.isNull(str)) {
+    public boolean pA(String str) {
+        if (getPbData() == null || getPbData().aPL() == null || getPbData().aPL().getAuthor() == null || StringUtils.isNull(str)) {
             return false;
         }
-        String userId = getPbData().aPQ().getAuthor().getUserId();
+        String userId = getPbData().aPL().getAuthor().getUserId();
         return !StringUtils.isNull(userId) && userId.equals(str);
     }
 
     public void b(PbModel.a aVar) {
-        this.eNd = aVar;
+        this.eNf = aVar;
     }
 
     public void a(com.baidu.tieba.pb.data.f fVar, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2) {
@@ -180,34 +180,34 @@ public class af {
         ArrayList<PostData> arrayList;
         ps(i);
         if (fVar == null) {
-            if (this.eNd != null) {
-                this.eNd.a(false, i2, i, 0, null, str, 1);
+            if (this.eNf != null) {
+                this.eNf.a(false, i2, i, 0, null, str, 1);
                 return;
             }
             return;
         }
-        if (fVar.qH() != null) {
-            this.aTZ = fVar.qH().qB();
-            this.bMX = fVar.qH().qy();
-            this.hasMore = fVar.qH().qD() != 0;
+        if (fVar.qI() != null) {
+            this.aUa = fVar.qI().qC();
+            this.bMY = fVar.qI().qz();
+            this.hasMore = fVar.qI().qE() != 0;
         }
-        this.bMX = this.bMX < 1 ? 1 : this.bMX;
-        if (this.eMX != null && this.eMX.aPS() != null) {
-            arrayList = this.eMX.aPS();
+        this.bMY = this.bMY < 1 ? 1 : this.bMY;
+        if (this.eMZ != null && this.eMZ.aPN() != null) {
+            arrayList = this.eMZ.aPN();
         } else {
             arrayList = new ArrayList<>();
         }
         switch (i) {
             case 1:
-                this.eMX.a(fVar.qH(), 1);
+                this.eMZ.a(fVar.qI(), 1);
                 d(fVar, arrayList);
                 break;
             case 6:
                 k(fVar);
                 break;
         }
-        if (this.eNd != null) {
-            this.eNd.a(true, i2, i, 0, this.eMX, str, 1);
+        if (this.eNf != null) {
+            this.eNf.a(true, i2, i, 0, this.eMZ, str, 1);
         }
     }
 
@@ -217,12 +217,12 @@ public class af {
 
     protected void d(com.baidu.tieba.pb.data.f fVar, ArrayList<PostData> arrayList) {
         String al;
-        if (arrayList != null && fVar.aPS() != null) {
-            PostData postData = (PostData) com.baidu.tbadk.core.util.u.c(fVar.aPS(), 0);
+        if (arrayList != null && fVar.aPN() != null) {
+            PostData postData = (PostData) com.baidu.tbadk.core.util.u.c(fVar.aPN(), 0);
             if (postData != null && (al = al(arrayList)) != null && al.equals(postData.getId())) {
-                fVar.aPS().remove(postData);
+                fVar.aPN().remove(postData);
             }
-            arrayList.addAll(fVar.aPS());
+            arrayList.addAll(fVar.aPN());
         }
     }
 
@@ -245,22 +245,22 @@ public class af {
     }
 
     public void setPbData(com.baidu.tieba.pb.data.f fVar) {
-        this.eMX = fVar;
+        this.eMZ = fVar;
         if (fVar != null) {
-            this.eMH = this.eMX.getThreadId();
+            this.eMJ = this.eMZ.getThreadId();
         }
-        if (fVar != null && fVar.qH() != null) {
-            this.aTZ = fVar.qH().qB();
-            this.bMX = fVar.qH().qy();
-            this.hasMore = fVar.qH().qD() != 0;
+        if (fVar != null && fVar.qI() != null) {
+            this.aUa = fVar.qI().qC();
+            this.bMY = fVar.qI().qz();
+            this.hasMore = fVar.qI().qE() != 0;
         }
     }
 
     public com.baidu.tieba.pb.data.f getPbData() {
-        return this.eMX;
+        return this.eMZ;
     }
 
-    public boolean aTo() {
+    public boolean aTj() {
         return this.isSquence;
     }
 
@@ -268,12 +268,12 @@ public class af {
         this.isSquence = z;
     }
 
-    public boolean aTp() {
-        return this.ePn;
+    public boolean aTk() {
+        return this.ePp;
     }
 
     public void setHostMode(boolean z) {
-        this.ePn = z;
+        this.ePp = z;
     }
 
     public void pr(int i) {
@@ -281,15 +281,15 @@ public class af {
     }
 
     public void ps(int i) {
-        this.eMY = i;
+        this.eNa = i;
     }
 
     public void jB(boolean z) {
-        this.eGG = z;
+        this.eGI = z;
     }
 
     public void setThreadId(String str) {
-        this.eMH = str;
+        this.eMJ = str;
     }
 
     public void setPostId(String str) {
@@ -297,6 +297,6 @@ public class af {
     }
 
     public void jC(boolean z) {
-        this.ePm = z;
+        this.ePo = z;
     }
 }

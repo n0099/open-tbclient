@@ -91,7 +91,7 @@ public class BdStatisticsManager {
         this.mNotUploadWriteFileDir = this.mWriteFileDir + "/notUpload";
         this.mIsMainProcess = z;
         this.mBdLogSetting = bVar;
-        com.baidu.adp.lib.Disk.d.dS().O(str2);
+        com.baidu.adp.lib.Disk.d.dS().P(str2);
         com.baidu.adp.lib.stats.switchs.a.gJ().a(z, str, this.mContext, this.mLogSwitchInitCallback);
         com.baidu.adp.lib.stats.upload.b.gP().a(cVar, str4);
         g.gR().init();
@@ -381,7 +381,7 @@ public class BdStatisticsManager {
     }
 
     private void addLog(String str, String str2, long j, String str3, com.baidu.adp.lib.stats.a aVar, Object... objArr) {
-        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !e.gg().at(str)) {
+        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !e.gg().au(str)) {
             if (j == -1) {
                 g.gR().a(str, str2, null, str3, aVar, objArr);
             } else {
@@ -430,37 +430,37 @@ public class BdStatisticsManager {
     }
 
     public void file(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.gg().at("file")) {
+        if (!e.gg().au("file")) {
             op(true, "file", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void db(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.gg().at("db")) {
+        if (!e.gg().au("db")) {
             op(true, "db", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void imgErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.gg().at("img")) {
+        if (!e.gg().au("img")) {
             op(true, "img", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void voiceErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.gg().at("voice")) {
+        if (!e.gg().au("voice")) {
             op(true, "voice", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void liveErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.gg().at("live")) {
+        if (!e.gg().au("live")) {
             op(true, "live", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void aladinPortErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.gg().at("aladin_port_error")) {
+        if (!e.gg().au("aladin_port_error")) {
             op(true, "aladin_port_error", str, str2, 0L, i, str3, objArr);
         }
     }

@@ -7,8 +7,8 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class t {
     private int duration;
-    private long fCl;
-    private String fCm;
+    private long fCn;
+    private String fCo;
     private String videoUrl;
 
     public void a(VideoInfo videoInfo, boolean z) {
@@ -42,16 +42,16 @@ public class t {
                     String str3 = videoDesc.video_width;
                     String str4 = videoDesc.video_height;
                     this.videoUrl = str;
-                    this.fCl = videoInfo.video_length.intValue();
+                    this.fCn = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.fCm = videoInfo.video_width + "x" + videoInfo.video_height;
+                    this.fCo = videoInfo.video_width + "x" + videoInfo.video_height;
                 }
             }
             str = str2;
             this.videoUrl = str;
-            this.fCl = videoInfo.video_length.intValue();
+            this.fCn = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.fCm = videoInfo.video_width + "x" + videoInfo.video_height;
+            this.fCo = videoInfo.video_width + "x" + videoInfo.video_height;
         }
     }
 
@@ -65,15 +65,15 @@ public class t {
         }
     }
 
-    public long bgD() {
-        return this.fCl;
+    public long bgy() {
+        return this.fCn;
     }
 
     public int getDuration() {
         return this.duration;
     }
 
-    public String bgE() {
-        return this.fCm;
+    public String bgz() {
+        return this.fCo;
     }
 }

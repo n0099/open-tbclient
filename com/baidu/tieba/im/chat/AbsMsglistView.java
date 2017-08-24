@@ -82,7 +82,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.c<MsglistActivit
 
     /* loaded from: classes.dex */
     public interface a {
-        void arS();
+        void arL();
 
         void d(VoiceData.VoiceModel voiceModel);
     }
@@ -124,13 +124,13 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.c<MsglistActivit
                             }
                         }
                     } else if (aVar.code == 8) {
-                        AbsMsglistView.this.mContext.asG();
+                        AbsMsglistView.this.mContext.asz();
                     } else if (aVar.code == 4) {
                         if (aVar.data != null && (aVar.data instanceof String)) {
                             AbsMsglistView.this.mTextContent = (String) aVar.data;
                         }
                     } else if (aVar.code == 14) {
-                        AbsMsglistView.this.mContext.asH();
+                        AbsMsglistView.this.mContext.asA();
                     }
                 }
             }
@@ -285,13 +285,13 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.c<MsglistActivit
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CHAT_SEND_VOICE_VIEW, r.class, talkableActivity.getActivity());
         if (runTask != null && runTask.getData() != null) {
             this.mSendTool = (r) runTask.getData();
-            if (this.mSendTool.aCd != null && (this.mSendTool.aCd instanceof ISendVoiceView)) {
-                this.mSendVoiceView = (ISendVoiceView) this.mSendTool.aCd;
+            if (this.mSendTool.aCe != null && (this.mSendTool.aCe instanceof ISendVoiceView)) {
+                this.mSendVoiceView = (ISendVoiceView) this.mSendTool.aCe;
                 if (this.mSendVoiceView instanceof View) {
                     ((View) this.mSendVoiceView).setOnTouchListener(this.mContext);
                 }
             }
-            this.mSendTool.aCQ = 1;
+            this.mSendTool.aCR = 1;
             this.mTool.b(this.mSendTool);
         }
         this.mTool.b(new com.baidu.tbadk.editortools.imagetool.d(talkableActivity.getActivity(), 2));
@@ -301,13 +301,13 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.c<MsglistActivit
         r eE = this.mTool.eE(5);
         if (eE != null) {
             eE.bH(false);
-            eE.aCQ = 3;
-            eE.aCO = d.g.btn_pb_add_expression;
+            eE.aCR = 3;
+            eE.aCP = d.g.btn_pb_add_expression;
         }
         com.baidu.tbadk.editortools.inputtool.a aVar = new com.baidu.tbadk.editortools.inputtool.a(talkableActivity.getActivity(), false, false);
         aVar.setIsOnlyLocalEmotion(true);
-        if (aVar.aCd != null && (aVar.aCd instanceof EditText)) {
-            ((EditText) aVar.aCd).setTextSize(0, talkableActivity.getActivity().getResources().getDimensionPixelSize(d.f.ds36));
+        if (aVar.aCe != null && (aVar.aCe instanceof EditText)) {
+            ((EditText) aVar.aCe).setTextSize(0, talkableActivity.getActivity().getResources().getDimensionPixelSize(d.f.ds36));
         }
         this.mTool.b(aVar);
         com.baidu.tbadk.editortools.sendtool.a aVar2 = new com.baidu.tbadk.editortools.sendtool.a(talkableActivity.getActivity());
@@ -566,7 +566,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.c<MsglistActivit
             this.mMsgItemOperation = bVar;
             this.mMsgItemOperation.d(this.mContext.getPageContext());
             this.mMsgItemOperation.getRootView().setTag(Integer.valueOf(i));
-            this.mMsgItemOperation.tu();
+            this.mMsgItemOperation.tv();
         }
     }
 
@@ -653,7 +653,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.c<MsglistActivit
     public void onDeletedVoice(String str) {
         this.mModel = null;
         if (this.mCallback != null) {
-            this.mCallback.arS();
+            this.mCallback.arL();
         }
     }
 
@@ -712,9 +712,9 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.c<MsglistActivit
             return "";
         }
         r eE = this.mTool.eE(3);
-        if (eE == null || eE.aCd == null || !(eE.aCd instanceof View)) {
+        if (eE == null || eE.aCe == null || !(eE.aCe instanceof View)) {
             str = "input_text";
-        } else if (((View) eE.aCd).getVisibility() == 0) {
+        } else if (((View) eE.aCe).getVisibility() == 0) {
             str = "input_text";
         } else {
             str = "input_voice";

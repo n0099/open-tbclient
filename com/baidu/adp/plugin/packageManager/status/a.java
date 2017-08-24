@@ -19,7 +19,7 @@ public class a {
     private a() {
     }
 
-    public static a ko() {
+    public static a kn() {
         if (GJ == null) {
             synchronized (a.class) {
                 if (GJ == null) {
@@ -30,12 +30,12 @@ public class a {
         return GJ;
     }
 
-    public void bG(String str) {
-        PluginStatus bH = ko().bH(str);
-        if (bH != null) {
-            bH.GG = PluginPackageManager.PluginStatus.NROMAL;
+    public void bH(String str) {
+        PluginStatus bI = kn().bI(str);
+        if (bI != null) {
+            bI.GG = PluginPackageManager.PluginStatus.NROMAL;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, bH));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, bI));
     }
 
     public void g(String str, String str2, String str3) {
@@ -76,31 +76,31 @@ public class a {
         } else {
             return;
         }
-        PluginStatus bH = bH(str);
-        if (bH == null) {
-            bH = new PluginStatus();
+        PluginStatus bI = bI(str);
+        if (bI == null) {
+            bI = new PluginStatus();
         }
-        bH.GG = PluginPackageManager.PluginStatus.ERROR;
-        bH.errorMsg = string;
-        bH.GH = string2;
-        bH.errorCode = i;
-        bH.GI = false;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, bH));
+        bI.GG = PluginPackageManager.PluginStatus.ERROR;
+        bI.errorMsg = string;
+        bI.GH = string2;
+        bI.errorCode = i;
+        bI.GI = false;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, bI));
     }
 
     public void onLoadFailed(String str) {
-        PluginStatus bH = bH(str);
-        if (bH == null) {
-            bH = new PluginStatus();
+        PluginStatus bI = bI(str);
+        if (bI == null) {
+            bI = new PluginStatus();
         }
-        bH.GG = PluginPackageManager.PluginStatus.ERROR;
-        bH.errorCode = 100;
-        bH.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-        bH.GH = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bH));
+        bI.GG = PluginPackageManager.PluginStatus.ERROR;
+        bI.errorCode = 100;
+        bI.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
+        bI.GH = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bI));
     }
 
-    public List<PluginStatus> kp() {
+    public List<PluginStatus> ko() {
         ArrayList arrayList;
         PluginStatus value;
         synchronized (this.GK) {
@@ -114,7 +114,7 @@ public class a {
         return arrayList;
     }
 
-    public PluginStatus bH(String str) {
+    public PluginStatus bI(String str) {
         PluginStatus pluginStatus;
         if (str == null || TextUtils.isEmpty(str)) {
             return null;

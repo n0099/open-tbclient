@@ -19,8 +19,8 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.adp.base.c<AtMessageActivity> {
     private View anK;
-    private com.baidu.tbadk.mvc.g.a bOV;
-    private NoNetworkView ber;
+    private com.baidu.tbadk.mvc.g.a bOW;
+    private NoNetworkView bes;
     private AtMessageActivity dFI;
     private com.baidu.tbadk.mvc.f.d<FeedData, com.baidu.tbadk.mvc.d.b, a> dFP;
     private BdListView dFQ;
@@ -34,7 +34,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View Ym() {
+    public View Yj() {
         this.rootView = this.dFI.getActivity().getLayoutInflater().inflate(d.j.at_me_activity, (ViewGroup) null);
         this.dFI.setContentView(this.rootView);
         this.dFQ = (BdListView) this.rootView.findViewById(d.h.atme_lv);
@@ -44,18 +44,18 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         this.mPullView = new com.baidu.tbadk.core.view.l(this.dFI.getPageContext());
         this.mPullView.setTag(this.dFI.getUniqueId());
         this.mPullView.a(this.dFI);
-        this.bOV = new com.baidu.tbadk.mvc.g.a(this.dFI);
-        this.bOV.lk();
+        this.bOW = new com.baidu.tbadk.mvc.g.a(this.dFI);
+        this.bOW.lj();
         this.anK = new TextView(this.dFI.getPageContext().getPageActivity());
         this.anK.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.k.g(this.dFI.getPageContext().getPageActivity(), d.f.ds98)));
         BdListViewHelper.a(this.anK, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.i.hr());
         this.dFQ.setPullRefresh(this.mPullView);
         this.dFQ.addHeaderView(this.anK, 0);
-        this.dFQ.setNextPage(this.bOV);
+        this.dFQ.setNextPage(this.bOW);
         this.dFQ.setDividerHeight(0);
-        this.ber = (NoNetworkView) this.rootView.findViewById(d.h.no_networkview);
-        this.ber.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.ber.a(new NoNetworkView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.d.1
+        this.bes = (NoNetworkView) this.rootView.findViewById(d.h.no_networkview);
+        this.bes.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.bes.a(new NoNetworkView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.d.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void aM(boolean z) {
                 d.this.gY(z);
@@ -78,7 +78,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         if (aVar instanceof f) {
             f fVar = (f) aVar;
             if (this.dFP != null) {
-                this.dFP.D(fVar.aAh());
+                this.dFP.D(fVar.aAc());
             }
         }
     }
@@ -87,8 +87,8 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         if (this.dFP != null) {
             this.dFP.b(tbPageContext, i);
         }
-        if (this.bOV != null) {
-            this.bOV.b(tbPageContext, i);
+        if (this.bOW != null) {
+            this.bOW.b(tbPageContext, i);
         }
         if (this.mPullView != null) {
             this.mPullView.dp(i);
@@ -96,7 +96,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         this.dFR.onChangeSkinType(tbPageContext, i);
     }
 
-    public void azZ() {
+    public void azU() {
         if (this.dFQ != null) {
             this.dFQ.completePullRefreshPostDelayed(2000L);
         }
@@ -117,29 +117,29 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
     public void b(com.baidu.tbadk.mvc.d.b bVar) {
         if (bVar instanceof com.baidu.tbadk.mvc.d.a) {
             com.baidu.tbadk.mvc.d.a aVar = (com.baidu.tbadk.mvc.d.a) bVar;
-            if (this.bOV != null) {
+            if (this.bOW != null) {
                 if (aVar.FH()) {
-                    this.bOV.lT();
+                    this.bOW.lS();
                     if (aVar.FF()) {
-                        this.bOV.fc(d.l.loading);
+                        this.bOW.fc(d.l.loading);
                     } else if (aVar.FG()) {
-                        this.bOV.fc(d.l.loading);
+                        this.bOW.fc(d.l.loading);
                     } else {
-                        this.bOV.fd(d.l.no_more_msg);
+                        this.bOW.fd(d.l.no_more_msg);
                     }
                 } else {
-                    this.bOV.hide();
+                    this.bOW.hide();
                 }
             }
             if (aVar.isPullRefreshing()) {
-                aAa();
+                azV();
             } else {
-                azZ();
+                azU();
             }
         }
     }
 
-    public void aAa() {
+    public void azV() {
         if (this.mPullView != null) {
             this.mPullView.a((k.b) null);
         }

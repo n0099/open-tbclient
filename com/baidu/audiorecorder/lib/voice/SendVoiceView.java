@@ -29,7 +29,7 @@ public class SendVoiceView extends LinearLayout implements s, ISendVoiceView, co
             this.Lr = (TextView) findViewById(d.h.tex_send_voice);
             setFocusable(true);
             setFocusableInTouchMode(true);
-            lU();
+            lT();
         }
     }
 
@@ -49,7 +49,7 @@ public class SendVoiceView extends LinearLayout implements s, ISendVoiceView, co
     }
 
     @Override // com.baidu.tbadk.editortools.s
-    public void lT() {
+    public void lS() {
         setVisibility(0);
     }
 
@@ -88,7 +88,7 @@ public class SendVoiceView extends LinearLayout implements s, ISendVoiceView, co
     public void onChangeSkinType(int i) {
     }
 
-    private void lU() {
+    private void lT() {
         this.Lu = new FloatRecordView(getContext());
         this.Lv = (WindowManager) TbadkCoreApplication.getInst().getContext().getSystemService("window");
         this.Lw = new WindowManager.LayoutParams();
@@ -118,7 +118,7 @@ public class SendVoiceView extends LinearLayout implements s, ISendVoiceView, co
             } else if (i == 2) {
                 closeRecordCancel();
                 closeRecordTooShort();
-                lP();
+                lO();
             }
         }
     }
@@ -146,17 +146,6 @@ public class SendVoiceView extends LinearLayout implements s, ISendVoiceView, co
     public void closeRecordCancel() {
         if (this.Lu != null && this.Lv != null && this.Lw != null) {
             this.Lu.closeRecordCancel();
-            LinearLayout lO = this.Lu.lO();
-            if (lO != null && lO.getParent() != null) {
-                this.Lv.removeView(lO);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.c
-    public void closeRecordTooShort() {
-        if (this.Lu != null && this.Lv != null && this.Lw != null) {
-            this.Lu.closeRecordTooShort();
             LinearLayout lN = this.Lu.lN();
             if (lN != null && lN.getParent() != null) {
                 this.Lv.removeView(lN);
@@ -165,27 +154,38 @@ public class SendVoiceView extends LinearLayout implements s, ISendVoiceView, co
     }
 
     @Override // com.baidu.tieba.im.chat.c
+    public void closeRecordTooShort() {
+        if (this.Lu != null && this.Lv != null && this.Lw != null) {
+            this.Lu.closeRecordTooShort();
+            LinearLayout lM = this.Lu.lM();
+            if (lM != null && lM.getParent() != null) {
+                this.Lv.removeView(lM);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.im.chat.c
     public void showRecordCancel() {
-        LinearLayout lO;
-        if (this.Lu != null && this.Lv != null && this.Lw != null && (lO = this.Lu.lO()) != null && lO.getParent() == null) {
-            this.Lv.addView(lO, this.Lw);
+        LinearLayout lN;
+        if (this.Lu != null && this.Lv != null && this.Lw != null && (lN = this.Lu.lN()) != null && lN.getParent() == null) {
+            this.Lv.addView(lN, this.Lw);
             this.Lu.showRecordCancel();
         }
     }
 
-    public void lP() {
-        LinearLayout lN;
-        if (this.Lu != null && this.Lv != null && this.Lw != null && (lN = this.Lu.lN()) != null && lN.getParent() == null) {
-            this.Lv.addView(lN, this.Lw);
-            this.Lu.lP();
+    public void lO() {
+        LinearLayout lM;
+        if (this.Lu != null && this.Lv != null && this.Lw != null && (lM = this.Lu.lM()) != null && lM.getParent() == null) {
+            this.Lv.addView(lM, this.Lw);
+            this.Lu.lO();
         }
     }
 
     @Override // com.baidu.tieba.im.chat.c
     public void startRecordVoice() {
-        LinearLayout lM;
-        if (this.Lu != null && this.Lv != null && this.Lw != null && (lM = this.Lu.lM()) != null && lM.getParent() == null) {
-            this.Lv.addView(lM, this.Lw);
+        LinearLayout lL;
+        if (this.Lu != null && this.Lv != null && this.Lw != null && (lL = this.Lu.lL()) != null && lL.getParent() == null) {
+            this.Lv.addView(lL, this.Lw);
             this.Lu.startRecordVoice();
         }
     }
@@ -194,9 +194,9 @@ public class SendVoiceView extends LinearLayout implements s, ISendVoiceView, co
     public void stopRecordVoice() {
         if (this.Lu != null && this.Lv != null && this.Lw != null) {
             this.Lu.stopRecordVoice();
-            LinearLayout lM = this.Lu.lM();
-            if (lM != null && lM.getParent() != null) {
-                this.Lv.removeView(lM);
+            LinearLayout lL = this.Lu.lL();
+            if (lL != null && lL.getParent() != null) {
+                this.Lv.removeView(lL);
             }
         }
     }

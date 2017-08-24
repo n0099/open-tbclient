@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.ai;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends RelativeLayout implements l {
-    private int aBL;
-    private TextView aBN;
-    private int aBO;
+    private int aBM;
+    private TextView aBO;
+    private int aBP;
     private String afX;
     private int mId;
     private int mSkinType;
@@ -23,30 +23,30 @@ public class e extends RelativeLayout implements l {
         if (i > 0 && i2 > 0) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, context.getResources().getDimensionPixelSize(d.f.ds144));
             setGravity(5);
-            this.aBN = new TextView(context);
+            this.aBO = new TextView(context);
             setName(str);
             setIcon(i);
             setToolId(i2);
             layoutParams.addRule(13);
-            this.aBN.setGravity(17);
-            this.aBN.setTextSize(0, context.getResources().getDimensionPixelSize(d.f.fontsize24));
-            this.aBO = context.getResources().getDimensionPixelSize(d.f.ds12);
+            this.aBO.setGravity(17);
+            this.aBO.setTextSize(0, context.getResources().getDimensionPixelSize(d.f.fontsize24));
+            this.aBP = context.getResources().getDimensionPixelSize(d.f.ds12);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.f.ds16);
-            this.aBN.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
-            addView(this.aBN, layoutParams);
+            this.aBO.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+            addView(this.aBO, layoutParams);
         }
     }
 
     public void setName(String str) {
-        this.aBN.setText(str);
+        this.aBO.setText(str);
     }
 
     public void setIcon(int i) {
-        this.aBL = i;
+        this.aBM = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public void lT() {
+    public void lS() {
         setVisibility(0);
     }
 
@@ -60,8 +60,8 @@ public class e extends RelativeLayout implements l {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = (this.aBN.getRight() - this.mTip.getMeasuredWidth()) - this.aBO;
-                int top = this.aBN.getTop() + this.aBO;
+                int right = (this.aBO.getRight() - this.mTip.getMeasuredWidth()) - this.aBP;
+                int top = this.aBO.getTop() + this.aBP;
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -69,12 +69,12 @@ public class e extends RelativeLayout implements l {
         }
     }
 
-    public void fF(String str) {
-        fG(str);
+    public void fJ(String str) {
+        fK(str);
         this.mTip.setVisibility(0);
     }
 
-    private void fG(String str) {
+    private void fK(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.afX = str;
             if (this.mTip == null) {
@@ -109,7 +109,7 @@ public class e extends RelativeLayout implements l {
             if (aVar.data == null) {
                 CZ();
             } else if (aVar.data instanceof String) {
-                fF((String) aVar.data);
+                fJ((String) aVar.data);
             }
         }
     }
@@ -126,12 +126,12 @@ public class e extends RelativeLayout implements l {
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        ai.d(this.aBN, d.g.btn_editor_selector, i);
-        ai.b(this.aBN, d.e.cp_cont_c, 1, i);
-        if (TextUtils.isEmpty(this.aBN.getText())) {
-            ai.d(this.aBN, this.aBL, i);
+        ai.d(this.aBO, d.g.btn_editor_selector, i);
+        ai.b(this.aBO, d.e.cp_cont_c, 1, i);
+        if (TextUtils.isEmpty(this.aBO.getText())) {
+            ai.d(this.aBO, this.aBM, i);
         } else {
-            this.aBN.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ai.v(i, this.aBL), (Drawable) null, (Drawable) null);
+            this.aBO.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ai.v(i, this.aBM), (Drawable) null, (Drawable) null);
         }
         if (this.mTip != null) {
             ai.b(this.mTip, d.e.common_color_10225, 1, i);

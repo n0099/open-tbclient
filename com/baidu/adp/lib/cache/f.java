@@ -114,7 +114,7 @@ public class f {
             return true;
         }
 
-        public String Z(String str) {
+        public String aa(String str) {
             String key;
             long j;
             String str2 = null;
@@ -143,11 +143,11 @@ public class f {
 
         @Override // com.baidu.adp.lib.cache.e.b
         public String e(g<?> gVar) {
-            String Z = Z(gVar.vc);
+            String aa = aa(gVar.vc);
             synchronized (this) {
                 this.vb.put(gVar.vc, Long.valueOf(gVar.vf));
             }
-            return Z;
+            return aa;
         }
 
         @Override // com.baidu.adp.lib.cache.e.b

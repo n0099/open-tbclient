@@ -36,12 +36,12 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
         }
     }
 
-    public void p(Bundle bundle) {
+    public void o(Bundle bundle) {
         bundle.putInt("gid", this.dzl);
         bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.dEM);
     }
 
-    public void mL(String str) {
+    public void mQ(String str) {
         this.dEL = e(this.dzl, this.dEM, str);
         super.sendMessage(this.dEL);
     }

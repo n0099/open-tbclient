@@ -14,10 +14,10 @@ import com.baidu.tieba.card.u;
 import com.baidu.tieba.card.x;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.b, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.d>> {
-    public BdUniqueId aON;
+    public BdUniqueId aOO;
     private com.baidu.tieba.homepage.concern.view.d cSh;
     private x<com.baidu.tieba.homepage.concern.b.b> cSi;
-    private TbPageContext<?> oV;
+    private TbPageContext<?> oW;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.concern.b.b.cSy);
@@ -37,7 +37,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                 }
             }
         };
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,8 +45,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: x */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cSh = new com.baidu.tieba.homepage.concern.view.d(this.oV);
-        this.cSh.j(this.aON);
+        this.cSh = new com.baidu.tieba.homepage.concern.view.d(this.oW);
+        this.cSh.j(this.aOO);
         this.cSh.b(this.cSi);
         return new com.baidu.tieba.card.a.a(this.cSh);
     }
@@ -59,10 +59,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (bVar.cSz == null || aVar == null || StringUtils.isNull(bVar.cSz.getName()) || StringUtils.isNull(bVar.cSz.getUserId())) {
             return null;
         }
-        aVar.Xy().a(bVar);
-        aVar.Xy().b(this.cSi);
-        aVar.Xy().d(this.oV, TbadkCoreApplication.getInst().getSkinType());
-        u.WX().a(new aj("c12353").g(SapiAccountManager.SESSION_UID, bVar.cSz.getId()));
+        aVar.Xv().a(bVar);
+        aVar.Xv().b(this.cSi);
+        aVar.Xv().d(this.oW, TbadkCoreApplication.getInst().getSkinType());
+        u.WU().a(new aj("c12353").g(SapiAccountManager.SESSION_UID, bVar.cSz.getId()));
         return aVar.getView();
     }
 }

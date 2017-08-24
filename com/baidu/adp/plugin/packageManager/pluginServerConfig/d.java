@@ -11,7 +11,7 @@ public class d {
     private PluginNetConfigInfos Gh = new PluginNetConfigInfos();
     private b Gi;
 
-    public static d kb() {
+    public static d ka() {
         if (Gg == null) {
             synchronized (d.class) {
                 if (Gg == null) {
@@ -54,7 +54,7 @@ public class d {
         return cVar;
     }
 
-    public PluginNetConfigInfos kc() {
+    public PluginNetConfigInfos kb() {
         return this.Gh;
     }
 

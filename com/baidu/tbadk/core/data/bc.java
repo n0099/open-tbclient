@@ -24,7 +24,7 @@ public class bc {
         return this.uid;
     }
 
-    public String qS() {
+    public String qT() {
         return this.uname;
     }
 
@@ -32,7 +32,7 @@ public class bc {
         return this.portrait;
     }
 
-    public String qT() {
+    public String qU() {
         return this.institute;
     }
 

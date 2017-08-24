@@ -35,9 +35,9 @@ public abstract class d implements k {
         a.C0044a.sendMessage(message);
     }
 
-    protected void c(String str, JSONObject jSONObject) {
+    protected void b(String str, JSONObject jSONObject) {
         if (TextUtils.isEmpty(str)) {
-            e.cW("sendResponseToJS got empty callbackId.");
+            e.cZ("sendResponseToJS got empty callbackId.");
             return;
         }
         HashMap hashMap = new HashMap(4);
@@ -58,20 +58,20 @@ public abstract class d implements k {
             String optString = jSONObject2.optString("callbackId");
             try {
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                if (!uVar.ud()) {
+                if (!uVar.ue()) {
                     if (parameterTypes.length == 2) {
                         invoke = method.invoke(this, optString, jSONObject);
                     } else if (parameterTypes.length == 1) {
                         invoke = method.invoke(this, jSONObject);
                     } else if (parameterTypes.length == 0) {
-                        e.cW("native method " + getClass().getSimpleName() + ":" + uVar.value() + " ignored all parameters.");
+                        e.cZ("native method " + getClass().getSimpleName() + ":" + uVar.value() + " ignored all parameters.");
                         invoke = method.invoke(this, new Object[0]);
                     } else {
                         a(str, jSONObject2, "500", "parameters too much!");
                         return;
                     }
                     if (!TextUtils.isEmpty(optString)) {
-                        c(optString, (JSONObject) invoke);
+                        b(optString, (JSONObject) invoke);
                         return;
                     }
                     return;
@@ -79,15 +79,15 @@ public abstract class d implements k {
                     if (parameterTypes.length == 1) {
                         method.invoke(this, jSONObject);
                         if (!TextUtils.isEmpty(optString)) {
-                            c(optString, null);
+                            b(optString, null);
                             return;
                         }
                         return;
                     } else if (parameterTypes.length == 0) {
-                        e.cW("native method " + getClass().getSimpleName() + ":" + uVar.value() + " ignored all parameters.");
+                        e.cZ("native method " + getClass().getSimpleName() + ":" + uVar.value() + " ignored all parameters.");
                         method.invoke(this, new Object[0]);
                         if (!TextUtils.isEmpty(optString)) {
-                            c(optString, null);
+                            b(optString, null);
                             return;
                         }
                         return;
@@ -100,15 +100,15 @@ public abstract class d implements k {
                     return;
                 }
             } catch (IllegalAccessException e) {
-                e.cW("native method call error:" + e.getMessage());
+                e.cZ("native method call error:" + e.getMessage());
                 a(str, jSONObject2, "501", "IllegalAccessException:" + e.getMessage());
                 return;
             } catch (InvocationTargetException e2) {
-                e.cW("native method call error:" + e2.getMessage());
+                e.cZ("native method call error:" + e2.getMessage());
                 a(str, jSONObject2, "502", "InvocationTargetException:" + e2.getMessage());
                 return;
             } catch (Exception e3) {
-                e.cW("native method call error:" + e3.getMessage());
+                e.cZ("native method call error:" + e3.getMessage());
                 a(str, jSONObject2, "503", "Native call exception:" + e3.getMessage());
                 return;
             }
@@ -119,7 +119,7 @@ public abstract class d implements k {
     private void a(String str, JSONObject jSONObject, String str2, String str3) {
         String optString = jSONObject.optString("callbackId");
         if (TextUtils.isEmpty(optString)) {
-            e.cW("method " + str + " not found!");
+            e.cZ("method " + str + " not found!");
             return;
         }
         HashMap hashMap = new HashMap(4);
@@ -137,7 +137,7 @@ public abstract class d implements k {
                 if (TextUtils.isEmpty(value)) {
                     value = null;
                 }
-                if (uVar.ud() && !Void.TYPE.equals(method.getReturnType())) {
+                if (uVar.ue() && !Void.TYPE.equals(method.getReturnType())) {
                     throw new IllegalArgumentException("Method with async flag should return void.");
                 }
                 if (TextUtils.isEmpty(value)) {

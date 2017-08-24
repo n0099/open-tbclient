@@ -45,7 +45,7 @@ public class f implements SensorEventListener {
         }
     }
 
-    public static synchronized f mx() {
+    public static synchronized f mw() {
         f fVar;
         synchronized (f.class) {
             if (NX == null) {
@@ -121,7 +121,7 @@ public class f implements SensorEventListener {
         return this.e;
     }
 
-    public double my() {
+    public double mx() {
         return this.NY;
     }
 

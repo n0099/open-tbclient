@@ -8,7 +8,7 @@ public class ar {
     private static String aiv;
     private static final HashMap<String, String> aiw = new HashMap<>();
 
-    public static void ec(String str) {
+    public static void eg(String str) {
         aiv = str;
         if (TextUtils.isEmpty(str)) {
             aiu = str;
@@ -23,7 +23,7 @@ public class ar {
             str2 = aiw.get(str);
         }
         if (str2 == null) {
-            str2 = ed(str);
+            str2 = eh(str);
             if (aiw != null) {
                 aiw.put(str, str2);
             }
@@ -33,7 +33,7 @@ public class ar {
         }
     }
 
-    private static String ed(String str) {
+    private static String eh(String str) {
         if (!TextUtils.isEmpty(str)) {
             int length = str.length();
             if ((str.toLowerCase().endsWith("activity") || str.toLowerCase().endsWith("fragment")) && length - 8 >= 0) {
@@ -44,11 +44,11 @@ public class ar {
         return str;
     }
 
-    public static String wb() {
+    public static String wc() {
         return aiu;
     }
 
-    public static String wc() {
+    public static String wd() {
         return aiv;
     }
 }

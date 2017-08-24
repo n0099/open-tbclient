@@ -193,7 +193,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         ai.d(this, d.g.nonetworkview_bg_selector, i);
     }
 
-    public static void wP() {
+    public static void wQ() {
         if (com.baidu.adp.lib.util.i.hr()) {
             setIsHasNetwork(true);
         } else {

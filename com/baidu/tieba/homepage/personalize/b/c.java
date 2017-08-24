@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.view.h;
 import com.baidu.tieba.card.x;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, a> {
-    public BdUniqueId aON;
+    public BdUniqueId aOO;
     private h.a amd;
     x<com.baidu.tieba.card.data.k> cSl;
     private com.baidu.tieba.card.i cVF;
-    private TbPageContext<?> oV;
+    private TbPageContext<?> oW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -27,11 +27,11 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (c.this.cVF.bHr == view) {
+                if (c.this.cVF.bHs == view) {
                     int i = 0;
                     String str = "";
                     if (kVar != null && kVar.MF() != null) {
-                        i = kVar.MF().rX().live_type;
+                        i = kVar.MF().rY().live_type;
                         str = kVar.MF().getTid();
                     }
                     aj ajVar = new aj("c11824");
@@ -42,7 +42,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 }
             }
         };
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,8 +50,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: an */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cVF = new com.baidu.tieba.card.i(this.oV);
-        this.cVF.j(this.oV.getUniqueId());
+        this.cVF = new com.baidu.tieba.card.i(this.oW);
+        this.cVF.j(this.oW.getUniqueId());
         return new a(this.cVF);
     }
 
@@ -69,7 +69,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         int i2 = 0;
         String str = "";
         if (kVar != null && kVar.MF() != null) {
-            i2 = kVar.MF().rX().live_type;
+            i2 = kVar.MF().rY().live_type;
             str = kVar.MF().getTid();
         }
         TiebaStatic.log(new aj("c11823").r("obj_type", i2).aa("tid", str));

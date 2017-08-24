@@ -41,7 +41,7 @@ public class g extends DiskFileOperate {
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public byte[] eb() {
-        if (this.tu == null) {
+        if (this.mData == null) {
             return null;
         }
         return this.afY.toByteArray();

@@ -23,11 +23,11 @@ public class AddExperiencedModel extends BdBaseModel {
     public static String USELESS_FORUM_ID = "24981790";
     public static String WEIXIN_FRIEND = "weixin_friend";
     public static String WEIXIN_TIMELINE = "weixin_timeline";
-    private HttpMessageListener eYN;
+    private HttpMessageListener eYP;
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.eYN = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED) { // from class: com.baidu.tieba.pb.share.AddExperiencedModel.1
+        this.eYP = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED) { // from class: com.baidu.tieba.pb.share.AddExperiencedModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -37,7 +37,7 @@ public class AddExperiencedModel extends BdBaseModel {
             }
         };
         Eo();
-        registerListener(this.eYN);
+        registerListener(this.eYP);
     }
 
     private void Eo() {
@@ -46,21 +46,21 @@ public class AddExperiencedModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bO(String str, String str2) {
+    public void bP(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
         sendMessage(httpMessage);
     }
 
-    public static boolean pN(String str) {
+    public static boolean pS(String str) {
         return b.d(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean pO(String str) {
+    public static boolean pT(String str) {
         String str2;
         boolean z;
-        l<String> M = a.tn().M("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
+        l<String> M = a.to().M("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
         if (M != null) {
             String str3 = M.get(str);
             String currentDay = UtilHelper.getCurrentDay();

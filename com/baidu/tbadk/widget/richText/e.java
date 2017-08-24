@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
-    private String Xq;
-    private int aRl;
-    private String aRm;
-    private int aRn;
+    private String Xr;
+    private int aRm;
+    private String aRn;
     private int aRo;
+    private int aRp;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class e {
     public void a(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.Xq = pbContent.src;
+            this.Xr = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aRl = pbContent.e_type.intValue();
-            this.aRm = pbContent.text;
+            this.aRm = pbContent.e_type.intValue();
+            this.aRn = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aRn = pbContent.count.intValue();
-            this.aRo = pbContent.origin_size.intValue();
+            this.aRo = pbContent.count.intValue();
+            this.aRp = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class e {
     }
 
     public String getThumbUrl() {
-        return this.Xq;
+        return this.Xr;
     }
 
     public int getWidth() {
@@ -45,11 +45,11 @@ public class e {
     }
 
     public String IY() {
-        return this.aRm;
+        return this.aRn;
     }
 
     public boolean IZ() {
-        return this.aRl == 15;
+        return this.aRm == 15;
     }
 
     public boolean isAvaliable() {
@@ -57,10 +57,10 @@ public class e {
     }
 
     public int Ja() {
-        return this.aRn;
+        return this.aRo;
     }
 
     public void fE(int i) {
-        this.aRn = i;
+        this.aRo = i;
     }
 }

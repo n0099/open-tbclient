@@ -52,11 +52,11 @@ public class k {
         return this.text;
     }
 
-    public String bsR() {
+    public String bsK() {
         return this.c;
     }
 
-    public SpannableStringBuilder bsS() {
+    public SpannableStringBuilder bsL() {
         return this.gjB;
     }
 
@@ -85,7 +85,7 @@ public class k {
                         if (matcher.find()) {
                             try {
                                 String group = matcher.group();
-                                gL(group.substring(group.lastIndexOf("/") + 1));
+                                gO(group.substring(group.lastIndexOf("/") + 1));
                                 return;
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -95,13 +95,13 @@ public class k {
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();
-                                gL(group2.substring(group2.lastIndexOf("=") + 1));
+                                gO(group2.substring(group2.lastIndexOf("=") + 1));
                                 return;
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
                         }
-                        gK(k.this.link);
+                        gN(k.this.link);
                     }
                 }, 0, this.text.length() - 1, 33);
                 return spannableString;
@@ -109,9 +109,9 @@ public class k {
                 SpannableString spannableString2 = new SpannableString(this.text + " ");
                 com.baidu.adp.widget.a.a face = TbadkCoreApplication.getInst().getFace(this.text);
                 if (face != null) {
-                    BitmapDrawable kZ = face.kZ();
-                    kZ.setBounds(0, 0, face.getWidth(), face.getHeight());
-                    spannableString2.setSpan(new ImageSpan(kZ, 1), 0, this.text.length(), 33);
+                    BitmapDrawable kY = face.kY();
+                    kY.setBounds(0, 0, face.getWidth(), face.getHeight());
+                    spannableString2.setSpan(new ImageSpan(kY, 1), 0, this.text.length(), 33);
                     return spannableString2;
                 }
                 return spannableString2;
@@ -148,7 +148,7 @@ public class k {
                 spannableString4.setSpan(new com.baidu.tbadk.util.j(context) { // from class: com.baidu.tieba.tbadkCore.data.k.1
                     @Override // com.baidu.tbadk.util.j, android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        gK(k.this.text);
+                        gN(k.this.text);
                     }
                 }, string.length(), str.length() - 1, 33);
                 return spannableString4;
@@ -191,7 +191,7 @@ public class k {
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.Ew().fH(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.Ew().fL(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

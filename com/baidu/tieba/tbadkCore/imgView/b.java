@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class b {
-    public float fEL;
+    public float fEN;
     private DragLayer gkV;
     private Vibrator gkW;
     private e gkX;
@@ -46,7 +46,7 @@ public class b {
             this.gkV.offsetDescendantRectToMyCoords(view, rect);
             view.setDrawingCacheEnabled(true);
             view.buildDrawingCache();
-            this.glb.aNT = Bitmap.createBitmap(view.getDrawingCache());
+            this.glb.aNU = Bitmap.createBitmap(view.getDrawingCache());
             view.destroyDrawingCache();
             view.setDrawingCacheEnabled(false);
             this.glb.rect = rect;
@@ -62,9 +62,9 @@ public class b {
         if (this.gkZ) {
             this.gkZ = false;
             this.glb = null;
-            this.gkX.btD();
-            this.gkX.btE();
-            this.gkV.btG();
+            this.gkX.btw();
+            this.gkX.btx();
+            this.gkV.btz();
             this.gkV.invalidate();
         }
     }
@@ -72,7 +72,7 @@ public class b {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
             case 0:
-                this.fEL = motionEvent.getX(0);
+                this.fEN = motionEvent.getX(0);
                 break;
             case 1:
             case 3:
@@ -96,7 +96,7 @@ public class b {
             }
             switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
                 case 0:
-                    this.fEL = motionEvent.getX(0);
+                    this.fEN = motionEvent.getX(0);
                     break;
                 case 1:
                 case 3:
@@ -106,10 +106,10 @@ public class b {
                     break;
                 case 2:
                     float x = motionEvent.getX(0);
-                    this.fEL = x;
-                    this.glb.rect.offset((int) (x - this.fEL), 0);
+                    this.fEN = x;
+                    this.glb.rect.offset((int) (x - this.fEN), 0);
                     a(this.glb);
-                    btz();
+                    bts();
                     break;
             }
             return true;
@@ -117,17 +117,17 @@ public class b {
         return false;
     }
 
-    public void btz() {
+    public void bts() {
         this.mTempRect.set(this.glb.rect);
         this.gkV.offsetRectIntoDescendantCoords((View) this.gkX, this.mTempRect);
         this.gkX.e(this.mTempRect);
         this.gkV.invalidate();
         if (this.glb.glH) {
-            this.gkX.btB();
+            this.gkX.btu();
         } else if (this.glb.glI) {
-            this.gkX.btC();
+            this.gkX.btv();
         } else {
-            this.gkX.btD();
+            this.gkX.btw();
         }
     }
 

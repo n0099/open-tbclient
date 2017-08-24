@@ -14,19 +14,19 @@ public class a {
         return p.hS();
     }
 
-    public static String ew(String str) {
+    public static String eA(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
-    public static String ex(String str) {
+    public static String eB(String str) {
         return k.q(str, 1);
     }
 
-    public static String ey(String str) {
-        return e.getFilePath(ew(str));
+    public static String eC(String str) {
+        return e.getFilePath(eA(str));
     }
 
     public static boolean delFile(String str) {

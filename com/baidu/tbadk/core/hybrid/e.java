@@ -55,14 +55,14 @@ public class e {
         adw.j(str, str2, str3);
     }
 
-    public static void cW(String str) {
+    public static void cZ(String str) {
         if (adx) {
             adv.j(null, null, str);
         }
     }
 
     public static void k(String str, String str2, String str3) {
-        cW(str3);
+        cZ(str3);
     }
 
     static {

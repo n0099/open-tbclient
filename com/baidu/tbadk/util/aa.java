@@ -34,7 +34,7 @@ public class aa {
     private static Bitmap fp(int i) {
         Exception e;
         try {
-            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.k.du("camera.jpg"));
+            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.k.dx("camera.jpg"));
             Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap("camera.jpg", i);
             if (readPictureDegree != 0 && subSampleBitmap != null) {
                 try {

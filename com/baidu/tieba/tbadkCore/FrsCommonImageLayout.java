@@ -73,7 +73,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
     /* loaded from: classes.dex */
     public interface c {
-        com.baidu.adp.lib.e.b<TbImageView> aeZ();
+        com.baidu.adp.lib.e.b<TbImageView> aeT();
     }
 
     public void setDrawNum(boolean z) {
@@ -177,7 +177,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             } else if (FrsCommonImageLayout.this.ggJ != null && this.mIndex < FrsCommonImageLayout.this.ggJ.length) {
                 if (FrsCommonImageLayout.this.ggJ[this.mIndex].getType() == 5) {
                     if (FrsCommonImageLayout.this.ggS instanceof TbPageContext) {
-                        at.wf().c((TbPageContext) FrsCommonImageLayout.this.ggS, new String[]{FrsCommonImageLayout.this.ggJ[this.mIndex].getVideoUrl()});
+                        at.wg().c((TbPageContext) FrsCommonImageLayout.this.ggS, new String[]{FrsCommonImageLayout.this.ggJ[this.mIndex].getVideoUrl()});
                     }
                 } else {
                     ArrayList<String> arrayList = new ArrayList<>();
@@ -256,7 +256,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         Resources resources = getResources();
         this.ggT = resources.getString(d.l.frs_item_common_image_canvas_text1) + this.ggM + resources.getString(d.l.frs_item_common_image_canvas_text2);
         if (this.ggO == null && (eVar.getOrignalPage() instanceof c)) {
-            this.ggO = ((c) eVar.getOrignalPage()).aeZ();
+            this.ggO = ((c) eVar.getOrignalPage()).aeT();
         }
         if (this.ggO != null) {
             if (this.ggJ == null || this.ggJ.length <= 0) {
@@ -367,13 +367,13 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     i = i2 + 1;
                 }
                 if (this.ggM > 3 && this.ggN) {
-                    w(canvas);
+                    y(canvas);
                 }
             }
         }
     }
 
-    private void w(Canvas canvas) {
+    private void y(Canvas canvas) {
         if (this.ggX == null || this.ggX.isRecycled()) {
             this.ggX = BitmapHelper.getCashBitmap(d.g.bg_look_photo_1);
             if (this.ggX != null) {

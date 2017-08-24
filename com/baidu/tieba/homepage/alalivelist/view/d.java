@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.bl;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public bl bcM;
+    public bl bcN;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {

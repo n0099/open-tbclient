@@ -5,9 +5,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class e {
-    private static e aMB = new e();
-    private b aMC;
-    private a aMD;
+    private static e aMC = new e();
+    private b aMD;
+    private a aME;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,27 +18,27 @@ public class e {
     }
 
     public static e Hb() {
-        return aMB;
+        return aMC;
     }
 
     public void a(a aVar) {
-        this.aMD = aVar;
-        if (this.aMC != null) {
-            this.aMC.cancel();
+        this.aME = aVar;
+        if (this.aMD != null) {
+            this.aMD.cancel();
         }
-        this.aMC = new b();
-        this.aMC.setPriority(4);
-        this.aMC.execute(new String[0]);
+        this.aMD = new b();
+        this.aMD.setPriority(4);
+        this.aMD.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean Hc() {
         int i;
         long j = 0;
-        byte[] aH = com.baidu.adp.lib.util.e.aH("crash_hour_record.log");
+        byte[] aI = com.baidu.adp.lib.util.e.aI("crash_hour_record.log");
         String str = null;
-        if (aH != null) {
-            str = new String(aH);
+        if (aI != null) {
+            str = new String(aI);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {
@@ -75,8 +75,8 @@ public class e {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (e.this.aMD != null && bool != null) {
-                e.this.aMD.al(bool.booleanValue());
+            if (e.this.aME != null && bool != null) {
+                e.this.aME.al(bool.booleanValue());
             }
         }
     }

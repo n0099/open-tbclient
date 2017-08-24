@@ -97,26 +97,26 @@ public class g {
     }
 
     public synchronized com.baidu.adp.lib.stats.base.a q(String str, String str2) {
-        String av;
+        String aw;
         com.baidu.adp.lib.stats.base.a aVar = null;
         synchronized (this) {
-            if (!TextUtils.isEmpty(str) && (aVar = this.zB.get((av = com.baidu.adp.lib.stats.base.a.av(str)))) == null) {
-                if ("alert".equals(av)) {
+            if (!TextUtils.isEmpty(str) && (aVar = this.zB.get((aw = com.baidu.adp.lib.stats.base.a.aw(str)))) == null) {
+                if ("alert".equals(aw)) {
                     aVar = new com.baidu.adp.lib.stats.b.a(null);
-                } else if ("error".equals(av)) {
+                } else if ("error".equals(aw)) {
                     aVar = new c(this.yX);
-                } else if ("dbg".equals(av)) {
+                } else if ("dbg".equals(aw)) {
                     aVar = new b(this.yX);
-                } else if ("stat".equals(av)) {
+                } else if ("stat".equals(aw)) {
                     aVar = new f(this.yX);
-                } else if ("pfmonitor".equals(av)) {
+                } else if ("pfmonitor".equals(aw)) {
                     aVar = new e(this.yX);
                 } else {
                     aVar = new c(this.yX);
                 }
                 if (aVar != null) {
-                    aVar.au(av);
-                    this.zB.put(av, aVar);
+                    aVar.av(aw);
+                    this.zB.put(aw, aVar);
                 }
             }
         }
@@ -217,7 +217,7 @@ public class g {
         }
     }
 
-    public void aA(String str) {
+    public void aB(String str) {
         com.baidu.adp.lib.stats.base.a q = gR().q(str, null);
         a(q, false, true);
         d(q);
@@ -271,12 +271,12 @@ public class g {
         for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.zB.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             if (this.mBdLogSetting != null) {
-                long as = this.mBdLogSetting.as(value.gA());
-                if (as <= 0) {
-                    as = System.currentTimeMillis();
-                    this.mBdLogSetting.e(value.gA(), as);
+                long at = this.mBdLogSetting.at(value.gA());
+                if (at <= 0) {
+                    at = System.currentTimeMillis();
+                    this.mBdLogSetting.e(value.gA(), at);
                 }
-                value.g(as);
+                value.g(at);
             }
             if (value != null) {
                 if (value.gp() > 0) {

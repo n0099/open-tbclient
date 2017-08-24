@@ -51,7 +51,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                 }
                 InviteFriendListActivity.this.dEk = contacts;
                 if (InviteFriendListActivity.this.dEi != null) {
-                    InviteFriendListActivity.this.azz();
+                    InviteFriendListActivity.this.azu();
                 }
             }
         }
@@ -98,13 +98,13 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             this.dEj.initWithBundle(bundle);
         }
         initView();
-        Py();
+        Px();
         if (z) {
-            azy();
+            azt();
         }
     }
 
-    private void azy() {
+    private void azt() {
         registerListener(new CustomMessageListener(CmdConfigCustom.CMD_PERSONAL_CHAT_INITED) { // from class: com.baidu.tieba.imMessageCenter.im.friend.InviteFriendListActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -119,21 +119,21 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.dEj.p(bundle);
+        this.dEj.o(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.dEi.azI();
+        this.dEi.azD();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.dEi.azJ();
+        this.dEi.azE();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -155,8 +155,8 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         this.dEi.mV(100);
     }
 
-    private void Py() {
-        azz();
+    private void Px() {
+        azu();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -167,7 +167,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
     }
 
-    public void azz() {
+    public void azu() {
         String trim;
         if (!isFinishing()) {
             if (this.dEk == null) {
@@ -178,11 +178,11 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                 }
                 return;
             }
-            String azG = this.dEi.azG();
-            if (azG == null) {
+            String azB = this.dEi.azB();
+            if (azB == null) {
                 trim = "";
             } else {
-                trim = azG.trim();
+                trim = azB.trim();
             }
             if (this.dEk.isEmpty() && trim.length() > 0) {
                 showToast(getPageContext().getString(d.l.invite_friend_no_data_now));
@@ -207,10 +207,10 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.dEi != null) {
-            this.dEi.azM();
-            if (view.getId() == this.dEi.azF()) {
-                Rr();
-                this.dEj.mL(this.dEi.azH());
+            this.dEi.azH();
+            if (view.getId() == this.dEi.azA()) {
+                showLoadingDialog();
+                this.dEj.mQ(this.dEi.azC());
             }
         }
     }
@@ -243,14 +243,14 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.dEi.azE()) {
-            this.dEi.azD();
+        if (i == 4 && this.dEi.azz()) {
+            this.dEi.azy();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    public void Rr() {
+    public void showLoadingDialog() {
         showLoadingDialog((String) null, new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.InviteFriendListActivity.3
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {

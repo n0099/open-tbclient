@@ -15,8 +15,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class h {
-    private final SQLiteDatabase PT;
-    private final d Pw;
+    private final SQLiteDatabase PS;
+    private final d Px;
     private boolean t = true;
     private long u = 8000;
     private long NL = TbConfig.NOTIFY_SOUND_INTERVAL;
@@ -32,14 +32,14 @@ public final class h {
     private int k = 6;
     private int l = 30;
     private int m = 30;
-    private double PV = 0.0d;
+    private double PU = 0.0d;
     private double Oc = 0.0d;
     private double Od = 0.0d;
     private double Oe = 0.0d;
     private double Of = 0.0d;
     private int s = 8;
     private String[] i = new String[0];
-    private final a PU = new a();
+    private final a PT = new a();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -66,7 +66,7 @@ public final class h {
             }
             boolean z = false;
             try {
-                File file = new File(h.this.Pw.mS(), "ofl.config");
+                File file = new File(h.this.Px.mS(), "ofl.config");
                 if (this.d == -1 && file.exists()) {
                     Scanner scanner = new Scanner(file);
                     String next = scanner.next();
@@ -96,7 +96,7 @@ public final class h {
                     if (jSONObject.has("oflp")) {
                         JSONObject jSONObject2 = jSONObject.getJSONObject("oflp");
                         if (jSONObject2.has("0")) {
-                            h.this.PV = jSONObject2.getDouble("0");
+                            h.this.PU = jSONObject2.getDouble("0");
                         }
                         if (jSONObject2.has("1")) {
                             h.this.Oc = jSONObject2.getDouble("1");
@@ -142,7 +142,7 @@ public final class h {
                 }
             } catch (Exception e) {
             }
-            if ((this.d == -1 || z) && c() && com.baidu.location.h.i.a(h.this.Pw.b())) {
+            if ((this.d == -1 || z) && c() && com.baidu.location.h.i.a(h.this.Px.b())) {
                 this.e = true;
                 e();
             }
@@ -221,7 +221,7 @@ public final class h {
                         if (jSONObject3.has("oflp")) {
                             JSONObject jSONObject4 = jSONObject3.getJSONObject("oflp");
                             if (jSONObject4.has("0")) {
-                                h.this.PV = jSONObject4.getDouble("0");
+                                h.this.PU = jSONObject4.getDouble("0");
                             }
                             if (jSONObject4.has("1")) {
                                 h.this.Oc = jSONObject4.getDouble("1");
@@ -269,7 +269,7 @@ public final class h {
                     jSONObject2.put("rgcon", h.this.j);
                     jSONObject2.put("rgcgp", h.this.k);
                     JSONObject jSONObject6 = new JSONObject();
-                    jSONObject6.put("0", h.this.PV);
+                    jSONObject6.put("0", h.this.PU);
                     jSONObject6.put("1", h.this.Oc);
                     jSONObject6.put("2", h.this.Od);
                     jSONObject6.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, h.this.Oe);
@@ -285,7 +285,7 @@ public final class h {
                     jSONObject2.put("addrup", h.this.m);
                     jSONObject2.put("poiup", h.this.l);
                     jSONObject2.put("minapn", h.this.s);
-                    File file = new File(h.this.Pw.mS(), "ofl.config");
+                    File file = new File(h.this.Px.mS(), "ofl.config");
                     if (!file.exists()) {
                         file.createNewFile();
                     }
@@ -303,11 +303,11 @@ public final class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(d dVar, SQLiteDatabase sQLiteDatabase) {
-        this.Pw = dVar;
-        this.PT = sQLiteDatabase;
-        if (this.PT != null && this.PT.isOpen()) {
+        this.Px = dVar;
+        this.PS = sQLiteDatabase;
+        if (this.PS != null && this.PS.isOpen()) {
             try {
-                this.PT.execSQL("CREATE TABLE IF NOT EXISTS BLACK (name VARCHAR(100) PRIMARY KEY);");
+                this.PS.execSQL("CREATE TABLE IF NOT EXISTS BLACK (name VARCHAR(100) PRIMARY KEY);");
             } catch (Exception e) {
             }
         }
@@ -315,13 +315,13 @@ public final class h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int a() {
-        return this.s;
+    public long D(String str) {
+        return str.equals("2G") ? this.u : str.equals("3G") ? this.NL : str.equals("4G") ? this.w : str.equals("WIFI") ? this.x : str.equals("unknown") ? this.y : TbConfig.NOTIFY_SOUND_INTERVAL;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long a(String str) {
-        return str.equals("2G") ? this.u : str.equals("3G") ? this.NL : str.equals("4G") ? this.w : str.equals("WIFI") ? this.x : str.equals("unknown") ? this.y : TbConfig.NOTIFY_SOUND_INTERVAL;
+    public int a() {
+        return this.s;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -335,18 +335,18 @@ public final class h {
             stringBuffer.append(strArr[i]);
             stringBuffer.append("\")");
         }
-        if (this.PT == null || !this.PT.isOpen() || stringBuffer.length() <= 0) {
+        if (this.PS == null || !this.PS.isOpen() || stringBuffer.length() <= 0) {
             return;
         }
         try {
-            this.PT.execSQL(String.format(Locale.US, "INSERT OR IGNORE INTO BLACK VALUES %s;", stringBuffer.toString()));
+            this.PS.execSQL(String.format(Locale.US, "INSERT OR IGNORE INTO BLACK VALUES %s;", stringBuffer.toString()));
         } catch (Exception e) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public double b() {
-        return this.PV;
+        return this.PU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -356,7 +356,7 @@ public final class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void g() {
-        this.PU.b();
+        this.PT.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

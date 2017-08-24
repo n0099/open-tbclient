@@ -31,7 +31,7 @@ public class i {
     private static String at = "http://loc.map.baidu.com/user_err.php";
     private static String au = "http://loc.map.baidu.com/oqur.php";
     private static String av = "http://loc.map.baidu.com/tcu.php";
-    private static String aw = "http://loc.map.baidu.com/rtbu.php";
+    private static String QP = "http://loc.map.baidu.com/rtbu.php";
     private static String ax = "http://loc.map.baidu.com/iofd.php";
     private static String ay = "https://sapi.skyhookwireless.com/wps2/location";
     private static String az = "http://loc.map.baidu.com/wloc";

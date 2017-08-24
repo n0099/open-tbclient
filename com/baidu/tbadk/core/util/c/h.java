@@ -24,7 +24,7 @@ public class h {
         }
     }
 
-    public static h wx() {
+    public static h wy() {
         if (ajR == null) {
             ajR = new h();
         }
@@ -39,7 +39,7 @@ public class h {
         if (this.ajS.size() > 5) {
             this.ajS.poll();
         }
-        if (wy()) {
+        if (wz()) {
             int i2 = 0;
             for (a aVar2 : this.ajS) {
                 i2 = j > 0 ? (int) ((aVar2.downloadSize / aVar2.ajW) + i2) : i2;
@@ -48,7 +48,7 @@ public class h {
         }
     }
 
-    public boolean wy() {
+    public boolean wz() {
         return this.ajS.size() == 5;
     }
 
@@ -56,7 +56,7 @@ public class h {
         if (!com.baidu.adp.lib.util.i.hu()) {
             return null;
         }
-        if (wy() && this.ajV < 20.0f) {
+        if (wz() && this.ajV < 20.0f) {
             if (this.ajT == null) {
                 this.ajT = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
             }

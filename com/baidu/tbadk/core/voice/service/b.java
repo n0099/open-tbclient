@@ -28,7 +28,7 @@ public class b {
         this.aqN = str2;
     }
 
-    public h eB(String str) {
+    public h eF(String str) {
         try {
             File file = new File(str);
             if (file == null || !file.exists()) {
@@ -48,21 +48,21 @@ public class b {
         if (q != null && q.length() > 0) {
             q = q.toLowerCase();
         }
-        g dq = com.baidu.tbadk.core.util.c.dq(q);
-        if (dq == null) {
-            dq = new g();
-            dq.setMd5(q);
-            dq.dH(0);
-            dq.O(file.length());
+        g dt = com.baidu.tbadk.core.util.c.dt(q);
+        if (dt == null) {
+            dt = new g();
+            dt.setMd5(q);
+            dt.dH(0);
+            dt.O(file.length());
         }
-        this.aqK = new a(str, dq, TbConfig.SERVER_ADDRESS + this.aqM, q);
+        this.aqK = new a(str, dt, TbConfig.SERVER_ADDRESS + this.aqM, q);
         this.aqL = this.aqK.xF();
-        if (this.aqL.isSuccess() && (a2 = a(q, dq)) != null && !a2.equals("")) {
+        if (this.aqL.isSuccess() && (a2 = a(q, dt)) != null && !a2.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a2);
             if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                dq.setMd5(audioInfoData.getVoiceId());
-                this.aqL.b(dq);
+                dt.setMd5(audioInfoData.getVoiceId());
+                this.aqL.b(dt);
             } else {
                 this.aqL.setErrorCode(audioInfoData.getErrorCode());
                 this.aqL.setErrorString(audioInfoData.getErrorUserMsg());
@@ -82,17 +82,17 @@ public class b {
                 }
             }
         }
-        String uO = this.mNetwork.uO();
-        if (uO == null || !this.mNetwork.vl().wi().isRequestSuccess()) {
+        String uP = this.mNetwork.uP();
+        if (uP == null || !this.mNetwork.vm().wj().isRequestSuccess()) {
             gVar.dH((int) N(gVar.getTotalLength()));
             com.baidu.tbadk.core.util.c.a(gVar);
-            this.aqL.setErrorCode(this.mNetwork.vp());
+            this.aqL.setErrorCode(this.mNetwork.vq());
             this.aqL.setErrorString(this.mNetwork.getErrorString());
             this.aqL.ay(false);
             return null;
         }
-        com.baidu.tbadk.core.util.c.dp(str);
-        return uO;
+        com.baidu.tbadk.core.util.c.ds(str);
+        return uP;
     }
 
     private long N(long j) {
@@ -150,14 +150,14 @@ public class b {
                                 boolean z = false;
                                 if (this.aqQ) {
                                     z = true;
-                                } else if (this.mNetWork.uQ() == null || !this.mNetWork.vl().wi().isRequestSuccess()) {
+                                } else if (this.mNetWork.uR() == null || !this.mNetWork.vm().wj().isRequestSuccess()) {
                                     this.aqP.dH(i);
                                     com.baidu.tbadk.core.util.c.a(this.aqP);
                                     randomAccessFile.close();
                                     z = true;
                                 }
                                 if (z) {
-                                    hVar.setErrorCode(this.mNetWork.vp());
+                                    hVar.setErrorCode(this.mNetWork.vq());
                                     hVar.setErrorString(this.mNetWork.getErrorString());
                                     hVar.b(this.aqP);
                                     hVar.ay(false);

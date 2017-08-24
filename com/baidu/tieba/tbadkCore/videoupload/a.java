@@ -13,7 +13,7 @@ public class a {
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
-            if (d.fh().al("is_video_batch") == 1) {
+            if (d.fh().am("is_video_batch") == 1) {
                 this.gmn = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gmm);
             } else {
                 this.gmn = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gml);
@@ -26,7 +26,7 @@ public class a {
         }
     }
 
-    public void buf() {
+    public void btY() {
         if (this.gmn != null) {
             this.gmn.cancel();
         }

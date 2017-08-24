@@ -28,7 +28,7 @@ public class StoryPageActivityConfig extends IntentConfig {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static int TZ = 1;
+        public static int Ua = 1;
         public static int FROM_FRS = 2;
     }
 
@@ -56,7 +56,7 @@ public class StoryPageActivityConfig extends IntentConfig {
             long longExtra2 = intent.getLongExtra("thread_id", -1L);
             this.mStoryModel = makeStoryModel(i.aa(getContext()));
             if (this.mStoryModel != null) {
-                return l.boN().a(this.mStoryModel, arrayList, intExtra, longExtra, longExtra2, new f() { // from class: com.baidu.tbadk.core.atomData.StoryPageActivityConfig.1
+                return l.boG().a(this.mStoryModel, arrayList, intExtra, longExtra, longExtra2, new f() { // from class: com.baidu.tbadk.core.atomData.StoryPageActivityConfig.1
                     @Override // com.baidu.tieba.story.f
                     public void a(int i, String str, MetaData metaData, List<UserStoryData> list) {
                         Class<?> intentClass = TbadkCoreApplication.getInst().getIntentClass(StoryPageActivityConfig.this.getConfig().getClass());
@@ -104,7 +104,7 @@ public class StoryPageActivityConfig extends IntentConfig {
         if (!u.v(list)) {
             for (UserStoryData userStoryData : list) {
                 if (userStoryData != null && userStoryData.storyUser != null) {
-                    l.boN().a(userStoryData.storyUser.getUserIdLong(), userStoryData);
+                    l.boG().a(userStoryData.storyUser.getUserIdLong(), userStoryData);
                 }
             }
         }

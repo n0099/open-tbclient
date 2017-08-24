@@ -37,7 +37,7 @@ public class e {
         return 3;
     }
 
-    public static String aD(String str) {
+    public static String aE(String str) {
         if (str != null) {
             return zW + "/" + zV + "/" + str + "/";
         }
@@ -64,16 +64,16 @@ public class e {
         return r(null, str);
     }
 
-    public static boolean aE(String str) {
-        String aD = aD(str);
+    public static boolean aF(String str) {
+        String aE = aE(str);
         if (dR()) {
-            File file = new File(aD);
+            File file = new File(aE);
             return file.exists() || file.mkdirs();
         }
         return false;
     }
 
-    private static String aF(String str) {
+    private static String aG(String str) {
         int lastIndexOf = str.lastIndexOf("/");
         if (lastIndexOf <= 0 || lastIndexOf >= str.length()) {
             return null;
@@ -82,7 +82,7 @@ public class e {
     }
 
     public static boolean s(String str, String str2) {
-        File file = new File(aF(r(str, str2)));
+        File file = new File(aG(r(str, str2)));
         if (!file.exists()) {
             try {
                 if (!file.mkdirs()) {
@@ -97,7 +97,7 @@ public class e {
     }
 
     public static File t(String str, String str2) {
-        if (aE(str)) {
+        if (aF(str)) {
             try {
                 return new File(r(str, str2));
             } catch (SecurityException e) {
@@ -109,7 +109,7 @@ public class e {
     }
 
     public static File createFile(String str, String str2) {
-        if (aE(str)) {
+        if (aF(str)) {
             try {
                 if (s(str, str2)) {
                     File t = t(str, str2);
@@ -131,7 +131,7 @@ public class e {
     }
 
     public static File u(String str, String str2) {
-        if (aE(str)) {
+        if (aF(str)) {
             try {
                 File t = t(str, str2);
                 if (t.exists()) {
@@ -149,14 +149,14 @@ public class e {
         return null;
     }
 
-    public static File aG(String str) {
+    public static File aH(String str) {
         return u(null, str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [484=5, 485=5, 487=5, 488=5] */
     public static boolean c(String str, String str2, byte[] bArr) {
         FileOutputStream fileOutputStream = null;
-        if (!aE(str) || !s(str, str2)) {
+        if (!aF(str) || !s(str, str2)) {
             return false;
         }
         File t = t(str, str2);
@@ -245,7 +245,7 @@ public class e {
         FileInputStream fileInputStream;
         Throwable th;
         byte[] bArr = null;
-        if (aE(str)) {
+        if (aF(str)) {
             File t = t(str, str2);
             if (t.exists()) {
                 try {
@@ -302,7 +302,7 @@ public class e {
         return bArr;
     }
 
-    public static byte[] aH(String str) {
+    public static byte[] aI(String str) {
         return x(null, str);
     }
 
@@ -452,7 +452,7 @@ public class e {
     }
 
     public static boolean y(String str, String str2) {
-        if (aE(str)) {
+        if (aF(str)) {
             File t = t(str, str2);
             try {
                 if (t.exists()) {
@@ -598,26 +598,26 @@ public class e {
         }
     }
 
-    public static String aI(String str) {
+    public static String aJ(String str) {
         if (str == null) {
             return null;
         }
-        int aJ = aJ(str);
-        if (aJ == -1) {
+        int aK = aK(str);
+        if (aK == -1) {
             return "";
         }
-        return str.substring(aJ + 1);
+        return str.substring(aK + 1);
     }
 
-    public static int aJ(String str) {
+    public static int aK(String str) {
         int lastIndexOf;
-        if (str != null && aK(str) <= (lastIndexOf = str.lastIndexOf(46))) {
+        if (str != null && aL(str) <= (lastIndexOf = str.lastIndexOf(46))) {
             return lastIndexOf;
         }
         return -1;
     }
 
-    public static int aK(String str) {
+    public static int aL(String str) {
         if (str == null) {
             return -1;
         }

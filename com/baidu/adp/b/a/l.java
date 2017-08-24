@@ -29,7 +29,7 @@ public class l extends a {
         if (dVar.iM()) {
             this.DY = new BitmapShader(dVar.DA.getBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         } else {
-            this.DY = dVar.DB.ld();
+            this.DY = dVar.DB.lc();
         }
         if (this.DY != null) {
             this.DY.setLocalMatrix(this.DX);

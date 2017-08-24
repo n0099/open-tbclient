@@ -60,7 +60,7 @@ public class d {
         }
     }
 
-    public ArrayList<MetaData> bzh() {
+    public ArrayList<MetaData> byZ() {
         return this.gDX;
     }
 }

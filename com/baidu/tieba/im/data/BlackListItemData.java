@@ -11,7 +11,7 @@ public class BlackListItemData extends AbstractImageProvider {
     @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(auo());
+        arrayList.add(auj());
         return arrayList;
     }
 
@@ -31,11 +31,11 @@ public class BlackListItemData extends AbstractImageProvider {
         this.userName = str;
     }
 
-    public String auo() {
+    public String auj() {
         return this.dov;
     }
 
-    public void lQ(String str) {
+    public void lV(String str) {
         this.dov = str;
     }
 }

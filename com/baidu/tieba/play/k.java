@@ -25,14 +25,14 @@ public class k {
         httpMessage.addParam("obj_param2", str2);
         httpMessage.addParam("obj_type", str3);
         if (wVar != null) {
-            httpMessage.addParam("tid", wVar.bDM);
-            httpMessage.addParam("fid", wVar.aAC);
-            httpMessage.addParam("obj_to", wVar.fCq);
-            httpMessage.addParam("obj_id", wVar.WK);
-            httpMessage.addParam("obj_param3", wVar.fCr);
+            httpMessage.addParam("tid", wVar.bDN);
+            httpMessage.addParam("fid", wVar.aAD);
+            httpMessage.addParam("obj_to", wVar.fCs);
+            httpMessage.addParam("obj_id", wVar.WL);
+            httpMessage.addParam("obj_param3", wVar.fCt);
             httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, wVar.mSource);
             httpMessage.addParam("obj_locate", wVar.mLocate);
-            httpMessage.addParam("obj_param1", wVar.fCs);
+            httpMessage.addParam("obj_param1", wVar.fCu);
         }
         MessageManager.getInstance().sendMessage(httpMessage);
     }

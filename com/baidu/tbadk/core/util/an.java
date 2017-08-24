@@ -10,13 +10,13 @@ import java.security.MessageDigest;
 public class an {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public static String b(PackageInfo packageInfo) throws NumberFormatException {
+    public static String d(PackageInfo packageInfo) throws NumberFormatException {
         long j = 0;
-        String c = c(packageInfo);
-        if (c == null || c.length() < 32) {
+        String e = e(packageInfo);
+        if (e == null || e.length() < 32) {
             return "-1";
         }
-        String substring = c.substring(8, 24);
+        String substring = e.substring(8, 24);
         long j2 = 0;
         for (int i = 0; i < 8; i++) {
             j2 = (j2 * 16) + Integer.parseInt(substring.substring(i, i + 1), 16);
@@ -27,7 +27,7 @@ public class an {
         return String.valueOf((j + j2) & 4294967295L);
     }
 
-    private static String c(PackageInfo packageInfo) {
+    private static String e(PackageInfo packageInfo) {
         if (packageInfo == null || packageInfo.signatures == null || packageInfo.signatures.length == 0 || packageInfo.signatures[0] == null) {
             return null;
         }
@@ -60,7 +60,7 @@ public class an {
         }
     }
 
-    public static String d(PackageInfo packageInfo) {
+    public static String f(PackageInfo packageInfo) {
         if (packageInfo == null) {
             return null;
         }
@@ -76,7 +76,7 @@ public class an {
         return null;
     }
 
-    public static String eb(String str) {
-        return com.baidu.adp.lib.util.r.aV(str);
+    public static String ef(String str) {
+        return com.baidu.adp.lib.util.r.aW(str);
     }
 }

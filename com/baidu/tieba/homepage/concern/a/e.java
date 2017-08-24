@@ -14,10 +14,10 @@ import com.baidu.tieba.card.u;
 import com.baidu.tieba.card.x;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.widget.ListView.a<n, a> {
-    public BdUniqueId aON;
+    public BdUniqueId aOO;
     private x cSl;
     private com.baidu.tieba.homepage.concern.view.c cSt;
-    private TbPageContext<?> oV;
+    private TbPageContext<?> oW;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
@@ -27,20 +27,20 @@ public class e extends com.baidu.adp.widget.ListView.a<n, a> {
             public void a(View view, n nVar) {
                 if (view != null && e.this.cSt != null && e.this.cSt.getView() != null && nVar != null && nVar.MF() != null && !StringUtils.isNull(nVar.MF().getTid())) {
                     aj ajVar = new aj("c12352");
-                    if ((e.this.cSt.getHeaderImg() != null && view.getId() == e.this.cSt.getHeaderImg().getId()) || (e.this.cSt.WD() != null && view.getId() == e.this.cSt.WD().getId())) {
+                    if ((e.this.cSt.getHeaderImg() != null && view.getId() == e.this.cSt.getHeaderImg().getId()) || (e.this.cSt.WA() != null && view.getId() == e.this.cSt.WA().getId())) {
                         ajVar.r("obj_locate", 1);
                     } else {
                         ajVar.r("obj_locate", 2);
                     }
                     ajVar.r("obj_type", 2);
-                    ajVar.aa("tid", nVar.bcM.getTid());
-                    ajVar.g("fid", nVar.bcM.getFid());
+                    ajVar.aa("tid", nVar.bcN.getTid());
+                    ajVar.g("fid", nVar.bcN.getFid());
                     ajVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
                     TiebaStatic.log(ajVar);
                 }
             }
         };
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,8 +48,8 @@ public class e extends com.baidu.adp.widget.ListView.a<n, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: am */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cSt = new com.baidu.tieba.homepage.concern.view.c(this.oV);
-        this.cSt.j(this.aON);
+        this.cSt = new com.baidu.tieba.homepage.concern.view.c(this.oW);
+        this.cSt.j(this.aOO);
         return new a(this.cSt);
     }
 
@@ -62,7 +62,7 @@ public class e extends com.baidu.adp.widget.ListView.a<n, a> {
             return null;
         }
         nVar.hw(i + 1);
-        u.WX().a(nVar.jl("c12351"));
+        u.WU().a(nVar.jo("c12351"));
         aVar.cSv.a(nVar);
         aVar.cSv.b(this.cSl);
         return aVar.getView();

@@ -21,7 +21,7 @@ public class v {
         return this.responseCode;
     }
 
-    public Map<String, List<String>> ue() {
+    public Map<String, List<String>> uf() {
         return this.kv;
     }
 
@@ -31,11 +31,11 @@ public class v {
         }
     }
 
-    public byte[] uf() {
+    public byte[] ug() {
         int retryCount = com.baidu.adp.framework.c.b.dC().getRetryCount();
         for (int i = 0; i < retryCount; i++) {
             try {
-                return ug();
+                return uh();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -43,7 +43,7 @@ public class v {
         return null;
     }
 
-    private byte[] ug() throws Exception {
+    private byte[] uh() throws Exception {
         if (TextUtils.isEmpty(this.url)) {
             return null;
         }

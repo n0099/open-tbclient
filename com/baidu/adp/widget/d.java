@@ -53,12 +53,12 @@ public class d extends FrameLayout {
     public interface b {
         void W(boolean z);
 
-        void ly();
+        void lx();
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void lA();
+        void ly();
 
         void lz();
     }
@@ -199,7 +199,7 @@ public class d extends FrameLayout {
         this.mVelocityTracker.addMovement(motionEvent);
         switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
             case 0:
-                lv();
+                lu();
                 int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
                 this.mLastMotionX = motionEvent.getX();
@@ -214,9 +214,9 @@ public class d extends FrameLayout {
                 if (Math.abs(this.Kf) > this.mMinimumVelocity && h > this.mFlingDistance) {
                     if (this.Kf > 0.0f) {
                         this.JY = true;
-                        lt();
+                        ls();
                     } else {
-                        lu();
+                        lt();
                         this.JY = false;
                     }
                     if (this.Kh != null) {
@@ -227,9 +227,9 @@ public class d extends FrameLayout {
                 }
                 if (this.mContentView.getScrollX() <= (-this.mViewWidth) / 2) {
                     this.JY = true;
-                    lt();
+                    ls();
                 } else {
-                    lu();
+                    lt();
                     this.JY = false;
                 }
                 if (this.Kh != null) {
@@ -259,7 +259,7 @@ public class d extends FrameLayout {
                 }
                 break;
             case 3:
-                lw();
+                lv();
                 break;
         }
         return super.onTouchEvent(motionEvent);
@@ -277,7 +277,7 @@ public class d extends FrameLayout {
             if (f > 0.0f && abs > this.Ke && abs > abs2) {
                 this.JX = true;
                 if (this.Kh != null) {
-                    this.Kh.ly();
+                    this.Kh.lx();
                 }
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -297,7 +297,7 @@ public class d extends FrameLayout {
     private void endDrag() {
         this.JX = false;
         this.mActivePointerId = -1;
-        lw();
+        lv();
     }
 
     private boolean a(MotionEvent motionEvent, int i, int i2) {
@@ -320,19 +320,19 @@ public class d extends FrameLayout {
         return findPointerIndex;
     }
 
-    private void lt() {
+    private void ls() {
         this.mIsScrolling = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, (-(this.mViewWidth + this.mContentView.getScrollX())) + 1, 0);
         postInvalidate();
     }
 
-    private void lu() {
+    private void lt() {
         this.mIsScrolling = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, -this.mContentView.getScrollX(), 0);
         postInvalidate();
     }
 
-    private void lv() {
+    private void lu() {
         if (this.mIsScrolling) {
             this.mScroller.abortAnimation();
             int scrollX = getScrollX();
@@ -363,11 +363,11 @@ public class d extends FrameLayout {
             this.mActivity.overridePendingTransition(0, 0);
         }
         if (this.mScroller.isFinished()) {
-            lv();
+            lu();
         }
     }
 
-    private void lw() {
+    private void lv() {
         if (this.mVelocityTracker != null) {
             this.mVelocityTracker.clear();
             this.mVelocityTracker.recycle();
@@ -383,7 +383,7 @@ public class d extends FrameLayout {
         this.JZ = z;
     }
 
-    public void lx() {
+    public void lw() {
         if (this.JV != null) {
             this.JV.setBackgroundResource(R.color.transparent);
         }

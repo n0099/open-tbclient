@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static c aJh = null;
+    private static c aJi = null;
 
     private c() {
     }
@@ -22,10 +22,10 @@ public class c {
     public static synchronized c Ga() {
         c cVar;
         synchronized (c.class) {
-            if (aJh == null) {
-                aJh = new c();
+            if (aJi == null) {
+                aJi = new c();
             }
-            cVar = aJh;
+            cVar = aJi;
         }
         return cVar;
     }
@@ -46,7 +46,7 @@ public class c {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            at.wf().c(tbPageContext, new String[]{str});
+            at.wg().c(tbPageContext, new String[]{str});
         }
     }
 

@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b implements c {
-    private static b eCN;
+    private static b eCP;
 
     private b() {
     }
 
-    public static synchronized b aOW() {
+    public static synchronized b aOR() {
         b bVar;
         synchronized (b.class) {
-            if (eCN == null) {
-                eCN = new b();
+            if (eCP == null) {
+                eCP = new b();
             }
-            bVar = eCN;
+            bVar = eCP;
         }
         return bVar;
     }
@@ -69,17 +69,17 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public AccountData uB() {
+    public AccountData uC() {
         SapiAccount session;
-        AccountData h;
+        AccountData f;
         SapiAccount.ReloginCredentials reloginCredentials = SapiAccountManager.getInstance().getSession().getReloginCredentials();
-        if (reloginCredentials == null || SapiAccountManager.getInstance().getAccountService().blockingRelogin(reloginCredentials) != 0 || (session = SapiAccountManager.getInstance().getSession()) == null || com.baidu.tbadk.core.a.a.pf() == null || (h = com.baidu.tbadk.core.a.a.pf().h(session.username, session.bduss, "", null)) == null) {
+        if (reloginCredentials == null || SapiAccountManager.getInstance().getAccountService().blockingRelogin(reloginCredentials) != 0 || (session = SapiAccountManager.getInstance().getSession()) == null || com.baidu.tbadk.core.a.a.pg() == null || (f = com.baidu.tbadk.core.a.a.pg().f(session.username, session.bduss, "", null)) == null) {
             return null;
         }
-        com.baidu.tbadk.core.a.b.b(h);
-        TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(h, h.getBDUSS(), h.getTbs());
-        TbadkCoreApplication.setCurrentAccount(h, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-        return h;
+        com.baidu.tbadk.core.a.b.b(f);
+        TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(f, f.getBDUSS(), f.getTbs());
+        TbadkCoreApplication.setCurrentAccount(f, TbadkCoreApplication.getInst().getApp().getApplicationContext());
+        return f;
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c

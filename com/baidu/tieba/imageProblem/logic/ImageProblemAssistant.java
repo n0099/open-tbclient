@@ -175,7 +175,7 @@ public class ImageProblemAssistant {
         }
         try {
             long currentTimeMillis = System.currentTimeMillis();
-            if (bs(TbDomainConfig.DOMAIN_HTTPS_BAIDU, null)) {
+            if (bt(TbDomainConfig.DOMAIN_HTTPS_BAIDU, null)) {
                 testTask.result = 0;
             } else {
                 testTask.result = 2;
@@ -226,15 +226,15 @@ public class ImageProblemAssistant {
         try {
             TestTask testTask2 = this.dJc.get(5);
             try {
-                String uO = new w(TbCdnTachometerModel.IPLIST_ADDRESS).uO();
-                if (!TextUtils.isEmpty(uO)) {
-                    JSONObject jSONObject = new JSONObject(uO);
+                String uP = new w(TbCdnTachometerModel.IPLIST_ADDRESS).uP();
+                if (!TextUtils.isEmpty(uP)) {
+                    JSONObject jSONObject = new JSONObject(uP);
                     this.dJb = new TbCdnIpListData();
                     this.dJb.parseJson(jSONObject);
-                    boolean bs = bs(this.dJb.imageUrl, null);
-                    boolean bs2 = bs("http://imgsrc.baidu.com/forum/crop%3D0%2C63%2C900%2C630%3Bwh%3D150%2C105%3B/sign=8ec7a12a932397ddc236c24464b29e81/f2c8a786c9177f3e8cf664c072cf3bc79e3d5639.jpg", null);
-                    boolean bs3 = bs(TbConfig.URL_IMAGE_PREFIX + this.dJb.imageUrl, null);
-                    if (!bs2 && !bs3) {
+                    boolean bt = bt(this.dJb.imageUrl, null);
+                    boolean bt2 = bt("http://imgsrc.baidu.com/forum/crop%3D0%2C63%2C900%2C630%3Bwh%3D150%2C105%3B/sign=8ec7a12a932397ddc236c24464b29e81/f2c8a786c9177f3e8cf664c072cf3bc79e3d5639.jpg", null);
+                    boolean bt3 = bt(TbConfig.URL_IMAGE_PREFIX + this.dJb.imageUrl, null);
+                    if (!bt2 && !bt3) {
                         testTask2.result = 2;
                         testTask2.dJe = this.mContext.getString(d.l.img_assistant_helptext_6_1);
                         if (this.Ab != null) {
@@ -242,11 +242,11 @@ public class ImageProblemAssistant {
                             return;
                         }
                         return;
-                    } else if (bs && bs2 && bs3) {
+                    } else if (bt && bt2 && bt3) {
                         testTask2.result = 0;
                         this.dJd = true;
                         return;
-                    } else if (bs3) {
+                    } else if (bt3) {
                         testTask2.result = 1;
                         testTask2.dJe = this.mContext.getString(d.l.img_assistant_helptext_6_2);
                         if (this.Ab != null) {
@@ -283,19 +283,19 @@ public class ImageProblemAssistant {
     }
 
     public void fix() {
-        r.dM(this.Ab.toString());
+        r.dQ(this.Ab.toString());
         if (this.dJd) {
             try {
                 w wVar = new w(TbConfig.SERVER_ADDRESS + TbConfig.CDN_LOG_ADDRESS);
                 wVar.n("ab_img_m", "1");
-                wVar.uO();
+                wVar.uP();
             } catch (Exception e) {
                 BdLog.e(e);
             }
         }
     }
 
-    private boolean bs(String str, String str2) {
+    private boolean bt(String str, String str2) {
         boolean z = false;
         try {
             if (TextUtils.isEmpty(str)) {

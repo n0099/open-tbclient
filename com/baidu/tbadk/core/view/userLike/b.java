@@ -7,7 +7,7 @@ public interface b {
 
     void aQ(boolean z);
 
-    void dv(int i);
+    void c(View.OnClickListener onClickListener);
 
-    void g(View.OnClickListener onClickListener);
+    void dv(int i);
 }

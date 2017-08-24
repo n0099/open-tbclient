@@ -12,13 +12,13 @@ public class d {
         a aVar = new a();
         aVar.se(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
         aVar.sd(i);
-        aVar.rm(advertAppInfo.price);
-        aVar.rk(advertAppInfo.extensionInfo);
+        aVar.rr(advertAppInfo.price);
+        aVar.rp(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.ro(advertAppInfo.UX);
-        aVar.rp(advertAppInfo.UY);
-        aVar.rq(advertAppInfo.UZ);
-        aVar.rr(advertAppInfo.Uo);
+        aVar.rt(advertAppInfo.UY);
+        aVar.ru(advertAppInfo.UZ);
+        aVar.rv(advertAppInfo.Va);
+        aVar.rw(advertAppInfo.Up);
         return aVar;
     }
 
@@ -42,20 +42,20 @@ public class d {
     }
 
     public static a c(l lVar, int i) {
-        if (lVar == null || lVar.bsV() == null) {
+        if (lVar == null || lVar.bsO() == null) {
             return null;
         }
-        AppData bsV = lVar.bsV();
+        AppData bsO = lVar.bsO();
         a aVar = new a();
-        aVar.se(com.baidu.adp.lib.g.b.g(bsV.pos_name, 0));
-        aVar.rk(bsV.ext_info);
+        aVar.se(com.baidu.adp.lib.g.b.g(bsO.pos_name, 0));
+        aVar.rp(bsO.ext_info);
         aVar.setPageNumber(lVar.pageNumber);
         aVar.sd(i);
-        aVar.rm(bsV.price);
-        aVar.ro(lVar.UX);
-        aVar.rp(lVar.UY);
-        aVar.rq(lVar.forumId);
-        aVar.rr("PB");
+        aVar.rr(bsO.price);
+        aVar.rt(lVar.UY);
+        aVar.ru(lVar.UZ);
+        aVar.rv(lVar.forumId);
+        aVar.rw("PB");
         return aVar;
     }
 
@@ -64,24 +64,24 @@ public class d {
         c.sf(i3);
         c.sh(i4);
         c.sg(i5);
-        c.rr(advertAppInfo.Uo);
+        c.rw(advertAppInfo.Up);
         if (i == 2) {
-            c.rn("video");
+            c.rs("video");
         }
         return c;
     }
 
-    public static a i(String str, int i, String str2) {
+    public static a j(String str, int i, String str2) {
         return b(str, i, str2, "");
     }
 
     public static a b(String str, int i, String str2, String str3) {
         a aVar = new a();
         aVar.sd(i);
-        aVar.rl(str2);
-        aVar.rr("HOMEPAGE");
-        aVar.rk(str);
-        aVar.rs(str3);
+        aVar.rq(str2);
+        aVar.rw("HOMEPAGE");
+        aVar.rp(str);
+        aVar.rx(str3);
         return aVar;
     }
 

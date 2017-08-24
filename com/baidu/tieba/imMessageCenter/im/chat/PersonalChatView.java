@@ -37,7 +37,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
                 PersonalChatView.this.dCN.showToast(d.l.add_friend_cannot_send);
             }
         };
-        if (!this.dCN.azb() && this.mTool != null) {
+        if (!this.dCN.ayW() && this.mTool != null) {
             b(this.mTool.eC(6));
             b(this.mTool.eC(2));
         }
@@ -53,7 +53,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             this.diu = (TextView) this.mBtnGroupInfo.findViewById(d.h.group_info_btn_txt);
             this.diu.setText(string);
         }
-        if (!this.dCN.azb()) {
+        if (!this.dCN.ayW()) {
             this.mBtnGroupInfo.setVisibility(8);
             this.dCO = (LinearLayout) ((ViewStub) talkableActivity.findViewById(d.h.stranger_person_add_friend_stub)).inflate();
             this.dCP = (LinearLayout) this.dCO.findViewById(d.h.add_friend_tip_full);
@@ -85,7 +85,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         }
     }
 
-    private void azd() {
+    private void ayY() {
         if (this.mTool != null) {
             this.mTool.Di();
         }
@@ -94,7 +94,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     public void a(PersonalMsglistModel.CardStatus cardStatus, boolean z, String... strArr) {
         switch (cardStatus) {
             case APPLY:
-                aze();
+                ayZ();
                 return;
             case WAIT:
                 gP(z);
@@ -104,7 +104,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
                 if (strArr != null && strArr.length > 0) {
                     str = strArr[0];
                 }
-                g(z, str);
+                h(z, str);
                 return;
             case PASS:
                 gQ(z);
@@ -114,7 +114,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         }
     }
 
-    private void aze() {
+    private void ayZ() {
         this.dCP.setVisibility(0);
         this.dCS.setVisibility(8);
         this.dCQ.setText(d.l.add_friend_title);
@@ -123,7 +123,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void gP(boolean z) {
-        if (this.dCN.ayZ().azQ() == PersonalMsglistModel.CardStatus.WAIT && z) {
+        if (this.dCN.ayU().azL() == PersonalMsglistModel.CardStatus.WAIT && z) {
             final TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 1, 1.0f, 1, 0.0f);
             translateAnimation.setDuration(400L);
             translateAnimation.setFillAfter(true);
@@ -179,8 +179,8 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         this.dCT.setText(d.l.add_friend_button);
     }
 
-    private void g(boolean z, final String str) {
-        final String userName = this.dCN.ayZ().getUser().getUserName();
+    private void h(boolean z, final String str) {
+        final String userName = this.dCN.ayU().getUser().getUserName();
         this.dCS.setVisibility(8);
         if (z) {
             final TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 1.0f, 1, 0.0f);
@@ -217,7 +217,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void gQ(boolean z) {
-        azd();
+        ayY();
         if (z) {
             TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 0.0f, 2, -1.0f);
             translateAnimation.setDuration(500L);
@@ -242,7 +242,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         this.dCO.setVisibility(8);
     }
 
-    public Button azf() {
+    public Button aza() {
         return this.dCT;
     }
 

@@ -30,8 +30,8 @@ import java.lang.reflect.InvocationTargetException;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class ai {
-    private static String To;
-    private static int Tp;
+    private static String Tp;
+    private static int Tq;
     private static String ahS;
     private static Resources ahT;
     private static Resources ahU;
@@ -47,23 +47,23 @@ public class ai {
             }
         });
         ahS = "skinType not support";
-        To = null;
-        Tp = 0;
+        Tp = null;
+        Tq = 0;
     }
 
-    public static void dS(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+    public static void dW(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
         if (!StringUtils.isNull(str)) {
             try {
                 Resources resources = TbadkCoreApplication.getInst().getResources();
                 if (resources != null) {
                     ahW = (AssetManager) AssetManager.class.newInstance();
-                    File dv = k.dv(str);
-                    if (dv == null || !dv.exists()) {
+                    File dy = k.dy(str);
+                    if (dy == null || !dy.exists()) {
                         com.baidu.adp.lib.util.k.showToast(BdBaseApplication.getInst().getApp(), d.l.theme_skin_apk_error);
                     } else {
-                        ahW.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(ahW, dv.getAbsolutePath());
+                        ahW.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(ahW, dy.getAbsolutePath());
                         ahU = new Resources(ahW, resources.getDisplayMetrics(), resources.getConfiguration());
-                        ahV = k.dw(str);
+                        ahV = k.dz(str);
                     }
                 }
             } catch (Throwable th) {
@@ -192,12 +192,12 @@ public class ai {
         if (TextUtils.isEmpty(str) || str.indexOf(":") <= 0 || ahT == null) {
             return 0;
         }
-        if (Tp == 0) {
-            To = BdBaseApplication.getInst().getPackageName();
-            Tp = To.length();
+        if (Tq == 0) {
+            Tp = BdBaseApplication.getInst().getPackageName();
+            Tq = Tp.length();
         }
-        if (str.length() > Tp && str.charAt(Tp) != ':' && str.startsWith(To)) {
-            str = To + str.substring(str.indexOf(":"));
+        if (str.length() > Tq && str.charAt(Tq) != ':' && str.startsWith(Tp)) {
+            str = Tp + str.substring(str.indexOf(":"));
         }
         return ahT.getIdentifier(str + "_1", null, null);
     }

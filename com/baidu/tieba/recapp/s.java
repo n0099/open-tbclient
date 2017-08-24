@@ -29,9 +29,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.UK;
-        if (StringUtils.isNull(str) && advertAppInfo.UV != null) {
-            str = advertAppInfo.UV.userName;
+        String str = advertAppInfo.UL;
+        if (StringUtils.isNull(str) && advertAppInfo.UW != null) {
+            str = advertAppInfo.UW.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -48,16 +48,16 @@ public class s {
             return false;
         }
         a.CK().b(advertAppInfo);
-        String str2 = advertAppInfo.UK;
+        String str2 = advertAppInfo.UL;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.c.a.bio().a(advertAppInfo.UO, advertAppInfo.UN, str2, i, com.baidu.tieba.recapp.c.a.ra(advertAppInfo.UO).intValue(), null, true, false, true, advertAppInfo.UV.userPortrait, downloadStaticsData, advertAppInfo.UV.userName);
+        com.baidu.tieba.recapp.c.a.bij().a(advertAppInfo.UQ, advertAppInfo.UO, str2, i, com.baidu.tieba.recapp.c.a.rf(advertAppInfo.UQ).intValue(), null, true, false, true, advertAppInfo.UW.userPortrait, downloadStaticsData, advertAppInfo.UW.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.c.a.bio().i(advertAppInfo.UN, advertAppInfo.UO, true);
+        com.baidu.tieba.recapp.c.a.bij().i(advertAppInfo.UO, advertAppInfo.UQ, true);
     }
 
     public static final void aq(Context context, String str) {
@@ -65,11 +65,11 @@ public class s {
             com.baidu.adp.lib.util.k.showToast(context, d.l.download_error);
             return;
         }
-        File dv = com.baidu.tbadk.core.util.k.dv(str.replace(".", "_") + ".apk");
-        if (dv != null) {
+        File dy = com.baidu.tbadk.core.util.k.dy(str.replace(".", "_") + ".apk");
+        if (dy != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(dv, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(dy, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -184,11 +184,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bil().sendFRS(z, str, str2, str3, list, str4);
+        r.big().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bil().a(z, str, str2, str3, str4, list, str5);
+        r.big().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int h(TbPageContext tbPageContext, String str) {
@@ -207,14 +207,14 @@ public class s {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        i bik = r.bil().bik();
-        if (bik == null) {
+        i bif = r.big().bif();
+        if (bif == null) {
             return false;
         }
-        if (bik.hF(str)) {
-            bik.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bif.hI(str)) {
+            bif.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bik.b(tbPageContext.getPageActivity(), strArr);
+        return bif.b(tbPageContext.getPageActivity(), strArr);
     }
 }

@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
 public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout implements l<T> {
     protected TbPageContext acr;
     public String ajv;
-    protected int awA;
+    protected int awB;
     protected int dOR;
     protected View dPP;
     protected View dPQ;
@@ -49,7 +49,7 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
 
     protected abstract void a(T t, int i);
 
-    protected abstract View aDa();
+    protected abstract View aCV();
 
     public abstract void e(T t);
 
@@ -62,8 +62,8 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
     }
 
     private void init() {
-        aDc();
-        aDd();
+        aCX();
+        aCY();
         this.isInit = false;
     }
 
@@ -71,15 +71,15 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
         return (S) view.findViewById(i);
     }
 
-    protected final ViewGroup.LayoutParams aDb() {
+    protected final ViewGroup.LayoutParams aCW() {
         return new ViewGroup.LayoutParams(-1, -2);
     }
 
-    public final void aDc() {
+    public final void aCX() {
         FrameLayout frameLayout = new FrameLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.dPP = aDa();
-        frameLayout.addView(this.dPP, aDb());
+        this.dPP = aCV();
+        frameLayout.addView(this.dPP, aCW());
         this.dPQ = new View(getContext());
         ai.k(this.dPQ, d.e.common_color_10205);
         frameLayout.addView(this.dPQ, new ViewGroup.LayoutParams(-1, -1));
@@ -133,7 +133,7 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
         }
     }
 
-    protected void aDd() {
+    protected void aCY() {
     }
 
     protected final void nm(int i) {
@@ -186,12 +186,12 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
         }
     }
 
-    public final void aDe() {
+    public final void aCZ() {
         this.dPP.setVisibility(0);
     }
 
     public final void d(T t) {
-        u.WX().cA(true);
+        u.WU().cA(true);
         f(t);
     }
 
@@ -208,10 +208,10 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
             }
             if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-                aDg();
+                aDb();
                 a((BaseLegoCardInfo) updateCard, this.mSkinType);
             }
-            aDe();
+            aCZ();
             e((BaseLegoCardInfo) updateCard);
             c((BaseLegoCardInfo) updateCard);
         }
@@ -233,12 +233,12 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
     }
 
     public final int getStatPosition() {
-        return this.awA + 1;
+        return this.awB + 1;
     }
 
     @Override // com.baidu.tieba.lego.card.view.l
     public final void setPosition(int i) {
-        this.awA = i;
+        this.awB = i;
     }
 
     @Override // com.baidu.tieba.lego.card.view.l
@@ -250,7 +250,7 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
         return this.dOR;
     }
 
-    public final boolean aDf() {
+    public final boolean aDa() {
         return 1 == TbadkCoreApplication.getInst().getSkinType();
     }
 
@@ -284,7 +284,7 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
         SpannableString spannableString = new SpannableString(sb.toString());
         for (int i7 = 0; i7 < arrayList.size(); i7++) {
             int intValue = ((Integer) arrayList.get(i7)).intValue();
-            spannableString.setSpan(new ForegroundColorSpan(aDf() ? i2 : i), intValue, intValue + list.get(i7).length(), 33);
+            spannableString.setSpan(new ForegroundColorSpan(aDa() ? i2 : i), intValue, intValue + list.get(i7).length(), 33);
         }
         return spannableString;
     }
@@ -307,7 +307,7 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
             ai.i(textView, i3);
             return;
         }
-        if (!aDf()) {
+        if (!aDa()) {
             i2 = i;
         }
         textView.setTextColor(i2);
@@ -318,13 +318,13 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
             ai.k(view, i3);
             return;
         }
-        if (!aDf()) {
+        if (!aDa()) {
             i2 = i;
         }
         view.setBackgroundColor(i2);
     }
 
-    private void aDg() {
+    private void aDb() {
         ai.k(this.dPT, d.e.cp_bg_line_d);
         ai.c(this.dPT, d.e.cp_bg_line_b);
         switch (this.dOR) {
@@ -372,12 +372,12 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
                 }
             }
             ajVar.r("obj_locate", getStatPosition());
-            ajVar.aa("obj_param3", m.WO());
-            u.WX().a(ajVar);
+            ajVar.aa("obj_param3", m.WL());
+            u.WU().a(ajVar);
         }
     }
 
-    protected final void bz(String str, String str2) {
+    protected final void bA(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             aj ajVar = new aj(str);
             for (String str3 : str2.split("&")) {
@@ -387,21 +387,21 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
                 }
             }
             ajVar.r("obj_locate", getStatPosition());
-            ajVar.aa("obj_param3", m.WO());
+            ajVar.aa("obj_param3", m.WL());
             TiebaStatic.log(ajVar);
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.l
-    public void aDh() {
+    public void aDc() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.l
-    public void aDi() {
+    public void aDd() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.l
-    public void aDj() {
+    public void aDe() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.l
@@ -424,6 +424,6 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
     }
 
     @Override // com.baidu.tieba.lego.card.view.l
-    public void aDk() {
+    public void aDf() {
     }
 }

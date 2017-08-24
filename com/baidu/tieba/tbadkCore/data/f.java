@@ -8,11 +8,11 @@ public class f {
         this.status = i;
     }
 
-    public String bsI() {
+    public String bsB() {
         return this.gjm;
     }
 
-    public void sc(String str) {
+    public void sh(String str) {
         this.gjm = str;
     }
 }

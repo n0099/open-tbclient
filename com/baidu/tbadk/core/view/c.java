@@ -71,7 +71,7 @@ public class c {
         A(this.alr);
     }
 
-    public void wE() {
+    public void wF() {
         if (this.AG != null) {
             this.AG.cancel();
         }

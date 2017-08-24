@@ -23,7 +23,7 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void n(JSONObject jSONObject) {
+    public void o(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j

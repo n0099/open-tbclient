@@ -11,21 +11,21 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.pb.main.emotion.message.SuggestEmotionResponseMessage;
 /* loaded from: classes.dex */
 public class SuggestEmotionModel extends BdBaseModel {
-    private final HttpMessageListener aGL = new HttpMessageListener(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.1
+    private final HttpMessageListener aGM = new HttpMessageListener(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003329 && (httpResponsedMessage instanceof SuggestEmotionResponseMessage) && SuggestEmotionModel.this.eUD != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003329 && (httpResponsedMessage instanceof SuggestEmotionResponseMessage) && SuggestEmotionModel.this.eUF != null) {
                 SuggestEmotionResponseMessage suggestEmotionResponseMessage = (SuggestEmotionResponseMessage) httpResponsedMessage;
                 if (suggestEmotionResponseMessage.getData() != null) {
-                    SuggestEmotionModel.this.eUD.a(suggestEmotionResponseMessage.getData());
+                    SuggestEmotionModel.this.eUF.a(suggestEmotionResponseMessage.getData());
                 } else {
-                    SuggestEmotionModel.this.eUD.onFail(suggestEmotionResponseMessage.getError(), suggestEmotionResponseMessage.getErrorString());
+                    SuggestEmotionModel.this.eUF.onFail(suggestEmotionResponseMessage.getError(), suggestEmotionResponseMessage.getErrorString());
                 }
             }
         }
     };
-    private a eUD;
+    private a eUF;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -36,9 +36,9 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     public SuggestEmotionModel() {
         Eo();
-        this.aGL.setTag(getUniqueId());
-        this.aGL.setSelfListener(true);
-        registerListener(this.aGL);
+        this.aGM.setTag(getUniqueId());
+        this.aGM.setSelfListener(true);
+        registerListener(this.aGM);
     }
 
     private void Eo() {
@@ -48,7 +48,7 @@ public class SuggestEmotionModel extends BdBaseModel {
     }
 
     public void a(String str, String str2, a aVar) {
-        this.eUD = aVar;
+        this.eUF = aVar;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("forum_name", str2);
@@ -62,7 +62,7 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.aGL);
+        MessageManager.getInstance().unRegisterListener(this.aGM);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
         return true;
     }

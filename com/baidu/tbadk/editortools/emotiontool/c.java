@@ -3,9 +3,9 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a aCY;
     private com.baidu.adp.widget.a.a aCZ;
-    private int aDa;
+    private com.baidu.adp.widget.a.a aDa;
+    private int aDb;
     private int cols;
 
     public abstract boolean Do();
@@ -14,11 +14,11 @@ public abstract class c {
 
     public abstract String eH(int i);
 
-    public abstract boolean fK(String str);
+    public abstract boolean fO(String str);
 
-    public abstract com.baidu.adp.widget.a.a fL(String str);
+    public abstract com.baidu.adp.widget.a.a fP(String str);
 
-    public abstract com.baidu.adp.widget.a.a fM(String str);
+    public abstract com.baidu.adp.widget.a.a fQ(String str);
 
     public abstract int getEmotionsCount();
 
@@ -31,25 +31,25 @@ public abstract class c {
     public abstract int getWidth();
 
     public com.baidu.adp.widget.a.a Dq() {
-        return this.aCY;
+        return this.aCZ;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.kX();
+            aVar.kW();
         }
-        this.aCY = aVar;
+        this.aCZ = aVar;
     }
 
     public com.baidu.adp.widget.a.a Dr() {
-        return this.aCZ;
+        return this.aDa;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.kX();
+            aVar.kW();
         }
-        this.aCZ = aVar;
+        this.aDa = aVar;
     }
 
     public int getCols() {
@@ -62,11 +62,11 @@ public abstract class c {
     }
 
     public int Ds() {
-        return this.aDa;
+        return this.aDb;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void eJ(int i) {
-        this.aDa = i;
+        this.aDb = i;
     }
 }

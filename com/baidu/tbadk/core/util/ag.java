@@ -7,7 +7,7 @@ public class ag {
     private static final ag ahQ = new ag();
     private final HashMap<Class<?>, Class<?>> ahR = new HashMap<>();
 
-    public static final ag vI() {
+    public static final ag vJ() {
         return ahQ;
     }
 
@@ -30,7 +30,7 @@ public class ag {
         return getIntentClass(cls) != null;
     }
 
-    public int vJ() {
+    public int vK() {
         return this.ahR.size();
     }
 

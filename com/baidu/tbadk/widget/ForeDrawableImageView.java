@@ -12,42 +12,42 @@ import com.baidu.tbadk.core.h;
 import com.baidu.tbadk.core.util.ai;
 /* loaded from: classes.dex */
 public class ForeDrawableImageView extends TbImageView {
-    private Drawable aNU;
-    private String aNV;
-    private int aNW;
-    private Paint aNX;
+    private Drawable aNV;
+    private String aNW;
+    private int aNX;
+    private Paint aNY;
 
     public ForeDrawableImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aNX = new Paint();
+        this.aNY = new Paint();
     }
 
     public ForeDrawableImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aNX = new Paint();
+        this.aNY = new Paint();
     }
 
     public ForeDrawableImageView(Context context) {
         super(context);
-        this.aNX = new Paint();
+        this.aNY = new Paint();
     }
 
     public void setNoImageBottomTextSize(float f) {
         if (f > 0.0f) {
-            this.aNX.setTextSize(f);
+            this.aNY.setTextSize(f);
         }
     }
 
     public void setNoImageBottomTextColor(int i) {
-        this.aNX.setColor(ai.getColor(i));
+        this.aNY.setColor(ai.getColor(i));
     }
 
     public void setNoImageBottomText(String str) {
-        this.aNV = str;
+        this.aNW = str;
     }
 
     public void setNoImageBottomTextPadding(int i) {
-        this.aNW = i;
+        this.aNX = i;
     }
 
     public void setForegroundDrawable(int i) {
@@ -55,9 +55,9 @@ public class ForeDrawableImageView extends TbImageView {
     }
 
     public void setForegroundDrawable(Drawable drawable) {
-        this.aNU = drawable;
-        if (this.aNU != null) {
-            this.aNU.setBounds(0, 0, this.aNU.getIntrinsicHeight(), this.aNU.getMinimumWidth());
+        this.aNV = drawable;
+        if (this.aNV != null) {
+            this.aNV.setBounds(0, 0, this.aNV.getIntrinsicHeight(), this.aNV.getMinimumWidth());
         }
         invalidate();
     }
@@ -65,7 +65,7 @@ public class ForeDrawableImageView extends TbImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.aNU != null && this.aNU.isStateful() && this.aNU.setState(getDrawableState())) {
+        if (this.aNV != null && this.aNV.isStateful() && this.aNV.setState(getDrawableState())) {
             invalidate();
         }
     }
@@ -75,7 +75,7 @@ public class ForeDrawableImageView extends TbImageView {
     public void onDraw(Canvas canvas) {
         int i;
         super.onDraw(canvas);
-        if (this.aNU != null) {
+        if (this.aNV != null) {
             canvas.save();
             ViewParent parent = getParent();
             if (!(parent instanceof View)) {
@@ -87,20 +87,20 @@ public class ForeDrawableImageView extends TbImageView {
             if (width <= i) {
                 i = width;
             }
-            int intrinsicWidth = this.aNU.getIntrinsicWidth();
-            int intrinsicHeight = this.aNU.getIntrinsicHeight();
+            int intrinsicWidth = this.aNV.getIntrinsicWidth();
+            int intrinsicHeight = this.aNV.getIntrinsicHeight();
             int i2 = (i / 2) - (intrinsicWidth / 2);
             int height = (getHeight() / 2) - (intrinsicHeight / 2);
             canvas.translate(i2, height);
-            this.aNU.draw(canvas);
+            this.aNV.draw(canvas);
             canvas.restore();
             a(canvas, i2 + (intrinsicWidth / 2), height + intrinsicHeight);
         }
     }
 
     private void a(Canvas canvas, int i, int i2) {
-        if (!StringUtils.isNull(this.aNV) && !h.oX().pd()) {
-            canvas.drawText(this.aNV, (int) (i - (this.aNX.measureText(this.aNV) / 2.0f)), this.aNW + i2, this.aNX);
+        if (!StringUtils.isNull(this.aNW) && !h.oY().pe()) {
+            canvas.drawText(this.aNW, (int) (i - (this.aNY.measureText(this.aNW) / 2.0f)), this.aNX + i2, this.aNY);
         }
     }
 }

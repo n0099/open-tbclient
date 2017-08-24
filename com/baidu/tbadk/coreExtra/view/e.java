@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e {
-    private ViewTreeObserver.OnGlobalLayoutListener axd;
+    private ViewTreeObserver.OnGlobalLayoutListener axe;
     private String labelName = "";
-    private int awZ = 0;
-    private boolean axa = false;
+    private int axa = 0;
+    private boolean axb = false;
     private String labelId = "";
-    private int axb = 0;
-    private boolean axc = false;
-    private int axe = ai.getColor(d.e.cp_cont_i);
-    private int axf = ai.getColor(d.e.cp_link_tip_d);
+    private int axc = 0;
+    private boolean axd = false;
+    private int axf = ai.getColor(d.e.cp_cont_i);
+    private int axg = ai.getColor(d.e.cp_link_tip_d);
 
     public void setLabelName(String str) {
         this.labelName = str;
@@ -27,19 +27,19 @@ public class e {
     }
 
     public void em(int i) {
-        this.awZ = i;
+        this.axa = i;
     }
 
     public int Bo() {
-        return this.awZ;
+        return this.axa;
     }
 
     public void bm(boolean z) {
-        this.axa = z;
+        this.axb = z;
     }
 
     public boolean Bp() {
-        return this.axa;
+        return this.axb;
     }
 
     public void setLabelId(String str) {
@@ -51,19 +51,19 @@ public class e {
     }
 
     public void bn(boolean z) {
-        this.axc = z;
+        this.axd = z;
     }
 
     public boolean Br() {
-        return this.axc;
+        return this.axd;
     }
 
     public void a(ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener) {
-        this.axd = onGlobalLayoutListener;
+        this.axe = onGlobalLayoutListener;
     }
 
     public ViewTreeObserver.OnGlobalLayoutListener Bs() {
-        return this.axd;
+        return this.axe;
     }
 
     public SpannableStringBuilder ai(String str, String str2) {
@@ -73,11 +73,11 @@ public class e {
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         if (com.baidu.adp.lib.g.b.d(str2, 0L) <= 0) {
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.axe), 0, str.length(), 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.axf), 0, str.length(), 33);
         } else {
             int indexOf = str.indexOf("(");
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.axe), 0, indexOf, 33);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.axf), indexOf, str.length(), 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.axf), 0, indexOf, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.axg), indexOf, str.length(), 33);
         }
         return spannableStringBuilder;
     }

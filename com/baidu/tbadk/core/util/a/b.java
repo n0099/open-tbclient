@@ -18,7 +18,7 @@ public class b {
     public boolean aiR = false;
     public int aiS = 0;
 
-    public g wk() {
+    public g wl() {
         return this.aiP;
     }
 
@@ -90,7 +90,7 @@ public class b {
         pVar.n("model", Build.MODEL);
     }
 
-    public String wl() {
+    public String wm() {
         if (this.aiP.mUrl == null) {
             return null;
         }

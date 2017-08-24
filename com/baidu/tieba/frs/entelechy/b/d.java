@@ -16,13 +16,13 @@ public interface d {
 
     void a(ai aiVar);
 
-    TabData ahu();
+    TabData aho();
 
-    View ahv();
+    View ahp();
 
-    View ahw();
+    View ahq();
 
-    void al(View view);
+    void ak(View view);
 
     void b(BdListView bdListView);
 

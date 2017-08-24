@@ -14,10 +14,10 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.h, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f>> {
-    public BdUniqueId aON;
+    public BdUniqueId aOO;
     private x<com.baidu.tieba.card.data.h> cSi;
     private com.baidu.tieba.card.f cVS;
-    private TbPageContext<?> oV;
+    private TbPageContext<?> oW;
 
     public i(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.h.TYPE);
@@ -25,9 +25,9 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, com.baidu.tieba.card.data.h hVar) {
-                if (view != null && i.this.cVS != null && i.this.cVS.bGW != null && i.this.cVS.bGW.bHc != null && i.this.cVS.bGW.bGZ != null && i.this.cVS.bGW.getView() != null) {
-                    if (view.getId() != i.this.cVS.bGW.bHc.getId() || !(view.getTag() instanceof MetaData)) {
-                        if ((view.getId() == i.this.cVS.bGW.getView().getId() || view.getId() == i.this.cVS.bGW.bGZ.getId()) && (view.getTag(d.h.rec_god_item_root) instanceof String)) {
+                if (view != null && i.this.cVS != null && i.this.cVS.bGX != null && i.this.cVS.bGX.bHd != null && i.this.cVS.bGX.bHa != null && i.this.cVS.bGX.getView() != null) {
+                    if (view.getId() != i.this.cVS.bGX.bHd.getId() || !(view.getTag() instanceof MetaData)) {
+                        if ((view.getId() == i.this.cVS.bGX.getView().getId() || view.getId() == i.this.cVS.bGX.bHa.getId()) && (view.getTag(d.h.rec_god_item_root) instanceof String)) {
                             TiebaStatic.log(new aj("c11005").aa("obj_id", (String) view.getTag(d.h.rec_god_item_root)));
                         }
                     } else if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
@@ -36,7 +36,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 }
             }
         };
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,7 +44,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: x */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cVS = new com.baidu.tieba.card.f(this.oV, this.aON);
+        this.cVS = new com.baidu.tieba.card.f(this.oW, this.aOO);
         return new com.baidu.tieba.card.a.a(this.cVS);
     }
 
@@ -53,17 +53,17 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> aVar) {
-        this.cVS = aVar.Xy();
-        aVar.Xy().a(hVar);
-        aVar.Xy().b(this.cSi);
-        aVar.Xy().d(this.oV, TbadkCoreApplication.getInst().getSkinType());
-        u.WX().a(new aj("c11006"));
+        this.cVS = aVar.Xv();
+        aVar.Xv().a(hVar);
+        aVar.Xv().b(this.cSi);
+        aVar.Xv().d(this.oW, TbadkCoreApplication.getInst().getSkinType());
+        u.WU().a(new aj("c11006"));
         return aVar.getView();
     }
 
     public void kR(int i) {
         if (this.cVS != null) {
-            this.cVS.d(this.oV, i);
+            this.cVS.d(this.oW, i);
         }
     }
 }

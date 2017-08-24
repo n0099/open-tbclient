@@ -13,9 +13,9 @@ public class a extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String P(String str) {
-        this.uQ.E("CREATE TABLE IF NOT EXISTS " + this.uP + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
-        this.uQ.E("CREATE INDEX if not exists idx_mi_ns ON " + this.uP + "(m_ns)");
+    public String Q(String str) {
+        this.uQ.F("CREATE TABLE IF NOT EXISTS " + this.uP + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.uQ.F("CREATE INDEX if not exists idx_mi_ns ON " + this.uP + "(m_ns)");
         return this.uP;
     }
 
@@ -28,7 +28,7 @@ public class a extends c<byte[]> {
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r2v17, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r2v17, types: [byte[], T] */
     @Override // com.baidu.adp.lib.cache.c
     protected g<byte[]> c(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         Cursor cursor;
@@ -79,7 +79,7 @@ public class a extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean Q(String str) {
+    protected boolean R(String str) {
         try {
             this.uQ.cs().delete(this.uR, "m_ns = ?", new String[]{str});
             return true;

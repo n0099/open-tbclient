@@ -16,29 +16,29 @@ import com.baidu.tieba.service.SignAlertReceiver;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class b {
-    private static b ati = new b();
-    public int atj = 300;
-    public boolean atk = true;
-    public boolean atl = false;
-    public boolean atm = true;
+    private static b atj = new b();
+    public int atk = 300;
+    public boolean atl = true;
+    public boolean atm = false;
     public boolean atn = true;
     public boolean ato = true;
-    public boolean atp = false;
-    public boolean atq = true;
+    public boolean atp = true;
+    public boolean atq = false;
     public boolean atr = true;
-    public boolean ats = false;
-    public String att = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
-    public String atu = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+    public boolean ats = true;
+    public boolean att = false;
+    public String atu = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
+    public String atv = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
 
     private b() {
     }
 
     public static b zw() {
-        return ati;
+        return atj;
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.bua();
+        com.baidu.tieba.tbadkCore.util.a.btT();
     }
 
     public void zx() {
@@ -46,68 +46,68 @@ public class b {
     }
 
     public boolean zy() {
-        return this.atj > 0;
+        return this.atk > 0;
     }
 
     public int zz() {
-        return this.atj;
-    }
-
-    public boolean zA() {
-        return this.atl;
-    }
-
-    public boolean zB() {
-        return this.atm;
-    }
-
-    public boolean zC() {
-        return this.ato;
-    }
-
-    public boolean zD() {
-        return this.atn;
-    }
-
-    public boolean zE() {
         return this.atk;
     }
 
-    public boolean zF() {
-        return this.atq;
+    public boolean zA() {
+        return this.atm;
     }
 
-    public boolean zG() {
-        return this.atr;
+    public boolean zB() {
+        return this.atn;
     }
 
-    public boolean zH() {
-        return this.ats;
-    }
-
-    public boolean zI() {
+    public boolean zC() {
         return this.atp;
     }
 
-    public String zJ() {
+    public boolean zD() {
+        return this.ato;
+    }
+
+    public boolean zE() {
+        return this.atl;
+    }
+
+    public boolean zF() {
+        return this.atr;
+    }
+
+    public boolean zG() {
+        return this.ats;
+    }
+
+    public boolean zH() {
         return this.att;
     }
 
-    public String zK() {
+    public boolean zI() {
+        return this.atq;
+    }
+
+    public String zJ() {
         return this.atu;
     }
 
+    public String zK() {
+        return this.atv;
+    }
+
     public void aV(boolean z) {
-        this.atk = z;
+        this.atl = z;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
     public void dN(int i) {
         if (i == 0) {
-            this.atj = i;
+            this.atk = i;
             a.yZ().aU(true);
         } else {
-            this.atj = 300;
+            this.atk = 300;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
@@ -130,31 +130,31 @@ public class b {
     }
 
     public void aY(boolean z) {
-        this.atl = z;
+        this.atm = z;
     }
 
     public void aZ(boolean z) {
-        this.ats = z;
+        this.att = z;
     }
 
-    public void eO(String str) {
-        this.att = str;
-    }
-
-    public void eP(String str) {
+    public void eS(String str) {
         this.atu = str;
     }
 
+    public void eT(String str) {
+        this.atv = str;
+    }
+
     public void ba(boolean z) {
-        this.atp = z;
+        this.atq = z;
     }
 
     public void bb(boolean z) {
-        this.atr = z;
+        this.ats = z;
     }
 
     public void bc(boolean z) {
-        this.atq = z;
+        this.atr = z;
     }
 
     public void bd(boolean z) {
@@ -166,15 +166,15 @@ public class b {
     }
 
     public void be(boolean z) {
-        this.atn = z;
+        this.ato = z;
     }
 
     public void bf(boolean z) {
-        this.atm = z;
+        this.atn = z;
     }
 
     public void bg(boolean z) {
-        this.ato = z;
+        this.atp = z;
     }
 
     public boolean isSignAlertOn() {
@@ -268,11 +268,11 @@ public class b {
     }
 
     public int zO() {
-        if (!this.atq && !this.atp) {
+        if (!this.atr && !this.atq) {
             return 0;
         }
-        if (!this.atq || this.atp) {
-            if (!this.atq && this.atp) {
+        if (!this.atr || this.atq) {
+            if (!this.atr && this.atq) {
                 return 2;
             }
             return 3;

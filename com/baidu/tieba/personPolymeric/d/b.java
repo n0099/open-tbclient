@@ -22,35 +22,35 @@ import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.b> {
-    private LikeModel bGL;
-    private CustomMessageListener bGS;
+    private LikeModel bGM;
     private CustomMessageListener bGT;
-    private boolean buA;
+    private CustomMessageListener bGU;
+    private boolean buB;
     private TextView cKz;
-    private u fkb;
-    private TextView fmI;
-    private TextView fmJ;
+    private u fkd;
     private TextView fmK;
     private TextView fmL;
-    private BarImageView fmM;
+    private TextView fmM;
     private TextView fmN;
-    private TextView fmO;
-    private com.baidu.tieba.personPolymeric.c.b fmP;
+    private BarImageView fmO;
+    private TextView fmP;
+    private TextView fmQ;
+    private com.baidu.tieba.personPolymeric.c.b fmR;
     private View mRootView;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bGT = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_LIKE_FORUM) { // from class: com.baidu.tieba.personPolymeric.d.b.1
+        this.bGU = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_LIKE_FORUM) { // from class: com.baidu.tieba.personPolymeric.d.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && !b.this.buA) {
+                if (customResponsedMessage != null && !b.this.buB) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof com.baidu.tieba.tbadkCore.writeModel.a) {
                         com.baidu.tieba.tbadkCore.writeModel.a aVar = (com.baidu.tieba.tbadkCore.writeModel.a) data;
-                        if (aVar.forumId == b.this.fmP.forumId) {
+                        if (aVar.forumId == b.this.fmR.forumId) {
                             if (aVar.isSuccess) {
-                                b.this.fmP.isAttention = true;
+                                b.this.fmR.isAttention = true;
                                 b.this.cKz.setVisibility(0);
                                 b.this.kv(true);
                                 com.baidu.adp.lib.util.k.showToast(b.this.mContext, d.l.attention_success);
@@ -64,17 +64,17 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 }
             }
         };
-        this.bGS = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM) { // from class: com.baidu.tieba.personPolymeric.d.b.2
+        this.bGT = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM) { // from class: com.baidu.tieba.personPolymeric.d.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && !b.this.buA) {
+                if (customResponsedMessage != null && !b.this.buB) {
                     Object data = customResponsedMessage.getData();
-                    if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.a) && ((com.baidu.tieba.tbadkCore.writeModel.a) data).forumId == b.this.fmP.forumId) {
+                    if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.a) && ((com.baidu.tieba.tbadkCore.writeModel.a) data).forumId == b.this.fmR.forumId) {
                         if (((com.baidu.tieba.tbadkCore.writeModel.a) data).isSuccess) {
-                            b.this.fmP.isAttention = false;
+                            b.this.fmR.isAttention = false;
                             b.this.cKz.setVisibility(0);
-                            b.this.kv(b.this.fmP.isAttention);
+                            b.this.kv(b.this.fmR.isAttention);
                             com.baidu.adp.lib.util.k.showToast(b.this.mContext, d.l.unlike_success);
                             return;
                         }
@@ -83,45 +83,45 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 }
             }
         };
-        S(getView());
+        init(getView());
     }
 
     public void a(LikeModel likeModel) {
-        this.bGL = likeModel;
+        this.bGM = likeModel;
     }
 
     public void a(u uVar) {
-        this.fkb = uVar;
+        this.fkd = uVar;
     }
 
-    private void S(View view) {
+    private void init(View view) {
         this.mRootView = view.findViewById(d.h.card_polymeric_attention_bar_rootview);
-        this.fmI = (TextView) view.findViewById(d.h.card_polymeric_attention_bar_day);
-        this.fmJ = (TextView) view.findViewById(d.h.card_polymeric_attention_bar_month);
-        this.fmK = (TextView) view.findViewById(d.h.card_polymeric_attention_sex);
-        this.fmL = (TextView) view.findViewById(d.h.card_polymeric_attention_bar_des);
-        this.fmM = (BarImageView) view.findViewById(d.h.card_polymeric_attention_icon);
-        this.fmN = (TextView) view.findViewById(d.h.card_polymeric_attention_bar_name);
-        this.fmO = (TextView) view.findViewById(d.h.card_polymeric_attention_post_num);
+        this.fmK = (TextView) view.findViewById(d.h.card_polymeric_attention_bar_day);
+        this.fmL = (TextView) view.findViewById(d.h.card_polymeric_attention_bar_month);
+        this.fmM = (TextView) view.findViewById(d.h.card_polymeric_attention_sex);
+        this.fmN = (TextView) view.findViewById(d.h.card_polymeric_attention_bar_des);
+        this.fmO = (BarImageView) view.findViewById(d.h.card_polymeric_attention_icon);
+        this.fmP = (TextView) view.findViewById(d.h.card_polymeric_attention_bar_name);
+        this.fmQ = (TextView) view.findViewById(d.h.card_polymeric_attention_post_num);
         this.cKz = (TextView) view.findViewById(d.h.card_polymeric_attention_btn);
         this.mRootView.setOnClickListener(this);
         this.cKz.setOnClickListener(this);
+        this.mTbPageContext.registerListener(this.bGU);
         this.mTbPageContext.registerListener(this.bGT);
-        this.mTbPageContext.registerListener(this.bGS);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             ai.j(this.mRootView, d.g.item_person_header_attention_bg_selector);
-            ai.c(this.fmI, d.e.cp_cont_f, 1);
-            ai.c(this.fmJ, d.e.cp_cont_f, 1);
             ai.c(this.fmK, d.e.cp_cont_f, 1);
             ai.c(this.fmL, d.e.cp_cont_f, 1);
-            ai.c(this.fmN, d.e.cp_cont_b, 1);
-            ai.c(this.fmO, d.e.cp_cont_c, 1);
-            if (this.fmP != null) {
-                kv(this.fmP.isAttention);
+            ai.c(this.fmM, d.e.cp_cont_f, 1);
+            ai.c(this.fmN, d.e.cp_cont_f, 1);
+            ai.c(this.fmP, d.e.cp_cont_b, 1);
+            ai.c(this.fmQ, d.e.cp_cont_c, 1);
+            if (this.fmR != null) {
+                kv(this.fmR.isAttention);
             }
         }
         this.mSkinType = i;
@@ -143,28 +143,28 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        this.fmP = bVar;
-        this.buA = bVar.buA;
-        this.fmI.setVisibility(bVar.bKY ? 0 : 4);
-        this.fmJ.setVisibility(bVar.bKY ? 0 : 4);
-        this.fmI.setText(bVar.fmc);
-        this.fmJ.setText(bVar.bKR);
-        TextView textView = this.fmK;
-        if (bVar.buA) {
+        this.fmR = bVar;
+        this.buB = bVar.buB;
+        this.fmK.setVisibility(bVar.bKZ ? 0 : 4);
+        this.fmL.setVisibility(bVar.bKZ ? 0 : 4);
+        this.fmK.setText(bVar.fme);
+        this.fmL.setText(bVar.bKS);
+        TextView textView = this.fmM;
+        if (bVar.buB) {
             string = this.mContext.getString(d.l.me);
         } else {
             string = bVar.sex == 2 ? this.mContext.getString(d.l.person_identity_she) : this.mContext.getString(d.l.he);
         }
         textView.setText(string);
-        this.fmM.c(bVar.avatar, 10, false);
+        this.fmO.c(bVar.avatar, 10, false);
         String str = bVar.cXk;
-        if (v.gT(str) > 10) {
-            str = v.d(str, 0, 10) + "...";
+        if (v.gW(str) > 10) {
+            str = v.e(str, 0, 10) + "...";
         }
-        this.fmN.setText(String.format(this.mContext.getString(d.l.person_polymeric_bar_suffix), str));
-        String A = al.A(bVar.fmd);
-        this.fmO.setText(bVar.buA ? String.format(this.mContext.getString(d.l.person_polymeric_attention_post_host), A, al.A(bVar.postNum)) : String.format(this.mContext.getString(d.l.person_polymeric_attention_post_guess), A));
-        if (bVar.isAttention || bVar.buA) {
+        this.fmP.setText(String.format(this.mContext.getString(d.l.person_polymeric_bar_suffix), str));
+        String A = al.A(bVar.fmf);
+        this.fmQ.setText(bVar.buB ? String.format(this.mContext.getString(d.l.person_polymeric_attention_post_host), A, al.A(bVar.postNum)) : String.format(this.mContext.getString(d.l.person_polymeric_attention_post_guess), A));
+        if (bVar.isAttention || bVar.buB) {
             this.cKz.setVisibility(8);
             return;
         }
@@ -175,16 +175,16 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.mRootView == view) {
-            if (!this.buA) {
+            if (!this.buB) {
                 TiebaStatic.log(new aj("c11595"));
             }
-            this.mTbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mContext).createNormalCfg(this.fmP.cXk, "")));
+            this.mTbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mContext).createNormalCfg(this.fmR.cXk, "")));
         } else if (this.cKz == view) {
             TiebaStatic.log(new aj("c11596"));
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                 aw.aN(this.mContext);
-            } else if (al.aO(this.fmP.cXk) && !this.fmP.isAttention) {
-                this.bGL.cf(this.fmP.cXk, String.valueOf(this.fmP.forumId));
+            } else if (al.aP(this.fmR.cXk) && !this.fmR.isAttention) {
+                this.bGM.ch(this.fmR.cXk, String.valueOf(this.fmR.forumId));
             }
         }
     }

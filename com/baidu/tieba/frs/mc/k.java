@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.mc;
 public interface k {
     void MS();
 
-    FrsModelController afq();
+    FrsModelController afk();
 
-    d afr();
+    d afl();
 
-    com.baidu.tieba.frs.g.f afs();
+    com.baidu.tieba.frs.g.f afm();
 
-    com.baidu.tieba.frs.i afv();
+    com.baidu.tieba.frs.i afp();
 }

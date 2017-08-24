@@ -6,7 +6,7 @@ public class c {
     private static volatile c Gd;
     private b Ge;
 
-    public static c jZ() {
+    public static c jY() {
         if (Gd == null) {
             synchronized (c.class) {
                 if (Gd == null) {
@@ -34,9 +34,9 @@ public class c {
         }
     }
 
-    public void bx(String str) {
+    public void by(String str) {
         if (this.Ge != null) {
-            this.Ge.bw(str);
+            this.Ge.bx(str);
         }
     }
 
@@ -44,12 +44,12 @@ public class c {
         this.Ge = bVar;
     }
 
-    public boolean bu(String str) {
+    public boolean bv(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         if (this.Ge != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.Ge.jY()) {
+            for (BdFileDownloadData bdFileDownloadData : this.Ge.jX()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

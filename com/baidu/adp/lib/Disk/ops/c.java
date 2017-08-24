@@ -50,7 +50,7 @@ public class c extends DiskFileOperate {
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public byte[] eb() {
-        if (this.tu == null) {
+        if (this.mData == null) {
             return null;
         }
         return this.tH.toByteArray();
@@ -79,8 +79,8 @@ public class c extends DiskFileOperate {
 
     public byte[] ep() {
         int headerSize = a.getHeaderSize();
-        byte[] bArr = new byte[this.tu.length - headerSize];
-        System.arraycopy(this.tu, headerSize, bArr, 0, bArr.length);
+        byte[] bArr = new byte[this.mData.length - headerSize];
+        System.arraycopy(this.mData, headerSize, bArr, 0, bArr.length);
         return bArr;
     }
 

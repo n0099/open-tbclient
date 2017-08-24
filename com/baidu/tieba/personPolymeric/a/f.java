@@ -7,11 +7,11 @@ import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.n, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.o>> {
     private View.OnClickListener mOnClickListener;
-    private TbPageContext oV;
+    private TbPageContext oW;
 
     public f(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: x */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.o> onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.d.o(this.oV));
+        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.d.o(this.oW));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,14 +27,14 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.n nVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.o> aVar) {
-        if (nVar == null || aVar == null || aVar.Xy() == null) {
+        if (nVar == null || aVar == null || aVar.Xv() == null) {
             return null;
         }
-        aVar.Xy().a(nVar);
-        if (aVar.Xy().getView() != null) {
-            aVar.Xy().getView().setOnClickListener(this.mOnClickListener);
+        aVar.Xv().a(nVar);
+        if (aVar.Xv().getView() != null) {
+            aVar.Xv().getView().setOnClickListener(this.mOnClickListener);
         }
-        return aVar.Xy().getView();
+        return aVar.Xv().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

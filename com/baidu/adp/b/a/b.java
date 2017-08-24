@@ -222,7 +222,7 @@ public abstract class b extends ImageView implements i {
         }
         getDisplayBdImage();
         this.Do.a(canvas, this, this.Dy);
-        b(canvas);
+        d(canvas);
         this.Do.a(canvas, this);
         this.Du.reset();
     }
@@ -234,7 +234,7 @@ public abstract class b extends ImageView implements i {
         }
     }
 
-    private void b(Canvas canvas) {
+    private void d(Canvas canvas) {
         if (this.Du.isAvailable()) {
             iL();
             this.Do.a(canvas, this.Du, this);

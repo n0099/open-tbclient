@@ -8,7 +8,7 @@ public class s {
     private String agI = "";
     private final long agJ = 120000;
 
-    public static s vc() {
+    public static s vd() {
         if (agK == null) {
             synchronized (s.class) {
                 if (agK == null) {
@@ -19,7 +19,7 @@ public class s {
         return agK;
     }
 
-    public String vd() {
+    public String ve() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.agF > 120000) {
             if (com.baidu.adp.lib.util.k.hH()) {
@@ -31,7 +31,7 @@ public class s {
         return this.agH;
     }
 
-    public String dN(String str) {
+    public String dR(String str) {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.agG > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");

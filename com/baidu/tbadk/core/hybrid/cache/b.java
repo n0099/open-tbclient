@@ -23,7 +23,7 @@ public class b {
     private b() {
     }
 
-    public static b uq() {
+    public static b ur() {
         if (aeD == null) {
             synchronized (b.class) {
                 if (aeD == null) {
@@ -34,12 +34,12 @@ public class b {
         return aeD;
     }
 
-    public CacheEntry di(String str) {
-        return this.aeE.di(dk(str));
+    public CacheEntry dl(String str) {
+        return this.aeE.dl(dn(str));
     }
 
-    public synchronized boolean dj(String str) {
-        return this.aeE.dj(dk(str));
+    public synchronized boolean dm(String str) {
+        return this.aeE.dm(dn(str));
     }
 
     public synchronized boolean saveCache(String str, String str2, boolean z, byte[] bArr) {
@@ -47,24 +47,24 @@ public class b {
         if (TextUtils.isEmpty(str) || bArr == null || bArr.length == 0) {
             z2 = false;
         } else {
-            String dk = dk(str);
+            String dn = dn(str);
             CacheEntry cacheEntry = new CacheEntry();
             cacheEntry.seteTag(str2);
-            cacheEntry.setUrl(dk);
+            cacheEntry.setUrl(dn);
             cacheEntry.setWriteTime(System.currentTimeMillis());
             cacheEntry.setSize(bArr.length);
             cacheEntry.setForever(z);
             if (!TextUtils.isEmpty(str2)) {
                 cacheEntry.setName(str2);
             } else {
-                cacheEntry.setName(r.aV(dk));
+                cacheEntry.setName(r.aW(dn));
             }
             z2 = this.aeE.a(cacheEntry, bArr);
         }
         return z2;
     }
 
-    private String dk(String str) {
+    private String dn(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -75,11 +75,11 @@ public class b {
         return substring;
     }
 
-    public void ur() {
+    public void us() {
         File[] listFiles;
-        List<CacheEntry> up = a.um().up();
-        if (up != null && up.size() != 0) {
-            Collections.sort(up, new Comparator<CacheEntry>() { // from class: com.baidu.tbadk.core.hybrid.cache.b.1
+        List<CacheEntry> uq = a.un().uq();
+        if (uq != null && uq.size() != 0) {
+            Collections.sort(uq, new Comparator<CacheEntry>() { // from class: com.baidu.tbadk.core.hybrid.cache.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
@@ -103,7 +103,7 @@ public class b {
             long j = 0;
             long j2 = 200 * 1048576;
             long j3 = j2 > 31457280 ? j2 : 31457280L;
-            for (CacheEntry cacheEntry : up) {
+            for (CacheEntry cacheEntry : uq) {
                 j += cacheEntry.getSize();
                 if (System.currentTimeMillis() - cacheEntry.getWriteTime() > 7776000000L) {
                     arrayList.add(cacheEntry);
@@ -112,10 +112,10 @@ public class b {
                 }
             }
             for (CacheEntry cacheEntry2 : arrayList) {
-                this.aeE.dj(cacheEntry2.getUrl());
+                this.aeE.dm(cacheEntry2.getUrl());
             }
             ArrayList arrayList2 = new ArrayList();
-            for (CacheEntry cacheEntry3 : up) {
+            for (CacheEntry cacheEntry3 : uq) {
                 arrayList2.add(cacheEntry3.getName());
             }
             File file = new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache/files");
@@ -134,7 +134,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean us() {
+    public boolean ut() {
         InputStream inputStream;
         File file;
         byte[] p;

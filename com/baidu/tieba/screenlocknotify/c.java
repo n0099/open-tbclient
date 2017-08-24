@@ -14,7 +14,7 @@ import java.util.List;
 public class c extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<e> fMO = new ArrayList();
+    private List<e> fMP = new ArrayList();
 
     public c(Context context) {
         this.mContext = context;
@@ -22,8 +22,8 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fMO != null) {
-            return this.fMO.size();
+        if (this.fMP != null) {
+            return this.fMP.size();
         }
         return 0;
     }
@@ -32,10 +32,10 @@ public class c extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: sm */
     public e getItem(int i) {
-        if (this.fMO == null || i >= this.fMO.size()) {
+        if (this.fMP == null || i >= this.fMP.size()) {
             return null;
         }
-        return this.fMO.get(i);
+        return this.fMP.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,34 +45,34 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.fMO.get(i), view, viewGroup);
+        return a(this.fMP.get(i), view, viewGroup);
     }
 
     public View a(e eVar, View view, ViewGroup viewGroup) {
         View inflate;
-        a bv;
+        a bu;
         if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
-            bv = (a) view.getTag();
+            bu = (a) view.getTag();
             inflate = view;
         } else {
             inflate = LayoutInflater.from(this.mContext).inflate(d.j.screenlock_show_item_view_4, viewGroup, false);
-            bv = bv(inflate);
-            inflate.setTag(bv);
+            bu = bu(inflate);
+            inflate.setTag(bu);
         }
         if (eVar == null) {
             return inflate;
         }
-        bv.fMP.setText(eVar.title);
-        bv.fMQ.setText(eVar.content);
-        bv.fMR.setDefaultErrorResource(d.g.screen_notify_default_bg);
-        bv.fMR.setDefaultResource(d.g.screen_notify_default_bg);
-        bv.fMR.a(eVar.pic, 10, 0, 0, false);
+        bu.fMQ.setText(eVar.title);
+        bu.fMR.setText(eVar.content);
+        bu.fMS.setDefaultErrorResource(d.g.screen_notify_default_bg);
+        bu.fMS.setDefaultResource(d.g.screen_notify_default_bg);
+        bu.fMS.a(eVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
     public void de(List<e> list) {
         if (list != null && list.size() != 0) {
-            this.fMO.addAll(list);
+            this.fMP.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -80,22 +80,22 @@ public class c extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a {
-        View auN;
-        TextView fMP;
+        View auO;
         TextView fMQ;
-        TbImageView fMR;
+        TextView fMR;
+        TbImageView fMS;
 
         private a() {
         }
     }
 
-    private a bv(View view) {
+    private a bu(View view) {
         a aVar = new a();
-        aVar.fMP = (TextView) view.findViewById(d.h.push_msg_title);
-        aVar.fMQ = (TextView) view.findViewById(d.h.push_msg_content);
-        aVar.fMR = (TbImageView) view.findViewById(d.h.push_msg_pic);
-        aVar.fMR.setAutoChangeStyle(false);
-        aVar.auN = view.findViewById(d.h.line);
+        aVar.fMQ = (TextView) view.findViewById(d.h.push_msg_title);
+        aVar.fMR = (TextView) view.findViewById(d.h.push_msg_content);
+        aVar.fMS = (TbImageView) view.findViewById(d.h.push_msg_pic);
+        aVar.fMS.setAutoChangeStyle(false);
+        aVar.auO = view.findViewById(d.h.line);
         return aVar;
     }
 

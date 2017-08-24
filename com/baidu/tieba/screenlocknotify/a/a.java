@@ -16,53 +16,53 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class a extends LinearLayout {
-    View auN;
+    View auO;
     private EditText dAX;
-    TextView fNb;
-    View fNc;
+    TextView fNc;
     View fNd;
-    TextView fNe;
+    View fNe;
     TextView fNf;
     TextView fNg;
-    private e fNh;
-    private TextView fNi;
-    private RelativeLayout fNj;
+    TextView fNh;
+    private e fNi;
+    private TextView fNj;
+    private RelativeLayout fNk;
 
     public a(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(d.j.screenlock_show_item_header, (ViewGroup) this, true);
-        this.fNb = (TextView) findViewById(d.h.friend_name_show1);
-        this.fNc = findViewById(d.h.friend_name_layout);
-        this.fNd = findViewById(d.h.msg_content_layout);
-        this.fNe = (TextView) findViewById(d.h.last_msg_time_show1);
-        this.fNf = (TextView) findViewById(d.h.one_msg_content_show1);
-        this.fNg = (TextView) findViewById(d.h.unread_msg_count_show1);
-        this.auN = findViewById(d.h.line);
+        this.fNc = (TextView) findViewById(d.h.friend_name_show1);
+        this.fNd = findViewById(d.h.friend_name_layout);
+        this.fNe = findViewById(d.h.msg_content_layout);
+        this.fNf = (TextView) findViewById(d.h.last_msg_time_show1);
+        this.fNg = (TextView) findViewById(d.h.one_msg_content_show1);
+        this.fNh = (TextView) findViewById(d.h.unread_msg_count_show1);
+        this.auO = findViewById(d.h.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(d.g.screen_notify_item_background);
         setOrientation(1);
-        this.fNj = (RelativeLayout) findViewById(d.h.screenlock_input_layout);
-        this.fNi = (TextView) findViewById(d.h.screenlock_send_button);
+        this.fNk = (RelativeLayout) findViewById(d.h.screenlock_input_layout);
+        this.fNj = (TextView) findViewById(d.h.screenlock_send_button);
         this.dAX = (EditText) findViewById(d.h.screenlock_edit_view);
-        this.fNj.setVisibility(8);
+        this.fNk.setVisibility(8);
     }
 
     public void f(e eVar) {
-        this.fNh = eVar;
-        this.fNb.setText(eVar.groupName);
-        this.fNe.setText(cG(eVar.lastTime));
-        this.fNf.setText(eVar.content);
-        this.fNg.setText(sn(eVar.fMX));
+        this.fNi = eVar;
+        this.fNc.setText(eVar.groupName);
+        this.fNf.setText(cG(eVar.lastTime));
+        this.fNg.setText(eVar.content);
+        this.fNh.setText(sn(eVar.fMY));
     }
 
     public void lK(boolean z) {
         if (z) {
-            this.fNj.setVisibility(0);
-            this.auN.setVisibility(8);
+            this.fNk.setVisibility(0);
+            this.auO.setVisibility(8);
             return;
         }
-        this.fNj.setVisibility(8);
-        this.auN.setVisibility(0);
+        this.fNk.setVisibility(8);
+        this.auO.setVisibility(0);
     }
 
     public String cG(long j) {
@@ -85,12 +85,12 @@ public class a extends LinearLayout {
     }
 
     public e getData() {
-        return this.fNh;
+        return this.fNi;
     }
 
-    public void b(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.fNi.setOnClickListener(onClickListener);
-        this.fNc.setOnClickListener(onClickListener2);
+    public void a(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
+        this.fNj.setOnClickListener(onClickListener);
         this.fNd.setOnClickListener(onClickListener2);
+        this.fNe.setOnClickListener(onClickListener2);
     }
 }

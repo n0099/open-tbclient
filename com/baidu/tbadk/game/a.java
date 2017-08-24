@@ -13,16 +13,16 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a {
-    private static a aFo = new a();
-    private GameInfoData aFp;
-    private final c aFq = new c(303009) { // from class: com.baidu.tbadk.game.a.2
+    private static a aFp = new a();
+    private GameInfoData aFq;
+    private final c aFr = new c(303009) { // from class: com.baidu.tbadk.game.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseGameDetailMessage) && !socketResponsedMessage.hasError()) {
                 ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
                 if (responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage) {
-                    a.this.aFp = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
+                    a.this.aFq = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
                 }
             }
         }
@@ -30,7 +30,7 @@ public class a {
     private String mUrl;
 
     private a() {
-        MessageManager.getInstance().registerListener(this.aFq);
+        MessageManager.getInstance().registerListener(this.aFr);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tbadk.game.a.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
@@ -45,7 +45,7 @@ public class a {
     }
 
     public static a Ei() {
-        return aFo;
+        return aFp;
     }
 
     private GameInfoData Ej() {
@@ -59,7 +59,7 @@ public class a {
     }
 
     public GameInfoData Ek() {
-        return this.aFp == null ? Ej() : this.aFp;
+        return this.aFq == null ? Ej() : this.aFq;
     }
 
     public ShareFromGameCenterMsgData El() {

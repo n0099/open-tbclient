@@ -113,32 +113,32 @@ public class j extends LinearLayout {
             this.amC = cVar.amC;
             switch (cVar.amI) {
                 case CREATE:
-                    this.amy = com.baidu.tbadk.util.b.GY().gF("pic_emotion03.png");
-                    this.amz = com.baidu.tbadk.util.b.GY().gF("pic_emotion03_1.png");
+                    this.amy = com.baidu.tbadk.util.b.GY().gI("pic_emotion03.png");
+                    this.amz = com.baidu.tbadk.util.b.GY().gI("pic_emotion03_1.png");
                     break;
                 case NODATA:
-                    this.amy = com.baidu.tbadk.util.b.GY().gF("pic_emotion05.png");
-                    this.amz = com.baidu.tbadk.util.b.GY().gF("pic_emotion05_1.png");
+                    this.amy = com.baidu.tbadk.util.b.GY().gI("pic_emotion05.png");
+                    this.amz = com.baidu.tbadk.util.b.GY().gI("pic_emotion05_1.png");
                     break;
                 case FINDBAR:
-                    this.amy = com.baidu.tbadk.util.b.GY().gF("pic_emotion01.png");
-                    this.amz = com.baidu.tbadk.util.b.GY().gF("pic_emotion01_1.png");
+                    this.amy = com.baidu.tbadk.util.b.GY().gI("pic_emotion01.png");
+                    this.amz = com.baidu.tbadk.util.b.GY().gI("pic_emotion01_1.png");
                     break;
                 case EMOTION:
-                    this.amy = com.baidu.tbadk.util.b.GY().gF("pic_emotion02.png");
-                    this.amz = com.baidu.tbadk.util.b.GY().gF("pic_emotion02_1.png");
+                    this.amy = com.baidu.tbadk.util.b.GY().gI("pic_emotion02.png");
+                    this.amz = com.baidu.tbadk.util.b.GY().gI("pic_emotion02_1.png");
                     break;
                 case GIFT:
-                    this.amy = com.baidu.tbadk.util.b.GY().gF("pic_emotion07.png");
-                    this.amz = com.baidu.tbadk.util.b.GY().gF("pic_emotion07_1.png");
+                    this.amy = com.baidu.tbadk.util.b.GY().gI("pic_emotion07.png");
+                    this.amz = com.baidu.tbadk.util.b.GY().gI("pic_emotion07_1.png");
                     break;
                 case SINGALL:
-                    this.amy = com.baidu.tbadk.util.b.GY().gF("pic_emotion06.png");
-                    this.amz = com.baidu.tbadk.util.b.GY().gF("pic_emotion06_1.png");
+                    this.amy = com.baidu.tbadk.util.b.GY().gI("pic_emotion06.png");
+                    this.amz = com.baidu.tbadk.util.b.GY().gI("pic_emotion06_1.png");
                     break;
                 case WEBVIEW:
-                    this.amy = com.baidu.tbadk.util.b.GY().gF("pic_emotion08.png");
-                    this.amz = com.baidu.tbadk.util.b.GY().gF("pic_emotion08_1.png");
+                    this.amy = com.baidu.tbadk.util.b.GY().gI("pic_emotion08.png");
+                    this.amz = com.baidu.tbadk.util.b.GY().gI("pic_emotion08_1.png");
                     break;
             }
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.amr.getLayoutParams();

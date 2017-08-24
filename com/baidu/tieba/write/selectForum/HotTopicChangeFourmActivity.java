@@ -42,10 +42,10 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
         if (u.v(this.mList)) {
             finish();
         }
-        aop();
+        aoj();
     }
 
-    private void aop() {
+    private void aoj() {
         this.mNavigationBar = (NavigationBar) findViewById(d.h.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         ai.i(this.mNavigationBar.setTitleText(TbadkCoreApplication.getInst().getString(d.l.change_fourm)), d.e.cp_cont_f);

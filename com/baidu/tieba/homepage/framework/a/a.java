@@ -9,7 +9,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
     private static a cUs;
-    public BdUniqueId aON;
+    public BdUniqueId aOO;
     public int cUq = -1;
     public boolean cUr = false;
     private CustomMessageListener aqh = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.framework.a.a.1
@@ -25,7 +25,7 @@ public class a {
         }
     };
 
-    public static synchronized a aoX() {
+    public static synchronized a aoR() {
         a aVar;
         synchronized (a.class) {
             if (cUs == null) {
@@ -37,14 +37,14 @@ public class a {
     }
 
     public void onDestory() {
-        if (this.aON != null) {
-            MessageManager.getInstance().unRegisterListener(this.aON);
+        if (this.aOO != null) {
+            MessageManager.getInstance().unRegisterListener(this.aOO);
         }
     }
 
     public void l(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.aON = bdUniqueId;
+            this.aOO = bdUniqueId;
             this.aqh.setTag(bdUniqueId);
             MessageManager.getInstance().registerListener(this.aqh);
         }

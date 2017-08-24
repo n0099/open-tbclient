@@ -200,7 +200,7 @@ public class IndicatorView extends View {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void kH() {
+        public void kG() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.IS = ((((float) (uptimeMillis - this.IP)) / 1000.0f) * this.IR) + this.IS;
             this.IP = uptimeMillis;
@@ -236,7 +236,7 @@ public class IndicatorView extends View {
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1000:
-                        a.this.kH();
+                        a.this.kG();
                         return;
                     default:
                         return;

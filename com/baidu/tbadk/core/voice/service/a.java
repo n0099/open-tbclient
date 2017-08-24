@@ -65,7 +65,7 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean eA(String str) {
+    public boolean eE(String str) {
         return a(aqB, aqy, aqz, aqA, str);
     }
 

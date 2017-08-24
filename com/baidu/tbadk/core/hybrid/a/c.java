@@ -28,11 +28,11 @@ public class c extends t {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.t
-    public String oh() {
+    public String oi() {
         return "TBHY_COMMON_Image";
     }
 
-    @u(ud = false, value = "scanBigImages")
+    @u(ue = false, value = "scanBigImages")
     protected void sanBigImages(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");

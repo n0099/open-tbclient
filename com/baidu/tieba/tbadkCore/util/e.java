@@ -19,7 +19,7 @@ public class e extends f {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory() != null) {
-                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().bub();
+                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().btU();
                 }
             }
         });
@@ -30,12 +30,12 @@ public class e extends f {
         this.gmg = new HashMap<>();
     }
 
-    public void cl(String str, String str2) {
+    public void cn(String str, String str2) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
                 if (this.gmg.size() >= this.gmi) {
-                    bdh();
+                    bdc();
                 }
                 this.gmg.put(str, valueOf);
             }
@@ -44,7 +44,7 @@ public class e extends f {
         }
     }
 
-    public long sl(String str) {
+    public long sq(String str) {
         long longValue;
         try {
             synchronized (this) {
@@ -57,7 +57,7 @@ public class e extends f {
         }
     }
 
-    public void cm(String str, String str2) {
+    public void co(String str, String str2) {
         String key;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
@@ -74,7 +74,7 @@ public class e extends f {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.f
-    public void bub() {
+    public void btU() {
         synchronized (this) {
             this.gmj.clear();
             this.gmg.clear();

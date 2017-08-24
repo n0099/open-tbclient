@@ -36,7 +36,7 @@ public class aw {
         aiI = true;
     }
 
-    private static void wg() {
+    private static void wh() {
         if (mAppContext != null && mAppContext.getResources() != null) {
             aiH = mAppContext.getResources().getColor(d.e.common_color_10097);
             aiG = mAppContext.getResources().getColor(d.e.common_color_10004);
@@ -51,7 +51,7 @@ public class aw {
     public static int aF(boolean z) {
         if (aiI) {
             aiI = false;
-            wg();
+            wh();
         }
         return z ? aiG : aiH;
     }

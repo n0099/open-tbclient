@@ -17,14 +17,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<ActivityType> {
     private boolean Gu;
-    private MessageListener<CustomResponsedMessage<?>> aHW;
     private MessageListener<CustomResponsedMessage<?>> aHX;
-    private a<T> aHY;
-    private boolean aHZ;
+    private MessageListener<CustomResponsedMessage<?>> aHY;
+    private a<T> aHZ;
     private boolean aIa;
     private boolean aIb;
     private boolean aIc;
     private boolean aId;
+    private boolean aIe;
 
     /* loaded from: classes.dex */
     public interface a<T> {
@@ -43,12 +43,12 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
 
     public CacheModel(TbPageContext<ActivityType> tbPageContext) {
         super(tbPageContext);
-        this.aHZ = false;
         this.aIa = false;
         this.aIb = false;
         this.aIc = false;
-        this.Gu = false;
         this.aId = false;
+        this.Gu = false;
+        this.aIe = false;
     }
 
     protected boolean Fi() {
@@ -83,7 +83,7 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
     }
 
     public final void clearCache() {
-        this.aId = true;
+        this.aIe = true;
         Fm();
         Fk();
     }
@@ -109,9 +109,9 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
     }
 
     private void Fl() {
-        if (!this.aIb) {
-            if (this.aHW == null) {
-                this.aHW = new CustomMessageListener(Fq()) { // from class: com.baidu.tbadk.mvc.model.CacheModel.1
+        if (!this.aIc) {
+            if (this.aHX == null) {
+                this.aHX = new CustomMessageListener(Fq()) { // from class: com.baidu.tbadk.mvc.model.CacheModel.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.adp.framework.listener.MessageListener
                     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -122,36 +122,8 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
                             if (readCacheRespMsg.getOrginalMessage() != null && (readCacheRespMsg.getOrginalMessage() instanceof ReadCacheMessage)) {
                                 readCacheMessage = (ReadCacheMessage) readCacheRespMsg.getOrginalMessage();
                             }
-                            if (CacheModel.this.aHY != null) {
-                                CacheModel.this.aHY.a(readCacheRespMsg, readCacheMessage);
-                            }
-                        }
-                    }
-                };
-                this.aHW.setSelfListener(true);
-                this.aHW.setTag(this.unique_id);
-            }
-            registerListener(this.aHW);
-            this.aIb = true;
-        }
-    }
-
-    private void Fm() {
-        if (!this.aIc) {
-            if (this.aHX == null) {
-                this.aHX = new CustomMessageListener(Fr()) { // from class: com.baidu.tbadk.mvc.model.CacheModel.2
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.adp.framework.listener.MessageListener
-                    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                        CacheModel.this.aId = false;
-                        if (customResponsedMessage != null && (customResponsedMessage instanceof WriteCacheRespMsg)) {
-                            WriteCacheRespMsg writeCacheRespMsg = (WriteCacheRespMsg) customResponsedMessage;
-                            WriteCacheMessage writeCacheMessage = null;
-                            if (writeCacheRespMsg.getOrginalMessage() != null && (writeCacheRespMsg.getOrginalMessage() instanceof WriteCacheMessage)) {
-                                writeCacheMessage = (WriteCacheMessage) writeCacheRespMsg.getOrginalMessage();
-                            }
-                            if (CacheModel.this.aHY != null) {
-                                CacheModel.this.aHY.a(writeCacheRespMsg, writeCacheMessage);
+                            if (CacheModel.this.aHZ != null) {
+                                CacheModel.this.aHZ.a(readCacheRespMsg, readCacheMessage);
                             }
                         }
                     }
@@ -164,17 +136,45 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
         }
     }
 
+    private void Fm() {
+        if (!this.aId) {
+            if (this.aHY == null) {
+                this.aHY = new CustomMessageListener(Fr()) { // from class: com.baidu.tbadk.mvc.model.CacheModel.2
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.adp.framework.listener.MessageListener
+                    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                        CacheModel.this.aIe = false;
+                        if (customResponsedMessage != null && (customResponsedMessage instanceof WriteCacheRespMsg)) {
+                            WriteCacheRespMsg writeCacheRespMsg = (WriteCacheRespMsg) customResponsedMessage;
+                            WriteCacheMessage writeCacheMessage = null;
+                            if (writeCacheRespMsg.getOrginalMessage() != null && (writeCacheRespMsg.getOrginalMessage() instanceof WriteCacheMessage)) {
+                                writeCacheMessage = (WriteCacheMessage) writeCacheRespMsg.getOrginalMessage();
+                            }
+                            if (CacheModel.this.aHZ != null) {
+                                CacheModel.this.aHZ.a(writeCacheRespMsg, writeCacheMessage);
+                            }
+                        }
+                    }
+                };
+                this.aHY.setSelfListener(true);
+                this.aHY.setTag(this.unique_id);
+            }
+            registerListener(this.aHY);
+            this.aId = true;
+        }
+    }
+
     private void Fn() {
-        if (!this.aHZ && MessageManager.getInstance().findTask(Fq()) == null) {
+        if (!this.aIa && MessageManager.getInstance().findTask(Fq()) == null) {
             MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(Fq(), new c(Fq(), Fa(), Fp())));
-            this.aHZ = true;
+            this.aIa = true;
         }
     }
 
     private void Fo() {
-        if (!this.aIa && MessageManager.getInstance().findTask(Fr()) == null) {
+        if (!this.aIb && MessageManager.getInstance().findTask(Fr()) == null) {
             MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(Fr(), new com.baidu.tbadk.mvc.e.d(Fr(), Fa(), Fp())));
-            this.aIa = true;
+            this.aIb = true;
         }
     }
 
@@ -191,6 +191,6 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
     }
 
     public void a(a<T> aVar) {
-        this.aHY = aVar;
+        this.aHZ = aVar;
     }
 }

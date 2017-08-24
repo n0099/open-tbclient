@@ -9,41 +9,41 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ai {
-    private boolean eMK;
     private boolean eMM;
-    private com.baidu.tieba.pb.data.f eMX;
-    private String ePA;
-    private boolean ePB;
-    private boolean ePC;
-    private Parcelable ePD;
+    private boolean eMO;
+    private com.baidu.tieba.pb.data.f eMZ;
+    private String ePC;
+    private boolean ePD;
+    private boolean ePE;
+    private Parcelable ePF;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.pb.pb.main.ai.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                ai.aTq().reset();
+                ai.aTl().reset();
             }
         });
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.PB_RECORDER_RESET_CMD) { // from class: com.baidu.tieba.pb.pb.main.ai.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                ai.aTq().reset();
+                ai.aTl().reset();
             }
         });
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.pb.pb.main.ai.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                ai.aTq().a(1, customResponsedMessage);
+                ai.aTl().a(1, customResponsedMessage);
             }
         });
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.pb.pb.main.ai.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                ai.aTq().a(0, customResponsedMessage);
+                ai.aTl().a(0, customResponsedMessage);
             }
         });
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_PENDANT) { // from class: com.baidu.tieba.pb.pb.main.ai.5
@@ -51,7 +51,7 @@ public class ai {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j)) {
-                    ai.aTq().a((com.baidu.tbadk.data.j) customResponsedMessage.getData());
+                    ai.aTl().a((com.baidu.tbadk.data.j) customResponsedMessage.getData());
                 }
             }
         });
@@ -60,126 +60,126 @@ public class ai {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static ai ePE = new ai();
+        private static ai ePG = new ai();
     }
 
-    public static ai aTq() {
-        return a.ePE;
+    public static ai aTl() {
+        return a.ePG;
     }
 
     private ai() {
-        this.ePA = null;
-        this.ePB = false;
-        this.eMX = null;
-        this.ePC = false;
-        this.ePD = null;
-        this.eMM = true;
-        this.eMK = false;
+        this.ePC = null;
+        this.ePD = false;
+        this.eMZ = null;
+        this.ePE = false;
+        this.ePF = null;
+        this.eMO = true;
+        this.eMM = false;
     }
 
     public void S(String str, boolean z) {
-        this.ePB = false;
+        this.ePD = false;
         if (z) {
             str = null;
         }
         if (str == null || str.length() < 1) {
             reset();
-            this.ePA = null;
-        } else if (!str.equals(this.ePA)) {
+            this.ePC = null;
+        } else if (!str.equals(this.ePC)) {
             reset();
-            this.ePA = str;
+            this.ePC = str;
         } else {
-            this.ePB = true;
+            this.ePD = true;
         }
     }
 
     public com.baidu.tieba.pb.data.f getPbData() {
-        if (!this.ePB) {
-            this.ePC = false;
+        if (!this.ePD) {
+            this.ePE = false;
             return null;
-        } else if (this.eMX != null && this.eMX.aPS() != null && this.eMX.aPS().size() > 0) {
-            this.ePC = true;
-            com.baidu.tieba.pb.data.f fVar = this.eMX;
-            this.eMX = null;
+        } else if (this.eMZ != null && this.eMZ.aPN() != null && this.eMZ.aPN().size() > 0) {
+            this.ePE = true;
+            com.baidu.tieba.pb.data.f fVar = this.eMZ;
+            this.eMZ = null;
             return fVar;
         } else {
-            this.ePC = false;
-            this.eMX = null;
+            this.ePE = false;
+            this.eMZ = null;
             return null;
         }
     }
 
-    public Parcelable aTr() {
-        if (this.ePC) {
-            this.ePC = false;
-            Parcelable parcelable = this.ePD;
-            this.ePD = null;
+    public Parcelable aTm() {
+        if (this.ePE) {
+            this.ePE = false;
+            Parcelable parcelable = this.ePF;
+            this.ePF = null;
             return parcelable;
         }
-        this.ePD = null;
+        this.ePF = null;
         return null;
     }
 
-    public boolean aSf() {
+    public boolean aSa() {
+        return this.eMO;
+    }
+
+    public boolean aTn() {
         return this.eMM;
     }
 
-    public boolean aTs() {
-        return this.eMK;
-    }
-
     public boolean a(com.baidu.tieba.pb.data.f fVar, Parcelable parcelable, boolean z, boolean z2) {
-        this.ePB = false;
-        if (this.ePA == null) {
+        this.ePD = false;
+        if (this.ePC == null) {
             reset();
             return false;
         } else if (fVar == null) {
             reset();
             return false;
-        } else if (fVar.aPS() == null) {
+        } else if (fVar.aPN() == null) {
             reset();
             return false;
-        } else if (fVar.aPS().size() < 1) {
+        } else if (fVar.aPN().size() < 1) {
             reset();
             return false;
         } else if (parcelable == null) {
             reset();
             return false;
         } else {
-            this.eMX = fVar;
-            this.ePC = false;
-            this.ePD = parcelable;
-            this.eMM = z;
-            this.eMK = z2;
+            this.eMZ = fVar;
+            this.ePE = false;
+            this.ePF = parcelable;
+            this.eMO = z;
+            this.eMM = z2;
             return true;
         }
     }
 
     public void reset() {
-        this.ePB = false;
-        this.eMX = null;
-        this.ePC = false;
-        this.ePD = null;
+        this.ePD = false;
+        this.eMZ = null;
+        this.ePE = false;
+        this.ePF = null;
     }
 
     public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && this.eMX != null && this.eMX.aPO() != null) {
+        if (customResponsedMessage != null && this.eMZ != null && this.eMZ.aPJ() != null) {
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.d(this.eMX.aPO().getId(), 0L)) {
-                this.eMX.aPO().setLike(i);
+            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.d(this.eMZ.aPJ().getId(), 0L)) {
+                this.eMZ.aPJ().setLike(i);
             }
         }
     }
 
     public void a(com.baidu.tbadk.data.j jVar) {
-        if (jVar != null && this.eMX != null && this.eMX.aPS() != null && this.eMX.aPS().size() > 0) {
+        if (jVar != null && this.eMZ != null && this.eMZ.aPN() != null && this.eMZ.aPN().size() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
-                int size = this.eMX.aPS().size();
+                int size = this.eMZ.aPN().size();
                 for (int i = 0; i < size; i++) {
-                    if (this.eMX.aPS().get(i) != null && this.eMX.aPS().get(i).getAuthor() != null && currentAccount.equals(this.eMX.aPS().get(i).getAuthor().getUserId()) && this.eMX.aPS().get(i).getAuthor().getPendantData() != null) {
-                        this.eMX.aPS().get(i).getAuthor().getPendantData().cH(jVar.pV());
-                        this.eMX.aPS().get(i).getAuthor().getPendantData().Q(jVar.CB());
+                    if (this.eMZ.aPN().get(i) != null && this.eMZ.aPN().get(i).getAuthor() != null && currentAccount.equals(this.eMZ.aPN().get(i).getAuthor().getUserId()) && this.eMZ.aPN().get(i).getAuthor().getPendantData() != null) {
+                        this.eMZ.aPN().get(i).getAuthor().getPendantData().cK(jVar.pW());
+                        this.eMZ.aPN().get(i).getAuthor().getPendantData().Q(jVar.CB());
                     }
                 }
             }

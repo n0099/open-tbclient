@@ -33,7 +33,7 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
                 }
                 MentionActivityConfig.newJumpIn = true;
                 if (g.this.dGi != null) {
-                    g.this.dGi.ahz();
+                    g.this.dGi.aht();
                     g.this.dGi.A(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
@@ -56,18 +56,18 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.dGi = new e(this);
         if (bundle != null) {
-            this.dGi.j(bundle);
+            this.dGi.i(bundle);
         } else {
-            this.dGi.j((Bundle) null);
+            this.dGi.i((Bundle) null);
         }
-        View Ym = this.dGi.Ym();
+        View Yj = this.dGi.Yj();
         this.dGi.hc(this.dGj);
         this.dGi.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         FN().addEventDelegate(this);
         registerListener(this.dGk);
         registerListener(this.dFW);
         TiebaStatic.log(new aj("c11941"));
-        return Ym;
+        return Yj;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -75,7 +75,7 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         if (getActivity() != null && U(getActivity().getIntent())) {
             this.dGi.onNewIntent(getActivity().getIntent());
         } else {
-            this.dGi.ahz();
+            this.dGi.aht();
         }
         super.onViewCreated(view, bundle);
     }

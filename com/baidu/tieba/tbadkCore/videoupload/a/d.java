@@ -125,22 +125,22 @@ public class d implements b {
         if (!StringUtils.isNull(str)) {
             wVar.n("upload_id", str);
         }
-        String uO = wVar.uO();
-        if (wVar.vl().wi().isRequestSuccess()) {
-            if (StringUtils.isNull(uO)) {
+        String uP = wVar.uP();
+        if (wVar.vm().wj().isRequestSuccess()) {
+            if (StringUtils.isNull(uP)) {
                 return null;
             }
             a aVar = new a();
-            aVar.parseJson(uO);
+            aVar.parseJson(uP);
             return aVar;
         }
         a aVar2 = new a();
-        if (wVar.vl().wi().vo()) {
-            aVar2.gms = wVar.vl().wi().aiT;
+        if (wVar.vm().wj().vp()) {
+            aVar2.gms = wVar.vm().wj().aiT;
         } else {
-            aVar2.gms = wVar.vl().wi().xv;
+            aVar2.gms = wVar.vm().wj().xv;
         }
-        aVar2.mErrorMessage = wVar.vl().wi().mErrorString;
+        aVar2.mErrorMessage = wVar.vm().wj().mErrorString;
         return aVar2;
     }
 

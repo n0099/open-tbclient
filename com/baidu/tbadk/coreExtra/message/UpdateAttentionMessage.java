@@ -11,9 +11,9 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public boolean Ec;
+        public String asS;
         public String errorString;
         public boolean isAttention;
-        public String showMsg;
         public String toUid;
         public boolean isGod = false;
         public boolean asR = false;
@@ -28,7 +28,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                             z2 = false;
                         }
                         this.asR = z2;
-                        this.showMsg = optJSONObject.optString("toast_text");
+                        this.asS = optJSONObject.optString("toast_text");
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());

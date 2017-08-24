@@ -31,7 +31,7 @@ public class c {
         MessageManager.getInstance().registerListener(this.dym);
     }
 
-    public static c aya() {
+    public static c axV() {
         if (dzk == null) {
             synchronized (c.class) {
                 if (dzk == null) {
@@ -74,11 +74,11 @@ public class c {
         return this.dzl;
     }
 
-    public Long ayb() {
-        return com.baidu.tieba.im.memorycache.b.axf().axp().get(this.dzl);
+    public Long axW() {
+        return com.baidu.tieba.im.memorycache.b.axa().axk().get(this.dzl);
     }
 
-    public synchronized List<Long> ayc() {
+    public synchronized List<Long> axX() {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (Long l : this.dzm) {
@@ -89,7 +89,7 @@ public class c {
         return arrayList;
     }
 
-    public synchronized void ayd() {
+    public synchronized void axY() {
         this.dzm.clear();
     }
 
@@ -117,7 +117,7 @@ public class c {
         }
     }
 
-    public synchronized boolean aye() {
+    public synchronized boolean axZ() {
         boolean z;
         if (this.dzl > 0) {
             z = this.dzm.size() > 0;
@@ -142,7 +142,7 @@ public class c {
         return z;
     }
 
-    public synchronized String ayf() {
+    public synchronized String aya() {
         String str;
         str = "";
         for (Long l : this.dzm) {

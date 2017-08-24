@@ -63,7 +63,7 @@ public class at {
         return spannableString;
     }
 
-    public static at wf() {
+    public static at wg() {
         return aix;
     }
 
@@ -101,9 +101,9 @@ public class at {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.aiz.get(ei(str));
+        b bVar = this.aiz.get(em(str));
         if (bVar != null) {
-            bVar.a(tbPageContext, eh(eg(str)));
+            bVar.a(tbPageContext, el(ek(str)));
             return 0;
         }
         for (a aVar : this.aiy) {
@@ -121,9 +121,9 @@ public class at {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.aiz.get(ei(str2));
+        b bVar = this.aiz.get(em(str2));
         if (bVar != null) {
-            bVar.a(tbPageContext, eh(eg(str2)));
+            bVar.a(tbPageContext, el(ek(str2)));
             return true;
         }
         Iterator<a> it = this.aiy.iterator();
@@ -149,7 +149,7 @@ public class at {
         return z4;
     }
 
-    public static Map<String, String> ee(String str) {
+    public static Map<String, String> ei(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -167,7 +167,7 @@ public class at {
         return null;
     }
 
-    public static String ef(String str) {
+    public static String ej(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -175,7 +175,7 @@ public class at {
         return split[1];
     }
 
-    public static String eg(String str) {
+    public static String ek(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -193,7 +193,7 @@ public class at {
         }
     }
 
-    private Map<String, String> eh(String str) {
+    private Map<String, String> el(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -217,7 +217,7 @@ public class at {
         return hashMap;
     }
 
-    private String ei(String str) {
+    private String em(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -250,14 +250,14 @@ public class at {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str) && bVar != null) {
-            String ei = ei(str);
-            if (!StringUtils.isNull(ei)) {
-                this.aiz.put(ei, bVar);
+            String em = em(str);
+            if (!StringUtils.isNull(em)) {
+                this.aiz.put(em, bVar);
             }
         }
     }
 
-    public boolean ej(String str) {
+    public boolean en(String str) {
         return aiB.matcher(str).find();
     }
 }

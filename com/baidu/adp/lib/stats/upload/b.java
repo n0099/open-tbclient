@@ -149,25 +149,25 @@ public class b {
         ArrayList<String> arrayList;
         ArrayList arrayList2;
         if (BdStatisticsManager.getInstance().isMainProcess() && aVar != null) {
-            ArrayList<String> ax = com.baidu.adp.lib.stats.switchs.a.gJ().ax(aVar.gA());
+            ArrayList<String> ay = com.baidu.adp.lib.stats.switchs.a.gJ().ay(aVar.gA());
             if (!z) {
                 boolean onlyWifiUpload = com.baidu.adp.lib.stats.switchs.a.gJ().onlyWifiUpload(aVar.gA(), null);
                 boolean hs = i.hs();
                 if (!onlyWifiUpload || hs) {
-                    if (ax != null && ax.size() > 0) {
+                    if (ay != null && ay.size() > 0) {
                         ArrayList<String> arrayList3 = new ArrayList<>();
-                        Iterator<String> it = ax.iterator();
+                        Iterator<String> it = ay.iterator();
                         while (it.hasNext()) {
                             String next = it.next();
                             if (!com.baidu.adp.lib.stats.switchs.a.gJ().isUpload(aVar.gA(), next)) {
-                                b(arrayList3, next);
+                                a(arrayList3, next);
                             } else if (!com.baidu.adp.lib.stats.switchs.a.gJ().smallFlowUpload(aVar.gA(), next)) {
-                                b(arrayList3, next);
+                                a(arrayList3, next);
                             } else {
                                 boolean onlyWifiUpload2 = com.baidu.adp.lib.stats.switchs.a.gJ().onlyWifiUpload(aVar.gA(), next);
                                 boolean hs2 = i.hs();
                                 if (onlyWifiUpload2 && !hs2) {
-                                    b(arrayList3, next);
+                                    a(arrayList3, next);
                                 }
                             }
                         }
@@ -181,7 +181,7 @@ public class b {
                                 Iterator<String> it2 = arrayList.iterator();
                                 while (it2.hasNext()) {
                                     try {
-                                        arrayList4.add("st=" + URLEncoder.encode(com.baidu.adp.lib.stats.a.ar(it2.next()), "utf-8") + "&");
+                                        arrayList4.add("st=" + URLEncoder.encode(com.baidu.adp.lib.stats.a.as(it2.next()), "utf-8") + "&");
                                     } catch (UnsupportedEncodingException e) {
                                         e.printStackTrace();
                                     }
@@ -203,7 +203,7 @@ public class b {
         }
     }
 
-    private void b(ArrayList<String> arrayList, String str) {
+    private void a(ArrayList<String> arrayList, String str) {
         if (!TextUtils.isEmpty(str)) {
             if (arrayList == null) {
                 arrayList = new ArrayList<>();

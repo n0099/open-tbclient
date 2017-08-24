@@ -16,8 +16,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo eDL;
-    private a.C0121a eDM;
+    private SkinInfo eDN;
+    private a.C0121a eDO;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -45,16 +45,16 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.eDL != skinInfo && c0121a != null) {
-            this.eDM = c0121a;
-            this.eDM.delete("action_type");
-            this.eDM.ci("obj_id", skinInfo.obj_id);
-            this.eDM.ci("obj_url", skinInfo.url);
-            this.eDM.ci("obj_name", skinInfo.monitor_id);
-            this.eDM.ci("action_type", "VIEW_TRUE");
-            this.eDM.save();
+        if (this.eDN != skinInfo && c0121a != null) {
+            this.eDO = c0121a;
+            this.eDO.delete("action_type");
+            this.eDO.ck("obj_id", skinInfo.obj_id);
+            this.eDO.ck("obj_url", skinInfo.url);
+            this.eDO.ck("obj_name", skinInfo.monitor_id);
+            this.eDO.ck("action_type", "VIEW_TRUE");
+            this.eDO.save();
         }
-        this.eDL = skinInfo;
+        this.eDN = skinInfo;
         int ag = k.ag(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = ag;
@@ -81,13 +81,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eDL != null && !StringUtils.isNull(this.eDL.url)) {
-            if (this.eDM != null) {
-                this.eDM.delete("action_type");
-                this.eDM.ci("action_type", "CLICK");
-                this.eDM.save();
+        if (this.eDN != null && !StringUtils.isNull(this.eDN.url)) {
+            if (this.eDO != null) {
+                this.eDO.delete("action_type");
+                this.eDO.ck("action_type", "CLICK");
+                this.eDO.save();
             }
-            at.wf().c(this.mTbPageContext, new String[]{this.eDL.url});
+            at.wg().c(this.mTbPageContext, new String[]{this.eDN.url});
         }
     }
 }

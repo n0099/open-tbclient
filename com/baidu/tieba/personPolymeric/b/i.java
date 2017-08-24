@@ -27,57 +27,57 @@ import com.baidu.tieba.personPolymeric.d.t;
 public class i extends com.baidu.adp.base.d {
     private ViewGroup abM;
     private TbPageContext acr;
-    private BaseFragmentActivity bFq;
-    private CustomMessageListener bgL = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.personPolymeric.b.i.2
+    private BaseFragmentActivity bFr;
+    private CustomMessageListener bgM = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.personPolymeric.b.i.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Message<?> message;
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(i.this.bFq.getUniqueId())) {
+                if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(i.this.bFr.getUniqueId())) {
                     if (updateAttentionMessage.getData().Ec) {
                         i.this.mIsLiked = updateAttentionMessage.getData().isAttention;
-                        i.this.flw.setAttentionData(updateAttentionMessage.getData().isAttention);
+                        i.this.fly.setAttentionData(updateAttentionMessage.getData().isAttention);
                         if (!i.this.mIsLiked) {
-                            BdToast.a(i.this.acr.getPageActivity(), i.this.acr.getString(d.l.unlike_success)).tz();
+                            BdToast.a(i.this.acr.getPageActivity(), i.this.acr.getString(d.l.unlike_success)).tA();
                         } else {
-                            BdToast.a(i.this.acr.getPageActivity(), i.this.acr.getString(d.l.attention_success)).tz();
+                            BdToast.a(i.this.acr.getPageActivity(), i.this.acr.getString(d.l.attention_success)).tA();
                         }
                     } else if (updateAttentionMessage.getData().errorString != null) {
-                        i.this.bFq.showToast(updateAttentionMessage.getData().errorString);
+                        i.this.bFr.showToast(updateAttentionMessage.getData().errorString);
                     }
                 }
             }
         }
     };
-    private com.baidu.tbadk.coreExtra.c.a epL;
-    private com.baidu.tieba.view.g fgE;
-    private t flw;
-    public com.baidu.tieba.f.c flx;
+    private com.baidu.tbadk.coreExtra.c.a epM;
+    private com.baidu.tieba.view.g fgG;
+    private t fly;
+    public com.baidu.tieba.f.c flz;
     private boolean mIsLiked;
     private View.OnClickListener mOnClickListener;
     private UserData mUserData;
 
     public i(BaseFragmentActivity baseFragmentActivity, ViewGroup viewGroup, UserData userData) {
-        this.bFq = baseFragmentActivity;
+        this.bFr = baseFragmentActivity;
         this.acr = baseFragmentActivity.getPageContext();
         this.abM = viewGroup;
         this.mUserData = userData;
         this.mIsLiked = userData.getHave_attention() == 1;
-        this.epL = new com.baidu.tbadk.coreExtra.c.a(this);
-        amo();
+        this.epM = new com.baidu.tbadk.coreExtra.c.a(this);
+        ami();
         initListener();
-        if (this.abM != null && this.flw != null) {
-            this.flx = new com.baidu.tieba.f.c(this.acr.getPageActivity(), this.flw, null);
+        if (this.abM != null && this.fly != null) {
+            this.flz = new com.baidu.tieba.f.c(this.acr.getPageActivity(), this.fly, null);
         }
     }
 
     public void setOnViewResponseListener(com.baidu.tieba.view.g gVar) {
-        this.fgE = gVar;
+        this.fgG = gVar;
     }
 
-    private void amo() {
+    private void ami() {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.b.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -86,47 +86,47 @@ public class i extends com.baidu.adp.base.d {
                         if (aw.aO(i.this.acr.getPageActivity())) {
                             TiebaStatic.log(new aj("c11592"));
                             if (i.this.mUserData != null) {
-                                i.this.epL.a(!i.this.mIsLiked, i.this.mUserData.getPortrait(), i.this.mUserData.getUserId(), i.this.isUseSingleGod(i.this.mUserData), i.this.acr.getUniqueId());
+                                i.this.epM.a(!i.this.mIsLiked, i.this.mUserData.getPortrait(), i.this.mUserData.getUserId(), i.this.isUseSingleGod(i.this.mUserData), i.this.acr.getUniqueId());
                             }
                         }
                     } else if (view.getId() == d.h.chat_btn) {
                         if (aw.aO(i.this.acr.getPageActivity())) {
-                            i.this.aKR();
+                            i.this.aKM();
                         }
-                    } else if (view.getId() == d.h.gift_btn && i.this.fgE != null) {
+                    } else if (view.getId() == d.h.gift_btn && i.this.fgG != null) {
                         com.baidu.tieba.personPolymeric.event.a aVar = new com.baidu.tieba.personPolymeric.event.a();
-                        aVar.cbj = 12;
-                        aVar.cbk = new Bundle();
-                        aVar.cbk.putSerializable(UserData.TYPE_USER, i.this.mUserData);
-                        i.this.fgE.a(view, aVar);
+                        aVar.cbk = 12;
+                        aVar.cbl = new Bundle();
+                        aVar.cbl.putSerializable(UserData.TYPE_USER, i.this.mUserData);
+                        i.this.fgG.a(view, aVar);
                     }
                 }
             }
         };
-        this.flw = new t(this.acr.getPageActivity(), this.mUserData, this.mIsLiked, this.mOnClickListener);
+        this.fly = new t(this.acr.getPageActivity(), this.mUserData, this.mIsLiked, this.mOnClickListener);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, k.g(this.acr.getPageActivity(), d.f.ds110));
-        this.flw.setLayoutParams(layoutParams);
+        this.fly.setLayoutParams(layoutParams);
         layoutParams.addRule(12);
-        this.flw.setOrientation(0);
-        this.abM.addView(this.flw);
+        this.fly.setOrientation(0);
+        this.abM.addView(this.fly);
     }
 
     public void l(boolean z, boolean z2, boolean z3) {
-        if (this.flw != null) {
-            this.flw.l(z, z2, z3);
+        if (this.fly != null) {
+            this.fly.l(z, z2, z3);
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.flw.onChangeSkinType(i);
+        this.fly.onChangeSkinType(i);
     }
 
     private void initListener() {
-        this.acr.registerListener(this.bgL);
+        this.acr.registerListener(this.bgM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKR() {
+    public void aKM() {
         if (this.mUserData != null && this.mUserData.getUserId() != null && this.mUserData.getUserName() != null && !this.mUserData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
             try {
                 TiebaStatic.log(new aj("c11593"));
@@ -149,12 +149,12 @@ public class i extends com.baidu.adp.base.d {
     public void setData(UserData userData) {
         this.mUserData = userData;
         this.mIsLiked = userData.getHave_attention() == 1;
-        this.flw.a(this.mUserData, this.mIsLiked);
+        this.fly.a(this.mUserData, this.mIsLiked);
     }
 
     public void onDestroy() {
-        if (this.flx != null) {
-            this.flx.Ho();
+        if (this.flz != null) {
+            this.flz.Ho();
         }
     }
 }

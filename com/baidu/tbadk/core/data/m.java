@@ -27,7 +27,7 @@ public class m {
         return this.text;
     }
 
-    public String pG() {
+    public String pH() {
         return this.headline_cover;
     }
 
@@ -35,7 +35,7 @@ public class m {
         return this.url;
     }
 
-    public String pH() {
+    public String pI() {
         return this.obj_id;
     }
 }

@@ -13,17 +13,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements ad {
-    public String XU;
-    private String bJV;
-    private int bJW;
-    private String bJX;
+    public String XV;
+    private String bJW;
+    private int bJX;
     private String bJY;
+    private String bJZ;
     private String mSource;
-    public int bJZ = 0;
-    public SparseArray<String> XV = null;
+    public int bKa = 0;
+    public SparseArray<String> XW = null;
 
     public void setWeight(String str) {
-        this.bJV = str;
+        this.bJW = str;
     }
 
     public void setSource(String str) {
@@ -31,39 +31,39 @@ public abstract class c extends b implements ad {
     }
 
     public void hw(int i) {
-        this.bJW = i;
+        this.bJX = i;
     }
 
-    public void ji(String str) {
-        this.bJX = str;
+    public void jl(String str) {
+        this.bJY = str;
     }
 
-    public int Xb() {
-        return this.bJW;
+    public int WY() {
+        return this.bJX;
     }
 
-    public String Xc() {
-        return this.mSource + "#" + this.bJW + "#" + this.bJX;
+    public String WZ() {
+        return this.mSource + "#" + this.bJX + "#" + this.bJY;
     }
 
     public String getWeight() {
-        return this.bJV;
+        return this.bJW;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String Xd() {
-        return this.bJX;
-    }
-
-    public String Xe() {
+    public String Xa() {
         return this.bJY;
     }
 
-    public void jj(String str) {
-        this.bJY = str;
+    public String Xb() {
+        return this.bJZ;
+    }
+
+    public void jm(String str) {
+        this.bJZ = str;
     }
 
     public bl MF() {
@@ -74,7 +74,7 @@ public abstract class c extends b implements ad {
         return true;
     }
 
-    public aj jk(String str) {
+    public aj jn(String str) {
         return v(str, false);
     }
 
@@ -83,12 +83,12 @@ public abstract class c extends b implements ad {
         if (MF == null) {
             return null;
         }
-        aj aa = new aj(str).aa("fid", String.valueOf(MF.getFid())).aa("tid", String.valueOf(MF.getTid())).r("obj_id", A(MF)).aa("obj_param1", getWeight()).r("obj_param2", 1).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", Xb()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", com.baidu.tieba.card.m.WO());
+        aj aa = new aj(str).aa("fid", String.valueOf(MF.getFid())).aa("tid", String.valueOf(MF.getTid())).r("obj_id", A(MF)).aa("obj_param1", getWeight()).r("obj_param2", 1).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", WY()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", com.baidu.tieba.card.m.WL());
         if (!z) {
-            aa.r("obj_type", Xf());
+            aa.r("obj_type", Xc());
             return aa;
         }
-        aa.aa("ab_tag", Xd());
+        aa.aa("ab_tag", Xa());
         return aa;
     }
 
@@ -97,27 +97,27 @@ public abstract class c extends b implements ad {
         if (MF == null) {
             return null;
         }
-        aj aa = new aj(str).aa("fid", String.valueOf(MF.getFid())).aa("tid", String.valueOf(MF.getTid())).r("obj_id", A(MF)).r("obj_param2", 1).aa("obj_param1", getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", Xb()).aa("obj_name", Xd()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", com.baidu.tieba.card.m.WO());
+        aj aa = new aj(str).aa("fid", String.valueOf(MF.getFid())).aa("tid", String.valueOf(MF.getTid())).r("obj_id", A(MF)).r("obj_param2", 1).aa("obj_param1", getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", WY()).aa("obj_name", Xa()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", com.baidu.tieba.card.m.WL());
         if (i == 0) {
-            aa.r("obj_type", Xf());
+            aa.r("obj_type", Xc());
             return aa;
         }
         aa.r("obj_type", i);
         return aa;
     }
 
-    private int Xf() {
+    private int Xc() {
         int i;
         int i2 = 0;
         bl MF = MF();
         if (MF == null) {
             return 0;
         }
-        ArrayList<MediaData> rP = MF.rP();
-        if (rP == null) {
+        ArrayList<MediaData> rQ = MF.rQ();
+        if (rQ == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = rP.iterator();
+            Iterator<MediaData> it = rQ.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -143,9 +143,9 @@ public abstract class c extends b implements ad {
     }
 
     private int A(bl blVar) {
-        if (blVar.sJ() == null || blVar.sJ().channelId <= 0) {
+        if (blVar.sK() == null || blVar.sK().channelId <= 0) {
             return 0;
         }
-        return (int) blVar.sJ().channelId;
+        return (int) blVar.sK().channelId;
     }
 }

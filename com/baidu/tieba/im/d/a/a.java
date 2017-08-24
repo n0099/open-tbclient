@@ -31,11 +31,11 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
         LoadDraftMessage.a data = loadDraftMessage.getData();
-        ChatSetting bl = this.dAP.bl(str, data.id);
-        if (bl == null) {
+        ChatSetting bm = this.dAP.bm(str, data.id);
+        if (bm == null) {
             return mM(loadDraftMessage.getCmd());
         }
-        String draft = bl.getDraft();
+        String draft = bm.getDraft();
         LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
         aVar.mDraft = draft;
         aVar.id = data.id;

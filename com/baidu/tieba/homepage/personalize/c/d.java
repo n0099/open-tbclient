@@ -31,7 +31,7 @@ public class d {
                     while (true) {
                         int i2 = i;
                         if (i2 < list.size()) {
-                            if (!(list.get(i2) instanceof com.baidu.tieba.card.data.c) || (cVar = (com.baidu.tieba.card.data.c) list.get(i2)) == null || StringUtils.isNull(cVar.XU) || !cVar.XU.equals(str)) {
+                            if (!(list.get(i2) instanceof com.baidu.tieba.card.data.c) || (cVar = (com.baidu.tieba.card.data.c) list.get(i2)) == null || StringUtils.isNull(cVar.XV) || !cVar.XV.equals(str)) {
                                 i = i2 + 1;
                             } else {
                                 c cVar2 = new c();

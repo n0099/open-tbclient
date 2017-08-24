@@ -26,10 +26,10 @@ import java.util.List;
 import tbclient.ForcusUsers;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    private HeadImageView bAe;
     private HeadImageView bAf;
     private HeadImageView bAg;
-    private ImageView bAh;
+    private HeadImageView bAh;
+    private ImageView bAi;
     private View cNX;
     private ArrayList<String> cRq;
     private com.baidu.tieba.homepage.alalivelist.a.b cRr;
@@ -54,11 +54,11 @@ public class a extends LinearLayout {
             public void onClick(View view) {
                 if (a.this.cRr != null) {
                     TiebaStatic.log(new aj("c11831").aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
-                    if (view == a.this.bAe) {
+                    if (view == a.this.bAf) {
                         a.this.a(a.this.cRr.cRh, a.this.cRr.cRi.get(0));
-                    } else if (view == a.this.bAf) {
-                        a.this.a(a.this.cRr.cRh, a.this.cRr.cRi.get(1));
                     } else if (view == a.this.bAg) {
+                        a.this.a(a.this.cRr.cRh, a.this.cRr.cRi.get(1));
+                    } else if (view == a.this.bAh) {
                         a.this.a(a.this.cRr.cRh, a.this.cRr.cRi.get(2));
                     }
                     if (a.this.cRs != null) {
@@ -74,35 +74,35 @@ public class a extends LinearLayout {
     private void bg(Context context) {
         inflate(context, d.j.ala_attention_live_list_layout, this);
         this.mTitle = (TextView) findViewById(d.h.ala_attention_tip_title_txt);
-        this.bAh = (ImageView) findViewById(d.h.ala_attention_tip_arrow_img);
-        this.bAe = (HeadImageView) findViewById(d.h.ala_attention_tip_contribution_img1);
-        this.bAf = (HeadImageView) findViewById(d.h.ala_attention_tip_contribution_img2);
-        this.bAg = (HeadImageView) findViewById(d.h.ala_attention_tip_contribution_img3);
+        this.bAi = (ImageView) findViewById(d.h.ala_attention_tip_arrow_img);
+        this.bAf = (HeadImageView) findViewById(d.h.ala_attention_tip_contribution_img1);
+        this.bAg = (HeadImageView) findViewById(d.h.ala_attention_tip_contribution_img2);
+        this.bAh = (HeadImageView) findViewById(d.h.ala_attention_tip_contribution_img3);
         this.cRt = (LinearLayout) findViewById(d.h.ala_attention_tip_linear);
         this.cNX = findViewById(d.h.ala_attention_tip_bottom);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.aos();
+                a.this.aom();
             }
         });
-        this.bAe.setOnClickListener(this.cRu);
         this.bAf.setOnClickListener(this.cRu);
         this.bAg.setOnClickListener(this.cRu);
+        this.bAh.setOnClickListener(this.cRu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, ForcusUsers forcusUsers) {
         if (forcusUsers != null) {
             if (i == 49) {
-                lm(forcusUsers.user_name);
+                lp(forcusUsers.user_name);
             } else if (i == 50) {
-                ln(String.valueOf(forcusUsers.thread_id));
+                lq(String.valueOf(forcusUsers.thread_id));
             }
         }
     }
 
-    private void lm(String str) {
+    private void lp(String str) {
         if (!i.hr()) {
             k.showToast(this.mContext, d.l.no_network_guide);
             return;
@@ -111,13 +111,13 @@ public class a extends LinearLayout {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(this.mContext, "", str, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_PLAY)));
     }
 
-    private void ln(String str) {
+    private void lq(String str) {
         TiebaStatic.log(new aj("c11830").aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(str, "", "ala_attention")));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aos() {
+    public void aom() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_ATTENTION_LIVE_LIST_START, new AlaAttentionLiveListActivityConfig(getContext())));
     }
 
@@ -128,34 +128,34 @@ public class a extends LinearLayout {
     }
 
     public void setNextIconVisibility(int i) {
-        if (this.bAh != null) {
-            this.bAh.setVisibility(i);
+        if (this.bAi != null) {
+            this.bAi.setVisibility(i);
         }
     }
 
     private void setHeaderImages(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             if (arrayList.size() >= 1) {
-                this.bAe.setVisibility(0);
-                this.bAe.setIsRound(true);
-                this.bAe.c(arrayList.get(0), 12, false);
-            } else {
-                this.bAe.setVisibility(8);
-            }
-            if (arrayList.size() >= 2) {
                 this.bAf.setVisibility(0);
                 this.bAf.setIsRound(true);
-                this.bAf.c(arrayList.get(1), 12, false);
+                this.bAf.c(arrayList.get(0), 12, false);
             } else {
                 this.bAf.setVisibility(8);
             }
-            if (arrayList.size() >= 3) {
+            if (arrayList.size() >= 2) {
                 this.bAg.setVisibility(0);
                 this.bAg.setIsRound(true);
-                this.bAg.c(arrayList.get(2), 12, false);
+                this.bAg.c(arrayList.get(1), 12, false);
+            } else {
+                this.bAg.setVisibility(8);
+            }
+            if (arrayList.size() >= 3) {
+                this.bAh.setVisibility(0);
+                this.bAh.setIsRound(true);
+                this.bAh.c(arrayList.get(2), 12, false);
                 return;
             }
-            this.bAg.setVisibility(8);
+            this.bAh.setVisibility(8);
         }
     }
 

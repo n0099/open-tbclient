@@ -7,11 +7,11 @@ public abstract class d<T> implements k<T> {
     protected final boolean uY;
     protected final e uZ;
 
-    public abstract g<T> W(String str);
+    public abstract g<T> X(String str);
 
-    public abstract void X(String str);
+    public abstract void Y(String str);
 
-    protected abstract void Y(String str);
+    protected abstract void Z(String str);
 
     public abstract void c(g<T> gVar);
 
@@ -29,24 +29,24 @@ public abstract class d<T> implements k<T> {
 
     protected g<T> j(String str, String str2) {
         String h = h(str, str2);
-        g<T> W = W(h);
-        if (W == null) {
+        g<T> X = X(h);
+        if (X == null) {
             if (BdLog.isDebugMode()) {
             }
             return null;
-        } else if (W.vg < System.currentTimeMillis()) {
-            Y(h);
+        } else if (X.vg < System.currentTimeMillis()) {
+            Z(h);
             if (BdLog.isDebugMode()) {
             }
             return null;
         } else {
             if (this.uZ.eJ()) {
-                W.vf = System.currentTimeMillis();
-                c(W);
+                X.vf = System.currentTimeMillis();
+                c(X);
             }
             if (BdLog.isDebugMode()) {
             }
-            return W;
+            return X;
         }
     }
 
@@ -87,7 +87,7 @@ public abstract class d<T> implements k<T> {
 
     @Override // com.baidu.adp.lib.cache.k
     public void m(String str, String str2) {
-        X(h(str, str2));
+        Y(h(str, str2));
     }
 
     @Override // com.baidu.adp.lib.cache.k

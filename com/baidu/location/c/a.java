@@ -61,7 +61,7 @@ public class a {
             if (com.baidu.location.f.f.nl().i()) {
                 return;
             }
-            com.baidu.location.a.e.mw().b(message);
+            com.baidu.location.a.e.mv().b(message);
         }
     }
 

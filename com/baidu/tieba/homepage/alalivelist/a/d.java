@@ -9,10 +9,10 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.homepage.alalivelist.view.e;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.alalivelist.view.d, a> {
-    public BdUniqueId aON;
+    public BdUniqueId aOO;
     x<com.baidu.tieba.homepage.alalivelist.view.d> cRk;
     private e cRn;
-    private TbPageContext<?> oV;
+    private TbPageContext<?> oW;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
@@ -22,7 +22,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             public void a(View view, com.baidu.tieba.homepage.alalivelist.view.d dVar) {
             }
         };
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,8 +30,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ak */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cRn = new e(this.oV);
-        this.cRn.i(this.oV.getUniqueId());
+        this.cRn = new e(this.oW);
+        this.cRn.i(this.oW.getUniqueId());
         return new a(this.cRn);
     }
 
