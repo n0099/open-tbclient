@@ -1,7 +1,8 @@
 package com.baidu.tieba.enterForum.b;
 /* loaded from: classes.dex */
 public class c {
-    private int mType = 3;
+    public static final int[] cbI = {0, 1, 2, 3};
+    private int mType = 4;
 
     public void setType(int i) {
         this.mType = i;

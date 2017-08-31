@@ -11,7 +11,7 @@ import java.io.Reader;
 import java.io.Writer;
 /* loaded from: classes.dex */
 public class m {
-    public static void p(InputStream inputStream) {
+    public static void d(InputStream inputStream) {
         if (inputStream != null) {
             try {
                 inputStream.close();
@@ -31,7 +31,7 @@ public class m {
         }
     }
 
-    public static void e(OutputStream outputStream) {
+    public static void b(OutputStream outputStream) {
         if (outputStream != null) {
             try {
                 outputStream.close();

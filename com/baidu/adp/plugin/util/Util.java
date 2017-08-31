@@ -27,7 +27,7 @@ public final class Util {
         GREATER
     }
 
-    public static boolean kq() {
+    public static boolean ki() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -39,7 +39,7 @@ public final class Util {
         }
     }
 
-    public static f r(InputStream inputStream) throws IOException {
+    public static f f(InputStream inputStream) throws IOException {
         if (inputStream == null) {
             return null;
         }
@@ -62,16 +62,16 @@ public final class Util {
     }
 
     public static final boolean k(long j) {
-        long ks = ks();
+        long kk = kk();
         if (j <= 0) {
-            return ks <= 0 || ks >= 31457280;
+            return kk <= 0 || kk >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < ks;
+        return (j2 <= 31457280 ? j2 : 31457280L) < kk;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE] complete} */
@@ -143,9 +143,9 @@ public final class Util {
         }
     }
 
-    public static void j(File file) {
+    public static void k(File file) {
         if (file != null && file.exists()) {
-            h(file);
+            i(file);
             try {
                 file.delete();
             } catch (Exception e) {
@@ -154,14 +154,14 @@ public final class Util {
         }
     }
 
-    public static void h(File file) {
+    public static void i(File file) {
         if (file != null && file.exists() && file.isDirectory()) {
             try {
                 File[] listFiles = file.listFiles();
                 if (listFiles != null) {
                     for (File file2 : listFiles) {
                         try {
-                            i(file2);
+                            j(file2);
                         } catch (Exception e) {
                             BdLog.e(e);
                         }
@@ -173,10 +173,10 @@ public final class Util {
         }
     }
 
-    public static void i(File file) {
+    public static void j(File file) {
         if (file != null) {
             if (file.isDirectory()) {
-                j(file);
+                k(file);
             } else if (file.exists()) {
                 try {
                     file.delete();
@@ -205,15 +205,15 @@ public final class Util {
         }
     }
 
-    public static File bK(String str) {
-        PluginSetting bn = PluginPackageManager.jE().bn(str);
-        if (bn == null || bn.apkPath == null || bn.apkPath.length() <= ".apk".length()) {
+    public static File bG(String str) {
+        PluginSetting bj = PluginPackageManager.jw().bj(str);
+        if (bj == null || bj.apkPath == null || bj.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(bn.apkPath.substring(0, bn.apkPath.length() - ".apk".length()));
+        return new File(bj.apkPath.substring(0, bj.apkPath.length() - ".apk".length()));
     }
 
-    public static File kr() {
+    public static File kj() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -336,7 +336,7 @@ public final class Util {
         return pluginSetting.packageName + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bL(String str) {
+    public static String bH(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -347,10 +347,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return kr() + File.separator + e(pluginSetting);
+        return kj() + File.separator + e(pluginSetting);
     }
 
-    public static long ks() {
+    public static long kk() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

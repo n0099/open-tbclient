@@ -6,7 +6,7 @@ import com.baidu.megapp.ma.MAFragmentActivity;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class i {
-    public static h Y(Context context) {
+    public static h V(Context context) {
         Object a;
         if (context == null) {
             return null;
@@ -20,17 +20,17 @@ public class i {
                 return (h) orignalPage;
             }
         }
-        Field f = com.baidu.adp.lib.util.b.f(context.getClass(), h.class);
-        if (f == null && (f = com.baidu.adp.lib.util.b.f(context.getClass(), MAActivity.class)) == null) {
-            f = com.baidu.adp.lib.util.b.f(context.getClass(), MAFragmentActivity.class);
+        Field e = com.baidu.adp.lib.util.b.e(context.getClass(), h.class);
+        if (e == null && (e = com.baidu.adp.lib.util.b.e(context.getClass(), MAActivity.class)) == null) {
+            e = com.baidu.adp.lib.util.b.e(context.getClass(), MAFragmentActivity.class);
         }
-        if (f == null || (a = com.baidu.adp.lib.util.b.a(context, f)) == null || !(a instanceof h)) {
+        if (e == null || (a = com.baidu.adp.lib.util.b.a(context, e)) == null || !(a instanceof h)) {
             return null;
         }
         return (h) a;
     }
 
-    public static f<?> Z(Context context) {
+    public static f<?> W(Context context) {
         Object a;
         if (context == null) {
             return null;
@@ -38,17 +38,17 @@ public class i {
         if (context instanceof f) {
             return (f) context;
         }
-        Field f = com.baidu.adp.lib.util.b.f(context.getClass(), h.class);
-        if (f == null && (f = com.baidu.adp.lib.util.b.f(context.getClass(), MAActivity.class)) == null) {
-            f = com.baidu.adp.lib.util.b.f(context.getClass(), MAFragmentActivity.class);
+        Field e = com.baidu.adp.lib.util.b.e(context.getClass(), h.class);
+        if (e == null && (e = com.baidu.adp.lib.util.b.e(context.getClass(), MAActivity.class)) == null) {
+            e = com.baidu.adp.lib.util.b.e(context.getClass(), MAFragmentActivity.class);
         }
-        if (f == null || (a = com.baidu.adp.lib.util.b.a(context, f)) == null || !(a instanceof h) || !(a instanceof f)) {
+        if (e == null || (a = com.baidu.adp.lib.util.b.a(context, e)) == null || !(a instanceof h) || !(a instanceof f)) {
             return null;
         }
         return (f) a;
     }
 
-    public static e<?> aa(Context context) {
+    public static e<?> X(Context context) {
         Object a;
         if (context == null) {
             return null;
@@ -59,11 +59,11 @@ public class i {
         if (context instanceof f) {
             return ((f) context).getPageContext();
         }
-        Field f = com.baidu.adp.lib.util.b.f(context.getClass(), h.class);
-        if (f == null && (f = com.baidu.adp.lib.util.b.f(context.getClass(), MAActivity.class)) == null) {
-            f = com.baidu.adp.lib.util.b.f(context.getClass(), MAFragmentActivity.class);
+        Field e = com.baidu.adp.lib.util.b.e(context.getClass(), h.class);
+        if (e == null && (e = com.baidu.adp.lib.util.b.e(context.getClass(), MAActivity.class)) == null) {
+            e = com.baidu.adp.lib.util.b.e(context.getClass(), MAFragmentActivity.class);
         }
-        if (f == null || (a = com.baidu.adp.lib.util.b.a(context, f)) == null || !(a instanceof h) || !(a instanceof f)) {
+        if (e == null || (a = com.baidu.adp.lib.util.b.a(context, e)) == null || !(a instanceof h) || !(a instanceof f)) {
             return null;
         }
         return ((f) a).getPageContext();

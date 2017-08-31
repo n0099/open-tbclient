@@ -7,20 +7,20 @@ import java.util.Set;
 import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
-    private Cursor uc;
-    private final Set<String> ud;
+    private Cursor rM;
+    private final Set<String> rN;
     private final ContentValues values;
 
     public b(Cursor cursor) {
-        this.uc = cursor;
+        this.rM = cursor;
         this.values = null;
-        this.ud = new TreeSet();
+        this.rN = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 String columnName = cursor.getColumnName(i);
                 if (columnName != null) {
-                    this.ud.add(columnName);
+                    this.rN.add(columnName);
                 }
             }
         }
@@ -28,12 +28,12 @@ public class b implements c {
 
     public b(ContentValues contentValues) {
         this.values = contentValues;
-        this.ud = new TreeSet();
+        this.rN = new TreeSet();
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public Set<String> eq() {
-        return this.ud;
+    public Set<String> ef() {
+        return this.rN;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.uc.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.uc.getColumnCount()) {
+        int columnIndex = this.rM.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.rM.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.uc.getShort(columnIndex));
+                valueOf = Short.valueOf(this.rM.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.uc.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.rM.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.uc.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.rM.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.uc.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.rM.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.uc.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.rM.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.uc.getString(columnIndex);
+                    string = this.rM.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.uc.getBlob(columnIndex);
+                        return this.rM.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;
@@ -124,7 +124,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public void j(String str, Object obj) {
+    public void d(String str, Object obj) {
         if (str != null) {
             if (obj == null) {
                 this.values.putNull(str);
@@ -155,9 +155,9 @@ public class b implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h m = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.m(object);
-            if (m != null) {
-                return m.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h l = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.l(object);
+            if (l != null) {
+                return l.g(cVar);
             }
             return object;
         }

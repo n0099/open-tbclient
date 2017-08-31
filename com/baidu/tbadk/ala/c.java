@@ -15,20 +15,20 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener Rt = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener Qv = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
-                if (!i.hr()) {
+                if (!i.hi()) {
                     k.showToast(view.getContext(), d.l.no_network_guide);
                     return;
                 }
                 a aVar = (a) view.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.Rq;
+                AlaUserInfoData alaUserInfoData = aVar.Qs;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
@@ -42,15 +42,15 @@ public class c {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     switch (i) {
                         case 1:
-                            TiebaStatic.log(new aj("c11850").aa(SapiAccountManager.SESSION_UID, currentAccount));
+                            TiebaStatic.log(new ak("c11850").ad(SapiAccountManager.SESSION_UID, currentAccount));
                             break;
                         case 2:
                         case 3:
                         case 4:
-                            TiebaStatic.log(new aj("c11851").aa(SapiAccountManager.SESSION_UID, currentAccount));
+                            TiebaStatic.log(new ak("c11851").ad(SapiAccountManager.SESSION_UID, currentAccount));
                             break;
                         case 5:
-                            TiebaStatic.log(new aj("c11852").aa(SapiAccountManager.SESSION_UID, currentAccount));
+                            TiebaStatic.log(new ak("c11852").ad(SapiAccountManager.SESSION_UID, currentAccount));
                             break;
                     }
                     String str = AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT;
@@ -63,12 +63,12 @@ public class c {
         }
     };
 
-    public static TextView aq(Context context) {
+    public static TextView av(Context context) {
         if (context == null || MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
             return null;
         }
         TextView textView = (TextView) LayoutInflater.from(context).inflate(d.j.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(Rt);
+        textView.setOnClickListener(Qv);
         return textView;
     }
 }

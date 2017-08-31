@@ -2,31 +2,31 @@ package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class al extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void aa(int i) {
+    protected void X(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "android_shouzhu_update";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] eY() {
+    protected String[] eN() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eZ() {
+    protected int eO() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int fa() {
-        return 0;
+    protected int eQ() {
+        return 10;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int fb() {
-        return 10;
+    protected String getName() {
+        return "portrait_cdn_open";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eP() {
+        return 0;
     }
 }

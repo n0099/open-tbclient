@@ -3,22 +3,22 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a aCZ;
-    private com.baidu.adp.widget.a.a aDa;
-    private int aDb;
+    private com.baidu.adp.widget.a.a aCm;
+    private com.baidu.adp.widget.a.a aCn;
+    private int aCo;
     private int cols;
 
-    public abstract boolean Do();
+    public abstract boolean Dj();
 
-    public abstract EmotionGroupType Dp();
+    public abstract EmotionGroupType Dk();
 
     public abstract String eH(int i);
 
-    public abstract boolean fO(String str);
+    public abstract boolean fJ(String str);
 
-    public abstract com.baidu.adp.widget.a.a fP(String str);
+    public abstract com.baidu.adp.widget.a.a fK(String str);
 
-    public abstract com.baidu.adp.widget.a.a fQ(String str);
+    public abstract com.baidu.adp.widget.a.a fL(String str);
 
     public abstract int getEmotionsCount();
 
@@ -30,26 +30,26 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.a.a Dq() {
-        return this.aCZ;
+    public com.baidu.adp.widget.a.a Dl() {
+        return this.aCm;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.kW();
+            aVar.kO();
         }
-        this.aCZ = aVar;
+        this.aCm = aVar;
     }
 
-    public com.baidu.adp.widget.a.a Dr() {
-        return this.aDa;
+    public com.baidu.adp.widget.a.a Dm() {
+        return this.aCn;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.kW();
+            aVar.kO();
         }
-        this.aDa = aVar;
+        this.aCn = aVar;
     }
 
     public int getCols() {
@@ -61,12 +61,12 @@ public abstract class c {
         this.cols = i;
     }
 
-    public int Ds() {
-        return this.aDb;
+    public int Dn() {
+        return this.aCo;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void eJ(int i) {
-        this.aDb = i;
+        this.aCo = i;
     }
 }

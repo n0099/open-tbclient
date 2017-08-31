@@ -1,51 +1,32 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
-public class ai {
-    public static void GT() {
-        com.baidu.adp.lib.b.d.fh().f(r.class);
-        com.baidu.adp.lib.b.d.fh().f(a.class);
-        com.baidu.adp.lib.b.d.fh().f(b.class);
-        com.baidu.adp.lib.b.d.fh().f(c.class);
-        com.baidu.adp.lib.b.d.fh().f(d.class);
-        com.baidu.adp.lib.b.d.fh().f(f.class);
-        com.baidu.adp.lib.b.d.fh().f(e.class);
-        com.baidu.adp.lib.b.d.fh().f(h.class);
-        com.baidu.adp.lib.b.d.fh().f(i.class);
-        com.baidu.adp.lib.b.d.fh().f(k.class);
-        com.baidu.adp.lib.b.d.fh().f(l.class);
-        com.baidu.adp.lib.b.d.fh().f(m.class);
-        com.baidu.adp.lib.b.d.fh().f(n.class);
-        com.baidu.adp.lib.b.d.fh().f(o.class);
-        com.baidu.adp.lib.b.d.fh().f(p.class);
-        com.baidu.adp.lib.b.d.fh().f(q.class);
-        com.baidu.adp.lib.b.d.fh().f(s.class);
-        com.baidu.adp.lib.b.d.fh().f(t.class);
-        com.baidu.adp.lib.b.d.fh().f(u.class);
-        com.baidu.adp.lib.b.d.fh().f(w.class);
-        com.baidu.adp.lib.b.d.fh().f(x.class);
-        com.baidu.adp.lib.b.d.fh().f(y.class);
-        com.baidu.adp.lib.b.d.fh().f(z.class);
-        com.baidu.adp.lib.b.d.fh().f(aa.class);
-        com.baidu.adp.lib.b.d.fh().f(ae.class);
-        com.baidu.adp.lib.b.d.fh().f(af.class);
-        com.baidu.adp.lib.b.d.fh().f(ag.class);
-        com.baidu.adp.lib.b.d.fh().f(ah.class);
-        com.baidu.adp.lib.b.d.fh().f(ak.class);
-        com.baidu.adp.lib.b.d.fh().f(al.class);
-        com.baidu.adp.lib.b.d.fh().f(am.class);
-        com.baidu.adp.lib.b.d.fh().f(ao.class);
-        com.baidu.adp.lib.b.d.fh().f(ap.class);
-        com.baidu.adp.lib.b.d.fh().f(ar.class);
-        com.baidu.adp.lib.b.d.fh().f(at.class);
-        com.baidu.adp.lib.b.d.fh().f(au.class);
-        com.baidu.adp.lib.b.d.fh().f(aq.class);
-        com.baidu.adp.lib.b.d.fh().f(v.class);
-        com.baidu.adp.lib.b.d.fh().f(ac.class);
-        com.baidu.adp.lib.b.d.fh().f(aj.class);
-        com.baidu.adp.lib.b.d.fh().f(g.class);
-        com.baidu.adp.lib.b.d.fh().f(ad.class);
-        com.baidu.adp.lib.b.d.fh().f(an.class);
-        com.baidu.adp.lib.b.d.fh().f(ab.class);
-        com.baidu.adp.lib.b.d.fh().f(as.class);
+public class ai extends com.baidu.adp.lib.b.a {
+    @Override // com.baidu.adp.lib.b.a
+    protected void X(int i) {
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return "android_im_window_open";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] eN() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eO() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eP() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eQ() {
+        return 10;
     }
 }

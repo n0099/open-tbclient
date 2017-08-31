@@ -290,7 +290,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.cr().getResources();
+            Resources resources = g.cg().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -363,7 +363,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onActivityResult", new Class[]{Integer.TYPE, Integer.TYPE, Intent.class}, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent});
+            d.invokeMethod(this.mEntity, "onActivityResult", new Class[]{Integer.TYPE, Integer.TYPE, Intent.class}, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent});
         } else {
             super.onActivityResult(i, i2, intent);
         }
@@ -372,7 +372,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity, android.view.ContextThemeWrapper
     protected void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onApplyThemeResource", new Class[]{Resources.Theme.class, Integer.TYPE, Boolean.TYPE}, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)});
+            d.invokeMethod(this.mEntity, "onApplyThemeResource", new Class[]{Resources.Theme.class, Integer.TYPE, Boolean.TYPE}, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)});
         } else {
             super.onApplyThemeResource(theme, i, z);
         }
@@ -399,7 +399,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onChildTitleChanged(Activity activity, CharSequence charSequence) {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onChildTitleChanged", new Class[]{Activity.class, CharSequence.class}, new Object[]{activity, charSequence});
+            d.invokeMethod(this.mEntity, "onChildTitleChanged", new Class[]{Activity.class, CharSequence.class}, new Object[]{activity, charSequence});
         } else {
             super.onChildTitleChanged(activity, charSequence);
         }
@@ -443,7 +443,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
         this.mEntity = null;
         loadEntityActivity();
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onCreate", new Class[]{Bundle.class}, new Object[]{bundle});
+            d.invokeMethod(this.mEntity, "onCreate", new Class[]{Bundle.class}, new Object[]{bundle});
         } else {
             super.onCreate(bundle);
         }
@@ -466,7 +466,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
 
     @Override // android.app.Activity
     protected Dialog onCreateDialog(int i) {
-        return this.mEntity != null ? (Dialog) d.a(this.mEntity, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i)}) : super.onCreateDialog(i);
+        return this.mEntity != null ? (Dialog) d.invokeMethod(this.mEntity, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i)}) : super.onCreateDialog(i);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -492,7 +492,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onDestroy() {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onDestroy", new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, "onDestroy", new Class[0], new Object[0]);
         } else {
             super.onDestroy();
         }
@@ -549,7 +549,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onNewIntent", new Class[]{Intent.class}, new Object[]{intent});
+            d.invokeMethod(this.mEntity, "onNewIntent", new Class[]{Intent.class}, new Object[]{intent});
         } else {
             super.onNewIntent(intent);
         }
@@ -581,7 +581,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onPause() {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onPause", new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, "onPause", new Class[0], new Object[0]);
         } else {
             super.onPause();
         }
@@ -590,7 +590,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onPostCreate(Bundle bundle) {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onPostCreate", new Class[]{Bundle.class}, new Object[]{bundle});
+            d.invokeMethod(this.mEntity, "onPostCreate", new Class[]{Bundle.class}, new Object[]{bundle});
         } else {
             super.onPostCreate(bundle);
         }
@@ -599,7 +599,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onPostResume() {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onPostResume", new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, "onPostResume", new Class[0], new Object[0]);
         } else {
             super.onPostResume();
         }
@@ -627,7 +627,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onRestart() {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onRestart", new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, "onRestart", new Class[0], new Object[0]);
         } else {
             super.onRestart();
         }
@@ -636,7 +636,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onRestoreInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
+            d.invokeMethod(this.mEntity, "onRestoreInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
         } else {
             super.onRestoreInstanceState(bundle);
         }
@@ -645,7 +645,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onResume() {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onResume", new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, "onResume", new Class[0], new Object[0]);
         } else {
             super.onResume();
         }
@@ -659,7 +659,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onSaveInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
+            d.invokeMethod(this.mEntity, "onSaveInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
         } else {
             super.onSaveInstanceState(bundle);
         }
@@ -673,7 +673,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onStart() {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onStart", new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, "onStart", new Class[0], new Object[0]);
         } else {
             super.onStart();
         }
@@ -682,7 +682,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onStop() {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onStop", new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, "onStop", new Class[0], new Object[0]);
         } else {
             super.onStop();
         }
@@ -691,7 +691,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onTitleChanged(CharSequence charSequence, int i) {
         if (this.mEntity != null) {
-            d.a(this.mEntity, "onTitleChanged", new Class[]{CharSequence.class, Integer.TYPE}, new Object[]{charSequence, Integer.valueOf(i)});
+            d.invokeMethod(this.mEntity, "onTitleChanged", new Class[]{CharSequence.class, Integer.TYPE}, new Object[]{charSequence, Integer.valueOf(i)});
         } else {
             super.onTitleChanged(charSequence, i);
         }

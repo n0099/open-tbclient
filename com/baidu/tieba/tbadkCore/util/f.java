@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class f {
-    protected volatile int gmi;
-    protected volatile HashMap<Long, Integer> gmj = new HashMap<>();
-    private volatile int gmh = 0;
+    protected volatile int gkK;
+    protected volatile HashMap<Long, Integer> gkL = new HashMap<>();
+    private volatile int gkJ = 0;
 
     public f(int i) {
-        this.gmi = i;
+        this.gkK = i;
     }
 
-    public void sr(String str) {
+    public void sm(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.gmj.size() >= this.gmi) {
-                    bdc();
+                if (this.gkL.size() >= this.gkK) {
+                    bcn();
                 }
-                this.gmh++;
-                this.gmj.put(valueOf, Integer.valueOf(this.gmh));
+                this.gkJ++;
+                this.gkL.put(valueOf, Integer.valueOf(this.gkJ));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void bdc() {
+    public void bcn() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.gmj.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.gkL.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,19 +47,19 @@ public class f {
                 l2 = l;
             }
             if (l2 != null) {
-                this.gmj.remove(l2);
+                this.gkL.remove(l2);
             } else {
-                this.gmj.clear();
+                this.gkL.clear();
             }
         }
     }
 
-    public boolean ss(String str) {
+    public boolean sn(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.gmj.get(valueOf) != null;
+                z = this.gkL.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -68,18 +68,18 @@ public class f {
         }
     }
 
-    public boolean st(String str) {
+    public boolean so(String str) {
         try {
-            return this.gmj.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.gkL.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void btU() {
+    public void btj() {
         synchronized (this) {
-            this.gmj.clear();
+            this.gkL.clear();
         }
     }
 }

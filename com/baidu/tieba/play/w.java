@@ -3,53 +3,54 @@ package com.baidu.tieba.play;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class w {
-    public String WL;
-    public String aAD;
-    public String bDN;
-    public String fCs;
-    public String fCt;
-    public String fCu;
-    public String fCv;
+    public String VU;
+    public String azO;
+    public String bGH;
+    public String fAU;
+    public String fAV;
+    public String fAW;
+    public String fAX;
+    public String fAY;
     public String mLocate;
     public String mSource;
     public String mUid;
 
-    public aj f(aj ajVar) {
-        if (ajVar != null) {
+    public ak f(ak akVar) {
+        if (akVar != null) {
             if (!StringUtils.isNull(this.mLocate)) {
-                ajVar.aa("obj_locate", this.mLocate);
+                akVar.ad("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.bDN)) {
-                ajVar.aa("tid", this.bDN);
+            if (!StringUtils.isNull(this.bGH)) {
+                akVar.ad("tid", this.bGH);
             }
-            if (!StringUtils.isNull(this.aAD)) {
-                ajVar.aa("fid", this.aAD);
+            if (!StringUtils.isNull(this.azO)) {
+                akVar.ad("fid", this.azO);
             }
             if (!StringUtils.isNull(this.mUid)) {
-                ajVar.aa(SapiAccountManager.SESSION_UID, this.mUid);
+                akVar.ad(SapiAccountManager.SESSION_UID, this.mUid);
             }
             if (!StringUtils.isNull(this.mSource)) {
-                ajVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
+                akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
             }
-            if (!StringUtils.isNull(this.fCs)) {
-                ajVar.aa("obj_param1", this.fCs);
+            if (!StringUtils.isNull(this.fAU)) {
+                akVar.ad("obj_param1", this.fAU);
             }
-            if (!StringUtils.isNull(this.fCt)) {
-                ajVar.aa("obj_param2", this.fCt);
+            if (!StringUtils.isNull(this.fAV)) {
+                akVar.ad("obj_param2", this.fAV);
             }
-            if (!StringUtils.isNull(this.fCu)) {
-                ajVar.aa("obj_param3", this.fCu);
+            if (!StringUtils.isNull(this.fAW)) {
+                akVar.ad("obj_param3", this.fAW);
             }
-            if (!StringUtils.isNull(this.WL)) {
-                ajVar.aa("obj_id", this.WL);
+            if (!StringUtils.isNull(this.VU)) {
+                akVar.ad("obj_id", this.VU);
             }
-            if (!StringUtils.isNull(this.fCv)) {
-                ajVar.aa("ab_tag", this.fCv);
+            if (!StringUtils.isNull(this.fAX)) {
+                akVar.ad("ab_tag", this.fAX);
             }
         }
-        return ajVar;
+        return akVar;
     }
 }

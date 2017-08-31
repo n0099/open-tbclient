@@ -4,17 +4,13 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class j extends e implements com.baidu.tbadk.mvc.b.a {
-    private String bYR;
-    private int bYU;
-    private int bYV;
-    private String bYW;
+    private String cbO;
+    private int cbR;
+    private int cbS;
+    private String cbT;
     private long mForumId;
     private String mForumName;
     private int mThreadNum;
-
-    public long getForumId() {
-        return this.mForumId;
-    }
 
     public String getForumName() {
         return this.mForumName;
@@ -23,13 +19,13 @@ public class j extends e implements com.baidu.tbadk.mvc.b.a {
     public void a(RecommendForumInfo recommendForumInfo) {
         if (recommendForumInfo != null) {
             try {
-                this.bYR = recommendForumInfo.avatar;
+                this.cbO = recommendForumInfo.avatar;
                 this.mForumId = recommendForumInfo.forum_id.longValue();
                 this.mForumName = recommendForumInfo.forum_name;
-                this.bYU = recommendForumInfo.is_like.intValue();
-                this.bYV = recommendForumInfo.member_count.intValue();
+                this.cbR = recommendForumInfo.is_like.intValue();
+                this.cbS = recommendForumInfo.member_count.intValue();
                 this.mThreadNum = recommendForumInfo.thread_count.intValue();
-                this.bYW = recommendForumInfo.slogan;
+                this.cbT = recommendForumInfo.slogan;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

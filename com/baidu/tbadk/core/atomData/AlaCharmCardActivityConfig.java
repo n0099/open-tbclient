@@ -6,6 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class AlaCharmCardActivityConfig extends IntentConfig {
     public static final String CHARM_VALUE = "charm_value";
+    public static final String FLOWER_VALUE = "flower_value";
     public static final String GROUP_ID = "group_id";
     public static final String LIVE_ID = "live_id";
     public static final String LIVE_OWNER_FLAG = "live_owner_flag";

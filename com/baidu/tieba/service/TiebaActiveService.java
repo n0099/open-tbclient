@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.k;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -50,9 +50,9 @@ public class TiebaActiveService extends BdBaseService {
     private String getChannelyFile() {
         String str = null;
         try {
-            File dy = k.dy(TbConfig.CHANNEL_FILE);
-            if (dy != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(dy));
+            File m9do = k.m9do(TbConfig.CHANNEL_FILE);
+            if (m9do != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(m9do));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
@@ -68,9 +68,9 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File dC = k.dC(TbConfig.CHANNEL_FILE);
-                if (dC != null) {
-                    FileWriter fileWriter = new FileWriter(dC);
+                File ds = k.ds(TbConfig.CHANNEL_FILE);
+                if (ds != null) {
+                    FileWriter fileWriter = new FileWriter(ds);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -142,10 +142,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        w fNs;
+        x fLq;
 
         private a() {
-            this.fNs = null;
+            this.fLq = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -153,22 +153,22 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            String uP;
+            String uM;
             try {
-                this.fNs = new w("http://114.113.149.3:8086/partnersService");
-                this.fNs.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.fNs.n("imei", TbadkCoreApplication.getInst().getImei());
-                this.fNs.n("model", Build.MODEL);
-                this.fNs.n("edition", TbConfig.getVersion());
-                this.fNs.n("system", Build.VERSION.SDK);
-                this.fNs.vm().wi().wl().mIsBaiduServer = false;
-                uP = this.fNs.uP();
+                this.fLq = new x("http://114.113.149.3:8086/partnersService");
+                this.fLq.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.fLq.n("imei", TbadkCoreApplication.getInst().getImei());
+                this.fLq.n("model", Build.MODEL);
+                this.fLq.n("edition", TbConfig.getVersion());
+                this.fLq.n("system", Build.VERSION.SDK);
+                this.fLq.vj().wf().wi().mIsBaiduServer = false;
+                uM = this.fLq.uM();
             } catch (Exception e) {
                 b.getInstance().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.fNs.vp()) {
-                return uP;
+            if (this.fLq.vm()) {
+                return uM;
             }
             return null;
         }
@@ -176,8 +176,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.fNs != null) {
-                this.fNs.fA();
+            if (this.fLq != null) {
+                this.fLq.fp();
             }
             super.cancel(true);
         }

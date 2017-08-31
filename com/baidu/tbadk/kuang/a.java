@@ -21,11 +21,11 @@ import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
 public class a {
-    public static int aHa = 0;
-    private static String mBduss = "";
+    public static int aGs = 0;
+    private static String wq = "";
     private static String mUserId = "";
-    private static String TQ = "";
-    private static d aHb = null;
+    private static String SS = "";
+    private static d aGt = null;
 
     public static void a(int i, String str, Class<?>[] clsArr, Object[] objArr, String str2, HostInvokeCallback hostInvokeCallback) {
         try {
@@ -53,8 +53,8 @@ public class a {
     }
 
     public static void a(TbPageContext<?> tbPageContext, AccountData accountData) {
-        aHb = new d(tbPageContext);
-        aHb.a(new d.a() { // from class: com.baidu.tbadk.kuang.a.1
+        aGt = new d(tbPageContext);
+        aGt.a(new d.a() { // from class: com.baidu.tbadk.kuang.a.1
             @Override // com.baidu.tbadk.coreExtra.view.d.a
             public void j(AccountData accountData2) {
                 b.b(accountData2);
@@ -64,31 +64,31 @@ public class a {
                 a.c(new ReLoginFromKuangMessage(true));
             }
         });
-        aHb.b(new d.a() { // from class: com.baidu.tbadk.kuang.a.2
+        aGt.b(new d.a() { // from class: com.baidu.tbadk.kuang.a.2
             @Override // com.baidu.tbadk.coreExtra.view.d.a
             public void j(AccountData accountData2) {
                 b.b(null);
-                b.pi();
+                b.pc();
                 TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp());
             }
         });
-        aHb.Bn();
-        aHb.i(accountData);
-        aHb.Bj();
+        aGt.Bi();
+        aGt.i(accountData);
+        aGt.Be();
     }
 
-    public static void bR(final boolean z) {
-        final a.InterfaceC0040a interfaceC0040a = new a.InterfaceC0040a() { // from class: com.baidu.tbadk.kuang.a.3
-            @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
-            public void cz(String str) {
+    public static void bQ(final boolean z) {
+        final a.InterfaceC0044a interfaceC0044a = new a.InterfaceC0044a() { // from class: com.baidu.tbadk.kuang.a.3
+            @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
+            public void cp(String str) {
             }
 
-            @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
+            @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
             public void a(AccountData accountData) {
                 if (TextUtils.isEmpty(accountData.getAccount())) {
                     if (z) {
-                        if (i.aa(com.baidu.adp.base.a.cl().cm()) != null) {
-                            a.a((TbPageContext) i.aa(com.baidu.adp.base.a.cl().cm()), accountData);
+                        if (i.X(com.baidu.adp.base.a.ca().cb()) != null) {
+                            a.a((TbPageContext) i.X(com.baidu.adp.base.a.ca().cb()), accountData);
                             return;
                         }
                         return;
@@ -106,7 +106,7 @@ public class a {
                 a.c(new ReLoginFromKuangMessage(true));
             }
 
-            @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
+            @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
             public void c(String str, int i, String str2) {
                 k.showToast(TbadkCoreApplication.getInst().getApp(), str2);
                 a.c(new ReLoginFromKuangMessage(false));
@@ -116,13 +116,13 @@ public class a {
             @Override // com.baidu.searchbox.plugin.api.HostInvokeCallback
             public void onResult(int i, Object obj) {
                 if (i == 0) {
-                    String unused = a.TQ = (String) obj;
-                    if (a.mBduss == null) {
-                        a.EJ();
+                    String unused = a.SS = (String) obj;
+                    if (a.wq == null) {
+                        a.EH();
                         return;
                     }
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
-                    com.baidu.tieba.model.b.a(a.mUserId, a.mBduss, a.TQ, null, a.InterfaceC0040a.this);
+                    com.baidu.tieba.model.b.a(a.mUserId, a.wq, a.SS, null, a.InterfaceC0044a.this);
                 }
             }
         };
@@ -130,7 +130,7 @@ public class a {
             @Override // com.baidu.searchbox.plugin.api.HostInvokeCallback
             public void onResult(int i, Object obj) {
                 if (i == 0) {
-                    String unused = a.mBduss = (String) obj;
+                    String unused = a.wq = (String) obj;
                     a.a("getPToken", new Class[0], new Object[0], HostInvokeCallback.this);
                 }
             }
@@ -147,15 +147,15 @@ public class a {
     }
 
     public static void c(final CustomResponsedMessage<?> customResponsedMessage) {
-        e.ga().postDelayed(new Runnable() { // from class: com.baidu.tbadk.kuang.a.7
+        e.fQ().postDelayed(new Runnable() { // from class: com.baidu.tbadk.kuang.a.7
             @Override // java.lang.Runnable
             public void run() {
                 MessageManager.getInstance().dispatchResponsedMessage(CustomResponsedMessage.this);
             }
-        }, aHa);
+        }, aGs);
     }
 
-    public static void EJ() {
+    public static void EH() {
         a("login", new Class[0], new Object[0], new HostInvokeCallback() { // from class: com.baidu.tbadk.kuang.a.8
             @Override // com.baidu.searchbox.plugin.api.HostInvokeCallback
             public void onResult(int i, Object obj) {

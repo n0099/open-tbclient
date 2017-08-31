@@ -13,20 +13,20 @@ import java.util.Enumeration;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static final String adn = "code_cache" + File.separator + "secondary-dexes";
+    private static final String act = "code_cache" + File.separator + "secondary-dexes";
 
-    private static SharedPreferences aw(Context context) {
+    private static SharedPreferences aB(Context context) {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
     }
 
-    public static List<String> ax(Context context) throws PackageManager.NameNotFoundException, IOException {
+    public static List<String> aC(Context context) throws PackageManager.NameNotFoundException, IOException {
         ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
         File file = new File(applicationInfo.sourceDir);
-        File file2 = new File(applicationInfo.dataDir, adn);
+        File file2 = new File(applicationInfo.dataDir, act);
         ArrayList arrayList = new ArrayList();
         arrayList.add(applicationInfo.sourceDir);
         String str = file.getName() + ".classes";
-        int i = aw(context).getInt("dex.number", 1);
+        int i = aB(context).getInt("dex.number", 1);
         for (int i2 = 2; i2 <= i; i2++) {
             File file3 = new File(file2, str + i2 + ".zip");
             if (file3.isFile()) {
@@ -38,9 +38,9 @@ public class b {
         return arrayList;
     }
 
-    public static void ay(Context context) throws PackageManager.NameNotFoundException, IOException {
+    public static void aD(Context context) throws PackageManager.NameNotFoundException, IOException {
         DexFile dexFile;
-        for (String str : ax(context)) {
+        for (String str : aC(context)) {
             try {
                 if (str.endsWith(".zip")) {
                     dexFile = DexFile.loadDex(str, str + ".tmp", 0);

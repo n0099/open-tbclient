@@ -1,14 +1,14 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class p extends j {
-    private static final p aLX = new p();
+    private static final p aLB = new p();
 
-    public static boolean GS() {
-        return aLX.ge();
+    public static boolean GQ() {
+        return aLB.fT();
     }
 
     @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
     protected String getName() {
-        return "is_auto_play_forumheadvideo";
+        return "android_show_call_followers";
     }
 }

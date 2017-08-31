@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class ClientStartStatic {
     static {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             new a().execute(new Void[0]);
             MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.tblauncher.ClientStartStatic.1
-                private long mTimeStamp;
+                private long ddF;
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
@@ -26,13 +26,13 @@ public class ClientStartStatic {
                     Boolean data;
                     if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
                         if (data.booleanValue()) {
-                            this.mTimeStamp = SystemClock.elapsedRealtime();
+                            this.ddF = SystemClock.elapsedRealtime();
                             return;
                         }
-                        if (SystemClock.elapsedRealtime() - this.mTimeStamp > 30000) {
+                        if (SystemClock.elapsedRealtime() - this.ddF > 30000) {
                             new a().execute(new Void[0]);
                         }
-                        TiebaStatic.log(new aj("c11894").r("obj_param1", 1));
+                        TiebaStatic.log(new ak("c11894").r("obj_param1", 1));
                     }
                 }
             });
@@ -49,9 +49,9 @@ public class ClientStartStatic {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            w wVar = new w(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
-            wVar.n("type", "1");
-            wVar.uP();
+            x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
+            xVar.n("type", "1");
+            xVar.uM();
             return null;
         }
     }

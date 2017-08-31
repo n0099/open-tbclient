@@ -24,7 +24,7 @@ public class GraffitiVcodeActivityConfig extends IntentConfig {
         getIntent().putExtra(VCODE_MD5, str2);
         getIntent().putExtra("forum_id", str3);
         getIntent().putExtra("thread_id", str4);
-        getIntent().putExtra(PIC_ID, str5);
+        getIntent().putExtra("pic_id", str5);
         getIntent().putExtra("width", i2);
         getIntent().putExtra("height", i3);
         getIntent().putExtra(CHECK_STR, str6);

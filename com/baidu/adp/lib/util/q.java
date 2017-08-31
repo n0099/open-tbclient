@@ -9,7 +9,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class q {
     /* JADX WARN: Type inference failed for: r4v11, types: [T, java.lang.String] */
-    public static List<l.c<String>> b(com.baidu.adp.lib.cache.l<String> lVar) {
+    public static List<l.b<String>> b(com.baidu.adp.lib.cache.l<String> lVar) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();
         try {
@@ -23,12 +23,12 @@ public class q {
         }
         while (cursor.moveToNext()) {
             try {
-                l.c cVar = new l.c();
-                cVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                cVar.vv = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                cVar.vg = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                cVar.up = cursor.getString(cursor.getColumnIndex("m_value"));
-                linkedList.add(cVar);
+                l.b bVar = new l.b();
+                bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
+                bVar.ti = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.sS = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.rY = cursor.getString(cursor.getColumnIndex("m_value"));
+                linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;
                 try {
@@ -45,8 +45,8 @@ public class q {
         return linkedList;
     }
 
-    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
-    public static List<l.c<byte[]>> c(com.baidu.adp.lib.cache.l<byte[]> lVar) {
+    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
+    public static List<l.b<byte[]>> c(com.baidu.adp.lib.cache.l<byte[]> lVar) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();
         try {
@@ -60,12 +60,12 @@ public class q {
         }
         while (cursor.moveToNext()) {
             try {
-                l.c cVar = new l.c();
-                cVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                cVar.vv = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                cVar.vg = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                cVar.up = cursor.getBlob(cursor.getColumnIndex("m_value"));
-                linkedList.add(cVar);
+                l.b bVar = new l.b();
+                bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
+                bVar.ti = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.sS = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.rY = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;
                 try {
@@ -83,11 +83,11 @@ public class q {
     }
 
     private static Cursor d(com.baidu.adp.lib.cache.l<?> lVar) {
-        if (lVar != null && (lVar instanceof l.d)) {
-            l.d dVar = (l.d) lVar;
-            if (dVar.eT() instanceof com.baidu.adp.lib.cache.j) {
-                com.baidu.adp.lib.cache.c eP = ((com.baidu.adp.lib.cache.j) dVar.eT()).eP();
-                return eP.d(eP.eH().cs(), dVar.eS());
+        if (lVar != null && (lVar instanceof l.c)) {
+            l.c cVar = (l.c) lVar;
+            if (cVar.eI() instanceof com.baidu.adp.lib.cache.j) {
+                com.baidu.adp.lib.cache.c eE = ((com.baidu.adp.lib.cache.j) cVar.eI()).eE();
+                return eE.d(eE.ew().ch(), cVar.eH());
             }
             return null;
         }
@@ -96,18 +96,18 @@ public class q {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class a implements Comparator<l.c<?>> {
+    public static class a implements Comparator<l.b<?>> {
         private a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
-        public int compare(l.c<?> cVar, l.c<?> cVar2) {
-            if (cVar.vv == cVar2.vv) {
+        public int compare(l.b<?> bVar, l.b<?> bVar2) {
+            if (bVar.ti == bVar2.ti) {
                 return 0;
             }
-            return cVar.vv > cVar2.vv ? -1 : 1;
+            return bVar.ti > bVar2.ti ? -1 : 1;
         }
     }
 }

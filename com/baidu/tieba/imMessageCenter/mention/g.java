@@ -16,37 +16,37 @@ import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes2.dex */
 public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter dFV;
-    private e dGi;
-    private boolean dGj = false;
-    private CustomMessageListener dGk = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.mention.g.1
+    private e dMM;
+    private ViewEventCenter dMz;
+    private boolean dMN = false;
+    private CustomMessageListener dMO = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.mention.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (g.this.dGi != null) {
-                    g.this.dGi.ha(true);
+                if (g.this.dMM != null) {
+                    g.this.dMM.hi(true);
                 }
                 MentionActivityConfig.newJumpIn = true;
-                if (g.this.dGi != null) {
-                    g.this.dGi.aht();
-                    g.this.dGi.A(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
+                if (g.this.dMM != null) {
+                    g.this.dMM.ajg();
+                    g.this.dMM.B(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
         }
     };
-    private CustomMessageListener dFW = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.g.2
+    private CustomMessageListener dMA = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.g.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (g.this.dGi != null) {
-                    g.this.dGi.onNewIntent(intent);
+                if (g.this.dMM != null) {
+                    g.this.dMM.onNewIntent(intent);
                 }
             }
         }
@@ -54,38 +54,38 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.dGi = new e(this);
+        this.dMM = new e(this);
         if (bundle != null) {
-            this.dGi.i(bundle);
+            this.dMM.l(bundle);
         } else {
-            this.dGi.i((Bundle) null);
+            this.dMM.l((Bundle) null);
         }
-        View Yj = this.dGi.Yj();
-        this.dGi.hc(this.dGj);
-        this.dGi.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        FN().addEventDelegate(this);
-        registerListener(this.dGk);
-        registerListener(this.dFW);
-        TiebaStatic.log(new aj("c11941"));
-        return Yj;
+        View Zm = this.dMM.Zm();
+        this.dMM.hk(this.dMN);
+        this.dMM.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        FL().addEventDelegate(this);
+        registerListener(this.dMO);
+        registerListener(this.dMA);
+        TiebaStatic.log(new ak("c11941"));
+        return Zm;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
-        if (getActivity() != null && U(getActivity().getIntent())) {
-            this.dGi.onNewIntent(getActivity().getIntent());
+        if (getActivity() != null && V(getActivity().getIntent())) {
+            this.dMM.onNewIntent(getActivity().getIntent());
         } else {
-            this.dGi.aht();
+            this.dMM.ajg();
         }
         super.onViewCreated(view, bundle);
     }
 
-    private boolean U(Intent intent) {
+    private boolean V(Intent intent) {
         return (intent == null || intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1) == -1) ? false : true;
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean Fe() {
+    public boolean Fc() {
         return false;
     }
 
@@ -94,17 +94,17 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         return bVar == null;
     }
 
-    public ViewEventCenter FN() {
-        if (this.dFV == null) {
-            this.dFV = new ViewEventCenter();
+    public ViewEventCenter FL() {
+        if (this.dMz == null) {
+            this.dMz = new ViewEventCenter();
         }
-        return this.dFV;
+        return this.dMz;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.dGi != null) {
-            this.dGi.b(getPageContext(), i);
+        if (this.dMM != null) {
+            this.dMM.b(getPageContext(), i);
         }
     }
 
@@ -144,10 +144,10 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     public void onDestroy() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOME_NOTIFY_MSG, false));
         super.onDestroy();
-        this.dGi.onActivityDestroy();
+        this.dMM.onActivityDestroy();
     }
 
-    public void hd(boolean z) {
-        this.dGj = z;
+    public void hl(boolean z) {
+        this.dMN = z;
     }
 }

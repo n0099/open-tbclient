@@ -6,14 +6,14 @@ import com.baidu.tieba.frs.entelechy.a.q;
 import com.baidu.tieba.frs.f;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tieba.frs.entelechy.b.a {
-    private a cnu;
+    private a ctY;
 
-    public com.baidu.tieba.frs.entelechy.b.d z(f fVar) {
+    public com.baidu.tieba.frs.entelechy.b.d y(f fVar) {
         return new com.baidu.tieba.frs.entelechy.c.a(fVar);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b agH() {
+    public com.baidu.tieba.frs.entelechy.b.b ait() {
         return new d();
     }
 
@@ -22,9 +22,9 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
         if (fVar == null) {
             return null;
         }
-        this.cnu = new c(fVar, null, null, i);
-        this.cnu.a(fVar.afh());
-        return this.cnu;
+        this.ctY = new c(fVar, null, null, i);
+        this.ctY.a(fVar.agF());
+        return this.ctY;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
@@ -35,21 +35,21 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.frs.entelechy.b.a
     /* renamed from: a */
-    public com.baidu.tieba.frs.g.d c(f fVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (fVar.afK()) {
+    public com.baidu.tieba.frs.h.d c(f fVar, NoPressedRelativeLayout noPressedRelativeLayout) {
+        if (fVar.ahi()) {
             return null;
         }
-        return new com.baidu.tieba.frs.g.d(fVar, noPressedRelativeLayout);
+        return new com.baidu.tieba.frs.h.d(fVar, noPressedRelativeLayout);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
     public com.baidu.tieba.frs.entelechy.b.c b(f fVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        return new com.baidu.tieba.frs.g.b(fVar, noPressedRelativeLayout);
+        return new com.baidu.tieba.frs.h.b(fVar, noPressedRelativeLayout);
     }
 
-    public c agI() {
-        if (this.cnu instanceof c) {
-            return (c) this.cnu;
+    public c aiu() {
+        if (this.ctY instanceof c) {
+            return (c) this.ctY;
         }
         return null;
     }

@@ -20,7 +20,7 @@ public class au extends h.b {
     @Override // com.xiaomi.channel.commonutils.misc.h.b
     public void b() {
         try {
-            a.C0143a b = a.C0143a.b(Base64.decode(HttpUtils.a(com.xiaomi.channel.commonutils.android.j.a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.channel.commonutils.network.c>) null), 10));
+            a.C0146a b = a.C0146a.b(Base64.decode(HttpUtils.a(com.xiaomi.channel.commonutils.android.j.a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.channel.commonutils.network.c>) null), 10));
             if (b != null) {
                 this.b.c = b;
                 this.a = true;
@@ -36,7 +36,7 @@ public class au extends h.b {
         List list;
         List list2;
         at.a[] aVarArr;
-        a.C0143a c0143a;
+        a.C0146a c0146a;
         this.b.d = null;
         if (this.a) {
             synchronized (this.b) {
@@ -45,8 +45,8 @@ public class au extends h.b {
                 aVarArr = (at.a[]) list.toArray(new at.a[list2.size()]);
             }
             for (at.a aVar : aVarArr) {
-                c0143a = this.b.c;
-                aVar.a(c0143a);
+                c0146a = this.b.c;
+                aVar.a(c0146a);
             }
         }
     }

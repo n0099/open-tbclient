@@ -1,32 +1,20 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
-public class ag extends com.baidu.adp.lib.b.a {
-    @Override // com.baidu.adp.lib.b.a
-    protected void aa(int i) {
+public class ag extends j {
+    private static ag aLF = new ag();
+
+    public static boolean GR() {
+        return aLF.fT();
     }
 
-    @Override // com.baidu.adp.lib.b.a
+    @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_im_window_open";
+        return "android_custom_offline_web_cache";
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] eY() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eZ() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int fa() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int fb() {
-        return 10;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
+    public int eO() {
+        return super.eO();
     }
 }

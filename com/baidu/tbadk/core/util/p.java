@@ -1,31 +1,32 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Handler;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public interface p {
-    void a(BasicNameValuePair basicNameValuePair);
+public abstract class p {
+    public static p afw = null;
 
-    boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
+    public abstract com.baidu.tbadk.core.data.l getmCdnLogData();
 
-    void d(String str, byte[] bArr);
+    public abstract void insertErrorData(int i, String str);
 
-    void fA();
+    public abstract void insertNormalData(long j, String str);
 
-    void fD();
+    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.l lVar);
 
-    void k(ArrayList<BasicNameValuePair> arrayList);
-
-    void n(String str, String str2);
-
-    ArrayList<BasicNameValuePair> uO();
-
-    String uP();
-
-    String uQ();
-
-    String uR();
-
-    byte[] ug();
+    public static p getInstance() {
+        if (afw == null) {
+            synchronized (p.class) {
+                if (afw == null) {
+                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, p.class);
+                    if (runTask != null && runTask.getData() != null) {
+                        afw = (p) runTask.getData();
+                    }
+                    return afw;
+                }
+            }
+        }
+        return afw;
+    }
 }

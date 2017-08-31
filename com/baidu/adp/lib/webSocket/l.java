@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private String BE;
-    private int Cr;
-    private int Cs;
-    private boolean Ct;
-    private boolean Cu;
-    private int Cv;
-    private int Cw;
-    private boolean Cx;
-    private boolean Cy;
+    private int Al;
+    private int Am;
+    private boolean An;
+    private boolean Ao;
+    private int Ap;
+    private int Aq;
+    private boolean Ar;
+    private boolean As;
+    private String zx;
 
     public l() {
-        this.BE = null;
-        this.Cr = 32768;
-        this.Cs = 131072;
-        this.Ct = false;
-        this.Cu = true;
-        this.Cv = 30000;
-        this.Cw = 30000;
-        this.Cx = true;
-        this.Cy = true;
-        this.BE = null;
+        this.zx = null;
+        this.Al = 32768;
+        this.Am = 131072;
+        this.An = false;
+        this.Ao = true;
+        this.Ap = 30000;
+        this.Aq = 30000;
+        this.Ar = true;
+        this.As = true;
+        this.zx = null;
     }
 
     public l(l lVar) {
-        this.BE = null;
-        this.Cr = lVar.Cr;
-        this.Cs = lVar.Cs;
-        this.Ct = lVar.Ct;
-        this.Cu = lVar.Cu;
-        this.Cv = lVar.Cv;
-        this.Cw = lVar.Cw;
-        this.Cx = lVar.Cx;
-        this.Cy = lVar.Cy;
-        this.BE = lVar.BE;
+        this.zx = null;
+        this.Al = lVar.Al;
+        this.Am = lVar.Am;
+        this.An = lVar.An;
+        this.Ao = lVar.Ao;
+        this.Ap = lVar.Ap;
+        this.Aq = lVar.Aq;
+        this.Ar = lVar.Ar;
+        this.As = lVar.As;
+        this.zx = lVar.zx;
     }
 
-    public boolean it() {
-        return this.Ct;
+    public boolean il() {
+        return this.An;
     }
 
-    public int iu() {
-        return this.Cr;
+    public int im() {
+        return this.Al;
     }
 
-    public int iv() {
-        return this.Cs;
+    public int in() {
+        return this.Am;
     }
 
     public boolean getTcpNoDelay() {
-        return this.Cu;
+        return this.Ao;
     }
 
-    public int iw() {
-        return this.Cv;
+    public int io() {
+        return this.Ap;
     }
 
-    public int ix() {
-        return this.Cw;
+    public int ip() {
+        return this.Aq;
     }
 
-    public boolean iy() {
-        return this.Cx;
+    public boolean iq() {
+        return this.Ar;
     }
 
-    public boolean iz() {
-        return this.Cy;
+    public boolean ir() {
+        return this.As;
     }
 
-    public String iA() {
-        return this.BE;
+    public String is() {
+        return this.zx;
     }
 
-    public void aZ(String str) {
-        this.BE = str;
+    public void aV(String str) {
+        this.zx = str;
     }
 }

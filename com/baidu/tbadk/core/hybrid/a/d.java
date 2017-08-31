@@ -5,21 +5,21 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.hybrid.p;
 import com.baidu.tbadk.core.hybrid.t;
 import com.baidu.tbadk.core.hybrid.u;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d extends t {
-    private TbPageContext<?> acr;
+    private TbPageContext<?> aby;
 
     public d(p pVar, TbPageContext<?> tbPageContext) {
         super(pVar);
-        this.acr = tbPageContext;
+        this.aby = tbPageContext;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.t
-    public String oi() {
+    public String oc() {
         return "TBHY_COMMON_Navigator";
     }
 
@@ -28,7 +28,7 @@ public class d extends t {
         if (jSONObject != null) {
             String optString = jSONObject.optString("url");
             if (!StringUtils.isNull(optString)) {
-                at.wg().c(this.acr, new String[]{optString});
+                au.wd().c(this.aby, new String[]{optString});
             }
         }
     }

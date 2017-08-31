@@ -4,57 +4,62 @@ import android.content.Context;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.i;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.f;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
 import com.baidu.tieba.card.data.n;
 import com.baidu.tieba.homepage.concern.a.e;
+import com.baidu.tieba.homepage.concern.a.f;
 import com.baidu.tieba.story.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private BdTypeListView aTP;
-    private List<com.baidu.adp.widget.ListView.a> cRC = new ArrayList();
-    private com.baidu.tieba.a.d cRD;
-    private com.baidu.tieba.homepage.concern.a.d cRE;
-    private com.baidu.tieba.homepage.concern.a.a cRF;
-    private com.baidu.tieba.homepage.concern.a.c cRG;
-    private e cRH;
-    private e cRI;
-    private com.baidu.tieba.homepage.concern.a.b cRJ;
-    private g cny;
-    private TbPageContext<?> oW;
+    private BdTypeListView aTz;
+    private List<com.baidu.adp.widget.ListView.a> cXU = new ArrayList();
+    private com.baidu.tieba.a.d cXV;
+    private e cXW;
+    private com.baidu.tieba.homepage.concern.a.b cXX;
+    private com.baidu.tieba.homepage.concern.a.a cXY;
+    private com.baidu.tieba.homepage.concern.a.d cXZ;
+    private f cYa;
+    private f cYb;
+    private com.baidu.tieba.homepage.concern.a.c cYc;
+    private boolean cYd;
+    private g cuc;
+    private TbPageContext<?> mF;
+    private BdUniqueId mId;
 
     public a(Context context, BdTypeListView bdTypeListView) {
-        this.aTP = bdTypeListView;
-        this.oW = (TbPageContext) i.aa(context);
-        bm(context);
-        bdTypeListView.addAdapters(this.cRC);
+        this.aTz = bdTypeListView;
+        this.mF = (TbPageContext) i.X(context);
+        bu(context);
+        bdTypeListView.addAdapters(this.cXU);
     }
 
-    private void bm(Context context) {
-        this.cRD = new com.baidu.tieba.a.d(this.oW, com.baidu.tbadk.data.e.aAy);
-        this.cRG = new com.baidu.tieba.homepage.concern.a.c(this.oW, l.TYPE);
-        this.cRH = new e(this.oW, n.bKx);
-        this.cRI = new e(this.oW, n.bKy);
-        this.cRE = new com.baidu.tieba.homepage.concern.a.d(this.oW.getContext());
-        this.cRF = new com.baidu.tieba.homepage.concern.a.a(this.oW);
-        this.cRJ = new com.baidu.tieba.homepage.concern.a.b(this.oW, k.TYPE);
-        this.cny = new g(this.oW, this.oW.getUniqueId(), 1, 0L, "");
-        this.cRD.setClickListener(this.cny);
-        this.cRC.add(this.cRD);
-        this.cRC.add(this.cRG);
-        this.cRC.add(this.cRH);
-        this.cRC.add(this.cRI);
-        this.cRC.add(this.cRE);
-        this.cRC.add(this.cRF);
-        this.cRC.add(this.cRJ);
+    private void bu(Context context) {
+        this.cXV = new com.baidu.tieba.a.d(this.mF, com.baidu.tbadk.data.e.azJ);
+        this.cXZ = new com.baidu.tieba.homepage.concern.a.d(this.mF, l.TYPE);
+        this.cYa = new f(this.mF, n.bNp);
+        this.cYb = new f(this.mF, n.bNq);
+        this.cXW = new e(this.mF.getContext());
+        this.cXX = new com.baidu.tieba.homepage.concern.a.b(this.mF, com.baidu.tieba.homepage.concern.b.b.cYW);
+        this.cXY = new com.baidu.tieba.homepage.concern.a.a(this.mF, com.baidu.tieba.homepage.concern.b.b.cYX);
+        this.cYc = new com.baidu.tieba.homepage.concern.a.c(this.mF, k.TYPE);
+        this.cuc = new g(this.mF, 1, 0L, "");
+        this.cXV.setClickListener(this.cuc);
+        this.cXU.add(this.cXV);
+        this.cXU.add(this.cXZ);
+        this.cXU.add(this.cYa);
+        this.cXU.add(this.cYb);
+        this.cXU.add(this.cXW);
+        this.cXU.add(this.cXX);
+        this.cXU.add(this.cXY);
+        this.cXU.add(this.cYc);
     }
 
-    public void br(List<f> list) {
-        this.aTP.setData(list);
+    public void bv(List<com.baidu.adp.widget.ListView.f> list) {
+        this.aTz.setData(list);
     }
 
     public void onChangeSkinType(int i) {
@@ -62,11 +67,26 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.aTP != null && (this.aTP.getAdapter() instanceof com.baidu.adp.widget.ListView.d)) {
-            ((com.baidu.adp.widget.ListView.d) this.aTP.getAdapter()).notifyDataSetChanged();
+        if (this.aTz != null && (this.aTz.getAdapter() instanceof com.baidu.adp.widget.ListView.d)) {
+            ((com.baidu.adp.widget.ListView.d) this.aTz.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        this.mId = bdUniqueId;
+        this.cYc.aOx = bdUniqueId;
+        this.cXZ.aOx = bdUniqueId;
+        this.cYa.aOx = bdUniqueId;
+        this.cYb.aOx = bdUniqueId;
+        this.cXX.aOx = bdUniqueId;
+        this.cXY.aOx = bdUniqueId;
+        this.cYc.aOx = bdUniqueId;
+    }
+
+    public void apV() {
+        if (!this.cYd) {
+            this.cYd = true;
+            this.cXV.k(this.mId);
+        }
     }
 }

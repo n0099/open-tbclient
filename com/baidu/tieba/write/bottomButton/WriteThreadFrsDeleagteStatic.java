@@ -11,9 +11,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
+import com.baidu.tbadk.mainTab.e;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.ad;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WriteThreadFrsDeleagteStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -21,13 +22,12 @@ public class WriteThreadFrsDeleagteStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c EW() {
+    public c EU() {
         c cVar = new c();
-        cVar.aHI = new a();
+        cVar.aGX = new a();
         cVar.type = 99;
-        cVar.aHJ = d.l.home_write;
-        cVar.aHK = d.g.home_bottom_selector;
-        cVar.aHO = c.aHL;
+        cVar.aGY = d.l.send;
+        cVar.aHf = c.aHc;
         return cVar;
     }
 
@@ -36,12 +36,12 @@ public class WriteThreadFrsDeleagteStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c EX;
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null && ((ad) customResponsedMessage.getData()).iP(99)) {
+                c EV;
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null && ((ad) customResponsedMessage.getData()).jb(99)) {
                     WriteThreadFrsDeleagteStatic writeThreadFrsDeleagteStatic = new WriteThreadFrsDeleagteStatic();
                     ((ad) customResponsedMessage.getData()).b(writeThreadFrsDeleagteStatic);
-                    if (((ad) customResponsedMessage.getData()).getContext() != null && (EX = writeThreadFrsDeleagteStatic.EX()) != null) {
-                        EX.aHI.setArguments(new Bundle());
+                    if (((ad) customResponsedMessage.getData()).getContext() != null && (EV = writeThreadFrsDeleagteStatic.EV()) != null) {
+                        EV.aGX.setArguments(new Bundle());
                     }
                 }
             }
@@ -49,9 +49,9 @@ public class WriteThreadFrsDeleagteStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator aT(Context context) {
-        this.aHv = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
-        this.aHv.setTextSize(2.0f);
-        return this.aHv;
+    public e aY(Context context) {
+        this.aGO = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
+        this.aGO.setTextSize(2.0f);
+        return this.aGO;
     }
 }

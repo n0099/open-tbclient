@@ -7,64 +7,64 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
 /* loaded from: classes.dex */
 public class q {
-    private RelativeLayout bZd;
-    private com.baidu.tbadk.editortools.pb.e eMB;
-    private PbFakeFloorModel eMC;
-    private TbPageContext oW;
+    private RelativeLayout cca;
+    private com.baidu.tbadk.editortools.pb.e eKS;
+    private PbFakeFloorModel eKT;
+    private TbPageContext mF;
 
     public q(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
-        this.oW = tbPageContext;
-        this.bZd = relativeLayout;
-        this.eMC = pbFakeFloorModel;
+        this.mF = tbPageContext;
+        this.cca = relativeLayout;
+        this.eKT = pbFakeFloorModel;
     }
 
-    public void aRR() {
-        if (this.eMB != null) {
-            this.eMB.DY();
+    public void aRi() {
+        if (this.eKS != null) {
+            this.eKS.DT();
         }
     }
 
-    private void aRS() {
-        if (this.bZd != null && this.eMB == null) {
-            this.eMB = (com.baidu.tbadk.editortools.pb.e) new com.baidu.tbadk.editortools.pb.f().aR(this.oW.getPageActivity());
-            this.eMB.a(this.oW);
-            this.eMB.b(this.eMC);
-            this.eMB.Da().bE(true);
-            this.eMB.g(this.oW);
-            aRT();
+    private void aRj() {
+        if (this.cca != null && this.eKS == null) {
+            this.eKS = (com.baidu.tbadk.editortools.pb.e) new com.baidu.tbadk.editortools.pb.f().aW(this.mF.getPageActivity());
+            this.eKS.a(this.mF);
+            this.eKS.b(this.eKT);
+            this.eKS.CV().bD(true);
+            this.eKS.g(this.mF);
+            aRk();
         }
     }
 
     public void bN(String str, String str2) {
-        aRS();
-        this.eMB.setReplyId(str);
-        this.eMB.gk(str2);
+        aRj();
+        this.eKS.setReplyId(str);
+        this.eKS.ge(str2);
     }
 
-    private void aRT() {
-        if (this.bZd != null && this.eMB != null && this.eMB.Da() != null) {
+    private void aRk() {
+        if (this.cca != null && this.eKS != null && this.eKS.CV() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.bZd.addView(this.eMB.Da(), layoutParams);
+            this.cca.addView(this.eKS.CV(), layoutParams);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.eMB != null) {
-            this.eMB.onActivityResult(i, i2, intent);
+        if (this.eKS != null) {
+            this.eKS.onActivityResult(i, i2, intent);
         }
     }
 
     public void onStop() {
-        if (this.eMB != null) {
-            this.eMB.onStop();
+        if (this.eKS != null) {
+            this.eKS.onStop();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eMB != null && this.eMB.Da() != null) {
-            this.eMB.Da().onChangeSkinType(i);
+        if (this.eKS != null && this.eKS.CV() != null) {
+            this.eKS.CV().onChangeSkinType(i);
         }
     }
 }

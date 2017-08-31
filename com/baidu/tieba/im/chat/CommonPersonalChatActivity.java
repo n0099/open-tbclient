@@ -19,23 +19,23 @@ import org.json.JSONObject;
 public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void arM() {
-        super.arM();
+    public void atw() {
+        super.atw();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void R(Intent intent) {
+    public void S(Intent intent) {
         UserData userData = (UserData) intent.getSerializableExtra("user");
         a(userData);
-        ((CommonPersonalMsglistModel) this.dke).setUser(userData);
+        ((CommonPersonalMsglistModel) this.dqJ).setUser(userData);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void l(Bundle bundle) {
+    public void o(Bundle bundle) {
         if (bundle != null && bundle.getString("user") != null) {
             UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
             a(userData);
-            ((CommonPersonalMsglistModel) this.dke).setUser(userData);
+            ((CommonPersonalMsglistModel) this.dqJ).setUser(userData);
         }
     }
 
@@ -43,31 +43,31 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.dke).getUser()));
+        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.dqJ).getUser()));
     }
 
     protected void a(UserData userData) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean arO() {
+    public boolean aty() {
         UserData user;
-        return (!(this.dke instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.dke).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
+        return (!(this.dqJ instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.dqJ).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void k(Bundle bundle) throws Exception {
-        this.dke.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
-        l(bundle);
+    public void n(Bundle bundle) throws Exception {
+        this.dqJ.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
+        o(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void arN() {
+    public void atx() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
-        if (this.dke != null) {
-            this.dke.setIsAcceptNotify(booleanExtra);
-            R(intent);
+        if (this.dqJ != null) {
+            this.dqJ.setIsAcceptNotify(booleanExtra);
+            S(intent);
         }
     }
 
@@ -78,7 +78,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         super.a(view, i, i2, j);
         switch (i) {
             case 7:
-                if (asy() && this.dke != null && (msg = this.dke.getMsg(i2)) != null && com.baidu.tieba.im.util.e.s(msg) && (content = msg.getContent()) != null) {
+                if (aui() && this.dqJ != null && (msg = this.dqJ.getMsg(i2)) != null && com.baidu.tieba.im.util.e.s(msg) && (content = msg.getContent()) != null) {
                     JSONObject jSONObject = null;
                     try {
                         JSONArray jSONArray = new JSONArray(content);
@@ -107,7 +107,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity
-    public String[] s(int i, boolean z) {
-        return super.s(i, true);
+    public String[] t(int i, boolean z) {
+        return super.t(i, true);
     }
 }

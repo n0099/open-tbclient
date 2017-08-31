@@ -2,31 +2,31 @@ package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void aa(int i) {
+    protected void X(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "offline_gift";
+        return "android_game_enter_switch";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eY() {
-        return null;
+    protected String[] eN() {
+        return new String[0];
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eZ() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int fa() {
+    protected int eO() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int fb() {
+    protected int eP() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eQ() {
         return 10;
     }
 }

@@ -22,7 +22,7 @@ public final class c {
                 i = i3;
                 break;
         }
-        if (pullToRefreshBase.isPullToRefreshOverScrollEnabled() && !pullToRefreshBase.isRefreshing()) {
+        if (pullToRefreshBase.Ic() && !pullToRefreshBase.Id()) {
             PullToRefreshBase.Mode mode = pullToRefreshBase.getMode();
             if (mode.permitsPullToRefresh() && !z && i != 0) {
                 int i7 = i + i2;
@@ -50,7 +50,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean L(View view) {
+    public static boolean Q(View view) {
         return view.getOverScrollMode() != 2;
     }
 }

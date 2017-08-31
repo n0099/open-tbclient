@@ -1,190 +1,269 @@
 package com.baidu.tieba.pb.data;
 
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.u;
-import com.baidu.tieba.d;
-import com.baidu.tieba.usermute.MuteUser;
+import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
-import java.util.Iterator;
-import tbclient.PbPage.DataRes;
-import tbclient.SimpleUser;
+import java.util.List;
+import tbclient.Error;
+import tbclient.Page;
+import tbclient.PbFloor.DataRes;
+import tbclient.SubPostList;
 /* loaded from: classes.dex */
-public class m implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId eGy = BdUniqueId.gen();
-    private ArrayList<MuteUser> eGA;
-    private boolean eGz;
-    private long praiseNum;
-    public int eGw = -1;
-    private boolean eGs = false;
+public class m {
+    private int aEb;
+    private bj bgI;
+    private ForumData eEV;
+    private AntiData eFb;
+    public Error eFd;
+    private int mCurrentPage;
+    private int eEZ = 20;
+    private int eFa = -1;
+    private boolean eFc = false;
+    private PostData eEW = null;
+    private ArrayList<PostData> eEX = new ArrayList<>();
+    private int eEY = 1;
 
-    @Override // com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return eGy;
+    public Error aPE() {
+        return this.eFd;
     }
 
-    public void a(DataRes dataRes) {
-        if (dataRes != null) {
-            if (dataRes.thread != null && dataRes.thread.agree != null) {
-                this.praiseNum = dataRes.thread.agree.agree_num.longValue();
-                this.eGz = dataRes.thread.agree.has_agree.intValue() == 1;
-                this.eGw = dataRes.thread.agree.agree_type.intValue();
+    public PostData aPF() {
+        return this.eEW;
+    }
+
+    public void f(PostData postData) {
+        this.eEW = postData;
+    }
+
+    public int aPG() {
+        if (this.eFa == -1) {
+            this.eFa = this.mCurrentPage;
+        }
+        return this.eFa;
+    }
+
+    public int aPH() {
+        return this.eFa;
+    }
+
+    public void a(m mVar, boolean z) {
+        if (mVar != null) {
+            e(mVar.aDm());
+            this.eFa = mVar.JP();
+            b(mVar.aPM());
+            setPageSize(mVar.aPL());
+            Z(mVar.MR());
+            setTotalCount(mVar.getTotalCount());
+            hN(mVar.aPK());
+            this.eEX.addAll(0, mVar.aPJ());
+        }
+    }
+
+    public void b(m mVar, boolean z) {
+        if (mVar != null) {
+            e(mVar.aDm());
+            b(mVar.aPM());
+            f(mVar.aPF());
+            Z(mVar.MR());
+            if (mVar.aPJ() != null && mVar.aPJ().size() > 0) {
+                bX(mVar.JP());
+                setPageSize(mVar.aPL());
+                setTotalCount(mVar.getTotalCount());
+                hN(mVar.aPK());
             }
-            if (this.eGA == null) {
-                this.eGA = new ArrayList<>();
-            }
-            this.eGA.clear();
-            if (dataRes.new_agree_user != null && dataRes.new_agree_user.size() > 0) {
-                for (SimpleUser simpleUser : dataRes.new_agree_user) {
-                    if (simpleUser != null) {
-                        MuteUser muteUser = new MuteUser();
-                        muteUser.parserProtobuf(simpleUser);
-                        this.eGA.add(muteUser);
-                    }
+            int size = this.eEX.size();
+            if (z && size % this.eEZ != 0) {
+                for (int i = 0; i < size % this.eEZ; i++) {
+                    this.eEX.remove(this.eEX.size() - 1);
                 }
             }
+            this.eEX.addAll(mVar.aPJ());
         }
     }
 
-    public long getPraiseNum() {
-        return this.praiseNum;
-    }
-
-    private String Q(int i, String str) {
-        String str2 = "";
-        if (i == 4) {
-            str2 = "<img src='" + d.g.icon_floor_big_trample + "'>";
-        } else if (i == 1) {
-            str2 = "<img src='" + d.g.icon_floor_big_praised + "'>";
-        }
-        return str2 + str;
-    }
-
-    public String h(TextView textView) {
-        int i;
-        int ag = com.baidu.adp.lib.util.k.ag(textView.getContext()) - 240;
-        StringBuilder sb = new StringBuilder();
-        StringBuilder sb2 = new StringBuilder();
-        int g = com.baidu.adp.lib.util.k.g(textView.getContext(), d.f.ds36);
-        if (u.v(this.eGA)) {
-            return sb.toString();
-        }
-        String accountNameShow = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow() : "";
-        if (!this.eGz || TextUtils.isEmpty(accountNameShow)) {
-            i = 0;
-        } else {
-            int i2 = (this.eGw == 4 || this.eGw == 1) ? 1 : 0;
-            sb.append(Q(this.eGw, accountNameShow)).append("、");
-            sb2.append(accountNameShow).append("、");
-            i = i2;
-        }
-        TextPaint paint = textView.getPaint();
-        Iterator<MuteUser> it = this.eGA.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
+    public void c(m mVar, boolean z) {
+        if (mVar != null) {
+            e(mVar.aDm());
+            b(mVar.aPM());
+            f(mVar.aPF());
+            Z(mVar.MR());
+            if (mVar.aPJ() != null && mVar.aPJ().size() > 0) {
+                bX(mVar.JP());
+                setPageSize(mVar.aPL());
+                setTotalCount(mVar.getTotalCount());
+                hN(mVar.aPK());
             }
-            MuteUser next = it.next();
-            if (paint.measureText(sb2.toString()) + (g * i) > ag) {
-                sb.append(textView.getContext().getResources().getString(d.l.etc));
-                break;
-            }
-            String userName = StringUtils.isNull(next.getNickName()) ? next.getUserName() : next.getNickName();
-            if (next != null && !StringUtils.isNull(userName) && !userName.equals(accountNameShow)) {
-                sb.append(Q(next.agreeType, userName)).append("、");
-                sb2.append(userName).append("、");
-            }
-        }
-        String sb3 = sb.toString();
-        if (!sb3.endsWith(textView.getContext().getResources().getString(d.l.etc))) {
-            return sb3.substring(0, sb3.length() - 1);
-        }
-        return sb3;
-    }
-
-    public boolean aQo() {
-        return this.eGz;
-    }
-
-    public ArrayList<MuteUser> aQp() {
-        return this.eGA;
-    }
-
-    public void oV(int i) {
-        if (!this.eGz) {
-            oW(i);
-            return;
-        }
-        this.eGw = i;
-        this.eGz = true;
-        String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-        if (currentAccountName != null) {
-            Iterator<MuteUser> it = this.eGA.iterator();
-            while (it.hasNext()) {
-                MuteUser next = it.next();
-                if (currentAccountName.equals(next.getUserName())) {
-                    next.agreeType = i;
-                    return;
+            int size = this.eEX.size();
+            if (z && size % this.eEZ != 0) {
+                for (int i = 0; i < size % this.eEZ; i++) {
+                    this.eEX.remove(this.eEX.size() - 1);
                 }
             }
+            this.eEX.addAll(mVar.aPJ());
+            aPI();
         }
     }
 
-    public void oW(int i) {
-        if (TbadkCoreApplication.isLogin()) {
-            MuteUser muteUser = new MuteUser();
-            muteUser.setUserId(TbadkCoreApplication.getCurrentAccount());
-            muteUser.setUserName(TbadkCoreApplication.getCurrentAccountName());
-            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                muteUser.setNickName(TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow());
-            }
-            muteUser.agreeType = i;
-            if (this.eGA == null) {
-                this.eGA = new ArrayList<>();
-            }
-            this.eGA.add(0, muteUser);
-            if (this.praiseNum < 0) {
-                this.praiseNum = 0L;
-            }
-            this.praiseNum++;
-            this.eGz = true;
-            this.eGw = i;
-        }
+    public void d(m mVar, boolean z) {
+        a(mVar, z);
     }
 
-    public void aQq() {
-        if (TbadkCoreApplication.isLogin()) {
-            this.praiseNum--;
-            if (this.praiseNum < 0) {
-                this.praiseNum = 0L;
-            }
-            this.eGz = false;
-            this.eGw = -1;
-            if (!u.v(this.eGA)) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (!StringUtils.isNull(currentAccount)) {
-                    Iterator<MuteUser> it = this.eGA.iterator();
-                    while (it.hasNext()) {
-                        MuteUser next = it.next();
-                        if (next != null && currentAccount.equals(next.getUserId())) {
-                            this.eGA.remove(next);
-                            return;
-                        }
-                    }
+    public void a(m mVar) {
+        if (mVar != null) {
+            e(mVar.aDm());
+            b(mVar.aPM());
+            f(mVar.aPF());
+            Z(mVar.MR());
+            if (mVar.aPJ() != null && mVar.aPJ().size() > 0) {
+                bX(mVar.JP());
+                setPageSize(mVar.aPL());
+                setTotalCount(mVar.getTotalCount());
+                hN(mVar.aPK());
+                this.eFa = (this.mCurrentPage - (((mVar.aPJ().size() - 1) + this.eEZ) / this.eEZ)) + 1;
+                if (this.eFa < 0) {
+                    this.eFa = 0;
                 }
             }
+            this.eEX.addAll(mVar.aPJ());
         }
     }
 
-    public void iR(boolean z) {
-        this.eGs = z;
+    public void aPI() {
+        if (this.eFa < 0) {
+            this.eFa = this.mCurrentPage;
+        } else if (this.eFa > this.mCurrentPage) {
+            this.eFa = this.mCurrentPage;
+        }
     }
 
-    public boolean aQr() {
-        return this.eGs;
+    public ArrayList<PostData> aPJ() {
+        return this.eEX;
+    }
+
+    public void aj(ArrayList<PostData> arrayList) {
+        this.eEX = arrayList;
+    }
+
+    public int aPK() {
+        return this.eEY;
+    }
+
+    public void hN(int i) {
+        this.eEY = i;
+    }
+
+    public int getTotalCount() {
+        return this.aEb;
+    }
+
+    public void setTotalCount(int i) {
+        this.aEb = i;
+    }
+
+    public int aPL() {
+        return this.eEZ;
+    }
+
+    public void setPageSize(int i) {
+        if (i != 0) {
+            this.eEZ = i;
+        }
+    }
+
+    public int JP() {
+        return this.mCurrentPage;
+    }
+
+    public void bX(int i) {
+        this.mCurrentPage = i;
+    }
+
+    public void b(ForumData forumData) {
+        this.eEV = forumData;
+    }
+
+    public ForumData aPM() {
+        return this.eEV;
+    }
+
+    public void e(AntiData antiData) {
+        this.eFb = antiData;
+    }
+
+    public AntiData aDm() {
+        return this.eFb;
+    }
+
+    public void Z(bj bjVar) {
+        this.bgI = bjVar;
+    }
+
+    public boolean azD() {
+        return (this.bgI == null || this.eEW == null || this.bgI.getAuthor() == null || this.bgI.getAuthor().getUserId() == null || this.eEW.getAuthor() == null || this.eEW.getAuthor().getUserId() == null || !this.bgI.getAuthor().getUserId().equals(this.eEW.getAuthor().getUserId())) ? false : true;
+    }
+
+    public boolean nG() {
+        return this.eFc;
+    }
+
+    public boolean hasMore() {
+        return this.mCurrentPage < this.eEY;
+    }
+
+    public bj MR() {
+        return this.bgI;
+    }
+
+    public static m a(DataRes dataRes, Context context) {
+        if (dataRes == null) {
+            return null;
+        }
+        try {
+            m mVar = new m();
+            AntiData antiData = new AntiData();
+            antiData.parserProtobuf(dataRes.anti);
+            mVar.e(antiData);
+            bj bjVar = new bj();
+            bjVar.a(dataRes.thread);
+            bjVar.bX(2);
+            mVar.Z(bjVar);
+            ForumData forumData = new ForumData();
+            forumData.parserProtobuf(dataRes.forum);
+            mVar.b(forumData);
+            PostData postData = new PostData();
+            postData.a(dataRes.post, context);
+            mVar.f(postData);
+            List<SubPostList> list = dataRes.subpost_list;
+            int size = list.size();
+            ArrayList<PostData> arrayList = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                PostData postData2 = new PostData();
+                postData2.a(list.get(i), context);
+                arrayList.add(postData2);
+            }
+            mVar.aj(arrayList);
+            AntiData antiData2 = new AntiData();
+            antiData2.parserProtobuf(dataRes.anti);
+            mVar.e(antiData2);
+            Page page = dataRes.page;
+            if (page != null) {
+                int intValue = page.total_page.intValue();
+                int intValue2 = page.page_size.intValue() == 0 ? 20 : page.page_size.intValue();
+                int intValue3 = page.current_page.intValue();
+                int intValue4 = page.total_count.intValue();
+                mVar.bX(intValue3);
+                mVar.setPageSize(intValue2);
+                mVar.setTotalCount(intValue4);
+                mVar.hN(intValue);
+            }
+            return mVar;
+        } catch (Exception e) {
+            BdLog.detailException(e);
+            return null;
+        }
     }
 }

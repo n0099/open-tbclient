@@ -9,7 +9,7 @@ public class EmotionPackageDetailActivityConfig extends IntentConfig {
 
     public EmotionPackageDetailActivityConfig(Context context, int i, int i2) {
         super(context);
-        getIntent().putExtra(PCK_ID_KEY, i);
+        getIntent().putExtra("pck_id", i);
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
     }

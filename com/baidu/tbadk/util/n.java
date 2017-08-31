@@ -4,6 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -58,6 +59,7 @@ public class n {
                 }
                 builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
                 builder.lego_lib_version = TbConfig.getLegoLibVersion();
+                builder.z_id = FH.gz(TbadkCoreApplication.getInst());
                 field.set(obj, builder.build(false));
             } catch (Throwable th) {
                 if (BdLog.isDebugMode()) {

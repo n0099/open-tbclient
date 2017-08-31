@@ -14,23 +14,23 @@ import android.util.SparseArray;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
 public class d {
-    private static d zT = null;
+    private static d xN = null;
     private volatile SparseArray<Bitmap> mBitmapHash = new SparseArray<>();
     private Context mContext = null;
-    private Bitmap.Config zU = Bitmap.Config.RGB_565;
+    private Bitmap.Config xO = Bitmap.Config.RGB_565;
 
-    public static synchronized d gZ() {
+    public static synchronized d gQ() {
         d dVar;
         synchronized (d.class) {
-            if (zT == null) {
-                zT = new d();
+            if (xN == null) {
+                xN = new d();
             }
-            dVar = zT;
+            dVar = xN;
         }
         return dVar;
     }
 
-    public synchronized void ae(Context context) {
+    public synchronized void ab(Context context) {
         this.mContext = context;
     }
 
@@ -41,7 +41,7 @@ public class d {
         this.mBitmapHash.clear();
     }
 
-    public Bitmap aD(String str) {
+    public Bitmap ax(String str) {
         return BitmapFactory.decodeFile(str);
     }
 

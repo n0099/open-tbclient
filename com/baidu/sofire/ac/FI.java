@@ -1,0 +1,32 @@
+package com.baidu.sofire.ac;
+
+import android.content.Context;
+import android.content.IntentFilter;
+/* loaded from: classes.dex */
+public interface FI {
+    byte[] ad(byte[] bArr, byte[] bArr2);
+
+    byte[] ae(byte[] bArr, byte[] bArr2);
+
+    void cm(String str, String str2, String str3, Callback callback, Class<?>[] clsArr, Object... objArr);
+
+    String gs(String str);
+
+    String p(String str);
+
+    void r(String str, IntentFilter intentFilter, String str2, String str3);
+
+    byte[] rd(byte[] bArr, byte[] bArr2);
+
+    byte[] re(byte[] bArr, byte[] bArr2);
+
+    void rf(Context context);
+
+    void s(int i, boolean z);
+
+    void sp(String str, boolean z);
+
+    void u(String str);
+
+    void ur(String str, IntentFilter intentFilter, String str2, String str3);
+}

@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class j {
-    private int B;
-    private a Ok;
+    private a LL;
+    private int LN;
     long a = 0;
     private static ArrayList<String> b = new ArrayList<>();
     private static ArrayList<String> c = new ArrayList<>();
@@ -23,23 +23,23 @@ public class j {
     private static final String g = com.baidu.location.h.h.a + "/yom.dat";
     private static final String h = com.baidu.location.h.h.a + "/yol.dat";
     private static final String i = com.baidu.location.h.h.a + "/yor.dat";
-    private static File Ob = null;
+    private static File LC = null;
     private static int k = 8;
     private static int l = 8;
     private static int m = 16;
     private static int n = 1024;
-    private static double Oc = 0.0d;
-    private static double Od = 0.1d;
-    private static double Oe = 30.0d;
-    private static double Of = 100.0d;
+    private static double LD = 0.0d;
+    private static double LE = 0.1d;
+    private static double LF = 30.0d;
+    private static double LG = 100.0d;
     private static int s = 0;
     private static int t = 64;
     private static int u = 128;
-    private static Location Og = null;
-    private static Location Oh = null;
-    private static Location Oi = null;
-    private static com.baidu.location.f.i Oj = null;
-    private static j Ol = null;
+    private static Location LH = null;
+    private static Location LI = null;
+    private static Location LJ = null;
+    private static com.baidu.location.f.i LK = null;
+    private static j LM = null;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -126,10 +126,10 @@ public class j {
     }
 
     private j() {
-        this.Ok = null;
-        this.B = 0;
-        this.Ok = new a();
-        this.B = 0;
+        this.LL = null;
+        this.LN = 0;
+        this.LL = new a();
+        this.LN = 0;
     }
 
     public static String a(int i2) {
@@ -288,12 +288,12 @@ public class j {
         BDLocation aa;
         String str2;
         String a2;
-        if (com.baidu.location.c.c.mK().a) {
+        if (com.baidu.location.c.c.mv().a) {
             if (com.baidu.location.h.i.s != 3 || a(location, iVar) || a(location, false)) {
-                if (com.baidu.location.e.a.mQ().aa(true).getLocType() == 66) {
+                if (com.baidu.location.e.a.mB().aa(true).getLocType() == 66) {
                     str = str + String.format(Locale.CHINA, "&ofrt=%f|%f|%d", Double.valueOf(aa.getLongitude()), Double.valueOf(aa.getLatitude()), Integer.valueOf((int) aa.getRadius()));
                 }
-                BDLocation a3 = com.baidu.location.h.i.a(com.baidu.location.f.getServiceContext()) ? com.baidu.location.e.d.mR().a(aVar, iVar, null, d.b.IS_MIX_MODE, d.a.NO_NEED_TO_LOG) : com.baidu.location.e.d.mR().a(aVar, iVar, null, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
+                BDLocation a3 = com.baidu.location.h.i.a(com.baidu.location.f.getServiceContext()) ? com.baidu.location.e.d.mC().a(aVar, iVar, null, d.b.IS_MIX_MODE, d.a.NO_NEED_TO_LOG) : com.baidu.location.e.d.mC().a(aVar, iVar, null, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
                 if (a3 == null || a3.getLocType() == 67) {
                     str2 = str + String.format(Locale.CHINA, "&ofl=%s|0", "1");
                 } else {
@@ -312,35 +312,35 @@ public class j {
                     String a4 = com.baidu.location.h.i.a(aVar, iVar, location, str2, 1);
                     if (a4 != null) {
                         c(Jni.encode(a4));
-                        Oh = location;
-                        Og = location;
+                        LI = location;
+                        LH = location;
                         if (iVar != null) {
-                            Oj = iVar;
+                            LK = iVar;
                         }
                     }
                 } else if (iVar != null && iVar.h() && a(location, iVar)) {
-                    if (!a(location) && !com.baidu.location.f.b.nd().d()) {
+                    if (!a(location) && !com.baidu.location.f.b.mQ().d()) {
                         str2 = "&cfr=1" + str2;
-                    } else if (!a(location) && com.baidu.location.f.b.nd().d()) {
+                    } else if (!a(location) && com.baidu.location.f.b.mQ().d()) {
                         str2 = "&cfr=3" + str2;
-                    } else if (com.baidu.location.f.b.nd().d()) {
+                    } else if (com.baidu.location.f.b.mQ().d()) {
                         str2 = "&cfr=2" + str2;
                     }
                     String a5 = com.baidu.location.h.i.a(aVar, iVar, location, str2, 2);
                     if (a5 != null) {
                         d(Jni.encode(a5));
-                        Oi = location;
-                        Og = location;
+                        LJ = location;
+                        LH = location;
                         if (iVar != null) {
-                            Oj = iVar;
+                            LK = iVar;
                         }
                     }
                 } else {
-                    if (!a(location) && !com.baidu.location.f.b.nd().d()) {
+                    if (!a(location) && !com.baidu.location.f.b.mQ().d()) {
                         str2 = "&cfr=1" + str2;
-                    } else if (!a(location) && com.baidu.location.f.b.nd().d()) {
+                    } else if (!a(location) && com.baidu.location.f.b.mQ().d()) {
                         str2 = "&cfr=3" + str2;
-                    } else if (com.baidu.location.f.b.nd().d()) {
+                    } else if (com.baidu.location.f.b.mQ().d()) {
                         str2 = "&cfr=2" + str2;
                     }
                     if (!a(location, iVar)) {
@@ -350,9 +350,9 @@ public class j {
                         return;
                     }
                     e(Jni.encode(a2));
-                    Og = location;
+                    LH = location;
                     if (iVar != null) {
-                        Oj = iVar;
+                        LK = iVar;
                     }
                 }
             }
@@ -393,27 +393,27 @@ public class j {
         if (location == null) {
             return false;
         }
-        if (Oh == null || Og == null) {
-            Oh = location;
+        if (LI == null || LH == null) {
+            LI = location;
             return true;
         }
-        double distanceTo = location.distanceTo(Oh);
-        return ((double) location.distanceTo(Og)) > ((distanceTo * ((double) com.baidu.location.h.i.QU)) + ((((double) com.baidu.location.h.i.QT) * distanceTo) * distanceTo)) + ((double) com.baidu.location.h.i.R);
+        double distanceTo = location.distanceTo(LI);
+        return ((double) location.distanceTo(LH)) > ((distanceTo * ((double) com.baidu.location.h.i.OF)) + ((((double) com.baidu.location.h.i.OE) * distanceTo) * distanceTo)) + ((double) com.baidu.location.h.i.R);
     }
 
     private static boolean a(Location location, com.baidu.location.f.i iVar) {
-        if (location == null || iVar == null || iVar.a == null || iVar.a.isEmpty() || iVar.b(Oj)) {
+        if (location == null || iVar == null || iVar.a == null || iVar.a.isEmpty() || iVar.b(LK)) {
             return false;
         }
-        if (Oi == null) {
-            Oi = location;
+        if (LJ == null) {
+            LJ = location;
             return true;
         }
         return true;
     }
 
     public static boolean a(Location location, boolean z) {
-        return com.baidu.location.f.e.a(Og, location, z);
+        return com.baidu.location.f.e.a(LH, location, z);
     }
 
     public static boolean a(String str, List<String> list) {
@@ -471,14 +471,14 @@ public class j {
                         e2.printStackTrace();
                         i3 = -5;
                     }
-                    if (Ob == null) {
-                        Ob = new File(e);
-                        if (!Ob.exists()) {
-                            Ob = null;
+                    if (LC == null) {
+                        LC = new File(e);
+                        if (!LC.exists()) {
+                            LC = null;
                             i3 = -2;
                         }
                     }
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(Ob, "rw");
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(LC, "rw");
                     if (randomAccessFile.length() < 1) {
                         randomAccessFile.close();
                         i3 = -3;
@@ -665,20 +665,20 @@ public class j {
         return null;
     }
 
-    public static synchronized j mE() {
+    public static synchronized j mp() {
         j jVar;
         synchronized (j.class) {
-            if (Ol == null) {
-                Ol = new j();
+            if (LM == null) {
+                LM = new j();
             }
-            jVar = Ol;
+            jVar = LM;
         }
         return jVar;
     }
 
     public void c() {
-        if (com.baidu.location.f.k.nr().g()) {
-            this.Ok.b();
+        if (com.baidu.location.f.k.ne().g()) {
+            this.LL.b();
         }
     }
 }

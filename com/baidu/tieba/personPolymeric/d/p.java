@@ -5,83 +5,83 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    private TextView fnH;
-    private TextView fnI;
-    private View fnJ;
-    private View fnK;
-    private s fnL;
+    private TextView fmc;
+    private TextView fmd;
+    private View fme;
+    private View fmf;
+    private s fmg;
     private Context mContext;
     private View mRootView;
     private int mCurrentPage = 0;
-    private int anl = ai.getColor(d.e.cp_cont_b);
-    private int anm = ai.getColor(d.e.cp_cont_f);
+    private int amF = aj.getColor(d.e.cp_cont_b);
+    private int amG = aj.getColor(d.e.cp_cont_f);
 
     public p(Context context, s sVar) {
         this.mContext = context;
-        this.fnL = sVar;
+        this.fmg = sVar;
     }
 
-    public View Yj() {
+    public View Zm() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(d.j.person_button_header_view, (ViewGroup) null);
-        this.fnH = (TextView) this.mRootView.findViewById(d.h.fourm_name_btn);
-        this.fnI = (TextView) this.mRootView.findViewById(d.h.reply_btn);
-        this.fnJ = this.mRootView.findViewById(d.h.fourm_name_divider);
-        this.fnK = this.mRootView.findViewById(d.h.reply_btn_divider);
-        Wl();
-        this.fnH.setTextColor(this.anl);
-        this.fnI.setTextColor(this.anm);
+        this.fmc = (TextView) this.mRootView.findViewById(d.h.fourm_name_btn);
+        this.fmd = (TextView) this.mRootView.findViewById(d.h.reply_btn);
+        this.fme = this.mRootView.findViewById(d.h.fourm_name_divider);
+        this.fmf = this.mRootView.findViewById(d.h.reply_btn_divider);
+        Xo();
+        this.fmc.setTextColor(this.amF);
+        this.fmd.setTextColor(this.amG);
         return this.mRootView;
     }
 
-    private void Wl() {
-        this.fnH.setOnClickListener(this);
-        this.fnI.setOnClickListener(this);
+    private void Xo() {
+        this.fmc.setOnClickListener(this);
+        this.fmd.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == d.h.fourm_name_btn) {
             this.mCurrentPage = 0;
-            this.fnL.qr(0);
-            this.fnJ.setVisibility(0);
-            this.fnK.setVisibility(4);
-            this.fnH.setTextColor(this.anl);
-            this.fnI.setTextColor(this.anm);
+            this.fmg.qr(0);
+            this.fme.setVisibility(0);
+            this.fmf.setVisibility(4);
+            this.fmc.setTextColor(this.amF);
+            this.fmd.setTextColor(this.amG);
         } else if (view.getId() == d.h.reply_btn) {
-            this.fnL.qr(1);
-            this.fnJ.setVisibility(4);
-            this.fnK.setVisibility(0);
-            this.fnH.setTextColor(this.anm);
-            this.fnI.setTextColor(this.anl);
+            this.fmg.qr(1);
+            this.fme.setVisibility(4);
+            this.fmf.setVisibility(0);
+            this.fmc.setTextColor(this.amG);
+            this.fmd.setTextColor(this.amF);
             this.mCurrentPage = 1;
         }
     }
 
     public void onChangeSkinType() {
-        this.anl = ai.getColor(d.e.cp_cont_b);
-        this.anm = ai.getColor(d.e.cp_cont_f);
-        ai.j(this.mRootView, d.g.item_person_header_attention_bg_selector);
-        ai.k(this.fnJ, d.e.cp_cont_b);
-        ai.k(this.fnK, d.e.cp_cont_b);
-        pk(this.mCurrentPage);
+        this.amF = aj.getColor(d.e.cp_cont_b);
+        this.amG = aj.getColor(d.e.cp_cont_f);
+        aj.j(this.mRootView, d.g.item_person_header_attention_bg_selector);
+        aj.k(this.fme, d.e.cp_cont_b);
+        aj.k(this.fmf, d.e.cp_cont_b);
+        pr(this.mCurrentPage);
     }
 
-    public void pk(int i) {
+    public void pr(int i) {
         this.mCurrentPage = i;
         if (i == 0) {
-            this.fnJ.setVisibility(0);
-            this.fnK.setVisibility(4);
-            this.fnH.setTextColor(this.anl);
-            this.fnI.setTextColor(this.anm);
+            this.fme.setVisibility(0);
+            this.fmf.setVisibility(4);
+            this.fmc.setTextColor(this.amF);
+            this.fmd.setTextColor(this.amG);
         } else if (i == 1) {
-            this.fnJ.setVisibility(4);
-            this.fnK.setVisibility(0);
-            this.fnH.setTextColor(this.anm);
-            this.fnI.setTextColor(this.anl);
+            this.fme.setVisibility(4);
+            this.fmf.setVisibility(0);
+            this.fmc.setTextColor(this.amG);
+            this.fmd.setTextColor(this.amF);
         }
     }
 }

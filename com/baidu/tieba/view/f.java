@@ -4,15 +4,15 @@ import android.content.Context;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public interface f {
-    void Wn();
+    void Xq();
 
     void a(Context context, NavigationBar navigationBar);
 
     void b(float f, boolean z);
 
-    void dB(boolean z);
+    void dE(boolean z);
 
-    void m(int i, boolean z);
+    void l(int i, boolean z);
 
     void onChangeSkinType(int i);
 

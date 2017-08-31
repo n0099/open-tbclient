@@ -2,7 +2,7 @@ package com.baidu.tieba.person;
 
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.person.l;
 import com.squareup.wire.Wire;
@@ -123,6 +123,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.nicknameInfo;
     }
 
+    @Override // com.baidu.tieba.person.f
     public List<PostInfoList> GetPostList() {
         return this.post_list;
     }
@@ -176,26 +177,26 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.l<byte[]> L = com.baidu.tbadk.core.c.a.to().L("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        com.baidu.adp.lib.cache.l<byte[]> N = com.baidu.tbadk.core.c.a.tk().N("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            L.k(PROFILE_CACHE_KEY, bArr);
+            N.e(PROFILE_CACHE_KEY, bArr);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.l<String> M;
+        com.baidu.adp.lib.cache.l<String> O;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (M = com.baidu.tbadk.core.c.a.to().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<l.a> list = this.ucCardData.fgb;
-            if (u.u(list) > 4) {
+        if (this.ucCardData != null && (O = com.baidu.tbadk.core.c.a.tk().O("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<l.a> list = this.ucCardData.fer;
+            if (v.u(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (l.a aVar : list) {
-                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.d(M.get(aVar.title), 0L)) {
-                        aVar.fgc = true;
+                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(O.get(aVar.title), 0L)) {
+                        aVar.fes = true;
                     } else {
-                        aVar.fgc = false;
+                        aVar.fes = false;
                     }
                 }
             }

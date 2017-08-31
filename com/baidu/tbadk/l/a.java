@@ -10,37 +10,37 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.a.a {
-    private b aJj;
-    private InterfaceC0060a aJk = null;
-    private WindowManager jn;
+    private b aIN;
+    private InterfaceC0063a aIO = null;
+    private WindowManager mWindowManager;
 
     /* renamed from: com.baidu.tbadk.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0060a {
+    public interface InterfaceC0063a {
         void ff(int i);
     }
 
     public a(Context context) {
-        this.aJj = null;
-        this.jn = null;
-        this.aJj = new b(context);
-        this.jn = (WindowManager) context.getSystemService("window");
+        this.aIN = null;
+        this.mWindowManager = null;
+        this.aIN = new b(context);
+        this.mWindowManager = (WindowManager) context.getSystemService("window");
     }
 
-    private void Gd() {
+    private void Gb() {
         try {
-            this.jn.removeView(this.aJj);
+            this.mWindowManager.removeView(this.aIN);
         } catch (Throwable th) {
         }
     }
 
-    private void Ge() {
+    private void Gc() {
         try {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-2, -2, 2006, 0, -3);
             layoutParams.gravity = 51;
             layoutParams.height = 1;
             layoutParams.width = 1;
-            this.jn.addView(this.aJj, layoutParams);
+            this.mWindowManager.addView(this.aIN, layoutParams);
         } catch (Throwable th) {
         }
     }
@@ -48,20 +48,20 @@ public class a extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        Gd();
+        Gb();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
         super.start();
-        Gd();
-        Ge();
+        Gb();
+        Gc();
         new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tbadk.l.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cv()) {
-                    a.this.aJj.invalidate();
-                    a.this.aJj.post(this);
+                if (a.this.ck()) {
+                    a.this.aIN.invalidate();
+                    a.this.aIN.post(this);
                 }
             }
         });
@@ -70,14 +70,14 @@ public class a extends com.baidu.adp.a.a.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b extends ImageView {
-        private int aJm;
+        private int aIQ;
         private final Paint mPaint;
         private long mStartTime;
 
         public b(Context context) {
             super(context);
             this.mStartTime = -1L;
-            this.aJm = 0;
+            this.aIQ = 0;
             this.mPaint = new Paint();
             this.mPaint.setColor(0);
             this.mPaint.setAlpha(0);
@@ -89,26 +89,26 @@ public class a extends com.baidu.adp.a.a.a {
         public void draw(Canvas canvas) {
             if (this.mStartTime == -1) {
                 this.mStartTime = SystemClock.elapsedRealtime();
-                this.aJm = 0;
+                this.aIQ = 0;
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
             super.draw(canvas);
             if (elapsedRealtime - this.mStartTime > 1000) {
                 this.mStartTime = elapsedRealtime;
-                if (a.this.aJk != null) {
-                    a.this.aJk.ff(this.aJm);
+                if (a.this.aIO != null) {
+                    a.this.aIO.ff(this.aIQ);
                 } else {
-                    com.baidu.adp.a.a.d.I(this.aJm);
+                    com.baidu.adp.a.a.d.F(this.aIQ);
                 }
-                this.aJm = 0;
+                this.aIQ = 0;
             }
-            this.aJm++;
+            this.aIQ++;
         }
     }
 
-    public void a(InterfaceC0060a interfaceC0060a) {
-        if (this.aJk == null) {
-            this.aJk = interfaceC0060a;
+    public void a(InterfaceC0063a interfaceC0063a) {
+        if (this.aIO == null) {
+            this.aIO = interfaceC0063a;
         }
     }
 }

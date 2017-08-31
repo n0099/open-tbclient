@@ -4,17 +4,30 @@ import android.content.Intent;
 import android.net.Uri;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.au;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class u {
-    private BaseActivity bmG;
-    private PbModel eIv;
+    private BaseActivity bnd;
+    private PbModel eGP;
 
     public u(PbModel pbModel, BaseActivity baseActivity) {
-        this.eIv = pbModel;
-        this.bmG = baseActivity;
+        this.eGP = pbModel;
+        this.bnd = baseActivity;
+    }
+
+    private void kW(String str) {
+        if (str.startsWith("//")) {
+            str = str.substring(2);
+        }
+        Map<String, String> ea = au.ea(str);
+        if (ea != null) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c10320").ad("obj_locate", ea.get("obj_locate")).r("obj_type", 1).ad("tid", ea.get("tid")).ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, ea.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)).ad("obj_param2", ea.get("obj_param2")).r("obj_to", 3));
+        }
     }
 
     public String Y(Intent intent) {
@@ -33,13 +46,13 @@ public class u {
         Matcher matcher = Pattern.compile(".*fr=(.*)&tid=([\\\\d]+).*").matcher(decode);
         if (matcher.find()) {
             if ("mpush".equals(matcher.group(1))) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.aj("c11895").aa("tid", matcher.group(2)));
-            } else if ("bpush".equals(matcher.group(1))) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.aj("c10320").r("obj_locate", 3).r("obj_type", 1));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11895").ad("tid", matcher.group(2)));
+            } else {
+                kW(decode);
             }
             return matcher.group(2);
         }
-        TiebaStatic.log(new com.baidu.tbadk.core.util.aj("c10320").r("obj_locate", 3).r("obj_type", 1));
+        kW(decode);
         int indexOf = decode.indexOf("tid=");
         if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
             return null;

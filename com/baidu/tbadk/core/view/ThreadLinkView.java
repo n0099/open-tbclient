@@ -9,17 +9,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.aj;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ThreadLinkView extends RelativeLayout {
-    private TbImageView apj;
-    private TextView apk;
-    private TextView apl;
-    private TextView apm;
+    private TbImageView aoO;
+    private TextView aoP;
+    private TextView aoQ;
+    private TextView aoR;
     private BdUniqueId mTag;
 
     public ThreadLinkView(Context context) {
@@ -39,75 +38,75 @@ public class ThreadLinkView extends RelativeLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(d.j.link_thread_item, (ViewGroup) this, true);
-        this.apj = (TbImageView) inflate.findViewById(d.h.link_thread_head_img);
-        this.apj.setDefaultBgResource(d.g.ic_post_url_n);
-        this.apj.setDefaultErrorResource(d.g.ic_post_url_n);
-        this.apk = (TextView) inflate.findViewById(d.h.link_thread_title);
-        this.apl = (TextView) inflate.findViewById(d.h.link_thread_abstract);
-        this.apm = (TextView) inflate.findViewById(d.h.link_thread_url);
+        this.aoO = (TbImageView) inflate.findViewById(d.h.link_thread_head_img);
+        this.aoO.setDefaultBgResource(d.g.ic_post_url_n);
+        this.aoO.setDefaultErrorResource(d.g.ic_post_url_n);
+        this.aoP = (TextView) inflate.findViewById(d.h.link_thread_title);
+        this.aoQ = (TextView) inflate.findViewById(d.h.link_thread_abstract);
+        this.aoR = (TextView) inflate.findViewById(d.h.link_thread_url);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         this.mTag = bdUniqueId;
     }
 
-    public void setData(bl blVar) {
-        if (blVar == null || blVar.sW() == null || al.isEmpty(blVar.sW().getLinkUrl())) {
+    public void setData(bj bjVar) {
+        if (bjVar == null || bjVar.sS() == null || am.isEmpty(bjVar.sS().getLinkUrl())) {
             setVisibility(8);
             return;
         }
-        aj sW = blVar.sW();
-        if (!sW.qr() && sW.qq() != aj.XH) {
+        aj sS = bjVar.sS();
+        if (!sS.qm() && sS.ql() != aj.WQ) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.apj.setPageId(this.mTag);
-        if (sW.qr()) {
-            this.apm.setVisibility(0);
-            this.apk.setVisibility(8);
-            this.apl.setVisibility(8);
-            this.apm.setText(sW.getLinkUrl());
-            this.apj.reset();
+        this.aoO.setPageId(this.mTag);
+        if (sS.qm()) {
+            this.aoR.setVisibility(0);
+            this.aoP.setVisibility(8);
+            this.aoQ.setVisibility(8);
+            this.aoR.setText(sS.getLinkUrl());
+            this.aoO.reset();
         } else {
-            this.apm.setVisibility(8);
-            String qn = sW.qn();
-            String qo = sW.qo();
-            if (!al.isEmpty(qn)) {
-                this.apk.setText(qn);
-                this.apk.setVisibility(0);
+            this.aoR.setVisibility(8);
+            String qi = sS.qi();
+            String qj = sS.qj();
+            if (!am.isEmpty(qi)) {
+                this.aoP.setText(qi);
+                this.aoP.setVisibility(0);
             } else {
-                this.apk.setVisibility(4);
+                this.aoP.setVisibility(4);
             }
-            if (!al.isEmpty(qo)) {
-                this.apl.setText(qo);
-                this.apl.setVisibility(0);
+            if (!am.isEmpty(qj)) {
+                this.aoQ.setText(qj);
+                this.aoQ.setVisibility(0);
             } else {
-                this.apl.setVisibility(4);
+                this.aoQ.setVisibility(4);
             }
-            if (al.ed(qn) > 32) {
-                this.apk.setMaxLines(2);
-                this.apl.setMaxLines(1);
+            if (am.dV(qi) > 32) {
+                this.aoP.setMaxLines(2);
+                this.aoQ.setMaxLines(1);
             } else {
-                this.apk.setMaxLines(1);
-                this.apl.setMaxLines(2);
+                this.aoP.setMaxLines(1);
+                this.aoQ.setMaxLines(2);
             }
-            if (!al.isEmpty(sW.qp())) {
-                this.apj.c(sW.qp(), 10, false);
+            if (!am.isEmpty(sS.qk())) {
+                this.aoO.c(sS.qk(), 10, false);
             } else {
-                this.apj.reset();
+                this.aoO.reset();
             }
         }
-        ez(blVar.getId());
+        es(bjVar.getId());
     }
 
     public void onChangeSkinType() {
-        ai.k(this, d.e.cp_bg_line_e);
+        com.baidu.tbadk.core.util.aj.k(this, d.e.cp_bg_line_e);
     }
 
-    public void ez(String str) {
-        com.baidu.tieba.card.m.a(this.apk, str, d.e.cp_cont_b, d.e.cp_cont_d);
-        com.baidu.tieba.card.m.a(this.apm, str, d.e.cp_cont_b, d.e.cp_cont_d);
-        com.baidu.tieba.card.m.a(this.apl, str, d.e.cp_cont_d, d.e.cp_cont_d);
+    public void es(String str) {
+        com.baidu.tieba.card.m.a(this.aoP, str, d.e.cp_cont_b, d.e.cp_cont_d);
+        com.baidu.tieba.card.m.a(this.aoR, str, d.e.cp_cont_b, d.e.cp_cont_d);
+        com.baidu.tieba.card.m.a(this.aoQ, str, d.e.cp_cont_d, d.e.cp_cont_d);
     }
 }

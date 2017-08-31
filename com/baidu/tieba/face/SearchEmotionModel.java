@@ -1,5 +1,6 @@
 package com.baidu.tieba.face;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -11,21 +12,21 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class SearchEmotionModel extends BdBaseModel {
-    private final HttpMessageListener aGM = new HttpMessageListener(CmdConfigHttp.CMD_SEARCH_PB_EMOTION) { // from class: com.baidu.tieba.face.SearchEmotionModel.1
+    private final HttpMessageListener aGe = new HttpMessageListener(CmdConfigHttp.CMD_SEARCH_PB_EMOTION) { // from class: com.baidu.tieba.face.SearchEmotionModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003330 && (httpResponsedMessage instanceof SearchEmotionResponseMessage) && SearchEmotionModel.this.cbv != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003330 && (httpResponsedMessage instanceof SearchEmotionResponseMessage) && SearchEmotionModel.this.cem != null) {
                 SearchEmotionResponseMessage searchEmotionResponseMessage = (SearchEmotionResponseMessage) httpResponsedMessage;
                 if (searchEmotionResponseMessage.getData() != null) {
-                    SearchEmotionModel.this.cbv.a(searchEmotionResponseMessage.getData());
+                    SearchEmotionModel.this.cem.a(searchEmotionResponseMessage.getData());
                 } else {
-                    SearchEmotionModel.this.cbv.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
+                    SearchEmotionModel.this.cem.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
                 }
             }
         }
     };
-    private a cbv;
+    private a cem;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -35,20 +36,21 @@ public class SearchEmotionModel extends BdBaseModel {
     }
 
     public SearchEmotionModel() {
-        Eo();
-        this.aGM.setTag(getUniqueId());
-        this.aGM.setSelfListener(true);
-        registerListener(this.aGM);
+        setUniqueId(BdUniqueId.gen());
+        El();
+        this.aGe.setTag(getUniqueId());
+        this.aGe.setSelfListener(true);
+        registerListener(this.aGe);
     }
 
-    private void Eo() {
+    private void El() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SEARCH_PB_EMOTION, TbConfig.SERVER_ADDRESS + "c/e/meme/search");
         tbHttpMessageTask.setResponsedClass(SearchEmotionResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void a(String str, int i, int i2, a aVar) {
-        this.cbv = aVar;
+        this.cem = aVar;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
         httpMessage.addParam("kw", str);
         httpMessage.addParam("pn", i);
@@ -63,9 +65,9 @@ public class SearchEmotionModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.aGM);
+        MessageManager.getInstance().unRegisterListener(this.aGe);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
-        this.cbv = null;
+        this.cem = null;
         return true;
     }
 }

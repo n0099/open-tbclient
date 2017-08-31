@@ -7,11 +7,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public ArrayList<Integer> gmq;
-    public String gmr;
-    public int gms;
+    public String aVG;
+    public ArrayList<Integer> gkS;
+    public String gkT;
+    public int gkU;
     public String mErrorMessage;
-    public String mVideoUrl;
 
     public void parseJson(String str) {
         if (!StringUtils.isNull(str)) {
@@ -21,13 +21,13 @@ public class a {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
                     if (optJSONArray != null) {
                         int length = optJSONArray.length();
-                        this.gmq = new ArrayList<>();
+                        this.gkS = new ArrayList<>();
                         for (int i = 0; i < length; i++) {
-                            this.gmq.add(Integer.valueOf(optJSONArray.getInt(i)));
+                            this.gkS.add(Integer.valueOf(optJSONArray.getInt(i)));
                         }
                     }
-                    this.gmr = optJSONObject.optString("upload_id");
-                    this.mVideoUrl = optJSONObject.optString("video_url");
+                    this.gkT = optJSONObject.optString("upload_id");
+                    this.aVG = optJSONObject.optString("video_url");
                 }
             } catch (JSONException e) {
             }

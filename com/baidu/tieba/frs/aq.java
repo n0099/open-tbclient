@@ -5,6 +5,6 @@ public class aq extends an {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean cmS = true;
-    public boolean cmT = true;
+    public boolean csm = true;
+    public boolean csn = true;
 }

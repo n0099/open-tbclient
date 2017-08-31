@@ -9,7 +9,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes.dex */
 public class l extends com.baidu.tieba.pb.pb.main.l<m, n> {
-    public View.OnClickListener aTa;
+    public View.OnClickListener aSK;
 
     public l(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -18,7 +18,7 @@ public class l extends com.baidu.tieba.pb.pb.main.l<m, n> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bu */
+    /* renamed from: bs */
     public n onCreateViewHolder(ViewGroup viewGroup) {
         return new n(LayoutInflater.from(this.mContext).inflate(d.j.pb_recommend_video_look_more_item, viewGroup, false));
     }
@@ -30,15 +30,15 @@ public class l extends com.baidu.tieba.pb.pb.main.l<m, n> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.eIw.getLayoutMode().ah(this.mSkinType == 1);
-        this.eIw.getLayoutMode().t(view);
-        if (this.aTa != null) {
-            view.setOnClickListener(this.aTa);
+        this.eGQ.getLayoutMode().ah(this.mSkinType == 1);
+        this.eGQ.getLayoutMode().t(view);
+        if (this.aSK != null) {
+            view.setOnClickListener(this.aSK);
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aTa = onClickListener;
+        this.aSK = onClickListener;
     }
 }

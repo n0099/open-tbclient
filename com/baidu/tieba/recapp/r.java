@@ -7,16 +7,17 @@ import com.baidu.adp.widget.ListView.a;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.tbadkCore.d.a;
+import com.baidu.tieba.tbadkCore.data.AppData;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class r implements p {
-    public static final AtomicReference<p> fGs = new AtomicReference<>(null);
-    private static final p fGt = new r();
+    public static final AtomicReference<p> fEo = new AtomicReference<>(null);
+    private static final p fEp = new r();
 
-    public static p big() {
-        p pVar = fGs.get();
-        return pVar == null ? fGt : pVar;
+    public static p bhd() {
+        p pVar = fEo.get();
+        return pVar == null ? fEp : pVar;
     }
 
     @Override // com.baidu.tieba.recapp.p
@@ -48,32 +49,43 @@ public class r implements p {
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public k bic() {
+    public k bgX() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public m bid() {
+    public m bgY() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public h bI(Context context) {
+    public h bS(Context context) {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public com.baidu.tieba.k.a bie() {
+    public com.baidu.tieba.k.a bgZ() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public i bif() {
+    public i bha() {
         BdLog.e("recapp plugin install failed!");
         return null;
+    }
+
+    @Override // com.baidu.tieba.recapp.p
+    public List<AppData> bhb() {
+        BdLog.e("recapp plugin install failed!");
+        return null;
+    }
+
+    @Override // com.baidu.tieba.recapp.p
+    public void bhc() {
+        BdLog.e("recapp plugin install failed!");
     }
 }

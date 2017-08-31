@@ -11,15 +11,15 @@ public class StoryCompositeServiceConfig extends IntentConfig {
         setIntentAction(IntentAction.StartService);
         if (bVar != null) {
             getIntent().putExtra("key_input_type", bVar.type);
-            getIntent().putExtra("key_input_picture_path", bVar.gdW);
-            getIntent().putExtra("key_sticker_path", bVar.gdZ);
-            getIntent().putExtra("key_input_video_path", bVar.gdX);
-            getIntent().putExtra("key_output_video_path", bVar.gdY);
-            getIntent().putExtra("key_need_mute", bVar.gdU);
-            getIntent().putExtra("key_need_publish", bVar.gea);
+            getIntent().putExtra("key_input_picture_path", bVar.gcG);
+            getIntent().putExtra("key_sticker_path", bVar.gcJ);
+            getIntent().putExtra("key_input_video_path", bVar.gcH);
+            getIntent().putExtra("key_output_video_path", bVar.gcI);
+            getIntent().putExtra("key_need_mute", bVar.gcE);
+            getIntent().putExtra("key_need_publish", bVar.gcK);
             getIntent().putExtra("key_story_state", bVar.state);
-            getIntent().putExtra("key_need_composite", bVar.gec);
-            getIntent().putExtra("key_page_from", bVar.fZj);
+            getIntent().putExtra("key_need_composite", bVar.gcM);
+            getIntent().putExtra("key_page_from", bVar.fXN);
             getIntent().putExtra("key_forum_name", bVar.forumName);
             getIntent().putExtra("key_forum_id", bVar.forumId);
         }

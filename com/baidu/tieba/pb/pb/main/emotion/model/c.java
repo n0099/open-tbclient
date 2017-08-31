@@ -2,71 +2,72 @@ package com.baidu.tieba.pb.pb.main.emotion.model;
 
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class c {
-    protected int eUp;
-    protected byte[] eUq;
-    protected int eUr;
-    protected int eUs;
-    protected int[] eUu = new int[256];
-    protected int[] eUv = new int[256];
-    protected int[] eUw = new int[256];
-    protected int[] eUx = new int[32];
-    protected int[][] eUt = new int[256];
+    protected int eSQ;
+    protected byte[] eSR;
+    protected int eSS;
+    protected int eST;
+    protected int[] eSV = new int[256];
+    protected int[] eSW = new int[256];
+    protected int[] eSX = new int[256];
+    protected int[] eSY = new int[32];
+    protected int[][] eSU = new int[256];
 
     public c(byte[] bArr, int i, int i2) {
-        this.eUq = bArr;
-        this.eUr = i;
-        this.eUs = i2;
+        this.eSR = bArr;
+        this.eSS = i;
+        this.eST = i2;
         for (int i3 = 0; i3 < 256; i3++) {
-            this.eUt[i3] = new int[4];
-            int[] iArr = this.eUt[i3];
+            this.eSU[i3] = new int[4];
+            int[] iArr = this.eSU[i3];
             int i4 = (i3 << 12) / 256;
             iArr[2] = i4;
             iArr[1] = i4;
             iArr[0] = i4;
-            this.eUw[i3] = 256;
-            this.eUv[i3] = 0;
+            this.eSX[i3] = 256;
+            this.eSW[i3] = 0;
         }
     }
 
-    public byte[] aUQ() {
+    public byte[] aUb() {
         byte[] bArr = new byte[768];
         int[] iArr = new int[256];
         for (int i = 0; i < 256; i++) {
-            iArr[this.eUt[i][3]] = i;
+            iArr[this.eSU[i][3]] = i;
         }
         int i2 = 0;
         for (int i3 = 0; i3 < 256; i3++) {
             int i4 = iArr[i3];
             int i5 = i2 + 1;
-            bArr[i2] = (byte) this.eUt[i4][0];
+            bArr[i2] = (byte) this.eSU[i4][0];
             int i6 = i5 + 1;
-            bArr[i5] = (byte) this.eUt[i4][1];
+            bArr[i5] = (byte) this.eSU[i4][1];
             i2 = i6 + 1;
-            bArr[i6] = (byte) this.eUt[i4][2];
+            bArr[i6] = (byte) this.eSU[i4][2];
         }
         return bArr;
     }
 
-    public void aUR() {
+    public void aUc() {
         int i;
         int i2;
         int i3 = 0;
         int i4 = 0;
         int i5 = 0;
         while (i5 < 256) {
-            int[] iArr = this.eUt[i5];
+            int[] iArr = this.eSU[i5];
             int i6 = iArr[1];
             int i7 = i5;
             for (int i8 = i5 + 1; i8 < 256; i8++) {
-                int[] iArr2 = this.eUt[i8];
+                int[] iArr2 = this.eSU[i8];
                 if (iArr2[1] < i6) {
                     i6 = iArr2[1];
                     i7 = i8;
                 }
             }
-            int[] iArr3 = this.eUt[i7];
+            int[] iArr3 = this.eSU[i7];
             if (i5 != i7) {
                 int i9 = iArr3[0];
                 iArr3[0] = iArr[0];
@@ -82,9 +83,9 @@ class c {
                 iArr[3] = i12;
             }
             if (i6 != i4) {
-                this.eUu[i4] = (i3 + i5) >> 1;
+                this.eSV[i4] = (i3 + i5) >> 1;
                 for (int i13 = i4 + 1; i13 < i6; i13++) {
-                    this.eUu[i13] = i5;
+                    this.eSV[i13] = i5;
                 }
                 i2 = i6;
                 i = i5;
@@ -96,32 +97,32 @@ class c {
             i3 = i;
             i4 = i2;
         }
-        this.eUu[i4] = (i3 + MotionEventCompat.ACTION_MASK) >> 1;
+        this.eSV[i4] = (i3 + MotionEventCompat.ACTION_MASK) >> 1;
         for (int i14 = i4 + 1; i14 < 256; i14++) {
-            this.eUu[i14] = 255;
+            this.eSV[i14] = 255;
         }
     }
 
-    public void aUS() {
+    public void aUd() {
         int i;
-        if (this.eUr < 1509) {
-            this.eUs = 1;
+        if (this.eSS < 1509) {
+            this.eST = 1;
         }
-        this.eUp = ((this.eUs - 1) / 3) + 30;
-        byte[] bArr = this.eUq;
-        int i2 = this.eUr;
-        int i3 = this.eUr / (this.eUs * 3);
+        this.eSQ = ((this.eST - 1) / 3) + 30;
+        byte[] bArr = this.eSR;
+        int i2 = this.eSS;
+        int i3 = this.eSS / (this.eST * 3);
         int i4 = i3 / 100;
         for (int i5 = 0; i5 < 32; i5++) {
-            this.eUx[i5] = (((1024 - (i5 * i5)) * 256) / 1024) * 1024;
+            this.eSY[i5] = (((1024 - (i5 * i5)) * 256) / 1024) * 1024;
         }
-        if (this.eUr < 1509) {
+        if (this.eSS < 1509) {
             i = 3;
-        } else if (this.eUr % 499 != 0) {
+        } else if (this.eSS % 499 != 0) {
             i = 1497;
-        } else if (this.eUr % 491 != 0) {
+        } else if (this.eSS % 491 != 0) {
             i = 1473;
-        } else if (this.eUr % 487 != 0) {
+        } else if (this.eSS % 487 != 0) {
             i = 1461;
         } else {
             i = 1509;
@@ -136,23 +137,23 @@ class c {
             int i12 = (bArr[i6 + 1] & 255) << 4;
             int i13 = (bArr[i6 + 2] & 255) << 4;
             int M = M(i11, i12, i13);
-            h(i10, M, i11, i12, i13);
+            f(i10, M, i11, i12, i13);
             if (i7 != 0) {
-                g(i7, M, i11, i12, i13);
+                e(i7, M, i11, i12, i13);
             }
             int i14 = i6 + i;
-            int i15 = i14 >= i2 ? i14 - this.eUr : i14;
+            int i15 = i14 >= i2 ? i14 - this.eSS : i14;
             int i16 = i9 + 1;
             int i17 = i4 == 0 ? 1 : i4;
             if (i16 % i17 == 0) {
-                int i18 = i10 - (i10 / this.eUp);
+                int i18 = i10 - (i10 / this.eSQ);
                 int i19 = i8 - (i8 / 30);
                 int i20 = i19 >> 6;
                 if (i20 <= 1) {
                     i20 = 0;
                 }
                 for (int i21 = 0; i21 < i20; i21++) {
-                    this.eUx[i21] = ((((i20 * i20) - (i21 * i21)) * 256) / (i20 * i20)) * i18;
+                    this.eSY[i21] = ((((i20 * i20) - (i21 * i21)) * 256) / (i20 * i20)) * i18;
                 }
                 i6 = i15;
                 i4 = i17;
@@ -172,7 +173,7 @@ class c {
         int i4;
         int i5;
         int i6;
-        int i7 = this.eUu[i2];
+        int i7 = this.eSV[i2];
         int i8 = -1;
         int i9 = 1000;
         int i10 = i7 - 1;
@@ -180,7 +181,7 @@ class c {
         while (true) {
             if (i11 < 256 || i10 >= 0) {
                 if (i11 < 256) {
-                    int[] iArr = this.eUt[i11];
+                    int[] iArr = this.eSU[i11];
                     int i12 = iArr[1] - i2;
                     if (i12 >= i9) {
                         i5 = i9;
@@ -215,7 +216,7 @@ class c {
                     i6 = i8;
                 }
                 if (i10 >= 0) {
-                    int[] iArr2 = this.eUt[i10];
+                    int[] iArr2 = this.eSU[i10];
                     int i16 = i2 - iArr2[1];
                     if (i16 >= i5) {
                         i8 = i6;
@@ -255,26 +256,26 @@ class c {
         }
     }
 
-    public byte[] aUT() {
-        aUS();
-        aUU();
-        aUR();
-        return aUQ();
+    public byte[] aUe() {
+        aUd();
+        aUf();
+        aUc();
+        return aUb();
     }
 
-    public void aUU() {
+    public void aUf() {
         for (int i = 0; i < 256; i++) {
-            int[] iArr = this.eUt[i];
+            int[] iArr = this.eSU[i];
             iArr[0] = iArr[0] >> 4;
-            int[] iArr2 = this.eUt[i];
+            int[] iArr2 = this.eSU[i];
             iArr2[1] = iArr2[1] >> 4;
-            int[] iArr3 = this.eUt[i];
+            int[] iArr3 = this.eSU[i];
             iArr3[2] = iArr3[2] >> 4;
-            this.eUt[i][3] = i;
+            this.eSU[i][3] = i;
         }
     }
 
-    protected void g(int i, int i2, int i3, int i4, int i5) {
+    protected void e(int i, int i2, int i3, int i4, int i5) {
         int i6;
         int i7 = i2 - i;
         int i8 = i7 < -1 ? -1 : i7;
@@ -282,43 +283,45 @@ class c {
         if (i9 > 256) {
             i9 = 256;
         }
-        int i10 = 1;
-        int i11 = i2 - 1;
+        int i10 = i2 - 1;
+        int i11 = 1;
         int i12 = i2 + 1;
         while (true) {
-            if (i12 < i9 || i11 > i8) {
-                int i13 = i10 + 1;
-                int i14 = this.eUx[i10];
+            if (i12 < i9 || i10 > i8) {
+                int i13 = i11 + 1;
+                int i14 = this.eSY[i11];
                 if (i12 < i9) {
                     i6 = i12 + 1;
-                    int[] iArr = this.eUt[i12];
+                    int[] iArr = this.eSU[i12];
                     try {
                         iArr[0] = iArr[0] - (((iArr[0] - i3) * i14) / AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
                         iArr[1] = iArr[1] - (((iArr[1] - i4) * i14) / AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
                         iArr[2] = iArr[2] - (((iArr[2] - i5) * i14) / AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
                     } catch (Exception e) {
+                        BdLog.e(e.getMessage());
                     }
                 } else {
                     i6 = i12;
                 }
-                if (i11 > i8) {
-                    int i15 = i11 - 1;
-                    int[] iArr2 = this.eUt[i11];
+                if (i10 > i8) {
+                    int i15 = i10 - 1;
+                    int[] iArr2 = this.eSU[i10];
                     try {
                         iArr2[0] = iArr2[0] - (((iArr2[0] - i3) * i14) / AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
                         iArr2[1] = iArr2[1] - (((iArr2[1] - i4) * i14) / AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
                         iArr2[2] = iArr2[2] - ((i14 * (iArr2[2] - i5)) / AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
-                        i11 = i15;
+                        i10 = i15;
                         i12 = i6;
-                        i10 = i13;
+                        i11 = i13;
                     } catch (Exception e2) {
-                        i11 = i15;
+                        BdLog.e(e2.getMessage());
+                        i10 = i15;
                         i12 = i6;
-                        i10 = i13;
+                        i11 = i13;
                     }
                 } else {
                     i12 = i6;
-                    i10 = i13;
+                    i11 = i13;
                 }
             } else {
                 return;
@@ -326,8 +329,8 @@ class c {
         }
     }
 
-    protected void h(int i, int i2, int i3, int i4, int i5) {
-        int[] iArr = this.eUt[i2];
+    protected void f(int i, int i2, int i3, int i4, int i5) {
+        int[] iArr = this.eSU[i2];
         iArr[0] = iArr[0] - (((iArr[0] - i3) * i) / 1024);
         iArr[1] = iArr[1] - (((iArr[1] - i4) * i) / 1024);
         iArr[2] = iArr[2] - (((iArr[2] - i5) * i) / 1024);
@@ -343,7 +346,7 @@ class c {
         int i10 = -1;
         int i11 = 0;
         while (i11 < 256) {
-            int[] iArr = this.eUt[i11];
+            int[] iArr = this.eSU[i11];
             int i12 = iArr[0] - i;
             if (i12 < 0) {
                 i12 = -i12;
@@ -365,17 +368,17 @@ class c {
                 i4 = i9;
                 i5 = i10;
             }
-            int i17 = i16 - (this.eUv[i11] >> 12);
+            int i17 = i16 - (this.eSW[i11] >> 12);
             if (i17 < i7) {
                 i6 = i11;
             } else {
                 i17 = i7;
                 i6 = i8;
             }
-            int i18 = this.eUw[i11] >> 10;
-            int[] iArr2 = this.eUw;
+            int i18 = this.eSX[i11] >> 10;
+            int[] iArr2 = this.eSX;
             iArr2[i11] = iArr2[i11] - i18;
-            int[] iArr3 = this.eUv;
+            int[] iArr3 = this.eSW;
             iArr3[i11] = (i18 << 10) + iArr3[i11];
             i11++;
             i7 = i17;
@@ -383,9 +386,9 @@ class c {
             i10 = i5;
             i9 = i4;
         }
-        int[] iArr4 = this.eUw;
+        int[] iArr4 = this.eSX;
         iArr4[i10] = iArr4[i10] + 64;
-        int[] iArr5 = this.eUv;
+        int[] iArr5 = this.eSW;
         iArr5[i10] = iArr5[i10] - 65536;
         return i8;
     }

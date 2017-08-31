@@ -8,19 +8,19 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ChooseColorLayout extends LinearLayout {
-    public View.OnClickListener avX;
-    private int[] eUH;
-    private int eUI;
-    private int eUJ;
-    private int eUK;
-    private int eUL;
-    private a eUM;
+    public View.OnClickListener avj;
+    private int[] eTi;
+    private int eTj;
+    private int eTk;
+    private int eTl;
+    private int eTm;
+    private a eTn;
     private int mPadding;
     private int mWidth;
 
     /* loaded from: classes.dex */
     public interface a {
-        void pv(int i);
+        void pz(int i);
     }
 
     public ChooseColorLayout(Context context) {
@@ -33,20 +33,20 @@ public class ChooseColorLayout extends LinearLayout {
 
     public ChooseColorLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.avX = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.ChooseColorLayout.1
+        this.avj = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.ChooseColorLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int intValue;
-                if ((view instanceof com.baidu.tieba.pb.pb.main.emotion.view.a) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.eUL) {
-                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.eUL);
+                if ((view instanceof com.baidu.tieba.pb.pb.main.emotion.view.a) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.eTm) {
+                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.eTm);
                     if (childAt instanceof com.baidu.tieba.pb.pb.main.emotion.view.a) {
                         ((com.baidu.tieba.pb.pb.main.emotion.view.a) childAt).setIsChooseView(false);
                     }
-                    ChooseColorLayout.this.eUL = intValue;
-                    ChooseColorLayout.this.eUK = ((com.baidu.tieba.pb.pb.main.emotion.view.a) view).getChooseColor();
+                    ChooseColorLayout.this.eTm = intValue;
+                    ChooseColorLayout.this.eTl = ((com.baidu.tieba.pb.pb.main.emotion.view.a) view).getChooseColor();
                     ((com.baidu.tieba.pb.pb.main.emotion.view.a) view).setIsChooseView(true);
-                    if (ChooseColorLayout.this.eUM != null) {
-                        ChooseColorLayout.this.eUM.pv(ChooseColorLayout.this.eUK);
+                    if (ChooseColorLayout.this.eTn != null) {
+                        ChooseColorLayout.this.eTn.pz(ChooseColorLayout.this.eTl);
                     }
                 }
             }
@@ -55,34 +55,34 @@ public class ChooseColorLayout extends LinearLayout {
     }
 
     private void init() {
-        this.mWidth = k.ag(getContext());
-        this.eUH = getResources().getIntArray(d.b.choose_colors);
+        this.mWidth = k.ad(getContext());
+        this.eTi = getResources().getIntArray(d.b.choose_colors);
         this.mPadding = getResources().getDimensionPixelSize(d.f.ds24);
-        this.eUI = (this.mWidth - (this.mPadding * 2)) / 8;
-        this.eUJ = (this.eUI - (getResources().getDimensionPixelSize(d.f.ds16) * 2)) / 2;
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.eUI, this.eUI);
+        this.eTj = (this.mWidth - (this.mPadding * 2)) / 8;
+        this.eTk = (this.eTj - (getResources().getDimensionPixelSize(d.f.ds16) * 2)) / 2;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.eTj, this.eTj);
         layoutParams.gravity = 17;
-        for (int i = 0; i < this.eUH.length; i++) {
+        for (int i = 0; i < this.eTi.length; i++) {
             com.baidu.tieba.pb.pb.main.emotion.view.a aVar = new com.baidu.tieba.pb.pb.main.emotion.view.a(getContext());
-            aVar.setChooseColor(this.eUH[i]);
+            aVar.setChooseColor(this.eTi[i]);
             aVar.setTag(Integer.valueOf(i));
-            aVar.setRadius(this.eUJ);
+            aVar.setRadius(this.eTk);
             if (i == 0) {
                 aVar.setIsChooseView(true);
-                this.eUK = this.eUH[i];
-                this.eUL = i;
+                this.eTl = this.eTi[i];
+                this.eTm = i;
             }
-            aVar.setOnClickListener(this.avX);
+            aVar.setOnClickListener(this.avj);
             addView(aVar, layoutParams);
         }
         setPadding(this.mPadding, 0, this.mPadding, getResources().getDimensionPixelSize(d.f.ds20));
     }
 
     public int getCurrentChooseColor() {
-        return this.eUK;
+        return this.eTl;
     }
 
     public void setOnChooseColorChangeListener(a aVar) {
-        this.eUM = aVar;
+        this.eTn = aVar;
     }
 }

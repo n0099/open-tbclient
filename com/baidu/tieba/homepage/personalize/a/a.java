@@ -15,68 +15,68 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public JSONArray cUu;
-    private HttpMessageListener cUv;
-    private BdUniqueId cUw = BdUniqueId.gen();
-    private BdUniqueId cUx = BdUniqueId.gen();
-    private CustomMessageListener cUy = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.homepage.personalize.a.a.2
+    public JSONArray daX;
+    private HttpMessageListener daY;
+    private BdUniqueId daZ = BdUniqueId.gen();
+    private BdUniqueId dba = BdUniqueId.gen();
+    private CustomMessageListener dbb = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.homepage.personalize.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && i.hf() && a.this.cUu != null) {
-                a.this.a(a.this.cUu, a.this.cUx);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && i.gW() && a.this.daX != null) {
+                a.this.a(a.this.daX, a.this.dba);
             }
         }
     };
-    private CustomMessageListener cUz = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.personalize.a.a.3
+    private CustomMessageListener dbc = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.personalize.a.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                a.this.q((JSONObject) customResponsedMessage.getData());
+                a.this.u((JSONObject) customResponsedMessage.getData());
             }
         }
     };
 
     public a() {
-        if (this.cUv == null) {
-            this.cUv = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.homepage.personalize.a.a.1
+        if (this.daY == null) {
+            this.daY = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.homepage.personalize.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003184 && httpResponsedMessage.getError() == 0) {
-                        a.this.cUu = null;
+                        a.this.daX = null;
                     }
                 }
             };
         }
-        this.cUv.setTag(this.cUx);
-        MessageManager.getInstance().registerListener(this.cUv);
-        MessageManager.getInstance().registerListener(this.cUy);
-        MessageManager.getInstance().registerListener(this.cUz);
+        this.daY.setTag(this.dba);
+        MessageManager.getInstance().registerListener(this.daY);
+        MessageManager.getInstance().registerListener(this.dbb);
+        MessageManager.getInstance().registerListener(this.dbc);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cUv);
-        MessageManager.getInstance().unRegisterListener(this.cUy);
-        MessageManager.getInstance().unRegisterListener(this.cUz);
-        this.cUu = null;
+        MessageManager.getInstance().unRegisterListener(this.daY);
+        MessageManager.getInstance().unRegisterListener(this.dbb);
+        MessageManager.getInstance().unRegisterListener(this.dbc);
+        this.daX = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void q(JSONObject jSONObject) {
+    public void u(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (i.hf()) {
+            if (i.gW()) {
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
-                a(jSONArray, this.cUw);
+                a(jSONArray, this.daZ);
                 return;
             }
-            if (this.cUu == null) {
-                this.cUu = new JSONArray();
+            if (this.daX == null) {
+                this.daX = new JSONArray();
             }
-            if (this.cUu.length() <= 100) {
-                this.cUu.put(jSONObject);
+            if (this.daX.length() <= 100) {
+                this.daX.put(jSONObject);
             }
         }
     }

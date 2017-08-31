@@ -5,23 +5,23 @@ import java.util.List;
 import tbclient.LotteryRegular;
 /* loaded from: classes.dex */
 public class al {
-    private String XR;
-    private List<Integer> XS;
+    private String Xa;
+    private List<Integer> Xb;
 
-    public String qt() {
-        return this.XR;
+    public String qo() {
+        return this.Xa;
     }
 
-    public List<Integer> qu() {
-        return this.XS;
+    public List<Integer> qp() {
+        return this.Xb;
     }
 
     public void a(LotteryRegular lotteryRegular) {
-        this.XR = lotteryRegular.regular;
-        this.XS = new ArrayList();
+        this.Xa = lotteryRegular.regular;
+        this.Xb = new ArrayList();
         int size = lotteryRegular.chance.size();
         for (int i = 0; i < size; i++) {
-            this.XS.add(lotteryRegular.chance.get(i));
+            this.Xb.add(lotteryRegular.chance.get(i));
         }
     }
 }

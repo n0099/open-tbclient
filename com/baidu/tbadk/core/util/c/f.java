@@ -27,14 +27,14 @@ public class f extends a {
     /* renamed from: c */
     public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.a.a b = super.b(str, str2, objArr);
-        if (b != null && b.kW() != null && b.kW().isRecycled()) {
+        if (b != null && b.kO() != null && b.kO().isRecycled()) {
             return null;
         }
         return b;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
-    public boolean fX() {
+    public boolean fN() {
         return true;
     }
 
@@ -54,17 +54,17 @@ public class f extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wv() {
+    public boolean ws() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean ww() {
+    public boolean wt() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int wx() {
+    public int wu() {
         return this.procType;
     }
 }

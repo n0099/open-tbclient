@@ -26,6 +26,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private String god_intro;
     private boolean isBigV;
     private boolean isGod;
+    private int is_manager;
     private int is_myfriend;
     private j pendantData;
     private String virtualUserUrl;
@@ -56,6 +57,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private int isMem = 0;
     private ThemeCardInUserData themeCard = new ThemeCardInUserData();
     private String sealPrefix = null;
+    private int left_call_num = 0;
 
     public void setUserId(String str) {
         this.userId = str;
@@ -113,7 +115,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public long getUserIdLong() {
-        return com.baidu.adp.lib.g.b.d(this.userId, 0L);
+        return com.baidu.adp.lib.g.b.c(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -199,6 +201,14 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.mTShowIconInfoNew;
     }
 
+    public int getLeft_call_num() {
+        return this.left_call_num;
+    }
+
+    public void setLeft_call_num(int i) {
+        this.left_call_num = i;
+    }
+
     public int getLevel_id() {
         return this.level_id;
     }
@@ -209,6 +219,10 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
 
     public int getIs_bawu() {
         return this.is_bawu;
+    }
+
+    public int getIs_manager() {
+        return this.is_manager;
     }
 
     public String getBawu_type() {
@@ -332,6 +346,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.level_id = user.level_id.intValue();
             this.is_like = user.is_like.intValue();
             this.is_bawu = user.is_bawu.intValue();
+            this.is_manager = user.is_manager.intValue();
             this.bawu_type = user.bawu_type;
             this.is_myfriend = user.is_friend.intValue();
             this.concernNum = user.concern_num.intValue();
@@ -399,6 +414,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             if (user.spring_virtual_user != null && user.spring_virtual_user.is_virtual.intValue() == 1 && !StringUtils.isNull(user.spring_virtual_user.url)) {
                 this.virtualUserUrl = user.spring_virtual_user.url;
             }
+            this.left_call_num = user.left_call_num.intValue();
         }
     }
 
@@ -420,6 +436,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 this.level_id = jSONObject.optInt("level_id", 0);
                 this.is_like = jSONObject.optInt("is_like", 0);
                 this.is_bawu = jSONObject.optInt("is_bawu", 0);
+                this.is_manager = jSONObject.optInt("is_manager", 0);
                 this.isMem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM, 0);
                 this.bawu_type = jSONObject.optString("bawu_type");
                 this.is_myfriend = jSONObject.optInt("is_friend");
@@ -481,6 +498,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                         this.virtualUserUrl = optString;
                     }
                 }
+                this.left_call_num = jSONObject.optInt("left_call_num", 0);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

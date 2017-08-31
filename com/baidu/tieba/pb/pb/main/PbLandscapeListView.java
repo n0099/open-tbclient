@@ -6,7 +6,13 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 /* loaded from: classes.dex */
 public class PbLandscapeListView extends BdTypeListView {
+    private a eKZ;
     private boolean isLandscape;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void aRo();
+    }
 
     public PbLandscapeListView(Context context) {
         super(context);
@@ -27,6 +33,10 @@ public class PbLandscapeListView extends BdTypeListView {
         this.isLandscape = z;
     }
 
+    public void setOnLayoutListener(a aVar) {
+        this.eKZ = aVar;
+    }
+
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (this.isLandscape) {
@@ -41,5 +51,14 @@ public class PbLandscapeListView extends BdTypeListView {
             return false;
         }
         return super.onTouchEvent(motionEvent);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        if (this.eKZ != null) {
+            this.eKZ.aRo();
+        }
     }
 }

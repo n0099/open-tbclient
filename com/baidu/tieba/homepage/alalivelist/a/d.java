@@ -9,30 +9,30 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.homepage.alalivelist.view.e;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.alalivelist.view.d, a> {
-    public BdUniqueId aOO;
-    x<com.baidu.tieba.homepage.alalivelist.view.d> cRk;
-    private e cRn;
-    private TbPageContext<?> oW;
+    public BdUniqueId aOx;
+    x<com.baidu.tieba.homepage.alalivelist.view.d> cXC;
+    private e cXF;
+    private TbPageContext<?> mF;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cRk = new x<com.baidu.tieba.homepage.alalivelist.view.d>() { // from class: com.baidu.tieba.homepage.alalivelist.a.d.1
+        this.cXC = new x<com.baidu.tieba.homepage.alalivelist.view.d>() { // from class: com.baidu.tieba.homepage.alalivelist.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, com.baidu.tieba.homepage.alalivelist.view.d dVar) {
             }
         };
-        this.oW = tbPageContext;
+        this.mF = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ak */
+    /* renamed from: ap */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cRn = new e(this.oW);
-        this.cRn.i(this.oW.getUniqueId());
-        return new a(this.cRn);
+        this.cXF = new e(this.mF);
+        this.cXF.i(this.aOx);
+        return new a(this.cXF);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,19 +40,19 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.alalivelist.view.d dVar, a aVar) {
-        aVar.cRp.a(dVar);
-        aVar.cRp.b(this.cRk);
+        aVar.cXH.a(dVar);
+        aVar.cXH.b(this.cXC);
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends j.a {
-        public e cRp;
+        public e cXH;
 
         public a(e eVar) {
             super(eVar.getView());
-            this.cRp = eVar;
+            this.cXH = eVar;
         }
     }
 }

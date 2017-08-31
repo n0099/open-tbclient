@@ -18,12 +18,12 @@ public class e {
         void onSuccess(String str);
     }
 
-    public static boolean pn() {
-        return com.baidu.adp.lib.b.d.fh().am("android_stoken_new") == 1;
+    public static boolean ph() {
+        return com.baidu.adp.lib.b.d.eW().af("android_stoken_new") == 1;
     }
 
     public static String d(AccountData accountData) {
-        if (accountData != null && pn()) {
+        if (accountData != null && ph()) {
             return accountData.getStoken();
         }
         return null;

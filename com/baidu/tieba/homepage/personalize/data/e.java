@@ -2,22 +2,22 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.i;
 import com.baidu.tieba.card.data.r;
 import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tieba.card.data.h implements r {
-    private CardGod cWG;
+    private CardGod ddk;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.cWG = cardGod;
-            this.mGroupTitle = this.cWG.card_title;
-            if (!u.v(this.cWG.gods)) {
+            this.ddk = cardGod;
+            this.mGroupTitle = this.ddk.card_title;
+            if (!v.v(this.ddk.gods)) {
                 int i = 0;
-                for (User user : this.cWG.gods) {
+                for (User user : this.ddk.gods) {
                     if (i != 10) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(user);
@@ -35,30 +35,30 @@ public class e extends com.baidu.tieba.card.data.h implements r {
         }
     }
 
-    public boolean LO() {
-        return u.u(getDataList()) > 2;
+    public boolean LX() {
+        return v.u(getDataList()) > 2;
     }
 
     @Override // com.baidu.tieba.card.data.r
     public int getPosition() {
-        if (this.cWG == null || this.cWG.position == null) {
+        if (this.ddk == null || this.ddk.position == null) {
             return 0;
         }
-        return this.cWG.position.intValue();
+        return this.ddk.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean Xd() {
+    public boolean Yg() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dG(boolean z) {
+    public void dJ(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dH(boolean z) {
+    public void dK(boolean z) {
         this.showBottomDivider = z;
     }
 }

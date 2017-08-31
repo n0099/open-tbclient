@@ -8,11 +8,11 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextGraffitiInfo extends OrmObject {
-    static final int aRa = k.g(TbadkCoreApplication.getInst(), d.f.ds360);
-    static final int aRb = k.g(TbadkCoreApplication.getInst(), d.f.ds300);
+    static final int aQJ = k.g(TbadkCoreApplication.getInst(), d.f.ds360);
+    static final int aQK = k.g(TbadkCoreApplication.getInst(), d.f.ds300);
     public long gid;
     public String url;
-    public int width = aRb;
+    public int width = aQK;
     public int height = this.width;
 
     public void a(PbContent pbContent) {
@@ -28,12 +28,12 @@ public class TbRichTextGraffitiInfo extends OrmObject {
         }
     }
 
-    public void fz(int i) {
+    public void fA(int i) {
         if (i == 1) {
-            this.width = aRa;
+            this.width = aQJ;
             this.height = this.width;
-        } else if (this.width != this.height || this.width <= 0 || this.width > aRb) {
-            this.width = aRb;
+        } else if (this.width != this.height || this.width <= 0 || this.width > aQK) {
+            this.width = aQK;
             this.height = this.width;
         }
     }

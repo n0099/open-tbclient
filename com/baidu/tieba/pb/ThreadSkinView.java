@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.d.a;
@@ -16,8 +16,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo eDN;
-    private a.C0121a eDO;
+    private SkinInfo eCg;
+    private a.C0124a eCh;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -39,25 +39,25 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0121a c0121a) {
+    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0124a c0124a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.eDN != skinInfo && c0121a != null) {
-            this.eDO = c0121a;
-            this.eDO.delete("action_type");
-            this.eDO.ck("obj_id", skinInfo.obj_id);
-            this.eDO.ck("obj_url", skinInfo.url);
-            this.eDO.ck("obj_name", skinInfo.monitor_id);
-            this.eDO.ck("action_type", "VIEW_TRUE");
-            this.eDO.save();
+        if (this.eCg != skinInfo && c0124a != null) {
+            this.eCh = c0124a;
+            this.eCh.dO("action_type");
+            this.eCh.cj("obj_id", skinInfo.obj_id);
+            this.eCh.cj("obj_url", skinInfo.url);
+            this.eCh.cj("obj_name", skinInfo.monitor_id);
+            this.eCh.cj("action_type", "VIEW_TRUE");
+            this.eCh.save();
         }
-        this.eDN = skinInfo;
-        int ag = k.ag(tbPageContext.getPageActivity());
+        this.eCg = skinInfo;
+        int ad = k.ad(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        layoutParams.width = ag;
+        layoutParams.width = ad;
         if (!StringUtils.isNull(skinInfo.skin_size)) {
             String[] split = skinInfo.skin_size.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length > 1) {
@@ -81,13 +81,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eDN != null && !StringUtils.isNull(this.eDN.url)) {
-            if (this.eDO != null) {
-                this.eDO.delete("action_type");
-                this.eDO.ck("action_type", "CLICK");
-                this.eDO.save();
+        if (this.eCg != null && !StringUtils.isNull(this.eCg.url)) {
+            if (this.eCh != null) {
+                this.eCh.dO("action_type");
+                this.eCh.cj("action_type", "CLICK");
+                this.eCh.save();
             }
-            at.wg().c(this.mTbPageContext, new String[]{this.eDN.url});
+            au.wd().c(this.mTbPageContext, new String[]{this.eCg.url});
         }
     }
 }

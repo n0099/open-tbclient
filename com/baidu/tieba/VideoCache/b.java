@@ -1,7 +1,7 @@
 package com.baidu.tieba.VideoCache;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
@@ -14,26 +14,26 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private a aVW = new a();
+    private a aVF = new a();
 
     public b() {
-        Ko();
+        Kx();
     }
 
-    private void Ko() {
+    private void Kx() {
         File[] listFiles;
-        File file = new File(i.aWC);
+        File file = new File(i.aWm);
         if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
                     d dVar = new d();
-                    dVar.hm(file2.getName());
-                    dVar.aq(hj(file2.getAbsolutePath()));
-                    dVar.ar(m.hw(file2.getName()));
-                    this.aVW.a(dVar);
+                    dVar.hi(file2.getName());
+                    dVar.ap(hf(file2.getAbsolutePath()));
+                    dVar.aq(m.hs(file2.getName()));
+                    this.aVF.a(dVar);
                 }
             }
-            Collections.sort(this.aVW.Kl(), new AccessTimeComparator());
+            Collections.sort(this.aVF.Ku(), new AccessTimeComparator());
         }
     }
 
@@ -42,7 +42,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long hj(String str) {
+    private long hf(String str) {
         DataInputStream dataInputStream;
         FileInputStream fileInputStream;
         long j = 0;
@@ -90,7 +90,7 @@ public class b {
                     e = e5;
                     fileInputStream2 = fileInputStream;
                     try {
-                        TiebaStatic.log(new aj("c12028").aa("errormsg", "获取缓存文件的Access时间出现异常").aa("error", e.getMessage()).aa("name", file.getAbsolutePath()));
+                        TiebaStatic.log(new ak("c12028").ad("errormsg", "获取缓存文件的Access时间出现异常").ad("error", e.getMessage()).ad("name", file.getAbsolutePath()));
                         e.printStackTrace();
                         if (fileInputStream2 != null) {
                             try {
@@ -139,69 +139,69 @@ public class b {
         return j;
     }
 
-    public void hk(String str) {
+    public void hg(String str) {
         d dVar;
-        String hy = m.hy(str);
-        if (hy != null && !hy.isEmpty()) {
-            hl(hy);
-            if (this.aVW != null) {
+        String hu = m.hu(str);
+        if (hu != null && !hu.isEmpty()) {
+            hh(hu);
+            if (this.aVF != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = 0;
                 while (true) {
-                    if (i >= this.aVW.Kn()) {
+                    if (i >= this.aVF.Kw()) {
                         dVar = null;
                         break;
                     }
-                    d fO = this.aVW.fO((this.aVW.Kn() - 1) - i);
-                    if (fO != null && fO.getFileName() != null && fO.getFileName().equals(hy)) {
-                        dVar = fO;
+                    d fP = this.aVF.fP((this.aVF.Kw() - 1) - i);
+                    if (fP != null && fP.getFileName() != null && fP.getFileName().equals(hu)) {
+                        dVar = fP;
                         break;
                     }
                     i++;
                 }
                 if (dVar != null) {
-                    this.aVW.b(dVar);
+                    this.aVF.b(dVar);
                 } else {
                     dVar = new d();
-                    dVar.hm(hy);
+                    dVar.hi(hu);
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
-                h(hy, currentTimeMillis2);
-                dVar.aq(currentTimeMillis2);
-                dVar.ar(m.hw(hy));
-                this.aVW.a(dVar);
-                j.at(TAG, "total cache size: " + ((this.aVW.Km() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M list size " + this.aVW.Kn());
-                if (this.aVW.Km() > 629145600) {
-                    while (this.aVW.Km() > 524288000 && this.aVW.Kn() > 2 && Kp()) {
+                g(hu, currentTimeMillis2);
+                dVar.ap(currentTimeMillis2);
+                dVar.aq(m.hs(hu));
+                this.aVF.a(dVar);
+                j.aw(TAG, "total cache size: " + ((this.aVF.Kv() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M list size " + this.aVF.Kw());
+                if (this.aVF.Kv() > 629145600) {
+                    while (this.aVF.Kv() > 524288000 && this.aVF.Kw() > 2 && Ky()) {
                     }
-                    Kr();
+                    KA();
                 }
-                if (m.KD() < 314572800) {
-                    while (m.KD() < 419430400 && this.aVW.Kn() > 2 && Kp()) {
+                if (m.KN() < 314572800) {
+                    while (m.KN() < 419430400 && this.aVF.Kw() > 2 && Ky()) {
                     }
-                    Kr();
+                    KA();
                 }
-                j.at(TAG, "adjust coast time " + (System.currentTimeMillis() - currentTimeMillis));
+                j.aw(TAG, "adjust coast time " + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
 
-    private boolean Kp() {
-        d fO = this.aVW.fO(0);
-        if (fO == null || !(e.Ku().hn(fO.getFileName()) || e.Ku().hp(fO.getFileName()))) {
-            this.aVW.remove(0);
-            if (fO != null) {
-                File file = new File(i.aWD + fO.getFileName());
-                j.at(TAG, "delete file " + file.getName());
-                m.z(file);
+    private boolean Ky() {
+        d fP = this.aVF.fP(0);
+        if (fP == null || !(e.KD().hj(fP.getFileName()) || e.KD().hl(fP.getFileName()))) {
+            this.aVF.remove(0);
+            if (fP != null) {
+                File file = new File(i.aWn + fP.getFileName());
+                j.aw(TAG, "delete file " + file.getName());
+                m.B(file);
             }
             return true;
         }
         return false;
     }
 
-    private void h(String str, long j) {
-        File file = new File(i.aWD + str);
+    private void g(String str, long j) {
+        File file = new File(i.aWn + str);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -212,48 +212,48 @@ public class b {
             bufferedWriter.flush();
             bufferedWriter.close();
         } catch (Exception e) {
-            TiebaStatic.log(new aj("c12028").aa("errormsg", "修改缓存文件的Access时间出现异常").aa("error", e.getMessage()).aa("name", file2.getAbsolutePath()));
+            TiebaStatic.log(new ak("c12028").ad("errormsg", "修改缓存文件的Access时间出现异常").ad("error", e.getMessage()).ad("name", file2.getAbsolutePath()));
             e.printStackTrace();
         }
     }
 
-    public void Kq() {
-        if (this.aVW != null) {
+    public void Kz() {
+        if (this.aVF != null) {
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.aVW.Kn() - 2; i++) {
-                d fO = this.aVW.fO(i);
-                if (fO != null) {
-                    if (currentTimeMillis - fO.Ks() < 86400000) {
+            for (int i = 0; i < this.aVF.Kw() - 2; i++) {
+                d fP = this.aVF.fP(i);
+                if (fP != null) {
+                    if (currentTimeMillis - fP.KB() < 86400000) {
                         break;
                     }
-                    arrayList.add(fO);
+                    arrayList.add(fP);
                 }
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 d dVar = (d) arrayList.get(i2);
-                if (dVar == null || (!e.Ku().hn(dVar.getFileName()) && !e.Ku().hp(dVar.getFileName()))) {
-                    this.aVW.b(dVar);
+                if (dVar == null || (!e.KD().hj(dVar.getFileName()) && !e.KD().hl(dVar.getFileName()))) {
+                    this.aVF.b(dVar);
                     if (dVar != null) {
-                        File file = new File(i.aWD + dVar.getFileName());
-                        j.at(TAG, "delete expired file " + dVar.getFileName());
-                        m.z(file);
+                        File file = new File(i.aWn + dVar.getFileName());
+                        j.aw(TAG, "delete expired file " + dVar.getFileName());
+                        m.B(file);
                     }
                 }
             }
-            Kr();
+            KA();
         }
     }
 
-    private void hl(String str) {
+    private void hh(String str) {
         File[] listFiles;
         if (str != null) {
             try {
                 if (!str.isEmpty()) {
-                    File file = new File(i.aWD + str + "/completed");
-                    File file2 = new File(i.aWD + str + "/segments");
+                    File file = new File(i.aWn + str + "/completed");
+                    File file2 = new File(i.aWn + str + "/segments");
                     if (file.exists()) {
-                        j.at(TAG, "delete segments");
+                        j.aw(TAG, "delete segments");
                         if (file2 != null && file2.exists() && file2.listFiles() != null) {
                             for (File file3 : file2.listFiles()) {
                                 if (file3 != null && file3.exists()) {
@@ -271,23 +271,23 @@ public class b {
     }
 
     public void clearCache() {
-        if (this.aVW != null) {
-            while (this.aVW.Kn() > 0 && Kp()) {
+        if (this.aVF != null) {
+            while (this.aVF.Kw() > 0 && Ky()) {
             }
-            Kr();
+            KA();
         }
     }
 
-    private void Kr() {
+    private void KA() {
         File[] listFiles;
-        File file = new File(i.aWC);
+        File file = new File(i.aWm);
         if (file.exists() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
                     if (!file2.isDirectory()) {
-                        m.z(file2);
+                        m.B(file2);
                     } else if (!new File(file2.getAbsolutePath() + "/accesstime").exists()) {
-                        m.z(file2);
+                        m.B(file2);
                     }
                 }
             }

@@ -13,7 +13,7 @@ public class c implements com.baidu.tbadk.core.view.userLike.a {
     private String recom_reason = null;
     private String portrait = null;
     private long id = 0;
-    private int ZT = 0;
+    private int YX = 0;
 
     public c() {
         this.is_like = 0;
@@ -59,7 +59,7 @@ public class c implements com.baidu.tbadk.core.view.userLike.a {
 
     @Override // com.baidu.tbadk.core.view.userLike.a
     public boolean isGod() {
-        return this.ZT == 1;
+        return this.YX == 1;
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.a
@@ -67,11 +67,7 @@ public class c implements com.baidu.tbadk.core.view.userLike.a {
         return this.portrait;
     }
 
-    public int getPost_num() {
-        return this.post_num;
-    }
-
-    public String aoC() {
+    public String aqk() {
         return this.recom_reason;
     }
 
@@ -89,7 +85,7 @@ public class c implements com.baidu.tbadk.core.view.userLike.a {
             this.recom_reason = userList.recom_reason;
             this.portrait = userList.portrait;
             this.id = userList.id.longValue();
-            this.ZT = userList.is_god.intValue();
+            this.YX = userList.is_god.intValue();
         }
     }
 }

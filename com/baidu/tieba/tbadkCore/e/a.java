@@ -2,29 +2,29 @@ package com.baidu.tieba.tbadkCore.e;
 
 import android.webkit.JsPromptResult;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<b> glJ = new ArrayList<>();
+    private ArrayList<b> gkl = new ArrayList<>();
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.glJ.add(bVar);
+            this.gkl.add(bVar);
         }
     }
 
     public void b(b bVar) {
         if (bVar != null) {
-            this.glJ.remove(bVar);
+            this.gkl.remove(bVar);
         }
     }
 
-    public void btA() {
-        this.glJ.clear();
+    public void bsP() {
+        this.gkl.clear();
     }
 
     public boolean b(String str, JsPromptResult jsPromptResult) {
@@ -46,8 +46,8 @@ public class a {
     }
 
     private boolean b(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (u.u(this.glJ) > 0) {
-            Iterator<b> it = this.glJ.iterator();
+        if (v.u(this.gkl) > 0) {
+            Iterator<b> it = this.gkl.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {

@@ -36,7 +36,7 @@ public class f {
         }
     }
 
-    public static void b(byte[] bArr, OutputStream outputStream) throws Exception {
+    public static void a(byte[] bArr, OutputStream outputStream) throws Exception {
         if (bArr != null && bArr.length != 0) {
             GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
             gZIPOutputStream.write(bArr, 0, bArr.length);

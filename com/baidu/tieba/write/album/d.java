@@ -12,25 +12,25 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.d;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d extends BaseAdapter {
-    private com.baidu.tbadk.img.b azd;
-    private AlbumActivity gBZ;
-    private String gCo;
-    private int gCp;
+    private com.baidu.tbadk.img.b ayo;
+    private AlbumActivity gAM;
+    private String gBb;
+    private int gBc;
     private List<com.baidu.tbadk.c.a> mList;
     private int mWidth;
 
     public d(AlbumActivity albumActivity) {
-        this.gBZ = albumActivity;
-        this.azd = albumActivity.ank();
-        this.mWidth = (int) this.gBZ.getResources().getDimension(d.f.ds120);
-        this.gCp = com.baidu.adp.lib.util.k.ag(this.gBZ.getPageContext().getPageActivity()) / 2;
+        this.gAM = albumActivity;
+        this.ayo = albumActivity.aoS();
+        this.mWidth = (int) this.gAM.getResources().getDimension(d.f.ds120);
+        this.gBc = com.baidu.adp.lib.util.k.ad(this.gAM.getPageContext().getPageActivity()) / 2;
     }
 
     public void c(List<com.baidu.tbadk.c.a> list, String str) {
         this.mList = list;
-        this.gCo = str;
+        this.gBb = str;
     }
 
     @Override // android.widget.Adapter
@@ -43,7 +43,7 @@ public class d extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: up */
+    /* renamed from: ur */
     public com.baidu.tbadk.c.a getItem(int i) {
         if (this.mList == null || i < 0 || i >= this.mList.size()) {
             return null;
@@ -62,42 +62,42 @@ public class d extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.gBZ.getPageContext().getPageActivity()).inflate(d.j.album_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.gAM.getPageContext().getPageActivity()).inflate(d.j.album_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.gCr = (HeadImageView) view.findViewById(d.h.item_head);
-            aVar2.gCs = (TextView) view.findViewById(d.h.item_name);
-            aVar2.gCt = (ImageView) view.findViewById(d.h.item_arrow);
+            aVar2.gBe = (HeadImageView) view.findViewById(d.h.item_head);
+            aVar2.gBf = (TextView) view.findViewById(d.h.item_name);
+            aVar2.gBg = (ImageView) view.findViewById(d.h.item_arrow);
             view.setTag(aVar2);
             aVar = aVar2;
         }
-        aVar.gCr.setTag(null);
-        aVar.gCr.setDefaultResource(d.g.pic_image_h_not);
-        aVar.gCr.c(null, 12, false);
-        aVar.gCr.invalidate();
+        aVar.gBe.setTag(null);
+        aVar.gBe.setDefaultResource(d.g.pic_image_h_not);
+        aVar.gBe.c(null, 12, false);
+        aVar.gBe.invalidate();
         com.baidu.tbadk.c.a item = getItem(i);
         if (item != null) {
             if (!TextUtils.isEmpty(item.getName())) {
                 item.getName();
-                aVar.gCs.setText(com.baidu.adp.lib.util.k.a(aVar.gCs.getPaint(), item.getName(), this.gCp) + "(" + item.nG() + ")");
+                aVar.gBf.setText(com.baidu.adp.lib.util.k.a(aVar.gBf.getPaint(), item.getName(), this.gBc) + "(" + item.nA() + ")");
             } else {
-                aVar.gCs.setText("");
+                aVar.gBf.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.gCo)) {
-                aVar.gCt.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.gBb)) {
+                aVar.gBg.setVisibility(0);
             } else {
-                aVar.gCt.setVisibility(8);
+                aVar.gBg.setVisibility(8);
             }
-            ImageFileInfo nH = item.nH();
-            if (nH != null) {
-                nH.clearPageActions();
-                nH.addPageAction(com.baidu.tbadk.img.effect.d.M(this.mWidth, this.mWidth));
-                com.baidu.adp.widget.a.a a2 = this.azd.a(nH, false);
-                aVar.gCr.setTag(nH.toCachedKey(false));
+            ImageFileInfo nB = item.nB();
+            if (nB != null) {
+                nB.clearPageActions();
+                nB.addPageAction(com.baidu.tbadk.img.effect.d.J(this.mWidth, this.mWidth));
+                com.baidu.adp.widget.a.a a2 = this.ayo.a(nB, false);
+                aVar.gBe.setTag(nB.toCachedKey(false));
                 if (a2 != null) {
-                    aVar.gCr.invalidate();
+                    aVar.gBe.invalidate();
                 } else {
-                    this.azd.a(nH, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.d.1
+                    this.ayo.a(nB, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.d.1
                         @Override // com.baidu.tbadk.imageManager.b
                         public void a(com.baidu.adp.widget.a.a aVar3, String str, boolean z) {
                             HeadImageView headImageView = (HeadImageView) viewGroup.findViewWithTag(str);
@@ -105,22 +105,22 @@ public class d extends BaseAdapter {
                                 headImageView.invalidate();
                             }
                         }
-                    }, false, this.gBZ.isScroll());
+                    }, false, this.gAM.isScroll());
                 }
             }
         } else {
-            aVar.gCs.setText("");
+            aVar.gBf.setText("");
         }
-        this.gBZ.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.gBZ.getLayoutMode().t(view);
+        this.gAM.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.gAM.getLayoutMode().t(view);
         return view;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private class a {
-        HeadImageView gCr;
-        TextView gCs;
-        ImageView gCt;
+        HeadImageView gBe;
+        TextView gBf;
+        ImageView gBg;
 
         private a() {
         }

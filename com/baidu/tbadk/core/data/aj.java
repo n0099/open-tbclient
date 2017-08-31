@@ -7,31 +7,31 @@ import tbclient.LinkThreadContent;
 import tbclient.LinkThreadInfo;
 /* loaded from: classes.dex */
 public class aj {
-    public static int XH = 1;
-    public static int XI = 2;
-    private String XJ;
-    private String XK;
-    private String XL;
-    private int XM = 0;
-    private boolean XN = false;
+    public static int WQ = 1;
+    public static int WR = 2;
+    private String WS;
+    private String WT;
+    private String WU;
+    private int WV = 0;
+    private boolean WW = false;
     private String linkUrl;
 
     public void a(LinkThreadInfo linkThreadInfo) {
         if (linkThreadInfo != null) {
             this.linkUrl = linkThreadInfo.link_url;
-            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.u.c(linkThreadInfo.link_content, 0);
+            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.v.c(linkThreadInfo.link_content, 0);
             if (linkThreadContent != null) {
-                this.XJ = linkThreadContent.link_title;
-                this.XK = linkThreadContent.link_abstract;
-                this.XL = linkThreadContent.link_head_small_pic;
-                this.XM = linkThreadContent.link_type.intValue();
-                if (com.baidu.tbadk.core.util.al.isEmpty(this.XJ) && com.baidu.tbadk.core.util.al.isEmpty(this.XK)) {
-                    this.XN = true;
+                this.WS = linkThreadContent.link_title;
+                this.WT = linkThreadContent.link_abstract;
+                this.WU = linkThreadContent.link_head_small_pic;
+                this.WV = linkThreadContent.link_type.intValue();
+                if (com.baidu.tbadk.core.util.am.isEmpty(this.WS) && com.baidu.tbadk.core.util.am.isEmpty(this.WT)) {
+                    this.WW = true;
                     return;
                 }
                 return;
             }
-            this.XN = true;
+            this.WW = true;
         }
     }
 
@@ -43,23 +43,23 @@ public class aj {
                 try {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
                     if (jSONObject2 != null) {
-                        this.XJ = jSONObject2.optString("link_title");
-                        this.XK = jSONObject2.optString("link_abstract");
-                        this.XL = jSONObject2.optString("link_head_small_pic");
-                        this.XM = jSONObject2.optInt("link_type");
-                        if (com.baidu.tbadk.core.util.al.isEmpty(this.XJ) && com.baidu.tbadk.core.util.al.isEmpty(this.XK)) {
-                            this.XN = true;
+                        this.WS = jSONObject2.optString("link_title");
+                        this.WT = jSONObject2.optString("link_abstract");
+                        this.WU = jSONObject2.optString("link_head_small_pic");
+                        this.WV = jSONObject2.optInt("link_type");
+                        if (com.baidu.tbadk.core.util.am.isEmpty(this.WS) && com.baidu.tbadk.core.util.am.isEmpty(this.WT)) {
+                            this.WW = true;
                         }
                     } else {
-                        this.XN = true;
+                        this.WW = true;
                     }
                     return;
                 } catch (JSONException e) {
-                    this.XN = true;
+                    this.WW = true;
                     return;
                 }
             }
-            this.XN = true;
+            this.WW = true;
         }
     }
 
@@ -67,23 +67,23 @@ public class aj {
         return this.linkUrl;
     }
 
-    public String qn() {
-        return this.XJ;
+    public String qi() {
+        return this.WS;
     }
 
-    public String qo() {
-        return this.XK;
+    public String qj() {
+        return this.WT;
     }
 
-    public String qp() {
-        return this.XL;
+    public String qk() {
+        return this.WU;
     }
 
-    public int qq() {
-        return this.XM;
+    public int ql() {
+        return this.WV;
     }
 
-    public boolean qr() {
-        return this.XN;
+    public boolean qm() {
+        return this.WW;
     }
 }

@@ -6,6 +6,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
@@ -47,7 +48,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
                 this.needCache = frsRequestData.isNeedCache();
                 this.mCategoryId = frsRequestData.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = frsRequestData.Om();
+                this.mSortType = frsRequestData.OC();
                 this.mIsGood = frsRequestData.getIsGood();
                 this.mLoadType = frsRequestData.getLoadType();
             }
@@ -58,12 +59,12 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         this.responseData = new g();
-        FrsPageResIdl F = this.responseData.F(bArr);
-        if (F != null && F.error != null) {
-            if (F.error.errorno != null) {
-                setError(F.error.errorno.intValue());
+        FrsPageResIdl A = this.responseData.A(bArr);
+        if (A != null && A.error != null) {
+            if (A.error.errorno != null) {
+                setError(A.error.errorno.intValue());
             }
-            setErrorString(F.error.usermsg);
+            setErrorString(A.error.usermsg);
         }
         setData(this.responseData);
     }
@@ -74,8 +75,8 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         int g;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.brz() != null && !StringUtils.isNull(this.responseData.brz().getBookId(), true) && !this.responseData.brz().getBookId().equals("0") && this.responseData.brz().pQ() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.brz().getBookId(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
-            this.responseData.i(Integer.valueOf(((Integer) runTask.getData()).intValue()));
+        if (this.responseData.bqO() != null && !StringUtils.isNull(this.responseData.bqO().pK(), true) && !this.responseData.bqO().pK().equals("0") && this.responseData.bqO().pL() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.bqO().pK(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
+            this.responseData.j(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
 
@@ -83,9 +84,9 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null) {
-            boolean z = com.baidu.tbadk.core.util.u.u(this.responseData.getThreadList()) >= 15;
-            if (this.needCache && this.responseData.aPJ() != null && z) {
-                c.bqV().c(c.bqV().g(this.responseData.aPJ().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+            boolean z = v.u(this.responseData.getThreadList()) >= 15;
+            if (this.needCache && this.responseData.aOV() != null && z) {
+                c.bqk().c(c.bqk().d(this.responseData.aOV().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
             }
         }
     }

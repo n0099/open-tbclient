@@ -1,93 +1,34 @@
 package com.baidu.tieba.recapp.report;
 
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.tbadkCore.data.AppData;
-import com.baidu.tieba.tbadkCore.data.l;
+import android.support.v4.util.ArrayMap;
 /* loaded from: classes.dex */
 public class d {
-    public static a c(AdvertAppInfo advertAppInfo, int i, int i2) {
-        if (advertAppInfo == null) {
-            return null;
-        }
-        a aVar = new a();
-        aVar.se(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
-        aVar.sd(i);
-        aVar.rr(advertAppInfo.price);
-        aVar.rp(advertAppInfo.extensionInfo);
-        aVar.setPageNumber(i2);
-        aVar.rt(advertAppInfo.UY);
-        aVar.ru(advertAppInfo.UZ);
-        aVar.rv(advertAppInfo.Va);
-        aVar.rw(advertAppInfo.Up);
-        return aVar;
-    }
+    public static final ArrayMap<Integer, String> fIG = new ArrayMap<>();
 
-    public static a a(DownloadStaticsData downloadStaticsData, int i, int i2) {
-        if (downloadStaticsData == null) {
-            return null;
-        }
-        a aVar = new a();
-        aVar.setDownloadStaticsData(downloadStaticsData);
-        aVar.sd(i);
-        aVar.setPageNumber(i2);
-        return aVar;
-    }
-
-    public static a Q(int i, int i2, int i3) {
-        a aVar = new a();
-        aVar.sd(i);
-        aVar.se(i2);
-        aVar.setPageNumber(i3);
-        return aVar;
-    }
-
-    public static a c(l lVar, int i) {
-        if (lVar == null || lVar.bsO() == null) {
-            return null;
-        }
-        AppData bsO = lVar.bsO();
-        a aVar = new a();
-        aVar.se(com.baidu.adp.lib.g.b.g(bsO.pos_name, 0));
-        aVar.rp(bsO.ext_info);
-        aVar.setPageNumber(lVar.pageNumber);
-        aVar.sd(i);
-        aVar.rr(bsO.price);
-        aVar.rt(lVar.UY);
-        aVar.ru(lVar.UZ);
-        aVar.rv(lVar.forumId);
-        aVar.rw("PB");
-        return aVar;
-    }
-
-    public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4, int i5) {
-        a c = c(advertAppInfo, i, i2);
-        c.sf(i3);
-        c.sh(i4);
-        c.sg(i5);
-        c.rw(advertAppInfo.Up);
-        if (i == 2) {
-            c.rs("video");
-        }
-        return c;
-    }
-
-    public static a j(String str, int i, String str2) {
-        return b(str, i, str2, "");
-    }
-
-    public static a b(String str, int i, String str2, String str3) {
-        a aVar = new a();
-        aVar.sd(i);
-        aVar.rq(str2);
-        aVar.rw("HOMEPAGE");
-        aVar.rp(str);
-        aVar.rx(str3);
-        return aVar;
-    }
-
-    public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
-        a c = c(advertAppInfo, i, i2);
-        c.sf(i3);
-        return c;
+    static {
+        fIG.put(0, "未被抛弃");
+        fIG.put(1, "间隔楼层不足");
+        fIG.put(2, "当页楼层不足， 不足以插入广告");
+        fIG.put(3, "app 下载安装过， 被抛弃");
+        fIG.put(11, "非lego广告， 8.6开始被抛弃");
+        fIG.put(12, "card_type=12广告， 8.6开始被抛弃");
+        fIG.put(21, "给Android返回IOS广告或者不识别的类型");
+        fIG.put(22, "给IOS返回了Android广告或者不识别的类型");
+        fIG.put(23, "数据格式错误_adposition为空");
+        fIG.put(24, "数据格式错误_广告id为空");
+        fIG.put(25, "数据格式错误_goodsInfo为空");
+        fIG.put(26, "返回APP广告数据有问题");
+        fIG.put(27, "返回URL广告数据有问题");
+        fIG.put(28, "lego的开关没打开");
+        fIG.put(29, "广告数据位置重复被丢弃");
+        fIG.put(30, "广告ID重复被丢弃");
+        fIG.put(31, "广告插件未加载成功被丢弃");
+        fIG.put(32, "lego数据异常：包括json格式不合法、cardtype不识别、各种子类型数据不合法比如视频类型没有视频url等");
+        fIG.put(33, "客户端最后计算出的positon不合法");
+        fIG.put(34, "无图模式下需要丢弃有图广告");
+        fIG.put(35, "返回lego广告type有问题,客户端不识别");
+        fIG.put(36, "拉回了广告却没有拉回帖子");
+        fIG.put(37, "返回lego广告数据在该版本不支持");
+        fIG.put(100, "其他原因");
     }
 }

@@ -1,6 +1,5 @@
 package com.xiaomi.stats;
 
-import com.baidu.tbadk.TbConfig;
 import com.xiaomi.channel.commonutils.stats.a;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.at;
@@ -23,17 +22,17 @@ public class f {
         static final f a = new f();
     }
 
-    private com.xiaomi.push.thrift.b a(a.C0138a c0138a) {
-        if (c0138a.a == 0) {
-            if (c0138a.c instanceof com.xiaomi.push.thrift.b) {
-                return (com.xiaomi.push.thrift.b) c0138a.c;
+    private com.xiaomi.push.thrift.b a(a.C0141a c0141a) {
+        if (c0141a.a == 0) {
+            if (c0141a.c instanceof com.xiaomi.push.thrift.b) {
+                return (com.xiaomi.push.thrift.b) c0141a.c;
             }
             return null;
         }
         com.xiaomi.push.thrift.b f = f();
         f.a(com.xiaomi.push.thrift.a.CHANNEL_STATS_COUNTER.a());
-        f.c(c0138a.a);
-        f.c(c0138a.b);
+        f.c(c0141a.a);
+        f.c(c0141a.b);
         return f;
     }
 
@@ -53,7 +52,7 @@ public class f {
             cVar.b(a2);
         } catch (org.apache.thrift.f e) {
         }
-        LinkedList<a.C0138a> c = this.f.c();
+        LinkedList<a.C0141a> c = this.f.c();
         while (c.size() > 0) {
             try {
                 com.xiaomi.push.thrift.b a3 = a(c.getLast());
@@ -129,11 +128,7 @@ public class f {
         com.xiaomi.push.thrift.c cVar;
         cVar = null;
         if (d()) {
-            int i = TbConfig.POST_IMAGE_MIDDLE;
-            if (!com.xiaomi.channel.commonutils.network.d.f(this.e.a)) {
-                i = 375;
-            }
-            cVar = b(i);
+            cVar = b(com.xiaomi.channel.commonutils.network.d.f(this.e.a) ? 750 : 375);
         }
         return cVar;
     }

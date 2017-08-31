@@ -19,13 +19,13 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BookCoverActivityConfig;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.data.bm;
-import com.baidu.tbadk.core.data.bp;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bn;
 import com.baidu.tbadk.core.data.h;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.widget.TbImageView;
@@ -41,104 +41,104 @@ import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public abstract class b {
-    private static HashMap<Integer, String> cBG = new HashMap<>();
-    private static HashSet<Integer> cBH = new HashSet<>();
-    protected View aZi;
-    protected TbPageContext acr;
-    protected View bAo;
-    protected int bsj;
-    protected TextView cAP;
-    protected TextView cAQ;
-    protected TextView cAR;
-    protected TextView cAS;
-    protected TextView cAT;
-    protected ImageView cAU;
-    protected View cAV;
-    protected ViewGroup cAW;
-    protected TextView cAX;
-    protected ViewGroup cAY;
-    protected TextView cAZ;
-    protected int cAb;
-    protected boolean cBA;
-    protected boolean cBB;
-    protected boolean cBC;
-    protected boolean cBD;
-    protected boolean cBE;
-    protected float cBF;
-    protected RelativeLayout cBL;
-    protected RelativeLayout cBM;
-    protected View cBN;
-    protected TextView cBO;
-    protected RelativeLayout cBP;
-    protected TextView cBa;
-    protected TbImageView cBb;
-    protected LinearLayout cBc;
-    protected bm cBd;
-    protected bp cBe;
-    protected PopupWindow cBf;
-    protected View cBg;
-    protected TextView cBh;
-    protected TextView cBi;
-    protected ImageView cBj;
-    protected PopupWindow cBk;
-    protected BarImageView cBl;
-    protected UserIconBox cBm;
-    protected ArrayList<h> cBn;
-    protected com.baidu.tieba.frs.f.b cBo;
-    protected e cBp;
-    protected ag cBq;
-    protected String cBr;
-    protected String cBs;
-    protected String cBt;
-    protected bl cBu;
-    protected int cBv;
-    protected int cBw;
-    protected int cBx;
-    protected int cBy;
-    protected boolean cBz;
-    protected TextView cdX;
-    public TextView ciZ;
-    protected com.baidu.tieba.frs.f cla;
-    protected i cpb;
+    private static HashMap<Integer, String> cHW = new HashMap<>();
+    private static HashSet<Integer> cHX = new HashSet<>();
+    protected View aYU;
+    protected TbPageContext aby;
+    protected View bBg;
+    protected int bsN;
+    protected int cGt;
+    protected PopupWindow cHA;
+    protected BarImageView cHB;
+    protected UserIconBox cHC;
+    protected ArrayList<h> cHD;
+    protected com.baidu.tieba.frs.g.b cHE;
+    protected e cHF;
+    protected ag cHG;
+    protected String cHH;
+    protected String cHI;
+    protected String cHJ;
+    protected bj cHK;
+    protected int cHL;
+    protected int cHM;
+    protected int cHN;
+    protected int cHO;
+    protected boolean cHP;
+    protected boolean cHQ;
+    protected boolean cHR;
+    protected boolean cHS;
+    protected boolean cHT;
+    protected boolean cHU;
+    protected float cHV;
+    protected TextView cHf;
+    protected TextView cHg;
+    protected TextView cHh;
+    protected TextView cHi;
+    protected TextView cHj;
+    protected ImageView cHk;
+    protected View cHl;
+    protected ViewGroup cHm;
+    protected TextView cHn;
+    protected ViewGroup cHo;
+    protected TextView cHp;
+    protected TextView cHq;
+    protected TbImageView cHr;
+    protected LinearLayout cHs;
+    protected bk cHt;
+    protected bn cHu;
+    protected PopupWindow cHv;
+    protected View cHw;
+    protected TextView cHx;
+    protected TextView cHy;
+    protected ImageView cHz;
+    protected RelativeLayout cIb;
+    protected RelativeLayout cIc;
+    protected View cId;
+    protected TextView cIe;
+    protected RelativeLayout cIf;
+    public TextView cot;
+    protected com.baidu.tieba.frs.f cqt;
+    protected i cvG;
     protected String mForumId;
     protected String mForumName;
     protected Handler mHandler;
     protected int mMemberNum;
     protected int mMemberType;
-    protected int cAM = 0;
-    protected int cAN = 0;
-    protected int cAO = 0;
-    private boolean cBI = false;
-    protected HashSet<String> cBJ = new HashSet<>();
-    protected final Runnable cBK = new Runnable() { // from class: com.baidu.tieba.frs.view.b.1
+    protected TextView mTitleText;
+    protected int cHc = 0;
+    protected int cHd = 0;
+    protected int cHe = 0;
+    private boolean cHY = false;
+    protected HashSet<String> cHZ = new HashSet<>();
+    protected final Runnable cIa = new Runnable() { // from class: com.baidu.tieba.frs.view.b.1
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.cBf != null && b.this.cBf.isShowing() && !b.this.cBA) {
-                g.a(b.this.cBf, b.this.acr.getPageActivity());
+            if (b.this.cHv != null && b.this.cHv.isShowing() && !b.this.cHQ) {
+                g.a(b.this.cHv, b.this.aby.getPageActivity());
             }
         }
     };
-    protected final View.OnClickListener cBQ = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.b.2
+    protected final View.OnClickListener cIg = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.tieba.tbadkCore.e eVar;
-            if ((b.this.acr == null || aw.aO(b.this.acr.getPageActivity())) && view != null && (view.getTag() instanceof com.baidu.tieba.tbadkCore.e) && (eVar = (com.baidu.tieba.tbadkCore.e) view.getTag()) != null && !StringUtils.isNull(eVar.getUrl())) {
+            if ((b.this.aby == null || ax.aT(b.this.aby.getPageActivity())) && view != null && (view.getTag() instanceof com.baidu.tieba.tbadkCore.e) && (eVar = (com.baidu.tieba.tbadkCore.e) view.getTag()) != null && !StringUtils.isNull(eVar.getUrl())) {
                 String url = eVar.getUrl();
                 if ((url.contains("nohead:url") || url.contains("booktown")) && !TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    k.showToast(b.this.acr.getPageActivity(), d.l.book_plugin_not_install_tip);
+                    k.showToast(b.this.aby.getPageActivity(), d.l.book_plugin_not_install_tip);
                     return;
                 }
-                at.wg().c(b.this.acr, new String[]{url});
-                a.C0121a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", eVar.bqW(), b.this.cla.getForumId(), b.this.cla.getForumName(), null);
-                a.ck("obj_url", eVar.getUrl());
-                a.save();
+                au.wd().c(b.this.aby, new String[]{url});
+                a.C0124a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", eVar.bql(), b.this.cqt.getForumId(), b.this.cqt.getForumName(), null);
+                b.cj("obj_url", eVar.getUrl());
+                b.save();
             }
         }
     };
 
     public abstract void a(ForumData forumData, i iVar);
 
-    public abstract void agV();
+    public abstract void aiH();
 
     public abstract void changeSkinType(int i);
 
@@ -147,15 +147,15 @@ public abstract class b {
     public abstract void setCommonClickListener(View.OnClickListener onClickListener);
 
     static {
-        cBG.put(1, "c0117");
-        cBG.put(2, "c0124");
-        cBG.put(3, "c0125");
-        cBG.put(4, "c0126");
-        cBG.put(5, "c0127");
+        cHW.put(1, "c0117");
+        cHW.put(2, "c0124");
+        cHW.put(3, "c0125");
+        cHW.put(4, "c0126");
+        cHW.put(5, "c0127");
     }
 
-    public boolean akl() {
-        return this.cBz;
+    public boolean alT() {
+        return this.cHP;
     }
 
     public void a(TbPageContextSupport<?> tbPageContextSupport, View view, float f, float f2) {
@@ -204,10 +204,10 @@ public abstract class b {
         });
     }
 
-    public boolean akm() {
+    public boolean alU() {
         int[] iArr = new int[2];
         try {
-            this.cBj.getLocationOnScreen(iArr);
+            this.cHz.getLocationOnScreen(iArr);
             return iArr[0] >= 160 && iArr[1] >= 105;
         } catch (NullPointerException e) {
             return false;
@@ -215,143 +215,143 @@ public abstract class b {
     }
 
     public View getView() {
-        return this.aZi;
+        return this.aYU;
     }
 
-    public View akn() {
-        return this.cAV;
+    public View alV() {
+        return this.cHl;
     }
 
-    public BarImageView akd() {
-        return this.cBl;
+    public BarImageView alL() {
+        return this.cHB;
     }
 
-    public TextView ako() {
-        return this.cdX;
+    public TextView alW() {
+        return this.mTitleText;
     }
 
-    public TextView akp() {
-        return this.ciZ;
+    public TextView alX() {
+        return this.cot;
     }
 
-    public boolean akb() {
-        return this.cBD;
+    public boolean alJ() {
+        return this.cHT;
     }
 
-    public void ff(boolean z) {
-        this.cBC = z;
-        if (this.cBC) {
-            this.cAS.setVisibility(0);
+    public void fn(boolean z) {
+        this.cHS = z;
+        if (this.cHS) {
+            this.cHi.setVisibility(0);
         } else {
-            this.cAS.setVisibility(4);
+            this.cHi.setVisibility(4);
         }
     }
 
-    public boolean akc() {
-        return this.cBE;
+    public boolean alK() {
+        return this.cHU;
     }
 
     public void onDestory() {
-        this.cBA = true;
-        cBH.clear();
+        this.cHQ = true;
+        cHX.clear();
     }
 
     public void onStop() {
-        if (this.cBk != null && this.cBk.isShowing()) {
-            this.cBk.dismiss();
+        if (this.cHA != null && this.cHA.isShowing()) {
+            this.cHA.dismiss();
         }
-        if (this.cBf != null && this.cBf.isShowing()) {
-            this.cBf.dismiss();
+        if (this.cHv != null && this.cHv.isShowing()) {
+            this.cHv.dismiss();
         }
     }
 
-    public void fg(boolean z) {
-        this.cBB = z;
+    public void fo(boolean z) {
+        this.cHR = z;
     }
 
     public void a(int i, String str, int i2, float f, boolean z) {
-        this.cBr = str;
-        this.bsj = i2;
+        this.cHH = str;
+        this.bsN = i2;
         if (i == 0) {
-            this.cBz = false;
-            this.cBI = false;
-            this.cBL.setVisibility(0);
-            this.cBM.setVisibility(8);
+            this.cHP = false;
+            this.cHY = false;
+            this.cIb.setVisibility(0);
+            this.cIc.setVisibility(8);
             return;
         }
-        this.cBz = true;
-        this.cBL.setVisibility(8);
-        this.cBM.setVisibility(0);
-        if (z && !this.cBI) {
-            agW();
-            this.cBI = true;
+        this.cHP = true;
+        this.cIb.setVisibility(8);
+        this.cIc.setVisibility(0);
+        if (z && !this.cHY) {
+            aiI();
+            this.cHY = true;
         }
         c(false, f);
     }
 
-    protected void agW() {
+    protected void aiI() {
     }
 
-    public void jK(int i) {
+    public void jY(int i) {
         if (i == 0) {
-            this.cBz = false;
-            this.cBI = false;
-            this.cBL.setVisibility(0);
-            this.cBM.setVisibility(8);
+            this.cHP = false;
+            this.cHY = false;
+            this.cIb.setVisibility(0);
+            this.cIc.setVisibility(8);
             return;
         }
-        this.cBz = true;
-        this.cBL.setVisibility(8);
-        this.cBM.setVisibility(0);
+        this.cHP = true;
+        this.cIb.setVisibility(8);
+        this.cIc.setVisibility(0);
     }
 
-    public void jL(int i) {
+    public void jZ(int i) {
         if (i == 0) {
-            this.cBD = false;
-            this.cAS.setText(d.l.sign);
-            agR();
+            this.cHT = false;
+            this.cHi.setText(d.l.sign);
+            aiD();
             return;
         }
-        this.cBD = true;
-        this.cAS.setText(d.l.signed);
-        agQ();
+        this.cHT = true;
+        this.cHi.setText(d.l.signed);
+        aiC();
     }
 
-    protected void agR() {
+    protected void aiD() {
     }
 
-    protected void agQ() {
+    protected void aiC() {
     }
 
     public void setMemberType(int i) {
         this.mMemberType = i;
     }
 
-    public void agX() {
+    public void aiJ() {
         if (this.mMemberType != 0) {
-            ai.c(this.cBj, d.g.icon_speed_orange);
+            aj.c(this.cHz, d.g.icon_speed_orange);
         } else {
-            ai.c(this.cBj, d.g.icon_speed_gray);
+            aj.c(this.cHz, d.g.icon_speed_gray);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TextView textView, TextView textView2) {
-        textView.setText(String.valueOf(this.cBy));
-        if (this.cAb >= 10000) {
-            if (this.cAb % 10000 == 0) {
-                textView2.setText(this.acr.getString(d.l.experience_divider) + String.valueOf(this.cAb / 10000) + this.acr.getString(d.l.member_count_unit));
+        textView.setText(String.valueOf(this.cHO));
+        if (this.cGt >= 10000) {
+            if (this.cGt % 10000 == 0) {
+                textView2.setText(this.aby.getString(d.l.experience_divider) + String.valueOf(this.cGt / 10000) + this.aby.getString(d.l.member_count_unit));
                 return;
             } else {
-                textView2.setText(this.acr.getString(d.l.experience_divider) + String.valueOf(this.cAb / 10000.0f) + this.acr.getString(d.l.member_count_unit));
+                textView2.setText(this.aby.getString(d.l.experience_divider) + String.valueOf(this.cGt / 10000.0f) + this.aby.getString(d.l.member_count_unit));
                 return;
             }
         }
-        textView2.setText(this.acr.getString(d.l.experience_divider) + String.valueOf(this.cAb));
+        textView2.setText(this.aby.getString(d.l.experience_divider) + String.valueOf(this.cGt));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aU(List<com.baidu.tieba.tbadkCore.e> list) {
+    public void aY(List<com.baidu.tieba.tbadkCore.e> list) {
         if (list != null && list.size() != 0) {
             Iterator<com.baidu.tieba.tbadkCore.e> it = list.iterator();
             while (it.hasNext()) {
@@ -366,12 +366,12 @@ public abstract class b {
     public void c(boolean z, float f) {
     }
 
-    public void agG() {
+    public void ais() {
     }
 
-    public void n(int i, int i2, int i3, int i4) {
-        if (this.cBP != null) {
-            this.cBP.setPadding(i, i2, i3, i4);
+    public void l(int i, int i2, int i3, int i4) {
+        if (this.cIf != null) {
+            this.cIf.setPadding(i, i2, i3, i4);
         }
     }
 }

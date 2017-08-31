@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n {
-    private com.baidu.tieba.personCenter.a.b fgg;
-    private m fkj;
-    private b fkk;
-    private i fkl;
-    private a fkm;
-    private c fkn;
-    private h fko;
-    private j fkp;
-    private e fkq;
-    private k fkr;
-    private d fks;
-    private com.baidu.tieba.person.a.c fkt;
-    private p fku;
+    private com.baidu.tieba.personCenter.a.b few;
+    private m fiC;
+    private b fiD;
+    private i fiE;
+    private a fiF;
+    private c fiG;
+    private h fiH;
+    private j fiI;
+    private e fiJ;
+    private k fiK;
+    private d fiL;
+    private com.baidu.tieba.person.a.c fiM;
+    private p fiN;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdUniqueId mBdUniqueId;
 
@@ -31,43 +31,43 @@ public class n {
     }
 
     private void a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
-        this.fkj = new m(tbPageContext);
-        this.fkk = new b(tbPageContext);
-        this.fkl = new i(tbPageContext);
-        this.fkm = new a(tbPageContext);
-        this.fkn = new c(tbPageContext);
-        this.fko = new h(tbPageContext, tbPageContext.getUniqueId());
-        this.fkp = new j(tbPageContext);
-        this.fkq = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.fmm);
-        this.fkr = new k(tbPageContext);
-        this.fks = new d(tbPageContext);
-        this.fkt = new com.baidu.tieba.person.a.c(tbPageContext, com.baidu.tieba.person.a.e.fgh);
-        this.fgg = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.person.h.ffO);
-        this.fku = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-        this.mAdapters.add(this.fkj);
-        this.mAdapters.add(this.fkk);
-        this.mAdapters.add(this.fkl);
-        this.mAdapters.add(this.fkm);
-        this.mAdapters.add(this.fkn);
-        this.mAdapters.add(this.fko);
-        this.mAdapters.add(this.fkp);
-        this.mAdapters.add(this.fkq);
-        this.mAdapters.add(this.fkr);
-        this.mAdapters.add(this.fks);
-        this.mAdapters.add(this.fkt);
-        this.mAdapters.add(this.fgg);
-        this.mAdapters.add(this.fku);
+        this.fiC = new m(tbPageContext);
+        this.fiD = new b(tbPageContext);
+        this.fiE = new i(tbPageContext);
+        this.fiF = new a(tbPageContext);
+        this.fiG = new c(tbPageContext);
+        this.fiH = new h(tbPageContext, tbPageContext.getUniqueId());
+        this.fiI = new j(tbPageContext);
+        this.fiJ = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.fkH);
+        this.fiK = new k(tbPageContext);
+        this.fiL = new d(tbPageContext);
+        this.fiM = new com.baidu.tieba.person.a.c(tbPageContext, com.baidu.tieba.person.a.e.fex);
+        this.few = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.person.h.fef);
+        this.fiN = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
+        this.mAdapters.add(this.fiC);
+        this.mAdapters.add(this.fiD);
+        this.mAdapters.add(this.fiE);
+        this.mAdapters.add(this.fiF);
+        this.mAdapters.add(this.fiG);
+        this.mAdapters.add(this.fiH);
+        this.mAdapters.add(this.fiI);
+        this.mAdapters.add(this.fiJ);
+        this.mAdapters.add(this.fiK);
+        this.mAdapters.add(this.fiL);
+        this.mAdapters.add(this.fiM);
+        this.mAdapters.add(this.few);
+        this.mAdapters.add(this.fiN);
         bdPersonListView.addAdapters(this.mAdapters);
     }
 
-    public void J(View.OnClickListener onClickListener) {
-        if (this.fkt != null) {
-            this.fkt.H(onClickListener);
+    public void H(View.OnClickListener onClickListener) {
+        if (this.fiM != null) {
+            this.fiM.F(onClickListener);
         }
     }
 
     public void setIsHost(boolean z) {
-        this.fku.setIsHost(z);
-        this.fkl.setIsHost(z);
+        this.fiN.setIsHost(z);
+        this.fiE.setIsHost(z);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.play.a;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.v;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -13,75 +13,75 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b fCz = null;
-    private InterfaceC0116b fCA = null;
-    private int fCB = 0;
-    private com.baidu.tieba.play.a.a fCy;
+    private static b fBc = null;
+    private com.baidu.tieba.play.a.a fBb;
+    private InterfaceC0118b fBd = null;
+    private int fBe = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0116b {
+    public interface InterfaceC0118b {
         void bV(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b bgC() {
-        if (fCz == null) {
+    public static b bfS() {
+        if (fBc == null) {
             synchronized (b.class) {
-                if (fCz == null) {
-                    fCz = new b();
+                if (fBc == null) {
+                    fBc = new b();
                 }
             }
         }
-        return fCz;
+        return fBc;
     }
 
-    public void a(InterfaceC0116b interfaceC0116b) {
-        this.fCA = interfaceC0116b;
+    public void a(InterfaceC0118b interfaceC0118b) {
+        this.fBd = interfaceC0118b;
     }
 
-    public boolean qR(String str) {
+    public boolean qD(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (qS(str) && this.fCy.bgB().size() > this.fCB) {
-            if (this.fCA != null) {
-                InterfaceC0116b interfaceC0116b = this.fCA;
-                List<String> bgB = this.fCy.bgB();
-                int i = this.fCB;
-                this.fCB = i + 1;
-                interfaceC0116b.bV(bgB.get(i), str);
+        if (qE(str) && this.fBb.bfR().size() > this.fBe) {
+            if (this.fBd != null) {
+                InterfaceC0118b interfaceC0118b = this.fBd;
+                List<String> bfR = this.fBb.bfR();
+                int i = this.fBe;
+                this.fBe = i + 1;
+                interfaceC0118b.bV(bfR.get(i), str);
             }
             return true;
-        } else if (this.fCy != null && this.fCy.bgB() != null && this.fCy.bgB().size() <= this.fCB) {
-            this.fCB = 0;
-            this.fCy = null;
+        } else if (this.fBb != null && this.fBb.bfR() != null && this.fBb.bfR().size() <= this.fBe) {
+            this.fBe = 0;
+            this.fBb = null;
             return false;
         } else {
-            this.fCB = 0;
-            this.fCy = null;
+            this.fBe = 0;
+            this.fBb = null;
             a aVar = new a();
-            aVar.hh(str);
+            aVar.hd(str);
             aVar.execute(new Void[0]);
             return true;
         }
     }
 
-    private boolean qS(String str) {
-        return (this.fCy == null || TextUtils.isEmpty(str) || !str.equals(this.fCy.getHost()) || u.v(this.fCy.bgB()) || this.fCy.cE(System.currentTimeMillis()) || this.fCy.bgB().size() <= this.fCB) ? false : true;
+    private boolean qE(String str) {
+        return (this.fBb == null || TextUtils.isEmpty(str) || !str.equals(this.fBb.getHost()) || v.v(this.fBb.bfR()) || this.fBb.cz(System.currentTimeMillis()) || this.fBb.bfR().size() <= this.fBe) ? false : true;
     }
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Void, com.baidu.tieba.play.a.a, Void> {
-        private String Cc = null;
+        private String zV = null;
 
         public a() {
         }
 
-        public void hh(String str) {
-            this.Cc = str;
+        public void hd(String str) {
+            this.zV = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,7 +102,7 @@ public class b {
             HttpsURLConnection httpsURLConnection2 = null;
             StringBuffer stringBuffer = new StringBuffer();
             try {
-                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL("https://180.76.76.112/v2/0011/?dn=" + this.Cc).openConnection();
+                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL("https://180.76.76.112/v2/0011/?dn=" + this.zV).openConnection();
                 try {
                     httpsURLConnection3.setDoOutput(true);
                     httpsURLConnection3.setDoInput(true);
@@ -188,7 +188,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.qQ(stringBuffer.toString()));
+                            publishProgress(aVar.qC(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
@@ -258,15 +258,15 @@ public class b {
         /* renamed from: a */
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
-            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.Cc)) {
-                b.this.fCy = aVarArr[0];
-                if (!u.v(aVarArr[0].bgB()) && b.this.fCA != null) {
-                    b.this.fCA.bV(aVarArr[0].bgB().get(0), aVarArr[0].getHost());
+            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.zV)) {
+                b.this.fBb = aVarArr[0];
+                if (!v.v(aVarArr[0].bfR()) && b.this.fBd != null) {
+                    b.this.fBd.bV(aVarArr[0].bfR().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.fCA != null) {
-                b.this.fCA.bV(null, null);
+            if (b.this.fBd != null) {
+                b.this.fBd.bV(null, null);
             }
         }
 

@@ -12,72 +12,72 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static a aez;
-    private Map<String, CacheEntry> aeA = new HashMap();
-    private boolean aeB;
+    private static a adH;
+    private Map<String, CacheEntry> adI = new HashMap();
+    private boolean adJ;
 
     private a() {
     }
 
-    public static a un() {
-        if (aez == null) {
+    public static a ui() {
+        if (adH == null) {
             synchronized (a.class) {
-                if (aez == null) {
-                    aez = new a();
+                if (adH == null) {
+                    adH = new a();
                 }
             }
         }
-        return aez;
+        return adH;
     }
 
-    public CacheEntry dj(String str) {
-        uo();
-        return this.aeA.get(str);
+    public CacheEntry cZ(String str) {
+        uj();
+        return this.adI.get(str);
     }
 
     public synchronized boolean a(CacheEntry cacheEntry) {
-        boolean up;
-        uo();
+        boolean uk;
+        uj();
         if (cacheEntry == null) {
-            up = false;
+            uk = false;
         } else {
-            this.aeA.put(cacheEntry.getUrl(), cacheEntry);
-            up = up();
+            this.adI.put(cacheEntry.getUrl(), cacheEntry);
+            uk = uk();
         }
-        return up;
+        return uk;
     }
 
-    public synchronized CacheEntry dk(String str) {
+    public synchronized CacheEntry da(String str) {
         CacheEntry remove;
-        uo();
-        remove = this.aeA.remove(str);
+        uj();
+        remove = this.adI.remove(str);
         if (remove == null) {
             remove = null;
         } else {
-            up();
+            uk();
         }
         return remove;
     }
 
-    private synchronized void uo() {
-        if (!this.aeB) {
-            this.aeB = true;
-            List<CacheEntry> uq = uq();
-            if (uq != null && uq.size() > 0) {
-                for (CacheEntry cacheEntry : uq) {
-                    this.aeA.put(cacheEntry.getUrl(), cacheEntry);
+    private synchronized void uj() {
+        if (!this.adJ) {
+            this.adJ = true;
+            List<CacheEntry> ul = ul();
+            if (ul != null && ul.size() > 0) {
+                for (CacheEntry cacheEntry : ul) {
+                    this.adI.put(cacheEntry.getUrl(), cacheEntry);
                 }
             }
         }
     }
 
-    private boolean up() {
+    private boolean uk() {
         File file = new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache");
         if (file.exists() || file.mkdirs()) {
             File file2 = new File(file, "config.config");
             try {
                 JSONArray jSONArray = new JSONArray();
-                for (CacheEntry cacheEntry : this.aeA.values()) {
+                for (CacheEntry cacheEntry : this.adI.values()) {
                     jSONArray.put(new JSONObject(cacheEntry.toJson()));
                 }
                 return o.a(file2, jSONArray.toString().getBytes(), false);
@@ -89,15 +89,15 @@ public class a {
         return false;
     }
 
-    public List<CacheEntry> uq() {
+    public List<CacheEntry> ul() {
         File file = new File(new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache"), "config.config");
         if (file.exists() && file.isFile() && file.length() > 0) {
-            byte[] p = o.p(file);
-            if (p == null || p.length == 0) {
+            byte[] r = o.r(file);
+            if (r == null || r.length == 0) {
                 return null;
             }
             try {
-                JSONArray jSONArray = new JSONArray(new String(p));
+                JSONArray jSONArray = new JSONArray(new String(r));
                 ArrayList arrayList = new ArrayList();
                 for (int i = 0; i < jSONArray.length(); i++) {
                     CacheEntry cacheEntry = new CacheEntry();

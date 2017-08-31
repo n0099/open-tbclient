@@ -3,8 +3,8 @@ package com.baidu.location.a;
 import android.location.Location;
 /* loaded from: classes.dex */
 public class h {
-    private static com.baidu.location.f.a NA;
-    private static Location Oa;
+    private static Location LB;
+    private static com.baidu.location.f.a Lb;
     private static long a;
     private static String d;
 
@@ -25,18 +25,18 @@ public class h {
     }
 
     public static void b(Location location) {
-        Oa = location;
+        LB = location;
     }
 
     public static void c(com.baidu.location.f.a aVar) {
-        NA = aVar;
+        Lb = aVar;
     }
 
-    public static com.baidu.location.f.a mB() {
-        return NA;
+    public static com.baidu.location.f.a mm() {
+        return Lb;
     }
 
-    public static Location mC() {
-        return Oa;
+    public static Location mn() {
+        return LB;
     }
 }

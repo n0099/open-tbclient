@@ -1,58 +1,58 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class h {
-    private String Ro;
-    private String aWt;
-    private boolean aWu;
-    private long aWv = -1;
-    private long aWw = -1;
-    private long aWx = 0;
+    private String Qq;
+    private String aWd;
+    private boolean aWe;
+    private long aWf = -1;
+    private long aWg = -1;
+    private long aWh = 0;
 
-    public String Kx() {
-        return this.aWt;
+    public String KG() {
+        return this.aWd;
     }
 
-    public void ht(String str) {
-        this.aWt = str;
+    public void hp(String str) {
+        this.aWd = str;
     }
 
-    public String getOriginUrl() {
-        return this.Ro;
+    public String KH() {
+        return this.Qq;
     }
 
-    public void hu(String str) {
-        this.Ro = str;
+    public void hq(String str) {
+        this.Qq = str;
     }
 
-    public boolean Ky() {
-        return this.aWu;
+    public boolean KI() {
+        return this.aWe;
     }
 
-    public void cp(boolean z) {
-        this.aWu = z;
+    public void cq(boolean z) {
+        this.aWe = z;
     }
 
-    public long Kz() {
-        return this.aWv;
+    public long KJ() {
+        return this.aWf;
+    }
+
+    public void ar(long j) {
+        this.aWf = j;
+    }
+
+    public long KK() {
+        return this.aWg;
     }
 
     public void as(long j) {
-        this.aWv = j;
-    }
-
-    public long KA() {
-        return this.aWw;
-    }
-
-    public void at(long j) {
-        this.aWw = j;
+        this.aWg = j;
     }
 
     public long getTotalLength() {
-        return this.aWx;
+        return this.aWh;
     }
 
-    public void O(long j) {
-        this.aWx = j;
+    public void N(long j) {
+        this.aWh = j;
     }
 }

@@ -7,41 +7,41 @@ import java.util.Random;
 import tbclient.LabelInfo;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
-public class ax extends bl {
-    public static final BdUniqueId Yw = BdUniqueId.gen();
-    private List<PhotoLiveCardData> Yx;
-    private int Yy = 0;
+public class ax extends bj {
+    public static final BdUniqueId XE = BdUniqueId.gen();
+    private List<PhotoLiveCardData> XF;
+    private int XG = 0;
     private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
 
     public void r(List<PhotoLiveCardData> list) {
-        this.Yx = list;
+        this.XF = list;
     }
 
-    public void a(bl blVar, int i) {
-        if (blVar != null) {
-            setAuthor(blVar.getAuthor());
-            setTitle(blVar.getTitle());
-            setPhotoLiveCover(blVar.getPhotoLiveCover());
-            cM(blVar.rL());
-            cI(blVar.getTid());
-            m(blVar.rA());
-            setAddress(blVar.getAddress());
-            setId(blVar.getId());
-            setThreadType(blVar.getThreadType());
-            a(blVar.rw());
-            bR(blVar.ry());
-            setPost_num(blVar.getPost_num());
-            cN(blVar.rO());
-            cI(blVar.getTid());
-            setExpressionDatas(blVar.rZ());
-            setShowExpressionViewIndexList(blVar.rZ());
-            setId(blVar.getId());
-            a(blVar.qx());
-            this.aaF = blVar.sc();
-            this.aaG = blVar.sd();
-            this.aaH = blVar.se();
+    public void a(bj bjVar, int i) {
+        if (bjVar != null) {
+            setAuthor(bjVar.getAuthor());
+            setTitle(bjVar.getTitle());
+            setPhotoLiveCover(bjVar.getPhotoLiveCover());
+            cC(bjVar.rG());
+            cy(bjVar.getTid());
+            m(bjVar.rv());
+            setAddress(bjVar.getAddress());
+            setId(bjVar.getId());
+            setThreadType(bjVar.getThreadType());
+            a(bjVar.rr());
+            bR(bjVar.rt());
+            setPost_num(bjVar.getPost_num());
+            cD(bjVar.rJ());
+            cy(bjVar.getTid());
+            setExpressionDatas(bjVar.rU());
+            setShowExpressionViewIndexList(bjVar.rU());
+            setId(bjVar.getId());
+            a(bjVar.qs());
+            this.ZK = bjVar.rX();
+            this.ZL = bjVar.rY();
+            this.ZM = bjVar.rZ();
             if (getShowStyle() < 0) {
-                this.Yy = getRandom(3, i);
+                this.XG = getRandom(3, i);
             }
         }
     }
@@ -57,21 +57,21 @@ public class ax extends bl {
                 metaData.setFansNum(zhiBoInfoTW.user.fans_num.intValue());
                 setAuthor(metaData);
             }
-            cN(zhiBoInfoTW.content);
+            cD(zhiBoInfoTW.content);
             setFid(zhiBoInfoTW.forum_id.longValue());
             setExpressionDatas(s(zhiBoInfoTW.labelInfo));
             bR(zhiBoInfoTW.reply_num.intValue());
-            cM(zhiBoInfoTW.forum_name);
+            cC(zhiBoInfoTW.forum_name);
             setPhotoLiveCover(zhiBoInfoTW.livecover_src);
             m(zhiBoInfoTW.last_modified_time.longValue());
             setPost_num(zhiBoInfoTW.post_num.intValue());
             setTitle(zhiBoInfoTW.title);
             setShowExpressionViewIndexList(s(zhiBoInfoTW.labelInfo));
-            this.Yy = getRandom(3, i);
-            cI(String.valueOf(zhiBoInfoTW.thread_id));
+            this.XG = getRandom(3, i);
+            cy(String.valueOf(zhiBoInfoTW.thread_id));
             setId(String.valueOf(zhiBoInfoTW.thread_id));
             setThreadType(33);
-            cM(zhiBoInfoTW.forum_name);
+            cC(zhiBoInfoTW.forum_name);
         }
     }
 
@@ -85,7 +85,7 @@ public class ax extends bl {
             LabelInfo labelInfo = list.get(i);
             if (labelInfo != null) {
                 com.baidu.tbadk.coreExtra.view.e eVar = new com.baidu.tbadk.coreExtra.view.e();
-                eVar.em(labelInfo.labelHot.intValue());
+                eVar.el(labelInfo.labelHot.intValue());
                 eVar.setLabelId(labelInfo.labelId);
                 eVar.setLabelName(labelInfo.labelContent);
                 arrayList.add(eVar);
@@ -140,11 +140,11 @@ public class ax extends bl {
     }
 
     public int getShowStyle() {
-        return this.Yy;
+        return this.XG;
     }
 
-    @Override // com.baidu.tbadk.core.data.bl, com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return Yw;
+        return XE;
     }
 }

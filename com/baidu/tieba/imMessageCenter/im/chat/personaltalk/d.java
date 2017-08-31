@@ -5,6 +5,6 @@ import com.baidu.tieba.im.db.l;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.tieba.im.d.a.c {
     public d() {
-        super(l.auG(), CmdConfigCustom.CMD_LOAD_HISTORY_PERSONAL);
+        super(l.awt(), CmdConfigCustom.CMD_LOAD_HISTORY_PERSONAL);
     }
 }

@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class c {
-    private float Hh;
-    private View.OnLongClickListener awp;
-    private b bWZ;
-    private InterfaceC0082c bXa;
-    private MotionEvent bXb;
-    private a bXc;
-    private float buu;
+    private float Fb;
+    private View.OnLongClickListener avB;
+    private b bZV;
+    private InterfaceC0084c bZW;
+    private MotionEvent bZX;
+    private a bZY;
+    private float bvg;
     private MotionEvent mCurrentDownEvent;
     private int mDoubleTapSlopSquare;
     private boolean mInLongPress;
@@ -31,27 +31,27 @@ public class c {
     private static final int TAP_TIMEOUT = ViewConfiguration.getTapTimeout();
     private static final int DOUBLE_TAP_TIMEOUT = ViewConfiguration.getDoubleTapTimeout();
     private int mActivePointerId = -1;
-    private boolean bWY = false;
+    private boolean bZU = false;
 
     /* loaded from: classes.dex */
     public interface b {
-        void Z(View view);
+        void ah(View view);
     }
 
     /* renamed from: com.baidu.tieba.e.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0082c {
-        void aa(View view);
+    public interface InterfaceC0084c {
+        void ai(View view);
 
-        void ab(View view);
+        void aj(View view);
 
-        void ac(View view);
+        void ak(View view);
 
-        void ad(View view);
+        void al(View view);
     }
 
-    public MotionEvent abd() {
-        return this.bXb;
+    public MotionEvent acg() {
+        return this.bZX;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -67,13 +67,13 @@ public class c {
                     return;
                 case 2:
                     c.this.dispatchLongPress();
-                    if (!c.this.bWY) {
+                    if (!c.this.bZU) {
                         c.this.performLongClick();
                         return;
                     }
                     return;
                 case 3:
-                    if (!c.this.mStillDown && !c.this.bWY) {
+                    if (!c.this.mStillDown && !c.this.bZU) {
                         c.this.performClick();
                         return;
                     }
@@ -88,8 +88,8 @@ public class c {
         this.mOnClickListener = onClickListener;
     }
 
-    public void a(InterfaceC0082c interfaceC0082c) {
-        this.bXa = interfaceC0082c;
+    public void a(InterfaceC0084c interfaceC0084c) {
+        this.bZW = interfaceC0084c;
     }
 
     public c(View view) {
@@ -100,7 +100,7 @@ public class c {
         this.mView.setOnClickListener(null);
         this.mView.setOnLongClickListener(null);
         this.mView.setOnTouchListener(null);
-        this.bXc = new a();
+        this.bZY = new a();
         this.mDoubleTapSlopSquare = 10000;
     }
 
@@ -110,45 +110,45 @@ public class c {
         } else {
             switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
                 case 0:
-                    this.bXb = MotionEvent.obtain(motionEvent);
-                    this.bWY = false;
+                    this.bZX = MotionEvent.obtain(motionEvent);
+                    this.bZU = false;
                     q(motionEvent);
-                    boolean hasMessages = this.bXc.hasMessages(3);
+                    boolean hasMessages = this.bZY.hasMessages(3);
                     if (hasMessages) {
-                        this.bXc.removeMessages(3);
+                        this.bZY.removeMessages(3);
                     }
-                    if (this.bWZ != null && this.mCurrentDownEvent != null && this.mPreviousUpEvent != null && hasMessages && isConsideredDoubleTap(this.mCurrentDownEvent, this.mPreviousUpEvent, motionEvent)) {
+                    if (this.bZV != null && this.mCurrentDownEvent != null && this.mPreviousUpEvent != null && hasMessages && isConsideredDoubleTap(this.mCurrentDownEvent, this.mPreviousUpEvent, motionEvent)) {
                         this.mIsDoubleTapping = true;
                     } else {
-                        this.bXc.sendEmptyMessageDelayed(3, DOUBLE_TAP_TIMEOUT);
+                        this.bZY.sendEmptyMessageDelayed(3, DOUBLE_TAP_TIMEOUT);
                     }
                     int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
                     this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
                     this.mLastMotionX = MotionEventCompat.getX(motionEvent, actionIndex);
                     this.mLastMotionY = MotionEventCompat.getY(motionEvent, actionIndex);
-                    this.Hh = MotionEventCompat.getX(motionEvent, actionIndex);
-                    this.buu = MotionEventCompat.getY(motionEvent, actionIndex);
+                    this.Fb = MotionEventCompat.getX(motionEvent, actionIndex);
+                    this.bvg = MotionEventCompat.getY(motionEvent, actionIndex);
                     if (this.mCurrentDownEvent != null) {
                         this.mCurrentDownEvent.recycle();
                     }
                     this.mCurrentDownEvent = MotionEvent.obtain(motionEvent);
                     this.mStillDown = true;
                     this.mInLongPress = false;
-                    if (this.awp != null) {
-                        this.bXc.removeMessages(2);
-                        this.bXc.sendEmptyMessageAtTime(2, this.mCurrentDownEvent.getDownTime() + TAP_TIMEOUT + LONGPRESS_TIMEOUT);
+                    if (this.avB != null) {
+                        this.bZY.removeMessages(2);
+                        this.bZY.sendEmptyMessageAtTime(2, this.mCurrentDownEvent.getDownTime() + TAP_TIMEOUT + LONGPRESS_TIMEOUT);
                     }
-                    this.bXc.sendEmptyMessageAtTime(1, this.mCurrentDownEvent.getDownTime() + TAP_TIMEOUT);
+                    this.bZY.sendEmptyMessageAtTime(1, this.mCurrentDownEvent.getDownTime() + TAP_TIMEOUT);
                     break;
                 case 1:
                     this.mStillDown = false;
                     MotionEvent obtain = MotionEvent.obtain(motionEvent);
                     if (this.mIsDoubleTapping) {
-                        if (!this.bWY) {
-                            abf();
+                        if (!this.bZU) {
+                            aci();
                         }
                     } else if (this.mInLongPress) {
-                        this.bXc.removeMessages(3);
+                        this.bZY.removeMessages(3);
                         this.mInLongPress = false;
                     }
                     if (this.mPreviousUpEvent != null) {
@@ -156,8 +156,8 @@ public class c {
                     }
                     this.mPreviousUpEvent = obtain;
                     this.mIsDoubleTapping = false;
-                    this.bXc.removeMessages(1);
-                    this.bXc.removeMessages(2);
+                    this.bZY.removeMessages(1);
+                    this.bZY.removeMessages(2);
                     endDrag();
                     break;
                 case 2:
@@ -176,40 +176,40 @@ public class c {
     }
 
     private void cancel() {
-        abe();
-        lv();
+        ach();
+        ln();
         this.mIsDoubleTapping = false;
         this.mStillDown = false;
-        this.bWY = false;
+        this.bZU = false;
         this.mActivePointerId = -1;
         if (this.mInLongPress) {
             this.mInLongPress = false;
         }
     }
 
-    private void abe() {
-        this.bXc.removeMessages(1);
-        this.bXc.removeMessages(2);
-        this.bXc.removeMessages(3);
+    private void ach() {
+        this.bZY.removeMessages(1);
+        this.bZY.removeMessages(2);
+        this.bZY.removeMessages(3);
     }
 
-    private void resetState() {
+    private void wN() {
         this.mIsDoubleTapping = false;
         this.mStillDown = false;
         this.mInLongPress = false;
-        abe();
+        ach();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dispatchLongPress() {
-        this.bXc.removeMessages(3);
+        this.bZY.removeMessages(3);
         this.mInLongPress = true;
     }
 
     public boolean performLongClick() {
-        if (this.awp != null) {
-            this.awp.onLongClick(this.mView);
-            this.bXb = null;
+        if (this.avB != null) {
+            this.avB.onLongClick(this.mView);
+            this.bZX = null;
             return true;
         }
         return false;
@@ -218,16 +218,16 @@ public class c {
     public boolean performClick() {
         if (this.mOnClickListener != null) {
             this.mOnClickListener.onClick(this.mView);
-            this.bXb = null;
+            this.bZX = null;
             return true;
         }
         return false;
     }
 
-    public boolean abf() {
-        if (this.bWZ != null) {
-            this.bWZ.Z(this.mView);
-            this.bXb = null;
+    public boolean aci() {
+        if (this.bZV != null) {
+            this.bZV.ah(this.mView);
+            this.bZX = null;
             return true;
         }
         return false;
@@ -243,9 +243,9 @@ public class c {
     }
 
     private void endDrag() {
-        this.bWY = false;
+        this.bZU = false;
         this.mActivePointerId = -1;
-        lv();
+        ln();
     }
 
     private void q(MotionEvent motionEvent) {
@@ -255,7 +255,7 @@ public class c {
         this.mVelocityTracker.addMovement(motionEvent);
     }
 
-    private void lv() {
+    private void ln() {
         if (this.mVelocityTracker != null) {
             this.mVelocityTracker.clear();
             this.mVelocityTracker.recycle();
@@ -264,7 +264,7 @@ public class c {
     }
 
     private void g(MotionEvent motionEvent) {
-        if (!this.bWY) {
+        if (!this.bZU) {
             int i = this.mActivePointerId;
             int b2 = b(motionEvent, i);
             if (!a(motionEvent, b2, i)) {
@@ -282,28 +282,28 @@ public class c {
                 float abs3 = Math.abs(xVelocity);
                 if (Math.abs(yVelocity) > 200.0f && abs2 > abs && abs2 > 30.0f) {
                     if (f2 > 0.0f) {
-                        if (this.bXa != null) {
-                            this.bXa.aa(this.mView);
+                        if (this.bZW != null) {
+                            this.bZW.ai(this.mView);
                         }
-                    } else if (this.bXa != null) {
-                        this.bXa.ab(this.mView);
+                    } else if (this.bZW != null) {
+                        this.bZW.aj(this.mView);
                     }
-                    this.bWY = true;
+                    this.bZU = true;
                     this.mLastMotionX = x;
                     this.mLastMotionY = y;
-                    resetState();
+                    wN();
                 } else if (abs3 > 200.0f && abs > abs2 && abs > 30.0f) {
                     if (f > 0.0f) {
-                        if (this.bXa != null) {
-                            this.bXa.ad(this.mView);
+                        if (this.bZW != null) {
+                            this.bZW.al(this.mView);
                         }
-                    } else if (this.bXa != null) {
-                        this.bXa.ac(this.mView);
+                    } else if (this.bZW != null) {
+                        this.bZW.ak(this.mView);
                     }
                     this.mLastMotionX = x;
                     this.mLastMotionY = y;
-                    this.bWY = true;
-                    resetState();
+                    this.bZU = true;
+                    wN();
                 }
             }
         }

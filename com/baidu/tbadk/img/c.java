@@ -1,10 +1,9 @@
 package com.baidu.tbadk.img;
 
-import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    public String Ro;
+    public String Qq;
     public int height;
     public String picId;
     public String picUrl;
@@ -12,15 +11,15 @@ public class c {
     public String thumbnail;
     public int width;
 
-    public static c n(JSONObject jSONObject) {
+    public static c h(JSONObject jSONObject) {
         try {
             c cVar = new c();
-            cVar.picId = jSONObject.optString(GraffitiVcodeActivityConfig.PIC_ID);
+            cVar.picId = jSONObject.optString("pic_id");
             cVar.width = jSONObject.optInt("width");
             cVar.height = jSONObject.optInt("height");
             cVar.picUrl = jSONObject.optString("pic_url");
             cVar.thumbnail = jSONObject.optString("thumbnail");
-            cVar.Ro = jSONObject.optString("origin_url");
+            cVar.Qq = jSONObject.optString("origin_url");
             return cVar;
         } catch (Exception e) {
             return null;

@@ -21,25 +21,25 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
 /* loaded from: classes.dex */
 public class d extends FrameLayout {
-    private float Hh;
-    private ViewGroup JV;
-    private int JW;
-    private boolean JX;
-    private boolean JY;
-    private boolean JZ;
-    private boolean Ka;
-    private int Kb;
-    private int Kc;
-    private Rect Kd;
-    private int Ke;
-    private float Kf;
-    private boolean Kg;
-    private b Kh;
+    private float Fb;
+    private ViewGroup HO;
+    private int HP;
+    private boolean HQ;
+    private boolean HR;
+    private boolean HS;
+    private boolean HT;
+    private boolean HU;
+    private int HV;
+    private int HW;
+    private Rect HX;
+    private int HY;
+    private float HZ;
+    private boolean Ia;
+    private b Ib;
     private int mActivePointerId;
     private Activity mActivity;
     private View mContentView;
     private int mFlingDistance;
-    private boolean mIsScrolling;
     private float mLastMotionX;
     private float mLastMotionY;
     private int mMaximumVelocity;
@@ -51,40 +51,40 @@ public class d extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface b {
-        void W(boolean z);
+        void X(boolean z);
 
-        void lx();
+        void lp();
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void ly();
+        void lq();
 
-        void lz();
+        void lr();
     }
 
     public d(Context context) {
         super(context);
         this.mActivePointerId = -1;
-        this.JX = false;
-        this.JY = false;
-        this.JZ = true;
-        this.mIsScrolling = false;
-        this.Ka = false;
-        this.Kc = 0;
-        this.Kd = new Rect();
-        this.Kg = true;
+        this.HQ = false;
+        this.HR = false;
+        this.HS = true;
+        this.HT = false;
+        this.HU = false;
+        this.HW = 0;
+        this.HX = new Rect();
+        this.Ia = true;
         init(context);
     }
 
     private void init(Context context) {
-        this.Kb = (int) TypedValue.applyDimension(1, 24.0f, getResources().getDisplayMetrics());
+        this.HV = (int) TypedValue.applyDimension(1, 24.0f, getResources().getDisplayMetrics());
         this.mScroller = new Scroller(context, new a(1.5f));
         this.mTouchSlop = ViewConfiguration.get(context.getApplicationContext()).getScaledTouchSlop() * 2;
         this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
         this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
-        this.Ke = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
-        this.mFlingDistance = k.ag(context) / 4;
+        this.HY = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
+        this.mFlingDistance = k.ad(context) / 4;
     }
 
     public void p(Activity activity) {
@@ -93,76 +93,76 @@ public class d extends FrameLayout {
             Window window = activity.getWindow();
             window.setBackgroundDrawable(new ColorDrawable(0));
             ViewGroup viewGroup = (ViewGroup) window.getDecorView();
-            this.JV = (ViewGroup) viewGroup.getChildAt(0);
-            viewGroup.removeView(this.JV);
-            this.JV.setClickable(true);
-            addView(this.JV);
-            this.mContentView = (View) this.JV.getParent();
+            this.HO = (ViewGroup) viewGroup.getChildAt(0);
+            viewGroup.removeView(this.HO);
+            this.HO.setClickable(true);
+            addView(this.HO);
+            this.mContentView = (View) this.HO.getParent();
             viewGroup.addView(this);
         } catch (Exception e) {
-            this.JZ = false;
+            this.HS = false;
             BdLog.e(e);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.JZ) {
-            if (this.Kg && i == 1) {
-                this.JV.setBackgroundResource(R.color.swipe_layout_night_bg);
+        if (this.HS) {
+            if (this.Ia && i == 1) {
+                this.HO.setBackgroundResource(R.color.swipe_layout_night_bg);
             } else {
-                this.JV.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                this.HO.setBackgroundResource(R.color.swipe_layout_normal_bg);
             }
         }
     }
 
-    public void aM(int i) {
-        if (this.Kg && i == 1) {
-            this.JV.setBackgroundResource(R.color.swipe_layout_night_bg);
+    public void aK(int i) {
+        if (this.Ia && i == 1) {
+            this.HO.setBackgroundResource(R.color.swipe_layout_night_bg);
         } else {
-            this.JV.setBackgroundResource(R.color.swipe_layout_normal_bg);
+            this.HO.setBackgroundResource(R.color.swipe_layout_normal_bg);
         }
     }
 
     public void setIsSupportNight(boolean z) {
         if (!z) {
-            this.JV.setBackgroundResource(R.color.swipe_layout_normal_bg);
+            this.HO.setBackgroundResource(R.color.swipe_layout_normal_bg);
         }
-        this.Kg = z;
+        this.Ia = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (this.mContentView != null) {
-            int i = this.JW;
+            int i = this.HP;
             int bottom = this.mContentView.getBottom();
-            this.Kd.top = 0;
-            this.Kd.bottom = bottom;
-            this.Kd.left = 0;
-            this.Kd.right = i;
-            canvas.clipRect(this.Kd);
+            this.HX.top = 0;
+            this.HX.bottom = bottom;
+            this.HX.left = 0;
+            this.HX.right = i;
+            canvas.clipRect(this.HX);
             if (this.mViewWidth != 0) {
-                this.Kc = 100 - ((int) (((-this.JW) / this.mViewWidth) * 120.0f));
+                this.HW = 100 - ((int) (((-this.HP) / this.mViewWidth) * 120.0f));
             }
-            if (this.Kc > 100) {
-                this.Kc = 100;
+            if (this.HW > 100) {
+                this.HW = 100;
             }
-            if (this.JY) {
-                this.Kc = 0;
+            if (this.HR) {
+                this.HW = 0;
             }
-            if (this.Kc < 0) {
-                this.Kc = 0;
+            if (this.HW < 0) {
+                this.HW = 0;
             }
-            canvas.drawARGB(this.Kc, 0, 0, 0);
+            canvas.drawARGB(this.HW, 0, 0, 0);
         }
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (!this.JZ) {
+        if (!this.HS) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.JY || this.mIsScrolling) {
+        if (this.HR || this.HT) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
@@ -177,7 +177,7 @@ public class d extends FrameLayout {
                 if (!a(motionEvent, actionIndex, this.mActivePointerId)) {
                     this.mLastMotionX = MotionEventCompat.getX(motionEvent, actionIndex);
                     this.mLastMotionY = MotionEventCompat.getY(motionEvent, actionIndex);
-                    this.Hh = MotionEventCompat.getX(motionEvent, actionIndex);
+                    this.Fb = MotionEventCompat.getX(motionEvent, actionIndex);
                     break;
                 }
                 break;
@@ -185,12 +185,12 @@ public class d extends FrameLayout {
                 g(motionEvent);
                 break;
         }
-        return this.JX;
+        return this.HQ;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.JY || this.mIsScrolling) {
+        if (this.HR || this.HT) {
             return super.onTouchEvent(motionEvent);
         }
         if (this.mVelocityTracker == null) {
@@ -199,49 +199,49 @@ public class d extends FrameLayout {
         this.mVelocityTracker.addMovement(motionEvent);
         switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
             case 0:
-                lu();
+                lm();
                 int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
                 this.mLastMotionX = motionEvent.getX();
-                this.Hh = MotionEventCompat.getX(motionEvent, actionIndex);
+                this.Fb = MotionEventCompat.getX(motionEvent, actionIndex);
                 break;
             case 1:
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                this.Kf = velocityTracker.getXVelocity();
+                this.HZ = velocityTracker.getXVelocity();
                 int h = h(motionEvent);
                 endDrag();
-                if (Math.abs(this.Kf) > this.mMinimumVelocity && h > this.mFlingDistance) {
-                    if (this.Kf > 0.0f) {
-                        this.JY = true;
-                        ls();
+                if (Math.abs(this.HZ) > this.mMinimumVelocity && h > this.mFlingDistance) {
+                    if (this.HZ > 0.0f) {
+                        this.HR = true;
+                        lk();
                     } else {
-                        lt();
-                        this.JY = false;
+                        ll();
+                        this.HR = false;
                     }
-                    if (this.Kh != null) {
-                        this.Kh.W(this.JY);
+                    if (this.Ib != null) {
+                        this.Ib.X(this.HR);
                         return true;
                     }
                     return true;
                 }
                 if (this.mContentView.getScrollX() <= (-this.mViewWidth) / 2) {
-                    this.JY = true;
-                    ls();
+                    this.HR = true;
+                    lk();
                 } else {
-                    lt();
-                    this.JY = false;
+                    ll();
+                    this.HR = false;
                 }
-                if (this.Kh != null) {
-                    this.Kh.W(this.JY);
+                if (this.Ib != null) {
+                    this.Ib.X(this.HR);
                     break;
                 }
                 break;
             case 2:
-                if (!this.JX) {
+                if (!this.HQ) {
                     g(motionEvent);
                 }
-                if (this.JX) {
+                if (this.HQ) {
                     int b2 = b(motionEvent, this.mActivePointerId);
                     if (!a(motionEvent, b2, this.mActivePointerId)) {
                         float x = MotionEventCompat.getX(motionEvent, b2);
@@ -252,14 +252,14 @@ public class d extends FrameLayout {
                             f = scrollX > 0.0f ? 0.0f : scrollX;
                         }
                         this.mLastMotionX += f - ((int) f);
-                        this.JW = (int) f;
+                        this.HP = (int) f;
                         this.mContentView.scrollTo((int) f, getScrollY());
                         break;
                     }
                 }
                 break;
             case 3:
-                lv();
+                ln();
                 break;
         }
         return super.onTouchEvent(motionEvent);
@@ -274,10 +274,10 @@ public class d extends FrameLayout {
             float abs = Math.abs(f);
             float y = MotionEventCompat.getY(motionEvent, b2);
             float abs2 = Math.abs(y - this.mLastMotionY);
-            if (f > 0.0f && abs > this.Ke && abs > abs2) {
-                this.JX = true;
-                if (this.Kh != null) {
-                    this.Kh.lx();
+            if (f > 0.0f && abs > this.HY && abs > abs2) {
+                this.HQ = true;
+                if (this.Ib != null) {
+                    this.Ib.lp();
                 }
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -291,13 +291,13 @@ public class d extends FrameLayout {
         if (a(motionEvent, b2, i)) {
             return 0;
         }
-        return (int) Math.abs(MotionEventCompat.getX(motionEvent, b2) - this.Hh);
+        return (int) Math.abs(MotionEventCompat.getX(motionEvent, b2) - this.Fb);
     }
 
     private void endDrag() {
-        this.JX = false;
+        this.HQ = false;
         this.mActivePointerId = -1;
-        lv();
+        ln();
     }
 
     private boolean a(MotionEvent motionEvent, int i, int i2) {
@@ -320,20 +320,20 @@ public class d extends FrameLayout {
         return findPointerIndex;
     }
 
-    private void ls() {
-        this.mIsScrolling = true;
+    private void lk() {
+        this.HT = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, (-(this.mViewWidth + this.mContentView.getScrollX())) + 1, 0);
         postInvalidate();
     }
 
-    private void lt() {
-        this.mIsScrolling = true;
+    private void ll() {
+        this.HT = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, -this.mContentView.getScrollX(), 0);
         postInvalidate();
     }
 
-    private void lu() {
-        if (this.mIsScrolling) {
+    private void lm() {
+        if (this.HT) {
             this.mScroller.abortAnimation();
             int scrollX = getScrollX();
             int scrollY = getScrollY();
@@ -343,7 +343,7 @@ public class d extends FrameLayout {
                 this.mContentView.scrollTo(currX, currY);
             }
         }
-        this.mIsScrolling = false;
+        this.HT = false;
     }
 
     @Override // android.view.View
@@ -358,16 +358,16 @@ public class d extends FrameLayout {
             }
             invalidate();
         }
-        if (this.mScroller.isFinished() && this.JY) {
+        if (this.mScroller.isFinished() && this.HR) {
             this.mActivity.finish();
             this.mActivity.overridePendingTransition(0, 0);
         }
         if (this.mScroller.isFinished()) {
-            lu();
+            lm();
         }
     }
 
-    private void lv() {
+    private void ln() {
         if (this.mVelocityTracker != null) {
             this.mVelocityTracker.clear();
             this.mVelocityTracker.recycle();
@@ -376,31 +376,31 @@ public class d extends FrameLayout {
     }
 
     public boolean isSwipeBackEnabled() {
-        return this.JZ;
+        return this.HS;
     }
 
     public void setSwipeBackEnabled(boolean z) {
-        this.JZ = z;
+        this.HS = z;
     }
 
-    public void lw() {
-        if (this.JV != null) {
-            this.JV.setBackgroundResource(R.color.transparent);
+    public void lo() {
+        if (this.HO != null) {
+            this.HO.setBackgroundResource(R.color.transparent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a implements Interpolator {
-        private final float Ki;
+        private final float Ic;
 
         public a(float f) {
-            this.Ki = f;
+            this.Ic = f;
         }
 
         @Override // android.animation.TimeInterpolator
         public float getInterpolation(float f) {
-            float f2 = this.Ki * f;
+            float f2 = this.Ic * f;
             if (f2 > 0.9d) {
                 return 1.0f;
             }
@@ -409,6 +409,6 @@ public class d extends FrameLayout {
     }
 
     public void setOnSlidingStateChangeListener(b bVar) {
-        this.Kh = bVar;
+        this.Ib = bVar;
     }
 }

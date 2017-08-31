@@ -4,16 +4,16 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b extends OutputStream {
-    private a aeL;
+    private a adT;
 
     public synchronized void a(a aVar) throws IOException {
         if (aVar == null) {
             throw new NullPointerException();
         }
-        if (this.aeL != null || aVar.connected) {
+        if (this.adT != null || aVar.connected) {
             throw new IOException("Already connected");
         }
-        this.aeL = aVar;
+        this.adT = aVar;
         aVar.in = -1;
         aVar.out = 0;
         aVar.connected = true;
@@ -21,15 +21,15 @@ public class b extends OutputStream {
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        if (this.aeL == null) {
+        if (this.adT == null) {
             throw new IOException("Pipe not connected");
         }
-        this.aeL.receive(i);
+        this.adT.receive(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.aeL == null) {
+        if (this.adT == null) {
             throw new IOException("Pipe not connected");
         }
         if (bArr == null) {
@@ -39,23 +39,23 @@ public class b extends OutputStream {
             throw new IndexOutOfBoundsException();
         }
         if (i2 != 0) {
-            this.aeL.j(bArr, i, i2);
+            this.adT.j(bArr, i, i2);
         }
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.aeL != null) {
-            synchronized (this.aeL) {
-                this.aeL.notifyAll();
+        if (this.adT != null) {
+            synchronized (this.adT) {
+                this.adT.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.aeL != null) {
-            this.aeL.uw();
+        if (this.adT != null) {
+            this.adT.ur();
         }
     }
 }

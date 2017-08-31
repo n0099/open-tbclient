@@ -13,64 +13,65 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class b implements h {
     public static final String TAG = b.class.getSimpleName();
-    private static b aWQ;
-    private int mPort = 0;
+    private static b aWA;
+    private int aWB = 0;
 
     private b() {
-        a.KF();
+        a.KP();
     }
 
-    public static b KI() {
-        if (aWQ == null) {
+    public static b KS() {
+        if (aWA == null) {
             synchronized (b.class) {
-                if (aWQ == null) {
-                    aWQ = new b();
+                if (aWA == null) {
+                    aWA = new b();
                 }
             }
         }
-        return aWQ;
+        return aWA;
     }
 
-    private static long KD() {
-        if ("mounted".equals(Environment.getExternalStorageState())) {
-            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+    private static long KN() {
+        File externalStorageDirectory;
+        if ("mounted".equals(Environment.getExternalStorageState()) && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null && externalStorageDirectory.exists() && externalStorageDirectory.canRead() && externalStorageDirectory.canWrite()) {
+            StatFs statFs = new StatFs(externalStorageDirectory.getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();
         }
         return 0L;
     }
 
-    private boolean KJ() {
-        d.at(TAG, "sdcard avalible size " + ((KD() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M");
-        return KD() > 314572800 && getPort() > 0;
+    private boolean KT() {
+        d.aw(TAG, "sdcard avalible size " + ((KN() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M");
+        return KN() > 314572800 && getPort() > 0;
     }
 
-    public void aY(Context context) {
+    public void bd(Context context) {
         if (context != null) {
-            e.ba(context).JZ();
+            e.bf(context).Ki();
         }
     }
 
     @Override // com.baidu.tieba.play.h
-    public String hA(String str) {
-        if (KJ()) {
-            String hB = hB(str);
-            if (hB == null) {
-                String hy = hy(str);
-                if (hy != null && new File(c.aWD + hy + "/header_downloaded").exists()) {
+    public String hw(String str) {
+        if (KT()) {
+            String hx = hx(str);
+            if (hx == null) {
+                String hu = hu(str);
+                if (hu != null && new File(c.aWn + hu + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
             }
-            return hB;
+            return hx;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.h
-    public String hB(String str) {
-        String hy;
+    public String hx(String str) {
+        String hu;
         File file;
-        if (str == null || !str.contains("/") || (hy = hy(str)) == null || (file = new File(c.aWD + hy + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (hu = hu(str)) == null || (file = new File(c.aWn + hu + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -78,25 +79,25 @@ public class b implements h {
 
     @Override // com.baidu.tieba.play.h
     public void af(Context context, String str) {
-        e.ba(context).hD(str);
+        e.bf(context).hz(str);
     }
 
     @Override // com.baidu.tieba.play.h
     public void ag(Context context, String str) {
-        e.ba(context).hE(str);
+        e.bf(context).hA(str);
     }
 
     @Override // com.baidu.tieba.play.h
-    public void hC(String str) {
-        a.KF().hz(str);
+    public void hy(String str) {
+        a.KP().hv(str);
     }
 
     @Override // com.baidu.tieba.play.h
-    public void aZ(Context context) {
-        e.ba(context).clearCache();
+    public void be(Context context) {
+        e.bf(context).clearCache();
     }
 
-    public static String hy(String str) {
+    public static String hu(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -118,8 +119,8 @@ public class b implements h {
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        if (this.mPort == 0) {
-            File file = new File(c.aWE);
+        if (this.aWB == 0) {
+            File file = new File(c.aWo);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -163,7 +164,7 @@ public class b implements h {
                                         e5.printStackTrace();
                                     }
                                 }
-                                return this.mPort;
+                                return this.aWB;
                             } catch (Throwable th) {
                                 th = th;
                                 fileInputStream = fileInputStream2;
@@ -209,10 +210,10 @@ public class b implements h {
                 }
             }
         }
-        return this.mPort;
+        return this.aWB;
     }
 
-    public void KK() {
-        this.mPort = 0;
+    public void KU() {
+        this.aWB = 0;
     }
 }

@@ -9,6 +9,7 @@ public class MainTabActivityConfig extends IntentConfig {
     public static final String IS_NEW_USER = "is_new_user";
     public static final String MAIN_TAB = "main_tab";
     public static final String NEED_CLOSE_MENU = "need_close_menu";
+    public static final String VIDEOTHREAD_ON_SQUARE_ID = "videothread_on_square_id";
     public static boolean IS_SUPPORT_LEFT_BAR = true;
     public static boolean IS_BACK_CLOSE_ALL_ACTIVITY = false;
     public static boolean IS_INDICATOR_BOTTOM = true;
@@ -66,6 +67,11 @@ public class MainTabActivityConfig extends IntentConfig {
             intent.addFlags(268435456);
         }
         intent.putExtra("close_dialog", true);
+        return this;
+    }
+
+    public MainTabActivityConfig buildVideoThreadId(String str) {
+        getIntent().putExtra(VIDEOTHREAD_ON_SQUARE_ID, str);
         return this;
     }
 }

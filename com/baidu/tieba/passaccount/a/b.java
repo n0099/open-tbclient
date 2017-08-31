@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b implements c {
-    private static b eCP;
+    private static b eBf;
 
     private b() {
     }
 
-    public static synchronized b aOR() {
+    public static synchronized b aOd() {
         b bVar;
         synchronized (b.class) {
-            if (eCP == null) {
-                eCP = new b();
+            if (eBf == null) {
+                eBf = new b();
             }
-            bVar = eCP;
+            bVar = eBf;
         }
         return bVar;
     }
@@ -41,7 +41,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void xO() {
+    public void xQ() {
         try {
             SapiAccountManager.getInstance().logout();
         } catch (Exception e) {
@@ -69,11 +69,11 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public AccountData uC() {
+    public AccountData ux() {
         SapiAccount session;
         AccountData f;
         SapiAccount.ReloginCredentials reloginCredentials = SapiAccountManager.getInstance().getSession().getReloginCredentials();
-        if (reloginCredentials == null || SapiAccountManager.getInstance().getAccountService().blockingRelogin(reloginCredentials) != 0 || (session = SapiAccountManager.getInstance().getSession()) == null || com.baidu.tbadk.core.a.a.pg() == null || (f = com.baidu.tbadk.core.a.a.pg().f(session.username, session.bduss, "", null)) == null) {
+        if (reloginCredentials == null || SapiAccountManager.getInstance().getAccountService().blockingRelogin(reloginCredentials) != 0 || (session = SapiAccountManager.getInstance().getSession()) == null || com.baidu.tbadk.core.a.a.pa() == null || (f = com.baidu.tbadk.core.a.a.pa().f(session.username, session.bduss, "", null)) == null) {
             return null;
         }
         com.baidu.tbadk.core.a.b.b(f);
@@ -83,11 +83,11 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void a(a.InterfaceC0040a interfaceC0040a) {
+    public void a(a.InterfaceC0044a interfaceC0044a) {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public List<AccountData> xP() {
+    public List<AccountData> xR() {
         ArrayList arrayList = new ArrayList();
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();

@@ -4,12 +4,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.j> {
-    private ImageView aZP;
-    private TextView cSq;
+    private ImageView aZB;
+    private TextView cYO;
     private View mRootView;
 
     public h(TbPageContext<?> tbPageContext) {
@@ -19,16 +19,16 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
     private void init(View view) {
         this.mRootView = view.findViewById(d.h.card_privacy_rootview);
-        this.aZP = (ImageView) view.findViewById(d.h.card_privacy_icon);
-        this.cSq = (TextView) view.findViewById(d.h.card_privacy_txt);
+        this.aZB = (ImageView) view.findViewById(d.h.card_privacy_icon);
+        this.cYO = (TextView) view.findViewById(d.h.card_privacy_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ai.j(this.mRootView, d.e.cp_bg_line_d);
-            ai.c(this.aZP, d.g.icon_mine_lock);
-            ai.c(this.cSq, d.e.cp_cont_c, 1);
+            aj.j(this.mRootView, d.e.cp_bg_line_d);
+            aj.c(this.aZB, d.g.icon_mine_lock);
+            aj.c(this.cYO, d.e.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -41,12 +41,12 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.j jVar) {
-        String string = jVar.sex == 2 ? this.mContext.getString(d.l.person_identity_she) : this.mContext.getString(d.l.he);
+        String string = jVar.sex == 2 ? this.mContext.getString(d.l.she) : this.mContext.getString(d.l.he);
         StringBuffer stringBuffer = new StringBuffer();
-        if (jVar.fmu) {
+        if (jVar.fkP) {
             stringBuffer.append(this.mContext.getString(d.l.text_post));
         }
-        this.cSq.setText(String.format(this.mContext.getString(d.l.person_polymeric_privacry_tip), string, stringBuffer.toString()));
+        this.cYO.setText(String.format(this.mContext.getString(d.l.person_polymeric_privacry_tip), string, stringBuffer.toString()));
     }
 
     @Override // android.view.View.OnClickListener

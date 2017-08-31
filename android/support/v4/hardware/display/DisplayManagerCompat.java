@@ -37,15 +37,15 @@ public abstract class DisplayManagerCompat {
 
     /* loaded from: classes.dex */
     private static class b extends DisplayManagerCompat {
-        private final WindowManager jn;
+        private final WindowManager mWindowManager;
 
         public b(Context context) {
-            this.jn = (WindowManager) context.getSystemService("window");
+            this.mWindowManager = (WindowManager) context.getSystemService("window");
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display getDisplay(int i) {
-            Display defaultDisplay = this.jn.getDefaultDisplay();
+            Display defaultDisplay = this.mWindowManager.getDefaultDisplay();
             if (defaultDisplay.getDisplayId() == i) {
                 return defaultDisplay;
             }
@@ -54,7 +54,7 @@ public abstract class DisplayManagerCompat {
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display[] getDisplays() {
-            return new Display[]{this.jn.getDefaultDisplay()};
+            return new Display[]{this.mWindowManager.getDefaultDisplay()};
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
@@ -78,7 +78,7 @@ public abstract class DisplayManagerCompat {
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display[] getDisplays() {
-            return android.support.v4.hardware.display.a.f(this.jm);
+            return android.support.v4.hardware.display.a.e(this.jm);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat

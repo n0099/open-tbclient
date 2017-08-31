@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import tbclient.RecommendInfo;
 import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class ba extends bl {
-    public static final BdUniqueId YC = BdUniqueId.gen();
+public class ba extends bj {
+    public static final BdUniqueId XK = BdUniqueId.gen();
     private String title = "";
-    private ArrayList<bc> YD = new ArrayList<>();
+    private ArrayList<bc> XL = new ArrayList<>();
 
     public void a(RecommendInfo recommendInfo) {
         if (recommendInfo != null) {
@@ -17,23 +17,23 @@ public class ba extends bl {
                 if (schoolRecomUserInfo != null) {
                     bc bcVar = new bc();
                     bcVar.a(schoolRecomUserInfo);
-                    this.YD.add(bcVar);
+                    this.XL.add(bcVar);
                 }
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.bl
+    @Override // com.baidu.tbadk.core.data.bj
     public String getTitle() {
         return this.title;
     }
 
-    public ArrayList<bc> qO() {
-        return this.YD;
+    public ArrayList<bc> qJ() {
+        return this.XL;
     }
 
-    @Override // com.baidu.tbadk.core.data.bl, com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return YC;
+        return XK;
     }
 }

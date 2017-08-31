@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<f> aqp;
-    private List<f> aqq;
-    private boolean aqr;
-    private boolean aqs;
-    private int aqu;
-    private int aqt = 2;
-    private int aqv = 1;
+    private List<f> apV;
+    private List<f> apW;
+    private boolean apX;
+    private boolean apY;
+    private int aqa;
+    private int apZ = 2;
+    private int aqb = 1;
 
     public d(List<f> list, boolean z, int i) {
-        this.aqu = 2;
-        this.aqp = list;
-        this.aqs = z;
-        this.aqu = i;
+        this.aqa = 2;
+        this.apV = list;
+        this.apY = z;
+        this.aqa = i;
         w(list);
     }
 
     public void w(List<f> list) {
-        if (list != null && list.size() >= this.aqt && list.size() <= this.aqu) {
-            this.aqr = true;
-        } else if (list.size() > this.aqu && this.aqs) {
-            this.aqr = true;
+        if (list != null && list.size() >= this.apZ && list.size() <= this.aqa) {
+            this.apX = true;
+        } else if (list.size() > this.aqa && this.apY) {
+            this.apX = true;
         } else {
-            this.aqr = false;
+            this.apX = false;
         }
-        this.aqq = xu();
+        this.apW = xw();
     }
 
-    private List<f> xu() {
+    private List<f> xw() {
         ArrayList arrayList = new ArrayList();
-        if (this.aqp != null) {
-            if (this.aqr) {
-                if (this.aqp.size() > this.aqu && this.aqp.size() >= this.aqv) {
-                    arrayList.addAll(this.aqp.subList(0, this.aqu));
-                    arrayList.addAll(0, this.aqp.subList(this.aqu - this.aqv, this.aqu));
-                    arrayList.addAll(this.aqp.subList(0, this.aqv));
+        if (this.apV != null) {
+            if (this.apX) {
+                if (this.apV.size() > this.aqa && this.apV.size() >= this.aqb) {
+                    arrayList.addAll(this.apV.subList(0, this.aqa));
+                    arrayList.addAll(0, this.apV.subList(this.aqa - this.aqb, this.aqa));
+                    arrayList.addAll(this.apV.subList(0, this.aqb));
                 } else {
-                    arrayList.addAll(this.aqp);
-                    arrayList.addAll(0, this.aqp.subList(this.aqp.size() - this.aqv, this.aqp.size()));
-                    arrayList.addAll(this.aqp.subList(0, this.aqv));
+                    arrayList.addAll(this.apV);
+                    arrayList.addAll(0, this.apV.subList(this.apV.size() - this.aqb, this.apV.size()));
+                    arrayList.addAll(this.apV.subList(0, this.aqb));
                 }
-            } else if (this.aqp != null && this.aqp.size() > 0 && this.aqp.size() >= this.aqv) {
-                arrayList.addAll(this.aqp.subList(0, this.aqv));
+            } else if (this.apV != null && this.apV.size() > 0 && this.apV.size() >= this.aqb) {
+                arrayList.addAll(this.apV.subList(0, this.aqb));
             }
         }
         return arrayList;
     }
 
-    public int dy(int i) {
-        if (this.aqr) {
-            int size = this.aqq.size();
+    public int dz(int i) {
+        if (this.apX) {
+            int size = this.apW.size();
             if (i == 0) {
-                return (size - 1) - this.aqv;
+                return (size - 1) - this.aqb;
             }
-            if (i == size - this.aqv) {
-                return this.aqv;
+            if (i == size - this.aqb) {
+                return this.aqb;
             }
             return i;
         }
         return i;
     }
 
-    public int dz(int i) {
-        if (this.aqr) {
-            return i - this.aqv;
+    public int dA(int i) {
+        if (this.apX) {
+            return i - this.aqb;
         }
         return i;
     }
 
-    public int xv() {
-        if (this.aqp == null) {
+    public int xx() {
+        if (this.apV == null) {
             return 0;
         }
-        return this.aqp.size();
+        return this.apV.size();
     }
 
-    public int xw() {
-        if (this.aqr) {
-            return this.aqv;
+    public int xy() {
+        if (this.apX) {
+            return this.aqb;
         }
         return 0;
     }
 
-    public void dA(int i) {
-        this.aqu = i;
-        w(this.aqp);
-    }
-
     public void dB(int i) {
-        this.aqt = i;
-        w(this.aqp);
-    }
-
-    public List<f> xx() {
-        return this.aqq;
+        this.aqa = i;
+        w(this.apV);
     }
 
     public void dC(int i) {
-        this.aqv = i;
-        w(this.aqp);
+        this.apZ = i;
+        w(this.apV);
+    }
+
+    public List<f> xz() {
+        return this.apW;
+    }
+
+    public void dD(int i) {
+        this.aqb = i;
+        w(this.apV);
     }
 }

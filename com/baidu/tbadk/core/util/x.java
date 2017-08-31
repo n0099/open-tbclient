@@ -1,663 +1,407 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.Context;
-import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
+import android.os.Message;
 import android.text.TextUtils;
-import com.baidu.adp.lib.network.http.BdHttpCancelException;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.core.util.aa;
 import com.baidu.tieba.d;
-import java.io.File;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class x implements p {
-    private static int agW = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
-    private final com.baidu.tbadk.core.util.a.a agR;
-    private com.baidu.adp.lib.network.a.a agX = new com.baidu.adp.lib.network.a.a();
-    private Context mContext;
+public class x {
+    private com.baidu.tbadk.core.util.a.a agk = null;
+    private q agl = null;
+    private x agm = null;
+    private aa.a agn = null;
+    private int ago = 0;
 
-    public x(com.baidu.tbadk.core.util.a.a aVar) {
-        vl();
-        this.mContext = TbadkCoreApplication.getInst().getApp();
-        this.agR = aVar;
-        com.baidu.adp.lib.network.a.a.setUserAgent("bdtb for Android " + TbConfig.getVersion());
-        if (Integer.parseInt(Build.VERSION.SDK) < 8) {
-            System.setProperty("http.keepAlive", "false");
-        }
+    private void vi() {
+        this.agk = new com.baidu.tbadk.core.util.a.a();
+        this.agl = z.vt().a(this.agk);
+        this.agm = null;
+        this.agk.wf().wi().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+        com.baidu.adp.lib.network.a.a.aj(TbadkCoreApplication.getInst().getCuid());
     }
 
-    private int getMode(int i) {
-        switch (i) {
-            case 1:
-            default:
-                return 1;
-            case 2:
-                return 2;
-            case 3:
-                return 3;
+    public com.baidu.tbadk.core.util.a.a vj() {
+        return this.agk;
+    }
+
+    public x() {
+        vi();
+    }
+
+    public x(String str) {
+        vi();
+        this.agk.wf().wi().mUrl = str;
+    }
+
+    public void setUrl(String str) {
+        this.agk.wf().wi().mUrl = str;
+    }
+
+    public void k(ArrayList<BasicNameValuePair> arrayList) {
+        this.agl.k(arrayList);
+    }
+
+    public void n(String str, String str2) {
+        this.agl.n(str, str2);
+    }
+
+    public void a(BasicNameValuePair basicNameValuePair) {
+        this.agl.a(basicNameValuePair);
+    }
+
+    public void d(String str, byte[] bArr) {
+        this.agl.d(str, bArr);
+    }
+
+    private void vk() {
+        String currentBduss = TbadkCoreApplication.getCurrentBduss();
+        BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", currentBduss);
+        BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TbadkCoreApplication.getInst().getTbs());
+        if (currentBduss != null) {
+            ArrayList<BasicNameValuePair> uL = this.agl.uL();
+            int size = uL.size();
+            for (int i = 0; i < size; i++) {
+                BasicNameValuePair basicNameValuePair3 = uL.get(i);
+                if (basicNameValuePair3.getName().equals("BDUSS")) {
+                    uL.set(i, basicNameValuePair);
+                } else if (basicNameValuePair3.getName().equals("tbs")) {
+                    uL.set(i, basicNameValuePair2);
+                }
+            }
         }
     }
 
     private void vl() {
-        this.mContext = null;
+        if (this.agn == null) {
+            this.agn = aa.vu();
+        }
+        if (this.agn != null) {
+            this.agl.n("stTime", String.valueOf(this.agn.mTime));
+            this.agl.n("stSize", String.valueOf(this.agn.agE));
+            this.agl.n("stTimesNum", String.valueOf(this.agn.agF));
+            this.agl.n("stMode", String.valueOf(this.agn.mMode));
+            this.agl.n("stMethod", String.valueOf(this.agn.agD));
+        }
+        this.ago = aa.cK(0);
+        if (this.ago == 0 && this.agn != null) {
+            this.ago = this.agn.agF;
+        }
+        this.agl.n("stErrorNums", String.valueOf(this.ago));
     }
 
-    @Override // com.baidu.tbadk.core.util.p
-    public void fD() {
-        if (this.agX != null) {
-            this.agX.fD();
+    public boolean vm() {
+        return this.agk.wg().vm();
+    }
+
+    public int vn() {
+        return this.agk.wg().ain;
+    }
+
+    public int vo() {
+        return this.agk.wg().vm;
+    }
+
+    public String vp() {
+        return this.agk.wg().aio;
+    }
+
+    public String getErrorString() {
+        return this.agk.wg().mErrorString;
+    }
+
+    public void fp() {
+        if (this.agl != null) {
+            this.agl.fp();
+        }
+        if (this.agm != null) {
+            this.agm.fp();
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.p
-    public void fA() {
-        this.agX.cancel();
+    public void ft() {
+        if (this.agl != null) {
+            this.agl.ft();
+        }
+        if (this.agm != null) {
+            this.agm.ft();
+        }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:119:0x05d1  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x016c  */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:94:0x03aa -> B:95:0x03ab). Please submit an issue!!! */
-    @Override // com.baidu.tbadk.core.util.p
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public byte[] ug() {
-        com.baidu.adp.lib.network.http.g gVar;
-        BdHttpCancelException bdHttpCancelException;
-        com.baidu.adp.lib.network.http.g gVar2;
-        byte[] bArr;
-        String str;
-        int size;
-        String str2;
-        boolean z = true;
-        com.baidu.adp.lib.network.a.a.setUid(TbadkCoreApplication.getCurrentAccount());
+    private com.baidu.tbadk.core.data.ak e(String str, String str2, boolean z) {
+        String uM;
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return null;
+        }
         try {
-            if (this.agR.wi().wl().ajp != null && this.agR.wi().wl().ajp.size() > 0 && !this.agR.wi().mIsFromCDN) {
-                StringBuilder sb = new StringBuilder(30);
-                sb.append(this.agR.wi().wl().mUrl);
-                if (this.agR.wi().wl().mUrl.indexOf("?") < 0) {
-                    sb.append("?");
-                } else if (!this.agR.wi().wl().mUrl.endsWith("?") && !this.agR.wi().wl().mUrl.endsWith("&")) {
-                    sb.append("&");
-                }
-                for (int i = 0; i < this.agR.wi().wl().ajp.size(); i++) {
-                    if (i != 0) {
-                        sb.append("&");
-                    }
-                    sb.append(this.agR.wi().wl().ajp.get(i).getName());
-                    sb.append("=");
-                    sb.append(al.aR(this.agR.wi().wl().ajp.get(i).getValue()));
-                }
-                str = sb.toString();
+            TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
+            StringBuilder sb = new StringBuilder(32);
+            sb.append(TbConfig.LOGIN_FULL_ADDRESS);
+            if (this.agm == null) {
+                this.agm = new x(sb.toString());
             } else {
-                str = this.agR.wi().wl().mUrl;
+                this.agm.fp();
             }
-            if (TbConfig.getDebugSwitch()) {
+            this.agm.vj().wf().mIsNeedAddCommenParam = false;
+            this.agm.vj().wf().mIsUseCurrentBDUSS = false;
+            this.agm.vj().wf().aik = false;
+            this.agm.n("un", str);
+            this.agm.n("passwd", str2);
+            this.agm.n("isphone", "0");
+            this.agm.n("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
+            this.agm.n("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
+            this.agm.vj().wf().wi().aiL = true;
+            uM = this.agm.uM();
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+        if (this.agm.vj().wg().isRequestSuccess() && uM != null) {
+            com.baidu.tbadk.core.data.ak akVar = new com.baidu.tbadk.core.data.ak();
+            akVar.parserJson(uM);
+            String userId = akVar.getUser().getUserId();
+            if (userId == null || userId.length() <= 0) {
+                this.agk.wg().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(d.l.neterror);
+                return null;
             }
-            if ((!this.agR.wi().wl().ajr || this.agR.wi().wl().mIsBDImage) && !this.agR.wi().mIsFromCDN) {
-                z = false;
-            }
-        } catch (BdHttpCancelException e) {
-            bdHttpCancelException = e;
-            gVar2 = null;
-        } catch (OutOfMemoryError e2) {
-            e = e2;
-            gVar = null;
-        } catch (SocketException e3) {
-            e = e3;
-            gVar = null;
-        } catch (SocketTimeoutException e4) {
-            e = e4;
-            gVar = null;
-        } catch (Exception e5) {
-            e = e5;
-            gVar = null;
-        }
-        if (this.agX.isCanceled()) {
-            throw new BdHttpCancelException();
-        }
-        long j = new Date().getTime();
-        this.agX.a(str, z, 5, 100, -1, -1, vv());
-        com.baidu.adp.lib.network.http.e fR = this.agX.fR();
-        if (fR == null) {
-            return null;
-        }
-        gVar = fR.fK();
-        if (fR != null) {
-            try {
-                if (fR.fL() != null && (size = fR.fL().size()) > 0) {
-                    this.agR.wk().aiV = fR.fL().get(size - 1);
-                }
-            } catch (BdHttpCancelException e6) {
-                gVar2 = gVar;
-                bdHttpCancelException = e6;
-                this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                this.agR.wj().aiU = String.valueOf(this.agR.wj().xv) + "|retryCount:" + (this.agR.wk().aiV == null ? -1 : this.agR.wk().aiV.retry) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
-                this.agR.wj().xv = -14;
-                gVar = gVar2;
-                if (gVar == null) {
-                }
-                return bArr;
-            } catch (OutOfMemoryError e7) {
-                e = e7;
-                this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.memoryerror);
-                this.agR.wj().aiU = String.valueOf(this.agR.wj().xv) + "|retryCount:" + (this.agR.wk().aiV != null ? this.agR.wk().aiV.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.agR.wj().xv = -15;
-                BdLog.e(e.getMessage());
-                TiebaStatic.net(this.agR);
-                if (gVar == null) {
-                }
-                return bArr;
-            } catch (SocketException e8) {
-                e = e8;
-                this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                this.agR.wj().aiU = String.valueOf(this.agR.wj().xv) + "|retryCount:" + (this.agR.wk().aiV != null ? this.agR.wk().aiV.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.agR.wj().xv = -12;
-                TiebaStatic.net(this.agR);
-                if (gVar == null) {
-                }
-                return bArr;
-            } catch (SocketTimeoutException e9) {
-                e = e9;
-                this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                this.agR.wj().aiU = String.valueOf(this.agR.wj().xv) + "|retryCount:" + (this.agR.wk().aiV != null ? this.agR.wk().aiV.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.agR.wj().xv = -13;
-                TiebaStatic.net(this.agR);
-                if (gVar == null) {
-                }
-                return bArr;
-            } catch (Exception e10) {
-                e = e10;
-                this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror) + " detailException:" + e.getMessage();
-                this.agR.wj().aiU = String.valueOf(this.agR.wj().xv) + "|retryCount:" + (this.agR.wk().aiV != null ? this.agR.wk().aiV.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.agR.wj().xv = -10;
-                BdLog.e(e.getMessage());
-                TiebaStatic.net(this.agR);
-                if (gVar == null) {
-                }
-                return bArr;
-            }
-        }
-        if (gVar == null) {
-            return null;
-        }
-        this.agR.wj().xv = gVar.responseCode;
-        if (this.agR.wj().xv != 200) {
-            this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-            if (this.agR.wk().aiV != null && !TextUtils.isEmpty(this.agR.wk().aiV.xe)) {
-                this.agR.wj().aiU = this.agR.wk().aiV.xe;
+            AccountData accountData = new AccountData();
+            accountData.setAccount(akVar.getUser().getUserName());
+            if (akVar.getUser().getPassword() != null) {
+                accountData.setPassword(akVar.getUser().getPassword());
             } else {
-                this.agR.wj().aiU = String.valueOf(this.agR.wj().xv) + "|retryCount:" + (this.agR.wk().aiV == null ? -1 : this.agR.wk().aiV.retry);
+                accountData.setPassword(str2);
             }
-            TiebaStatic.net(this.agR);
-            return null;
+            accountData.setID(akVar.getUser().getUserId());
+            accountData.setBDUSS(akVar.getUser().getBDUSS());
+            accountData.setPortrait(akVar.getUser().getPortrait());
+            accountData.setIsActive(1);
+            if (akVar.qn() != null) {
+                accountData.setTbs(akVar.qn().getTbs());
+            }
+            com.baidu.tbadk.core.a.b.b(accountData);
+            TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
+            TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
+            return akVar;
         }
-        if (TbadkCoreApplication.getInst().isMainProcess(true) && (str2 = gVar.contentLength) != null) {
-            try {
-                int parseInt = Integer.parseInt(str2);
-                if (parseInt > agW) {
-                    this.agR.wj().xv = -11;
-                    TiebaStatic.net(this.agR);
-                    bArr = null;
-                } else {
-                    int i2 = parseInt * 10;
-                    if (i2 > 0) {
-                        if (BdLog.isDebugMode()) {
-                        }
-                        if (!com.baidu.tbadk.imageManager.c.Ex().eX(i2)) {
-                            BdLog.d("Image download cacelled. out of memory. url:[" + this.agR.wi().wl().mUrl + "], size:" + i2);
-                            this.agR.wj().xv = -16;
-                            TiebaStatic.net(this.agR);
-                            bArr = null;
-                        }
+        if (this.agm.vm()) {
+            switch (this.agm.vn()) {
+                case 1:
+                case 2:
+                case 5:
+                    if (z) {
+                        Message obtainMessage = TbadkCoreApplication.getInst().handler.obtainMessage(1);
+                        Bundle bundle = new Bundle();
+                        bundle.putString(LoginActivityConfig.ACCOUNT, str);
+                        obtainMessage.setData(bundle);
+                        TbadkCoreApplication.getInst().handler.sendMessage(obtainMessage);
+                        break;
                     }
-                }
-            } catch (Throwable th) {
+                    break;
             }
-            return bArr;
-        }
-        z.a aVar = new z.a();
-        aVar.mMode = getMode(com.baidu.adp.lib.util.i.hx());
-        aVar.ahk = this.agR.wk().aiV.xa;
-        aVar.mTime = new Date().getTime() - j;
-        aVar.ahl = this.agR.wk().aiV.retry;
-        aVar.mMethod = 2;
-        z.a(aVar);
-        z.ahj.set(this.agR.wk().aiV.retry);
-        TiebaStatic.net(this.agR);
-        bArr = gVar == null ? gVar.xx : null;
-        return bArr;
-    }
-
-    public void dU(String str) {
-        this.agR.wj().aiT = -1;
-        if (str != null) {
-            try {
-                ErrorData errorData = new ErrorData();
-                errorData.parserJson(str);
-                this.agR.wj().aiT = errorData.getError_code();
-                if (this.agR.wj().aiT == -1) {
-                    this.agR.wj().mErrorString = this.mContext.getString(d.l.error_unkown_try_again);
-                } else if (this.agR.wj().aiT != 0) {
-                    this.agR.wj().mErrorString = errorData.getError_msg();
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                this.agR.wj().mErrorString = this.mContext.getString(d.l.error_unkown_try_again);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.util.p
-    public String uQ() {
-        String str;
-        OutOfMemoryError e;
-        Exception e2;
-        byte[] ug = ug();
-        if (ug == null || this.agR.wj().xv != 200) {
             return null;
         }
-        try {
-            this.agR.wi().wl().ajt = TextUtils.isEmpty(this.agR.wi().wl().ajt) ? "UTF-8" : this.agR.wi().wl().ajt;
-            str = new String(ug, 0, ug.length, this.agR.wi().wl().ajt);
-        } catch (Exception e3) {
-            str = null;
-            e2 = e3;
-        } catch (OutOfMemoryError e4) {
-            str = null;
-            e = e4;
-        }
-        try {
-            dU(str);
-            return str;
-        } catch (Exception e5) {
-            e2 = e5;
-            BdLog.e(e2.getMessage());
-            return str;
-        } catch (OutOfMemoryError e6) {
-            e = e6;
-            BdLog.e(e.getMessage());
-            return str;
-        }
+        return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.p
-    public String uP() {
-        Throwable th;
-        String str;
-        Exception e;
-        SocketTimeoutException e2;
-        SocketException e3;
-        OutOfMemoryError e4;
-        BdHttpCancelException bdHttpCancelException;
-        String str2;
-        int size;
-        StringBuilder sb = new StringBuilder(1024);
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (this.agR.wi().wl().ajp == null || i2 >= this.agR.wi().wl().ajp.size()) {
-                break;
-            }
-            BasicNameValuePair basicNameValuePair = this.agR.wi().wl().ajp.get(i2);
+    public byte[] uc() {
+        if (!this.agk.wf().mIsFromCDN) {
+            this.agk.wf().b(this.agl);
+        }
+        return this.agl.uc();
+    }
+
+    private void vq() {
+        StringBuffer stringBuffer = new StringBuffer(1024);
+        ArrayList<BasicNameValuePair> uL = this.agl.uL();
+        for (int i = 0; uL != null && i < uL.size(); i++) {
+            BasicNameValuePair basicNameValuePair = uL.get(i);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
-                sb.append(name);
-                sb.append("=");
-                sb.append(value);
+                stringBuffer.append(name + "=");
+                stringBuffer.append(value);
             }
-            i = i2 + 1;
         }
-        if (this.agR.wi().wl().mIsBaiduServer) {
-            sb.append("tiebaclient!!!");
-            n(SapiUtils.KEY_QR_LOGIN_SIGN, com.baidu.adp.lib.util.r.aW(sb.toString()));
-        }
-        if (TbConfig.getDebugSwitch()) {
-        }
-        try {
-            if (this.agX.isCanceled()) {
-                return null;
-            }
-            if (this.agX.a(this.agR.wi().wl().mUrl, this.agR.wi().wl().ajp, this.agR.wi().wl().ajr, 5, -1, vv()) == null) {
-                throw new BdHttpCancelException();
-            }
-            com.baidu.adp.lib.network.http.e fR = this.agX.fR();
-            if (fR == null) {
-                return null;
-            }
-            com.baidu.adp.lib.network.http.g fK = fR.fK();
-            if (fR != null && fR.fL() != null && (size = fR.fL().size()) > 0) {
-                this.agR.wk().aiV = fR.fL().get(size - 1);
-            }
-            this.agR.wj().xv = fK.responseCode;
-            this.agR.wj().mHeader = fK.xw;
-            if (this.agR.wj().xv != 200) {
-                if (this.agR.wk().aiV != null && !TextUtils.isEmpty(this.agR.wk().aiV.xe)) {
-                    this.agR.wj().aiU = this.agR.wk().aiV.xe;
-                } else {
-                    this.agR.wj().aiU = String.valueOf(this.agR.wj().xv) + "|retryCount:" + (this.agR.wk().aiV == null ? -1 : this.agR.wk().aiV.retry);
+        stringBuffer.append("tiebaclient!!!");
+        this.agl.n(SapiUtils.KEY_QR_LOGIN_SIGN, com.baidu.adp.lib.util.r.aS(stringBuffer.toString()));
+    }
+
+    private String cH(int i) {
+        String uO;
+        com.baidu.tbadk.coreExtra.a.c xO;
+        switch (i) {
+            case 1:
+                if (vj().wf().mIsNeedAddCommenParam) {
+                    this.agk.wf().b(this.agl);
                 }
-                TiebaStatic.net(this.agR);
+                vl();
+                uO = this.agl.uN();
+                break;
+            case 2:
+                if (vj().wf().mIsUseCurrentBDUSS) {
+                    vj().wf().a(this.agl);
+                }
+                if (vj().wf().mIsNeedAddCommenParam) {
+                    this.agk.wf().b(this.agl);
+                }
+                vl();
+                uO = this.agl.uM();
+                break;
+            case 3:
+                if (vj().wf().mIsUseCurrentBDUSS) {
+                    vj().wf().a(this.agl);
+                }
+                if (vj().wf().mIsNeedAddCommenParam) {
+                    this.agk.wf().b(this.agl);
+                }
+                vq();
+                uO = this.agl.uO();
+                break;
+            default:
                 return null;
-            } else if (this.agX.isCanceled()) {
-                return null;
-            } else {
-                str = new String(fK.xx, "utf-8");
-                try {
-                    if (this.agR.wi().wl().mIsBaiduServer && this.agR.wi().wl().ajs) {
-                        dU(str);
+        }
+        if (!this.agk.wg().vm()) {
+            aa.a(this.agn);
+            aa.cL(this.ago);
+            return uO;
+        } else if (!this.agk.wg().isRequestSuccess()) {
+            if (this.agk.wg().ain == 1 && this.agk.wf().aik) {
+                String str = this.agk.wg().mErrorString;
+                this.agk.wg().mErrorString = "";
+                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+                if (currentAccountObj == null) {
+                    currentAccountObj = com.baidu.tbadk.core.a.b.pe();
+                }
+                if (currentAccountObj == null || TextUtils.isEmpty(currentAccountObj.getAccount())) {
+                    vr();
+                    return null;
+                }
+                com.baidu.tbadk.core.a.b.cq(currentAccountObj.getAccount());
+                if (ReloginManager.uu().uy()) {
+                    AccountData ux = ReloginManager.uu().ux();
+                    if (ux == null) {
+                        ReloginManager.uu().f(ux);
+                        return null;
                     }
-                    z.a aVar = new z.a();
-                    aVar.mMode = getMode(com.baidu.adp.lib.util.i.hx());
-                    aVar.ahk = this.agR.wk().aiV.xa;
-                    aVar.mTime = this.agR.wk().aiV.xc;
-                    aVar.ahl = this.agR.wk().aiV.retry;
-                    aVar.mMethod = 1;
-                    z.a(aVar);
-                    z.ahj.set(this.agR.wk().aiV.retry);
-                    TiebaStatic.net(this.agR);
-                    return str;
-                } catch (BdHttpCancelException e5) {
-                    bdHttpCancelException = e5;
-                    str2 = str;
-                    this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                    this.agR.wj().aiU = String.valueOf(this.agR.wj().xv) + "|retryCount:" + (this.agR.wk().aiV == null ? -1 : this.agR.wk().aiV.retry) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
-                    this.agR.wj().xv = -14;
-                    return str2;
-                } catch (OutOfMemoryError e6) {
-                    e4 = e6;
-                    this.agR.wj().xv = -15;
-                    this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.memoryerror);
-                    BdLog.e(e4.getMessage());
-                    TiebaStatic.net(this.agR);
-                    return str;
-                } catch (SocketException e7) {
-                    e3 = e7;
-                    this.agR.wj().xv = -12;
-                    this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                    BdLog.e(e3.getMessage());
-                    TiebaStatic.net(this.agR);
-                    return str;
-                } catch (SocketTimeoutException e8) {
-                    e2 = e8;
-                    this.agR.wj().xv = -13;
-                    this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                    BdLog.e(e2.getMessage());
-                    TiebaStatic.net(this.agR);
-                    return str;
-                } catch (Exception e9) {
-                    e = e9;
-                    this.agR.wj().xv = -10;
-                    this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror) + " detailException:" + e.getMessage();
-                    BdLog.e(e.getMessage());
-                    TiebaStatic.net(this.agR);
-                    return str;
-                } catch (Throwable th2) {
-                    th = th2;
-                    this.agR.wj().xv = -10;
-                    this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                    BdLog.e(th.getMessage());
-                    TiebaStatic.net(this.agR);
-                    return str;
+                    return cI(i);
                 }
+                com.baidu.tbadk.core.data.ak e = e(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
+                if (!TextUtils.isEmpty(currentAccountObj.getID()) && (xO = com.baidu.tbadk.coreExtra.a.a.xO()) != null) {
+                    xO.h(currentAccountObj);
+                }
+                if (e == null) {
+                    if (this.agm != null) {
+                        this.agk.wg().mErrorString = this.agm.getErrorString();
+                        return null;
+                    }
+                    this.agk.wg().mErrorString = str;
+                    return uO;
+                }
+                uO = cI(i);
             }
-        } catch (BdHttpCancelException e10) {
-            bdHttpCancelException = e10;
-            str2 = null;
-        } catch (OutOfMemoryError e11) {
-            e4 = e11;
-            str = null;
-        } catch (SocketException e12) {
-            e3 = e12;
-            str = null;
-        } catch (SocketTimeoutException e13) {
-            e2 = e13;
-            str = null;
-        } catch (Exception e14) {
-            e = e14;
-            str = null;
-        } catch (Throwable th3) {
-            th = th3;
-            str = null;
+            com.baidu.tieba.h.a.a(this);
+            return uO;
+        } else {
+            return uO;
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.p
-    public String uR() {
-        Exception e;
-        String str;
-        OutOfMemoryError e2;
-        BdHttpCancelException e3;
-        String str2;
-        com.baidu.adp.lib.network.http.d dVar;
-        try {
-            if (this.agX.isCanceled()) {
-                throw new BdHttpCancelException();
-            }
-            com.baidu.adp.lib.network.http.g a = this.agX.a(this.agR.wi().wl().mUrl, this.agR.wi().wl().ajr, this.agR.wi().wl().ajp, this.agR.wi().wl().ajq, 5, -1, vv());
-            this.agR.wj().xv = a.responseCode;
-            this.agR.wj().mHeader = a.xw;
-            if (this.agR.wj().xv != 200) {
-                com.baidu.adp.lib.network.http.e fR = this.agX.fR();
-                int i = 0;
-                if (fR != null && fR.fL() != null) {
-                    i = fR.fL().size();
-                }
-                if (i <= 0 || (dVar = fR.fL().get(i - 1)) == null) {
-                    str2 = "";
-                } else {
-                    str2 = dVar.xe;
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    this.agR.wj().aiU = str2;
-                } else {
-                    this.agR.wj().aiU = String.valueOf(this.agR.wj().xv) + "|retryCount:" + (this.agR.wk().aiV == null ? -1 : this.agR.wk().aiV.retry);
-                }
-                TiebaStatic.net(this.agR);
+    private String cI(int i) {
+        String uO;
+        vk();
+        switch (i) {
+            case 1:
+                uO = this.agl.uN();
+                break;
+            case 2:
+                uO = this.agl.uM();
+                break;
+            case 3:
+                uO = this.agl.uO();
+                break;
+            default:
                 return null;
-            } else if (this.agX.isCanceled()) {
-                throw new BdHttpCancelException();
-            } else {
-                str = new String(a.xx, "UTF-8");
-                try {
-                    dU(str);
-                    TiebaStatic.net(this.agR);
-                    return str;
-                } catch (BdHttpCancelException e4) {
-                    e3 = e4;
-                    this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                    this.agR.wj().aiU = String.valueOf(this.agR.wj().xv) + "|retryCount:" + (this.agR.wk().aiV == null ? -1 : this.agR.wk().aiV.retry) + "|" + e3.getClass() + "|" + e3.getMessage();
-                    this.agR.wj().xv = -14;
-                    return str;
-                } catch (SocketException e5) {
-                    this.agR.wj().xv = -12;
-                    this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                    TiebaStatic.net(this.agR);
-                    return str;
-                } catch (SocketTimeoutException e6) {
-                    this.agR.wj().xv = -13;
-                    this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                    TiebaStatic.net(this.agR);
-                    return str;
-                } catch (Exception e7) {
-                    e = e7;
-                    this.agR.wj().xv = -10;
-                    this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror) + " detailException:" + e.getMessage();
-                    BdLog.e(e.getMessage());
-                    TiebaStatic.net(this.agR);
-                    return str;
-                } catch (OutOfMemoryError e8) {
-                    e2 = e8;
-                    this.agR.wj().xv = -15;
-                    this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.memoryerror);
-                    BdLog.e(e2.getMessage());
-                    TiebaStatic.net(this.agR);
-                    return str;
-                }
-            }
-        } catch (BdHttpCancelException e9) {
-            e3 = e9;
-            str = null;
-        } catch (OutOfMemoryError e10) {
-            e2 = e10;
-            str = null;
-        } catch (SocketException e11) {
-            str = null;
-        } catch (SocketTimeoutException e12) {
-            str = null;
-        } catch (Exception e13) {
-            e = e13;
-            str = null;
         }
+        if (this.agk.wg().vm()) {
+            switch (this.agk.wg().ain) {
+                case 1:
+                case 2:
+                case 5:
+                    vr();
+                    this.agk.wg().mErrorString = "";
+                    return null;
+                case 3:
+                case 4:
+                default:
+                    return uO;
+            }
+        }
+        return uO;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [698=5] */
-    @Override // com.baidu.tbadk.core.util.p
-    public boolean a(String str, final Handler handler, final int i, int i2, int i3, boolean z) {
-        try {
-            if (this.agX.isCanceled()) {
-                return false;
-            }
-            return this.agX.a(this.agR.wi().wl().mUrl, (z ? new File(str) : k.dD(str)).getAbsolutePath(), false, i2, i3, -1, -1, vv(), new com.baidu.adp.lib.network.http.h() { // from class: com.baidu.tbadk.core.util.x.1
-                int agY = 0;
-                int agZ = 0;
-                int aha = 0;
+    private void vr() {
+        Handler handler = TbadkCoreApplication.getInst().handler;
+        handler.sendMessage(handler.obtainMessage(1));
+    }
 
-                @Override // com.baidu.adp.lib.network.http.h
-                public void n(int i4, int i5) {
-                    if (i5 > 0) {
-                        this.agY = i5 / 50;
-                    }
-                    this.agZ += i4 - this.aha;
-                    this.aha = i4;
-                    if (handler != null) {
-                        if (this.agZ > this.agY || i4 == i5) {
-                            this.agZ = 0;
-                            handler.sendMessage(handler.obtainMessage(i, i4, i5));
-                        }
-                    }
+    public String uM() {
+        return cH(2);
+    }
+
+    public String uN() {
+        return cH(1);
+    }
+
+    public String uO() {
+        return cH(3);
+    }
+
+    public String dK(String str) throws IOException {
+        byte[] bArr;
+        try {
+            InputStream du = k.du(str);
+            byte[] bArr2 = new byte[5120];
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(5120);
+            while (true) {
+                int read = du.read(bArr2);
+                if (read == -1) {
+                    break;
                 }
-            }, true);
+                byteArrayOutputStream.write(bArr2, 0, read);
+            }
+            bArr = byteArrayOutputStream.toByteArray();
         } catch (Exception e) {
-            this.agR.wj().xv = -10;
-            this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.neterror) + " detailException:" + e.getMessage();
-            BdLog.e(e.getMessage());
-            return false;
-        } catch (OutOfMemoryError e2) {
-            this.agR.wj().xv = -15;
-            this.agR.wj().mErrorString = this.mContext.getResources().getString(d.l.memoryerror);
-            BdLog.e(e2.getMessage());
-            return false;
-        } finally {
-            TiebaStatic.net(this.agR);
+            bArr = null;
         }
+        if (bArr == null || bArr.length <= 0) {
+            return null;
+        }
+        d("pic", bArr);
+        return uO();
     }
 
-    @Override // com.baidu.tbadk.core.util.p
-    public ArrayList<BasicNameValuePair> uO() {
-        return this.agR.wi().wl().ajp;
+    public boolean a(String str, Handler handler, int i) {
+        return a(str, handler, i, 5, 100);
     }
 
-    @Override // com.baidu.tbadk.core.util.p
-    public void k(ArrayList<BasicNameValuePair> arrayList) {
-        if (this.agR.wi().wl().ajp != null) {
-            this.agR.wi().wl().ajp.clear();
-        }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < arrayList.size()) {
-                a(arrayList.get(i2));
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    public boolean a(String str, Handler handler, int i, int i2, int i3) {
+        return a(str, handler, i, i2, i3, false);
     }
 
-    @Override // com.baidu.tbadk.core.util.p
-    public void n(String str, String str2) {
-        a(new BasicNameValuePair(str, str2));
-    }
-
-    @Override // com.baidu.tbadk.core.util.p
-    public void d(String str, byte[] bArr) {
-        if (this.agR.wi().wl().ajq == null) {
-            this.agR.wi().wl().ajq = new HashMap<>();
-        }
-        this.agR.wi().wl().ajq.put(str, bArr);
-    }
-
-    @Override // com.baidu.tbadk.core.util.p
-    public void a(BasicNameValuePair basicNameValuePair) {
-        if (basicNameValuePair != null && basicNameValuePair.getName() != null) {
-            if (this.agR.wi().wl().ajp == null) {
-                this.agR.wi().wl().ajp = new ArrayList<>();
-            }
-            int b = b(this.agR.wi().wl().ajp, basicNameValuePair.getName());
-            int size = this.agR.wi().wl().ajp.size();
-            if (b >= 0 && b < size) {
-                if (basicNameValuePair.getName().equals(this.agR.wi().wl().ajp.get(b).getName())) {
-                    this.agR.wi().wl().ajp.set(b, basicNameValuePair);
-                } else {
-                    this.agR.wi().wl().ajp.add(b, basicNameValuePair);
-                }
-            } else if (b == size) {
-                this.agR.wi().wl().ajp.add(b, basicNameValuePair);
-            }
-        }
-    }
-
-    private int b(ArrayList<BasicNameValuePair> arrayList, String str) {
-        int i = 0;
-        if (arrayList == null || str == null) {
-            return -1;
-        }
-        int size = arrayList.size();
-        int i2 = 0;
-        while (true) {
-            if (i >= size) {
-                break;
-            }
-            int compareTo = str.compareTo(arrayList.get(i).getName());
-            if (compareTo < 0) {
-                i2 = i;
-                break;
-            } else if (compareTo == 0) {
-                return -1;
-            } else {
-                i2 = i;
-                i++;
-            }
-        }
-        return i >= size ? size : i2;
-    }
-
-    private LinkedList<BasicNameValuePair> vv() {
-        if (this.agR != null) {
-            LinkedList<BasicNameValuePair> linkedList = new LinkedList<>();
-            if (!TextUtils.isEmpty(this.agR.wi().wl().aju)) {
-                linkedList.add(new BasicNameValuePair("sid", this.agR.wi().wl().aju));
-            }
-            if (!TextUtils.isEmpty(this.agR.wi().wl().mNetType)) {
-                linkedList.add(new BasicNameValuePair("net", this.agR.wi().wl().mNetType));
-                return linkedList;
-            }
-            return linkedList;
-        }
-        return null;
+    public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
+        vj().wf().a(this.agl);
+        return this.agl.a(str, handler, i, i2, i3, z);
     }
 }

@@ -25,6 +25,7 @@ public class CmdConfigHttp {
     public static final int CMD_APPLY_COPY_THREAD = 1003066;
     public static final int CMD_APPLY_GAME_CODE = 1003015;
     public static final int CMD_AVATAR_PENDANT_LIST = 1003178;
+    public static final int CMD_BAR_ZHU_INFORMATION = 1003357;
     public static final int CMD_BIGV_SELECT_THREAD = 1003327;
     public static final int CMD_BUBBLE_CATEGORY = 1003039;
     public static final int CMD_BUBBLE_GROUP = 1003054;
@@ -63,6 +64,7 @@ public class CmdConfigHttp {
     public static final int CMD_DEL_USER_BOOKMARK = 1003167;
     public static final int CMD_DO_DAILY_TASK = 1003173;
     public static final int CMD_DRESSUP_CENTER = 1003030;
+    public static final int CMD_EMOTION_DETAIL = 1003361;
     public static final int CMD_EMOTION_EDIT_TEXT_UEG = 1003348;
     public static final int CMD_EMOTION_PACKAGE_DETAIL = 1003346;
     public static final int CMD_ENTERTAINMENT = 1003079;
@@ -71,7 +73,7 @@ public class CmdConfigHttp {
     public static final int CMD_FORUM_MULTI_CONCERN = 1003337;
     public static final int CMD_FOUND_NEW = 1003003;
     public static final int CMD_FRIEND_AND_STRANGER_MSG_SWITCH = 1003318;
-    public static final int CMD_FRS_GAME_STRATEGY = 1003354;
+    public static final int CMD_FRS_GAME_STRATEGY = 1003362;
     public static final int CMD_FRS_HEAD_VIDEO_LIST = 1003106;
     public static final int CMD_GET_BARRAGE_LIST = 1003180;
     public static final int CMD_GET_BFB_INFO = 1003100;
@@ -89,6 +91,8 @@ public class CmdConfigHttp {
     public static final int CMD_GET_CARD_DETAIL = 1003094;
     public static final int CMD_GET_CATEGORY_CARTOON = 1003096;
     public static final int CMD_GET_CHANNEL_FANS_LIST = 1003314;
+    public static final int CMD_GET_EMOTION_EMOTION_CHANGE = 1003355;
+    public static final int CMD_GET_EMOTION_EMOTION_SHOP = 1003354;
     public static final int CMD_GET_EMOTION_INFOS = 1003353;
     public static final int CMD_GET_FACE_GROUP_INFO = 1003338;
     public static final int CMD_GET_FACE_MAKE_HOT_WORDS = 1003352;
@@ -159,6 +163,7 @@ public class CmdConfigHttp {
     public static final int CMD_PERSONAL_BACKGROUND_LIST = 1003034;
     public static final int CMD_PERSONAL_BACKGROUND_SET = 1003036;
     public static final int CMD_PERSON_POLYMERIC = 1003181;
+    public static final int CMD_PLAY_DURATION_STATISTICS = 1003359;
     public static final int CMD_POST_SEARCH = 1003016;
     public static final int CMD_RECOMMEND_FRS = 1003011;
     public static final int CMD_RECOMMEND_FRS_GOD = 1003073;
@@ -180,6 +185,7 @@ public class CmdConfigHttp {
     public static final int CMD_SET_USER_BOOK_HISTORY = 1003170;
     public static final int CMD_SET_USER_PICS = 1003064;
     public static final int CMD_SHARE_FACE_GROUP = 1003340;
+    public static final int CMD_SHARE_REPORT = 1003363;
     public static final int CMD_SKIN_DETAIL = 1003037;
     public static final int CMD_SQUARE_FORUM_LIST = 1003060;
     public static final int CMD_STATIC_SPLASH = 1003193;
@@ -207,8 +213,12 @@ public class CmdConfigHttp {
     public static final int CMD_USER_MUTE_DEL = 1003028;
     public static final int CMD_USER_MUTE_QUERY = 1003026;
     public static final int CMD_VIDEO_ACTIVE_INFO = 1003191;
+    public static final int CMD_VIDEO_AGGREGATION = 1003360;
+    public static final int CMD_VIDEO_TEXT_UEG = 1003356;
+    public static final int CMD_VOTE_EMOTION = 1003358;
     public static final int CMD_VOTE_GRAFFITI = 1003083;
     public static final int CMD_VR_LOGO = 1003182;
+    public static final int CMD_WEB_HTTP_PROXY = 1003364;
     public static final int CMG_SET_FANS_NICKNAME = 1003040;
     public static final int COMMON_PRAISE_Y_OR_N = 1001600;
     public static final int DISTRIBUTE_ACTRUAL_CMD = 1003000;
@@ -243,6 +253,7 @@ public class CmdConfigHttp {
     public static final int MSG_ADD_MYGAME = 1002507;
     public static final int MSG_DELETE_MYGAME = 1002506;
     public static final int MSG_FORUM_DETAIL_CMD = 1002509;
+    public static final int MSG_FORUM_EMOTION_CMD = 1002510;
     public static final int MSG_GAME_CATEGORY_DETAIL = 1002504;
     public static final int MSG_GAME_INDEX_CMD = 1002508;
     public static final int MSG_GAME_LIST_TYPE_CMD = 1002502;
@@ -297,4 +308,5 @@ public class CmdConfigHttp {
     public static final int UPDATE_PLAYER_NUM_CMD = 1002910;
     public static final int USER_POST_HTTP_CMD = 1001503;
     public static final int VIDEO_LIST_HTTP_CMD = 1003103;
+    public static final int WEBVIEW_CACHE_INFO = 1003365;
 }

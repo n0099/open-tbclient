@@ -3,55 +3,55 @@ package com.baidu.tieba.write.album;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
-    private String gBX;
-    private String gBY;
-    private AlbumActivity gBZ;
-    private Fragment[] gCa;
-    private String[] gCb;
-    private l gCc;
-    private b gCd;
+    private String gAK;
+    private String gAL;
+    private AlbumActivity gAM;
+    private Fragment[] gAN;
+    private String[] gAO;
+    private l gAP;
+    private b gAQ;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.gBX = "tag_image";
-        this.gBY = "tag_b_image";
-        this.gBZ = albumActivity;
+        this.gAK = "tag_image";
+        this.gAL = "tag_b_image";
+        this.gAM = albumActivity;
     }
 
-    public void aMf() {
-        this.gCa = new Fragment[2];
-        this.gCb = new String[2];
-        this.gCc = new l();
-        this.gCa[0] = this.gCc;
-        this.gCb[0] = this.gBX;
-        this.gCd = new b();
-        this.gCa[1] = this.gCd;
-        this.gCb[1] = this.gBY;
+    public void aNS() {
+        this.gAN = new Fragment[2];
+        this.gAO = new String[2];
+        this.gAP = new l();
+        this.gAN[0] = this.gAP;
+        this.gAO[0] = this.gAK;
+        this.gAQ = new b();
+        this.gAN[1] = this.gAQ;
+        this.gAO[1] = this.gAL;
     }
 
-    public Fragment um(int i) {
+    public Fragment uo(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.gCa[i];
+        return this.gAN[i];
     }
 
-    public String un(int i) {
+    public String up(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.gCb[i];
+        return this.gAO[i];
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.gCa.length) {
-                if (this.gCa[i3] != null && (this.gCa[i3] instanceof l)) {
-                    ((l) this.gCa[i3]).onChangeSkinType(i);
+            if (i3 < this.gAN.length) {
+                if (this.gAN[i3] != null && (this.gAN[i3] instanceof l)) {
+                    ((l) this.gAN[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -60,59 +60,59 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView byw() {
-        if (this.gCc == null) {
+    public TbCameraView bxN() {
+        if (this.gAP == null) {
             return null;
         }
-        return this.gCc.byw();
+        return this.gAP.bxN();
     }
 
-    public View byx() {
-        if (this.gCc == null) {
+    public View bxO() {
+        if (this.gAP == null) {
             return null;
         }
-        return this.gCc.blk();
+        return this.gAP.bkj();
     }
 
-    public View byy() {
-        if (this.gCc == null) {
+    public View bxP() {
+        if (this.gAP == null) {
             return null;
         }
-        return this.gCc.byS();
+        return this.gAP.byj();
     }
 
-    public View byz() {
-        if (this.gCd == null) {
+    public View bxQ() {
+        if (this.gAQ == null) {
             return null;
         }
-        return this.gCd.blk();
+        return this.gAQ.bkj();
     }
 
-    public View byA() {
-        if (this.gCd == null) {
+    public View bxR() {
+        if (this.gAQ == null) {
             return null;
         }
-        return this.gCd.byG();
+        return this.gAQ.bxX();
     }
 
-    public View byB() {
-        if (this.gCd == null) {
+    public View bxS() {
+        if (this.gAQ == null) {
             return null;
         }
-        return this.gCd.byB();
+        return this.gAQ.bxS();
     }
 
     public void onDestroy() {
-        if (this.gBZ.ank() != null) {
-            this.gBZ.ank().EH();
+        if (this.gAM.aoS() != null) {
+            this.gAM.aoS().EF();
         }
     }
 
-    public b byC() {
-        return this.gCd;
+    public b bxT() {
+        return this.gAQ;
     }
 
-    public l byD() {
-        return this.gCc;
+    public l bxU() {
+        return this.gAP;
     }
 }

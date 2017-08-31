@@ -1,0 +1,85 @@
+package com.baidu.sofire.b;
+
+import android.text.TextUtils;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.security.PublicKey;
+import java.security.cert.Certificate;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+/* loaded from: classes.dex */
+public final class c {
+    private static Certificate[] b(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
+        try {
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
+            do {
+            } while (bufferedInputStream.read(bArr, 0, bArr.length) != -1);
+            bufferedInputStream.close();
+            if (jarEntry != null) {
+                return jarEntry.getCertificates();
+            }
+            return null;
+        } catch (IOException e) {
+            d.a(e);
+            return null;
+        } catch (RuntimeException e2) {
+            d.a(e2);
+            return null;
+        }
+    }
+
+    public static PublicKey bR(String str) {
+        boolean z;
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        byte[] bArr = new byte[8192];
+        try {
+            JarFile jarFile = new JarFile(str);
+            Enumeration<JarEntry> entries = jarFile.entries();
+            Certificate[] certificateArr = null;
+            while (entries.hasMoreElements()) {
+                JarEntry nextElement = entries.nextElement();
+                if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
+                    Certificate[] b = b(jarFile, nextElement, bArr);
+                    if (b == null) {
+                        jarFile.close();
+                        return null;
+                    } else if (certificateArr == null) {
+                        certificateArr = b;
+                    } else {
+                        for (int i = 0; i < certificateArr.length; i++) {
+                            int i2 = 0;
+                            while (true) {
+                                if (i2 < b.length) {
+                                    if (certificateArr[i] == null || !certificateArr[i].equals(b[i2])) {
+                                        i2++;
+                                    } else {
+                                        z = true;
+                                        break;
+                                    }
+                                } else {
+                                    z = false;
+                                    break;
+                                }
+                            }
+                            if (!z || certificateArr.length != b.length) {
+                                jarFile.close();
+                                return null;
+                            }
+                        }
+                        continue;
+                    }
+                }
+            }
+            jarFile.close();
+            if (certificateArr == null || certificateArr.length <= 0) {
+                return null;
+            }
+            return certificateArr[0].getPublicKey();
+        } catch (Throwable th) {
+            return null;
+        }
+    }
+}

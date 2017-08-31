@@ -4,12 +4,12 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a {
-    private static final String aXK = TbConfig.SERVER_ADDRESS + "c/c/bawu/appeal";
+    private static final String aXw = TbConfig.SERVER_ADDRESS + "c/c/bawu/appeal";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -19,24 +19,24 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3, String str4, b bVar) {
-        new C0069a(str, str2, str3, str4, bVar).execute(new String[0]);
+        new C0072a(str, str2, str3, str4, bVar).execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.account.appeal.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0069a extends BdAsyncTask<String, Object, AppealData> {
-        private String aXL;
-        private String aXM;
-        private String aXN;
-        private String aXO;
-        private WeakReference<b> aXP;
+    private static class C0072a extends BdAsyncTask<String, Object, AppealData> {
+        private String aXA;
+        private WeakReference<b> aXB;
+        private String aXx;
+        private String aXy;
+        private String aXz;
 
-        public C0069a(String str, String str2, String str3, String str4, b bVar) {
-            this.aXL = str;
-            this.aXM = str2;
-            this.aXN = str3;
-            this.aXO = str4;
-            this.aXP = new WeakReference<>(bVar);
+        public C0072a(String str, String str2, String str3, String str4, b bVar) {
+            this.aXx = str;
+            this.aXy = str2;
+            this.aXz = str3;
+            this.aXA = str4;
+            this.aXB = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -45,15 +45,15 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: q */
         public AppealData doInBackground(String... strArr) {
-            w wVar = new w(a.aXK);
-            wVar.n("forum_id", this.aXL);
-            wVar.n("user_id", this.aXM);
-            wVar.n("user_name", this.aXN);
-            wVar.n("content", this.aXO);
-            String uP = wVar.uP();
-            if (wVar.vm().wj().isRequestSuccess()) {
+            x xVar = new x(a.aXw);
+            xVar.n("forum_id", this.aXx);
+            xVar.n("user_id", this.aXy);
+            xVar.n("user_name", this.aXz);
+            xVar.n("content", this.aXA);
+            String uM = xVar.uM();
+            if (xVar.vj().wg().isRequestSuccess()) {
                 try {
-                    return (AppealData) OrmObject.objectWithJsonStr(uP, AppealData.class);
+                    return (AppealData) OrmObject.objectWithJsonStr(uM, AppealData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     AppealData appealData = new AppealData();
@@ -62,8 +62,8 @@ public class a {
                 }
             }
             AppealData appealData2 = new AppealData();
-            appealData2.errNo = wVar.vq();
-            appealData2.errMsg = wVar.getErrorString();
+            appealData2.errNo = xVar.vn();
+            appealData2.errMsg = xVar.getErrorString();
             return appealData2;
         }
 
@@ -73,9 +73,9 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(AppealData appealData) {
             super.onPostExecute(appealData);
-            b bVar = this.aXP.get();
+            b bVar = this.aXB.get();
             if (bVar != null) {
-                if (appealData.errNo == 0 && al.isEmpty(appealData.errMsg)) {
+                if (appealData.errNo == 0 && am.isEmpty(appealData.errMsg)) {
                     bVar.a(appealData);
                 } else {
                     bVar.b(appealData);

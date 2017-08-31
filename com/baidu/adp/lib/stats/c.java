@@ -2,19 +2,19 @@ package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public class c {
     public String mAppVersion;
-    public String mBduss;
     public String mChannel;
-    public String mClientId;
     public String mCuid;
     public String mNetType;
     public String mUid;
-    public String yr;
-    public String ys;
-    public String yt;
-    public String yu;
-    public String yv;
-    public String yw;
-    public String yx;
-    public String yy;
-    public String yz;
+    public String wh;
+    public String wi;
+    public String wj;
+    public String wk;
+    public String wl;
+    public String wn;
+    public String wo;
+    public String wp;
+    public String wq;
+    public String wr;
+    public String ws;
 }

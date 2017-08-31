@@ -2,35 +2,32 @@ package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class ad extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void aa(int i) {
+    protected void X(int i) {
+        com.baidu.tbadk.l.r.Gx().ca(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_url_post";
+        return "log_stat_smallflow";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eY() {
+    protected String[] eN() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eZ() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int fa() {
+    protected int eO() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int fb() {
-        return 10;
+    protected int eP() {
+        return 1;
     }
 
-    public static boolean ge() {
-        return com.baidu.adp.lib.b.d.fh().am("android_url_post") == 1;
+    @Override // com.baidu.adp.lib.b.a
+    protected int eQ() {
+        return 10;
     }
 }

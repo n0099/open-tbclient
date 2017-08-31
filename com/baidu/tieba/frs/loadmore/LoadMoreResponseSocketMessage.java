@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ah;
 import com.baidu.tbadk.core.data.ax;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.recapp.d.a;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -53,28 +53,28 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            a.biJ().ro(threadListResIdl.data.asp_shown_info);
+            a.bhI().rc(threadListResIdl.data.asp_shown_info);
             this.threadList = new ArrayList<>();
             List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
             if (list2 != null) {
                 for (int i3 = 0; i3 < list2.size(); i3++) {
-                    bl blVar = new bl();
-                    blVar.setUserMap(this.userMap);
-                    blVar.a(list2.get(i3));
-                    blVar.bX(3);
-                    blVar.so();
-                    if (blVar.getThreadType() == 33) {
+                    bj bjVar = new bj();
+                    bjVar.setUserMap(this.userMap);
+                    bjVar.a(list2.get(i3));
+                    bjVar.bX(3);
+                    bjVar.sj();
+                    if (bjVar.getThreadType() == 33) {
                         ax axVar = new ax();
-                        axVar.a(blVar, 0);
+                        axVar.a(bjVar, 0);
                         if (true == TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                             this.threadList.add(axVar);
                         }
-                    } else if (!TextUtils.isEmpty(blVar.sB())) {
+                    } else if (!TextUtils.isEmpty(bjVar.sw())) {
                         ah ahVar = new ah();
-                        ahVar.cH(blVar.sB());
+                        ahVar.cx(bjVar.sw());
                         this.threadList.add(ahVar);
                     } else {
-                        this.threadList.add(blVar);
+                        this.threadList.add(bjVar);
                     }
                 }
             }

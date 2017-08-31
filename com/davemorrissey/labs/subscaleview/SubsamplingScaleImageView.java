@@ -1017,11 +1017,11 @@ public class SubsamplingScaleImageView extends View {
             android.graphics.BitmapFactory.decodeStream(r1, r3, r5)     // Catch: java.lang.Throwable -> Led
             android.graphics.Bitmap$Config r3 = android.graphics.Bitmap.Config.RGB_565     // Catch: java.lang.Throwable -> Led
             r5.inPreferredConfig = r3     // Catch: java.lang.Throwable -> Led
-            com.baidu.adp.lib.util.m.p(r1)     // Catch: java.lang.Throwable -> Led
+            com.baidu.adp.lib.util.m.d(r1)     // Catch: java.lang.Throwable -> Led
             android.content.Context r3 = r7.getContext()     // Catch: java.lang.Throwable -> Led
-            int r3 = com.baidu.adp.lib.util.k.ag(r3)     // Catch: java.lang.Throwable -> Led
+            int r3 = com.baidu.adp.lib.util.k.ad(r3)     // Catch: java.lang.Throwable -> Led
             android.content.Context r4 = r7.getContext()     // Catch: java.lang.Throwable -> Led
-            int r4 = com.baidu.adp.lib.util.k.ah(r4)     // Catch: java.lang.Throwable -> Led
+            int r4 = com.baidu.adp.lib.util.k.ae(r4)     // Catch: java.lang.Throwable -> Led
             if (r3 <= 0) goto Lce
             if (r4 <= 0) goto Lce
             int r6 = r5.outWidth     // Catch: java.lang.Throwable -> Led
@@ -1031,7 +1031,7 @@ public class SubsamplingScaleImageView extends View {
             int r3 = java.lang.Math.max(r3, r4)     // Catch: java.lang.Throwable -> Led
             int r0 = java.lang.Math.max(r0, r3)     // Catch: java.lang.Throwable -> Led
         Lce:
-            com.baidu.adp.lib.util.m.p(r1)
+            com.baidu.adp.lib.util.m.d(r1)
         Ld1:
             r1 = r2
         Ld2:
@@ -1046,13 +1046,13 @@ public class SubsamplingScaleImageView extends View {
             r1 = move-exception
             r1 = r3
         Lde:
-            com.baidu.adp.lib.util.m.p(r1)
+            com.baidu.adp.lib.util.m.d(r1)
             goto Ld1
         Le2:
             r0 = move-exception
             r1 = r3
         Le4:
-            com.baidu.adp.lib.util.m.p(r1)
+            com.baidu.adp.lib.util.m.d(r1)
             throw r0
         Le8:
             int r1 = r1 * 2

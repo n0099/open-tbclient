@@ -10,7 +10,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayer;
 import java.util.HashMap;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
@@ -83,6 +83,18 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             }
         }
     };
+    private IMediaPlayer.OnMediaReleaseFinishedListener mOnMediaReleaseFinishedListener = new IMediaPlayer.OnMediaReleaseFinishedListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.5
+        @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnMediaReleaseFinishedListener
+        public void onFinished() {
+            try {
+                if (QuickMediaPlayerBinder.this.mQuickMediaPlayerListener != null) {
+                    QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onReleaseFinished();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
 
     public QuickMediaPlayerBinder(Context context) {
         this.mContext = context;
@@ -104,7 +116,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                 } else if (MODEL_MX4.equals(Build.MODEL)) {
                     i = 2;
                 }
-                TiebaStatic.log(new aj("c12200").r("obj_type", i).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new ak("c12200").r("obj_type", i).ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
             }
             if (this.mContext instanceof a) {
                 ((a) this.mContext).addPlayer(this.mMediaPlayer);
@@ -113,6 +125,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mMediaPlayer.setOnCompletionListener(this.mOnCompletionListener);
             this.mMediaPlayer.setOnErrorListener(this.mOnErrorListener);
             this.mMediaPlayer.setOnInfoListener(this.mOnInfoListener);
+            this.mMediaPlayer.setOnMediaReleaseFinishedListener(this.mOnMediaReleaseFinishedListener);
             if (!TextUtils.isEmpty(str)) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("Host", str);

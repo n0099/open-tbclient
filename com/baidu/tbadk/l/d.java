@@ -12,48 +12,48 @@ import com.baidu.tbadk.l.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends k {
-    private static CustomMessageTask aJG = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new CustomMessageTask.CustomRunnable<a>() { // from class: com.baidu.tbadk.l.d.3
+    private static CustomMessageTask aJk = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new CustomMessageTask.CustomRunnable<a>() { // from class: com.baidu.tbadk.l.d.3
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<a> customMessage) {
             if (customMessage == null) {
                 return null;
             }
             a data = customMessage.getData();
-            data.aJI = r.Gz().GB();
-            data.aJJ = r.Gz().GD();
+            data.aJm = r.Gx().Gz();
+            data.aJn = r.Gx().GB();
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PERF_SAMPLE, data);
         }
     });
-    private e aJB;
-    private com.baidu.tbadk.l.a aJC;
-    private int aJD;
-    private ArrayList<String> aJv;
-    private ArrayList<String> aJw;
-    private ArrayList<String> aJx;
-    private int aJy = 0;
-    private int aJz = 3;
-    private int aJA = 0;
-    private int aJE = 0;
-    private e.a aJF = new e.a() { // from class: com.baidu.tbadk.l.d.1
+    private ArrayList<String> aIZ;
+    private ArrayList<String> aJa;
+    private ArrayList<String> aJb;
+    private e aJf;
+    private com.baidu.tbadk.l.a aJg;
+    private int aJh;
+    private int aJc = 0;
+    private int aJd = 3;
+    private int aJe = 0;
+    private int aJi = 0;
+    private e.a aJj = new e.a() { // from class: com.baidu.tbadk.l.d.1
         @Override // com.baidu.tbadk.l.e.a
         public void ff(int i) {
-            d.this.aJB.a((e.a) null);
-            d.this.aJB.stop();
-            d.this.aJD = i;
-            t tVar = (t) r.Gz().fk(d.this.mSubType);
+            d.this.aJf.a((e.a) null);
+            d.this.aJf.stop();
+            d.this.aJh = i;
+            t tVar = (t) r.Gx().fk(d.this.mSubType);
             if (tVar != null) {
                 tVar.h(d.this);
             }
         }
     };
-    private a.InterfaceC0060a aJk = new a.InterfaceC0060a() { // from class: com.baidu.tbadk.l.d.2
-        @Override // com.baidu.tbadk.l.a.InterfaceC0060a
+    private a.InterfaceC0063a aIO = new a.InterfaceC0063a() { // from class: com.baidu.tbadk.l.d.2
+        @Override // com.baidu.tbadk.l.a.InterfaceC0063a
         public void ff(int i) {
-            d.this.aJE++;
-            if (d.this.aJz == d.this.aJE) {
-                d.this.aJC.a((a.InterfaceC0060a) null);
-                d.this.aJC.stop();
-                d.this.Gn();
+            d.this.aJi++;
+            if (d.this.aJd == d.this.aJi) {
+                d.this.aJg.a((a.InterfaceC0063a) null);
+                d.this.aJg.stop();
+                d.this.Gl();
             }
             d.this.fg(i);
         }
@@ -64,52 +64,52 @@ public class d extends k {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             a aVar;
             if (customResponsedMessage != null && (aVar = (a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == d.this.mId) {
-                d.this.aJA++;
-                d.this.gF(aVar.aJI);
-                d.this.fh(aVar.aJJ);
-                d.this.Gn();
+                d.this.aJe++;
+                d.this.gB(aVar.aJm);
+                d.this.fh(aVar.aJn);
+                d.this.Gl();
             }
         }
     };
 
     public d() {
-        Gh();
+        Gf();
     }
 
     public void onDestroy() {
-        if (this.aJB != null) {
-            this.aJB.a((e.a) null);
+        if (this.aJf != null) {
+            this.aJf.a((e.a) null);
         }
-        if (this.aJC != null) {
-            this.aJC.a((a.InterfaceC0060a) null);
+        if (this.aJg != null) {
+            this.aJg.a((a.InterfaceC0063a) null);
         }
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public void Gg() {
-        if (this.aJy < this.aJz) {
-            this.aJy++;
-            Gi();
-            if (this.aJB == null) {
-                this.aJB = new e();
-                this.aJB.a(this.aJF);
-                this.aJB.start();
+    public void Ge() {
+        if (this.aJc < this.aJd) {
+            this.aJc++;
+            Gg();
+            if (this.aJf == null) {
+                this.aJf = new e();
+                this.aJf.a(this.aJj);
+                this.aJf.start();
             }
-            if (this.aJC == null) {
-                this.aJC = new com.baidu.tbadk.l.a(TbadkCoreApplication.getInst().getContext());
-                this.aJC.a(this.aJk);
-                this.aJC.start();
+            if (this.aJg == null) {
+                this.aJg = new com.baidu.tbadk.l.a(TbadkCoreApplication.getInst().getContext());
+                this.aJg.a(this.aIO);
+                this.aJg.start();
             }
         }
     }
 
-    private void Gh() {
+    private void Gf() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void Gi() {
+    private void Gg() {
         CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_PERF_SAMPLE, new a());
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
@@ -118,45 +118,45 @@ public class d extends k {
     /* JADX INFO: Access modifiers changed from: private */
     public void fg(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aJv == null) {
-            this.aJv = new ArrayList<>();
+        if (this.aIZ == null) {
+            this.aIZ = new ArrayList<>();
         }
-        this.aJv.add(valueOf);
+        this.aIZ.add(valueOf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gF(String str) {
-        if (this.aJw == null) {
-            this.aJw = new ArrayList<>();
+    public void gB(String str) {
+        if (this.aJa == null) {
+            this.aJa = new ArrayList<>();
         }
         if (str != null) {
-            this.aJw.add(str);
+            this.aJa.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fh(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aJx == null) {
-            this.aJx = new ArrayList<>();
+        if (this.aJb == null) {
+            this.aJb = new ArrayList<>();
         }
-        this.aJx.add(valueOf);
+        this.aJb.add(valueOf);
+    }
+
+    public String Gh() {
+        return r(this.aIZ);
+    }
+
+    public String Gi() {
+        return String.valueOf(this.aJh);
     }
 
     public String Gj() {
-        return r(this.aJv);
+        return r(this.aJa);
     }
 
     public String Gk() {
-        return String.valueOf(this.aJD);
-    }
-
-    public String Gl() {
-        return r(this.aJw);
-    }
-
-    public String Gm() {
-        return r(this.aJx);
+        return r(this.aJb);
     }
 
     private String r(ArrayList<String> arrayList) {
@@ -179,22 +179,22 @@ public class d extends k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Gn() {
+    public void Gl() {
         t tVar;
-        if (this.aJA == this.aJz && this.aJz == this.aJE && (tVar = (t) r.Gz().fk(this.mSubType)) != null) {
+        if (this.aJe == this.aJd && this.aJd == this.aJi && (tVar = (t) r.Gx().fk(this.mSubType)) != null) {
             tVar.g(this);
         }
     }
 
     static {
-        aJG.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        MessageManager.getInstance().registerTask(aJG);
+        aJk.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        MessageManager.getInstance().registerTask(aJk);
     }
 
     /* loaded from: classes.dex */
     public class a {
-        public String aJI;
-        public int aJJ;
+        public String aJm;
+        public int aJn;
 
         public a() {
         }

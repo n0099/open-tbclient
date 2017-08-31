@@ -19,7 +19,7 @@ public abstract class d {
         return 0;
     }
 
-    public a ne() {
+    public a mR() {
         return null;
     }
 }

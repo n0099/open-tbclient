@@ -95,7 +95,7 @@ public abstract class ResponsedMessage<T> implements a<T> {
     }
 
     public void onDecodeFailedInBackGround(int i, T t, int i2) throws Exception {
-        if (i2 == h.qM) {
+        if (i2 == h.ox) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }

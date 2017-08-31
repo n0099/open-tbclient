@@ -18,11 +18,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private TextView aLo;
-    private TextView aLp;
-    private TextView aLq;
-    private PluginStatus aLr;
-    private View arn;
+    private TextView aKS;
+    private TextView aKT;
+    private TextView aKU;
+    private PluginStatus aKV;
+    private View aqT;
     private NavigationBar mNavigationBar;
 
     public static final void a(Context context, PluginStatus pluginStatus) {
@@ -41,11 +41,11 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.aLr = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.aKV = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.aLr = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.aKV = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.aLr == null) {
+        if (this.aKV == null) {
             finish();
             return;
         }
@@ -55,27 +55,27 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     protected void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(d.h.view_navigation_bar);
-        this.arn = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.arn.setOnClickListener(this);
+        this.aqT = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.aqT.setOnClickListener(this);
         this.mNavigationBar.setTitleText(d.l.pluginstatus_tip_title);
-        this.aLo = (TextView) findViewById(d.h.plugin_error_tip_msg);
-        this.aLp = (TextView) findViewById(d.h.plugin_error_tip_resolve);
-        this.aLq = (TextView) findViewById(d.h.plugin_error_btn);
-        this.aLq.setOnClickListener(this);
-        this.aLo.setText(this.aLr.getErrorMsg());
-        this.aLp.setText(this.aLr.km());
-        if (this.aLr.getErrorCode() == 5 || this.aLr.getErrorCode() == 1 || this.aLr.getErrorCode() == 100) {
-            this.aLq.setText(d.l.pluginstatus_btn_restartapp);
-            this.aLq.setVisibility(0);
+        this.aKS = (TextView) findViewById(d.h.plugin_error_tip_msg);
+        this.aKT = (TextView) findViewById(d.h.plugin_error_tip_resolve);
+        this.aKU = (TextView) findViewById(d.h.plugin_error_btn);
+        this.aKU.setOnClickListener(this);
+        this.aKS.setText(this.aKV.getErrorMsg());
+        this.aKT.setText(this.aKV.ke());
+        if (this.aKV.getErrorCode() == 5 || this.aKV.getErrorCode() == 1 || this.aKV.getErrorCode() == 100) {
+            this.aKU.setText(d.l.pluginstatus_btn_restartapp);
+            this.aKU.setVisibility(0);
             return;
         }
-        this.aLq.setVisibility(8);
+        this.aKU.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.aLr);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.aKV);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -83,14 +83,14 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.arn) {
+        if (view == this.aqT) {
             finish();
-        } else if (view == this.aLq) {
-            if (this.aLr != null && this.aLr.getErrorCode() == 100) {
-                com.baidu.adp.plugin.b.a.jr().M(true);
+        } else if (view == this.aKU) {
+            if (this.aKV != null && this.aKV.getErrorCode() == 100) {
+                com.baidu.adp.plugin.b.a.jj().N(true);
             }
             showLoadingDialog(getResources().getString(d.l.waiting));
-            e.ga().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
+            e.fQ().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
                     HashSet hashSet = new HashSet(10);

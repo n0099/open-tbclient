@@ -6,121 +6,121 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.am;
 /* loaded from: classes.dex */
 public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String bDN;
-        public String bDO;
-        public int bJX;
+        public String bGH;
+        public String bGI;
+        public int bMP;
     }
 
-    public static C0121a a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        C0121a c0121a = new C0121a(str, str2, str3, str4, str5);
-        c0121a.e(str6, str7, str8, str9, str10);
-        return c0121a;
+    public static C0124a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        C0124a c0124a = new C0124a(str, str2, str3, str4, str5);
+        c0124a.e(str6, str7, str8, str9, str10);
+        return c0124a;
     }
 
-    public static C0121a d(String str, String str2, String str3, String str4, String str5, String str6) {
-        C0121a c0121a = new C0121a("ad_tpoint", "PT", str, str2, "tpoint");
-        c0121a.e(null, null, str3, str4, str5);
-        if (!al.isEmpty(str6)) {
-            c0121a.ck("obj_ref", str6);
+    public static C0124a d(String str, String str2, String str3, String str4, String str5, String str6) {
+        C0124a c0124a = new C0124a("ad_tpoint", "PT", str, str2, "tpoint");
+        c0124a.e(null, null, str3, str4, str5);
+        if (!am.isEmpty(str6)) {
+            c0124a.cj("obj_ref", str6);
         }
-        return c0121a;
+        return c0124a;
     }
 
     @Deprecated
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        C0121a c0121a = new C0121a("ad_tpoint", "PT", str, "c0122", "ad_plat");
-        c0121a.e(str2, str7, str3, str4, str5);
-        c0121a.ck("obj_url", str6);
-        c0121a.save();
+        C0124a c0124a = new C0124a("ad_tpoint", "PT", str, "c0122", "ad_plat");
+        c0124a.e(str2, str7, str3, str4, str5);
+        c0124a.cj("obj_url", str6);
+        c0124a.save();
     }
 
     @Deprecated
-    public static void cj(String str, String str2) {
-        if (!al.isEmpty(str)) {
-            aj ajVar = new aj(str);
+    public static void ci(String str, String str2) {
+        if (!am.isEmpty(str)) {
+            ak akVar = new ak(str);
             if (str2 != null) {
-                ajVar = ajVar.aa("obj_type", str2);
+                akVar = akVar.ad("obj_type", str2);
             }
-            TiebaStatic.log(ajVar);
+            TiebaStatic.log(akVar);
         }
     }
 
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0121a {
-        private final String Up;
-        private final boolean XE;
-        private final aj dNt;
-        private final String gkI;
-        private final String gkJ;
+    public static class C0124a {
+        private final String Tr;
+        private final boolean WN;
+        private final ak dUg;
+        private final String gjj;
+        private final String gjk;
         private final String key;
         private final String locate;
 
-        private C0121a(String str, String str2, String str3, String str4, String str5) {
+        private C0124a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.gkI = str2;
-            this.Up = str3;
+            this.gjj = str2;
+            this.Tr = str3;
             this.locate = str4;
-            this.gkJ = str5;
-            this.XE = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.dNt = btp();
+            this.gjk = str5;
+            this.WN = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.dUg = bsE();
         }
 
-        private aj btp() {
-            aj ajVar = new aj(this.key);
-            if (!StringUtils.isNull(this.gkI)) {
-                ajVar = ajVar.aa("line", this.gkI);
+        private ak bsE() {
+            ak akVar = new ak(this.key);
+            if (!StringUtils.isNull(this.gjj)) {
+                akVar = akVar.ad("line", this.gjj);
             }
-            if (!StringUtils.isNull(this.Up)) {
-                ajVar = ajVar.aa("page", this.Up);
+            if (!StringUtils.isNull(this.Tr)) {
+                akVar = akVar.ad("page", this.Tr);
             }
             if (!StringUtils.isNull(this.locate)) {
-                ajVar = ajVar.aa("locate", this.locate);
+                akVar = akVar.ad("locate", this.locate);
             }
-            if (!StringUtils.isNull(this.gkJ)) {
-                return ajVar.aa("task", this.gkJ);
+            if (!StringUtils.isNull(this.gjk)) {
+                return akVar.ad("task", this.gjk);
             }
-            return ajVar;
+            return akVar;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public aj e(String str, String str2, String str3, String str4, String str5) {
+        public ak e(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.dNt.aa("action_type", str);
+                this.dUg.ad("action_type", str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.dNt.aa("obj_id", str2);
+                this.dUg.ad("obj_id", str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.dNt.aa("fid", str3);
+                this.dUg.ad("fid", str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.dNt.aa(ImageViewerConfig.FORUM_NAME, str4);
+                this.dUg.ad(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.dNt.aa("tid", str5);
+                this.dUg.ad("tid", str5);
             }
-            this.dNt.r("obj_cpid", 0).r("obj_good_id", 0).aa("obj_throw_type", "BY_POST").aa("client_type", "MOBILE_APP").aa("user_timestamp", String.valueOf(System.currentTimeMillis())).aa("os", "android").aa("os_version", Build.VERSION.RELEASE).aa("log_ver", "1.1");
-            return this.dNt;
+            this.dUg.r("obj_cpid", 0).r("obj_good_id", 0).ad("obj_throw_type", "BY_POST").ad("client_type", "MOBILE_APP").ad("user_timestamp", String.valueOf(System.currentTimeMillis())).ad("os", "android").ad("os_version", Build.VERSION.RELEASE).ad("log_ver", "1.1");
+            return this.dUg;
         }
 
-        public C0121a ck(String str, String str2) {
+        public C0124a cj(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.dNt.aa(str, str2);
+                this.dUg.ad(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.dNt);
-            if (!this.XE) {
+            TiebaStatic.log(this.dUg);
+            if (!this.WN) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }
@@ -128,8 +128,8 @@ public class a {
             }
         }
 
-        public void delete(String str) {
-            this.dNt.delete(str);
+        public void dO(String str) {
+            this.dUg.dO(str);
         }
     }
 }

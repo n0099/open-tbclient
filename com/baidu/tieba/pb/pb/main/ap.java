@@ -1,65 +1,29 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.card.m;
-import com.baidu.tieba.d;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.ArrayList;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class ap {
-    public static Intent ah(Context context, String str) {
-        if (TextUtils.isEmpty(str) || context == null) {
+public class ap implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
             return null;
         }
-        Intent intent = new Intent(context, DealIntentService.class);
-        intent.putExtra("class", 1);
-        intent.putExtra("id", str);
-        intent.putExtra("from", "nas");
-        return intent;
-    }
-
-    public static boolean k(PostData postData) {
-        if (postData == null || postData.bth() == null) {
-            return false;
+        PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
+        byte[] S = h.aRf().S(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
+        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
+        pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
+        pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
+        pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
+        pbPageReadLocalResponseMessage.setContext(pbPageReadLocalRequestMessage.getContext());
+        try {
+            pbPageReadLocalResponseMessage.decodeInBackGround(CmdConfigCustom.PB_PAGE_CACHE_CMD, S);
+            return pbPageReadLocalResponseMessage;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return pbPageReadLocalResponseMessage;
         }
-        com.baidu.tieba.tbadkCore.data.h bth = postData.bth();
-        if (bth.gjo) {
-            int bsG = bth.bsG();
-            return bsG == 2 || bsG == 1 || bsG == 3;
-        }
-        return false;
-    }
-
-    public static SpannableStringBuilder i(Context context, String str, String str2) {
-        ArrayList arrayList = new ArrayList();
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (str2 != null && str != null) {
-            arrayList.add(new m.a(str));
-            return com.baidu.tieba.card.m.a(context, str2, (ArrayList<m.a>) arrayList, true);
-        }
-        return spannableStringBuilder;
-    }
-
-    public static String a(MetaData metaData) {
-        if (metaData == null || metaData.getGodUserData() == null) {
-            return "";
-        }
-        String forumName = metaData.getGodUserData().getForumName();
-        String godIntro = metaData.getGodIntro();
-        if (metaData.getGodUserData().getType() != 2 || TextUtils.isEmpty(forumName)) {
-            return getString(d.l.user_certification_intro, godIntro);
-        }
-        return getString(d.l.user_certification_intro_with_barname, UtilHelper.getForumNameWithBar(forumName), godIntro);
-    }
-
-    public static String getString(int i, Object... objArr) {
-        return TbadkCoreApplication.getInst().getString(i, objArr);
     }
 }

@@ -14,29 +14,29 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends RelativeLayout {
-    private a eZX;
-    private ImageView faC;
-    private ImageView faD;
-    private ImageView faE;
-    private ImageView faF;
-    private ImageView faG;
-    private ImageView faH;
-    private TextView faI;
-    private AnimatorSet faJ;
-    private AnimatorSet faK;
-    private AnimatorSet faL;
-    private AnimatorSet faM;
-    private AnimatorSet faN;
-    private AnimatorSet faO;
-    private AnimatorSet faP;
-    private boolean faQ;
-    private Runnable faR;
-    private static final int aRr = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds48);
-    private static final int SCREEN_WIDTH = k.ag(TbadkCoreApplication.getInst());
+    private a eYF;
+    private ImageView eZk;
+    private ImageView eZl;
+    private ImageView eZm;
+    private ImageView eZn;
+    private ImageView eZo;
+    private ImageView eZp;
+    private TextView eZq;
+    private AnimatorSet eZr;
+    private AnimatorSet eZs;
+    private AnimatorSet eZt;
+    private AnimatorSet eZu;
+    private AnimatorSet eZv;
+    private AnimatorSet eZw;
+    private AnimatorSet eZx;
+    private boolean eZy;
+    private Runnable eZz;
+    private static final int aRa = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds48);
+    private static final int SCREEN_WIDTH = k.ad(TbadkCoreApplication.getInst());
 
     /* loaded from: classes.dex */
     public interface a {
@@ -45,11 +45,11 @@ public class c extends RelativeLayout {
 
     public c(Context context) {
         super(context);
-        this.faQ = false;
-        this.faR = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
+        this.eZy = false;
+        this.eZz = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
             @Override // java.lang.Runnable
             public void run() {
-                c.this.aWO();
+                c.this.aWa();
             }
         };
         init();
@@ -57,115 +57,115 @@ public class c extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(d.j.pb_full_screen_floating_huaji_view, this);
-        this.faC = (ImageView) findViewById(d.h.pb_video_floating_big_huaji);
-        this.faD = (ImageView) findViewById(d.h.pb_video_floating_small_huaji1);
-        this.faE = (ImageView) findViewById(d.h.pb_video_floating_small_huaji2);
-        this.faF = (ImageView) findViewById(d.h.pb_video_floating_small_huaji3);
-        this.faG = (ImageView) findViewById(d.h.pb_video_floating_small_huaji4);
-        this.faH = (ImageView) findViewById(d.h.pb_video_floating_small_huaji5);
-        this.faI = (TextView) findViewById(d.h.pb_video_floating_huaji_tip);
-        this.faI.setX((SCREEN_WIDTH - aRr) / 2);
+        this.eZk = (ImageView) findViewById(d.h.pb_video_floating_big_huaji);
+        this.eZl = (ImageView) findViewById(d.h.pb_video_floating_small_huaji1);
+        this.eZm = (ImageView) findViewById(d.h.pb_video_floating_small_huaji2);
+        this.eZn = (ImageView) findViewById(d.h.pb_video_floating_small_huaji3);
+        this.eZo = (ImageView) findViewById(d.h.pb_video_floating_small_huaji4);
+        this.eZp = (ImageView) findViewById(d.h.pb_video_floating_small_huaji5);
+        this.eZq = (TextView) findViewById(d.h.pb_video_floating_huaji_tip);
+        this.eZq.setX((SCREEN_WIDTH - aRa) / 2);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        aWN();
+        aVZ();
     }
 
-    private void aWN() {
-        this.faJ = new AnimatorSet();
-        Drawable drawable = ai.getDrawable(d.g.icon_floor_bigpraised_floating);
+    private void aVZ() {
+        this.eZr = new AnimatorSet();
+        Drawable drawable = aj.getDrawable(d.g.icon_floor_bigpraised_floating);
         int intrinsicWidth = (SCREEN_WIDTH - drawable.getIntrinsicWidth()) / 2;
         int intrinsicWidth2 = 0 - drawable.getIntrinsicWidth();
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.faC, "X", SCREEN_WIDTH, intrinsicWidth);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.eZk, "X", SCREEN_WIDTH, intrinsicWidth);
         ofFloat.setDuration(400L);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.faC, "X", intrinsicWidth, intrinsicWidth2);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.eZk, "X", intrinsicWidth, intrinsicWidth2);
         ofFloat2.setDuration(500L);
         ofFloat2.setStartDelay(1000L);
-        this.faJ.playTogether(ofFloat, ofFloat2);
-        this.faK = new AnimatorSet();
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.faD, "X", SCREEN_WIDTH, intrinsicWidth2);
+        this.eZr.playTogether(ofFloat, ofFloat2);
+        this.eZs = new AnimatorSet();
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.eZl, "X", SCREEN_WIDTH, intrinsicWidth2);
         ofFloat3.setDuration(600L);
         ofFloat3.setStartDelay(800L);
-        this.faK.play(ofFloat3);
-        this.faL = new AnimatorSet();
-        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.faE, "X", SCREEN_WIDTH, intrinsicWidth2);
+        this.eZs.play(ofFloat3);
+        this.eZt = new AnimatorSet();
+        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.eZm, "X", SCREEN_WIDTH, intrinsicWidth2);
         ofFloat4.setDuration(600L);
         ofFloat4.setStartDelay(800L);
-        this.faL.play(ofFloat4);
-        this.faM = new AnimatorSet();
-        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.faF, "X", SCREEN_WIDTH, intrinsicWidth2);
+        this.eZt.play(ofFloat4);
+        this.eZu = new AnimatorSet();
+        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.eZn, "X", SCREEN_WIDTH, intrinsicWidth2);
         ofFloat5.setDuration(300L);
         ofFloat5.setStartDelay(1100L);
-        this.faM.play(ofFloat5);
-        this.faN = new AnimatorSet();
-        ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.faG, "X", SCREEN_WIDTH, intrinsicWidth2);
+        this.eZu.play(ofFloat5);
+        this.eZv = new AnimatorSet();
+        ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.eZo, "X", SCREEN_WIDTH, intrinsicWidth2);
         ofFloat6.setDuration(200L);
         ofFloat6.setStartDelay(1200L);
-        this.faN.play(ofFloat6);
-        this.faO = new AnimatorSet();
-        ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.faH, "X", SCREEN_WIDTH, intrinsicWidth2);
+        this.eZv.play(ofFloat6);
+        this.eZw = new AnimatorSet();
+        ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.eZp, "X", SCREEN_WIDTH, intrinsicWidth2);
         ofFloat7.setDuration(150L);
         ofFloat7.setStartDelay(1400L);
-        this.faO.play(ofFloat7);
-        this.faP = new AnimatorSet();
-        ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.faI, "scaleX", 0.0f, 2.0f, 1.0f);
+        this.eZw.play(ofFloat7);
+        this.eZx = new AnimatorSet();
+        ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.eZq, "scaleX", 0.0f, 2.0f, 1.0f);
         ofFloat8.setDuration(500L);
         ofFloat8.setStartDelay(400L);
-        ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.faI, "scaleY", 0.0f, 2.0f, 1.0f);
+        ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.eZq, "scaleY", 0.0f, 2.0f, 1.0f);
         ofFloat9.setDuration(500L);
         ofFloat8.setStartDelay(400L);
-        ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.faI, "X", SCREEN_WIDTH / 2, intrinsicWidth2);
+        ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.eZq, "X", SCREEN_WIDTH / 2, intrinsicWidth2);
         ofFloat10.setDuration(300L);
         ofFloat10.setStartDelay(700L);
-        this.faP.playTogether(ofFloat8, ofFloat9, ofFloat10);
+        this.eZx.playTogether(ofFloat8, ofFloat9, ofFloat10);
     }
 
     public void onChangeSkinType(int i) {
-        ai.k(this, d.e.black_alpha60);
-        ai.c(this.faC, d.g.icon_floor_bigpraised_floating);
-        ai.c(this.faD, d.g.icon_floor_praised_floating);
-        ai.c(this.faE, d.g.icon_floor_praised_floating);
-        ai.c(this.faF, d.g.icon_floor_praised_floating);
-        ai.c(this.faG, d.g.icon_floor_praised_floating);
-        ai.c(this.faH, d.g.icon_floor_praised_floating);
-        ai.i(this.faI, d.e.cp_cont_i);
+        aj.k(this, d.e.black_alpha60);
+        aj.c(this.eZk, d.g.icon_floor_bigpraised_floating);
+        aj.c(this.eZl, d.g.icon_floor_praised_floating);
+        aj.c(this.eZm, d.g.icon_floor_praised_floating);
+        aj.c(this.eZn, d.g.icon_floor_praised_floating);
+        aj.c(this.eZo, d.g.icon_floor_praised_floating);
+        aj.c(this.eZp, d.g.icon_floor_praised_floating);
+        aj.i(this.eZq, d.e.cp_cont_i);
     }
 
-    public void startAnimation(boolean z) {
-        if (UtilHelper.getRealScreenOrientation(getContext()) != 2 && !this.faQ) {
-            this.faQ = true;
+    public void ki(boolean z) {
+        if (UtilHelper.getRealScreenOrientation(getContext()) != 2 && !this.eZy) {
+            this.eZy = true;
             ((ViewGroup) ((Activity) getContext()).getWindow().getDecorView()).addView(this);
-            postDelayed(this.faR, 2000L);
-            this.faJ.start();
-            this.faK.start();
-            this.faL.start();
-            this.faM.start();
-            this.faN.start();
-            this.faO.start();
+            postDelayed(this.eZz, 2000L);
+            this.eZr.start();
+            this.eZs.start();
+            this.eZt.start();
+            this.eZu.start();
+            this.eZv.start();
+            this.eZw.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWO() {
-        this.faQ = false;
+    public void aWa() {
+        this.eZy = false;
         ViewGroup viewGroup = (ViewGroup) ((Activity) getContext()).getWindow().getDecorView();
         if (getParent() != null && getParent() == viewGroup) {
             viewGroup.removeView(this);
         }
-        if (this.eZX != null) {
-            this.eZX.onAnimationEnd();
+        if (this.eYF != null) {
+            this.eYF.onAnimationEnd();
         }
-        removeCallbacks(this.faR);
+        removeCallbacks(this.eZz);
     }
 
     public void stopAnimation() {
-        if (this.faQ) {
-            aWO();
-            this.faJ.cancel();
-            this.faK.cancel();
-            this.faL.cancel();
-            this.faM.cancel();
-            this.faN.cancel();
-            this.faO.cancel();
-            this.faP.cancel();
+        if (this.eZy) {
+            aWa();
+            this.eZr.cancel();
+            this.eZs.cancel();
+            this.eZt.cancel();
+            this.eZu.cancel();
+            this.eZv.cancel();
+            this.eZw.cancel();
+            this.eZx.cancel();
         }
     }
 
@@ -178,6 +178,6 @@ public class c extends RelativeLayout {
     }
 
     public void setFloatingHuajiAninationListener(a aVar) {
-        this.eZX = aVar;
+        this.eYF = aVar;
     }
 }

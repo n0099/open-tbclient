@@ -5,7 +5,7 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.data.ar;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.v;
 import com.squareup.wire.Message;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,21 +16,21 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes2.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
-    protected boolean Ec;
-    protected ArrayList<FeedData> dGt = new ArrayList<>();
-    protected ar dGu = new ar();
-    protected h dGv = new h();
+    protected boolean BW;
+    protected ArrayList<FeedData> dMZ = new ArrayList<>();
+    protected ar dNa = new ar();
+    protected h dNb = new h();
 
-    public ArrayList<FeedData> aAc() {
-        return this.dGt;
+    public ArrayList<FeedData> aBR() {
+        return this.dMZ;
     }
 
-    public ar qI() {
-        return this.dGu;
+    public ar qD() {
+        return this.dNa;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void o(JSONObject jSONObject) {
+    public void i(JSONObject jSONObject) {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
             JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
@@ -40,24 +40,24 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
                     if (feedData.getThread_Type() == 33) {
                         if (TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.dGt.add(feedData);
+                            this.dMZ.add(feedData);
                         }
                     } else {
-                        this.dGt.add(feedData);
-                        if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.b.amz()) {
-                            this.dGt.remove(feedData);
+                        this.dMZ.add(feedData);
+                        if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.b.aoh()) {
+                            this.dMZ.remove(feedData);
                         }
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && u.u(feedData.getPraiseList()) == 0) {
-                            this.dGt.remove(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.u(feedData.getPraiseList()) == 0) {
+                            this.dMZ.remove(feedData);
                         }
                     }
                 }
             }
-            this.dGv.parserJson(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
-            this.dGu.parserJson(jSONObject.optJSONObject("page"));
-            this.Ec = true;
+            this.dNb.parserJson(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
+            this.dNa.parserJson(jSONObject.optJSONObject("page"));
+            this.BW = true;
         } catch (Exception e) {
-            this.Ec = false;
+            this.BW = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -74,23 +74,23 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                         feedData.parserProtoBuf(list.get(i));
                         if (feedData.getThread_Type() == 33) {
                             if (TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                this.dGt.add(feedData);
+                                this.dMZ.add(feedData);
                             }
                         } else {
-                            this.dGt.add(feedData);
-                            if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.b.amz()) {
-                                this.dGt.remove(feedData);
+                            this.dMZ.add(feedData);
+                            if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.b.aoh()) {
+                                this.dMZ.remove(feedData);
                             }
-                            if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && u.u(feedData.getPraiseList()) == 0) {
-                                this.dGt.remove(feedData);
+                            if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.u(feedData.getPraiseList()) == 0) {
+                                this.dMZ.remove(feedData);
                             }
                         }
                     }
                 }
-                this.dGu.a(dataRes.page);
-                this.Ec = true;
+                this.dNa.a(dataRes.page);
+                this.BW = true;
             } catch (Exception e) {
-                this.Ec = false;
+                this.BW = false;
                 BdLog.e(e.getMessage());
             }
         }

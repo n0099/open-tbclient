@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.hybrid;
 /* loaded from: classes.dex */
 public abstract class t extends d {
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract String oi();
+    public abstract String oc();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public t(p pVar) {

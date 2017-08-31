@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.c;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 /* loaded from: classes.dex */
 public class j extends a {
     private int procType;
@@ -27,12 +27,12 @@ public class j extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wv() {
+    public boolean ws() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean ww() {
+    public boolean wt() {
         return false;
     }
 
@@ -41,21 +41,21 @@ public class j extends a {
     /* renamed from: c */
     public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
         String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.a.a gt = com.baidu.tbadk.imageManager.c.Ex().gt(str3);
-        if (gt == null) {
-            Bitmap cS = ai.cS(com.baidu.adp.lib.g.b.g(str2, 0));
-            if (cS == null) {
+        com.baidu.adp.widget.a.a go = com.baidu.tbadk.imageManager.c.Ev().go(str3);
+        if (go == null) {
+            Bitmap cT = aj.cT(com.baidu.adp.lib.g.b.g(str2, 0));
+            if (cT == null) {
                 return null;
             }
-            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cS, false, str2);
-            com.baidu.tbadk.imageManager.c.Ex().c(str3, aVar);
+            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cT, false, str2);
+            com.baidu.tbadk.imageManager.c.Ev().c(str3, aVar);
             return aVar;
         }
-        return gt;
+        return go;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int wx() {
+    public int wu() {
         return this.procType;
     }
 }

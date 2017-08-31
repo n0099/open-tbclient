@@ -12,9 +12,10 @@ import android.view.ViewGroup;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.distribute.a;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
@@ -29,9 +30,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.UL;
-        if (StringUtils.isNull(str) && advertAppInfo.UW != null) {
-            str = advertAppInfo.UW.userName;
+        String str = advertAppInfo.TM;
+        if (StringUtils.isNull(str) && advertAppInfo.TY != null) {
+            str = advertAppInfo.TY.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -47,17 +48,17 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        a.CK().b(advertAppInfo);
-        String str2 = advertAppInfo.UL;
+        a.CF().b(advertAppInfo);
+        String str2 = advertAppInfo.TM;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.c.a.bij().a(advertAppInfo.UQ, advertAppInfo.UO, str2, i, com.baidu.tieba.recapp.c.a.rf(advertAppInfo.UQ).intValue(), null, true, false, true, advertAppInfo.UW.userPortrait, downloadStaticsData, advertAppInfo.UW.userName);
+        com.baidu.tieba.recapp.c.a.bhi().a(advertAppInfo.TR, advertAppInfo.TQ, str2, i, com.baidu.tieba.recapp.c.a.qT(advertAppInfo.TR).intValue(), null, true, false, true, advertAppInfo.TY.userPortrait, downloadStaticsData, advertAppInfo.TY.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.c.a.bij().i(advertAppInfo.UO, advertAppInfo.UQ, true);
+        com.baidu.tieba.recapp.c.a.bhi().j(advertAppInfo.TQ, advertAppInfo.TR, true);
     }
 
     public static final void aq(Context context, String str) {
@@ -65,11 +66,11 @@ public class s {
             com.baidu.adp.lib.util.k.showToast(context, d.l.download_error);
             return;
         }
-        File dy = com.baidu.tbadk.core.util.k.dy(str.replace(".", "_") + ".apk");
-        if (dy != null) {
+        File m9do = com.baidu.tbadk.core.util.k.m9do(str.replace(".", "_") + ".apk");
+        if (m9do != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(dy, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(m9do, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -103,14 +104,14 @@ public class s {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean aI = aa.aI(activity);
+        boolean aN = ab.aN(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return aI;
+        return aN;
     }
 
-    public static List<String> bJ(Context context) {
+    public static List<String> bT(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             return arrayList;
@@ -184,11 +185,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.big().sendFRS(z, str, str2, str3, list, str4);
+        r.bhd().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.big().a(z, str, str2, str3, str4, list, str5);
+        r.bhd().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int h(TbPageContext tbPageContext, String str) {
@@ -199,7 +200,7 @@ public class s {
             return i(tbPageContext, str) ? 3 : 0;
         }
         Uri parse = Uri.parse(str);
-        if (c(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter("jump")))) {
+        if (c(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter(TbWebViewActivityConfig.PARAMS_KEY)))) {
             return 1;
         }
         return i(tbPageContext, parse.getQueryParameter("wap")) ? 2 : 0;
@@ -207,14 +208,14 @@ public class s {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        i bif = r.big().bif();
-        if (bif == null) {
+        i bha = r.bhd().bha();
+        if (bha == null) {
             return false;
         }
-        if (bif.hI(str)) {
-            bif.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bha.hE(str)) {
+            bha.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bif.b(tbPageContext.getPageActivity(), strArr);
+        return bha.d(tbPageContext.getPageActivity(), strArr);
     }
 }

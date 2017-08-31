@@ -31,7 +31,7 @@ public class CacheControlService extends BdBaseService {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            com.baidu.tbadk.core.hybrid.cache.b.ur().us();
+            com.baidu.tbadk.core.hybrid.cache.b.um().un();
             return null;
         }
     }
@@ -45,7 +45,7 @@ public class CacheControlService extends BdBaseService {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (com.baidu.tbadk.core.hybrid.cache.b.ur().ut()) {
+            if (com.baidu.tbadk.core.hybrid.cache.b.um().uo()) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("hybrid_release_assent" + TbConfig.getVersion(), false);
                 return null;
             }

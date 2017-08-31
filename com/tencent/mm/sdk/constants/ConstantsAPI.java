@@ -18,6 +18,7 @@ public interface ConstantsAPI {
 
     /* loaded from: classes.dex */
     public static final class Token {
+        public static final String WX_TOKEN_JUMP_ARG = "wx_jump_arg";
         public static final String WX_TOKEN_KEY = "wx_token_key";
         public static final String WX_TOKEN_PLATFORMID_KEY = "platformId";
         public static final String WX_TOKEN_PLATFORMID_VALUE = "wechat";

@@ -1,7 +1,7 @@
 package com.google.protobuf.micro;
 /* loaded from: classes2.dex */
 public final class a {
-    public static final a gXr = new a(new byte[0]);
+    public static final a gSp = new a(new byte[0]);
     private final byte[] b;
     private volatile int c = 0;
 
@@ -9,7 +9,7 @@ public final class a {
         this.b = bArr;
     }
 
-    public static a L(byte[] bArr) {
+    public static a G(byte[] bArr) {
         return k(bArr, 0, bArr.length);
     }
 

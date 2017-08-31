@@ -6,227 +6,184 @@ import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.widget.AbsListView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.d;
 import com.baidu.tieba.e.a;
 /* loaded from: classes.dex */
 public class am {
-    private ViewGroup cmI;
-    private i cmJ;
-    private com.baidu.tieba.frs.g.f cmK;
-    private com.baidu.tieba.e.b cmN;
+    private ViewGroup csc;
+    private i csd;
+    private com.baidu.tieba.frs.h.f cse;
+    private com.baidu.tieba.e.b csh;
     private Context mContext;
     private NavigationBar mNavigationBar;
-    private int aMR = 0;
-    private int cmL = 0;
-    private boolean cbs = true;
-    private boolean cmM = true;
-    private boolean aMS = false;
-    private final Handler.Callback cbt = new Handler.Callback() { // from class: com.baidu.tieba.frs.am.1
+    private int aMx = 0;
+    private int csf = 0;
+    private boolean cej = true;
+    private boolean csg = true;
+    private boolean aMy = false;
+    private final Handler.Callback cek = new Handler.Callback() { // from class: com.baidu.tieba.frs.am.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            if ((message.what == 1 || message.what == 2) && am.this.acL()) {
+            if ((message.what == 1 || message.what == 2) && am.this.adJ()) {
                 am.this.mHandler.sendEmptyMessageDelayed(message.what, 100L);
                 return true;
             }
             switch (message.what) {
                 case 1:
-                    am.this.acK();
+                    am.this.adI();
                     return true;
                 case 2:
-                    am.this.acI();
+                    am.this.adG();
                     return true;
                 case 3:
-                    am.this.acJ();
+                    am.this.adH();
                     return true;
                 default:
                     return false;
             }
         }
     };
-    private final Handler mHandler = new Handler(this.cbt);
-    private a.InterfaceC0080a bWS = new a.InterfaceC0080a() { // from class: com.baidu.tieba.frs.am.2
-        final int byM = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
-
-        @Override // com.baidu.tieba.e.a.InterfaceC0080a
-        public void ah(int i, int i2) {
-            if (Y(i2)) {
-                am.this.eo(false);
+    private final Handler mHandler = new Handler(this.cek);
+    private a.InterfaceC0082a bZO = new a.InterfaceC0082a() { // from class: com.baidu.tieba.frs.am.2
+        @Override // com.baidu.tieba.e.a.InterfaceC0082a
+        public void ag(int i, int i2) {
+            if (N(i2)) {
+                am.this.er(false);
                 am.this.showFloatingView();
             }
-            if (am.this.cmJ != null) {
-                am.this.cmJ.eM(true);
+            if (am.this.csd != null) {
+                am.this.csd.eP(true);
             }
         }
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0080a
-        public void ai(int i, int i2) {
-            if (Y(i2)) {
-                am.this.eo(true);
-                if (Math.abs(i2) > this.byM) {
-                    am.this.hideFloatingView();
-                }
+        @Override // com.baidu.tieba.e.a.InterfaceC0082a
+        public void ah(int i, int i2) {
+            if (N(i2)) {
+                am.this.er(true);
+                am.this.hideFloatingView();
             }
-            if (am.this.cmJ != null) {
-                am.this.cmJ.eM(false);
+            if (am.this.csd != null) {
+                am.this.csd.eP(false);
             }
         }
 
-        private boolean Y(float f) {
+        private boolean N(float f) {
             return Math.abs(f) >= 1.0f;
         }
     };
-    private boolean cbr = UtilHelper.canUseStyleImmersiveSticky();
+    private boolean cei = UtilHelper.canUseStyleImmersiveSticky();
 
-    public com.baidu.tieba.e.b agA() {
-        return this.cmN;
+    public com.baidu.tieba.e.b ahY() {
+        return this.csh;
     }
 
-    public void eo(boolean z) {
-        this.aMS = z;
+    public void er(boolean z) {
+        this.aMy = z;
     }
 
-    public void eP(boolean z) {
-        this.cbs = z;
+    public void eS(boolean z) {
+        this.cej = z;
     }
 
-    public am(Context context, i iVar, com.baidu.tieba.frs.g.f fVar) {
+    public am(Context context, i iVar, com.baidu.tieba.frs.h.f fVar) {
         this.mContext = context;
-        this.cmJ = iVar;
-        this.mNavigationBar = iVar.afG();
-        this.cmI = iVar.afN();
-        this.cmK = fVar;
-        acM();
-        ep(false);
-        this.cmN = new com.baidu.tieba.e.b(context);
-        this.cmN.a(this.bWS);
+        this.csd = iVar;
+        this.mNavigationBar = iVar.ahe();
+        this.csc = iVar.ahl();
+        this.cse = fVar;
+        adK();
+        es(false);
+        this.csh = new com.baidu.tieba.e.b(context);
+        this.csh.a(this.bZO);
     }
 
-    public void acI() {
-        q(false, false);
+    public void adG() {
+        r(false, false);
     }
 
-    public void acJ() {
-        q(false, true);
+    public void adH() {
+        r(false, true);
     }
 
-    public void q(boolean z, boolean z2) {
-        if (this.cmI != null && this.cmJ != null && this.cmJ.afR() != null && this.cmJ.afR().ahl()) {
-            t(false, true);
+    public void r(boolean z, boolean z2) {
+        if (this.csc != null && this.csd != null && this.csd.ahp() != null && this.csd.ahp().aiY()) {
+            u(false, true);
         }
     }
 
-    public void acK() {
-        if (this.cmI != null && this.cmJ != null && this.cmJ.afR() != null && !this.cmJ.afR().ahl()) {
-            t(true, true);
+    public void adI() {
+        if (this.csc != null && this.csd != null && this.csd.ahp() != null && !this.csd.ahp().aiY()) {
+            u(true, true);
         }
     }
 
-    public void Hm() {
+    public void Hl() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void Hn() {
+    public void Hm() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void Ho() {
+    public void Hn() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean acL() {
-        return ai(this.cmI);
+    public boolean adJ() {
+        return aq(this.csc);
     }
 
-    private boolean ai(View view) {
+    private boolean aq(View view) {
         Animation animation;
         return (view == null || (animation = view.getAnimation()) == null || !animation.hasStarted() || animation.hasEnded()) ? false : true;
     }
 
-    private void t(boolean z, boolean z2) {
-        if (this.cmJ != null) {
-            this.cmJ.t(z, z2);
+    private void u(boolean z, boolean z2) {
+        if (this.csd != null) {
+            this.csd.u(z, z2);
         }
     }
 
     public void hideFloatingView() {
-        if (this.cbs && this.cmM && this.cmI != null && this.aMR >= this.cmL && this.cmI.getVisibility() != 8) {
-            Hn();
-        }
-    }
-
-    public void showFloatingView() {
-        if (this.cbs && this.cmM && this.cmI != null && this.cmI.getVisibility() != 0) {
+        if (this.cej && this.csg && this.csc != null && this.aMx >= this.csf) {
             Hm();
         }
     }
 
-    public void a(AbsListView absListView, int i, int i2, int i3, int i4, boolean z) {
-        if (this.cbs) {
-            if (i > this.aMR && i > i4 && this.cmI.getVisibility() != 8) {
-                hideFloatingView();
-            } else if (i < this.aMR && this.cmI.getVisibility() != 0) {
-                showFloatingView();
-            }
-            this.aMR = i;
-            this.cmL = i4;
+    public void showFloatingView() {
+        if (this.cej && this.csg && this.csc != null) {
+            Hl();
         }
     }
 
-    public void a(AbsListView absListView, int i, int i2) {
-        if (this.cbs && absListView != null && i == 0) {
-            int firstVisiblePosition = absListView.getFirstVisiblePosition() + i2;
-            if (firstVisiblePosition > 0 && firstVisiblePosition > this.aMR && firstVisiblePosition > this.cmL) {
-                Hn();
-            } else if (firstVisiblePosition < this.aMR) {
-                Hm();
-            } else if (firstVisiblePosition == this.aMR) {
-                if (!this.aMS || firstVisiblePosition <= this.cmL || a(absListView)) {
-                    Hm();
-                } else {
-                    Hn();
-                }
-            }
-        }
-    }
-
-    public boolean a(AbsListView absListView) {
-        if (absListView != null) {
-            return (absListView.getChildCount() == 0 && absListView.getChildAt(0) == null) || absListView.getChildAt(0).getTop() == 0;
-        }
-        return true;
-    }
-
-    private void acM() {
-        if (this.cmJ != null && this.cmJ.afO() != null) {
-            View afO = this.cmJ.afO();
-            if (this.cbr && afO.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = afO.getLayoutParams();
+    private void adK() {
+        if (this.csd != null && this.csd.ahm() != null) {
+            View ahm = this.csd.ahm();
+            if (this.cei && ahm.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = ahm.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                afO.setLayoutParams(layoutParams);
-                ep(true);
+                ahm.setLayoutParams(layoutParams);
+                es(true);
                 return;
             }
-            ep(false);
+            es(false);
         }
     }
 
-    private void ep(boolean z) {
-        if (this.cmJ != null && this.cmJ.afO() != null) {
-            View afO = this.cmJ.afO();
-            if (this.cbr && z && afO.getVisibility() != 0) {
-                afO.setVisibility(0);
-            } else if (!z && afO.getVisibility() != 8) {
-                afO.setVisibility(8);
+    private void es(boolean z) {
+        if (this.csd != null && this.csd.ahm() != null) {
+            View ahm = this.csd.ahm();
+            if (this.cei && z && ahm.getVisibility() != 0) {
+                ahm.setVisibility(0);
+            } else if (!z && ahm.getVisibility() != 8) {
+                ahm.setVisibility(8);
             }
         }
     }

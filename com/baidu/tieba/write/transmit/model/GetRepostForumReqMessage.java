@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.n;
 import tbclient.GetRepostRecommendForum.DataReq;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GetRepostForumReqMessage extends NetMessage {
     private long forumId;
     private String threadContent;
@@ -43,6 +43,6 @@ public class GetRepostForumReqMessage extends NetMessage {
     }
 
     public void setForumId(String str) {
-        this.forumId = b.d(str, 0L);
+        this.forumId = b.c(str, 0L);
     }
 }

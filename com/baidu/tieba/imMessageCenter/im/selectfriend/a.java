@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> aZC;
-    private int aZF = d.e.cp_cont_b;
-    private int aZG = d.e.cp_cont_c;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> aZo;
+    private int aZr = d.e.cp_cont_b;
+    private int aZs = d.e.cp_cont_c;
     private Context mContext;
 
     public a(Context context) {
@@ -24,26 +24,26 @@ public class a extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.aZC = list;
+        this.aZo = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aZC == null) {
+        if (this.aZo == null) {
             return 0;
         }
-        return this.aZC.size();
+        return this.aZo.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: fR */
+    /* renamed from: fS */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.aZC == null || i < 0 || i >= this.aZC.size()) {
+        if (this.aZo == null || i < 0 || i >= this.aZo.size()) {
             return null;
         }
-        return this.aZC.get(i);
+        return this.aZo.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,7 +62,7 @@ public class a extends BaseAdapter {
         if (item == null) {
             return 2;
         }
-        if (!TextUtils.isEmpty(item.AP()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.AO())) {
+        if (!TextUtils.isEmpty(item.AT()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.AS())) {
             return 0;
         }
         return 1;
@@ -70,7 +70,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0101a c0101a;
+        C0103a c0103a;
         b bVar;
         if (getItemViewType(i) == 2) {
             return null;
@@ -82,38 +82,38 @@ public class a extends BaseAdapter {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
                 view = LayoutInflater.from(this.mContext).inflate(d.j.select_friend_group_item, (ViewGroup) null);
                 b bVar2 = new b();
-                bVar2.aZO = (TextView) view.findViewById(d.h.addresslist_group_item_key);
-                bVar2.acL = view.findViewById(d.h.addresslist_group_item_divider);
+                bVar2.aZA = (TextView) view.findViewById(d.h.addresslist_group_item_key);
+                bVar2.abS = view.findViewById(d.h.addresslist_group_item_divider);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
-            if (item.AP() != null) {
-                bVar.aZO.setText(item.AP());
+            if (item.AT() != null) {
+                bVar.aZA.setText(item.AT());
             }
-            ai.c(bVar.aZO, this.aZG, 1);
-            ai.k(bVar.acL, d.e.cp_bg_line_b);
+            aj.c(bVar.aZA, this.aZs, 1);
+            aj.k(bVar.abS, d.e.cp_bg_line_b);
             return view;
         } else if (getItemViewType(i) == 1) {
-            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0101a)) {
-                C0101a c0101a2 = new C0101a();
+            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0103a)) {
+                C0103a c0103a2 = new C0103a();
                 view = LayoutInflater.from(this.mContext).inflate(d.j.select_friend_child_item, (ViewGroup) null);
-                c0101a2.aZD = (HeadImageView) view.findViewById(d.h.addresslist_child_item_icon);
-                c0101a2.aZE = (TextView) view.findViewById(d.h.addresslist_child_item_name);
-                c0101a2.acL = view.findViewById(d.h.addresslist_child_item_divider);
-                view.setTag(c0101a2);
-                c0101a = c0101a2;
+                c0103a2.aZp = (HeadImageView) view.findViewById(d.h.addresslist_child_item_icon);
+                c0103a2.aZq = (TextView) view.findViewById(d.h.addresslist_child_item_name);
+                c0103a2.abS = view.findViewById(d.h.addresslist_child_item_divider);
+                view.setTag(c0103a2);
+                c0103a = c0103a2;
             } else {
-                c0101a = (C0101a) view.getTag();
+                c0103a = (C0103a) view.getTag();
             }
             if (item.getUserName() != null) {
-                c0101a.aZE.setText(item.getUserName());
-                c0101a.aZD.c(item.AO(), 12, false);
+                c0103a.aZq.setText(item.getUserName());
+                c0103a.aZp.c(item.AS(), 12, false);
             }
-            ai.c(c0101a.aZE, this.aZF, 1);
-            ai.j(c0101a.acL, d.e.cp_bg_line_b);
-            ai.j(view, d.g.select_friend_item_bg);
+            aj.c(c0103a.aZq, this.aZr, 1);
+            aj.j(c0103a.abS, d.e.cp_bg_line_b);
+            aj.j(view, d.g.select_friend_item_bg);
             return view;
         } else {
             return null;
@@ -122,8 +122,8 @@ public class a extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     private class b {
-        TextView aZO;
-        View acL;
+        TextView aZA;
+        View abS;
 
         private b() {
         }
@@ -131,12 +131,12 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.selectfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class C0101a {
-        HeadImageView aZD;
-        TextView aZE;
-        View acL;
+    private class C0103a {
+        HeadImageView aZp;
+        TextView aZq;
+        View abS;
 
-        private C0101a() {
+        private C0103a() {
         }
     }
 }

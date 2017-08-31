@@ -44,7 +44,7 @@ public class c {
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && !next.canRetry()) {
+            if (next != null && !next.cL()) {
                 it.remove();
                 return next;
             }
@@ -103,9 +103,9 @@ public class c {
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && next.canRetry()) {
-                next.cX();
-                if (next.cW() >= next.cG()) {
+            if (next != null && next.cL()) {
+                next.cN();
+                if (next.cM() >= next.cv()) {
                     return true;
                 }
             }
@@ -119,7 +119,7 @@ public class c {
             while (it.hasNext()) {
                 e next = it.next();
                 if (next != null) {
-                    next.cL();
+                    next.cA();
                 }
             }
         }
@@ -132,9 +132,9 @@ public class c {
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && next.cV() == i) {
+            if (next != null && next.cK() == i) {
                 it.remove();
-                next.cM();
+                next.cB();
                 return next;
             }
         }
@@ -142,11 +142,11 @@ public class c {
     }
 
     public static boolean b(LinkedList<e> linkedList, int i) {
-        SocketMessage cS;
+        SocketMessage cH;
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (cS = next.cS()) != null && cS.getCmd() == i) {
+            if (next != null && (cH = next.cH()) != null && cH.getCmd() == i) {
                 return true;
             }
         }
@@ -154,25 +154,25 @@ public class c {
     }
 
     public static void c(LinkedList<e> linkedList, int i) {
-        SocketMessage cS;
+        SocketMessage cH;
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (cS = next.cS()) != null && cS.getCmd() == i) {
+            if (next != null && (cH = next.cH()) != null && cH.getCmd() == i) {
                 it.remove();
             }
         }
     }
 
     public static boolean a(LinkedList<e> linkedList, a aVar, int i) {
-        SocketMessage cS;
+        SocketMessage cH;
         if (aVar == null) {
             return false;
         }
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (cS = next.cS()) != null && cS.getCmd() == i && aVar.onFindMessage(cS)) {
+            if (next != null && (cH = next.cH()) != null && cH.getCmd() == i && aVar.onFindMessage(cH)) {
                 return true;
             }
         }
@@ -180,11 +180,11 @@ public class c {
     }
 
     public static boolean a(LinkedList<e> linkedList, int i, BdUniqueId bdUniqueId) {
-        SocketMessage cS;
+        SocketMessage cH;
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (cS = next.cS()) != null && ((i != 0 && cS.getTag() == bdUniqueId && i == cS.getCmd()) || (i == 0 && bdUniqueId != null && cS.getTag() == bdUniqueId))) {
+            if (next != null && (cH = next.cH()) != null && ((i != 0 && cH.getTag() == bdUniqueId && i == cH.getCmd()) || (i == 0 && bdUniqueId != null && cH.getTag() == bdUniqueId))) {
                 return true;
             }
         }
@@ -192,14 +192,14 @@ public class c {
     }
 
     public static void b(LinkedList<e> linkedList, int i, BdUniqueId bdUniqueId) {
-        SocketMessage cS;
+        SocketMessage cH;
         if (linkedList != null) {
             Iterator<e> it = linkedList.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next != null && (cS = next.cS()) != null && ((i != 0 && cS.getTag() == bdUniqueId && i == cS.getCmd()) || (i == 0 && bdUniqueId != null && cS.getTag() == bdUniqueId))) {
+                if (next != null && (cH = next.cH()) != null && ((i != 0 && cH.getTag() == bdUniqueId && i == cH.getCmd()) || (i == 0 && bdUniqueId != null && cH.getTag() == bdUniqueId))) {
                     it.remove();
-                    next.cM();
+                    next.cB();
                 }
             }
         }

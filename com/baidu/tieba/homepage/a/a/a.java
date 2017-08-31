@@ -12,7 +12,7 @@ import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes.dex */
 public class a implements b, j {
-    protected List<Object> cXi;
+    protected List<Object> ddP;
     protected boolean mHasMore;
     protected List<Object> mThreadList;
     protected int pn;
@@ -23,7 +23,7 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void o(JSONObject jSONObject) {
+    public void i(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -37,10 +37,10 @@ public class a implements b, j {
             this.mHasMore = excFrsPageResIdl.data.has_more.intValue() == 1;
             this.pn = excFrsPageResIdl.data.pn.intValue();
             if (excFrsPageResIdl.data.tag_list != null) {
-                this.cXi = new ArrayList();
+                this.ddP = new ArrayList();
                 for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
                     if (excellentTagInfo != null) {
-                        this.cXi.add(excellentTagInfo);
+                        this.ddP.add(excellentTagInfo);
                     }
                 }
             }
@@ -48,12 +48,12 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] EZ() {
+    public byte[] EX() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean C(byte[] bArr) {
+    public boolean x(byte[] bArr) {
         try {
             a((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
             return true;

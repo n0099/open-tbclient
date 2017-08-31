@@ -73,7 +73,7 @@ public class a {
         return obj;
     }
 
-    public static final boolean e(Class<?> cls, Class<?> cls2) {
+    public static final boolean d(Class<?> cls, Class<?> cls2) {
         if (cls == null || cls2 == null) {
             return false;
         }

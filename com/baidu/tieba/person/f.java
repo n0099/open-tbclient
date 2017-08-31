@@ -5,6 +5,7 @@ import java.util.List;
 import tbclient.DynamicInfo;
 import tbclient.ForumDynamic;
 import tbclient.ModuleInfo;
+import tbclient.PostInfoList;
 import tbclient.Profile.NicknameInfo;
 import tbclient.Profile.TAInfo;
 import tbclient.Profile.UserAgreeInfo;
@@ -14,6 +15,8 @@ import tbclient.User;
 import tbclient.UserManChannelInfo;
 /* loaded from: classes.dex */
 public interface f {
+    List<PostInfoList> GetPostList();
+
     User GetUser();
 
     TbBookrack getBookrackData();

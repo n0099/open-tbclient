@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.messageCenter.b;
 import com.baidu.tieba.g;
 import com.baidu.tieba.model.c;
@@ -64,7 +64,7 @@ public class SyncLoginService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, c> {
-        w mNetWork;
+        x mNetWork;
 
         private a() {
             this.mNetWork = null;
@@ -78,17 +78,17 @@ public class SyncLoginService extends BdBaseService {
             c cVar;
             Exception e;
             try {
-                this.mNetWork = new w(TbConfig.SERVER_ADDRESS + "c/s/switch");
+                this.mNetWork = new x(TbConfig.SERVER_ADDRESS + "c/s/switch");
                 this.mNetWork.n("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
-                stringBuffer.append(String.valueOf(k.ag(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(k.ad(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                stringBuffer.append(String.valueOf(k.ah(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(k.ae(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.n("_phone_screen", stringBuffer.toString());
-                this.mNetWork.n("scr_w", String.valueOf(k.ag(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.n("scr_h", String.valueOf(k.ah(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.n("scr_dip", String.valueOf(k.ai(TbadkCoreApplication.getInst().getApp())));
-                if (b.zw().zz() > 0) {
+                this.mNetWork.n("scr_w", String.valueOf(k.ad(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.n("scr_h", String.valueOf(k.ae(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.n("scr_dip", String.valueOf(k.af(TbadkCoreApplication.getInst().getApp())));
+                if (b.zA().zD() > 0) {
                     this.mNetWork.n("_msg_status", "0");
                 } else {
                     this.mNetWork.n("_msg_status", "1");
@@ -107,13 +107,13 @@ public class SyncLoginService extends BdBaseService {
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
                 this.mNetWork.n("package", packageName);
                 this.mNetWork.n("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.mNetWork.n("signmd5", an.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.mNetWork.n("signmd5", ao.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.mNetWork.n("md5", g.getTiebaApkMd5());
-                String uP = this.mNetWork.uP();
-                if (this.mNetWork.vm().wj().isRequestSuccess()) {
+                String uM = this.mNetWork.uM();
+                if (this.mNetWork.vj().wg().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(uP);
+                        cVar.parserJson(uM);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {
@@ -133,7 +133,7 @@ public class SyncLoginService extends BdBaseService {
         public void cancel() {
             SyncLoginService.this.mSyncTask = null;
             if (this.mNetWork != null) {
-                this.mNetWork.fA();
+                this.mNetWork.fp();
             }
             super.cancel(true);
         }

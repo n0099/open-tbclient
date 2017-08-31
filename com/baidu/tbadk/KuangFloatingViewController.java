@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ag;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ah;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class KuangFloatingViewController {
@@ -48,7 +48,7 @@ public class KuangFloatingViewController {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Class<?> intentClass;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ag.vJ().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.vG().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
                 if (intentClass.getName().contains(KuangFloatingViewController.WRITE_PACKAGE) || intentClass.getName().contains(KuangFloatingViewController.STORY_PACKAGE)) {
                     KuangFloatingViewController.this.hideFloatingView();
                 }
@@ -93,7 +93,7 @@ public class KuangFloatingViewController {
                     public void onClick(View view) {
                         KuangFloatingViewController.this.hideFloatingView();
                         KuangFloatingViewController.this.needShowFloatingView = false;
-                        TiebaStatic.log(new aj("C12265").r("obj_type", 2));
+                        TiebaStatic.log(new ak("C12265").r("obj_type", 2));
                     }
                 });
             } else if (this.mFloatingView.getParent() != null) {
@@ -111,10 +111,15 @@ public class KuangFloatingViewController {
             if (this.wm == null) {
                 this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
             }
-            this.wm.addView(this.mFloatingView, layoutParams);
-            TiebaStatic.log("C12266");
-            MessageManager.getInstance().registerListener(this.backGroundSwitchListener);
-            MessageManager.getInstance().registerListener(this.writeListener);
+            try {
+                this.wm.addView(this.mFloatingView, layoutParams);
+                TiebaStatic.log("C12266");
+                MessageManager.getInstance().registerListener(this.backGroundSwitchListener);
+                MessageManager.getInstance().registerListener(this.writeListener);
+            } catch (SecurityException e) {
+                this.wm = null;
+                this.mFloatingView = null;
+            }
         }
     }
 
@@ -123,7 +128,12 @@ public class KuangFloatingViewController {
             this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
         }
         if (this.mFloatingView != null && this.mFloatingView.getParent() != null) {
-            this.wm.removeView(this.mFloatingView);
+            try {
+                this.wm.removeView(this.mFloatingView);
+            } catch (SecurityException e) {
+                this.wm = null;
+                this.mFloatingView = null;
+            }
         }
     }
 }

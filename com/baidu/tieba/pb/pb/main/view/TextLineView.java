@@ -8,16 +8,17 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TextLineView extends TextView {
-    private int dhl;
-    private int eWF;
-    private int eWG;
-    private int eWH;
-    private int eWI;
-    private int eWJ;
+    private int dnO;
+    private int eVk;
+    private int eVl;
+    private int eVm;
+    private int eVn;
+    private int eVo;
+    private int eVp;
     private Paint mPaint;
 
     public TextLineView(Context context) {
@@ -27,45 +28,47 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.n.TextLineView);
-        this.dhl = obtainStyledAttributes.getDimensionPixelSize(d.n.TextLineView_bottom_line_height, 0);
-        this.eWF = obtainStyledAttributes.getDimensionPixelSize(d.n.TextLineView_bottom_line_top_margin, 0);
-        this.eWG = obtainStyledAttributes.getDimensionPixelSize(d.n.TextLineView_bottom_line_bottom_margin, 0);
-        this.eWH = obtainStyledAttributes.getColor(d.n.TextLineView_bottom_line_color, ai.getColor(d.e.cp_cont_b));
-        this.eWJ = obtainStyledAttributes.getColor(d.n.TextLineView_text_selected_color, ai.getColor(d.e.cp_cont_b));
-        this.eWI = obtainStyledAttributes.getColor(d.n.TextLineView_text_unselected_color, ai.getColor(d.e.cp_cont_d));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.eWF + this.dhl + this.eWG);
-        setTextColor(this.eWJ);
+        this.dnO = obtainStyledAttributes.getDimensionPixelSize(d.n.TextLineView_bottom_line_height, 0);
+        this.eVk = obtainStyledAttributes.getDimensionPixelSize(d.n.TextLineView_bottom_line_top_margin, 0);
+        this.eVl = obtainStyledAttributes.getDimensionPixelSize(d.n.TextLineView_bottom_line_bottom_margin, 0);
+        this.eVm = obtainStyledAttributes.getColor(d.n.TextLineView_bottom_line_color, aj.getColor(d.e.cp_cont_f));
+        this.eVo = obtainStyledAttributes.getColor(d.n.TextLineView_text_selected_color, aj.getColor(d.e.cp_cont_b));
+        this.eVn = obtainStyledAttributes.getColor(d.n.TextLineView_text_unselected_color, aj.getColor(d.e.cp_cont_j));
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.eVk + this.dnO + this.eVl);
+        setTextColor(this.eVo);
+        this.eVp = k.g(context, d.f.ds56);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        aVn();
-        canvas.drawRoundRect(new RectF(0.0f, (getMeasuredHeight() - this.eWG) - this.dhl, getMeasuredWidth(), getMeasuredHeight() - this.eWG), k.g(getContext(), d.f.ds4), k.g(getContext(), d.f.ds4), this.mPaint);
+        aUz();
+        int measuredWidth = (getMeasuredWidth() - this.eVp) / 2;
+        canvas.drawRoundRect(new RectF(measuredWidth + 0, (getMeasuredHeight() - this.eVl) - this.dnO, getMeasuredWidth() - measuredWidth, getMeasuredHeight() - this.eVl), k.g(getContext(), d.f.ds4), k.g(getContext(), d.f.ds4), this.mPaint);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            setTextColor(this.eWJ);
+            setTextColor(this.eVo);
         } else {
-            setTextColor(this.eWI);
+            setTextColor(this.eVn);
         }
         invalidate();
     }
 
-    private void aVn() {
+    private void aUz() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
         if (isSelected()) {
-            this.mPaint.setColor(this.eWH);
+            this.mPaint.setColor(this.eVm);
         } else {
-            this.mPaint.setColor(ai.getColor(d.e.transparent));
+            this.mPaint.setColor(aj.getColor(d.e.transparent));
         }
     }
 }

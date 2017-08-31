@@ -7,13 +7,13 @@ import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g {
     public static void a(Context context, final ImageView imageView, int i, com.baidu.adp.lib.g.d dVar) {
         if (imageView != null && context != null) {
-            ai.c(imageView, i);
+            aj.c(imageView, i);
             imageView.setVisibility(0);
             Animation loadAnimation = AnimationUtils.loadAnimation(context, d.a.graffiti_animation_scale_up);
             if (dVar != null) {
@@ -36,7 +36,7 @@ public class g {
         a(context, imageView, i, null);
     }
 
-    public static void amA() {
+    public static void aoi() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
     }
 }

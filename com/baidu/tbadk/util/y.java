@@ -1,14 +1,20 @@
 package com.baidu.tbadk.util;
 
 import android.os.Bundle;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class y {
-    public static String aq(String str, String str2) {
+    public static String at(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -26,7 +32,7 @@ public class y {
         return "";
     }
 
-    public static String gY(String str) {
+    public static String gU(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -42,7 +48,7 @@ public class y {
         return str;
     }
 
-    public static String ar(String str, String str2) {
+    public static String au(String str, String str2) {
         String[] split;
         String str3 = "";
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
@@ -75,7 +81,7 @@ public class y {
         return str3;
     }
 
-    public static Bundle gZ(String str) {
+    public static Bundle gV(String str) {
         URL url;
         String query;
         String[] split;
@@ -105,17 +111,17 @@ public class y {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aNb;
+        public String aMI;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aNb = "";
+            this.aMI = "";
             this.BDUSS = str;
-            this.aNb = str2;
+            this.aMI = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aNb != null ? this.aNb.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aMI != null ? this.aMI.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -131,9 +137,27 @@ public class y {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aNb == null ? aVar.aNb == null : this.aNb.equals(aVar.aNb);
+                return this.aMI == null ? aVar.aMI == null : this.aMI.equals(aVar.aMI);
             }
             return false;
+        }
+    }
+
+    public static void a(final BaseWebView baseWebView, BdUniqueId bdUniqueId) {
+        if (baseWebView != null) {
+            CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_WEBVIEW_LOGIN) { // from class: com.baidu.tbadk.util.y.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.adp.framework.listener.MessageListener
+                public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921024 && baseWebView != null) {
+                        baseWebView.reload();
+                    }
+                }
+            };
+            if (bdUniqueId != null) {
+                customMessageListener.setTag(bdUniqueId);
+                MessageManager.getInstance().registerListener(customMessageListener);
+            }
         }
     }
 }

@@ -33,6 +33,11 @@ public interface IMediaPlayer {
     }
 
     /* loaded from: classes.dex */
+    public interface OnMediaReleaseFinishedListener {
+        void onFinished();
+    }
+
+    /* loaded from: classes.dex */
     public interface OnPreparedListener {
         void onPrepared(IMediaPlayer iMediaPlayer);
     }
@@ -114,6 +119,8 @@ public interface IMediaPlayer {
     void setOnErrorListener(OnErrorListener onErrorListener);
 
     void setOnInfoListener(OnInfoListener onInfoListener);
+
+    void setOnMediaReleaseFinishedListener(OnMediaReleaseFinishedListener onMediaReleaseFinishedListener);
 
     void setOnPreparedListener(OnPreparedListener onPreparedListener);
 

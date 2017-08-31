@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class MetaData extends com.baidu.tbadk.data.MetaData implements com.baidu.tbadk.core.util.ad, com.baidu.tbadk.core.util.t, TbCheckBox.b {
+public class MetaData extends com.baidu.tbadk.data.MetaData implements com.baidu.tbadk.core.util.ae, com.baidu.tbadk.core.util.u, TbCheckBox.b {
     private static final long serialVersionUID = -5772546803814127750L;
     private boolean mIsChecked = false;
 
@@ -54,7 +54,7 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements com.baidu
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();

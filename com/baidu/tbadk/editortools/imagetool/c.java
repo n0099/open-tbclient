@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.editortools.s;
 import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.imgView.e;
 /* loaded from: classes.dex */
 public class c {
     @SuppressLint({"ResourceAsColor"})
-    public static s k(Context context, int i) {
+    public static s l(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
         MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(d.j.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();
@@ -33,13 +33,13 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        ai.c(multiImgToolView.getMutiImageTips(), d.e.cp_cont_c, 1);
+        aj.c(multiImgToolView.getMutiImageTips(), d.e.cp_cont_c, 1);
         return multiImgToolView;
     }
 
     private static View a(Context context, final s sVar) {
         ImageView imageView = new ImageView(context);
-        ai.c(imageView, d.g.btn_add_photo_selector);
+        aj.c(imageView, d.g.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
         imageView.setContentDescription(context.getString(d.l.add));
