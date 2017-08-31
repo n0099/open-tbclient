@@ -513,7 +513,7 @@ public abstract class MiPushClient {
 
     private static void scheduleGeoFenceRepeatJobs() {
         if (com.xiaomi.push.service.h.b(sContext)) {
-            com.xiaomi.channel.commonutils.misc.f.a(sContext).a((f.a) new d(sContext), ah.a(sContext).a(com.xiaomi.xmpush.thrift.e.UploadWIFIGeoLocFrequency.a(), TbConfig.POST_IMAGE_BIG));
+            com.xiaomi.channel.commonutils.misc.f.a(sContext).a((f.a) new d(sContext), ah.a(sContext).a(com.xiaomi.xmpush.thrift.e.UploadWIFIGeoLocFrequency.a(), 900));
         }
     }
 

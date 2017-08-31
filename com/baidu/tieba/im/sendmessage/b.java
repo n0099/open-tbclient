@@ -6,18 +6,18 @@ import com.baidu.tbadk.coreExtra.data.g;
 import com.baidu.tbadk.coreExtra.data.h;
 /* loaded from: classes.dex */
 public class b {
-    public String mF(String str) {
-        g yl;
+    public String mX(String str) {
+        g yo;
         if (str != null) {
             try {
                 com.baidu.tbadk.core.voice.service.b bVar = new com.baidu.tbadk.core.voice.service.b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
                 String q = k.q(str, 1);
                 bVar.v("type", 2);
-                h eF = bVar.eF(q);
-                if (eF != null && eF.isSuccess() && (yl = eF.yl()) != null) {
-                    String md5 = yl.getMd5();
-                    com.baidu.tbadk.core.voice.a.b.af(str, md5);
-                    return md5;
+                h ey = bVar.ey(q);
+                if (ey != null && ey.isSuccess() && (yo = ey.yo()) != null) {
+                    String ym = yo.ym();
+                    com.baidu.tbadk.core.voice.a.b.ai(str, ym);
+                    return ym;
                 }
             } catch (Exception e) {
             }

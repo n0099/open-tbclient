@@ -11,10 +11,10 @@ import java.io.FileNotFoundException;
 /* loaded from: classes.dex */
 class a {
     final Context mContext;
-    BitmapFactory.Options jL = null;
+    BitmapFactory.Options jJ = null;
     private final Object mLock = new Object();
     int mScaleMode = 2;
-    int jK = 2;
+    int jI = 2;
     int mOrientation = 1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,7 +31,7 @@ class a {
     }
 
     public void setColorMode(int i) {
-        this.jK = i;
+        this.jI = i;
     }
 
     public void setOrientation(int i) {
@@ -43,7 +43,7 @@ class a {
     }
 
     public int getColorMode() {
-        return this.jK;
+        return this.jI;
     }
 
     public void printBitmap(final String str, final Bitmap bitmap) {
@@ -55,7 +55,7 @@ class a {
                 mediaSize = PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE;
             }
             printManager.print(str, new PrintDocumentAdapter() { // from class: android.support.v4.print.a.1
-            }, new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.jK).build());
+            }, new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.jI).build());
         }
     }
 
@@ -66,7 +66,7 @@ class a {
         };
         PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
         PrintAttributes.Builder builder = new PrintAttributes.Builder();
-        builder.setColorMode(this.jK);
+        builder.setColorMode(this.jI);
         if (this.mOrientation == 1) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE);
         } else if (this.mOrientation == 2) {

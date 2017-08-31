@@ -2,31 +2,31 @@ package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class ar extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void aa(int i) {
+    protected void X(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "baidu_wallet_enable";
+        return "video_list_weaklock_android";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eZ() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int fa() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] eY() {
+    protected String[] eN() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int fb() {
+    protected int eO() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eP() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eQ() {
         return 10;
     }
 }

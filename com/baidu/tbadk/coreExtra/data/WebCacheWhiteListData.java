@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class WebCacheWhiteListData extends LinkedList<String> {
-    private void eO(String str) {
+    private void eI(String str) {
         String[] split;
         if (!StringUtils.isNull(str) && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length >= 1) {
             for (String str2 : split) {
@@ -20,13 +20,13 @@ public class WebCacheWhiteListData extends LinkedList<String> {
 
     public void saveString(String str) {
         if (str == null) {
-            eP(null);
+            eJ(null);
         } else {
-            eP(str);
+            eJ(str);
         }
     }
 
-    private void eP(String str) {
+    private void eJ(String str) {
         if (str != null) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_web_cache_white_list", str);
         }
@@ -51,7 +51,7 @@ public class WebCacheWhiteListData extends LinkedList<String> {
         WebCacheWhiteListData webCacheWhiteListData = new WebCacheWhiteListData();
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_web_cache_white_list", null);
         if (!TextUtils.isEmpty(string)) {
-            webCacheWhiteListData.eO(string);
+            webCacheWhiteListData.eI(string);
         }
         return webCacheWhiteListData;
     }

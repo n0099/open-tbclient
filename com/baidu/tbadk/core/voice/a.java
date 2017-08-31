@@ -10,26 +10,26 @@ import com.baidu.tbadk.core.util.k;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String xz() {
-        return p.hS();
+    public static String xB() {
+        return p.hJ();
     }
 
-    public static String eA(String str) {
+    public static String et(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
-    public static String eB(String str) {
+    public static String eu(String str) {
         return k.q(str, 1);
     }
 
-    public static String eC(String str) {
-        return e.getFilePath(eA(str));
+    public static String ev(String str) {
+        return e.az(et(str));
     }
 
-    public static boolean delFile(String str) {
+    public static boolean aE(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

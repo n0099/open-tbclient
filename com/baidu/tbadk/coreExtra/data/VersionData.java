@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.webkit.URLUtil;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -36,7 +36,7 @@ public class VersionData implements Serializable {
                 this.newVer = jSONObject.optString("new_version", null);
                 this.size = jSONObject.optString("size", null);
                 String optString = jSONObject.optString("new_four_version", null);
-                if (!al.isEmpty(optString)) {
+                if (!am.isEmpty(optString)) {
                     this.newVer = optString;
                 }
                 this.url = jSONObject.optString("new_version_url");
@@ -49,7 +49,7 @@ public class VersionData implements Serializable {
                 this.asDownloadUrl = jSONObject.optString("as_downloadurl", null);
                 this.apkMD5RSA = jSONObject.optString("apk_MD5_RSA", null);
                 this.asApkMD5RSA = jSONObject.optString("as_apk_MD5_RSA", null);
-                if (yz()) {
+                if (yC()) {
                     this.hasNewVer = 1;
                     this.newFile = "tieba_" + this.newVer + ".apk";
                 }
@@ -59,7 +59,7 @@ public class VersionData implements Serializable {
         }
     }
 
-    private boolean yz() {
+    private boolean yC() {
         return (this.newVersionRemind != 1 || this.url == null || !URLUtil.isNetworkUrl(this.url) || TextUtils.isEmpty(this.apkMD5RSA) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true;
     }
 

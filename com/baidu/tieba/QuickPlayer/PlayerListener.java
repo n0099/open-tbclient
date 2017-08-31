@@ -33,6 +33,11 @@ public class PlayerListener extends IQuickMediaPlayerListener.Stub {
         sendMessage(9, i, i2);
     }
 
+    @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener
+    public void onReleaseFinished() throws RemoteException {
+        sendMessage(11);
+    }
+
     private void sendMessage(int i) {
         sendMessage(i, 0, 0);
     }

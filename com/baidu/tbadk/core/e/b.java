@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a aeM = null;
+    private static a adU = null;
 
-    public static void i(Context context, int i) {
-        if (aeM != null) {
-            aeM.i(context, i);
-        }
-    }
-
-    public static void b(Context context, int i, boolean z) {
-        if (aeM != null) {
-            aeM.b(context, i, z);
-        }
-    }
-
-    public static void az(Context context) {
-        if (aeM != null) {
-            aeM.az(context);
+    public static void j(Context context, int i) {
+        if (adU != null) {
+            adU.j(context, i);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (aeM != null) {
-            aeM.c(context, i, z);
+        if (adU != null) {
+            adU.c(context, i, z);
         }
     }
 
-    public static Class<?> ux() {
-        if (aeM == null) {
-            return null;
+    public static void aE(Context context) {
+        if (adU != null) {
+            adU.aE(context);
         }
-        return aeM.ux();
     }
 
-    public static String uy() {
-        if (aeM == null) {
+    public static void d(Context context, int i, boolean z) {
+        if (adU != null) {
+            adU.d(context, i, z);
+        }
+    }
+
+    public static Class<?> us() {
+        if (adU == null) {
             return null;
         }
-        return aeM.uy();
+        return adU.us();
+    }
+
+    public static String ut() {
+        if (adU == null) {
+            return null;
+        }
+        return adU.ut();
     }
 
     public static void a(a aVar) {
-        aeM = aVar;
+        adU = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (aeM == null) {
+        if (adU == null) {
             return -1;
         }
-        return aeM.getCurrentTabType();
+        return adU.getCurrentTabType();
     }
 }

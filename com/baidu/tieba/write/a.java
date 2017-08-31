@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.d;
 import com.baidu.tieba.likedForum.a;
@@ -23,78 +23,78 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 import tbclient.SimpleForum;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private com.baidu.tieba.write.transmit.model.a gAN;
-    private com.baidu.tieba.likedForum.a gAO;
-    private com.baidu.tbadk.core.view.a gAP;
-    private List<SimpleForum> gAT;
-    private List<ForumInfo> gAU;
+    private com.baidu.tieba.write.transmit.model.a gzn;
+    private com.baidu.tieba.likedForum.a gzo;
+    private com.baidu.tbadk.core.view.a gzp;
+    private List<SimpleForum> gzt;
+    private List<ForumInfo> gzu;
     private WriteData mData;
-    private TbPageContext oW;
+    private TbPageContext mF;
     private List<TransmitForumData> mDataList = new ArrayList();
-    private boolean gAQ = false;
-    private boolean gAR = false;
-    private boolean gAS = false;
-    private a.InterfaceC0126a gAV = new a.InterfaceC0126a() { // from class: com.baidu.tieba.write.a.1
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0126a
-        public void bya() {
+    private boolean gzq = false;
+    private boolean gzr = false;
+    private boolean gzs = false;
+    private a.InterfaceC0129a gzv = new a.InterfaceC0129a() { // from class: com.baidu.tieba.write.a.1
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0129a
+        public void bxq() {
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0126a
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0129a
         public void B(List<SimpleForum> list) {
-            a.this.gAQ = true;
-            a.this.gAT = list;
-            a.this.bxV();
+            a.this.gzq = true;
+            a.this.gzt = list;
+            a.this.bxl();
         }
     };
-    private a.InterfaceC0105a bov = new a.InterfaceC0105a() { // from class: com.baidu.tieba.write.a.2
-        @Override // com.baidu.tieba.likedForum.a.InterfaceC0105a
+    private a.InterfaceC0107a boS = new a.InterfaceC0107a() { // from class: com.baidu.tieba.write.a.2
+        @Override // com.baidu.tieba.likedForum.a.InterfaceC0107a
         public void a(boolean z, int i, String str, List<ForumInfo> list) {
-            a.this.gAR = true;
-            a.this.gAU = list;
-            a.this.bxV();
+            a.this.gzr = true;
+            a.this.gzu = list;
+            a.this.bxl();
         }
     };
-    private DialogInterface.OnCancelListener gAW = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.a.3
+    private DialogInterface.OnCancelListener gzw = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.a.3
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            if (a.this.gAN != null) {
-                a.this.gAN.aEp();
+            if (a.this.gzn != null) {
+                a.this.gzn.aio();
             }
-            if (a.this.gAO != null) {
-                a.this.gAO.aEp();
+            if (a.this.gzo != null) {
+                a.this.gzo.aio();
             }
         }
     };
 
     public a(TbPageContext tbPageContext, WriteData writeData) {
-        this.gAP = null;
-        this.oW = tbPageContext;
+        this.gzp = null;
+        this.mF = tbPageContext;
         this.mData = writeData;
-        this.gAN = new com.baidu.tieba.write.transmit.model.a(this.oW.getUniqueId());
-        this.gAN.a(this.gAV);
+        this.gzn = new com.baidu.tieba.write.transmit.model.a(this.mF.getUniqueId());
+        this.gzn.a(this.gzv);
         if (this.mData != null) {
-            this.gAN.setForumId(this.mData.getForumId());
+            this.gzn.setForumId(this.mData.getForumId());
         }
-        this.gAO = new com.baidu.tieba.likedForum.a(this.oW.getUniqueId());
-        this.gAO.a(this.bov);
-        this.gAP = new com.baidu.tbadk.core.view.a(this.oW);
-        this.gAP.c(this.gAW);
-        bxU();
+        this.gzo = new com.baidu.tieba.likedForum.a(this.mF.getUniqueId());
+        this.gzo.a(this.boS);
+        this.gzp = new com.baidu.tbadk.core.view.a(this.mF);
+        this.gzp.c(this.gzw);
+        bxk();
     }
 
-    private void bxU() {
+    private void bxk() {
         if (this.mData != null) {
             String str = null;
-            Intent intent = this.oW.getPageActivity().getIntent();
+            Intent intent = this.mF.getPageActivity().getIntent();
             if (intent != null) {
                 str = intent.getStringExtra("forum_avatar");
             }
-            long d = com.baidu.adp.lib.g.b.d(this.mData.getForumId(), 0L);
-            if (d > 0 && !StringUtils.isNull(this.mData.getForumName())) {
-                TransmitForumData transmitForumData = new TransmitForumData(d, this.mData.getForumName(), true, 0, str);
-                transmitForumData.abl = true;
+            long c = com.baidu.adp.lib.g.b.c(this.mData.getForumId(), 0L);
+            if (c > 0 && !StringUtils.isNull(this.mData.getForumName())) {
+                TransmitForumData transmitForumData = new TransmitForumData(c, this.mData.getForumName(), true, 0, str);
+                transmitForumData.aaq = true;
                 if (this.mDataList != null) {
                     this.mDataList.add(transmitForumData);
                 }
@@ -103,33 +103,33 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bxV() {
-        if (this.gAQ && this.gAR && !this.gAS) {
-            this.gAS = true;
-            this.gAP.aH(false);
+    public void bxl() {
+        if (this.gzq && this.gzr && !this.gzs) {
+            this.gzs = true;
+            this.gzp.aH(false);
             ArrayList arrayList = new ArrayList();
-            if (u.u(this.gAT) > 0) {
-                for (SimpleForum simpleForum : this.gAT) {
-                    if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !da(simpleForum.id.longValue()) && !StringUtils.isNull(simpleForum.name)) {
+            if (v.u(this.gzt) > 0) {
+                for (SimpleForum simpleForum : this.gzt) {
+                    if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !cV(simpleForum.id.longValue()) && !StringUtils.isNull(simpleForum.name)) {
                         arrayList.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar));
                     }
                 }
                 this.mDataList.addAll(arrayList);
             }
-            if (u.u(this.gAU) > 0) {
+            if (v.u(this.gzu) > 0) {
                 arrayList.clear();
-                for (ForumInfo forumInfo : this.gAU) {
-                    if (forumInfo != null && forumInfo.forum_id != null && forumInfo.forum_id.longValue() > 0 && !da(forumInfo.forum_id.longValue()) && !StringUtils.isNull(forumInfo.forum_name)) {
+                for (ForumInfo forumInfo : this.gzu) {
+                    if (forumInfo != null && forumInfo.forum_id != null && forumInfo.forum_id.longValue() > 0 && !cV(forumInfo.forum_id.longValue()) && !StringUtils.isNull(forumInfo.forum_name)) {
                         arrayList.add(new TransmitForumData(forumInfo.forum_id.longValue(), forumInfo.forum_name, false, 0, forumInfo.avatar));
                     }
                 }
                 this.mDataList.addAll(arrayList);
             }
-            bxW();
+            bxm();
         }
     }
 
-    private boolean da(long j) {
+    private boolean cV(long j) {
         if (this.mDataList == null) {
             return false;
         }
@@ -141,46 +141,46 @@ public class a {
         return false;
     }
 
-    private void bxW() {
-        SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.oW.getPageActivity(), 25018);
+    private void bxm() {
+        SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mF.getPageActivity(), 25018);
         CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, selectForumActivityConfig);
         selectForumActivityConfig.setForumList((ArrayList) this.mDataList);
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
     public void destroy() {
-        if (this.gAN != null) {
-            this.gAN.destroy();
+        if (this.gzn != null) {
+            this.gzn.destroy();
         }
-        if (this.gAO != null) {
-            this.gAO.destroy();
+        if (this.gzo != null) {
+            this.gzo.destroy();
         }
     }
 
     public String getRecommendExt() {
-        return this.gAN.getRecommendExt();
+        return this.gzn.getRecommendExt();
     }
 
-    public void cp(String str, String str2) {
-        if (this.gAQ && this.gAR) {
-            bxW();
-        } else if (!k.hI()) {
-            this.oW.showToast(d.l.neterror);
+    public void co(String str, String str2) {
+        if (this.gzq && this.gzr) {
+            bxm();
+        } else if (!k.hz()) {
+            this.mF.showToast(d.l.neterror);
         } else {
-            if (!this.gAQ) {
-                this.gAN.setThreadTitle(str);
-                this.gAN.setThreadContent(str2);
-                this.gAN.Px();
+            if (!this.gzq) {
+                this.gzn.setThreadTitle(str);
+                this.gzn.setThreadContent(str2);
+                this.gzn.PN();
             }
-            if (!this.gAR) {
-                this.gAO.Fw();
+            if (!this.gzr) {
+                this.gzo.Fu();
             }
-            this.gAP.c(null);
-            this.gAP.aH(true);
+            this.gzp.c(null);
+            this.gzp.aH(true);
         }
     }
 
-    public void ae(Intent intent) {
+    public void af(Intent intent) {
         ArrayList parcelableArrayListExtra = intent.getParcelableArrayListExtra(SelectForumActivityConfig.KEY_OUTPUT_FORUM_LIST);
         if (parcelableArrayListExtra != null) {
             this.mDataList.clear();
@@ -188,7 +188,7 @@ public class a {
         }
     }
 
-    public String bxX() {
+    public String bxn() {
         ArrayList arrayList = new ArrayList();
         for (TransmitForumData transmitForumData : this.mDataList) {
             if (transmitForumData != null && transmitForumData.checked) {
@@ -212,7 +212,7 @@ public class a {
         return jSONArray.toString();
     }
 
-    public String bxY() {
+    public String bxo() {
         ArrayList arrayList = new ArrayList();
         for (TransmitForumData transmitForumData : this.mDataList) {
             if (transmitForumData != null && transmitForumData.checked) {
@@ -227,13 +227,13 @@ public class a {
                 if (!StringUtils.isNull(sb.toString())) {
                     sb.append("、");
                 }
-                sb.append(transmitForumData2.forumName + this.oW.getResources().getString(d.l.bar));
+                sb.append(transmitForumData2.forumName + this.mF.getResources().getString(d.l.forum));
             }
         }
         return sb.toString();
     }
 
-    public boolean bxZ() {
+    public boolean bxp() {
         for (TransmitForumData transmitForumData : this.mDataList) {
             if (transmitForumData != null && transmitForumData.checked) {
                 return true;

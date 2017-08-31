@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    public static void e(Context context, View view) {
+    public static void d(Context context, View view) {
         Toast toast = new Toast(context);
         toast.setView(view);
         toast.setGravity(17, 0, 0);
@@ -36,21 +36,21 @@ public class c {
             textView2.setText(str2);
             textView3.setText(str3);
         }
-        e(context, inflate);
+        d(context, inflate);
     }
 
-    public static void a(w wVar, WriteData writeData) {
+    public static void a(x xVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
-            wVar.n("is_location", "2");
-            Address C = com.baidu.adp.lib.d.a.fo().C(false);
-            if (C != null) {
-                wVar.n("lat", String.valueOf(C.getLatitude()));
-                wVar.n("lng", String.valueOf(C.getLongitude()));
+            xVar.n("is_location", "2");
+            Address D = com.baidu.adp.lib.d.a.fd().D(false);
+            if (D != null) {
+                xVar.n("lat", String.valueOf(D.getLatitude()));
+                xVar.n("lng", String.valueOf(D.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.btF().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bsU().getLocationData();
             if (locationData != null) {
-                wVar.n("name", locationData.btB());
-                wVar.n("sn", locationData.btD());
+                xVar.n("name", locationData.bsQ());
+                xVar.n("sn", locationData.bsS());
             }
         }
     }

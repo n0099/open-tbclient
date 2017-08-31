@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class o {
-    public static byte[] p(File file) {
+    public static byte[] r(File file) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         Throwable th;
@@ -308,7 +308,7 @@ public class o {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static byte[] o(InputStream inputStream) {
+    public static byte[] c(InputStream inputStream) {
         ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;
         byte[] bArr = null;
@@ -371,7 +371,7 @@ public class o {
         return bArr;
     }
 
-    public static void g(OutputStream outputStream) {
+    public static void d(OutputStream outputStream) {
         if (outputStream != null) {
             try {
                 outputStream.close();

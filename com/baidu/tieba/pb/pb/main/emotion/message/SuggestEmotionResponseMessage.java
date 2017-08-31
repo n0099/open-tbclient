@@ -1,8 +1,9 @@
 package com.baidu.tieba.pb.pb.main.emotion.message;
 
-import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
 import com.baidu.tieba.pb.pb.main.emotion.a.a;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,10 +22,11 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
-        if (statusCode == 200 && error >= 0 && jSONObject != null) {
+        if (statusCode == 200 && error >= 0 && jSONObject != null && jSONObject != null) {
             this.mData = new a();
-            this.mData.aw(parseImageData(jSONObject.optJSONArray("memes")));
-            this.mData.cH(parseHotWordsData(jSONObject.optJSONArray("topwords")));
+            this.mData.ay(parseImageData(jSONObject.optJSONArray("memes")));
+            this.mData.cE(parseHotWordsData(jSONObject.optJSONArray("topwords")));
+            this.mData.a(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
         }
     }
 
@@ -38,7 +40,7 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
                 EmotionImageData emotionImageData = new EmotionImageData();
-                emotionImageData.setPicId(jSONObject.optString(GraffitiVcodeActivityConfig.PIC_ID));
+                emotionImageData.setPicId(jSONObject.optString("pic_id"));
                 emotionImageData.setPicUrl(jSONObject.optString("pic_url"));
                 emotionImageData.setThumbUrl(jSONObject.optString("thumbnail"));
                 emotionImageData.setWidth(jSONObject.optInt("width"));
@@ -65,6 +67,16 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         return arrayList;
+    }
+
+    private SingleBarEmotionRecommendData parseSingleForumRecommend(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
+        }
+        SingleBarEmotionRecommendData singleBarEmotionRecommendData = new SingleBarEmotionRecommendData();
+        singleBarEmotionRecommendData.pkg_id = jSONObject.optString(IntentConfig.PKG_ID);
+        singleBarEmotionRecommendData.cover = jSONObject.optString("cover");
+        return singleBarEmotionRecommendData;
     }
 
     public a getData() {

@@ -1,34 +1,32 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
-public class ao extends com.baidu.tbadk.core.view.userLike.c {
-    public boolean ePV;
-    private int ePW;
-    public boolean isBigV;
+public abstract class ao {
+    protected BaseActivity bnd;
+    protected View mRootView;
 
-    public ao(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
-        super(tbPageContext, bVar);
-        this.ePV = false;
-        this.isBigV = false;
-        this.ePW = 0;
-        this.ePW = i;
+    protected abstract void a(c cVar);
+
+    public ao(BaseActivity baseActivity, View view) {
+        this.bnd = baseActivity;
+        this.mRootView = view;
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i = 1;
-        super.onClick(view);
-        if (this.ePV && this.aqa != null) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aj("c11924").aa("obj_id", this.aqa.getUserId()));
+    public void init() {
+        b(null);
+    }
+
+    public void b(c cVar) {
+        if (this.bnd != null && this.mRootView != null) {
+            a(cVar);
         }
-        if (this.isBigV && this.aqa != null) {
-            if (this.ePW != 1) {
-                i = this.ePW == 2 ? 2 : 0;
-            }
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aj("c12150").r("obj_locate", i).aa("obj_id", this.aqa.getUserId()));
+    }
+
+    public void a(View view, View.OnClickListener onClickListener) {
+        if (view != null) {
+            view.setOnClickListener(onClickListener);
         }
     }
 }

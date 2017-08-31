@@ -9,72 +9,72 @@ import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.an;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private boolean alJ = false;
-    private SparseArray<String> alK = null;
-    private String[] alL;
-    private LinearLayout alM;
-    private CompoundButton.OnCheckedChangeListener alN;
-    private TbPageContext oW;
+    private boolean alc = false;
+    private SparseArray<String> ald = null;
+    private String[] ale;
+    private LinearLayout alf;
+    private CompoundButton.OnCheckedChangeListener alg;
+    private TbPageContext mF;
 
     public g(TbPageContext tbPageContext) {
-        this.oW = tbPageContext;
+        this.mF = tbPageContext;
     }
 
     public void setData(an anVar) {
         if (anVar != null) {
-            this.alK = anVar.qx();
+            this.ald = anVar.qs();
         }
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.alL = strArr;
+        this.ale = strArr;
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.alJ = z;
+        this.alc = z;
     }
 
     public void a(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        this.alN = onCheckedChangeListener;
+        this.alg = onCheckedChangeListener;
     }
 
     public View getView() {
-        if (this.alM == null) {
-            this.alM = new LinearLayout(this.oW.getPageActivity());
-            this.alM.setOrientation(1);
+        if (this.alf == null) {
+            this.alf = new LinearLayout(this.mF.getPageActivity());
+            this.alf.setOrientation(1);
         }
-        List<List<a>> wJ = wJ();
-        if (u.v(wJ)) {
+        List<List<a>> wG = wG();
+        if (v.v(wG)) {
             return null;
         }
-        int size = wJ.size();
+        int size = wG.size();
         int i = 0;
         while (i < size) {
-            View a2 = a(wJ.get(i), i == size + (-1), this.alM.getChildAt(i));
+            View a2 = a(wG.get(i), i == size + (-1), this.alf.getChildAt(i));
             if (a2 != null && a2.getParent() == null) {
-                this.alM.addView(a2);
+                this.alf.addView(a2);
             }
             i++;
         }
-        return this.alM;
+        return this.alf;
     }
 
-    private List<List<a>> wJ() {
+    private List<List<a>> wG() {
         int i;
         int i2;
         int i3 = -1;
-        if (this.alK == null || this.alK.size() == 0) {
-            return wK();
+        if (this.ald == null || this.ald.size() == 0) {
+            return wH();
         }
-        int size = this.alK.size();
-        int i4 = this.alJ ? 0 : -1;
-        int i5 = this.alJ ? size - 1 : size;
+        int size = this.ald.size();
+        int i4 = this.alc ? 0 : -1;
+        int i5 = this.alc ? size - 1 : size;
         if (i5 > 1 && i5 % 2 == 1) {
             i3 = i4 + 1;
         }
@@ -89,9 +89,9 @@ public class g {
                 i = i6 + 1;
             }
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(new a(i6, this.alK.keyAt(i6), this.alK.valueAt(i6)));
+            arrayList2.add(new a(i6, this.ald.keyAt(i6), this.ald.valueAt(i6)));
             if (i > i6 && i < size) {
-                arrayList2.add(new a(i, this.alK.keyAt(i), this.alK.valueAt(i)));
+                arrayList2.add(new a(i, this.ald.keyAt(i), this.ald.valueAt(i)));
             }
             arrayList.add(arrayList2);
             i6 = i2;
@@ -99,18 +99,18 @@ public class g {
         return arrayList;
     }
 
-    private List<List<a>> wK() {
-        if (this.alL == null || this.alL.length <= 0) {
+    private List<List<a>> wH() {
+        if (this.ale == null || this.ale.length <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < this.alL.length; i += 2) {
+        for (int i = 0; i < this.ale.length; i += 2) {
             ArrayList arrayList2 = new ArrayList();
-            if (!StringUtils.isNull(this.alL[i])) {
-                arrayList2.add(new a(i, 0, this.alL[i]));
+            if (!StringUtils.isNull(this.ale[i])) {
+                arrayList2.add(new a(i, 0, this.ale[i]));
             }
-            if (i + 1 < this.alL.length && !StringUtils.isNull(this.alL[i + 1])) {
-                arrayList2.add(new a(i + 1, 0, this.alL[i + 1]));
+            if (i + 1 < this.ale.length && !StringUtils.isNull(this.ale[i + 1])) {
+                arrayList2.add(new a(i + 1, 0, this.ale[i + 1]));
             }
             if (arrayList2.size() > 0) {
                 arrayList.add(arrayList2);
@@ -121,13 +121,13 @@ public class g {
 
     private View a(List<a> list, boolean z, View view) {
         LinearLayout linearLayout;
-        if (u.v(list)) {
+        if (v.v(list)) {
             return null;
         }
         if (view instanceof LinearLayout) {
             linearLayout = (LinearLayout) view;
         } else {
-            linearLayout = (LinearLayout) LayoutInflater.from(this.oW.getPageActivity()).inflate(d.j.neg_feedback_reason_item, (ViewGroup) this.alM, false);
+            linearLayout = (LinearLayout) LayoutInflater.from(this.mF.getPageActivity()).inflate(d.j.neg_feedback_reason_item, (ViewGroup) this.alf, false);
         }
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(d.h.left_reason);
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(d.h.right_reason);
@@ -146,8 +146,8 @@ public class g {
         } else {
             nEGFeedBackReasonCheckBox2.setVisibility(8);
         }
-        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.alN);
-        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.alN);
+        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.alg);
+        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.alg);
         if (z && linearLayout.getLayoutParams() != null) {
             ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = 0;
             return linearLayout;

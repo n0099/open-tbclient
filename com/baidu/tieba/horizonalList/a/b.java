@@ -9,9 +9,9 @@ public class b {
     public static abstract class a {
         protected View view;
 
-        public abstract boolean isHardwareAccelerated();
+        public abstract void i(Runnable runnable);
 
-        public abstract void k(Runnable runnable);
+        public abstract boolean isHardwareAccelerated();
 
         public abstract void setScrollX(int i);
 
@@ -22,13 +22,13 @@ public class b {
 
     /* renamed from: com.baidu.tieba.horizonalList.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0089b extends a {
-        public C0089b(View view) {
+    public static class C0091b extends a {
+        public C0091b(View view) {
             super(view);
         }
 
         @Override // com.baidu.tieba.horizonalList.a.b.a
-        public void k(Runnable runnable) {
+        public void i(Runnable runnable) {
             this.view.post(runnable);
         }
 
@@ -43,7 +43,7 @@ public class b {
         }
     }
 
-    public static final a ay(View view) {
-        return Build.VERSION.SDK_INT >= 14 ? new com.baidu.tieba.horizonalList.a.b.a(view) : new C0089b(view);
+    public static final a aG(View view) {
+        return Build.VERSION.SDK_INT >= 14 ? new com.baidu.tieba.horizonalList.a.b.a(view) : new C0091b(view);
     }
 }

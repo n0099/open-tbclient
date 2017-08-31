@@ -3,60 +3,60 @@ package com.baidu.tieba.g;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String cGO;
-    private String cGP;
-    private String cGQ;
-    private String cGR;
-    private String cGS;
-    private String cGT;
+    private String cNd;
+    private String cNe;
+    private String cNf;
+    private String cNg;
+    private String cNh;
+    private String cNi;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.cGO = String.valueOf(esportRank.rank);
-            this.cGP = esportRank.text;
-            this.cGT = esportRank.url;
+            this.cNd = String.valueOf(esportRank.rank);
+            this.cNe = esportRank.text;
+            this.cNi = esportRank.url;
             if (esportRank.user != null) {
-                this.cGQ = esportRank.user.steam_name;
-                this.cGR = esportRank.user.steam_portrait;
+                this.cNf = esportRank.user.steam_name;
+                this.cNg = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String alu() {
+    public String anc() {
         return this.mTitle;
     }
 
-    public String alv() {
-        return this.cGO;
+    public String and() {
+        return this.cNd;
     }
 
-    public String alw() {
-        return this.cGP;
+    public String ane() {
+        return this.cNe;
     }
 
-    public String alx() {
-        return this.cGQ;
+    public String anf() {
+        return this.cNf;
     }
 
-    public String aly() {
-        return this.cGR;
+    public String ang() {
+        return this.cNg;
     }
 
-    public String alz() {
-        return this.cGS;
+    public String anh() {
+        return this.cNh;
     }
 
-    public void kN(String str) {
-        this.cGS = str;
+    public void le(String str) {
+        this.cNh = str;
     }
 
-    public String alA() {
-        return this.cGT;
+    public String ani() {
+        return this.cNi;
     }
 
-    public void kO(String str) {
-        this.cGT = str;
+    public void lf(String str) {
+        this.cNi = str;
     }
 }

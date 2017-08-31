@@ -9,6 +9,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.pushservice.PushMessageReceiver;
 import com.baidu.sapi2.result.FillUserProfileResult;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.sharedPref.b;
@@ -28,6 +29,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
         if (i == 0) {
             Log.e(TAG, FillUserProfileResult.RESULT_MSG_SUCCESS);
             b.getInstance().putBoolean(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+            TbadkCoreApplication.getInst().setYunpushChannelId(str3);
         }
     }
 

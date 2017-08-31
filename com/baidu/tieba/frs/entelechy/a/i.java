@@ -5,42 +5,42 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.card.v;
 import com.baidu.tieba.card.x;
 import com.baidu.tieba.d;
 import com.baidu.tieba.play.w;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.widget.ListView.a<bl, a<com.baidu.tieba.frs.entelechy.view.d>> implements v, com.baidu.tieba.frs.e.c {
-    public static int coE = 5;
-    public static int coF = 10;
-    public static int coG = 15;
-    private x<bl> bkE;
+public class i extends com.baidu.adp.widget.ListView.a<bj, a<com.baidu.tieba.frs.entelechy.view.d>> implements v, com.baidu.tieba.frs.f.c {
+    public static int cvi = 5;
+    public static int cvj = 10;
+    public static int cvk = 15;
+    private x<bj> bkZ;
     private String forumName;
-    private TbPageContext<?> oW;
+    private TbPageContext<?> mF;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(bl blVar, String str) {
-        if (blVar != null) {
-            int sH = blVar.sH();
-            aj ajVar = new aj(str);
-            ajVar.aa("obj_locate", iS(sH));
-            ajVar.aa("tid", blVar.getTid());
-            ajVar.r("obj_type", 2);
-            TiebaStatic.log(ajVar);
+    public void b(bj bjVar, String str) {
+        if (bjVar != null) {
+            int sC = bjVar.sC();
+            ak akVar = new ak(str);
+            akVar.ad("obj_locate", jg(sC));
+            akVar.ad("tid", bjVar.getTid());
+            akVar.r("obj_type", 2);
+            TiebaStatic.log(akVar);
         }
     }
 
-    private String iS(int i) {
-        if (i == coE) {
+    private String jg(int i) {
+        if (i == cvi) {
             return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
         }
-        if (i == coF) {
+        if (i == cvj) {
             return "10";
         }
-        if (i != coG) {
+        if (i != cvk) {
             return "";
         }
         return "11";
@@ -49,49 +49,52 @@ public class i extends com.baidu.adp.widget.ListView.a<bl, a<com.baidu.tieba.frs
     /* JADX INFO: Access modifiers changed from: protected */
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
-        this.bkE = new x<bl>() { // from class: com.baidu.tieba.frs.entelechy.a.i.1
+        this.bkZ = new x<bj>() { // from class: com.baidu.tieba.frs.entelechy.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
-            public void a(View view, bl blVar) {
-                if (view != null && blVar != null) {
+            public void a(View view, bj bjVar) {
+                if (view != null && bjVar != null) {
                     if (view.getId() == d.h.frame_video) {
-                        i.this.b(blVar, "c11718");
+                        i.this.b(bjVar, "c11718");
                     } else if (view.getId() == d.h.layout_root) {
-                        i.this.b(blVar, "c10242");
+                        i.this.b(bjVar, "c10242");
                     } else if (view.getId() == d.h.image_user || view.getId() == d.h.pendant_image_user) {
-                        i.this.b(blVar, "c10241");
+                        i.this.b(bjVar, "c10241");
                     } else if (view.getId() == d.h.card_divider_tv) {
-                        com.baidu.tieba.frs.f.h.a(com.baidu.tieba.frs.e.c.cxO, blVar.se());
+                        com.baidu.tieba.frs.g.h.a(com.baidu.tieba.frs.f.c.cEr, bjVar.rZ());
                     }
                 }
             }
         };
-        this.oW = tbPageContext;
+        this.mF = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: N */
+    /* renamed from: S */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.entelechy.view.d dVar = new com.baidu.tieba.frs.entelechy.view.d(this.oW, this.mPageId);
-        dVar.j(this.mPageId);
+        com.baidu.tieba.frs.entelechy.view.d dVar = new com.baidu.tieba.frs.entelechy.view.d(this.mF, this.mPageId);
+        dVar.l(this.mPageId);
         dVar.setForumName(this.forumName);
         return new a(dVar);
     }
 
-    private w E(bl blVar) {
+    private w I(bj bjVar) {
         w wVar = null;
-        if (blVar != null) {
+        if (bjVar != null) {
             wVar = new w();
-            wVar.mLocate = iS(blVar.sH());
-            wVar.aAD = cxO.cxG;
-            wVar.bDN = blVar.getTid();
-            wVar.fCv = blVar.aaE;
-            if (blVar.sK() != null && blVar.sK().channelId > 0) {
-                wVar.WL = "" + blVar.sK().channelId;
+            wVar.mLocate = jg(bjVar.sC());
+            wVar.azO = cEr.cEj;
+            wVar.bGH = bjVar.getTid();
+            wVar.fAX = bjVar.ZJ;
+            if (bjVar.rS() != null) {
+                wVar.fAY = bjVar.rS().video_md5;
             }
-            blVar.sE();
+            if (bjVar.sF() != null && bjVar.sF().channelId > 0) {
+                wVar.VU = "" + bjVar.sF().channelId;
+            }
+            bjVar.sz();
         }
         return wVar;
     }
@@ -100,13 +103,13 @@ public class i extends com.baidu.adp.widget.ListView.a<bl, a<com.baidu.tieba.frs
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bl blVar, a aVar) {
-        if (aVar == null || aVar.Xv() == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bj bjVar, a aVar) {
+        if (aVar == null || aVar.Yy() == null) {
             return null;
         }
-        aVar.Xv().setVideoStatsData(E(blVar));
-        aVar.Xv().a(blVar);
-        aVar.Xv().b(this.bkE);
+        aVar.Yy().setVideoStatsData(I(bjVar));
+        aVar.Yy().a(bjVar);
+        aVar.Yy().b(this.bkZ);
         return aVar.getView();
     }
 

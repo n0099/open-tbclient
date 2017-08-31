@@ -1,20 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes.dex */
 public class y {
-    public boolean eOq = false;
-    public boolean eOr = false;
-    public boolean eOs = false;
-    public boolean eGI = false;
-    public boolean eOt = false;
-    public boolean eOu = false;
-    public boolean eOv = false;
-    public boolean eOw = false;
-    public boolean eOx = false;
-    public boolean eOy = false;
-    public boolean eOz = false;
-    public boolean eOA = false;
-    public boolean eOB = false;
-    public boolean eOC = false;
-    public boolean eOD = false;
+    public String eMW;
+    public boolean eMX;
+    public boolean eMI = false;
+    public boolean eMJ = false;
+    public boolean eMK = false;
+    public boolean eFc = false;
+    public boolean eML = false;
+    public boolean eMM = false;
+    public boolean eMN = false;
+    public boolean eMO = false;
+    public boolean eMP = false;
+    public boolean eMQ = false;
+    public boolean eMR = false;
+    public boolean eMS = false;
+    public boolean eMT = false;
+    public boolean eMU = false;
+    public boolean eMV = false;
     public boolean isHostOnly = false;
 }

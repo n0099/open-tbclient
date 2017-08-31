@@ -1,102 +1,102 @@
 package com.baidu.tbadk.core;
 
 import com.baidu.adp.lib.util.i;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class h {
-    private static h TF;
-    private int TG = 1;
+    private static h SI;
+    private int SJ = 1;
     private int mIsAbstractOn = 1;
-    private int TH = 0;
-    private int TI = 0;
+    private int SK = 0;
+    private int SL = 0;
     private String forumName = null;
-    private boolean TJ = true;
+    private boolean SM = true;
     private int mViewImageQuality = 0;
 
-    public static h oY() {
+    public static h oS() {
         h hVar;
-        if (TF == null) {
+        if (SI == null) {
             synchronized (h.class) {
-                if (TF == null) {
-                    TF = new h();
+                if (SI == null) {
+                    SI = new h();
                 }
-                hVar = TF;
+                hVar = SI;
             }
             return hVar;
         }
-        return TF;
+        return SI;
     }
 
     private h() {
     }
 
     public void initSetting() {
-        this.TH = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("image_quality", 0);
-        this.TG = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("new_display_photo", 1);
+        this.SK = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("image_quality", 0);
+        this.SJ = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("new_display_photo", 1);
         this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("new_abstract_state", 0);
         this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("view_image_quality", 0);
-        this.TJ = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_images", true);
+        this.SM = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_images", true);
     }
 
     public void bw(int i) {
-        this.TG = i;
+        this.SJ = i;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("new_display_photo", i);
     }
 
-    public int oZ() {
-        return this.TG;
+    public int oT() {
+        return this.SJ;
     }
 
-    public boolean pa() {
-        if (this.TG == 0) {
-            if (i.hs()) {
+    public boolean oU() {
+        if (this.SJ == 0) {
+            if (i.hj()) {
                 return true;
             }
-        } else if (this.TG == 1) {
+        } else if (this.SJ == 1) {
             return true;
         }
         return false;
     }
 
     public void bx(int i) {
-        if (this.TH != i) {
-            this.TH = i;
+        if (this.SK != i) {
+            this.SK = i;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("image_quality", i);
         }
     }
 
-    public int pb() {
-        this.TH = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("image_quality", 0);
-        return this.TH;
+    public int oV() {
+        this.SK = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("image_quality", 0);
+        return this.SK;
     }
 
     public void by(int i) {
-        if (this.TI != i) {
-            this.TI = i;
+        if (this.SL != i) {
+            this.SL = i;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
         }
     }
 
-    public int pc() {
-        this.TI = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 0);
-        return this.TI;
+    public int oW() {
+        this.SL = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 0);
+        return this.SL;
     }
 
-    public void cx(String str) {
+    public void cn(String str) {
         this.forumName = str;
     }
 
-    public String pd() {
+    public String oX() {
         return this.forumName;
     }
 
-    public boolean pe() {
-        return this.TJ;
+    public boolean oY() {
+        return this.SM;
     }
 
     public void aj(boolean z) {
-        if (this.TJ != z) {
-            this.TJ = z;
+        if (this.SM != z) {
+            this.SM = z;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_images", z);
         }
     }
@@ -105,8 +105,8 @@ public class h {
         if (this.mViewImageQuality != i) {
             this.mViewImageQuality = i;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("view_image_quality", i);
-            am.vR().vY();
-            am.vR().vZ();
+            an.vO().vV();
+            an.vO().vW();
         }
     }
 
@@ -128,7 +128,7 @@ public class h {
         bz(1);
     }
 
-    public boolean pf() {
-        return this.TG == 0 || this.TH == 0 || this.mViewImageQuality == 0;
+    public boolean oZ() {
+        return this.SJ == 0 || this.SK == 0 || this.mViewImageQuality == 0;
     }
 }

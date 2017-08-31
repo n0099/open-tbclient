@@ -3,16 +3,16 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i {
-    private String mClientId;
+    private String wk;
 
     public String getClientId() {
-        return this.mClientId;
+        return this.wk;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.mClientId = jSONObject.optString("client_id");
+                this.wk = jSONObject.optString("client_id");
             } catch (Exception e) {
                 e.printStackTrace();
             }

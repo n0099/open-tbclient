@@ -13,29 +13,29 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a GJ;
-    private final LinkedHashMap<String, PluginStatus> GK = new LinkedHashMap<>(10);
+    private static a ED;
+    private final LinkedHashMap<String, PluginStatus> EE = new LinkedHashMap<>(10);
 
     private a() {
     }
 
-    public static a kn() {
-        if (GJ == null) {
+    public static a kf() {
+        if (ED == null) {
             synchronized (a.class) {
-                if (GJ == null) {
-                    GJ = new a();
+                if (ED == null) {
+                    ED = new a();
                 }
             }
         }
-        return GJ;
+        return ED;
     }
 
-    public void bH(String str) {
-        PluginStatus bI = kn().bI(str);
-        if (bI != null) {
-            bI.GG = PluginPackageManager.PluginStatus.NROMAL;
+    public void bD(String str) {
+        PluginStatus bE = kf().bE(str);
+        if (bE != null) {
+            bE.EA = PluginPackageManager.PluginStatus.NROMAL;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, bI));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, bE));
     }
 
     public void g(String str, String str2, String str3) {
@@ -76,37 +76,37 @@ public class a {
         } else {
             return;
         }
-        PluginStatus bI = bI(str);
-        if (bI == null) {
-            bI = new PluginStatus();
+        PluginStatus bE = bE(str);
+        if (bE == null) {
+            bE = new PluginStatus();
         }
-        bI.GG = PluginPackageManager.PluginStatus.ERROR;
-        bI.errorMsg = string;
-        bI.GH = string2;
-        bI.errorCode = i;
-        bI.GI = false;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, bI));
+        bE.EA = PluginPackageManager.PluginStatus.ERROR;
+        bE.errorMsg = string;
+        bE.EB = string2;
+        bE.errorCode = i;
+        bE.EC = false;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, bE));
     }
 
     public void onLoadFailed(String str) {
-        PluginStatus bI = bI(str);
-        if (bI == null) {
-            bI = new PluginStatus();
+        PluginStatus bE = bE(str);
+        if (bE == null) {
+            bE = new PluginStatus();
         }
-        bI.GG = PluginPackageManager.PluginStatus.ERROR;
-        bI.errorCode = 100;
-        bI.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-        bI.GH = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bI));
+        bE.EA = PluginPackageManager.PluginStatus.ERROR;
+        bE.errorCode = 100;
+        bE.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
+        bE.EB = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bE));
     }
 
-    public List<PluginStatus> ko() {
+    public List<PluginStatus> kg() {
         ArrayList arrayList;
         PluginStatus value;
-        synchronized (this.GK) {
-            arrayList = new ArrayList(this.GK.size());
-            for (Map.Entry<String, PluginStatus> entry : this.GK.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null && value.GG == PluginPackageManager.PluginStatus.ERROR) {
+        synchronized (this.EE) {
+            arrayList = new ArrayList(this.EE.size());
+            for (Map.Entry<String, PluginStatus> entry : this.EE.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null && value.EA == PluginPackageManager.PluginStatus.ERROR) {
                     arrayList.add(value);
                 }
             }
@@ -114,17 +114,17 @@ public class a {
         return arrayList;
     }
 
-    public PluginStatus bI(String str) {
+    public PluginStatus bE(String str) {
         PluginStatus pluginStatus;
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.GK) {
-            pluginStatus = this.GK.get(str);
+        synchronized (this.EE) {
+            pluginStatus = this.EE.get(str);
             if (pluginStatus == null) {
                 pluginStatus = new PluginStatus();
-                pluginStatus.Ed = str;
-                this.GK.put(str, pluginStatus);
+                pluginStatus.BX = str;
+                this.EE.put(str, pluginStatus);
             }
         }
         return pluginStatus;

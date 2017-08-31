@@ -1,50 +1,125 @@
 package com.baidu.tieba.pb.view;
 
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class h {
-    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
-        if (smallTailInfo != null && smallTailInfo.tailSpannable != null && smallTailInfo.tailSpannable.length() != 0 && textView != null) {
-            smallTailInfo.updateShowInfo();
-            b(smallTailInfo, textView, z, z2, z3);
+public class h extends FrameLayout implements View.OnClickListener {
+    private boolean aRM;
+    private LinearLayout cks;
+    private com.baidu.tieba.tbadkCore.data.a faL;
+    private TbImageView faM;
+    private ImageView faN;
+    private TextView faO;
+    private Context mContext;
+    private View mRootView;
+    private TextView mTitle;
+
+    public h(Context context) {
+        this(context, null, 0);
+    }
+
+    public h(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.aRM = false;
+        this.mContext = context;
+        init();
+    }
+
+    public com.baidu.tieba.tbadkCore.data.a getData() {
+        return this.faL;
+    }
+
+    public void Jk() {
+        this.aRM = true;
+    }
+
+    private void init() {
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(d.j.pic_show_cardview_layout, (ViewGroup) this, true);
+        this.faM = (TbImageView) findViewById(d.h.pic_img);
+        this.cks = (LinearLayout) findViewById(d.h.bottom_ll);
+        this.mTitle = (TextView) findViewById(d.h.title_ll);
+        this.faO = (TextView) findViewById(d.h.desc_ll);
+        this.faN = (ImageView) findViewById(d.h.show_pic_icon);
+    }
+
+    public void setIconResId(int i) {
+        aj.c(this.faN, i);
+    }
+
+    public void setData(com.baidu.tieba.tbadkCore.data.a aVar) {
+        int i;
+        if (aVar != null && this.faL != aVar) {
+            this.faL = aVar;
+            if (!StringUtils.isNULL(aVar.getTitle())) {
+                this.mTitle.setVisibility(0);
+                this.mTitle.setText(aVar.getTitle());
+            } else {
+                this.mTitle.setVisibility(8);
+            }
+            if (!StringUtils.isNULL(aVar.getDescription())) {
+                this.faO.setVisibility(0);
+                this.faO.setText(aVar.getDescription());
+            } else {
+                this.faO.setVisibility(8);
+            }
+            if (this.aRM) {
+                this.faM.setSupportNoImage(true);
+            }
+            int imageWidth = aVar.getImageWidth();
+            int imageHeight = aVar.getImageHeight();
+            if (imageWidth > 0 && imageHeight > 0) {
+                this.faM.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.faM.setOnClickListener(this);
+                this.faM.setInterceptOnClick(true);
+                this.faM.setDefaultResource(d.g.icon_click);
+                this.faM.c(aVar.brJ(), 18, false);
+                int ad = k.ad(this.mContext) - (k.g(this.mContext, d.f.ds30) * 2);
+                float f = imageHeight / imageWidth;
+                if (f > 1.7777778f) {
+                    i = (int) (ad * 1.7777778f);
+                } else if (f < 0.75f) {
+                    i = (int) (ad * 0.75f);
+                } else {
+                    i = (int) (f * ad);
+                }
+                this.faM.setLayoutParams(new FrameLayout.LayoutParams(ad, i));
+                removeView(this.faM);
+                addView(this.faM);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.cks.getLayoutParams();
+                layoutParams.width = ad;
+                layoutParams.height = k.g(this.mContext, d.f.ds110);
+                removeView(this.cks);
+                addView(this.cks, layoutParams);
+            }
         }
     }
 
-    private static void b(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
-        if (smallTailInfo != null && textView != null) {
-            Resources resources = TbadkCoreApplication.getInst().getResources();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-            if (z2 && z3) {
-                layoutParams.setMargins((int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds8), (int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds18));
-            } else if (z) {
-                layoutParams.setMargins(0, (int) resources.getDimension(d.f.ds8), 0, 0);
-            } else if (!z2) {
-                layoutParams.setMargins((int) resources.getDimension(d.f.ds116), (int) resources.getDimension(d.f.ds8), (int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds14));
-            } else {
-                layoutParams.setMargins((int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds8), (int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds14));
-            }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) "icon");
-            spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
-            Drawable drawable = ai.getDrawable(d.g.icon_pb_tail);
-            int g = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
-            drawable.setBounds(0, 0, g, g);
-            com.baidu.tbadk.widget.c cVar = new com.baidu.tbadk.widget.c(drawable);
-            cVar.fr(k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds4));
-            spannableStringBuilder.setSpan(cVar, 0, 4, 33);
-            textView.setLayoutParams(layoutParams);
-            textView.setText(spannableStringBuilder);
-            textView.setTextColor(smallTailInfo.showColorId);
-            textView.setVisibility(0);
+    public void d(TbPageContext<?> tbPageContext, int i) {
+        tbPageContext.getLayoutMode().ah(i == 1);
+        tbPageContext.getLayoutMode().t(this.mRootView);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.faL != null) {
+            com.baidu.tbadk.browser.a.T(this.mContext, this.faL.brK());
         }
+    }
+
+    public ImageView getIcon() {
+        return this.faN;
     }
 }

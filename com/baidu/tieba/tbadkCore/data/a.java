@@ -6,16 +6,16 @@ import org.json.JSONObject;
 import tbclient.ActHot;
 /* loaded from: classes.dex */
 public class a {
-    private int aiS;
-    private String giY;
-    private String giZ;
-    private String gja;
+    private int aim;
+    private String ghA;
+    private String ghB;
+    private String ghz;
     private int mHeight;
     private String mTitle;
     private int mWidth;
 
-    public String bsu() {
-        return this.giY;
+    public String brJ() {
+        return this.ghz;
     }
 
     public int getImageWidth() {
@@ -26,8 +26,8 @@ public class a {
         return this.mHeight;
     }
 
-    public String bsv() {
-        return this.giZ;
+    public String brK() {
+        return this.ghA;
     }
 
     public String getTitle() {
@@ -35,7 +35,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.gja;
+        return this.ghB;
     }
 
     public void a(ActHot actHot) {
@@ -56,21 +56,21 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.giY = actHot.img_src;
-            this.giZ = actHot.link;
+            this.ghz = actHot.img_src;
+            this.ghA = actHot.link;
             this.mTitle = actHot.author_name;
-            this.gja = actHot.img_des;
-            this.aiS = actHot.img_type.intValue();
+            this.ghB = actHot.img_des;
+            this.aim = actHot.img_type.intValue();
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.giY = jSONObject.optString("img_src");
-                this.giZ = jSONObject.optString("link");
+                this.ghz = jSONObject.optString("img_src");
+                this.ghA = jSONObject.optString("link");
                 this.mTitle = jSONObject.optString("author_name");
-                this.gja = jSONObject.optString("img_des");
+                this.ghB = jSONObject.optString("img_des");
                 String optString = jSONObject.optString("bsize");
                 if (optString != null && optString.length() > 0) {
                     String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);

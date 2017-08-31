@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bj;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,35 +9,35 @@ import java.util.List;
 public interface q {
     void a(com.baidu.tieba.frs.b bVar);
 
-    int ags();
+    int ahQ();
 
-    HashMap<Integer, bl> ahc();
+    HashMap<Integer, bj> aiO();
 
-    void ahd();
+    void aiP();
 
-    int ahe();
+    int aiQ();
 
-    int ahf();
+    int aiR();
 
-    int ahg();
+    int aiS();
 
-    int ahh();
+    int aiT();
+
+    void aiU();
 
     void b(ArrayList<com.baidu.adp.widget.ListView.f> arrayList, com.baidu.tieba.tbadkCore.i iVar);
 
-    void cH(boolean z);
+    void cK(boolean z);
 
-    void eR(boolean z);
+    void eY(boolean z);
 
     List<com.baidu.adp.widget.ListView.f> getDatas();
 
-    boolean k(BdUniqueId bdUniqueId);
+    boolean m(BdUniqueId bdUniqueId);
 
     void notifyDataSetChanged();
 
     void onDestory();
-
-    void reInit();
 
     void setForumName(String str);
 

@@ -4,11 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a anI;
+    private a anc;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -24,49 +24,49 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        xd();
+        xc();
     }
 
     public TbCheckBox(Context context) {
         super(context);
-        bg();
+        xb();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        bg();
+        xb();
     }
 
-    private void bg() {
+    private void xb() {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.TbCheckBox.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TbCheckBox.this.setChecked(!TbCheckBox.this.xe());
+                TbCheckBox.this.setChecked(!TbCheckBox.this.xd());
             }
         });
-        xd();
+        xc();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.anI = aVar;
+        this.anc = aVar;
     }
 
-    public void xd() {
-        if (xe()) {
-            ai.c(this, d.g.icon_set_list_ok_s);
+    public void xc() {
+        if (xd()) {
+            aj.c(this, d.g.icon_set_list_ok_s);
             setContentDescription(getResources().getString(d.l.check_box_checked));
             return;
         }
-        ai.c(this, d.g.icon_set_list_ok_n);
+        aj.c(this, d.g.icon_set_list_ok_n);
         setContentDescription(getResources().getString(d.l.check_box_not_checked));
     }
 
     public boolean isChecked() {
-        return xe();
+        return xd();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean xe() {
+    public boolean xd() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -79,9 +79,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        xd();
-        if (this.anI != null) {
-            this.anI.a(this, z, getTag());
+        xc();
+        if (this.anc != null) {
+            this.anc.a(this, z, getTag());
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.album;
 
 import com.baidu.tbadk.img.ImageFileInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class m {
     private ImageFileInfo imageFileInfo;
     private int type;
@@ -14,7 +14,7 @@ public class m {
         this.type = i;
     }
 
-    public ImageFileInfo amK() {
+    public ImageFileInfo aos() {
         return this.imageFileInfo;
     }
 

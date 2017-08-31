@@ -19,21 +19,21 @@ import android.widget.Adapter;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public abstract class a<T extends Adapter> extends ViewGroup {
-    protected int cYW;
-    protected long cYX;
-    protected long cYY;
-    e cYZ;
-    c cZa;
-    d cZb;
+    protected int dfE;
+    protected long dfF;
+    protected long dfG;
+    e dfH;
+    c dfI;
+    d dfJ;
     @ViewDebug.ExportedProperty(category = IntentConfig.LIST)
-    protected int cZc;
-    protected long cZd;
-    protected long cZe;
-    AccessibilityManager cZf;
-    protected long cZg;
-    private boolean cZh;
-    private boolean cZi;
-    private a<T>.f cZj;
+    protected int dfK;
+    protected long dfL;
+    protected long dfM;
+    AccessibilityManager dfN;
+    protected long dfO;
+    private boolean dfP;
+    private boolean dfQ;
+    private a<T>.f dfR;
     protected boolean mBlockLayoutRequests;
     public boolean mDataChanged;
     private View mEmptyView;
@@ -79,30 +79,30 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     public a(Context context) {
         super(context);
         this.mFirstPosition = 0;
-        this.cYX = Long.MIN_VALUE;
+        this.dfF = Long.MIN_VALUE;
         this.mNeedSync = false;
         this.mInLayout = false;
-        this.cZc = -1;
-        this.cZd = Long.MIN_VALUE;
+        this.dfK = -1;
+        this.dfL = Long.MIN_VALUE;
         this.mSelectedPosition = -1;
-        this.cZe = Long.MIN_VALUE;
+        this.dfM = Long.MIN_VALUE;
         this.mOldSelectedPosition = -1;
-        this.cZg = Long.MIN_VALUE;
+        this.dfO = Long.MIN_VALUE;
         this.mBlockLayoutRequests = false;
     }
 
     public a(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mFirstPosition = 0;
-        this.cYX = Long.MIN_VALUE;
+        this.dfF = Long.MIN_VALUE;
         this.mNeedSync = false;
         this.mInLayout = false;
-        this.cZc = -1;
-        this.cZd = Long.MIN_VALUE;
+        this.dfK = -1;
+        this.dfL = Long.MIN_VALUE;
         this.mSelectedPosition = -1;
-        this.cZe = Long.MIN_VALUE;
+        this.dfM = Long.MIN_VALUE;
         this.mOldSelectedPosition = -1;
-        this.cZg = Long.MIN_VALUE;
+        this.dfO = Long.MIN_VALUE;
         this.mBlockLayoutRequests = false;
     }
 
@@ -110,36 +110,36 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     public a(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mFirstPosition = 0;
-        this.cYX = Long.MIN_VALUE;
+        this.dfF = Long.MIN_VALUE;
         this.mNeedSync = false;
         this.mInLayout = false;
-        this.cZc = -1;
-        this.cZd = Long.MIN_VALUE;
+        this.dfK = -1;
+        this.dfL = Long.MIN_VALUE;
         this.mSelectedPosition = -1;
-        this.cZe = Long.MIN_VALUE;
+        this.dfM = Long.MIN_VALUE;
         this.mOldSelectedPosition = -1;
-        this.cZg = Long.MIN_VALUE;
+        this.dfO = Long.MIN_VALUE;
         this.mBlockLayoutRequests = false;
         if (!isInEditMode()) {
-            this.cZf = (AccessibilityManager) getContext().getSystemService("accessibility");
+            this.dfN = (AccessibilityManager) getContext().getSystemService("accessibility");
         }
     }
 
     public void setOnItemClickListener(c cVar) {
-        this.cZa = cVar;
+        this.dfI = cVar;
     }
 
     public final c getOnItemClickListener() {
-        return this.cZa;
+        return this.dfI;
     }
 
     public boolean performItemClick(View view, int i, long j) {
-        if (this.cZa != null) {
+        if (this.dfI != null) {
             playSoundEffect(0);
             if (view != null) {
                 view.sendAccessibilityEvent(1);
             }
-            this.cZa.a(this, view, i, j);
+            this.dfI.a(this, view, i, j);
             return true;
         }
         return false;
@@ -149,29 +149,29 @@ public abstract class a<T extends Adapter> extends ViewGroup {
         if (!isLongClickable()) {
             setLongClickable(true);
         }
-        this.cZb = dVar;
+        this.dfJ = dVar;
     }
 
     public final d getOnItemLongClickListener() {
-        return this.cZb;
+        return this.dfJ;
     }
 
     public void setOnItemSelectedListener(e eVar) {
-        this.cYZ = eVar;
+        this.dfH = eVar;
     }
 
     public final e getOnItemSelectedListener() {
-        return this.cYZ;
+        return this.dfH;
     }
 
     /* renamed from: com.baidu.tieba.horizonalList.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class ContextMenu$ContextMenuInfoC0090a implements ContextMenu.ContextMenuInfo {
+    public static class ContextMenu$ContextMenuInfoC0092a implements ContextMenu.ContextMenuInfo {
         public long id;
         public int position;
         public View targetView;
 
-        public ContextMenu$ContextMenuInfoC0090a(View view, int i, long j) {
+        public ContextMenu$ContextMenuInfoC0092a(View view, int i, long j) {
             this.targetView = view;
             this.position = i;
             this.id = j;
@@ -221,12 +221,12 @@ public abstract class a<T extends Adapter> extends ViewGroup {
 
     @ViewDebug.CapturedViewProperty
     public int getSelectedItemPosition() {
-        return this.cZc;
+        return this.dfK;
     }
 
     @ViewDebug.CapturedViewProperty
     public long getSelectedItemId() {
-        return this.cZd;
+        return this.dfL;
     }
 
     public Object getSelectedItem() {
@@ -292,9 +292,9 @@ public abstract class a<T extends Adapter> extends ViewGroup {
         boolean z2 = true;
         T adapter = getAdapter();
         boolean z3 = adapter == null || adapter.getCount() == 0;
-        this.cZh = z;
+        this.dfP = z;
         if (!z) {
-            this.cZi = false;
+            this.dfQ = false;
         }
         if (!z || (z3 && !isInFilterMode())) {
             z2 = false;
@@ -307,9 +307,9 @@ public abstract class a<T extends Adapter> extends ViewGroup {
         boolean z2 = true;
         T adapter = getAdapter();
         boolean z3 = adapter == null || adapter.getCount() == 0;
-        this.cZi = z;
+        this.dfQ = z;
         if (z) {
-            this.cZh = true;
+            this.dfP = true;
         }
         if (!z || (z3 && !isInFilterMode())) {
             z2 = false;
@@ -318,12 +318,12 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void apL() {
+    public void arv() {
         boolean z = false;
         T adapter = getAdapter();
         boolean z2 = !(adapter == null || adapter.getCount() == 0) || isInFilterMode();
-        super.setFocusableInTouchMode(z2 && this.cZi);
-        super.setFocusable(z2 && this.cZh);
+        super.setFocusableInTouchMode(z2 && this.dfQ);
+        super.setFocusable(z2 && this.dfP);
         if (this.mEmptyView != null) {
             if (adapter == null || adapter.isEmpty()) {
                 z = true;
@@ -381,7 +381,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes.dex */
     class b extends DataSetObserver {
-        private Parcelable cZk = null;
+        private Parcelable dfS = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -392,13 +392,13 @@ public abstract class a<T extends Adapter> extends ViewGroup {
             a.this.mDataChanged = true;
             a.this.mOldItemCount = a.this.mItemCount;
             a.this.mItemCount = a.this.getAdapter().getCount();
-            if (a.this.getAdapter().hasStableIds() && this.cZk != null && a.this.mOldItemCount == 0 && a.this.mItemCount > 0) {
-                a.this.onRestoreInstanceState(this.cZk);
-                this.cZk = null;
+            if (a.this.getAdapter().hasStableIds() && this.dfS != null && a.this.mOldItemCount == 0 && a.this.mItemCount > 0) {
+                a.this.onRestoreInstanceState(this.dfS);
+                this.dfS = null;
             } else {
                 a.this.rememberSyncState();
             }
-            a.this.apL();
+            a.this.arv();
             a.this.requestLayout();
         }
 
@@ -406,16 +406,16 @@ public abstract class a<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             a.this.mDataChanged = true;
             if (a.this.getAdapter().hasStableIds()) {
-                this.cZk = a.this.onSaveInstanceState();
+                this.dfS = a.this.onSaveInstanceState();
             }
             a.this.mOldItemCount = a.this.mItemCount;
             a.this.mItemCount = 0;
             a.this.mSelectedPosition = -1;
-            a.this.cZe = Long.MIN_VALUE;
-            a.this.cZc = -1;
-            a.this.cZd = Long.MIN_VALUE;
+            a.this.dfM = Long.MIN_VALUE;
+            a.this.dfK = -1;
+            a.this.dfL = Long.MIN_VALUE;
             a.this.mNeedSync = false;
-            a.this.apL();
+            a.this.arv();
             a.this.requestLayout();
         }
     }
@@ -424,7 +424,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.cZj);
+        removeCallbacks(this.dfR);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -445,12 +445,12 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     }
 
     void selectionChanged() {
-        if (this.cYZ != null || this.cZf.isEnabled()) {
+        if (this.dfH != null || this.dfN.isEnabled()) {
             if (this.mInLayout || this.mBlockLayoutRequests) {
-                if (this.cZj == null) {
-                    this.cZj = new f();
+                if (this.dfR == null) {
+                    this.dfR = new f();
                 }
-                post(this.cZj);
+                post(this.dfR);
                 return;
             }
             fireOnSelected();
@@ -460,19 +460,19 @@ public abstract class a<T extends Adapter> extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fireOnSelected() {
-        if (this.cYZ != null) {
+        if (this.dfH != null) {
             int selectedItemPosition = getSelectedItemPosition();
             if (selectedItemPosition >= 0) {
-                this.cYZ.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
+                this.dfH.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
                 return;
             }
-            this.cYZ.d(this);
+            this.dfH.d(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void performAccessibilityActionsOnSelected() {
-        if (this.cZf.isEnabled() && getSelectedItemPosition() >= 0) {
+        if (this.dfN.isEnabled() && getSelectedItemPosition() >= 0) {
             sendAccessibilityEvent(4);
         }
     }
@@ -501,7 +501,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
         super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
         accessibilityNodeInfo.setClassName(a.class.getName());
-        accessibilityNodeInfo.setScrollable(apM());
+        accessibilityNodeInfo.setScrollable(arw());
         View selectedView = getSelectedView();
         if (selectedView != null) {
             accessibilityNodeInfo.setEnabled(selectedView.isEnabled());
@@ -513,7 +513,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         super.onInitializeAccessibilityEvent(accessibilityEvent);
         accessibilityEvent.setClassName(a.class.getName());
-        accessibilityEvent.setScrollable(apM());
+        accessibilityEvent.setScrollable(arw());
         View selectedView = getSelectedView();
         if (selectedView != null) {
             accessibilityEvent.setEnabled(selectedView.isEnabled());
@@ -524,7 +524,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
         accessibilityEvent.setItemCount(getCount());
     }
 
-    private boolean apM() {
+    private boolean arw() {
         int count;
         T adapter = getAdapter();
         if (adapter == null || (count = adapter.getCount()) <= 0) {
@@ -582,9 +582,9 @@ public abstract class a<T extends Adapter> extends ViewGroup {
         }
         if (!z) {
             this.mSelectedPosition = -1;
-            this.cZe = Long.MIN_VALUE;
-            this.cZc = -1;
-            this.cZd = Long.MIN_VALUE;
+            this.dfM = Long.MIN_VALUE;
+            this.dfK = -1;
+            this.dfL = Long.MIN_VALUE;
             this.mNeedSync = false;
             checkSelectionChanged();
         }
@@ -592,10 +592,10 @@ public abstract class a<T extends Adapter> extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkSelectionChanged() {
-        if (this.mSelectedPosition != this.mOldSelectedPosition || this.cZe != this.cZg) {
+        if (this.mSelectedPosition != this.mOldSelectedPosition || this.dfM != this.dfO) {
             selectionChanged();
             this.mOldSelectedPosition = this.mSelectedPosition;
-            this.cZg = this.cZe;
+            this.dfO = this.dfM;
         }
     }
 
@@ -605,7 +605,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
         if (i == 0) {
             return -1;
         }
-        long j = this.cYX;
+        long j = this.dfF;
         int i2 = this.mSyncPosition;
         if (j == Long.MIN_VALUE) {
             return -1;
@@ -649,29 +649,29 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: protected */
     public void setSelectedPositionInt(int i) {
         this.mSelectedPosition = i;
-        this.cZe = getItemIdAtPosition(i);
+        this.dfM = getItemIdAtPosition(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setNextSelectedPositionInt(int i) {
-        this.cZc = i;
-        this.cZd = getItemIdAtPosition(i);
+        this.dfK = i;
+        this.dfL = getItemIdAtPosition(i);
         if (this.mNeedSync && this.mSyncMode == 0 && i >= 0) {
             this.mSyncPosition = i;
-            this.cYX = this.cZd;
+            this.dfF = this.dfL;
         }
     }
 
     public void rememberSyncState() {
         if (getChildCount() > 0) {
             this.mNeedSync = true;
-            this.cYY = this.mLayoutWidth;
+            this.dfG = this.mLayoutWidth;
             if (this.mSelectedPosition >= 0) {
                 View childAt = getChildAt(this.mSelectedPosition - this.mFirstPosition);
-                this.cYX = this.cZd;
-                this.mSyncPosition = this.cZc;
+                this.dfF = this.dfL;
+                this.mSyncPosition = this.dfK;
                 if (childAt != null) {
-                    this.cYW = childAt.getLeft();
+                    this.dfE = childAt.getLeft();
                 }
                 this.mSyncMode = 0;
                 return;
@@ -679,13 +679,13 @@ public abstract class a<T extends Adapter> extends ViewGroup {
             View childAt2 = getChildAt(0);
             T adapter = getAdapter();
             if (this.mFirstPosition >= 0 && this.mFirstPosition < adapter.getCount()) {
-                this.cYX = adapter.getItemId(this.mFirstPosition);
+                this.dfF = adapter.getItemId(this.mFirstPosition);
             } else {
-                this.cYX = -1L;
+                this.dfF = -1L;
             }
             this.mSyncPosition = this.mFirstPosition;
             if (childAt2 != null) {
-                this.cYW = childAt2.getLeft();
+                this.dfE = childAt2.getLeft();
             }
             this.mSyncMode = 1;
         }

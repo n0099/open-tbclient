@@ -9,11 +9,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-    private static final AtomicLong aed = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
-    final Map<String, Object> aee;
-    final Map<String, Object> aef;
-    final String aeg;
-    final long aeh;
+    private static final AtomicLong adk = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+    final Map<String, Object> adl;
+    final Map<String, Object> adm;
+    final String adn;
+    final long ado;
     final String cmd;
     final String method;
     final long start;
@@ -22,21 +22,21 @@ public class q {
     private q(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
         this.cmd = str;
         this.method = str2;
-        this.aee = map;
-        this.aef = map2;
+        this.adl = map;
+        this.adm = map2;
         this.type = i;
-        this.aeg = str3;
-        this.aeh = j;
+        this.adn = str3;
+        this.ado = j;
         this.start = System.currentTimeMillis();
     }
 
     private static q a(int i, String str, String str2, Map<String, Object> map, long j, boolean z) {
-        return new q(i, str, str2, map, null, z ? ub() : null, j);
+        return new q(i, str, str2, map, null, z ? tX() : null, j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static q a(Map<String, Object> map, long j, n nVar) {
-        return new a(1, null, null, map, null, ub(), nVar, j);
+        return new a(1, null, null, map, null, tX(), nVar, j);
     }
 
     public static q a(String str, String str2, Map<String, Object> map, long j, boolean z) {
@@ -47,14 +47,14 @@ public class q {
         if (nVar == null) {
             throw new IllegalArgumentException("handler can't be null.");
         }
-        return new a(2, str, str2, map, null, ub(), nVar, j);
+        return new a(2, str, str2, map, null, tX(), nVar, j);
     }
 
-    public static q c(String str, Map<String, Object> map) {
+    public static q b(String str, Map<String, Object> map) {
         return new q(3, null, null, null, map, str, -1L);
     }
 
-    private String tZ() {
+    private String tV() {
         switch (this.type) {
             case 1:
                 return "ping";
@@ -67,7 +67,7 @@ public class q {
         }
     }
 
-    public String ua() throws JSONException {
+    public String tW() throws JSONException {
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(this.cmd)) {
             jSONObject.put(IntentConfig.CMD, this.cmd);
@@ -75,29 +75,29 @@ public class q {
         if (!TextUtils.isEmpty(this.method)) {
             jSONObject.put(PushConstants.EXTRA_METHOD, this.method);
         }
-        if (this.aee != null && !this.aee.isEmpty()) {
+        if (this.adl != null && !this.adl.isEmpty()) {
             JSONObject jSONObject2 = new JSONObject();
-            a(this.aee, jSONObject2);
+            a(this.adl, jSONObject2);
             jSONObject.put("inputData", jSONObject2);
         }
-        if (this.aef != null && !this.aef.isEmpty()) {
+        if (this.adm != null && !this.adm.isEmpty()) {
             JSONObject jSONObject3 = new JSONObject();
-            a(this.aef, jSONObject3);
+            a(this.adm, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
-        jSONObject.put("messageType", tZ());
-        if (!TextUtils.isEmpty(this.aeg)) {
-            jSONObject.put("callbackId", this.aeg);
+        jSONObject.put("messageType", tV());
+        if (!TextUtils.isEmpty(this.adn)) {
+            jSONObject.put("callbackId", this.adn);
         }
         return encode(jSONObject.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void k(JSONObject jSONObject) {
+    public void e(JSONObject jSONObject) {
     }
 
-    private static String ub() {
-        return "TBCWebViewJsBridge_callback_ID_" + aed.getAndIncrement();
+    private static String tX() {
+        return "TBCWebViewJsBridge_callback_ID_" + adk.getAndIncrement();
     }
 
     private void a(Map<String, Object> map, JSONObject jSONObject) throws JSONException {
@@ -116,21 +116,21 @@ public class q {
 
     /* loaded from: classes.dex */
     private static final class a extends q {
-        private final n aei;
+        private final n adp;
 
         private a(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, n nVar, long j) {
             super(i, str, str2, map, map2, str3, j);
-            this.aei = nVar;
+            this.adp = nVar;
         }
 
         @Override // com.baidu.tbadk.core.hybrid.q
-        protected void k(JSONObject jSONObject) {
-            this.aei.a(this, jSONObject);
+        protected void e(JSONObject jSONObject) {
+            this.adp.a(this, jSONObject);
         }
 
         @Override // com.baidu.tbadk.core.hybrid.q
         void b(int i, Throwable th) {
-            this.aei.b(i, th);
+            this.adp.b(i, th);
         }
     }
 }

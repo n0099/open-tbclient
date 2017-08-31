@@ -2,25 +2,25 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class ay extends bl {
-    public static final BdUniqueId Yz = BdUniqueId.gen();
-    private PhotoLiveCardData YA;
+public class ay extends bj {
+    public static final BdUniqueId XH = BdUniqueId.gen();
+    private PhotoLiveCardData XI;
 
-    public PhotoLiveCardData qN() {
-        return this.YA;
+    public PhotoLiveCardData qI() {
+        return this.XI;
     }
 
     public void a(PhotoLiveCardData photoLiveCardData) {
-        this.YA = photoLiveCardData;
+        this.XI = photoLiveCardData;
     }
 
-    @Override // com.baidu.tbadk.core.data.bl, com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return Yz;
+        return XH;
     }
 
-    @Override // com.baidu.tbadk.core.data.bl
+    @Override // com.baidu.tbadk.core.data.bj
     public String getTid() {
-        return this.YA != null ? String.valueOf(this.YA.getThreadId()) : super.getTid();
+        return this.XI != null ? String.valueOf(this.XI.getThreadId()) : super.getTid();
     }
 }

@@ -17,6 +17,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_HOME_LIVE_PLAY = "home_live_play";
     public static final String FROM_TYPE_HOME_REC_AUTO_PLAY = "home_rec_auto_play";
     public static final String FROM_TYPE_HOME_REC_PLAY = "home_rec_play";
+    public static final String FROM_TYPE_LIVE_ROOM_RANK_LIST = "live_room_rank_list";
     public static final String FROM_TYPE_OUTSIDE = "safari_play";
     public static final String FROM_TYPE_PB_AUTO_PLAY = "pb_auto_play";
     public static final String FROM_TYPE_PB_PLAY = "pb_play";
@@ -29,6 +30,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_SQUARE_LIVE = "square_live";
     public static final String FROM_TYPE_SQUARE_LIVE_BANNER = "square_live_banner";
     public static final String FROM_TYPE_SQUARE_RECOMMEND = "square_recommend";
+    public static final String FROM_TYPE_SQUARE_SHOW_LIVE = "square_show_field";
     public static final String FROM_TYPE_SQUARE_SUB_LIVE = "square_sub_live";
     public static final String FROM_TYPE_TAIL_LIGHT = "tail_light_play";
     public static final String FROM_TYPE_VIDEO_AUTO_PLAY = "video_auto_play";

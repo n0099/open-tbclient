@@ -1,30 +1,50 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
+import com.baidu.tbadk.core.atomData.GroupActivityActivityConfig;
 import org.json.JSONObject;
-import tbclient.VideoChannelInfo;
+import tbclient.FrsPage.YuleActivity;
 /* loaded from: classes.dex */
 public class bq {
-    public int abn;
-    public String channelAvatar;
-    public long channelId;
-    public String channelName;
-    public int mCurrentPage;
+    private int Tg;
+    private long Uw;
+    private String activity_all_icon;
+    private String activity_half_icon;
+    private String activity_url;
 
-    public void a(VideoChannelInfo videoChannelInfo) {
-        if (videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
-            this.channelId = videoChannelInfo.channel_id.longValue();
-            this.channelName = videoChannelInfo.channel_name;
-            this.channelAvatar = videoChannelInfo.channel_avatar;
+    public String getActivityUrl() {
+        return this.activity_url;
+    }
+
+    public String te() {
+        return this.activity_all_icon;
+    }
+
+    public String tf() {
+        return this.activity_half_icon;
+    }
+
+    public void a(YuleActivity yuleActivity) {
+        if (yuleActivity != null) {
+            this.Uw = yuleActivity.activity_id.longValue();
+            this.Tg = yuleActivity.activity_type.intValue();
+            this.activity_url = yuleActivity.activity_url;
+            this.activity_all_icon = yuleActivity.activity_all_icon;
+            this.activity_half_icon = yuleActivity.activity_half_icon;
         }
     }
 
-    public void j(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.channelId = jSONObject.optLong("channel_id", 0L);
-                this.channelName = jSONObject.optString("channel_name");
-                this.channelAvatar = jSONObject.optString("channel_avatar");
+                this.Uw = jSONObject.optLong(GroupActivityActivityConfig.ACTIVITY_ID);
+                this.Tg = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+                this.activity_url = jSONObject.optString("activity_url");
+                this.activity_all_icon = jSONObject.optString("activity_all_icon");
+                this.activity_half_icon = jSONObject.optString("activity_half_icon");
             } catch (Exception e) {
+                BdLog.e(e.toString());
             }
         }
     }

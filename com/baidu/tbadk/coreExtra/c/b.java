@@ -8,16 +8,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.k;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public void m(JSONObject jSONObject) {
+    public void g(JSONObject jSONObject) {
         JSONArray jSONArray;
         JSONObject optJSONObject;
         String str;
@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        eU(str2);
+                        eO(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        eU(str2);
+                        eO(str2);
                     }
                 }
             }
@@ -68,47 +68,47 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zR() {
+    public void zV() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String zS() {
+    public String zW() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void eU(String str) {
-        String zS = zS();
-        if (!TextUtils.equals(zS, str) || !isFileExist(zS)) {
-            ag(str, zS);
+    public void eO(String str) {
+        String zW = zW();
+        if (!TextUtils.equals(zW, str) || !eP(zW)) {
+            aj(str, zW);
         }
     }
 
-    private boolean isFileExist(String str) {
-        File dy = k.dy(an.ef(str));
-        return dy != null && dy.exists() && dy.isFile();
+    private boolean eP(String str) {
+        File m9do = k.m9do(ao.dX(str));
+        return m9do != null && m9do.exists() && m9do.isFile();
     }
 
-    private void ag(String str, String str2) {
-        if (i.hs()) {
-            new a(str, an.ef(str), str2).execute(new String[0]);
+    private void aj(String str, String str2) {
+        if (i.hj()) {
+            new a(str, ao.dX(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String atA;
-        private final String atz;
+        private final String atg;
+        private final String ath;
         private final String mFile;
-        private w mNetWork = null;
+        private x mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.atz = str;
+            this.atg = str;
             this.mFile = str2;
-            this.atA = str3;
+            this.ath = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,14 +117,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new w(this.atz);
+                this.mNetWork = new x(this.atg);
                 bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(k.g(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.atz) && !this.atz.equals(this.atA)) {
-                        k.dG(an.ef(this.atA));
+                    if (!StringUtils.isNull(k.g(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.atg) && !this.atg.equals(this.ath)) {
+                        k.dw(ao.dX(this.ath));
                     }
                 } else {
-                    k.dG(this.mFile + ".tmp");
+                    k.dw(this.mFile + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -137,7 +137,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().zR();
+                new b().zV();
             }
         }
     }

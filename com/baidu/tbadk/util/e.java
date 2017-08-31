@@ -5,9 +5,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class e {
-    private static e aMC = new e();
-    private b aMD;
-    private a aME;
+    private static e aMi = new e();
+    private b aMj;
+    private a aMk;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,28 +17,28 @@ public class e {
     private e() {
     }
 
-    public static e Hb() {
-        return aMC;
+    public static e Ha() {
+        return aMi;
     }
 
     public void a(a aVar) {
-        this.aME = aVar;
-        if (this.aMD != null) {
-            this.aMD.cancel();
+        this.aMk = aVar;
+        if (this.aMj != null) {
+            this.aMj.cancel();
         }
-        this.aMD = new b();
-        this.aMD.setPriority(4);
-        this.aMD.execute(new String[0]);
+        this.aMj = new b();
+        this.aMj.setPriority(4);
+        this.aMj.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Hc() {
+    public boolean Hb() {
         int i;
         long j = 0;
-        byte[] aI = com.baidu.adp.lib.util.e.aI("crash_hour_record.log");
+        byte[] aD = com.baidu.adp.lib.util.e.aD("crash_hour_record.log");
         String str = null;
-        if (aI != null) {
-            str = new String(aI);
+        if (aD != null) {
+            str = new String(aD);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {
@@ -49,7 +49,7 @@ public class e {
                 i = 0;
             } else {
                 i = com.baidu.adp.lib.g.b.g(split[0], 0);
-                j = com.baidu.adp.lib.g.b.d(split[1], j2);
+                j = com.baidu.adp.lib.g.b.c(split[1], j2);
             }
         }
         if (j == j2 && i > 1) {
@@ -68,15 +68,15 @@ public class e {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(e.this.Hc());
+            return Boolean.valueOf(e.this.Hb());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (e.this.aME != null && bool != null) {
-                e.this.aME.al(bool.booleanValue());
+            if (e.this.aMk != null && bool != null) {
+                e.this.aMk.al(bool.booleanValue());
             }
         }
     }

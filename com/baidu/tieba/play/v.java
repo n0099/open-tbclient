@@ -8,33 +8,33 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class v {
-    private static v fCp = null;
-    private HashMap<String, a> fCq = new HashMap<>();
+    private static v fAR = null;
+    private HashMap<String, a> fAS = new HashMap<>();
 
     private v() {
     }
 
-    public static v bgA() {
-        if (fCp == null) {
+    public static v bfQ() {
+        if (fAR == null) {
             synchronized (v.class) {
-                if (fCp == null) {
-                    fCp = new v();
+                if (fAR == null) {
+                    fAR = new v();
                 }
             }
         }
-        return fCp;
+        return fAR;
     }
 
-    public void aq(String str, int i) {
-        a aVar = this.fCq.get(str);
+    public void ap(String str, int i) {
+        a aVar = this.fAS.get(str);
         if (aVar == null) {
-            this.fCq.put(str, new a(i, System.currentTimeMillis()));
+            this.fAS.put(str, new a(i, System.currentTimeMillis()));
         } else {
             aVar.lastUpdateTime = System.currentTimeMillis();
             aVar.position = i;
         }
-        if (this.fCq.size() > 20) {
-            ArrayList arrayList = new ArrayList(this.fCq.entrySet());
+        if (this.fAS.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.fAS.entrySet());
             Collections.sort(arrayList, new Comparator<Map.Entry<String, a>>() { // from class: com.baidu.tieba.play.v.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -47,7 +47,7 @@ public class v {
             while (true) {
                 int i3 = i2;
                 if (i3 < 10) {
-                    this.fCq.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    this.fAS.remove(((Map.Entry) arrayList.get(i3)).getKey());
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -58,12 +58,12 @@ public class v {
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.fCq.remove(str);
+            this.fAS.remove(str);
         }
     }
 
-    public int qP(String str) {
-        a aVar = this.fCq.get(str);
+    public int qB(String str) {
+        a aVar = this.fAS.get(str);
         if (aVar != null) {
             return aVar.position;
         }

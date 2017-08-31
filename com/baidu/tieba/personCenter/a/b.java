@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 import com.baidu.tieba.person.h;
 /* loaded from: classes.dex */
@@ -18,7 +18,7 @@ public class b extends com.baidu.adp.widget.ListView.a<h, com.baidu.tieba.person
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bC */
+    /* renamed from: bA */
     public com.baidu.tieba.personCenter.d.a onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tieba.personCenter.d.a(LayoutInflater.from(this.mContext).inflate(d.j.item_person_center_list_interval, viewGroup, false));
     }
@@ -30,19 +30,19 @@ public class b extends com.baidu.adp.widget.ListView.a<h, com.baidu.tieba.person
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, h hVar, com.baidu.tieba.personCenter.d.a aVar) {
         if (hVar != null && aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.aqm != skinType) {
-                aVar.aqm = skinType;
-                ai.j(aVar.bHm, hVar.ffP);
+            if (aVar.apS != skinType) {
+                aVar.apS = skinType;
+                aj.j(aVar.bKf, hVar.aHa);
             }
-            ViewGroup.LayoutParams layoutParams = aVar.bHm.getLayoutParams();
-            if (hVar.fcz > 0) {
-                layoutParams.height = hVar.fcz;
+            ViewGroup.LayoutParams layoutParams = aVar.bKf.getLayoutParams();
+            if (hVar.faQ > 0) {
+                layoutParams.height = hVar.faQ;
             }
-            if (hVar.fcy > 0) {
-                layoutParams.width = hVar.fcy;
+            if (hVar.faP > 0) {
+                layoutParams.width = hVar.faP;
             }
-            aVar.bHm.setLayoutParams(layoutParams);
-            aVar.bHm.setOnClickListener(null);
+            aVar.bKf.setLayoutParams(layoutParams);
+            aVar.bKf.setOnClickListener(null);
         }
         return view;
     }

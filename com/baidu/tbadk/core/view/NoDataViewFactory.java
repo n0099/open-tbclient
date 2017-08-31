@@ -24,43 +24,43 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        a amF;
-        a amG;
-        int amH = -1;
+        a alZ;
+        a ama;
+        int amb = -1;
 
         private b() {
         }
 
         public static b a(a aVar) {
             b bVar = new b();
-            bVar.amF = aVar;
+            bVar.alZ = aVar;
             return bVar;
         }
 
         public static b a(a aVar, int i) {
             b bVar = new b();
-            bVar.amF = aVar;
-            bVar.amH = i;
+            bVar.alZ = aVar;
+            bVar.amb = i;
             return bVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        String afX;
-        View.OnClickListener amE;
+        String afh;
+        View.OnClickListener alY;
 
         public a(String str, View.OnClickListener onClickListener) {
-            this.afX = str;
-            this.amE = onClickListener;
+            this.afh = str;
+            this.alY = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        ImgType amI = ImgType.NONE;
-        int amJ = -1;
-        int amC = -1;
+        ImgType amc = ImgType.NONE;
+        int amd = -1;
+        int alW = -1;
         int mHeight = -1;
         int mWidth = -1;
 
@@ -69,16 +69,16 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType, int i) {
             c cVar = new c();
-            cVar.amI = imgType;
-            cVar.amJ = i;
+            cVar.amc = imgType;
+            cVar.amd = i;
             return cVar;
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             c cVar = new c();
-            cVar.amI = imgType;
-            cVar.amC = i;
-            cVar.amJ = i2;
+            cVar.amc = imgType;
+            cVar.alW = i;
+            cVar.amd = i2;
             cVar.mHeight = i3;
             cVar.mWidth = i4;
             return cVar;
@@ -86,55 +86,55 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType) {
             c cVar = new c();
-            cVar.amI = imgType;
+            cVar.amc = imgType;
             return cVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class d {
-        int adg;
-        String amL;
-        int amM = -1;
-        String mSubTitle;
+        String VE;
+        int acm;
+        String amf;
+        int amg = -1;
         String mTitle;
 
         private d() {
         }
 
+        public static d A(int i, int i2) {
+            d dVar = new d();
+            dVar.VE = TbadkCoreApplication.getInst().getResources().getString(i);
+            dVar.amg = i2;
+            return dVar;
+        }
+
+        public static d dl(int i) {
+            return er(TbadkCoreApplication.getInst().getResources().getString(i));
+        }
+
         public static d B(int i, int i2) {
+            return ag(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
+        }
+
+        public static d er(String str) {
             d dVar = new d();
-            dVar.mSubTitle = TbadkCoreApplication.getInst().getResources().getString(i);
-            dVar.amM = i2;
+            dVar.VE = str;
             return dVar;
         }
 
-        public static d dk(int i) {
-            return ey(TbadkCoreApplication.getInst().getResources().getString(i));
-        }
-
-        public static d C(int i, int i2) {
-            return ad(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
-        }
-
-        public static d ey(String str) {
-            d dVar = new d();
-            dVar.mSubTitle = str;
-            return dVar;
-        }
-
-        public static d ad(String str, String str2) {
+        public static d ag(String str, String str2) {
             d dVar = new d();
             dVar.mTitle = str2;
-            dVar.mSubTitle = str;
+            dVar.VE = str;
             return dVar;
         }
 
         public static d b(int i, String str, String str2) {
             d dVar = new d();
             dVar.mTitle = str2;
-            dVar.mSubTitle = str;
-            dVar.adg = i;
+            dVar.VE = str;
+            dVar.acm = i;
             return dVar;
         }
     }

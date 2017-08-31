@@ -68,7 +68,7 @@ public final class e {
         }
     };
     private long u = 0;
-    private int[] v = {SubsamplingScaleImageView.ORIENTATION_180, 300, 360, 420, 540, 720, TbConfig.POST_IMAGE_BIG};
+    private int[] v = {SubsamplingScaleImageView.ORIENTATION_180, 300, 360, 420, 540, 720, 900};
     private int x = 0;
     private final int y = 3;
     private int z = 0;

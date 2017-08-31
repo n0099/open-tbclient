@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a pQ;
-    private SparseArray<String> pR;
+    private static volatile a nx;
+    private SparseArray<String> ny;
 
-    public static a cA() {
-        if (pQ == null) {
+    public static a cp() {
+        if (nx == null) {
             synchronized (a.class) {
-                if (pQ == null) {
-                    pQ = new a();
+                if (nx == null) {
+                    nx = new a();
                 }
             }
         }
-        return pQ;
+        return nx;
     }
 
     private a() {
-        this.pR = null;
-        this.pR = new SparseArray<>();
+        this.ny = null;
+        this.ny = new SparseArray<>();
     }
 
     public void e(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                H(str);
+                A(str);
             }
         }
     }
 
-    private void H(String str) {
+    private void A(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.pR.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.pR.get(i) + " 重复");
+                    if (this.ny.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.ny.get(i) + " 重复");
                     }
-                    this.pR.put(i, name);
+                    this.ny.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +59,8 @@ public class a {
         }
     }
 
-    public String J(int i) {
-        String str = this.pR.get(i);
+    public String G(int i) {
+        String str = this.ny.get(i);
         if (str != null) {
             return str;
         }

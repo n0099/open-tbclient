@@ -15,18 +15,20 @@ import com.baidu.tbadk.core.atomData.AlaGameFrsLiveListActivityConfig;
 import com.baidu.tbadk.core.atomData.BookCoverActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsGoodActivityConfig;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.ab;
 import com.baidu.tieba.frs.ai;
 import com.baidu.tieba.frs.ak;
 import com.baidu.tieba.frs.an;
 import com.baidu.tieba.frs.as;
+import com.baidu.tieba.frs.at;
 import com.baidu.tieba.frs.entelechy.b.d;
 import com.baidu.tieba.frs.f;
 import com.baidu.tieba.frs.tab.HorizontalTabView;
@@ -45,16 +47,16 @@ import tbclient.CategoryInfo;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class a implements d {
-    private f coV;
-    private HorizontalTabView coW;
-    private com.baidu.tieba.frs.entelechy.c.a.a coX;
-    private ai coY;
-    private TabData cpa;
-    private i cpb;
+    private f cvA;
+    private HorizontalTabView cvB;
+    private com.baidu.tieba.frs.entelechy.c.a.a cvC;
+    private ai cvD;
+    private TabData cvF;
+    private i cvG;
     private LinearLayout mRootLayout;
-    private boolean coZ = false;
+    private boolean cvE = false;
     private int liveCount = -1;
-    private ai cpc = new ai() { // from class: com.baidu.tieba.frs.entelechy.c.a.1
+    private ai cvH = new ai() { // from class: com.baidu.tieba.frs.entelechy.c.a.1
         @Override // com.baidu.tieba.frs.ai
         public void a(ak akVar) {
         }
@@ -62,49 +64,60 @@ public class a implements d {
         @Override // com.baidu.tieba.frs.ai
         public void a(int i, int i2, an anVar) {
             if (i == 101) {
-                TiebaStatic.log(new aj("c12103").aa("fid", a.this.coV.getForumId()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12103").ad("fid", a.this.cvA.getForumId()));
             }
             if (i > 100) {
-                if (anVar != null && (anVar.cmP instanceof String)) {
-                    a.this.aS((String) anVar.cmP, "c10079");
+                if (anVar != null && (anVar.csj instanceof String)) {
+                    a.this.aW((String) anVar.csj, "c10079");
                 }
             } else {
-                aj ajVar = new aj("c10074");
-                ajVar.r("obj_type", i);
-                ajVar.aa("fid", a.this.coV.getForumId());
-                TiebaStatic.log(ajVar);
+                com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak("c10074");
+                akVar.r("obj_type", i);
+                akVar.ad("fid", a.this.cvA.getForumId());
+                TiebaStatic.log(akVar);
                 if (i == 99) {
-                    aj ajVar2 = new aj("c11500");
-                    ajVar2.aa("obj_param1", "2").aa("obj_param2", "1");
-                    TiebaStatic.log(ajVar2);
+                    com.baidu.tbadk.core.util.ak akVar2 = new com.baidu.tbadk.core.util.ak("c11500");
+                    akVar2.ad("obj_param1", "2").ad("obj_param2", "1");
+                    TiebaStatic.log(akVar2);
                 }
             }
-            if (HorizontalTabView.jz(i) && anVar != null) {
-                String str = (String) anVar.cmP;
+            if (HorizontalTabView.jN(i) && anVar != null) {
+                String str = (String) anVar.csj;
                 if (!StringUtils.isNull(str)) {
                     if ((str.contains("nohead:url") || str.contains("booktown")) && !TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                        k.showToast(a.this.coV.getPageContext().getPageActivity(), d.l.book_plugin_not_install_tip);
+                        k.showToast(a.this.cvA.getPageContext().getPageActivity(), d.l.book_plugin_not_install_tip);
                     } else {
-                        at.wg().c(a.this.coV.getPageContext(), new String[]{str});
+                        au.wd().c(a.this.cvA.getPageContext(), new String[]{str});
                     }
                 }
             } else if (i == 301) {
-                if (a.this.coV != null && a.this.coV.getPageContext() != null && a.this.coV.getPageContext().getPageActivity() != null) {
-                    a.this.coV.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, new FrsGoodActivityConfig(a.this.coV.getPageContext().getPageActivity()).createNormalCfg(a.this.coV.cjD, FrsActivityConfig.FRS_FROM_LIKE)));
+                if (a.this.cvA != null && a.this.cvA.getPageContext() != null && a.this.cvA.getPageContext().getPageActivity() != null) {
+                    a.this.cvA.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, new FrsGoodActivityConfig(a.this.cvA.getPageContext().getPageActivity()).createNormalCfg(a.this.cvA.coW, FrsActivityConfig.FRS_FROM_LIKE)));
                 }
-            } else if (i == 49 && a.this.coV != null && a.this.coV.getPageContext() != null && a.this.coV.getPageContext().getPageActivity() != null && !TextUtils.isEmpty(a.this.coV.afH().aPJ().getForumGameLabel())) {
-                if (anVar != null) {
-                    anVar.cmQ = true;
-                }
-                a.this.coV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaGameFrsLiveListActivityConfig(a.this.coV.getPageContext().getPageActivity(), a.this.coV.getForumId(), a.this.coV.getForumName(), a.this.coV.afH().aPJ().getForumGameLabel())));
             } else {
-                if (i == 1) {
-                    a.this.coX.ahx();
-                } else {
-                    a.this.coX.ahy();
+                if (i == 49) {
+                    if (a.this.cvA != null && a.this.cvA.getPageContext() != null && a.this.cvA.getPageContext().getPageActivity() != null && !TextUtils.isEmpty(a.this.cvA.ahf().aOV().getForumGameLabel())) {
+                        if (anVar != null) {
+                            anVar.csk = true;
+                        }
+                        a.this.cvA.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaGameFrsLiveListActivityConfig(a.this.cvA.getPageContext().getPageActivity(), a.this.cvA.getForumId(), a.this.cvA.getForumName(), a.this.cvA.ahf().aOV().getForumGameLabel())));
+                        return;
+                    }
+                } else if (i == 302) {
+                    if (a.this.cvA != null && a.this.cvA.getPageContext() != null && a.this.cvA.getPageContext().getPageActivity() != null) {
+                        TiebaStatic.log("c12410");
+                        a.this.cvA.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoAggregationActivityConfig(a.this.cvA.getPageContext().getPageActivity(), a.this.cvA.forumId)));
+                        return;
+                    }
+                    return;
                 }
-                if (a.this.coY != null) {
-                    a.this.coY.a(i, i2, anVar);
+                if (i == 1) {
+                    a.this.cvC.ajk();
+                } else {
+                    a.this.cvC.ajl();
+                }
+                if (a.this.cvD != null) {
+                    a.this.cvD.a(i, i2, anVar);
                 }
             }
         }
@@ -114,58 +127,58 @@ public class a implements d {
         }
 
         @Override // com.baidu.tieba.frs.ai
-        public void Ox() {
+        public void OO() {
         }
     };
-    private HorizontalTabView.c cpd = new HorizontalTabView.c() { // from class: com.baidu.tieba.frs.entelechy.c.a.2
+    private HorizontalTabView.c cvI = new HorizontalTabView.c() { // from class: com.baidu.tieba.frs.entelechy.c.a.2
         @Override // com.baidu.tieba.frs.tab.HorizontalTabView.c
-        public void iU(int i) {
-            a.this.coV.afp().iI(i);
+        public void ji(int i) {
+            a.this.cvA.agN().iU(i);
         }
 
         @Override // com.baidu.tieba.frs.tab.HorizontalTabView.c
-        public boolean iV(int i) {
-            return (a.this.coV != null && a.this.coV.afI() && i == 1) ? false : true;
+        public boolean jj(int i) {
+            return (a.this.cvA != null && a.this.cvA.ahg() && i == 1) ? false : true;
         }
     };
 
-    public void iT(int i) {
+    public void jh(int i) {
         this.liveCount = i;
     }
 
     public a(f fVar) {
-        this.coW = null;
-        this.coV = fVar;
+        this.cvB = null;
+        this.cvA = fVar;
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds114);
         this.mRootLayout = new LinearLayout(fVar.getActivity());
-        com.baidu.tbadk.core.util.ai.k(this.mRootLayout, d.e.cp_bg_line_d);
+        aj.k(this.mRootLayout, d.e.cp_bg_line_d);
         this.mRootLayout.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
-        this.coW = new HorizontalTabView(fVar.getPageContext());
-        this.coW.setForNewFrame(true);
-        this.coW.cxP = k.g(fVar.getActivity(), d.f.ds20);
-        this.coW.setAutoFillTabCount(4);
-        this.coW.setmShowMenuCallBack(this.cpd);
-        this.coW.setNeedBottomLine(false);
-        this.coW.setTabBackgroudColor(d.e.cp_bg_line_d);
+        this.cvB = new HorizontalTabView(fVar.getPageContext());
+        this.cvB.setForNewFrame(true);
+        this.cvB.cEs = k.g(fVar.getActivity(), d.f.ds20);
+        this.cvB.setAutoFillTabCount(4);
+        this.cvB.setmShowMenuCallBack(this.cvI);
+        this.cvB.setNeedBottomLine(false);
+        this.cvB.setTabBackgroudColor(d.e.cp_bg_line_d);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, dimensionPixelSize);
         layoutParams.topMargin = k.g(fVar.getActivity(), d.f.ds26);
         layoutParams.weight = 1.0f;
-        this.coW.setLayoutParams(layoutParams);
-        this.mRootLayout.addView(this.coW);
-        this.coX = new com.baidu.tieba.frs.entelechy.c.a.a(this.coV, this.mRootLayout);
-        this.coW.setOnTabItemClickListener(new HorizontalTabView.a() { // from class: com.baidu.tieba.frs.entelechy.c.a.3
+        this.cvB.setLayoutParams(layoutParams);
+        this.mRootLayout.addView(this.cvB);
+        this.cvC = new com.baidu.tieba.frs.entelechy.c.a.a(this.cvA, this.mRootLayout);
+        this.cvB.setOnTabItemClickListener(new HorizontalTabView.a() { // from class: com.baidu.tieba.frs.entelechy.c.a.3
             @Override // com.baidu.tieba.frs.tab.HorizontalTabView.a
             public void a(com.baidu.tieba.frs.tab.d dVar) {
-                if (a.this.cpb != null && a.this.cpb.aPJ() != null) {
-                    TiebaStatic.log(new aj("c12047").aa("fid", a.this.cpb.aPJ().getId()));
+                if (a.this.cvG != null && a.this.cvG.aOV() != null) {
+                    TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12047").ad("fid", a.this.cvG.aOV().getId()));
                 }
             }
         });
-        this.coW.setOnTabItemSelectListener(new HorizontalTabView.b() { // from class: com.baidu.tieba.frs.entelechy.c.a.4
+        this.cvB.setOnTabItemSelectListener(new HorizontalTabView.b() { // from class: com.baidu.tieba.frs.entelechy.c.a.4
             @Override // com.baidu.tieba.frs.tab.HorizontalTabView.b
             public void b(com.baidu.tieba.frs.tab.d dVar) {
-                if (dVar != null && a.this.coV != null) {
-                    a.this.coV.cH(dVar.cuL == 49);
+                if (dVar != null && a.this.cvA != null) {
+                    a.this.cvA.cK(dVar.cBp == 49);
                 }
             }
         });
@@ -178,63 +191,63 @@ public class a implements d {
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public void onChangeSkinType(int i) {
         if (this.mRootLayout != null) {
-            com.baidu.tbadk.core.util.ai.k(this.mRootLayout, d.e.cp_bg_line_d);
+            aj.k(this.mRootLayout, d.e.cp_bg_line_d);
         }
-        if (this.coW != null) {
-            this.coW.xd();
+        if (this.cvB != null) {
+            this.cvB.xc();
         }
-        if (this.coX != null) {
-            this.coX.onChangeSkinType(i);
+        if (this.cvC != null) {
+            this.cvC.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public void a(ai aiVar) {
-        if (this.coW != null) {
-            this.coW.setDataLoadInterface(this.cpc);
+        if (this.cvB != null) {
+            this.cvB.setDataLoadInterface(this.cvH);
         }
-        this.coY = aiVar;
+        this.cvD = aiVar;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
-    public void ak(View view) {
+    public void as(View view) {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public void b(BdListView bdListView) {
         if (this.mRootLayout != null && bdListView != null) {
             bdListView.removeHeaderView(this.mRootLayout);
-            this.coZ = false;
+            this.cvE = false;
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public void a(BdListView bdListView, int i) {
-        if (this.mRootLayout != null && !this.coZ) {
+        if (this.mRootLayout != null && !this.cvE) {
             bdListView.addHeaderView(this.mRootLayout, Integer.valueOf(i), false);
-            this.coZ = true;
+            this.cvE = true;
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public void a(BdListView bdListView, i iVar, int i) {
         boolean z;
-        if (iVar != null && iVar.brD() != null && iVar.brD().tab != null) {
-            this.coX.i(iVar.brD().menu, i);
-            if (iVar.aPJ() != null) {
-                this.coX.setFid(iVar.aPJ().getId());
+        if (iVar != null && iVar.bqS() != null && iVar.bqS().tab != null) {
+            this.cvC.i(iVar.bqS().menu, i);
+            if (iVar.aOV() != null) {
+                this.cvC.setFid(iVar.aOV().getId());
             }
-            this.cpb = iVar;
+            this.cvG = iVar;
             b(iVar);
-            this.cpa = new TabData();
-            if (u.v(iVar.brL())) {
-                for (FrsTabInfo frsTabInfo : iVar.brD().tab) {
+            this.cvF = new TabData();
+            if (v.v(iVar.bra())) {
+                for (FrsTabInfo frsTabInfo : iVar.bqS().tab) {
                     if (!a(frsTabInfo) && !b(frsTabInfo)) {
                         com.baidu.tieba.frs.tab.d dVar = new com.baidu.tieba.frs.tab.d();
-                        dVar.cuL = frsTabInfo.tab_id.intValue();
+                        dVar.cBp = frsTabInfo.tab_id.intValue();
                         dVar.name = frsTabInfo.tab_name;
                         if (frsTabInfo.tab_type.intValue() == 12) {
-                            this.cpa.add(dVar);
+                            this.cvF.add(dVar);
                         } else if (frsTabInfo.tab_type.intValue() == 1 && frsTabInfo.tab_id.intValue() >= 100) {
                             if (!TextUtils.isEmpty(frsTabInfo.tab_url)) {
                                 StringBuilder sb = new StringBuilder();
@@ -246,80 +259,80 @@ public class a implements d {
                                 sb.append("&");
                                 sb.append("fid");
                                 sb.append("=");
-                                sb.append(iVar.aPJ().getId());
+                                sb.append(iVar.aOV().getId());
                                 dVar.url = sb.toString();
-                                aS(dVar.url, "c10078");
-                                this.cpa.add(dVar);
+                                aW(dVar.url, "c10078");
+                                this.cvF.add(dVar);
                             }
-                        } else if (frsTabInfo.tab_type.intValue() == 11 && HorizontalTabView.jz(frsTabInfo.tab_id.intValue())) {
+                        } else if (frsTabInfo.tab_type.intValue() == 11 && HorizontalTabView.jN(frsTabInfo.tab_id.intValue())) {
                             dVar.url = frsTabInfo.tab_url;
-                            if (com.baidu.tbadk.browser.d.cr(dVar.url)) {
+                            if (com.baidu.tbadk.browser.d.ch(dVar.url)) {
                                 if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null) {
-                                    this.cpa.add(dVar);
+                                    this.cvF.add(dVar);
                                 }
                             } else {
-                                this.cpa.add(dVar);
+                                this.cvF.add(dVar);
                             }
-                        } else if (frsTabInfo.tab_id.intValue() != 1 && ab.agv().iO(frsTabInfo.tab_id.intValue()) && frsTabInfo.tab_id.intValue() != 49) {
-                            z iL = y.agu().iL(dVar.cuL);
-                            if (iL != null && iL.cmB != null && iL.cmB.size() > 0) {
-                                dVar.cyk = new com.baidu.tieba.frs.at();
-                                dVar.cyk.cmA = iL.cmA;
-                                dVar.cyk.cmB = new LinkedList();
+                        } else if (frsTabInfo.tab_id.intValue() != 1 && ab.ahT().ja(frsTabInfo.tab_id.intValue()) && frsTabInfo.tab_id.intValue() != 49) {
+                            z iX = y.ahS().iX(dVar.cBp);
+                            if (iX != null && iX.crV != null && iX.crV.size() > 0) {
+                                dVar.cEN = new at();
+                                dVar.cEN.crU = iX.crU;
+                                dVar.cEN.crV = new LinkedList();
                                 boolean z2 = true;
-                                for (x xVar : iL.cmB) {
+                                for (x xVar : iX.crV) {
                                     if (xVar != null) {
                                         as asVar = new as();
                                         asVar.name = xVar.name;
-                                        asVar.cmx = xVar.cmx;
+                                        asVar.crR = xVar.crR;
                                         if (z2) {
                                             asVar.isSelected = true;
                                             z = false;
                                         } else {
                                             z = z2;
                                         }
-                                        dVar.cyk.cmB.add(asVar);
+                                        dVar.cEN.crV.add(asVar);
                                         z2 = z;
                                     }
                                 }
                             }
-                            this.cpa.add(dVar);
+                            this.cvF.add(dVar);
                         } else if (frsTabInfo.tab_id.intValue() == 1) {
-                            z iL2 = y.agu().iL(dVar.cuL);
-                            if (iL2 != null && iL2.cmB != null && iL2.cmB.size() > 0) {
-                                dVar.cyk = new com.baidu.tieba.frs.at();
-                                dVar.cyk.cmA = iL2.cmA;
-                                dVar.cyk.cmB = new LinkedList();
-                                for (x xVar2 : iL2.cmB) {
+                            z iX2 = y.ahS().iX(dVar.cBp);
+                            if (iX2 != null && iX2.crV != null && iX2.crV.size() > 0) {
+                                dVar.cEN = new at();
+                                dVar.cEN.crU = iX2.crU;
+                                dVar.cEN.crV = new LinkedList();
+                                for (x xVar2 : iX2.crV) {
                                     if (xVar2 != null) {
                                         as asVar2 = new as();
                                         asVar2.name = xVar2.name;
-                                        asVar2.cmx = xVar2.cmx;
-                                        dVar.cyk.cmB.add(asVar2);
+                                        asVar2.crR = xVar2.crR;
+                                        dVar.cEN.crV.add(asVar2);
                                     }
                                 }
                             }
-                            this.cpa.add(dVar);
-                        } else if (frsTabInfo.tab_id.intValue() == 49 && this.coV.afp().agi().k(bl.Zh)) {
+                            this.cvF.add(dVar);
+                        } else if (frsTabInfo.tab_id.intValue() == 49 && this.cvA.agN().ahG().m(bj.Yl)) {
                             com.baidu.tieba.frs.tab.d dVar2 = new com.baidu.tieba.frs.tab.d();
                             dVar2.name = frsTabInfo.tab_name;
-                            if (iVar.bra() != 0 && iVar.bra() <= 99) {
-                                dVar2.name = frsTabInfo.tab_name + "(" + iVar.bra() + ")";
+                            if (iVar.bqp() != 0 && iVar.bqp() <= 99) {
+                                dVar2.name = frsTabInfo.tab_name + "(" + iVar.bqp() + ")";
                             }
-                            if (this.liveCount > 0 && this.liveCount != iVar.bra() && this.liveCount <= 99) {
+                            if (this.liveCount > 0 && this.liveCount != iVar.bqp() && this.liveCount <= 99) {
                                 dVar2.name = frsTabInfo.tab_name + "(" + this.liveCount + ")";
-                            } else if (this.liveCount > 99 || iVar.bra() > 99) {
+                            } else if (this.liveCount > 99 || iVar.bqp() > 99) {
                                 dVar2.name = frsTabInfo.tab_name + "(99+)";
-                            } else if (this.liveCount == 0 && this.liveCount != iVar.bra()) {
+                            } else if (this.liveCount == 0 && this.liveCount != iVar.bqp()) {
                                 dVar2.name = frsTabInfo.tab_name;
                             }
-                            dVar2.cuL = frsTabInfo.tab_id.intValue();
-                            this.cpa.add(dVar2);
+                            dVar2.cBp = frsTabInfo.tab_id.intValue();
+                            this.cvF.add(dVar2);
                         }
                     }
                 }
             } else {
-                Iterator<FrsTabInfo> it = iVar.brD().tab.iterator();
+                Iterator<FrsTabInfo> it = iVar.bqS().tab.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -327,15 +340,15 @@ public class a implements d {
                     FrsTabInfo next = it.next();
                     if (next.tab_id.intValue() == 1) {
                         com.baidu.tieba.frs.tab.d dVar3 = new com.baidu.tieba.frs.tab.d();
-                        dVar3.cuL = next.tab_id.intValue();
+                        dVar3.cBp = next.tab_id.intValue();
                         dVar3.name = next.tab_name;
-                        this.cpa.add(dVar3);
+                        this.cvF.add(dVar3);
                         break;
                     }
                 }
             }
-            this.coW.d(this.cpa, iVar.brx(), 12);
-            if (!this.coZ) {
+            this.cvB.d(this.cvF, iVar.bqM(), 12);
+            if (!this.cvE) {
                 a(bdListView, bdListView.getHeaderViewsCount());
             }
         }
@@ -352,7 +365,7 @@ public class a implements d {
         if (frsTabInfo != null) {
             if (frsTabInfo.tab_type.intValue() != 0 || frsTabInfo.tab_id.intValue() < 100) {
                 if (frsTabInfo.tab_type.intValue() != 1 || frsTabInfo.tab_id.intValue() >= 100) {
-                    return frsTabInfo.tab_type.intValue() == 11 && !HorizontalTabView.jz(frsTabInfo.tab_id.intValue());
+                    return frsTabInfo.tab_type.intValue() == 11 && !HorizontalTabView.jN(frsTabInfo.tab_id.intValue());
                 }
                 return true;
             }
@@ -362,15 +375,15 @@ public class a implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aS(String str, String str2) {
+    public void aW(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
                 URI uri = new URI(str);
                 if (uri != null) {
                     String host = uri.getHost();
-                    aj ajVar = new aj(str2);
-                    ajVar.aa("obj_type", host);
-                    TiebaStatic.log(ajVar);
+                    com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak(str2);
+                    akVar.ad("obj_type", host);
+                    TiebaStatic.log(akVar);
                 }
             } catch (URISyntaxException e) {
                 BdLog.e(e);
@@ -378,64 +391,64 @@ public class a implements d {
         }
     }
 
-    public HorizontalTabView ahv() {
-        return this.coW;
+    public HorizontalTabView aji() {
+        return this.cvB;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
-    public void eT(boolean z) {
-        if (this.coX != null) {
+    public void fb(boolean z) {
+        if (this.cvC != null) {
             if (z) {
-                this.coX.ahx();
+                this.cvC.ajk();
             } else {
-                this.coX.ahy();
+                this.cvC.ajl();
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
-    public TabData aho() {
-        return this.cpa;
+    public TabData ajb() {
+        return this.cvF;
     }
 
     private void b(i iVar) {
-        if (iVar == null || iVar.bru() == null || iVar.bru().size() == 0) {
-            y.agu().a(1, null);
+        if (iVar == null || iVar.bqJ() == null || iVar.bqJ().size() == 0) {
+            y.ahS().a(1, null);
             return;
         }
-        List<CategoryInfo> bru = iVar.bru();
+        List<CategoryInfo> bqJ = iVar.bqJ();
         z zVar = new z();
-        zVar.cmA = 1;
+        zVar.crU = 1;
         ArrayList arrayList = new ArrayList();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < bru.size()) {
-                if (bru.get(i2) != null) {
+            if (i2 < bqJ.size()) {
+                if (bqJ.get(i2) != null) {
                     x xVar = new x();
-                    xVar.cmx = bru.get(i2).category_id.intValue();
-                    xVar.name = bru.get(i2).category_name;
+                    xVar.crR = bqJ.get(i2).category_id.intValue();
+                    xVar.name = bqJ.get(i2).category_name;
                     arrayList.add(xVar);
                 }
                 i = i2 + 1;
             } else {
-                zVar.cmB = arrayList;
-                y.agu().a(1, zVar);
+                zVar.crV = arrayList;
+                y.ahS().a(1, zVar);
                 return;
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
-    public View ahp() {
-        if (this.coX == null) {
+    public View ajc() {
+        if (this.cvC == null) {
             return null;
         }
-        return this.coX.ahw();
+        return this.cvC.ajj();
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
-    public View ahq() {
+    public View ajd() {
         return this.mRootLayout;
     }
 }

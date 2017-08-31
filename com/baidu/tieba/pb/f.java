@@ -1,25 +1,25 @@
 package com.baidu.tieba.pb;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
 public class f {
-    private static String eDP = TbadkCoreApplication.getInst().getContext().getString(d.l.ueg_host_msg);
+    private static String eCi = TbadkCoreApplication.getInst().getContext().getString(d.l.ueg_host_msg);
 
-    public static void pk(String str) {
-        if (!al.isEmpty(str)) {
-            eDP = str;
+    public static void oW(String str) {
+        if (!am.isEmpty(str)) {
+            eCi = str;
         }
     }
 
-    public static boolean T(bl blVar) {
+    public static boolean Y(bj bjVar) {
         if (TbadkCoreApplication.isLogin()) {
-            if (blVar != null && blVar.aaW) {
-                BdToast.a(TbadkCoreApplication.getInst().getContext(), eDP).tA();
+            if (bjVar != null && bjVar.aac) {
+                BdToast.a(TbadkCoreApplication.getInst().getContext(), eCi).tw();
                 return true;
             }
             return false;
@@ -29,8 +29,8 @@ public class f {
 
     public static boolean d(PostData postData) {
         if (TbadkCoreApplication.isLogin()) {
-            if (postData != null && postData.gkt) {
-                BdToast.a(TbadkCoreApplication.getInst().getContext(), eDP).tA();
+            if (postData != null && postData.giU) {
+                BdToast.a(TbadkCoreApplication.getInst().getContext(), eCi).tw();
                 return true;
             }
             return false;
@@ -40,7 +40,7 @@ public class f {
 
     public static boolean iL(boolean z) {
         if (z) {
-            BdToast.a(TbadkCoreApplication.getInst().getContext(), eDP).tA();
+            BdToast.a(TbadkCoreApplication.getInst().getContext(), eCi).tw();
             return true;
         }
         return false;

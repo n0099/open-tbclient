@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private final ArrayList<MetaData> gDV = new ArrayList<>();
-    private HashMap<String, String> gDW = null;
+    private final ArrayList<MetaData> gCI = new ArrayList<>();
+    private HashMap<String, String> gCJ = null;
 
     public void b(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.gDW == null) {
-                        this.gDW = new HashMap<>();
+                    if (this.gCJ == null) {
+                        this.gCJ = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -31,9 +31,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.gDV.add(metaData);
+                        this.gCI.add(metaData);
                         if (z) {
-                            this.gDW.put(metaData.getName_show(), metaData.getPortrait());
+                            this.gCJ.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -41,7 +41,7 @@ public class b {
         }
     }
 
-    public void tc(String str) {
+    public void sX(String str) {
         try {
             b(new JSONObject(str), true);
         } catch (Exception e) {
@@ -49,11 +49,11 @@ public class b {
         }
     }
 
-    public ArrayList<MetaData> byX() {
-        return this.gDV;
+    public ArrayList<MetaData> byo() {
+        return this.gCI;
     }
 
-    public HashMap<String, String> byY() {
-        return this.gDW;
+    public HashMap<String, String> byp() {
+        return this.gCJ;
     }
 }

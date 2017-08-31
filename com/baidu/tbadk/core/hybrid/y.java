@@ -10,6 +10,10 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public class y {
+    public static boolean U(String str, String str2) {
+        return b(new File(str), str2);
+    }
+
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=4, 65=4, 66=4, 59=5, 60=4, 61=4] */
     /* JADX WARN: Removed duplicated region for block: B:117:0x00c0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:125:0x00bb A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -17,7 +21,7 @@ public class y {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean c(File file, String str) {
+    public static boolean b(File file, String str) {
         ZipFile zipFile;
         InputStream inputStream;
         FileOutputStream fileOutputStream;

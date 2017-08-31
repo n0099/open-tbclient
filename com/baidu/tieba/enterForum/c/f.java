@@ -11,15 +11,15 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends LinearLayout {
-    private ViewEventCenter bYx;
-    private TextView caX;
-    private ImageView caY;
-    private LinearLayout cbh;
+    private ViewEventCenter cbt;
+    private TextView cdO;
+    private ImageView cdP;
+    private LinearLayout cdY;
 
     public f(Context context) {
         this(context, null);
@@ -31,36 +31,36 @@ public class f extends LinearLayout {
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.bYx = viewEventCenter;
+        this.cbt = viewEventCenter;
     }
 
     public void init() {
         LayoutInflater.from(getContext()).inflate(d.j.layout_enterforum_search, this);
         setOrientation(1);
         setDescendantFocusability(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
-        this.cbh = (LinearLayout) findViewById(d.h.search_container);
-        this.cbh.setVisibility(0);
-        this.cbh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.f.1
+        this.cdY = (LinearLayout) findViewById(d.h.search_container);
+        this.cdY.setVisibility(0);
+        this.cdY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.bYx != null) {
+                if (f.this.cbt != null) {
                     TiebaStatic.log("c10362");
-                    f.this.bYx.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(7, null, null, null));
+                    f.this.cbt.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(7, null, null, null));
                 }
             }
         });
-        this.caX = (TextView) findViewById(d.h.search_text);
-        this.caY = (ImageView) findViewById(d.h.search_icon);
+        this.cdO = (TextView) findViewById(d.h.search_text);
+        this.cdP = (ImageView) findViewById(d.h.search_icon);
     }
 
     public void n(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.o.a.a(tbPageContext, this);
-        ai.c(this.caY, d.g.icon_search);
-        ai.i(this.caX, d.e.enter_forum_search_text_color);
-        ai.j(this.cbh, d.g.enter_forum_search_frame);
+        aj.c(this.cdP, d.g.icon_search);
+        aj.i(this.cdO, d.e.enter_forum_search_text_color);
+        aj.j(this.cdY, d.g.enter_forum_search_frame);
     }
 
     public void setSearchHint(String str) {
-        this.caX.setText(UtilHelper.getFixedText(str, 20));
+        this.cdO.setText(UtilHelper.getFixedText(str, 20));
     }
 }

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class d {
-    static d QI;
+    static d Om;
     String a = "firll.dat";
     int b = 3164;
     int d = 0;
@@ -15,23 +15,7 @@ public class d {
     int h = 80;
     int i = 100;
 
-    private void a(int i, long j) {
-        String g = i.g();
-        if (g == null) {
-            return;
-        }
-        try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(g + File.separator + this.a, "rw");
-            randomAccessFile.seek(i);
-            randomAccessFile.writeInt(this.b);
-            randomAccessFile.writeLong(j);
-            randomAccessFile.writeInt(this.b);
-            randomAccessFile.close();
-        } catch (Exception e) {
-        }
-    }
-
-    private long aV(int i) {
+    private long aR(int i) {
         RandomAccessFile randomAccessFile;
         String g = i.g();
         if (g == null) {
@@ -91,26 +75,42 @@ public class d {
         }
     }
 
-    public static d nt() {
-        if (QI == null) {
-            QI = new d();
+    private void b(int i, long j) {
+        String g = i.g();
+        if (g == null) {
+            return;
         }
-        return QI;
+        try {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(g + File.separator + this.a, "rw");
+            randomAccessFile.seek(i);
+            randomAccessFile.writeInt(this.b);
+            randomAccessFile.writeLong(j);
+            randomAccessFile.writeInt(this.b);
+            randomAccessFile.close();
+        } catch (Exception e) {
+        }
+    }
+
+    public static d ng() {
+        if (Om == null) {
+            Om = new d();
+        }
+        return Om;
     }
 
     public void a(long j) {
-        a(this.d, j);
+        b(this.d, j);
     }
 
     public long b() {
-        return aV(this.d);
+        return aR(this.d);
     }
 
     public void b(long j) {
-        a(this.g, j);
+        b(this.g, j);
     }
 
     public long c() {
-        return aV(this.g);
+        return aR(this.g);
     }
 }

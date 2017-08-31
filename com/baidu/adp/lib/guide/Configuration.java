@@ -14,32 +14,32 @@ public class Configuration implements Parcelable {
         public Configuration createFromParcel(Parcel parcel) {
             Configuration configuration = new Configuration();
             configuration.mAlpha = parcel.readInt();
-            configuration.vX = parcel.readInt();
-            configuration.vY = parcel.readInt();
-            configuration.vZ = parcel.readInt();
-            configuration.wa = parcel.readByte() == 1;
-            configuration.wb = parcel.readByte() == 1;
+            configuration.tM = parcel.readInt();
+            configuration.tN = parcel.readInt();
+            configuration.tO = parcel.readInt();
+            configuration.tP = parcel.readByte() == 1;
+            configuration.tQ = parcel.readByte() == 1;
             return configuration;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: af */
+        /* renamed from: ac */
         public Configuration[] newArray(int i) {
             return new Configuration[i];
         }
     };
-    boolean vW;
-    View jv = null;
+    boolean tL;
+    View ju = null;
     int mAlpha = MotionEventCompat.ACTION_MASK;
-    int vX = -1;
-    int vY = -1;
-    int vZ = 17170444;
-    boolean wa = true;
-    boolean wb = false;
-    boolean wc = false;
-    int wd = -1;
-    int we = -1;
+    int tM = -1;
+    int tN = -1;
+    int tO = 17170444;
+    boolean tP = true;
+    boolean tQ = false;
+    boolean tR = false;
+    int tS = -1;
+    int tT = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -49,10 +49,10 @@ public class Configuration implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.mAlpha);
-        parcel.writeInt(this.vX);
-        parcel.writeInt(this.vY);
-        parcel.writeInt(this.vZ);
-        parcel.writeByte((byte) (this.wa ? 1 : 0));
-        parcel.writeByte((byte) (this.wb ? 1 : 0));
+        parcel.writeInt(this.tM);
+        parcel.writeInt(this.tN);
+        parcel.writeInt(this.tO);
+        parcel.writeByte((byte) (this.tP ? 1 : 0));
+        parcel.writeByte((byte) (this.tQ ? 1 : 0));
     }
 }

@@ -12,11 +12,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private static String pv = null;
-    private static volatile SQLiteDatabase pq = null;
-    public static HashMap<String, SQLiteDatabase> doK = new HashMap<>();
+    private static String na = null;
+    private static volatile SQLiteDatabase mU = null;
+    public static HashMap<String, SQLiteDatabase> dvm = new HashMap<>();
 
-    public static synchronized SQLiteDatabase auv() {
+    public static synchronized SQLiteDatabase awh() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (f.class) {
             try {
@@ -27,34 +27,34 @@ public class f {
                 sQLiteDatabase = null;
             } else {
                 String str = TbadkCoreApplication.getCurrentAccount() + ".db";
-                if (doK.containsKey(str)) {
-                    sQLiteDatabase = doK.get(str);
-                } else if (pq != null && str.equals(pv) && pq.isOpen()) {
-                    sQLiteDatabase = pq;
+                if (dvm.containsKey(str)) {
+                    sQLiteDatabase = dvm.get(str);
+                } else if (mU != null && str.equals(na) && mU.isOpen()) {
+                    sQLiteDatabase = mU;
                 } else {
-                    if (pq != null) {
-                        m.i(pq);
+                    if (mU != null) {
+                        m.i(mU);
                     }
                     e eVar = new e(TbadkCoreApplication.getInst().getApp(), str);
-                    pv = str;
-                    pq = eVar.getWritableDatabase();
-                    sQLiteDatabase = pq;
+                    na = str;
+                    mU = eVar.getWritableDatabase();
+                    sQLiteDatabase = mU;
                 }
             }
         }
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> auw() {
+    public static LinkedList<String> awi() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase auv = auv();
+        SQLiteDatabase awh = awh();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (auv != null) {
+        if (awh != null) {
             try {
-                cursor2 = auv.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = awh.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -93,20 +93,20 @@ public class f {
         return linkedList;
     }
 
-    public static void mh(String str) {
+    public static void my(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                g.aux().auy();
-                Iterator<String> it = auw().iterator();
+                g.awj().awk();
+                Iterator<String> it = awi().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            g.aux().update("tb_message_center", contentValues, null, null);
+                            g.awj().update("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            g.aux().a(next, null, null);
+                            g.awj().a(next, null, null);
                         }
                     }
                 }
@@ -115,7 +115,7 @@ public class f {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            g.aux().endTransaction();
+            g.awj().endTransaction();
         }
     }
 }

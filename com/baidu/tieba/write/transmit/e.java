@@ -2,12 +2,12 @@ package com.baidu.tieba.write.transmit;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.f;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e implements f {
-    public static final BdUniqueId abk = BdUniqueId.gen();
+    public static final BdUniqueId aap = BdUniqueId.gen();
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return abk;
+        return aap;
     }
 }

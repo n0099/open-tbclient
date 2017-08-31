@@ -7,41 +7,41 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public abstract class a {
-    public static a TP = null;
+    public static a SR = null;
 
     /* renamed from: com.baidu.tbadk.core.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0040a {
+    public interface InterfaceC0044a {
         void a(AccountData accountData);
 
         void c(String str, int i, String str2);
 
-        void cz(String str);
+        void cp(String str);
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        public String mBduss = null;
-        public String TQ = null;
-        public String TR = null;
+        public String wq = null;
+        public String SS = null;
+        public String ST = null;
     }
 
-    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, InterfaceC0040a interfaceC0040a);
+    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, InterfaceC0044a interfaceC0044a);
 
-    public abstract b cy(String str);
+    public abstract b co(String str);
 
     public abstract AccountData f(String str, String str2, String str3, String str4);
 
-    public abstract void ph();
+    public abstract void pb();
 
-    public static a pg() {
-        return TP;
+    public static a pa() {
+        return SR;
     }
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (TP == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_ACCOUT_LOGIN_HELPER, a.class)) != null && runTask.getData() != null) {
-            TP = (a) runTask.getData();
+        if (SR == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_ACCOUT_LOGIN_HELPER, a.class)) != null && runTask.getData() != null) {
+            SR = (a) runTask.getData();
         }
     }
 }

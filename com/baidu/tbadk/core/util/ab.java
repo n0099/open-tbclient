@@ -1,192 +1,208 @@
 package com.baidu.tbadk.core.util;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import android.app.Activity;
+import android.content.Context;
+import android.support.v4.util.ArrayMap;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ab {
-    private static ab ahp;
-    private static final BdUniqueId ahq = BdUniqueId.gen();
-
-    public static synchronized ab vy() {
-        ab abVar;
-        synchronized (ab.class) {
-            if (ahp == null) {
-                ahp = new ab();
+    public static boolean aH(Context context) {
+        boolean z;
+        boolean z2;
+        if (com.baidu.b.a.nk()) {
+            if (context == null) {
+                return false;
             }
-            abVar = ahp;
-        }
-        return abVar;
-    }
-
-    /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<String, String, String> {
-        private final String ahr;
-        private final boolean ahs;
-        private final boolean aht;
-        private final boolean ahu;
-        private final String imageUrl;
-
-        public a(String str, String str2, boolean z, boolean z2, boolean z3) {
-            this.imageUrl = str;
-            this.ahr = str2;
-            this.ahs = z;
-            this.aht = z2;
-            this.ahu = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ab.ahq));
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: i */
-        public String doInBackground(String... strArr) {
             try {
-                ab.this.a(this.imageUrl, this.ahr, this.ahs, this.aht, this.ahu);
-            } finally {
-                return null;
+                z = com.baidu.b.a.a.R(context, "android.permission.READ_PHONE_STATE");
+            } catch (Exception e) {
+                e = e;
+                z = false;
             }
-            return null;
-        }
-    }
-
-    public void a(String str, String str2, boolean z, boolean z2, boolean z3) {
-        if (str2 != null && str != null) {
-            String ef = an.ef(str);
-            ak.vL().X(str2, ef);
-            if (z || z2 || z3) {
-                synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                    int ea = ak.vL().ea(ef);
-                    if (ea > 0) {
-                        if (z) {
-                            Bitmap dY = ak.vL().dY(ef);
-                            com.baidu.tbadk.imageManager.c.Ex().eX(ea);
-                            if (dY != null) {
-                                a(str, dY, z2, ak.vL().dZ(ef), z3, ef);
-                            }
-                        }
-                    }
+            try {
+                z2 = aI(context);
+            } catch (Exception e2) {
+                e = e2;
+                BdLog.e(e.getMessage());
+                z2 = false;
+                if (z2) {
                 }
             }
+            return !z2 && z;
         }
+        return true;
     }
 
-    public void b(String str, String str2, boolean z, boolean z2, boolean z3) {
-        new a(str2, str2, z3, z3, z3).execute(new String[0]);
+    public static boolean aI(Context context) {
+        if (com.baidu.b.a.nk()) {
+            if (context != null) {
+                try {
+                    if (!com.baidu.b.a.a.R(context, "android.permission.ACCESS_FINE_LOCATION")) {
+                        if (!com.baidu.b.a.a.R(context, "android.permission.ACCESS_COARSE_LOCATION")) {
+                            return false;
+                        }
+                    }
+                    return true;
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return false;
+                }
+            }
+            return false;
+        }
+        return true;
     }
 
-    public Bitmap g(Bitmap bitmap) {
-        return a(bitmap, true);
+    public static boolean aJ(Context context) {
+        if (!com.baidu.b.a.nk()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.b.a.a.R(context, "android.permission.CAMERA");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
     }
 
-    public Bitmap a(Bitmap bitmap, boolean z) {
+    public static boolean aK(Context context) {
+        if (!com.baidu.b.a.nk()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.b.a.a.R(context, "android.permission.RECORD_AUDIO");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean aL(Context context) {
+        Context aP = aP(context);
+        if (aP == null) {
+            return true;
+        }
         try {
-            com.baidu.tbadk.core.util.b.a b = b(bitmap.getWidth(), bitmap.getHeight(), z);
-            int i = b.width;
-            int i2 = b.height;
-            if (i != bitmap.getWidth() || i2 != bitmap.getHeight()) {
-                Bitmap resizedBitmap = BitmapHelper.getResizedBitmap(bitmap, i, i2);
-                return resizedBitmap != null ? resizedBitmap : bitmap;
+            if (com.baidu.b.a.nk() && com.baidu.b.a.a.S(aP, "android.permission.RECORD_AUDIO")) {
+                com.baidu.adp.lib.util.k.showToast(aP, d.l.record_audio_permission_denied_fun_disable);
+                return true;
             }
-            return bitmap;
         } catch (Exception e) {
-            j jVar = new j();
-            if (bitmap == null) {
-                jVar.n("bitmap", "null");
-            } else {
-                jVar.n("bitW", Integer.valueOf(bitmap.getWidth()));
-                jVar.n("bitH", Integer.valueOf(bitmap.getHeight()));
+            BdLog.e(e.getMessage());
+        }
+        return false;
+    }
+
+    public static boolean aM(Context context) {
+        if (!com.baidu.b.a.nk()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.b.a.a.R(context, "android.permission.READ_PHONE_STATE");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
             }
-            TiebaStatic.imgError(TbErrInfo.ERR_IMG_RESIZE, "getResizedBitmap error: " + e.toString(), jVar.toString());
-            return bitmap;
         }
+        return false;
     }
 
-    private static void a(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.c.Ex().c(str, aVar);
+    public static boolean aN(Context context) {
+        if (!com.baidu.b.a.nk()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.b.a.a.R(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
     }
 
-    public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
-        Bitmap bitmap2;
-        Bitmap g = z2 ? g(bitmap) : bitmap;
-        if (!z || g == null) {
-            bitmap2 = g;
-        } else {
-            float f = 10.0f;
-            bitmap2 = BitmapHelper.getRoundedCornerBitmap(g, (g.getHeight() < 100 || g.getWidth() < 100) ? 5.0f : 5.0f, true);
+    public static boolean aO(Context context) {
+        Context aP = aP(context);
+        if (aP == null) {
+            return true;
         }
-        if (!TextUtils.isEmpty(str)) {
-            ak.vL().h(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
-        }
-        return bitmap2;
-    }
-
-    private void a(String str, Bitmap bitmap, boolean z, boolean z2, boolean z3, String str2) {
         try {
-            Bitmap a2 = a(bitmap, z, z3, str2);
-            if (a2 != null) {
-                a(str, new com.baidu.adp.widget.a.a(a2, z2));
+            if (com.baidu.b.a.nk() && com.baidu.b.a.a.S(aP, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                com.baidu.adp.lib.util.k.showToast(aP, d.l.write_external_storage_permission_denied_fun_disable);
+                return true;
             }
         } catch (Exception e) {
-            TiebaStatic.imgError(TbErrInfo.ERR_IMG_ADD_MEMORY, "addPicMemoryCache error: " + e.toString(), str);
+            BdLog.e(e.getMessage());
+        }
+        return false;
+    }
+
+    public static Context aP(Context context) {
+        return context == null ? TbadkCoreApplication.getInst().getContext() : context;
+    }
+
+    public static void c(Activity activity, int i) {
+        try {
+            com.baidu.b.a.a.a(activity, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, i);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    public com.baidu.tbadk.core.util.b.a b(int i, int i2, boolean z) {
-        boolean z2;
-        int i3;
-        int i4;
-        int i5;
-        int i6 = 70;
-        int vj = LocalViewSize.vf().vj();
-        if (z) {
-            if (i / i2 >= 3) {
-                z2 = true;
-                i3 = i / 2;
-                i4 = i;
-            } else if (i2 / i >= 3) {
-                i4 = i2 / 2;
-                z2 = true;
-                i3 = i2;
-            }
-            if (i4 <= i3 && i4 > vj) {
-                i3 = (int) (i3 / (i4 / vj));
-            } else if (i3 > i4 || i3 <= vj) {
-                vj = i4;
-            } else {
-                vj = (int) (i4 / (i3 / vj));
-                i3 = vj;
-            }
-            if (z2 && i <= vj && i2 <= i3) {
-                vj = (int) (vj * 0.9d);
-                i3 = (int) (i3 * 0.9d);
-            }
-            if (vj < 70 || i3 >= 70) {
-                i6 = i3;
-                i5 = vj;
-            } else {
-                i5 = 70;
-            }
-            return new com.baidu.tbadk.core.util.b.a(i5, i6, z2);
+    public static ArrayMap<String, Boolean> a(String[] strArr, int[] iArr) {
+        if (strArr == null || strArr.length == 0 || iArr == null || iArr.length == 0) {
+            return null;
         }
-        z2 = false;
-        i3 = i2;
-        i4 = i;
-        if (i4 <= i3) {
+        ArrayMap<String, Boolean> arrayMap = new ArrayMap<>(strArr.length);
+        for (int i = 0; i < strArr.length && i < iArr.length; i++) {
+            arrayMap.put(strArr[i], Boolean.valueOf(iArr[i] == 0));
         }
-        if (i3 > i4) {
+        return arrayMap;
+    }
+
+    public static boolean d(Activity activity, int i) {
+        ArrayList arrayList = new ArrayList(2);
+        if (!aN(activity.getApplicationContext())) {
+            arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
         }
-        vj = i4;
-        if (z2) {
-            vj = (int) (vj * 0.9d);
-            i3 = (int) (i3 * 0.9d);
+        if (!aJ(activity.getApplicationContext())) {
+            arrayList.add("android.permission.CAMERA");
         }
-        if (vj < 70) {
+        if (arrayList.size() == 0) {
+            return false;
         }
-        i6 = i3;
-        i5 = vj;
-        return new com.baidu.tbadk.core.util.b.a(i5, i6, z2);
+        try {
+            com.baidu.b.a.a.a(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+        return true;
+    }
+
+    public static boolean e(Activity activity, int i) {
+        ArrayList arrayList = new ArrayList();
+        if (!aK(activity.getApplicationContext())) {
+            arrayList.add("android.permission.RECORD_AUDIO");
+        }
+        if (arrayList.size() == 0) {
+            return false;
+        }
+        try {
+            com.baidu.b.a.a.a(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+        return true;
     }
 }

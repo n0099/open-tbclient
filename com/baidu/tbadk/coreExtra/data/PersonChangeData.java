@@ -13,6 +13,7 @@ public class PersonChangeData extends OrmObject implements Serializable {
     private boolean mPhotoChanged = false;
     private String mNameShow = null;
     private int mNickNameLeftDays = -1;
+    private int isMem = 0;
 
     public String getIntro() {
         return this.mIntro;
@@ -68,5 +69,13 @@ public class PersonChangeData extends OrmObject implements Serializable {
 
     public void setNickNameLeftDays(int i) {
         this.mNickNameLeftDays = i;
+    }
+
+    public int getMen() {
+        return this.isMem;
+    }
+
+    public void setMem(int i) {
+        this.isMem = i;
     }
 }

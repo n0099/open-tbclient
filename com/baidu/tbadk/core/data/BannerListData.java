@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.tbadkCore.data.AppData;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -32,8 +33,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).UK)) {
-                sb.append(this.advertAppList.get(i).UK);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).TL)) {
+                sb.append(this.advertAppList.get(i).TL);
                 if (i != size - 1) {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
@@ -65,6 +66,10 @@ public class BannerListData implements Serializable {
     }
 
     public void parserProtobuf(BannerList bannerList) {
+        List<AppData> bhb = com.baidu.tieba.recapp.r.bhd().bhb();
+        if (bhb != null) {
+            bhb.clear();
+        }
         if (bannerList != null) {
             List<App> list = bannerList.app;
             if (list != null && list.size() > 0) {
@@ -73,9 +78,13 @@ public class BannerListData implements Serializable {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
                         advertAppInfo.a(list.get(i));
                         this.advertAppList.add(advertAppInfo);
+                        if (bhb != null) {
+                            bhb.add(advertAppInfo.Ue);
+                        }
                     }
                 }
             }
+            com.baidu.tieba.recapp.r.bhd().bhc();
             Collections.sort(this.advertAppList, new Comparator<AdvertAppInfo>() { // from class: com.baidu.tbadk.core.data.BannerListData.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -97,7 +106,7 @@ public class BannerListData implements Serializable {
             if (bannerList.hot_topic != null) {
                 bb bbVar = new bb();
                 bbVar.a(bannerList.hot_topic);
-                this.recomTopicData = bbVar.qQ();
+                this.recomTopicData = bbVar.qL();
             }
         }
     }

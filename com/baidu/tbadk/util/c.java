@@ -25,7 +25,7 @@ public class c {
         }
     }
 
-    public static String[] GZ() {
+    public static String[] GY() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];
@@ -34,9 +34,9 @@ public class c {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a gJ = a.gJ(str);
-                if (gJ != null && !StringUtils.isNull(gJ.forumName)) {
-                    arrayList.add(gJ.forumName);
+                a gF = a.gF(str);
+                if (gF != null && !StringUtils.isNull(gF.forumName)) {
+                    arrayList.add(gF.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -44,7 +44,7 @@ public class c {
         return null;
     }
 
-    public static a[] Ha() {
+    public static a[] GZ() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new a[0];
@@ -53,9 +53,9 @@ public class c {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a gJ = a.gJ(str);
-                if (gJ != null && !StringUtils.isNull(gJ.forumName)) {
-                    arrayList.add(gJ);
+                a gF = a.gF(str);
+                if (gF != null && !StringUtils.isNull(gF.forumName)) {
+                    arrayList.add(gF);
                 }
             }
             return (a[]) arrayList.toArray(new a[arrayList.size()]);
@@ -83,7 +83,7 @@ public class c {
             return this.forumName + "#" + this.level;
         }
 
-        public static a gJ(String str) {
+        public static a gF(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

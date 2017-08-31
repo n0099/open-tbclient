@@ -6,55 +6,55 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.base.c {
-    TextView aXA;
-    TextView bDW;
-    TextView ffR;
-    TextView ffS;
-    TextView ffT;
-    View ffU;
-    View ffV;
-    View ffW;
-    View ffX;
+    TextView aXm;
+    TextView bGQ;
+    TextView feh;
+    TextView fei;
+    TextView fej;
+    View fek;
+    View fel;
+    View fem;
+    View fen;
+    TbPageContext mF;
     View mView;
-    TbPageContext oW;
 
     public j(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext);
-        this.oW = tbPageContext;
-        a(this.oW, onClickListener);
+        this.mF = tbPageContext;
+        a(this.mF, onClickListener);
     }
 
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.j.person_info_more_view, (ViewGroup) null);
-        this.ffR = (TextView) this.mView.findViewById(d.h.person_info_more_view_item_friend);
-        this.ffR.setOnClickListener(onClickListener);
-        this.ffS = (TextView) this.mView.findViewById(d.h.person_info_more_view_item_black);
-        this.ffS.setOnClickListener(onClickListener);
-        this.ffT = (TextView) this.mView.findViewById(d.h.person_info_more_view_item_mute);
-        this.ffU = this.mView.findViewById(d.h.person_info_more_view_item_line_mute);
-        this.ffT.setOnClickListener(onClickListener);
-        this.bDW = (TextView) this.mView.findViewById(d.h.person_info_more_view_item_cancel);
-        this.bDW.setOnClickListener(onClickListener);
-        this.aXA = (TextView) this.mView.findViewById(d.h.person_info_more_view_item_username);
-        this.ffV = this.mView.findViewById(d.h.person_info_more_view_item_line_username);
-        this.ffW = this.mView.findViewById(d.h.person_info_more_view_item_line_friend);
-        this.ffX = this.mView.findViewById(d.h.person_info_more_view_item_line_black);
+        this.feh = (TextView) this.mView.findViewById(d.h.person_info_more_view_item_friend);
+        this.feh.setOnClickListener(onClickListener);
+        this.fei = (TextView) this.mView.findViewById(d.h.person_info_more_view_item_black);
+        this.fei.setOnClickListener(onClickListener);
+        this.fej = (TextView) this.mView.findViewById(d.h.person_info_more_view_item_mute);
+        this.fek = this.mView.findViewById(d.h.person_info_more_view_item_line_mute);
+        this.fej.setOnClickListener(onClickListener);
+        this.bGQ = (TextView) this.mView.findViewById(d.h.person_info_more_view_item_cancel);
+        this.bGQ.setOnClickListener(onClickListener);
+        this.aXm = (TextView) this.mView.findViewById(d.h.person_info_more_view_item_username);
+        this.fel = this.mView.findViewById(d.h.person_info_more_view_item_line_username);
+        this.fem = this.mView.findViewById(d.h.person_info_more_view_item_line_friend);
+        this.fen = this.mView.findViewById(d.h.person_info_more_view_item_line_black);
     }
 
-    public void H(boolean z, boolean z2) {
+    public void I(boolean z, boolean z2) {
         if (z) {
-            this.ffR.setText(d.l.remove_friend);
+            this.feh.setText(d.l.remove_friend);
         } else {
-            this.ffR.setText(d.l.frs_recommend_friend_item_add);
+            this.feh.setText(d.l.frs_recommend_friend_item_add);
         }
         if (z2) {
-            this.ffS.setText(d.l.remove_block_chat);
+            this.fei.setText(d.l.remove_block_chat);
         } else {
-            this.ffS.setText(d.l.block_chat_message);
+            this.fei.setText(d.l.block_chat_message);
         }
     }
 
@@ -62,51 +62,51 @@ public class j extends com.baidu.adp.base.c {
         return this.mView;
     }
 
-    public View aXB() {
-        return this.ffR;
+    public View aWN() {
+        return this.feh;
     }
 
-    public View aXC() {
-        return this.ffS;
+    public View aWO() {
+        return this.fei;
     }
 
-    public View aXD() {
-        return this.ffT;
+    public View aWP() {
+        return this.fej;
     }
 
     public void qg(int i) {
-        this.ffT.setVisibility(0);
-        this.ffX.setVisibility(0);
+        this.fej.setVisibility(0);
+        this.fen.setVisibility(0);
         if (i == 0) {
-            this.ffT.setText(this.oW.getResources().getString(d.l.mute));
+            this.fej.setText(this.mF.getResources().getString(d.l.mute));
         } else if (i == 1) {
-            this.ffT.setText(this.oW.getResources().getString(d.l.un_mute));
+            this.fej.setText(this.mF.getResources().getString(d.l.un_mute));
         }
     }
 
     public void setUserName(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.aXA.setVisibility(0);
-            this.ffV.setVisibility(0);
-            this.aXA.setText(String.format(this.oW.getResources().getString(d.l.more_info_username), str));
+            this.aXm.setVisibility(0);
+            this.fel.setVisibility(0);
+            this.aXm.setText(String.format(this.mF.getResources().getString(d.l.more_info_username), str));
         }
     }
 
     public void onChangeSkinType() {
-        ai.j(this.mView, d.e.cp_bg_line_d_alpha90);
-        ai.i(this.ffS, d.e.cp_link_tip_a);
-        ai.j(this.ffS, d.g.more_pop_item_bg_selector);
-        ai.i(this.ffR, d.e.cp_link_tip_a);
-        ai.j(this.ffR, d.g.more_pop_item_bg_selector);
-        ai.i(this.ffT, d.e.cp_link_tip_a);
-        ai.j(this.ffT, d.g.more_pop_item_bg_selector);
-        ai.k(this.ffW, d.e.cp_bg_line_b);
-        ai.k(this.ffX, d.e.cp_bg_line_b);
-        ai.k(this.ffV, d.e.cp_bg_line_b);
-        ai.k(this.ffU, d.e.cp_bg_line_b);
-        ai.j(this.bDW, d.g.person_more_pop_item_bg_selector);
-        ai.i(this.bDW, d.g.person_more_pop_cancel_text_selector);
-        ai.j(this.aXA, d.g.more_pop_item_bg_selector);
-        ai.i(this.aXA, d.e.cp_cont_d);
+        aj.j(this.mView, d.e.cp_bg_line_d_alpha90);
+        aj.i(this.fei, d.e.cp_link_tip_a);
+        aj.j(this.fei, d.g.more_pop_item_bg_selector);
+        aj.i(this.feh, d.e.cp_link_tip_a);
+        aj.j(this.feh, d.g.more_pop_item_bg_selector);
+        aj.i(this.fej, d.e.cp_link_tip_a);
+        aj.j(this.fej, d.g.more_pop_item_bg_selector);
+        aj.k(this.fem, d.e.cp_bg_line_b);
+        aj.k(this.fen, d.e.cp_bg_line_b);
+        aj.k(this.fel, d.e.cp_bg_line_b);
+        aj.k(this.fek, d.e.cp_bg_line_b);
+        aj.j(this.bGQ, d.g.person_more_pop_item_bg_selector);
+        aj.i(this.bGQ, d.g.person_more_pop_cancel_text_selector);
+        aj.j(this.aXm, d.g.more_pop_item_bg_selector);
+        aj.i(this.aXm, d.e.cp_cont_d);
     }
 }

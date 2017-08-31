@@ -4,11 +4,11 @@ public class d {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean ggG = false;
+        public boolean gfi = false;
         public boolean isSuccess = false;
         public int errorCode = 0;
         public String errorMsg = "";
-        public long ggH = 0;
+        public long gfj = 0;
         public boolean isWifi = false;
     }
 }

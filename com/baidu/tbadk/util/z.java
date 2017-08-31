@@ -7,6 +7,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -30,26 +31,26 @@ public class z {
             for (Field field : declaredFields) {
                 Class<?> type = field.getType();
                 if (type != null) {
-                    if (com.baidu.adp.lib.OrmObject.a.a.e(type, Message.class)) {
+                    if (com.baidu.adp.lib.OrmObject.a.a.d(type, Message.class)) {
                         Object b = b(type, hashSet);
                         if (b != null) {
-                            if (com.baidu.adp.lib.OrmObject.a.a.e(b.getClass(), Message.class)) {
+                            if (com.baidu.adp.lib.OrmObject.a.a.d(b.getClass(), Message.class)) {
                                 field.setAccessible(true);
                                 field.set(newInstance, b);
                             } else {
                                 BdLog.e("");
                             }
                         }
-                    } else if (com.baidu.adp.lib.OrmObject.a.a.e(type, List.class)) {
+                    } else if (com.baidu.adp.lib.OrmObject.a.a.d(type, List.class)) {
                         Type genericType = field.getGenericType();
                         if ((genericType instanceof ParameterizedType) && (actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments()) != null && actualTypeArguments.length > 0) {
                             try {
                                 Class cls3 = (Class) actualTypeArguments[0];
-                                if (com.baidu.adp.lib.OrmObject.a.a.e(cls3, Message.class)) {
+                                if (com.baidu.adp.lib.OrmObject.a.a.d(cls3, Message.class)) {
                                     ArrayList arrayList = new ArrayList();
                                     Object b2 = b(cls3, hashSet);
                                     if (b2 != null) {
-                                        if (com.baidu.adp.lib.OrmObject.a.a.e(b2.getClass(), Message.class)) {
+                                        if (com.baidu.adp.lib.OrmObject.a.a.d(b2.getClass(), Message.class)) {
                                             arrayList.add(b2);
                                         } else {
                                             BdLog.e("");
@@ -79,7 +80,7 @@ public class z {
             File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + "_" + TbConfig.getVersion());
             byte[] bArr = null;
             try {
-                if (file.exists() && (bArr = y(file)) != null) {
+                if (file.exists() && (bArr = A(file)) != null) {
                     wire.parseFrom(bArr, cls);
                 }
                 if (bArr == null) {
@@ -117,7 +118,7 @@ public class z {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [173=4, 174=4] */
-    private static byte[] y(java.io.File r6) {
+    private static byte[] A(java.io.File r6) {
         /*
             r0 = 0
             if (r6 != 0) goto L4
@@ -145,13 +146,13 @@ public class z {
         L24:
             java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L4c
             com.baidu.adp.lib.util.BdLog.e(r1)     // Catch: java.lang.Throwable -> L4c
-            com.baidu.adp.lib.util.m.p(r3)
-            com.baidu.adp.lib.util.m.e(r2)
+            com.baidu.adp.lib.util.m.d(r3)
+            com.baidu.adp.lib.util.m.b(r2)
             goto L3
         L32:
             byte[] r0 = r2.toByteArray()     // Catch: java.lang.Throwable -> L23
-            com.baidu.adp.lib.util.m.p(r3)
-            com.baidu.adp.lib.util.m.e(r2)
+            com.baidu.adp.lib.util.m.d(r3)
+            com.baidu.adp.lib.util.m.b(r2)
             goto L3
         L3d:
             r1 = move-exception
@@ -159,8 +160,8 @@ public class z {
             r3 = r0
             r0 = r1
         L41:
-            com.baidu.adp.lib.util.m.p(r3)
-            com.baidu.adp.lib.util.m.e(r2)
+            com.baidu.adp.lib.util.m.d(r3)
+            com.baidu.adp.lib.util.m.b(r2)
             throw r0
         L48:
             r1 = move-exception
@@ -180,7 +181,7 @@ public class z {
             r2 = r0
             goto L24
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.util.z.y(java.io.File):byte[]");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.util.z.A(java.io.File):byte[]");
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [200=5] */
@@ -196,7 +197,7 @@ public class z {
                     try {
                         fileOutputStream2.write(bArr, 0, bArr.length);
                         fileOutputStream2.flush();
-                        com.baidu.adp.lib.util.m.e(fileOutputStream2);
+                        com.baidu.adp.lib.util.m.b((OutputStream) fileOutputStream2);
                         return true;
                     } catch (Throwable th) {
                         th = th;
@@ -205,7 +206,7 @@ public class z {
                             BdLog.e(th.getMessage());
                             return false;
                         } finally {
-                            com.baidu.adp.lib.util.m.e(fileOutputStream);
+                            com.baidu.adp.lib.util.m.b((OutputStream) fileOutputStream);
                         }
                     }
                 }

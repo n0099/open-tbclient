@@ -13,7 +13,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.pb.CustomDialogData;
@@ -59,9 +59,9 @@ public class c {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(eVar).ts();
-                ai.i(textView, d.e.cp_cont_b);
-                ai.i(textView2, d.e.common_color_10122);
+                aVar.b(eVar).to();
+                aj.i(textView, d.e.cp_cont_b);
+                aj.i(textView2, d.e.common_color_10122);
             }
         }
     }
@@ -77,7 +77,7 @@ public class c {
         }
     }
 
-    public static CustomDialogData J(JSONObject jSONObject) {
+    public static CustomDialogData F(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("tb_hudong")) == null || TextUtils.isEmpty(optJSONObject.optString("content"))) {
             return null;

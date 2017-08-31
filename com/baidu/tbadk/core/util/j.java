@@ -3,26 +3,26 @@ package com.baidu.tbadk.core.util;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class j {
-    private StringBuilder afZ;
+    private StringBuilder afj;
 
     public j() {
-        this.afZ = null;
-        this.afZ = null;
+        this.afj = null;
+        this.afj = null;
     }
 
-    public void n(String str, Object obj) {
-        if (!al.isEmpty(str) && obj != null) {
+    public void h(String str, Object obj) {
+        if (!am.isEmpty(str) && obj != null) {
             try {
-                if (this.afZ == null) {
-                    this.afZ = new StringBuilder();
-                    this.afZ.append(str);
-                    this.afZ.append("=");
-                    this.afZ.append(obj.toString());
+                if (this.afj == null) {
+                    this.afj = new StringBuilder();
+                    this.afj.append(str);
+                    this.afj.append("=");
+                    this.afj.append(obj.toString());
                 } else {
-                    this.afZ.append("|");
-                    this.afZ.append(str);
-                    this.afZ.append("=");
-                    this.afZ.append(obj.toString());
+                    this.afj.append("|");
+                    this.afj.append(str);
+                    this.afj.append("=");
+                    this.afj.append(obj.toString());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -31,6 +31,6 @@ public class j {
     }
 
     public String toString() {
-        return this.afZ != null ? this.afZ.toString() : "";
+        return this.afj != null ? this.afj.toString() : "";
     }
 }

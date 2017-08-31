@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
-    private final ArrayList<MetaData> gDX = new ArrayList<>();
+    private final ArrayList<MetaData> gCK = new ArrayList<>();
 
     public void a(JSONObject jSONObject, HashMap<String, String> hashMap) {
         String str;
@@ -25,7 +25,7 @@ public class d {
                     if (hashMap != null && (str = hashMap.get(metaData.getUserName())) != null) {
                         metaData.setPortrait(str);
                     }
-                    this.gDX.add(metaData);
+                    this.gCK.add(metaData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -44,13 +44,13 @@ public class d {
         }
     }
 
-    public void k(HashMap<String, String> hashMap) {
+    public void l(HashMap<String, String> hashMap) {
         if (hashMap != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.gDX.size()) {
-                    MetaData metaData = this.gDX.get(i2);
+                if (i2 < this.gCK.size()) {
+                    MetaData metaData = this.gCK.get(i2);
                     metaData.setPortrait(hashMap.get(metaData.getUserName()));
                     i = i2 + 1;
                 } else {
@@ -60,7 +60,7 @@ public class d {
         }
     }
 
-    public ArrayList<MetaData> byZ() {
-        return this.gDX;
+    public ArrayList<MetaData> byq() {
+        return this.gCK;
     }
 }

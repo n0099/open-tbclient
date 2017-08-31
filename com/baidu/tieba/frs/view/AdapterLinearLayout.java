@@ -8,7 +8,7 @@ import android.widget.Adapter;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class AdapterLinearLayout extends LinearLayout {
-    private Adapter cAx;
+    private Adapter cGN;
     private final DataSetObserver mDataSetObserver;
 
     public AdapterLinearLayout(Context context) {
@@ -16,12 +16,12 @@ public class AdapterLinearLayout extends LinearLayout {
         this.mDataSetObserver = new DataSetObserver() { // from class: com.baidu.tieba.frs.view.AdapterLinearLayout.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                if (AdapterLinearLayout.this.cAx != null) {
-                    int count = AdapterLinearLayout.this.cAx.getCount();
+                if (AdapterLinearLayout.this.cGN != null) {
+                    int count = AdapterLinearLayout.this.cGN.getCount();
                     int childCount = AdapterLinearLayout.this.getChildCount() - count;
                     for (int i = 0; i < count; i++) {
                         View childAt = AdapterLinearLayout.this.getChildAt(i);
-                        View view = AdapterLinearLayout.this.cAx.getView(i, childAt, AdapterLinearLayout.this);
+                        View view = AdapterLinearLayout.this.cGN.getView(i, childAt, AdapterLinearLayout.this);
                         if (childAt == null && view != null) {
                             AdapterLinearLayout.this.addView(view);
                         }
@@ -44,12 +44,12 @@ public class AdapterLinearLayout extends LinearLayout {
         this.mDataSetObserver = new DataSetObserver() { // from class: com.baidu.tieba.frs.view.AdapterLinearLayout.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                if (AdapterLinearLayout.this.cAx != null) {
-                    int count = AdapterLinearLayout.this.cAx.getCount();
+                if (AdapterLinearLayout.this.cGN != null) {
+                    int count = AdapterLinearLayout.this.cGN.getCount();
                     int childCount = AdapterLinearLayout.this.getChildCount() - count;
                     for (int i = 0; i < count; i++) {
                         View childAt = AdapterLinearLayout.this.getChildAt(i);
-                        View view = AdapterLinearLayout.this.cAx.getView(i, childAt, AdapterLinearLayout.this);
+                        View view = AdapterLinearLayout.this.cGN.getView(i, childAt, AdapterLinearLayout.this);
                         if (childAt == null && view != null) {
                             AdapterLinearLayout.this.addView(view);
                         }
@@ -72,12 +72,12 @@ public class AdapterLinearLayout extends LinearLayout {
         this.mDataSetObserver = new DataSetObserver() { // from class: com.baidu.tieba.frs.view.AdapterLinearLayout.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                if (AdapterLinearLayout.this.cAx != null) {
-                    int count = AdapterLinearLayout.this.cAx.getCount();
+                if (AdapterLinearLayout.this.cGN != null) {
+                    int count = AdapterLinearLayout.this.cGN.getCount();
                     int childCount = AdapterLinearLayout.this.getChildCount() - count;
                     for (int i2 = 0; i2 < count; i2++) {
                         View childAt = AdapterLinearLayout.this.getChildAt(i2);
-                        View view = AdapterLinearLayout.this.cAx.getView(i2, childAt, AdapterLinearLayout.this);
+                        View view = AdapterLinearLayout.this.cGN.getView(i2, childAt, AdapterLinearLayout.this);
                         if (childAt == null && view != null) {
                             AdapterLinearLayout.this.addView(view);
                         }
@@ -96,12 +96,12 @@ public class AdapterLinearLayout extends LinearLayout {
     }
 
     public void setAdapter(Adapter adapter) {
-        if (this.cAx != null) {
-            this.cAx.unregisterDataSetObserver(this.mDataSetObserver);
+        if (this.cGN != null) {
+            this.cGN.unregisterDataSetObserver(this.mDataSetObserver);
         }
-        this.cAx = adapter;
-        if (this.cAx != null) {
-            this.cAx.registerDataSetObserver(this.mDataSetObserver);
+        this.cGN = adapter;
+        if (this.cGN != null) {
+            this.cGN.registerDataSetObserver(this.mDataSetObserver);
         }
     }
 }

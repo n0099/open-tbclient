@@ -4,12 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
-    private SettingTextSwitchView dDT;
+    private SettingTextSwitchView dKx;
 
     public PersonalTalkSettingViewSettingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -22,23 +22,23 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        if (this.dDT != null) {
-            this.dDT.setSwitchStateChangeListener(aVar);
+        if (this.dKx != null) {
+            this.dKx.setSwitchStateChangeListener(aVar);
         }
     }
 
     private void initUI() {
         setOrientation(1);
         inflate(getContext(), d.j.p2ptalk_setting_detail_view, this);
-        this.dDT = (SettingTextSwitchView) findViewById(d.h.sv_person_msg_notify);
-        ai.k(this.dDT.getView(), d.e.common_color_10163);
+        this.dKx = (SettingTextSwitchView) findViewById(d.h.sv_person_msg_notify);
+        aj.k(this.dKx.getView(), d.e.common_color_10163);
     }
 
-    public void gX(boolean z) {
+    public void hf(boolean z) {
         if (z) {
-            this.dDT.P(false);
+            this.dKx.Q(false);
         } else {
-            this.dDT.Q(false);
+            this.dKx.R(false);
         }
     }
 }

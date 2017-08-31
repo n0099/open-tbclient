@@ -15,8 +15,8 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.editortools.i;
 import com.baidu.tbadk.editortools.s;
 import com.baidu.tbadk.img.ImageFileInfo;
@@ -29,64 +29,64 @@ import java.io.File;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implements s, DragHorizonScrollView.a {
-    private static boolean aDf = false;
-    private int Ls;
-    private i Lt;
-    private DragHorizonScrollView aDg;
-    private TextView aDh;
-    private DragLayer aDi;
-    private WriteImagesInfo aDj;
-    private com.baidu.tbadk.img.b aDk;
-    private b aDl;
-    private String aDm;
-    private int aDn;
-    private int aDo;
-    private boolean aDp;
-    private String aDq;
-    private a aDr;
+    private static boolean aCs = false;
+    private int Jo;
+    private i Jp;
+    private int aCA;
+    private int aCB;
+    private boolean aCC;
+    private String aCD;
+    private a aCE;
+    private DragHorizonScrollView aCt;
+    private TextView aCu;
+    private DragLayer aCv;
+    private WriteImagesInfo aCw;
+    private com.baidu.tbadk.img.b aCx;
+    private b aCy;
+    private String aCz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
     public interface a {
-        void G(View view);
+        void L(View view);
     }
 
     public MultiImgToolView(Context context) {
         super(context);
-        this.aDm = null;
-        this.aDn = 13;
-        this.aDo = 10;
-        this.aDp = false;
-        this.aDr = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
+        this.aCz = null;
+        this.aCA = 13;
+        this.aCB = 10;
+        this.aCC = false;
+        this.aCE = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
             @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.a
-            public void G(View view) {
-                if (!MultiImgToolView.this.aDg.bty()) {
-                    MultiImgToolView.this.by(view);
-                    int bz = MultiImgToolView.this.aDg.bz(view);
-                    if (bz >= 0 && bz < MultiImgToolView.this.aDj.getChosedFiles().size()) {
-                        ImageFileInfo remove = MultiImgToolView.this.aDj.getChosedFiles().remove(bz);
+            public void L(View view) {
+                if (!MultiImgToolView.this.aCt.bsN()) {
+                    MultiImgToolView.this.bF(view);
+                    int bG = MultiImgToolView.this.aCt.bG(view);
+                    if (bG >= 0 && bG < MultiImgToolView.this.aCw.getChosedFiles().size()) {
+                        ImageFileInfo remove = MultiImgToolView.this.aCw.getChosedFiles().remove(bG);
                         if (remove.isTempFile()) {
-                            com.baidu.adp.lib.Disk.d.dS().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                            com.baidu.adp.lib.Disk.d.dI().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                         }
-                        int maxItemNum = MultiImgToolView.this.aDg.getMaxItemNum();
-                        int size = MultiImgToolView.this.aDj.size();
-                        MultiImgToolView.this.aDh.setText(MultiImgToolView.this.getResources().getString(d.l.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
-                        int size2 = MultiImgToolView.this.aDj.getChosedFiles().size();
-                        if (MultiImgToolView.this.Lt != null) {
-                            MultiImgToolView.this.Lt.b(new com.baidu.tbadk.editortools.a(MultiImgToolView.this.aDn, -1, null));
+                        int maxItemNum = MultiImgToolView.this.aCt.getMaxItemNum();
+                        int size = MultiImgToolView.this.aCw.size();
+                        MultiImgToolView.this.aCu.setText(MultiImgToolView.this.getResources().getString(d.l.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+                        int size2 = MultiImgToolView.this.aCw.getChosedFiles().size();
+                        if (MultiImgToolView.this.Jp != null) {
+                            MultiImgToolView.this.Jp.b(new com.baidu.tbadk.editortools.a(MultiImgToolView.this.aCA, -1, null));
                             if (size2 > 0) {
-                                MultiImgToolView.this.Lt.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.aDo, String.valueOf(size2)));
+                                MultiImgToolView.this.Jp.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.aCB, String.valueOf(size2)));
                             } else {
-                                MultiImgToolView.this.Lt.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.aDo, null));
+                                MultiImgToolView.this.Jp.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.aCB, null));
                             }
                             if (maxItemNum == 1 && size2 == 0) {
-                                if (MultiImgToolView.this.aDp) {
-                                    MultiImgToolView.this.Lt.b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                                if (MultiImgToolView.this.aCC) {
+                                    MultiImgToolView.this.Jp.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                                     return;
                                 }
-                                MultiImgToolView.this.a(MultiImgToolView.this.aDj, true);
-                                MultiImgToolView.this.aDh.setText(MultiImgToolView.this.aDq);
-                                MultiImgToolView.this.Lt.invalidate();
+                                MultiImgToolView.this.a(MultiImgToolView.this.aCw, true);
+                                MultiImgToolView.this.aCu.setText(MultiImgToolView.this.aCD);
+                                MultiImgToolView.this.Jp.invalidate();
                             }
                         }
                     }
@@ -97,40 +97,40 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
 
     public MultiImgToolView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aDm = null;
-        this.aDn = 13;
-        this.aDo = 10;
-        this.aDp = false;
-        this.aDr = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
+        this.aCz = null;
+        this.aCA = 13;
+        this.aCB = 10;
+        this.aCC = false;
+        this.aCE = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
             @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.a
-            public void G(View view) {
-                if (!MultiImgToolView.this.aDg.bty()) {
-                    MultiImgToolView.this.by(view);
-                    int bz = MultiImgToolView.this.aDg.bz(view);
-                    if (bz >= 0 && bz < MultiImgToolView.this.aDj.getChosedFiles().size()) {
-                        ImageFileInfo remove = MultiImgToolView.this.aDj.getChosedFiles().remove(bz);
+            public void L(View view) {
+                if (!MultiImgToolView.this.aCt.bsN()) {
+                    MultiImgToolView.this.bF(view);
+                    int bG = MultiImgToolView.this.aCt.bG(view);
+                    if (bG >= 0 && bG < MultiImgToolView.this.aCw.getChosedFiles().size()) {
+                        ImageFileInfo remove = MultiImgToolView.this.aCw.getChosedFiles().remove(bG);
                         if (remove.isTempFile()) {
-                            com.baidu.adp.lib.Disk.d.dS().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                            com.baidu.adp.lib.Disk.d.dI().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                         }
-                        int maxItemNum = MultiImgToolView.this.aDg.getMaxItemNum();
-                        int size = MultiImgToolView.this.aDj.size();
-                        MultiImgToolView.this.aDh.setText(MultiImgToolView.this.getResources().getString(d.l.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
-                        int size2 = MultiImgToolView.this.aDj.getChosedFiles().size();
-                        if (MultiImgToolView.this.Lt != null) {
-                            MultiImgToolView.this.Lt.b(new com.baidu.tbadk.editortools.a(MultiImgToolView.this.aDn, -1, null));
+                        int maxItemNum = MultiImgToolView.this.aCt.getMaxItemNum();
+                        int size = MultiImgToolView.this.aCw.size();
+                        MultiImgToolView.this.aCu.setText(MultiImgToolView.this.getResources().getString(d.l.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+                        int size2 = MultiImgToolView.this.aCw.getChosedFiles().size();
+                        if (MultiImgToolView.this.Jp != null) {
+                            MultiImgToolView.this.Jp.b(new com.baidu.tbadk.editortools.a(MultiImgToolView.this.aCA, -1, null));
                             if (size2 > 0) {
-                                MultiImgToolView.this.Lt.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.aDo, String.valueOf(size2)));
+                                MultiImgToolView.this.Jp.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.aCB, String.valueOf(size2)));
                             } else {
-                                MultiImgToolView.this.Lt.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.aDo, null));
+                                MultiImgToolView.this.Jp.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.aCB, null));
                             }
                             if (maxItemNum == 1 && size2 == 0) {
-                                if (MultiImgToolView.this.aDp) {
-                                    MultiImgToolView.this.Lt.b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                                if (MultiImgToolView.this.aCC) {
+                                    MultiImgToolView.this.Jp.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                                     return;
                                 }
-                                MultiImgToolView.this.a(MultiImgToolView.this.aDj, true);
-                                MultiImgToolView.this.aDh.setText(MultiImgToolView.this.aDq);
-                                MultiImgToolView.this.Lt.invalidate();
+                                MultiImgToolView.this.a(MultiImgToolView.this.aCw, true);
+                                MultiImgToolView.this.aCu.setText(MultiImgToolView.this.aCD);
+                                MultiImgToolView.this.Jp.invalidate();
                             }
                         }
                     }
@@ -141,39 +141,39 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initView() {
-        this.aDg = (DragHorizonScrollView) findViewById(d.h.muti_image_upload_dragscrollview);
-        this.aDh = (TextView) findViewById(d.h.muti_image_tips);
-        this.aDi = (DragLayer) findViewById(d.h.muti_image_upload_draglayer);
+        this.aCt = (DragHorizonScrollView) findViewById(d.h.muti_image_upload_dragscrollview);
+        this.aCu = (TextView) findViewById(d.h.muti_image_tips);
+        this.aCv = (DragLayer) findViewById(d.h.muti_image_upload_draglayer);
     }
 
     public void setDefaultTip(String str) {
-        this.aDm = str;
+        this.aCz = str;
     }
 
     public void setAsyncLocalImageLoader(com.baidu.tbadk.img.b bVar) {
-        this.aDk = bVar;
+        this.aCx = bVar;
     }
 
     public int getImageNum() {
-        return this.aDj.getChosedFiles().size();
+        return this.aCw.getChosedFiles().size();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(WriteImagesInfo writeImagesInfo, boolean z) {
-        this.aDj = writeImagesInfo;
-        this.aDl = new b(getContext(), this.aDk, this, this.aDr, this.aDo == 10);
-        this.aDl.a(this.aDj);
-        this.aDg.a(this.aDl, z);
-        int maxItemNum = this.aDg.getMaxItemNum();
+        this.aCw = writeImagesInfo;
+        this.aCy = new b(getContext(), this.aCx, this, this.aCE, this.aCB == 10);
+        this.aCy.a(this.aCw);
+        this.aCt.a(this.aCy, z);
+        int maxItemNum = this.aCt.getMaxItemNum();
         int size = writeImagesInfo.size();
-        if (size == 1 && !TextUtils.isEmpty(this.aDm)) {
-            this.aDh.setText(this.aDm);
-        } else if (!aDf && size > 1) {
-            this.aDh.setText(d.l.editor_mutiiamge_drag_tip);
-            aDf = true;
+        if (size == 1 && !TextUtils.isEmpty(this.aCz)) {
+            this.aCu.setText(this.aCz);
+        } else if (!aCs && size > 1) {
+            this.aCu.setText(d.l.editor_mutiiamge_drag_tip);
+            aCs = true;
             TbadkSettings.getInst().saveBoolean("has_show_mutiimage_tip", true);
         } else {
-            this.aDh.setText(getResources().getString(d.l.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+            this.aCu.setText(getResources().getString(d.l.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
         }
         if (size > 0) {
             String str = size + "";
@@ -185,10 +185,10 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
         if (aVar != null) {
             switch (aVar.code) {
                 case 9:
-                    if (this.aDl != null) {
-                        this.aDl.notifyDataSetChanged();
+                    if (this.aCy != null) {
+                        this.aCy.notifyDataSetChanged();
                     }
-                    b(new com.baidu.tbadk.editortools.a(2, this.aDo, null));
+                    b(new com.baidu.tbadk.editortools.a(2, this.aCB, null));
                     return;
                 case 10:
                 case 11:
@@ -196,7 +196,7 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
                     return;
                 case 12:
                     if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a)) {
-                        a(((com.baidu.tbadk.editortools.imagetool.a) aVar.data).aDc, ((com.baidu.tbadk.editortools.imagetool.a) aVar.data).aDd);
+                        a(((com.baidu.tbadk.editortools.imagetool.a) aVar.data).aCp, ((com.baidu.tbadk.editortools.imagetool.a) aVar.data).aCq);
                         return;
                     }
                     return;
@@ -206,24 +206,24 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
 
     @Override // com.baidu.tbadk.editortools.s
     public void setEditorTools(i iVar) {
-        this.Lt = iVar;
+        this.Jp = iVar;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.Lt != null) {
-            this.Lt.b(aVar);
+        if (this.Jp != null) {
+            this.Jp.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setToolId(int i) {
-        this.Ls = i;
+        this.Jo = i;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public int getToolId() {
-        return this.Ls;
+        return this.Jo;
     }
 
     @Override // com.baidu.tbadk.editortools.s
@@ -231,7 +231,7 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
     }
 
     @Override // com.baidu.tbadk.editortools.s
-    public void lS() {
+    public void lK() {
         setVisibility(0);
     }
 
@@ -241,58 +241,58 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView.a
-    public void K(int i, int i2) {
-        if (i != i2 && this.aDj != null && this.aDj.size() != 0) {
-            LinkedList<ImageFileInfo> chosedFiles = this.aDj.getChosedFiles();
+    public void H(int i, int i2) {
+        if (i != i2 && this.aCw != null && this.aCw.size() != 0) {
+            LinkedList<ImageFileInfo> chosedFiles = this.aCw.getChosedFiles();
             chosedFiles.add(i2, chosedFiles.remove(i));
         }
     }
 
     public DragHorizonScrollView getDragHorizonScrollView() {
-        return this.aDg;
+        return this.aCt;
     }
 
     public TextView getMutiImageTips() {
-        return this.aDh;
+        return this.aCu;
     }
 
     public DragLayer getDragLayer() {
-        return this.aDi;
+        return this.aCv;
     }
 
     /* loaded from: classes.dex */
     public static class b extends BaseAdapter {
-        private com.baidu.tbadk.img.b aDk;
-        private WriteImagesInfo aDt = null;
-        private s aDu;
-        private a aDv;
-        private boolean aDw;
+        private WriteImagesInfo aCG = null;
+        private s aCH;
+        private a aCI;
+        private boolean aCJ;
+        private com.baidu.tbadk.img.b aCx;
         private Context mContext;
 
         public b(Context context, com.baidu.tbadk.img.b bVar, s sVar, a aVar, boolean z) {
-            this.aDw = true;
+            this.aCJ = true;
             this.mContext = context;
-            this.aDk = bVar;
-            this.aDu = sVar;
-            this.aDv = aVar;
-            this.aDw = z;
+            this.aCx = bVar;
+            this.aCH = sVar;
+            this.aCI = aVar;
+            this.aCJ = z;
         }
 
         public void a(WriteImagesInfo writeImagesInfo) {
-            this.aDt = writeImagesInfo;
+            this.aCG = writeImagesInfo;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.aDt == null) {
+            if (this.aCG == null) {
                 return 0;
             }
-            return this.aDt.size();
+            return this.aCG.size();
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
-            return this.aDt.getChosedFiles().get(i);
+            return this.aCG.getChosedFiles().get(i);
         }
 
         @Override // android.widget.Adapter
@@ -303,7 +303,7 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
         @Override // android.widget.Adapter
         public View getView(int i, View view, final ViewGroup viewGroup) {
             FrameLayout frameLayout = view == null ? (FrameLayout) LayoutInflater.from(this.mContext).inflate(d.j.editor_muti_image_item, (ViewGroup) null) : view;
-            ImageFileInfo imageFileInfo = (ImageFileInfo) u.c(this.aDt.getChosedFiles(), i);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) v.c(this.aCG.getChosedFiles(), i);
             if (imageFileInfo == null) {
                 return null;
             }
@@ -315,12 +315,12 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
             if (measuredWidth > 0) {
                 int paddingRight = (measuredWidth / 3) - linearLayout.getPaddingRight();
                 int measuredHeight = viewGroup.getMeasuredHeight() - linearLayout.getPaddingTop();
-                ai.j(frameLayout3, d.g.bg_add_photo);
-                frameLayout3.setForeground(ai.getDrawable(d.g.bg_add_photo_foregroundselector));
+                aj.j(frameLayout3, d.g.bg_add_photo);
+                frameLayout3.setForeground(aj.getDrawable(d.g.bg_add_photo_foregroundselector));
                 imageFileInfo.clearPageActions();
-                imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.M(paddingRight, measuredHeight));
+                imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.J(paddingRight, measuredHeight));
                 tbImageView.setTag(imageFileInfo.toCachedKey(true));
-                if (this.aDk.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.b.1
+                if (this.aCx.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.b.1
                     @Override // com.baidu.tbadk.imageManager.b
                     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
                         TbImageView tbImageView2 = (TbImageView) viewGroup.findViewWithTag(str);
@@ -333,7 +333,7 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
                 }
             }
             frameLayout2.setLayoutParams(new ViewGroup.LayoutParams(measuredWidth / 3, -1));
-            if (this.aDw) {
+            if (this.aCJ) {
                 frameLayout2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -348,27 +348,27 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
                             }
                             if (!z) {
                                 k.f(b.this.mContext, d.l.editor_mutiiamge_image_error);
-                            } else if (b.this.aDu != null) {
-                                b.this.aDu.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
+                            } else if (b.this.aCH != null) {
+                                b.this.aCH.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
                             }
                         }
                     }
                 });
             }
             ImageView imageView = (ImageView) frameLayout2.findViewById(d.h.delete);
-            ai.c(imageView, d.g.btn_add_photo_close);
+            aj.c(imageView, d.g.btn_add_photo_close);
             imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.b.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.aDv != null) {
-                        b.this.aDv.G(frameLayout2);
+                    if (b.this.aCI != null) {
+                        b.this.aCI.L(frameLayout2);
                     }
                 }
             });
             View findViewById = frameLayout2.findViewById(d.h.gif_icon);
             if (imageFileInfo.isGif() && !imageFileInfo.hasActionsWithoutResize()) {
                 findViewById.setVisibility(0);
-                ai.j(findViewById, d.g.ic_image_gif);
+                aj.j(findViewById, d.g.ic_image_gif);
             } else {
                 findViewById.setVisibility(8);
             }
@@ -378,27 +378,27 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
     }
 
     public void setDeleteAction(int i) {
-        this.aDn = i;
+        this.aCA = i;
     }
 
     public void setTargetToolId(int i) {
-        this.aDo = i;
+        this.aCB = i;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
-        ai.k(this, d.e.common_color_10255);
+        aj.k(this, d.e.common_color_10255);
     }
 
     public void setNeedQuit(boolean z) {
-        this.aDp = z;
+        this.aCC = z;
     }
 
     public void setNoPicTips(String str) {
         if (StringUtils.isNULL(str)) {
-            this.aDq = " ";
+            this.aCD = " ";
         } else {
-            this.aDq = str;
+            this.aCD = str;
         }
     }
 }

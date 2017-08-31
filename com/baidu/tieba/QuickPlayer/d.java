@@ -10,51 +10,51 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayerService;
 /* loaded from: classes.dex */
 public class d {
-    private static d aUH;
-    private IQuickMediaPlayerService aUJ;
+    private static d aUp;
+    private IQuickMediaPlayerService aUr;
     private Context mContext = TbadkCoreApplication.getInst();
-    private boolean aUI = false;
+    private boolean aUq = false;
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.QuickPlayer.d.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            d.this.aUI = true;
-            com.baidu.adp.lib.g.e.ga().removeCallbacks(d.this.aUK);
-            d.this.aUJ = IQuickMediaPlayerService.Stub.asInterface(iBinder);
+            d.this.aUq = true;
+            com.baidu.adp.lib.g.e.fQ().removeCallbacks(d.this.aUs);
+            d.this.aUr = IQuickMediaPlayerService.Stub.asInterface(iBinder);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            d.this.aUI = false;
-            com.baidu.adp.lib.g.e.ga().postDelayed(d.this.aUK, 1000L);
+            d.this.aUq = false;
+            com.baidu.adp.lib.g.e.fQ().postDelayed(d.this.aUs, 1000L);
         }
     };
-    private Runnable aUK = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
+    private Runnable aUs = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
         @Override // java.lang.Runnable
         public void run() {
-            if (!d.this.aUI) {
-                d.this.JZ();
-                com.baidu.adp.lib.g.e.ga().postDelayed(d.this.aUK, 1000L);
+            if (!d.this.aUq) {
+                d.this.Ki();
+                com.baidu.adp.lib.g.e.fQ().postDelayed(d.this.aUs, 1000L);
             }
         }
     };
 
     private d() {
-        JZ();
+        Ki();
     }
 
-    public static d JY() {
-        if (aUH == null) {
+    public static d Kh() {
+        if (aUp == null) {
             synchronized (d.class) {
-                if (aUH == null) {
-                    aUH = new d();
+                if (aUp == null) {
+                    aUp = new d();
                 }
             }
         }
-        return aUH;
+        return aUp;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void JZ() {
+    public void Ki() {
         try {
             this.mContext.bindService(new Intent(this.mContext, QuickMediaPlayerService.class), this.mServiceConnection, 1);
         } catch (Exception e) {
@@ -63,9 +63,9 @@ public class d {
     }
 
     public IQuickMediaPlayer createPlayer() {
-        if (this.aUI && this.aUJ != null) {
+        if (this.aUq && this.aUr != null) {
             try {
-                return this.aUJ.createPlayer();
+                return this.aUr.createPlayer();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }

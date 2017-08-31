@@ -39,6 +39,7 @@ public class UserData extends MetaData {
     private String intro;
     private String ip;
     private int isFriend;
+    private boolean isGodInvited;
     private boolean isManager;
     private boolean isMask;
     private int isOfficialAccount;
@@ -174,6 +175,7 @@ public class UserData extends MetaData {
         this.liveLevelExp = 0L;
         this.liveStatus = 0;
         this.liveId = "0";
+        this.isGodInvited = false;
         this.ip = null;
         this.BDUSS = null;
         this.like_bars = -1;
@@ -199,6 +201,7 @@ public class UserData extends MetaData {
         this.liveLevelExp = 0L;
         this.liveStatus = 0;
         this.liveId = "0";
+        this.isGodInvited = false;
         setUserId(String.valueOf(j));
         setUserName(str);
         setPortrait(str2);
@@ -253,17 +256,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             k kVar = new k();
-            kVar.fA(getPortraitH());
-            kVar.fB(getPortrait());
-            kVar.bx(true);
+            kVar.fv(getPortraitH());
+            kVar.fw(getPortrait());
+            kVar.bw(true);
             this.mPhotoAlbum.add(kVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         k kVar2 = new k();
-                        kVar2.fA(userPics.big);
-                        kVar2.fB(userPics.small);
-                        kVar2.bx(false);
+                        kVar2.fv(userPics.big);
+                        kVar2.fw(userPics.small);
+                        kVar2.bw(false);
                         this.mPhotoAlbum.add(kVar2);
                     }
                 }
@@ -365,6 +368,7 @@ public class UserData extends MetaData {
                 this.liveStatus = user.ala_info.live_status.intValue();
                 this.liveId = Long.toString(user.ala_info.live_id.longValue());
             }
+            this.isGodInvited = user.is_invited.intValue() == 1;
         }
     }
 
@@ -449,9 +453,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 k kVar = new k();
-                kVar.fA(getPortraitH());
-                kVar.fB(getPortrait());
-                kVar.bx(true);
+                kVar.fv(getPortraitH());
+                kVar.fw(getPortrait());
+                kVar.bw(true);
                 this.mPhotoAlbum.add(kVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -460,9 +464,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             k kVar2 = new k();
-                            kVar2.fA(jSONObject2.optString("big"));
-                            kVar2.fB(jSONObject2.optString("small"));
-                            kVar2.bx(false);
+                            kVar2.fv(jSONObject2.optString("big"));
+                            kVar2.fw(jSONObject2.optString("small"));
+                            kVar2.bw(false);
                             this.mPhotoAlbum.add(kVar2);
                         }
                     }
@@ -722,5 +726,9 @@ public class UserData extends MetaData {
         public boolean isController() {
             return getIsGroupManager() || getIsGroupOwner();
         }
+    }
+
+    public boolean getIsGodInvited() {
+        return this.isGodInvited;
     }
 }

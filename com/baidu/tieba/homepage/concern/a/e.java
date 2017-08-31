@@ -1,80 +1,75 @@
 package com.baidu.tieba.homepage.concern.a;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.widget.AbsListView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.k;
 import com.baidu.adp.widget.ListView.j;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tieba.card.data.n;
-import com.baidu.tieba.card.u;
-import com.baidu.tieba.card.x;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.widget.ListView.a<n, a> {
-    public BdUniqueId aOO;
-    private x cSl;
-    private com.baidu.tieba.homepage.concern.view.c cSt;
-    private TbPageContext<?> oW;
+public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
+    private static int cYM;
+    private static int cYN;
 
-    public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cSl = new x<n>() { // from class: com.baidu.tieba.homepage.concern.a.e.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.x
-            public void a(View view, n nVar) {
-                if (view != null && e.this.cSt != null && e.this.cSt.getView() != null && nVar != null && nVar.MF() != null && !StringUtils.isNull(nVar.MF().getTid())) {
-                    aj ajVar = new aj("c12352");
-                    if ((e.this.cSt.getHeaderImg() != null && view.getId() == e.this.cSt.getHeaderImg().getId()) || (e.this.cSt.WA() != null && view.getId() == e.this.cSt.WA().getId())) {
-                        ajVar.r("obj_locate", 1);
-                    } else {
-                        ajVar.r("obj_locate", 2);
-                    }
-                    ajVar.r("obj_type", 2);
-                    ajVar.aa("tid", nVar.bcN.getTid());
-                    ajVar.g("fid", nVar.bcN.getFid());
-                    ajVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
-                    TiebaStatic.log(ajVar);
-                }
-            }
-        };
-        this.oW = tbPageContext;
+    public e(Context context) {
+        super(context, com.baidu.tieba.homepage.concern.b.a.cYU);
+        cYN = k.g(context, d.f.ds37);
+        cYM = k.g(context, d.f.ds120);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: am */
+    /* renamed from: aq */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cSt = new com.baidu.tieba.homepage.concern.view.c(this.oW);
-        this.cSt.j(this.aOO);
-        return new a(this.cSt);
+        View inflate = View.inflate(viewGroup.getContext(), d.j.concern_tip_layout, null);
+        a aVar = new a(inflate);
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+        return aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, n nVar, a aVar) {
-        if (nVar == null || aVar == null || aVar.cSv == null) {
-            return null;
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
+        aVar2.cYO.setText(aVar.ajD);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.cYO.getLayoutParams();
+        if (aVar.cYV) {
+            layoutParams.bottomMargin = cYM;
+            aVar2.cYP.setVisibility(0);
+        } else {
+            layoutParams.bottomMargin = cYN;
+            aVar2.cYP.setVisibility(8);
         }
-        nVar.hw(i + 1);
-        u.WU().a(nVar.jo("c12351"));
-        aVar.cSv.a(nVar);
-        aVar.cSv.b(this.cSl);
-        return aVar.getView();
+        aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        return aVar2.getView();
     }
 
     /* loaded from: classes.dex */
-    public static class a extends j.a {
-        public com.baidu.tieba.homepage.concern.view.c cSv;
+    public class a extends j.a {
+        private int apS;
+        public TextView cYO;
+        public View cYP;
 
-        public a(com.baidu.tieba.homepage.concern.view.c cVar) {
-            super(cVar.getView());
-            this.cSv = cVar;
+        public a(View view) {
+            super(view);
+            this.apS = 3;
+            this.cYO = (TextView) view.findViewById(d.h.concern_tip_txt);
+            this.cYP = view.findViewById(d.h.concern_tip_top_line);
+        }
+
+        protected void onChangeSkinType(int i) {
+            if (this.apS != i) {
+                aj.k(getView(), d.e.cp_bg_line_c);
+                aj.i(this.cYO, d.e.cp_cont_j);
+                aj.j(this.cYP, d.e.cp_bg_line_c);
+            }
         }
     }
 }

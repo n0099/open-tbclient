@@ -9,16 +9,16 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 final class d {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long D(File file) throws IOException {
+    public static long F(File file) throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
         try {
-            return a(randomAccessFile, a(randomAccessFile));
+            return a(randomAccessFile, b(randomAccessFile));
         } finally {
             randomAccessFile.close();
         }
     }
 
-    static a a(RandomAccessFile randomAccessFile) throws IOException, ZipException {
+    static a b(RandomAccessFile randomAccessFile) throws IOException, ZipException {
         long length = randomAccessFile.length() - 22;
         if (length < 0) {
             throw new ZipException("File too short to be a zip file: " + randomAccessFile.length());
@@ -36,7 +36,7 @@ final class d {
                 randomAccessFile.skipBytes(2);
                 a aVar = new a();
                 aVar.size = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
-                aVar.epn = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                aVar.evZ = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
                 return aVar;
             }
             j3--;
@@ -47,7 +47,7 @@ final class d {
     static long a(RandomAccessFile randomAccessFile, a aVar) throws IOException {
         CRC32 crc32 = new CRC32();
         long j = aVar.size;
-        randomAccessFile.seek(aVar.epn);
+        randomAccessFile.seek(aVar.evZ);
         byte[] bArr = new byte[16384];
         int read = randomAccessFile.read(bArr, 0, (int) Math.min((long) IjkMediaMeta.AV_CH_TOP_FRONT_RIGHT, j));
         while (read != -1) {
@@ -64,7 +64,7 @@ final class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        long epn;
+        long evZ;
         long size;
 
         a() {

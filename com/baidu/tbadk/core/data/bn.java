@@ -1,41 +1,46 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import org.json.JSONException;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopNotice;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
-public class bn {
-    private String title = null;
-    private String title_link = null;
-    private String author = null;
-    private int id = 0;
+public class bn extends PostData {
+    public static final BdUniqueId aar = BdUniqueId.gen();
+    private String Xo;
+    private int position = 0;
+    private String summary;
 
-    public String getTitle() {
-        return this.title;
+    public String td() {
+        return this.Xo;
     }
 
-    public String te() {
-        return this.title_link;
+    public String sU() {
+        return this.summary;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.title = jSONObject.getString(VrPlayerActivityConfig.TITLE);
-            this.title_link = jSONObject.getString("title_link");
-            this.author = jSONObject.getString("author");
-            this.id = jSONObject.getInt("id");
-        } catch (JSONException e) {
-            e.printStackTrace();
+    public void a(TopNews topNews) {
+        if (topNews != null) {
+            this.Xo = topNews.news_link;
+            this.summary = topNews.summary;
         }
     }
 
-    public void a(TopNotice topNotice) {
-        if (topNotice != null) {
-            this.title = topNotice.title;
-            this.title_link = topNotice.title_link;
-            this.author = topNotice.author;
-            this.id = topNotice.id.intValue();
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.Xo = jSONObject.optString("news_link");
+                this.summary = jSONObject.optString("summary");
+                this.position = jSONObject.optInt("position", 0);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return aar;
     }
 }

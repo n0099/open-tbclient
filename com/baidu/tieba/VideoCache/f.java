@@ -3,7 +3,7 @@ package com.baidu.tieba.VideoCache;
 import android.content.Context;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,48 +21,48 @@ import java.net.URLDecoder;
 /* loaded from: classes2.dex */
 class f implements Runnable {
     private static final String TAG = f.class.getSimpleName();
-    private Socket Bx;
-    private byte[] aWr;
-    private h aWs;
+    private byte[] aWb;
+    private h aWc;
     private Context mContext;
+    private Socket zq;
 
     public f(Context context) {
-        this.aWr = null;
+        this.aWb = null;
         this.mContext = context;
         try {
-            this.aWr = new byte[AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START];
+            this.aWb = new byte[AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START];
         } catch (OutOfMemoryError e) {
             e.printStackTrace();
         }
     }
 
     public void a(Socket socket) {
-        this.Bx = socket;
+        this.zq = socket;
     }
 
     public void a(h hVar) {
-        this.aWs = hVar;
+        this.aWc = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        j.at(TAG, "test run in " + this);
-        if (this.aWs == null) {
-            j.at(TAG, "test run out 1" + this);
+        j.aw(TAG, "test run in " + this);
+        if (this.aWc == null) {
+            j.aw(TAG, "test run out 1" + this);
             return;
         }
         try {
-            b(this.aWs);
-            if (this.aWs.Kx().contains("/video_cache/pre_load?origin_url=")) {
-                a(this.aWs, this.Bx, true);
+            b(this.aWc);
+            if (this.aWc.KG().contains("/video_cache/pre_load?origin_url=")) {
+                a(this.aWc, this.zq, true);
             } else {
-                a(this.aWs, this.Bx, false);
+                a(this.aWc, this.zq, false);
             }
-            c(this.Bx);
+            c(this.zq);
         } catch (Exception e) {
-            j.at(TAG, "HTTP服务器错误:" + e.getLocalizedMessage());
+            j.aw(TAG, "HTTP服务器错误:" + e.getLocalizedMessage());
         }
-        j.at(TAG, "test run out 2" + this);
+        j.aw(TAG, "test run out 2" + this);
     }
 
     public static h b(Socket socket) {
@@ -76,16 +76,16 @@ class f implements Runnable {
                 if (readLine != null && readLine.contains("GET") && readLine.contains("origin_url=")) {
                     String[] split = readLine.split(" ");
                     if (split != null && split.length > 1) {
-                        hVar.ht(split[1]);
+                        hVar.hp(split[1]);
                     }
                     String substring = readLine.substring(readLine.indexOf("origin_url=") + 11);
                     String str = "";
                     if (substring != null && substring.contains(" ")) {
                         str = substring.substring(0, substring.indexOf(" "));
                     }
-                    hVar.hu(URLDecoder.decode(str));
+                    hVar.hq(URLDecoder.decode(str));
                 } else if (readLine != null && readLine.startsWith("Range") && readLine.contains(":")) {
-                    hVar.cp(true);
+                    hVar.cq(true);
                     String[] split2 = readLine.split(":");
                     String str2 = (split2 == null || split2.length <= 1) ? "" : split2[1];
                     String substring2 = (str2 == null || (lastIndexOf = str2.lastIndexOf("bytes=") + 6) < 0 || lastIndexOf > str2.length()) ? str2 : str2.substring(lastIndexOf);
@@ -98,9 +98,9 @@ class f implements Runnable {
                         }
                     }
                     if (strArr != null && strArr.length >= 1) {
-                        hVar.as(Long.parseLong(strArr[0]));
+                        hVar.ar(Long.parseLong(strArr[0]));
                         if (strArr.length > 1) {
-                            hVar.at(Long.parseLong(strArr[1]));
+                            hVar.as(Long.parseLong(strArr[1]));
                         }
                     }
                 }
@@ -120,30 +120,30 @@ class f implements Runnable {
     }
 
     private boolean a(h hVar, PrintStream printStream) {
-        int hr = hr(hVar.getOriginUrl());
-        if (hr <= 0) {
+        int hn = hn(hVar.KH());
+        if (hn <= 0) {
             return false;
         }
-        hVar.O(hr);
-        if (hVar.Kz() < 0) {
-            hVar.as(0L);
+        hVar.N(hn);
+        if (hVar.KJ() < 0) {
+            hVar.ar(0L);
         }
-        if (hVar.KA() < 0) {
-            hVar.at(hr - 1);
+        if (hVar.KK() < 0) {
+            hVar.as(hn - 1);
         }
-        long Kz = hVar.Kz();
-        long KA = hVar.KA();
-        j.at(TAG, "range is: " + Kz + Constants.ACCEPT_TIME_SEPARATOR_SERVER + KA + " " + this);
-        if (hVar.Ky()) {
+        long KJ = hVar.KJ();
+        long KK = hVar.KK();
+        j.aw(TAG, "range is: " + KJ + Constants.ACCEPT_TIME_SEPARATOR_SERVER + KK + " " + this);
+        if (hVar.KI()) {
             printStream.println("HTTP/1.1 206 Partial Content");
         } else {
             printStream.println("HTTP/1.1 200 OK");
         }
         printStream.println("Content-Type: video/mp4");
         printStream.println("Accept-Ranges: bytes");
-        printStream.println("Content-Length: " + ((KA - Kz) + 1));
-        if (hVar.Ky()) {
-            printStream.println("Content-Range: bytes " + Kz + Constants.ACCEPT_TIME_SEPARATOR_SERVER + KA + "/" + hr);
+        printStream.println("Content-Length: " + ((KK - KJ) + 1));
+        if (hVar.KI()) {
+            printStream.println("Content-Range: bytes " + KJ + Constants.ACCEPT_TIME_SEPARATOR_SERVER + KK + "/" + hn);
         }
         printStream.println("Content-Transfer-Encoding: binary");
         printStream.println();
@@ -156,17 +156,17 @@ class f implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int hr(String str) {
+    private int hn(String str) {
         FileInputStream fileInputStream;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        String hy = m.hy(str);
-        if (hy == null || hy.isEmpty()) {
+        String hu = m.hu(str);
+        if (hu == null || hu.isEmpty()) {
             return 0;
         }
-        File file = new File(i.aWD + hy);
+        File file = new File(i.aWn + hu);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -295,7 +295,7 @@ class f implements Runnable {
             bufferedWriter2.close();
             return contentLength2;
         } catch (Exception e13) {
-            TiebaStatic.log(new aj("c12027").aa("errormsg", "网络获取文件大小出现异常").aa("error", e13.getMessage()).aa("url", str));
+            TiebaStatic.log(new ak("c12027").ad("errormsg", "网络获取文件大小出现异常").ad("error", e13.getMessage()).ad("url", str));
             e13.printStackTrace();
             return 0;
         }
@@ -303,58 +303,58 @@ class f implements Runnable {
 
     private void a(h hVar, Socket socket, boolean z) {
         if (hVar != null && socket != null) {
-            File file = new File(i.aWA);
+            File file = new File(i.aWk);
             if (!file.exists()) {
                 file.mkdir();
             }
             try {
                 c cVar = new c(this.mContext);
-                cVar.setVideoUrl(hVar.getOriginUrl());
+                cVar.setVideoUrl(hVar.KH());
                 PrintStream printStream = new PrintStream(socket.getOutputStream(), true);
                 if (!a(hVar, printStream)) {
                     printStream.close();
                     cVar.close();
                     return;
                 }
-                cVar.O(hVar.getTotalLength());
+                cVar.N(hVar.getTotalLength());
                 if (z) {
-                    if (e.Ku().p(cVar)) {
+                    if (e.KD().p(cVar)) {
                         printStream.close();
                         cVar.close();
-                        e.Ku().q(null);
+                        e.KD().q(null);
                         return;
                     }
-                    c Kv = e.Ku().Kv();
-                    if (Kv != null) {
-                        Kv.close();
+                    c KE = e.KD().KE();
+                    if (KE != null) {
+                        KE.close();
                     }
-                    j.at(TAG, "server handle preload: " + cVar.getVideoUrl());
-                    e.Ku().q(cVar);
+                    j.aw(TAG, "server handle preload: " + cVar.getVideoUrl());
+                    e.KD().q(cVar);
                 } else {
-                    c Kv2 = e.Ku().Kv();
-                    if (Kv2 != null && Kv2.getVideoUrl() != null && Kv2.getVideoUrl().equals(cVar.getVideoUrl())) {
-                        Kv2.close();
-                        e.Ku().q(null);
+                    c KE2 = e.KD().KE();
+                    if (KE2 != null && KE2.getVideoUrl() != null && KE2.getVideoUrl().equals(cVar.getVideoUrl())) {
+                        KE2.close();
+                        e.KD().q(null);
                     }
-                    e.Ku().n(cVar);
+                    e.KD().n(cVar);
                 }
-                cVar.b(hVar.Kz(), hVar.KA());
-                if (this.aWr != null) {
+                cVar.b(hVar.KJ(), hVar.KK());
+                if (this.aWb != null) {
                     while (cVar.canRead()) {
-                        int e = cVar.e(this.aWr, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
+                        int e = cVar.e(this.aWb, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
                         if (e > 0) {
-                            printStream.write(this.aWr, 0, e);
+                            printStream.write(this.aWb, 0, e);
                         }
                     }
                 }
-                j.at(TAG, "finished! " + this);
+                j.aw(TAG, "finished! " + this);
                 printStream.flush();
                 printStream.close();
                 cVar.close();
                 if (z) {
-                    e.Ku().q(null);
+                    e.KD().q(null);
                 } else {
-                    e.Ku().o(cVar);
+                    e.KD().o(cVar);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -369,7 +369,7 @@ class f implements Runnable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            j.at(TAG, socket + "离开了HTTP服务器 " + this);
+            j.aw(TAG, socket + "离开了HTTP服务器 " + this);
         }
     }
 }

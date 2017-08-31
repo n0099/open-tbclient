@@ -3,47 +3,47 @@ package com.baidu.tbadk.core.data;
 import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes.dex */
 public class s {
-    private int VQ;
-    private String Wl;
-    private String Wm;
-    private String Wn;
-    private String Wo;
-    private String Wp;
-    private String Wq;
-    private long Wr;
-    private long Ws;
-    private long Wt;
-    private long Wu;
-    private long Wv;
-    private long Ww;
+    private int UT;
+    private long VA;
+    private long VB;
+    private String Vp;
+    private String Vq;
+    private String Vr;
+    private String Vs;
+    private String Vt;
+    private String Vu;
+    private String Vv;
+    private long Vw;
+    private long Vx;
+    private long Vy;
+    private long Vz;
     private String author;
-    private String bookId;
 
-    public String getBookId() {
-        return this.bookId;
+    public String pK() {
+        return this.Vp;
     }
 
-    public int pQ() {
-        return this.VQ;
+    public int pL() {
+        return this.UT;
     }
 
     public void a(ForumBookInfo forumBookInfo) {
         if (forumBookInfo != null) {
-            this.bookId = forumBookInfo.book_id;
-            this.VQ = forumBookInfo.book_type.intValue();
-            this.Wl = forumBookInfo.book_title;
-            this.Wm = forumBookInfo.book_cover;
+            this.Vp = forumBookInfo.book_id;
+            this.UT = forumBookInfo.book_type.intValue();
+            this.Vq = forumBookInfo.book_title;
+            this.Vr = forumBookInfo.book_cover;
             this.author = forumBookInfo.author;
-            this.Wn = forumBookInfo.forum_pic;
-            this.Wo = forumBookInfo.show_chapter_id;
-            this.Wp = forumBookInfo.show_chapter_no;
-            this.Wq = forumBookInfo.show_chapter_title;
-            this.Wr = forumBookInfo.history_page_id.longValue();
-            this.Ws = forumBookInfo.history_paragraph_id.longValue();
-            this.Wt = forumBookInfo.history_word_id.longValue();
-            this.Wu = forumBookInfo.history_percent.longValue();
-            this.Wv = forumBookInfo.show_page_id.longValue();
-            this.Ww = forumBookInfo.show_paragraph_id.longValue();
+            this.Vs = forumBookInfo.forum_pic;
+            this.Vt = forumBookInfo.show_chapter_id;
+            this.Vu = forumBookInfo.show_chapter_no;
+            this.Vv = forumBookInfo.show_chapter_title;
+            this.Vw = forumBookInfo.history_page_id.longValue();
+            this.Vx = forumBookInfo.history_paragraph_id.longValue();
+            this.Vy = forumBookInfo.history_word_id.longValue();
+            this.Vz = forumBookInfo.history_percent.longValue();
+            this.VA = forumBookInfo.show_page_id.longValue();
+            this.VB = forumBookInfo.show_paragraph_id.longValue();
         }
     }
 }

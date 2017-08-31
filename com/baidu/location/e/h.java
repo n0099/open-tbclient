@@ -15,11 +15,11 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class h {
-    private final SQLiteDatabase PS;
-    private final d Px;
+    private final d MZ;
+    private final SQLiteDatabase Nu;
     private boolean t = true;
     private long u = 8000;
-    private long NL = TbConfig.NOTIFY_SOUND_INTERVAL;
+    private long Lm = TbConfig.NOTIFY_SOUND_INTERVAL;
     private long w = TbConfig.NOTIFY_SOUND_INTERVAL;
     private long x = TbConfig.NOTIFY_SOUND_INTERVAL;
     private long y = TbConfig.NOTIFY_SOUND_INTERVAL;
@@ -32,14 +32,14 @@ public final class h {
     private int k = 6;
     private int l = 30;
     private int m = 30;
-    private double PU = 0.0d;
-    private double Oc = 0.0d;
-    private double Od = 0.0d;
-    private double Oe = 0.0d;
-    private double Of = 0.0d;
+    private double Nw = 0.0d;
+    private double LD = 0.0d;
+    private double LE = 0.0d;
+    private double LF = 0.0d;
+    private double LG = 0.0d;
     private int s = 8;
     private String[] i = new String[0];
-    private final a PT = new a();
+    private final a Nv = new a();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -56,7 +56,7 @@ public final class h {
             this.c = -1L;
             this.d = -1L;
             this.k = new HashMap();
-            this.f = Jni.encodeOfflineLocationUpdateRequest(String.format(Locale.US, "&ver=%s&cuid=%s&prod=%s:%s&sdk=%.2f", "1", com.baidu.location.h.c.ns().b, com.baidu.location.h.c.d, com.baidu.location.h.c.c, Float.valueOf(6.23f)));
+            this.f = Jni.encodeOfflineLocationUpdateRequest(String.format(Locale.US, "&ver=%s&cuid=%s&prod=%s:%s&sdk=%.2f", "1", com.baidu.location.h.c.nf().b, com.baidu.location.h.c.d, com.baidu.location.h.c.c, Float.valueOf(6.23f)));
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -66,7 +66,7 @@ public final class h {
             }
             boolean z = false;
             try {
-                File file = new File(h.this.Px.mS(), "ofl.config");
+                File file = new File(h.this.MZ.c(), "ofl.config");
                 if (this.d == -1 && file.exists()) {
                     Scanner scanner = new Scanner(file);
                     String next = scanner.next();
@@ -96,19 +96,19 @@ public final class h {
                     if (jSONObject.has("oflp")) {
                         JSONObject jSONObject2 = jSONObject.getJSONObject("oflp");
                         if (jSONObject2.has("0")) {
-                            h.this.PU = jSONObject2.getDouble("0");
+                            h.this.Nw = jSONObject2.getDouble("0");
                         }
                         if (jSONObject2.has("1")) {
-                            h.this.Oc = jSONObject2.getDouble("1");
+                            h.this.LD = jSONObject2.getDouble("1");
                         }
                         if (jSONObject2.has("2")) {
-                            h.this.Od = jSONObject2.getDouble("2");
+                            h.this.LE = jSONObject2.getDouble("2");
                         }
                         if (jSONObject2.has(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-                            h.this.Oe = jSONObject2.getDouble(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+                            h.this.LF = jSONObject2.getDouble(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                         }
                         if (jSONObject2.has("4")) {
-                            h.this.Of = jSONObject2.getDouble("4");
+                            h.this.LG = jSONObject2.getDouble("4");
                         }
                     }
                     if (jSONObject.has("onlt")) {
@@ -123,7 +123,7 @@ public final class h {
                             h.this.u = jSONObject3.getLong("2");
                         }
                         if (jSONObject3.has(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-                            h.this.NL = jSONObject3.getLong(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+                            h.this.Lm = jSONObject3.getLong(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                         }
                         if (jSONObject3.has("4")) {
                             h.this.w = jSONObject3.getLong("4");
@@ -142,7 +142,7 @@ public final class h {
                 }
             } catch (Exception e) {
             }
-            if ((this.d == -1 || z) && c() && com.baidu.location.h.i.a(h.this.Px.b())) {
+            if ((this.d == -1 || z) && c() && com.baidu.location.h.i.a(h.this.MZ.mD())) {
                 this.e = true;
                 e();
             }
@@ -221,19 +221,19 @@ public final class h {
                         if (jSONObject3.has("oflp")) {
                             JSONObject jSONObject4 = jSONObject3.getJSONObject("oflp");
                             if (jSONObject4.has("0")) {
-                                h.this.PU = jSONObject4.getDouble("0");
+                                h.this.Nw = jSONObject4.getDouble("0");
                             }
                             if (jSONObject4.has("1")) {
-                                h.this.Oc = jSONObject4.getDouble("1");
+                                h.this.LD = jSONObject4.getDouble("1");
                             }
                             if (jSONObject4.has("2")) {
-                                h.this.Od = jSONObject4.getDouble("2");
+                                h.this.LE = jSONObject4.getDouble("2");
                             }
                             if (jSONObject4.has(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-                                h.this.Oe = jSONObject4.getDouble(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+                                h.this.LF = jSONObject4.getDouble(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                             }
                             if (jSONObject4.has("4")) {
-                                h.this.Of = jSONObject4.getDouble("4");
+                                h.this.LG = jSONObject4.getDouble("4");
                             }
                         }
                         if (jSONObject3.has("onlt")) {
@@ -248,7 +248,7 @@ public final class h {
                                 h.this.u = jSONObject5.getLong("2");
                             }
                             if (jSONObject5.has(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-                                h.this.NL = jSONObject5.getLong(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+                                h.this.Lm = jSONObject5.getLong(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                             }
                             if (jSONObject5.has("4")) {
                                 h.this.w = jSONObject5.getLong("4");
@@ -269,23 +269,23 @@ public final class h {
                     jSONObject2.put("rgcon", h.this.j);
                     jSONObject2.put("rgcgp", h.this.k);
                     JSONObject jSONObject6 = new JSONObject();
-                    jSONObject6.put("0", h.this.PU);
-                    jSONObject6.put("1", h.this.Oc);
-                    jSONObject6.put("2", h.this.Od);
-                    jSONObject6.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, h.this.Oe);
-                    jSONObject6.put("4", h.this.Of);
+                    jSONObject6.put("0", h.this.Nw);
+                    jSONObject6.put("1", h.this.LD);
+                    jSONObject6.put("2", h.this.LE);
+                    jSONObject6.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, h.this.LF);
+                    jSONObject6.put("4", h.this.LG);
                     jSONObject2.put("oflp", jSONObject6);
                     JSONObject jSONObject7 = new JSONObject();
                     jSONObject7.put("0", h.this.y);
                     jSONObject7.put("1", h.this.x);
                     jSONObject7.put("2", h.this.u);
-                    jSONObject7.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, h.this.NL);
+                    jSONObject7.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, h.this.Lm);
                     jSONObject7.put("4", h.this.w);
                     jSONObject2.put("onlt", jSONObject7);
                     jSONObject2.put("addrup", h.this.m);
                     jSONObject2.put("poiup", h.this.l);
                     jSONObject2.put("minapn", h.this.s);
-                    File file = new File(h.this.Px.mS(), "ofl.config");
+                    File file = new File(h.this.MZ.c(), "ofl.config");
                     if (!file.exists()) {
                         file.createNewFile();
                     }
@@ -303,20 +303,15 @@ public final class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(d dVar, SQLiteDatabase sQLiteDatabase) {
-        this.Px = dVar;
-        this.PS = sQLiteDatabase;
-        if (this.PS != null && this.PS.isOpen()) {
+        this.MZ = dVar;
+        this.Nu = sQLiteDatabase;
+        if (this.Nu != null && this.Nu.isOpen()) {
             try {
-                this.PS.execSQL("CREATE TABLE IF NOT EXISTS BLACK (name VARCHAR(100) PRIMARY KEY);");
+                this.Nu.execSQL("CREATE TABLE IF NOT EXISTS BLACK (name VARCHAR(100) PRIMARY KEY);");
             } catch (Exception e) {
             }
         }
         g();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long D(String str) {
-        return str.equals("2G") ? this.u : str.equals("3G") ? this.NL : str.equals("4G") ? this.w : str.equals("WIFI") ? this.x : str.equals("unknown") ? this.y : TbConfig.NOTIFY_SOUND_INTERVAL;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -335,28 +330,28 @@ public final class h {
             stringBuffer.append(strArr[i]);
             stringBuffer.append("\")");
         }
-        if (this.PS == null || !this.PS.isOpen() || stringBuffer.length() <= 0) {
+        if (this.Nu == null || !this.Nu.isOpen() || stringBuffer.length() <= 0) {
             return;
         }
         try {
-            this.PS.execSQL(String.format(Locale.US, "INSERT OR IGNORE INTO BLACK VALUES %s;", stringBuffer.toString()));
+            this.Nu.execSQL(String.format(Locale.US, "INSERT OR IGNORE INTO BLACK VALUES %s;", stringBuffer.toString()));
         } catch (Exception e) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public double b() {
-        return this.PU;
+    public long bO(String str) {
+        return str.equals("2G") ? this.u : str.equals("3G") ? this.Lm : str.equals("4G") ? this.w : str.equals("WIFI") ? this.x : str.equals("unknown") ? this.y : TbConfig.NOTIFY_SOUND_INTERVAL;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public double c() {
-        return this.Oc;
+        return this.LD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void g() {
-        this.PT.b();
+        this.Nv.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -390,28 +385,33 @@ public final class h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public double mX() {
-        return this.Od;
+    public double mJ() {
+        return this.Nw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public double mY() {
-        return this.Oe;
+    public double mK() {
+        return this.LE;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public double mZ() {
-        return this.Of;
+    public double mL() {
+        return this.LF;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public double mM() {
+        return this.LG;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String[] mN() {
+        return this.i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int n() {
         return this.k;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String[] na() {
-        return this.i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

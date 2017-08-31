@@ -1,112 +1,81 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.graphics.drawable.Drawable;
+import android.text.Html;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
-import com.baidu.tieba.pb.pb.main.view.TextLineView;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes.dex */
 public class ak extends j.a {
-    public View cSQ;
-    public TextLineView ePH;
-    public TextLineView ePI;
-    private List<TextLineView> ePJ;
-    private int ePK;
-    private View.OnClickListener ePL;
-    private View.OnClickListener ePM;
-    private View.OnClickListener ePN;
-    public TextView evX;
-    public int mSkinType;
+    public View ddy;
+    public ImageView eOc;
+    public TextView eOd;
+    public TextView eOe;
+    public View mRootView;
 
     public ak(View view) {
         super(view);
-        this.mSkinType = 3;
-        this.ePK = 0;
-        this.ePM = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ak.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (com.baidu.adp.lib.util.i.hr()) {
-                    for (TextLineView textLineView : ak.this.ePJ) {
-                        if (textLineView != null) {
-                            if (textLineView != view2) {
-                                textLineView.setSelected(false);
-                            } else {
-                                textLineView.setSelected(true);
-                            }
-                        }
-                    }
-                }
-                if (ak.this.ePL != null) {
-                    ak.this.ePL.onClick(view2);
-                }
-            }
-        };
-        this.ePN = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ak.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (com.baidu.adp.lib.util.i.hr()) {
-                    ak.this.aTp();
-                    view2.setTag(Boolean.valueOf(ak.this.ePK == 0));
-                }
-                if (ak.this.ePL != null) {
-                    ak.this.ePL.onClick(view2);
-                }
-            }
-        };
         if (view != null) {
-            this.ePH = (TextLineView) view.findViewById(d.h.reply_title);
-            this.ePH.setOnClickListener(this.ePM);
-            this.ePI = (TextLineView) view.findViewById(d.h.floor_owner_reply);
-            this.ePI.setOnClickListener(this.ePM);
-            this.evX = (TextView) view.findViewById(d.h.pb_sort);
-            this.evX.setOnClickListener(this.ePN);
-            this.ePH.setSelected(true);
-            this.ePI.setSelected(false);
-            this.ePJ = new ArrayList();
-            this.ePJ.add(this.ePH);
-            this.ePJ.add(this.ePI);
-            this.cSQ = view.findViewById(d.h.divider_with_reply_title);
-            jD(true);
+            this.mRootView = view.findViewById(d.h.thread_praise_root);
+            this.eOc = (ImageView) view.findViewById(d.h.view_main_thread_praise_state);
+            this.eOd = (TextView) view.findViewById(d.h.view_main_thread_praise_num);
+            this.eOe = (TextView) view.findViewById(d.h.view_main_thread_praise_name_list);
+            this.ddy = view.findViewById(d.h.bottom_divider_line);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aTp() {
-        if (!TbadkCoreApplication.isLogin()) {
-            this.evX.setVisibility(8);
-            return;
+    public void b(com.baidu.tieba.pb.data.l lVar) {
+        if (lVar != null) {
+            if (lVar.aPA()) {
+                if (lVar.eEP == 1) {
+                    com.baidu.tbadk.core.util.aj.c(this.eOc, d.g.icon_floor_big_praised);
+                } else if (lVar.eEP == 3) {
+                    com.baidu.tbadk.core.util.aj.c(this.eOc, d.g.icon_floor_trample);
+                } else if (lVar.eEP == 4) {
+                    com.baidu.tbadk.core.util.aj.c(this.eOc, d.g.icon_floor_big_trample);
+                } else {
+                    com.baidu.tbadk.core.util.aj.c(this.eOc, d.g.icon_floor_bigpraised);
+                }
+            } else {
+                com.baidu.tbadk.core.util.aj.c(this.eOc, d.g.icon_floor_bigpraise_n);
+            }
+            com.baidu.tbadk.core.util.aj.i(this.eOd, d.e.cp_link_tip_c);
+            com.baidu.tbadk.core.util.aj.i(this.eOe, d.e.cp_link_tip_c);
+            this.eOc.setTag(d.h.pb_main_thread_praise_data, lVar);
+            if (lVar.aPD()) {
+                com.baidu.tbadk.core.util.aj.k(this.ddy, d.e.cp_bg_line_c);
+                this.ddy.setVisibility(0);
+            } else {
+                this.ddy.setVisibility(8);
+            }
+            if (lVar.getPraiseNum() <= 0 || com.baidu.tbadk.core.util.v.v(lVar.aPB())) {
+                this.eOd.setText(d.l.no_praise_tip);
+                com.baidu.tbadk.core.util.aj.i(this.eOd, d.e.cp_cont_f);
+                this.eOe.setVisibility(8);
+                this.eOe.setTag(false);
+                this.eOd.setTag(false);
+                return;
+            }
+            this.eOe.setTag(true);
+            this.eOd.setTag(true);
+            this.eOe.setVisibility(0);
+            this.eOe.setText(Html.fromHtml(lVar.h(this.eOe), new Html.ImageGetter() { // from class: com.baidu.tieba.pb.pb.main.ak.1
+                @Override // android.text.Html.ImageGetter
+                public Drawable getDrawable(String str) {
+                    int parseInt = Integer.parseInt(str);
+                    Drawable drawable = TbadkCoreApplication.getInst().getResources().getDrawable(d.g.praise_01);
+                    try {
+                        drawable = TbadkCoreApplication.getInst().getResources().getDrawable(parseInt);
+                    } catch (Exception e) {
+                    }
+                    drawable.setBounds(0, 0, com.baidu.adp.lib.util.k.g(TbadkCoreApplication.getInst(), d.f.ds36), com.baidu.adp.lib.util.k.g(TbadkCoreApplication.getInst(), d.f.ds36));
+                    return drawable;
+                }
+            }, null));
+            this.eOd.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.count_main_thread_praise), com.baidu.tbadk.core.util.am.v(lVar.getPraiseNum())));
         }
-        this.evX.setVisibility(0);
-        if (this.ePK == 1) {
-            this.evX.setText(d.l.pb_sort_new);
-            this.evX.setCompoundDrawablesWithIntrinsicBounds(d.g.icon_pb_sort_new, 0, 0, 0);
-            this.ePK = 0;
-        } else if (this.ePK == 0) {
-            this.evX.setText(d.l.pb_sort_old);
-            this.evX.setCompoundDrawablesWithIntrinsicBounds(d.g.icon_pb_sort_old, 0, 0, 0);
-            this.ePK = 1;
-        }
-    }
-
-    public void jD(boolean z) {
-        this.ePK = z ? 1 : 0;
-        aTp();
-    }
-
-    public void jE(boolean z) {
-        if (z) {
-            this.ePI.setSelected(true);
-            this.ePH.setSelected(false);
-            return;
-        }
-        this.ePI.setSelected(false);
-        this.ePH.setSelected(true);
-    }
-
-    public void D(View.OnClickListener onClickListener) {
-        this.ePL = onClickListener;
     }
 }

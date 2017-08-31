@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.data;
 import tbclient.AwardUser;
 /* loaded from: classes.dex */
 public class g {
-    private String VA;
-    private int VC;
+    private String UC;
+    private int UE;
     private long mUserId;
     private String mUserName;
 
@@ -16,20 +16,20 @@ public class g {
         return this.mUserName;
     }
 
-    public String pE() {
-        return this.VA;
+    public String py() {
+        return this.UC;
     }
 
-    public int pG() {
-        return this.VC;
+    public int pA() {
+        return this.UE;
     }
 
     public void a(AwardUser awardUser) {
         if (awardUser != null) {
             this.mUserId = awardUser.user_id.longValue();
             this.mUserName = awardUser.user_name;
-            this.VA = awardUser.award_name;
-            this.VC = awardUser.award_time.intValue();
+            this.UC = awardUser.award_name;
+            this.UE = awardUser.award_time.intValue();
         }
     }
 }

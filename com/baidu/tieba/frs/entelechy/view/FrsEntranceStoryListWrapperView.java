@@ -5,16 +5,16 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.d;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FrsEntranceStoryListWrapperView extends LinearLayout {
-    private HTypeListView aGe;
-    private com.baidu.tieba.a.a aGf;
-    private TbPageContext acr;
+    private HTypeListView aFw;
+    private com.baidu.tieba.a.a aFx;
+    private TbPageContext aby;
     private View mRootView;
     private int mSkinType;
 
@@ -33,38 +33,38 @@ public class FrsEntranceStoryListWrapperView extends LinearLayout {
     }
 
     public void p(TbPageContext tbPageContext) {
-        this.acr = tbPageContext;
-        if (this.acr != null) {
-            this.aGe = (HTypeListView) this.mRootView.findViewById(d.h.listview_story_pic);
-            this.aGe.setSelector(d.g.transparent_bg);
-            this.aGf = new com.baidu.tieba.a.a(this.acr, this.aGe);
+        this.aby = tbPageContext;
+        if (this.aby != null) {
+            this.aFw = (HTypeListView) this.mRootView.findViewById(d.h.listview_story_pic);
+            this.aFw.setSelector(d.g.transparent_bg);
+            this.aFx = new com.baidu.tieba.a.a(this.aby, this.aFw);
         }
     }
 
     public void changeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.aGf != null) {
-                this.aGf.notifyDataSetChanged();
+            if (this.aFx != null) {
+                this.aFx.notifyDataSetChanged();
             }
-            ai.k(this.mRootView, d.e.cp_bg_line_e);
-            ai.k(this.aGe, d.e.cp_bg_line_d);
+            aj.k(this.mRootView, d.e.cp_bg_line_e);
+            aj.k(this.aFw, d.e.cp_bg_line_d);
         }
         this.mSkinType = i;
     }
 
     public void b(List<com.baidu.adp.widget.ListView.f> list, String str, String str2) {
-        com.baidu.tieba.story.l.boG().boI();
-        if (u.v(list)) {
+        com.baidu.tieba.story.l.bnU().bnX();
+        if (v.v(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        if (this.aGf != null) {
-            this.aGf.a(list, str, str2);
+        if (this.aFx != null) {
+            this.aFx.a(list, str, str2);
         }
     }
 
     public void setOnClick(View.OnClickListener onClickListener) {
-        this.aGf.setItemOnclickListener(onClickListener);
+        this.aFx.setItemOnclickListener(onClickListener);
     }
 }

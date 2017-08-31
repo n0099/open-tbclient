@@ -24,6 +24,11 @@ public interface f {
 
     /* loaded from: classes.dex */
     public interface d {
+        void onReleaseFinished();
+    }
+
+    /* loaded from: classes.dex */
+    public interface e {
         void onPrepared(f fVar);
     }
 
@@ -32,6 +37,8 @@ public interface f {
     void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, String str);
 
     void a(c cVar);
+
+    void a(d dVar);
 
     int getCurrentPosition();
 
@@ -42,6 +49,8 @@ public interface f {
     int getVideoWidth();
 
     boolean isExistInRemote();
+
+    boolean isLooping();
 
     boolean isPlaying();
 
@@ -57,7 +66,7 @@ public interface f {
 
     void setOnErrorListener(b bVar);
 
-    void setOnPreparedListener(d dVar);
+    void setOnPreparedListener(e eVar);
 
     void setVolume(float f, float f2);
 

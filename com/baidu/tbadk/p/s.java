@@ -1,10 +1,32 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
-public class s extends j {
-    private static final s aLY = new s();
+public class s extends com.baidu.adp.lib.b.a {
+    @Override // com.baidu.adp.lib.b.a
+    protected void X(int i) {
+    }
 
-    @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "graffiti_android";
+        return "offline_gift";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] eN() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eO() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eP() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eQ() {
+        return 10;
     }
 }

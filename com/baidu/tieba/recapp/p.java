@@ -6,6 +6,7 @@ import com.baidu.adp.widget.ListView.a;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.tbadkCore.d.a;
+import com.baidu.tieba.tbadkCore.data.AppData;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface p {
@@ -15,15 +16,19 @@ public interface p {
 
     void a(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5);
 
-    h bI(Context context);
+    h bS(Context context);
 
-    k bic();
+    k bgX();
 
-    m bid();
+    m bgY();
 
-    com.baidu.tieba.k.a bie();
+    com.baidu.tieba.k.a bgZ();
 
-    i bif();
+    i bha();
+
+    List<AppData> bhb();
+
+    void bhc();
 
     com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 

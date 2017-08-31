@@ -9,12 +9,16 @@ public final class WXMediaMessage {
     public static final String ACTION_WXAPPMESSAGE = "com.tencent.mm.sdk.openapi.Intent.ACTION_WXAPPMESSAGE";
     private static final int DESCRIPTION_LENGTH_LIMIT = 1024;
     private static final int MEDIA_TAG_NAME_LENGTH_LIMIT = 64;
+    private static final int MESSAGE_ACTION_LENGTH_LIMIT = 2048;
+    private static final int MESSAGE_EXT_LENGTH_LIMIT = 2048;
     private static final String TAG = "MicroMsg.SDK.WXMediaMessage";
     private static final int THUMB_LENGTH_LIMIT = 32768;
     private static final int TITLE_LENGTH_LIMIT = 512;
     public String description;
     public IMediaObject mediaObject;
     public String mediaTagName;
+    public String messageAction;
+    public String messageExt;
     public int sdkVer;
     public byte[] thumbData;
     public String title;
@@ -30,6 +34,8 @@ public final class WXMediaMessage {
             wXMediaMessage.description = bundle.getString("_wxobject_description");
             wXMediaMessage.thumbData = bundle.getByteArray("_wxobject_thumbdata");
             wXMediaMessage.mediaTagName = bundle.getString("_wxobject_mediatagname");
+            wXMediaMessage.messageAction = bundle.getString("_wxobject_message_action");
+            wXMediaMessage.messageExt = bundle.getString("_wxobject_message_ext");
             String pathOldToNew = pathOldToNew(bundle.getString(KEY_IDENTIFIER));
             if (pathOldToNew == null || pathOldToNew.length() <= 0) {
                 return wXMediaMessage;
@@ -72,6 +78,8 @@ public final class WXMediaMessage {
                 wXMediaMessage.mediaObject.serialize(bundle);
             }
             bundle.putString("_wxobject_mediatagname", wXMediaMessage.mediaTagName);
+            bundle.putString("_wxobject_message_action", wXMediaMessage.messageAction);
+            bundle.putString("_wxobject_message_ext", wXMediaMessage.messageExt);
             return bundle;
         }
     }
@@ -123,10 +131,16 @@ public final class WXMediaMessage {
         } else if (this.mediaObject == null) {
             a.a(TAG, "checkArgs fail, mediaObject is null");
             return false;
-        } else if (this.mediaTagName == null || this.mediaTagName.length() <= 64) {
+        } else if (this.mediaTagName != null && this.mediaTagName.length() > 64) {
+            a.a(TAG, "checkArgs fail, mediaTagName is too long");
+            return false;
+        } else if (this.messageAction != null && this.messageAction.length() > 2048) {
+            a.a(TAG, "checkArgs fail, messageAction is too long");
+            return false;
+        } else if (this.messageExt == null || this.messageExt.length() <= 2048) {
             return this.mediaObject.checkArgs();
         } else {
-            a.a(TAG, "checkArgs fail, mediaTagName is too long");
+            a.a(TAG, "checkArgs fail, messageExt is too long");
             return false;
         }
     }

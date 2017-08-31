@@ -18,44 +18,44 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    private BdListView JE;
-    private AlertDialog abL;
-    private ViewGroup abM;
-    private TextView abZ;
-    private View aca;
-    private e acq;
-    private TbPageContext<?> acr;
+    private BdListView Hw;
+    private AlertDialog aaP;
+    private ViewGroup aaQ;
+    private TextView abe;
+    private View abf;
+    private e abx;
+    private TbPageContext<?> aby;
     private ArrayList<f> mItems;
     private AdapterView.OnItemClickListener mOnItemClickListener;
     private String mTitle;
-    private int acc = -1;
-    private int abA = -1;
-    private boolean abO = false;
+    private int abh = -1;
+    private int aaE = -1;
+    private boolean aaS = false;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int ack = d.m.dialog_ani_b2t;
-        public static final int acl = d.m.dialog_ani_t2b;
-        public static final int acm = d.m.dialog_ani_l2r;
-        public static final int acn = d.m.dialog_ani_r2l;
+        public static final int abp = d.m.dialog_ani_b2t;
+        public static final int abq = d.m.dialog_ani_t2b;
+        public static final int abr = d.m.dialog_ani_l2r;
+        public static final int abt = d.m.dialog_ani_r2l;
     }
 
     public d(TbPageContext<?> tbPageContext) {
-        this.acr = tbPageContext;
-        this.abM = (ViewGroup) LayoutInflater.from(this.acr.getPageActivity()).inflate(d.j.dialog_rich_layout, (ViewGroup) null);
-        this.abZ = (TextView) this.abM.findViewById(d.h.dialog_title_list);
-        this.JE = (BdListView) this.abM.findViewById(d.h.dialog_content_list);
-        this.aca = this.abM.findViewById(d.h.line_bg);
-        this.acq = new e(this.acr);
+        this.aby = tbPageContext;
+        this.aaQ = (ViewGroup) LayoutInflater.from(this.aby.getPageActivity()).inflate(d.j.dialog_rich_layout, (ViewGroup) null);
+        this.abe = (TextView) this.aaQ.findViewById(d.h.dialog_title_list);
+        this.Hw = (BdListView) this.aaQ.findViewById(d.h.dialog_content_list);
+        this.abf = this.aaQ.findViewById(d.h.line_bg);
+        this.abx = new e(this.aby);
     }
 
-    public d cY(String str) {
+    public d cO(String str) {
         this.mTitle = str;
         return this;
     }
 
     public d cl(int i) {
-        return cY(this.acr.getResources().getString(i));
+        return cO(this.aby.getResources().getString(i));
     }
 
     public d a(ArrayList<f> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -63,26 +63,26 @@ public class d {
             this.mItems = arrayList;
             if (onItemClickListener != null) {
                 this.mOnItemClickListener = onItemClickListener;
-                this.JE.setOnItemClickListener(this.mOnItemClickListener);
+                this.Hw.setOnItemClickListener(this.mOnItemClickListener);
             }
         }
         return this;
     }
 
-    public d tw() {
-        if (!this.abO) {
-            this.abO = true;
+    public d ts() {
+        if (!this.aaS) {
+            this.aaS = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
-                this.abZ.setText(this.mTitle);
-                this.abZ.setVisibility(0);
-                this.aca.setVisibility(0);
+                this.abe.setText(this.mTitle);
+                this.abe.setVisibility(0);
+                this.abf.setVisibility(0);
             } else {
-                this.abZ.setVisibility(8);
-                this.aca.setVisibility(8);
+                this.abe.setVisibility(8);
+                this.abf.setVisibility(8);
             }
-            this.JE.setAdapter((ListAdapter) this.acq);
-            this.acq.setData(this.mItems);
-            c(this.acr);
+            this.Hw.setAdapter((ListAdapter) this.abx);
+            this.abx.setData(this.mItems);
+            c(this.aby);
         }
         return this;
     }
@@ -95,32 +95,32 @@ public class d {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.acq.setData(this.mItems);
+        this.abx.setData(this.mItems);
     }
 
-    public d tx() {
-        if (!this.abO) {
+    public d tt() {
+        if (!this.aaS) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.abL != null) {
-            g.a(this.abL, this.acr);
+        if (this.aaP != null) {
+            g.a(this.aaP, this.aby);
         } else {
-            this.abL = new AlertDialog.Builder(this.acr.getPageActivity()).create();
-            this.abL.setCanceledOnTouchOutside(true);
-            if (g.a(this.abL, this.acr.getPageActivity())) {
-                Window window = this.abL.getWindow();
-                if (this.acc == -1) {
-                    this.acc = a.ack;
+            this.aaP = new AlertDialog.Builder(this.aby.getPageActivity()).create();
+            this.aaP.setCanceledOnTouchOutside(true);
+            if (g.a(this.aaP, this.aby.getPageActivity())) {
+                Window window = this.aaP.getWindow();
+                if (this.abh == -1) {
+                    this.abh = a.abp;
                 }
-                if (this.abA == -1) {
-                    this.abA = 17;
+                if (this.aaE == -1) {
+                    this.aaE = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.abA);
+                window.setGravity(this.aaE);
                 window.setBackgroundDrawableResource(d.g.transparent_bg);
-                window.setContentView(this.abM);
+                window.setContentView(this.aaQ);
             }
         }
         return this;
@@ -130,14 +130,14 @@ public class d {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (eVar instanceof TbPageContext) {
             ((TbPageContext) eVar).getLayoutMode().ah(skinType == 1);
-            ((TbPageContext) eVar).getLayoutMode().t(this.abM);
+            ((TbPageContext) eVar).getLayoutMode().t(this.aaQ);
         }
-        this.abM.setBackgroundResource(d.g.transparent_bg);
+        this.aaQ.setBackgroundResource(d.g.transparent_bg);
     }
 
     public void dismiss() {
-        if (this.abL != null) {
-            g.b(this.abL, this.acr.getPageActivity());
+        if (this.aaP != null) {
+            g.b(this.aaP, this.aby.getPageActivity());
         }
     }
 }

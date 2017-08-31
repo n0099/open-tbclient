@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class h {
-    public static void du(String str) {
+    public static void dk(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -40,13 +40,13 @@ public class h {
             }
         }
         if (i > 0) {
-            aj ajVar = new aj("c12231");
-            ajVar.r("obj_param1", i);
-            TiebaStatic.log(ajVar);
+            ak akVar = new ak("c12231");
+            akVar.r("obj_param1", i);
+            TiebaStatic.log(akVar);
         }
     }
 
-    public static void uI() {
+    public static void uD() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.h.1
             @Override // java.lang.Runnable
             public void run() {
@@ -55,7 +55,7 @@ public class h {
                 int i;
                 com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
                 try {
-                    cursor = mainDBDatabaseManager.cs().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                    cursor = mainDBDatabaseManager.ch().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
                     i = 0;
                     while (cursor.moveToNext()) {
                         try {
@@ -65,10 +65,10 @@ public class h {
                             try {
                                 mainDBDatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.m.e(cursor);
-                                aj ajVar = new aj("c12232");
-                                ajVar.aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-                                ajVar.r("obj_param1", i);
-                                TiebaStatic.log(ajVar);
+                                ak akVar = new ak("c12232");
+                                akVar.ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                                akVar.r("obj_param1", i);
+                                TiebaStatic.log(akVar);
                             } catch (Throwable th3) {
                                 com.baidu.adp.lib.util.m.e(cursor);
                                 throw th3;
@@ -81,10 +81,10 @@ public class h {
                     th = th4;
                     i = 0;
                 }
-                aj ajVar2 = new aj("c12232");
-                ajVar2.aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-                ajVar2.r("obj_param1", i);
-                TiebaStatic.log(ajVar2);
+                ak akVar2 = new ak("c12232");
+                akVar2.ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                akVar2.r("obj_param1", i);
+                TiebaStatic.log(akVar2);
             }
         }).start();
     }

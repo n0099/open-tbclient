@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -11,7 +11,6 @@ public class PbActivityConfig extends IntentConfig {
     public static final String BIG_PIC_NAME = "big_pic_type";
     public static final String FROM_BAIDU_SEARCHBOX = "from_baidu_searchbox";
     public static final String FROM_INTERVIEW_LIVE = "from_interview_live";
-    public static final String FROM_READER_SERVICE = "from_reader_service";
     public static final String FROM_SEARCHBOX = "from_searchbox";
     public static final String FROM_VIDEO_LIST = "from_video_list";
     public static final int INVALID_SMART_FRS_POSITION = -1;
@@ -265,27 +264,13 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createReaderServiceCfg(String str, String str2, int i, boolean z, boolean z2, String str3) {
-        Intent intent = getIntent();
-        intent.putExtra("thread_id", str);
-        intent.putExtra("post_id", str2);
-        intent.putExtra(KEY_HOST_ONLY, z);
-        intent.putExtra(KEY_SQUENCE, z2);
-        intent.putExtra("st_type", str3);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        intent.putExtra(FROM_READER_SERVICE, true);
-        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        addMoreIntentExtraParam();
-        return this;
-    }
-
-    public PbActivityConfig createFromThreadCfg(bl blVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (blVar != null) {
+    public PbActivityConfig createFromThreadCfg(bj bjVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (bjVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", blVar.getId());
-            intent.putExtra("is_good", blVar.rC());
-            intent.putExtra("is_top", blVar.rB());
-            intent.putExtra(KEY_THREAD_TIME, blVar.rA());
+            intent.putExtra("thread_id", bjVar.getTid());
+            intent.putExtra("is_good", bjVar.rx());
+            intent.putExtra("is_top", bjVar.rw());
+            intent.putExtra(KEY_THREAD_TIME, bjVar.rv());
             intent.putExtra("st_type", str2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
@@ -295,10 +280,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (blVar.rw() == null ? 0L : blVar.rw().getNum()));
-            if (blVar.getAuthor() != null && blVar.getAuthor().getGodUserData().getId() != null) {
-                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, blVar.getAuthor().getFansNum());
-                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, blVar.getAuthor().getGodUserData().getIsLike());
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bjVar.rr() == null ? 0L : bjVar.rr().getNum()));
+            if (bjVar.getAuthor() != null && bjVar.getAuthor().getGodUserData().getId() != null) {
+                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, bjVar.getAuthor().getFansNum());
+                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, bjVar.getAuthor().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();

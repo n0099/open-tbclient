@@ -17,29 +17,29 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes.dex */
 public class b {
-    private static b aeD;
-    private c aeE = new c();
+    private static b adL;
+    private c adM = new c();
 
     private b() {
     }
 
-    public static b ur() {
-        if (aeD == null) {
+    public static b um() {
+        if (adL == null) {
             synchronized (b.class) {
-                if (aeD == null) {
-                    aeD = new b();
+                if (adL == null) {
+                    adL = new b();
                 }
             }
         }
-        return aeD;
+        return adL;
     }
 
-    public CacheEntry dl(String str) {
-        return this.aeE.dl(dn(str));
+    public CacheEntry db(String str) {
+        return this.adM.db(dd(str));
     }
 
-    public synchronized boolean dm(String str) {
-        return this.aeE.dm(dn(str));
+    public synchronized boolean dc(String str) {
+        return this.adM.dc(dd(str));
     }
 
     public synchronized boolean saveCache(String str, String str2, boolean z, byte[] bArr) {
@@ -47,24 +47,24 @@ public class b {
         if (TextUtils.isEmpty(str) || bArr == null || bArr.length == 0) {
             z2 = false;
         } else {
-            String dn = dn(str);
+            String dd = dd(str);
             CacheEntry cacheEntry = new CacheEntry();
             cacheEntry.seteTag(str2);
-            cacheEntry.setUrl(dn);
+            cacheEntry.setUrl(dd);
             cacheEntry.setWriteTime(System.currentTimeMillis());
             cacheEntry.setSize(bArr.length);
             cacheEntry.setForever(z);
             if (!TextUtils.isEmpty(str2)) {
                 cacheEntry.setName(str2);
             } else {
-                cacheEntry.setName(r.aW(dn));
+                cacheEntry.setName(r.aS(dd));
             }
-            z2 = this.aeE.a(cacheEntry, bArr);
+            z2 = this.adM.a(cacheEntry, bArr);
         }
         return z2;
     }
 
-    private String dn(String str) {
+    private String dd(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -75,11 +75,11 @@ public class b {
         return substring;
     }
 
-    public void us() {
+    public void un() {
         File[] listFiles;
-        List<CacheEntry> uq = a.un().uq();
-        if (uq != null && uq.size() != 0) {
-            Collections.sort(uq, new Comparator<CacheEntry>() { // from class: com.baidu.tbadk.core.hybrid.cache.b.1
+        List<CacheEntry> ul = a.ui().ul();
+        if (ul != null && ul.size() != 0) {
+            Collections.sort(ul, new Comparator<CacheEntry>() { // from class: com.baidu.tbadk.core.hybrid.cache.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
@@ -103,7 +103,7 @@ public class b {
             long j = 0;
             long j2 = 200 * 1048576;
             long j3 = j2 > 31457280 ? j2 : 31457280L;
-            for (CacheEntry cacheEntry : uq) {
+            for (CacheEntry cacheEntry : ul) {
                 j += cacheEntry.getSize();
                 if (System.currentTimeMillis() - cacheEntry.getWriteTime() > 7776000000L) {
                     arrayList.add(cacheEntry);
@@ -112,10 +112,10 @@ public class b {
                 }
             }
             for (CacheEntry cacheEntry2 : arrayList) {
-                this.aeE.dm(cacheEntry2.getUrl());
+                this.adM.dc(cacheEntry2.getUrl());
             }
             ArrayList arrayList2 = new ArrayList();
-            for (CacheEntry cacheEntry3 : uq) {
+            for (CacheEntry cacheEntry3 : ul) {
                 arrayList2.add(cacheEntry3.getName());
             }
             File file = new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache/files");
@@ -134,10 +134,10 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean ut() {
+    public boolean uo() {
         InputStream inputStream;
         File file;
-        byte[] p;
+        byte[] r;
         boolean z;
         boolean z2 = true;
         File file2 = new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/temp");
@@ -166,11 +166,11 @@ public class b {
                             }
                         }
                         return false;
-                    } else if (y.c(file, file3.toString())) {
+                    } else if (y.b(file, file3.toString())) {
                         File file4 = new File(file3, "config.config");
-                        if (file4.isFile() && file4.length() > 0 && (p = o.p(file4)) != null && p.length > 0) {
+                        if (file4.isFile() && file4.length() > 0 && (r = o.r(file4)) != null && r.length > 0) {
                             try {
-                                JSONArray jSONArray = new JSONArray(new String(p));
+                                JSONArray jSONArray = new JSONArray(new String(r));
                                 ArrayList arrayList = new ArrayList();
                                 for (int i = 0; i < jSONArray.length(); i++) {
                                     CacheEntry cacheEntry = new CacheEntry();
@@ -185,7 +185,7 @@ public class b {
                                         break;
                                     }
                                     CacheEntry cacheEntry2 = (CacheEntry) it.next();
-                                    z2 = !saveCache(cacheEntry2.getUrl(), cacheEntry2.geteTag(), true, o.p(new File(file5, cacheEntry2.getName()))) ? false : z;
+                                    z2 = !saveCache(cacheEntry2.getUrl(), cacheEntry2.geteTag(), true, o.r(new File(file5, cacheEntry2.getName()))) ? false : z;
                                 }
                                 if (inputStream != null) {
                                     try {

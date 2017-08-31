@@ -5,41 +5,41 @@ import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class f {
-    private static f qx = null;
-    private int qh = 0;
+    private static f oe = null;
+    private int nO = 0;
 
-    public static f da() {
-        if (qx == null) {
+    public static f cQ() {
+        if (oe == null) {
             synchronized (f.class) {
-                if (qx == null) {
-                    qx = new f();
+                if (oe == null) {
+                    oe = new f();
                 }
             }
         }
-        return qx;
+        return oe;
     }
 
-    public synchronized void d(Map<String, String> map) {
+    public synchronized void c(Map<String, String> map) {
         if (map != null) {
             try {
-                this.qh = Integer.valueOf(map.get("Seq-Id")).intValue();
+                this.nO = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                i.a("SequenceManager", 0, 0, "setSequenceId", h.rm, "parser Seq-Id error");
-                if (this.qh == 0) {
-                    this.qh = new Random().nextInt();
+                i.a("SequenceManager", 0, 0, "setSequenceId", h.oX, "parser Seq-Id error");
+                if (this.nO == 0) {
+                    this.nO = new Random().nextInt();
                 }
             }
         }
     }
 
-    public synchronized int cV() {
+    public synchronized int cK() {
         int i;
-        if (this.qh == 0) {
-            this.qh++;
+        if (this.nO == 0) {
+            this.nO++;
         }
-        i = this.qh;
-        this.qh = i + 1;
+        i = this.nO;
+        this.nO = i + 1;
         return i;
     }
 }

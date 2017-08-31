@@ -5,50 +5,50 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class ScrollBridgeWebview extends f {
-    private a aem;
-    private boolean aen;
+    private a adu;
+    private boolean adv;
 
     /* loaded from: classes.dex */
     public interface a {
-        void f(int i, int i2, int i3, int i4);
+        void d(int i, int i2, int i3, int i4);
 
-        void g(int i, int i2, int i3, int i4);
+        void e(int i, int i2, int i3, int i4);
 
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
 
     public ScrollBridgeWebview(Context context) {
         super(context);
-        this.aen = false;
+        this.adv = false;
     }
 
     public ScrollBridgeWebview(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aen = false;
+        this.adv = false;
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.aem != null) {
+        if (this.adu != null) {
             if (Math.abs((getContentHeight() * getScale()) - (getHeight() + getScrollY())) < 1.0f) {
-                this.aem.f(i, i2, i3, i4);
+                this.adu.d(i, i2, i3, i4);
             } else if (getScrollY() == 0) {
-                this.aem.g(i, i2, i3, i4);
+                this.adu.e(i, i2, i3, i4);
             } else {
-                this.aem.onScrollChanged(i, i2, i3, i4);
+                this.adu.onScrollChanged(i, i2, i3, i4);
             }
         }
     }
 
     public void setOnScrollChangeListener(a aVar) {
-        this.aem = aVar;
+        this.adu = aVar;
     }
 
     @Override // android.webkit.WebView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean onTouchEvent = super.onTouchEvent(motionEvent);
-        if (this.aen) {
+        if (this.adv) {
             if (motionEvent.getAction() == 0) {
                 requestDisallowInterceptTouchEvent(false);
             } else {
@@ -59,6 +59,6 @@ public class ScrollBridgeWebview extends f {
     }
 
     public void setNeedDisAllowParentInterceptTouchEvent(boolean z) {
-        this.aen = z;
+        this.adv = z;
     }
 }

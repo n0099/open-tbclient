@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.p;
 import com.baidu.tbadk.core.data.q;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ai;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.n;
@@ -29,173 +29,173 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d extends j.a {
-    private p aaQ;
-    public boolean aou;
-    View cNX;
-    private boolean cgS;
-    private View.OnClickListener clm;
-    View cqZ;
-    LinearLayout eGT;
-    DeclareItemView eGU;
-    DeclareItemView eGV;
-    DeclareItemView eGW;
-    DeclareItemView eGX;
-    DeclareItemView eGY;
-    TextView eGZ;
-    private boolean eHa;
-    private ArrayList<a> eHb;
-    private int[] eHc;
-    private n eHd;
-    private boolean eHe;
+    private p ZV;
+    public boolean anP;
+    View cUo;
+    private boolean cla;
+    private View.OnClickListener cqF;
+    View cxD;
+    LinearLayout eFn;
+    DeclareItemView eFo;
+    DeclareItemView eFp;
+    DeclareItemView eFq;
+    DeclareItemView eFr;
+    DeclareItemView eFs;
+    TextView eFt;
+    private boolean eFu;
+    private ArrayList<a> eFv;
+    private int[] eFw;
+    private n eFx;
+    private boolean eFy;
     private Context mContext;
     private int mSkinType;
     private int offset;
 
     public d(View view, Context context) {
         super(view);
-        this.eHa = true;
-        this.eHb = new ArrayList<>();
+        this.eFu = true;
+        this.eFv = new ArrayList<>();
         this.mSkinType = 3;
-        this.eHc = new int[]{d.g.image_emoticon_huaji, d.g.image_emoticon_zan, d.g.image_emoticon_love, d.g.image_emoticon_shuitei, d.g.image_emoticon_shengqi};
+        this.eFw = new int[]{d.g.image_emoticon_huaji, d.g.image_emoticon_zan, d.g.image_emoticon_love, d.g.image_emoticon_shuitei, d.g.image_emoticon_shengqi};
         this.offset = 0;
-        this.eHe = false;
-        this.cgS = true;
-        this.clm = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.a.d.1
+        this.eFy = false;
+        this.cla = true;
+        this.cqF = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.a.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (aw.aO(d.this.mContext) && !com.baidu.tieba.pb.f.iL(d.this.aou)) {
+                if (ax.aT(d.this.mContext) && !com.baidu.tieba.pb.f.iL(d.this.anP)) {
                     d.this.a(view2, 300L);
                 }
             }
         };
-        aZ(view);
+        bg(view);
         this.mContext = context;
     }
 
-    public void aZ(View view) {
+    public void bg(View view) {
         FrameLayout.LayoutParams layoutParams;
-        this.eGT = (LinearLayout) view.findViewById(d.h.emotion_vote);
-        this.eGU = (DeclareItemView) view.findViewById(d.h.huaji_item);
-        this.eGY = (DeclareItemView) view.findViewById(d.h.zan_item);
-        this.eGV = (DeclareItemView) view.findViewById(d.h.love_item);
-        this.eGW = (DeclareItemView) view.findViewById(d.h.shengqi_item);
-        this.eGX = (DeclareItemView) view.findViewById(d.h.tushui_item);
-        this.eGZ = (TextView) view.findViewById(d.h.vote_count_view);
-        this.cqZ = view.findViewById(d.h.top_divider_line);
-        this.cNX = view.findViewById(d.h.bottom_divider_line);
-        if ((this.eGT.getLayoutParams() instanceof FrameLayout.LayoutParams) && (layoutParams = (FrameLayout.LayoutParams) this.eGT.getLayoutParams()) != null) {
+        this.eFn = (LinearLayout) view.findViewById(d.h.emotion_vote);
+        this.eFo = (DeclareItemView) view.findViewById(d.h.huaji_item);
+        this.eFs = (DeclareItemView) view.findViewById(d.h.zan_item);
+        this.eFp = (DeclareItemView) view.findViewById(d.h.love_item);
+        this.eFq = (DeclareItemView) view.findViewById(d.h.shengqi_item);
+        this.eFr = (DeclareItemView) view.findViewById(d.h.tushui_item);
+        this.eFt = (TextView) view.findViewById(d.h.vote_count_view);
+        this.cxD = view.findViewById(d.h.top_divider_line);
+        this.cUo = view.findViewById(d.h.bottom_divider_line);
+        if ((this.eFn.getLayoutParams() instanceof FrameLayout.LayoutParams) && (layoutParams = (FrameLayout.LayoutParams) this.eFn.getLayoutParams()) != null) {
             this.offset = layoutParams.rightMargin - k.g(TbadkCoreApplication.getInst(), d.f.ds8);
         }
-        this.eHb.add(new a(this.eGU));
-        this.eHb.add(new a(this.eGY));
-        this.eHb.add(new a(this.eGV));
-        this.eHb.add(new a(this.eGX));
-        this.eHb.add(new a(this.eGW));
+        this.eFv.add(new a(this.eFo));
+        this.eFv.add(new a(this.eFs));
+        this.eFv.add(new a(this.eFp));
+        this.eFv.add(new a(this.eFr));
+        this.eFv.add(new a(this.eFq));
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        aQE();
+        aPR();
     }
 
     public void a(a aVar) {
         if (aVar != null) {
-            aVar.aQG();
-            this.eGZ.setAlpha(1.0f);
-            if (this.eHa) {
-                Iterator<a> it = this.eHb.iterator();
+            aVar.aPT();
+            this.eFt.setAlpha(1.0f);
+            if (this.eFu) {
+                Iterator<a> it = this.eFv.iterator();
                 while (it.hasNext()) {
                     a next = it.next();
                     if (next != null && next != aVar) {
-                        next.eHi.setAlpha(0.0f);
-                        next.eHi.setClickable(false);
+                        next.eFC.setAlpha(0.0f);
+                        next.eFC.setClickable(false);
                     }
                 }
-                aVar.eHi.setNeedTranslate(true);
-                this.eHa = false;
+                aVar.eFC.setNeedTranslate(true);
+                this.eFu = false;
             }
         }
     }
 
-    public void aQE() {
-        int size = this.eHb.size();
+    public void aPR() {
+        int size = this.eFv.size();
         for (int i = 0; i < size; i++) {
-            a aVar = this.eHb.get(i);
+            a aVar = this.eFv.get(i);
             if (aVar != null) {
-                aVar.eHi.setOffSet(this.offset);
-                aVar.eHi.setOnClickListener(this.clm);
-                if (i < this.eHc.length) {
-                    aVar.eHj.setImageResource(this.eHc[i]);
+                aVar.eFC.setOffSet(this.offset);
+                aVar.eFC.setOnClickListener(this.cqF);
+                if (i < this.eFw.length) {
+                    aVar.eFD.setImageResource(this.eFw[i]);
                 }
-                aVar.eHk.setText("0");
+                aVar.eFE.setText("0");
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void iV(boolean z) {
-        int size = this.eHb.size();
+        int size = this.eFv.size();
         for (int i = 0; i < size; i++) {
-            a aVar = this.eHb.get(i);
+            a aVar = this.eFv.get(i);
             if (aVar != null) {
-                aVar.eHi.setClickable(z);
+                aVar.eFC.setClickable(z);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final View view, final long j) {
-        if (!this.eHe) {
-            this.eHe = true;
-            if (this.aaQ != null && view != null && (view.getTag() instanceof a)) {
+        if (!this.eFy) {
+            this.eFy = true;
+            if (this.ZV != null && view != null && (view.getTag() instanceof a)) {
                 final a aVar = (a) view.getTag();
-                float measuredWidth = this.offset + ((this.eGT.getMeasuredWidth() - view.getX()) - view.getMeasuredWidth());
+                float measuredWidth = this.offset + ((this.eFn.getMeasuredWidth() - view.getX()) - view.getMeasuredWidth());
                 iV(false);
-                if (this.eHa) {
-                    if (aVar.eHm != null) {
-                        if (aVar.eHm.Wh) {
-                            a(aVar.eHm, false);
+                if (this.eFu) {
+                    if (aVar.eFG != null) {
+                        if (aVar.eFG.Vk) {
+                            a(aVar.eFG, false);
                             aVar.iW(false);
                             AnimatorSet animatorSet = new AnimatorSet();
                             animatorSet.play(ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 1.3f, 1.0f)).with(ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 1.3f, 1.0f));
                             animatorSet.setDuration(j).start();
                             iV(true);
-                            this.eHe = false;
-                            TiebaStatic.log(new aj("c12000").r("obj_id", aVar.eHm.Wd).g("tid", this.aaQ.getTid()));
+                            this.eFy = false;
+                            TiebaStatic.log(new ak("c12000").r("obj_id", aVar.eFG.Vg).f("tid", this.ZV.getTid()));
                             return;
                         }
-                        if (this.aaQ.pO()) {
-                            Iterator<a> it = this.eHb.iterator();
+                        if (this.ZV.pI()) {
+                            Iterator<a> it = this.eFv.iterator();
                             while (it.hasNext()) {
                                 a next = it.next();
                                 if (next != null && next != aVar) {
-                                    a(aVar.eHm, false);
+                                    a(aVar.eFG, false);
                                     next.iW(false);
-                                    TiebaStatic.log(new aj("c12000").r("obj_id", aVar.eHm.Wd).g("tid", this.aaQ.getTid()));
+                                    TiebaStatic.log(new ak("c12000").r("obj_id", aVar.eFG.Vg).f("tid", this.ZV.getTid()));
                                 }
                             }
                             AnimatorSet animatorSet2 = new AnimatorSet();
                             animatorSet2.play(ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 1.3f, 1.0f)).with(ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 1.3f, 1.0f));
                             animatorSet2.setDuration(j).start();
                         }
-                        a(aVar.eHm, true);
+                        a(aVar.eFG, true);
                         aVar.iW(true);
-                        TiebaStatic.log(new aj("c11999").r("obj_id", aVar.eHm.Wd).g("tid", this.aaQ.getTid()));
+                        TiebaStatic.log(new ak("c11999").r("obj_id", aVar.eFG.Vg).f("tid", this.ZV.getTid()));
                     }
                 } else {
-                    TiebaStatic.log(new aj("c12002").g("tid", this.aaQ.getTid()));
+                    TiebaStatic.log(new ak("c12002").f("tid", this.ZV.getTid()));
                     measuredWidth = 0.0f;
                 }
                 ArrayList arrayList = new ArrayList();
-                Iterator<a> it2 = this.eHb.iterator();
+                Iterator<a> it2 = this.eFv.iterator();
                 while (it2.hasNext()) {
                     a next2 = it2.next();
                     if (next2 != null && next2 != aVar) {
-                        arrayList.add(this.eHa ? ObjectAnimator.ofFloat(next2.eHi, "alpha", 1.0f, 0.0f) : ObjectAnimator.ofFloat(next2.eHi, "alpha", 0.0f, 1.0f));
+                        arrayList.add(this.eFu ? ObjectAnimator.ofFloat(next2.eFC, "alpha", 1.0f, 0.0f) : ObjectAnimator.ofFloat(next2.eFC, "alpha", 0.0f, 1.0f));
                     }
                 }
                 AnimatorSet animatorSet3 = new AnimatorSet();
                 animatorSet3.playTogether(arrayList);
                 ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", measuredWidth);
                 ofFloat.setInterpolator(new AccelerateDecelerateInterpolator());
-                if (this.eHa) {
+                if (this.eFu) {
                     animatorSet3.play(ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 1.3f, 1.0f)).with(ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 1.3f, 1.0f)).before(ofFloat);
                 } else {
                     animatorSet3.play(ofFloat);
@@ -203,27 +203,27 @@ public class d extends j.a {
                 animatorSet3.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.a.d.2
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator) {
-                        if (!d.this.eHa) {
-                            if (aVar.eHm != null) {
-                                aVar.ct(aVar.eHm.Wg);
+                        if (!d.this.eFu) {
+                            if (aVar.eFG != null) {
+                                aVar.co(aVar.eFG.Vj);
                             }
-                            ObjectAnimator.ofFloat(d.this.eGZ, "alpha", 1.0f, 0.0f).setDuration(j / 3).start();
+                            ObjectAnimator.ofFloat(d.this.eFt, "alpha", 1.0f, 0.0f).setDuration(j / 3).start();
                         }
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        if (!d.this.eHa) {
+                        if (!d.this.eFu) {
                             d.this.iV(true);
-                            d.this.eHa = true;
+                            d.this.eFu = true;
                         } else {
                             view.setClickable(true);
-                            aVar.aQG();
-                            d.this.aQF();
-                            ObjectAnimator.ofFloat(d.this.eGZ, "alpha", 0.0f, 1.0f).setDuration(j / 3).start();
-                            d.this.eHa = false;
+                            aVar.aPT();
+                            d.this.aPS();
+                            ObjectAnimator.ofFloat(d.this.eFt, "alpha", 0.0f, 1.0f).setDuration(j / 3).start();
+                            d.this.eFu = false;
                         }
-                        d.this.eHe = false;
+                        d.this.eFy = false;
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -241,165 +241,165 @@ public class d extends j.a {
 
     public void a(p pVar) {
         a aVar;
-        if (pVar != null && pVar.pL() != null) {
-            this.aaQ = pVar;
-            aQF();
+        if (pVar != null && pVar.pF() != null) {
+            this.ZV = pVar;
+            aPS();
             a aVar2 = null;
             int i = 0;
             while (true) {
-                if (i >= this.aaQ.pL().size()) {
+                if (i >= this.ZV.pF().size()) {
                     aVar = aVar2;
                     break;
                 }
-                q qVar = this.aaQ.pL().get(i);
-                if (qVar != null && i < this.eHc.length) {
-                    qVar.mDefaultImageId = this.eHc[i];
+                q qVar = this.ZV.pF().get(i);
+                if (qVar != null && i < this.eFw.length) {
+                    qVar.Vl = this.eFw[i];
                 }
-                aVar = (a) u.c(this.eHb, i);
+                aVar = (a) v.c(this.eFv, i);
                 if (aVar != null) {
-                    if (aVar2 == null && qVar.Wh) {
-                        if (!this.eHa) {
+                    if (aVar2 == null && qVar.Vk) {
+                        if (!this.eFu) {
                             aVar.a(qVar);
-                            aVar.aQG();
+                            aVar.aPT();
                             break;
                         }
                         aVar2 = aVar;
                     }
-                    if (this.eHa) {
+                    if (this.eFu) {
                         aVar.a(qVar);
                     }
                 }
                 i++;
             }
-            if (aVar != null && this.cgS) {
+            if (aVar != null && this.cla) {
                 a(aVar);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            this.cgS = false;
+            this.cla = false;
         }
     }
 
     private void a(q qVar, boolean z) {
-        if (qVar != null && qVar.Wh != z) {
-            if (this.eHd == null) {
-                this.eHd = new n();
+        if (qVar != null && qVar.Vk != z) {
+            if (this.eFx == null) {
+                this.eFx = new n();
             }
-            if (this.aaQ != null) {
-                this.eHd.eMk = this.aaQ.pM();
-                this.eHd.Wc = this.aaQ.getTid();
-                this.eHd.mForumId = this.aaQ.getForumId();
+            if (this.ZV != null) {
+                this.eFx.eKB = this.ZV.pG();
+                this.eFx.Vf = this.ZV.getTid();
+                this.eFx.mForumId = this.ZV.getForumId();
             }
-            this.eHd.eMl = qVar.Wd;
-            this.eHd.eMm = z ? 1 : 0;
-            this.eHd.aRQ();
+            this.eFx.eKC = qVar.Vg;
+            this.eFx.eKD = z ? 1 : 0;
+            this.eFx.aRh();
         }
     }
 
     private void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            Iterator<a> it = this.eHb.iterator();
+            Iterator<a> it = this.eFv.iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 if (next != null) {
                     next.onChangeSkinType(i);
                 }
             }
-            ai.i(this.eGZ, d.e.cp_cont_c);
-            ai.k(this.cqZ, d.e.cp_bg_line_c);
-            ai.k(this.cNX, d.e.cp_bg_line_c);
+            aj.i(this.eFt, d.e.cp_cont_c);
+            aj.k(this.cxD, d.e.cp_bg_line_c);
+            aj.k(this.cUo, d.e.cp_bg_line_c);
             this.mSkinType = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQF() {
+    public void aPS() {
         String format;
-        if (this.aaQ != null && this.aaQ.pO()) {
-            long bC = this.aaQ.bC(this.eHc.length);
+        if (this.ZV != null && this.ZV.pI()) {
+            long bC = this.ZV.bC(this.eFw.length);
             if (bC > 0) {
-                if (this.aaQ.pN()) {
+                if (this.ZV.pH()) {
                     if (bC == 1) {
                         format = String.format(TbadkCoreApplication.getInst().getString(d.l.declare_text_me_to_me), new Object[0]);
                     } else {
-                        format = String.format(TbadkCoreApplication.getInst().getString(d.l.declare_text_other_to_host), al.u(bC));
+                        format = String.format(TbadkCoreApplication.getInst().getString(d.l.declare_text_other_to_host), am.u(bC));
                     }
                 } else if (bC == 1) {
                     format = String.format(TbadkCoreApplication.getInst().getString(d.l.declare_text_me_to_host), new Object[0]);
                 } else {
-                    format = String.format(TbadkCoreApplication.getInst().getString(d.l.declare_text_we_to_host), al.u(bC - 1));
+                    format = String.format(TbadkCoreApplication.getInst().getString(d.l.declare_text_we_to_host), am.u(bC - 1));
                 }
-                this.eGZ.setText(format);
+                this.eFt.setText(format);
             }
         }
     }
 
     /* loaded from: classes.dex */
     public static class a extends j.a {
-        public DeclareItemView eHi;
-        public TbImageView eHj;
-        public TextView eHk;
-        private String eHl;
-        public q eHm;
-        private final int eHn;
+        public DeclareItemView eFC;
+        public TbImageView eFD;
+        public TextView eFE;
+        private String eFF;
+        public q eFG;
+        private final int eFH;
         private int mSkinType;
 
         public a(DeclareItemView declareItemView) {
             super(declareItemView);
             this.mSkinType = 3;
-            this.eHn = 3;
+            this.eFH = 3;
             if (declareItemView != null) {
-                this.eHi = declareItemView;
-                this.eHj = (TbImageView) declareItemView.findViewById(d.h.declare_image);
-                this.eHk = (TextView) declareItemView.findViewById(d.h.declare_count);
+                this.eFC = declareItemView;
+                this.eFD = (TbImageView) declareItemView.findViewById(d.h.declare_image);
+                this.eFE = (TextView) declareItemView.findViewById(d.h.declare_count);
             }
         }
 
         public void onChangeSkinType(int i) {
             if (this.mSkinType != i) {
-                ai.i(this.eHk, d.g.pb_declare_count_selector);
+                aj.i(this.eFE, d.g.pb_declare_count_selector);
                 this.mSkinType = i;
             }
         }
 
         public void a(q qVar) {
             if (qVar != null) {
-                this.eHm = qVar;
-                ct(qVar.Wg);
-                if (!StringUtils.isNull(qVar.Wf)) {
-                    this.eHl = qVar.Wf;
+                this.eFG = qVar;
+                co(qVar.Vj);
+                if (!StringUtils.isNull(qVar.Vi)) {
+                    this.eFF = qVar.Vi;
                 }
-                if (!StringUtils.isNull(qVar.We)) {
-                    this.eHj.c(qVar.We, 10, false);
+                if (!StringUtils.isNull(qVar.Vh)) {
+                    this.eFD.c(qVar.Vh, 10, false);
                 } else {
-                    this.eHj.setImageResource(qVar.mDefaultImageId);
+                    this.eFD.setImageResource(qVar.Vl);
                 }
-                iW(qVar.Wh);
+                iW(qVar.Vk);
             }
         }
 
         public void iW(boolean z) {
-            if (this.eHm != null && this.eHm.Wh != z) {
+            if (this.eFG != null && this.eFG.Vk != z) {
                 if (z) {
-                    ct(this.eHm.Wg + 1);
-                    this.eHk.setSelected(true);
+                    co(this.eFG.Vj + 1);
+                    this.eFE.setSelected(true);
                 } else {
-                    ct(this.eHm.Wg - 1);
-                    this.eHk.setSelected(false);
+                    co(this.eFG.Vj - 1);
+                    this.eFE.setSelected(false);
                 }
-                this.eHm.Wh = z;
+                this.eFG.Vk = z;
             }
         }
 
-        public void ct(long j) {
-            if (this.eHm != null && j >= 0) {
-                this.eHm.Wg = j;
+        public void co(long j) {
+            if (this.eFG != null && j >= 0) {
+                this.eFG.Vj = j;
             }
-            this.eHk.setText(al.u(j));
+            this.eFE.setText(am.u(j));
         }
 
-        public void aQG() {
-            this.eHk.setText(al.d(this.eHl, 3, null));
-            this.eHk.setSelected(true);
+        public void aPT() {
+            this.eFE.setText(am.d(this.eFF, 3, null));
+            this.eFE.setSelected(true);
         }
     }
 }

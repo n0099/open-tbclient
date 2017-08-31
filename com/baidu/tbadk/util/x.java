@@ -3,7 +3,7 @@ package com.baidu.tbadk.util;
 import android.content.Context;
 import android.media.AudioManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class x {
@@ -23,34 +23,34 @@ public class x {
         switch (i) {
             case 2:
                 if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != -1) {
-                    return (com.baidu.adp.lib.util.i.ht() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.i.hs() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
+                    return (com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.i.hj() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
                 }
-                if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("auto_play_video_frs", 0) == 1) || !com.baidu.adp.lib.util.i.hs()) {
+                if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("auto_play_video_frs", 0) == 1) || !com.baidu.adp.lib.util.i.hj()) {
                     z = false;
                 }
                 return z;
             case 3:
             case 4:
-                return com.baidu.adp.lib.util.i.hs();
+                return com.baidu.adp.lib.util.i.hj();
             case 5:
-                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.p.p.GS() && com.baidu.adp.lib.util.i.hs() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
+                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.p.q.GQ() && com.baidu.adp.lib.util.i.hj() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
             default:
                 if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != -1) {
-                    return (com.baidu.adp.lib.util.i.ht() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.i.hs() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
+                    return (com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.i.hj() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
                 }
-                if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("auto_play_video_homepage", 0) == 1) || !com.baidu.adp.lib.util.i.hs()) {
+                if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("auto_play_video_homepage", 0) == 1) || !com.baidu.adp.lib.util.i.hj()) {
                     z = false;
                 }
                 return z;
         }
     }
 
-    public static boolean r(int i, String str) {
-        if (!al.isEmpty(com.baidu.tieba.play.r.hB(str))) {
+    public static boolean q(int i, String str) {
+        if (!am.isEmpty(com.baidu.tieba.play.r.hx(str))) {
             if (TbadkCoreApplication.getInst().getVideoAutoPlay() == 1) {
                 return false;
             }
-            return (com.baidu.adp.lib.util.i.ht() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 0) ? false : true;
+            return (com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 0) ? false : true;
         }
         return fo(i);
     }

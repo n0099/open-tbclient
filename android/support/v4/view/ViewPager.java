@@ -33,6 +33,7 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.d;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -40,22 +41,9 @@ import java.util.Collections;
 import java.util.Comparator;
 /* loaded from: classes.dex */
 public class ViewPager extends ViewGroup {
-    private static final int CLOSE_ENOUGH = 2;
-    private static final boolean DEBUG = false;
-    private static final int DEFAULT_GUTTER_SIZE = 16;
-    private static final int DEFAULT_OFFSCREEN_PAGES = 1;
-    private static final int DRAW_ORDER_DEFAULT = 0;
-    private static final int DRAW_ORDER_FORWARD = 1;
-    private static final int DRAW_ORDER_REVERSE = 2;
-    private static final int INVALID_POINTER = -1;
-    private static final int MAX_SETTLE_DURATION = 600;
-    private static final int MIN_DISTANCE_FOR_FLING = 25;
-    private static final int MIN_FLING_VELOCITY = 400;
     public static final int SCROLL_STATE_DRAGGING = 1;
     public static final int SCROLL_STATE_IDLE = 0;
     public static final int SCROLL_STATE_SETTLING = 2;
-    private static final String TAG = "ViewPager";
-    private static final boolean USE_CACHE = false;
     private int mActivePointerId;
     private PagerAdapter mAdapter;
     private OnAdapterChangeListener mAdapterChangeListener;
@@ -77,7 +65,6 @@ public class ViewPager extends ViewGroup {
     private float mFirstOffset;
     private int mFlingDistance;
     private int mGutterSize;
-    private boolean mIgnoreGutter;
     private boolean mInLayout;
     private float mInitialMotionX;
     private float mInitialMotionY;
@@ -452,13 +439,13 @@ public class ViewPager extends ViewGroup {
                 try {
                     this.mSetChildrenDrawingOrderEnabled = ViewGroup.class.getDeclaredMethod("setChildrenDrawingOrderEnabled", Boolean.TYPE);
                 } catch (NoSuchMethodException e) {
-                    Log.e(TAG, "Can't find setChildrenDrawingOrderEnabled", e);
+                    Log.e("ViewPager", "Can't find setChildrenDrawingOrderEnabled", e);
                 }
             }
             try {
                 this.mSetChildrenDrawingOrderEnabled.invoke(this, Boolean.valueOf(z));
             } catch (Exception e2) {
-                Log.e(TAG, "Error changing children drawing order", e2);
+                Log.e("ViewPager", "Error changing children drawing order", e2);
             }
         }
     }
@@ -484,7 +471,7 @@ public class ViewPager extends ViewGroup {
 
     public void setOffscreenPageLimit(int i) {
         if (i < 1) {
-            Log.w(TAG, "Requested offscreen page limit " + i + " too small; defaulting to 1");
+            Log.w("ViewPager", "Requested offscreen page limit " + i + " too small; defaulting to 1");
             i = 1;
         }
         if (i != this.mOffscreenPageLimit) {
@@ -536,10 +523,6 @@ public class ViewPager extends ViewGroup {
         return (float) Math.sin((float) ((f - 0.5f) * 0.4712389167638204d));
     }
 
-    void smoothScrollTo(int i, int i2) {
-        smoothScrollTo(i, i2, 0);
-    }
-
     void smoothScrollTo(int i, int i2, int i3) {
         int abs;
         if (getChildCount() == 0) {
@@ -567,7 +550,7 @@ public class ViewPager extends ViewGroup {
         } else {
             abs = (int) (((Math.abs(i4) / ((clientWidth * this.mAdapter.getPageWidth(this.mCurItem)) + this.mPageMargin)) + 1.0f) * 100.0f);
         }
-        this.mScroller.startScroll(scrollX, scrollY, i4, i5, Math.min(abs, 600));
+        this.mScroller.startScroll(scrollX, scrollY, i4, i5, Math.min(abs, (int) TbConfig.POST_IMAGE_SMALL));
         ViewCompat.postInvalidateOnAnimation(this);
     }
 
@@ -1987,7 +1970,7 @@ public class ViewPager extends ViewGroup {
                     for (ViewParent parent2 = findFocus.getParent(); parent2 instanceof ViewGroup; parent2 = parent2.getParent()) {
                         sb.append(" => ").append(parent2.getClass().getSimpleName());
                     }
-                    Log.e(TAG, "arrowScroll tried to find focus based on non-child current focused view " + sb.toString());
+                    Log.e("ViewPager", "arrowScroll tried to find focus based on non-child current focused view " + sb.toString());
                     view = null;
                 }
             }

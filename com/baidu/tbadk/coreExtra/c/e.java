@@ -6,49 +6,49 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
-    private String auk;
-    private String aul;
-    private String aum;
-    private String aun;
-    private String auq;
-    private String aur;
-    private String aus;
-    private String aut;
-    private String auu;
-    private String auv;
+    private String atR;
+    private String atS;
+    private String atT;
+    private String atU;
+    private String atX;
+    private String atY;
+    private String atZ;
+    private String aua;
+    private String aub;
+    private String auc;
+    private int atv = 0;
+    private int atw = 0;
+    private int atx = 0;
+    private int aty = 0;
+    private int atz = 0;
+    private int atA = 0;
+    private int atB = 0;
+    private int atC = 0;
+    private int atD = 0;
+    private int atE = 0;
+    private int atF = 0;
+    private int atG = 0;
+    private int atH = 0;
+    private int atI = 0;
+    private int atJ = 0;
+    private int atK = 0;
+    private int atL = 0;
+    private int atM = 0;
+    private int atN = 0;
     private int atO = 0;
-    private int atP = 0;
-    private int atQ = 0;
-    private int atR = 0;
-    private int atS = 0;
-    private int atT = 0;
-    private int atU = 0;
-    private int atV = 0;
-    private int atW = 0;
-    private int atX = 0;
-    private int atY = 0;
-    private int atZ = 0;
-    private int aua = 0;
-    private int aub = 0;
-    private int auc = 0;
-    private int aud = 0;
-    private int aue = 0;
-    private int auf = 0;
-    private int aug = 0;
-    private int auh = 0;
-    private boolean aui = true;
-    private boolean auj = true;
-    private HashMap<String, String> auo = new HashMap<>();
-    private HashMap<String, String> aup = new HashMap<>();
-    private String auw = null;
-    private String aux = null;
-    private List<b> auy = new ArrayList();
-    private List<a> auz = new ArrayList();
+    private boolean atP = true;
+    private boolean atQ = true;
+    private HashMap<String, String> atV = new HashMap<>();
+    private HashMap<String, String> atW = new HashMap<>();
+    private String aud = null;
+    private String aue = null;
+    private List<b> auf = new ArrayList();
+    private List<a> aug = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class a {
-        public int auA;
-        public int auB;
+        public int auh;
+        public int aui;
         public String content;
         public String groupName;
         public String title;
@@ -57,273 +57,273 @@ public class e {
 
     /* loaded from: classes.dex */
     public static class b {
-        public int auA;
-        public int auB;
-        public String auC;
-        public String auD;
+        public int auh;
+        public int aui;
+        public String auj;
+        public String auk;
         public String content;
         public String title;
         public int unReadCount;
         public int userType;
     }
 
-    public void Ag() {
-        HashMap<String, String> Aw = Aw();
-        Set<String> keySet = Aw.keySet();
+    public void Ak() {
+        HashMap<String, String> AA = AA();
+        Set<String> keySet = AA.keySet();
         if (keySet.size() != 1) {
-            eW(null);
+            eR(null);
         } else {
-            eW(Aw.get(keySet.iterator().next()));
+            eR(AA.get(keySet.iterator().next()));
         }
     }
 
-    public void Ah() {
-        HashMap<String, String> AC = AC();
-        Set<String> keySet = AC.keySet();
+    public void Al() {
+        HashMap<String, String> AG = AG();
+        Set<String> keySet = AG.keySet();
         if (keySet.size() != 1) {
-            fc(null);
+            eX(null);
         } else {
-            fc(AC.get(keySet.iterator().next()));
+            eX(AG.get(keySet.iterator().next()));
         }
-    }
-
-    public int Ai() {
-        return this.atO;
-    }
-
-    public void dP(int i) {
-        this.atO = i;
-    }
-
-    public int Aj() {
-        return this.atR;
-    }
-
-    public void dQ(int i) {
-        this.atR = i;
-    }
-
-    public int Ak() {
-        return this.atS;
-    }
-
-    public int Al() {
-        return this.atW;
-    }
-
-    public void dR(int i) {
-        this.atW = i;
     }
 
     public int Am() {
-        return this.aua;
+        return this.atv;
     }
 
-    public void dS(int i) {
-        this.aua = i;
+    public void dQ(int i) {
+        this.atv = i;
     }
 
     public int An() {
-        return this.atZ;
+        return this.aty;
     }
 
-    public void dT(int i) {
-        this.atZ = i;
+    public void dR(int i) {
+        this.aty = i;
     }
 
     public int Ao() {
-        return this.atO;
+        return this.atz;
     }
 
     public int Ap() {
-        return this.atQ;
+        return this.atD;
+    }
+
+    public void dS(int i) {
+        this.atD = i;
+    }
+
+    public int Aq() {
+        return this.atH;
+    }
+
+    public void dT(int i) {
+        this.atH = i;
+    }
+
+    public int Ar() {
+        return this.atG;
     }
 
     public void dU(int i) {
-        this.atQ = i;
+        this.atG = i;
     }
 
-    public boolean Aq() {
-        return this.aui;
-    }
-
-    public void bk(boolean z) {
-        this.aui = z;
-    }
-
-    public String Ar() {
-        return this.auk;
-    }
-
-    public void eV(String str) {
-        this.auk = str;
-    }
-
-    public String As() {
-        return this.auq;
-    }
-
-    public void eW(String str) {
-        this.auq = str;
-    }
-
-    public void eX(String str) {
-        this.aur = str;
+    public int As() {
+        return this.atv;
     }
 
     public int At() {
-        return this.atP;
+        return this.atx;
     }
 
     public void dV(int i) {
-        this.atP = i;
+        this.atx = i;
     }
 
-    public void eY(String str) {
-        this.aus = str;
+    public boolean Au() {
+        return this.atP;
     }
 
-    public String Au() {
-        return this.auu;
+    public void bk(boolean z) {
+        this.atP = z;
     }
 
     public String Av() {
-        return this.auv;
+        return this.atR;
     }
 
-    public HashMap<String, String> Aw() {
-        return this.auo;
+    public void eQ(String str) {
+        this.atR = str;
     }
 
-    public int Ax() {
-        return this.atT;
-    }
-
-    public void dW(int i) {
-        this.atT = i;
-    }
-
-    public int Ay() {
+    public String Aw() {
         return this.atX;
     }
 
-    public void dX(int i) {
-        this.atX = i;
+    public void eR(String str) {
+        this.atX = str;
     }
 
-    public int Az() {
+    public void eS(String str) {
+        this.atY = str;
+    }
+
+    public int Ax() {
+        return this.atw;
+    }
+
+    public void dW(int i) {
+        this.atw = i;
+    }
+
+    public void eT(String str) {
+        this.atZ = str;
+    }
+
+    public String Ay() {
         return this.aub;
     }
 
-    public void dY(int i) {
-        this.aub = i;
+    public String Az() {
+        return this.auc;
     }
 
-    public void eZ(String str) {
-        this.aul = str;
-    }
-
-    public void fa(String str) {
-        this.aum = str;
-    }
-
-    public int AA() {
-        return this.atY;
-    }
-
-    public void dZ(int i) {
-        this.atY = i;
-    }
-
-    public String AB() {
-        return this.aun;
-    }
-
-    public void fb(String str) {
-        this.aun = str;
-    }
-
-    public HashMap<String, String> AC() {
-        return this.aup;
-    }
-
-    public String AD() {
-        return this.aut;
-    }
-
-    public void fc(String str) {
-        this.aut = str;
-    }
-
-    public int AE() {
-        return this.atU;
-    }
-
-    public int AF() {
+    public HashMap<String, String> AA() {
         return this.atV;
     }
 
+    public int AB() {
+        return this.atA;
+    }
+
+    public void dX(int i) {
+        this.atA = i;
+    }
+
+    public int AC() {
+        return this.atE;
+    }
+
+    public void dY(int i) {
+        this.atE = i;
+    }
+
+    public int AD() {
+        return this.atI;
+    }
+
+    public void dZ(int i) {
+        this.atI = i;
+    }
+
+    public void eU(String str) {
+        this.atS = str;
+    }
+
+    public void eV(String str) {
+        this.atT = str;
+    }
+
+    public int AE() {
+        return this.atF;
+    }
+
     public void ea(int i) {
-        this.atU = i;
+        this.atF = i;
     }
 
-    public void eb(int i) {
-        this.atV = i;
+    public String AF() {
+        return this.atU;
     }
 
-    public void fd(String str) {
-        this.auw = str;
+    public void eW(String str) {
+        this.atU = str;
     }
 
-    public void fe(String str) {
-        this.aux = str;
+    public HashMap<String, String> AG() {
+        return this.atW;
     }
 
-    public int AG() {
-        return this.aud;
+    public String AH() {
+        return this.aua;
     }
 
-    public void ec(int i) {
-        this.aud = i;
-    }
-
-    public int AH() {
-        return this.aue;
-    }
-
-    public void ed(int i) {
-        this.aue = i;
+    public void eX(String str) {
+        this.aua = str;
     }
 
     public int AI() {
-        return this.auf;
-    }
-
-    public void ee(int i) {
-        this.auf = i;
+        return this.atB;
     }
 
     public int AJ() {
-        return this.aug;
+        return this.atC;
     }
 
-    public void ef(int i) {
-        this.aug = i;
+    public void eb(int i) {
+        this.atB = i;
     }
 
-    public List<b> AK() {
-        return this.auy;
+    public void ec(int i) {
+        this.atC = i;
     }
 
-    public List<a> AL() {
-        return this.auz;
+    public void eY(String str) {
+        this.aud = str;
+    }
+
+    public void eZ(String str) {
+        this.aue = str;
+    }
+
+    public int AK() {
+        return this.atK;
+    }
+
+    public void ed(int i) {
+        this.atK = i;
+    }
+
+    public int AL() {
+        return this.atL;
+    }
+
+    public void ee(int i) {
+        this.atL = i;
     }
 
     public int AM() {
-        return this.auh;
+        return this.atM;
+    }
+
+    public void ef(int i) {
+        this.atM = i;
+    }
+
+    public int AN() {
+        return this.atN;
     }
 
     public void eg(int i) {
-        this.auh = i;
+        this.atN = i;
+    }
+
+    public List<b> AO() {
+        return this.auf;
+    }
+
+    public List<a> AP() {
+        return this.aug;
+    }
+
+    public int AQ() {
+        return this.atO;
+    }
+
+    public void eh(int i) {
+        this.atO = i;
     }
 }

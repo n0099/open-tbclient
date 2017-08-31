@@ -9,170 +9,170 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.plugin.PluginErrorTipView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.person.listview.BdPersonListView;
+import com.baidu.tieba.quickWebView.QuickWebView;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class h implements View.OnClickListener {
-    protected TbPageContext acr;
-    protected PluginErrorTipView bZc;
-    protected NoNetworkView bes;
-    protected int byl;
-    protected g fgG;
-    protected BdPersonListView fkD;
-    protected LinearLayout fkE;
-    protected View fnJ;
-    protected View fnK;
-    protected View gfa;
-    protected f gxO;
-    private int gxP;
-    public j gxQ;
-    protected View gxR;
-    protected com.baidu.tieba.personPolymeric.d.k gxS;
-    protected View gxT;
-    protected View gxU;
-    protected com.baidu.tieba.model.a gxV;
-    private k gxW;
-    protected TextView gxY;
-    protected TextView gxZ;
-    private View gya;
-    private int gyc;
+    protected TbPageContext aby;
+    protected QuickWebView bYK;
+    protected NoNetworkView bep;
+    protected int bzd;
+    protected PluginErrorTipView cbZ;
+    protected g feW;
+    protected BdPersonListView fiW;
+    protected LinearLayout fiX;
+    protected View fme;
+    protected View fmf;
+    protected View gdD;
+    private View gwA;
+    private int gwC;
+    protected f gwo;
+    private int gwp;
+    public j gwq;
+    protected View gwr;
+    protected com.baidu.tieba.personPolymeric.d.k gws;
+    protected View gwt;
+    protected View gwu;
+    protected com.baidu.tieba.model.a gwv;
+    private k gww;
+    protected TextView gwy;
+    protected TextView gwz;
     protected NavigationBar mNavigationBar;
     public View mRootView;
-    protected BaseWebView mWebView;
-    private int anl = ai.getColor(d.e.cp_cont_b);
-    private int anm = ai.getColor(d.e.cp_cont_f);
-    private boolean byj = true;
-    private boolean gxX = false;
-    protected boolean gyb = false;
-    private int aUa = 0;
+    private int amF = aj.getColor(d.e.cp_cont_b);
+    private int amG = aj.getColor(d.e.cp_cont_f);
+    private boolean bzb = true;
+    private boolean gwx = false;
+    protected boolean gwB = false;
+    private int aTK = 0;
 
     protected abstract void a(float f, boolean z);
 
     public h(TbPageContext tbPageContext) {
-        this.acr = tbPageContext;
+        this.aby = tbPageContext;
     }
 
-    public void P(View view) {
-        this.gyb = UtilHelper.canUseStyleImmersiveSticky();
-        this.gyc = com.baidu.adp.lib.util.k.dip2px(this.acr.getContext(), this.gyb ? 20.0f : 10.0f);
+    public void X(View view) {
+        this.gwB = UtilHelper.canUseStyleImmersiveSticky();
+        this.gwC = com.baidu.adp.lib.util.k.dip2px(this.aby.getContext(), this.gwB ? 20.0f : 10.0f);
         this.mRootView = view;
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(d.h.person_center_navigation_bar);
-        this.bes = (NoNetworkView) this.mRootView.findViewById(d.h.person_center_no_network_view);
-        this.bZc = (PluginErrorTipView) this.mRootView.findViewById(d.h.person_center_plugin_error_tip_view);
-        this.fkD = (BdPersonListView) this.mRootView.findViewById(d.h.person_center_listview);
-        this.fkE = (LinearLayout) this.mRootView.findViewById(d.h.person_center_blank_view);
-        this.gxU = this.fkE.findViewById(d.h.sticky_view);
-        this.gya = this.fkE.findViewById(d.h.person_center_sticky_person_buttom_header);
-        this.gxY = (TextView) this.fkE.findViewById(d.h.fourm_name_btn);
-        this.gxZ = (TextView) this.fkE.findViewById(d.h.reply_btn);
-        this.fnJ = this.fkE.findViewById(d.h.fourm_name_divider);
-        this.fnK = this.fkE.findViewById(d.h.reply_btn_divider);
-        this.gxY.setOnClickListener(this);
-        this.gxZ.setOnClickListener(this);
-        this.mWebView = (BaseWebView) this.mRootView.findViewById(d.h.webview);
+        this.bep = (NoNetworkView) this.mRootView.findViewById(d.h.person_center_no_network_view);
+        this.cbZ = (PluginErrorTipView) this.mRootView.findViewById(d.h.person_center_plugin_error_tip_view);
+        this.fiW = (BdPersonListView) this.mRootView.findViewById(d.h.person_center_listview);
+        this.fiX = (LinearLayout) this.mRootView.findViewById(d.h.person_center_blank_view);
+        this.gwu = this.fiX.findViewById(d.h.sticky_view);
+        this.gwA = this.fiX.findViewById(d.h.person_center_sticky_person_buttom_header);
+        this.gwy = (TextView) this.fiX.findViewById(d.h.fourm_name_btn);
+        this.gwz = (TextView) this.fiX.findViewById(d.h.reply_btn);
+        this.fme = this.fiX.findViewById(d.h.fourm_name_divider);
+        this.fmf = this.fiX.findViewById(d.h.reply_btn_divider);
+        this.gwy.setOnClickListener(this);
+        this.gwz.setOnClickListener(this);
+        this.bYK = (QuickWebView) this.mRootView.findViewById(d.h.webview);
     }
 
     public void initUI() {
         this.mNavigationBar.showBottomLine(false);
-        this.gxO.a(this.acr.getPageActivity(), this.mNavigationBar);
-        this.fkD.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.view.h.1
+        this.gwo.a(this.aby.getPageActivity(), this.mNavigationBar);
+        this.fiW.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.view.h.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
-                if (h.this.gxW != null) {
-                    h.this.gxW.onScrollStateChanged(absListView, i);
+                if (h.this.gww != null) {
+                    h.this.gww.onScrollStateChanged(absListView, i);
                 }
                 if (i == 0) {
-                    if (h.this.gxP > 2 && h.this.fkE.getVisibility() != 0) {
-                        h.this.ajW();
+                    if (h.this.gwp > 2 && h.this.fiX.getVisibility() != 0) {
+                        h.this.alE();
                     }
-                    if (h.this.gfa != null && h.this.gxP <= 2 && h.this.fkE.getVisibility() == 0 && h.this.gfa.getTop() > h.this.gyc) {
-                        h.this.aZm();
+                    if (h.this.gdD != null && h.this.gwp <= 2 && h.this.fiX.getVisibility() == 0 && h.this.gdD.getTop() > h.this.gwC) {
+                        h.this.aYy();
                     }
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                h.this.Uu();
-                h.this.Uv();
-                if (h.this.gxW != null) {
-                    h.this.gxW.onScroll(absListView, i, i2, i3);
+                h.this.Vg();
+                h.this.Vh();
+                if (h.this.gww != null) {
+                    h.this.gww.onScroll(absListView, i, i2, i3);
                 }
                 if (i == 0 && h.this.mNavigationBar.getY() != 0.0f) {
                     h.this.mNavigationBar.setY(0.0f);
                 }
-                if (h.this.gfa != null && !h.this.gxX && h.this.gxP <= i) {
-                    if (h.this.gfa.getTop() <= h.this.mNavigationBar.getHeight() && h.this.gfa.getTop() > 0) {
-                        h.this.mNavigationBar.setY(h.this.gfa.getTop() - h.this.mNavigationBar.getHeight());
+                if (h.this.gdD != null && !h.this.gwx && h.this.gwp <= i) {
+                    if (h.this.gdD.getTop() <= h.this.mNavigationBar.getHeight() && h.this.gdD.getTop() > 0) {
+                        h.this.mNavigationBar.setY(h.this.gdD.getTop() - h.this.mNavigationBar.getHeight());
                     }
-                    if (h.this.gfa.getTop() < h.this.gyc) {
-                        h.this.ajW();
-                        h.this.gxX = true;
+                    if (h.this.gdD.getTop() < h.this.gwC) {
+                        h.this.alE();
+                        h.this.gwx = true;
                     }
                 }
-                if (h.this.gfa != null && h.this.gxX && h.this.gxP >= i && (h.this.gfa.getTop() > h.this.gyc || h.this.gfa.getWidth() == 0)) {
-                    h.this.aZm();
-                    h.this.gxX = false;
+                if (h.this.gdD != null && h.this.gwx && h.this.gwp >= i && (h.this.gdD.getTop() > h.this.gwC || h.this.gdD.getWidth() == 0)) {
+                    h.this.aYy();
+                    h.this.gwx = false;
                 }
-                h.this.gxP = i;
+                h.this.gwp = i;
             }
         });
     }
 
-    protected void ajW() {
+    protected void alE() {
     }
 
-    protected void aZm() {
+    protected void aYy() {
     }
 
     public void onChangeSkinType(int i) {
-        this.anl = ai.getColor(d.e.cp_cont_b);
-        this.anm = ai.getColor(d.e.cp_cont_f);
-        ai.j(this.fkE, d.g.item_person_header_attention_bg_selector);
-        ai.k(this.fnJ, d.e.cp_cont_b);
-        ai.k(this.fnK, d.e.cp_cont_b);
-        ai.j(this.gya, d.g.item_person_header_attention_bg_selector);
-        ai.j(this.mRootView, d.e.cp_bg_line_d);
+        this.amF = aj.getColor(d.e.cp_cont_b);
+        this.amG = aj.getColor(d.e.cp_cont_f);
+        aj.j(this.fiX, d.g.item_person_header_attention_bg_selector);
+        aj.k(this.fme, d.e.cp_cont_b);
+        aj.k(this.fmf, d.e.cp_cont_b);
+        aj.j(this.gwA, d.g.item_person_header_attention_bg_selector);
+        aj.j(this.mRootView, d.e.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(null, i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
-        this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ai.cT(d.g.s_navbar_bg)));
-        if (this.gxO != null) {
-            this.gxO.onChangeSkinType(i);
+        this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(aj.cU(d.g.s_navbar_bg)));
+        if (this.gwo != null) {
+            this.gwo.onChangeSkinType(i);
         }
-        this.bes.onChangeSkinType(this.acr, i);
-        this.bZc.onChangeSkinType(this.acr, i);
-        if (this.gxQ != null) {
-            this.gxQ.onChangeSkinType(i);
+        this.bep.onChangeSkinType(this.aby, i);
+        this.cbZ.onChangeSkinType(this.aby, i);
+        if (this.gwq != null) {
+            this.gwq.onChangeSkinType(i);
         }
-        if (this.fkD != null && (this.fkD.getAdapter() instanceof com.baidu.adp.widget.ListView.d)) {
-            ((com.baidu.adp.widget.ListView.d) this.fkD.getAdapter()).notifyDataSetChanged();
+        if (this.fiW != null && (this.fiW.getAdapter() instanceof com.baidu.adp.widget.ListView.d)) {
+            ((com.baidu.adp.widget.ListView.d) this.fiW.getAdapter()).notifyDataSetChanged();
         }
-        cC(this.aUa);
+        cC(this.aTK);
     }
 
     public void setOnViewResponseListener(g gVar) {
-        this.fgG = gVar;
-        this.gxO.setOnViewResponseListener(gVar);
+        this.feW = gVar;
+        this.gwo.setOnViewResponseListener(gVar);
     }
 
     public void a(com.baidu.tieba.model.a aVar) {
-        this.gxV = aVar;
+        this.gwv = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Uu() {
-        if (Build.VERSION.SDK_INT >= 11 && this.gxQ != null) {
-            int dimension = (int) this.acr.getResources().getDimension(d.f.ds98);
-            int i = -this.gxQ.UE().getTop();
-            int height = this.gxQ.UE().getHeight();
+    public void Vg() {
+        if (Build.VERSION.SDK_INT >= 11 && this.gwq != null) {
+            int dimension = (int) this.aby.getResources().getDimension(d.f.ds98);
+            int i = -this.gwq.Vq().getTop();
+            int height = this.gwq.Vq().getHeight();
             int i2 = height / 3;
             if (i < i2) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
@@ -187,7 +187,7 @@ public abstract class h implements View.OnClickListener {
                 this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
             }
-            if (this.fkD.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
+            if (this.fiW.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                 this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
             }
@@ -195,52 +195,52 @@ public abstract class h implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Uv() {
+    public void Vh() {
         if (2 != TbadkCoreApplication.getInst().getSkinType()) {
             float alpha = this.mNavigationBar.getBarBgView().getAlpha();
             if (alpha < 0.5f) {
-                if (!this.byj) {
-                    this.byj = true;
+                if (!this.bzb) {
+                    this.bzb = true;
                 }
-            } else if (this.byj) {
-                this.byj = false;
+            } else if (this.bzb) {
+                this.bzb = false;
             }
-            a(alpha, !this.byj);
-            this.gxO.b(alpha, this.byj ? false : true);
+            a(alpha, !this.bzb);
+            this.gwo.b(alpha, this.bzb ? false : true);
         }
     }
 
-    public void cK(List<com.baidu.adp.widget.ListView.f> list) {
-        if (u.v(list)) {
+    public void cH(List<com.baidu.adp.widget.ListView.f> list) {
+        if (v.v(list)) {
             list = new ArrayList<>();
         }
-        if (this.fkD.getVisibility() != 0) {
-            this.fkD.setVisibility(0);
+        if (this.fiW.getVisibility() != 0) {
+            this.fiW.setVisibility(0);
         }
-        this.fkD.setData(list);
+        this.fiW.setData(list);
     }
 
-    public void kp(boolean z) {
+    public void kq(boolean z) {
         if (z) {
-            this.fkD.smoothScrollToPosition(0);
+            this.fiW.smoothScrollToPosition(0);
         }
-        this.gxQ.lg();
+        this.gwq.kY();
     }
 
-    public void bxg() {
-        this.fkD.postDelayed(new Runnable() { // from class: com.baidu.tieba.view.h.2
+    public void bww() {
+        this.fiW.postDelayed(new Runnable() { // from class: com.baidu.tieba.view.h.2
             @Override // java.lang.Runnable
             public void run() {
-                h.this.fkD.smoothScrollToPosition(4);
+                h.this.fiW.smoothScrollToPosition(4);
             }
         }, 150L);
     }
 
     public void a(k kVar) {
-        this.gxW = kVar;
+        this.gww = kVar;
     }
 
-    public NavigationBar afG() {
+    public NavigationBar ahe() {
         return this.mNavigationBar;
     }
 
@@ -251,38 +251,44 @@ public abstract class h implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == d.h.fourm_name_btn) {
             qr(0);
-            this.fnJ.setVisibility(0);
-            this.fnK.setVisibility(4);
-            this.gxY.setTextColor(this.anl);
-            this.gxZ.setTextColor(this.anm);
-            this.aUa = 0;
+            this.fme.setVisibility(0);
+            this.fmf.setVisibility(4);
+            this.gwy.setTextColor(this.amF);
+            this.gwz.setTextColor(this.amG);
+            this.aTK = 0;
         } else if (view.getId() == d.h.reply_btn) {
             qr(1);
-            this.fnJ.setVisibility(4);
-            this.fnK.setVisibility(0);
-            this.gxY.setTextColor(this.anm);
-            this.gxZ.setTextColor(this.anl);
-            this.aUa = 1;
+            this.fme.setVisibility(4);
+            this.fmf.setVisibility(0);
+            this.gwy.setTextColor(this.amG);
+            this.gwz.setTextColor(this.amF);
+            this.aTK = 1;
         }
     }
 
     private void cC(int i) {
-        this.aUa = i;
+        this.aTK = i;
         if (i == 0) {
-            this.fnJ.setVisibility(0);
-            this.fnK.setVisibility(4);
-            this.gxY.setTextColor(this.anl);
-            this.gxZ.setTextColor(this.anm);
+            this.fme.setVisibility(0);
+            this.fmf.setVisibility(4);
+            this.gwy.setTextColor(this.amF);
+            this.gwz.setTextColor(this.amG);
             return;
         }
-        this.fnJ.setVisibility(4);
-        this.fnK.setVisibility(0);
-        this.gxY.setTextColor(this.anm);
-        this.gxZ.setTextColor(this.anl);
+        this.fme.setVisibility(4);
+        this.fmf.setVisibility(0);
+        this.gwy.setTextColor(this.amG);
+        this.gwz.setTextColor(this.amF);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void pk(int i) {
+    public void pr(int i) {
         cC(i);
+    }
+
+    public void onDestory() {
+        if (this.bYK != null) {
+            this.bYK.destroy();
+        }
     }
 }

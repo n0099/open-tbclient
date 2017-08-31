@@ -16,17 +16,17 @@ import com.baidu.tbadk.core.atomData.PhotoLiveCommentActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ai;
 import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams fgZ;
-    private boolean blT;
-    private View.OnClickListener cgH;
-    private List<TextView> fgY;
+    private static ViewGroup.LayoutParams ffp;
+    private boolean bmo;
+    private View.OnClickListener clY;
+    private List<TextView> ffo;
 
     public ReplyLinearLayout(Context context) {
         this(context, null);
@@ -34,18 +34,18 @@ public class ReplyLinearLayout extends LinearLayout {
 
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cgH = new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.ReplyLinearLayout.1
+        this.clY = new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.ReplyLinearLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 boolean z;
                 String[] strArr = (String[]) view.getTag();
-                TiebaStatic.log(new aj("c12043").r("obj_type", ReplyLinearLayout.this.blT ? 1 : 2));
+                TiebaStatic.log(new ak("c12043").r("obj_type", ReplyLinearLayout.this.bmo ? 1 : 2));
                 if (strArr != null) {
                     Context context2 = ReplyLinearLayout.this.getContext();
                     if (strArr.length < 6 || strArr[5] == null || b.g(strArr[5], 0) != 33) {
                         z = false;
                     } else if ("0".equals(strArr[3])) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, strArr[1]).po()));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, strArr[1]).pi()));
                         z = true;
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(context2).createPhotoLiveCommentActivityConfig(strArr[1], strArr[2], false)));
@@ -61,24 +61,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.fgY = new ArrayList();
+        this.ffo = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (fgZ == null) {
-            fgZ = new LinearLayout.LayoutParams(-1, -2);
+        if (ffp == null) {
+            ffp = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.fgY.size();
+        int size2 = size - this.ffo.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.fgY.add(textView);
+            this.ffo.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.fgY.size(); i3++) {
-            TextView textView2 = this.fgY.get(i3);
+        for (int i3 = 0; i3 < this.ffo.size(); i3++) {
+            TextView textView2 = this.ffo.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -94,25 +94,25 @@ public class ReplyLinearLayout extends LinearLayout {
                     textView2.setText(charSequenceArr[4]);
                 }
                 textView2.setTag(charSequenceArr);
-                textView2.setOnClickListener(this.cgH);
+                textView2.setOnClickListener(this.clY);
                 p(textView2, i3);
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(fgZ);
-                    ai.c(textView2, d.e.cp_cont_b, 1);
+                    textView2.setLayoutParams(ffp);
+                    aj.c(textView2, d.e.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
-                    ai.j(textView2, d.e.cp_bg_line_b);
+                    aj.j(textView2, d.e.cp_bg_line_b);
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(fgZ);
-                    ai.c(textView2, d.e.cp_cont_f, 1);
+                    textView2.setLayoutParams(ffp);
+                    aj.c(textView2, d.e.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(fgZ);
-                    ai.c(textView2, d.e.cp_cont_d, 1);
+                    textView2.setLayoutParams(ffp);
+                    aj.c(textView2, d.e.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);
             } else {
@@ -123,19 +123,19 @@ public class ReplyLinearLayout extends LinearLayout {
 
     private void p(TextView textView, int i) {
         if (i == 0) {
-            ai.c(textView, d.e.common_color_10039, 1);
+            aj.c(textView, d.e.common_color_10039, 1);
             textView.setPadding(0, k.dip2px(getContext(), 10.0f), 0, k.dip2px(getContext(), 10.0f));
         } else if (i % 3 == 2) {
-            ai.c(textView, d.e.common_color_10081, 1);
+            aj.c(textView, d.e.common_color_10081, 1);
             textView.setBackgroundResource(d.e.common_color_10022);
             textView.setPadding(0, k.dip2px(getContext(), 10.0f), 0, k.dip2px(getContext(), 2.0f));
         } else if (i % 3 == 0) {
-            ai.c(textView, d.e.common_color_10005, 1);
+            aj.c(textView, d.e.common_color_10005, 1);
             textView.setPadding(0, k.dip2px(getContext(), 2.0f), 0, k.dip2px(getContext(), 10.0f));
         }
     }
 
     public void setIsHost(boolean z) {
-        this.blT = z;
+        this.bmo = z;
     }
 }

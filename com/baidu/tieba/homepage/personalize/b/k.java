@@ -7,28 +7,28 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class k extends BaseAdapter {
-    private com.baidu.tieba.homepage.personalize.data.f cVW;
+    private com.baidu.tieba.homepage.personalize.data.f dcA;
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cVW == null || this.cVW.cWI == null) {
+        if (this.dcA == null || this.dcA.ddm == null) {
             return 0;
         }
-        return this.cVW.cWI.size();
+        return this.dcA.ddm.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: kS */
+    /* renamed from: lk */
     public com.baidu.tieba.homepage.personalize.data.g getItem(int i) {
-        if (this.cVW == null || this.cVW.cWI == null) {
+        if (this.dcA == null || this.dcA.ddm == null) {
             return null;
         }
-        return this.cVW.cWI.get(i);
+        return this.dcA.ddm.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,24 +53,24 @@ public class k extends BaseAdapter {
         }
         com.baidu.tieba.homepage.personalize.data.g item = getItem(i);
         if (item != null) {
-            textView.setText(item.Vo);
+            textView.setText(item.tagName);
             if (item.isSelect) {
-                ai.i(textView, d.e.cp_cont_g);
-                ai.j(textView, d.g.shape_semi_circle_all_selected);
+                aj.i(textView, d.e.cp_cont_g);
+                aj.j(textView, d.g.shape_semi_circle_all_selected);
             } else {
-                ai.i(textView, d.e.cp_cont_f);
-                ai.j(textView, d.g.shape_semi_circle_all_line);
+                aj.i(textView, d.e.cp_cont_f);
+                aj.j(textView, d.g.shape_semi_circle_all_line);
             }
         }
         return textView;
     }
 
     public void a(com.baidu.tieba.homepage.personalize.data.f fVar) {
-        this.cVW = fVar;
+        this.dcA = fVar;
         notifyDataSetChanged();
     }
 
-    public com.baidu.tieba.homepage.personalize.data.f apj() {
-        return this.cVW;
+    public com.baidu.tieba.homepage.personalize.data.f aqT() {
+        return this.dcA;
     }
 }

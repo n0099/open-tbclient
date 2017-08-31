@@ -6,30 +6,30 @@ import android.os.Message;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class i extends k {
-    public long He;
-    public long IH;
-    public int aJJ;
-    public long aJR;
-    public long aJS;
-    public int aJT;
-    private a aJU = null;
-    private final Handler aJV = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.l.i.1
+    public long EY;
+    public long GA;
+    public int aJn;
+    public long aJv;
+    public long aJw;
+    public int aJx;
+    private a aJy = null;
+    private final Handler aJz = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.l.i.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            i.this.aJU = new a();
-            i.this.aJU.setSelfExecute(true);
-            i.this.aJU.execute(new String[0]);
+            i.this.aJy = new a();
+            i.this.aJy.setSelfExecute(true);
+            i.this.aJy.execute(new String[0]);
         }
     };
-    public long wR;
+    public long uH;
 
-    public void Gq() {
-        this.aJV.sendEmptyMessage(0);
+    public void Go() {
+        this.aJz.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Gr() {
-        n nVar = (n) r.Gz().fk(this.mSubType);
+    public void Gp() {
+        n nVar = (n) r.Gx().fk(this.mSubType);
         if (nVar != null) {
             nVar.c(this);
         }
@@ -44,8 +44,8 @@ public class i extends k {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            i.this.aJJ = r.Gz().GD();
-            i.this.Gr();
+            i.this.aJn = r.Gx().GB();
+            i.this.Gp();
             return Boolean.TRUE;
         }
 

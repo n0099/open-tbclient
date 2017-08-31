@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import java.util.List;
@@ -19,12 +19,12 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes.dex */
     public static class a {
-        public View aVv;
-        public TbImageView cah;
-        public TextView cai;
-        public TextView caj;
-        public TextView cak;
-        public View cal;
+        public View aVe;
+        public TbImageView cdb;
+        public TextView cdc;
+        public TextView cdd;
+        public TextView cde;
+        public View cdf;
     }
 
     public c(Context context) {
@@ -37,14 +37,14 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return u.u(this.mDatas);
+        return v.u(this.mDatas);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ih */
+    /* renamed from: ir */
     public b getItem(int i) {
-        return (b) u.c(this.mDatas, i);
+        return (b) v.c(this.mDatas, i);
     }
 
     @Override // android.widget.Adapter
@@ -63,29 +63,29 @@ public class c extends BaseAdapter {
         } else {
             View inflate = LayoutInflater.from(this.mContext).inflate(d.j.item_recommend_forum_by_tag, viewGroup, false);
             aVar = new a();
-            aVar.cah = (TbImageView) inflate.findViewById(d.h.imageview_forum);
-            aVar.cai = (TextView) inflate.findViewById(d.h.textview_forum_name);
-            aVar.caj = (TextView) inflate.findViewById(d.h.textview_forum_concern_count);
-            aVar.cak = (TextView) inflate.findViewById(d.h.textview_forum_thread_count);
-            aVar.cal = inflate.findViewById(d.h.view_check_state);
-            aVar.aVv = inflate.findViewById(d.h.view_bottom_line);
+            aVar.cdb = (TbImageView) inflate.findViewById(d.h.imageview_forum);
+            aVar.cdc = (TextView) inflate.findViewById(d.h.textview_forum_name);
+            aVar.cdd = (TextView) inflate.findViewById(d.h.textview_forum_concern_count);
+            aVar.cde = (TextView) inflate.findViewById(d.h.textview_forum_thread_count);
+            aVar.cdf = inflate.findViewById(d.h.view_check_state);
+            aVar.aVe = inflate.findViewById(d.h.view_bottom_line);
             inflate.setTag(aVar);
             view2 = inflate;
         }
         if (item != null) {
-            aVar.cah.c(item.avatar, 10, false);
-            aVar.cai.setText(item.forumName);
-            aVar.caj.setText(String.format(this.mContext.getString(d.l.forum_concern_number), al.u(item.followNum)));
-            aVar.cak.setText(String.format(this.mContext.getString(d.l.forum_thread_number), al.u(item.threadNum)));
+            aVar.cdb.c(item.avatar, 10, false);
+            aVar.cdc.setText(item.forumName);
+            aVar.cdd.setText(String.format(this.mContext.getString(d.l.concern), am.u(item.followNum)));
+            aVar.cde.setText(String.format(this.mContext.getString(d.l.forum_thread_number), am.u(item.threadNum)));
             if (item.isSelected) {
-                ai.j(aVar.cal, d.g.icon_list_confirm_s);
+                aj.j(aVar.cdf, d.g.icon_list_confirm_s);
             } else {
-                ai.j(aVar.cal, d.g.icon_jinba_confirm_n);
+                aj.j(aVar.cdf, d.g.icon_jinba_confirm_n);
             }
-            ai.i(aVar.cai, d.e.cp_cont_b);
-            ai.i(aVar.caj, d.e.cp_cont_f);
-            ai.i(aVar.cak, d.e.cp_cont_f);
-            ai.k(aVar.aVv, d.e.cp_bg_line_c);
+            aj.i(aVar.cdc, d.e.cp_cont_b);
+            aj.i(aVar.cdd, d.e.cp_cont_f);
+            aj.i(aVar.cde, d.e.cp_cont_f);
+            aj.k(aVar.aVe, d.e.cp_bg_line_c);
         }
         return view2;
     }

@@ -15,7 +15,7 @@ public class BdBaseApplication extends MAApplication {
     private long lastGcTime = 0;
 
     public void onCreate(Application application) {
-        g.cr().a(super.getResources());
+        g.cg().a(super.getResources());
         initBdBaseApp(application);
         super.onCreate();
     }
@@ -23,14 +23,14 @@ public class BdBaseApplication extends MAApplication {
     private void initBdBaseApp(Application application) {
         sApp = this;
         this.mContext = application;
-        k.af(application);
+        k.ac(application);
         initWorkMode();
         initBitmapHelper();
         initPlugin();
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.ju().init();
+        com.baidu.adp.plugin.c.a.jm().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -62,11 +62,11 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.gZ().ae(this.mContext);
+        com.baidu.adp.lib.util.d.gQ().ab(this.mContext);
     }
 
     public void onAppMemoryLow() {
-        a.cl().cn();
+        a.ca().cc();
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastGcTime > 30000) {
             this.lastGcTime = currentTimeMillis;
@@ -75,16 +75,16 @@ public class BdBaseApplication extends MAApplication {
     }
 
     public void setActivityStackMaxSize(int i) {
-        a.cl().setActivityStackMaxSize(i);
+        a.ca().setActivityStackMaxSize(i);
     }
 
     public int getActivityStackMaxSize() {
-        return a.cl().getActivityStackMaxSize();
+        return a.ca().getActivityStackMaxSize();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.cr().getResources();
+        Resources resources = g.cg().getResources();
         return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
     }
 

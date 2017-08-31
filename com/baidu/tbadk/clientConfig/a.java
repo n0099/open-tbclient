@@ -3,5 +3,5 @@ package com.baidu.tbadk.clientConfig;
 public interface a {
     void onError(String str);
 
-    void z(Object obj);
+    void y(Object obj);
 }

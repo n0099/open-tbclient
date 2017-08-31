@@ -5,103 +5,103 @@ import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 /* loaded from: classes.dex */
 public class t extends q {
     public void a(m mVar) {
-        if (r.Gz().GA()) {
-            com.baidu.adp.lib.stats.a fV = fV();
-            fV.p("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-            fV.p("ishttp", mVar.aKq ? "1" : "0");
-            fV.p("issuccess", mVar.isSuccess ? "1" : "0");
-            fV.p("nettype", r.Gz().getNetType());
-            fV.p("wt", String.valueOf(mVar.aKl));
-            fV.p("qt", String.valueOf(mVar.aKe));
-            fV.p("connt", String.valueOf(mVar.aKf));
-            fV.p("rwt", String.valueOf(mVar.aKg));
-            fV.p("fbt", String.valueOf(mVar.qu));
-            fV.p("abt", String.valueOf(mVar.qv));
-            fV.p("dect", String.valueOf(mVar.aKh));
-            fV.p("parset", String.valueOf(mVar.aKi));
-            fV.p("tqt", String.valueOf(mVar.aKj));
-            fV.p("rendert", String.valueOf(mVar.aKk));
-            fV.p("ss", String.valueOf(mVar.aKo));
-            fV.p("hs", String.valueOf(mVar.aKp));
-            if (mVar.aKq && mVar.socketErrNo != 0) {
-                fV.p("salno", String.valueOf(mVar.socketErrNo));
+        if (r.Gx().Gy()) {
+            com.baidu.adp.lib.stats.a fL = fL();
+            fL.p("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
+            fL.p("ishttp", mVar.aJU ? "1" : "0");
+            fL.p("issuccess", mVar.isSuccess ? "1" : "0");
+            fL.p("nettype", r.Gx().getNetType());
+            fL.p("wt", String.valueOf(mVar.aJP));
+            fL.p("qt", String.valueOf(mVar.aJI));
+            fL.p("connt", String.valueOf(mVar.aJJ));
+            fL.p("rwt", String.valueOf(mVar.aJK));
+            fL.p("fbt", String.valueOf(mVar.ob));
+            fL.p("abt", String.valueOf(mVar.oc));
+            fL.p("dect", String.valueOf(mVar.aJL));
+            fL.p("parset", String.valueOf(mVar.aJM));
+            fL.p("tqt", String.valueOf(mVar.aJN));
+            fL.p("rendert", String.valueOf(mVar.aJO));
+            fL.p("ss", String.valueOf(mVar.aJS));
+            fL.p("hs", String.valueOf(mVar.aJT));
+            if (mVar.aJU && mVar.socketErrNo != 0) {
+                fL.p("salno", String.valueOf(mVar.socketErrNo));
                 if (mVar.socketCostTime != 0) {
-                    fV.p("scosttime", String.valueOf(mVar.socketCostTime));
+                    fL.p("scosttime", String.valueOf(mVar.socketCostTime));
                 }
             }
-            if (mVar.aKq) {
-                fV.p("hrtn", String.valueOf(mVar.aKr));
-                fV.p("hrtt", String.valueOf(mVar.aKs));
+            if (mVar.aJU) {
+                fL.p("hrtn", String.valueOf(mVar.aJV));
+                fL.p("hrtt", String.valueOf(mVar.aJW));
             }
             if (mVar.errCode != 0) {
-                fV.d("errcode", Integer.valueOf(mVar.errCode));
+                fL.c("errcode", Integer.valueOf(mVar.errCode));
             }
-            if (mVar.aKt) {
-                fV.p("pt", "1");
+            if (mVar.aJX) {
+                fL.p("pt", "1");
             } else {
-                fV.p("sysct", String.valueOf(mVar.aKc));
-                fV.p("ct", String.valueOf(mVar.aKd));
+                fL.p("sysct", String.valueOf(mVar.aJG));
+                fL.p("ct", String.valueOf(mVar.aJH));
             }
-            if (mVar.aKq) {
-                fV.p("c_logid", String.valueOf(mVar.aKu));
+            if (mVar.aJU) {
+                fL.p("c_logid", String.valueOf(mVar.aJY));
                 if (mVar.sequenceID != 0) {
-                    fV.p("seq_id", String.valueOf(mVar.sequenceID & 4294967295L));
+                    fL.p("seq_id", String.valueOf(mVar.sequenceID & 4294967295L));
                 }
             } else {
-                fV.p("seq_id", String.valueOf(mVar.sequenceID & 4294967295L));
+                fL.p("seq_id", String.valueOf(mVar.sequenceID & 4294967295L));
             }
-            BdStatisticsManager.getInstance().performance(this.subType, fV);
+            BdStatisticsManager.getInstance().performance(this.subType, fL);
         }
     }
 
     public void b(m mVar) {
-        if (r.Gz().GA() && mVar.aKm > 0) {
-            com.baidu.adp.lib.stats.a fV = fV();
-            fV.p("action", "readCache");
-            fV.p("rct", String.valueOf(mVar.aKm));
-            BdStatisticsManager.getInstance().performance(this.subType, fV);
+        if (r.Gx().Gy() && mVar.aJQ > 0) {
+            com.baidu.adp.lib.stats.a fL = fL();
+            fL.p("action", "readCache");
+            fL.p("rct", String.valueOf(mVar.aJQ));
+            BdStatisticsManager.getInstance().performance(this.subType, fL);
         }
     }
 
     public void c(m mVar) {
-        if (r.Gz().GA() && mVar.aKn > 0) {
-            com.baidu.adp.lib.stats.a fV = fV();
-            fV.p("action", "writeCache");
-            fV.p("wct", String.valueOf(mVar.aKn));
-            BdStatisticsManager.getInstance().performance(this.subType, fV);
+        if (r.Gx().Gy() && mVar.aJR > 0) {
+            com.baidu.adp.lib.stats.a fL = fL();
+            fL.p("action", "writeCache");
+            fL.p("wct", String.valueOf(mVar.aJR));
+            BdStatisticsManager.getInstance().performance(this.subType, fL);
         }
     }
 
     public void a(l lVar, String str) {
-        if (lVar != null && str != null && r.Gz().GA()) {
-            com.baidu.adp.lib.stats.a fV = fV();
-            fV.p("action", "resource");
-            fV.p("actype", str);
-            fV.p("issuccess", lVar.isSuccess ? "1" : "0");
-            fV.p("isfs", lVar.aKb ? "1" : "0");
-            fV.p("ct", String.valueOf(lVar.IH));
-            fV.p("from", String.valueOf(lVar.IG));
-            BdStatisticsManager.getInstance().performance(this.subType, fV);
+        if (lVar != null && str != null && r.Gx().Gy()) {
+            com.baidu.adp.lib.stats.a fL = fL();
+            fL.p("action", "resource");
+            fL.p("actype", str);
+            fL.p("issuccess", lVar.isSuccess ? "1" : "0");
+            fL.p("isfs", lVar.aJF ? "1" : "0");
+            fL.p("ct", String.valueOf(lVar.GA));
+            fL.p("from", String.valueOf(lVar.Gz));
+            BdStatisticsManager.getInstance().performance(this.subType, fL);
         }
     }
 
     public void g(d dVar) {
-        if (dVar != null && r.Gz().GA()) {
-            com.baidu.adp.lib.stats.a fV = fV();
-            fV.p("action", "fluency");
-            fV.p("fps", String.valueOf(dVar.Gj()));
-            fV.p("memp", String.valueOf(dVar.Gl()));
-            fV.p("cpu", String.valueOf(dVar.Gm()));
-            BdStatisticsManager.getInstance().performance(this.subType, fV);
+        if (dVar != null && r.Gx().Gy()) {
+            com.baidu.adp.lib.stats.a fL = fL();
+            fL.p("action", "fluency");
+            fL.p("fps", String.valueOf(dVar.Gh()));
+            fL.p("memp", String.valueOf(dVar.Gj()));
+            fL.p("cpu", String.valueOf(dVar.Gk()));
+            BdStatisticsManager.getInstance().performance(this.subType, fL);
         }
     }
 
     public void h(d dVar) {
-        if (r.Gz().GA()) {
-            com.baidu.adp.lib.stats.a fV = fV();
-            fV.p("action", "gc");
-            fV.p("gc", String.valueOf(dVar.Gk()));
-            BdStatisticsManager.getInstance().performance(this.subType, fV);
+        if (r.Gx().Gy()) {
+            com.baidu.adp.lib.stats.a fL = fL();
+            fL.p("action", "gc");
+            fL.p("gc", String.valueOf(dVar.Gi()));
+            BdStatisticsManager.getInstance().performance(this.subType, fL);
         }
     }
 }

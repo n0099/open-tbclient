@@ -6,11 +6,12 @@ import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
 public class c {
-    public AlaUserInfoData Vt;
-    public AlaShareInfoData Vu;
+    public AlaUserInfoData Uu;
+    public AlaShareInfoData Uv;
     public int audience_count;
     public String cover;
     public String description;
+    public double distance;
     public int duration;
     public long group_id;
     public String hls_url;
@@ -40,14 +41,15 @@ public class c {
                 this.media_id = jSONObject.optString("media_id");
                 this.media_subtitle = jSONObject.optString("media_subtitle");
                 this.description = jSONObject.optString("description");
-                this.Vt = (AlaUserInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("user_info"), AlaUserInfoData.class);
-                this.Vu = (AlaShareInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("share_info"), AlaShareInfoData.class);
+                this.Uu = (AlaUserInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("user_info"), AlaUserInfoData.class);
+                this.Uv = (AlaShareInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("share_info"), AlaShareInfoData.class);
                 this.live_status = jSONObject.optInt("live_status");
                 this.duration = jSONObject.optInt("duration");
                 this.audience_count = jSONObject.optInt("audience_count");
                 this.live_type = jSONObject.optInt("live_type");
                 this.screen_direction = jSONObject.optInt("screen_direction");
                 this.label_name = jSONObject.optString("label_name");
+                this.distance = jSONObject.optDouble("distance");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -68,16 +70,17 @@ public class c {
                 this.media_id = alaLiveInfo.media_id;
                 this.media_subtitle = alaLiveInfo.media_subtitle;
                 this.description = alaLiveInfo.description;
-                this.Vt = new AlaUserInfoData();
-                this.Vt.a(alaLiveInfo.user_info);
-                this.Vu = new AlaShareInfoData();
-                this.Vu.a(alaLiveInfo.share_info);
+                this.Uu = new AlaUserInfoData();
+                this.Uu.a(alaLiveInfo.user_info);
+                this.Uv = new AlaShareInfoData();
+                this.Uv.a(alaLiveInfo.share_info);
                 this.live_status = alaLiveInfo.live_status.intValue();
                 this.duration = alaLiveInfo.duration.intValue();
                 this.audience_count = alaLiveInfo.audience_count.intValue();
                 this.live_type = alaLiveInfo.live_type.intValue();
                 this.screen_direction = alaLiveInfo.screen_direction.intValue();
                 this.label_name = alaLiveInfo.label_name;
+                this.distance = alaLiveInfo.distance.longValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

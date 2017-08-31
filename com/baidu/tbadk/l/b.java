@@ -1,5 +1,5 @@
 package com.baidu.tbadk.l;
 /* loaded from: classes.dex */
 public interface b {
-    void gD(String str);
+    void gz(String str);
 }

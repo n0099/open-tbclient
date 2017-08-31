@@ -8,111 +8,111 @@ import org.json.JSONObject;
 public class a {
     private DownloadStaticsData downloadStaticsData;
     private String extInfo;
-    private String fKA;
-    private String fKB;
-    private JSONObject fKk;
-    private int fKl;
-    private int fKm;
-    private long fKn = System.currentTimeMillis() / 1000;
-    private String fKo;
-    private JSONObject fKp;
-    private int fKq;
-    private int fKr;
-    private int fKs;
-    private int fKt;
-    private int fKu;
-    private int fKv;
-    private String fKw;
-    private String fKx;
-    private String fKy;
-    private String fKz;
+    private String fIA;
+    private String fIB;
+    private JSONObject fIk;
+    private int fIl;
+    private int fIm;
+    private long fIn = System.currentTimeMillis() / 1000;
+    private String fIo;
+    private JSONObject fIp;
+    private int fIq;
+    private int fIr;
+    private int fIs;
+    private int fIt;
+    private int fIu;
+    private int fIv;
+    private String fIw;
+    private String fIx;
+    private String fIy;
+    private String fIz;
     private int pageNumber;
     private String placeId;
 
-    public void rp(String str) {
+    public void rd(String str) {
         this.extInfo = str;
     }
 
-    public void sd(int i) {
-        this.fKl = i;
+    public void sa(int i) {
+        this.fIl = i;
     }
 
-    public void se(int i) {
-        this.fKm = i;
+    public void sb(int i) {
+        this.fIm = i;
     }
 
     public void setPageNumber(int i) {
         this.pageNumber = i;
     }
 
-    public void rq(String str) {
+    public void re(String str) {
         this.placeId = str;
     }
 
-    public void rr(String str) {
-        this.fKo = str;
+    public void rf(String str) {
+        this.fIo = str;
     }
 
-    public void sf(int i) {
-        this.fKt = i;
+    public void sc(int i) {
+        this.fIt = i;
     }
 
-    public void sg(int i) {
-        this.fKu = i;
+    public void sd(int i) {
+        this.fIu = i;
     }
 
-    public void sh(int i) {
-        this.fKv = i;
+    public void se(int i) {
+        this.fIv = i;
     }
 
-    public void rs(String str) {
-        this.fKw = str;
+    public void rg(String str) {
+        this.fIw = str;
     }
 
     public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
         this.downloadStaticsData = downloadStaticsData;
         if (downloadStaticsData != null) {
-            this.fKm = com.baidu.adp.lib.g.b.g(downloadStaticsData.getAdPosition(), 0);
-            this.fKo = downloadStaticsData.getPrice();
+            this.fIm = com.baidu.adp.lib.g.b.g(downloadStaticsData.getAdPosition(), 0);
+            this.fIo = downloadStaticsData.getPrice();
             this.extInfo = downloadStaticsData.getExtensionInfo();
         }
     }
 
-    public void ca(String str, String str2) {
-        if (this.fKk == null) {
-            this.fKk = new JSONObject();
+    public void bZ(String str, String str2) {
+        if (this.fIk == null) {
+            this.fIk = new JSONObject();
         }
         try {
-            this.fKk.put(str, str2);
+            this.fIk.put(str, str2);
         } catch (Exception e) {
         }
     }
 
-    public JSONObject biN() {
-        if (this.fKp != null) {
-            return this.fKp;
+    public JSONObject bhM() {
+        if (this.fIp != null) {
+            return this.fIp;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("da_locate", this.fKm);
-            jSONObject.put("da_type", this.fKl);
+            jSONObject.put("da_locate", this.fIm);
+            jSONObject.put("da_type", this.fIl);
             jSONObject.put("extra_param", this.extInfo);
-            jSONObject.put("origin_time", this.fKn);
+            jSONObject.put("origin_time", this.fIn);
             jSONObject.put("da_page_num", this.pageNumber);
-            jSONObject.put("da_price", this.fKo);
+            jSONObject.put("da_price", this.fIo);
             jSONObject.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-            jSONObject.put("ext1", this.fKq);
-            jSONObject.put("ext3", this.fKs);
-            jSONObject.put("ext2", this.fKr);
-            jSONObject.put("da_ext1", this.fKt);
-            jSONObject.put("da_ext2", this.fKu);
-            jSONObject.put("da_ext3", this.fKv);
-            jSONObject.put("da_menu1", this.fKx);
-            jSONObject.put("da_menu2", this.fKy);
-            jSONObject.put("da_menu3", this.fKz);
-            jSONObject.put("da_page", this.fKA);
+            jSONObject.put("ext1", this.fIq);
+            jSONObject.put("ext3", this.fIs);
+            jSONObject.put("ext2", this.fIr);
+            jSONObject.put("da_ext1", this.fIt);
+            jSONObject.put("da_ext2", this.fIu);
+            jSONObject.put("da_ext3", this.fIv);
+            jSONObject.put("da_menu1", this.fIx);
+            jSONObject.put("da_menu2", this.fIy);
+            jSONObject.put("da_menu3", this.fIz);
+            jSONObject.put("da_page", this.fIA);
             jSONObject.put("place_id", this.placeId);
-            jSONObject.put("lego_extra", this.fKw);
+            jSONObject.put("lego_extra", this.fIw);
             if (this.downloadStaticsData != null) {
                 jSONObject.put("da_range", this.downloadStaticsData.getDa_range());
                 jSONObject.put("da_range_nt", this.downloadStaticsData.getDa_range_nt());
@@ -120,36 +120,36 @@ public class a {
                 jSONObject.put("da_menu3", this.downloadStaticsData.getFid());
                 jSONObject.put("apk_name", this.downloadStaticsData.getApk_name());
             }
-            jSONObject.put("da_area", this.fKB);
+            jSONObject.put("da_area", this.fIB);
         } catch (JSONException e) {
         }
-        if (this.fKk != null) {
+        if (this.fIk != null) {
             try {
-                jSONObject.put("ext", this.fKk);
+                jSONObject.put("ext", this.fIk);
             } catch (Exception e2) {
             }
         }
-        this.fKp = jSONObject;
+        this.fIp = jSONObject;
         return jSONObject;
     }
 
-    public void rt(String str) {
-        this.fKx = str;
+    public void rh(String str) {
+        this.fIx = str;
     }
 
-    public void ru(String str) {
-        this.fKy = str;
+    public void ri(String str) {
+        this.fIy = str;
     }
 
-    public void rv(String str) {
-        this.fKz = str;
+    public void rj(String str) {
+        this.fIz = str;
     }
 
-    public void rw(String str) {
-        this.fKA = str;
+    public void rk(String str) {
+        this.fIA = str;
     }
 
-    public void rx(String str) {
-        this.fKB = str;
+    public void rl(String str) {
+        this.fIB = str;
     }
 }

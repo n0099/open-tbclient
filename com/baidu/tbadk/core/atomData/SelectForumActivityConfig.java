@@ -21,7 +21,7 @@ public class SelectForumActivityConfig extends IntentConfig {
 
     public void setForumList(ArrayList<TransmitForumData> arrayList) {
         if (getIntent() != null) {
-            getIntent().putParcelableArrayListExtra(KEY_INPUT_FORUM_LIST, arrayList);
+            getIntent().putParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST", arrayList);
         }
     }
 

@@ -11,9 +11,9 @@ public interface a {
         void c(SQLiteDatabase sQLiteDatabase);
     }
 
-    void a(InterfaceC0001a interfaceC0001a);
+    boolean Y(Context context);
 
-    boolean ab(Context context);
+    void a(InterfaceC0001a interfaceC0001a);
 
     SQLiteDatabase getWritableDatabase();
 

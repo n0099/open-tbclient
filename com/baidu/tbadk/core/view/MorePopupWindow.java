@@ -110,9 +110,9 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void setWidthAsWidthOfDeviceScreen(Context context) {
-        int ag = com.baidu.adp.lib.util.k.ag(context);
-        this.mContentView.getLayoutParams().width = ag;
-        setWidth(ag);
+        int ad = com.baidu.adp.lib.util.k.ad(context);
+        this.mContentView.getLayoutParams().width = ad;
+        setWidth(ad);
     }
 
     public void setWindowHeight(int i) {
@@ -157,9 +157,9 @@ public class MorePopupWindow extends PopupWindow {
             setWidth(measuredWidth);
             this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(d.f.ds4));
             setHeight(this.mWindowHeight);
-            int[] aj = com.baidu.adp.lib.util.k.aj(this.mActivity);
-            if (aj != null && aj.length > 1 && aj[0] > measuredWidth) {
-                this.mShowRightTopXOff = aj[0] - measuredWidth;
+            int[] ag = com.baidu.adp.lib.util.k.ag(this.mActivity);
+            if (ag != null && ag.length > 1 && ag[0] > measuredWidth) {
+                this.mShowRightTopXOff = ag[0] - measuredWidth;
             }
             this.mPadding_10 = 0;
             this.mShowLeftCenterXOff = -(measuredWidth + this.mPadding_10);

@@ -9,32 +9,32 @@ import java.io.InputStreamReader;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class r {
-    private static String aKJ = "tb_perfor_samllflow_time";
-    private static volatile r aKM;
-    private long aKL;
-    private boolean aKH = false;
-    private long aKK = 86400;
-    private long aKI = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aKJ, 0);
+    private static String aKn = "tb_perfor_samllflow_time";
+    private static volatile r aKq;
+    private long aKp;
+    private boolean aKl = false;
+    private long aKo = 86400;
+    private long aKm = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aKn, 0);
 
-    public static r Gz() {
-        if (aKM == null) {
+    public static r Gx() {
+        if (aKq == null) {
             synchronized (r.class) {
-                if (aKM == null) {
-                    aKM = new r();
+                if (aKq == null) {
+                    aKq = new r();
                 }
             }
         }
-        return aKM;
+        return aKq;
     }
 
     private r() {
-        this.aKL = 0L;
-        this.aKL = this.aKK;
+        this.aKp = 0L;
+        this.aKp = this.aKo;
     }
 
-    public boolean GA() {
-        if (!this.aKH || (System.currentTimeMillis() - this.aKI) / 1000 <= this.aKL) {
-            return this.aKH;
+    public boolean Gy() {
+        if (!this.aKl || (System.currentTimeMillis() - this.aKm) / 1000 <= this.aKp) {
+            return this.aKl;
         }
         return false;
     }
@@ -42,21 +42,21 @@ public class r {
     public void ca(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aKI || currentTimeMillis - this.aKI >= this.aKL) {
-                this.aKI = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKJ, this.aKI);
+            if (0 == this.aKm || currentTimeMillis - this.aKm >= this.aKp) {
+                this.aKm = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKn, this.aKm);
             }
         } else {
-            this.aKI = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKJ, this.aKI);
+            this.aKm = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKn, this.aKm);
         }
-        this.aKH = z;
+        this.aKl = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            s.GF().GG();
+            s.GD().GE();
         }
     }
 
-    public String GB() {
+    public String Gz() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -70,7 +70,7 @@ public class r {
         }
     }
 
-    public final String GC() {
+    public final String GA() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
@@ -86,19 +86,19 @@ public class r {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.i.hr()) {
+        if (!com.baidu.adp.lib.util.i.hi()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.i.hs()) {
+        if (com.baidu.adp.lib.util.i.hj()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.hu()) {
+        if (com.baidu.adp.lib.util.i.hl()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.i.hv()) {
+        if (com.baidu.adp.lib.util.i.hm()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.i.hw()) {
+        if (!com.baidu.adp.lib.util.i.hn()) {
             return "N";
         }
         return "2G";
@@ -118,7 +118,7 @@ public class r {
     }
 
     public q fk(int i) {
-        if (GA()) {
+        if (Gy()) {
             switch (i) {
                 case 1000:
                     t tVar = new t();
@@ -151,9 +151,9 @@ public class r {
         return null;
     }
 
-    public void S(long j) {
+    public void R(long j) {
         if (j > 0) {
-            this.aKL = j;
+            this.aKp = j;
         }
     }
 
@@ -166,7 +166,7 @@ public class r {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int GD() {
+    public int GB() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

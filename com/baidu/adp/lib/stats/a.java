@@ -13,18 +13,18 @@ public class a {
     private long mStartTime;
     public String mType;
     public long sequenceID;
-    boolean yo;
-    private ArrayList<BasicNameValuePair> yp;
-    private StringBuilder yq;
+    boolean we;
+    private ArrayList<BasicNameValuePair> wf;
+    private StringBuilder wg;
 
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.yo = false;
+        this.we = false;
         this.mType = null;
-        this.yq = new StringBuilder(100);
+        this.wg = new StringBuilder(100);
         this.mType = str;
-        this.yo = false;
+        this.we = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -32,27 +32,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.yo = false;
+        this.we = false;
         this.mType = null;
-        this.yq = new StringBuilder(100);
+        this.wg = new StringBuilder(100);
     }
 
-    public void c(Object obj, Object obj2) {
+    public void b(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.yp == null) {
-                this.yp = new ArrayList<>();
+            if (this.wf == null) {
+                this.wf = new ArrayList<>();
             }
-            this.yp.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.wf.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.yq.length() > 0) {
-            sb.append((CharSequence) this.yq);
+        if (this.wg.length() > 0) {
+            sb.append((CharSequence) this.wg);
         }
-        if (this.yp != null) {
-            Iterator<BasicNameValuePair> it = this.yp.iterator();
+        if (this.wf != null) {
+            Iterator<BasicNameValuePair> it = this.wf.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -62,10 +62,10 @@ public class a {
                     sb.append(next.getName());
                     sb.append('=');
                     try {
-                        sb.append(URLEncoder.encode(as(next.getValue()), "utf-8"));
+                        sb.append(URLEncoder.encode(am(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        sb.append(as(next.getValue()));
+                        sb.append(am(next.getValue()));
                     }
                 }
             }
@@ -73,11 +73,11 @@ public class a {
         return sb.toString();
     }
 
-    public void d(Object... objArr) {
+    public void c(Object... objArr) {
         if (objArr != null) {
             for (int i = 0; i < objArr.length / 2; i++) {
                 if ((i * 2) + 1 < objArr.length) {
-                    c(objArr[i * 2], objArr[(i * 2) + 1]);
+                    b(objArr[i * 2], objArr[(i * 2) + 1]);
                 }
             }
         }
@@ -88,29 +88,29 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.yq.length() > 0) {
-                this.yq.append('&');
+            if (this.wg.length() > 0) {
+                this.wg.append('&');
             }
-            this.yq.append(str);
-            this.yq.append("=");
+            this.wg.append(str);
+            this.wg.append("=");
             try {
-                this.yq.append(URLEncoder.encode(as(str2), "utf-8"));
+                this.wg.append(URLEncoder.encode(am(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.yq.append(as(str2));
+                this.wg.append(am(str2));
             }
         }
     }
 
-    public void startTimer() {
+    public void fU() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long gf() {
+    public long fV() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    public static String as(String str) {
+    public static String am(String str) {
         return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

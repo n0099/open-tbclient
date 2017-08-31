@@ -565,6 +565,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     public void release() {
         stayAwake(false);
         updateSurfaceScreenOn();
+        notifyOnReleaseFinished();
         resetListeners();
         try {
             _release();

@@ -5,14 +5,14 @@ import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends RelativeLayout implements l {
-    private int aBM;
-    private TextView aBO;
-    private int aBP;
-    private String afX;
+    private int aAY;
+    private TextView aBa;
+    private int aBb;
+    private String afh;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -23,30 +23,30 @@ public class e extends RelativeLayout implements l {
         if (i > 0 && i2 > 0) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, context.getResources().getDimensionPixelSize(d.f.ds144));
             setGravity(5);
-            this.aBO = new TextView(context);
+            this.aBa = new TextView(context);
             setName(str);
             setIcon(i);
             setToolId(i2);
             layoutParams.addRule(13);
-            this.aBO.setGravity(17);
-            this.aBO.setTextSize(0, context.getResources().getDimensionPixelSize(d.f.fontsize24));
-            this.aBP = context.getResources().getDimensionPixelSize(d.f.ds12);
+            this.aBa.setGravity(17);
+            this.aBa.setTextSize(0, context.getResources().getDimensionPixelSize(d.f.fontsize24));
+            this.aBb = context.getResources().getDimensionPixelSize(d.f.ds12);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.f.ds16);
-            this.aBO.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
-            addView(this.aBO, layoutParams);
+            this.aBa.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+            addView(this.aBa, layoutParams);
         }
     }
 
     public void setName(String str) {
-        this.aBO.setText(str);
+        this.aBa.setText(str);
     }
 
     public void setIcon(int i) {
-        this.aBM = i;
+        this.aAY = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public void lS() {
+    public void lK() {
         setVisibility(0);
     }
 
@@ -60,8 +60,8 @@ public class e extends RelativeLayout implements l {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = (this.aBO.getRight() - this.mTip.getMeasuredWidth()) - this.aBP;
-                int top = this.aBO.getTop() + this.aBP;
+                int right = (this.aBa.getRight() - this.mTip.getMeasuredWidth()) - this.aBb;
+                int top = this.aBa.getTop() + this.aBb;
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -69,35 +69,35 @@ public class e extends RelativeLayout implements l {
         }
     }
 
-    public void fJ(String str) {
-        fK(str);
+    public void fE(String str) {
+        fF(str);
         this.mTip.setVisibility(0);
     }
 
-    private void fK(String str) {
+    private void fF(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.afX = str;
+            this.afh = str;
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
                 addView(this.mTip, new RelativeLayout.LayoutParams(-2, -2));
             }
-            ai.b(this.mTip, d.e.common_color_10225, 1, this.mSkinType);
+            aj.b(this.mTip, d.e.common_color_10225, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(1, 10.0f);
                 this.mTip.setText(str);
-                ai.d(this.mTip, d.g.icon_news_head_prompt_one, this.mSkinType);
+                aj.d(this.mTip, d.g.icon_news_head_prompt_one, this.mSkinType);
                 return;
             }
             this.mTip.setWidth(0);
             this.mTip.setHeight(0);
             this.mTip.setText("");
-            ai.d(this.mTip, d.g.icon_news_down_bar_one, this.mSkinType);
+            aj.d(this.mTip, d.g.icon_news_down_bar_one, this.mSkinType);
         }
     }
 
-    public void CZ() {
-        this.afX = null;
+    public void CU() {
+        this.afh = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -107,9 +107,9 @@ public class e extends RelativeLayout implements l {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                CZ();
+                CU();
             } else if (aVar.data instanceof String) {
-                fJ((String) aVar.data);
+                fE((String) aVar.data);
             }
         }
     }
@@ -126,25 +126,25 @@ public class e extends RelativeLayout implements l {
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        ai.d(this.aBO, d.g.btn_editor_selector, i);
-        ai.b(this.aBO, d.e.cp_cont_c, 1, i);
-        if (TextUtils.isEmpty(this.aBO.getText())) {
-            ai.d(this.aBO, this.aBM, i);
+        aj.d(this.aBa, d.g.btn_editor_selector, i);
+        aj.b(this.aBa, d.e.cp_cont_c, 1, i);
+        if (TextUtils.isEmpty(this.aBa.getText())) {
+            aj.d(this.aBa, this.aAY, i);
         } else {
-            this.aBO.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ai.v(i, this.aBM), (Drawable) null, (Drawable) null);
+            this.aBa.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.u(i, this.aAY), (Drawable) null, (Drawable) null);
         }
         if (this.mTip != null) {
-            ai.b(this.mTip, d.e.common_color_10225, 1, i);
+            aj.b(this.mTip, d.e.common_color_10225, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText())) {
-                ai.d(this.mTip, d.g.icon_news_head_prompt_one, i);
+                aj.d(this.mTip, d.g.icon_news_head_prompt_one, i);
             } else {
-                ai.d(this.mTip, d.g.icon_news_down_bar_one, i);
+                aj.d(this.mTip, d.g.icon_news_down_bar_one, i);
             }
             this.mTip.setPadding(0, 0, 0, 0);
         }
     }
 
     public String getText() {
-        return this.afX;
+        return this.afh;
     }
 }

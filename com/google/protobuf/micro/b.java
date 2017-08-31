@@ -71,6 +71,10 @@ public final class b {
         return new b(bArr, i, i2);
     }
 
+    public static b m(InputStream inputStream) {
+        return new b(inputStream);
+    }
+
     private void p() {
         this.b += this.c;
         int i = this.g + this.b;
@@ -80,10 +84,6 @@ public final class b {
         }
         this.c = i - this.h;
         this.b -= this.c;
-    }
-
-    public static b x(InputStream inputStream) {
-        return new b(inputStream);
     }
 
     public int a() {
@@ -133,7 +133,7 @@ public final class b {
                 e();
                 return true;
             case 1:
-                bFR();
+                bDX();
                 return true;
             case 2:
                 f(j());
@@ -152,35 +152,35 @@ public final class b {
         }
     }
 
-    public a bFP() {
+    public a bDV() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return a.L(vy(j));
+            return a.G(vw(j));
         }
         a k = a.k(this.a, this.d, j);
         this.d = j + this.d;
         return k;
     }
 
-    public long bFQ() {
+    public long bDW() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
-            byte bFS = bFS();
-            j |= (bFS & Byte.MAX_VALUE) << i;
-            if ((bFS & 128) == 0) {
+            byte bDY = bDY();
+            j |= (bDY & Byte.MAX_VALUE) << i;
+            if ((bDY & 128) == 0) {
                 return j;
             }
         }
         throw d.c();
     }
 
-    public long bFR() {
-        byte bFS = bFS();
-        byte bFS2 = bFS();
-        return ((bFS2 & 255) << 8) | (bFS & 255) | ((bFS() & 255) << 16) | ((bFS() & 255) << 24) | ((bFS() & 255) << 32) | ((bFS() & 255) << 40) | ((bFS() & 255) << 48) | ((bFS() & 255) << 56);
+    public long bDX() {
+        byte bDY = bDY();
+        byte bDY2 = bDY();
+        return ((bDY2 & 255) << 8) | (bDY & 255) | ((bDY() & 255) << 16) | ((bDY() & 255) << 24) | ((bDY() & 255) << 32) | ((bDY() & 255) << 40) | ((bDY() & 255) << 48) | ((bDY() & 255) << 56);
     }
 
-    public byte bFS() {
+    public byte bDY() {
         if (this.d == this.b) {
             a(true);
         }
@@ -205,11 +205,11 @@ public final class b {
     }
 
     public long c() {
-        return bFQ();
+        return bDW();
     }
 
     public long d() {
-        return bFQ();
+        return bDW();
     }
 
     public void d(int i) {
@@ -254,7 +254,7 @@ public final class b {
     public String g() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return new String(vy(j), "UTF-8");
+            return new String(vw(j), "UTF-8");
         }
         String str = new String(this.a, this.d, j, "UTF-8");
         this.d = j + this.d;
@@ -266,31 +266,31 @@ public final class b {
     }
 
     public int j() {
-        byte bFS = bFS();
-        if (bFS >= 0) {
-            return bFS;
+        byte bDY = bDY();
+        if (bDY >= 0) {
+            return bDY;
         }
-        int i = bFS & Byte.MAX_VALUE;
-        byte bFS2 = bFS();
-        if (bFS2 >= 0) {
-            return i | (bFS2 << 7);
+        int i = bDY & Byte.MAX_VALUE;
+        byte bDY2 = bDY();
+        if (bDY2 >= 0) {
+            return i | (bDY2 << 7);
         }
-        int i2 = i | ((bFS2 & Byte.MAX_VALUE) << 7);
-        byte bFS3 = bFS();
-        if (bFS3 >= 0) {
-            return i2 | (bFS3 << 14);
+        int i2 = i | ((bDY2 & Byte.MAX_VALUE) << 7);
+        byte bDY3 = bDY();
+        if (bDY3 >= 0) {
+            return i2 | (bDY3 << 14);
         }
-        int i3 = i2 | ((bFS3 & Byte.MAX_VALUE) << 14);
-        byte bFS4 = bFS();
-        if (bFS4 >= 0) {
-            return i3 | (bFS4 << 21);
+        int i3 = i2 | ((bDY3 & Byte.MAX_VALUE) << 14);
+        byte bDY4 = bDY();
+        if (bDY4 >= 0) {
+            return i3 | (bDY4 << 21);
         }
-        int i4 = i3 | ((bFS4 & Byte.MAX_VALUE) << 21);
-        byte bFS5 = bFS();
-        int i5 = i4 | (bFS5 << 28);
-        if (bFS5 < 0) {
+        int i4 = i3 | ((bDY4 & Byte.MAX_VALUE) << 21);
+        byte bDY5 = bDY();
+        int i5 = i4 | (bDY5 << 28);
+        if (bDY5 < 0) {
             for (int i6 = 0; i6 < 5; i6++) {
-                if (bFS() >= 0) {
+                if (bDY() >= 0) {
                     return i5;
                 }
             }
@@ -300,14 +300,14 @@ public final class b {
     }
 
     public int l() {
-        return (bFS() & 255) | ((bFS() & 255) << 8) | ((bFS() & 255) << 16) | ((bFS() & 255) << 24);
+        return (bDY() & 255) | ((bDY() & 255) << 8) | ((bDY() & 255) << 16) | ((bDY() & 255) << 24);
     }
 
     public boolean n() {
         return this.d == this.b && !a(false);
     }
 
-    public byte[] vy(int i) {
+    public byte[] vw(int i) {
         if (i < 0) {
             throw d.b();
         }

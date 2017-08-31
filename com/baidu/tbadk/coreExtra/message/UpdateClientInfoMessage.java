@@ -35,20 +35,8 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         }
     }
 
-    public Integer getPub_env() {
-        return this.pub_env;
-    }
-
     public void setPub_env(Integer num) {
         this.pub_env = num;
-    }
-
-    public double getLat() {
-        return this.lat;
-    }
-
-    public double getLng() {
-        return this.lng;
     }
 
     public void setLat(double d) {
@@ -59,16 +47,8 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         this.lng = d;
     }
 
-    public byte[] getSecretKey() {
-        return this.secretKey;
-    }
-
     public void setSecretKey(byte[] bArr) {
         this.secretKey = bArr;
-    }
-
-    public String getBduss() {
-        return this.bduss;
     }
 
     public void setBduss(String str, String str2) {
@@ -89,16 +69,8 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         }
     }
 
-    public int getWidth() {
-        return this.width;
-    }
-
     public void setWidth(int i) {
         this.width = i;
-    }
-
-    public int getHeight() {
-        return this.height;
     }
 
     public void setHeight(int i) {
@@ -108,15 +80,15 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.bduss = getBduss();
+        builder.bduss = this.bduss;
         builder.device = getDevice();
         builder.stoken = this.stoken;
-        builder.secretKey = ByteString.of(getSecretKey());
-        builder.height = Integer.valueOf(getHeight());
-        builder.width = Integer.valueOf(getWidth());
-        builder.lat = Double.valueOf(getLat());
-        builder.lng = Double.valueOf(getLng());
-        builder.pub_env = getPub_env();
+        builder.secretKey = ByteString.of(this.secretKey);
+        builder.height = Integer.valueOf(this.height);
+        builder.width = Integer.valueOf(this.width);
+        builder.lat = Double.valueOf(this.lat);
+        builder.lng = Double.valueOf(this.lng);
+        builder.pub_env = this.pub_env;
         UpdateClientInfoReqIdl.Builder builder2 = new UpdateClientInfoReqIdl.Builder();
         builder2.cuid = TbadkCoreApplication.getUniqueIdentifier();
         builder2.data = builder.build(false);

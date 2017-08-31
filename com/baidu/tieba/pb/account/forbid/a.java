@@ -4,12 +4,12 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a {
-    private static final String eEc = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String eCv = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -19,30 +19,30 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, b bVar) {
-        new C0109a(str, str2, str3, str4, str5, str6, str7, bVar).execute(new String[0]);
+        new C0111a(str, str2, str3, str4, str5, str6, str7, bVar).execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0109a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String Ch;
-        private WeakReference<b> aXP;
-        private String eEd;
+    private static class C0111a extends BdAsyncTask<String, Object, ForbidResultData> {
+        private String Aa;
+        private WeakReference<b> aXB;
+        private String eCw;
         private String mForumId;
         private String mForumName;
         private String mPostId;
         private String mThreadId;
         private String mUserName;
 
-        public C0109a(String str, String str2, String str3, String str4, String str5, String str6, String str7, b bVar) {
+        public C0111a(String str, String str2, String str3, String str4, String str5, String str6, String str7, b bVar) {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.eEd = str6;
-            this.Ch = str7;
+            this.eCw = str6;
+            this.Aa = str7;
             this.mPostId = str5;
-            this.aXP = new WeakReference<>(bVar);
+            this.aXB = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -51,20 +51,20 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: y */
         public ForbidResultData doInBackground(String... strArr) {
-            w wVar = new w(a.eEc);
-            wVar.n("day", this.eEd);
-            wVar.n("un", this.mUserName);
-            wVar.n("fid", this.mForumId);
-            wVar.n("word", this.mForumName);
-            wVar.n("z", this.mThreadId);
-            wVar.n("reason", this.Ch);
-            wVar.n("ntn", "banid");
-            wVar.n("post_id", this.mPostId);
-            wVar.vm().wi().mIsNeedTbs = true;
-            String uP = wVar.uP();
-            if (wVar.vm().wj().isRequestSuccess()) {
+            x xVar = new x(a.eCv);
+            xVar.n("day", this.eCw);
+            xVar.n("un", this.mUserName);
+            xVar.n("fid", this.mForumId);
+            xVar.n("word", this.mForumName);
+            xVar.n("z", this.mThreadId);
+            xVar.n("reason", this.Aa);
+            xVar.n("ntn", "banid");
+            xVar.n("post_id", this.mPostId);
+            xVar.vj().wf().mIsNeedTbs = true;
+            String uM = xVar.uM();
+            if (xVar.vj().wg().isRequestSuccess()) {
                 try {
-                    return (ForbidResultData) OrmObject.objectWithJsonStr(uP, ForbidResultData.class);
+                    return (ForbidResultData) OrmObject.objectWithJsonStr(uM, ForbidResultData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidResultData forbidResultData = new ForbidResultData();
@@ -73,8 +73,8 @@ public class a {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = wVar.vq();
-            forbidResultData2.error_msg = wVar.getErrorString();
+            forbidResultData2.error_code = xVar.vn();
+            forbidResultData2.error_msg = xVar.getErrorString();
             return forbidResultData2;
         }
 
@@ -84,9 +84,9 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.aXP.get();
+            b bVar = this.aXB.get();
             if (bVar != null) {
-                if (forbidResultData.error_code == 0 && al.isEmpty(forbidResultData.error_msg)) {
+                if (forbidResultData.error_code == 0 && am.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);
                 } else {
                     bVar.b(forbidResultData);

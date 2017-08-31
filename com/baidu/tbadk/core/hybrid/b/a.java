@@ -7,10 +7,10 @@ import java.io.InterruptedIOException;
 /* loaded from: classes.dex */
 public class a extends InputStream {
     static final /* synthetic */ boolean $assertionsDisabled;
-    boolean aeH;
-    volatile boolean aeI;
-    Thread aeJ;
-    Thread aeK;
+    boolean adP;
+    volatile boolean adQ;
+    Thread adR;
+    Thread adS;
     protected byte[] buffer;
     boolean connected;
     protected int in;
@@ -25,8 +25,8 @@ public class a extends InputStream {
     }
 
     public a(b bVar, int i) throws IOException {
-        this.aeH = false;
-        this.aeI = false;
+        this.adP = false;
+        this.adQ = false;
         this.connected = false;
         this.in = -1;
         this.out = 0;
@@ -35,8 +35,8 @@ public class a extends InputStream {
     }
 
     public a() {
-        this.aeH = false;
-        this.aeI = false;
+        this.adP = false;
+        this.adQ = false;
         this.connected = false;
         this.in = -1;
         this.out = 0;
@@ -56,10 +56,10 @@ public class a extends InputStream {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void receive(int i) throws IOException {
-        uu();
-        this.aeK = Thread.currentThread();
+        up();
+        this.adS = Thread.currentThread();
         if (this.in == this.out) {
-            uv();
+            uq();
         }
         if (this.in < 0) {
             this.in = 0;
@@ -77,12 +77,12 @@ public class a extends InputStream {
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void j(byte[] bArr, int i, int i2) throws IOException {
         int i3;
-        uu();
-        this.aeK = Thread.currentThread();
+        up();
+        this.adS = Thread.currentThread();
         int i4 = i2;
         while (i4 > 0) {
             if (this.in == this.out) {
-                uv();
+                uq();
             }
             if (this.out < this.in) {
                 i3 = this.buffer.length - this.in;
@@ -111,21 +111,21 @@ public class a extends InputStream {
         }
     }
 
-    private void uu() throws IOException {
+    private void up() throws IOException {
         if (!this.connected) {
             throw new IOException("Pipe not connected");
         }
-        if (this.aeH || this.aeI) {
+        if (this.adP || this.adQ) {
             throw new IOException("Pipe closed");
         }
-        if (this.aeJ != null && !this.aeJ.isAlive()) {
+        if (this.adR != null && !this.adR.isAlive()) {
             throw new IOException("Read end dead");
         }
     }
 
-    private void uv() throws IOException {
+    private void uq() throws IOException {
         while (this.in == this.out) {
-            uu();
+            up();
             notifyAll();
             try {
                 wait(100L);
@@ -136,8 +136,8 @@ public class a extends InputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void uw() {
-        this.aeH = true;
+    public synchronized void ur() {
+        this.adP = true;
         notifyAll();
     }
 
@@ -148,19 +148,19 @@ public class a extends InputStream {
             if (!this.connected) {
                 throw new IOException("Pipe not connected");
             }
-            if (this.aeI) {
+            if (this.adQ) {
                 throw new IOException("Pipe closed");
             }
-            if (this.aeK != null && !this.aeK.isAlive() && !this.aeH && this.in < 0) {
+            if (this.adS != null && !this.adS.isAlive() && !this.adP && this.in < 0) {
                 throw new IOException("Write end dead");
             }
-            this.aeJ = Thread.currentThread();
+            this.adR = Thread.currentThread();
             int i2 = 2;
             while (true) {
                 if (this.in < 0) {
-                    if (this.aeH) {
+                    if (this.adP) {
                         break;
-                    } else if (this.aeK != null && !this.aeK.isAlive() && i2 - 1 < 0) {
+                    } else if (this.adS != null && !this.adS.isAlive() && i2 - 1 < 0) {
                         throw new IOException("Pipe broken");
                     } else {
                         notifyAll();
@@ -248,7 +248,7 @@ public class a extends InputStream {
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.aeI = true;
+        this.adQ = true;
         synchronized (this) {
             this.in = -1;
         }

@@ -13,15 +13,15 @@ public class at {
     private static String a;
     private static at e = new at();
     private List<a> b = new ArrayList();
-    private a.C0143a c;
+    private a.C0146a c;
     private h.b d;
 
     /* loaded from: classes2.dex */
     public static abstract class a {
-        public void a(a.C0143a c0143a) {
+        public void a(a.C0146a c0146a) {
         }
 
-        public void a(b.C0144b c0144b) {
+        public void a(b.C0147b c0147b) {
         }
     }
 
@@ -75,7 +75,7 @@ public class at {
             try {
                 bufferedInputStream = new BufferedInputStream(com.xiaomi.channel.commonutils.android.j.a().openFileInput("XMCloudCfg"));
                 try {
-                    this.c = a.C0143a.c(com.google.protobuf.micro.b.x(bufferedInputStream));
+                    this.c = a.C0146a.c(com.google.protobuf.micro.b.m(bufferedInputStream));
                     bufferedInputStream.close();
                     com.xiaomi.channel.commonutils.file.a.a(bufferedInputStream);
                 } catch (Exception e2) {
@@ -100,7 +100,7 @@ public class at {
             throw th;
         }
         if (this.c != null) {
-            this.c = new a.C0143a();
+            this.c = new a.C0146a();
         }
     }
 
@@ -109,9 +109,9 @@ public class at {
         try {
             if (this.c != null) {
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.channel.commonutils.android.j.a().openFileOutput("XMCloudCfg", 0));
-                com.google.protobuf.micro.c k = com.google.protobuf.micro.c.k(bufferedOutputStream);
-                this.c.a(k);
-                k.a();
+                com.google.protobuf.micro.c h = com.google.protobuf.micro.c.h(bufferedOutputStream);
+                this.c.a(h);
+                h.a();
                 bufferedOutputStream.close();
             }
         } catch (Exception e2) {
@@ -120,16 +120,16 @@ public class at {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(b.C0144b c0144b) {
+    public void a(b.C0147b c0147b) {
         a[] aVarArr;
-        if (c0144b.i() && c0144b.h() > c()) {
+        if (c0147b.i() && c0147b.h() > c()) {
             g();
         }
         synchronized (this) {
             aVarArr = (a[]) this.b.toArray(new a[this.b.size()]);
         }
         for (a aVar : aVarArr) {
-            aVar.a(c0144b);
+            aVar.a(c0147b);
         }
     }
 
@@ -151,7 +151,7 @@ public class at {
         return 0;
     }
 
-    public a.C0143a d() {
+    public a.C0146a d() {
         f();
         return this.c;
     }

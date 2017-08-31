@@ -7,26 +7,26 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int pK;
-    private a pL;
+    private int nr;
+    private a ns;
 
-    public a cy() throws IOException {
+    public a cn() throws IOException {
         a aVar = new a();
-        aVar.pN = G("/proc/uid_stat/" + this.pK + "/tcp_rcv");
-        aVar.pO = G("/proc/uid_stat/" + this.pK + "/tcp_snd");
-        aVar.pM = d.c(aVar.pN + aVar.pO);
+        aVar.nu = z("/proc/uid_stat/" + this.nr + "/tcp_rcv");
+        aVar.nv = z("/proc/uid_stat/" + this.nr + "/tcp_snd");
+        aVar.nt = d.c(aVar.nu + aVar.nv);
         return aVar;
     }
 
-    public a cz() throws IOException {
-        a cy = cy();
-        this.pL.pN = d.c(cy.pN - d.cx().pN);
-        this.pL.pO = d.c(cy.pO - d.cx().pO);
-        this.pL.pM = d.c(cy.pM - d.cx().pM);
-        return this.pL;
+    public a co() throws IOException {
+        a cn = cn();
+        this.ns.nu = d.c(cn.nu - d.cm().nu);
+        this.ns.nv = d.c(cn.nv - d.cm().nv);
+        this.ns.nt = d.c(cn.nt - d.cm().nt);
+        return this.ns;
     }
 
-    public double G(String str) {
+    public double z(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(cz());
+                d.a(co());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!cv()) {
+            if (!ck()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double pM = 0.0d;
-        double pN = 0.0d;
-        double pO = 0.0d;
+        double nt = 0.0d;
+        double nu = 0.0d;
+        double nv = 0.0d;
 
         public a() {
         }

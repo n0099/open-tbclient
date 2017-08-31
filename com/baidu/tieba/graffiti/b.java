@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.atomData.GraffitiPaintActivityConfig;
 import com.baidu.tbadk.core.atomData.GraffitiTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.UploadedImageInfo;
-import com.baidu.tbadk.p.s;
+import com.baidu.tbadk.p.t;
 /* loaded from: classes.dex */
 public class b {
-    private static final s cLx = new s();
+    private static final t cRO = new t();
 
     public static boolean b(Context context, String str, String str2, int i) {
         return a(context, str, str2, null, i);
@@ -30,7 +30,7 @@ public class b {
         com.baidu.tieba.tbadkCore.util.d dVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, com.baidu.tieba.tbadkCore.util.d.class);
         if (runTask != null && (dVar = (com.baidu.tieba.tbadkCore.util.d) runTask.getData()) != null) {
-            if (dVar.anw() <= 0) {
+            if (dVar.ape() <= 0) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GRAFFITI_JUMP_PAINT, new GraffitiPaintActivityConfig(context, i, str, str2)));
             } else {
                 new GraffitiTabActivityConfig(context, str, str2, str3).start();
@@ -40,24 +40,24 @@ public class b {
         return false;
     }
 
-    public static void o(Context context, int i) {
+    public static void p(Context context, int i) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GRAFFITI_JUMP_PAINT, new GraffitiPaintActivityConfig(context, i)));
     }
 
-    public static boolean amz() {
-        return cLx.ge() && TbadkCoreApplication.getInst().appResponseToIntentClass(GraffitiPaintActivityConfig.class);
+    public static boolean aoh() {
+        return cRO.fT() && TbadkCoreApplication.getInst().appResponseToIntentClass(GraffitiPaintActivityConfig.class);
     }
 
-    public static boolean ar(View view) {
-        boolean ge = cLx.ge();
+    public static boolean az(View view) {
+        boolean fT = cRO.fT();
         if (view != null && view.getVisibility() != 8) {
-            view.setVisibility(ge ? 8 : 0);
+            view.setVisibility(fT ? 8 : 0);
         }
-        return !ge;
+        return !fT;
     }
 
     public static String g(String str, int i, int i2) {
-        return r.aW(String.format("%s_%d_%d_%s", str, Integer.valueOf(i), Integer.valueOf(i2), "graffiti@TB#ub2016"));
+        return r.aS(String.format("%s_%d_%d_%s", str, Integer.valueOf(i), Integer.valueOf(i2), "graffiti@TB#ub2016"));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [109=4] */
@@ -68,8 +68,8 @@ public class b {
         return String.format("#(graffiti,%s,%d,%d,%s)", uploadedImageInfo.getPic_id(), Integer.valueOf(uploadedImageInfo.getWidth()), Integer.valueOf(uploadedImageInfo.getHeight()), g(uploadedImageInfo.getPic_id(), uploadedImageInfo.getWidth(), uploadedImageInfo.getHeight()));
     }
 
-    public static void P(Intent intent) {
-        if (intent != null || amz()) {
+    public static void Q(Intent intent) {
+        if (intent != null || aoh()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new d(intent.getStringExtra(GraffitiPaintActivityConfig.GRAFFITO_FILE_NAME), intent.getIntExtra("from", -1))));
         }
     }
@@ -78,10 +78,10 @@ public class b {
         if (writeData == null || StringUtils.isNull(writeData.getGraffitiImageId())) {
             return;
         }
-        TiebaStatic.log(new aj("c11001").aa("obj_id", writeData.getGraffitiImageId()).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, writeData.getType() == 0 ? 1 : 2));
+        TiebaStatic.log(new ak("c11001").ad("obj_id", writeData.getGraffitiImageId()).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, writeData.getType() == 0 ? 1 : 2));
     }
 
-    public static boolean Q(Intent intent) {
+    public static boolean R(Intent intent) {
         return intent != null && intent.getIntExtra("from", -1) == 5;
     }
 }

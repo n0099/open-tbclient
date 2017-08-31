@@ -11,33 +11,36 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.util.y;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private b bVM;
+    private b bYH;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean bjC = true;
+    private boolean bjS = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_HTML_LOADED) { // from class: com.baidu.tieba.discover.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
-                String str = (String) customResponsedMessage.getData();
-                if (a.this.mUrl.contains(str) || str.contains(a.this.mUrl)) {
-                    a.this.bVM.Nn();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.bYH != null && a.this.bYH.OF() != null && a.this.bYH.OF().getUrl() != null) {
+                if (a.this.bYH.OF().getUrl().contains((String) customResponsedMessage.getData())) {
+                    a.this.bYH.ND();
                 }
             }
         }
     };
-    private CustomMessageListener bVN = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
+    private CustomMessageListener bYI = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    a.this.bVM.aaH();
+                    a.this.bYH.abK();
                 } else {
-                    a.this.bVM.aaI();
+                    a.this.bYH.abL();
                 }
             }
         }
@@ -50,28 +53,29 @@ public class a extends BaseFragment {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.bVM = new b();
-        return this.bVM.a(layoutInflater, viewGroup);
+        this.bYH = new b();
+        return this.bYH.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.bVM.m(getPageContext());
+        this.bYH.m(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.bVN);
+        registerListener(this.bYI);
+        y.a(this.bYH.OF(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.bjC || StringUtils.isNull(this.bVM.Op().getUrl())) {
+        if (this.bjS || StringUtils.isNull(this.bYH.OF().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.bVM.loadUrl(ij(this.mUrl));
+                this.bYH.loadUrl(il(this.mUrl));
             } else {
-                this.bVM.loadUrl(this.mUrl);
+                this.bYH.loadUrl(this.mUrl);
             }
-            this.bjC = false;
+            this.bjS = false;
         }
     }
 
@@ -85,7 +89,7 @@ public class a extends BaseFragment {
         super.onResume();
     }
 
-    private String ij(String str) {
+    private String il(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -105,8 +109,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.bVM != null) {
-            this.bVM.onDestroy();
+        if (this.bYH != null) {
+            this.bYH.onDestroy();
         }
     }
 
@@ -115,14 +119,28 @@ public class a extends BaseFragment {
         return "a033";
     }
 
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
+    public List<String> getCurrentPageSourceKeyList() {
+        ArrayList arrayList;
+        if (super.getCurrentPageSourceKeyList() != null) {
+            arrayList = new ArrayList(super.getCurrentPageSourceKeyList());
+        } else {
+            arrayList = new ArrayList();
+        }
+        if (!"a001".equals(v.c(arrayList, arrayList.size() - 1))) {
+            arrayList.add("a001");
+        }
+        return arrayList;
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.bjC) {
+        if (!this.bjS) {
             if (i == 1) {
-                this.bVM.loadUrl(ij(this.mUrl));
+                this.bYH.loadUrl(il(this.mUrl));
             } else {
-                this.bVM.loadUrl(this.mUrl);
+                this.bYH.loadUrl(this.mUrl);
             }
         }
     }

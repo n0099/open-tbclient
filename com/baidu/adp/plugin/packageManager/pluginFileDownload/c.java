@@ -3,53 +3,53 @@ package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c Gd;
-    private b Ge;
+    private static volatile c DX;
+    private b DY;
 
-    public static c jY() {
-        if (Gd == null) {
+    public static c jQ() {
+        if (DX == null) {
             synchronized (c.class) {
-                if (Gd == null) {
-                    Gd = new c();
+                if (DX == null) {
+                    DX = new c();
                 }
             }
         }
-        return Gd;
+        return DX;
     }
 
     private c() {
     }
 
     public void a(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.Ge != null) {
+        if (bdFileDownloadData != null && this.DY != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.Ge.h(bdFileDownloadData);
+            this.DY.h(bdFileDownloadData);
         }
     }
 
     public void b(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.Ge != null) {
+        if (bdFileDownloadData != null && this.DY != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.Ge.b(bdFileDownloadData, 1);
+            this.DY.b(bdFileDownloadData, 1);
         }
     }
 
-    public void by(String str) {
-        if (this.Ge != null) {
-            this.Ge.bx(str);
+    public void bu(String str) {
+        if (this.DY != null) {
+            this.DY.bt(str);
         }
     }
 
     public void a(b bVar) {
-        this.Ge = bVar;
+        this.DY = bVar;
     }
 
-    public boolean bv(String str) {
+    public boolean br(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.Ge != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.Ge.jX()) {
+        if (this.DY != null) {
+            for (BdFileDownloadData bdFileDownloadData : this.DY.jP()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

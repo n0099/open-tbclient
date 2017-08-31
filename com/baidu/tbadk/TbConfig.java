@@ -9,6 +9,7 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.c;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
@@ -37,7 +38,6 @@ public class TbConfig {
     public static final int BIG_IMAGE_MIN_SIZE = 80;
     public static final String BIG_IMG_SPEC = "big_img";
     public static final int BIG_PHOTO_MAX_SIZE = 110;
-    public static final String BIG_V_APPLAY = "https://jing.baidu.com/h5/dashenshuomingye.html";
     private static final String BROADCAST_CHANGESKIN = "com.baidu.tieba.broadcast.changeskin";
     private static final String BROADCAST_CHANGE_SHARED_PREF = "com.baidu.tieba.broadcast.changeSharedPref";
     public static final String BROADCAST_FIELD_SKIN_TYPE = "skin_type";
@@ -99,6 +99,7 @@ public class TbConfig {
     public static final String ECOMM_REFUND_DETAIL = "c/c/encourage/ecomm/order/refund/refuse";
     public static final String ECOMM_REFUND_DETAIL_PAGE = "c/e/ecomm/order/refund/detail";
     public static final String ECOMM_REFUND_PREPARE = "c/e/ecomm/order/refund/prepare";
+    public static final String EMOTION_DETAIL = "mo/q/meme/detail";
     public static final int EMOTION_HEIGHT = 240;
     public static final int EMOTION_HEIGHT_LOW = 160;
     public static final int EMOTION_WIDTH = 240;
@@ -166,7 +167,7 @@ public class TbConfig {
     public static final String GET_MY_POST = "c/f/frs/getmypost";
     public static final String GET_MY_SHELF = "c/e/cartoon/getMyShelf";
     public static final String GET_NEW_GAME = "c/u/game/getNewGameList";
-    public static final String GET_NEW_PACKAGE_DETAIL = "mo/q/meme/meme";
+    public static final String GET_NEW_PACKAGE_DETAIL = "c/e/meme/meme";
     public static final String GET_OPEN_USER_INFO = "c/e/xiuba/getopenid";
     public static final String GET_ORDER = "c/e/mema/getOrder";
     public static final String GET_PACKAGE_DETAIL = "c/e/faces/getfacelist";
@@ -322,10 +323,10 @@ public class TbConfig {
     public static final String PHOTO_LIVE_SET_COVER = "c/c/thread/setLiveCover";
     public static final String PHOTO_LIVE_SET_TWGUIDE_DESC = "c/c/livegroup/setTWGuideDesc";
     public static final String PLUGIN_NET_CONFIGS_MIS = "c/s/pluginsmisconf";
-    public static final int POST_IMAGE_BIG = 900;
+    public static final int POST_IMAGE_BIG = 2000;
     public static final int POST_IMAGE_DISPLAY = 100;
-    public static final int POST_IMAGE_MIDDLE = 750;
-    public static final int POST_IMAGE_QUALITY = 80;
+    public static final int POST_IMAGE_MIDDLE = 2000;
+    public static final int POST_IMAGE_QUALITY = 85;
     public static final int POST_IMAGE_SMALL = 600;
     public static final String POST_SEARCH_URL = "c/s/searchpost";
     public static final String POST_THREAD_ADDRESS = "c/c/thread/add";
@@ -434,7 +435,9 @@ public class TbConfig {
     public static final String URL_MANGA_OFFLINE_RESOURCE = "c/e/cartoon/getOfflineResource";
     public static final String URL_MANGA_REPORT = "c/e/cartoon/getReportType";
     public static final String URL_MANGA_REPORT_TYPE = "c/e/cartoon/getReportType";
+    public static final String URL_PLAY_DURATION_STATISTICS = "c/c/video/playDura";
     public static final String URL_PLAY_STATISTICS = "c/c/video/playStat";
+    public static final String URL_SHARE_REPORT = "c/c/thread/share";
     public static final String URL_STORY_PAGE = "c/f/story/storypage";
     public static final String URL_SUB_INTEREST_LABEL_LIST = "c/f/recommtag/subTagList";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
@@ -461,6 +464,7 @@ public class TbConfig {
     public static final String VOICE_CACHE_DIR_NAME = "voice";
     public static final int VOICE_CHUNK_UPLOAD_SIZE = 30720;
     public static final String VOICE_DATA = "c/p/voice";
+    public static final String VOTE_EMOTION_PACKAGE = "c/e/meme/commitVote";
     public static final String VOTE_GRAFFITI = "c/c/graffiti/vote";
     public static final int WEBP_FAILURE_MAX = 5;
     public static final String WEB_URL_DELETE_THREAD_PAGE = "https://tieba.baidu.com/mo/q/pmc";
@@ -515,6 +519,14 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds44);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds40);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds36);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds34);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds30);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds28);
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
@@ -668,7 +680,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.Ex().eU(i);
+            c.Ev().eU(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -756,13 +768,15 @@ public class TbConfig {
     public static int getContentSize() {
         switch (TbadkCoreApplication.getInst().getFontSize()) {
             case 0:
-                return 22;
+                return VALUE_COMMON_FONT_SIZE_XLAGER;
             case 1:
-                return 20;
+                return VALUE_COMMON_FONT_SIZE_BIG;
             case 2:
-                return 19;
+                return VALUE_COMMON_FONT_SIZE_MID;
+            case 3:
+                return VALUE_COMMON_FONT_SIZE_SMALL;
             default:
-                return 18;
+                return VALUE_COMMON_FONT_SIZE_SMALL;
         }
     }
 
@@ -770,8 +784,19 @@ public class TbConfig {
         return getContentSize() + 3;
     }
 
-    public static int getContentSizeOfLzl(Context context) {
-        return context.getResources().getDisplayMetrics().density >= 2.0f ? 16 : 14;
+    public static int getContentSizeOfLzl() {
+        switch (TbadkCoreApplication.getInst().getFontSize()) {
+            case 0:
+                return VALUE_SUBPB_FONT_SIZE_XLAGER;
+            case 1:
+                return VALUE_SUBPB_FONT_SIZE_BIG;
+            case 2:
+                return VALUE_SUBPB_FONT_SIZE_MID;
+            case 3:
+                return VALUE_SUBPB_FONT_SIZE_SMALL;
+            default:
+                return VALUE_SUBPB_FONT_SIZE_SMALL;
+        }
     }
 
     public static final String getBroadcastActionPageChanged() {
@@ -789,7 +814,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(k.ag(context) * k.ah(context));
+            int sqrt = (int) Math.sqrt(k.ad(context) * k.ae(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

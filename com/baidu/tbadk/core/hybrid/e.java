@@ -3,13 +3,13 @@ package com.baidu.tbadk.core.hybrid;
 import android.util.Log;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b adv = new a();
-    private static final b adw = new c();
-    private static final boolean adx;
+    private static final b acB = new a();
+    private static final b acC = new c();
+    private static final boolean acD;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -38,34 +38,34 @@ public class e {
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
         public void j(String str, String str2, String str3) {
-            aj ajVar = new aj("c10729");
-            ajVar.aa("obj_param1", str);
-            ajVar.aa("obj_param2", str2);
-            ajVar.aa("obj_param3", str3);
+            ak akVar = new ak("c10729");
+            akVar.ad("obj_param1", str);
+            akVar.ad("obj_param2", str2);
+            akVar.ad("obj_param3", str3);
             if (BdBaseApplication.getInst() != null) {
-                TiebaStatic.log(ajVar);
+                TiebaStatic.log(akVar);
             }
         }
     }
 
     public static void j(String str, String str2, String str3) {
-        if (adx) {
-            adv.j(str, str2, str3);
+        if (acD) {
+            acB.j(str, str2, str3);
         }
-        adw.j(str, str2, str3);
+        acC.j(str, str2, str3);
     }
 
-    public static void cZ(String str) {
-        if (adx) {
-            adv.j(null, null, str);
+    public static void cP(String str) {
+        if (acD) {
+            acB.j(null, null, str);
         }
     }
 
     public static void k(String str, String str2, String str3) {
-        cZ(str3);
+        cP(str3);
     }
 
     static {
-        adx = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        acD = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

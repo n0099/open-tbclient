@@ -7,23 +7,26 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class BdBaseViewPager extends ViewPager {
-    private boolean aqj;
+    private boolean apO;
+    private boolean apP;
     private float x;
     private float y;
 
     public BdBaseViewPager(Context context) {
         super(context);
-        this.aqj = false;
+        this.apO = false;
+        this.apP = false;
     }
 
     public BdBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aqj = false;
+        this.apO = false;
+        this.apP = false;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.aqj = z;
+        this.apO = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -32,7 +35,7 @@ public class BdBaseViewPager extends ViewPager {
         if (k(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.aqj) {
+        if (motionEvent.getPointerCount() > 1 && this.apO) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -46,13 +49,16 @@ public class BdBaseViewPager extends ViewPager {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:12:0x003d  */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0041  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0044  */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0048  */
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        if (this.apP) {
+            return false;
+        }
         if (k(motionEvent)) {
             return true;
         }
@@ -81,6 +87,9 @@ public class BdBaseViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
+        if (this.apP) {
+            return false;
+        }
         switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
             case 0:
             case 2:
@@ -112,5 +121,9 @@ public class BdBaseViewPager extends ViewPager {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }
+    }
+
+    public void setmDisallowSlip(boolean z) {
+        this.apP = z;
     }
 }

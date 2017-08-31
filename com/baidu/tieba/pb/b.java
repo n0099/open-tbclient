@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class b {
 
@@ -22,39 +22,39 @@ public class b {
 
     public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
         if (j > 0) {
-            aj aa = new aj("ad_tpoint").aa("obj_id", String.valueOf(j)).aa("obj_name", str);
+            ak ad = new ak("ad_tpoint").ad("obj_id", String.valueOf(j)).ad("obj_name", str);
             if (str3 != null) {
-                aa = aa.aa("page", str3);
+                ad = ad.ad("page", str3);
             }
             if (str4 != null) {
-                aa = aa.aa("loc_param", str4);
+                ad = ad.ad("loc_param", str4);
             }
             if (str5 != null) {
-                aa = aa.aa("action_type", str5);
+                ad = ad.ad("action_type", str5);
             }
             if (str6 != null) {
-                aa = aa.aa("task", str6);
+                ad = ad.ad("task", str6);
             }
             if (str7 != null) {
-                aa = aa.aa("obj_param", str7);
+                ad = ad.ad("obj_param", str7);
             }
             if (str8 != null) {
-                aa = aa.aa(LegoListActivityConfig.PARAMS, str8);
+                ad = ad.ad(LegoListActivityConfig.PARAMS, str8);
             }
             if (str9 != null) {
-                aa = aa.aa("fid", str9);
+                ad = ad.ad("fid", str9);
             }
             if (str10 != null) {
-                aa = aa.aa(ImageViewerConfig.FORUM_NAME, str10);
+                ad = ad.ad(ImageViewerConfig.FORUM_NAME, str10);
             }
             if (str11 != null) {
-                aa = aa.aa("tid", str11);
+                ad = ad.ad("tid", str11);
             }
-            aj aa2 = aa.aa("line", "PT").aa("locate", "c0114").r("obj_cpid", 0).r("obj_good_id", 0).aa("obj_throw_type", "BY_POST").aa("client_type", "MOBILE_APP").aa("user_timestamp", String.valueOf(System.currentTimeMillis())).aa("os", "android").aa("os_version", Build.VERSION.RELEASE).aa("log_ver", "1.1");
+            ak ad2 = ad.ad("line", "PT").ad("locate", "c0114").r("obj_cpid", 0).r("obj_good_id", 0).ad("obj_throw_type", "BY_POST").ad("client_type", "MOBILE_APP").ad("user_timestamp", String.valueOf(System.currentTimeMillis())).ad("os", "android").ad("os_version", Build.VERSION.RELEASE).ad("log_ver", "1.1");
             if (str2 != null) {
-                aa2 = aa2.aa("link", str2);
+                ad2 = ad2.ad("link", str2);
             }
-            TiebaStatic.log(aa2);
+            TiebaStatic.log(ad2);
         }
     }
 }

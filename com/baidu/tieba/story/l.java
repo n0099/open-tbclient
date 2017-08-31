@@ -1,51 +1,61 @@
 package com.baidu.tieba.story;
 
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    private static volatile l fZy;
-    private final Map<Long, UserStoryData> fZx = new HashMap();
+    private static volatile l fYd;
+    private final Map<Long, UserStoryData> fYb = new HashMap();
+    private MetaData fYc;
 
     private l() {
     }
 
-    public static l boG() {
-        if (fZy == null) {
+    public static l bnU() {
+        if (fYd == null) {
             synchronized (l.class) {
-                if (fZy == null) {
-                    fZy = new l();
+                if (fYd == null) {
+                    fYd = new l();
                 }
             }
         }
-        return fZy;
+        return fYd;
     }
 
     public void a(long j, UserStoryData userStoryData) {
-        this.fZx.put(Long.valueOf(j), userStoryData);
+        this.fYb.put(Long.valueOf(j), userStoryData);
     }
 
-    public UserStoryData cL(long j) {
-        return this.fZx.get(Long.valueOf(j));
+    public void c(MetaData metaData) {
+        this.fYc = metaData;
+    }
+
+    public MetaData bnV() {
+        return this.fYc;
+    }
+
+    public UserStoryData cG(long j) {
+        return this.fYb.get(Long.valueOf(j));
     }
 
     public void clear() {
-        this.fZx.clear();
+        this.fYb.clear();
+        this.fYc = null;
     }
 
     public boolean a(d dVar, List<MetaData> list, int i, long j, long j2, f fVar) {
-        if (u.v(list) || dVar == null) {
+        if (v.v(list) || dVar == null) {
             return false;
         }
-        int i2 = (i < 0 || i > u.u(list) + (-1)) ? 0 : i;
+        int i2 = (i < 0 || i > v.u(list) + (-1)) ? 0 : i;
         ArrayList<MetaData> arrayList = new ArrayList<>();
-        MetaData metaData = (MetaData) u.c(list, i2);
-        MetaData metaData2 = (MetaData) u.c(list, i2 + 1);
-        MetaData metaData3 = (MetaData) u.c(list, i2 - 1);
+        MetaData metaData = (MetaData) v.c(list, i2);
+        MetaData metaData2 = (MetaData) v.c(list, i2 + 1);
+        MetaData metaData3 = (MetaData) v.c(list, i2 - 1);
         if (metaData != null) {
             arrayList.add(metaData);
         }
@@ -59,15 +69,15 @@ public class l {
         return true;
     }
 
-    public int boH() {
+    public int bnW() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), 0);
     }
 
-    public void boI() {
-        sS(0);
+    public void bnX() {
+        sU(0);
     }
 
-    public void sS(int i) {
+    public void sU(int i) {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), i);
     }
 }

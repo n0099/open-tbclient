@@ -7,12 +7,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
 /* loaded from: classes.dex */
 public class b {
-    public static VoiceManager bP(Context context) {
+    public static VoiceManager ca(Context context) {
         TbPageContext tbPageContext;
         if (context instanceof VoiceManager.c) {
             return ((VoiceManager.c) context).getVoiceManager();
         }
-        if ((i.aa(context) instanceof e) && (tbPageContext = (TbPageContext) i.aa(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
+        if ((i.X(context) instanceof e) && (tbPageContext = (TbPageContext) i.X(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
             return ((VoiceManager.c) tbPageContext.getOrignalPage()).getVoiceManager();
         }
         return null;

@@ -1,20 +1,20 @@
 package com.baidu.tbadk.core;
 
 import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class d {
-    protected NewErrorData Tv = null;
-    protected w mNetWork;
+    protected NewErrorData Sy = null;
+    protected x mNetWork;
 
     public d() {
         this.mNetWork = null;
-        this.mNetWork = new w();
+        this.mNetWork = new x();
     }
 
     public void cancel() {
         if (this.mNetWork != null) {
-            this.mNetWork.fA();
+            this.mNetWork.fp();
         }
     }
 
@@ -27,20 +27,20 @@ public class d {
     }
 
     protected String getResult() {
-        String uP = this.mNetWork.uP();
-        this.Tv = new NewErrorData();
-        this.Tv.parserJson(uP);
-        return uP;
+        String uM = this.mNetWork.uM();
+        this.Sy = new NewErrorData();
+        this.Sy.parserJson(uM);
+        return uM;
     }
 
     public boolean isRequestSuccess() {
         if (this.mNetWork != null) {
-            return this.mNetWork.vm().wj().isRequestSuccess();
+            return this.mNetWork.vj().wg().isRequestSuccess();
         }
         return false;
     }
 
-    public String oW() {
+    public String oQ() {
         if (this.mNetWork != null) {
             return this.mNetWork.getErrorString();
         }
