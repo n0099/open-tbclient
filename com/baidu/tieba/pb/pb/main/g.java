@@ -257,8 +257,9 @@ public class g {
         PostData postData;
         boolean z3;
         boolean z4;
-        boolean z5;
         PostData postData2;
+        boolean z5;
+        PostData postData3;
         boolean z6 = true;
         if (fVar != null) {
             if (this.eFL != fVar) {
@@ -360,27 +361,32 @@ public class g {
                         break;
                     }
                 }
-                if (postData != null) {
-                    if (!this.eFK || fVar.aPu()) {
-                        arrayList.remove(postData);
+                if (!this.eFK && postData != null) {
+                    arrayList.remove(postData);
+                    if (fVar.aPu()) {
                         z3 = false;
-                    }
-                    if (!this.eFK && !fVar.aPu()) {
+                    } else {
                         com.baidu.tbadk.core.util.v.a(arrayList, 0, postData);
                         z3 = true;
                     }
                 }
+                if (!z3 && fVar.aPe() != null && !fVar.aPu()) {
+                    postData = fVar.aPe();
+                    com.baidu.tbadk.core.util.v.a(arrayList, 0, fVar.aPe());
+                    z3 = true;
+                }
                 if (z3 || fVar.aPe() == null || fVar.aPu()) {
                     z4 = z3;
+                    postData2 = postData;
                 } else {
                     PostData aPe = fVar.aPe();
                     com.baidu.tbadk.core.util.v.a(arrayList, 0, fVar.aPe());
-                    postData = aPe;
+                    postData2 = aPe;
                     z4 = true;
                 }
                 cB(arrayList);
                 if (this.eGQ.aQz()) {
-                    if (fVar.aOZ().size() > 0 && (postData2 = fVar.aOZ().get(0)) != null && postData2.bso() == 1 && !com.baidu.tbadk.core.util.v.v(arrayList)) {
+                    if (fVar.aOZ().size() > 0 && (postData3 = fVar.aOZ().get(0)) != null && postData3.bso() == 1 && !com.baidu.tbadk.core.util.v.v(arrayList)) {
                         arrayList.remove(0);
                     }
                 } else {
@@ -438,11 +444,11 @@ public class g {
                     z5 = true;
                 }
                 this.eJk.jj(!z5);
-                if (this.eGQ.aQc() == null || postData == null || postData.getId() == null || !postData.getId().equals(this.eGQ.aQc().getPostId())) {
+                if (this.eGQ.aQc() == null || postData2 == null || postData2.getId() == null || !postData2.getId().equals(this.eGQ.aQc().getPostId())) {
                     z6 = false;
                 }
                 if (this.eJG && !z6) {
-                    arrayList.remove(postData);
+                    arrayList.remove(postData2);
                     this.eJG = false;
                 }
                 if (this.mListView != null) {
@@ -473,10 +479,9 @@ public class g {
     private int b(com.baidu.tieba.pb.data.f fVar, ArrayList<com.baidu.adp.widget.ListView.f> arrayList) {
         boolean z;
         int i;
-        if (this.eJH || fVar == null || fVar.aPu() || com.baidu.tbadk.core.util.v.v(fVar.aOZ()) || arrayList == null || arrayList.size() <= 0) {
-            return -1;
-        }
-        if (this.eGQ.aQc() == null || !this.eGQ.aQc().getIsFromMark()) {
+        if (this.eJH || fVar == null || com.baidu.tbadk.core.util.v.v(fVar.aOZ()) || arrayList == null || arrayList.size() <= 0) {
+            return (fVar != null && fVar.aPu() && this.eFK) ? 0 : -1;
+        } else if (this.eGQ.aQc() == null || !this.eGQ.aQc().getIsFromMark()) {
             int size = arrayList.size();
             int i2 = 0;
             while (true) {
@@ -499,9 +504,10 @@ public class g {
             if (z) {
                 return i + 1;
             }
+            return (fVar.aPu() && this.eFK) ? 0 : -1;
+        } else {
             return -1;
         }
-        return -1;
     }
 
     private int c(com.baidu.tieba.pb.data.f fVar, ArrayList<com.baidu.adp.widget.ListView.f> arrayList) {
@@ -540,21 +546,15 @@ public class g {
 
     private int d(com.baidu.tieba.pb.data.f fVar, ArrayList<com.baidu.adp.widget.ListView.f> arrayList) {
         if (fVar == null || com.baidu.tbadk.core.util.v.v(fVar.aOZ()) || arrayList == null || arrayList.size() <= 0) {
-            return -1;
+            return (fVar == null || !fVar.aPu()) ? -1 : 0;
         }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= arrayList.size()) {
-                return -1;
-            }
-            com.baidu.adp.widget.ListView.f fVar2 = arrayList.get(i2);
-            if (!(fVar2 instanceof PostData) || ((PostData) fVar2).bso() != 1) {
-                i = i2 + 1;
-            } else {
-                return i2 + 1;
+        for (int i = 0; i < arrayList.size(); i++) {
+            com.baidu.adp.widget.ListView.f fVar2 = arrayList.get(i);
+            if ((fVar2 instanceof PostData) && ((PostData) fVar2).bso() == 1) {
+                return i + 1;
             }
         }
+        return !fVar.aPu() ? -1 : 0;
     }
 
     private List<com.baidu.adp.widget.ListView.f> e(com.baidu.tieba.pb.data.f fVar) {
