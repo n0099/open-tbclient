@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class d {
-    public static String aa(Context context) {
+    public static String ab(Context context) {
         if (context == null) {
             return null;
         }

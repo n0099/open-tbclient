@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class w {
     public String VU;
-    public String azO;
-    public String bGH;
-    public String fAU;
-    public String fAV;
-    public String fAW;
-    public String fAX;
-    public String fAY;
+    public String azL;
+    public String bHy;
+    public String fBN;
+    public String fBO;
+    public String fBP;
+    public String fBQ;
+    public String fBR;
     public String mLocate;
     public String mSource;
     public String mUid;
@@ -23,11 +23,11 @@ public class w {
             if (!StringUtils.isNull(this.mLocate)) {
                 akVar.ad("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.bGH)) {
-                akVar.ad("tid", this.bGH);
+            if (!StringUtils.isNull(this.bHy)) {
+                akVar.ad("tid", this.bHy);
             }
-            if (!StringUtils.isNull(this.azO)) {
-                akVar.ad("fid", this.azO);
+            if (!StringUtils.isNull(this.azL)) {
+                akVar.ad("fid", this.azL);
             }
             if (!StringUtils.isNull(this.mUid)) {
                 akVar.ad(SapiAccountManager.SESSION_UID, this.mUid);
@@ -35,20 +35,20 @@ public class w {
             if (!StringUtils.isNull(this.mSource)) {
                 akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
             }
-            if (!StringUtils.isNull(this.fAU)) {
-                akVar.ad("obj_param1", this.fAU);
+            if (!StringUtils.isNull(this.fBN)) {
+                akVar.ad("obj_param1", this.fBN);
             }
-            if (!StringUtils.isNull(this.fAV)) {
-                akVar.ad("obj_param2", this.fAV);
+            if (!StringUtils.isNull(this.fBO)) {
+                akVar.ad("obj_param2", this.fBO);
             }
-            if (!StringUtils.isNull(this.fAW)) {
-                akVar.ad("obj_param3", this.fAW);
+            if (!StringUtils.isNull(this.fBP)) {
+                akVar.ad("obj_param3", this.fBP);
             }
             if (!StringUtils.isNull(this.VU)) {
                 akVar.ad("obj_id", this.VU);
             }
-            if (!StringUtils.isNull(this.fAX)) {
-                akVar.ad("ab_tag", this.fAX);
+            if (!StringUtils.isNull(this.fBQ)) {
+                akVar.ad("ab_tag", this.fBQ);
             }
         }
         return akVar;

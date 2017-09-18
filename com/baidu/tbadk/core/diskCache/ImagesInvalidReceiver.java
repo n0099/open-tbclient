@@ -12,7 +12,7 @@ public class ImagesInvalidReceiver extends BroadcastReceiver {
     public static void broadcast(boolean z) {
         Intent intent = new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidReceiver.class);
         intent.putExtra(SUCCESS, z);
-        f.j(BdBaseApplication.getInst().getContext(), intent);
+        f.h(BdBaseApplication.getInst().getContext(), intent);
     }
 
     @Override // android.content.BroadcastReceiver

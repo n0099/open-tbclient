@@ -20,8 +20,8 @@ import android.text.TextUtils;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 import com.baidu.android.pushservice.d.a;
+import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
-import com.baidu.android.pushservice.j.q;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.richmedia.MediaViewActivity;
 import com.baidu.android.pushservice.richmedia.c;
@@ -105,7 +105,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
             String str3 = str + "/" + str2.substring(0, str2.lastIndexOf(".")) + "/index.html";
             Intent intent = new Intent();
             intent.setClass(this.a, MediaViewActivity.class);
-            int A = q.A(this.a, this.a.getPackageName());
+            int A = p.A(this.a, this.a.getPackageName());
             File file = new File(str3);
             if (A >= 24) {
                 ContentValues contentValues = new ContentValues(1);
@@ -258,7 +258,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent.putExtra("app_id", str3);
         PendingIntent service = PendingIntent.getService(context, 0, intent, 0);
         com.baidu.android.pushservice.g.a.c("PushServiceReceiver", "Set click broadcast, pkgname: " + publicMsg.mPkgName + " action: com.baidu.android.pushservice.action.media.CLICK");
-        q.a(context, publicMsg);
+        p.a(context, publicMsg);
         Intent intent2 = new Intent();
         intent2.setClassName(str, str2);
         intent2.setAction("com.baidu.android.pushservice.action.media.DELETE");
@@ -266,7 +266,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent2.putExtra("public_msg", publicMsg);
         intent2.putExtra("app_id", str3);
         PendingIntent service2 = PendingIntent.getService(context, 0, intent2, 0);
-        Notification a2 = d.a(context, 8888, publicMsg.mTitle, "富媒体消息：点击后下载与查看", q.p(context, publicMsg.mPkgName));
+        Notification a2 = d.a(context, 8888, publicMsg.mTitle, "富媒体消息：点击后下载与查看", p.p(context, publicMsg.mPkgName));
         a2.contentIntent = service;
         a2.deleteIntent = service2;
         ((NotificationManager) context.getSystemService("notification")).notify(publicMsg.mMsgId, 0, a2);
@@ -291,7 +291,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent2.putExtra("app_id", str4);
         intent2.putExtra(PbActivityConfig.KEY_MSG_ID, str3);
         PendingIntent service2 = PendingIntent.getService(context, 0, intent2, 0);
-        boolean p = q.p(context, publicMsg.mPkgName);
+        boolean p = p.p(context, publicMsg.mPkgName);
         Notification a2 = publicMsg.mNotificationBuilder == 0 ? d.a(context, publicMsg.mNotificationBuilder, publicMsg.mNotificationBasicStyle, publicMsg.mTitle, publicMsg.mDescription, p) : d.a(context, publicMsg.mNotificationBuilder, publicMsg.mTitle, publicMsg.mDescription, p);
         a2.contentIntent = service;
         a2.deleteIntent = service2;
@@ -307,8 +307,8 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent.putExtra("notification_content", publicMsg.mDescription);
         intent.putExtra("extra_extra_custom_content", publicMsg.mCustomContent);
         intent.putExtra("com.baidu.pushservice.app_id", publicMsg.mAppId);
-        q.a(context, publicMsg.mMsgId, publicMsg.mAppId, publicMsg.mTitle, publicMsg.mDescription, publicMsg.mCustomContent);
-        q.b(context, intent, PushConstants.ACTION_RECEIVE, publicMsg.mPkgName);
+        p.a(context, publicMsg.mMsgId, publicMsg.mAppId, publicMsg.mTitle, publicMsg.mDescription, publicMsg.mCustomContent);
+        p.b(context, intent, PushConstants.ACTION_RECEIVE, publicMsg.mPkgName);
     }
 
     @Override // android.content.BroadcastReceiver
@@ -318,16 +318,16 @@ public class PushServiceReceiver extends BroadcastReceiver {
             intent.getByteArrayExtra("baidu_message_secur_info");
             if ("android.intent.action.BOOT_COMPLETED".equals(action) || "android.net.conn.CONNECTIVITY_CHANGE".equals(action) || "android.intent.action.USER_PRESENT".equals(action) || "android.intent.action.MEDIA_CHECKING".equals(action) || "android.intent.action.ACTION_POWER_CONNECTED".equals(action) || "android.intent.action.ACTION_POWER_DISCONNECTED".equals(action) || "android.bluetooth.adapter.action.STATE_CHANGED".equals(action)) {
                 com.baidu.android.pushservice.g.a.b("PushServiceReceiver", "start PushSerevice for by " + action);
-                if (com.baidu.android.pushservice.c.d.d(context) || q.h(context.getApplicationContext()) <= 0) {
+                if (com.baidu.android.pushservice.c.d.d(context) || p.h(context.getApplicationContext()) <= 0) {
                     return;
                 }
-                p.d(context);
+                o.d(context);
             } else if (!"com.baidu.android.pushservice.action.notification.SHOW".equals(action)) {
                 if ("com.baidu.android.pushservice.action.media.CLICK".equals(action)) {
                     com.baidu.android.pushservice.g.b.a("PushServiceReceiver", "Rich media notification clicked", context.getApplicationContext());
                     try {
                         PublicMsg publicMsg = intent.hasExtra("public_msg") ? (PublicMsg) intent.getParcelableExtra("public_msg") : null;
-                        if (q.b(context, publicMsg)) {
+                        if (p.b(context, publicMsg)) {
                             a(context, publicMsg);
                         }
                     } catch (ClassCastException e) {
@@ -336,7 +336,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                 }
             } else if (com.baidu.android.pushservice.c.d.d(context)) {
             } else {
-                if (!q.x(context)) {
+                if (!p.x(context)) {
                     com.baidu.android.pushservice.g.a.c("PushServiceReceiver", "current unbind in client,unbind again");
                     f.f(context);
                     return;
@@ -351,7 +351,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                 final String stringExtra5 = intent.getStringExtra("message_id");
                 if (TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2) || byteArrayExtra == null || byteArrayExtra2 == null || intExtra == -1) {
                     com.baidu.android.pushservice.g.a.c("PushServiceReceiver", "Extra not valid, servicePkgName=" + stringExtra + " serviceName=" + stringExtra2 + " pMsg==null?  msgBody==null? " + (byteArrayExtra == null) + " checkInfo==null? " + (byteArrayExtra2 == null) + " msgType=" + intExtra);
-                } else if (q.s(context, stringExtra5)) {
+                } else if (p.s(context, stringExtra5)) {
                     com.baidu.android.pushservice.g.a.e("PushServiceReceiver", " receive message duplicated !");
                 } else {
                     com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("showPrivateNotification", (short) 99) { // from class: com.baidu.android.pushservice.PushServiceReceiver.1
@@ -362,7 +362,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                                 com.baidu.android.pushservice.g.a.e("PushServiceReceiver", "notification check fail !");
                                 return;
                             }
-                            q.a(context, a2);
+                            p.a(context, a2);
                             if ("private".equals(stringExtra3)) {
                                 PushServiceReceiver.b(context, stringExtra, stringExtra2, a2, stringExtra5, stringExtra4);
                             } else if ("rich_media".equals(stringExtra3)) {

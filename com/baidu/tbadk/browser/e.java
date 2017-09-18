@@ -103,7 +103,7 @@ public class e {
         });
         this.Rr = inflate.findViewById(d.h.webview_more_pop_item_share_friend_layout);
         this.Rr.setOnClickListener(this.Rg);
-        if (com.baidu.tbadk.coreExtra.d.e.aV(this.Rg.getPageContext().getPageActivity())) {
+        if (com.baidu.tbadk.coreExtra.d.e.aW(this.Rg.getPageContext().getPageActivity())) {
             this.Rr.setVisibility(0);
         } else {
             this.Rr.setVisibility(8);
@@ -118,9 +118,9 @@ public class e {
 
     private void oh() {
         int statusBarHeight = UtilHelper.getStatusBarHeight();
-        int g = k.g(this.Rg.getPageContext().getPageActivity(), d.f.ds98);
+        int f = k.f(this.Rg.getPageContext().getPageActivity(), d.f.ds98);
         int i = k.o(this.Rg.getPageContext().getPageActivity()).heightPixels;
-        this.Ru = (i - statusBarHeight) - g;
+        this.Ru = (i - statusBarHeight) - f;
         this.Rv = i - statusBarHeight;
     }
 

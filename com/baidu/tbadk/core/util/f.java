@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class f {
     private static Toast yz;
     private static Handler mHandler = new Handler();
-    private static String afh = null;
-    private static Runnable aff = new Runnable() { // from class: com.baidu.tbadk.core.util.f.1
+    private static String afg = null;
+    private static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.f.1
         @Override // java.lang.Runnable
         public void run() {
             f.yz.cancel();
@@ -18,18 +18,18 @@ public class f {
 
     public static void showToast(Context context, String str, int i) {
         if (str != null && str.length() > 0) {
-            mHandler.removeCallbacks(aff);
+            mHandler.removeCallbacks(r);
             if (yz != null) {
-                if (!str.equals(afh)) {
-                    afh = str;
+                if (!str.equals(afg)) {
+                    afg = str;
                     yz.setText(str);
                 }
             } else {
-                afh = str;
+                afg = str;
                 yz = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
                 yz.setGravity(17, 0, com.baidu.adp.lib.util.k.dip2px(context, 100.0f));
             }
-            mHandler.postDelayed(aff, i);
+            mHandler.postDelayed(r, i);
             yz.show();
         }
     }

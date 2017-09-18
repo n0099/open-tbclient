@@ -7,7 +7,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import com.baidu.android.pushservice.j.l;
+import com.baidu.android.pushservice.j.k;
 import com.baidu.android.pushservice.k.e;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -30,67 +30,6 @@ public class b {
         public int c;
         public double d;
         public long e;
-    }
-
-    /* renamed from: com.baidu.android.pushservice.h.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    private static class C0020b {
-        private static C0020b c = null;
-        private Context a;
-        private final JSONObject b = new JSONObject();
-
-        private C0020b(Context context) {
-            this.a = null;
-            this.a = context;
-            try {
-                this.b.put("os_name", "Android");
-                this.b.put("manufacture", Build.MANUFACTURER);
-                this.b.put("os_version", Build.VERSION.RELEASE);
-                this.b.put("model", Build.MODEL);
-                this.b.put("firmware", Build.FINGERPRINT);
-                this.b.put("mem_size", String.valueOf(b.b()));
-                this.b.put("screen_width", String.valueOf(b.a(this.a)[0]));
-                this.b.put("screen_height", String.valueOf(b.a(this.a)[1]));
-                this.b.put("cpu_model", b.c());
-                this.b.put("cpu_feature", b.d());
-                this.b.put("screen_density", String.valueOf(b.a(this.a)[2]));
-                if (((TelephonyManager) this.a.getSystemService("phone")) != null) {
-                    this.b.put("wise_cuid", e.a(this.a));
-                }
-                String string = context.getSharedPreferences("pst", 0).getString("push_mac_id", null);
-                if (string == null || string.length() == 0) {
-                    try {
-                        string = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
-                        if (string != null && string.length() > 0) {
-                            context.getSharedPreferences("pst", 0).edit().putString("push_mac_id", string).commit();
-                        }
-                    } catch (Exception e) {
-                        com.baidu.android.pushservice.g.a.a("StatUtils", e);
-                    }
-                }
-                if (string == null || string.length() <= 0) {
-                    return;
-                }
-                this.b.put("mac_id", string);
-            } catch (JSONException e2) {
-                com.baidu.android.pushservice.g.a.a("StatUtils", e2);
-            }
-        }
-
-        public static synchronized C0020b a(Context context) {
-            C0020b c0020b;
-            synchronized (C0020b.class) {
-                if (c == null) {
-                    c = new C0020b(context);
-                }
-                c0020b = c;
-            }
-            return c0020b;
-        }
-
-        public JSONObject a() {
-            return this.b;
-        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0037  */
@@ -139,7 +78,7 @@ public class b {
         }
         a2 = a(str);
         if (a2 != null) {
-            a2.e = e();
+            a2.e = f();
         }
         return a2;
     }
@@ -171,27 +110,27 @@ public class b {
             aVar.c |= 1;
         }
         String[] split = str.split("\n");
-        if (split == null || split.length <= 0) {
-            return aVar;
-        }
-        for (String str2 : split) {
-            if (str2.contains("CPU variant")) {
-                int indexOf2 = str2.indexOf(": ");
-                if (indexOf2 >= 0) {
+        if (split.length > 0) {
+            for (String str2 : split) {
+                if (str2.contains("CPU variant")) {
+                    int indexOf2 = str2.indexOf(": ");
+                    if (indexOf2 >= 0) {
+                        try {
+                            aVar.b = Integer.decode(str2.substring(indexOf2 + 2)).intValue();
+                            aVar.b = aVar.b == 0 ? 1 : aVar.b;
+                        } catch (NumberFormatException e) {
+                            aVar.b = 1;
+                        }
+                    }
+                } else if (str2.contains("BogoMIPS") && (indexOf = str2.indexOf(": ")) >= 0) {
                     try {
-                        aVar.b = Integer.decode(str2.substring(indexOf2 + 2)).intValue();
-                        aVar.b = aVar.b == 0 ? 1 : aVar.b;
-                    } catch (NumberFormatException e) {
-                        aVar.b = 1;
+                        aVar.d = Double.parseDouble(str2.substring(indexOf + 2));
+                    } catch (NumberFormatException e2) {
+                        aVar.d = 0.0d;
                     }
                 }
-            } else if (str2.contains("BogoMIPS") && (indexOf = str2.indexOf(": ")) >= 0) {
-                try {
-                    aVar.d = Double.parseDouble(str2.substring(indexOf + 2));
-                } catch (NumberFormatException e2) {
-                    aVar.d = 0.0d;
-                }
             }
+            return aVar;
         }
         return aVar;
     }
@@ -235,14 +174,13 @@ public class b {
         }
         DisplayMetrics displayMetrics = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        int i = displayMetrics.widthPixels;
-        int i2 = displayMetrics.heightPixels;
-        if (i >= i2) {
-            i2 = i;
-            i = i2;
+        if (displayMetrics.widthPixels > displayMetrics.heightPixels) {
+            iArr[0] = displayMetrics.widthPixels;
+            iArr[1] = displayMetrics.heightPixels;
+        } else {
+            iArr[1] = displayMetrics.widthPixels;
+            iArr[0] = displayMetrics.heightPixels;
         }
-        iArr[0] = i2;
-        iArr[1] = i;
         iArr[2] = displayMetrics.densityDpi;
         return iArr;
     }
@@ -276,6 +214,55 @@ public class b {
     }
 
     public static String b(Context context) {
+        return k.d(context);
+    }
+
+    public static String c() {
+        a a2 = a();
+        return a2 != null ? (a2.a & 1) == 1 ? "armv5" : (a2.a & 16) == 16 ? "armv6" : (a2.a & 256) == 256 ? "armv7" : "unknown" : "";
+    }
+
+    public static boolean c(Context context) {
+        return k.a(context);
+    }
+
+    public static String d() {
+        a a2 = a();
+        return a2 != null ? (a2.c & 256) == 256 ? "neon" : (a2.c & 1) == 1 ? "vfp" : (a2.c & 16) == 16 ? "vfpv3" : "unknown" : "";
+    }
+
+    public static JSONObject d(Context context) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            if (telephonyManager != null) {
+                jSONObject.put("type", telephonyManager.getNetworkType());
+                jSONObject.put("operator", telephonyManager.getNetworkOperatorName());
+            }
+            jSONObject.put("access_type", b(context));
+            if (telephonyManager != null) {
+                String networkOperator = telephonyManager.getNetworkOperator();
+                if (TextUtils.isEmpty(networkOperator) || networkOperator.length() < 4) {
+                    jSONObject.put("mcc", -1);
+                    jSONObject.put("mnc", -1);
+                } else {
+                    try {
+                        jSONObject.put("mcc", Integer.parseInt(networkOperator.substring(0, 3)));
+                        jSONObject.put("mnc", Integer.parseInt(networkOperator.substring(3)));
+                    } catch (NumberFormatException e) {
+                        jSONObject.put("mcc", -1);
+                        jSONObject.put("mnc", -1);
+                    }
+                }
+            }
+            jSONObject.put("user_ip", e());
+        } catch (JSONException e2) {
+            com.baidu.android.pushservice.g.a.a("StatUtils", e2);
+        }
+        return jSONObject;
+    }
+
+    public static String e() {
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
             if (networkInterfaces != null) {
@@ -296,25 +283,46 @@ public class b {
         }
     }
 
-    public static String c() {
-        a a2 = a();
-        return a2 != null ? (a2.a & 1) == 1 ? "armv5" : (a2.a & 16) == 16 ? "armv6" : (a2.a & 256) == 256 ? "armv7" : "unknown" : "";
+    public static JSONObject e(Context context) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("os_name", "Android");
+            jSONObject.put("manufacture", Build.MANUFACTURER);
+            jSONObject.put("os_version", Build.VERSION.RELEASE);
+            jSONObject.put("model", Build.MODEL);
+            jSONObject.put("firmware", Build.FINGERPRINT);
+            jSONObject.put("mem_size", String.valueOf(b()));
+            int[] a2 = a(context);
+            jSONObject.put("screen_width", String.valueOf(a2[0]));
+            jSONObject.put("screen_height", String.valueOf(a2[1]));
+            jSONObject.put("cpu_model", c());
+            jSONObject.put("cpu_feature", d());
+            jSONObject.put("screen_density", String.valueOf(a2[2]));
+            jSONObject.put("sdk_int", String.valueOf(Build.VERSION.SDK_INT));
+            if (((TelephonyManager) context.getSystemService("phone")) != null) {
+                jSONObject.put("wise_cuid", e.a(context));
+            }
+            String string = context.getSharedPreferences("pst", 0).getString("push_mac_id", null);
+            if (string == null || string.length() == 0) {
+                try {
+                    string = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
+                    if (string != null && string.length() > 0) {
+                        context.getSharedPreferences("pst", 0).edit().putString("push_mac_id", string).apply();
+                    }
+                } catch (Exception e) {
+                    com.baidu.android.pushservice.g.a.a("StatUtils", e);
+                }
+            }
+            if (string != null && string.length() > 0) {
+                jSONObject.put("mac_id", string);
+            }
+        } catch (JSONException e2) {
+            com.baidu.android.pushservice.g.a.a("StatUtils", e2);
+        }
+        return jSONObject;
     }
 
-    public static String c(Context context) {
-        return l.d(context);
-    }
-
-    public static String d() {
-        a a2 = a();
-        return a2 != null ? (a2.c & 256) == 256 ? "neon" : (a2.c & 1) == 1 ? "vfp" : (a2.c & 16) == 16 ? "vfpv3" : "unknown" : "";
-    }
-
-    public static boolean d(Context context) {
-        return l.a(context);
-    }
-
-    private static int e() {
+    private static int f() {
         BufferedReader bufferedReader;
         FileReader fileReader;
         FileReader fileReader2 = null;
@@ -361,40 +369,5 @@ public class b {
             com.baidu.android.pushservice.f.b.a(fileReader, bufferedReader);
             throw th;
         }
-    }
-
-    public static JSONObject e(Context context) {
-        return C0020b.a(context).a();
-    }
-
-    public static JSONObject f(Context context) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (telephonyManager != null) {
-                jSONObject.put("type", telephonyManager.getNetworkType());
-                jSONObject.put("operator", telephonyManager.getNetworkOperatorName());
-            }
-            jSONObject.put("access_type", c(context));
-            if (telephonyManager != null) {
-                String networkOperator = telephonyManager.getNetworkOperator();
-                if (TextUtils.isEmpty(networkOperator) || networkOperator.length() < 4) {
-                    jSONObject.put("mcc", -1);
-                    jSONObject.put("mnc", -1);
-                } else {
-                    try {
-                        jSONObject.put("mcc", Integer.parseInt(networkOperator.substring(0, 3)));
-                        jSONObject.put("mnc", Integer.parseInt(networkOperator.substring(3)));
-                    } catch (NumberFormatException e) {
-                        jSONObject.put("mcc", -1);
-                        jSONObject.put("mnc", -1);
-                    }
-                }
-            }
-            jSONObject.put("user_ip", b(context));
-        } catch (JSONException e2) {
-            com.baidu.android.pushservice.g.a.a("StatUtils", e2);
-        }
-        return jSONObject;
     }
 }

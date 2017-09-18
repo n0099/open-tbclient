@@ -4,8 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
-import com.baidu.android.pushservice.j.q;
 /* loaded from: classes2.dex */
 public class RegistrationReceiver extends BroadcastReceiver {
     static void a(Context context, com.baidu.android.pushservice.b.f fVar) {
@@ -15,11 +15,11 @@ public class RegistrationReceiver extends BroadcastReceiver {
         intent.putExtra("package_name", fVar.c());
         intent.putExtra("app_id", fVar.a());
         intent.putExtra("user_id", fVar.f);
-        p.a(context, intent);
+        o.a(context, intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void d(Context context, Intent intent) {
+    public static void c(Context context, Intent intent) {
         String stringExtra = intent.getStringExtra("r_sync_from");
         if (context.getPackageName().equals(stringExtra)) {
             return;
@@ -33,19 +33,7 @@ public class RegistrationReceiver extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void e(Context context, Intent intent) {
-        if (context.getPackageName().equals(intent.getStringExtra("r_sync_from"))) {
-            return;
-        }
-        String stringExtra = intent.getStringExtra("r_sync_rdata_v2");
-        if (TextUtils.isEmpty(stringExtra)) {
-            return;
-        }
-        com.baidu.android.pushservice.b.j.a(context).a("com.baidu.push.webr", stringExtra);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void f(Context context, Intent intent) {
+    public static void d(Context context, Intent intent) {
         if (context.getPackageName().equals(intent.getStringExtra("r_sync_sdk_from"))) {
             return;
         }
@@ -67,33 +55,31 @@ public class RegistrationReceiver extends BroadcastReceiver {
                         @Override // com.baidu.android.pushservice.i.c
                         public void a() {
                             if (!intent.hasExtra("r_sync_type")) {
-                                RegistrationReceiver.d(context, intent);
+                                RegistrationReceiver.c(context, intent);
                                 return;
                             }
                             switch (intent.getIntExtra("r_sync_type", 0)) {
                                 case 0:
-                                    RegistrationReceiver.d(context, intent);
+                                    RegistrationReceiver.c(context, intent);
                                     return;
                                 case 1:
-                                    RegistrationReceiver.e(context, intent);
-                                    return;
                                 case 2:
                                 default:
                                     return;
                                 case 3:
-                                    RegistrationReceiver.f(context, intent);
+                                    RegistrationReceiver.d(context, intent);
                                     return;
                             }
                         }
                     });
                     return;
                 } else {
-                    p.b(context, intent);
+                    o.b(context, intent);
                     return;
                 }
             }
             try {
-                String t = q.t(context);
+                String t = p.t(context);
                 if (!TextUtils.isEmpty(t) && !context.getPackageName().equals(t)) {
                     com.baidu.android.pushservice.g.a.b("RegistrationReceiver", "not hightest package return");
                     return;

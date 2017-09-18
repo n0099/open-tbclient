@@ -47,7 +47,7 @@ public class a {
         a(context, "", str, true, true, true, true, z);
     }
 
-    public static void e(Context context, String str, String str2) {
+    public static void f(Context context, String str, String str2) {
         a(context, str, str2, true, true, true, true, true);
     }
 
@@ -133,7 +133,7 @@ public class a {
         return (am.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void ax(Context context) {
+    public static void ay(Context context) {
         CookieManager cookieManager;
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());

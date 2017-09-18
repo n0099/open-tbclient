@@ -21,16 +21,16 @@ import java.io.RandomAccessFile;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class d {
-    private b aGk;
-    private a aGl;
-    private Object aGm;
+    private b aGh;
+    private a aGi;
+    private Object aGj;
     private int bigHeight;
     private int bigWidth;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int aGj = 512000;
+    private int aGg = 512000;
     private String groupId = "1";
     private x mNetwork = null;
 
@@ -51,10 +51,10 @@ public class d {
     }
 
     public void a(a aVar, Object obj) {
-        this.aGl = aVar;
-        this.aGm = obj;
+        this.aGi = aVar;
+        this.aGj = obj;
         if (aVar != null) {
-            this.aGj = 10240;
+            this.aGg = 10240;
         }
     }
 
@@ -136,16 +136,16 @@ public class d {
             }
             return e(filePath, z, z2);
         }
-        if (this.aGk == null) {
-            this.aGk = new b();
+        if (this.aGh == null) {
+            this.aGh = new b();
         }
         LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
         imageFileInfo.setPageActionsList(null);
-        com.baidu.adp.widget.a.a a3 = this.aGk.a(imageFileInfo, true);
+        com.baidu.adp.widget.a.a a3 = this.aGh.a(imageFileInfo, true);
         if (a3 != null) {
             bitmap = a3.kO();
         } else {
-            Bitmap b = this.aGk.b(imageFileInfo, true);
+            Bitmap b = this.aGh.b(imageFileInfo, true);
             try {
                 int readPictureDegree2 = BitmapHelper.readPictureDegree(imageFileInfo.getFilePath());
                 if (readPictureDegree2 != 0) {
@@ -268,8 +268,8 @@ public class d {
                         }
                     }
                 } else {
-                    String str2 = e2 + this.aGj;
-                    long j2 = length % ((long) this.aGj) == 0 ? length / this.aGj : (length / this.aGj) + 1;
+                    String str2 = e2 + this.aGg;
+                    long j2 = length % ((long) this.aGg) == 0 ? length / this.aGg : (length / this.aGg) + 1;
                     sb.append("|chunkNo=");
                     sb.append(j2);
                     randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -303,14 +303,14 @@ public class d {
                                             bArr = null;
                                         } else {
                                             if (i < j2) {
-                                                i4 = this.aGj;
+                                                i4 = this.aGg;
                                             } else if (i == j2) {
-                                                i4 = (int) (length - (this.aGj * (j2 - 1)));
+                                                i4 = (int) (length - (this.aGg * (j2 - 1)));
                                             }
                                             if (bArr2 == null || bArr2.length != i4) {
                                                 bArr2 = new byte[i4];
                                             }
-                                            randomAccessFile2.seek(this.aGj * (i - 1));
+                                            randomAccessFile2.seek(this.aGg * (i - 1));
                                             randomAccessFile2.read(bArr2, 0, i4);
                                             bArr = bArr2;
                                         }
@@ -366,9 +366,9 @@ public class d {
                                             if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                 int i5 = i + 1;
                                                 long j4 = j3 + i4;
-                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.aGj) : j4;
-                                                if (this.aGl != null) {
-                                                    this.aGl.a(str, this.aGm, j5, length);
+                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.aGg) : j4;
+                                                if (this.aGi != null) {
+                                                    this.aGi.a(str, this.aGj, j5, length);
                                                 }
                                                 i2 = i5;
                                                 j = j4;

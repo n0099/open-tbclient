@@ -10,17 +10,17 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a eBb = null;
-    private final a.InterfaceC0044a eBc = new a.InterfaceC0044a() { // from class: com.baidu.tieba.passaccount.a.a.1
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
+    private static a eBV = null;
+    private final a.InterfaceC0043a eBW = new a.InterfaceC0043a() { // from class: com.baidu.tieba.passaccount.a.a.1
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0043a
         public void cp(String str) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0043a
         public void a(AccountData accountData) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0043a
         public void c(final String str, int i, String str2) {
             if (i == 1) {
                 ReloginManager.uu().f(null);
@@ -53,11 +53,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a aOc() {
-        if (eBb == null) {
-            eBb = new a();
+    public static a aOn() {
+        if (eBV == null) {
+            eBV = new a();
         }
-        return eBb;
+        return eBV;
     }
 
     @Override // com.baidu.tbadk.core.a.a
@@ -95,13 +95,13 @@ public class a extends com.baidu.tbadk.core.a.a {
         AccountData currentAccountObj;
         a.b co;
         if (i.hi() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (co = co(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), co.wq, co.SS, currentAccountObj.getStoken(), this.eBc);
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), co.wq, co.SS, currentAccountObj.getStoken(), this.eBW);
         }
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0044a interfaceC0044a) {
-        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0044a);
+    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0043a interfaceC0043a) {
+        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0043a);
     }
 
     @Override // com.baidu.tbadk.core.a.a

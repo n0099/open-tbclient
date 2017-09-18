@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.j;
 /* loaded from: classes.dex */
 public class w extends j.a {
-    public com.baidu.tbadk.k.f crQ;
+    public com.baidu.tbadk.k.f csI;
 
     public w(View view) {
         super(view);

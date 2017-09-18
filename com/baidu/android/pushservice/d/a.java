@@ -13,8 +13,7 @@ import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.pushservice.h.m;
-import com.baidu.android.pushservice.h.p;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.p;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ import java.util.List;
 public class a {
     private static e a = null;
     private static d b = null;
-    private static Object c = new Object();
+    private static final Object c = new Object();
     private static int d = 100;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -45,8 +44,6 @@ public class a {
         appInfoId,
         appid,
         appType,
-        rsaUserId,
-        userId,
         packageName,
         appName,
         cFrom,
@@ -71,7 +68,8 @@ public class a {
         errorCode,
         appid,
         channel,
-        openByPackageName
+        openByPackageName,
+        packageName
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -176,10 +174,10 @@ public class a {
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL("CREATE TABLE StatisticsInfo (" + j.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + j.packageName.name() + " TEXT NOT NULL, " + j.open_type.name() + " TEXT NOT NULL, " + j.msgid.name() + " TEXT, " + j.app_open_time.name() + " TEXT NOT NULL, " + j.app_close_time.name() + " TEXT NOT NULL, " + j.use_duration.name() + " TEXT NOT NULL, " + j.extra.name() + " TEXT);");
-                sQLiteDatabase.execSQL("CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG  NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.openByPackageName.name() + " Text);");
+                sQLiteDatabase.execSQL("CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG  NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.packageName.name() + " TEXT, " + c.openByPackageName.name() + " Text);");
                 sQLiteDatabase.execSQL("CREATE TABLE MsgArriveApp (" + h.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + h.msgId.name() + " TEXT NOT NULL, " + h.timeStamp.name() + " LONG NOT NULL);");
                 sQLiteDatabase.execSQL("CREATE TABLE AlarmMsgInfo (" + EnumC0017a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0017a.msgId.name() + " TEXT NOT NULL, " + EnumC0017a.sendtime.name() + " LONG NOT NULL, " + EnumC0017a.showtime.name() + " LONG NOT NULL, " + EnumC0017a.expiretime.name() + " LONG NOT NULL, " + EnumC0017a.msgEnable.name() + " INTEGER, " + EnumC0017a.isAlarm.name() + " INTEGER);");
-                sQLiteDatabase.execSQL("CREATE TABLE AppInfo (" + b.appInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.appid.name() + " TEXT UNIQUE, " + b.appType.name() + " INTEGER, " + b.rsaUserId.name() + " TEXT, " + b.userId.name() + " TEXT, " + b.packageName.name() + " TEXT, " + b.appName.name() + " TEXT, " + b.cFrom.name() + " TEXT, " + b.versionCode.name() + " TEXT, " + b.versionName.name() + " TEXT, " + b.intergratedPushVersion.name() + " TEXT);");
+                sQLiteDatabase.execSQL("CREATE TABLE AppInfo (" + b.appInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.appid.name() + " TEXT, " + b.appType.name() + " INTEGER, " + b.packageName.name() + " TEXT UNIQUE, " + b.appName.name() + " TEXT, " + b.cFrom.name() + " TEXT, " + b.versionCode.name() + " TEXT, " + b.versionName.name() + " TEXT, " + b.intergratedPushVersion.name() + " TEXT);");
                 sQLiteDatabase.execSQL("CREATE TABLE FileDownloadingInfo (" + f.belongTo.name() + " TEXT, " + f.downloadUrl.name() + " TEXT PRIMARY KEY, " + f.savePath.name() + " TEXT NOT NULL, " + f.title.name() + " TEXT, " + f.description.name() + " TEXT, " + f.fileName.name() + " TEXT NOT NULL, " + f.downloadBytes.name() + " INTEGER NOT NULL, " + f.totalBytes.name() + " INTEGER NOT NULL, " + f.downloadStatus.name() + " INTEGER NOT NULL," + f.timeStamp.name() + " INTEGER NOT NULL);");
                 sQLiteDatabase.execSQL("CREATE TABLE NoDisturb (" + i.pkgName.name() + " TEXT NOT NULL, " + i.startHour.name() + " INTEGER, " + i.startMinute.name() + " INTEGER, " + i.endHour.name() + " INTEGER, " + i.endMinute.name() + " INTEGER);");
             } catch (Exception e) {
@@ -267,17 +265,13 @@ public class a {
                     if (cursor != null) {
                         cursor.close();
                     }
-                    if (e2 != null) {
-                        e2.close();
-                    }
+                    e2.close();
                 } catch (Exception e3) {
                     com.baidu.android.pushservice.g.a.c("PushDatabase", "e getBehaviorEnumCount" + e3.getMessage());
                     if (cursor != null) {
                         cursor.close();
                     }
-                    if (e2 != null) {
-                        e2.close();
-                    }
+                    e2.close();
                 }
             }
         }
@@ -383,27 +377,26 @@ public class a {
         return i2;
     }
 
-    private static int a(SQLiteDatabase sQLiteDatabase, int i2, com.baidu.android.pushservice.h.i iVar) {
+    private static int a(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.i iVar) {
         if (sQLiteDatabase == null) {
             return 0;
         }
-        String[] strArr = {"" + i2};
+        String[] strArr = {iVar.b()};
         ContentValues contentValues = new ContentValues();
-        contentValues.put(b.appInfoId.name(), Integer.valueOf(i2));
-        contentValues.put(b.appid.name(), iVar.a());
-        contentValues.put(b.appType.name(), Integer.valueOf(iVar.j()));
-        contentValues.put(b.rsaUserId.name(), iVar.b());
-        contentValues.put(b.userId.name(), iVar.c());
-        contentValues.put(b.packageName.name(), iVar.d());
-        contentValues.put(b.appName.name(), iVar.e());
-        if (!TextUtils.isEmpty(iVar.f())) {
-            contentValues.put(b.cFrom.name(), iVar.f());
+        contentValues.put(b.packageName.name(), iVar.b());
+        if (!TextUtils.isEmpty(iVar.a())) {
+            contentValues.put(b.appid.name(), iVar.a());
         }
-        contentValues.put(b.versionCode.name(), Integer.valueOf(iVar.g()));
-        contentValues.put(b.versionName.name(), iVar.h());
-        contentValues.put(b.intergratedPushVersion.name(), Integer.valueOf(iVar.i()));
+        contentValues.put(b.appType.name(), Integer.valueOf(iVar.h()));
+        contentValues.put(b.appName.name(), iVar.c());
+        if (!TextUtils.isEmpty(iVar.d())) {
+            contentValues.put(b.cFrom.name(), iVar.d());
+        }
+        contentValues.put(b.versionCode.name(), Integer.valueOf(iVar.e()));
+        contentValues.put(b.versionName.name(), iVar.f());
+        contentValues.put(b.intergratedPushVersion.name(), Integer.valueOf(iVar.g()));
         try {
-            return sQLiteDatabase.update("AppInfo", contentValues, b.appInfoId.name() + "=?", strArr);
+            return sQLiteDatabase.update("AppInfo", contentValues, b.packageName.name() + " =?", strArr);
         } catch (Exception e2) {
             com.baidu.android.pushservice.g.a.e("PushDatabase", "updateAppInfo exception " + e2);
             return -1;
@@ -462,7 +455,7 @@ public class a {
                 }
                 try {
                     com.baidu.android.pushservice.g.a.c("PushDatabase", "AlarmMsgInfoEnum:  insert into database");
-                    q.b("AlarmMsgInfoEnum:  insert into database", context);
+                    p.b("AlarmMsgInfoEnum:  insert into database", context);
                     j3 = j2;
                 } catch (Exception e5) {
                     e2 = e5;
@@ -492,6 +485,7 @@ public class a {
                 contentValues.put(c.errorMsg.name(), bVar.a);
                 contentValues.put(c.requestId.name(), bVar.b);
                 contentValues.put(c.errorCode.name(), Integer.valueOf(bVar.g));
+                contentValues.put(c.packageName.name(), bVar.j);
                 if (bVar.c != null) {
                     contentValues.put(c.channel.name(), bVar.c);
                 }
@@ -543,7 +537,7 @@ public class a {
                 contentValues.put(c.actionName.name(), hVar.d);
                 contentValues.put(c.timeStamp.name(), Long.valueOf(hVar.e));
                 contentValues.put(c.networkStatus.name(), hVar.f);
-                contentValues.put(c.errorMsg.name(), hVar.j);
+                contentValues.put(c.errorMsg.name(), hVar.i);
                 contentValues.put(c.stableHeartInterval.name(), Integer.valueOf(hVar.a));
                 contentValues.put(c.errorCode.name(), Integer.valueOf(hVar.g));
                 contentValues.put(c.appid.name(), hVar.h);
@@ -567,30 +561,24 @@ public class a {
             SQLiteDatabase e2 = e(context);
             if (e2 == null) {
                 j2 = -1;
-            } else if (a(e2, iVar) != null) {
+            } else if (b(e2, iVar)) {
                 e2.close();
             } else {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put(b.appid.name(), iVar.a());
-                contentValues.put(b.appType.name(), Integer.valueOf(iVar.j()));
-                contentValues.put(b.rsaUserId.name(), iVar.b());
-                contentValues.put(b.userId.name(), iVar.c());
-                contentValues.put(b.packageName.name(), iVar.d());
-                contentValues.put(b.appName.name(), iVar.e());
-                contentValues.put(b.cFrom.name(), iVar.f());
-                contentValues.put(b.versionCode.name(), Integer.valueOf(iVar.g()));
-                contentValues.put(b.versionName.name(), iVar.h());
-                contentValues.put(b.intergratedPushVersion.name(), Integer.valueOf(iVar.i()));
+                contentValues.put(b.appType.name(), Integer.valueOf(iVar.h()));
+                contentValues.put(b.packageName.name(), iVar.b());
+                contentValues.put(b.appName.name(), iVar.c());
+                contentValues.put(b.cFrom.name(), iVar.d());
+                contentValues.put(b.versionCode.name(), Integer.valueOf(iVar.e()));
+                contentValues.put(b.versionName.name(), iVar.f());
+                contentValues.put(b.intergratedPushVersion.name(), Integer.valueOf(iVar.g()));
                 try {
+                    j2 = e2.insert("AppInfo", null, contentValues);
                 } catch (Exception e3) {
                     com.baidu.android.pushservice.g.a.e("PushDatabase", "insertAppInfo E: " + e3);
                 }
-                if (Long.valueOf(iVar.a()).longValue() < 0) {
-                    e2.close();
-                } else {
-                    j2 = e2.insert("AppInfo", null, contentValues);
-                    e2.close();
-                }
+                e2.close();
             }
         }
         return j2;
@@ -615,12 +603,18 @@ public class a {
                 if (jVar.k != null) {
                     contentValues.put(c.openByPackageName.name(), jVar.k);
                 }
-                try {
-                    j2 = e2.insert("PushBehavior", null, contentValues);
-                } catch (Exception e3) {
-                    com.baidu.android.pushservice.g.a.e("PushDatabase", "exception " + e3);
+                if (TextUtils.isEmpty(jVar.j)) {
+                    com.baidu.android.pushservice.g.a.c("PushDatabase", "insert push behavior failed pkgname is null");
+                    e2.close();
+                } else {
+                    contentValues.put(c.packageName.name(), jVar.j);
+                    try {
+                        j2 = e2.insert("PushBehavior", null, contentValues);
+                    } catch (Exception e3) {
+                        com.baidu.android.pushservice.g.a.e("PushDatabase", "exception " + e3);
+                    }
+                    e2.close();
                 }
-                e2.close();
             }
         }
         return j2;
@@ -799,82 +793,18 @@ public class a {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0134 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x00dc */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0130  */
-    /* JADX WARN: Type inference failed for: r2v10, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r2v7, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    /* JADX WARN: Type inference failed for: r8v0, types: [android.database.sqlite.SQLiteDatabase] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static com.baidu.android.pushservice.h.i a(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.i iVar) {
-        Throwable th;
-        Cursor cursor;
-        if (sQLiteDatabase == 0) {
-            return null;
-        }
-        com.baidu.android.pushservice.h.i iVar2 = new com.baidu.android.pushservice.h.i(iVar.a());
-        ?? r2 = "SELECT * FROM AppInfo WHERE " + b.appid.name() + " = " + iVar.a() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
-        try {
-            try {
-                cursor = sQLiteDatabase.rawQuery(r2, null);
-                boolean z = false;
-                try {
-                    if (cursor.moveToNext()) {
-                        z = true;
-                        int i2 = cursor.getInt(cursor.getColumnIndex(b.appInfoId.name()));
-                        if (!TextUtils.equals(iVar.c(), cursor.getString(cursor.getColumnIndex(b.userId.name()))) || !TextUtils.equals(iVar.f(), cursor.getString(cursor.getColumnIndex(b.cFrom.name()))) || !TextUtils.equals(iVar.g() + "", cursor.getInt(cursor.getColumnIndex(b.versionCode.name())) + "") || !TextUtils.equals(iVar.i() + "", cursor.getString(cursor.getColumnIndex(b.intergratedPushVersion.name())))) {
-                            a((SQLiteDatabase) sQLiteDatabase, i2, iVar);
-                        }
-                    }
-                    if (z) {
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        return iVar2;
-                    } else if (cursor != null) {
-                        cursor.close();
-                        return null;
-                    } else {
-                        return null;
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    com.baidu.android.pushservice.g.a.c("PushDatabase", "needToInsertUpdate Exception: " + e);
-                    if (cursor != null) {
-                        cursor.close();
-                        return null;
-                    }
-                    return null;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                if (r2 != 0) {
-                    r2.close();
-                }
-                throw th;
-            }
-        } catch (Exception e3) {
-            e = e3;
-            cursor = null;
-        } catch (Throwable th3) {
-            r2 = 0;
-            th = th3;
-            if (r2 != 0) {
-            }
-            throw th;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00f7 A[Catch: all -> 0x00ef, TRY_ENTER, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x000a, B:8:0x000c, B:23:0x00e8, B:24:0x00eb, B:20:0x00e2, B:18:0x00dc, B:19:0x00df, B:31:0x00f7, B:32:0x00fa, B:33:0x00fd), top: B:41:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00d5 A[Catch: all -> 0x00cd, TRY_ENTER, TryCatch #3 {, blocks: (B:4:0x0004, B:6:0x000a, B:8:0x000c, B:23:0x00c6, B:24:0x00c9, B:20:0x00c0, B:18:0x00ba, B:19:0x00bd, B:31:0x00d5, B:32:0x00d8, B:33:0x00db), top: B:39:0x0004 }] */
+    /* JADX WARN: Type inference failed for: r2v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static List<com.baidu.android.pushservice.h.i> a(Context context) {
-        Cursor cursor;
         Throwable th;
+        Cursor cursor;
         Exception e2;
         synchronized (c) {
             SQLiteDatabase e3 = e(context);
@@ -882,21 +812,20 @@ public class a {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
+            ?? r2 = "SELECT * FROM AppInfo;";
             try {
-                cursor = e3.rawQuery("SELECT * FROM AppInfo;", null);
-                while (cursor.moveToNext()) {
-                    try {
+                try {
+                    cursor = e3.rawQuery("SELECT * FROM AppInfo;", null);
+                    while (cursor.moveToNext()) {
                         try {
                             com.baidu.android.pushservice.h.i iVar = new com.baidu.android.pushservice.h.i();
                             iVar.a(cursor.getString(cursor.getColumnIndex(b.appid.name())));
                             iVar.c(cursor.getInt(cursor.getColumnIndex(b.appType.name())));
-                            iVar.b(cursor.getString(cursor.getColumnIndex(b.rsaUserId.name())));
-                            iVar.c(cursor.getString(cursor.getColumnIndex(b.userId.name())));
-                            iVar.d(cursor.getString(cursor.getColumnIndex(b.packageName.name())));
-                            iVar.e(cursor.getString(cursor.getColumnIndex(b.appName.name())));
-                            iVar.f(cursor.getString(cursor.getColumnIndex(b.cFrom.name())));
+                            iVar.b(cursor.getString(cursor.getColumnIndex(b.packageName.name())));
+                            iVar.c(cursor.getString(cursor.getColumnIndex(b.appName.name())));
+                            iVar.d(cursor.getString(cursor.getColumnIndex(b.cFrom.name())));
                             iVar.a(cursor.getInt(cursor.getColumnIndex(b.versionCode.name())));
-                            iVar.g(cursor.getString(cursor.getColumnIndex(b.versionName.name())));
+                            iVar.e(cursor.getString(cursor.getColumnIndex(b.versionName.name())));
                             iVar.b(cursor.getInt(cursor.getColumnIndex(b.intergratedPushVersion.name())));
                             arrayList.add(iVar);
                         } catch (Exception e4) {
@@ -908,26 +837,26 @@ public class a {
                             e3.close();
                             return arrayList;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        e3.close();
-                        throw th;
                     }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    e3.close();
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (r2 != 0) {
+                        r2.close();
+                    }
+                    e3.close();
+                    throw th;
                 }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                e3.close();
             } catch (Exception e5) {
                 cursor = null;
                 e2 = e5;
             } catch (Throwable th3) {
-                cursor = null;
+                r2 = 0;
                 th = th3;
-                if (cursor != null) {
+                if (r2 != 0) {
                 }
                 e3.close();
                 throw th;
@@ -936,7 +865,7 @@ public class a {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:31:0x01a3 A[Catch: all -> 0x019b, TRY_ENTER, TryCatch #3 {, blocks: (B:4:0x0004, B:6:0x000a, B:8:0x000c, B:23:0x0194, B:24:0x0197, B:20:0x018e, B:18:0x0188, B:19:0x018b, B:31:0x01a3, B:32:0x01a6, B:33:0x01a9), top: B:41:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x01b4 A[Catch: all -> 0x01ac, TRY_ENTER, TryCatch #3 {, blocks: (B:4:0x0004, B:6:0x000a, B:8:0x000c, B:23:0x01a5, B:24:0x01a8, B:20:0x019f, B:18:0x0199, B:19:0x019c, B:31:0x01b4, B:32:0x01b7, B:33:0x01ba), top: B:41:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -966,10 +895,11 @@ public class a {
                             eVar.c(cursor.getInt(cursor.getColumnIndex(c.msgLen.name())));
                             eVar.b(cursor.getInt(cursor.getColumnIndex(c.msgType.name())));
                             eVar.b(cursor.getString(cursor.getColumnIndex(c.networkStatus.name())));
-                            eVar.h(cursor.getString(cursor.getColumnIndex(c.openByPackageName.name())));
+                            eVar.i(cursor.getString(cursor.getColumnIndex(c.openByPackageName.name())));
                             eVar.e(cursor.getString(cursor.getColumnIndex(c.requestId.name())));
                             eVar.d(cursor.getInt(cursor.getColumnIndex(c.stableHeartInterval.name())));
                             eVar.a(cursor.getLong(cursor.getColumnIndex(c.timeStamp.name())));
+                            eVar.h(cursor.getString(cursor.getColumnIndex(c.packageName.name())));
                             arrayList.add(eVar);
                         } catch (Exception e4) {
                             e2 = e4;
@@ -1024,12 +954,15 @@ public class a {
 
     private static void a(final String str, Context context) {
         File[] listFiles;
-        File parentFile = context.getDatabasePath("pushstat_5.7.0.db").getParentFile();
+        File parentFile = context.getDatabasePath("pushstat_5.8.0.db").getParentFile();
         if (parentFile == null || !parentFile.isDirectory() || (listFiles = parentFile.listFiles(new FileFilter() { // from class: com.baidu.android.pushservice.d.a.1
             @Override // java.io.FileFilter
             public boolean accept(File file) {
-                String name;
-                return (file == null || (name = file.getName()) == null || !name.contains("pushstat") || name.contains(str)) ? false : true;
+                if (file == null) {
+                    return false;
+                }
+                String name = file.getName();
+                return name.contains("pushstat") && !name.contains(str);
             }
         })) == null) {
             return;
@@ -1278,6 +1211,59 @@ public class a {
         return z2;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00fa  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private static boolean b(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.i iVar) {
+        Cursor cursor;
+        if (sQLiteDatabase == null) {
+            return false;
+        }
+        try {
+            cursor = sQLiteDatabase.query("AppInfo", null, b.packageName.name() + " =?", new String[]{iVar.b()}, null, null, null);
+            try {
+                try {
+                } catch (Exception e2) {
+                    e = e2;
+                    com.baidu.android.pushservice.g.a.c("PushDatabase", "needToInsertUpdate Exception: " + e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return false;
+                }
+            } catch (Throwable th) {
+                th = th;
+                if (cursor != null) {
+                    cursor.close();
+                }
+                throw th;
+            }
+        } catch (Exception e3) {
+            e = e3;
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+            cursor = null;
+            if (cursor != null) {
+            }
+            throw th;
+        }
+        if (!cursor.moveToNext()) {
+            if (cursor != null) {
+                cursor.close();
+            }
+            return false;
+        }
+        if (!TextUtils.equals(iVar.d(), cursor.getString(cursor.getColumnIndex(b.cFrom.name()))) || !TextUtils.equals(iVar.e() + "", cursor.getInt(cursor.getColumnIndex(b.versionCode.name())) + "") || !TextUtils.equals(iVar.g() + "", cursor.getString(cursor.getColumnIndex(b.intergratedPushVersion.name())))) {
+            a(sQLiteDatabase, iVar);
+        }
+        if (cursor != null) {
+            cursor.close();
+        }
+        return true;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:37:0x00ef A[Catch: all -> 0x00e8, TRY_ENTER, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x000a, B:9:0x000d, B:14:0x0050, B:15:0x0053, B:16:0x0056, B:22:0x00ce, B:23:0x00d1, B:24:0x00d4, B:37:0x00ef, B:38:0x00f2, B:39:0x00f5, B:29:0x00e1, B:30:0x00e4), top: B:48:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1479,7 +1465,6 @@ public class a {
             return f2.getWritableDatabase();
         } catch (Exception e2) {
             com.baidu.android.pushservice.g.a.b("PushDatabase", "getDb Exception: " + e2);
-            p.a(context.getApplicationContext(), e2);
             return null;
         }
     }
@@ -1557,8 +1542,8 @@ public class a {
     private static e f(Context context) {
         synchronized (c) {
             if (a == null) {
-                String path = context.getDatabasePath("pushstat_5.7.0.db").getPath();
-                a("pushstat_5.7.0.db", context);
+                String path = context.getDatabasePath("pushstat_5.8.0.db").getPath();
+                a("pushstat_5.8.0.db", context);
                 if (Build.VERSION.SDK_INT >= 11) {
                     b = new d();
                     a = new e(context, path, 2, b);

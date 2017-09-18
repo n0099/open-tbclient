@@ -20,24 +20,24 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c extends PagerAdapter {
-    private Map<String, ImageUrlData> avA;
-    private a.d avD;
-    private List<a> avJ;
-    private f.b avM;
-    private boolean avO;
-    private ArrayList<String> avz;
+    private a.d avA;
+    private List<a> avG;
+    private f.b avJ;
+    private boolean avL;
+    private ArrayList<String> avw;
+    private Map<String, ImageUrlData> avx;
     private Context mContext;
     private View.OnClickListener mOnClickListener = null;
-    private View.OnLongClickListener avB = null;
-    private a.e avC = null;
+    private View.OnLongClickListener avy = null;
+    private a.e avz = null;
+    private int avB = 0;
+    private boolean avC = false;
+    private String avD = null;
     private int avE = 0;
-    private boolean avF = false;
-    private String avG = null;
-    private int avH = 0;
-    private int avI = 0;
-    private boolean avK = false;
-    private boolean avL = false;
-    private int avN = -1;
+    private int avF = 0;
+    private boolean avH = false;
+    private boolean avI = false;
+    private int avK = -1;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -51,60 +51,60 @@ public class c extends PagerAdapter {
 
     public c(Context context, ArrayList<String> arrayList, a.d dVar) {
         this.mContext = null;
-        this.avz = null;
-        this.avD = null;
-        this.avJ = null;
+        this.avw = null;
+        this.avA = null;
+        this.avG = null;
         this.mContext = context;
-        this.avz = arrayList;
-        this.avD = dVar;
-        this.avJ = new ArrayList();
+        this.avw = arrayList;
+        this.avA = dVar;
+        this.avG = new ArrayList();
     }
 
     public void setData(ArrayList<String> arrayList) {
-        this.avz = arrayList;
+        this.avw = arrayList;
         notifyDataSetChanged();
     }
 
     public void setAssistUrls(Map<String, ImageUrlData> map) {
-        this.avA = map;
+        this.avx = map;
     }
 
     public void setNextTitle(String str) {
-        this.avG = str;
+        this.avD = str;
     }
 
     public void setHasNext(boolean z) {
-        this.avF = z;
+        this.avC = z;
         notifyDataSetChanged();
     }
 
     public void a(a aVar) {
-        this.avJ.add(aVar);
+        this.avG.add(aVar);
     }
 
     public boolean getHasNext() {
-        return this.avF;
+        return this.avC;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         int i = 0;
-        if (this.avz != null) {
-            i = this.avz.size();
-            if (this.avF) {
+        if (this.avw != null) {
+            i = this.avw.size();
+            if (this.avC) {
                 i++;
             }
         }
-        return i + this.avH + this.avI;
+        return i + this.avE + this.avF;
     }
 
     public void setTempSize(int i) {
-        this.avH = i;
+        this.avE = i;
         notifyDataSetChanged();
     }
 
     public void setAddSize(int i) {
-        this.avI = i;
+        this.avF = i;
         notifyDataSetChanged();
     }
 
@@ -113,15 +113,15 @@ public class c extends PagerAdapter {
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.avB = onLongClickListener;
+        this.avy = onLongClickListener;
     }
 
     public void setGifMaxUseableMem(int i) {
-        this.avE = i;
+        this.avB = i;
     }
 
     public void a(a.e eVar) {
-        this.avC = eVar;
+        this.avz = eVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -139,8 +139,8 @@ public class c extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.avJ.size() != 0) {
-            for (a aVar : this.avJ) {
+        if (this.avG.size() != 0) {
+            for (a aVar : this.avG) {
                 View e = aVar.e(viewGroup, i);
                 if (e != null) {
                     return e;
@@ -156,31 +156,31 @@ public class c extends PagerAdapter {
 
     private f c(ViewGroup viewGroup, int i) {
         f fVar = new f(this.mContext);
-        fVar.setOriImgSelectedCallback(this.avM);
+        fVar.setOriImgSelectedCallback(this.avJ);
         String str = null;
-        if (i < this.avz.size()) {
-            str = this.avz.get(i);
+        if (i < this.avw.size()) {
+            str = this.avw.get(i);
         }
         fVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
         fVar.setImageOnClickListener(this.mOnClickListener);
-        fVar.setImageOnLongClickListener(this.avB);
-        fVar.setIsCdn(this.avK);
-        fVar.setOnSizeChangedListener(this.avC);
+        fVar.setImageOnLongClickListener(this.avy);
+        fVar.setIsCdn(this.avH);
+        fVar.setOnSizeChangedListener(this.avz);
         ((ViewPager) viewGroup).addView(fVar, 0);
         fVar.setAssistUrl(fg(str));
-        fVar.o(str, this.avL);
-        fVar.setGifMaxUseableMem(this.avE);
+        fVar.o(str, this.avI);
+        fVar.setGifMaxUseableMem(this.avB);
         fVar.setTag(String.valueOf(i));
-        fVar.setGifSetListener(this.avD);
-        fVar.setHeadImage(this.avO);
+        fVar.setGifSetListener(this.avA);
+        fVar.setHeadImage(this.avL);
         return fVar;
     }
 
     private View d(ViewGroup viewGroup, int i) {
-        if (this.avF && i == getCount() - 1 && i != 0) {
+        if (this.avC && i == getCount() - 1 && i != 0) {
             View inflate = LayoutInflater.from(this.mContext).inflate(d.j.big_image_next, (ViewGroup) null);
             ((ImageView) inflate.findViewById(d.h.image)).setImageDrawable(aj.getDrawable(d.g.big_image_next_default));
-            ((TextView) inflate.findViewById(d.h.thread_name)).setText(this.avG);
+            ((TextView) inflate.findViewById(d.h.thread_name)).setText(this.avD);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.mOnClickListener);
             return inflate;
@@ -193,10 +193,10 @@ public class c extends PagerAdapter {
         boolean z;
         super.setPrimaryItem(viewGroup, i, obj);
         if (obj instanceof f) {
-            if (this.avN == i) {
+            if (this.avK == i) {
                 z = false;
             } else {
-                this.avN = i;
+                this.avK = i;
                 z = true;
             }
             b bVar = (b) viewGroup;
@@ -209,40 +209,40 @@ public class c extends PagerAdapter {
                 }
             }
             com.baidu.tbadk.widget.a currentView = bVar.getCurrentView();
-            if (imageView != currentView || i == this.avz.size() - 1) {
+            if (imageView != currentView || i == this.avw.size() - 1) {
                 if (currentView != null) {
                     currentView.HI();
                 }
                 ((f) obj).BF();
-                ((f) obj).i(this.avL, z);
+                ((f) obj).i(this.avI, z);
                 bVar.setCurrentView(imageView);
                 if (((f) obj).getImageType() == 1) {
-                    this.avD.a(imageView);
+                    this.avA.a(imageView);
                 }
             }
         }
     }
 
     private ImageUrlData fg(String str) {
-        if (TextUtils.isEmpty(str) || this.avA == null) {
+        if (TextUtils.isEmpty(str) || this.avx == null) {
             return null;
         }
-        return this.avA.get(str);
+        return this.avx.get(str);
     }
 
     public void setAllowLocalUrl(boolean z) {
-        this.avL = z;
+        this.avI = z;
     }
 
     public void setIsCdn(boolean z) {
-        this.avK = z;
+        this.avH = z;
     }
 
     public void setHeadImage(boolean z) {
-        this.avO = z;
+        this.avL = z;
     }
 
     public void setOriImgSelectedCallback(f.b bVar) {
-        this.avM = bVar;
+        this.avJ = bVar;
     }
 }

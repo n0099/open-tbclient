@@ -8,6 +8,7 @@ import com.baidu.android.pushservice.e.l;
 import com.baidu.android.pushservice.e.m;
 import com.baidu.android.pushservice.e.n;
 import com.baidu.android.pushservice.e.o;
+import com.baidu.android.pushservice.e.q;
 import com.baidu.android.pushservice.e.r;
 import com.baidu.android.pushservice.e.s;
 import com.baidu.android.pushservice.e.t;
@@ -17,7 +18,6 @@ import com.baidu.android.pushservice.e.w;
 import com.baidu.android.pushservice.e.y;
 import com.baidu.android.pushservice.e.z;
 import com.baidu.android.pushservice.h.p;
-import com.baidu.android.pushservice.j.q;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* loaded from: classes2.dex */
@@ -43,15 +43,13 @@ public class i {
     private void b(Intent intent) {
         boolean a;
         l lVar = new l(intent);
-        int i = !lVar.e.equals(q.t(this.a)) ? 1 : 0;
-        String stringExtra = intent.getStringExtra("bind_name");
         int intExtra = intent.getIntExtra("bind_status", 0);
         int intExtra2 = intent.getIntExtra("push_sdk_version", 0);
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_BIND ", this.a);
-        com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e + ", bindName:" + stringExtra + ", bindStatus:" + intExtra);
+        com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e + ", bindStatus:" + intExtra);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "accessToken:" + lVar.d);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "apiKey:" + lVar.i);
-        q.b("RegistrationService#handleBind#METHOD_BIND request arrive at " + System.currentTimeMillis(), this.a);
+        com.baidu.android.pushservice.j.p.b("RegistrationService#handleBind#METHOD_BIND request arrive at " + System.currentTimeMillis(), this.a);
         String f = com.baidu.android.pushservice.b.b.a(this.a).f(lVar.e);
         if (!TextUtils.isEmpty(lVar.i) && com.baidu.android.pushservice.b.b.a(this.a).b(lVar.e, lVar.i) && !TextUtils.isEmpty(f)) {
             Intent intent2 = new Intent();
@@ -63,48 +61,34 @@ public class i {
             if (a.b() > 0) {
                 p.a(this.a, "039902", 2, f);
             }
-            q.b(this.a, intent2, PushConstants.ACTION_RECEIVE, lVar.e);
-            q.b("RegistrationService#handleBind#returned by cacheContent = " + f, this.a);
+            com.baidu.android.pushservice.j.p.b(this.a, intent2, PushConstants.ACTION_RECEIVE, lVar.e);
+            com.baidu.android.pushservice.j.p.b("RegistrationService#handleBind#returned by cacheContent = " + f, this.a);
             com.baidu.android.pushservice.g.a.d("RegistrationService", "Already binded, no need to bind anymore");
             return;
         }
-        q.b("RegistrationService#handleBind#METHOD_BIND request start at " + System.currentTimeMillis(), this.a);
+        com.baidu.android.pushservice.j.p.b("RegistrationService#handleBind#METHOD_BIND request start at " + System.currentTimeMillis(), this.a);
         if (a.b() > 0) {
             p.a(this.a, "039902", 0, f);
         }
         if (intent.hasExtra("bind_notify_status")) {
-            String stringExtra2 = intent.getStringExtra("bind_notify_status");
-            a = a(new com.baidu.android.pushservice.e.f(lVar, this.a, intExtra, stringExtra, intExtra2, stringExtra2, i));
-            com.baidu.android.pushservice.g.a.c("RegistrationService", " notifystatus = " + stringExtra2);
-            q.b("submitApiProcessor for bind=" + lVar.toString(), this.a);
+            String stringExtra = intent.getStringExtra("bind_notify_status");
+            a = a(new com.baidu.android.pushservice.e.f(lVar, this.a, intExtra, intExtra2, stringExtra));
+            com.baidu.android.pushservice.g.a.c("RegistrationService", " notifystatus = " + stringExtra);
+            com.baidu.android.pushservice.j.p.b("submitApiProcessor for bind=" + lVar.toString(), this.a);
         } else {
-            a = a(new com.baidu.android.pushservice.e.f(lVar, this.a, intExtra, stringExtra, intExtra2, i));
-            q.b("submitApiProcessor for bind=" + lVar.toString(), this.a);
+            a = a(new com.baidu.android.pushservice.e.f(lVar, this.a, intExtra, intExtra2));
+            com.baidu.android.pushservice.j.p.b("submitApiProcessor for bind=" + lVar.toString(), this.a);
         }
         if (a) {
             return;
         }
-        new Thread(new com.baidu.android.pushservice.e.f(lVar, this.a, intExtra, stringExtra, intExtra2, i)).start();
+        new Thread(new com.baidu.android.pushservice.e.f(lVar, this.a, intExtra, intExtra2)).start();
         com.baidu.android.pushservice.g.a.c("RegistrationService", "submitApiProcessor failed bind " + lVar.toString());
-        q.b("submitApiProcessor failed bind " + lVar.toString(), this.a);
+        com.baidu.android.pushservice.j.p.b("submitApiProcessor failed bind " + lVar.toString(), this.a);
     }
 
     private void c(Intent intent) {
-        com.baidu.android.pushservice.b.j.a(this.a).a((com.baidu.android.pushservice.b.a) new com.baidu.android.pushservice.b.i(intent.getStringExtra("secret_key")), true);
         l lVar = new l(intent);
-        String stringExtra = intent.getStringExtra("bind_name");
-        int intExtra = intent.getIntExtra("bind_status", 0);
-        int intExtra2 = intent.getIntExtra("push_sdk_version", 0);
-        com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_WEB_APP_BIND ", this.a);
-        com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e + ", bindName:" + stringExtra + ", bindStatus:" + intExtra);
-        com.baidu.android.pushservice.g.a.c("RegistrationService", "accessToken:" + lVar.d);
-        com.baidu.android.pushservice.g.a.c("RegistrationService", "apiKey:" + lVar.i);
-        a(new com.baidu.android.pushservice.e.f(lVar, this.a, intExtra, stringExtra, intExtra2, 2));
-    }
-
-    private void d(Intent intent) {
-        l lVar = new l(intent);
-        String stringExtra = intent.getStringExtra("bind_name");
         int intExtra = intent.getIntExtra("bind_status", 0);
         int intExtra2 = intent.getIntExtra("push_sdk_version", 0);
         int intExtra3 = intent.getIntExtra("sdk_client_version", 0);
@@ -112,12 +96,12 @@ public class i {
         gVar.a(intExtra3);
         com.baidu.android.pushservice.b.h.a(this.a).a((com.baidu.android.pushservice.b.a) gVar, true);
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_SDK_BIND ", this.a);
-        com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e + ", bindName:" + stringExtra + ", bindStatus:" + intExtra);
+        com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e + ", bindStatus:" + intExtra);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "accessToken:" + lVar.d);
-        a(new com.baidu.android.pushservice.e.f(lVar, this.a, intExtra, stringExtra, intExtra2, 3));
+        a(new com.baidu.android.pushservice.e.f(lVar, this.a, intExtra, intExtra2));
     }
 
-    private void e(Intent intent) {
+    private void d(Intent intent) {
         l lVar = new l(intent);
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_UNBIND ", this.a);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e);
@@ -133,7 +117,7 @@ public class i {
         a(new y(lVar, this.a));
     }
 
-    private void f(Intent intent) {
+    private void e(Intent intent) {
         l lVar = new l(intent);
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_SDK_UNBIND ", this.a);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e);
@@ -142,7 +126,7 @@ public class i {
         a(new y(lVar, this.a));
     }
 
-    private void g(Intent intent) {
+    private void f(Intent intent) {
         l lVar = new l(intent);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "<<< METHOD_LAPP_UNBIND ");
         com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e);
@@ -151,7 +135,7 @@ public class i {
         a(new y(lVar, this.a));
     }
 
-    private boolean h(Intent intent) {
+    private boolean g(Intent intent) {
         com.baidu.android.pushservice.b.f c2;
         String stringExtra = intent.getStringExtra("package_name");
         String stringExtra2 = intent.getStringExtra("app_id");
@@ -185,7 +169,7 @@ public class i {
         return a(new z(lVar, this.a));
     }
 
-    private void i(Intent intent) {
+    private void h(Intent intent) {
         l lVar = new l(intent);
         int intExtra = intent.getIntExtra("fetch_type", 1);
         int intExtra2 = intent.getIntExtra("fetch_num", 1);
@@ -195,7 +179,7 @@ public class i {
         a(new m(lVar, this.a, intExtra, intExtra2));
     }
 
-    private void j(Intent intent) {
+    private void i(Intent intent) {
         l lVar = new l(intent);
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_COUNT ", this.a);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e);
@@ -203,7 +187,7 @@ public class i {
         a(new com.baidu.android.pushservice.e.h(lVar, this.a));
     }
 
-    private void k(Intent intent) {
+    private void j(Intent intent) {
         l lVar = new l(intent);
         String[] stringArrayExtra = intent.getStringArrayExtra("msg_ids");
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_DELETE ", this.a);
@@ -212,7 +196,7 @@ public class i {
         a(new k(lVar, this.a, stringArrayExtra));
     }
 
-    private void l(Intent intent) {
+    private void k(Intent intent) {
         l lVar = new l(intent);
         String stringExtra = intent.getStringExtra("gid");
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< ACTION_GBIND ", this.a);
@@ -221,7 +205,7 @@ public class i {
         a(new o(lVar, this.a, stringExtra));
     }
 
-    private void m(Intent intent) {
+    private void l(Intent intent) {
         l lVar = new l(intent);
         String stringExtra = intent.getStringExtra("tags");
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< ACTION_SET_TAGS ", this.a);
@@ -230,7 +214,7 @@ public class i {
         a(new w(lVar, this.a, stringExtra));
     }
 
-    private void n(Intent intent) {
+    private void m(Intent intent) {
         l lVar = new l(intent);
         String stringExtra = intent.getStringExtra("tags");
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< ACTION_GBIND ", this.a);
@@ -239,7 +223,7 @@ public class i {
         a(new com.baidu.android.pushservice.e.j(lVar, this.a, stringExtra));
     }
 
-    private void o(Intent intent) {
+    private void n(Intent intent) {
         l lVar = new l(intent);
         String stringExtra = intent.getStringExtra("gid");
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< ACTION_GUNBIND ", this.a);
@@ -248,7 +232,7 @@ public class i {
         a(new r(lVar, this.a, stringExtra));
     }
 
-    private void p(Intent intent) {
+    private void o(Intent intent) {
         l lVar = new l(intent);
         String stringExtra = intent.getStringExtra("gid");
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_GINFO ", this.a);
@@ -257,7 +241,7 @@ public class i {
         a(new com.baidu.android.pushservice.e.p(lVar, this.a, stringExtra));
     }
 
-    private void q(Intent intent) {
+    private void p(Intent intent) {
         l lVar = new l(intent);
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_LISTTAGS ", this.a);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e);
@@ -265,15 +249,15 @@ public class i {
         a(new s(lVar, this.a));
     }
 
-    private void r(Intent intent) {
+    private void q(Intent intent) {
         l lVar = new l(intent);
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_GLIST ", this.a);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "accessToken:" + lVar.d);
-        a(new com.baidu.android.pushservice.e.q(lVar, this.a));
+        a(new q(lVar, this.a));
     }
 
-    private void s(Intent intent) {
+    private void r(Intent intent) {
         l lVar = new l(intent);
         String stringExtra = intent.getStringExtra("gid");
         int intExtra = intent.getIntExtra("group_fetch_type", 1);
@@ -287,7 +271,7 @@ public class i {
         a(new n(lVar, this.a, stringExtra, intExtra, intExtra2));
     }
 
-    private void t(Intent intent) {
+    private void s(Intent intent) {
         l lVar = new l(intent);
         String stringExtra = intent.getStringExtra("gid");
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_COUNTGMSG ", this.a);
@@ -297,7 +281,7 @@ public class i {
         a(new com.baidu.android.pushservice.e.i(lVar, this.a, stringExtra));
     }
 
-    private void u(Intent intent) {
+    private void t(Intent intent) {
         l lVar = new l(intent);
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_ONLINE ", this.a);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e);
@@ -305,7 +289,7 @@ public class i {
         a(new t(lVar, this.a));
     }
 
-    private void v(Intent intent) {
+    private void u(Intent intent) {
         l lVar = new l(intent);
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_SEND ", this.a);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e);
@@ -313,7 +297,7 @@ public class i {
         a(new u(lVar, this.a, intent.getStringExtra("push_ msg")));
     }
 
-    private void w(Intent intent) {
+    private void v(Intent intent) {
         l lVar = new l(intent);
         com.baidu.android.pushservice.g.b.a("RegistrationService", "<<< METHOD_SEND_MSG_TO_USER ", this.a);
         com.baidu.android.pushservice.g.a.c("RegistrationService", "packageName:" + lVar.e);
@@ -321,23 +305,23 @@ public class i {
         a(new v(lVar, this.a, intent.getStringExtra("app_id"), intent.getStringExtra("user_id"), intent.getStringExtra("push_ msg_key"), intent.getStringExtra("push_ msg")));
     }
 
-    private void x(Intent intent) {
+    private void w(Intent intent) {
         com.baidu.android.pushservice.g.a.c("RegistrationService", "<<< handleSendAppStat ");
         if (this.b == null) {
             this.b = new p(this.a);
         }
         this.b.a();
-        this.b.a(false, (com.baidu.android.pushservice.j.g) null);
+        this.b.a(false, (com.baidu.android.pushservice.j.f) null);
     }
 
-    private void y(Intent intent) {
+    private void x(Intent intent) {
         if (this.b == null) {
             this.b = new p(this.a);
         }
-        this.b.a(intent.getBooleanExtra("force_send", false), (com.baidu.android.pushservice.j.g) null);
+        this.b.a(intent.getBooleanExtra("force_send", false), (com.baidu.android.pushservice.j.f) null);
     }
 
-    private void z(Intent intent) {
+    private void y(Intent intent) {
         PushSettings.a(this.a, 0);
     }
 
@@ -348,7 +332,7 @@ public class i {
         }
         com.baidu.android.pushservice.g.a.c("RegistrationService", "RegistrationSerice handleIntent : " + intent);
         String action = intent.getAction();
-        q.b("handleIntent#action = " + action, this.a);
+        com.baidu.android.pushservice.j.p.b("handleIntent#action = " + action, this.a);
         if ("com.baidu.android.pushservice.action.OPENDEBUGMODE".equals(action)) {
             PushSettings.enableDebugMode(this.a, true);
             com.baidu.android.pushservice.g.b.a("RegistrationService", "<<<debugMode is open", this.a);
@@ -362,13 +346,13 @@ public class i {
             return true;
         } else if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action) || "com.baidu.android.pushservice.action.privatenotification.DELETE".equals(action)) {
             PublicMsg publicMsg = (PublicMsg) intent.getParcelableExtra("public_msg");
-            if (q.b(this.a, publicMsg)) {
+            if (com.baidu.android.pushservice.j.p.b(this.a, publicMsg)) {
                 publicMsg.handlePrivateNotification(this.a, action, intent.getStringExtra(PbActivityConfig.KEY_MSG_ID), intent.getStringExtra("app_id"));
                 return true;
             }
             return true;
         } else if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.DELETE".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.NOTIFIED".equals(action)) {
-            q.b("push_passthrough: receive  click delete and notified action", this.a);
+            com.baidu.android.pushservice.j.p.b("push_passthrough: receive  click delete and notified action", this.a);
             com.baidu.android.pushservice.g.a.c("RegistrationService", "handle passthrough notification " + action);
             com.baidu.android.pushservice.h.k.a(this.a, intent.hasExtra(PbActivityConfig.KEY_MSG_ID) ? intent.getStringExtra(PbActivityConfig.KEY_MSG_ID) : null, intent.hasExtra("app_id") ? intent.getStringExtra("app_id") : null, action);
             return true;
@@ -406,83 +390,81 @@ public class i {
                     b(intent);
                     z = true;
                 } else if ("method_webapp_bind_from_deeplink".equals(stringExtra)) {
-                    PushManager.startWork(this.a, 3, intent.getStringExtra("com.baidu.pushservice.webapp.apikey"));
                     z = true;
                 } else if ("method_deal_webapp_bind_intent".equals(stringExtra)) {
-                    c(intent);
                     z = true;
                 } else if ("method_deal_lapp_bind_intent".equals(stringExtra)) {
                     z = true;
                 } else if ("method_get_lapp_bind_state".equals(stringExtra)) {
                     z = true;
                 } else if ("method_sdk_bind".equals(stringExtra)) {
-                    d(intent);
+                    c(intent);
                     z = true;
                 } else if ("method_unbind".equals(stringExtra)) {
-                    e(intent);
+                    d(intent);
                     z = true;
                 } else if ("method_sdk_unbind".equals(stringExtra)) {
-                    f(intent);
+                    e(intent);
                     z = true;
                 } else if ("method_lapp_unbind".equals(stringExtra)) {
-                    g(intent);
+                    f(intent);
                     z = true;
                 } else if ("com.baidu.android.pushservice.action.UNBINDAPP".equals(stringExtra)) {
-                    h(intent);
+                    g(intent);
                     z = true;
                 } else if ("method_fetch".equals(stringExtra)) {
-                    i(intent);
+                    h(intent);
                     z = true;
                 } else if ("method_count".equals(stringExtra)) {
-                    j(intent);
+                    i(intent);
                     z = true;
                 } else if ("method_delete".equals(stringExtra)) {
-                    k(intent);
+                    j(intent);
                     z = true;
                 } else if ("method_gbind".equals(stringExtra)) {
-                    l(intent);
+                    k(intent);
                     z = true;
                 } else if ("method_set_tags".equals(stringExtra) || "method_set_sdk_tags".equals(stringExtra) || "method_set_lapp_tags".equals(stringExtra)) {
-                    m(intent);
+                    l(intent);
                     z = true;
                 } else if ("method_del_tags".equals(stringExtra) || "method_del_sdk_tags".equals(stringExtra) || "method_del_lapp_tags".equals(stringExtra)) {
-                    n(intent);
+                    m(intent);
                     z = true;
                 } else if ("method_gunbind".equals(stringExtra)) {
-                    o(intent);
+                    n(intent);
                     z = true;
                 } else if ("method_ginfo".equals(stringExtra)) {
-                    p(intent);
+                    o(intent);
                     z = true;
                 } else if ("method_glist".equals(stringExtra)) {
-                    r(intent);
-                    z = true;
-                } else if ("method_listtags".equals(stringExtra) || "method_list_sdk_tags".equals(stringExtra) || "method_list_lapp_tags".equals(stringExtra)) {
                     q(intent);
                     z = true;
+                } else if ("method_listtags".equals(stringExtra) || "method_list_sdk_tags".equals(stringExtra) || "method_list_lapp_tags".equals(stringExtra)) {
+                    p(intent);
+                    z = true;
                 } else if ("method_fetchgmsg".equals(stringExtra)) {
-                    s(intent);
+                    r(intent);
                     z = true;
                 } else if ("method_countgmsg".equals(stringExtra)) {
-                    t(intent);
+                    s(intent);
                     z = true;
                 } else if ("method_online".equals(stringExtra)) {
-                    u(intent);
+                    t(intent);
                     z = true;
                 } else if ("method_send".equals(stringExtra)) {
-                    v(intent);
+                    u(intent);
                     z = true;
                 } else if ("com.baidu.android.pushservice.action.SEND_APPSTAT".equals(stringExtra)) {
-                    x(intent);
+                    w(intent);
                     z = true;
                 } else if ("com.baidu.android.pushservice.action.SEND_LBS".equals(stringExtra)) {
-                    y(intent);
+                    x(intent);
                     z = true;
                 } else if ("com.baidu.android.pushservice.action.ENBALE_APPSTAT".equals(stringExtra)) {
-                    z(intent);
+                    y(intent);
                     z = true;
                 } else if ("method_send_msg_to_user".equals(stringExtra)) {
-                    w(intent);
+                    v(intent);
                     z = true;
                 } else {
                     z = false;

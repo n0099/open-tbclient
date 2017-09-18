@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.e.a;
 import com.baidu.android.pushservice.e.x;
-import com.baidu.android.pushservice.j.n;
+import com.baidu.android.pushservice.j.m;
 /* loaded from: classes2.dex */
 public final class j {
     private static j a;
@@ -18,7 +18,7 @@ public final class j {
     private j(Context context) {
         this.b = null;
         this.c = null;
-        this.c = n.a(context, "com.baidu.pushservice.channel_token");
+        this.c = m.a(context, "com.baidu.pushservice.channel_token");
         this.b = PushSettings.a(context);
         this.f = context;
     }
@@ -53,7 +53,7 @@ public final class j {
         this.b = str;
         this.c = str2;
         PushSettings.a(this.f, str);
-        n.a(this.f, "com.baidu.pushservice.channel_token", str2);
+        m.a(this.f, "com.baidu.pushservice.channel_token", str2);
     }
 
     public String b() {

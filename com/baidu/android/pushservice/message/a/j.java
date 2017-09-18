@@ -1,6 +1,7 @@
 package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
@@ -67,39 +68,43 @@ public final class j {
             JSONObject jSONObject = new JSONObject(str);
             if (!jSONObject.isNull("msgContent")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("msgContent");
-                if (!jSONObject2.isNull("msgId")) {
-                    iVar.a = jSONObject2.getString("msgId");
-                }
                 if (!jSONObject2.isNull("adContent")) {
                     JSONObject jSONObject3 = jSONObject2.getJSONObject("adContent");
-                    iVar.f = jSONObject3.getString("notifyTitle");
-                    iVar.g = jSONObject3.getString("content");
+                    iVar.e = jSONObject3.getString("notifyTitle");
+                    iVar.f = jSONObject3.getString("content");
                     if (!jSONObject3.isNull("param")) {
                         JSONObject jSONObject4 = jSONObject3.getJSONObject("param");
                         if (!jSONObject4.isNull("url")) {
-                            iVar.b = jSONObject4.getString("url");
+                            iVar.a = jSONObject4.getString("url");
                         }
-                        if (!jSONObject4.isNull("acn")) {
-                            iVar.d = jSONObject4.getString("acn");
+                        if (!jSONObject4.isNull("intentUri")) {
+                            iVar.c = jSONObject4.getString("intentUri");
+                        } else if (!jSONObject4.isNull("acn")) {
+                            iVar.c = jSONObject4.getString("acn");
                         }
                     }
                 }
                 if (!jSONObject2.isNull("psContent")) {
                     JSONObject jSONObject5 = jSONObject2.getJSONObject("psContent");
-                    iVar.h = jSONObject5.getString("notifyTitle");
-                    iVar.i = jSONObject5.getString("content");
+                    iVar.g = jSONObject5.getString("notifyTitle");
+                    iVar.h = jSONObject5.getString("content");
                     if (!jSONObject5.isNull("param")) {
                         JSONObject jSONObject6 = jSONObject5.getJSONObject("param");
                         if (!jSONObject6.isNull("url")) {
-                            iVar.c = jSONObject6.getString("url");
+                            iVar.b = jSONObject6.getString("url");
                         }
-                        if (!jSONObject6.isNull("acn")) {
-                            iVar.e = jSONObject6.getString("acn");
+                        if (!jSONObject6.isNull("intentUri")) {
+                            iVar.d = jSONObject6.getString("intentUri");
+                        } else if (!jSONObject6.isNull("acn")) {
+                            iVar.d = jSONObject6.getString("acn");
                         }
                     }
                 }
                 if (!jSONObject2.isNull("extras")) {
                     iVar.a(jSONObject2.getJSONArray("extras"));
+                }
+                if (TextUtils.isEmpty(iVar.l)) {
+                    iVar.l = com.baidu.android.pushservice.k.f.a(str.getBytes(), false);
                 }
             }
         } catch (Exception e) {

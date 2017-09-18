@@ -4,15 +4,15 @@ import android.content.Intent;
 import com.baidu.tbadk.util.r;
 /* loaded from: classes.dex */
 public interface ah {
-    void N(Intent intent);
+    void M(Intent intent);
 
-    void agU();
+    void ahf();
 
-    void agV();
+    void ahg();
 
-    void ahj();
+    void ahu();
 
-    ForumWriteData ahk();
+    ForumWriteData ahv();
 
     void setHeaderViewHeight(int i);
 

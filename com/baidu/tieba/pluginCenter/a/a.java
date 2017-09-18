@@ -12,19 +12,19 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<PluginNetConfigInfos.PluginConfig, com.baidu.tbadk.mvc.d.b> {
-    private TextView aSq;
-    private TextView axd;
-    private TbImageView fBD;
-    private TextView fBE;
-    private ImageView fBF;
+    private TextView aSn;
+    private TextView axa;
+    private TbImageView fCw;
+    private TextView fCx;
+    private ImageView fCy;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.fBD = (TbImageView) view.findViewById(d.h.icon);
-        this.axd = (TextView) view.findViewById(d.h.title);
-        this.aSq = (TextView) view.findViewById(d.h.desc);
-        this.fBE = (TextView) view.findViewById(d.h.status);
-        this.fBF = (ImageView) view.findViewById(d.h.new_mark);
+        this.fCw = (TbImageView) view.findViewById(d.h.icon);
+        this.axa = (TextView) view.findViewById(d.h.title);
+        this.aSn = (TextView) view.findViewById(d.h.desc);
+        this.fCx = (TextView) view.findViewById(d.h.status);
+        this.fCy = (ImageView) view.findViewById(d.h.new_mark);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,27 +34,27 @@ public class a extends com.baidu.tbadk.mvc.f.a<PluginNetConfigInfos.PluginConfig
         super.D(pluginConfig);
         if (pluginConfig != null) {
             if (!StringUtils.isNull(pluginConfig.icon)) {
-                this.fBD.c(pluginConfig.icon, 10, false);
+                this.fCw.c(pluginConfig.icon, 10, false);
             }
-            this.axd.setText(pluginConfig.display_name);
-            this.aSq.setText(pluginConfig.verbose);
+            this.axa.setText(pluginConfig.display_name);
+            this.aSn.setText(pluginConfig.verbose);
             if (PluginPackageManager.jw().bn(pluginConfig.package_name)) {
                 if (PluginPackageManager.jw().bp(pluginConfig.package_name)) {
-                    this.fBF.setVisibility(0);
-                    this.fBE.setText(d.l.download_update);
+                    this.fCy.setVisibility(0);
+                    this.fCx.setText(d.l.download_update);
                     return;
                 }
-                this.fBF.setVisibility(8);
+                this.fCy.setVisibility(8);
                 if (PluginPackageManager.jw().bo(pluginConfig.package_name)) {
-                    this.fBE.setText(d.l.plugin_unenabled);
+                    this.fCx.setText(d.l.plugin_unenabled);
                     return;
                 } else {
-                    this.fBE.setText(d.l.plugin_enabled);
+                    this.fCx.setText(d.l.plugin_enabled);
                     return;
                 }
             }
-            this.fBF.setVisibility(8);
-            this.fBE.setText(d.l.plugin_disabled);
+            this.fCy.setVisibility(8);
+            this.fCx.setText(d.l.plugin_disabled);
         }
     }
 

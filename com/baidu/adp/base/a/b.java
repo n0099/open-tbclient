@@ -103,18 +103,18 @@ public class b {
     }
 
     public boolean cj() {
-        boolean Y;
+        boolean Z;
         synchronized (b.class) {
             ci();
             try {
-                Y = this.mW.Y(BdBaseApplication.getInst().getContext());
+                Z = this.mW.Z(BdBaseApplication.getInst().getContext());
             } catch (Exception e) {
                 BdLog.e("deleteDatabase：" + e.getMessage());
                 this.mU = null;
                 return false;
             }
         }
-        return Y;
+        return Z;
     }
 
     public void a(Throwable th, String str) {

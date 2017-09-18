@@ -388,7 +388,7 @@ public class FatalErrorService extends BdBaseService {
             try {
                 a(k.m9do(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                 a(k.m9do(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                biA();
+                biL();
                 if (!TbConfig.getVersion().equals(b.getInstance().getString("native_crash_dump_version", ""))) {
                     b.getInstance().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
@@ -412,7 +412,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void biA() {
+        private void biL() {
             File m9do = k.m9do(TbConfig.FATAL_ERROR_ALERT_FILE);
             if (m9do != null) {
                 try {

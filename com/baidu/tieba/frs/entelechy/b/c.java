@@ -1,13 +1,13 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes.dex */
 public interface c {
-    boolean aiY();
+    boolean ajj();
 
-    void aiZ();
+    void ajk();
 
-    void aja();
+    void ajl();
 
-    void fa(boolean z);
+    void fb(boolean z);
 
     void onChangeSkinType(int i);
 

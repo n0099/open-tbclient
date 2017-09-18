@@ -4,18 +4,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class l implements com.baidu.tbadk.widget.vote.a {
-    private long aAq;
-    private int aAr;
-    private String afh;
+    private long aAn;
+    private int aAo;
+    private String afg;
     private boolean isSelected = false;
     private int mId;
     private String mUrl;
 
     public l(int i, String str, String str2, long j) {
         this.mId = i;
-        this.afh = str;
+        this.afg = str;
         this.mUrl = str2;
-        this.aAq = j;
+        this.aAn = j;
     }
 
     public void setSelected(boolean z) {
@@ -23,7 +23,7 @@ public class l implements com.baidu.tbadk.widget.vote.a {
     }
 
     public void ck(int i) {
-        this.aAr = i;
+        this.aAo = i;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -33,7 +33,7 @@ public class l implements com.baidu.tbadk.widget.vote.a {
 
     @Override // com.baidu.tbadk.widget.vote.a
     public String Cz() {
-        return this.afh;
+        return this.afg;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -43,12 +43,12 @@ public class l implements com.baidu.tbadk.widget.vote.a {
 
     @Override // com.baidu.tbadk.widget.vote.a
     public String CA() {
-        return this.aAq + TbadkCoreApplication.getInst().getString(d.l.vote_unit);
+        return this.aAn + TbadkCoreApplication.getInst().getString(d.l.vote_unit);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
     public String CB() {
-        return this.aAr + TbadkCoreApplication.getInst().getString(d.l.vote_percent);
+        return this.aAo + TbadkCoreApplication.getInst().getString(d.l.vote_percent);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -58,7 +58,7 @@ public class l implements com.baidu.tbadk.widget.vote.a {
 
     @Override // com.baidu.tbadk.widget.vote.a
     public int CD() {
-        return this.aAr;
+        return this.aAo;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a

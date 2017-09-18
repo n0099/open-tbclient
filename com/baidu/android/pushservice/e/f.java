@@ -10,38 +10,30 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class f extends d {
     protected int e;
-    private String f;
-    private int g;
+    private int f;
+    private String g;
     private String h;
-    private String i;
-    private String j;
-    private int k;
 
-    public f(l lVar, Context context, int i, String str, int i2, int i3) {
+    public f(l lVar, Context context, int i, int i2) {
         super(lVar, context);
         this.e = 0;
         this.e = i;
-        this.f = str;
-        this.g = i2;
+        this.f = i2;
         if (this.e == 0) {
             this.d = true;
         }
-        this.k = i3;
     }
 
-    public f(l lVar, Context context, int i, String str, int i2, String str2, int i3) {
+    public f(l lVar, Context context, int i, int i2, String str) {
         super(lVar, context);
         this.e = 0;
         this.e = i;
-        this.f = str;
-        this.g = i2;
-        this.h = str2;
-        this.i = lVar.j;
-        this.j = lVar.l;
+        this.f = i2;
+        this.g = str;
+        this.h = lVar.j;
         if (this.e == 0) {
             this.d = true;
         }
-        this.k = i3;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -54,30 +46,28 @@ public class f extends d {
     @Override // com.baidu.android.pushservice.e.a
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
-        hashMap.put("current_push_versions", ((int) com.baidu.android.pushservice.a.a()) + "");
-        hashMap.put("push_bind_type", this.k + "");
         hashMap.put(PushConstants.EXTRA_METHOD, "bind");
-        hashMap.put("bind_name", TextUtils.isEmpty(this.f) ? Build.MODEL : this.f);
+        hashMap.put("bind_name", Build.MODEL);
         hashMap.put("bind_status", this.e + "");
-        hashMap.put("push_sdk_version", this.g + "");
-        if (!TextUtils.isEmpty(this.i) && this.i.equalsIgnoreCase("true")) {
+        hashMap.put("push_sdk_version", this.f + "");
+        if (!TextUtils.isEmpty(this.h) && this.h.equalsIgnoreCase("true")) {
             hashMap.put("is_baidu_internal_bind", "true");
         }
-        if (!TextUtils.isEmpty(this.h)) {
-            hashMap.put("bind_notify_status", this.h);
+        if (!TextUtils.isEmpty(this.g)) {
+            hashMap.put("bind_notify_status", this.g);
         }
         if (!TextUtils.isEmpty(this.b.l) && com.baidu.android.pushservice.c.d.d(this.a)) {
             hashMap.put("push_proxy", this.b.l);
-            try {
-                hashMap.put("manufacture", Build.MANUFACTURER);
-                hashMap.put("model", Build.MODEL);
-                hashMap.put("sdk_int", Build.VERSION.SDK_INT + "");
-                hashMap.put("rom", com.baidu.android.pushservice.j.q.B(this.a));
-            } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a("Bind", e);
-            }
         }
-        if (com.baidu.android.pushservice.j.q.E(this.a)) {
+        try {
+            hashMap.put("manufacture", Build.MANUFACTURER);
+            if (Build.MANUFACTURER.toLowerCase().contains("huawei") || Build.MANUFACTURER.toLowerCase().contains("xiaomi")) {
+                hashMap.put("rom", com.baidu.android.pushservice.j.p.B(this.a));
+            }
+        } catch (Exception e) {
+            com.baidu.android.pushservice.g.a.a("Bind", e);
+        }
+        if (com.baidu.android.pushservice.j.p.E(this.a)) {
             hashMap.put("connect_version", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
         } else {
             hashMap.put("connect_version", "2");

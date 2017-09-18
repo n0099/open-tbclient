@@ -54,10 +54,10 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.rp.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0040a implements X509TrustManager {
+    public class C0039a implements X509TrustManager {
         private X509TrustManager Py;
 
-        C0040a(X509TrustManager x509TrustManager) {
+        C0039a(X509TrustManager x509TrustManager) {
             this.Py = null;
             this.Py = x509TrustManager;
         }
@@ -100,7 +100,7 @@ public final class a {
         HttpURLConnection httpURLConnection;
         KeyStore keyStore;
         KeyStore keyStore2;
-        String[] at;
+        String[] au;
         String string;
         Class<?> cls;
         int i = -1;
@@ -174,8 +174,8 @@ public final class a {
                 httpURLConnection.setRequestProperty("x-device-id", i.a(d.a(this.c)));
                 httpURLConnection.setRequestProperty("Pragma", "no-cache");
                 String str2 = "";
-                at = b.at(this.c);
-                if (at != null) {
+                au = b.au(this.c);
+                if (au != null) {
                 }
                 string = new com.baidu.sofire.rp.a.a(this.c).b.getString("ssv", "");
                 if (TextUtils.isEmpty(string)) {
@@ -207,7 +207,7 @@ public final class a {
         }
         if (x509TrustManager != null) {
             SSLContext sSLContext = SSLContext.getInstance("TLS");
-            sSLContext.init(null, new TrustManager[]{new C0040a(x509TrustManager)}, new SecureRandom());
+            sSLContext.init(null, new TrustManager[]{new C0039a(x509TrustManager)}, new SecureRandom());
             httpsURLConnection.setSSLSocketFactory(sSLContext.getSocketFactory());
             httpsURLConnection.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
         }
@@ -222,11 +222,11 @@ public final class a {
         httpURLConnection.setRequestProperty("x-device-id", i.a(d.a(this.c)));
         httpURLConnection.setRequestProperty("Pragma", "no-cache");
         String str22 = "";
-        at = b.at(this.c);
-        if (at != null) {
+        au = b.au(this.c);
+        if (au != null) {
             try {
-                if (at.length == 2) {
-                    str22 = at[0];
+                if (au.length == 2) {
+                    str22 = au[0];
                 }
             } catch (Throwable th) {
                 b.a();

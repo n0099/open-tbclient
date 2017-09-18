@@ -3,19 +3,18 @@ package com.baidu.android.pushservice.message.a;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
 /* loaded from: classes2.dex */
 public class e extends c {
-    private static final String b = e.class.getSimpleName();
-
     public e(Context context) {
         super(context);
     }
 
     public static PublicMsg a(Context context, String str, String str2, byte[] bArr, byte[] bArr2) {
-        if (q.a(context, bArr, str, str2, bArr2)) {
+        if (p.a(context, bArr, str, str2, bArr2)) {
             PublicMsg a = j.a(context, str2, str, bArr2);
             a.mPkgName = context.getPackageName();
             if (TextUtils.isEmpty(a.mTitle)) {
@@ -29,77 +28,70 @@ public class e extends c {
 
     @Override // com.baidu.android.pushservice.message.a.c
     public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
-        return null;
-    }
-
-    @Override // com.baidu.android.pushservice.message.a.c
-    public com.baidu.android.pushservice.message.g a(String str, String str2, int i, byte[] bArr, String str3, byte[] bArr2) {
-        int i2;
-        PublicMsg a = j.a(this.a, str2, str, bArr2);
+        int i;
+        String e = kVar.e();
+        String h = kVar.h();
+        int i2 = kVar.i();
+        byte[] j = kVar.j();
+        String f = kVar.f();
+        PublicMsg a = j.a(this.a, h, e, bArr);
         if (a != null && !TextUtils.isEmpty(a.mDescription)) {
-            com.baidu.android.pushservice.b.d a2 = com.baidu.android.pushservice.b.d.a(this.a, str);
-            if (TextUtils.isEmpty(str3) || !q.c(this.a, str3)) {
+            com.baidu.android.pushservice.b.d a2 = com.baidu.android.pushservice.b.d.a(this.a, e);
+            if (TextUtils.isEmpty(f) || !p.c(this.a, f)) {
                 if (a2.a() == com.baidu.android.pushservice.b.c.PUSH_CLIENT) {
                     a.mPkgName = a2.a.c();
                 } else if (a2.a() == com.baidu.android.pushservice.b.c.SDK_CLIENT) {
                     a.mPkgName = a2.b.c();
                 }
-                com.baidu.android.pushservice.g.a.c(b, "Notification Message PackageName is from  PushClient");
+                com.baidu.android.pushservice.g.a.c("MultiPrivateNotificationHandler", "Notification Message PackageName is from  PushClient");
             } else {
-                a.mPkgName = str3;
-                com.baidu.android.pushservice.g.a.c(b, "Notification Message has PackageName = " + str3);
+                a.mPkgName = f;
+                com.baidu.android.pushservice.g.a.c("MultiPrivateNotificationHandler", "Notification Message has PackageName = " + f);
             }
-            q.a(this.a, a);
+            p.a(this.a, a);
             switch (a2.a()) {
                 case PUSH_CLIENT:
                 case SDK_CLIENT:
-                    byte[] a3 = q.a(this.a, str2, bArr2, bArr, a.mPkgName);
+                    byte[] a3 = p.a(this.a, h, bArr, j, a.mPkgName);
                     PackageManager packageManager = this.a.getPackageManager();
                     try {
                         ApplicationInfo applicationInfo = packageManager.getApplicationInfo(a.mPkgName, 128);
                         if (TextUtils.isEmpty(a.mTitle)) {
                             a.mTitle = packageManager.getApplicationLabel(applicationInfo).toString();
                         }
-                        if (!str.equals("8965186")) {
-                            f.a(this.a, a, str2, str, i, a3, bArr2);
+                        if (!e.equals("8965186")) {
+                            f.a(this.a, a, h, e, i2, a3, bArr);
                         }
-                        com.baidu.android.pushservice.g.a.c(b, ">>> Show pMsg private Notification!");
-                        q.b(">>> Show pMsg private Notification!", this.a);
-                        i2 = 1;
+                        i = 1;
+                        com.baidu.android.pushservice.g.a.c("MultiPrivateNotificationHandler", ">>> Show pMsg private Notification!");
+                        p.b(">>> Show pMsg private Notification!", this.a);
                         break;
-                    } catch (PackageManager.NameNotFoundException e) {
-                        com.baidu.android.pushservice.g.a.a(b, e);
+                    } catch (PackageManager.NameNotFoundException e2) {
+                        com.baidu.android.pushservice.g.a.a("MultiPrivateNotificationHandler", e2);
                         if (a2.a() == com.baidu.android.pushservice.b.c.PUSH_CLIENT) {
-                            f.a(this.a, str);
+                            f.a(this.a, e);
                         } else if (a2.a() == com.baidu.android.pushservice.b.c.SDK_CLIENT) {
                             com.baidu.android.pushservice.b.h.a(this.a).a((com.baidu.android.pushservice.b.a) a2.b, false);
                         }
-                        i2 = 8;
+                        i = 8;
                         break;
                     }
-                case WEBAPP_CLIENT:
-                    if (TextUtils.isEmpty(a.mTitle)) {
-                        a.mTitle = str;
-                    }
-                    f.a(this.a, a, str2, str);
-                    com.baidu.android.pushservice.g.a.c(b, ">>> Show pMsg private web Notification!");
-                    q.b(">>> Show pMsg private Notification!", this.a);
-                    i2 = 1;
-                    break;
                 default:
-                    com.baidu.android.pushservice.g.a.c(b, ">>> Don't Show pMsg private Notification! package name is null");
-                    f.a(this.a, str);
-                    q.b(b + "*BBind*>>> Don't Show pMsg private Notification! package name is null", this.a);
-                    i2 = 7;
+                    com.baidu.android.pushservice.g.a.c("MultiPrivateNotificationHandler", ">>> Don't Show pMsg private Notification! package name is null");
+                    if (Build.VERSION.SDK_INT < 24) {
+                        f.a(this.a, e);
+                    }
+                    p.b("MultiPrivateNotificationHandler*BBind*>>> Don't Show pMsg private Notification! package name is null", this.a);
+                    i = 7;
                     break;
             }
         } else {
-            com.baidu.android.pushservice.g.a.e(b, ">>> pMsg JSON parsing error!");
-            q.b(b + "*BBind*>>> pMsg JSON parsing error!", this.a);
-            i2 = 2;
+            com.baidu.android.pushservice.g.a.e("MultiPrivateNotificationHandler", ">>> pMsg JSON parsing error!");
+            p.b("MultiPrivateNotificationHandler*BBind*>>> pMsg JSON parsing error!", this.a);
+            i = 2;
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-        gVar.a(i2);
+        gVar.a(i);
         return gVar;
     }
 }

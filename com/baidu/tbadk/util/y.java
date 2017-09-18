@@ -111,17 +111,17 @@ public class y {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aMI;
+        public String aMF;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aMI = "";
+            this.aMF = "";
             this.BDUSS = str;
-            this.aMI = str2;
+            this.aMF = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aMI != null ? this.aMI.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aMF != null ? this.aMF.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -137,7 +137,7 @@ public class y {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aMI == null ? aVar.aMI == null : this.aMI.equals(aVar.aMI);
+                return this.aMF == null ? aVar.aMF == null : this.aMF.equals(aVar.aMF);
             }
             return false;
         }

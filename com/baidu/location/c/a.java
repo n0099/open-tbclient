@@ -14,18 +14,18 @@ public class a {
     private boolean b = false;
     private Handler c = null;
     private AlarmManager LU = null;
-    private C0026a LV = null;
+    private C0025a LV = null;
     private PendingIntent LW = null;
     private long g = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0026a extends BroadcastReceiver {
-        private C0026a() {
+    public class C0025a extends BroadcastReceiver {
+        private C0025a() {
         }
 
-        /* synthetic */ C0026a(a aVar, i iVar) {
+        /* synthetic */ C0025a(a aVar, i iVar) {
             this();
         }
 
@@ -100,7 +100,7 @@ public class a {
                 this.c = new i(this);
             }
             this.LU = (AlarmManager) com.baidu.location.f.getServiceContext().getSystemService("alarm");
-            this.LV = new C0026a(this, null);
+            this.LV = new C0025a(this, null);
             com.baidu.location.f.getServiceContext().registerReceiver(this.LV, new IntentFilter("com.baidu.location.autonotifyloc_6.2.3"));
             this.LW = PendingIntent.getBroadcast(com.baidu.location.f.getServiceContext(), 0, new Intent("com.baidu.location.autonotifyloc_6.2.3"), 134217728);
             this.LU.set(0, System.currentTimeMillis() + com.baidu.location.h.i.T, this.LW);

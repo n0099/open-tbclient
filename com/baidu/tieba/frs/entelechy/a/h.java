@@ -18,14 +18,14 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> implements v, com.baidu.tieba.frs.f.c {
-    private x cvg;
+    private x cvY;
     private String mForumName;
 
     public static void bj(long j) {
-        if (j > 0 && cEr != null && !TextUtils.isEmpty(cEr.cEj)) {
+        if (j > 0 && cFj != null && !TextUtils.isEmpty(cFj.cFb)) {
             ak akVar = new ak("c11958");
             akVar.f("tid", j);
-            akVar.ad("fid", cEr.cEj);
+            akVar.ad("fid", cFj.cFb);
             TiebaStatic.log(akVar);
         }
     }
@@ -33,7 +33,7 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cvg = new x<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
+        this.cvY = new x<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, CardHListViewData cardHListViewData, Object obj) {
@@ -68,11 +68,11 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
     @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardHListViewData cardHListViewData, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.Yy() == null) {
+        if (aVar == null || aVar.YJ() == null) {
             return null;
         }
-        aVar.Yy().a((com.baidu.tieba.card.a) cardHListViewData);
-        aVar.Yy().b(this.cvg);
+        aVar.YJ().a((com.baidu.tieba.card.a) cardHListViewData);
+        aVar.YJ().b(this.cvY);
         return aVar.getView();
     }
 

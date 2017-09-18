@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class m extends c {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private ak bNl;
-    private ak bNm;
-    private ak bNn;
-    private ak bNo;
-    public bj bcJ;
+    private ak bOc;
+    private ak bOd;
+    private ak bOe;
+    private ak bOf;
+    public bj bcG;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
@@ -19,7 +19,7 @@ public class m extends c {
     }
 
     public m(bj bjVar) {
-        this.bcJ = bjVar;
+        this.bcG = bjVar;
     }
 
     public static boolean F(bj bjVar) {
@@ -28,42 +28,42 @@ public class m extends c {
 
     @Override // com.baidu.tieba.card.data.c
     public bj MR() {
-        return this.bcJ;
+        return this.bcG;
     }
 
-    public int Yq() {
-        return (this.bcJ == null || StringUtils.isNull(this.bcJ.getPhotoLiveCover())) ? 0 : 1;
+    public int YB() {
+        return (this.bcG == null || StringUtils.isNull(this.bcG.getPhotoLiveCover())) ? 0 : 1;
     }
 
     public void b(ak akVar) {
-        this.bNl = akVar;
+        this.bOc = akVar;
     }
 
     public void c(ak akVar) {
-        this.bNm = akVar;
+        this.bOd = akVar;
     }
 
     public void d(ak akVar) {
-        this.bNn = akVar;
+        this.bOe = akVar;
     }
 
     public void e(ak akVar) {
-        this.bNo = akVar;
+        this.bOf = akVar;
     }
 
-    public ak Yr() {
-        return this.bNl != null ? this.bNl.ad("obj_param3", com.baidu.tieba.card.m.XP()) : this.bNl;
+    public ak YC() {
+        return this.bOc != null ? this.bOc.ad("obj_param3", com.baidu.tieba.card.m.Ya()) : this.bOc;
     }
 
-    public ak Ys() {
-        return this.bNm != null ? this.bNm.ad("obj_param3", com.baidu.tieba.card.m.XP()) : this.bNm;
+    public ak YD() {
+        return this.bOd != null ? this.bOd.ad("obj_param3", com.baidu.tieba.card.m.Ya()) : this.bOd;
     }
 
-    public ak Yt() {
-        return this.bNo != null ? this.bNo.ad("obj_param3", com.baidu.tieba.card.m.XP()) : this.bNo;
+    public ak YE() {
+        return this.bOf != null ? this.bOf.ad("obj_param3", com.baidu.tieba.card.m.Ya()) : this.bOf;
     }
 
-    public ak Yu() {
-        return this.bNn != null ? this.bNn.ad("obj_param3", com.baidu.tieba.card.m.XP()) : this.bNn;
+    public ak YF() {
+        return this.bOe != null ? this.bOe.ad("obj_param3", com.baidu.tieba.card.m.Ya()) : this.bOe;
     }
 }

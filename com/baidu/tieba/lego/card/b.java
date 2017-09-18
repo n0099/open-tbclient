@@ -11,32 +11,32 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends e {
-    private final List<e> dVz;
+    private final List<e> dWt;
 
     private b() {
-        this.dVz = new ArrayList(4);
+        this.dWt = new ArrayList(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b dVA = new b();
+        private static final b dWu = new b();
     }
 
-    public static b aEp() {
-        return a.dVA;
+    public static b aEA() {
+        return a.dWu;
     }
 
     public synchronized void a(e eVar) {
-        this.dVz.add(eVar);
+        this.dWt.add(eVar);
     }
 
     public synchronized void a(e eVar, int i) {
-        this.dVz.add(0, eVar);
+        this.dWt.add(0, eVar);
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void aEq() {
+    protected void aEB() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -50,7 +50,7 @@ public class b extends e {
     }
 
     private ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        for (e eVar : this.dVz) {
+        for (e eVar : this.dWt) {
             try {
                 ICardInfo a2 = eVar.a(jSONObject, i);
                 if (a2 != null) {
@@ -75,7 +75,7 @@ public class b extends e {
 
     private <T> l b(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
         l a2;
-        for (e eVar : this.dVz) {
+        for (e eVar : this.dWt) {
             try {
                 a2 = eVar.a(tbPageContext, iCardInfo, i);
             } catch (Throwable th) {
@@ -89,7 +89,7 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo nA(String str) {
+    public static ICardInfo nC(String str) {
         try {
             ICardInfo A = A(new JSONObject(str));
             if (A != null) {
@@ -108,6 +108,6 @@ public class b extends e {
     }
 
     public static ICardInfo A(JSONObject jSONObject) throws CardParseException {
-        return aEp().a(jSONObject, jSONObject.optInt("card_type"));
+        return aEA().a(jSONObject, jSONObject.optInt("card_type"));
     }
 }

@@ -11,11 +11,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class k {
     static {
-        bfx();
-        bfy();
+        bfI();
+        bfJ();
     }
 
-    private static void bfx() {
+    private static void bfI() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -23,7 +23,7 @@ public class k {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private static void bfy() {
+    private static void bfJ() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -46,7 +46,7 @@ public class k {
         httpMessage.addParam("obj_duration", j);
         httpMessage.addParam("obj_type", str);
         if (wVar != null) {
-            httpMessage.addParam("video_md5", wVar.fAY);
+            httpMessage.addParam("video_md5", wVar.fBR);
         }
         httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("obj_param2", str2);
@@ -56,14 +56,14 @@ public class k {
 
     private static void a(HttpMessage httpMessage, w wVar) {
         if (httpMessage != null && wVar != null) {
-            httpMessage.addParam("tid", wVar.bGH);
-            httpMessage.addParam("fid", wVar.azO);
-            httpMessage.addParam("obj_to", wVar.fAU);
+            httpMessage.addParam("tid", wVar.bHy);
+            httpMessage.addParam("fid", wVar.azL);
+            httpMessage.addParam("obj_to", wVar.fBN);
             httpMessage.addParam("obj_id", wVar.VU);
-            httpMessage.addParam("obj_param3", wVar.fAV);
+            httpMessage.addParam("obj_param3", wVar.fBO);
             httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, wVar.mSource);
             httpMessage.addParam("obj_locate", wVar.mLocate);
-            httpMessage.addParam("obj_param1", wVar.fAW);
+            httpMessage.addParam("obj_param1", wVar.fBP);
         }
     }
 }

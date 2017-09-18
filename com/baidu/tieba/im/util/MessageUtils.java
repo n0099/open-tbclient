@@ -46,7 +46,7 @@ import protobuf.UserInfo;
 /* loaded from: classes.dex */
 public class MessageUtils {
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3) {
-        createPersonalChatMessage(b.ayP().af(String.valueOf(j), 2), i, str, j, str2, str3);
+        createPersonalChatMessage(b.aza().af(String.valueOf(j), 2), i, str, j, str2, str3);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3) {
@@ -84,12 +84,12 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             personalChatMessage.setLocalData(msgLocalData);
-            a.aAc().p(personalChatMessage);
+            a.aAn().p(personalChatMessage);
         }
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(b.ayP().af(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(b.aza().af(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -121,13 +121,13 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             groupChatMessage.setLocalData(msgLocalData);
-            a.aAc().p(groupChatMessage);
+            a.aAn().p(groupChatMessage);
         }
     }
 
     public static void sendHasReadMessage(String str, int i) {
         ImMessageCenterPojo aa;
-        if (!StringUtils.isNull(str) && i == 2 && (aa = b.ayP().aa(str, 2)) != null) {
+        if (!StringUtils.isNull(str) && i == 2 && (aa = b.aza().aa(str, 2)) != null) {
             long pulled_msgId = aa.getPulled_msgId();
             if (pulled_msgId > aa.getSent_msgId()) {
                 RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(d.bR(pulled_msgId), Long.parseLong(str));
@@ -336,14 +336,14 @@ public class MessageUtils {
                     if (groupMsgData != null && groupMsgData.getGroupInfo() != null && l != null) {
                         groupMsgData.getGroupInfo().setGroupId(l.longValue());
                     }
-                    if (!com.baidu.tieba.im.push.c.azK().bN(chatMessage.getMsgId())) {
-                        int gid = com.baidu.tieba.im.push.c.azK().getGid();
+                    if (!com.baidu.tieba.im.push.c.azV().bN(chatMessage.getMsgId())) {
+                        int gid = com.baidu.tieba.im.push.c.azV().getGid();
                         if (msgInfo.groupId != null) {
-                            if (gid == 0 || msgInfo.groupId.intValue() == com.baidu.tieba.im.push.c.azK().getGid()) {
-                                Long azL = com.baidu.tieba.im.push.c.azK().azL();
-                                if (azL == null || msgInfo.msgId == null || azL.longValue() < msgInfo.msgId.longValue()) {
+                            if (gid == 0 || msgInfo.groupId.intValue() == com.baidu.tieba.im.push.c.azV().getGid()) {
+                                Long azW = com.baidu.tieba.im.push.c.azV().azW();
+                                if (azW == null || msgInfo.msgId == null || azW.longValue() < msgInfo.msgId.longValue()) {
                                     chatMessage.setIsPushForOperateAccount(true);
-                                    com.baidu.tieba.im.push.c.azK().i(msgInfo.groupId.intValue(), chatMessage.getMsgId());
+                                    com.baidu.tieba.im.push.c.azV().i(msgInfo.groupId.intValue(), chatMessage.getMsgId());
                                 } else {
                                     return;
                                 }
@@ -476,7 +476,7 @@ public class MessageUtils {
         }
         NewpushRepair.Builder builder = new NewpushRepair.Builder();
         for (int i = 0; i < sparseArray.size(); i++) {
-            NewpushGroupRepair bL = com.baidu.tieba.im.push.a.azI().bL(sparseArray.keyAt(i));
+            NewpushGroupRepair bL = com.baidu.tieba.im.push.a.azT().bL(sparseArray.keyAt(i));
             if (bL != null) {
                 if (builder.groups == null) {
                     builder.groups = new ArrayList();

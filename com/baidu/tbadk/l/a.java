@@ -10,26 +10,26 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.a.a {
-    private b aIN;
-    private InterfaceC0063a aIO = null;
+    private b aIK;
+    private InterfaceC0062a aIL = null;
     private WindowManager mWindowManager;
 
     /* renamed from: com.baidu.tbadk.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0063a {
+    public interface InterfaceC0062a {
         void ff(int i);
     }
 
     public a(Context context) {
-        this.aIN = null;
+        this.aIK = null;
         this.mWindowManager = null;
-        this.aIN = new b(context);
+        this.aIK = new b(context);
         this.mWindowManager = (WindowManager) context.getSystemService("window");
     }
 
     private void Gb() {
         try {
-            this.mWindowManager.removeView(this.aIN);
+            this.mWindowManager.removeView(this.aIK);
         } catch (Throwable th) {
         }
     }
@@ -40,7 +40,7 @@ public class a extends com.baidu.adp.a.a.a {
             layoutParams.gravity = 51;
             layoutParams.height = 1;
             layoutParams.width = 1;
-            this.mWindowManager.addView(this.aIN, layoutParams);
+            this.mWindowManager.addView(this.aIK, layoutParams);
         } catch (Throwable th) {
         }
     }
@@ -60,8 +60,8 @@ public class a extends com.baidu.adp.a.a.a {
             @Override // java.lang.Runnable
             public void run() {
                 if (a.this.ck()) {
-                    a.this.aIN.invalidate();
-                    a.this.aIN.post(this);
+                    a.this.aIK.invalidate();
+                    a.this.aIK.post(this);
                 }
             }
         });
@@ -70,14 +70,14 @@ public class a extends com.baidu.adp.a.a.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b extends ImageView {
-        private int aIQ;
+        private int aIN;
         private final Paint mPaint;
         private long mStartTime;
 
         public b(Context context) {
             super(context);
             this.mStartTime = -1L;
-            this.aIQ = 0;
+            this.aIN = 0;
             this.mPaint = new Paint();
             this.mPaint.setColor(0);
             this.mPaint.setAlpha(0);
@@ -89,26 +89,26 @@ public class a extends com.baidu.adp.a.a.a {
         public void draw(Canvas canvas) {
             if (this.mStartTime == -1) {
                 this.mStartTime = SystemClock.elapsedRealtime();
-                this.aIQ = 0;
+                this.aIN = 0;
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
             super.draw(canvas);
             if (elapsedRealtime - this.mStartTime > 1000) {
                 this.mStartTime = elapsedRealtime;
-                if (a.this.aIO != null) {
-                    a.this.aIO.ff(this.aIQ);
+                if (a.this.aIL != null) {
+                    a.this.aIL.ff(this.aIN);
                 } else {
-                    com.baidu.adp.a.a.d.F(this.aIQ);
+                    com.baidu.adp.a.a.d.F(this.aIN);
                 }
-                this.aIQ = 0;
+                this.aIN = 0;
             }
-            this.aIQ++;
+            this.aIN++;
         }
     }
 
-    public void a(InterfaceC0063a interfaceC0063a) {
-        if (this.aIO == null) {
-            this.aIO = interfaceC0063a;
+    public void a(InterfaceC0062a interfaceC0062a) {
+        if (this.aIL == null) {
+            this.aIL = interfaceC0062a;
         }
     }
 }

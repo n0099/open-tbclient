@@ -81,13 +81,13 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork = new x(TbConfig.SERVER_ADDRESS + "c/s/switch");
                 this.mNetWork.n("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
-                stringBuffer.append(String.valueOf(k.ad(TbadkCoreApplication.getInst().getApp())));
-                stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 stringBuffer.append(String.valueOf(k.ae(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                stringBuffer.append(String.valueOf(k.af(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.n("_phone_screen", stringBuffer.toString());
-                this.mNetWork.n("scr_w", String.valueOf(k.ad(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.n("scr_h", String.valueOf(k.ae(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.n("scr_dip", String.valueOf(k.af(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.n("scr_w", String.valueOf(k.ae(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.n("scr_h", String.valueOf(k.af(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.n("scr_dip", String.valueOf(k.ag(TbadkCoreApplication.getInst().getApp())));
                 if (b.zA().zD() > 0) {
                     this.mNetWork.n("_msg_status", "0");
                 } else {

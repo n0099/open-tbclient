@@ -402,7 +402,7 @@ public class BdStatisticsManager {
     }
 
     public void imgNet(String str, String str2, long j, long j2, long j3, long j4, long j5, int i, int i2, String str3, Object... objArr) {
-        if ((i2 != 0 && i2 != 200) || (j3 > 2000 && "WIFI".equals(d.aa(this.mContext)))) {
+        if ((i2 != 0 && i2 != 200) || (j3 > 2000 && "WIFI".equals(d.ab(this.mContext)))) {
             net("img", str, str2, j, j2, j3, j4, j5, i, i2, str3, objArr);
         }
     }
@@ -493,7 +493,7 @@ public class BdStatisticsManager {
     }
 
     public String getCurNetworkType() {
-        return d.aa(BdBaseApplication.getInst());
+        return d.ab(BdBaseApplication.getInst());
     }
 
     public static void clearInstance() {

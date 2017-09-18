@@ -17,7 +17,7 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public final class a {
     public static a Pt;
-    private C0038a Pr;
+    private C0037a Pr;
     public SQLiteDatabase Ps;
     int a = 4;
     String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,a TEXT)";
@@ -26,7 +26,7 @@ public final class a {
     private a(Context context) {
         b.a();
         this.f = context.getApplicationContext();
-        this.Pr = new C0038a(context.getApplicationContext());
+        this.Pr = new C0037a(context.getApplicationContext());
         try {
             this.Ps = this.Pr.getWritableDatabase();
         } catch (Throwable th) {
@@ -34,7 +34,7 @@ public final class a {
         }
     }
 
-    public static synchronized a an(Context context) {
+    public static synchronized a ao(Context context) {
         a aVar;
         synchronized (a.class) {
             String str = "i=" + Pt;
@@ -49,9 +49,9 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0038a extends SQLiteOpenHelper {
+    private class C0037a extends SQLiteOpenHelper {
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0010: IGET  (r1v1 int A[REMOVE]) = (r4v0 com.baidu.sofire.a.a) com.baidu.sofire.a.a.a int)] */
-        public C0038a(Context context) {
+        public C0037a(Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.a);
             new StringBuilder().append(a.this.a).toString();
             b.a();

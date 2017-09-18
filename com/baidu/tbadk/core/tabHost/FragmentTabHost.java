@@ -239,9 +239,9 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         } else if (i == 2) {
             layoutParams2.addRule(12, -1);
             layoutParams.addRule(10, -1);
-            layoutParams.bottomMargin = k.g(this.mContext, d.f.ds98);
+            layoutParams.bottomMargin = k.f(this.mContext, d.f.ds98);
         } else if (i == 3) {
-            layoutParams2.topMargin = UtilHelper.getLightStatusBarHeight() + k.g(this.mContext, d.f.ds98);
+            layoutParams2.topMargin = UtilHelper.getLightStatusBarHeight() + k.f(this.mContext, d.f.ds98);
         }
         this.aey.setLayoutParams(layoutParams);
         this.aeB.setLayoutParams(layoutParams2);

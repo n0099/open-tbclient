@@ -13,21 +13,25 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.e.a;
 /* loaded from: classes.dex */
 public class a {
-    private boolean aMy = false;
-    private a.InterfaceC0082a bZO = new a.InterfaceC0082a() { // from class: com.baidu.tieba.frs.gametab.a.1
-        final int bzE = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
+    private boolean cDd;
+    private com.baidu.tieba.e.b csZ;
+    private Context mContext;
+    private BdUniqueId mPageId;
+    private boolean aMv = false;
+    private a.InterfaceC0081a caG = new a.InterfaceC0081a() { // from class: com.baidu.tieba.frs.gametab.a.1
+        final int bAv = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0082a
-        public void ag(int i, int i2) {
+        @Override // com.baidu.tieba.e.a.InterfaceC0081a
+        public void ak(int i, int i2) {
             if (N(i2)) {
-                a.this.er(false);
+                a.this.es(false);
             }
         }
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0082a
-        public void ah(int i, int i2) {
+        @Override // com.baidu.tieba.e.a.InterfaceC0081a
+        public void al(int i, int i2) {
             if (N(i2)) {
-                a.this.er(true);
+                a.this.es(true);
             }
         }
 
@@ -35,32 +39,28 @@ public class a {
             return Math.abs(f) >= 5.0f;
         }
     };
-    private boolean cCl;
-    private com.baidu.tieba.e.b csh;
-    private Context mContext;
-    private BdUniqueId mPageId;
 
     public a(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.cCl = z;
-        if (this.cCl) {
-            this.csh = new com.baidu.tieba.e.b(context);
-            this.csh.a(this.bZO);
+        this.cDd = z;
+        if (this.cDd) {
+            this.csZ = new com.baidu.tieba.e.b(context);
+            this.csZ.a(this.caG);
         }
     }
 
     public void d(View view, MotionEvent motionEvent) {
-        if (this.cCl && this.csh != null) {
-            this.csh.onTouchEvent(motionEvent);
+        if (this.cDd && this.csZ != null) {
+            this.csZ.onTouchEvent(motionEvent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void er(boolean z) {
-        this.aMy = z;
-        if (this.cCl) {
-            m(!this.aMy, true);
+    public void es(boolean z) {
+        this.aMv = z;
+        if (this.cDd) {
+            m(!this.aMv, true);
         }
     }
 

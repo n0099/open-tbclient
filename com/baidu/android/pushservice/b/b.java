@@ -4,10 +4,9 @@ import android.content.Context;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.pushservice.h.p;
-import com.baidu.android.pushservice.j.n;
+import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.j.q;
-import com.baidu.android.pushservice.j.r;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
@@ -24,15 +23,15 @@ public final class b {
     private b(Context context) {
         int i;
         this.c = context.getApplicationContext();
-        String g = com.baidu.android.pushservice.d.c.g(context);
-        if (TextUtils.isEmpty(g) && q.D(this.c)) {
-            g = r.a(this.c, this.c.getPackageName() + ".push_sync", "r_v2");
+        String f = com.baidu.android.pushservice.d.c.f(context);
+        if (TextUtils.isEmpty(f) && p.D(this.c)) {
+            f = q.a(this.c, this.c.getPackageName() + ".push_sync", "r_v2");
         }
-        if (TextUtils.isEmpty(g)) {
+        if (TextUtils.isEmpty(f)) {
             com.baidu.android.pushservice.g.a.d("ClientManager", "ClientManager init strAppsV2 empty.");
         } else {
             try {
-                String a = a(g);
+                String a = a(f);
                 com.baidu.android.pushservice.g.a.b("ClientManager", "ClientManager init strAppsV2 : " + a);
                 ArrayList<f> e = e(a);
                 if (e != null) {
@@ -45,7 +44,7 @@ public final class b {
                 com.baidu.android.pushservice.g.a.a("ClientManager", e2);
             }
         }
-        int b2 = n.b(this.c, "com.baidu.push.sync.vn", -1);
+        int b2 = m.b(this.c, "com.baidu.push.sync.vn", -1);
         try {
             i = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
         } catch (Exception e3) {
@@ -54,7 +53,7 @@ public final class b {
         }
         if (b2 < i) {
             a();
-            n.a(this.c, "com.baidu.push.sync.vn", i);
+            m.a(this.c, "com.baidu.push.sync.vn", i);
         }
     }
 
@@ -140,29 +139,29 @@ public final class b {
     private void a(String str, ArrayList<f> arrayList) {
         String str2;
         String str3;
-        String h;
+        String g;
         String str4;
         boolean z;
         ArrayList<f> e;
         boolean z2;
         Context u;
         String str5 = this.c.getPackageName() + ".push_sync";
-        for (ResolveInfo resolveInfo : q.E(this.c) ? q.n(this.c) : q.m(this.c)) {
+        for (ResolveInfo resolveInfo : p.E(this.c) ? p.n(this.c) : p.m(this.c)) {
             try {
                 String str6 = resolveInfo.activityInfo.packageName;
-                if (!q.D(this.c) || (u = q.u(this.c, resolveInfo.activityInfo.packageName)) == null) {
+                if (!p.D(this.c) || (u = p.u(this.c, resolveInfo.activityInfo.packageName)) == null) {
                     str2 = null;
                     str3 = null;
                 } else {
-                    str3 = r.a(u, resolveInfo.activityInfo.packageName + ".push_sync", str);
-                    str2 = r.a(u, resolveInfo.activityInfo.packageName + ".self_push_sync", "bindinfo");
+                    str3 = q.a(u, resolveInfo.activityInfo.packageName + ".push_sync", str);
+                    str2 = q.a(u, resolveInfo.activityInfo.packageName + ".self_push_sync", "bindinfo");
                 }
-                if ((TextUtils.isEmpty(str3) || TextUtils.isEmpty(str2)) && q.l(this.c, str6) > 50) {
-                    String g = com.baidu.android.pushservice.d.d.g(this.c, str6);
-                    h = com.baidu.android.pushservice.d.d.h(this.c, str6);
-                    str4 = g;
+                if ((TextUtils.isEmpty(str3) || TextUtils.isEmpty(str2)) && p.l(this.c, str6) > 50) {
+                    String f = com.baidu.android.pushservice.d.d.f(this.c, str6);
+                    g = com.baidu.android.pushservice.d.d.g(this.c, str6);
+                    str4 = f;
                 } else {
-                    h = str2;
+                    g = str2;
                     str4 = str3;
                 }
                 if (!TextUtils.isEmpty(str4) && (e = e(a(str4))) != null) {
@@ -187,8 +186,8 @@ public final class b {
                         }
                     }
                 }
-                if (!TextUtils.isEmpty(h)) {
-                    f h2 = h(a(h));
+                if (!TextUtils.isEmpty(g)) {
+                    f h = h(a(g));
                     Iterator<f> it3 = arrayList.iterator();
                     while (true) {
                         if (!it3.hasNext()) {
@@ -196,27 +195,27 @@ public final class b {
                             break;
                         }
                         f next3 = it3.next();
-                        if (TextUtils.equals(h2.c, next3.c)) {
+                        if (TextUtils.equals(h.c, next3.c)) {
                             arrayList.remove(next3);
-                            arrayList.add(h2);
+                            arrayList.add(h);
                             z = true;
                             break;
                         }
                     }
                     if (!z) {
-                        arrayList.add(h2);
+                        arrayList.add(h);
                     }
                 }
             } catch (Exception e2) {
                 com.baidu.android.pushservice.g.a.e("ClientManager", "syncRegisterDataImpl Exception: " + e2.getMessage());
-                p.a(this.c, e2);
+                com.baidu.android.pushservice.h.p.a(this.c, e2);
             }
         }
         if (arrayList.size() > 0) {
             String b2 = b(a(arrayList));
-            com.baidu.android.pushservice.d.c.e(this.c, b2);
-            if (q.D(this.c)) {
-                r.a(this.c, str5, str, b2);
+            com.baidu.android.pushservice.d.c.d(this.c, b2);
+            if (p.D(this.c)) {
+                q.a(this.c, str5, str, b2);
             }
         }
     }
@@ -279,7 +278,7 @@ public final class b {
         while (it.hasNext()) {
             f next = it.next();
             if (next.d >= i && (!z || next.g)) {
-                if (q.c(this.c, next.c())) {
+                if (p.c(this.c, next.c())) {
                     return next;
                 }
             }
@@ -317,9 +316,9 @@ public final class b {
                     String a = a(arrayList);
                     com.baidu.android.pushservice.g.a.b("ClientManager", "sync  strApps: " + a);
                     b2 = b(a);
-                    com.baidu.android.pushservice.d.c.e(this.c, b2);
-                    if (q.D(this.c)) {
-                        r.a(this.c, this.c.getPackageName() + ".push_sync", str, b2);
+                    com.baidu.android.pushservice.d.c.d(this.c, b2);
+                    if (p.D(this.c)) {
+                        q.a(this.c, this.c.getPackageName() + ".push_sync", str, b2);
                     }
                 }
                 while (it.hasNext()) {
@@ -332,8 +331,8 @@ public final class b {
             String a2 = a(arrayList);
             com.baidu.android.pushservice.g.a.b("ClientManager", "sync  strApps: " + a2);
             b2 = b(a2);
-            com.baidu.android.pushservice.d.c.e(this.c, b2);
-            if (q.D(this.c)) {
+            com.baidu.android.pushservice.d.c.d(this.c, b2);
+            if (p.D(this.c)) {
             }
         }
         return b2;
@@ -372,9 +371,9 @@ public final class b {
                         str3 = a(b.a);
                     }
                     String b2 = b(str3);
-                    com.baidu.android.pushservice.d.c.e(this.c, b2);
-                    if (q.D(this.c)) {
-                        r.a(this.c, this.c.getPackageName() + ".push_sync", str, b2);
+                    com.baidu.android.pushservice.d.c.d(this.c, b2);
+                    if (p.D(this.c)) {
+                        q.a(this.c, this.c.getPackageName() + ".push_sync", str, b2);
                     }
                 } catch (Exception e2) {
                     com.baidu.android.pushservice.g.a.a("ClientManager", e2);
@@ -398,19 +397,19 @@ public final class b {
     public synchronized void b(Context context) {
         ArrayList<f> arrayList;
         int i;
-        String g = com.baidu.android.pushservice.d.c.g(context);
-        if (TextUtils.isEmpty(g)) {
+        String f = com.baidu.android.pushservice.d.c.f(context);
+        if (TextUtils.isEmpty(f)) {
             com.baidu.android.pushservice.g.a.c("ClientManager", "*BBind* selfbindinfo is null");
-            q.b("ClientManager*BBind* selfbindinfo is null", context);
-            if (q.D(this.c)) {
-                g = r.a(this.c, this.c.getPackageName() + ".push_sync", "r_v2");
+            p.b("ClientManager*BBind* selfbindinfo is null", context);
+            if (p.D(this.c)) {
+                f = q.a(this.c, this.c.getPackageName() + ".push_sync", "r_v2");
             }
         }
-        if (TextUtils.isEmpty(g)) {
+        if (TextUtils.isEmpty(f)) {
             arrayList = null;
         } else {
-            String a = a(g);
-            q.b("ClientManager*BBind* clients=" + a, context);
+            String a = a(f);
+            p.b("ClientManager*BBind* clients=" + a, context);
             arrayList = e(a);
         }
         if (b != null && arrayList != null) {
@@ -430,7 +429,7 @@ public final class b {
                 i2 = i + 1;
             }
             b.a.addAll(arrayList);
-            q.b("ClientManager*BBind* sInstance.mClientsV2.size=" + b.a.size(), context);
+            p.b("ClientManager*BBind* sInstance.mClientsV2.size=" + b.a.size(), context);
         }
     }
 
@@ -468,9 +467,9 @@ public final class b {
                     return next;
                 }
             }
-            q.b("ClientManager*BBind* isRegisteredClientByAppid return not by mClientsV2!", this.c);
+            p.b("ClientManager*BBind* isRegisteredClientByAppid return not by mClientsV2!", this.c);
             try {
-                n = q.E(this.c) ? q.n(this.c) : q.m(this.c);
+                n = p.E(this.c) ? p.n(this.c) : p.m(this.c);
             } catch (Exception e2) {
                 exc = e2;
                 str2 = null;
@@ -479,15 +478,15 @@ public final class b {
                 String str3 = null;
                 for (ResolveInfo resolveInfo : n) {
                     try {
-                        if (q.D(this.c) && (u = q.u(this.c, resolveInfo.activityInfo.packageName)) != null) {
+                        if (p.D(this.c) && (u = p.u(this.c, resolveInfo.activityInfo.packageName)) != null) {
                             try {
-                                str3 = r.a(u, resolveInfo.activityInfo.packageName + ".push_sync", "r_v2");
+                                str3 = q.a(u, resolveInfo.activityInfo.packageName + ".push_sync", "r_v2");
                             } catch (Exception e3) {
                                 com.baidu.android.pushservice.g.a.a("ClientManager", e3);
                             }
                         }
                         if (TextUtils.isEmpty(str3)) {
-                            str3 = com.baidu.android.pushservice.d.d.g(this.c, resolveInfo.activityInfo.packageName);
+                            str3 = com.baidu.android.pushservice.d.d.f(this.c, resolveInfo.activityInfo.packageName);
                         }
                         if (!TextUtils.isEmpty(str3)) {
                             String a = a(str3);
@@ -507,18 +506,18 @@ public final class b {
                         str2 = str3;
                         exc = e4;
                         com.baidu.android.pushservice.g.a.a("ClientManager", exc);
-                        q.b("ClientManager*BBind* isRegisteredClientByAppid return null!" + str2, this.c);
+                        p.b("ClientManager*BBind* isRegisteredClientByAppid return null!" + str2, this.c);
                         return null;
                     }
                 }
                 str2 = str3;
-                q.b("ClientManager*BBind* isRegisteredClientByAppid return null!" + str2, this.c);
+                p.b("ClientManager*BBind* isRegisteredClientByAppid return null!" + str2, this.c);
                 return null;
             }
-            q.b("ClientManager*BBind* getFriendPackages is null!", this.c);
+            p.b("ClientManager*BBind* getFriendPackages is null!", this.c);
         }
         str2 = null;
-        q.b("ClientManager*BBind* isRegisteredClientByAppid return null!" + str2, this.c);
+        p.b("ClientManager*BBind* isRegisteredClientByAppid return null!" + str2, this.c);
         return null;
     }
 

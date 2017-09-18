@@ -16,108 +16,108 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<com.baidu.adp.widget.ListView.f> boR;
-    private View cGP;
-    private com.baidu.adp.widget.ListView.f cGQ;
-    private h cGR;
-    private View.OnClickListener cGS = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.1
+    private ArrayList<com.baidu.adp.widget.ListView.f> bpe;
+    private View cHJ;
+    private com.baidu.adp.widget.ListView.f cHK;
+    private h cHL;
+    private View.OnClickListener cHM = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             f.a aVar;
-            if (a.this.cGQ instanceof bj) {
-                bj bjVar = (bj) a.this.cGQ;
+            if (a.this.cHK instanceof bj) {
+                bj bjVar = (bj) a.this.cHK;
                 view.setPressed(false);
                 if ((view.getTag() instanceof f.a) && (aVar = (f.a) view.getTag()) != null) {
                     com.baidu.tieba.tbadkCore.util.f readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                     if (readThreadHistory != null) {
-                        readThreadHistory.sm(bjVar.getId());
+                        readThreadHistory.so(bjVar.getId());
                     }
-                    aj.i(aVar.cIP, d.e.cp_cont_c);
+                    aj.i(aVar.cJJ, d.e.cp_cont_c);
                 }
-                if (a.this.cGR != null) {
-                    a.this.cGR.a(view, bjVar, BdUniqueId.gen(), null, 0, 0L);
+                if (a.this.cHL != null) {
+                    a.this.cHL.a(view, bjVar, BdUniqueId.gen(), null, 0, 0L);
                 }
             }
         }
     };
-    private f ctT;
-    private ExpandLayout ctW;
+    private f cuL;
+    private ExpandLayout cuO;
     private Context mContext;
 
     public a(com.baidu.tieba.frs.f fVar, ExpandLayout expandLayout, HashSet<String> hashSet, f fVar2) {
         this.mContext = fVar.yi().getPageActivity();
-        this.ctW = expandLayout;
-        this.ctT = fVar2;
-        this.ctT.a(hashSet);
-        this.ctW.cGV.setAdapter(fVar2);
+        this.cuO = expandLayout;
+        this.cuL = fVar2;
+        this.cuL.a(hashSet);
+        this.cuO.cHP.setAdapter(fVar2);
     }
 
     public void aW(List<bj> list) {
-        if (this.boR == null) {
-            this.boR = new ArrayList<>();
+        if (this.bpe == null) {
+            this.bpe = new ArrayList<>();
         }
-        this.boR.addAll(list);
+        this.bpe.addAll(list);
     }
 
     public void aX(List<com.baidu.tieba.tbadkCore.e> list) {
-        if (this.boR == null) {
-            this.boR = new ArrayList<>();
+        if (this.bpe == null) {
+            this.bpe = new ArrayList<>();
         }
         if (!v.v(list)) {
             int size = list.size();
-            this.boR.addAll(list.subList(0, size <= 5 ? size : 5));
+            this.bpe.addAll(list.subList(0, size <= 5 ? size : 5));
         }
     }
 
-    public void alQ() {
-        if (this.ctW != null && !v.v(this.boR)) {
-            if (this.cGP != null) {
-                this.ctW.cGU.removeView(this.cGP);
+    public void amb() {
+        if (this.cuO != null && !v.v(this.bpe)) {
+            if (this.cHJ != null) {
+                this.cuO.cHO.removeView(this.cHJ);
             }
-            this.ctW.cGV.removeAllViews();
-            this.ctW.cGW.setVisibility(8);
-            this.ctW.setVisibility(0);
+            this.cuO.cHP.removeAllViews();
+            this.cuO.cHQ.setVisibility(8);
+            this.cuO.setVisibility(0);
             ArrayList arrayList = null;
-            for (int i = 0; i < this.boR.size(); i++) {
+            for (int i = 0; i < this.bpe.size(); i++) {
                 if (i == 0) {
-                    this.cGQ = this.boR.get(i);
-                    this.cGP = this.ctT.g(this.cGQ);
-                    if (this.cGP != null) {
-                        if (this.cGQ instanceof bj) {
-                            this.ctT.cII = true;
-                            this.cGP.setOnClickListener(this.cGS);
+                    this.cHK = this.bpe.get(i);
+                    this.cHJ = this.cuL.g(this.cHK);
+                    if (this.cHJ != null) {
+                        if (this.cHK instanceof bj) {
+                            this.cuL.cJC = true;
+                            this.cHJ.setOnClickListener(this.cHM);
                         } else {
-                            this.ctT.cII = false;
+                            this.cuL.cJC = false;
                         }
-                        this.ctW.cGU.addView(this.cGP, 0, new ViewGroup.LayoutParams(-1, -2));
+                        this.cuO.cHO.addView(this.cHJ, 0, new ViewGroup.LayoutParams(-1, -2));
                     }
                 } else {
                     ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;
-                    arrayList2.add(this.boR.get(i));
+                    arrayList2.add(this.bpe.get(i));
                     arrayList = arrayList2;
                 }
             }
-            if (!v.v(arrayList) && this.ctT != null) {
-                this.ctW.cGW.setVisibility(0);
-                aj.c(this.ctW.cGW, d.g.icon_arrow_gray_down);
-                this.ctT.setData(arrayList);
-                this.ctT.notifyDataSetChanged();
+            if (!v.v(arrayList) && this.cuL != null) {
+                this.cuO.cHQ.setVisibility(0);
+                aj.c(this.cuO.cHQ, d.g.icon_arrow_gray_down);
+                this.cuL.setData(arrayList);
+                this.cuL.notifyDataSetChanged();
             }
         }
     }
 
     public void clearData() {
-        if (this.boR != null) {
-            this.boR.clear();
+        if (this.bpe != null) {
+            this.bpe.clear();
         }
-        if (this.ctW != null) {
-            this.ctW.reset();
-            this.ctW.setVisibility(8);
+        if (this.cuO != null) {
+            this.cuO.reset();
+            this.cuO.setVisibility(8);
         }
     }
 
     public void b(h hVar) {
-        this.ctT.b(hVar);
-        this.cGR = hVar;
+        this.cuL.b(hVar);
+        this.cHL = hVar;
     }
 }

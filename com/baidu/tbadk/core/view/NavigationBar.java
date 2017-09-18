@@ -186,7 +186,7 @@ public class NavigationBar extends RelativeLayout {
 
     private void init(Context context, AttributeSet attributeSet) {
         boolean z;
-        this.mFixedNavHeight = com.baidu.adp.lib.util.k.g(getContext(), d.f.ds98);
+        this.mFixedNavHeight = com.baidu.adp.lib.util.k.f(getContext(), d.f.ds98);
         this.mCurrentActivity = (Activity) context;
         this.mRootView = LayoutInflater.from(context).inflate(d.j.widget_navigation_bar, (ViewGroup) this, true);
         this.mContentLayout = (FrameLayout) this.mRootView.findViewById(d.h.navigation_bar_content_layout);
@@ -303,16 +303,16 @@ public class NavigationBar extends RelativeLayout {
         int i3;
         if (this.isFixedHeight) {
             int mode = View.MeasureSpec.getMode(i2);
-            int g = com.baidu.adp.lib.util.k.g(getContext(), d.f.ds98);
+            int f = com.baidu.adp.lib.util.k.f(getContext(), d.f.ds98);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mContentLayout.getLayoutParams();
             if (Math.abs(layoutParams.topMargin) > this.mContentLayout.getHeight()) {
                 if (layoutParams.topMargin >= 0) {
-                    i3 = this.mContentLayout.getHeight() + g;
+                    i3 = this.mContentLayout.getHeight() + f;
                 } else {
-                    i3 = g - this.mContentLayout.getHeight();
+                    i3 = f - this.mContentLayout.getHeight();
                 }
             } else {
-                i3 = layoutParams.topMargin + g;
+                i3 = layoutParams.topMargin + f;
             }
             i2 = View.MeasureSpec.makeMeasureSpec(i3, mode);
         }

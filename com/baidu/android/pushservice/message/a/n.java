@@ -3,13 +3,11 @@ package com.baidu.android.pushservice.message.a;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.p;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class n extends c {
-    private static final String b = n.class.getSimpleName();
-
     public n(Context context) {
         super(context);
     }
@@ -31,82 +29,86 @@ public class n extends c {
 
     @Override // com.baidu.android.pushservice.message.a.c
     public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
-        return null;
-    }
-
-    @Override // com.baidu.android.pushservice.message.a.c
-    public com.baidu.android.pushservice.message.g a(String str, String str2, int i, byte[] bArr, String str3, byte[] bArr2) {
-        String str4;
+        String str;
+        int i;
+        String str2;
         int i2;
-        String str5;
         com.baidu.android.pushservice.message.g gVar;
+        String e = kVar.e();
+        String h = kVar.h();
+        byte[] j = kVar.j();
+        String f = kVar.f();
         com.baidu.android.pushservice.message.g gVar2 = new com.baidu.android.pushservice.message.g();
-        int i3 = 0;
-        String str6 = new String(bArr2);
-        com.baidu.android.pushservice.g.a.c(b, "ultronMsg: " + str6);
+        String str3 = new String(bArr);
+        com.baidu.android.pushservice.g.a.c("UltronMessageHandler", "ultronMsg: " + str3);
         try {
-            JSONObject jSONObject = new JSONObject(str6);
+            JSONObject jSONObject = new JSONObject(str3);
             int optInt = jSONObject.optInt("version_require", -1);
             int optInt2 = jSONObject.optInt("command_type");
             String optString = jSONObject.optString("command_body");
-            com.baidu.android.pushservice.g.a.c(b, "ultronMsg, vr: " + optInt + " ct: " + optInt2 + " b: " + optString);
-            if (TextUtils.isEmpty(str) || str.equals("0")) {
-                str4 = null;
+            com.baidu.android.pushservice.g.a.c("UltronMessageHandler", "ultronMsg, vr: " + optInt + " ct: " + optInt2 + " b: " + optString);
+            if (TextUtils.isEmpty(e) || e.equals("0")) {
+                str = null;
+                i = 0;
             } else {
-                if (TextUtils.isEmpty(str3) || !q.c(this.a, str3)) {
-                    str3 = null;
+                if (TextUtils.isEmpty(f) || !p.c(this.a, f)) {
+                    f = null;
                 } else {
-                    com.baidu.android.pushservice.g.a.c(b, "Ultron Message has PackageName = " + str3);
+                    com.baidu.android.pushservice.g.a.c("UltronMessageHandler", "Ultron Message has PackageName = " + f);
                 }
-                com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(this.a).d(str);
+                com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(this.a).d(e);
                 if (d == null || d.c() == null) {
                     if (optInt2 == 1) {
-                        i3 = 7;
-                        str4 = str3;
+                        i = 7;
+                        str = f;
                     }
-                    str4 = str3;
-                } else if (q.c(this.a, d.c())) {
-                    if (TextUtils.isEmpty(str3)) {
-                        str3 = d.c();
-                        com.baidu.android.pushservice.g.a.c(b, "Ultron Message PackageName is from  PushClient");
+                    i = 0;
+                    str = f;
+                } else if (p.c(this.a, d.c())) {
+                    if (TextUtils.isEmpty(f)) {
+                        f = d.c();
+                        com.baidu.android.pushservice.g.a.c("UltronMessageHandler", "Ultron Message PackageName is from  PushClient");
                     }
                     if (optInt2 == 1 && d.d() < optInt) {
-                        i3 = 6;
-                        str4 = str3;
+                        i = 6;
+                        str = f;
                     }
-                    str4 = str3;
+                    i = 0;
+                    str = f;
                 } else {
                     if (optInt2 == 1) {
-                        i3 = 8;
-                        str4 = str3;
+                        i = 8;
+                        str = f;
                     }
-                    str4 = str3;
+                    i = 0;
+                    str = f;
                 }
             }
-            if (str4 == null && i3 == 0) {
+            if (str == null && i == 0) {
                 com.baidu.android.pushservice.b.f a = com.baidu.android.pushservice.b.b.a(this.a).a(optInt, optInt2 == 2);
                 if (a == null) {
+                    str2 = str;
                     i2 = 6;
-                    str5 = str4;
                 } else {
                     String c = a.c();
-                    com.baidu.android.pushservice.g.a.c(b, "Ultron Message PackageName is from  PushClient  needBaiduAPP");
-                    i2 = i3;
-                    str5 = c;
+                    com.baidu.android.pushservice.g.a.c("UltronMessageHandler", "Ultron Message PackageName is from  PushClient  needBaiduAPP");
+                    i2 = i;
+                    str2 = c;
                 }
             } else {
+                int i3 = i;
+                str2 = str;
                 i2 = i3;
-                str5 = str4;
             }
             if (i2 == 0) {
-                com.baidu.android.pushservice.g.a.c(b, "ultronMsg, handleMsg: " + str5);
-                gVar = a(str5, 0L, str2, bArr, optString);
+                com.baidu.android.pushservice.g.a.c("UltronMessageHandler", "ultronMsg, handleMsg: " + str2);
+                gVar = a(str2, 0L, h, j, optString);
             } else {
                 gVar = gVar2;
             }
             gVar.a(i2);
             return gVar;
-        } catch (JSONException e) {
+        } catch (JSONException e2) {
             gVar2.a(2);
             return gVar2;
         }

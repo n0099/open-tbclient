@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.s;
 /* loaded from: classes.dex */
 public class n extends a {
-    private boolean ajf;
+    private boolean aje;
     private int procType;
 
     public n(boolean z, int i) {
-        this.ajf = true;
+        this.aje = true;
         this.procType = 0;
-        this.ajf = z;
+        this.aje = z;
         this.procType = i;
     }
 
@@ -26,17 +26,17 @@ public class n extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public int getWidth() {
-        return com.baidu.adp.lib.util.k.ad(TbadkCoreApplication.getInst().getApp());
-    }
-
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int getHeight() {
         return com.baidu.adp.lib.util.k.ae(TbadkCoreApplication.getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
+    public int getHeight() {
+        return com.baidu.adp.lib.util.k.af(TbadkCoreApplication.getInst().getApp());
+    }
+
+    @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.ajf;
+        return this.aje;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a

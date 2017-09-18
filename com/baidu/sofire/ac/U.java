@@ -121,9 +121,9 @@ public class U extends Thread {
         this.mUpgradeResultMap = new HashMap();
         this.mStartNetwork = -2;
         this.context = context;
-        this.loadedPluginDB = com.baidu.sofire.a.a.an(context);
+        this.loadedPluginDB = com.baidu.sofire.a.a.ao(context);
         this.preference = new e(context);
-        this.forHostAPP = c.ap(context);
+        this.forHostAPP = c.aq(context);
         this.tmpDir = new File(context.getFilesDir(), ".tmp");
         this.mFrom = i;
         this.mOut = z;
@@ -142,10 +142,10 @@ public class U extends Thread {
 
     public void handleWork(Context context, Intent intent) {
         this.context = context;
-        this.loadedPluginDB = com.baidu.sofire.a.a.an(context);
+        this.loadedPluginDB = com.baidu.sofire.a.a.ao(context);
         this.preference = new e(context);
         this.tmpDir = new File(context.getFilesDir(), ".tmp");
-        this.forHostAPP = c.ap(context);
+        this.forHostAPP = c.aq(context);
         this.mFrom = intent.getIntExtra("from", 0);
         b.a();
         start();
@@ -179,12 +179,12 @@ public class U extends Thread {
                     }
                     com.baidu.sofire.b.b.a(this.context, false);
                     Context context = this.context;
-                    com.baidu.sofire.a.a an = com.baidu.sofire.a.a.an(context);
-                    c ap = c.ap(context);
+                    com.baidu.sofire.a.a ao = com.baidu.sofire.a.a.ao(context);
+                    c aq = c.aq(context);
                     b.a();
-                    for (ApkInfo apkInfo : an.a()) {
+                    for (ApkInfo apkInfo : ao.a()) {
                         if (apkInfo.duration != 0 && apkInfo.startTime + (apkInfo.duration * 60 * 1000) < System.currentTimeMillis()) {
-                            ap.a(apkInfo.packageName);
+                            aq.a(apkInfo.packageName);
                         }
                     }
                     if (this.mFrom == 1 || this.mFrom == 3) {
@@ -296,7 +296,7 @@ public class U extends Thread {
                         String optString = jSONObject3.optString("ak");
                         String optString2 = jSONObject3.optString("sk");
                         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                            c.ap(context3).a(optString, optString2);
+                            c.aq(context3).a(optString, optString2);
                         }
                     }
                     this.forHostAPP.b(this.context);
@@ -591,7 +591,7 @@ public class U extends Thread {
                     d.a(this.context);
                     new StringBuilder().append(arrayList).toString();
                     b.a();
-                    com.baidu.sofire.core.e aq = com.baidu.sofire.core.e.aq(this.context.getApplicationContext());
+                    com.baidu.sofire.core.e ar = com.baidu.sofire.core.e.ar(this.context.getApplicationContext());
                     final List<Integer> c = this.preference.c();
                     List<Integer> b2 = this.preference.b();
                     for (int i5 = 0; i5 < b2.size(); i5++) {
@@ -631,7 +631,7 @@ public class U extends Thread {
                     for (int i6 = 0; i6 < arrayList6.size(); i6++) {
                         ApkInfo apkInfo5 = (ApkInfo) arrayList6.get(i6);
                         if (arrayList.contains(apkInfo5)) {
-                            if (aq.bT(apkInfo5.packageName) == null) {
+                            if (ar.bT(apkInfo5.packageName) == null) {
                                 if (this.preference.a.getBoolean("bka", true)) {
                                     File file = new File(this.context.getFilesDir(), ".b");
                                     if (!file.exists()) {
@@ -722,7 +722,7 @@ public class U extends Thread {
                 hashMap.put("12", str.replace("\n", "").replace("\t", "").replace("\r", ""));
             }
             hashMap.put("13", Integer.valueOf(this.mStartNetwork));
-            hashMap.put("14", Integer.valueOf(d.ao(this.context)));
+            hashMap.put("14", Integer.valueOf(d.ap(this.context)));
             d.a(this.context, "1003129", hashMap);
         } catch (Throwable th2) {
             d.a(th2);
@@ -791,7 +791,7 @@ public class U extends Thread {
             if (this.mFrom != 0) {
                 this.preference.a(0, this.mFrom, this.preference.a(0, this.mFrom) + 1);
             }
-            this.mStartNetwork = d.ao(this.context);
+            this.mStartNetwork = d.ap(this.context);
         } catch (Throwable th3) {
             d.a(th3);
         }
@@ -813,13 +813,13 @@ public class U extends Thread {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v55 boolean)] */
     private void handlePluginUpgrade(ApkInfo apkInfo) {
         try {
-            int ao = d.ao(this.context);
+            int ap = d.ap(this.context);
             String str = "a=" + apkInfo;
             b.a();
             List<Integer> b = this.preference.b();
-            if ((b == null || !b.contains(Integer.valueOf(apkInfo.key))) && !d.h(this.context, apkInfo.network)) {
+            if ((b == null || !b.contains(Integer.valueOf(apkInfo.key))) && !d.g(this.context, apkInfo.network)) {
                 if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ao, 3));
+                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ap, 3));
                     return;
                 }
                 return;
@@ -855,13 +855,13 @@ public class U extends Thread {
                     if (asc.df(file2.getAbsolutePath(), file3.getAbsolutePath(), bytes) != 0) {
                         b.a();
                         if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                            this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ao, 7));
+                            this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ap, 7));
                         }
                         b2 = false;
                     }
                 }
             } else if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ao, 4));
+                this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ap, 4));
             }
             new StringBuilder().append(b2).toString();
             b.a();
@@ -888,19 +888,19 @@ public class U extends Thread {
                 b.a();
                 if (!a3) {
                     if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                        this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ao, 5));
+                        this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ap, 5));
                         return;
                     }
                     return;
                 } else if (this.mUpgradeResultMap != null) {
-                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ao, 1));
+                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ap, 1));
                     return;
                 } else {
                     return;
                 }
             }
             if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ao, 8));
+                this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ap, 8));
             }
             if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3) {
                 if (b != null && b.contains(Integer.valueOf(apkInfo.key)) && !sSetRetrmAlarm) {
@@ -961,7 +961,7 @@ public class U extends Thread {
             d.a(th);
             try {
                 if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(d.ao(this.context), 2));
+                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(d.ap(this.context), 2));
                 }
             } catch (Throwable th2) {
                 d.a(th2);

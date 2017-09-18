@@ -13,43 +13,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b fIC;
-    private CustomMessageListener fIE = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b fJv;
+    private CustomMessageListener fJx = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && i.hi() && b.this.fID != null) {
-                b.this.fID.bhP();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && i.hi() && b.this.fJw != null) {
+                b.this.fJw.bia();
             }
         }
     };
-    private c fID = new f();
+    private c fJw = new f();
 
-    public static b bhN() {
-        if (fIC == null) {
+    public static b bhY() {
+        if (fJv == null) {
             synchronized (b.class) {
-                if (fIC == null) {
-                    fIC = new b();
+                if (fJv == null) {
+                    fJv = new b();
                 }
             }
         }
-        return fIC;
+        return fJv;
     }
 
-    private boolean bhO() {
+    private boolean bhZ() {
         return com.baidu.adp.lib.b.d.eW().af("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.fIE);
+        MessageManager.getInstance().registerListener(this.fJx);
     }
 
     public void a(a aVar) {
-        if (bhO() && aVar != null && this.fID != null) {
+        if (bhZ() && aVar != null && this.fJw != null) {
             if (i.hi()) {
-                this.fID.b(aVar);
+                this.fJw.b(aVar);
             } else {
-                this.fID.c(aVar);
+                this.fJw.c(aVar);
             }
         }
     }

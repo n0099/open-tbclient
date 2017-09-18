@@ -38,10 +38,10 @@ public class s {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean aN = ab.aN(activity);
+        boolean aO = ab.aO(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return aN;
+        return aO;
     }
 }

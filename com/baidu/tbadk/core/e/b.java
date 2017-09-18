@@ -5,9 +5,9 @@ import android.content.Context;
 public class b {
     private static a adU = null;
 
-    public static void j(Context context, int i) {
+    public static void i(Context context, int i) {
         if (adU != null) {
-            adU.j(context, i);
+            adU.i(context, i);
         }
     }
 
@@ -17,9 +17,9 @@ public class b {
         }
     }
 
-    public static void aE(Context context) {
+    public static void aF(Context context) {
         if (adU != null) {
-            adU.aE(context);
+            adU.aF(context);
         }
     }
 

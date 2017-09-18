@@ -5,9 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.n;
+import android.util.Log;
+import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
-import com.baidu.android.pushservice.j.q;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import java.util.Iterator;
 import java.util.List;
@@ -52,9 +53,9 @@ public class PushManager {
 
     public static void enableHuaweiProxy(Context context, boolean z) {
         if (z) {
-            n.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", 1);
+            m.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", 1);
         } else {
-            n.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", 0);
+            m.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", 0);
         }
     }
 
@@ -70,18 +71,18 @@ public class PushManager {
             com.baidu.android.pushservice.g.a.d(TAG, "appId is null!");
         } else {
             f.d = str;
-            n.a(context, "BD_PROXY_APPID_KEY", str);
+            m.a(context, "BD_PROXY_APPID_KEY", str);
         }
         if (TextUtils.isEmpty(str2)) {
             com.baidu.android.pushservice.g.a.d(TAG, "appKey is null!");
         } else {
             f.e = str2;
-            n.a(context, "BD_PROXY_APPKEY_KEY", str2);
+            m.a(context, "BD_PROXY_APPKEY_KEY", str2);
         }
         if (z) {
-            n.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", 1);
+            m.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", 1);
         } else {
-            n.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", 0);
+            m.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", 0);
         }
     }
 
@@ -140,7 +141,7 @@ public class PushManager {
         try {
             Intent intent = new Intent();
             if (intent != null) {
-                String packageName = com.baidu.android.pushservice.c.d.d(context) ? context.getPackageName() : q.u(context);
+                String packageName = com.baidu.android.pushservice.c.d.d(context) ? context.getPackageName() : p.u(context);
                 if (packageName != null) {
                     com.baidu.android.pushservice.g.b.a(TAG, "PassThroughMessageClick  : " + packageName, context.getApplicationContext());
                     intent.putExtra("app_id", str2);
@@ -162,7 +163,7 @@ public class PushManager {
         try {
             Intent intent = new Intent();
             if (intent != null) {
-                String packageName = com.baidu.android.pushservice.c.d.d(context) ? context.getPackageName() : q.u(context);
+                String packageName = com.baidu.android.pushservice.c.d.d(context) ? context.getPackageName() : p.u(context);
                 if (packageName != null) {
                     com.baidu.android.pushservice.g.b.a(TAG, "PassThroughMessageDelete  : " + packageName, context.getApplicationContext());
                     intent.putExtra("app_id", str2);
@@ -183,7 +184,7 @@ public class PushManager {
         }
         try {
             Intent intent = new Intent();
-            String packageName = com.baidu.android.pushservice.c.d.d(context) ? context.getPackageName() : q.u(context);
+            String packageName = com.baidu.android.pushservice.c.d.d(context) ? context.getPackageName() : p.u(context);
             if (packageName != null) {
                 com.baidu.android.pushservice.g.b.a(TAG, "PassThroughMessageNotified  : " + packageName, context.getApplicationContext());
                 intent.putExtra("app_id", str2);
@@ -204,7 +205,7 @@ public class PushManager {
     }
 
     public static boolean isPushEnabled(Context context) {
-        return (f.j(context) || q.c(context)) ? false : true;
+        return (f.j(context) || p.c(context)) ? false : true;
     }
 
     public static void listTags(Context context) {
@@ -222,9 +223,9 @@ public class PushManager {
             return;
         }
         a.b(context, true);
-        q.a(context, true, true);
+        p.a(context, true, true);
         a.a(context, true);
-        p.a(context);
+        o.a(context);
         f.b(context, 0);
     }
 
@@ -302,33 +303,34 @@ public class PushManager {
         f.a = i;
         f.b = str;
         h.b(context);
-        boolean k = q.k(context, str);
-        com.baidu.android.pushservice.g.b.a(TAG, "startWork from " + context.getPackageName() + " check: " + k, context.getApplicationContext());
-        q.b("startWork from " + context.getPackageName() + " check: " + k, context);
-        if (k && i == 0) {
+        String k = p.k(context, str);
+        com.baidu.android.pushservice.g.b.a(TAG, "startWork from " + context.getPackageName() + " checkResult: " + k, context.getApplicationContext());
+        p.b("startWork from " + context.getPackageName() + " checkResult: " + k, context);
+        if (TextUtils.isEmpty(k) && i == 0) {
             f.a(context, i, f.b, true);
-            return;
+        } else {
+            if (i != 0) {
+                Log.e("BDPushSDK-PushManager", "Wrong LOGIN TYPE, Please use LOGIN_TYPE_API_KEY !");
+            }
+            f.d(context, 10101, k);
         }
-        if (i != 0) {
-            com.baidu.android.pushservice.g.b.b(TAG, "Wrong LOGIN TYPE, Please use LOGIN_TYPE_API_KEY !", context.getApplicationContext());
-        }
-        f.c(context, 10101);
+        p.z(context);
     }
 
     public static void stopWork(Context context) {
         if (f.j(context)) {
             return;
         }
-        q.b("stopWork from" + context.getPackageName() + " at time of " + System.currentTimeMillis(), context);
-        if (!q.x(context) && !com.baidu.android.pushservice.c.d.d(context)) {
+        p.b("stopWork from" + context.getPackageName() + " at time of " + System.currentTimeMillis(), context);
+        if (!p.x(context) && !com.baidu.android.pushservice.c.d.d(context)) {
             f.g(context);
             return;
         }
         f.e(context);
         a.b(context, false);
-        q.a(context, true, true);
+        p.a(context, true, true);
         a.a(context, true);
-        q.f(context, context.getPackageName());
+        p.f(context, context.getPackageName());
         SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
         edit.putBoolean("bind_status", false);
         edit.commit();

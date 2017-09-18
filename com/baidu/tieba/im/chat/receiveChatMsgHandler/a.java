@@ -27,7 +27,7 @@ public abstract class a {
 
     /* renamed from: com.baidu.tieba.im.chat.receiveChatMsgHandler.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0095a {
+    public interface InterfaceC0094a {
         boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo);
     }
 
@@ -40,7 +40,7 @@ public abstract class a {
 
     /* loaded from: classes.dex */
     public interface c {
-        boolean mb(String str);
+        boolean md(String str);
     }
 
     public static boolean a(ChatMessage chatMessage, int i) {
@@ -54,7 +54,7 @@ public abstract class a {
         }
     }
 
-    public static void ma(String str) {
+    public static void mc(String str) {
         if (!TextUtils.isEmpty(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             try {
@@ -113,7 +113,7 @@ public abstract class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, InterfaceC0095a interfaceC0095a) {
+    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, InterfaceC0094a interfaceC0094a) {
         int i;
         boolean z2;
         boolean z3;
@@ -142,7 +142,7 @@ public abstract class a {
                 if (j < chatMessage.getMsgId()) {
                     j = chatMessage.getMsgId();
                 }
-                if (interfaceC0095a == null || !interfaceC0095a.a(chatMessage, imMessageCenterPojo)) {
+                if (interfaceC0094a == null || !interfaceC0094a.a(chatMessage, imMessageCenterPojo)) {
                     chatMessage.setLocalData(new MsgLocalData());
                     chatMessage.getLocalData().setStatus((short) 3);
                     CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(chatMessage);
@@ -162,7 +162,7 @@ public abstract class a {
             if (commonMsgPojo != null) {
                 commonMsgPojo.checkRidAndSelf();
             }
-            if (cVar != null && cVar.mb(valueOf)) {
+            if (cVar != null && cVar.md(valueOf)) {
                 i2 = 0;
             }
             imMessageCenterPojo.setUnread_count(i2);

@@ -6,13 +6,13 @@ import tbclient.PayMemberInfo;
 /* loaded from: classes.dex */
 public class PayMemberInfoData extends OrmObject {
     private int Ti;
-    private int aAd;
+    private int aAa;
     private String expire_remind;
     private String url;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aAd = jSONObject.optInt("props_id");
+            this.aAa = jSONObject.optInt("props_id");
             this.Ti = jSONObject.optInt("end_time", 0);
             this.url = jSONObject.optString(this.url, "");
             this.expire_remind = jSONObject.optString("expire_remind");
@@ -22,7 +22,7 @@ public class PayMemberInfoData extends OrmObject {
     public void a(PayMemberInfo payMemberInfo) {
         if (payMemberInfo != null) {
             if (payMemberInfo.props_id != null) {
-                this.aAd = payMemberInfo.props_id.intValue();
+                this.aAa = payMemberInfo.props_id.intValue();
             }
             if (payMemberInfo.end_time != null) {
                 this.Ti = payMemberInfo.end_time.intValue();
@@ -33,7 +33,7 @@ public class PayMemberInfoData extends OrmObject {
     }
 
     public int Cq() {
-        return this.aAd;
+        return this.aAa;
     }
 
     public int pl() {

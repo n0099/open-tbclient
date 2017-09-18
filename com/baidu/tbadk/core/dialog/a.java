@@ -184,7 +184,7 @@ public class a {
                 this.aaV.setText(this.aaH);
                 this.aaV.setTag(this.aaU);
                 if (this.aaL != null) {
-                    this.aaV.setOnClickListener(new View$OnClickListenerC0046a(this, this.aaL));
+                    this.aaV.setOnClickListener(new View$OnClickListenerC0045a(this, this.aaL));
                 }
                 z = true;
             }
@@ -193,7 +193,7 @@ public class a {
             } else {
                 this.aaW.setText(this.aaI);
                 if (this.aaM != null) {
-                    this.aaW.setOnClickListener(new View$OnClickListenerC0046a(this, this.aaM));
+                    this.aaW.setOnClickListener(new View$OnClickListenerC0045a(this, this.aaM));
                 }
             }
             h(z, z2);
@@ -358,7 +358,7 @@ public class a {
     }
 
     public int tn() {
-        return this.aaK == 1 ? k.g(this.mActivity, d.f.ds40) : k.g(this.mActivity, d.f.ds90);
+        return this.aaK == 1 ? k.f(this.mActivity, d.f.ds40) : k.f(this.mActivity, d.f.ds90);
     }
 
     public boolean isShowing() {
@@ -399,11 +399,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.core.dialog.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class View$OnClickListenerC0046a implements View.OnClickListener {
+    public class View$OnClickListenerC0045a implements View.OnClickListener {
         private final a Kj;
         private final b abb;
 
-        public View$OnClickListenerC0046a(a aVar, b bVar) {
+        public View$OnClickListenerC0045a(a aVar, b bVar) {
             this.Kj = aVar;
             this.abb = bVar;
         }

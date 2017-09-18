@@ -19,7 +19,7 @@ public class m extends d {
         this.e = mVar.e;
         this.g = mVar.g;
         this.f = mVar.f;
-        this.j = mVar.j;
+        this.i = mVar.i;
     }
 
     public m(String str, long j, String str2, int i, String str3) {

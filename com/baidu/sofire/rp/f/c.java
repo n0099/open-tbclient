@@ -14,7 +14,7 @@ public final class c {
         this.Qi = new com.baidu.sofire.rp.e.a(context);
     }
 
-    public static c au(Context context) {
+    public static c av(Context context) {
         if (Qh != null) {
             return Qh;
         }

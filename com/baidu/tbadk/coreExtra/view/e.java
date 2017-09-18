@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e {
-    private ViewTreeObserver.OnGlobalLayoutListener awp;
+    private ViewTreeObserver.OnGlobalLayoutListener awm;
     private String labelName = "";
-    private int awl = 0;
-    private boolean awm = false;
+    private int awi = 0;
+    private boolean awj = false;
     private String labelId = "";
-    private int awn = 0;
-    private boolean awo = false;
-    private int awq = aj.getColor(d.e.cp_cont_i);
-    private int awr = aj.getColor(d.e.cp_link_tip_d);
+    private int awk = 0;
+    private boolean awl = false;
+    private int awn = aj.getColor(d.e.cp_cont_i);
+    private int awo = aj.getColor(d.e.cp_link_tip_d);
 
     public void setLabelName(String str) {
         this.labelName = str;
@@ -27,19 +27,19 @@ public class e {
     }
 
     public void el(int i) {
-        this.awl = i;
+        this.awi = i;
     }
 
     public int Bj() {
-        return this.awl;
+        return this.awi;
     }
 
     public void bl(boolean z) {
-        this.awm = z;
+        this.awj = z;
     }
 
     public boolean Bk() {
-        return this.awm;
+        return this.awj;
     }
 
     public void setLabelId(String str) {
@@ -51,19 +51,19 @@ public class e {
     }
 
     public void bm(boolean z) {
-        this.awo = z;
+        this.awl = z;
     }
 
     public boolean Bm() {
-        return this.awo;
+        return this.awl;
     }
 
     public void a(ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener) {
-        this.awp = onGlobalLayoutListener;
+        this.awm = onGlobalLayoutListener;
     }
 
     public ViewTreeObserver.OnGlobalLayoutListener Bn() {
-        return this.awp;
+        return this.awm;
     }
 
     public SpannableStringBuilder al(String str, String str2) {
@@ -73,11 +73,11 @@ public class e {
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         if (com.baidu.adp.lib.g.b.c(str2, 0L) <= 0) {
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.awq), 0, str.length(), 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.awn), 0, str.length(), 33);
         } else {
             int indexOf = str.indexOf("(");
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.awq), 0, indexOf, 33);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.awr), indexOf, str.length(), 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.awn), 0, indexOf, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.awo), indexOf, str.length(), 33);
         }
         return spannableStringBuilder;
     }

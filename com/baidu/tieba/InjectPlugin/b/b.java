@@ -5,99 +5,99 @@ import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends g {
-    private Object aTE;
-    private List<f> aTF;
-    private List<f> aTG;
-    private List<Object> aTH;
+    private Object aTB;
+    private List<f> aTC;
+    private List<f> aTD;
+    private List<Object> aTE;
+    private boolean aTF;
+    private boolean aTG;
+    private int aTH;
     private boolean aTI;
-    private boolean aTJ;
-    private int aTK;
-    private boolean aTL;
-    private String aTM;
-    private String aTN;
-    private String aTO;
-    private int apS;
+    private String aTJ;
+    private String aTK;
+    private String aTL;
+    private int apQ;
     private String forumId;
     private int pageNum;
 
     public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
         super(bVar, i);
+        this.aTF = false;
+        this.aTG = false;
+        this.aTH = 0;
         this.aTI = false;
-        this.aTJ = false;
-        this.aTK = 0;
-        this.aTL = false;
     }
 
     public Object JK() {
-        return this.aTE;
+        return this.aTB;
     }
 
     public void setExtraData(Object obj) {
-        this.aTE = obj;
+        this.aTB = obj;
     }
 
     public List<f> getThreadList() {
-        return this.aTF;
+        return this.aTC;
     }
 
     public void setThreadList(List<f> list) {
-        this.aTF = list;
+        this.aTC = list;
     }
 
     public List<Object> JL() {
-        return this.aTH;
+        return this.aTE;
     }
 
     public void N(List<Object> list) {
-        this.aTH = list;
+        this.aTE = list;
     }
 
     public List<f> JM() {
-        return this.aTG;
+        return this.aTD;
     }
 
     public void O(List<f> list) {
-        this.aTG = list;
+        this.aTD = list;
     }
 
     public boolean JN() {
-        return this.aTI;
+        return this.aTF;
     }
 
     public void ck(boolean z) {
-        this.aTI = z;
+        this.aTF = z;
     }
 
     public boolean JO() {
-        return this.aTJ;
+        return this.aTG;
     }
 
     public void cl(boolean z) {
-        this.aTJ = z;
+        this.aTG = z;
     }
 
     public int JP() {
-        return this.aTK;
+        return this.aTH;
     }
 
     public void bX(int i) {
-        this.aTK = i;
+        this.aTH = i;
     }
 
     public int getSkinType() {
-        return this.apS;
+        return this.apQ;
     }
 
     public void setSkinType(int i) {
-        this.apS = i;
+        this.apQ = i;
     }
 
     public boolean JQ() {
-        return this.aTL;
+        return this.aTI;
     }
 
     public void cm(boolean z) {
-        this.aTL = z;
+        this.aTI = z;
     }
 
     public int getPageNum() {
@@ -117,26 +117,26 @@ public class b extends g {
     }
 
     public String JR() {
-        return this.aTM;
+        return this.aTJ;
     }
 
     public void ha(String str) {
-        this.aTM = str;
+        this.aTJ = str;
     }
 
     public String JS() {
-        return this.aTN;
+        return this.aTK;
     }
 
     public void hb(String str) {
-        this.aTN = str;
+        this.aTK = str;
     }
 
     public String JT() {
-        return this.aTO;
+        return this.aTL;
     }
 
     public void hc(String str) {
-        this.aTO = str;
+        this.aTL = str;
     }
 }

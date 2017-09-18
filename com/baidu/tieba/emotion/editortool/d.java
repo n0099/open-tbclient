@@ -3,32 +3,32 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class d {
-    private EmotionGroupType cbb;
-    private int cbc;
-    private int cbd;
-    private int cbe;
-    private int cbf;
-    private com.baidu.tbadk.editortools.emotiontool.c cbg;
-    private int cbh;
-    private int cbi;
+    private EmotionGroupType cbT;
+    private int cbU;
+    private int cbV;
+    private int cbW;
+    private int cbX;
+    private com.baidu.tbadk.editortools.emotiontool.c cbY;
+    private int cbZ;
+    private int cca;
     private int column;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.cbg = cVar;
+        this.cbY = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c acp() {
-        return this.cbg;
+    public com.baidu.tbadk.editortools.emotiontool.c acA() {
+        return this.cbY;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.cbb = emotionGroupType;
+        this.cbT = emotionGroupType;
     }
 
-    public EmotionGroupType acq() {
-        return this.cbb;
+    public EmotionGroupType acB() {
+        return this.cbT;
     }
 
     public void eR(int i) {
@@ -43,44 +43,44 @@ public class d {
         this.column = i;
     }
 
-    public int acr() {
+    public int acC() {
         return this.column;
     }
 
-    public void ih(int i) {
-        this.cbi = i;
-    }
-
-    public int acs() {
-        return this.cbi;
-    }
-
-    public void ii(int i) {
-        this.cbh = i;
-    }
-
-    public int act() {
-        return this.cbh;
-    }
-
     public void ij(int i) {
-        this.cbc = i;
+        this.cca = i;
     }
 
-    public int acu() {
-        return this.cbc;
+    public int acD() {
+        return this.cca;
     }
 
     public void ik(int i) {
-        this.cbe = i;
+        this.cbZ = i;
     }
 
-    public int acv() {
-        return this.cbe;
+    public int acE() {
+        return this.cbZ;
+    }
+
+    public void il(int i) {
+        this.cbU = i;
+    }
+
+    public int acF() {
+        return this.cbU;
+    }
+
+    public void im(int i) {
+        this.cbW = i;
+    }
+
+    public int acG() {
+        return this.cbW;
     }
 
     public void setEndIndex(int i) {
-        this.cbf = i;
+        this.cbX = i;
     }
 
     public void setIndex(int i) {
@@ -91,11 +91,11 @@ public class d {
         return this.index;
     }
 
-    public void il(int i) {
-        this.cbd = i;
+    public void in(int i) {
+        this.cbV = i;
     }
 
-    public int acw() {
-        return this.cbd;
+    public int acH() {
+        return this.cbV;
     }
 }

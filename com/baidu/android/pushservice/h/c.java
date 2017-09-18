@@ -5,11 +5,9 @@ public class c {
     private String b;
     private String c;
     private String d;
-    private String e;
     private String f;
-    private String h;
+    private int e = -1;
     private int g = -1;
-    private int i = -1;
 
     public c() {
     }
@@ -23,7 +21,7 @@ public class c {
     }
 
     public void a(int i) {
-        this.g = i;
+        this.e = i;
     }
 
     public void a(String str) {
@@ -35,7 +33,7 @@ public class c {
     }
 
     public void b(int i) {
-        this.i = i;
+        this.g = i;
     }
 
     public void b(String str) {
@@ -58,35 +56,19 @@ public class c {
         this.d = str;
     }
 
-    public String e() {
+    public int e() {
         return this.e;
     }
 
     public void e(String str) {
-        this.e = str;
+        this.f = str;
     }
 
     public String f() {
         return this.f;
     }
 
-    public void f(String str) {
-        this.f = str;
-    }
-
     public int g() {
         return this.g;
-    }
-
-    public void g(String str) {
-        this.h = str;
-    }
-
-    public String h() {
-        return this.h;
-    }
-
-    public int i() {
-        return this.i;
     }
 }

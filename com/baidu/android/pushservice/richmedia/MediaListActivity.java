@@ -32,7 +32,7 @@ import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.android.pushservice.d.a;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.richmedia.c;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import java.io.File;
@@ -75,7 +75,7 @@ public class MediaListActivity extends Activity {
                     String str3 = str2 + "/" + str.substring(0, str.lastIndexOf(".")) + "/index.html";
                     Intent intent = new Intent();
                     intent.setClass(MediaListActivity.this, MediaViewActivity.class);
-                    int A = q.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
+                    int A = p.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
                     File file = new File(str3);
                     if (A >= 24) {
                         ContentValues contentValues = new ContentValues(1);
@@ -228,7 +228,7 @@ public class MediaListActivity extends Activity {
                     String str7 = str6 + "/" + str5.substring(0, str5.lastIndexOf(".")) + "/index.html";
                     Intent intent = new Intent();
                     intent.setClass(MediaListActivity.this, MediaViewActivity.class);
-                    int A = q.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
+                    int A = p.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
                     File file2 = new File(str7);
                     if (A >= 24) {
                         ContentValues contentValues = new ContentValues(1);
@@ -335,7 +335,7 @@ public class MediaListActivity extends Activity {
                 hashMap.put(strArr[0], packageManager.getApplicationIcon(applicationInfo));
                 hashMap.put(strArr[1], b.get(i2).c);
                 hashMap.put(strArr[2], "来自：" + ((Object) packageManager.getApplicationLabel(applicationInfo)));
-                hashMap.put(strArr[3], q.a(b.get(i2).j));
+                hashMap.put(strArr[3], p.a(b.get(i2).j));
                 hashMap.put(r, b.get(i2).b);
                 this.a.add(hashMap);
             } catch (PackageManager.NameNotFoundException e) {

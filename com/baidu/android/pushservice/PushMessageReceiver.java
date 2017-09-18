@@ -9,10 +9,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.h.k;
-import com.baidu.android.pushservice.h.p;
-import com.baidu.android.pushservice.j.n;
+import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.j.q;
-import com.baidu.android.pushservice.j.r;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.message.a.l;
 import com.xiaomi.mipush.sdk.Constants;
@@ -26,7 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class PushMessageReceiver extends BroadcastReceiver {
-    public static final String TAG = PushMessageReceiver.class.getSimpleName();
+    public static final String TAG = "PushMessageReceiver";
 
     /* loaded from: classes2.dex */
     private static class a extends Handler {
@@ -57,7 +56,6 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
     }
 
     private void handleXiaomiMessageCallBack(Context context, MiPushMessage miPushMessage, int i) {
-        int i2 = 0;
         try {
             String content = miPushMessage.getContent();
             com.baidu.android.pushservice.g.a.b(TAG, "XM> " + content);
@@ -65,47 +63,34 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
             boolean msgFromXMConsole = msgFromXMConsole(content);
             if (msgFromXMConsole) {
                 com.baidu.android.pushservice.g.a.b(TAG, "XM> msgFromXmConsole=true-----------------");
-                iVar.n = l.MSG_TYPE_SINGLE_PRIVATE.a();
+                iVar.m = l.MSG_TYPE_SINGLE_PRIVATE.a();
             } else {
                 content = iVar.b(context, content);
             }
-            if (q.x(context)) {
-                if (i != b.MSG_CLICKED.a() && q.y(context, iVar.m)) {
-                    i2 = 4;
-                    com.baidu.android.pushservice.g.a.d(TAG, "XM> msgid is duplicated!!! msgid=" + iVar.m);
-                } else if (iVar.n == l.MSG_TYPE_APPSTAT_COMMAND.a()) {
-                    q.z(context);
-                } else if (iVar.n == l.MSG_TYPE_LBS_APPLIST_COMMAND.a()) {
-                    q.A(context);
-                } else if (iVar.n == l.MSG_TYPE_PRIVATE_MESSAGE.a() || iVar.n == l.MSG_TYPE_MULTI_PRIVATE.a() || iVar.n == l.MSG_TYPE_SINGLE_PRIVATE.a() || iVar.n == l.MSG_TYPE_MULTI_PRIVATE_NOTIFICATION.a() || iVar.n == l.MSG_TYPE_SINGLE_PUBLIC.a() || iVar.n == l.MSG_TYPE_MULTI_PUBLIC.a()) {
-                    if (i == b.MSG_PASS.a()) {
-                        onMessage(context, content, null);
-                        com.baidu.android.pushservice.g.a.b(TAG, "XM> onMessage call back-----------------");
-                    } else if (i == b.MSG_ARRIVED.a()) {
-                        onNotificationArrived(context, miPushMessage.getTitle(), miPushMessage.getDescription(), content);
-                        com.baidu.android.pushservice.g.a.b(TAG, "XM> onNotificationArrived call back-----------------");
-                    } else if (i == b.MSG_CLICKED.a()) {
-                        onNotificationClicked(context, miPushMessage.getTitle(), miPushMessage.getDescription(), content);
-                        com.baidu.android.pushservice.g.a.b(TAG, "XM> onNotificationClicked call back-----------------");
-                    }
-                    if (i != b.MSG_PASS.a()) {
-                        i2 = 1;
-                    }
-                } else {
-                    com.baidu.android.pushservice.g.a.b(TAG, "XM> pXmMsg.exType is unknow-----------------");
-                    i2 = 6;
+            if (!p.x(context)) {
+                com.baidu.android.pushservice.g.a.d(TAG, "XM> check bind status failed not bind");
+            } else if (i != b.MSG_CLICKED.a() && p.y(context, iVar.l)) {
+                com.baidu.android.pushservice.g.a.d(TAG, "XM> msgid is duplicated!!! msgid=" + iVar.l);
+            } else if (iVar.m == l.MSG_TYPE_APPSTAT_COMMAND.a()) {
+                p.z(context);
+            } else if (iVar.m == l.MSG_TYPE_LBS_APPLIST_COMMAND.a()) {
+                p.A(context);
+            } else if (iVar.m == l.MSG_TYPE_PRIVATE_MESSAGE.a() || iVar.m == l.MSG_TYPE_MULTI_PRIVATE.a() || iVar.m == l.MSG_TYPE_SINGLE_PRIVATE.a() || iVar.m == l.MSG_TYPE_MULTI_PRIVATE_NOTIFICATION.a() || iVar.m == l.MSG_TYPE_SINGLE_PUBLIC.a() || iVar.m == l.MSG_TYPE_MULTI_PUBLIC.a()) {
+                if (i == b.MSG_PASS.a()) {
+                    onMessage(context, content, null);
+                    com.baidu.android.pushservice.g.a.b(TAG, "XM> onMessage call back-----------------");
+                } else if (i == b.MSG_ARRIVED.a()) {
+                    onNotificationArrived(context, miPushMessage.getTitle(), miPushMessage.getDescription(), content);
+                    com.baidu.android.pushservice.g.a.b(TAG, "XM> onNotificationArrived call back-----------------");
+                } else if (i == b.MSG_CLICKED.a()) {
+                    onNotificationClicked(context, miPushMessage.getTitle(), miPushMessage.getDescription(), content);
+                    com.baidu.android.pushservice.g.a.b(TAG, "XM> onNotificationClicked call back-----------------");
                 }
             }
-            if (msgFromXMConsole) {
+            if (msgFromXMConsole || i != b.MSG_CLICKED.a()) {
                 return;
             }
-            if (i == b.MSG_PASS.a()) {
-                com.baidu.android.pushservice.j.f.a(context, iVar.m, i2, iVar.j, iVar.k + "", 2);
-            } else if (i == b.MSG_ARRIVED.a()) {
-                com.baidu.android.pushservice.j.f.a(context, iVar.m, i2, iVar.j, iVar.k + "", 2);
-            } else if (i == b.MSG_CLICKED.a()) {
-                com.baidu.android.pushservice.j.f.a(context, iVar.m, iVar.j, iVar.k + "", 2);
-            }
+            com.baidu.android.pushservice.h.p.a(context, iVar.l, "010205");
         } catch (Throwable th) {
             com.baidu.android.pushservice.g.a.a(TAG, th);
         }
@@ -113,10 +98,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
 
     private static boolean msgFromXMConsole(String str) {
         try {
-            if (new JSONObject(str) == null) {
-                com.baidu.android.pushservice.g.a.d(TAG, "msg from xiaomi platform!!!!");
-                return true;
-            }
+            new JSONObject(str);
             return false;
         } catch (Exception e) {
             com.baidu.android.pushservice.g.a.d(TAG, "msg from xiaomi platform!!!!");
@@ -151,13 +133,11 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
 
     public abstract void onNotificationClicked(Context context, String str, String str2, String str3);
 
-    /* JADX WARN: Type inference failed for: r4v187, types: [com.baidu.android.pushservice.PushMessageReceiver$2] */
+    /* JADX WARN: Type inference failed for: r4v196, types: [com.baidu.android.pushservice.PushMessageReceiver$2] */
     @Override // android.content.BroadcastReceiver
     public final void onReceive(final Context context, final Intent intent) {
-        int i;
         com.baidu.android.pushservice.message.i a2;
         PublicMsg a3;
-        int i2;
         JSONArray jSONArray;
         JSONArray jSONArray2;
         if (intent == null || intent.getAction() == null) {
@@ -170,7 +150,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 if (com.baidu.android.pushservice.c.d.d(context)) {
                     return;
                 }
-                if (!q.x(context)) {
+                if (!p.x(context)) {
                     com.baidu.android.pushservice.g.a.c(TAG, "current unbind in client,unbind again");
                     f.f(context);
                 } else if (intent.getExtras() != null) {
@@ -182,7 +162,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     if (byteArrayExtra == null || byteArrayExtra2 == null || TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2) || intExtra == -1) {
                         com.baidu.android.pushservice.g.a.e(TAG, " receive message error !" + (byteArrayExtra == null) + " " + (byteArrayExtra2 == null) + "  msgId: " + stringExtra + " appId: " + stringExtra2 + " msgType: " + intExtra);
                         sendCallback(context, intent, 2);
-                    } else if (q.s(context, stringExtra) || !com.baidu.android.pushservice.d.a.e(context, stringExtra)) {
+                    } else if (p.s(context, stringExtra) || !com.baidu.android.pushservice.d.a.e(context, stringExtra)) {
                         com.baidu.android.pushservice.g.a.e(TAG, " receive message duplicated !");
                         sendCallback(context, intent, 4);
                     } else {
@@ -210,7 +190,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                                 bundle.putString("custom_content", a4[1]);
                                 message.setData(bundle);
                                 aVar.sendMessage(message);
-                                q.b("message " + a4[0] + " at time of " + System.currentTimeMillis(), context);
+                                p.b("message " + a4[0] + " at time of " + System.currentTimeMillis(), context);
                                 if (com.baidu.android.pushservice.a.b() > 0) {
                                     k.b(context, stringExtra2, stringExtra, intExtra, a4[0].getBytes(), 0, com.baidu.android.pushservice.h.i.a);
                                 }
@@ -229,19 +209,15 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     String stringExtra4 = intent.getStringExtra("notification_title");
                     String stringExtra5 = intent.getStringExtra("notification_content");
                     String stringExtra6 = intent.getStringExtra("extra_extra_custom_content");
-                    if (q.a(context, intent.getStringExtra("com.baidu.pushservice.app_id"), stringExtra4, stringExtra5, stringExtra6)) {
+                    if (p.a(context, intent.getStringExtra("com.baidu.pushservice.app_id"), stringExtra4, stringExtra5, stringExtra6)) {
                         onNotificationArrived(context, stringExtra4, stringExtra5, stringExtra6);
                     }
                 } else if (stringExtra3.equals(PushConstants.METHOD_BIND) || stringExtra3.equals("method_deal_lapp_bind_intent")) {
-                    if (com.baidu.android.pushservice.a.b() > 0) {
-                        p.a(context, "039905", intExtra2, str);
-                    }
                     if (intExtra2 != 0 || TextUtils.isEmpty(str)) {
                         onBind(context, intExtra2, null, null, null, null);
-                        if (com.baidu.android.pushservice.a.b() > 0) {
-                            p.a(context, "039905", -1, String.valueOf(intExtra2));
-                        }
-                        q.b("onBind from" + context.getPackageName() + " errorCode " + intExtra2 + " at time of " + System.currentTimeMillis(), context);
+                        com.baidu.android.pushservice.h.p.a(context, "020102", context.getPackageName(), intExtra2, str);
+                        com.baidu.android.pushservice.g.a.c(TAG, "onBind from" + context.getPackageName() + " errorCode " + intExtra2 + " errorMsg = " + str + " at time of " + System.currentTimeMillis());
+                        p.b("onBind from" + context.getPackageName() + " errorCode " + intExtra2 + " errorMsg = " + str + " at time of " + System.currentTimeMillis(), context);
                         return;
                     }
                     try {
@@ -260,31 +236,30 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             str2 = intent.getStringExtra("access_token");
                             str3 = intent.getStringExtra("secret_key");
                         }
-                        n.a(context, string2, string3, string, string4, true, q.d(context, context.getPackageName()), j, str2, str3);
+                        m.a(context, string2, string3, string, string4, true, p.d(context, context.getPackageName()), j, str2, str3);
                         onBind(context, intExtra2, string2, string4, string3, string);
                         com.baidu.android.pushservice.g.a.c(TAG, "PushMessageReceiver#onBind from" + context.getPackageName() + ", errorCode= " + intExtra2 + ", appid=  " + string2 + ", userId=" + string4 + ", channelId=" + string3 + ", requestId=" + string + ", at time of " + System.currentTimeMillis());
-                        q.b("PushMessageReceiver#onBind from" + context.getPackageName() + ", errorCode= " + intExtra2 + ", appid=  " + string2 + ", userId=" + string4 + ", channelId=" + string3 + ", requestId=" + string + ", at time of " + System.currentTimeMillis(), context);
+                        p.b("PushMessageReceiver#onBind from" + context.getPackageName() + ", errorCode= " + intExtra2 + ", appid=  " + string2 + ", userId=" + string4 + ", channelId=" + string3 + ", requestId=" + string + ", at time of " + System.currentTimeMillis(), context);
                         String b2 = com.baidu.android.pushservice.b.b.a(context).b(context.getPackageName() + Constants.ACCEPT_TIME_SEPARATOR_SP + string2 + Constants.ACCEPT_TIME_SEPARATOR_SP + string4 + Constants.ACCEPT_TIME_SEPARATOR_SP + "false" + Constants.ACCEPT_TIME_SEPARATOR_SP + ((int) com.baidu.android.pushservice.a.a()));
-                        com.baidu.android.pushservice.d.c.f(context, b2);
-                        if (q.D(context)) {
-                            r.a(context, context.getPackageName() + ".self_push_sync", "bindinfo", b2);
+                        com.baidu.android.pushservice.d.c.e(context, b2);
+                        if (p.D(context)) {
+                            q.a(context, context.getPackageName() + ".self_push_sync", "bindinfo", b2);
                         }
                     } catch (Exception e) {
                         onBind(context, intExtra2, null, null, null, null);
-                        if (com.baidu.android.pushservice.a.b() > 0) {
-                            p.a(context, "039905", -1, q.a(e));
-                        }
-                        q.b("onBind from" + context.getPackageName() + " errorCode " + intExtra2 + " at time of " + System.currentTimeMillis() + " exception " + q.a(e), context);
+                        com.baidu.android.pushservice.h.p.a(context, "020102", context.getPackageName(), intExtra2, e.getMessage());
+                        com.baidu.android.pushservice.g.a.c(TAG, "onBind from" + context.getPackageName() + " errorCode " + intExtra2 + " exception " + e.getMessage() + " at time of " + System.currentTimeMillis());
+                        p.b("onBind from" + context.getPackageName() + " errorCode " + intExtra2 + " exception " + e.getMessage() + " at time of " + System.currentTimeMillis(), context);
                     }
                 } else if (stringExtra3.equals("method_unbind") || stringExtra3.equals("method_lapp_unbind")) {
                     SharedPreferences.Editor edit = context.getSharedPreferences("bindcache", 0).edit();
-                    int i3 = !com.baidu.android.pushservice.c.d.d(context) ? 0 : intExtra2;
+                    int i = !com.baidu.android.pushservice.c.d.d(context) ? 0 : intExtra2;
                     try {
-                        onUnbind(context, i3, new JSONObject(str).getString("request_id"));
+                        onUnbind(context, i, new JSONObject(str).getString("request_id"));
                         edit.putBoolean("bind_status", false);
                         edit.commit();
                     } catch (JSONException e2) {
-                        onUnbind(context, i3, null);
+                        onUnbind(context, i, null);
                         edit.putBoolean("bind_status", false);
                         edit.commit();
                     }
@@ -293,7 +268,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         MiPushClient.unregisterPush(context);
                         com.baidu.android.pushservice.g.a.b(TAG, "XM> MiPushClient.unregisterPush is call!!!");
                     }
-                    q.b("unbind from" + context.getPackageName() + " errorCode " + i3 + " at time of " + System.currentTimeMillis(), context);
+                    p.b("unbind from" + context.getPackageName() + " errorCode " + i + " at time of " + System.currentTimeMillis(), context);
                 } else if (stringExtra3.equals("method_set_tags") || stringExtra3.equals("method_set_lapp_tags")) {
                     try {
                         JSONObject jSONObject3 = new JSONObject(str);
@@ -308,8 +283,8 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         }
                         ArrayList arrayList = new ArrayList();
                         ArrayList arrayList2 = new ArrayList();
-                        for (int i4 = 0; i4 < jSONArray.length(); i4++) {
-                            JSONObject jSONObject4 = jSONArray.getJSONObject(i4);
+                        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                            JSONObject jSONObject4 = jSONArray.getJSONObject(i2);
                             String string6 = jSONObject4.getString("tag");
                             if (jSONObject4.getInt("result") == 0) {
                                 arrayList.add(string6);
@@ -331,8 +306,8 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         }
                         ArrayList arrayList3 = new ArrayList();
                         ArrayList arrayList4 = new ArrayList();
-                        for (int i5 = 0; i5 < jSONArray2.length(); i5++) {
-                            JSONObject jSONObject7 = jSONArray2.getJSONObject(i5);
+                        for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
+                            JSONObject jSONObject7 = jSONArray2.getJSONObject(i3);
                             String string8 = jSONObject7.getString("tag");
                             if (jSONObject7.getInt("result") == 0) {
                                 arrayList3.add(string8);
@@ -357,7 +332,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 String stringExtra7 = intent.getStringExtra("notification_title");
                 String stringExtra8 = intent.getStringExtra("notification_content");
                 String stringExtra9 = intent.getStringExtra("extra_extra_custom_content");
-                if (q.a(context, intent.getStringExtra("com.baidu.pushservice.app_id"), stringExtra7, stringExtra8, stringExtra9)) {
+                if (p.a(context, intent.getStringExtra("com.baidu.pushservice.app_id"), stringExtra7, stringExtra8, stringExtra9)) {
                     onNotificationClicked(context, stringExtra7, stringExtra8, stringExtra9);
                 }
             } else if (action.equals("com.huawei.android.push.intent.REGISTRATION")) {
@@ -378,19 +353,16 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     try {
                         String str5 = new String(intent.getByteArrayExtra("selfshow_info"), "UTF-8");
                         com.baidu.android.pushservice.g.a.c(TAG, "Receive Notify Message   = " + str5);
-                        if (TextUtils.isEmpty(str5) || context == null || (a3 = (a2 = com.baidu.android.pushservice.message.a.j.a(context, str5)).a(context)) == null) {
-                            return;
+                        if (!TextUtils.isEmpty(str5) && context != null && (a3 = (a2 = com.baidu.android.pushservice.message.a.j.a(context, str5)).a(context)) != null) {
+                            if (!p.x(context)) {
+                                com.baidu.android.pushservice.g.a.d(TAG, "check hw bind status failed not bind");
+                            } else if (p.y(context, a2.l)) {
+                                com.baidu.android.pushservice.g.a.d(TAG, "HW msgid is duplicated!!! msgid = " + a2.l);
+                            } else {
+                                PushServiceReceiver.a(context, context.getPackageName(), "com.baidu.android.pushservice.CommandService", a3);
+                                com.baidu.android.pushservice.g.a.c(TAG, "show HWNotify Message");
+                            }
                         }
-                        if (!q.x(context)) {
-                            i2 = 0;
-                        } else if (q.y(context, a2.a)) {
-                            i2 = 4;
-                        } else {
-                            PushServiceReceiver.a(context, context.getPackageName(), "com.baidu.android.pushservice.CommandService", a3);
-                            i2 = 1;
-                            com.baidu.android.pushservice.g.a.c(TAG, "show HWNotify Message");
-                        }
-                        com.baidu.android.pushservice.j.f.a(context, a2.a, i2, a2.j, a2.k + "", 1);
                     } catch (Exception e7) {
                         com.baidu.android.pushservice.g.a.a(TAG, e7);
                     }
@@ -404,25 +376,19 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         String str7 = new String(byteArrayExtra4, "utf-8");
                         com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
                         String a4 = iVar.a(context, str6);
-                        if (n.b(context, "bdpush_hwsignresult", 1) != 0) {
-                            if (!q.x(context)) {
-                                i = 0;
-                            } else if (q.y(context, iVar.m)) {
-                                i = 4;
-                            } else if (iVar.n == l.MSG_TYPE_APPSTAT_COMMAND.a()) {
-                                q.z(context);
-                                i = 0;
-                            } else if (iVar.n == l.MSG_TYPE_LBS_APPLIST_COMMAND.a()) {
-                                q.A(context);
-                                i = 0;
-                            } else if (iVar.n == l.MSG_TYPE_PRIVATE_MESSAGE.a() || iVar.n == l.MSG_TYPE_SINGLE_PRIVATE.a()) {
+                        if (m.b(context, "bdpush_hwsignresult", 1) != 0) {
+                            if (!p.x(context)) {
+                                com.baidu.android.pushservice.g.a.d(TAG, "check hw bind status failed not bind");
+                            } else if (p.y(context, iVar.l)) {
+                                com.baidu.android.pushservice.g.a.d(TAG, "HW msgid is duplicated!!! msgid = " + iVar.l);
+                            } else if (iVar.m == l.MSG_TYPE_APPSTAT_COMMAND.a()) {
+                                p.z(context);
+                            } else if (iVar.m == l.MSG_TYPE_LBS_APPLIST_COMMAND.a()) {
+                                p.A(context);
+                            } else if (iVar.m == l.MSG_TYPE_PRIVATE_MESSAGE.a() || iVar.m == l.MSG_TYPE_SINGLE_PRIVATE.a()) {
                                 onMessage(context, a4, null);
-                                i = 0;
                                 com.baidu.android.pushservice.g.a.c(TAG, "receive HWPassthrough Message");
-                            } else {
-                                i = 6;
                             }
-                            com.baidu.android.pushservice.j.f.a(context, iVar.m, i, iVar.j, iVar.k + "", 1);
                             com.baidu.android.pushservice.g.a.c(TAG, "receive huawei passthrough message  =  " + a4 + "   DeviceToken = " + str7);
                         }
                     } catch (Exception e8) {

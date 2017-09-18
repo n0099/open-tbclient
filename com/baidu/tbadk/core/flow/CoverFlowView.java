@@ -65,8 +65,8 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     }
 
     private void init(Context context) {
-        az(context);
         aA(context);
+        aB(context);
         setCoverFlowFactory(new com.baidu.tbadk.core.flow.a.b());
         addView(this.acb);
         addView(this.acc);
@@ -76,11 +76,11 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         this.acb.setOnPageChangeListener(this.acj);
     }
 
-    private void az(Context context) {
+    private void aA(Context context) {
         this.acb = new ListViewPager(context);
     }
 
-    private void aA(Context context) {
+    private void aB(Context context) {
         this.acc = new IndicatorView(context);
         this.acc.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
     }

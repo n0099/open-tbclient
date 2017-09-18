@@ -10,16 +10,16 @@ import com.baidu.tieba.d;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
-    private WeakReference<InterfaceC0061a<T>> aFN = null;
-    private c aFO = null;
-    private a<T>.b aFP = null;
-    public T aFQ;
-    private final d aFR;
+    private WeakReference<InterfaceC0060a<T>> aFK = null;
+    private c aFL = null;
+    private a<T>.b aFM = null;
+    public T aFN;
+    private final d aFO;
     private String mPath;
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0061a<T> {
+    public interface InterfaceC0060a<T> {
         void a(int i, T t);
     }
 
@@ -31,32 +31,32 @@ public class a<T> {
     public a(String str, String str2) {
         this.mPath = null;
         this.mPath = str;
-        this.aFR = new d(str2);
+        this.aFO = new d(str2);
     }
 
     public void h(int i, int i2, int i3, int i4) {
-        this.aFR.h(i, i2, i3, i4);
+        this.aFO.h(i, i2, i3, i4);
     }
 
     public void bO(boolean z) {
-        if (this.aFP == null) {
-            this.aFP = new b();
-            this.aFP.bP(z);
-            this.aFP.execute(new String[0]);
+        if (this.aFM == null) {
+            this.aFM = new b();
+            this.aFM.bP(z);
+            this.aFM.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends BdAsyncTask<String, Integer, ImageUploadResult> implements d.a {
-        private boolean aFS;
+        private boolean aFP;
 
         private b() {
-            this.aFS = false;
+            this.aFP = false;
         }
 
         protected void bP(boolean z) {
-            this.aFS = z;
+            this.aFP = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,8 +68,8 @@ public class a<T> {
         }
 
         private ImageUploadResult ED() {
-            a.this.aFR.a(this, null);
-            ImageUploadResult s = a.this.aFR.s(a.this.mPath, this.aFS);
+            a.this.aFO.a(this, null);
+            ImageUploadResult s = a.this.aFO.s(a.this.mPath, this.aFP);
             publishProgress(100);
             return s;
         }
@@ -93,8 +93,8 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onProgressUpdate(Integer... numArr) {
-            if (numArr != null && numArr.length != 0 && a.this.aFN != null && a.this.aFN.get() != null) {
-                ((InterfaceC0061a) a.this.aFN.get()).a(numArr[0].intValue(), a.this.aFQ);
+            if (numArr != null && numArr.length != 0 && a.this.aFK != null && a.this.aFK.get() != null) {
+                ((InterfaceC0060a) a.this.aFK.get()).a(numArr[0].intValue(), a.this.aFN);
             }
         }
 
@@ -102,19 +102,19 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (a.this.aFO != null) {
+            if (a.this.aFL != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
                 imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.l.send_error);
-                a.this.aFO.a(a.this.mPath, imageUploadResult);
+                a.this.aFL.a(a.this.mPath, imageUploadResult);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            a.this.aFP = null;
-            a.this.aFR.cancel();
+            a.this.aFM = null;
+            a.this.aFO.cancel();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,37 +123,37 @@ public class a<T> {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            a.this.aFP = null;
-            if (a.this.aFO != null) {
+            a.this.aFM = null;
+            if (a.this.aFL != null) {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
                     imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.l.send_error);
                     TiebaStatic.imgError(TbErrInfo.ERR_IMG_SEND, imageUploadResult.error_msg, "");
                 }
-                a.this.aFO.a(a.this.mPath, imageUploadResult);
+                a.this.aFL.a(a.this.mPath, imageUploadResult);
             }
         }
     }
 
-    public void a(InterfaceC0061a<T> interfaceC0061a) {
-        this.aFN = new WeakReference<>(interfaceC0061a);
+    public void a(InterfaceC0060a<T> interfaceC0060a) {
+        this.aFK = new WeakReference<>(interfaceC0060a);
     }
 
     public void a(c cVar) {
-        this.aFO = cVar;
+        this.aFL = cVar;
     }
 
     public void setGroupId(String str) {
-        this.aFR.setGroupId(str);
+        this.aFO.setGroupId(str);
     }
 
     public T EB() {
-        return this.aFQ;
+        return this.aFN;
     }
 
     public void A(T t) {
-        this.aFQ = t;
+        this.aFN = t;
     }
 
     public void EC() {

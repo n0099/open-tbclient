@@ -14,34 +14,34 @@ import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes.dex */
 public class b {
     public static void a(DataRes.Builder builder, List<f> list) {
-        bE(list);
+        bF(list);
         b(builder, list);
     }
 
-    public static void bE(List<f> list) {
+    public static void bF(List<f> list) {
         if (list != null) {
             int u = v.u(list);
             for (int i = 0; i < u; i++) {
                 f fVar = (f) v.c(list, i);
                 if (fVar instanceof r) {
-                    ((r) fVar).dJ(true);
+                    ((r) fVar).dK(true);
                 }
                 f fVar2 = (f) v.c(list, i + 1);
                 if ((fVar instanceof r) && (fVar2 instanceof r)) {
                     r rVar = (r) fVar;
                     r rVar2 = (r) fVar2;
-                    if (rVar.Yg()) {
-                        rVar2.dJ(false);
+                    if (rVar.Yr()) {
+                        rVar2.dK(false);
                         if (rVar2 instanceof com.baidu.tieba.homepage.personalize.c.c) {
-                            rVar.dK(false);
+                            rVar.dL(false);
                         }
                     }
                 }
                 if (fVar instanceof com.baidu.tieba.homepage.personalize.c.c) {
                     if ((fVar2 instanceof r) || (fVar2 instanceof h)) {
-                        ((com.baidu.tieba.homepage.personalize.c.c) fVar).dK(true);
+                        ((com.baidu.tieba.homepage.personalize.c.c) fVar).dL(true);
                     } else {
-                        ((com.baidu.tieba.homepage.personalize.c.c) fVar).dK(false);
+                        ((com.baidu.tieba.homepage.personalize.c.c) fVar).dL(false);
                     }
                 }
             }
@@ -65,7 +65,7 @@ public class b {
                 if ((fVar instanceof com.baidu.tieba.card.data.c) && (MR = (cVar = (com.baidu.tieba.card.data.c) fVar).MR()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.g.b.c(MR.getTid(), 0L)))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.jw(threadPersonalized.abtest_tag);
+                    cVar.jy(threadPersonalized.abtest_tag);
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {
                         SparseArray<String> sparseArray = new SparseArray<>();

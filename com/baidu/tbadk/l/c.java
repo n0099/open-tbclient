@@ -9,16 +9,16 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.a.a.a implements Runnable {
-    public static String aIU = "logcat ";
-    private static Map<String, b> aIW = new HashMap();
-    private Process aIR;
-    private InputStream aIS;
-    private OutputStream aIT;
-    private a aIV;
+    public static String aIR = "logcat ";
+    private static Map<String, b> aIT = new HashMap();
+    private Process aIO;
+    private InputStream aIP;
+    private OutputStream aIQ;
+    private a aIS;
 
     public static void a(String str, b bVar) {
-        aIW.put(str, bVar);
-        aIU += " -s " + str;
+        aIT.put(str, bVar);
+        aIR += " -s " + str;
     }
 
     public void gA(String str) {
@@ -27,7 +27,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         while (true) {
             int i2 = i;
             if (i2 < split.length) {
-                Iterator<Map.Entry<String, b>> it = aIW.entrySet().iterator();
+                Iterator<Map.Entry<String, b>> it = aIT.entrySet().iterator();
                 while (true) {
                     if (it.hasNext()) {
                         Map.Entry<String, b> next = it.next();
@@ -49,11 +49,11 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.aIR = Runtime.getRuntime().exec(aIU);
-            this.aIT = this.aIR.getOutputStream();
-            this.aIS = this.aIR.getInputStream();
+            this.aIO = Runtime.getRuntime().exec(aIR);
+            this.aIQ = this.aIO.getOutputStream();
+            this.aIP = this.aIO.getInputStream();
             Gd();
-            this.aIT.flush();
+            this.aIQ.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e2) {
@@ -62,25 +62,25 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
     }
 
     private void Gd() throws FileNotFoundException {
-        this.aIV = new a(this.aIS);
-        this.aIV.start();
+        this.aIS = new a(this.aIP);
+        this.aIS.start();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
         try {
-            if (this.aIR != null) {
-                this.aIR.destroy();
-            }
-            if (this.aIV != null) {
-                this.aIV.finish();
+            if (this.aIO != null) {
+                this.aIO.destroy();
             }
             if (this.aIS != null) {
-                this.aIS.close();
+                this.aIS.finish();
             }
-            if (this.aIT != null) {
-                this.aIT.close();
+            if (this.aIP != null) {
+                this.aIP.close();
+            }
+            if (this.aIQ != null) {
+                this.aIQ.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -90,7 +90,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends Thread {
-        private boolean aIX = false;
+        private boolean aIU = false;
         private InputStream in;
 
         public a(InputStream inputStream) {
@@ -101,7 +101,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         public void run() {
             int read;
             byte[] bArr = new byte[8192];
-            while (!this.aIX && (read = this.in.read(bArr)) != -1) {
+            while (!this.aIU && (read = this.in.read(bArr)) != -1) {
                 try {
                     String str = new String(bArr, 0, read);
                     if (str != null) {
@@ -115,7 +115,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         }
 
         public synchronized void finish() {
-            this.aIX = true;
+            this.aIU = true;
         }
     }
 }

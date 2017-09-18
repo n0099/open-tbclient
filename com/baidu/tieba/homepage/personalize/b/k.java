@@ -11,24 +11,24 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class k extends BaseAdapter {
-    private com.baidu.tieba.homepage.personalize.data.f dcA;
+    private com.baidu.tieba.homepage.personalize.data.f ddv;
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dcA == null || this.dcA.ddm == null) {
+        if (this.ddv == null || this.ddv.dei == null) {
             return 0;
         }
-        return this.dcA.ddm.size();
+        return this.ddv.dei.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lk */
+    /* renamed from: lm */
     public com.baidu.tieba.homepage.personalize.data.g getItem(int i) {
-        if (this.dcA == null || this.dcA.ddm == null) {
+        if (this.ddv == null || this.ddv.dei == null) {
             return null;
         }
-        return this.dcA.ddm.get(i);
+        return this.ddv.dei.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,11 +66,11 @@ public class k extends BaseAdapter {
     }
 
     public void a(com.baidu.tieba.homepage.personalize.data.f fVar) {
-        this.dcA = fVar;
+        this.ddv = fVar;
         notifyDataSetChanged();
     }
 
-    public com.baidu.tieba.homepage.personalize.data.f aqT() {
-        return this.dcA;
+    public com.baidu.tieba.homepage.personalize.data.f are() {
+        return this.ddv;
     }
 }

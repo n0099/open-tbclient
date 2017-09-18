@@ -7,8 +7,7 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import com.baidu.android.pushservice.h.p;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.p;
 /* loaded from: classes2.dex */
 public class PushInfoProvider extends ContentProvider {
     private static final UriMatcher c = new UriMatcher(-1);
@@ -33,7 +32,7 @@ public class PushInfoProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {
         this.b = getContext();
-        c.addURI(this.b.getPackageName() + ".bdpush", q.E(this.b) ? "pushinfo_v3" : "pushinfo", 1);
+        c.addURI(this.b.getPackageName() + ".bdpush", p.E(this.b) ? "pushinfo_v3" : "pushinfo", 1);
         c.addURI(this.b.getPackageName() + ".bdpush", "verif", 2);
         c.addURI(this.b.getPackageName() + ".bdpush", "msgInfo", 3);
         return true;
@@ -100,7 +99,7 @@ public class PushInfoProvider extends ContentProvider {
                 cursor2 = cursor;
                 e = e2;
                 com.baidu.android.pushservice.g.a.a("PushInfoProvider", e);
-                p.a(this.b, e);
+                com.baidu.android.pushservice.h.p.a(this.b, e);
                 cursor = cursor2;
                 return cursor;
             }
@@ -166,7 +165,7 @@ public class PushInfoProvider extends ContentProvider {
                                                 cursor2 = cursor;
                                                 try {
                                                     com.baidu.android.pushservice.g.a.a("PushInfoProvider", e);
-                                                    p.a(this.b, e);
+                                                    com.baidu.android.pushservice.h.p.a(this.b, e);
                                                     if (cursor2 != null) {
                                                         cursor2.close();
                                                     }

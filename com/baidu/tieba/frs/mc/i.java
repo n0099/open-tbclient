@@ -3,24 +3,24 @@ package com.baidu.tieba.frs.mc;
 import com.baidu.tieba.frs.am;
 /* loaded from: classes.dex */
 public class i {
-    protected final am cDR;
-    protected final d cDS;
-    protected final com.baidu.tieba.frs.i cpe;
-    protected final FrsModelController cpn;
-    protected final com.baidu.tieba.frs.h.f cpo;
-    protected final com.baidu.tieba.frs.entelechy.b.d cpp;
-    protected final com.baidu.tieba.frs.f cvA;
+    protected final am cEJ;
+    protected final d cEK;
+    protected final com.baidu.tieba.frs.i cpW;
+    protected final FrsModelController cqf;
+    protected final com.baidu.tieba.frs.h.f cqg;
+    protected final com.baidu.tieba.frs.entelechy.b.d cqh;
+    protected final com.baidu.tieba.frs.f cws;
 
     public i(com.baidu.tieba.frs.f fVar) {
         if (fVar == null) {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
-        this.cvA = fVar;
-        this.cpo = this.cvA.agK();
-        this.cpe = this.cvA.agN();
-        this.cpp = this.cvA.agL();
-        this.cpn = this.cvA.agI();
-        this.cDR = this.cvA.agM();
-        this.cDS = this.cvA.agJ();
+        this.cws = fVar;
+        this.cqg = this.cws.agV();
+        this.cpW = this.cws.agY();
+        this.cqh = this.cws.agW();
+        this.cqf = this.cws.agT();
+        this.cEJ = this.cws.agX();
+        this.cEK = this.cws.agU();
     }
 }

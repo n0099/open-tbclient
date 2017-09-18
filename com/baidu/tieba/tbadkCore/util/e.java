@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e extends f {
-    private volatile HashMap<String, Long> gkI;
+    private volatile HashMap<String, Long> glC;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.tbadkCore.util.e.1
@@ -19,7 +19,7 @@ public class e extends f {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory() != null) {
-                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().btj();
+                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().btu();
                 }
             }
         });
@@ -27,28 +27,28 @@ public class e extends f {
 
     public e(int i) {
         super(i);
-        this.gkI = new HashMap<>();
+        this.glC = new HashMap<>();
     }
 
     public void cm(String str, String str2) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
-                if (this.gkI.size() >= this.gkK) {
-                    bcn();
+                if (this.glC.size() >= this.glE) {
+                    bcy();
                 }
-                this.gkI.put(str, valueOf);
+                this.glC.put(str, valueOf);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public long sl(String str) {
+    public long sn(String str) {
         long longValue;
         try {
             synchronized (this) {
-                longValue = this.gkI.get(str) != null ? this.gkI.get(str).longValue() : 0L;
+                longValue = this.glC.get(str) != null ? this.glC.get(str).longValue() : 0L;
             }
             return longValue;
         } catch (Exception e) {
@@ -62,11 +62,11 @@ public class e extends f {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
-                Iterator<Map.Entry<String, Long>> it = this.gkI.entrySet().iterator();
+                Iterator<Map.Entry<String, Long>> it = this.glC.entrySet().iterator();
                 if (it.hasNext() && (key = it.next().getKey()) != null && key.equals(str)) {
-                    this.gkI.remove(key);
+                    this.glC.remove(key);
                 }
-                this.gkI.put(str, valueOf);
+                this.glC.put(str, valueOf);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -74,10 +74,10 @@ public class e extends f {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.f
-    public void btj() {
+    public void btu() {
         synchronized (this) {
-            this.gkL.clear();
-            this.gkI.clear();
+            this.glF.clear();
+            this.glC.clear();
         }
     }
 }

@@ -23,17 +23,17 @@ public class FH {
                 public final void run() {
                     try {
                         new e(context).c(iArr);
-                        c ap = c.ap(context);
+                        c aq = c.aq(context);
                         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                             String[] e = d.e(context);
                             if (e != null && e.length == 2 && !TextUtils.isEmpty(e[0]) && !TextUtils.isEmpty(e[1])) {
-                                ap.a(e[0], e[1]);
+                                aq.a(e[0], e[1]);
                             }
                         } else {
-                            ap.a(str, str2);
+                            aq.a(str, str2);
                         }
                         c.a(1);
-                        ap.b();
+                        aq.b();
                     } catch (Throwable th) {
                         d.a(th);
                     }

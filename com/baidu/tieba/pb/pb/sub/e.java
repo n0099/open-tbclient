@@ -24,7 +24,7 @@ public class e extends PbListView {
         getView().setVisibility(0);
     }
 
-    public void aeV() {
+    public void afg() {
         super.wW();
         setText(this.context.getResources().getString(d.l.load_more));
         getView().setVisibility(0);

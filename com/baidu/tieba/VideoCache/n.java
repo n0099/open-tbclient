@@ -11,7 +11,7 @@ import java.net.Socket;
 /* loaded from: classes2.dex */
 public class n {
     private static final String TAG = n.class.getSimpleName();
-    private ServerSocket aWv;
+    private ServerSocket aWs;
     private Context mContext;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.VideoCache.n.1
         @Override // java.lang.Runnable
@@ -19,12 +19,12 @@ public class n {
             j.aw(n.TAG, "run ...");
             n.this.KO();
             int i = 9000;
-            while (n.this.aWv == null && i < 10000) {
+            while (n.this.aWs == null && i < 10000) {
                 try {
-                    n.this.aWv = new ServerSocket(i);
+                    n.this.aWs = new ServerSocket(i);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    n.this.aWv = null;
+                    n.this.aWs = null;
                     i++;
                 }
             }
@@ -32,10 +32,10 @@ public class n {
             n.this.fQ(i);
             e.KD();
             k.KL();
-            while (!n.this.aWv.isClosed()) {
+            while (!n.this.aWs.isClosed()) {
                 try {
                     j.aw(n.TAG, "accept start");
-                    Socket accept = n.this.aWv.accept();
+                    Socket accept = n.this.aWs.accept();
                     j.aw(n.TAG, "accept end");
                     if (accept != null) {
                         j.aw(n.TAG, "连接视频服务的client:" + accept);
@@ -73,11 +73,11 @@ public class n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void KO() {
-        File file = new File(i.aWi);
+        File file = new File(i.aWf);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(i.aWj);
+        File file2 = new File(i.aWg);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -89,11 +89,11 @@ public class n {
                 }
             }
         }
-        File file4 = new File(i.aWk);
+        File file4 = new File(i.aWh);
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(i.aWm);
+        File file5 = new File(i.aWj);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -116,7 +116,7 @@ public class n {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void fQ(int i) {
-        BufferedWriter bufferedWriter = i.aWo;
+        BufferedWriter bufferedWriter = i.aWl;
         try {
             try {
                 bufferedWriter = new BufferedWriter(new FileWriter(new File((String) bufferedWriter)));
@@ -166,8 +166,8 @@ public class n {
 
     public void destroy() {
         try {
-            if (this.aWv != null) {
-                this.aWv.close();
+            if (this.aWs != null) {
+                this.aWs.close();
             }
         } catch (IOException e) {
             e.printStackTrace();

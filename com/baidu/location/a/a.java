@@ -17,7 +17,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     private static a KN = null;
-    private ArrayList<C0024a> c;
+    private ArrayList<C0023a> c;
     private boolean d = false;
     public boolean a = false;
     private BDLocation KO = null;
@@ -25,14 +25,14 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0024a {
+    public class C0023a {
         final /* synthetic */ a KQ;
         public String a;
         public Messenger b;
         public LocationClientOption KP = new LocationClientOption();
         public int d = 0;
 
-        public C0024a(a aVar, Message message) {
+        public C0023a(a aVar, Message message) {
             boolean z = true;
             this.KQ = aVar;
             this.a = null;
@@ -164,13 +164,13 @@ public class a {
         this.c = new ArrayList<>();
     }
 
-    private C0024a a(Messenger messenger) {
+    private C0023a a(Messenger messenger) {
         if (this.c == null) {
             return null;
         }
-        Iterator<C0024a> it = this.c.iterator();
+        Iterator<C0023a> it = this.c.iterator();
         while (it.hasNext()) {
-            C0024a next = it.next();
+            C0023a next = it.next();
             if (next.b.equals(messenger)) {
                 return next;
             }
@@ -178,16 +178,16 @@ public class a {
         return null;
     }
 
-    private void a(C0024a c0024a) {
-        if (c0024a == null) {
+    private void a(C0023a c0023a) {
+        if (c0023a == null) {
             return;
         }
-        if (a(c0024a.b) != null) {
-            c0024a.a(14);
+        if (a(c0023a.b) != null) {
+            c0023a.a(14);
             return;
         }
-        this.c.add(c0024a);
-        c0024a.a(13);
+        this.c.add(c0023a);
+        c0023a.a(13);
     }
 
     private void e() {
@@ -196,11 +196,11 @@ public class a {
     }
 
     private void f() {
-        Iterator<C0024a> it = this.c.iterator();
+        Iterator<C0023a> it = this.c.iterator();
         boolean z = false;
         boolean z2 = false;
         while (it.hasNext()) {
-            C0024a next = it.next();
+            C0023a next = it.next();
             if (next.KP.openGps) {
                 z2 = true;
             }
@@ -225,7 +225,7 @@ public class a {
             return;
         }
         this.a = true;
-        a(new C0024a(this, message));
+        a(new C0023a(this, message));
         e();
     }
 
@@ -247,10 +247,10 @@ public class a {
                 this.KO = new BDLocation(bDLocation);
             }
         }
-        Iterator<C0024a> it = this.c.iterator();
+        Iterator<C0023a> it = this.c.iterator();
         while (it.hasNext()) {
             try {
-                C0024a next = it.next();
+                C0023a next = it.next();
                 next.a(bDLocation);
                 if (next.d > 4) {
                     it.remove();
@@ -285,7 +285,7 @@ public class a {
     }
 
     public void b(Message message) {
-        C0024a a = a(message.replyTo);
+        C0023a a = a(message.replyTo);
         if (a != null) {
             this.c.remove(a);
         }
@@ -299,13 +299,13 @@ public class a {
         if (this.c.isEmpty()) {
             return "&prod=" + com.baidu.location.h.c.d + ":" + com.baidu.location.h.c.c;
         }
-        C0024a c0024a = this.c.get(0);
-        if (c0024a.KP.prodName != null) {
-            stringBuffer.append(c0024a.KP.prodName);
+        C0023a c0023a = this.c.get(0);
+        if (c0023a.KP.prodName != null) {
+            stringBuffer.append(c0023a.KP.prodName);
         }
-        if (c0024a.a != null) {
+        if (c0023a.a != null) {
             stringBuffer.append(":");
-            stringBuffer.append(c0024a.a);
+            stringBuffer.append(c0023a.a);
             stringBuffer.append("|");
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -316,7 +316,7 @@ public class a {
     }
 
     public void d() {
-        Iterator<C0024a> it = this.c.iterator();
+        Iterator<C0023a> it = this.c.iterator();
         while (it.hasNext()) {
             it.next().a();
         }
@@ -324,7 +324,7 @@ public class a {
 
     public boolean d(Message message) {
         boolean z = true;
-        C0024a a = a(message.replyTo);
+        C0023a a = a(message.replyTo);
         if (a == null) {
             return false;
         }
@@ -369,7 +369,7 @@ public class a {
     }
 
     public int e(Message message) {
-        C0024a a;
+        C0023a a;
         if (message == null || message.replyTo == null || (a = a(message.replyTo)) == null || a.KP == null) {
             return 1;
         }
@@ -377,7 +377,7 @@ public class a {
     }
 
     public int f(Message message) {
-        C0024a a;
+        C0023a a;
         if (message == null || message.replyTo == null || (a = a(message.replyTo)) == null || a.KP == null) {
             return 1000;
         }

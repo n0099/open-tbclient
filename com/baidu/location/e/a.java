@@ -42,11 +42,11 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class AsyncTaskC0028a extends AsyncTask<Boolean, Void, Boolean> {
-        private AsyncTaskC0028a() {
+    public class AsyncTaskC0027a extends AsyncTask<Boolean, Void, Boolean> {
+        private AsyncTaskC0027a() {
         }
 
-        /* synthetic */ AsyncTaskC0028a(a aVar, com.baidu.location.e.b bVar) {
+        /* synthetic */ AsyncTaskC0027a(a aVar, com.baidu.location.e.b bVar) {
             this();
         }
 
@@ -596,7 +596,7 @@ public final class a {
             boolean z = queryNumEntries > 10000;
             boolean z2 = queryNumEntries2 > 10000;
             if (z || z2) {
-                new AsyncTaskC0028a(this, null).execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+                new AsyncTaskC0027a(this, null).execute(Boolean.valueOf(z), Boolean.valueOf(z2));
             }
             sQLiteDatabase.close();
         } catch (Exception e2) {

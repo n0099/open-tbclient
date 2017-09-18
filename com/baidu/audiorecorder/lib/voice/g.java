@@ -121,7 +121,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
         }
     }
 
-    public static g ah(Context context) {
+    public static g ai(Context context) {
         return new g(context);
     }
 
@@ -189,7 +189,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
     }
 
     public void init(Context context) {
-        ai(context);
+        aj(context);
         lS();
         this.Km[0] = aj.getColor(d.e.common_color_10151);
         this.Km[1] = aj.getColor(d.e.common_color_10152);
@@ -267,7 +267,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
     private void lM() {
         final com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
         if (this.Kj == null) {
-            this.Kj = new com.baidu.tbadk.core.dialog.a(com.baidu.adp.base.i.X(getContext()).getPageActivity());
+            this.Kj = new com.baidu.tbadk.core.dialog.a(com.baidu.adp.base.i.Y(getContext()).getPageActivity());
             this.Kj.cM(getContext().getString(d.l.voice_restart_tip)).a(getContext().getString(d.l.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.g.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -285,7 +285,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
-            }).b(com.baidu.adp.base.i.X(getContext()));
+            }).b(com.baidu.adp.base.i.Y(getContext()));
         }
         try {
             this.Kj.to();
@@ -299,7 +299,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
         }
     }
 
-    private void ai(Context context) {
+    private void aj(Context context) {
         LayoutInflater.from(context).inflate(d.j.record_voice_area, (ViewGroup) this, true);
         setClickable(true);
         this.Ka = (TextView) findViewById(d.h.tip_error);

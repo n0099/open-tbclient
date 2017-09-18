@@ -10,17 +10,17 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.q;
 /* loaded from: classes.dex */
 public class b {
-    private final g aij = new g();
+    private final g aii = new g();
     public boolean mIsNeedTbs = false;
-    public boolean aik = true;
+    public boolean aij = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean ail = false;
-    public int aim = 0;
+    public boolean aik = false;
+    public int ail = 0;
 
     public g wi() {
-        return this.aij;
+        return this.aii;
     }
 
     public void a(q qVar) {
@@ -37,7 +37,7 @@ public class b {
 
     public void b(q qVar) {
         String str;
-        boolean z = true;
+        boolean z;
         qVar.n("_client_type", "2");
         if (!TbadkCoreApplication.getInst().isOfficial()) {
             qVar.n("apid", TbConfig.SW_APID);
@@ -64,21 +64,23 @@ public class b {
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
                     str = xV + "ka=open";
+                    z = true;
                     com.baidu.adp.lib.network.a.a.setKeepAlive(z);
                     com.baidu.adp.lib.network.a.a.ai(str);
                 }
-                z = false;
                 str = xV;
+                z = false;
                 com.baidu.adp.lib.network.a.a.setKeepAlive(z);
                 com.baidu.adp.lib.network.a.a.ai(str);
             } else {
                 if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
                     str = xV + "ka=open";
+                    z = true;
                     com.baidu.adp.lib.network.a.a.setKeepAlive(z);
                     com.baidu.adp.lib.network.a.a.ai(str);
                 }
-                z = false;
                 str = xV;
+                z = false;
                 com.baidu.adp.lib.network.a.a.setKeepAlive(z);
                 com.baidu.adp.lib.network.a.a.ai(str);
             }
@@ -89,21 +91,23 @@ public class b {
         qVar.n("cuid", TbadkCoreApplication.getInst().getCuid());
         qVar.n("timestamp", Long.toString(System.currentTimeMillis()));
         qVar.n("model", Build.MODEL);
-        qVar.n("z_id", FH.gz(TbadkCoreApplication.getInst()));
+        if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("android_safe_sdk_open", 0) == 1) {
+            qVar.n("z_id", FH.gz(TbadkCoreApplication.getInst()));
+        }
     }
 
     public String wj() {
-        if (this.aij.mUrl == null) {
+        if (this.aii.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.aij.mUrl.startsWith(str)) {
-            int indexOf = this.aij.mUrl.indexOf(63);
+        if (this.aii.mUrl.startsWith(str)) {
+            int indexOf = this.aii.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.aij.mUrl.length();
+                indexOf = this.aii.mUrl.length();
             }
-            return this.aij.mUrl.substring(str.length(), indexOf);
+            return this.aii.mUrl.substring(str.length(), indexOf);
         }
-        return this.aij.mUrl;
+        return this.aii.mUrl;
     }
 }

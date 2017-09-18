@@ -21,22 +21,22 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b aAF = null;
-    private static DownloadData aAI = null;
+    private static b aAC = null;
+    private static DownloadData aAF = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private final int aAG = 5;
-    private a aAH = null;
+    private final int aAD = 5;
+    private a aAE = null;
 
     private b() {
     }
 
     public static b CK() {
         synchronized (b.class) {
-            if (aAF == null) {
-                aAF = new b();
+            if (aAC == null) {
+                aAC = new b();
             }
         }
-        return aAF;
+        return aAC;
     }
 
     public void a(String str, String str2, String str3, String[] strArr) {
@@ -79,12 +79,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void CL() {
-        if (aAI == null) {
-            aAI = (DownloadData) v.c(mTaskList, 0);
-            if (aAI != null) {
-                this.aAH = new a();
-                this.aAH.setPriority(3);
-                this.aAH.execute(aAI);
+        if (aAF == null) {
+            aAF = (DownloadData) v.c(mTaskList, 0);
+            if (aAF != null) {
+                this.aAE = new a();
+                this.aAE.setPriority(3);
+                this.aAE.execute(aAF);
             }
         }
     }
@@ -112,18 +112,18 @@ public class b {
 
     public void o(ArrayList<AdvertAppInfo> arrayList) {
         try {
-            new C0056b().execute(arrayList);
+            new C0055b().execute(arrayList);
         } catch (Exception e) {
         }
     }
 
     /* renamed from: com.baidu.tbadk.download.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0056b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
-        ArrayList<AdvertAppInfo> aAK;
+    private class C0055b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
+        ArrayList<AdvertAppInfo> aAH;
 
-        private C0056b() {
-            this.aAK = null;
+        private C0055b() {
+            this.aAH = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -136,7 +136,7 @@ public class b {
             if (arrayList == null) {
                 return linkedList;
             }
-            this.aAK = arrayList;
+            this.aAH = arrayList;
             Iterator<AdvertAppInfo> it = arrayList.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
@@ -154,12 +154,12 @@ public class b {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(List<DownloadData> list) {
-            super.onPostExecute((C0056b) list);
+            super.onPostExecute((C0055b) list);
             if (list == null) {
                 list = new LinkedList<>();
             }
             for (DownloadData downloadData : e.CN().jP()) {
-                Iterator<AdvertAppInfo> it = this.aAK.iterator();
+                Iterator<AdvertAppInfo> it = this.aAH.iterator();
                 while (it.hasNext()) {
                     if (TextUtils.equals(it.next().TR, downloadData.getId())) {
                         list.add(downloadData);
@@ -167,7 +167,7 @@ public class b {
                 }
             }
             b.this.z(list);
-            this.aAK = null;
+            this.aAH = null;
         }
     }
 
@@ -228,7 +228,7 @@ public class b {
         /* renamed from: e */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            b.this.aAH = null;
+            b.this.aAE = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
                     b.this.b(downloadData);
@@ -245,7 +245,7 @@ public class b {
                         b.this.c(downloadData);
                     }
                 }
-                DownloadData unused = b.aAI = null;
+                DownloadData unused = b.aAF = null;
                 if (!b.mTaskList.isEmpty()) {
                     b.mTaskList.remove(0);
                     b.this.CL();

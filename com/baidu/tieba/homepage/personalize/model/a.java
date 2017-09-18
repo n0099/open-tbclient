@@ -17,13 +17,13 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
-    private int ddr = 0;
-    private com.baidu.tieba.homepage.personalize.c.d cZe = new com.baidu.tieba.homepage.personalize.c.d();
-    private final c cZd = new c();
-    private final int beU = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
+    private int den = 0;
+    private com.baidu.tieba.homepage.personalize.c.d cZY = new com.baidu.tieba.homepage.personalize.c.d();
+    private final c cZX = new c();
+    private final int beR = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
-    public int aqV() {
-        return this.beU;
+    public int arg() {
+        return this.beR;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -39,16 +39,16 @@ public class a {
         d.e(builder);
         d.e(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.beU);
+        a(builder, i, this.beR);
         d.f(builder);
         List<r> d = d.d(builder);
-        bD(d);
+        bE(d);
         List<f> k = k(builder.thread_list, d);
-        this.cZe.bF(k);
+        this.cZY.bG(k);
         a(k, builder);
         b.a(builder, k);
-        this.cZd.aTF = k;
-        return this.cZd;
+        this.cZX.aTC = k;
+        return this.cZX;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -66,7 +66,7 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.ddr);
+        d.a(z, builder, builder2, i, this.den);
     }
 
     private void a(boolean z, List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
@@ -98,7 +98,7 @@ public class a {
                 int u2 = v.u(list2) - 1;
                 i2 = 0;
                 while (u2 >= 0) {
-                    this.cZe.a(z, u2, list, list2);
+                    this.cZY.a(z, u2, list, list2);
                     ThreadInfo threadInfo3 = (ThreadInfo) v.c(list2, u2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
                         if (!hashSet2.contains(threadInfo3.lego_card)) {
@@ -120,12 +120,12 @@ public class a {
                 }
             }
             int u3 = v.u(list);
-            this.cZd.ddt = (u3 - u) - i2;
-            this.ddr = u3 - u;
+            this.cZX.dep = (u3 - u) - i2;
+            this.den = u3 - u;
         }
     }
 
-    private void bD(List<r> list) {
+    private void bE(List<r> list) {
         if (list != null) {
             Collections.sort(list, new Comparator<r>() { // from class: com.baidu.tieba.homepage.personalize.model.a.1
                 /* JADX DEBUG: Method merged with bridge method */

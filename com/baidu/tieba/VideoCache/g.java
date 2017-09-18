@@ -14,10 +14,10 @@ import java.util.Collections;
 /* loaded from: classes2.dex */
 public class g implements Runnable {
     private static final String TAG = g.class.getSimpleName();
-    private String aVG;
+    private String aVD;
 
     public synchronized void setVideoUrl(String str) {
-        this.aVG = str;
+        this.aVD = str;
     }
 
     @Override // java.lang.Runnable
@@ -70,13 +70,13 @@ public class g implements Runnable {
         long g;
         long j2;
         j.aw(TAG, "merge ...");
-        String hu = m.hu(this.aVG);
-        if (hu != null && !hu.isEmpty() && ((file = new File(i.aWn + hu + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.aWn + hu + "/completed.temp");
+        String hu = m.hu(this.aVD);
+        if (hu != null && !hu.isEmpty() && ((file = new File(i.aWk + hu + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.aWk + hu + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.aWn + hu + "/segments");
+            File file3 = new File(i.aWk + hu + "/segments");
             if (file3 != null && file3.exists()) {
                 ho = ho(hu);
                 File[] listFiles = file3.listFiles();
@@ -164,7 +164,7 @@ public class g implements Runnable {
                                         e = e;
                                         fileChannel = channel;
                                         try {
-                                            TiebaStatic.log(new ak("c12027").ad("errormsg", "合并文件出现异常").ad("error", e.getMessage()).ad("url", this.aVG));
+                                            TiebaStatic.log(new ak("c12027").ad("errormsg", "合并文件出现异常").ad("error", e.getMessage()).ad("url", this.aVD));
                                             e.printStackTrace();
                                             if (fileChannel != null) {
                                                 try {
@@ -261,7 +261,7 @@ public class g implements Runnable {
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.aWn + str + "/content_length");
+        File file = new File(i.aWk + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

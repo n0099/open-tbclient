@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize agd = null;
+    private static LocalViewSize agc = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -14,16 +14,16 @@ public class LocalViewSize {
     }
 
     public static LocalViewSize vc() {
-        if (agd == null) {
-            agd = new LocalViewSize();
+        if (agc == null) {
+            agc = new LocalViewSize();
         }
-        return agd;
+        return agc;
     }
 
     private LocalViewSize() {
     }
 
-    public void ab(Context context) {
+    public void ac(Context context) {
         this.mContext = context;
     }
 
@@ -59,24 +59,24 @@ public class LocalViewSize {
     }
 
     public int vd() {
-        int ad = com.baidu.adp.lib.util.k.ad(this.mContext);
-        if (ad >= 1080) {
+        int ae = com.baidu.adp.lib.util.k.ae(this.mContext);
+        if (ae >= 1080) {
             return 1080;
         }
-        return (ad < 720 || ad >= 1080) ? 480 : 720;
+        return (ae < 720 || ae >= 1080) ? 480 : 720;
     }
 
     public ImageSize ve() {
         int i = 240;
-        int ad = com.baidu.adp.lib.util.k.ad(this.mContext);
-        if (ad < 240) {
-            i = ad / 3;
-        } else if (ad <= 320) {
+        int ae = com.baidu.adp.lib.util.k.ae(this.mContext);
+        if (ae < 240) {
+            i = ae / 3;
+        } else if (ae <= 320) {
             i = 80;
-        } else if (ad <= 480) {
+        } else if (ae <= 480) {
             i = 160;
-        } else if (ad > 720) {
-            i = ad / 3;
+        } else if (ae > 720) {
+            i = ae / 3;
         }
         ImageSize imageSize = new ImageSize();
         imageSize.height = i;
@@ -86,8 +86,8 @@ public class LocalViewSize {
 
     public ImageSize vf() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = com.baidu.adp.lib.util.k.ae(this.mContext);
-        imageSize.width = com.baidu.adp.lib.util.k.ad(this.mContext);
+        imageSize.height = com.baidu.adp.lib.util.k.af(this.mContext);
+        imageSize.width = com.baidu.adp.lib.util.k.ae(this.mContext);
         return imageSize;
     }
 

@@ -62,7 +62,7 @@ public class b {
         if (this.xf != null) {
             this.xf.wo = Build.MODEL;
             this.xf.ws = Build.VERSION.RELEASE;
-            this.xf.mNetType = d.aa(BdBaseApplication.getInst());
+            this.xf.mNetType = d.ab(BdBaseApplication.getInst());
             this.xf.wr = String.valueOf(i.ho());
         }
         try {
@@ -90,7 +90,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gH() {
-        this.xf.mNetType = d.aa(BdBaseApplication.getInst());
+        this.xf.mNetType = d.ab(BdBaseApplication.getInst());
         this.xf.wr = String.valueOf(i.ho());
     }
 

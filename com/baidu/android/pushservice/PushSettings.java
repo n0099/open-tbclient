@@ -6,9 +6,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.n;
+import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
-import com.baidu.android.pushservice.j.q;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class PushSettings {
@@ -19,12 +19,12 @@ public class PushSettings {
     public static String a(Context context) {
         String a2 = com.baidu.android.pushservice.j.b.a(context, "com.baidu.pushservice.channel_id");
         if (TextUtils.isEmpty(a2)) {
-            String a3 = n.a(context, "com.baidu.pushservice.channel_id");
+            String a3 = m.a(context, "com.baidu.pushservice.channel_id");
             if (TextUtils.isEmpty(a3)) {
                 String d = com.baidu.android.pushservice.d.c.d(context);
                 if (TextUtils.isEmpty(d)) {
                     String str = d;
-                    for (ResolveInfo resolveInfo : q.E(context) ? q.n(context.getApplicationContext()) : q.m(context.getApplicationContext())) {
+                    for (ResolveInfo resolveInfo : p.E(context) ? p.n(context.getApplicationContext()) : p.m(context.getApplicationContext())) {
                         str = com.baidu.android.pushservice.d.d.a(context, resolveInfo.activityInfo.packageName);
                         if (!TextUtils.isEmpty(str)) {
                             a(context, str);
@@ -44,7 +44,7 @@ public class PushSettings {
         if (context == null) {
             com.baidu.android.pushservice.g.a.d("PushSettings", "setStatisticSendDisabled mContext == null");
         } else {
-            n.a(context, "com.baidu.pushservice.sd", i);
+            m.a(context, "com.baidu.pushservice.sd", i);
         }
     }
 
@@ -52,14 +52,14 @@ public class PushSettings {
         if (context == null) {
             com.baidu.android.pushservice.g.a.d("PushSettings", "setLastSendStatisticTime mContext == null");
         } else {
-            n.a(context, "com.baidu.pushservice.cst", j);
+            m.a(context, "com.baidu.pushservice.cst", j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static void a(Context context, String str) {
         com.baidu.android.pushservice.j.b.a(context, "com.baidu.pushservice.channel_id", str);
-        n.a(context, "com.baidu.pushservice.channel_id", str);
+        m.a(context, "com.baidu.pushservice.channel_id", str);
         com.baidu.android.pushservice.d.c.a(context, str);
     }
 
@@ -72,10 +72,10 @@ public class PushSettings {
         } else if (TextUtils.isEmpty(context.getPackageName())) {
             com.baidu.android.pushservice.g.a.d("PushSettings", "mContext.getPackageName() == null");
         } else {
-            String a2 = n.a(context, "com.baidu.pushservice.le");
+            String a2 = m.a(context, "com.baidu.pushservice.le");
             if (TextUtils.isEmpty(a2)) {
                 if (z) {
-                    n.a(context, "com.baidu.pushservice.le", context.getPackageName() + Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    m.a(context, "com.baidu.pushservice.le", context.getPackageName() + Constants.ACCEPT_TIME_SEPARATOR_SP);
                     return;
                 }
                 return;
@@ -91,19 +91,19 @@ public class PushSettings {
             if (!z2) {
                 sb.append(context.getPackageName() + Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
-            n.a(context, "com.baidu.pushservice.le", sb.toString());
+            m.a(context, "com.baidu.pushservice.le", sb.toString());
         }
     }
 
     public static String b(Context context) {
-        return n.a(context, "com.baidu.pushservice.app_id");
+        return m.a(context, "com.baidu.pushservice.app_id");
     }
 
     public static void b(Context context, int i) {
         if (context == null) {
             com.baidu.android.pushservice.g.a.d("PushSettings", "setCurPeriod mContext == null");
         } else {
-            n.a(context, "com.baidu.pushservice.lsi", i * 1000);
+            m.a(context, "com.baidu.pushservice.lsi", i * 1000);
         }
     }
 
@@ -111,7 +111,7 @@ public class PushSettings {
         if (context == null) {
             com.baidu.android.pushservice.g.a.d("PushSettings", "setLastSendStatisticTime mContext == null");
         } else {
-            n.a(context, "com.baidu.pushservice.st", j);
+            m.a(context, "com.baidu.pushservice.st", j);
         }
     }
 
@@ -120,17 +120,17 @@ public class PushSettings {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        n.a(context, "com.baidu.pushservice.app_id", str);
+        m.a(context, "com.baidu.pushservice.app_id", str);
     }
 
     private static void b(Context context, boolean z) {
         try {
             String packageName = context.getPackageName();
-            String u = q.u(context);
+            String u = p.u(context);
             if (TextUtils.isEmpty(u) || packageName.equals(u)) {
                 return;
             }
-            p.a(context, new Intent(z ? "com.baidu.android.pushservice.action.OPENDEBUGMODE" : "com.baidu.android.pushservice.action.CLOSEDEBUGMODE"));
+            o.a(context, new Intent(z ? "com.baidu.android.pushservice.action.OPENDEBUGMODE" : "com.baidu.android.pushservice.action.CLOSEDEBUGMODE"));
         } catch (Exception e) {
             com.baidu.android.pushservice.g.a.a("PushSettings", e);
         }
@@ -140,7 +140,7 @@ public class PushSettings {
         if (context == null) {
             com.baidu.android.pushservice.g.a.d("PushSettings", "removeUninstalledAppLbsSwitch mContext == null");
         } else if (!TextUtils.isEmpty(str)) {
-            String a2 = n.a(context, "com.baidu.pushservice.le");
+            String a2 = m.a(context, "com.baidu.pushservice.le");
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
@@ -151,7 +151,7 @@ public class PushSettings {
                     sb.append(str2 + Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
             }
-            n.a(context, "com.baidu.pushservice.le", sb.toString());
+            m.a(context, "com.baidu.pushservice.le", sb.toString());
         }
     }
 
@@ -160,7 +160,7 @@ public class PushSettings {
             return false;
         }
         if (a == -1) {
-            a = n.d(context, "com.baidu.android.pushservice.PushSettings.debug_mode", -1);
+            a = m.d(context, "com.baidu.android.pushservice.PushSettings.debug_mode", -1);
         }
         return a == 1;
     }
@@ -170,22 +170,22 @@ public class PushSettings {
             com.baidu.android.pushservice.g.a.e("PushSettings", "getLastSendStatisticTime mContext == null");
             return 0L;
         }
-        return n.c(context, "com.baidu.pushservice.cst");
+        return m.c(context, "com.baidu.pushservice.cst");
     }
 
     public static long e(Context context) {
-        long c2 = n.c(context, "com.baidu.pushservice.st");
+        long c2 = m.c(context, "com.baidu.pushservice.st");
         if (c2 <= 0) {
-            return 43200000L;
+            return 86400000L;
         }
         return c2;
     }
 
     public static void enableDebugMode(Context context, boolean z) {
         if (z) {
-            n.c(context, "com.baidu.android.pushservice.PushSettings.debug_mode", 1);
+            m.c(context, "com.baidu.android.pushservice.PushSettings.debug_mode", 1);
         } else {
-            n.c(context, "com.baidu.android.pushservice.PushSettings.debug_mode", 0);
+            m.c(context, "com.baidu.android.pushservice.PushSettings.debug_mode", 0);
         }
         if (com.baidu.android.pushservice.c.d.d(context)) {
             return;
@@ -194,7 +194,7 @@ public class PushSettings {
     }
 
     public static boolean f(Context context) {
-        return n.b(context, "com.baidu.pushservice.sd", 0) == 1;
+        return m.b(context, "com.baidu.pushservice.sd", 0) == 1;
     }
 
     public static int g(Context context) {
@@ -202,7 +202,7 @@ public class PushSettings {
             com.baidu.android.pushservice.g.a.e("PushSettings", "getLbsSendInterval mContext == null");
             return 0;
         }
-        int b2 = n.b(context, "com.baidu.pushservice.lsi", -1);
+        int b2 = m.b(context, "com.baidu.pushservice.lsi", -1);
         if (b2 < 0) {
             return 1800000;
         }
@@ -210,25 +210,25 @@ public class PushSettings {
     }
 
     public static boolean h(Context context) {
-        return !TextUtils.isEmpty(n.a(context, "com.baidu.pushservice.le"));
+        return !TextUtils.isEmpty(m.a(context, "com.baidu.pushservice.le"));
     }
 
     public static boolean i(Context context) {
-        return TextUtils.equals(n.a(context, "com.baidu.pushservice.lms"), "off");
+        return TextUtils.equals(m.a(context, "com.baidu.pushservice.lms"), "off");
     }
 
     public static void j(Context context) {
         if (context == null) {
             com.baidu.android.pushservice.g.a.d("PushSettings", "tofms mContext == null");
         }
-        n.a(context, "com.baidu.pushservice.lms", "off");
+        m.a(context, "com.baidu.pushservice.lms", "off");
     }
 
     public static void k(Context context) {
         if (context == null) {
             com.baidu.android.pushservice.g.a.d("PushSettings", "toms mContext == null");
         }
-        n.a(context, "com.baidu.pushservice.lms", "");
+        m.a(context, "com.baidu.pushservice.lms", "");
     }
 
     public static void l(Context context) {
@@ -236,7 +236,7 @@ public class PushSettings {
             com.baidu.android.pushservice.g.a.d("PushSettings", "refreshLbsSwitchInfo mContext == null");
             return;
         }
-        String a2 = n.a(context, "com.baidu.pushservice.le");
+        String a2 = m.a(context, "com.baidu.pushservice.le");
         if (TextUtils.isEmpty(a2)) {
             return;
         }
@@ -254,7 +254,7 @@ public class PushSettings {
                 sb.append(str + Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
         }
-        n.a(context, "com.baidu.pushservice.le", sb.toString());
+        m.a(context, "com.baidu.pushservice.le", sb.toString());
     }
 
     public static boolean m(Context context) {
@@ -262,7 +262,7 @@ public class PushSettings {
             return false;
         }
         if (b == -1) {
-            b = n.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
+            b = m.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
         }
         return b == 1;
     }
@@ -272,7 +272,7 @@ public class PushSettings {
             return false;
         }
         if (c == -1) {
-            c = n.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
+            c = m.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
         }
         return c == 1;
     }

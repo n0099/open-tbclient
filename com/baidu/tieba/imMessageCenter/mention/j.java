@@ -17,16 +17,16 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes2.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean BW;
-    protected ArrayList<FeedData> dMZ = new ArrayList<>();
-    protected ar dNa = new ar();
-    protected h dNb = new h();
+    protected ArrayList<FeedData> dNT = new ArrayList<>();
+    protected ar dNU = new ar();
+    protected h dNV = new h();
 
-    public ArrayList<FeedData> aBR() {
-        return this.dMZ;
+    public ArrayList<FeedData> aCc() {
+        return this.dNT;
     }
 
     public ar qD() {
-        return this.dNa;
+        return this.dNU;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -40,21 +40,21 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
                     if (feedData.getThread_Type() == 33) {
                         if (TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.dMZ.add(feedData);
+                            this.dNT.add(feedData);
                         }
                     } else {
-                        this.dMZ.add(feedData);
-                        if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.b.aoh()) {
-                            this.dMZ.remove(feedData);
+                        this.dNT.add(feedData);
+                        if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.b.aos()) {
+                            this.dNT.remove(feedData);
                         }
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.u(feedData.getPraiseList()) == 0) {
-                            this.dMZ.remove(feedData);
+                            this.dNT.remove(feedData);
                         }
                     }
                 }
             }
-            this.dNb.parserJson(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
-            this.dNa.parserJson(jSONObject.optJSONObject("page"));
+            this.dNV.parserJson(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
+            this.dNU.parserJson(jSONObject.optJSONObject("page"));
             this.BW = true;
         } catch (Exception e) {
             this.BW = false;
@@ -74,20 +74,20 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                         feedData.parserProtoBuf(list.get(i));
                         if (feedData.getThread_Type() == 33) {
                             if (TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                this.dMZ.add(feedData);
+                                this.dNT.add(feedData);
                             }
                         } else {
-                            this.dMZ.add(feedData);
-                            if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.b.aoh()) {
-                                this.dMZ.remove(feedData);
+                            this.dNT.add(feedData);
+                            if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.b.aos()) {
+                                this.dNT.remove(feedData);
                             }
                             if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.u(feedData.getPraiseList()) == 0) {
-                                this.dMZ.remove(feedData);
+                                this.dNT.remove(feedData);
                             }
                         }
                     }
                 }
-                this.dNa.a(dataRes.page);
+                this.dNU.a(dataRes.page);
                 this.BW = true;
             } catch (Exception e) {
                 this.BW = false;

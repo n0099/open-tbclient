@@ -21,59 +21,59 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private CustomMessageListener cDK = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.frs.mc.f.1
+    private CustomMessageListener cEC = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.frs.mc.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && f.this.cqr != null && f.this.cqr.agI() != null && f.this.cqr.agI().ajS() != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && f.this.crk != null && f.this.crk.agT() != null && f.this.crk.agT().akd() != null) {
                 String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
                 if (!StringUtils.isNull(optString)) {
-                    if (f.this.cqr.agN() != null && f.this.cqr.agN().ahG() != null) {
-                        View childAt = f.this.cqr.agN().getListView().getChildAt(f.this.a(optString, f.this.cqr.agN().getListView()));
+                    if (f.this.crk.agY() != null && f.this.crk.agY().ahR() != null) {
+                        View childAt = f.this.crk.agY().getListView().getChildAt(f.this.a(optString, f.this.crk.agY().getListView()));
                         if (childAt != null) {
                             f.this.aw(childAt);
                         } else {
-                            f.this.cqr.agN().ahG().notifyDataSetChanged();
+                            f.this.crk.agY().ahR().notifyDataSetChanged();
                         }
                     }
-                    ArrayList<com.baidu.adp.widget.ListView.f> threadList = f.this.cqr.agI().ajS().getThreadList();
+                    ArrayList<com.baidu.adp.widget.ListView.f> threadList = f.this.crk.agT().akd().getThreadList();
                     f.this.f(optString, threadList);
-                    f.this.f(optString, f.this.cqr.agN().getListView().getData());
-                    f.this.cqr.agI().kO(optString);
-                    if (f.this.cqr.agN() != null && f.this.cqr.agN().ahG() != null) {
-                        f.this.cqr.agN().ahG().notifyDataSetChanged();
+                    f.this.f(optString, f.this.crk.agY().getListView().getData());
+                    f.this.crk.agT().kQ(optString);
+                    if (f.this.crk.agY() != null && f.this.crk.agY().ahR() != null) {
+                        f.this.crk.agY().ahR().notifyDataSetChanged();
                     }
                     if (threadList != null && threadList.size() < 5) {
-                        f.this.cqr.Nf();
+                        f.this.crk.Ng();
                     }
                 }
             }
         }
     };
-    private CustomMessageListener cDL = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.mc.f.4
+    private CustomMessageListener cED = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.mc.f.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && f.this.cqr != null && f.this.cqr.agI() != null && f.this.cqr.agI().ajS() != null) {
+            if (customResponsedMessage != null && f.this.crk != null && f.this.crk.agT() != null && f.this.crk.agT().akd() != null) {
                 String str = (String) customResponsedMessage.getData();
-                f.this.g(str, f.this.cqr.agI().ajS().aOV().getBannerListData().getAllAdvertList());
-                f.this.h(str, f.this.cqr.agN().getListView().getData());
-                f.this.h(str, f.this.cqr.agJ().akC().getDataList());
-                f.this.cqr.agI().kP(str);
-                if (f.this.cqr.agN() != null && f.this.cqr.agN().ahG() != null) {
-                    f.this.cqr.agN().ahG().notifyDataSetChanged();
+                f.this.g(str, f.this.crk.agT().akd().aPg().getBannerListData().getAllAdvertList());
+                f.this.h(str, f.this.crk.agY().getListView().getData());
+                f.this.h(str, f.this.crk.agU().akN().getDataList());
+                f.this.crk.agT().kR(str);
+                if (f.this.crk.agY() != null && f.this.crk.agY().ahR() != null) {
+                    f.this.crk.agY().ahR().notifyDataSetChanged();
                 }
             }
         }
     };
-    private k cqr;
+    private k crk;
 
     public f(k kVar, BdUniqueId bdUniqueId) {
-        this.cqr = kVar;
-        this.cDK.setTag(bdUniqueId);
-        this.cDL.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.cDK);
-        MessageManager.getInstance().registerListener(this.cDL);
+        this.crk = kVar;
+        this.cEC.setTag(bdUniqueId);
+        this.cED.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.cEC);
+        MessageManager.getInstance().registerListener(this.cED);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -140,8 +140,8 @@ public class f {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation2) {
                 view.setVisibility(8);
-                if (f.this.cqr.agN() != null && f.this.cqr.agN().ahG() != null) {
-                    f.this.cqr.agN().ahG().notifyDataSetChanged();
+                if (f.this.crk.agY() != null && f.this.crk.agY().ahR() != null) {
+                    f.this.crk.agY().ahR().notifyDataSetChanged();
                 }
             }
         });

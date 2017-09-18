@@ -122,7 +122,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             }
             bitmap = Bytes2Bitmap;
         }
-        if (!iVar.ajb) {
+        if (!iVar.aja) {
             a(str, k, false, aVar);
         }
         return new com.baidu.adp.widget.a.a(bitmap, com.baidu.adp.lib.util.k.j(k), str, k);

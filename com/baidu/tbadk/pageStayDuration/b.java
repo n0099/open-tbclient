@@ -3,7 +3,7 @@ package com.baidu.tbadk.pageStayDuration;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class b {
-    private boolean aIy = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("page_stay_duration_switch", false);
+    private boolean aIv = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("page_stay_duration_switch", false);
 
     public abstract boolean FM();
 
@@ -13,7 +13,7 @@ public abstract class b {
         if (dVar == null || dVar.FR()) {
             return false;
         }
-        if (dVar.aIz) {
+        if (dVar.aIw) {
             dVar.G(c.e(dVar.FP(), 6));
         } else {
             int FU = FN() > e.FS().FU() ? e.FS().FU() : FN();
@@ -23,15 +23,15 @@ public abstract class b {
     }
 
     private void bY(boolean z) {
-        if (this.aIy != z) {
+        if (this.aIv != z) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("page_stay_duration_switch", true);
-            this.aIy = z;
+            this.aIv = z;
         }
     }
 
     public boolean FO() {
         if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-            return this.aIy;
+            return this.aIv;
         }
         if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
             bY(false);

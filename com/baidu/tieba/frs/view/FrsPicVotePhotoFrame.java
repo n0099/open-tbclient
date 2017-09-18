@@ -17,117 +17,117 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class FrsPicVotePhotoFrame extends FrameLayout {
-    private int cIm;
-    private TbImageView cIn;
-    private ImageView cIo;
-    private View cIp;
-    private View cIq;
-    private TextView cIr;
-    private TextView cIs;
-    int cIt;
-    private View cIu;
+    private int cJg;
+    private TbImageView cJh;
+    private ImageView cJi;
+    private View cJj;
+    private View cJk;
+    private TextView cJl;
+    private TextView cJm;
+    int cJn;
+    private View cJo;
     private Context mContext;
 
     public FrsPicVotePhotoFrame(Context context) {
         super(context);
-        this.cIm = 3;
+        this.cJg = 3;
         this.mContext = context;
         init();
     }
 
     public FrsPicVotePhotoFrame(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cIm = 3;
+        this.cJg = 3;
         this.mContext = context;
         init();
     }
 
     private void init() {
         LayoutInflater.from(this.mContext).inflate(d.j.frs_pic_vote_photo_frame, (ViewGroup) this, true);
-        this.cIn = (TbImageView) findViewById(d.h.frs_pic_vote_photo);
-        this.cIo = (ImageView) findViewById(d.h.frs_pic_vote_grade);
-        this.cIr = (TextView) findViewById(d.h.frs_pic_vote_detail_name);
-        this.cIs = (TextView) findViewById(d.h.frs_pic_vote_detail_num);
-        this.cIq = findViewById(d.h.frs_pic_vote_detail_persontage_blue);
-        this.cIp = findViewById(d.h.frs_pic_vote_detail_layout);
-        this.cIu = findViewById(d.h.frs_pic_vote_white_triangle);
-        this.cIn.setDefaultResource(d.g.transparent_bg);
-        this.cIn.setDefaultErrorResource(d.g.img_default_100);
-        this.cIn.setSupportNoImage(true);
-        this.cIn.setDrawBorder(true);
-        this.cIn.setBorderWidth(getResources().getDimensionPixelSize(d.f.ds1));
-        this.cIn.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.cIt = k.g(this.mContext, d.f.ds40);
-        setBlueHeight(this.cIt);
+        this.cJh = (TbImageView) findViewById(d.h.frs_pic_vote_photo);
+        this.cJi = (ImageView) findViewById(d.h.frs_pic_vote_grade);
+        this.cJl = (TextView) findViewById(d.h.frs_pic_vote_detail_name);
+        this.cJm = (TextView) findViewById(d.h.frs_pic_vote_detail_num);
+        this.cJk = findViewById(d.h.frs_pic_vote_detail_persontage_blue);
+        this.cJj = findViewById(d.h.frs_pic_vote_detail_layout);
+        this.cJo = findViewById(d.h.frs_pic_vote_white_triangle);
+        this.cJh.setDefaultResource(d.g.transparent_bg);
+        this.cJh.setDefaultErrorResource(d.g.img_default_100);
+        this.cJh.setSupportNoImage(true);
+        this.cJh.setDrawBorder(true);
+        this.cJh.setBorderWidth(getResources().getDimensionPixelSize(d.f.ds1));
+        this.cJh.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.cJn = k.f(this.mContext, d.f.ds40);
+        setBlueHeight(this.cJn);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.cIn.setPageId(bdUniqueId);
+        this.cJh.setPageId(bdUniqueId);
     }
 
-    public void aC(int i, int i2) {
-        ViewGroup.LayoutParams layoutParams = this.cIu.getLayoutParams();
+    public void aG(int i, int i2) {
+        ViewGroup.LayoutParams layoutParams = this.cJo.getLayoutParams();
         layoutParams.width = i;
         layoutParams.height = i2;
     }
 
     public void setGrade(Drawable drawable) {
-        if (drawable != null && this.cIo != null) {
-            this.cIo.setImageDrawable(drawable);
+        if (drawable != null && this.cJi != null) {
+            this.cJi.setImageDrawable(drawable);
         }
     }
 
     public void setBlueHeight(int i) {
-        this.cIt = i;
-        if (this.cIp != null) {
-            this.cIp.getLayoutParams().height = i;
+        this.cJn = i;
+        if (this.cJj != null) {
+            this.cJj.getLayoutParams().height = i;
         }
-        if (this.cIr != null) {
-            this.cIr.getLayoutParams().height = i;
+        if (this.cJl != null) {
+            this.cJl.getLayoutParams().height = i;
         }
-        if (this.cIs != null) {
-            this.cIs.getLayoutParams().height = i;
+        if (this.cJm != null) {
+            this.cJm.getLayoutParams().height = i;
         }
     }
 
     public void setGradeViewLeftMargin(int i) {
-        if (i >= 0 && (this.cIo.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ((ViewGroup.MarginLayoutParams) this.cIo.getLayoutParams()).leftMargin = i;
+        if (i >= 0 && (this.cJi.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ((ViewGroup.MarginLayoutParams) this.cJi.getLayoutParams()).leftMargin = i;
         }
     }
 
     public void a(int i, String str, Boolean bool, String str2, long j, long j2) {
-        this.cIn.c(str, bool.booleanValue() ? 13 : 14, false);
+        this.cJh.c(str, bool.booleanValue() ? 13 : 14, false);
         double d = 0.0d;
         if (j2 > 0) {
             d = (j * 1.0d) / j2;
         }
         if (d > 0.0d && d <= 1.0d) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) (d * k.g(this.mContext, d.f.ds220)), this.cIt);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) (d * k.f(this.mContext, d.f.ds220)), this.cJn);
             layoutParams.gravity = 80;
-            this.cIq.setLayoutParams(layoutParams);
+            this.cJk.setLayoutParams(layoutParams);
         } else {
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(0, this.cIt);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(0, this.cJn);
             layoutParams2.gravity = 80;
-            this.cIq.setLayoutParams(layoutParams2);
+            this.cJk.setLayoutParams(layoutParams2);
         }
         if (str2 == null) {
             str2 = "";
         }
-        this.cIr.setText(str2);
-        this.cIs.setText(am.u(j));
+        this.cJl.setText(str2);
+        this.cJm.setText(am.u(j));
     }
 
     public void onChangeSkinType(int i) {
-        if (this.cIm != i) {
-            this.cIm = i;
-            this.cIn.setBorderColor(aj.getColor(d.e.common_color_10043));
-            this.cIn.setDefaultBg(aj.getDrawable(d.e.common_color_10220));
-            aj.j(this.cIu, d.g.pic_triangle_white_grade);
-            aj.k(this.cIp, d.e.common_color_10175);
-            aj.k(this.cIq, d.e.common_color_10259);
-            aj.i(this.cIr, d.e.cp_cont_g);
-            aj.i(this.cIs, d.e.cp_cont_g);
+        if (this.cJg != i) {
+            this.cJg = i;
+            this.cJh.setBorderColor(aj.getColor(d.e.common_color_10043));
+            this.cJh.setDefaultBg(aj.getDrawable(d.e.common_color_10220));
+            aj.j(this.cJo, d.g.pic_triangle_white_grade);
+            aj.k(this.cJj, d.e.common_color_10175);
+            aj.k(this.cJk, d.e.common_color_10259);
+            aj.i(this.cJl, d.e.cp_cont_g);
+            aj.i(this.cJm, d.e.cp_cont_g);
         }
     }
 }

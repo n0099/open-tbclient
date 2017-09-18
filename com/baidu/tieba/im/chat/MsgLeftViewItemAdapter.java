@@ -15,7 +15,7 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void gf(boolean z) {
+    public void gg(boolean z) {
         this.mNeedShowName = z;
     }
 
@@ -34,17 +34,17 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgleftView aud = aVar.aud();
-        aud.mm(this.dpR);
-        aud.gf(this.mNeedShowName);
+        MsgleftView auo = aVar.auo();
+        auo.mo(this.dqM);
+        auo.gg(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        aud.a(this.dpH);
-        aud.setOnItemViewLongClickListener(this.dpI);
-        aud.setPosition(i);
-        aud.bC(this.dpO);
-        aud.bB(chatMessage.getCacheData().getLastMsgTime());
-        aud.a(viewGroup, chatMessage);
-        aud.b(viewGroup, chatMessage);
+        auo.a(this.dqC);
+        auo.setOnItemViewLongClickListener(this.dqD);
+        auo.setPosition(i);
+        auo.bC(this.dqJ);
+        auo.bB(chatMessage.getCacheData().getLastMsgTime());
+        auo.a(viewGroup, chatMessage);
+        auo.b(viewGroup, chatMessage);
         this.mF.getLayoutMode().ah(false);
         this.mF.getLayoutMode().t(view);
         return view;

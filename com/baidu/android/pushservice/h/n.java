@@ -35,14 +35,18 @@ public final class n {
     private boolean a(String str, String str2, String str3) {
         InputStream inputStream;
         Throwable th;
-        if (com.baidu.android.pushservice.j.l.a(this.b)) {
+        if (com.baidu.android.pushservice.j.k.a(this.b)) {
             HashMap hashMap = new HashMap();
             hashMap.put("stats", str2);
             hashMap.put("pbVer", str3);
             hashMap.put("os", "android");
-            long j = 1000;
             InputStream inputStream2 = null;
-            for (int i = 0; i < 3; i++) {
+            long j = 1000;
+            int i = 0;
+            while (true) {
+                if (i >= 2) {
+                    break;
+                }
                 try {
                     com.baidu.android.pushservice.g.a.b("StatisticPoster", "Statistics request time=" + i + ", url=" + str);
                     com.baidu.android.pushservice.f.a a2 = com.baidu.android.pushservice.f.b.a(str, "POST", hashMap);
@@ -53,17 +57,17 @@ public final class n {
                         com.baidu.android.pushservice.g.a.b("StatisticPoster", "Statistics request time=" + i + ", upload success!");
                         com.baidu.android.pushservice.f.b.a(inputStream2);
                         return true;
-                    }
-                    if (b == 201) {
+                    } else if (b == 201) {
                         a(a3);
+                        break;
                     } else if (b == 403) {
                         b(a3);
-                    }
-                    if (b == 200 || b == 201 || b == 403) {
                         break;
+                    } else {
+                        j += i * 300;
+                        Thread.sleep(j);
+                        i++;
                     }
-                    j += i * 300;
-                    Thread.sleep(j);
                 } catch (Exception e) {
                     inputStream = inputStream2;
                     try {
@@ -93,7 +97,7 @@ public final class n {
     public boolean d() {
         long j;
         long j2 = 259200000;
-        if (!com.baidu.android.pushservice.h.a.b.d(this.b) || this.d || PushSettings.f(this.b)) {
+        if (!com.baidu.android.pushservice.h.a.b.c(this.b) || this.d || PushSettings.f(this.b)) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -107,8 +111,8 @@ public final class n {
             j2 = j3;
             j = d;
         }
-        if (com.baidu.android.pushservice.j.l.b(this.b)) {
-            if (j2 < 3600000) {
+        if (com.baidu.android.pushservice.j.k.b(this.b)) {
+            if (j2 < 21600000) {
                 return false;
             }
         } else if (j2 < PushSettings.e(this.b)) {
@@ -122,7 +126,7 @@ public final class n {
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject.put("user_device", com.baidu.android.pushservice.h.a.b.e(this.b));
-            jSONObject.put("user_network", com.baidu.android.pushservice.h.a.b.f(this.b));
+            jSONObject.put("user_network", com.baidu.android.pushservice.h.a.b.d(this.b));
             jSONObject2.put("channel_id", PushSettings.a(this.b));
             jSONObject2.put("push_running_version", (int) com.baidu.android.pushservice.a.a());
             jSONObject.put("push_channel", jSONObject2);
@@ -214,7 +218,7 @@ public final class n {
                         } catch (InterruptedException e) {
                             com.baidu.android.pushservice.g.a.e("StatisticPoster", "InterruptedException: " + e);
                         }
-                        if (!com.baidu.android.pushservice.h.a.b.d(n.this.b)) {
+                        if (!com.baidu.android.pushservice.h.a.b.c(n.this.b)) {
                             return;
                         }
                     }

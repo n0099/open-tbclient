@@ -5,8 +5,8 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a eFl;
-    private View eFm;
+    private a eGf;
+    private View eGg;
     private GestureDetector mGestureDetector = new GestureDetector(this);
 
     /* loaded from: classes.dex */
@@ -19,12 +19,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.eFl = aVar;
+        this.eGf = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.eFm = view;
+        this.eGg = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -61,29 +61,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.eFl != null) {
-            return this.eFl.a(this.eFm, motionEvent);
+        if (this.eGf != null) {
+            return this.eGf.a(this.eGg, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.eFl != null) {
-            return this.eFl.b(this.eFm, motionEvent);
+        if (this.eGf != null) {
+            return this.eGf.b(this.eGg, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.eFl != null) {
-            return this.eFl.c(this.eFm, motionEvent);
+        if (this.eGf != null) {
+            return this.eGf.c(this.eGg, motionEvent);
         }
         return false;
     }
 
     public void bf(View view) {
-        this.eFm = view;
+        this.eGg = view;
     }
 }

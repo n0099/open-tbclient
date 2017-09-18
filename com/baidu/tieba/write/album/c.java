@@ -16,19 +16,19 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class c extends PagerAdapter {
     private int Bn;
-    private com.baidu.tbadk.img.b ayo;
-    private AlbumActivity gAM;
-    private Map<Integer, Boolean> gAX = new HashMap();
-    private ColorDrawable gAY;
+    private com.baidu.tbadk.img.b ayl;
+    private AlbumActivity gBF;
+    private Map<Integer, Boolean> gBQ = new HashMap();
+    private ColorDrawable gBR;
     private List<ImageFileInfo> mList;
     private int mMaxHeight;
 
     public c(AlbumActivity albumActivity, com.baidu.tbadk.img.b bVar) {
-        this.gAM = albumActivity;
-        this.ayo = bVar;
-        this.Bn = com.baidu.adp.lib.util.k.ad(this.gAM.getPageContext().getContext());
-        this.mMaxHeight = com.baidu.adp.lib.util.k.ae(this.gAM.getPageContext().getContext()) - ((int) this.gAM.getResources().getDimension(d.f.ds166));
-        this.gAY = new ColorDrawable(this.gAM.getResources().getColor(d.e.black_alpha100));
+        this.gBF = albumActivity;
+        this.ayl = bVar;
+        this.Bn = com.baidu.adp.lib.util.k.ae(this.gBF.getPageContext().getContext());
+        this.mMaxHeight = com.baidu.adp.lib.util.k.af(this.gBF.getPageContext().getContext()) - ((int) this.gBF.getResources().getDimension(d.f.ds166));
+        this.gBR = new ColorDrawable(this.gBF.getResources().getColor(d.e.black_alpha100));
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -54,43 +54,43 @@ public class c extends PagerAdapter {
         ((ViewPager) viewGroup).removeView((View) obj);
     }
 
-    public ImageFileInfo oV(int i) {
+    public ImageFileInfo oX(int i) {
         return (ImageFileInfo) v.c(this.mList, i);
     }
 
-    public boolean uq(int i) {
-        if (this.gAX.get(Integer.valueOf(i)) == null) {
+    public boolean us(int i) {
+        if (this.gBQ.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.gAX.get(Integer.valueOf(i)).booleanValue();
+        return this.gBQ.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(final ViewGroup viewGroup, final int i) {
-        View inflate = LayoutInflater.from(this.gAM.getPageContext().getContext()).inflate(d.j.album_big_image_item, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.gBF.getPageContext().getContext()).inflate(d.j.album_big_image_item, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(d.h.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setDefaultBgResource(d.e.black_alpha100);
-        tbImageView.setBg(this.gAY);
-        ImageFileInfo oV = oV(i);
-        this.gAX.put(Integer.valueOf(i), false);
-        if (oV != null) {
-            oV.clearPageActions();
-            oV.addPageAction(com.baidu.tbadk.img.effect.d.J(this.Bn, this.mMaxHeight));
-            tbImageView.setTag(oV.toCachedKey(false));
-            if (this.ayo.a(oV, false) != null) {
+        tbImageView.setBg(this.gBR);
+        ImageFileInfo oX = oX(i);
+        this.gBQ.put(Integer.valueOf(i), false);
+        if (oX != null) {
+            oX.clearPageActions();
+            oX.addPageAction(com.baidu.tbadk.img.effect.d.J(this.Bn, this.mMaxHeight));
+            tbImageView.setTag(oX.toCachedKey(false));
+            if (this.ayl.a(oX, false) != null) {
                 tbImageView.invalidate();
-                this.gAX.put(Integer.valueOf(i), true);
+                this.gBQ.put(Integer.valueOf(i), true);
             } else {
-                this.ayo.a(oV, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.c.1
+                this.ayl.a(oX, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.c.1
                     @Override // com.baidu.tbadk.imageManager.b
                     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
                         TbImageView tbImageView2 = (TbImageView) viewGroup.findViewWithTag(str);
                         if (tbImageView2 != null && aVar != null) {
                             tbImageView2.invalidate();
-                            c.this.gAX.put(Integer.valueOf(i), true);
+                            c.this.gBQ.put(Integer.valueOf(i), true);
                         }
                     }
                 }, false);

@@ -3,20 +3,20 @@ package com.baidu.tieba.enterForum.b;
 import com.baidu.tieba.enterForum.b.e;
 /* loaded from: classes.dex */
 public class a<T extends e> extends c implements com.baidu.tbadk.mvc.b.a {
-    private T cbA;
-    private T cbz;
+    private T ccr;
+    private T ccs;
 
     public a(T t, T t2) {
-        this.cbz = t;
-        this.cbA = t2;
+        this.ccr = t;
+        this.ccs = t2;
         setType(1);
     }
 
-    public T acC() {
-        return this.cbz;
+    public T acN() {
+        return this.ccr;
     }
 
-    public T acD() {
-        return this.cbA;
+    public T acO() {
+        return this.ccs;
     }
 }

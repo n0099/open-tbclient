@@ -56,7 +56,7 @@ public class MyReceiver extends BroadcastReceiver {
                                     com.baidu.sofire.b.b.a(context, true);
                                     Report.getInstance(context).r(true);
                                     com.baidu.sofire.core.c.a(2);
-                                    com.baidu.sofire.core.c.ap(context.getApplicationContext()).a(new Callback() { // from class: com.baidu.sofire.MyReceiver.2.1
+                                    com.baidu.sofire.core.c.aq(context.getApplicationContext()).a(new Callback() { // from class: com.baidu.sofire.MyReceiver.2.1
                                         @Override // com.baidu.sofire.ac.Callback
                                         public final Object onEnd(Object... objArr) {
                                             com.baidu.sofire.core.e np = com.baidu.sofire.core.e.np();
@@ -67,9 +67,9 @@ public class MyReceiver extends BroadcastReceiver {
                                             if (b2 == null) {
                                                 b2 = new ArrayList<>();
                                             }
-                                            com.baidu.sofire.a.a an = com.baidu.sofire.a.a.an(context.getApplicationContext());
+                                            com.baidu.sofire.a.a ao = com.baidu.sofire.a.a.ao(context.getApplicationContext());
                                             for (ApkInfo apkInfo : b2) {
-                                                String[] b3 = an.b(apkInfo.packageName);
+                                                String[] b3 = ao.b(apkInfo.packageName);
                                                 if (b3 != null) {
                                                     try {
                                                         Class<?> loadClass = apkInfo.classLoader.loadClass(b3[0]);

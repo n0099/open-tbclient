@@ -155,19 +155,19 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
                 if (k != null) {
                     j = k.length;
                 }
-                s.a(fL, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.aiW, "NetworkError", fL.fV(), iVar.wr(), j, wu());
+                s.a(fL, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.aiV, "NetworkError", fL.fV(), iVar.wr(), j, wu());
                 return null;
             }
         }
         if (k == null && !iVar.fA().vl) {
-            s.a(fL, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.aiW, "ByteIsNull", fL.fV(), iVar.wr(), 0L, wu());
+            s.a(fL, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.aiV, "ByteIsNull", fL.fV(), iVar.wr(), 0L, wu());
             return null;
         }
         if (k.length > 1) {
             h.wv().c(k.length, fL.fV());
-            s.a(fL, str, true, str3, isFromCDN, Boolean.valueOf(z), iVar.aiW, "InputToByteSucc", fL.fV(), iVar.wr(), k.length, wu());
+            s.a(fL, str, true, str3, isFromCDN, Boolean.valueOf(z), iVar.aiV, "InputToByteSucc", fL.fV(), iVar.wr(), k.length, wu());
         } else {
-            s.a(fL, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.aiW, "bytes<1", fL.fV(), iVar.wr(), k.length, wu());
+            s.a(fL, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.aiV, "bytes<1", fL.fV(), iVar.wr(), k.length, wu());
         }
         com.baidu.adp.lib.stats.a fL2 = s.fL();
         fL2.fU();
@@ -221,7 +221,7 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
     protected com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.a.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
         if (d(bitmap)) {
             aVar2 = new com.baidu.adp.widget.a.a(bitmap, z, str, rect);
-            if (!iVar.ajb) {
+            if (!iVar.aja) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.dX(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.t(true);

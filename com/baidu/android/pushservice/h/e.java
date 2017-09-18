@@ -17,6 +17,7 @@ public class e {
     private String l;
     private String m;
     private String n;
+    private String o;
 
     public String a() {
         return this.b;
@@ -35,7 +36,7 @@ public class e {
     }
 
     public String b() {
-        return this.l;
+        return this.o;
     }
 
     public void b(int i) {
@@ -61,7 +62,7 @@ public class e {
     public h d() {
         h hVar = new h(c());
         hVar.a = this.j;
-        hVar.j = this.h;
+        hVar.i = this.h;
         hVar.b = this.f;
         hVar.c = this.n;
         return hVar;
@@ -118,6 +119,10 @@ public class e {
     }
 
     public void h(String str) {
+        this.o = str;
+    }
+
+    public void i(String str) {
         this.n = str;
     }
 }

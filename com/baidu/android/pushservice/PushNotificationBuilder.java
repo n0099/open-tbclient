@@ -5,6 +5,8 @@ import android.content.Context;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public abstract class PushNotificationBuilder implements Serializable {
+    protected String mChannelId;
+    protected String mChannelName;
     protected int mNotificationDefaults;
     protected int mNotificationFlags;
     protected String mNotificationText;
@@ -14,6 +16,14 @@ public abstract class PushNotificationBuilder implements Serializable {
     protected long[] mVibratePattern;
 
     public abstract Notification construct(Context context);
+
+    public void setChannelId(String str) {
+        this.mChannelId = str;
+    }
+
+    public void setChannelName(String str) {
+        this.mChannelName = str;
+    }
 
     public void setNotificationDefaults(int i) {
         this.mNotificationDefaults = i;

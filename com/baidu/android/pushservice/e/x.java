@@ -155,10 +155,10 @@ public class x implements Runnable {
             hashMap.put("device_id", b);
         }
         hashMap.put("device_name", Build.MODEL);
-        int b2 = com.baidu.android.pushservice.j.n.b(this.a, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", -1);
-        String a = com.baidu.android.pushservice.j.n.a(this.a, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE");
+        int b2 = com.baidu.android.pushservice.j.m.b(this.a, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", -1);
+        String a = com.baidu.android.pushservice.j.m.a(this.a, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE");
         if (b2 == 2) {
-            hashMap.put(SapiAccountManager.SESSION_BDUSS, com.baidu.android.pushservice.j.n.a(this.a, "com.baidu.android.pushservice.PushManager.BDUSS"));
+            hashMap.put(SapiAccountManager.SESSION_BDUSS, com.baidu.android.pushservice.j.m.a(this.a, "com.baidu.android.pushservice.PushManager.BDUSS"));
             hashMap.put("appid", a);
         } else if (b2 == 1) {
             hashMap.put("access_token", a);
@@ -167,7 +167,7 @@ public class x implements Runnable {
         }
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("api_level", Build.VERSION.SDK_INT);
-        int[] b3 = com.baidu.android.pushservice.j.q.b(this.a);
+        int[] b3 = com.baidu.android.pushservice.j.p.b(this.a);
         jSONObject.put("screen_height", b3[0]);
         jSONObject.put("screen_width", b3[1]);
         String str = Build.MODEL;
@@ -175,8 +175,8 @@ public class x implements Runnable {
             str = str.substring(0, TransportMediator.KEYCODE_MEDIA_PAUSE);
         }
         jSONObject.put("model", str);
-        jSONObject.put("isroot", com.baidu.android.pushservice.j.q.a(this.a) ? 1 : 0);
-        jSONObject.put("is_baidu_app", com.baidu.android.pushservice.j.q.e(this.a, this.a.getPackageName()) ? 1 : 0);
+        jSONObject.put("isroot", com.baidu.android.pushservice.j.p.a(this.a) ? 1 : 0);
+        jSONObject.put("is_baidu_app", com.baidu.android.pushservice.j.p.e(this.a, this.a.getPackageName()) ? 1 : 0);
         jSONObject.put("push_sdk_version", (int) com.baidu.android.pushservice.a.a());
         String str2 = Build.MANUFACTURER;
         if (str2.length() > 128) {
@@ -219,19 +219,19 @@ public class x implements Runnable {
             this.f.a(Boolean.valueOf(b));
             com.baidu.android.pushservice.g.a.c("TokenRequester", "get ChannelToken result = " + b);
         } else {
-            com.baidu.android.pushservice.j.q.b("TokenRequester#execute-->mListener is null !!!!!", this.a);
+            com.baidu.android.pushservice.j.p.b("TokenRequester#execute-->mListener is null !!!!!", this.a);
         }
         com.baidu.android.pushservice.g.a.b("TokenRequester", "RequestTokenThread connectResult: " + b);
-        com.baidu.android.pushservice.j.q.b("TokenRequester#execute-->RequestTokenThread connectResult: " + b, this.a);
+        com.baidu.android.pushservice.j.p.b("TokenRequester#execute-->RequestTokenThread connectResult: " + b, this.a);
         if (!b) {
-            com.baidu.android.pushservice.j.q.e(this.a);
+            com.baidu.android.pushservice.j.p.e(this.a);
             return;
         }
         b.a(this.a);
         if (com.baidu.android.pushservice.g.a != null) {
             com.baidu.android.pushservice.g.a.b("TokenRequester", "TokenRequester start PushService after Request finish.");
-            com.baidu.android.pushservice.j.q.b("TokenRequester#execute-->TokenRequester start PushService after Request finish. ", this.a);
-            com.baidu.android.pushservice.j.p.a(this.a, new Intent());
+            com.baidu.android.pushservice.j.p.b("TokenRequester#execute-->TokenRequester start PushService after Request finish. ", this.a);
+            com.baidu.android.pushservice.j.o.a(this.a, new Intent());
         }
     }
 

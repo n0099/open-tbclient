@@ -6,15 +6,15 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class al {
-    private static al ahr;
+    private static al ahq;
 
     public static synchronized al vI() {
         al alVar;
         synchronized (al.class) {
-            if (ahr == null) {
-                ahr = new al();
+            if (ahq == null) {
+                ahq = new al();
             }
-            alVar = ahr;
+            alVar = ahq;
         }
         return alVar;
     }

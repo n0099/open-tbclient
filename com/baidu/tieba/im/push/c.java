@@ -14,10 +14,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c dFN = null;
-    private int dFO = 0;
-    private List<Long> dFP = new ArrayList();
-    private final CustomMessageListener dEP = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.im.push.c.1
+    private static c dGI = null;
+    private int dGJ = 0;
+    private List<Long> dGK = new ArrayList();
+    private final CustomMessageListener dFK = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.im.push.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -28,31 +28,31 @@ public class c {
     };
 
     private c() {
-        MessageManager.getInstance().registerListener(this.dEP);
+        MessageManager.getInstance().registerListener(this.dFK);
     }
 
-    public static c azK() {
-        if (dFN == null) {
+    public static c azV() {
+        if (dGI == null) {
             synchronized (c.class) {
-                if (dFN == null) {
-                    dFN = new c();
+                if (dGI == null) {
+                    dGI = new c();
                 }
             }
         }
-        return dFN;
+        return dGI;
     }
 
     public synchronized void init(String str, String str2) {
         clear();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                this.dFO = Integer.parseInt(str);
+                this.dGJ = Integer.parseInt(str);
                 try {
                     String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     if (split != null && split.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i])) {
-                                this.dFP.add(Long.valueOf(Long.parseLong(split[i])));
+                                this.dGK.add(Long.valueOf(Long.parseLong(split[i])));
                             }
                         }
                     }
@@ -66,22 +66,22 @@ public class c {
     }
 
     public synchronized void clear() {
-        this.dFO = 0;
-        this.dFP.clear();
+        this.dGJ = 0;
+        this.dGK.clear();
     }
 
     public int getGid() {
-        return this.dFO;
+        return this.dGJ;
     }
 
-    public Long azL() {
-        return com.baidu.tieba.im.memorycache.b.ayP().ayZ().get(this.dFO);
+    public Long azW() {
+        return com.baidu.tieba.im.memorycache.b.aza().azk().get(this.dGJ);
     }
 
-    public synchronized List<Long> azM() {
+    public synchronized List<Long> azX() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.dFP) {
+        for (Long l : this.dGK) {
             if (l != null) {
                 arrayList.add(Long.valueOf(com.baidu.tieba.im.util.d.bR(l.longValue())));
             }
@@ -89,23 +89,23 @@ public class c {
         return arrayList;
     }
 
-    public synchronized void azN() {
-        this.dFP.clear();
+    public synchronized void azY() {
+        this.dGK.clear();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x005b, code lost:
-        r8.dFP.add(java.lang.Long.valueOf(r10));
+        r8.dGK.add(java.lang.Long.valueOf(r10));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void i(int i, long j) {
-        if (this.dFO != 0 && this.dFO != i) {
-            this.dFP.clear();
-            i.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + i + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.dFO);
+        if (this.dGJ != 0 && this.dGJ != i) {
+            this.dGK.clear();
+            i.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + i + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.dGJ);
         }
-        this.dFO = i;
-        Iterator<Long> it = this.dFP.iterator();
+        this.dGJ = i;
+        Iterator<Long> it = this.dGK.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -117,17 +117,17 @@ public class c {
         }
     }
 
-    public synchronized boolean azO() {
+    public synchronized boolean azZ() {
         boolean z;
-        if (this.dFO > 0) {
-            z = this.dFP.size() > 0;
+        if (this.dGJ > 0) {
+            z = this.dGK.size() > 0;
         }
         return z;
     }
 
     public synchronized boolean bN(long j) {
         boolean z;
-        Iterator<Long> it = this.dFP.iterator();
+        Iterator<Long> it = this.dGK.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -142,10 +142,10 @@ public class c {
         return z;
     }
 
-    public synchronized String azP() {
+    public synchronized String aAa() {
         String str;
         str = "";
-        for (Long l : this.dFP) {
+        for (Long l : this.dGK) {
             str = (l == null || l.longValue() == 0) ? str : (str + l.longValue()) + Constants.ACCEPT_TIME_SEPARATOR_SP;
         }
         return str;

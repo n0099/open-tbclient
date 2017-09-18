@@ -84,7 +84,7 @@ public class d extends FrameLayout {
         this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
         this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
         this.HY = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
-        this.mFlingDistance = k.ad(context) / 4;
+        this.mFlingDistance = k.ae(context) / 4;
     }
 
     public void p(Activity activity) {

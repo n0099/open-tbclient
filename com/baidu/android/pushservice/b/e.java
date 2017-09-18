@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.j.q;
-import com.baidu.android.pushservice.j.r;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public abstract class e {
         a();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0077 A[Catch: Exception -> 0x0098, TryCatch #0 {Exception -> 0x0098, blocks: (B:9:0x0039, B:11:0x0042, B:12:0x004c, B:14:0x0052, B:16:0x005c, B:17:0x0060, B:19:0x0066, B:20:0x0071, B:22:0x0077, B:24:0x0087, B:28:0x0094, B:33:0x00c1, B:36:0x00cc, B:38:0x00d5), top: B:56:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0077 A[Catch: Exception -> 0x0098, TryCatch #0 {Exception -> 0x0098, blocks: (B:9:0x0039, B:11:0x0042, B:12:0x004c, B:14:0x0052, B:16:0x005c, B:17:0x0060, B:19:0x0066, B:20:0x0071, B:22:0x0077, B:24:0x0087, B:28:0x0094), top: B:44:0x0039 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -31,10 +31,10 @@ public abstract class e {
         ArrayList<a> a;
         boolean z;
         String str2 = this.b.getPackageName() + ".push_sync";
-        for (ResolveInfo resolveInfo : q.E(this.b) ? q.n(this.b) : q.m(this.b)) {
+        for (ResolveInfo resolveInfo : p.E(this.b) ? p.n(this.b) : p.m(this.b)) {
             try {
-                String e = "com.baidu.push.webr".equals(str) ? com.baidu.android.pushservice.d.d.e(this.b, resolveInfo.activityInfo.packageName) : "com.baidu.push.lappr".equals(str) ? null : "com.baidu.push.sdkr".equals(str) ? com.baidu.android.pushservice.d.d.f(this.b, resolveInfo.activityInfo.packageName) : null;
-                if (!TextUtils.isEmpty(e) && (a = a(d(e))) != null) {
+                String e = "com.baidu.push.sdkr".equals(str) ? com.baidu.android.pushservice.d.d.e(this.b, resolveInfo.activityInfo.packageName) : null;
+                if (!TextUtils.isEmpty(e) && (a = a(c(e))) != null) {
                     Iterator<a> it = a.iterator();
                     while (it.hasNext()) {
                         a next = it.next();
@@ -59,19 +59,17 @@ public abstract class e {
             }
         }
         if (arrayList.size() > 0) {
-            String e3 = e(a(arrayList));
-            if ("com.baidu.push.webr".equals(str)) {
-                com.baidu.android.pushservice.d.c.c(this.b, e3);
-            } else if (!"com.baidu.push.lappr".equals(str) && "com.baidu.push.sdkr".equals(str)) {
-                com.baidu.android.pushservice.d.c.d(this.b, e3);
+            String d = d(a(arrayList));
+            if ("com.baidu.push.sdkr".equals(str)) {
+                com.baidu.android.pushservice.d.c.c(this.b, d);
             }
-            if (q.D(this.b)) {
-                r.a(this.b, str2, str, e3);
+            if (p.D(this.b)) {
+                q.a(this.b, str2, str, d);
             }
         }
     }
 
-    public static String d(String str) {
+    public static String c(String str) {
         try {
             byte[] a = com.baidu.android.pushservice.k.b.a(str.getBytes());
             return (a == null || a.length <= 0) ? "" : new String(BaiduAppSSOJni.decryptAES(a, a.length, 0));
@@ -84,7 +82,7 @@ public abstract class e {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:9:0x0040 A[Catch: all -> 0x016b, TryCatch #2 {, blocks: (B:4:0x002a, B:6:0x0034, B:7:0x003a, B:9:0x0040, B:11:0x0050, B:15:0x006c, B:17:0x0073, B:22:0x007e, B:23:0x0083, B:27:0x00b5, B:28:0x00c5, B:58:0x0157, B:59:0x015d, B:62:0x0164, B:13:0x005e, B:30:0x00c7, B:32:0x00cd, B:33:0x00d3, B:35:0x00d9, B:37:0x00e9, B:39:0x00f7, B:41:0x0101, B:44:0x0111, B:45:0x0117, B:47:0x011d, B:49:0x012d, B:51:0x013b), top: B:68:0x002a, inners: #3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:9:0x0040 A[Catch: all -> 0x0165, TryCatch #1 {, blocks: (B:4:0x002a, B:6:0x0034, B:7:0x003a, B:9:0x0040, B:11:0x0050, B:15:0x006c, B:17:0x0073, B:22:0x007e, B:23:0x0083, B:27:0x00b5, B:28:0x00c5, B:57:0x0151, B:58:0x0157, B:61:0x015e, B:13:0x005e, B:30:0x00c7, B:32:0x00cd, B:33:0x00d3, B:35:0x00d9, B:37:0x00e9, B:39:0x00f7, B:41:0x0101, B:44:0x0111, B:45:0x0117, B:47:0x011d, B:49:0x012d, B:51:0x013b), top: B:67:0x002a, inners: #3 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -141,9 +139,6 @@ public abstract class e {
             String a = a(this.a);
             com.baidu.android.pushservice.g.a.c("IClientManager", "sync  strApps: " + a);
             switch (this.c) {
-                case WEBAPP_CLIENT:
-                    str = "com.baidu.push.webr";
-                    break;
                 case SDK_CLIENT:
                     str = "com.baidu.push.sdkr";
                     break;
@@ -211,9 +206,6 @@ public abstract class e {
     protected void a() {
         String str;
         switch (this.c) {
-            case WEBAPP_CLIENT:
-                str = "com.baidu.push.webr";
-                break;
             case SDK_CLIENT:
                 str = "com.baidu.push.sdkr";
                 break;
@@ -224,22 +216,18 @@ public abstract class e {
                 str = "";
                 break;
         }
-        String a = q.D(this.b) ? com.baidu.android.pushservice.j.b.a(this.b, str) : null;
-        if (TextUtils.isEmpty(a)) {
-            if ("com.baidu.push.webr".equals(str)) {
-                a = com.baidu.android.pushservice.d.c.e(this.b);
-            } else if ("com.baidu.push.sdkr".equals(str)) {
-                a = com.baidu.android.pushservice.d.c.f(this.b);
-            }
+        String a = p.D(this.b) ? com.baidu.android.pushservice.j.b.a(this.b, str) : null;
+        if (TextUtils.isEmpty(a) && "com.baidu.push.sdkr".equals(str)) {
+            a = com.baidu.android.pushservice.d.c.e(this.b);
         }
         if (TextUtils.isEmpty(a)) {
             com.baidu.android.pushservice.g.a.b("IClientManager", "ClientManager init strApps empty.");
             return;
         }
         try {
-            String d = d(a);
-            com.baidu.android.pushservice.g.a.b("IClientManager", "ClientManager init strApps : " + d);
-            ArrayList<a> a2 = a(d);
+            String c = c(a);
+            com.baidu.android.pushservice.g.a.b("IClientManager", "ClientManager init strApps : " + c);
+            ArrayList<a> a2 = a(c);
             if (a2 != null) {
                 Iterator<a> it = a2.iterator();
                 while (it.hasNext()) {
@@ -259,7 +247,7 @@ public abstract class e {
         if (TextUtils.isEmpty(str2)) {
             com.baidu.android.pushservice.g.a.c("IClientManager", "ClientManager init strApps empty.");
         } else {
-            ArrayList<a> a = a(d(str2));
+            ArrayList<a> a = a(c(str2));
             if (a != null) {
                 ArrayList arrayList = new ArrayList();
                 Iterator<a> it = a.iterator();
@@ -278,34 +266,21 @@ public abstract class e {
                 }
                 this.a.addAll(a);
                 try {
-                    String e = e(a(this.a));
-                    if ("com.baidu.push.webr".equals(str)) {
-                        com.baidu.android.pushservice.d.c.c(this.b, e);
-                    } else if ("com.baidu.push.sdkr".equals(str)) {
-                        com.baidu.android.pushservice.d.c.d(this.b, e);
+                    String d = d(a(this.a));
+                    if ("com.baidu.push.sdkr".equals(str)) {
+                        com.baidu.android.pushservice.d.c.c(this.b, d);
                     }
-                    if (q.D(this.b)) {
-                        r.a(this.b, this.b.getPackageName() + ".push_sync", str, e);
+                    if (p.D(this.b)) {
+                        q.a(this.b, this.b.getPackageName() + ".push_sync", str, d);
                     }
-                } catch (Exception e2) {
-                    com.baidu.android.pushservice.g.a.a("IClientManager", e2);
+                } catch (Exception e) {
+                    com.baidu.android.pushservice.g.a.a("IClientManager", e);
                 }
             }
         }
     }
 
     public a b(String str) {
-        Iterator<a> it = this.a.iterator();
-        while (it.hasNext()) {
-            a next = it.next();
-            if (!TextUtils.isEmpty(next.a()) && next.a().equals(str)) {
-                return next;
-            }
-        }
-        return null;
-    }
-
-    public a c(String str) {
         Iterator<a> it = this.a.iterator();
         while (it.hasNext()) {
             a next = it.next();
@@ -316,7 +291,7 @@ public abstract class e {
         return null;
     }
 
-    public String e(String str) {
+    public String d(String str) {
         try {
             return com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(str, 0), "utf-8");
         } catch (Exception e) {

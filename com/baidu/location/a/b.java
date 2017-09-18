@@ -24,7 +24,7 @@ public class b {
     private static Method g = null;
     private static Class<?> h = null;
     private LocationClientOption KT;
-    private InterfaceC0025b KU;
+    private InterfaceC0024b KU;
     private Context b;
     private TelephonyManager c;
     private WifiManager i;
@@ -92,7 +92,7 @@ public class b {
 
     /* renamed from: com.baidu.location.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0025b {
+    public interface InterfaceC0024b {
         void onReceiveLocation(BDLocation bDLocation);
     }
 
@@ -233,7 +233,7 @@ public class b {
         }
     }
 
-    public b(Context context, LocationClientOption locationClientOption, InterfaceC0025b interfaceC0025b) {
+    public b(Context context, LocationClientOption locationClientOption, InterfaceC0024b interfaceC0024b) {
         String str;
         String str2;
         this.b = null;
@@ -242,7 +242,7 @@ public class b {
         this.k = null;
         this.b = context.getApplicationContext();
         this.KT = locationClientOption;
-        this.KU = interfaceC0025b;
+        this.KU = interfaceC0024b;
         String packageName = this.b.getPackageName();
         try {
             this.c = (TelephonyManager) this.b.getSystemService("phone");

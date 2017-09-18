@@ -16,17 +16,17 @@ public interface d {
 
     void a(ai aiVar);
 
-    TabData ajb();
+    TabData ajm();
 
-    View ajc();
+    View ajn();
 
-    View ajd();
+    View ajo();
 
     void as(View view);
 
     void b(BdListView bdListView);
 
-    void fb(boolean z);
+    void fc(boolean z);
 
     void onChangeSkinType(int i);
 }

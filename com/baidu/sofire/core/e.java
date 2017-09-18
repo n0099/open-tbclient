@@ -47,7 +47,7 @@ public final class e {
     private static Random f = new Random();
     public static List<Integer> a = new ArrayList();
 
-    public static e aq(Context context) {
+    public static e ar(Context context) {
         if (PM == null) {
             PN = (Application) context.getApplicationContext();
             PM = new e();

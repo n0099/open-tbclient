@@ -2,18 +2,18 @@ package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class h {
     private String Qq;
-    private String aWd;
-    private boolean aWe;
-    private long aWf = -1;
-    private long aWg = -1;
-    private long aWh = 0;
+    private String aWa;
+    private boolean aWb;
+    private long aWc = -1;
+    private long aWd = -1;
+    private long aWe = 0;
 
     public String KG() {
-        return this.aWd;
+        return this.aWa;
     }
 
     public void hp(String str) {
-        this.aWd = str;
+        this.aWa = str;
     }
 
     public String KH() {
@@ -25,34 +25,34 @@ public class h {
     }
 
     public boolean KI() {
-        return this.aWe;
+        return this.aWb;
     }
 
     public void cq(boolean z) {
-        this.aWe = z;
+        this.aWb = z;
     }
 
     public long KJ() {
-        return this.aWf;
+        return this.aWc;
     }
 
     public void ar(long j) {
-        this.aWf = j;
+        this.aWc = j;
     }
 
     public long KK() {
-        return this.aWg;
+        return this.aWd;
     }
 
     public void as(long j) {
-        this.aWg = j;
+        this.aWd = j;
     }
 
     public long getTotalLength() {
-        return this.aWh;
+        return this.aWe;
     }
 
     public void N(long j) {
-        this.aWh = j;
+        this.aWe = j;
     }
 }

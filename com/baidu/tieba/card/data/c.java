@@ -14,56 +14,56 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements ae {
     public String Xe;
-    private String bMO;
-    private int bMP;
-    private String bMQ;
-    private String bMR;
+    private String bNF;
+    private int bNG;
+    private String bNH;
+    private String bNI;
     private String mSource;
-    public int bMS = 0;
+    public int bNJ = 0;
     public SparseArray<String> Xf = null;
 
     public void setWeight(String str) {
-        this.bMO = str;
+        this.bNF = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void hH(int i) {
-        this.bMP = i;
+    public void hJ(int i) {
+        this.bNG = i;
     }
 
-    public void jw(String str) {
-        this.bMQ = str;
+    public void jy(String str) {
+        this.bNH = str;
     }
 
-    public int Yb() {
-        return this.bMP;
+    public int Ym() {
+        return this.bNG;
     }
 
-    public String Yc() {
-        return this.mSource + "#" + this.bMP + "#" + this.bMQ;
+    public String Yn() {
+        return this.mSource + "#" + this.bNG + "#" + this.bNH;
     }
 
     public String getWeight() {
-        return this.bMO;
+        return this.bNF;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String Yd() {
-        return this.bMQ;
+    public String Yo() {
+        return this.bNH;
     }
 
-    public String Ye() {
-        return this.bMR;
+    public String Yp() {
+        return this.bNI;
     }
 
-    public void jx(String str) {
-        this.bMR = str;
+    public void jz(String str) {
+        this.bNI = str;
     }
 
     public bj MR() {
@@ -74,7 +74,7 @@ public abstract class c extends b implements ae {
         return true;
     }
 
-    public ak jy(String str) {
+    public ak jA(String str) {
         return v(str, false);
     }
 
@@ -83,14 +83,14 @@ public abstract class c extends b implements ae {
         if (MR == null) {
             return null;
         }
-        ak ad = new ak(str).ad("fid", String.valueOf(MR.getFid())).ad("tid", String.valueOf(MR.getTid())).r("obj_id", E(MR)).ad("obj_param1", getWeight()).r("obj_param2", 1).ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", Yb()).ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ad("obj_param3", com.baidu.tieba.card.m.XP());
+        ak ad = new ak(str).ad("fid", String.valueOf(MR.getFid())).ad("tid", String.valueOf(MR.getTid())).r("obj_id", E(MR)).ad("obj_param1", getWeight()).r("obj_param2", 1).ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", Ym()).ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ad("obj_param3", com.baidu.tieba.card.m.Ya());
         if (!z) {
-            ad.r("obj_type", Yf());
+            ad.r("obj_type", Yq());
         } else {
-            ad.ad("ab_tag", Yd());
+            ad.ad("ab_tag", Yo());
         }
-        if (MR.sR() != null && MR.sR().aDg() != null && MR.sR().aDg().Iv() != null && MR.sR().aDg().Iv().size() > 0) {
-            ad.r("obj_to", MR.sR().giQ ? 2 : 1);
+        if (MR.sR() != null && MR.sR().aDr() != null && MR.sR().aDr().Iv() != null && MR.sR().aDr().Iv().size() > 0) {
+            ad.r("obj_to", MR.sR().gjK ? 2 : 1);
         }
         return ad;
     }
@@ -100,16 +100,16 @@ public abstract class c extends b implements ae {
         if (MR == null) {
             return null;
         }
-        ak ad = new ak(str).ad("fid", String.valueOf(MR.getFid())).ad("tid", String.valueOf(MR.getTid())).r("obj_id", E(MR)).r("obj_param2", 1).ad("obj_param1", getWeight()).ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", Yb()).ad("obj_name", Yd()).ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ad("obj_param3", com.baidu.tieba.card.m.XP());
+        ak ad = new ak(str).ad("fid", String.valueOf(MR.getFid())).ad("tid", String.valueOf(MR.getTid())).r("obj_id", E(MR)).r("obj_param2", 1).ad("obj_param1", getWeight()).ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", Ym()).ad("obj_name", Yo()).ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ad("obj_param3", com.baidu.tieba.card.m.Ya());
         if (i == 0) {
-            ad.r("obj_type", Yf());
+            ad.r("obj_type", Yq());
             return ad;
         }
         ad.r("obj_type", i);
         return ad;
     }
 
-    private int Yf() {
+    private int Yq() {
         int i;
         int i2 = 0;
         bj MR = MR();

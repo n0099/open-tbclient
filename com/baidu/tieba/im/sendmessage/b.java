@@ -6,7 +6,7 @@ import com.baidu.tbadk.coreExtra.data.g;
 import com.baidu.tbadk.coreExtra.data.h;
 /* loaded from: classes.dex */
 public class b {
-    public String mX(String str) {
+    public String mZ(String str) {
         g yo;
         if (str != null) {
             try {

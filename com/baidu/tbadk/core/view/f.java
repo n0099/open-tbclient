@@ -6,7 +6,7 @@ import android.graphics.Paint;
 import android.view.View;
 /* loaded from: classes.dex */
 public class f extends BdGridView {
-    private int alb;
+    private int ala;
     private int columnCount;
     private int rowCount;
 
@@ -22,7 +22,7 @@ public class f extends BdGridView {
         if (getChildCount() > 0 && (childAt = getChildAt(0)) != null) {
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.STROKE);
-            paint.setColor(this.alb);
+            paint.setColor(this.ala);
             paint.setStrokeWidth(1.0f);
             int width = childAt.getWidth() * this.columnCount;
             int height = childAt.getHeight() * this.rowCount;
@@ -60,10 +60,10 @@ public class f extends BdGridView {
     }
 
     public int getBackgroundLineResource() {
-        return this.alb;
+        return this.ala;
     }
 
     public void setBackgroundLineResource(int i) {
-        this.alb = i;
+        this.ala = i;
     }
 }

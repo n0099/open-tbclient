@@ -25,7 +25,7 @@ public class b {
     private List<CharSequence> WE;
     private AlertDialog aaP;
     private final ViewGroup aaQ;
-    private InterfaceC0047b abd;
+    private InterfaceC0046b abd;
     private final TextView abe;
     private final View abf;
     private LinearLayout.LayoutParams abk;
@@ -50,7 +50,7 @@ public class b {
 
     /* renamed from: com.baidu.tbadk.core.dialog.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0047b {
+    public interface InterfaceC0046b {
         void a(b bVar, int i, View view);
     }
 
@@ -80,18 +80,18 @@ public class b {
         return cN(this.mActivity.getResources().getString(i));
     }
 
-    public b a(CharSequence[] charSequenceArr, InterfaceC0047b interfaceC0047b) {
+    public b a(CharSequence[] charSequenceArr, InterfaceC0046b interfaceC0046b) {
         if (charSequenceArr != null && charSequenceArr.length > 0) {
-            return a(Arrays.asList(charSequenceArr), interfaceC0047b);
+            return a(Arrays.asList(charSequenceArr), interfaceC0046b);
         }
         return this;
     }
 
-    public b a(List<CharSequence> list, InterfaceC0047b interfaceC0047b) {
+    public b a(List<CharSequence> list, InterfaceC0046b interfaceC0046b) {
         if (list != null && list.size() > 0) {
             this.WE = list;
-            if (interfaceC0047b != null) {
-                this.abd = interfaceC0047b;
+            if (interfaceC0046b != null) {
+                this.abd = interfaceC0046b;
             }
         }
         return this;

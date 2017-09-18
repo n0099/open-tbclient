@@ -21,16 +21,16 @@ import java.net.URLDecoder;
 /* loaded from: classes2.dex */
 class f implements Runnable {
     private static final String TAG = f.class.getSimpleName();
-    private byte[] aWb;
-    private h aWc;
+    private byte[] aVY;
+    private h aVZ;
     private Context mContext;
     private Socket zq;
 
     public f(Context context) {
-        this.aWb = null;
+        this.aVY = null;
         this.mContext = context;
         try {
-            this.aWb = new byte[AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START];
+            this.aVY = new byte[AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START];
         } catch (OutOfMemoryError e) {
             e.printStackTrace();
         }
@@ -41,22 +41,22 @@ class f implements Runnable {
     }
 
     public void a(h hVar) {
-        this.aWc = hVar;
+        this.aVZ = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         j.aw(TAG, "test run in " + this);
-        if (this.aWc == null) {
+        if (this.aVZ == null) {
             j.aw(TAG, "test run out 1" + this);
             return;
         }
         try {
-            b(this.aWc);
-            if (this.aWc.KG().contains("/video_cache/pre_load?origin_url=")) {
-                a(this.aWc, this.zq, true);
+            b(this.aVZ);
+            if (this.aVZ.KG().contains("/video_cache/pre_load?origin_url=")) {
+                a(this.aVZ, this.zq, true);
             } else {
-                a(this.aWc, this.zq, false);
+                a(this.aVZ, this.zq, false);
             }
             c(this.zq);
         } catch (Exception e) {
@@ -166,7 +166,7 @@ class f implements Runnable {
         if (hu == null || hu.isEmpty()) {
             return 0;
         }
-        File file = new File(i.aWn + hu);
+        File file = new File(i.aWk + hu);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -303,7 +303,7 @@ class f implements Runnable {
 
     private void a(h hVar, Socket socket, boolean z) {
         if (hVar != null && socket != null) {
-            File file = new File(i.aWk);
+            File file = new File(i.aWh);
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -339,11 +339,11 @@ class f implements Runnable {
                     e.KD().n(cVar);
                 }
                 cVar.b(hVar.KJ(), hVar.KK());
-                if (this.aWb != null) {
+                if (this.aVY != null) {
                     while (cVar.canRead()) {
-                        int e = cVar.e(this.aWb, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
+                        int e = cVar.e(this.aVY, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
                         if (e > 0) {
-                            printStream.write(this.aWb, 0, e);
+                            printStream.write(this.aVY, 0, e);
                         }
                     }
                 }

@@ -10,14 +10,14 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.card.x;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.alalivelist.view.b, a> {
-    public BdUniqueId aOx;
-    private com.baidu.tieba.homepage.alalivelist.view.c cXB;
-    x<com.baidu.tieba.homepage.alalivelist.view.b> cXC;
+    public BdUniqueId aOu;
+    private com.baidu.tieba.homepage.alalivelist.view.c cYv;
+    x<com.baidu.tieba.homepage.alalivelist.view.b> cYw;
     private TbPageContext<?> mF;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cXC = new x<com.baidu.tieba.homepage.alalivelist.view.b>() { // from class: com.baidu.tieba.homepage.alalivelist.a.c.1
+        this.cYw = new x<com.baidu.tieba.homepage.alalivelist.view.b>() { // from class: com.baidu.tieba.homepage.alalivelist.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, com.baidu.tieba.homepage.alalivelist.view.b bVar) {
@@ -31,9 +31,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ao */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cXB = new com.baidu.tieba.homepage.alalivelist.view.c(this.mF);
-        this.cXB.i(this.aOx);
-        return new a(this.cXB);
+        this.cYv = new com.baidu.tieba.homepage.alalivelist.view.c(this.mF);
+        this.cYv.i(this.aOu);
+        return new a(this.cYv);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,11 +41,11 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.alalivelist.view.b bVar, a aVar) {
-        aVar.cXE.a(bVar);
-        aVar.cXE.b(this.cXC);
+        aVar.cYy.a(bVar);
+        aVar.cYy.b(this.cYw);
         int i2 = 0;
-        if (bVar != null && bVar.bcJ != null) {
-            i2 = bVar.bcJ.rT().live_type;
+        if (bVar != null && bVar.bcG != null) {
+            i2 = bVar.bcG.rT().live_type;
         }
         TiebaStatic.log(new ak("c11826").r("obj_type", i2));
         return aVar.getView();
@@ -54,11 +54,11 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends j.a {
-        public com.baidu.tieba.homepage.alalivelist.view.c cXE;
+        public com.baidu.tieba.homepage.alalivelist.view.c cYy;
 
         public a(com.baidu.tieba.homepage.alalivelist.view.c cVar) {
             super(cVar.getView());
-            this.cXE = cVar;
+            this.cYy = cVar;
         }
     }
 }

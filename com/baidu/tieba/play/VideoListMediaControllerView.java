@@ -19,7 +19,7 @@ public class VideoListMediaControllerView extends s {
     }
 
     @Override // com.baidu.tieba.play.s
-    protected View bg(Context context) {
+    protected View bh(Context context) {
         return View.inflate(context, d.j.video_list_video_controller, null);
     }
 }

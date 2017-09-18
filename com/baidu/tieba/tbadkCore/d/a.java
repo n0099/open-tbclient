@@ -13,32 +13,32 @@ public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String bGH;
-        public String bGI;
-        public int bMP;
+        public String bHy;
+        public String bHz;
+        public int bNG;
     }
 
-    public static C0124a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        C0124a c0124a = new C0124a(str, str2, str3, str4, str5);
-        c0124a.e(str6, str7, str8, str9, str10);
-        return c0124a;
+    public static C0123a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        C0123a c0123a = new C0123a(str, str2, str3, str4, str5);
+        c0123a.e(str6, str7, str8, str9, str10);
+        return c0123a;
     }
 
-    public static C0124a d(String str, String str2, String str3, String str4, String str5, String str6) {
-        C0124a c0124a = new C0124a("ad_tpoint", "PT", str, str2, "tpoint");
-        c0124a.e(null, null, str3, str4, str5);
+    public static C0123a d(String str, String str2, String str3, String str4, String str5, String str6) {
+        C0123a c0123a = new C0123a("ad_tpoint", "PT", str, str2, "tpoint");
+        c0123a.e(null, null, str3, str4, str5);
         if (!am.isEmpty(str6)) {
-            c0124a.cj("obj_ref", str6);
+            c0123a.cj("obj_ref", str6);
         }
-        return c0124a;
+        return c0123a;
     }
 
     @Deprecated
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        C0124a c0124a = new C0124a("ad_tpoint", "PT", str, "c0122", "ad_plat");
-        c0124a.e(str2, str7, str3, str4, str5);
-        c0124a.cj("obj_url", str6);
-        c0124a.save();
+        C0123a c0123a = new C0123a("ad_tpoint", "PT", str, "c0122", "ad_plat");
+        c0123a.e(str2, str7, str3, str4, str5);
+        c0123a.cj("obj_url", str6);
+        c0123a.save();
     }
 
     @Deprecated
@@ -54,29 +54,29 @@ public class a {
 
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0124a {
+    public static class C0123a {
         private final String Tr;
         private final boolean WN;
-        private final ak dUg;
-        private final String gjj;
-        private final String gjk;
+        private final ak dVa;
+        private final String gkd;
+        private final String gke;
         private final String key;
         private final String locate;
 
-        private C0124a(String str, String str2, String str3, String str4, String str5) {
+        private C0123a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.gjj = str2;
+            this.gkd = str2;
             this.Tr = str3;
             this.locate = str4;
-            this.gjk = str5;
+            this.gke = str5;
             this.WN = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.dUg = bsE();
+            this.dVa = bsP();
         }
 
-        private ak bsE() {
+        private ak bsP() {
             ak akVar = new ak(this.key);
-            if (!StringUtils.isNull(this.gjj)) {
-                akVar = akVar.ad("line", this.gjj);
+            if (!StringUtils.isNull(this.gkd)) {
+                akVar = akVar.ad("line", this.gkd);
             }
             if (!StringUtils.isNull(this.Tr)) {
                 akVar = akVar.ad("page", this.Tr);
@@ -84,8 +84,8 @@ public class a {
             if (!StringUtils.isNull(this.locate)) {
                 akVar = akVar.ad("locate", this.locate);
             }
-            if (!StringUtils.isNull(this.gjk)) {
-                return akVar.ad("task", this.gjk);
+            if (!StringUtils.isNull(this.gke)) {
+                return akVar.ad("task", this.gke);
             }
             return akVar;
         }
@@ -93,33 +93,33 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public ak e(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.dUg.ad("action_type", str);
+                this.dVa.ad("action_type", str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.dUg.ad("obj_id", str2);
+                this.dVa.ad("obj_id", str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.dUg.ad("fid", str3);
+                this.dVa.ad("fid", str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.dUg.ad(ImageViewerConfig.FORUM_NAME, str4);
+                this.dVa.ad(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.dUg.ad("tid", str5);
+                this.dVa.ad("tid", str5);
             }
-            this.dUg.r("obj_cpid", 0).r("obj_good_id", 0).ad("obj_throw_type", "BY_POST").ad("client_type", "MOBILE_APP").ad("user_timestamp", String.valueOf(System.currentTimeMillis())).ad("os", "android").ad("os_version", Build.VERSION.RELEASE).ad("log_ver", "1.1");
-            return this.dUg;
+            this.dVa.r("obj_cpid", 0).r("obj_good_id", 0).ad("obj_throw_type", "BY_POST").ad("client_type", "MOBILE_APP").ad("user_timestamp", String.valueOf(System.currentTimeMillis())).ad("os", "android").ad("os_version", Build.VERSION.RELEASE).ad("log_ver", "1.1");
+            return this.dVa;
         }
 
-        public C0124a cj(String str, String str2) {
+        public C0123a cj(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.dUg.ad(str, str2);
+                this.dVa.ad(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.dUg);
+            TiebaStatic.log(this.dVa);
             if (!this.WN) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
@@ -129,7 +129,7 @@ public class a {
         }
 
         public void dO(String str) {
-            this.dUg.dO(str);
+            this.dVa.dO(str);
         }
     }
 }

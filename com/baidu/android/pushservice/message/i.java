@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.message;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushManager;
-import com.baidu.android.pushservice.j.n;
+import com.baidu.android.pushservice.j.m;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,29 +17,28 @@ public class i {
     public String f;
     public String g;
     public String h;
-    public String i;
-    public int j;
+    public int i;
+    public String j;
     public String k;
     public String l;
-    public String m;
-    public int n;
-    public String o;
+    public int m;
+    public String n;
 
     public PublicMsg a(Context context) {
         PublicMsg publicMsg = new PublicMsg();
         try {
-            publicMsg.mMsgId = this.m;
-            publicMsg.mAppId = this.l;
-            if (TextUtils.isEmpty(this.h) && TextUtils.isEmpty(this.i)) {
-                publicMsg.mTitle = this.f;
-                publicMsg.mDescription = this.g;
+            publicMsg.mMsgId = this.l;
+            publicMsg.mAppId = this.k;
+            if (TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.h)) {
+                publicMsg.mTitle = this.e;
+                publicMsg.mDescription = this.f;
+                publicMsg.mUrl = this.a;
+                publicMsg.mPkgContent = this.c;
+            } else {
+                publicMsg.mTitle = this.g;
+                publicMsg.mDescription = this.h;
                 publicMsg.mUrl = this.b;
                 publicMsg.mPkgContent = this.d;
-            } else {
-                publicMsg.mTitle = this.h;
-                publicMsg.mDescription = this.i;
-                publicMsg.mUrl = this.c;
-                publicMsg.mPkgContent = this.e;
             }
             return publicMsg;
         } catch (Exception e) {
@@ -57,8 +56,8 @@ public class i {
                 JSONObject jSONObject = new JSONObject(str);
                 if (!jSONObject.isNull("extras") && (jSONArray = jSONObject.getJSONArray("extras")) != null) {
                     a(jSONArray);
-                    if (!TextUtils.isEmpty(this.o)) {
-                        JSONObject jSONObject2 = new JSONObject(new String(this.o));
+                    if (!TextUtils.isEmpty(this.n)) {
+                        JSONObject jSONObject2 = new JSONObject(new String(this.n));
                         if (jSONObject2.isNull("custom_content")) {
                             str2 = null;
                         } else {
@@ -66,21 +65,21 @@ public class i {
                             com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "customcontent = " + str2);
                         }
                         if (jSONObject2.isNull("hwsigninfo")) {
-                            n.a(context, "bdpush_hwsignresult", 0);
+                            m.a(context, "bdpush_hwsignresult", 0);
                             com.baidu.android.pushservice.g.a.c("ProxyPushMessage", " passthrough message has not hwsigninfo!");
                             return null;
                         }
                         String string = jSONObject2.getString("hwsigninfo");
                         com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "hwsigninfo_passthrough = " + string);
                         if (!TextUtils.isEmpty(string)) {
-                            String str3 = this.m + str2;
+                            String str3 = this.l + str2;
                             if (!PushManager.hwMessageVerify(context, string, str3)) {
-                                n.a(context, "bdpush_hwsignresult", 0);
+                                m.a(context, "bdpush_hwsignresult", 0);
                                 com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "hwsigninfo_passthrough check not pass   " + str3);
                                 return null;
                             }
                             com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "hwsigninfo_passthrough check pass " + str3);
-                            n.a(context, "bdpush_hwsignresult", 1);
+                            m.a(context, "bdpush_hwsignresult", 1);
                         }
                         return str2;
                     }
@@ -90,7 +89,7 @@ public class i {
             return str2;
         } catch (JSONException e) {
             com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "not receive correct huawei passthrough message");
-            n.a(context, "bdpush_hwsignresult", 0);
+            m.a(context, "bdpush_hwsignresult", 0);
             return null;
         }
     }
@@ -100,22 +99,22 @@ public class i {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
                 if (!jSONObject.isNull("Appid")) {
-                    this.l = jSONObject.getString("Appid");
+                    this.k = jSONObject.getString("Appid");
                 }
                 if (!jSONObject.isNull("Msgid")) {
-                    this.m = jSONObject.getString("Msgid");
+                    this.l = jSONObject.getString("Msgid");
                 }
                 if (!jSONObject.isNull("Type")) {
-                    this.n = jSONObject.getInt("Type");
+                    this.m = jSONObject.getInt("Type");
                 }
                 if (!jSONObject.isNull("push_type")) {
-                    this.j = jSONObject.getInt("push_type");
+                    this.i = jSONObject.getInt("push_type");
                 }
                 if (!jSONObject.isNull("gid")) {
-                    this.k = jSONObject.getString("gid");
+                    this.j = jSONObject.getString("gid");
                 }
                 if (!jSONObject.isNull("msgBody")) {
-                    this.o = jSONObject.getString("msgBody");
+                    this.n = jSONObject.getString("msgBody");
                 }
             } catch (Exception e) {
                 com.baidu.android.pushservice.g.a.a("ProxyPushMessage", e);
@@ -131,8 +130,8 @@ public class i {
                 JSONObject jSONObject = new JSONObject(str);
                 if (!jSONObject.isNull("extras") && (jSONArray = jSONObject.getJSONArray("extras")) != null) {
                     a(jSONArray);
-                    if (!TextUtils.isEmpty(this.o)) {
-                        JSONObject jSONObject2 = new JSONObject(new String(this.o));
+                    if (!TextUtils.isEmpty(this.n)) {
+                        JSONObject jSONObject2 = new JSONObject(new String(this.n));
                         if (!jSONObject2.isNull("custom_content")) {
                             String string = jSONObject2.getString("custom_content");
                             com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "customcontent = " + string);

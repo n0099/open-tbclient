@@ -15,12 +15,12 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a aWx;
+    private static a aWu;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean aWy = false;
+    private boolean aWv = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable aGF = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable aGC = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:128:0x0314, code lost:
             r3 = e;
          */
@@ -92,7 +92,7 @@ public class a {
             int i3;
             long j2;
             String readLine;
-            while (!a.this.aWy) {
+            while (!a.this.aWv) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -100,10 +100,10 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.aWy) {
+                if (!a.this.aWv) {
                     String KQ = a.this.KQ();
                     if (KQ != null && !KQ.isEmpty()) {
-                        File file = new File(c.aWn + b.hu(KQ) + "/header_downloaded");
+                        File file = new File(c.aWk + b.hu(KQ) + "/header_downloaded");
                         if (file.exists()) {
                             d.aw(a.TAG, "header exists " + KQ);
                         } else {
@@ -284,21 +284,21 @@ public class a {
             j = j2;
         }
     };
-    private Thread mThread = new Thread(this.aGF);
+    private Thread mThread = new Thread(this.aGC);
 
     private a() {
         this.mThread.start();
     }
 
     public static a KP() {
-        if (aWx == null) {
+        if (aWu == null) {
             synchronized (a.class) {
-                if (aWx == null) {
-                    aWx = new a();
+                if (aWu == null) {
+                    aWu = new a();
                 }
             }
         }
-        return aWx;
+        return aWu;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

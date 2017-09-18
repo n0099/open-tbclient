@@ -44,64 +44,64 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HttpContext;
 /* loaded from: classes.dex */
 public class f implements a.InterfaceC0005a {
-    private static int agp;
-    private static String aiE;
-    private static int aiF;
-    private static long aiG;
-    public static String aiy;
-    private static HttpClient aiz;
-    public boolean aiC;
-    private HttpGet aiu;
-    private final com.baidu.adp.lib.network.http.e aix;
+    private static int ago;
+    private static String aiD;
+    private static int aiE;
+    private static long aiF;
+    public static String aix;
+    private static HttpClient aiy;
+    public boolean aiB;
+    private HttpGet ait;
+    private final com.baidu.adp.lib.network.http.e aiw;
     private final Context mContext;
-    private static volatile String ais = null;
-    private static volatile boolean ait = false;
+    private static volatile String air = null;
+    private static volatile boolean ais = false;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
-    public static BasicHttpParams aiA = new BasicHttpParams();
+    public static BasicHttpParams aiz = new BasicHttpParams();
     private boolean rw = false;
-    private boolean aiB = false;
-    private int aiD = 0;
-    private int aiv = 0;
-    private volatile boolean aiw = false;
+    private boolean aiA = false;
+    private int aiC = 0;
+    private int aiu = 0;
+    private volatile boolean aiv = false;
 
     static {
-        agp = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
-        HttpConnectionParams.setConnectionTimeout(aiA, 5000);
-        HttpConnectionParams.setSoTimeout(aiA, 30000);
-        HttpConnectionParams.setSocketBufferSize(aiA, 1024);
-        HttpConnectionParams.setTcpNoDelay(aiA, true);
-        HttpClientParams.setRedirecting(aiA, true);
-        ConnManagerParams.setMaxConnectionsPerRoute(aiA, new ConnPerRouteBean(15));
-        ConnManagerParams.setTimeout(aiA, 10000L);
-        ConnManagerParams.setMaxTotalConnections(aiA, 15);
-        HttpProtocolParams.setUserAgent(aiA, "bdtb for Android " + TbConfig.getVersion());
+        ago = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
+        HttpConnectionParams.setConnectionTimeout(aiz, 5000);
+        HttpConnectionParams.setSoTimeout(aiz, 30000);
+        HttpConnectionParams.setSocketBufferSize(aiz, 1024);
+        HttpConnectionParams.setTcpNoDelay(aiz, true);
+        HttpClientParams.setRedirecting(aiz, true);
+        ConnManagerParams.setMaxConnectionsPerRoute(aiz, new ConnPerRouteBean(15));
+        ConnManagerParams.setTimeout(aiz, 10000L);
+        ConnManagerParams.setMaxTotalConnections(aiz, 15);
+        HttpProtocolParams.setUserAgent(aiz, "bdtb for Android " + TbConfig.getVersion());
         SchemeRegistry schemeRegistry = new SchemeRegistry();
         schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
         schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
-        aiz = new DefaultHttpClient(new ThreadSafeClientConnManager(aiA, schemeRegistry), aiA);
-        aiz.setRedirectHandler(new DefaultRedirectHandler() { // from class: com.baidu.tbadk.core.util.a.f.1
+        aiy = new DefaultHttpClient(new ThreadSafeClientConnManager(aiz, schemeRegistry), aiz);
+        aiy.setRedirectHandler(new DefaultRedirectHandler() { // from class: com.baidu.tbadk.core.util.a.f.1
             public boolean isRedirectRequested(HttpResponse httpResponse, HttpContext httpContext) {
                 return false;
             }
         });
         if (Runtime.getRuntime().maxMemory() >= 67108864) {
-            agp = 4194304;
+            ago = 4194304;
         }
-        aiE = null;
-        aiF = 0;
-        aiG = System.currentTimeMillis();
+        aiD = null;
+        aiE = 0;
+        aiF = System.currentTimeMillis();
     }
 
     public f(com.baidu.adp.lib.network.http.e eVar) {
         wk();
-        this.aix = eVar;
+        this.aiw = eVar;
         this.mContext = TbadkCoreApplication.getInst().getApp();
     }
 
     public static void wk() {
         synchronized (f.class) {
-            if (!ait) {
-                ait = true;
+            if (!ais) {
+                ais = true;
                 wl();
             }
         }
@@ -115,7 +115,7 @@ public class f implements a.InterfaceC0005a {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
                     query.close();
-                    ais = "Basic " + com.baidu.adp.lib.util.c.encodeBytes((string + ":" + string2).getBytes());
+                    air = "Basic " + com.baidu.adp.lib.util.c.encodeBytes((string + ":" + string2).getBytes());
                 }
             } catch (Exception e) {
             }
@@ -123,15 +123,15 @@ public class f implements a.InterfaceC0005a {
     }
 
     public void fp() {
-        this.aiw = true;
-        this.aix.fA().vl = true;
+        this.aiv = true;
+        this.aiw.fA().vl = true;
         wm();
     }
 
     private void wm() {
         try {
-            if (this.aiu != null) {
-                this.aiu.abort();
+            if (this.ait != null) {
+                this.ait.abort();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -141,7 +141,7 @@ public class f implements a.InterfaceC0005a {
     private void l(String str, String str2, String str3) {
         boolean z;
         if (e.getInstance() != null) {
-            if (!e.getInstance().aiq) {
+            if (!e.getInstance().aip) {
                 e.getInstance().init();
             }
             z = true;
@@ -149,20 +149,20 @@ public class f implements a.InterfaceC0005a {
             z = false;
         }
         if (com.baidu.adp.lib.util.i.hi()) {
-            this.aiC = false;
+            this.aiB = false;
             try {
                 if (com.baidu.adp.lib.util.i.hk()) {
                     URL url = new URL(str);
                     synchronized (f.class) {
-                        if (aiy == null) {
-                            aiy = com.baidu.adp.lib.util.i.hs();
+                        if (aix == null) {
+                            aix = com.baidu.adp.lib.util.i.hs();
                         }
-                        if (aiy != null && aiy.length() > 0) {
-                            this.aiC = true;
-                            if (eh(aiy) && com.baidu.adp.lib.util.i.hu()) {
+                        if (aix != null && aix.length() > 0) {
+                            this.aiB = true;
+                            if (eh(aix) && com.baidu.adp.lib.util.i.hu()) {
                                 StringBuilder sb = new StringBuilder(80);
                                 sb.append("http://");
-                                sb.append(aiy);
+                                sb.append(aix);
                                 String file = url.getFile();
                                 if (file != null && file.startsWith("?")) {
                                     sb.append("/");
@@ -170,41 +170,41 @@ public class f implements a.InterfaceC0005a {
                                 sb.append(file);
                                 if (z) {
                                     if (str2 == null || str2.length() == 0) {
-                                        this.aiu = e.getInstance().httpGetFactory(sb.toString(), this.aiD, false);
+                                        this.ait = e.getInstance().httpGetFactory(sb.toString(), this.aiC, false);
                                     } else {
-                                        this.aiu = e.getInstance().httpGetFactory(str, str2, str3);
+                                        this.ait = e.getInstance().httpGetFactory(str, str2, str3);
                                     }
                                 } else {
-                                    this.aiu = new HttpGet(sb.toString());
+                                    this.ait = new HttpGet(sb.toString());
                                 }
-                                this.aiu.setHeader("X-Online-Host", url.getHost());
+                                this.ait.setHeader("X-Online-Host", url.getHost());
                                 if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                                    this.aiu.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
+                                    this.ait.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
                                 }
                             } else {
-                                Object parameter = aiA.getParameter("http.route.default-proxy");
+                                Object parameter = aiz.getParameter("http.route.default-proxy");
                                 if (parameter == null || !(parameter instanceof HttpHost)) {
-                                    aiA.setParameter("http.route.default-proxy", new HttpHost(aiy, com.baidu.adp.lib.util.i.ht()));
+                                    aiz.setParameter("http.route.default-proxy", new HttpHost(aix, com.baidu.adp.lib.util.i.ht()));
                                 } else {
                                     HttpHost httpHost = (HttpHost) parameter;
-                                    if (httpHost.getHostName() == null || !httpHost.getHostName().equals(aiy) || httpHost.getPort() != com.baidu.adp.lib.util.i.ht()) {
-                                        aiA.setParameter("http.route.default-proxy", new HttpHost(aiy, com.baidu.adp.lib.util.i.ht()));
+                                    if (httpHost.getHostName() == null || !httpHost.getHostName().equals(aix) || httpHost.getPort() != com.baidu.adp.lib.util.i.ht()) {
+                                        aiz.setParameter("http.route.default-proxy", new HttpHost(aix, com.baidu.adp.lib.util.i.ht()));
                                     }
                                 }
                                 if (z) {
                                     if (str2 == null || str2.length() == 0) {
-                                        this.aiu = e.getInstance().httpGetFactory(str, this.aiD, false);
+                                        this.ait = e.getInstance().httpGetFactory(str, this.aiC, false);
                                     } else {
-                                        this.aiu = e.getInstance().httpGetFactory(str, str2, str3);
+                                        this.ait = e.getInstance().httpGetFactory(str, str2, str3);
                                     }
                                 } else {
-                                    this.aiu = new HttpGet(str);
+                                    this.ait = new HttpGet(str);
                                 }
-                                if (ais != null) {
-                                    this.aiu.setHeader("Proxy-Authorization", ais);
+                                if (air != null) {
+                                    this.ait.setHeader("Proxy-Authorization", air);
                                 }
                                 if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                                    this.aiu.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
+                                    this.ait.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
                                 }
                             }
                         }
@@ -213,19 +213,19 @@ public class f implements a.InterfaceC0005a {
                 if (z) {
                     if (str2 == null || str2.length() == 0) {
                         if (com.baidu.adp.lib.util.i.hk()) {
-                            if (!this.aiC || this.aiu == null) {
-                                this.aiu = e.getInstance().httpGetFactory(str, this.aiD, false);
+                            if (!this.aiB || this.ait == null) {
+                                this.ait = e.getInstance().httpGetFactory(str, this.aiC, false);
                             }
                         } else {
-                            this.aiu = e.getInstance().httpGetFactory(str, this.aiD, true);
+                            this.ait = e.getInstance().httpGetFactory(str, this.aiC, true);
                         }
                     } else {
-                        this.aiu = e.getInstance().httpGetFactory(str, str2, str3);
+                        this.ait = e.getInstance().httpGetFactory(str, str2, str3);
                     }
                 } else {
-                    this.aiu = new HttpGet(str);
+                    this.ait = new HttpGet(str);
                 }
-                this.aiu.setHeader("needginfo", "1");
+                this.ait.setHeader("needginfo", "1");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -319,7 +319,7 @@ public class f implements a.InterfaceC0005a {
         boolean z15 = false;
         if (e.getInstance() != null) {
             z15 = true;
-            if (!e.getInstance().aiq) {
+            if (!e.getInstance().aip) {
                 e.getInstance().init();
             }
         }
@@ -330,23 +330,23 @@ public class f implements a.InterfaceC0005a {
         boolean z17 = false;
         int i3 = 0;
         while (true) {
-            if (this.aiw || i3 >= i) {
+            if (this.aiv || i3 >= i) {
                 break;
             }
-            this.aiD = i3;
+            this.aiC = i3;
             currentTimeMillis = System.currentTimeMillis();
             dVar = new com.baidu.adp.lib.network.http.d();
-            this.aix.a(dVar);
+            this.aiw.a(dVar);
             dVar.uX = -1;
             InputStream inputStream2 = null;
-            c = this.aix.fz().c(dVar);
+            c = this.aiw.fz().c(dVar);
             try {
                 dVar.uX = -2;
                 currentTimeMillis2 = System.currentTimeMillis();
                 if (str == null || str.length() == 0) {
                     l(c, null, null);
                     if (z16) {
-                        dVar.uY = e.getInstance().getCachedCdnIp(this.aiD);
+                        dVar.uY = e.getInstance().getCachedCdnIp(this.aiC);
                     }
                 } else {
                     l(c, str, str2);
@@ -371,10 +371,10 @@ public class f implements a.InterfaceC0005a {
                 th = th2;
                 inputStream = null;
             }
-            if (this.aiu == null) {
+            if (this.ait == null) {
                 throw new SocketException("network not available.");
             }
-            if (this.aiw) {
+            if (this.aiv) {
                 if (0 != 0) {
                     try {
                         inputStream2.close();
@@ -382,7 +382,7 @@ public class f implements a.InterfaceC0005a {
                     }
                 }
                 wm();
-                this.aix.b(dVar);
+                this.aiw.b(dVar);
                 if ((str == null || str.length() == 0) && c != null) {
                     boolean hj8 = com.baidu.adp.lib.util.i.hj();
                     if ((hj8 ? dVar.uY != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -399,15 +399,15 @@ public class f implements a.InterfaceC0005a {
                 }
             } else {
                 dVar.uX = -8;
-                HttpResponse execute = aiz.execute(this.aiu);
+                HttpResponse execute = aiy.execute(this.ait);
                 if (execute == null) {
                     throw new SocketException("httpResponse is null.");
                 }
                 if (execute.getStatusLine() == null) {
                     throw new SocketException("httpResponse getStatusLine is null.");
                 }
-                this.aix.fA().responseCode = execute.getStatusLine().getStatusCode();
-                dVar.uW = this.aix.fA().responseCode;
+                this.aiw.fA().responseCode = execute.getStatusLine().getStatusCode();
+                dVar.uW = this.aiw.fA().responseCode;
                 if (execute.getEntity() == null) {
                     throw new SocketException("httpResponse getEntity is null.");
                 }
@@ -441,12 +441,12 @@ public class f implements a.InterfaceC0005a {
                 }
                 if (entity.getContentType() != null) {
                     String obj2 = entity.getContentType().toString();
-                    this.aix.fA().contentType = obj2;
+                    this.aiw.fA().contentType = obj2;
                     if (obj2.contains("text/vnd.wap.wml")) {
-                        if (this.aiv < 1) {
+                        if (this.aiu < 1) {
                             wm();
-                            this.aiv++;
-                            this.aix.fA().responseCode = 0;
+                            this.aiu++;
+                            this.aiw.fA().responseCode = 0;
                             i3--;
                             if (inputStream != null) {
                                 try {
@@ -455,7 +455,7 @@ public class f implements a.InterfaceC0005a {
                                 }
                             }
                             wm();
-                            this.aix.b(dVar);
+                            this.aiw.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean hj9 = com.baidu.adp.lib.util.i.hj();
                                 if ((hj9 ? dVar.uY != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -480,7 +480,7 @@ public class f implements a.InterfaceC0005a {
                                 }
                             }
                             wm();
-                            this.aix.b(dVar);
+                            this.aiw.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean hj10 = com.baidu.adp.lib.util.i.hj();
                                 if ((hj10 ? dVar.uY != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -498,8 +498,8 @@ public class f implements a.InterfaceC0005a {
                         }
                     }
                 }
-                if (((int) entity.getContentLength()) > agp) {
-                    this.aix.fA().vm = -11;
+                if (((int) entity.getContentLength()) > ago) {
+                    this.aiw.fA().vm = -11;
                     dVar.uV = this.mContext.getResources().getString(d.l.data_too_big);
                     if (inputStream != null) {
                         try {
@@ -508,7 +508,7 @@ public class f implements a.InterfaceC0005a {
                         }
                     }
                     wm();
-                    this.aix.b(dVar);
+                    this.aiw.b(dVar);
                     if ((str == null || str.length() == 0) && c != null) {
                         boolean hj11 = com.baidu.adp.lib.util.i.hj();
                         if ((hj11 ? dVar.uY != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -546,12 +546,12 @@ public class f implements a.InterfaceC0005a {
                     if ("image/gif".equalsIgnoreCase(execute.getFirstHeader("Src-Content-Type").getValue())) {
                         this.rw = true;
                         i2 = i4;
-                        while (!this.aiw && i2 < agp && (read = inputStream.read(bArr8)) != -1) {
+                        while (!this.aiv && i2 < ago && (read = inputStream.read(bArr8)) != -1) {
                             byteArrayOutputStream.write(bArr8, 0, read);
                             i2 = read + i2;
                         }
                         dVar.uX = -9;
-                        if (!this.aiw) {
+                        if (!this.aiv) {
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
@@ -559,7 +559,7 @@ public class f implements a.InterfaceC0005a {
                                 }
                             }
                             wm();
-                            this.aix.b(dVar);
+                            this.aiw.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean hj12 = com.baidu.adp.lib.util.i.hj();
                                 if ((hj12 ? dVar.uY != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -575,7 +575,7 @@ public class f implements a.InterfaceC0005a {
                                 }
                             }
                         } else {
-                            if (i2 < agp) {
+                            if (i2 < ago) {
                                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                                 try {
                                     byteArrayOutputStream.close();
@@ -594,8 +594,8 @@ public class f implements a.InterfaceC0005a {
                                 } catch (IllegalStateException e16) {
                                     bArr7 = bArr6;
                                     e = e16;
-                                    this.aix.fA().vm = -19;
-                                    dVar.uV = "errorCode:" + String.valueOf(this.aix.fA().vm) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                                    this.aiw.fA().vm = -19;
+                                    dVar.uV = "errorCode:" + String.valueOf(this.aiw.fA().vm) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
@@ -603,7 +603,7 @@ public class f implements a.InterfaceC0005a {
                                         }
                                     }
                                     wm();
-                                    this.aix.b(dVar);
+                                    this.aiw.b(dVar);
                                     if ((str != null || str.length() == 0) && c != null) {
                                         hj7 = com.baidu.adp.lib.util.i.hj();
                                         if ((hj7 ? dVar.uY != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -625,8 +625,8 @@ public class f implements a.InterfaceC0005a {
                                     e = e18;
                                     inputStream2 = inputStream;
                                     try {
-                                        this.aix.fA().vm = -12;
-                                        dVar.uV = "errorCode:" + String.valueOf(this.aix.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
+                                        this.aiw.fA().vm = -12;
+                                        dVar.uV = "errorCode:" + String.valueOf(this.aiw.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
                                         if (inputStream2 != null) {
                                             try {
                                                 inputStream2.close();
@@ -634,7 +634,7 @@ public class f implements a.InterfaceC0005a {
                                             }
                                         }
                                         wm();
-                                        this.aix.b(dVar);
+                                        this.aiw.b(dVar);
                                         if ((str != null || str.length() == 0) && c != null) {
                                             hj6 = com.baidu.adp.lib.util.i.hj();
                                             if ((hj6 ? dVar.uY != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -661,7 +661,7 @@ public class f implements a.InterfaceC0005a {
                                             }
                                         }
                                         wm();
-                                        this.aix.b(dVar);
+                                        this.aiw.b(dVar);
                                         if ((str != null || str.length() == 0) && c != null) {
                                             hj5 = com.baidu.adp.lib.util.i.hj();
                                             if ((hj5 ? dVar.uY != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -681,8 +681,8 @@ public class f implements a.InterfaceC0005a {
                                 } catch (SocketTimeoutException e21) {
                                     bArr7 = bArr4;
                                     e = e21;
-                                    this.aix.fA().vm = -13;
-                                    dVar.uV = "errorCode:" + String.valueOf(this.aix.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
+                                    this.aiw.fA().vm = -13;
+                                    dVar.uV = "errorCode:" + String.valueOf(this.aiw.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
@@ -690,7 +690,7 @@ public class f implements a.InterfaceC0005a {
                                         }
                                     }
                                     wm();
-                                    this.aix.b(dVar);
+                                    this.aiw.b(dVar);
                                     if ((str != null || str.length() == 0) && c != null) {
                                         hj2 = com.baidu.adp.lib.util.i.hj();
                                         if ((hj2 ? dVar.uY != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -710,8 +710,8 @@ public class f implements a.InterfaceC0005a {
                                 } catch (HttpException e23) {
                                     bArr7 = bArr3;
                                     e = e23;
-                                    this.aix.fA().vm = -18;
-                                    dVar.uV = "errorCode:" + String.valueOf(this.aix.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
+                                    this.aiw.fA().vm = -18;
+                                    dVar.uV = "errorCode:" + String.valueOf(this.aiw.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
@@ -719,7 +719,7 @@ public class f implements a.InterfaceC0005a {
                                         }
                                     }
                                     wm();
-                                    this.aix.b(dVar);
+                                    this.aiw.b(dVar);
                                     if ((str != null || str.length() == 0) && c != null) {
                                         hj3 = com.baidu.adp.lib.util.i.hj();
                                         if ((hj3 ? dVar.uY != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -739,8 +739,8 @@ public class f implements a.InterfaceC0005a {
                                 } catch (IOException e25) {
                                     bArr7 = bArr2;
                                     e = e25;
-                                    this.aix.fA().vm = -19;
-                                    dVar.uV = "errorCode:" + String.valueOf(this.aix.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
+                                    this.aiw.fA().vm = -19;
+                                    dVar.uV = "errorCode:" + String.valueOf(this.aiw.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
@@ -748,7 +748,7 @@ public class f implements a.InterfaceC0005a {
                                         }
                                     }
                                     wm();
-                                    this.aix.b(dVar);
+                                    this.aiw.b(dVar);
                                     if ((str != null || str.length() == 0) && c != null) {
                                         hj4 = com.baidu.adp.lib.util.i.hj();
                                         if ((hj4 ? dVar.uY != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -768,8 +768,8 @@ public class f implements a.InterfaceC0005a {
                                 } catch (Throwable th6) {
                                     bArr7 = bArr;
                                     th = th6;
-                                    this.aix.fA().vm = -10;
-                                    dVar.uV = "errorCode:" + String.valueOf(this.aix.fA().vm) + "|" + th.getClass() + "|" + th.getMessage();
+                                    this.aiw.fA().vm = -10;
+                                    dVar.uV = "errorCode:" + String.valueOf(this.aiw.fA().vm) + "|" + th.getClass() + "|" + th.getMessage();
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
@@ -777,7 +777,7 @@ public class f implements a.InterfaceC0005a {
                                         }
                                     }
                                     wm();
-                                    this.aix.b(dVar);
+                                    this.aiw.b(dVar);
                                     if ((str != null || str.length() == 0) && c != null) {
                                         hj = com.baidu.adp.lib.util.i.hj();
                                         if ((hj ? dVar.uY != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -792,11 +792,11 @@ public class f implements a.InterfaceC0005a {
                                             e.getInstance().result(c, dVar.uY, z17, z, hj);
                                         }
                                     }
-                                    this.aiv = 0;
-                                    this.aix.fA().vo = bArr7;
+                                    this.aiu = 0;
+                                    this.aiw.fA().vo = bArr7;
                                 }
                             } else {
-                                this.aix.fA().vm = -11;
+                                this.aiw.fA().vm = -11;
                                 dVar.uV = this.mContext.getResources().getString(d.l.data_too_big);
                             }
                             dVar.uQ = i2;
@@ -805,12 +805,12 @@ public class f implements a.InterfaceC0005a {
                             if (execute.getFirstHeader("Error-Message") != null) {
                                 Header firstHeader = execute.getFirstHeader("Error-Message");
                                 if (firstHeader == null || TextUtils.isEmpty(firstHeader.getValue()) || firstHeader.getValue().equalsIgnoreCase("OK")) {
-                                    this.aiB = false;
+                                    this.aiA = false;
                                 } else {
-                                    this.aiB = true;
+                                    this.aiA = true;
                                 }
                             }
-                            z11 = (i2 <= 0 || !(this.aix.fA().responseCode == 200 || this.aix.fA().responseCode == 302)) ? z17 : true;
+                            z11 = (i2 <= 0 || !(this.aiw.fA().responseCode == 200 || this.aiw.fA().responseCode == 302)) ? z17 : true;
                             try {
                                 if (ITrafficStatsNativeManager.kl() != null && dVar != null) {
                                     ITrafficStatsNativeManager.kl().c(TbConfig.TMP_PIC_DIR_NAME, dVar.uP, dVar.uQ);
@@ -823,12 +823,12 @@ public class f implements a.InterfaceC0005a {
                             } catch (IllegalStateException e28) {
                                 e = e28;
                                 z17 = z11;
-                                this.aix.fA().vm = -19;
-                                dVar.uV = "errorCode:" + String.valueOf(this.aix.fA().vm) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                                this.aiw.fA().vm = -19;
+                                dVar.uV = "errorCode:" + String.valueOf(this.aiw.fA().vm) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
                                 if (inputStream != null) {
                                 }
                                 wm();
-                                this.aix.b(dVar);
+                                this.aiw.b(dVar);
                                 if (str != null) {
                                 }
                                 hj7 = com.baidu.adp.lib.util.i.hj();
@@ -844,12 +844,12 @@ public class f implements a.InterfaceC0005a {
                                 e = e29;
                                 inputStream2 = inputStream;
                                 z17 = z11;
-                                this.aix.fA().vm = -12;
-                                dVar.uV = "errorCode:" + String.valueOf(this.aix.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
+                                this.aiw.fA().vm = -12;
+                                dVar.uV = "errorCode:" + String.valueOf(this.aiw.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
                                 if (inputStream2 != null) {
                                 }
                                 wm();
-                                this.aix.b(dVar);
+                                this.aiw.b(dVar);
                                 if (str != null) {
                                 }
                                 hj6 = com.baidu.adp.lib.util.i.hj();
@@ -864,12 +864,12 @@ public class f implements a.InterfaceC0005a {
                             } catch (IOException e30) {
                                 e = e30;
                                 z17 = z11;
-                                this.aix.fA().vm = -19;
-                                dVar.uV = "errorCode:" + String.valueOf(this.aix.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
+                                this.aiw.fA().vm = -19;
+                                dVar.uV = "errorCode:" + String.valueOf(this.aiw.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
                                 if (inputStream != null) {
                                 }
                                 wm();
-                                this.aix.b(dVar);
+                                this.aiw.b(dVar);
                                 if (str != null) {
                                 }
                                 hj4 = com.baidu.adp.lib.util.i.hj();
@@ -884,12 +884,12 @@ public class f implements a.InterfaceC0005a {
                             } catch (HttpException e31) {
                                 e = e31;
                                 z17 = z11;
-                                this.aix.fA().vm = -18;
-                                dVar.uV = "errorCode:" + String.valueOf(this.aix.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
+                                this.aiw.fA().vm = -18;
+                                dVar.uV = "errorCode:" + String.valueOf(this.aiw.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
                                 if (inputStream != null) {
                                 }
                                 wm();
-                                this.aix.b(dVar);
+                                this.aiw.b(dVar);
                                 if (str != null) {
                                 }
                                 hj3 = com.baidu.adp.lib.util.i.hj();
@@ -904,12 +904,12 @@ public class f implements a.InterfaceC0005a {
                             } catch (SocketTimeoutException e32) {
                                 e = e32;
                                 z17 = z11;
-                                this.aix.fA().vm = -13;
-                                dVar.uV = "errorCode:" + String.valueOf(this.aix.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
+                                this.aiw.fA().vm = -13;
+                                dVar.uV = "errorCode:" + String.valueOf(this.aiw.fA().vm) + "|" + e.getClass() + "|" + e.getMessage();
                                 if (inputStream != null) {
                                 }
                                 wm();
-                                this.aix.b(dVar);
+                                this.aiw.b(dVar);
                                 if (str != null) {
                                 }
                                 hj2 = com.baidu.adp.lib.util.i.hj();
@@ -924,12 +924,12 @@ public class f implements a.InterfaceC0005a {
                             } catch (Throwable th7) {
                                 th = th7;
                                 z17 = z11;
-                                this.aix.fA().vm = -10;
-                                dVar.uV = "errorCode:" + String.valueOf(this.aix.fA().vm) + "|" + th.getClass() + "|" + th.getMessage();
+                                this.aiw.fA().vm = -10;
+                                dVar.uV = "errorCode:" + String.valueOf(this.aiw.fA().vm) + "|" + th.getClass() + "|" + th.getMessage();
                                 if (inputStream != null) {
                                 }
                                 wm();
-                                this.aix.b(dVar);
+                                this.aiw.b(dVar);
                                 if (str != null) {
                                 }
                                 hj = com.baidu.adp.lib.util.i.hj();
@@ -939,8 +939,8 @@ public class f implements a.InterfaceC0005a {
                                     }
                                     e.getInstance().result(c, dVar.uY, z17, z, hj);
                                 }
-                                this.aiv = 0;
-                                this.aix.fA().vo = bArr7;
+                                this.aiu = 0;
+                                this.aiw.fA().vo = bArr7;
                             }
                         }
                     } else {
@@ -948,17 +948,17 @@ public class f implements a.InterfaceC0005a {
                     }
                 }
                 i2 = i4;
-                while (!this.aiw) {
+                while (!this.aiv) {
                     byteArrayOutputStream.write(bArr8, 0, read);
                     i2 = read + i2;
                 }
                 dVar.uX = -9;
-                if (!this.aiw) {
+                if (!this.aiv) {
                 }
             }
         }
         wm();
-        this.aix.b(dVar);
+        this.aiw.b(dVar);
         if ((str == null || str.length() == 0) && c != null) {
             boolean hj13 = com.baidu.adp.lib.util.i.hj();
             if ((hj13 ? dVar.uY != null || z11 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gG(c) && z16) {
@@ -973,13 +973,13 @@ public class f implements a.InterfaceC0005a {
                 e.getInstance().result(c, dVar.uY, z11, z12, hj13);
             }
         }
-        this.aiv = 0;
-        this.aix.fA().vo = bArr7;
+        this.aiu = 0;
+        this.aiw.fA().vo = bArr7;
     }
 
     private void ei(String str) {
-        if (!TextUtils.isEmpty(str) && !str.equals(aiE) && (System.currentTimeMillis() - aiG) - (1800000 * (aiF / 3)) >= 0) {
-            aiF++;
+        if (!TextUtils.isEmpty(str) && !str.equals(aiD) && (System.currentTimeMillis() - aiF) - (1800000 * (aiE / 3)) >= 0) {
+            aiE++;
             try {
                 char[] charArray = TbadkCoreApplication.getInst().getCuid().toCharArray();
                 StringBuilder sb = new StringBuilder();
@@ -994,7 +994,7 @@ public class f implements a.InterfaceC0005a {
                 }
                 sb.append(".tieba.galileo.baiduyundns.com");
                 final URL url = new URL(sb.toString());
-                aiE = str;
+                aiD = str;
                 new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.a.f.2
                     @Override // java.lang.Runnable
                     public void run() {
@@ -1017,7 +1017,7 @@ public class f implements a.InterfaceC0005a {
     }
 
     public boolean wn() {
-        return this.aiB;
+        return this.aiA;
     }
 
     @Override // com.baidu.adp.lib.f.a.InterfaceC0005a

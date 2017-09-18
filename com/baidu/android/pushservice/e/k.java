@@ -7,7 +7,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class k extends c {
-    String[] d;
+    private String[] d;
 
     public k(l lVar, Context context, String[] strArr) {
         super(lVar, context);

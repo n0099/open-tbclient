@@ -63,7 +63,7 @@ public class c {
         }
     };
 
-    public static TextView av(Context context) {
+    public static TextView aw(Context context) {
         if (context == null || MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
             return null;
         }

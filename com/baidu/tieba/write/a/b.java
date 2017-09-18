@@ -10,15 +10,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    private final ArrayList<MetaData> gCI = new ArrayList<>();
-    private HashMap<String, String> gCJ = null;
+    private final ArrayList<MetaData> gDB = new ArrayList<>();
+    private HashMap<String, String> gDC = null;
 
     public void b(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.gCJ == null) {
-                        this.gCJ = new HashMap<>();
+                    if (this.gDC == null) {
+                        this.gDC = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -31,9 +31,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.gCI.add(metaData);
+                        this.gDB.add(metaData);
                         if (z) {
-                            this.gCJ.put(metaData.getName_show(), metaData.getPortrait());
+                            this.gDC.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -41,7 +41,7 @@ public class b {
         }
     }
 
-    public void sX(String str) {
+    public void sZ(String str) {
         try {
             b(new JSONObject(str), true);
         } catch (Exception e) {
@@ -49,11 +49,11 @@ public class b {
         }
     }
 
-    public ArrayList<MetaData> byo() {
-        return this.gCI;
+    public ArrayList<MetaData> byz() {
+        return this.gDB;
     }
 
-    public HashMap<String, String> byp() {
-        return this.gCJ;
+    public HashMap<String, String> byA() {
+        return this.gDC;
     }
 }

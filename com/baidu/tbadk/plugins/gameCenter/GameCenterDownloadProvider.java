@@ -9,7 +9,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class GameCenterDownloadProvider extends ContentProvider {
-    private boolean aLv = false;
+    private boolean aLs = false;
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -62,11 +62,11 @@ public class GameCenterDownloadProvider extends ContentProvider {
     }
 
     private void GL() {
-        if (!this.aLv) {
+        if (!this.aLs) {
             MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_PROXY_GAME_DOWNLOAD_PROVIDER_READY, this), (Class) null);
             if (a.GN() != null) {
                 a.GN().onCreate();
-                this.aLv = true;
+                this.aLs = true;
             }
         }
     }

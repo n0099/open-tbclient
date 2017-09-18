@@ -24,10 +24,10 @@ public class WriteThreadFrsDeleagteStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public c EU() {
         c cVar = new c();
-        cVar.aGX = new a();
+        cVar.aGU = new a();
         cVar.type = 99;
-        cVar.aGY = d.l.send;
-        cVar.aHf = c.aHc;
+        cVar.aGV = d.l.send;
+        cVar.aHc = c.aGZ;
         return cVar;
     }
 
@@ -37,11 +37,11 @@ public class WriteThreadFrsDeleagteStatic extends b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 c EV;
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null && ((ad) customResponsedMessage.getData()).jb(99)) {
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null && ((ad) customResponsedMessage.getData()).jd(99)) {
                     WriteThreadFrsDeleagteStatic writeThreadFrsDeleagteStatic = new WriteThreadFrsDeleagteStatic();
                     ((ad) customResponsedMessage.getData()).b(writeThreadFrsDeleagteStatic);
                     if (((ad) customResponsedMessage.getData()).getContext() != null && (EV = writeThreadFrsDeleagteStatic.EV()) != null) {
-                        EV.aGX.setArguments(new Bundle());
+                        EV.aGU.setArguments(new Bundle());
                     }
                 }
             }
@@ -49,9 +49,9 @@ public class WriteThreadFrsDeleagteStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public e aY(Context context) {
-        this.aGO = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
-        this.aGO.setTextSize(2.0f);
-        return this.aGO;
+    public e aZ(Context context) {
+        this.aGL = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
+        this.aGL.setTextSize(2.0f);
+        return this.aGL;
     }
 }

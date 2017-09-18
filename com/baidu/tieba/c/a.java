@@ -20,20 +20,20 @@ public class a {
 
     /* renamed from: com.baidu.tieba.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0079a {
-        void WK();
+    public interface InterfaceC0078a {
+        void WV();
     }
 
-    public static boolean WI() {
+    public static boolean WT() {
         return UtilHelper.isInstallApk(TbadkCoreApplication.getInst(), "com.baidu.tiebabz");
     }
 
-    public static void WJ() {
+    public static void WU() {
         b.CK().a("160802", "https://downpack.baidu.com/tbbazhu_AndroidPhone_1017265l.apk", "贴吧吧主版", null);
     }
 
     public static void a(e<?> eVar, int i, int i2) {
-        if (!WI()) {
+        if (!WT()) {
             String str = "";
             switch (i2) {
                 case 1:
@@ -57,14 +57,14 @@ public class a {
     }
 
     public static void a(e<?> eVar, final int i, String str) {
-        if (!WI()) {
+        if (!WT()) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(eVar.getPageActivity());
             aVar.cM(str);
             aVar.a(d.l.download, new a.b() { // from class: com.baidu.tieba.c.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    a.WJ();
+                    a.WU();
                     String str2 = "";
                     if (i == 1) {
                         str2 = "c11568";
@@ -96,14 +96,14 @@ public class a {
         }
     }
 
-    public static void a(e<?> eVar, String str, String str2, InterfaceC0079a interfaceC0079a) {
-        if (!WI() || !g(eVar.getPageActivity(), str, str2)) {
+    public static void a(e<?> eVar, String str, String str2, InterfaceC0078a interfaceC0078a) {
+        if (!WT() || !h(eVar.getPageActivity(), str, str2)) {
             if (i.hi()) {
                 if (i.hj()) {
                     a(eVar, 1, eVar.getString(d.l.bawu_center_wifi_tips));
                     return;
                 } else {
-                    a(eVar, interfaceC0079a);
+                    a(eVar, interfaceC0078a);
                     return;
                 }
             }
@@ -111,7 +111,7 @@ public class a {
         }
     }
 
-    public static boolean g(Context context, String str, String str2) {
+    public static boolean h(Context context, String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
             BdLog.e("fname is null");
             return false;
@@ -156,7 +156,7 @@ public class a {
         }
     }
 
-    public static boolean h(Context context, String str, String str2) {
+    public static boolean i(Context context, String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             BdLog.e("tid is null");
             return false;
@@ -239,14 +239,14 @@ public class a {
         }
     }
 
-    private static void a(e<?> eVar, final InterfaceC0079a interfaceC0079a) {
+    private static void a(e<?> eVar, final InterfaceC0078a interfaceC0078a) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(eVar.getPageActivity());
         aVar.cM(eVar.getString(d.l.bawu_center_3g_tips));
         aVar.a(d.l.download, new a.b() { // from class: com.baidu.tieba.c.a.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                a.WJ();
+                a.WU();
                 TiebaStatic.log("c11577");
             }
         });
@@ -254,8 +254,8 @@ public class a {
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (InterfaceC0079a.this != null) {
-                    InterfaceC0079a.this.WK();
+                if (InterfaceC0078a.this != null) {
+                    InterfaceC0078a.this.WV();
                 }
                 TiebaStatic.log("c11574");
             }

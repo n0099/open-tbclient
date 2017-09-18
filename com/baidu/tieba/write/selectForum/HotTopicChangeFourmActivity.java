@@ -24,11 +24,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFourmActivity> {
-    private a gCW;
+    private a gDP;
     private List<HotTopicBussinessData> mList;
     private NavigationBar mNavigationBar;
     private BdListView Hw = null;
-    private boolean gCX = false;
+    private boolean gDQ = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -37,21 +37,21 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
         setContentView(d.j.hot_topic_change_view);
         if (getIntent() != null) {
             this.mList = (ArrayList) getIntent().getSerializableExtra(WriteActivityConfig.HOT_TOPIC_POST_FORUM);
-            this.gCX = getIntent().getBooleanExtra(HotTopicChangeActivityConfig.KEY_USE_ORIGIN_LIST, false);
+            this.gDQ = getIntent().getBooleanExtra(HotTopicChangeActivityConfig.KEY_USE_ORIGIN_LIST, false);
         }
         if (v.v(this.mList)) {
             finish();
         }
-        apR();
+        aqc();
     }
 
-    private void apR() {
+    private void aqc() {
         this.mNavigationBar = (NavigationBar) findViewById(d.h.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         aj.i(this.mNavigationBar.setTitleText(TbadkCoreApplication.getInst().getString(d.l.change_fourm)), d.e.cp_cont_f);
         this.Hw = (BdListView) findViewById(d.h.hot_topic_listview);
-        this.gCW = new a(this);
-        if (!this.gCX) {
+        this.gDP = new a(this);
+        if (!this.gDQ) {
             int size = this.mList.size();
             ArrayList arrayList = null;
             for (int i = 0; i < size; i++) {
@@ -70,7 +70,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
                 this.mList = this.mList.subList(0, 19);
             }
         }
-        this.gCW.setData(this.mList);
+        this.gDP.setData(this.mList);
         TextView textView = new TextView(getActivity());
         Resources resources = getResources();
         textView.setHeight(resources.getDimensionPixelSize(d.f.ds54));
@@ -83,7 +83,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
         this.Hw.addHeaderView(textView);
         aj.j(textView, d.e.common_color_10238);
         aj.c(textView, d.e.cp_cont_c, 1);
-        this.Hw.setAdapter((ListAdapter) this.gCW);
+        this.Hw.setAdapter((ListAdapter) this.gDP);
         this.Hw.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.write.selectForum.HotTopicChangeFourmActivity.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {

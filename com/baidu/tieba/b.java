@@ -12,21 +12,21 @@ import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.recapp.r;
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b aTi;
-    private long aTf;
-    private final int aTd = 2;
-    private final int aTe = 3;
-    private int aTj = -1;
-    private CustomMessageListener aTk = new CustomMessageListener(CmdConfigCustom.CMD_HOT_SPLASH_SHOW) { // from class: com.baidu.tieba.b.1
+    private static volatile b aTf;
+    private long aTc;
+    private final int aTa = 2;
+    private final int aTb = 3;
+    private int aTg = -1;
+    private CustomMessageListener aTh = new CustomMessageListener(CmdConfigCustom.CMD_HOT_SPLASH_SHOW) { // from class: com.baidu.tieba.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.bhd().bgY() != null) {
-                r.bhd().bgY().bgQ();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.bho().bhj() != null) {
+                r.bho().bhj().bhb();
             }
         }
     };
-    private CustomMessageListener aTl = new CustomMessageListener(CmdConfigCustom.CMD_APP_ENTER_BACKGROUND) { // from class: com.baidu.tieba.b.2
+    private CustomMessageListener aTi = new CustomMessageListener(CmdConfigCustom.CMD_APP_ENTER_BACKGROUND) { // from class: com.baidu.tieba.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -35,11 +35,11 @@ public class b {
             }
         }
     };
-    private CustomMessageListener aTm = new CustomMessageListener(CmdConfigCustom.CMD_APP_ENTER_FOREGROUND) { // from class: com.baidu.tieba.b.3
+    private CustomMessageListener aTj = new CustomMessageListener(CmdConfigCustom.CMD_APP_ENTER_FOREGROUND) { // from class: com.baidu.tieba.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && b.this.aTf != 0) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && b.this.aTc != 0) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof BaseActivity) {
                     if (b.this.Jv()) {
@@ -59,7 +59,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener aTn = new CustomMessageListener(CmdConfigCustom.CMD_APP_SCREEN_LOCK_STATE_CHANGED) { // from class: com.baidu.tieba.b.4
+    private CustomMessageListener aTk = new CustomMessageListener(CmdConfigCustom.CMD_APP_SCREEN_LOCK_STATE_CHANGED) { // from class: com.baidu.tieba.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -68,69 +68,69 @@ public class b {
                 if (data instanceof Boolean) {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
                     if (((Boolean) data).booleanValue()) {
-                        b.this.aTg = currentTimeMillis - b.this.aTf <= 1;
+                        b.this.aTd = currentTimeMillis - b.this.aTc <= 1;
                     }
                 }
             }
         }
     };
-    private boolean aTg = false;
-    private boolean aTh = false;
+    private boolean aTd = false;
+    private boolean aTe = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b Jt() {
-        if (aTi == null) {
+        if (aTf == null) {
             synchronized (b.class) {
-                if (aTi == null) {
-                    aTi = new b();
+                if (aTf == null) {
+                    aTf = new b();
                 }
             }
         }
-        return aTi;
+        return aTf;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.aTl);
-        MessageManager.getInstance().registerListener(this.aTm);
+        MessageManager.getInstance().registerListener(this.aTi);
+        MessageManager.getInstance().registerListener(this.aTj);
+        MessageManager.getInstance().registerListener(this.aTh);
         MessageManager.getInstance().registerListener(this.aTk);
-        MessageManager.getInstance().registerListener(this.aTn);
-        if (r.bhd().bgY() != null) {
-            r.bhd().bgY().bgP();
+        if (r.bho().bhj() != null) {
+            r.bho().bhj().bha();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ju() {
-        this.aTh = true;
-        this.aTf = System.currentTimeMillis() / 1000;
+        this.aTe = true;
+        this.aTc = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean Jv() {
         Jw();
-        this.aTh = false;
+        this.aTe = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        if (this.aTg) {
-            this.aTg = false;
+        if (this.aTd) {
+            this.aTd = false;
             return false;
-        } else if (currentTimeMillis - this.aTf <= 2 || currentTimeMillis - this.aTf <= this.aTj) {
+        } else if (currentTimeMillis - this.aTc <= 2 || currentTimeMillis - this.aTc <= this.aTg) {
             return false;
         } else {
-            m bgY = r.bhd().bgY();
-            return (bgY != null ? bgY.bgR() : 3) < 3;
+            m bhj = r.bho().bhj();
+            return (bhj != null ? bhj.bhc() : 3) < 3;
         }
     }
 
     private void Jw() {
         com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         if (adAdSense != null) {
-            this.aTj = adAdSense.yd();
-            if (this.aTj <= 0) {
-                this.aTj = 86400;
+            this.aTg = adAdSense.yd();
+            if (this.aTg <= 0) {
+                this.aTg = 86400;
                 return;
             }
             return;
         }
-        this.aTj = 300;
+        this.aTg = 300;
     }
 }

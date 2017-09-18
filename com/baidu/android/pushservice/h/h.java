@@ -24,7 +24,7 @@ public class h extends m {
         jSONObject.put("network_status", this.f);
         jSONObject.put("heart", this.a);
         jSONObject.put("err_code", this.g);
-        jSONObject.put("msg_result", this.j);
+        jSONObject.put("msg_result", this.i);
         if (!TextUtils.isEmpty(this.b)) {
             jSONObject.put(PbActivityConfig.KEY_MSG_ID, this.b);
         }

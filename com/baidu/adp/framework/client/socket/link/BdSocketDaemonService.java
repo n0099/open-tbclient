@@ -91,6 +91,6 @@ public class BdSocketDaemonService extends BdBaseService {
     }
 
     public static void startService() {
-        f.h(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+        f.f(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
     }
 }

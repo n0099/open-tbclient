@@ -12,15 +12,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class u {
-    private BaseActivity bnd;
-    private PbModel eGP;
+    private BaseActivity bnc;
+    private PbModel eHJ;
 
     public u(PbModel pbModel, BaseActivity baseActivity) {
-        this.eGP = pbModel;
-        this.bnd = baseActivity;
+        this.eHJ = pbModel;
+        this.bnc = baseActivity;
     }
 
-    private void kW(String str) {
+    private void kY(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
@@ -30,7 +30,7 @@ public class u {
         }
     }
 
-    public String Y(Intent intent) {
+    public String X(Intent intent) {
         int length;
         if (intent == null || intent.getData() == null) {
             return null;
@@ -48,11 +48,11 @@ public class u {
             if ("mpush".equals(matcher.group(1))) {
                 TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11895").ad("tid", matcher.group(2)));
             } else {
-                kW(decode);
+                kY(decode);
             }
             return matcher.group(2);
         }
-        kW(decode);
+        kY(decode);
         int indexOf = decode.indexOf("tid=");
         if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
             return null;

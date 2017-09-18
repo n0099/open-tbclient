@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private C0050a ate;
+    private C0049a atb;
     private com.baidu.adp.base.d mLoadDataCallBack;
 
     public a(com.baidu.adp.base.d dVar) {
@@ -37,25 +37,25 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.ate == null) {
-            this.ate = new C0050a();
-            this.ate.setPriority(2);
-            this.ate.bj(z);
-            this.ate.setPortrait(str);
-            this.ate.setToUid(str2);
-            this.ate.setIsGod(z2);
-            this.ate.setFrom(str3);
-            this.ate.setPageId(bdUniqueId);
-            this.ate.setForumId(str4);
-            this.ate.setInLive(str5);
-            this.ate.execute(new Integer[0]);
+        if (this.atb == null) {
+            this.atb = new C0049a();
+            this.atb.setPriority(2);
+            this.atb.bj(z);
+            this.atb.setPortrait(str);
+            this.atb.setToUid(str2);
+            this.atb.setIsGod(z2);
+            this.atb.setFrom(str3);
+            this.atb.setPageId(bdUniqueId);
+            this.atb.setForumId(str4);
+            this.atb.setInLive(str5);
+            this.atb.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0050a extends BdAsyncTask<Integer, Integer, String> {
+    public class C0049a extends BdAsyncTask<Integer, Integer, String> {
         private String forumId;
         private String from;
         private String inLive;
@@ -67,7 +67,7 @@ public class a {
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0050a() {
+        private C0049a() {
             this.mNetwork = null;
             this.isGod = false;
             this.from = "0";
@@ -144,8 +144,8 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0050a) str);
-            a.this.ate = null;
+            super.onPostExecute((C0049a) str);
+            a.this.atb = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
                 aVar.BW = this.mNetwork.vj().wg().isRequestSuccess();
@@ -167,9 +167,9 @@ public class a {
                 this.mNetwork.fp();
                 this.mNetwork = null;
             }
-            if (a.this.ate != null) {
-                a.this.ate.cancel();
-                a.this.ate = null;
+            if (a.this.atb != null) {
+                a.this.atb.cancel();
+                a.this.atb = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.f(false);
@@ -178,8 +178,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.ate != null) {
-            this.ate.cancel();
+        if (this.atb != null) {
+            this.atb.cancel();
         }
     }
 }

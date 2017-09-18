@@ -16,7 +16,7 @@ public final class b extends a {
     public b(Context context) {
         super(context);
         this.b = context;
-        this.Qa = com.baidu.sofire.rp.d.b.a.as(context);
+        this.Qa = com.baidu.sofire.rp.d.b.a.at(context);
     }
 
     public final boolean b(String str) {

@@ -54,7 +54,7 @@ public class PushSocket {
      */
     /* JADX WARN: Code restructure failed: missing block: B:16:0x005d, code lost:
         com.baidu.android.pushservice.g.a.b(com.baidu.android.pushservice.jni.PushSocket.d, "MSG_ID_TINY_HEARTBEAT_SERVER");
-        com.baidu.android.pushservice.j.q.b("MSG_ID_TINY_HEARTBEAT_SERVER", r7);
+        com.baidu.android.pushservice.j.p.b("MSG_ID_TINY_HEARTBEAT_SERVER", r7);
      */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x006b, code lost:
         com.baidu.android.pushservice.jni.PushSocket.c += 2;

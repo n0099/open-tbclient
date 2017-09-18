@@ -15,10 +15,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ThreadLinkView extends RelativeLayout {
-    private TbImageView aoO;
+    private TbImageView aoM;
+    private TextView aoN;
+    private TextView aoO;
     private TextView aoP;
-    private TextView aoQ;
-    private TextView aoR;
     private BdUniqueId mTag;
 
     public ThreadLinkView(Context context) {
@@ -38,12 +38,12 @@ public class ThreadLinkView extends RelativeLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(d.j.link_thread_item, (ViewGroup) this, true);
-        this.aoO = (TbImageView) inflate.findViewById(d.h.link_thread_head_img);
-        this.aoO.setDefaultBgResource(d.g.ic_post_url_n);
-        this.aoO.setDefaultErrorResource(d.g.ic_post_url_n);
-        this.aoP = (TextView) inflate.findViewById(d.h.link_thread_title);
-        this.aoQ = (TextView) inflate.findViewById(d.h.link_thread_abstract);
-        this.aoR = (TextView) inflate.findViewById(d.h.link_thread_url);
+        this.aoM = (TbImageView) inflate.findViewById(d.h.link_thread_head_img);
+        this.aoM.setDefaultBgResource(d.g.ic_post_url_n);
+        this.aoM.setDefaultErrorResource(d.g.ic_post_url_n);
+        this.aoN = (TextView) inflate.findViewById(d.h.link_thread_title);
+        this.aoO = (TextView) inflate.findViewById(d.h.link_thread_abstract);
+        this.aoP = (TextView) inflate.findViewById(d.h.link_thread_url);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
@@ -61,40 +61,40 @@ public class ThreadLinkView extends RelativeLayout {
             return;
         }
         setVisibility(0);
-        this.aoO.setPageId(this.mTag);
+        this.aoM.setPageId(this.mTag);
         if (sS.qm()) {
-            this.aoR.setVisibility(0);
-            this.aoP.setVisibility(8);
-            this.aoQ.setVisibility(8);
-            this.aoR.setText(sS.getLinkUrl());
-            this.aoO.reset();
+            this.aoP.setVisibility(0);
+            this.aoN.setVisibility(8);
+            this.aoO.setVisibility(8);
+            this.aoP.setText(sS.getLinkUrl());
+            this.aoM.reset();
         } else {
-            this.aoR.setVisibility(8);
+            this.aoP.setVisibility(8);
             String qi = sS.qi();
             String qj = sS.qj();
             if (!am.isEmpty(qi)) {
-                this.aoP.setText(qi);
-                this.aoP.setVisibility(0);
+                this.aoN.setText(qi);
+                this.aoN.setVisibility(0);
             } else {
-                this.aoP.setVisibility(4);
+                this.aoN.setVisibility(4);
             }
             if (!am.isEmpty(qj)) {
-                this.aoQ.setText(qj);
-                this.aoQ.setVisibility(0);
+                this.aoO.setText(qj);
+                this.aoO.setVisibility(0);
             } else {
-                this.aoQ.setVisibility(4);
+                this.aoO.setVisibility(4);
             }
             if (am.dV(qi) > 32) {
-                this.aoP.setMaxLines(2);
-                this.aoQ.setMaxLines(1);
+                this.aoN.setMaxLines(2);
+                this.aoO.setMaxLines(1);
             } else {
-                this.aoP.setMaxLines(1);
-                this.aoQ.setMaxLines(2);
+                this.aoN.setMaxLines(1);
+                this.aoO.setMaxLines(2);
             }
             if (!am.isEmpty(sS.qk())) {
-                this.aoO.c(sS.qk(), 10, false);
+                this.aoM.c(sS.qk(), 10, false);
             } else {
-                this.aoO.reset();
+                this.aoM.reset();
             }
         }
         es(bjVar.getId());
@@ -105,8 +105,8 @@ public class ThreadLinkView extends RelativeLayout {
     }
 
     public void es(String str) {
+        com.baidu.tieba.card.m.a(this.aoN, str, d.e.cp_cont_b, d.e.cp_cont_d);
         com.baidu.tieba.card.m.a(this.aoP, str, d.e.cp_cont_b, d.e.cp_cont_d);
-        com.baidu.tieba.card.m.a(this.aoR, str, d.e.cp_cont_b, d.e.cp_cont_d);
-        com.baidu.tieba.card.m.a(this.aoQ, str, d.e.cp_cont_d, d.e.cp_cont_d);
+        com.baidu.tieba.card.m.a(this.aoO, str, d.e.cp_cont_d, d.e.cp_cont_d);
     }
 }

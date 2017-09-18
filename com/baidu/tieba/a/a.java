@@ -23,15 +23,15 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     private String Xe;
-    private HTypeListView aYx;
-    private c aYy;
-    private b aYz;
+    private HTypeListView aYu;
+    private c aYv;
+    private b aYw;
     private String fid;
     private BdUniqueId mId;
     private List<f> mList;
     private TbPageContext mTbPageContext;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private CustomMessageListener aYA = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_MY_STORY) { // from class: com.baidu.tieba.a.a.2
+    private CustomMessageListener aYx = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_MY_STORY) { // from class: com.baidu.tieba.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,13 +55,13 @@ public class a {
                 }
                 if (fVar != null) {
                     a.this.mList.remove(fVar);
-                    a.this.aYx.setData(a.this.mList);
+                    a.this.aYu.setData(a.this.mList);
                     a.this.notifyDataSetChanged();
                 }
             }
         }
     };
-    private CustomMessageListener aYB = new CustomMessageListener(CmdConfigCustom.CMD_STORY_CLICK_MSG) { // from class: com.baidu.tieba.a.a.3
+    private CustomMessageListener aYy = new CustomMessageListener(CmdConfigCustom.CMD_STORY_CLICK_MSG) { // from class: com.baidu.tieba.a.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -77,7 +77,7 @@ public class a {
             }
         }
     };
-    private CustomMessageListener aYC = new CustomMessageListener(CmdConfigCustom.CMD_STORY_READ_MSG) { // from class: com.baidu.tieba.a.a.4
+    private CustomMessageListener aYz = new CustomMessageListener(CmdConfigCustom.CMD_STORY_READ_MSG) { // from class: com.baidu.tieba.a.a.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -93,7 +93,7 @@ public class a {
             }
         }
     };
-    private CustomMessageListener aYD = new CustomMessageListener(CmdConfigCustom.CMD_STORY_PUBLISH_MSG) { // from class: com.baidu.tieba.a.a.5
+    private CustomMessageListener aYA = new CustomMessageListener(CmdConfigCustom.CMD_STORY_PUBLISH_MSG) { // from class: com.baidu.tieba.a.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -114,17 +114,17 @@ public class a {
                                 if (fVar.mStatus != bVar.state) {
                                     fVar.mStatus = bVar.state;
                                     if (3 == fVar.mStatus) {
-                                        fVar.azM = 3;
-                                        fVar.azN = bVar;
+                                        fVar.azJ = 3;
+                                        fVar.azK = bVar;
                                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_STORY_INSERT_CACHE, bVar));
                                     } else if (2 == fVar.mStatus) {
-                                        fVar.azM = 3;
+                                        fVar.azJ = 3;
                                         fVar.has_read = 0;
-                                        fVar.azN = bVar;
+                                        fVar.azK = bVar;
                                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_STORY_INSERT_CACHE, bVar));
                                     } else if (1 == fVar.mStatus) {
-                                        fVar.azL = i;
-                                        fVar.azM = 1;
+                                        fVar.azI = i;
+                                        fVar.azJ = 1;
                                         fVar.has_read = 0;
                                     }
                                     a.this.notifyDataSetChanged();
@@ -142,22 +142,22 @@ public class a {
                             fVar2.user_id = com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
                             fVar2.user_name = TbadkCoreApplication.getCurrentAccountName();
                             fVar2.portrait = TbadkCoreApplication.getCurrentPortrait();
-                            fVar2.azO = a.this.fid;
-                            fVar2.azL = 1;
-                            fVar2.azN = bVar;
+                            fVar2.azL = a.this.fid;
+                            fVar2.azI = 1;
+                            fVar2.azK = bVar;
                             fVar2.mStatus = bVar.state;
-                            fVar2.azM = 1;
+                            fVar2.azJ = 1;
                             a.this.mList.add(1, fVar2);
-                            a.this.aYx.setData(a.this.mList);
+                            a.this.aYu.setData(a.this.mList);
                             a.this.notifyDataSetChanged();
                         } else if (bVar.state == 2) {
                             if (a.this.mList.get(1) instanceof com.baidu.tbadk.data.f) {
-                                ((com.baidu.tbadk.data.f) a.this.mList.get(1)).azM = 3;
+                                ((com.baidu.tbadk.data.f) a.this.mList.get(1)).azJ = 3;
                                 a.this.notifyDataSetChanged();
                             }
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_STORY_INSERT_CACHE, bVar));
                         } else if (bVar.state == 3 && (a.this.mList.get(1) instanceof com.baidu.tbadk.data.f)) {
-                            ((com.baidu.tbadk.data.f) a.this.mList.get(1)).azM = 3;
+                            ((com.baidu.tbadk.data.f) a.this.mList.get(1)).azJ = 3;
                             a.this.notifyDataSetChanged();
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_STORY_INSERT_CACHE, bVar));
                         }
@@ -169,38 +169,38 @@ public class a {
 
     public a(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.aYx = hTypeListView;
+        this.aYu = hTypeListView;
         this.mId = tbPageContext.getUniqueId();
         initAdapters();
         initListener();
     }
 
     public void initListener() {
-        this.aYB.setTag(this.mId);
-        this.aYC.setTag(this.mId);
-        this.aYD.setTag(this.mId);
+        this.aYy.setTag(this.mId);
+        this.aYz.setTag(this.mId);
         this.aYA.setTag(this.mId);
-        MessageManager.getInstance().registerListener(this.aYB);
-        MessageManager.getInstance().registerListener(this.aYC);
-        MessageManager.getInstance().registerListener(this.aYD);
+        this.aYx.setTag(this.mId);
+        MessageManager.getInstance().registerListener(this.aYy);
+        MessageManager.getInstance().registerListener(this.aYz);
         MessageManager.getInstance().registerListener(this.aYA);
+        MessageManager.getInstance().registerListener(this.aYx);
     }
 
     public void j(BdUniqueId bdUniqueId) {
-        this.aYB.setTag(bdUniqueId);
-        this.aYC.setTag(bdUniqueId);
-        this.aYD.setTag(bdUniqueId);
+        this.aYy.setTag(bdUniqueId);
+        this.aYz.setTag(bdUniqueId);
         this.aYA.setTag(bdUniqueId);
-        this.aYy.setPageId(bdUniqueId);
-        this.aYz.setPageId(bdUniqueId);
+        this.aYx.setTag(bdUniqueId);
+        this.aYv.setPageId(bdUniqueId);
+        this.aYw.setPageId(bdUniqueId);
     }
 
     private void initAdapters() {
-        this.aYz = new b(this.mTbPageContext, this.mId);
-        this.aYy = new c(this.mTbPageContext, this.mId);
-        this.mAdapters.add(this.aYy);
-        this.mAdapters.add(this.aYz);
-        this.aYx.addAdapters(this.mAdapters);
+        this.aYw = new b(this.mTbPageContext, this.mId);
+        this.aYv = new c(this.mTbPageContext, this.mId);
+        this.mAdapters.add(this.aYv);
+        this.mAdapters.add(this.aYw);
+        this.aYu.addAdapters(this.mAdapters);
     }
 
     public void a(List<f> list, String str, String str2) {
@@ -208,12 +208,12 @@ public class a {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 if (list.get(i) instanceof com.baidu.tbadk.data.f) {
-                    ((com.baidu.tbadk.data.f) list.get(i)).azO = str;
+                    ((com.baidu.tbadk.data.f) list.get(i)).azL = str;
                 }
             }
-            if (this.aYx != null) {
+            if (this.aYu != null) {
                 this.mList = list;
-                this.aYx.setData(list);
+                this.aYu.setData(list);
             }
             this.fid = str;
             this.Xe = str2;
@@ -221,14 +221,14 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.aYx != null && (this.aYx.getAdapter() instanceof j)) {
-            ((j) this.aYx.getAdapter()).notifyDataSetChanged();
+        if (this.aYu != null && (this.aYu.getAdapter() instanceof j)) {
+            ((j) this.aYu.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.aYy.setOnClick(onClickListener);
-        this.aYz.a(new com.baidu.tieba.story.c() { // from class: com.baidu.tieba.a.a.1
+        this.aYv.setOnClick(onClickListener);
+        this.aYw.a(new com.baidu.tieba.story.c() { // from class: com.baidu.tieba.a.a.1
             @Override // com.baidu.tieba.story.c
             public void a(f fVar, int i) {
                 if (fVar instanceof com.baidu.tbadk.data.f) {
@@ -240,11 +240,11 @@ public class a {
                     }
                     if (fVar2 != null && 3 == fVar2.mStatus && TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(String.valueOf(fVar2.user_id))) {
                         if (!i.hi()) {
-                            fVar2.azL = i;
-                            fVar2.azM = 3;
+                            fVar2.azI = i;
+                            fVar2.azJ = 3;
                             a.this.notifyDataSetChanged();
-                        } else if (fVar2.azN != null) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new StoryCompositeServiceConfig(TbadkCoreApplication.getInst(), fVar2.azN)));
+                        } else if (fVar2.azK != null) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new StoryCompositeServiceConfig(TbadkCoreApplication.getInst(), fVar2.azK)));
                         }
                     } else if (fVar2 == null || 1 != fVar2.mStatus || TbadkCoreApplication.getCurrentAccount() == null || !TbadkCoreApplication.getCurrentAccount().equals(String.valueOf(fVar2.user_id))) {
                         StoryPageActivityConfig storyPageActivityConfig = new StoryPageActivityConfig(a.this.mTbPageContext.getContext());
@@ -269,7 +269,7 @@ public class a {
                                     int size2 = a.this.mList.size();
                                     for (int i3 = 0; i3 < size2; i3++) {
                                         if ((a.this.mList.get(i3) instanceof com.baidu.tbadk.data.f) && metaData2.getUserId().equals(String.valueOf(((com.baidu.tbadk.data.f) a.this.mList.get(i3)).user_id))) {
-                                            ((com.baidu.tbadk.data.f) a.this.mList.get(i3)).azM = 3;
+                                            ((com.baidu.tbadk.data.f) a.this.mList.get(i3)).azJ = 3;
                                             a.this.notifyDataSetChanged();
                                             return;
                                         }
@@ -278,8 +278,8 @@ public class a {
                             }
                         });
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, storyPageActivityConfig));
-                        fVar2.azL = i;
-                        fVar2.azM = 1;
+                        fVar2.azI = i;
+                        fVar2.azJ = 1;
                         a.this.notifyDataSetChanged();
                     }
                 }

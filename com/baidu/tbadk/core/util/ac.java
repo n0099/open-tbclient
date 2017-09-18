@@ -7,35 +7,35 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ac {
-    private static ac agJ;
-    private static final BdUniqueId agK = BdUniqueId.gen();
+    private static ac agI;
+    private static final BdUniqueId agJ = BdUniqueId.gen();
 
     public static synchronized ac vv() {
         ac acVar;
         synchronized (ac.class) {
-            if (agJ == null) {
-                agJ = new ac();
+            if (agI == null) {
+                agI = new ac();
             }
-            acVar = agJ;
+            acVar = agI;
         }
         return acVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String agL;
+        private final String agK;
+        private final boolean agL;
         private final boolean agM;
         private final boolean agN;
-        private final boolean agO;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.agL = str2;
-            this.agM = z;
-            this.agN = z2;
-            this.agO = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.agK));
+            this.agK = str2;
+            this.agL = z;
+            this.agM = z2;
+            this.agN = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.agJ));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,7 +44,7 @@ public class ac {
         /* renamed from: i */
         public String doInBackground(String... strArr) {
             try {
-                ac.this.a(this.imageUrl, this.agL, this.agM, this.agN, this.agO);
+                ac.this.a(this.imageUrl, this.agK, this.agL, this.agM, this.agN);
             } finally {
                 return null;
             }

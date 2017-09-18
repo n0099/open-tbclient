@@ -26,15 +26,15 @@ import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 public class PersonPolymericActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonPolymericActivityConfig.class, PersonPolymericActivity.class);
-        Nd();
-        aXM();
-        aHy();
-        aXN();
-        aXO();
-        aXP();
+        Ne();
+        aXX();
+        aHJ();
+        aXY();
+        aXZ();
+        aYa();
     }
 
-    private static void Nd() {
+    private static void Ne() {
         a.a(309408, PersonPolymericSocketResMsg.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, a.az("c/u/user/personal", 309408));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -46,12 +46,12 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aXM() {
+    private static void aXX() {
         a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
-    private static void aHy() {
+    private static void aHJ() {
         au.wd().a(new au.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic.1
             @Override // com.baidu.tbadk.core.util.au.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -72,7 +72,7 @@ public class PersonPolymericActivityStatic {
         });
     }
 
-    private static void aXN() {
+    private static void aXY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_USER_PICS, TbConfig.SET_USER_PICS);
         tbHttpMessageTask.setResponsedClass(SetUserPicsResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -81,7 +81,7 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public static void aXO() {
+    public static void aXZ() {
         a.a(303002, UserPostPageSocketResponsedMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, a.az("c/u/feed/userpost", 303002));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -92,7 +92,7 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aXP() {
+    private static void aYa() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SET_PRIVATE_CMD, TbConfig.SERVER_ADDRESS + TbConfig.SET_PRIVATE);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);

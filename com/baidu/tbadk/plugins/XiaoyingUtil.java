@@ -80,9 +80,9 @@ public class XiaoyingUtil {
     }
 
     private static void showStartPlayVideoDialog(final Context context, final String str, final int i, final int i2, final String str2) {
-        e<?> X = com.baidu.adp.base.i.X(context);
-        if (X != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(X.getPageActivity());
+        e<?> Y = com.baidu.adp.base.i.Y(context);
+        if (Y != null) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(Y.getPageActivity());
             aVar.cM(TbadkCoreApplication.getInst().getString(d.l.play_video_mobile_tip));
             aVar.a(d.l.confirm, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -97,7 +97,7 @@ public class XiaoyingUtil {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(X).to();
+            aVar.b(Y).to();
         }
     }
 

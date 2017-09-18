@@ -18,7 +18,7 @@ public final class a {
         this.a = context;
     }
 
-    public static synchronized a as(Context context) {
+    public static synchronized a at(Context context) {
         a aVar;
         synchronized (a.class) {
             aVar = new a(context);
@@ -38,12 +38,12 @@ public final class a {
     }
 
     public final String a(String str) {
-        String[] at = b.at(this.a);
-        if (at == null || at.length != 2 || TextUtils.isEmpty(at[0]) || TextUtils.isEmpty(at[1])) {
+        String[] au = b.au(this.a);
+        if (au == null || au.length != 2 || TextUtils.isEmpty(au[0]) || TextUtils.isEmpty(au[1])) {
             return "";
         }
-        String str2 = at[0];
-        String str3 = at[1];
+        String str2 = au[0];
+        String str3 = au[1];
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         StringBuilder sb = new StringBuilder();
         String str4 = "";
@@ -61,15 +61,15 @@ public final class a {
     public final String a() {
         String a;
         try {
-            String[] at = b.at(this.a);
-            if (at == null || at.length != 2) {
+            String[] au = b.au(this.a);
+            if (au == null || au.length != 2) {
                 return "";
             }
-            if (TextUtils.isEmpty(at[0]) || TextUtils.isEmpty(at[1])) {
+            if (TextUtils.isEmpty(au[0]) || TextUtils.isEmpty(au[1])) {
                 return "";
             }
-            String str = at[0];
-            String str2 = at[1];
+            String str = au[0];
+            String str2 = au[1];
             long currentTimeMillis = System.currentTimeMillis();
             StringBuilder sb = new StringBuilder();
             try {

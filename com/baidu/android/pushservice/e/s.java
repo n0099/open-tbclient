@@ -44,7 +44,7 @@ public class s extends c {
             intent.setPackage(this.b.e);
         }
         com.baidu.android.pushservice.g.a.c("Glist", "> sendResult to " + this.b.i + " ,method:" + this.b.a + " ,errorCode : " + i + " ,content : " + new String(bArr));
-        com.baidu.android.pushservice.j.q.b(this.a, intent, intent.getAction(), intent.getPackage());
+        com.baidu.android.pushservice.j.p.b(this.a, intent, intent.getAction(), intent.getPackage());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -10,44 +10,44 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class a {
-    public static Domain aqW = Domain.DOMAIN_ONLINE;
-    private static boolean aqX = true;
-    public static c aqY = null;
+    public static Domain aqT = Domain.DOMAIN_ONLINE;
+    private static boolean aqU = true;
+    public static c aqV = null;
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (aqY == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_PASS_MANAGER, c.class)) != null && runTask.getData() != null) {
-            aqY = (c) runTask.getData();
+        if (aqV == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_PASS_MANAGER, c.class)) != null && runTask.getData() != null) {
+            aqV = (c) runTask.getData();
         }
     }
 
     public static c xO() {
-        return aqY;
+        return aqV;
     }
 
     public static boolean xP() {
-        return aqX;
+        return aqU;
     }
 
     public static void checkPassV6Switch() {
         if (TbConfig.USE_OLD_LOGIN) {
-            aqX = true;
+            aqU = true;
             return;
         }
         if (Build.VERSION.SDK_INT < 9) {
             if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
-                aqX = false;
+                aqU = false;
             } else {
-                aqX = true;
+                aqU = true;
             }
         } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
-            aqX = false;
+            aqU = false;
         } else {
-            aqX = true;
+            aqU = true;
         }
-        if (Build.VERSION.SDK_INT <= 10 && !aqX && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
+        if (Build.VERSION.SDK_INT <= 10 && !aqU && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
             TbadkCoreApplication.getInst().incPassportV6CrashCount();
-            aqX = true;
+            aqU = true;
         }
     }
 }

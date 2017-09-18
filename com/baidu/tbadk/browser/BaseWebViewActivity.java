@@ -403,7 +403,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             }
             String findSubString2 = findSubString(SHARE_IMG_START, SHARE_END);
             if (!StringUtils.isNull(findSubString2, true)) {
-                dVar.auC = Uri.parse(findSubString2);
+                dVar.auz = Uri.parse(findSubString2);
             }
             String findSubString3 = findSubString(SHARE_URL_START, SHARE_END);
             if (!StringUtils.isNull(findSubString3, true)) {
@@ -420,7 +420,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             dVar.content = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            dVar.auC = Uri.parse(str4);
+            dVar.auz = Uri.parse(str4);
         }
         return dVar;
     }

@@ -171,7 +171,7 @@ public class BaseWebView extends WebView {
         if (Build.VERSION.SDK_INT >= 11) {
             removeJavascriptInterface("searchBoxJavaBridge_");
         }
-        com.baidu.tbadk.browser.a.ax(getContext());
+        com.baidu.tbadk.browser.a.ay(getContext());
         this.webCacheData = WebCacheWhiteListData.createBySP();
     }
 

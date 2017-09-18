@@ -82,6 +82,11 @@ public interface b extends IInterface {
             return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0016a(iBinder) : (b) queryLocalInterface;
         }
 
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
+
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             switch (i) {

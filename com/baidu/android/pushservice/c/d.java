@@ -7,8 +7,8 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.h;
-import com.baidu.android.pushservice.j.n;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.j.p;
 import com.baidu.tbadk.TbConfig;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import java.io.ByteArrayInputStream;
@@ -26,15 +26,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends b {
-    private static d p;
+    private static d o;
     public HashMap<String, c> k;
-    private String m;
-    private int q;
-    private c r;
+    private String l;
+    private int p;
+    private c q;
+    private int r;
     private int s;
-    private int t;
-    private String u;
-    private static final String l = d.class.getSimpleName();
+    private String t;
     public static int d = 0;
     public static int e = 1;
     public static int f = 2;
@@ -42,9 +41,9 @@ public class d extends b {
     public static int h = 4;
     public static int i = 5;
     public static int j = 6;
-    private static int n = 259200000;
-    private static boolean o = false;
-    private static String[] v = {"/default.prop", "/system/build.prop", "/system/default.prop", "/data/local.prop"};
+    private static int m = 259200000;
+    private static boolean n = false;
+    private static String[] u = {"/default.prop", "/system/build.prop", "/system/default.prop", "/data/local.prop"};
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -53,39 +52,39 @@ public class d extends b {
 
     protected d(Context context) {
         super(context);
-        this.m = "https://api.tuisong.baidu.com/rest/3.0/clientfile/updatesdkconfig";
-        this.s = d;
-        this.t = com.baidu.android.pushservice.a.a();
-        this.u = null;
-        com.baidu.android.pushservice.g.a.c(l, "ModeConfig constructor......");
+        this.l = "https://api.tuisong.baidu.com/rest/3.0/clientfile/updatesdkconfig";
+        this.r = d;
+        this.s = com.baidu.android.pushservice.a.a();
+        this.t = null;
+        com.baidu.android.pushservice.g.a.c("ModeConfig", "ModeConfig constructor......");
         this.c = "/data/data/" + this.a.getPackageName() + "/files/bdpush_modeconfig.json";
         f();
     }
 
     public static d a(Context context) {
-        if (p != null) {
-            return p;
+        if (o != null) {
+            return o;
         }
-        p = new d(context);
-        return p;
+        o = new d(context);
+        return o;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(HashMap<String, String> hashMap) {
         String a2 = h.f() ? h.a() : h.b();
-        if ((q.a() && PushSettings.m(this.a)) || (q.b() && PushSettings.n(this.a))) {
-            this.m = a2 + "/rest/3.0/clientfile/updateconf";
+        if ((p.a() && PushSettings.m(this.a)) || (p.b() && PushSettings.n(this.a))) {
+            this.l = a2 + "/rest/3.0/clientfile/updateconf";
         } else {
-            this.m = a2 + "/rest/3.0/clientfile/updatesdkconfig";
+            this.l = a2 + "/rest/3.0/clientfile/updatesdkconfig";
         }
-        com.baidu.android.pushservice.g.a.c(l, this.m);
+        com.baidu.android.pushservice.g.a.c("ModeConfig", this.l);
         int i2 = 2;
         do {
-            com.baidu.android.pushservice.f.a a3 = com.baidu.android.pushservice.f.b.a(this.m, "POST", hashMap, "BCCS_SDK/3.0");
+            com.baidu.android.pushservice.f.a a3 = com.baidu.android.pushservice.f.b.a(this.l, "POST", hashMap, "BCCS_SDK/3.0");
             if (a3 != null) {
                 int b = a3.b();
                 String a4 = com.baidu.android.pushservice.h.a.b.a(a3.a());
-                com.baidu.android.pushservice.g.a.c(l, "update config request response, code=" + b + ", result=" + a4);
+                com.baidu.android.pushservice.g.a.c("ModeConfig", "update config request response, code=" + b + ", result=" + a4);
                 if (b == 200) {
                     return a4;
                 }
@@ -112,9 +111,9 @@ public class d extends b {
     }
 
     private void a(c cVar) {
-        n.a(this.a, "com.baidu.android.pushservice.config.MODE_MANUFACTURER_CACHE", cVar != null ? cVar.toString() : "CONFIG_MANUFACTURER_DEFAULT");
-        n.a(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_VERSION", this.q);
-        l();
+        m.a(this.a, "com.baidu.android.pushservice.config.MODE_MANUFACTURER_CACHE", cVar != null ? cVar.toString() : "CONFIG_MANUFACTURER_DEFAULT");
+        m.a(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_VERSION", this.p);
+        k();
     }
 
     private boolean a(c cVar, String str) {
@@ -124,15 +123,15 @@ public class d extends b {
         double d2;
         double d3;
         if (cVar != null && cVar.d() != null && cVar.d().size() > 0) {
-            com.baidu.android.pushservice.g.a.c(l, "getPropValues");
+            com.baidu.android.pushservice.g.a.c("ModeConfig", "getPropValues");
             for (int i3 = 0; i3 < cVar.d().size(); i3++) {
                 e eVar = cVar.d().get(i3);
                 try {
                     a2 = com.baidu.android.pushservice.j.a.a().a(eVar.a(), "");
                     b = eVar.b();
-                    com.baidu.android.pushservice.g.a.c(l, "MatchValue=" + eVar.c() + " | " + a2 + "--" + b);
+                    com.baidu.android.pushservice.g.a.c("ModeConfig", "MatchValue=" + eVar.c() + " | " + a2 + "--" + b);
                 } catch (Exception e2) {
-                    com.baidu.android.pushservice.g.a.a(l, e2);
+                    com.baidu.android.pushservice.g.a.a("ModeConfig", e2);
                 }
                 if (eVar.c() == 0) {
                     if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(a2)) {
@@ -142,15 +141,15 @@ public class d extends b {
                             d2 = d4;
                             d3 = Double.parseDouble(a2);
                         } catch (NumberFormatException e3) {
-                            com.baidu.android.pushservice.g.a.a(l, "number format exception  confv " + d4 + " val 0.0", e3);
+                            com.baidu.android.pushservice.g.a.a("ModeConfig", "number format exception  confv " + d4 + " val 0.0", e3);
                             d2 = d4;
                             d3 = 0.0d;
                         }
                         if (d3 >= d2) {
-                            com.baidu.android.pushservice.g.a.c(l, "manufacturerMatched success!!!");
+                            com.baidu.android.pushservice.g.a.c("ModeConfig", "manufacturerMatched success!!!");
                             return true;
                         }
-                        com.baidu.android.pushservice.g.b.a(l, "manufaturer can not Matched, osversion is not ABOVE ", this.a);
+                        com.baidu.android.pushservice.g.b.a("ModeConfig", "manufaturer can not Matched, osversion is not ABOVE ", this.a);
                     }
                 } else {
                     if (eVar.c() == 1) {
@@ -160,41 +159,41 @@ public class d extends b {
                                 i4 = Integer.parseInt(b);
                                 i2 = Integer.parseInt(a2);
                             } catch (NumberFormatException e4) {
-                                com.baidu.android.pushservice.g.a.a(l, "number format exception  confv " + i4 + " val 0", e4);
+                                com.baidu.android.pushservice.g.a.a("ModeConfig", "number format exception  confv " + i4 + " val 0", e4);
                                 i2 = 0;
                             }
                             if (i2 == i4) {
-                                com.baidu.android.pushservice.g.a.c(l, "manufacturerMatched success!!!");
+                                com.baidu.android.pushservice.g.a.c("ModeConfig", "manufacturerMatched success!!!");
                                 return true;
                             }
-                            com.baidu.android.pushservice.g.b.a(l, "manufaturer can not Matched, osversion is not EQUAL ", this.a);
+                            com.baidu.android.pushservice.g.b.a("ModeConfig", "manufaturer can not Matched, osversion is not EQUAL ", this.a);
                         }
                     } else if (eVar.c() != 2) {
                         continue;
                     } else if (Pattern.matches(b, a2)) {
-                        com.baidu.android.pushservice.g.a.c(l, "manufacturerMatched success!!!");
+                        com.baidu.android.pushservice.g.a.c("ModeConfig", "manufacturerMatched success!!!");
                         return true;
                     } else {
-                        com.baidu.android.pushservice.g.a.c(l, "manufacturerMatched failure!!!");
-                        com.baidu.android.pushservice.g.b.a(l, "manufaturer can not Matched, osversion is not REGULAR ", this.a);
+                        com.baidu.android.pushservice.g.a.c("ModeConfig", "manufacturerMatched failure!!!");
+                        com.baidu.android.pushservice.g.b.a("ModeConfig", "manufaturer can not Matched, osversion is not REGULAR ", this.a);
                     }
                 }
-                com.baidu.android.pushservice.g.a.a(l, e2);
+                com.baidu.android.pushservice.g.a.a("ModeConfig", e2);
             }
         }
         if (cVar.e() != null && cVar.e().size() > 0) {
-            com.baidu.android.pushservice.g.a.c(l, "getSystemProps");
+            com.baidu.android.pushservice.g.a.c("ModeConfig", "getSystemProps");
             for (int i5 = 0; i5 < cVar.e().size(); i5++) {
                 f fVar = cVar.e().get(i5);
                 try {
                     Class<?> cls = Class.forName("android.os.SystemProperties");
                     String str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, fVar.a());
-                    com.baidu.android.pushservice.g.a.c(l, " buildVersion " + str2);
+                    com.baidu.android.pushservice.g.a.c("ModeConfig", " buildVersion " + str2);
                     String lowerCase = Build.MODEL.toLowerCase();
                     boolean z = false;
                     if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains("nexus")) {
                         z = true;
-                        com.baidu.android.pushservice.g.b.a(l, "manufaturer  is Nexus ", this.a);
+                        com.baidu.android.pushservice.g.b.a("ModeConfig", "manufaturer  is Nexus ", this.a);
                     }
                     if (str.equalsIgnoreCase("HUAWEI") && !z && !str2.matches("\\d+\\.\\d+$") && Build.VERSION.SDK_INT >= 21 && PushSettings.n(this.a)) {
                         str2 = "3.1";
@@ -205,23 +204,23 @@ public class d extends b {
                         Double valueOf2 = Double.valueOf(fVar.b());
                         if (fVar.d() == 0) {
                             if (valueOf.doubleValue() >= valueOf2.doubleValue()) {
-                                com.baidu.android.pushservice.g.a.c(l, "versioncode >= configversioncode, manufacturerMatched success!!!");
+                                com.baidu.android.pushservice.g.a.c("ModeConfig", "versioncode >= configversioncode, manufacturerMatched success!!!");
                                 return true;
                             }
-                            com.baidu.android.pushservice.g.b.a(l, "versioncode < configversioncode, manufaturer can not Matched, osversion is not ABOVE ", this.a);
+                            com.baidu.android.pushservice.g.b.a("ModeConfig", "versioncode < configversioncode, manufaturer can not Matched, osversion is not ABOVE ", this.a);
                         } else if (fVar.d() != 1) {
                             continue;
                         } else if (valueOf == valueOf2) {
-                            com.baidu.android.pushservice.g.a.c(l, "versioncode == configversioncode, manufacturerMatched success!!!");
+                            com.baidu.android.pushservice.g.a.c("ModeConfig", "versioncode == configversioncode, manufacturerMatched success!!!");
                             return true;
                         } else {
-                            com.baidu.android.pushservice.g.b.a(l, "versioncode != configversioncode, manufaturer can not Matched, osversion is not EQUAL ", this.a);
+                            com.baidu.android.pushservice.g.b.a("ModeConfig", "versioncode != configversioncode, manufaturer can not Matched, osversion is not EQUAL ", this.a);
                         }
                     } else {
                         continue;
                     }
                 } catch (Exception e5) {
-                    com.baidu.android.pushservice.g.a.a(l, e5);
+                    com.baidu.android.pushservice.g.a.a("ModeConfig", e5);
                 }
             }
         }
@@ -230,12 +229,12 @@ public class d extends b {
 
     private c b(String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.android.pushservice.g.a.c(l, "facturerName is null!");
+            com.baidu.android.pushservice.g.a.c("ModeConfig", "facturerName is null!");
             return null;
         }
         String upperCase = str.toUpperCase();
         if (Build.MANUFACTURER.toUpperCase().equalsIgnoreCase("unknown") && this.k != null) {
-            com.baidu.android.pushservice.g.a.c(l, "manufacturer is unknown!");
+            com.baidu.android.pushservice.g.a.c("ModeConfig", "manufacturer is unknown!");
             for (Map.Entry<String, c> entry : this.k.entrySet()) {
                 String key = entry.getKey();
                 if (a(this.k.get(key), key)) {
@@ -243,7 +242,7 @@ public class d extends b {
                 }
             }
         } else if (this.k != null && this.k.containsKey(upperCase)) {
-            com.baidu.android.pushservice.g.a.c(l, "mManufacturers containsKey " + upperCase);
+            com.baidu.android.pushservice.g.a.c("ModeConfig", "mManufacturers containsKey " + upperCase);
             if (a(this.k.get(upperCase), upperCase)) {
                 return this.k.get(upperCase);
             }
@@ -259,7 +258,7 @@ public class d extends b {
             }
             return false;
         } catch (Throwable th) {
-            com.baidu.android.pushservice.g.a.e(l, "not found com.xiaomi.mipush pkg, not xiaomiproxy mode!!!");
+            com.baidu.android.pushservice.g.a.e("ModeConfig", "not found com.xiaomi.mipush pkg, not xiaomiproxy mode!!!");
             return false;
         }
     }
@@ -272,55 +271,55 @@ public class d extends b {
         return c(context) || b(context);
     }
 
-    private boolean i() {
-        com.baidu.android.pushservice.g.a.c(l, "parseConfig begin.....");
+    private boolean h() {
+        com.baidu.android.pushservice.g.a.c("ModeConfig", "parseConfig begin.....");
         try {
             JSONObject jSONObject = new JSONObject(this.b);
-            this.q = jSONObject.getInt("version");
+            this.p = jSONObject.getInt("version");
             this.k = new HashMap<>();
             JSONArray jSONArray = jSONObject.getJSONArray("modeconfig");
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 c cVar = new c(jSONArray.getString(i2));
                 this.k.put(cVar.b(), cVar);
-                com.baidu.android.pushservice.g.a.c(l, "mManufacturers put key" + i2 + " = " + cVar.b());
+                com.baidu.android.pushservice.g.a.c("ModeConfig", "mManufacturers put key" + i2 + " = " + cVar.b());
             }
-            this.r = b(Build.MANUFACTURER.toUpperCase());
-            a(this.r);
+            this.q = b(Build.MANUFACTURER.toUpperCase());
+            a(this.q);
             return true;
         } catch (JSONException e2) {
-            com.baidu.android.pushservice.g.a.a(l, e2);
+            com.baidu.android.pushservice.g.a.a("ModeConfig", e2);
             return false;
         }
     }
 
-    private boolean j() {
-        this.q = n.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_VERSION", -1);
-        if (this.q == -1) {
+    private boolean i() {
+        this.p = m.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_VERSION", -1);
+        if (this.p == -1) {
             return false;
         }
-        String a2 = n.a(this.a, "com.baidu.android.pushservice.config.MODE_MANUFACTURER_CACHE");
+        String a2 = m.a(this.a, "com.baidu.android.pushservice.config.MODE_MANUFACTURER_CACHE");
         if (TextUtils.isEmpty(a2)) {
             return false;
         }
         if (!a2.equals("CONFIG_MANUFACTURER_DEFAULT")) {
-            this.r = new c(a2);
+            this.q = new c(a2);
         }
         return true;
     }
 
-    private boolean k() {
+    private boolean j() {
         long j2 = 0;
-        if (System.currentTimeMillis() - n.c(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_CACHE") > TbConfig.APP_OVERDUR_DRAFT_BOX) {
+        if (System.currentTimeMillis() - m.c(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_CACHE") > TbConfig.APP_OVERDUR_DRAFT_BOX) {
             return true;
         }
-        long c = n.c(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_MODIFIED");
+        long c = m.c(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_MODIFIED");
         File file = new File(this.c);
         if (file.exists()) {
             if (c <= 0 || c != file.lastModified()) {
                 return true;
             }
-            long c2 = n.c(this.a, "com.baidu.android.pushservice.config.BUILD_LAST_MODIFIED");
-            for (String str : v) {
+            long c2 = m.c(this.a, "com.baidu.android.pushservice.config.BUILD_LAST_MODIFIED");
+            for (String str : u) {
                 File file2 = new File(str);
                 if (file2.exists()) {
                     j2 += file2.lastModified() / 10;
@@ -331,131 +330,131 @@ public class d extends b {
         return true;
     }
 
-    private void l() {
+    private void k() {
         File file = new File(this.c);
         if (file.exists()) {
-            n.a(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_MODIFIED", file.lastModified());
+            m.a(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_MODIFIED", file.lastModified());
             long j2 = 0;
-            for (String str : v) {
+            for (String str : u) {
                 File file2 = new File(str);
                 if (file2.exists()) {
                     j2 += file2.lastModified() / 10;
                 }
             }
-            n.a(this.a, "com.baidu.android.pushservice.config.BUILD_LAST_MODIFIED", j2);
-            n.a(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_CACHE", System.currentTimeMillis());
+            m.a(this.a, "com.baidu.android.pushservice.config.BUILD_LAST_MODIFIED", j2);
+            m.a(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_CACHE", System.currentTimeMillis());
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x005a  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00c0 A[Catch: all -> 0x006c, TRY_LEAVE, TryCatch #2 {, blocks: (B:4:0x0002, B:6:0x0012, B:8:0x001a, B:10:0x0022, B:12:0x0036, B:14:0x0041, B:15:0x0044, B:18:0x005c, B:20:0x0060, B:46:0x00c0, B:24:0x0066, B:29:0x006f, B:31:0x0075, B:33:0x007d, B:35:0x0085, B:37:0x0099, B:39:0x00a7, B:42:0x00ac, B:43:0x00b2, B:45:0x00b9), top: B:52:0x0002, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x005c  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00c5 A[Catch: all -> 0x006f, TRY_LEAVE, TryCatch #2 {, blocks: (B:4:0x0002, B:6:0x0013, B:8:0x001b, B:10:0x0023, B:12:0x0038, B:14:0x0043, B:15:0x0046, B:18:0x005e, B:20:0x0062, B:46:0x00c5, B:24:0x0068, B:29:0x0072, B:31:0x0078, B:33:0x0080, B:35:0x0088, B:37:0x009d, B:39:0x00ab, B:42:0x00b0, B:43:0x00b7, B:45:0x00be), top: B:52:0x0002, inners: #0, #1 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void a(final a aVar) {
         long c;
         final long currentTimeMillis;
-        o = false;
-        com.baidu.android.pushservice.g.a.c(l, "updateConfig......");
-        if (q.a() && PushSettings.m(this.a) && !b(this.a)) {
+        n = false;
+        com.baidu.android.pushservice.g.a.c("ModeConfig", "updateConfig......");
+        if (p.a() && PushSettings.m(this.a) && !b(this.a)) {
             try {
-                com.baidu.android.pushservice.g.a.c(l, "XiaomiProxyMode......");
-                String C = q.C(this.a);
+                com.baidu.android.pushservice.g.a.c("ModeConfig", "XiaomiProxyMode......");
+                String C = p.C(this.a);
                 if (!TextUtils.isEmpty(C) && Float.parseFloat(C) >= 4.0d) {
-                    n = 0;
+                    m = 0;
                 }
             } catch (Exception e2) {
-                com.baidu.android.pushservice.g.a.a(l, e2);
+                com.baidu.android.pushservice.g.a.a("ModeConfig", e2);
             }
-            c = n.c(this.a, "last_update_config_time");
+            c = m.c(this.a, "last_update_config_time");
             currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - c <= n) {
+            if (currentTimeMillis - c <= m) {
             }
         } else {
-            if (q.b() && PushSettings.n(this.a) && !c(this.a)) {
+            if (p.b() && PushSettings.n(this.a) && !c(this.a)) {
                 try {
-                    com.baidu.android.pushservice.g.a.c(l, "HuaweiProxyMode......");
-                    String C2 = q.C(this.a);
+                    com.baidu.android.pushservice.g.a.c("ModeConfig", "HuaweiProxyMode......");
+                    String C2 = p.C(this.a);
                     if (!TextUtils.isEmpty(C2) && Float.parseFloat(C2) >= 3.1d) {
-                        n = 0;
+                        m = 0;
                     }
                 } catch (Exception e3) {
-                    com.baidu.android.pushservice.g.a.a(l, e3);
+                    com.baidu.android.pushservice.g.a.a("ModeConfig", e3);
                 }
             } else {
-                n = 259200000;
+                m = 259200000;
                 if (aVar != null) {
-                    o = true;
+                    n = true;
                     aVar.a();
                 }
             }
-            c = n.c(this.a, "last_update_config_time");
+            c = m.c(this.a, "last_update_config_time");
             currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - c <= n) {
+            if (currentTimeMillis - c <= m) {
                 com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("ModeConfig-updateConfig", (short) 100) { // from class: com.baidu.android.pushservice.c.d.1
                     @Override // com.baidu.android.pushservice.i.c
                     public void a() {
                         try {
                             HashMap hashMap = new HashMap();
                             com.baidu.android.pushservice.e.b.b(hashMap);
-                            hashMap.put("version", d.this.q + "");
+                            hashMap.put("version", d.this.p + "");
                             hashMap.put("model", Build.MODEL);
                             hashMap.put("osSdkInt", Build.VERSION.SDK_INT + "");
-                            if ((q.a() && PushSettings.m(d.this.a)) || (q.b() && PushSettings.n(d.this.a))) {
+                            if ((p.a() && PushSettings.m(d.this.a)) || (p.b() && PushSettings.n(d.this.a))) {
                                 hashMap.put("manufacture", Build.MANUFACTURER);
                                 hashMap.put("sdk_version", ((int) com.baidu.android.pushservice.a.a()) + "");
                                 hashMap.put("cuid", com.baidu.android.pushservice.k.e.a(d.this.a));
                                 hashMap.put("channelid", PushSettings.a(d.this.a));
                                 hashMap.put("package_name", d.this.a.getPackageName());
-                                hashMap.put("pkg_sign", q.q(d.this.a, d.this.a.getPackageName()));
-                                hashMap.put("rom_version", q.C(d.this.a));
+                                hashMap.put("pkg_sign", p.q(d.this.a, d.this.a.getPackageName()));
+                                hashMap.put("rom_version", p.C(d.this.a));
                             } else {
                                 hashMap.put("manufacturer", Build.MANUFACTURER);
                                 hashMap.put("pushSdkInt", ((int) com.baidu.android.pushservice.a.a()) + "");
                             }
-                            com.baidu.android.pushservice.g.a.c(d.l, "update config request send, params=" + com.baidu.android.pushservice.e.b.a(hashMap));
+                            com.baidu.android.pushservice.g.a.c("ModeConfig", "update config request send, params=" + com.baidu.android.pushservice.e.b.a(hashMap));
                             String a2 = d.this.a(hashMap);
                             if (!TextUtils.isEmpty(a2)) {
                                 JSONObject jSONObject = new JSONObject(a2);
                                 JSONObject jSONObject2 = (JSONObject) jSONObject.get("response_params");
-                                com.baidu.android.pushservice.g.a.c(d.l, "new config content=" + jSONObject.toString());
+                                com.baidu.android.pushservice.g.a.c("ModeConfig", "new config content=" + jSONObject.toString());
                                 if (jSONObject2 != null && jSONObject2.getInt("status") == 1) {
                                     String string = jSONObject2.getString("sdkconfig");
                                     if (!TextUtils.isEmpty(string)) {
                                         boolean a3 = d.this.a(string);
-                                        com.baidu.android.pushservice.g.a.c(d.l, "write config >> " + a3);
+                                        com.baidu.android.pushservice.g.a.c("ModeConfig", "write config >> " + a3);
                                         if (a3) {
                                             d.this.f();
-                                            n.a(d.this.a, "last_update_config_time", currentTimeMillis);
+                                            m.a(d.this.a, "last_update_config_time", currentTimeMillis);
                                         }
                                     }
                                 }
                             }
                         } catch (Exception e4) {
-                            com.baidu.android.pushservice.g.a.a(d.l, e4);
+                            com.baidu.android.pushservice.g.a.a("ModeConfig", e4);
                         }
-                        if (aVar == null || d.o) {
+                        if (aVar == null || d.n) {
                             return;
                         }
                         aVar.a();
                     }
                 });
-            } else if (aVar != null && !o) {
+            } else if (aVar != null && !n) {
                 aVar.a();
             }
         }
     }
 
     public int b() {
-        return this.s;
+        return this.r;
     }
 
     public String c() {
-        return this.u;
+        return this.t;
     }
 
     public int d() {
-        return this.t;
+        return this.s;
     }
 
     public boolean e() {
@@ -463,64 +462,64 @@ public class d extends b {
         CertificateFactory certificateFactory;
         X509Certificate x509Certificate;
         byte[] bArr = null;
-        if (this.r == null) {
+        if (this.q == null) {
             return true;
         }
-        if (this.r.c() == i) {
-            this.s = i;
+        if (this.q.c() == i) {
+            this.r = i;
             return true;
-        } else if (this.r.c() == j) {
-            this.s = j;
+        } else if (this.q.c() == j) {
+            this.r = j;
             return true;
         } else {
-            if (this.r.c() == f && !TextUtils.isEmpty(this.r.f())) {
+            if (this.q.c() == f && !TextUtils.isEmpty(this.q.f())) {
                 try {
-                    PackageInfo packageInfo = this.a.getPackageManager().getPackageInfo(this.r.f(), 16448);
+                    PackageInfo packageInfo = this.a.getPackageManager().getPackageInfo(this.q.f(), 16448);
                     if (packageInfo != null) {
                         int i2 = packageInfo.versionCode;
-                        com.baidu.android.pushservice.g.a.c(l, "version code = " + i2);
-                        if (this.r.a() == null) {
+                        com.baidu.android.pushservice.g.a.c("ModeConfig", "version code = " + i2);
+                        if (this.q.a() == null) {
                             z = false;
-                        } else if (this.r.a().b == -1) {
-                            com.baidu.android.pushservice.g.a.c(l, "to = -1");
-                            z = i2 >= this.r.a().a;
+                        } else if (this.q.a().b == -1) {
+                            com.baidu.android.pushservice.g.a.c("ModeConfig", "to = -1");
+                            z = i2 >= this.q.a().a;
                         } else {
-                            com.baidu.android.pushservice.g.a.c(l, "from");
-                            z = (i2 >= this.r.a().a) & (i2 <= this.r.a().b);
+                            com.baidu.android.pushservice.g.a.c("ModeConfig", "from");
+                            z = (i2 >= this.q.a().a) & (i2 <= this.q.a().b);
                         }
-                        com.baidu.android.pushservice.g.a.c(l, "version ret " + z);
+                        com.baidu.android.pushservice.g.a.c("ModeConfig", "version ret " + z);
                         if (z) {
                             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(packageInfo.signatures[0].toByteArray());
                             try {
                                 certificateFactory = CertificateFactory.getInstance("X509");
                             } catch (CertificateException e2) {
-                                com.baidu.android.pushservice.g.a.a(l, e2);
+                                com.baidu.android.pushservice.g.a.a("ModeConfig", e2);
                                 certificateFactory = null;
                             }
                             try {
                                 x509Certificate = (X509Certificate) certificateFactory.generateCertificate(byteArrayInputStream);
                             } catch (CertificateException e3) {
-                                com.baidu.android.pushservice.g.a.a(l, e3);
+                                com.baidu.android.pushservice.g.a.a("ModeConfig", e3);
                                 x509Certificate = null;
                             }
                             try {
                                 bArr = com.baidu.android.pushservice.k.h.a(x509Certificate.getEncoded());
                             } catch (Exception e4) {
-                                com.baidu.android.pushservice.g.a.a(l, e4);
+                                com.baidu.android.pushservice.g.a.a("ModeConfig", e4);
                             }
                             String a2 = a(bArr);
-                            com.baidu.android.pushservice.g.a.c(l, "hexString " + a2);
-                            com.baidu.android.pushservice.g.a.c(l, "apkSignture" + this.r.g());
-                            if (a2.equalsIgnoreCase(this.r.g())) {
-                                this.u = this.r.f();
-                                this.t = q.l(this.a, this.u);
-                                if (this.a.getPackageName().equalsIgnoreCase(this.r.f())) {
-                                    this.s = g;
-                                    com.baidu.android.pushservice.g.a.c(l, "return true c_h");
+                            com.baidu.android.pushservice.g.a.c("ModeConfig", "hexString " + a2);
+                            com.baidu.android.pushservice.g.a.c("ModeConfig", "apkSignture" + this.q.g());
+                            if (a2.equalsIgnoreCase(this.q.g())) {
+                                this.t = this.q.f();
+                                this.s = p.l(this.a, this.t);
+                                if (this.a.getPackageName().equalsIgnoreCase(this.q.f())) {
+                                    this.r = g;
+                                    com.baidu.android.pushservice.g.a.c("ModeConfig", "return true c_h");
                                     return true;
                                 }
-                                this.s = h;
-                                com.baidu.android.pushservice.g.a.c(l, "return true c_c");
+                                this.r = h;
+                                com.baidu.android.pushservice.g.a.c("ModeConfig", "return true c_c");
                                 return true;
                             }
                         }
@@ -529,22 +528,22 @@ public class d extends b {
                     return false;
                 }
             }
-            com.baidu.android.pushservice.g.b.a(l, " Current Mode = " + this.s, this.a);
+            com.baidu.android.pushservice.g.b.a("ModeConfig", " Current Mode = " + this.r, this.a);
             return false;
         }
     }
 
     public void f() {
-        boolean k = k();
         boolean j2 = j();
-        com.baidu.android.pushservice.g.a.c(l, "needReload = " + k + ", initFromCache = " + j2);
-        if ((k || !j2) && a()) {
-            i();
+        boolean i2 = i();
+        com.baidu.android.pushservice.g.a.c("ModeConfig", "needReload = " + j2 + ", initFromCache = " + i2);
+        if ((j2 || !i2) && a()) {
+            h();
         }
-        if (this.r != null) {
+        if (this.q != null) {
             e();
         } else {
-            com.baidu.android.pushservice.g.b.a(l, "Config File Not Matched", this.a);
+            com.baidu.android.pushservice.g.b.a("ModeConfig", "Config File Not Matched", this.a);
         }
     }
 }

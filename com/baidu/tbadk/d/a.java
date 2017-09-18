@@ -17,7 +17,7 @@ public class a {
 
     /* renamed from: com.baidu.tbadk.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0055a {
+    public static class C0054a {
         private static SparseIntArray QU = new SparseIntArray();
 
         static {

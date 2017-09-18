@@ -20,7 +20,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private String nZ() {
-        ax.aT(this.mContext);
+        ax.aU(this.mContext);
         JSResultData jSResultData = new JSResultData();
         jSResultData.setStatus(1);
         jSResultData.setErrorCode("0");

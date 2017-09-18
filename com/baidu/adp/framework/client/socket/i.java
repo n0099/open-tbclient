@@ -65,7 +65,7 @@ public class i {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
             statsItem.p("action", "imconn");
             statsItem.p(TiebaStatic.CON_COST, String.valueOf(com.baidu.adp.lib.webSocket.h.hV().id()));
-            statsItem.p("nettype", com.baidu.adp.lib.stats.d.aa(BdBaseApplication.getInst()));
+            statsItem.p("nettype", com.baidu.adp.lib.stats.d.ab(BdBaseApplication.getInst()));
             BdStatisticsManager.getInstance().performance("im", statsItem);
         } catch (Exception e) {
             BdLog.e(e.getMessage());

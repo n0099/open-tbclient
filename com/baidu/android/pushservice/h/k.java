@@ -2,13 +2,13 @@ package com.baidu.android.pushservice.h;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.q;
 /* loaded from: classes2.dex */
 public class k {
     private static void a(Context context, com.baidu.android.pushservice.b.f fVar, j jVar, i iVar) {
         if (fVar != null) {
-            iVar.d(fVar.c());
-            iVar = q.a(iVar, context, fVar.c());
+            iVar.b(fVar.c());
+            iVar = com.baidu.android.pushservice.j.p.a(iVar, context, fVar.c());
+            jVar.j = fVar.c();
         }
         try {
             p.a(context, jVar);
@@ -23,7 +23,7 @@ public class k {
         jVar.d = "010101";
         jVar.a = str2;
         jVar.e = System.currentTimeMillis();
-        jVar.f = com.baidu.android.pushservice.h.a.b.c(context);
+        jVar.f = com.baidu.android.pushservice.h.a.b.b(context);
         jVar.b = new String(bArr).length();
         jVar.g = i2;
         jVar.c = i;
@@ -32,13 +32,9 @@ public class k {
         iVar.c(i3);
         com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str);
         if (d != null) {
-            iVar.c(q.a(d.f));
-            iVar.b(d.f);
-            iVar.d(d.c());
+            iVar.b(d.c());
         } else {
-            iVar.c("0");
-            iVar.b("0");
-            iVar.d("NP");
+            iVar.b("NP");
         }
         a(context, d, jVar, iVar);
     }
@@ -60,7 +56,7 @@ public class k {
             jVar.d = str4;
             jVar.a = str;
             jVar.e = System.currentTimeMillis();
-            jVar.f = com.baidu.android.pushservice.h.a.b.c(context);
+            jVar.f = com.baidu.android.pushservice.h.a.b.b(context);
             jVar.c = com.baidu.android.pushservice.message.a.l.MSG_TYPE_PRIVATE_MESSAGE.a();
             jVar.h = str2;
             com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str2);
@@ -77,7 +73,7 @@ public class k {
         jVar.d = "019901";
         jVar.a = str2;
         jVar.e = System.currentTimeMillis();
-        jVar.f = com.baidu.android.pushservice.h.a.b.c(context);
+        jVar.f = com.baidu.android.pushservice.h.a.b.b(context);
         jVar.b = new String(bArr).length();
         jVar.g = i2;
         jVar.c = i;
@@ -86,13 +82,9 @@ public class k {
         iVar.c(i3);
         com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str);
         if (d != null) {
-            iVar.c(q.a(d.f));
-            iVar.b(d.f);
-            iVar.d(d.c());
+            iVar.b(d.c());
         } else {
-            iVar.c("0");
-            iVar.b("0");
-            iVar.d("NP");
+            iVar.b("NP");
         }
         a(context, d, jVar, iVar);
     }

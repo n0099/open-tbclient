@@ -14,45 +14,45 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes.dex */
 public class a implements c.m {
-    private IntBuffer bEV;
-    private IntBuffer bEW;
-    protected float bEX;
-    protected float bEY;
-    protected float bEZ;
-    protected Bitmap bFa;
-    protected Bitmap bFb;
-    protected Bitmap bFc;
-    protected Bitmap bFd;
-    protected Bitmap bFe;
-    protected Bitmap bFf;
-    protected float bFg;
-    protected float bFh;
-    int bFj;
+    private IntBuffer bFM;
+    private IntBuffer bFN;
+    protected float bFO;
+    protected float bFP;
+    protected float bFQ;
+    protected Bitmap bFR;
+    protected Bitmap bFS;
+    protected Bitmap bFT;
+    protected Bitmap bFU;
+    protected Bitmap bFV;
+    protected Bitmap bFW;
+    protected float bFX;
+    protected float bFY;
+    int bGa;
     private int bgColor;
     public Context context;
-    protected float bFi = 0.0f;
+    protected float bFZ = 0.0f;
     private int one = 65536;
-    private Queue<com.baidu.tieba.b.a.b> bFk = new ConcurrentLinkedQueue();
-    private Queue<com.baidu.tieba.b.a.c> bFl = new ConcurrentLinkedQueue();
-    private int bFm = 0;
-    private int[] bFn = {this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one};
-    private int[] bFo = {this.one, 0, 0, 0, this.one, this.one, 0, this.one};
-    private int[] bEU = new int[1];
+    private Queue<com.baidu.tieba.b.a.b> bGb = new ConcurrentLinkedQueue();
+    private Queue<com.baidu.tieba.b.a.c> bGc = new ConcurrentLinkedQueue();
+    private int bGd = 0;
+    private int[] bGe = {this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one};
+    private int[] bGf = {this.one, 0, 0, 0, this.one, this.one, 0, this.one};
+    private int[] bFL = new int[1];
 
     public a(Context context) {
         this.context = context;
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.bFn.length * 4);
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.bGe.length * 4);
         allocateDirect.order(ByteOrder.nativeOrder());
-        this.bEV = allocateDirect.asIntBuffer();
-        this.bEV.put(this.bFn);
-        this.bEV.position(0);
-        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(this.bFo.length * 4 * 6);
+        this.bFM = allocateDirect.asIntBuffer();
+        this.bFM.put(this.bGe);
+        this.bFM.position(0);
+        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(this.bGf.length * 4 * 6);
         allocateDirect2.order(ByteOrder.nativeOrder());
-        this.bEW = allocateDirect2.asIntBuffer();
+        this.bFN = allocateDirect2.asIntBuffer();
         for (int i = 0; i < 6; i++) {
-            this.bEW.put(this.bFo);
+            this.bFN.put(this.bGf);
         }
-        this.bEW.position(0);
+        this.bFN.position(0);
     }
 
     @Override // com.baidu.tieba.b.d.c.m
@@ -71,64 +71,64 @@ public class a implements c.m {
         gl10.glHint(3152, 4354);
         gl10.glEnableClientState(32884);
         gl10.glEnableClientState(32888);
-        gl10.glVertexPointer(3, 5132, 0, this.bEV);
-        gl10.glTexCoordPointer(2, 5132, 0, this.bEW);
-        gl10.glTranslatef(this.bFg, this.bFh, this.bFi);
-        if (this.bFl != null && this.bFl.size() != 0 && (peek = this.bFl.peek()) != null) {
-            if (peek.We() == 2) {
-                peek.d(this.bFg, this.bFh, this.bFi, this.bFj);
-                this.bFl.poll();
-            } else if (peek.We() == -1) {
-                if (!peek.Wd()) {
-                    peek.ht(2);
+        gl10.glVertexPointer(3, 5132, 0, this.bFM);
+        gl10.glTexCoordPointer(2, 5132, 0, this.bFN);
+        gl10.glTranslatef(this.bFX, this.bFY, this.bFZ);
+        if (this.bGc != null && this.bGc.size() != 0 && (peek = this.bGc.peek()) != null) {
+            if (peek.Wp() == 2) {
+                peek.d(this.bFX, this.bFY, this.bFZ, this.bGa);
+                this.bGc.poll();
+            } else if (peek.Wp() == -1) {
+                if (!peek.Wo()) {
+                    peek.hv(2);
                 } else {
-                    peek.ht(0);
+                    peek.hv(0);
                 }
-            } else if (peek.We() == 0) {
-                peek.a(this.bFg, this.bFh, this.bFi, this.bFj);
-                float f = peek.f(this.bFg, this.bFh, this.bFi, this.bFj);
-                float g = peek.g(this.bFg, this.bFh, this.bFi, this.bFj);
-                float h = peek.h(this.bFg, this.bFh, this.bFi, this.bFj);
-                this.bFg = f;
-                this.bFh = g;
-                this.bFi = h;
-                peek.ht(1);
-            } else if (peek.We() == 1) {
-                if (peek.b(this.bFg, this.bFh, this.bFi, this.bFj)) {
-                    peek.ht(2);
+            } else if (peek.Wp() == 0) {
+                peek.a(this.bFX, this.bFY, this.bFZ, this.bGa);
+                float f = peek.f(this.bFX, this.bFY, this.bFZ, this.bGa);
+                float g = peek.g(this.bFX, this.bFY, this.bFZ, this.bGa);
+                float h = peek.h(this.bFX, this.bFY, this.bFZ, this.bGa);
+                this.bFX = f;
+                this.bFY = g;
+                this.bFZ = h;
+                peek.hv(1);
+            } else if (peek.Wp() == 1) {
+                if (peek.b(this.bFX, this.bFY, this.bFZ, this.bGa)) {
+                    peek.hv(2);
                 } else {
-                    peek.c(this.bFg, this.bFh, this.bFi, this.bFj);
-                    float f2 = peek.f(this.bFg, this.bFh, this.bFi, this.bFj);
-                    float g2 = peek.g(this.bFg, this.bFh, this.bFi, this.bFj);
-                    float h2 = peek.h(this.bFg, this.bFh, this.bFi, this.bFj);
-                    this.bFg = f2;
-                    this.bFh = g2;
-                    this.bFi = h2;
+                    peek.c(this.bFX, this.bFY, this.bFZ, this.bGa);
+                    float f2 = peek.f(this.bFX, this.bFY, this.bFZ, this.bGa);
+                    float g2 = peek.g(this.bFX, this.bFY, this.bFZ, this.bGa);
+                    float h2 = peek.h(this.bFX, this.bFY, this.bFZ, this.bGa);
+                    this.bFX = f2;
+                    this.bFY = g2;
+                    this.bFZ = h2;
                 }
             }
         }
-        gl10.glRotatef(this.bEX, 1.0f, 0.0f, 0.0f);
-        gl10.glRotatef(this.bEY, 0.0f, 1.0f, 0.0f);
-        gl10.glRotatef(this.bEZ, 0.0f, 0.0f, 1.0f);
+        gl10.glRotatef(this.bFO, 1.0f, 0.0f, 0.0f);
+        gl10.glRotatef(this.bFP, 0.0f, 1.0f, 0.0f);
+        gl10.glRotatef(this.bFQ, 0.0f, 0.0f, 1.0f);
         for (int i = 0; i < 6; i++) {
             switch (i) {
                 case 0:
-                    GLUtils.texImage2D(3553, 0, this.bFa, 0);
+                    GLUtils.texImage2D(3553, 0, this.bFR, 0);
                     break;
                 case 1:
-                    GLUtils.texImage2D(3553, 0, this.bFb, 0);
+                    GLUtils.texImage2D(3553, 0, this.bFS, 0);
                     break;
                 case 2:
-                    GLUtils.texImage2D(3553, 0, this.bFc, 0);
+                    GLUtils.texImage2D(3553, 0, this.bFT, 0);
                     break;
                 case 3:
-                    GLUtils.texImage2D(3553, 0, this.bFd, 0);
+                    GLUtils.texImage2D(3553, 0, this.bFU, 0);
                     break;
                 case 4:
-                    GLUtils.texImage2D(3553, 0, this.bFe, 0);
+                    GLUtils.texImage2D(3553, 0, this.bFV, 0);
                     break;
                 case 5:
-                    GLUtils.texImage2D(3553, 0, this.bFf, 0);
+                    GLUtils.texImage2D(3553, 0, this.bFW, 0);
                     break;
             }
             gl10.glDrawArrays(5, i * 4, 4);
@@ -136,45 +136,45 @@ public class a implements c.m {
         gl10.glDisableClientState(32888);
         gl10.glDisableClientState(32884);
         double d2 = 0.0d;
-        if (this.bFk != null && this.bFk.size() != 0) {
-            com.baidu.tieba.b.a.b peek2 = this.bFk.peek();
+        if (this.bGb != null && this.bGb.size() != 0) {
+            com.baidu.tieba.b.a.b peek2 = this.bGb.peek();
             if (peek2 != null) {
-                if (peek2.We() == 2) {
-                    peek2.d(this.bEX, this.bEY, this.bEZ, this.bFj);
-                    this.bFk.poll();
+                if (peek2.Wp() == 2) {
+                    peek2.d(this.bFO, this.bFP, this.bFQ, this.bGa);
+                    this.bGb.poll();
                     return;
-                } else if (peek2.We() == -1) {
-                    if (!peek2.Wd()) {
-                        peek2.ht(2);
+                } else if (peek2.Wp() == -1) {
+                    if (!peek2.Wo()) {
+                        peek2.hv(2);
                         return;
                     } else {
-                        peek2.ht(0);
+                        peek2.hv(0);
                         return;
                     }
                 } else {
-                    if (peek2.We() == 0) {
-                        peek2.a(this.bEX, this.bEY, this.bEZ, this.bFj);
-                        double e = peek2.e(this.bEX, this.bEY, this.bEZ, this.bFj);
-                        peek2.ht(1);
+                    if (peek2.Wp() == 0) {
+                        peek2.a(this.bFO, this.bFP, this.bFQ, this.bGa);
+                        double e = peek2.e(this.bFO, this.bFP, this.bFQ, this.bGa);
+                        peek2.hv(1);
                         d = e;
-                    } else if (peek2.We() == 1) {
-                        if (peek2.b(this.bEX, this.bEY, this.bEZ, this.bFj)) {
-                            peek2.ht(2);
+                    } else if (peek2.Wp() == 1) {
+                        if (peek2.b(this.bFO, this.bFP, this.bFQ, this.bGa)) {
+                            peek2.hv(2);
                             return;
                         } else {
-                            peek2.c(this.bEX, this.bEY, this.bEZ, this.bFj);
-                            d = peek2.e(this.bEX, this.bEY, this.bEZ, this.bFj);
+                            peek2.c(this.bFO, this.bFP, this.bFQ, this.bGa);
+                            d = peek2.e(this.bFO, this.bFP, this.bFQ, this.bGa);
                         }
                     }
-                    Wf();
+                    Wq();
                     d2 = d;
                 }
             }
             d = 0.0d;
-            Wf();
+            Wq();
             d2 = d;
         }
-        this.bEX = (float) (this.bEX + d2);
+        this.bFO = (float) (this.bFO + d2);
     }
 
     @Override // com.baidu.tieba.b.d.c.m
@@ -183,7 +183,7 @@ public class a implements c.m {
         gl10.glViewport(0, 0, i, i2);
         gl10.glMatrixMode(5889);
         gl10.glLoadIdentity();
-        switch (this.bFm) {
+        switch (this.bGd) {
             case 0:
                 a(gl10, f);
                 break;
@@ -224,51 +224,51 @@ public class a implements c.m {
         gl10.glEnable(2929);
         gl10.glDepthFunc(515);
         gl10.glEnable(3553);
-        gl10.glGenTextures(1, this.bEU, 0);
-        gl10.glBindTexture(3553, this.bEU[0]);
+        gl10.glGenTextures(1, this.bFL, 0);
+        gl10.glBindTexture(3553, this.bFL[0]);
         gl10.glEnable(32925);
         gl10.glTexParameterf(3553, 10241, 9729.0f);
         gl10.glTexParameterf(3553, 10240, 9729.0f);
     }
 
-    public void Wf() {
-        this.bFj++;
+    public void Wq() {
+        this.bGa++;
     }
 
-    public boolean Wg() {
-        this.bFj = 0;
+    public boolean Wr() {
+        this.bGa = 0;
         return true;
     }
 
-    public void Wh() {
-        this.bEX = 0.0f;
-        this.bEY = 0.0f;
-        this.bEZ = 0.0f;
+    public void Ws() {
+        this.bFO = 0.0f;
+        this.bFP = 0.0f;
+        this.bFQ = 0.0f;
     }
 
     public void wp() {
-        this.bFl.clear();
-        this.bFk.clear();
-        Wg();
-        Wh();
+        this.bGc.clear();
+        this.bGb.clear();
+        Wr();
+        Ws();
     }
 
     public void a(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3, Bitmap bitmap4, Bitmap bitmap5, Bitmap bitmap6) {
-        this.bFa = bitmap;
-        this.bFb = bitmap2;
-        this.bFc = bitmap3;
-        this.bFd = bitmap4;
-        this.bFe = bitmap5;
-        this.bFf = bitmap6;
+        this.bFR = bitmap;
+        this.bFS = bitmap2;
+        this.bFT = bitmap3;
+        this.bFU = bitmap4;
+        this.bFV = bitmap5;
+        this.bFW = bitmap6;
     }
 
     public void a(com.baidu.tieba.b.a.b bVar) {
         if (bVar != null) {
-            this.bFk.add(bVar);
+            this.bGb.add(bVar);
         }
     }
 
-    public void hu(int i) {
+    public void hw(int i) {
         this.bgColor = i;
     }
 
@@ -279,6 +279,6 @@ public class a implements c.m {
     }
 
     public void G(float f) {
-        this.bFi = f;
+        this.bFZ = f;
     }
 }

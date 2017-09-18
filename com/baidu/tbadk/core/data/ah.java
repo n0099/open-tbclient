@@ -14,7 +14,7 @@ public class ah extends com.baidu.tieba.card.data.b {
     }
 
     public void qg() {
-        this.WO = com.baidu.tieba.lego.card.b.nA(this.card);
+        this.WO = com.baidu.tieba.lego.card.b.nC(this.card);
         this.WN = this.WO != null;
     }
 

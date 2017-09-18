@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
-    private TextView eUy;
-    private RadioButton eUz;
+    private TextView eVs;
+    private RadioButton eVt;
     private Context mContext;
 
     public a(Context context) {
@@ -24,58 +24,58 @@ public class a extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(this.mContext).inflate(d.j.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-        this.eUy = (TextView) findViewById(d.h.custom_check_radio_button_tv);
-        this.eUz = (RadioButton) findViewById(d.h.custom_check_radio_button_rb);
-        aUo();
+        this.eVs = (TextView) findViewById(d.h.custom_check_radio_button_tv);
+        this.eVt = (RadioButton) findViewById(d.h.custom_check_radio_button_rb);
+        aUz();
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.eUz != null) {
-                    a.this.eUz.toggle();
+                if (a.this.eVt != null) {
+                    a.this.eVt.toggle();
                 }
             }
         });
     }
 
-    public void aUo() {
-        if (this.eUy != null) {
-            aj.a(this.eUy, "cp_link_tip_a");
+    public void aUz() {
+        if (this.eVs != null) {
+            aj.a(this.eVs, "cp_link_tip_a");
         }
     }
 
     public TextView getTv() {
-        return this.eUy;
+        return this.eVs;
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        if (this.eUz != null) {
-            this.eUz.setOnCheckedChangeListener(onCheckedChangeListener);
+        if (this.eVt != null) {
+            this.eVt.setOnCheckedChangeListener(onCheckedChangeListener);
         }
     }
 
     public RadioButton getRb() {
-        return this.eUz;
+        return this.eVt;
     }
 
     public void setText(String str) {
-        if (this.eUy != null) {
-            this.eUy.setText(str);
+        if (this.eVs != null) {
+            this.eVs.setText(str);
         }
     }
 
     @Override // android.view.View
     public void setTag(Object obj) {
-        if (this.eUz != null) {
-            this.eUz.setTag(obj);
+        if (this.eVt != null) {
+            this.eVt.setTag(obj);
         }
     }
 
     @Override // android.view.View
     public Object getTag() {
-        return this.eUz.getTag();
+        return this.eVt.getTag();
     }
 
     public void setChecked(boolean z) {
-        this.eUz.setChecked(z);
+        this.eVt.setChecked(z);
     }
 }

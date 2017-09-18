@@ -11,71 +11,71 @@ import com.baidu.tieba.play.i;
 import java.net.InetAddress;
 /* loaded from: classes.dex */
 public class m implements QuickVideoView.a {
-    private String aXX;
-    private w fAo;
-    private String fAq;
-    private t fAw;
+    private String aXU;
+    private w fBh;
+    private String fBj;
+    private t fBp;
     private Context mContext;
     private String zV;
-    private String fAp = "1";
-    private boolean fAr = false;
-    private long fAs = 0;
-    private long fAt = 0;
+    private String fBi = "1";
+    private boolean fBk = false;
+    private long fBl = 0;
+    private long fBm = 0;
     private long mStartTime = 0;
-    private long fAu = 0;
-    private int fAv = 0;
-    private Runnable fAx = new Runnable() { // from class: com.baidu.tieba.play.m.2
+    private long fBn = 0;
+    private int fBo = 0;
+    private Runnable fBq = new Runnable() { // from class: com.baidu.tieba.play.m.2
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.bfG()) {
-                r.af(m.this.mContext, m.this.fAq);
-            } else if (!m.this.fAr) {
-                r.hy(m.this.fAq);
+            if (m.this.bfR()) {
+                r.af(m.this.mContext, m.this.fBj);
+            } else if (!m.this.fBk) {
+                r.hy(m.this.fBj);
             }
         }
     };
-    private i.c fzP = new i.c() { // from class: com.baidu.tieba.play.m.3
+    private i.c fAI = new i.c() { // from class: com.baidu.tieba.play.m.3
         @Override // com.baidu.tieba.play.i.c
-        public void bfw() {
+        public void bfH() {
             m.e(m.this);
         }
     };
-    private i bKE = new i();
+    private i bLv = new i();
 
     static /* synthetic */ int e(m mVar) {
-        int i = mVar.fAv;
-        mVar.fAv = i + 1;
+        int i = mVar.fBo;
+        mVar.fBo = i + 1;
         return i;
     }
 
     public m(Context context) {
         this.mContext = context;
-        this.bKE.a(this.fzP);
-        this.fAw = new t();
+        this.bLv.a(this.fAI);
+        this.fBp = new t();
     }
 
     @Override // com.baidu.tieba.play.QuickVideoView.a
     public String hw(String str) {
-        this.fAq = str;
-        this.aXX = this.fAr ? this.fAq : r.hw(str);
-        if (this.fAw != null) {
-            u.a("start_play", this.fAq, bfG(), (int) this.fAw.bfO(), this.fAw.getDuration());
+        this.fBj = str;
+        this.aXU = this.fBk ? this.fBj : r.hw(str);
+        if (this.fBp != null) {
+            u.a("start_play", this.fBj, bfR(), (int) this.fBp.bfZ(), this.fBp.getDuration());
         }
-        this.fAt = System.currentTimeMillis();
-        return this.aXX;
+        this.fBm = System.currentTimeMillis();
+        return this.aXU;
     }
 
     @Override // com.baidu.tieba.play.QuickVideoView.a
-    public String bfC() {
-        return this.fAq;
+    public String bfN() {
+        return this.fBj;
     }
 
     @Override // com.baidu.tieba.play.QuickVideoView.a
     public void onPrepared() {
-        com.baidu.adp.lib.g.e.fQ().removeCallbacks(this.fAx);
-        com.baidu.adp.lib.g.e.fQ().postDelayed(this.fAx, 200L);
-        if (this.fAt > 0) {
-            this.fAu = System.currentTimeMillis() - this.fAt;
+        com.baidu.adp.lib.g.e.fQ().removeCallbacks(this.fBq);
+        com.baidu.adp.lib.g.e.fQ().postDelayed(this.fBq, 200L);
+        if (this.fBm > 0) {
+            this.fBn = System.currentTimeMillis() - this.fBm;
         }
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.play.m.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -83,7 +83,7 @@ public class m implements QuickVideoView.a {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 Uri parse;
-                if (!am.isEmpty(m.this.fAq) && (parse = Uri.parse(m.this.fAq)) != null) {
+                if (!am.isEmpty(m.this.fBj) && (parse = Uri.parse(m.this.fBj)) != null) {
                     try {
                         m.this.zV = InetAddress.getByName(parse.getHost()).getHostAddress();
                         return null;
@@ -103,65 +103,65 @@ public class m implements QuickVideoView.a {
     @Override // com.baidu.tieba.play.QuickVideoView.a
     public void onStart() {
         this.mStartTime = System.currentTimeMillis();
-        if (this.bKE != null) {
-            this.bKE.start();
+        if (this.bLv != null) {
+            this.bLv.start();
         }
     }
 
     @Override // com.baidu.tieba.play.QuickVideoView.a
     public void onStop() {
-        com.baidu.adp.lib.g.e.fQ().removeCallbacks(this.fAx);
-        if (bfG()) {
-            r.ag(this.mContext, this.fAq);
+        com.baidu.adp.lib.g.e.fQ().removeCallbacks(this.fBq);
+        if (bfR()) {
+            r.ag(this.mContext, this.fBj);
         }
         long j = this.mStartTime;
         if (this.mStartTime > 0) {
-            this.fAs += System.currentTimeMillis() - this.mStartTime;
+            this.fBl += System.currentTimeMillis() - this.mStartTime;
             this.mStartTime = 0L;
         }
-        if (j > 0 && this.fAs >= 0 && this.fAs < 86400000) {
-            if (this.fAs > 0) {
+        if (j > 0 && this.fBl >= 0 && this.fBl < 86400000) {
+            if (this.fBl > 0) {
                 ak akVar = new ak("c11244");
-                akVar.f("obj_duration", this.fAs);
-                akVar.ad("obj_type", this.fAp);
-                if (this.fAo != null) {
-                    this.fAo.f(akVar);
+                akVar.f("obj_duration", this.fBl);
+                akVar.ad("obj_type", this.fBi);
+                if (this.fBh != null) {
+                    this.fBh.f(akVar);
                 }
                 TiebaStatic.log(akVar);
-                k.a(this.fAs, this.fAp, this.fAo, "");
+                k.a(this.fBl, this.fBi, this.fBh, "");
             } else {
-                k.a(this.fAs, this.fAp, this.fAo, "");
+                k.a(this.fBl, this.fBi, this.fBh, "");
             }
         }
-        if (this.bKE != null) {
-            this.bKE.stop();
+        if (this.bLv != null) {
+            this.bLv.stop();
         }
-        if (this.fAu > 0 && this.fAw != null) {
+        if (this.fBn > 0 && this.fBp != null) {
             ak akVar2 = new ak("c11685");
             akVar2.ad("service_ip", this.zV);
-            akVar2.ad("video_url", this.fAq);
-            akVar2.f("video_size", this.fAw.bfO());
-            akVar2.r("video_duration", this.fAw.getDuration());
-            akVar2.ad("video_resolution", this.fAw.bfP());
-            akVar2.r("loading_count", this.fAv);
-            akVar2.f("user_watch_time", this.fAs / 1000);
-            akVar2.f("start_play_time", this.fAu);
+            akVar2.ad("video_url", this.fBj);
+            akVar2.f("video_size", this.fBp.bfZ());
+            akVar2.r("video_duration", this.fBp.getDuration());
+            akVar2.ad("video_resolution", this.fBp.bga());
+            akVar2.r("loading_count", this.fBo);
+            akVar2.f("user_watch_time", this.fBl / 1000);
+            akVar2.f("start_play_time", this.fBn);
             TiebaStatic.log(akVar2);
         }
-        if (this.fAw != null && this.fAu > 0) {
-            u.a("stop_play", this.fAq, bfG(), (int) this.fAw.bfO(), this.fAw.getDuration());
+        if (this.fBp != null && this.fBn > 0) {
+            u.a("stop_play", this.fBj, bfR(), (int) this.fBp.bfZ(), this.fBp.getDuration());
         }
-        this.fAu = 0L;
-        this.fAs = 0L;
-        this.fAv = 0;
-        this.fAt = 0L;
+        this.fBn = 0L;
+        this.fBl = 0L;
+        this.fBo = 0;
+        this.fBm = 0L;
         this.mStartTime = 0L;
     }
 
     @Override // com.baidu.tieba.play.QuickVideoView.a
     public void onPause() {
         if (this.mStartTime > 0) {
-            this.fAs += System.currentTimeMillis() - this.mStartTime;
+            this.fBl += System.currentTimeMillis() - this.mStartTime;
             this.mStartTime = 0L;
         }
     }
@@ -169,38 +169,38 @@ public class m implements QuickVideoView.a {
     @Override // com.baidu.tieba.play.QuickVideoView.a
     public void onCompletion() {
         if (this.mStartTime > 0) {
-            this.fAs += System.currentTimeMillis() - this.mStartTime;
+            this.fBl += System.currentTimeMillis() - this.mStartTime;
             this.mStartTime = 0L;
         }
     }
 
-    public boolean bfD() {
-        return r.hx(this.fAq) != null;
+    public boolean bfO() {
+        return r.hx(this.fBj) != null;
     }
 
-    public void bfE() {
-        this.fAr = true;
+    public void bfP() {
+        this.fBk = true;
     }
 
-    public void qA(String str) {
-        this.fAp = str;
+    public void qC(String str) {
+        this.fBi = str;
     }
 
     @Override // com.baidu.tieba.play.QuickVideoView.a
     public i getMediaProgressObserver() {
-        return this.bKE;
+        return this.bLv;
     }
 
-    public t bfF() {
-        return this.fAw;
+    public t bfQ() {
+        return this.fBp;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bfG() {
-        return (this.fAr || this.aXX == null || this.aXX.equals(this.fAq)) ? false : true;
+    public boolean bfR() {
+        return (this.fBk || this.aXU == null || this.aXU.equals(this.fBj)) ? false : true;
     }
 
     public void setVideoStatsData(w wVar) {
-        this.fAo = wVar;
+        this.fBh = wVar;
     }
 }

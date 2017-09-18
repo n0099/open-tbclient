@@ -7,88 +7,88 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 class b {
-    int eSB;
-    int eSI;
-    int eSJ;
-    int eSK;
-    int eSO;
-    private int eSt;
-    private int eSu;
-    private byte[] eSv;
-    private int eSw;
-    private int eSx;
-    private int eSy;
-    int eSz;
-    int eSA = 12;
-    int eSC = 4096;
-    int[] eSD = new int[5003];
-    int[] eSE = new int[5003];
-    int eSF = 5003;
-    int eSG = 0;
-    boolean eSH = false;
-    int eSL = 0;
-    int eSM = 0;
-    int[] eSN = {0, 1, 3, 7, 15, 31, 63, TransportMediator.KEYCODE_MEDIA_PAUSE, MotionEventCompat.ACTION_MASK, 511, 1023, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
-    byte[] eSP = new byte[256];
+    int eTC;
+    int eTD;
+    int eTE;
+    int eTI;
+    private int eTn;
+    private int eTo;
+    private byte[] eTp;
+    private int eTq;
+    private int eTr;
+    private int eTs;
+    int eTt;
+    int eTv;
+    int eTu = 12;
+    int eTw = 4096;
+    int[] eTx = new int[5003];
+    int[] eTy = new int[5003];
+    int eTz = 5003;
+    int eTA = 0;
+    boolean eTB = false;
+    int eTF = 0;
+    int eTG = 0;
+    int[] eTH = {0, 1, 3, 7, 15, 31, 63, TransportMediator.KEYCODE_MEDIA_PAUSE, MotionEventCompat.ACTION_MASK, 511, 1023, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
+    byte[] eTJ = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.eSt = i;
-        this.eSu = i2;
-        this.eSv = bArr;
-        this.eSw = Math.max(2, i3);
+        this.eTn = i;
+        this.eTo = i2;
+        this.eTp = bArr;
+        this.eTq = Math.max(2, i3);
     }
 
     void a(byte b, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.eSP;
-        int i = this.eSO;
-        this.eSO = i + 1;
+        byte[] bArr = this.eTJ;
+        int i = this.eTI;
+        this.eTI = i + 1;
         bArr[i] = b;
-        if (this.eSO >= 254) {
+        if (this.eTI >= 254) {
             g(outputStream);
         }
     }
 
     void f(OutputStream outputStream) throws IOException {
-        pC(this.eSF);
-        this.eSG = this.eSJ + 2;
-        this.eSH = true;
-        b(this.eSJ, outputStream);
+        pE(this.eTz);
+        this.eTA = this.eTD + 2;
+        this.eTB = true;
+        b(this.eTD, outputStream);
     }
 
-    void pC(int i) {
+    void pE(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.eSD[i2] = -1;
+            this.eTx[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.eSI = i;
-        this.eSH = false;
-        this.eSz = this.eSI;
-        this.eSB = pD(this.eSz);
-        this.eSJ = 1 << (i - 1);
-        this.eSK = this.eSJ + 1;
-        this.eSG = this.eSJ + 2;
-        this.eSO = 0;
-        int aUa = aUa();
-        for (int i3 = this.eSF; i3 < 65536; i3 *= 2) {
+        this.eTC = i;
+        this.eTB = false;
+        this.eTt = this.eTC;
+        this.eTv = pF(this.eTt);
+        this.eTD = 1 << (i - 1);
+        this.eTE = this.eTD + 1;
+        this.eTA = this.eTD + 2;
+        this.eTI = 0;
+        int aUl = aUl();
+        for (int i3 = this.eTz; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.eSF;
-        pC(i5);
-        b(this.eSJ, outputStream);
+        int i5 = this.eTz;
+        pE(i5);
+        b(this.eTD, outputStream);
         while (true) {
-            int aUa2 = aUa();
-            if (aUa2 != -1) {
-                int i6 = (aUa2 << this.eSA) + aUa;
-                int i7 = (aUa2 << i4) ^ aUa;
-                if (this.eSD[i7] == i6) {
-                    aUa = this.eSE[i7];
+            int aUl2 = aUl();
+            if (aUl2 != -1) {
+                int i6 = (aUl2 << this.eTu) + aUl;
+                int i7 = (aUl2 << i4) ^ aUl;
+                if (this.eTx[i7] == i6) {
+                    aUl = this.eTy[i7];
                 } else {
-                    if (this.eSD[i7] >= 0) {
+                    if (this.eTx[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -98,28 +98,28 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.eSD[i7] == i6) {
-                                aUa = this.eSE[i7];
+                            if (this.eTx[i7] == i6) {
+                                aUl = this.eTy[i7];
                                 break;
                             }
-                        } while (this.eSD[i7] >= 0);
+                        } while (this.eTx[i7] >= 0);
                     }
-                    b(aUa, outputStream);
-                    if (this.eSG < this.eSC) {
-                        int[] iArr = this.eSE;
-                        int i9 = this.eSG;
-                        this.eSG = i9 + 1;
+                    b(aUl, outputStream);
+                    if (this.eTA < this.eTw) {
+                        int[] iArr = this.eTy;
+                        int i9 = this.eTA;
+                        this.eTA = i9 + 1;
                         iArr[i7] = i9;
-                        this.eSD[i7] = i6;
-                        aUa = aUa2;
+                        this.eTx[i7] = i6;
+                        aUl = aUl2;
                     } else {
                         f(outputStream);
-                        aUa = aUa2;
+                        aUl = aUl2;
                     }
                 }
             } else {
-                b(aUa, outputStream);
-                b(this.eSK, outputStream);
+                b(aUl, outputStream);
+                b(this.eTE, outputStream);
                 return;
             }
         }
@@ -127,69 +127,69 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.eSw);
-        this.eSx = this.eSt * this.eSu;
-        this.eSy = 0;
-        a(this.eSw + 1, outputStream);
+        outputStream.write(this.eTq);
+        this.eTr = this.eTn * this.eTo;
+        this.eTs = 0;
+        a(this.eTq + 1, outputStream);
         outputStream.write(0);
     }
 
     void g(OutputStream outputStream) throws IOException {
-        if (this.eSO > 0) {
-            outputStream.write(this.eSO);
-            outputStream.write(this.eSP, 0, this.eSO);
-            this.eSO = 0;
+        if (this.eTI > 0) {
+            outputStream.write(this.eTI);
+            outputStream.write(this.eTJ, 0, this.eTI);
+            this.eTI = 0;
         }
     }
 
-    final int pD(int i) {
+    final int pF(int i) {
         return (1 << i) - 1;
     }
 
-    private int aUa() {
-        if (this.eSx == 0) {
+    private int aUl() {
+        if (this.eTr == 0) {
             return -1;
         }
-        this.eSx--;
-        byte[] bArr = this.eSv;
-        int i = this.eSy;
-        this.eSy = i + 1;
+        this.eTr--;
+        byte[] bArr = this.eTp;
+        int i = this.eTs;
+        this.eTs = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.eSL &= this.eSN[this.eSM];
-        if (this.eSM > 0) {
-            this.eSL |= i << this.eSM;
+        this.eTF &= this.eTH[this.eTG];
+        if (this.eTG > 0) {
+            this.eTF |= i << this.eTG;
         } else {
-            this.eSL = i;
+            this.eTF = i;
         }
-        this.eSM += this.eSz;
-        while (this.eSM >= 8) {
-            a((byte) (this.eSL & MotionEventCompat.ACTION_MASK), outputStream);
-            this.eSL >>= 8;
-            this.eSM -= 8;
+        this.eTG += this.eTt;
+        while (this.eTG >= 8) {
+            a((byte) (this.eTF & MotionEventCompat.ACTION_MASK), outputStream);
+            this.eTF >>= 8;
+            this.eTG -= 8;
         }
-        if (this.eSG > this.eSB || this.eSH) {
-            if (this.eSH) {
-                int i2 = this.eSI;
-                this.eSz = i2;
-                this.eSB = pD(i2);
-                this.eSH = false;
+        if (this.eTA > this.eTv || this.eTB) {
+            if (this.eTB) {
+                int i2 = this.eTC;
+                this.eTt = i2;
+                this.eTv = pF(i2);
+                this.eTB = false;
             } else {
-                this.eSz++;
-                if (this.eSz == this.eSA) {
-                    this.eSB = this.eSC;
+                this.eTt++;
+                if (this.eTt == this.eTu) {
+                    this.eTv = this.eTw;
                 } else {
-                    this.eSB = pD(this.eSz);
+                    this.eTv = pF(this.eTt);
                 }
             }
         }
-        if (i == this.eSK) {
-            while (this.eSM > 0) {
-                a((byte) (this.eSL & MotionEventCompat.ACTION_MASK), outputStream);
-                this.eSL >>= 8;
-                this.eSM -= 8;
+        if (i == this.eTE) {
+            while (this.eTG > 0) {
+                a((byte) (this.eTF & MotionEventCompat.ACTION_MASK), outputStream);
+                this.eTF >>= 8;
+                this.eTG -= 8;
             }
             g(outputStream);
         }

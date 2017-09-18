@@ -5,61 +5,61 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<f> apV;
-    private List<f> apW;
-    private boolean apX;
-    private boolean apY;
-    private int aqa;
-    private int apZ = 2;
-    private int aqb = 1;
+    private List<f> apT;
+    private List<f> apU;
+    private boolean apV;
+    private boolean apW;
+    private int apY;
+    private int apX = 2;
+    private int apZ = 1;
 
     public d(List<f> list, boolean z, int i) {
-        this.aqa = 2;
-        this.apV = list;
-        this.apY = z;
-        this.aqa = i;
+        this.apY = 2;
+        this.apT = list;
+        this.apW = z;
+        this.apY = i;
         w(list);
     }
 
     public void w(List<f> list) {
-        if (list != null && list.size() >= this.apZ && list.size() <= this.aqa) {
-            this.apX = true;
-        } else if (list.size() > this.aqa && this.apY) {
-            this.apX = true;
+        if (list != null && list.size() >= this.apX && list.size() <= this.apY) {
+            this.apV = true;
+        } else if (list.size() > this.apY && this.apW) {
+            this.apV = true;
         } else {
-            this.apX = false;
+            this.apV = false;
         }
-        this.apW = xw();
+        this.apU = xw();
     }
 
     private List<f> xw() {
         ArrayList arrayList = new ArrayList();
-        if (this.apV != null) {
-            if (this.apX) {
-                if (this.apV.size() > this.aqa && this.apV.size() >= this.aqb) {
-                    arrayList.addAll(this.apV.subList(0, this.aqa));
-                    arrayList.addAll(0, this.apV.subList(this.aqa - this.aqb, this.aqa));
-                    arrayList.addAll(this.apV.subList(0, this.aqb));
+        if (this.apT != null) {
+            if (this.apV) {
+                if (this.apT.size() > this.apY && this.apT.size() >= this.apZ) {
+                    arrayList.addAll(this.apT.subList(0, this.apY));
+                    arrayList.addAll(0, this.apT.subList(this.apY - this.apZ, this.apY));
+                    arrayList.addAll(this.apT.subList(0, this.apZ));
                 } else {
-                    arrayList.addAll(this.apV);
-                    arrayList.addAll(0, this.apV.subList(this.apV.size() - this.aqb, this.apV.size()));
-                    arrayList.addAll(this.apV.subList(0, this.aqb));
+                    arrayList.addAll(this.apT);
+                    arrayList.addAll(0, this.apT.subList(this.apT.size() - this.apZ, this.apT.size()));
+                    arrayList.addAll(this.apT.subList(0, this.apZ));
                 }
-            } else if (this.apV != null && this.apV.size() > 0 && this.apV.size() >= this.aqb) {
-                arrayList.addAll(this.apV.subList(0, this.aqb));
+            } else if (this.apT != null && this.apT.size() > 0 && this.apT.size() >= this.apZ) {
+                arrayList.addAll(this.apT.subList(0, this.apZ));
             }
         }
         return arrayList;
     }
 
     public int dz(int i) {
-        if (this.apX) {
-            int size = this.apW.size();
+        if (this.apV) {
+            int size = this.apU.size();
             if (i == 0) {
-                return (size - 1) - this.aqb;
+                return (size - 1) - this.apZ;
             }
-            if (i == size - this.aqb) {
-                return this.aqb;
+            if (i == size - this.apZ) {
+                return this.apZ;
             }
             return i;
         }
@@ -67,42 +67,42 @@ public class d {
     }
 
     public int dA(int i) {
-        if (this.apX) {
-            return i - this.aqb;
+        if (this.apV) {
+            return i - this.apZ;
         }
         return i;
     }
 
     public int xx() {
-        if (this.apV == null) {
+        if (this.apT == null) {
             return 0;
         }
-        return this.apV.size();
+        return this.apT.size();
     }
 
     public int xy() {
-        if (this.apX) {
-            return this.aqb;
+        if (this.apV) {
+            return this.apZ;
         }
         return 0;
     }
 
     public void dB(int i) {
-        this.aqa = i;
-        w(this.apV);
+        this.apY = i;
+        w(this.apT);
     }
 
     public void dC(int i) {
-        this.apZ = i;
-        w(this.apV);
+        this.apX = i;
+        w(this.apT);
     }
 
     public List<f> xz() {
-        return this.apW;
+        return this.apU;
     }
 
     public void dD(int i) {
-        this.aqb = i;
-        w(this.apV);
+        this.apZ = i;
+        w(this.apT);
     }
 }

@@ -4,10 +4,9 @@ import android.content.Context;
 import android.os.Environment;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.h.p;
-import com.baidu.android.pushservice.j.l;
-import com.baidu.android.pushservice.j.n;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.k;
+import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.tbadk.TbConfig;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
@@ -21,11 +20,11 @@ import org.json.JSONArray;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes2.dex */
 public final class e {
-    static int a = -1;
+    private static int c = -1;
     private static Boolean e = false;
     private static volatile e n;
     private String B;
-    com.baidu.android.pushservice.message.d c;
+    com.baidu.android.pushservice.message.d b;
     private b h;
     private a i;
     private Context l;
@@ -38,13 +37,13 @@ public final class e {
     private HashMap<Long, com.baidu.android.pushservice.e.a> g = new HashMap<>();
     private boolean j = false;
     private int k = 0;
-    Handler b = new Handler();
+    Handler a = new Handler();
     private boolean m = true;
     private String p = h.c();
     private Runnable s = new Runnable() { // from class: com.baidu.android.pushservice.e.2
         @Override // java.lang.Runnable
         public void run() {
-            e.this.h();
+            e.this.i();
         }
     };
     private Runnable t = new Runnable() { // from class: com.baidu.android.pushservice.e.3
@@ -55,15 +54,15 @@ public final class e {
                 e.this.o = false;
             }
             e.this.a(false);
-            e.this.i();
-            q.b("PushConnection Send Timeout " + e.this.l.getPackageName() + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.a + System.currentTimeMillis(), e.this.l.getApplicationContext());
+            e.this.j();
+            p.b("PushConnection Send Timeout " + e.this.l.getPackageName() + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.c + System.currentTimeMillis(), e.this.l.getApplicationContext());
             if (com.baidu.android.pushservice.a.b() > 0) {
                 com.baidu.android.pushservice.h.h hVar = new com.baidu.android.pushservice.h.h();
                 hVar.d = "039911";
                 hVar.e = System.currentTimeMillis();
-                hVar.f = com.baidu.android.pushservice.h.a.b.c(e.this.l);
-                hVar.g = e.a;
-                p.b(e.this.l, hVar);
+                hVar.f = com.baidu.android.pushservice.h.a.b.b(e.this.l);
+                hVar.g = e.c;
+                com.baidu.android.pushservice.h.p.b(e.this.l, hVar);
             }
         }
     };
@@ -85,16 +84,16 @@ public final class e {
             byte[] bArr;
             while (!e.this.f) {
                 try {
-                    bArr = PushSocket.a(e.this.l, e.a);
+                    bArr = PushSocket.a(e.this.l, e.c);
                 } catch (Exception e) {
                     bArr = null;
                     if (com.baidu.android.pushservice.a.b() > 0) {
-                        p.a(e.this.l, "039908", PushSocket.getLastSocketError(), q.a(e));
+                        com.baidu.android.pushservice.h.p.a(e.this.l, "039908", PushSocket.getLastSocketError(), p.a(e));
                     }
                     com.baidu.android.pushservice.g.b.b("PushConnection", "Get message exception", e.this.l.getApplicationContext());
-                    p.a(e.this.l, e);
+                    com.baidu.android.pushservice.h.p.a(e.this.l, e);
                 }
-                e.this.b.removeCallbacks(e.this.t);
+                e.this.a.removeCallbacks(e.this.t);
                 if (e.this.o) {
                     e.this.o = false;
                     e.this.a(true);
@@ -103,32 +102,32 @@ public final class e {
                     int lastSocketError = PushSocket.getLastSocketError();
                     com.baidu.android.pushservice.g.b.a("PushConnection", "Receive err,errno:" + lastSocketError, e.this.l.getApplicationContext());
                     e.this.a("039913", lastSocketError);
-                    e.this.i();
-                    q.b("PushConnection Receive err " + e.this.l.getPackageName() + " lastSocketError " + lastSocketError + " socketfd " + e.a + System.currentTimeMillis(), e.this.l.getApplicationContext());
+                    e.this.j();
+                    p.b("PushConnection Receive err " + e.this.l.getPackageName() + " lastSocketError " + lastSocketError + " socketfd " + e.c + System.currentTimeMillis(), e.this.l.getApplicationContext());
                 } else {
                     try {
-                        com.baidu.android.pushservice.message.e a = e.this.c.a(bArr, bArr.length);
+                        com.baidu.android.pushservice.message.e a = e.this.b.a(bArr, bArr.length);
                         if (a != null) {
                             try {
                                 com.baidu.android.pushservice.g.a.c("PushConnection", "ReadThread receive msg :" + a.toString());
-                                e.this.c.b(a);
+                                e.this.b.b(a);
                             } catch (Exception e2) {
-                                com.baidu.android.pushservice.g.b.b("PushConnection", "Handle message exception " + q.a(e2), e.this.l.getApplicationContext());
-                                q.b("PushConnection Handle message exception " + e.this.l.getPackageName() + q.a(e2) + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.a + System.currentTimeMillis(), e.this.l.getApplicationContext());
+                                com.baidu.android.pushservice.g.b.b("PushConnection", "Handle message exception " + p.a(e2), e.this.l.getApplicationContext());
+                                p.b("PushConnection Handle message exception " + e.this.l.getPackageName() + p.a(e2) + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.c + System.currentTimeMillis(), e.this.l.getApplicationContext());
                                 if (com.baidu.android.pushservice.a.b() > 0) {
-                                    p.a(e.this.l, "039910", PushSocket.getLastSocketError(), q.a(e2));
+                                    com.baidu.android.pushservice.h.p.a(e.this.l, "039910", PushSocket.getLastSocketError(), p.a(e2));
                                 }
-                                e.this.i();
+                                e.this.j();
                             }
                         }
                         e.this.k = 0;
                     } catch (Exception e3) {
-                        com.baidu.android.pushservice.g.b.c("PushConnection", "Read message exception " + q.a(e3), e.this.l.getApplicationContext());
+                        com.baidu.android.pushservice.g.b.c("PushConnection", "Read message exception " + p.a(e3), e.this.l.getApplicationContext());
                         if (com.baidu.android.pushservice.a.b() > 0) {
-                            p.a(e.this.l, "039909", PushSocket.getLastSocketError(), q.a(e3));
+                            com.baidu.android.pushservice.h.p.a(e.this.l, "039909", PushSocket.getLastSocketError(), p.a(e3));
                         }
-                        e.this.i();
-                        q.b("PushConnection Read message exception " + e.this.l.getPackageName() + q.a(e3) + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.a + System.currentTimeMillis(), e.this.l.getApplicationContext());
+                        e.this.j();
+                        p.b("PushConnection Read message exception " + e.this.l.getPackageName() + p.a(e3) + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.c + System.currentTimeMillis(), e.this.l.getApplicationContext());
                     }
                 }
             }
@@ -146,15 +145,15 @@ public final class e {
             com.baidu.android.pushservice.message.e removeFirst;
             int i;
             while (!e.this.f) {
-                synchronized (e.this.c.a()) {
-                    if (e.this.c.a().size() == 0) {
+                synchronized (e.this.b.a()) {
+                    if (e.this.b.a().size() == 0) {
                         try {
-                            e.this.c.a().wait();
+                            e.this.b.a().wait();
                         } catch (InterruptedException e) {
                             com.baidu.android.pushservice.g.a.a("PushConnection", e);
                         }
                     }
-                    removeFirst = e.this.c.a().size() > 0 ? e.this.c.a().removeFirst() : null;
+                    removeFirst = e.this.b.a().size() > 0 ? e.this.b.a().removeFirst() : null;
                 }
                 if (e.this.f) {
                     return;
@@ -167,19 +166,19 @@ public final class e {
                         } else {
                             e.this.o = false;
                         }
-                        e.this.b.removeCallbacks(e.this.t);
-                        e.this.b.postDelayed(e.this.t, TbConfig.USE_TIME_INTERVAL);
+                        e.this.a.removeCallbacks(e.this.t);
+                        e.this.a.postDelayed(e.this.t, TbConfig.USE_TIME_INTERVAL);
                     }
                     try {
-                        i = PushSocket.sendMsg(e.a, removeFirst.a(), removeFirst.a().length);
+                        i = PushSocket.sendMsg(e.c, removeFirst.a(), removeFirst.a().length);
                     } catch (Exception e2) {
                         com.baidu.android.pushservice.g.a.a("PushConnection", e2);
                         i = -1;
                     }
                     if (i == -1) {
                         com.baidu.android.pushservice.g.a.c("PushConnection", "sendMsg err, errno:" + PushSocket.getLastSocketError());
-                        e.this.i();
-                        q.b("PushConnection sendMsg err " + e.this.l.getPackageName() + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.a + System.currentTimeMillis(), e.this.l.getApplicationContext());
+                        e.this.j();
+                        p.b("PushConnection sendMsg err " + e.this.l.getPackageName() + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.c + System.currentTimeMillis(), e.this.l.getApplicationContext());
                     }
                 }
             }
@@ -194,9 +193,9 @@ public final class e {
         if (g >= 0 && g < this.v.length) {
             this.w = g;
         }
-        l();
+        m();
         g.a(this.l).a(this.v[this.w]);
-        this.B = l.d(this.l);
+        this.B = k.d(this.l);
         this.q = h.a(this.l);
     }
 
@@ -216,14 +215,14 @@ public final class e {
                     com.baidu.android.pushservice.h.h hVar = new com.baidu.android.pushservice.h.h();
                     hVar.d = str;
                     hVar.e = System.currentTimeMillis();
-                    hVar.f = com.baidu.android.pushservice.h.a.b.c(e.this.l);
+                    hVar.f = com.baidu.android.pushservice.h.a.b.b(e.this.l);
                     hVar.g = i;
                     if (str.equals("030303")) {
-                        hVar.j = q.v(e.this.l);
+                        hVar.i = p.v(e.this.l);
                     } else if (str.equals("030301")) {
-                        hVar.j = q.w(e.this.l);
+                        hVar.i = p.w(e.this.l);
                     }
-                    p.b(e.this.l, hVar);
+                    com.baidu.android.pushservice.h.p.b(e.this.l, hVar);
                 } catch (Exception e2) {
                     com.baidu.android.pushservice.g.b.c("PushConnection", "insertAgent exception", e.this.l.getApplicationContext());
                 }
@@ -232,65 +231,65 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void h() {
+    public synchronized void i() {
         if (this.d || e.booleanValue()) {
             com.baidu.android.pushservice.g.b.c("PushConnection", "Connect return. mConnected:" + this.d + " mConnectting:" + e, this.l.getApplicationContext());
         } else if (j.a(this.l).c()) {
-            q.b("PushConnection connectImpl from " + this.l.getPackageName() + " at Time " + System.currentTimeMillis(), this.l);
+            p.b("PushConnection connectImpl from " + this.l.getPackageName() + " at Time " + System.currentTimeMillis(), this.l);
             e = true;
-            a = -1;
+            c = -1;
             Runnable runnable = new Runnable() { // from class: com.baidu.android.pushservice.e.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        e.a = PushSocket.createSocket(e.this.p, e.this.q);
+                        int unused = e.c = PushSocket.createSocket(e.this.p, e.this.q);
                     } catch (Exception e2) {
                         com.baidu.android.pushservice.g.a.a("PushConnection", e2);
                     }
-                    com.baidu.android.pushservice.g.a.c("PushConnection", "createSocket : SAServer =  " + e.this.p + " saPort =   " + e.this.q + "  socketfd: " + e.a);
+                    com.baidu.android.pushservice.g.a.c("PushConnection", "createSocket : SAServer =  " + e.this.p + " saPort =   " + e.this.q + "  socketfd: " + e.c);
                     if (com.baidu.android.pushservice.a.b() > 0) {
                         com.baidu.android.pushservice.h.h hVar = new com.baidu.android.pushservice.h.h();
                         hVar.d = "039907";
                         hVar.e = System.currentTimeMillis();
-                        hVar.f = com.baidu.android.pushservice.h.a.b.c(e.this.l);
-                        if (e.a >= 0) {
+                        hVar.f = com.baidu.android.pushservice.h.a.b.b(e.this.l);
+                        if (e.c >= 0) {
                             hVar.g = 0;
                         } else {
-                            hVar.g = e.a;
+                            hVar.g = e.c;
                         }
-                        p.b(e.this.l, hVar);
+                        com.baidu.android.pushservice.h.p.b(e.this.l, hVar);
                     }
-                    if (e.a == -1 || e.a == -2) {
+                    if (e.c == -1 || e.c == -2) {
                         int i = 132;
                         try {
                             i = PushSocket.getLastSocketError();
                         } catch (Exception e3) {
                             com.baidu.android.pushservice.g.a.a("PushConnection", e3);
                         }
-                        com.baidu.android.pushservice.g.b.b("PushConnection", "Create socket err, errno: " + i + "socketfd: " + e.a, e.this.l.getApplicationContext());
+                        com.baidu.android.pushservice.g.b.b("PushConnection", "Create socket err, errno: " + i + "socketfd: " + e.c, e.this.l.getApplicationContext());
                         if (h.c().equals(e.this.p)) {
                             e.this.a("030301", i);
                         } else {
                             e.this.a("030303", (int) IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND);
                         }
-                        if (e.a == -2) {
+                        if (e.c == -2) {
                             String a2 = h.a(e.this.l, e.this.m);
                             e.this.m = false;
                             if (!TextUtils.isEmpty(a2)) {
                                 e.this.p = a2;
                             }
                         }
-                        if (e.a == -1 && i == 110) {
+                        if (e.c == -1 && i == 110) {
                             e.this.q = 80;
                         }
-                        Boolean unused = e.e = false;
-                        e.this.i();
-                        q.b("PushConnection Create socket err " + e.this.l.getPackageName() + " lastSocketError " + i + " socketfd " + e.a + System.currentTimeMillis(), e.this.l.getApplicationContext());
+                        Boolean unused2 = e.e = false;
+                        e.this.j();
+                        p.b("PushConnection Create socket err " + e.this.l.getPackageName() + " lastSocketError " + i + " socketfd " + e.c + System.currentTimeMillis(), e.this.l.getApplicationContext());
                         return;
                     }
                     com.baidu.android.pushservice.g.b.a("PushConnection", "create Socket ok", e.this.l.getApplicationContext());
-                    q.b("create Socket ok socketfd" + e.a, e.this.l);
-                    e.this.c = new com.baidu.android.pushservice.message.f(e.this.l.getApplicationContext());
+                    p.b("create Socket ok socketfd" + e.c, e.this.l);
+                    e.this.b = new com.baidu.android.pushservice.message.f(e.this.l.getApplicationContext());
                     e.this.d = true;
                     if (e.this.i != null) {
                         e.this.i.interrupt();
@@ -303,11 +302,11 @@ public final class e {
                     e.this.i.start();
                     e.this.h = new b();
                     e.this.h.start();
-                    e.this.c.a(e.a);
+                    e.this.b.a(e.c);
                     if (!h.c().equals(e.this.p)) {
                         e.this.a("030302", 0);
                     }
-                    Boolean unused2 = e.e = false;
+                    Boolean unused3 = e.e = false;
                     e.this.m = true;
                     e.this.p = h.c();
                     h.c(e.this.l);
@@ -326,57 +325,57 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void i() {
+    public void j() {
         com.baidu.android.pushservice.g.b.c("PushConnection", "disconnectedByPeer, mStoped == " + this.j, this.l.getApplicationContext());
-        q.b("PushConnection destroy from " + this.l.getPackageName() + " at Time " + System.currentTimeMillis(), this.l);
-        j();
+        p.b("PushConnection destroy from " + this.l.getPackageName() + " at Time " + System.currentTimeMillis(), this.l);
+        k();
         if (this.j) {
             return;
         }
         this.k++;
         if (this.k < 3) {
-            this.b.removeCallbacks(this.s);
+            this.a.removeCallbacks(this.s);
             int i = (this.k - 1) * 30 * 1000;
             if (this.k == 1) {
                 i = 3000;
             }
-            this.b.postDelayed(this.s, i);
+            this.a.postDelayed(this.s, i);
             com.baidu.android.pushservice.g.b.c("PushConnection", "Schedule retry-- retry times: " + this.k + " time delay: " + i, this.l.getApplicationContext());
         }
     }
 
-    private void j() {
+    private void k() {
         com.baidu.android.pushservice.g.b.c("PushConnection", "destroy", this.l.getApplicationContext());
-        if (this.b != null) {
-            this.b.removeCallbacks(this.t);
+        if (this.a != null) {
+            this.a.removeCallbacks(this.t);
         }
         this.f = true;
         this.d = false;
-        if (this.c != null) {
+        if (this.b != null) {
             try {
-                synchronized (this.c.a()) {
-                    this.c.a().notifyAll();
+                synchronized (this.b.a()) {
+                    this.b.a().notifyAll();
                 }
             } catch (Exception e2) {
                 com.baidu.android.pushservice.g.a.e("PushConnection", "notifyAll Exception on destroy: " + e2.getMessage());
-                p.a(this.l, e2);
+                com.baidu.android.pushservice.h.p.a(this.l, e2);
             }
         }
-        PushSocket.a(a);
-        if (this.c != null) {
-            this.c.b();
+        PushSocket.a(c);
+        if (this.b != null) {
+            this.b.b();
         }
     }
 
-    private void k() {
+    private void l() {
         Set<Long> keySet = this.g.keySet();
         long currentTimeMillis = System.currentTimeMillis();
-        i c = g.a(this.l).c();
-        if (c != null) {
+        i c2 = g.a(this.l).c();
+        if (c2 != null) {
             for (Long l : keySet) {
                 long longValue = l.longValue();
                 if (longValue < currentTimeMillis) {
-                    c.a(this.g.get(Long.valueOf(longValue)));
+                    c2.a(this.g.get(Long.valueOf(longValue)));
                     this.g.remove(Long.valueOf(longValue));
                 }
             }
@@ -392,7 +391,7 @@ public final class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void l() {
+    private void m() {
         FileInputStream fileInputStream;
         File file = new File(Environment.getExternalStorageDirectory(), "baidu/pushservice/pushservice.cfg");
         ?? exists = file.exists();
@@ -461,19 +460,19 @@ public final class e {
     }
 
     public void a(boolean z) {
-        String d = l.d(this.l);
+        String d = k.d(this.l);
         if (TextUtils.equals(this.B, d)) {
             int e2 = e();
             if (!z) {
                 this.x = 0;
                 this.z = 0;
-                if (!l.a(this.l)) {
+                if (!k.a(this.l)) {
                     this.w++;
                 } else if (this.w > 0) {
                     this.w--;
                     f();
                 }
-            } else if (l.a(this.l)) {
+            } else if (k.a(this.l)) {
                 f();
                 this.x++;
                 if (this.x >= 3) {
@@ -488,22 +487,22 @@ public final class e {
                     com.baidu.android.pushservice.h.h hVar = new com.baidu.android.pushservice.h.h();
                     hVar.d = "030101";
                     hVar.e = System.currentTimeMillis();
-                    hVar.f = com.baidu.android.pushservice.h.a.b.c(this.l);
+                    hVar.f = com.baidu.android.pushservice.h.a.b.b(this.l);
                     hVar.a = e();
-                    p.a(this.l, hVar);
+                    com.baidu.android.pushservice.h.p.a(this.l, hVar);
                 }
             } else {
                 this.w++;
             }
             String str = "RTC stat change from " + e2 + " to " + e();
             com.baidu.android.pushservice.g.a.c("PushConnection", str);
-            q.b(str, this.l);
+            p.b(str, this.l);
         } else {
             this.w = g();
             this.x = 0;
             String str2 = "RTC stat change " + e() + " because of network changing";
             com.baidu.android.pushservice.g.a.c("PushConnection", str2);
-            q.b(str2, this.l);
+            p.b(str2, this.l);
         }
         this.B = d;
         g.a(this.l).a(e());
@@ -516,21 +515,21 @@ public final class e {
     public void b() {
         this.k = 0;
         this.j = false;
-        h();
+        i();
     }
 
     public void c() {
         com.baidu.android.pushservice.g.b.c("PushConnection", "---stop---", this.l.getApplicationContext());
-        q.b("PushConnection stop from " + this.l.getPackageName() + " at Time " + System.currentTimeMillis(), this.l);
+        p.b("PushConnection stop from " + this.l.getPackageName() + " at Time " + System.currentTimeMillis(), this.l);
         this.f = true;
         this.j = true;
-        this.b.removeCallbacks(this.s);
-        j();
+        this.a.removeCallbacks(this.s);
+        k();
         n = null;
     }
 
     public void d() {
-        if (this.c != null) {
+        if (this.b != null) {
             if (System.currentTimeMillis() - this.u > 120000) {
                 com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("heartbeat", (short) 98) { // from class: com.baidu.android.pushservice.e.4
                     @Override // com.baidu.android.pushservice.i.c
@@ -546,7 +545,7 @@ public final class e {
                                 com.baidu.android.pushservice.g.a.e("PushConnection", "InterruptedException: " + e2);
                             }
                         }
-                        e.this.c.c();
+                        e.this.b.c();
                         e.this.u = System.currentTimeMillis();
                         com.baidu.android.pushservice.g.b.c("PushConnection", "sendHeartbeatMessage", e.this.l.getApplicationContext());
                     }
@@ -555,7 +554,7 @@ public final class e {
                 com.baidu.android.pushservice.g.b.c("PushConnection", "sendHeartbeatMessage ingnored， because too frequent.", this.l.getApplicationContext());
             }
         }
-        k();
+        l();
     }
 
     public int e() {
@@ -568,16 +567,16 @@ public final class e {
     }
 
     public void f() {
-        if (l.b(this.l)) {
-            n.a(this.l, "com.baidu.pushservice.CUR_PERIOD_WIFI", this.w);
+        if (k.b(this.l)) {
+            m.a(this.l, "com.baidu.pushservice.CUR_PERIOD_WIFI", this.w);
         } else {
-            n.a(this.l, "com.baidu.pushservice.CUR_PERIOD_MOBILE", this.w);
+            m.a(this.l, "com.baidu.pushservice.CUR_PERIOD_MOBILE", this.w);
         }
     }
 
     public int g() {
-        if (l.a(this.l)) {
-            return l.b(this.l) ? n.b(this.l, "com.baidu.pushservice.CUR_PERIOD_WIFI", 0) : n.b(this.l, "com.baidu.pushservice.CUR_PERIOD_MOBILE", 0);
+        if (k.a(this.l)) {
+            return k.b(this.l) ? m.b(this.l, "com.baidu.pushservice.CUR_PERIOD_WIFI", 0) : m.b(this.l, "com.baidu.pushservice.CUR_PERIOD_MOBILE", 0);
         }
         com.baidu.android.pushservice.g.a.e("PushConnection", "getCachedPeriod mContext == null");
         return 0;

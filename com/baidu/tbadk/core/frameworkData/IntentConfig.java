@@ -136,11 +136,11 @@ public class IntentConfig extends OrmObject {
     public void addSourceTraceForPageStayDurationStat() {
         ArrayList arrayList;
         if (this.mIntent != null) {
-            f<?> W = i.W(this.mContext);
-            if (!(W instanceof com.baidu.tbadk.pageStayDuration.a)) {
+            f<?> X = i.X(this.mContext);
+            if (!(X instanceof com.baidu.tbadk.pageStayDuration.a)) {
                 arrayList = null;
             } else {
-                arrayList = (ArrayList) ((com.baidu.tbadk.pageStayDuration.a) W).getNextPageSourceKeyList();
+                arrayList = (ArrayList) ((com.baidu.tbadk.pageStayDuration.a) X).getNextPageSourceKeyList();
             }
             if (!v.v(arrayList)) {
                 this.mIntent.putStringArrayListExtra(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, arrayList);

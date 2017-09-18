@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.frs.entelechy.b.b {
-    private float avf = 0.16875f;
+    private float avc = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, i iVar) {
@@ -32,25 +32,25 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
                         it.remove();
                     }
                 }
-                iVar.dr(arrayList);
+                iVar.ds(arrayList);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean jf(int i) {
+    public boolean jh(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(boolean z, com.baidu.tieba.frs.entelechy.b.d dVar, f fVar, com.baidu.tieba.frs.i iVar, i iVar2) {
         if (fVar != null && iVar != null && iVar2 != null && dVar != null && iVar.getListView() != null) {
-            fVar.alD();
+            fVar.alO();
             if (z) {
                 dVar.a(iVar.getListView(), iVar.getListView().getHeaderViewsCount());
             }
-            if (iVar2 != null && iVar2.aOV() != null) {
-                iVar.a(iVar2.aOV().getFrsBannerData());
+            if (iVar2 != null && iVar2.aPg() != null) {
+                iVar.a(iVar2.aPg().getFrsBannerData());
             }
         }
     }
@@ -59,7 +59,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
     public void a(BdTypeListView bdTypeListView, com.baidu.tieba.frs.view.b bVar) {
         if ((bdTypeListView instanceof BdExpandListView) && bVar != null && bVar.getView() != null) {
             BdExpandListView bdExpandListView = (BdExpandListView) bdTypeListView;
-            bdExpandListView.e(bVar.getView(), k.g(TbadkCoreApplication.getInst(), d.f.ds568));
+            bdExpandListView.e(bVar.getView(), k.f(TbadkCoreApplication.getInst(), d.f.ds568));
             bdExpandListView.requestLayout();
         }
     }

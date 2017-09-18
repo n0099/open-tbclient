@@ -23,12 +23,12 @@ public class e extends com.baidu.tbadk.editortools.emotiontool.c {
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public String eH(int i) {
         int i2;
-        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.aCj.size()) {
+        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.aCg.size()) {
             i2 = 0;
         } else {
-            i2 = com.baidu.tbadk.editortools.emotiontool.b.aCj.get(i).intValue();
+            i2 = com.baidu.tbadk.editortools.emotiontool.b.aCg.get(i).intValue();
         }
-        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.aCk.entrySet()) {
+        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.aCh.entrySet()) {
             if (entry.getValue().intValue() == i2) {
                 return entry.getKey();
             }
@@ -38,13 +38,13 @@ public class e extends com.baidu.tbadk.editortools.emotiontool.c {
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public boolean fJ(String str) {
-        return com.baidu.tbadk.editortools.emotiontool.b.aCk.get(str) != null;
+        return com.baidu.tbadk.editortools.emotiontool.b.aCh.get(str) != null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public com.baidu.adp.widget.a.a fK(String str) {
         Bitmap resBitmap;
-        Integer num = com.baidu.tbadk.editortools.emotiontool.b.aCk.get(str);
+        Integer num = com.baidu.tbadk.editortools.emotiontool.b.aCh.get(str);
         if (num != null && (resBitmap = com.baidu.adp.lib.util.d.gQ().getResBitmap(TbadkCoreApplication.getInst().getApp(), num.intValue())) != null) {
             return new com.baidu.adp.widget.a.a(resBitmap, false, str);
         }
@@ -53,7 +53,7 @@ public class e extends com.baidu.tbadk.editortools.emotiontool.c {
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public int getEmotionsCount() {
-        return com.baidu.tbadk.editortools.emotiontool.b.aCj.size();
+        return com.baidu.tbadk.editortools.emotiontool.b.aCg.size();
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c

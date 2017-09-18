@@ -24,19 +24,19 @@ public class k {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern gie = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern giY = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String gib = null;
-    private SpannableStringBuilder gic = null;
-    private boolean gia = false;
+    private String giW = null;
+    private SpannableStringBuilder giX = null;
+    private boolean giV = false;
 
-    public static boolean bH(int i, int i2) {
+    public static boolean bL(int i, int i2) {
         return i == 0 && i2 != 3;
     }
 
-    public static boolean bI(int i, int i2) {
+    public static boolean bM(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -52,23 +52,23 @@ public class k {
         return this.text;
     }
 
-    public String brZ() {
+    public String bsk() {
         return this.c;
     }
 
-    public SpannableStringBuilder bsa() {
-        return this.gic;
+    public SpannableStringBuilder bsl() {
+        return this.giX;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.gic == null) {
-            this.gic = new SpannableStringBuilder();
+        if (this.giX == null) {
+            this.giX = new SpannableStringBuilder();
         }
-        this.gic.append((CharSequence) spannableString);
-        return this.gic;
+        this.giX.append((CharSequence) spannableString);
+        return this.giX;
     }
 
-    public SpannableString bW(Context context) {
+    public SpannableString bX(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -91,7 +91,7 @@ public class k {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = k.gie.matcher(k.this.link);
+                        Matcher matcher2 = k.giY.matcher(k.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();
@@ -166,7 +166,7 @@ public class k {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.gib = jSONObject.optString("cdn_src", null);
+                    this.giW = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         if (split.length > 1) {
@@ -181,7 +181,7 @@ public class k {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.gia = true;
+                        this.giV = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");

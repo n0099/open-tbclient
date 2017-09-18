@@ -312,8 +312,8 @@ public final class d {
         try {
             Report report = Report.getInstance(context);
             JSONObject jSONObject = new JSONObject();
-            com.baidu.sofire.a.a an = com.baidu.sofire.a.a.an(context);
-            Map<Integer, String> nl = an.nl();
+            com.baidu.sofire.a.a ao = com.baidu.sofire.a.a.ao(context);
+            Map<Integer, String> nl = ao.nl();
             jSONObject.put("0", nl.keySet());
             jSONObject.put("1", nl.values());
             jSONObject.toString();
@@ -322,7 +322,7 @@ public final class d {
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("1003003", jSONObject);
             jSONObject2.put("0", jSONObject3);
-            Map<Integer, String> nm = an.nm();
+            Map<Integer, String> nm = ao.nm();
             JSONArray jSONArray = new JSONArray();
             for (String str : nm.values()) {
                 jSONArray.put(str);
@@ -464,7 +464,7 @@ public final class d {
         return new String[]{b, c};
     }
 
-    public static boolean h(Context context, int i) {
+    public static boolean g(Context context, int i) {
         if (i == 1) {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (!(activeNetworkInfo != null && 1 == activeNetworkInfo.getType())) {
@@ -578,7 +578,7 @@ public final class d {
         }
     }
 
-    public static int ao(Context context) {
+    public static int ap(Context context) {
         ConnectivityManager connectivityManager;
         try {
             connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");

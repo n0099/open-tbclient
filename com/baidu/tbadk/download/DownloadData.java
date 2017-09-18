@@ -21,7 +21,7 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_NOVEL = 15;
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
     private static final long serialVersionUID = 1402749061179345930L;
-    private transient d aAL;
+    private transient d aAI;
     private String action;
     private String app_icon;
     private String check;
@@ -96,7 +96,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aAL = null;
+        this.aAI = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -112,7 +112,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aAL = null;
+        this.aAI = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -129,7 +129,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aAL = null;
+        this.aAI = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -147,7 +147,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aAL = null;
+        this.aAI = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -156,7 +156,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.aAL = dVar;
+        this.aAI = dVar;
         this.status = 5;
     }
 
@@ -257,11 +257,11 @@ public class DownloadData implements Serializable, Cloneable {
     }
 
     public d getCallback() {
-        return this.aAL;
+        return this.aAI;
     }
 
     public void setCallback(d dVar) {
-        this.aAL = dVar;
+        this.aAI = dVar;
     }
 
     public String getStatusMsg() {

@@ -63,7 +63,7 @@ public class c extends t {
         String cuid = TbadkCoreApplication.getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
-        String str3 = String.valueOf(k.ad(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(k.ae(getContext()));
+        String str3 = String.valueOf(k.ae(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(k.af(getContext()));
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
             jSONObject.put("systemName", "android");

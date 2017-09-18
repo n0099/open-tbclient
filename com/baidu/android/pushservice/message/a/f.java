@@ -14,12 +14,10 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
+import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
-import com.baidu.android.pushservice.j.q;
 import com.baidu.android.pushservice.message.PublicMsg;
 import java.util.Locale;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f {
     @SuppressLint({"NewApi"})
@@ -36,13 +34,7 @@ public class f {
         intent.setClass(context, PushService.class);
         intent2.setClass(context, PushService.class);
         Notification.Builder autoCancel = new Notification.Builder(context).setContentTitle(publicMsg.mTitle).setContentText(publicMsg.mDescription).setSmallIcon(17301569).setTicker(publicMsg.mTitle).setSound(RingtoneManager.getDefaultUri(2)).setDeleteIntent(PendingIntent.getService(context, 0, intent2, 0)).setContentIntent(PendingIntent.getService(context, 0, intent, 0)).setAutoCancel(true);
-        notificationManager.notify(q.b(str), Build.VERSION.SDK_INT >= 16 ? autoCancel.build() : autoCancel.getNotification());
-    }
-
-    public static void a(Context context, PublicMsg publicMsg, String str, String str2) {
-        if (publicMsg.mUrl != null) {
-            b(context, publicMsg, str);
-        }
+        notificationManager.notify(p.b(str), Build.VERSION.SDK_INT >= 16 ? autoCancel.build() : autoCancel.getNotification());
     }
 
     public static void a(Context context, PublicMsg publicMsg, String str, String str2, int i, byte[] bArr, byte[] bArr2) {
@@ -54,11 +46,11 @@ public class f {
         intent.putExtra("message_id", str);
         intent.putExtra("app_id", str2);
         intent.putExtra("baidu_message_type", i);
-        if (q.l(context, publicMsg.mPkgName) > 45) {
+        if (p.l(context, publicMsg.mPkgName) > 45) {
             intent.putExtra("baidu_message_body", bArr2);
             intent.putExtra("baidu_message_secur_info", bArr);
         }
-        q.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
+        p.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
     }
 
     public static void a(Context context, String str) {
@@ -66,7 +58,7 @@ public class f {
             Intent intent = new Intent(PushConstants.ACTION_METHOD);
             intent.putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.UNBINDAPP");
             intent.putExtra("app_id", str);
-            p.a(context, intent);
+            o.a(context, intent);
         } catch (Exception e) {
             com.baidu.android.pushservice.g.a.a("NotificationHandler", "unbind exception", e);
         }
@@ -81,12 +73,12 @@ public class f {
         intent.putExtra("pushService_package_name", context.getPackageName());
         intent.putExtra("baidu_message_type", i);
         intent.putExtra("service_name", "com.baidu.android.pushservice.PushService");
-        if (q.l(context, publicMsg.mPkgName) > 45) {
+        if (p.l(context, publicMsg.mPkgName) > 45) {
             intent.putExtra("baidu_message_body", bArr2);
             intent.putExtra("baidu_message_secur_info", bArr);
         }
         com.baidu.android.pushservice.g.a.c("NotificationHandler", "richMedia Intent content： public_msg=" + publicMsg + ", notify_type=rich_media, appid=" + str + ", message_id=" + str2 + ", pushService_package_name=" + context.getPackageName() + ", service_name=com.baidu.android.pushservice.PushServicepMsg.mPkgName=" + publicMsg.mPkgName);
-        q.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
+        p.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
     }
 
     public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
@@ -100,7 +92,7 @@ public class f {
         cVar.c(3);
         cVar.a(str);
         cVar.b(str2);
-        cVar.a(q.p(context, intent.getPackage()));
+        cVar.a(p.p(context, intent.getPackage()));
         cVar.a(context, activity, str5);
     }
 
@@ -112,7 +104,7 @@ public class f {
         boolean z;
         boolean z2;
         if (publicMsg.mNetType == 1) {
-            NetworkInfo c = com.baidu.android.pushservice.j.l.c(context);
+            NetworkInfo c = com.baidu.android.pushservice.j.k.c(context);
             if (c != null) {
                 com.baidu.android.pushservice.g.a.c("NotificationHandler", "network type : " + c.getTypeName().toLowerCase(Locale.getDefault()));
                 if ("wifi".equals(c.getTypeName().toLowerCase(Locale.getDefault()))) {
@@ -143,41 +135,5 @@ public class f {
         if (publicMsg.mIsSupportApp) {
         }
         return false;
-    }
-
-    private static void b(Context context, PublicMsg publicMsg, String str) {
-        Intent intent = new Intent();
-        intent.setData(Uri.parse(publicMsg.mUrl));
-        if (q.n(context, "com.baidu.searchbox")) {
-            intent.setAction("com.baidu.searchbox.action.VIEW");
-            intent.setClassName("com.baidu.searchbox", "com.baidu.searchbox.MainActivity");
-            intent.setAction("com.baidu.searchbox.action.VIEW");
-            intent.addCategory("android.intent.category.DEFAULT");
-            intent.addFlags(268435456);
-            intent.putExtra("EXTRA_URL_NEW_WINDOW", true);
-        } else if (q.n(context, "com.baidu.browser.apps")) {
-            intent.setAction("android.intent.action.VIEW");
-            intent.setClassName("com.baidu.browser.apps", "com.baidu.browser.framework.BdBrowserActivity");
-        } else {
-            intent.setAction("android.intent.action.VIEW");
-            intent.addFlags(268435456);
-        }
-        String str2 = "";
-        if (publicMsg.mCustomContent != null) {
-            try {
-                str2 = new JSONObject(publicMsg.mCustomContent).getString("iconUrl");
-            } catch (JSONException e) {
-                com.baidu.android.pushservice.g.a.a("NotificationHandler", e);
-            }
-        }
-        PendingIntent activity = PendingIntent.getActivity(context, 0, intent, 0);
-        com.baidu.android.pushservice.c cVar = new com.baidu.android.pushservice.c(str2);
-        cVar.b(16);
-        cVar.c(3);
-        cVar.a(publicMsg.mTitle);
-        cVar.a(context.getApplicationInfo().icon);
-        cVar.b(publicMsg.mDescription);
-        cVar.a(q.p(context, intent.getPackage()));
-        cVar.a(context, activity, str);
     }
 }
