@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -10,7 +11,8 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.l;
+import com.baidu.android.pushservice.j.p;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -48,6 +50,7 @@ public class c {
         this.a = i;
     }
 
+    @SuppressLint({"NewApi"})
     public void a(final Context context, final PendingIntent pendingIntent, final String str) {
         int a = a(context, "bpush_lapp_notification_status_icon");
         if (a > 0) {
@@ -60,7 +63,13 @@ public class c {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        Notification build = new Notification.Builder(context).setContentTitle(c.this.f).setContentText(c.this.g).setSmallIcon(c.this.a).setLargeIcon(c.this.a(Drawable.createFromStream(new URL(c.this.i).openStream(), null), context)).build();
+                        Drawable createFromStream = Drawable.createFromStream(new URL(c.this.i).openStream(), null);
+                        Notification.Builder builder = new Notification.Builder(context);
+                        if (p.F(context)) {
+                            l.a(context, "com.baidu.android.pushservice.push", "Push");
+                            builder.setChannelId("com.baidu.android.pushservice.push");
+                        }
+                        Notification build = builder.setContentTitle(c.this.f).setContentTitle(c.this.f).setContentText(c.this.g).setSmallIcon(c.this.a).setLargeIcon(c.this.a(createFromStream, context)).build();
                         if (c.this.b != 0) {
                             build.flags = c.this.b;
                         }
@@ -108,7 +117,7 @@ public class c {
         }
         if (notification != null) {
             notification.contentIntent = pendingIntent;
-            ((NotificationManager) context.getSystemService("notification")).notify(q.b(str), notification);
+            ((NotificationManager) context.getSystemService("notification")).notify(p.b(str), notification);
         }
     }
 

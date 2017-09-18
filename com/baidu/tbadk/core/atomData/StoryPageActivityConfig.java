@@ -48,21 +48,21 @@ public class StoryPageActivityConfig extends IntentConfig {
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean asynStart() {
-        if (this.mDoneCallback != null && (i.X(getContext()) instanceof TbPageContext)) {
+        if (this.mDoneCallback != null && (i.Y(getContext()) instanceof TbPageContext)) {
             Intent intent = getIntent();
             ArrayList arrayList = (ArrayList) intent.getSerializableExtra(USER_LIST);
             int intExtra = intent.getIntExtra("index", 0);
             long longExtra = intent.getLongExtra("forum_id", -1L);
             long longExtra2 = intent.getLongExtra("thread_id", -1L);
-            this.mStoryModel = makeStoryModel(i.X(getContext()));
+            this.mStoryModel = makeStoryModel(i.Y(getContext()));
             if (this.mStoryModel != null) {
-                return l.bnU().a(this.mStoryModel, arrayList, intExtra, longExtra, longExtra2, new f() { // from class: com.baidu.tbadk.core.atomData.StoryPageActivityConfig.1
+                return l.bof().a(this.mStoryModel, arrayList, intExtra, longExtra, longExtra2, new f() { // from class: com.baidu.tbadk.core.atomData.StoryPageActivityConfig.1
                     @Override // com.baidu.tieba.story.f
                     public void a(int i, String str, MetaData metaData, List<UserStoryData> list) {
                         Class<?> intentClass = TbadkCoreApplication.getInst().getIntentClass(StoryPageActivityConfig.this.getConfig().getClass());
                         if (intentClass != null) {
                             StoryPageActivityConfig.this.savePreLoadData(list);
-                            l.bnU().c(metaData);
+                            l.bof().c(metaData);
                             StoryPageActivityConfig.this.getConfig().setComponentClass(intentClass);
                             StoryPageActivityConfig.this.getConfig().run();
                             if (StoryPageActivityConfig.this.mDoneCallback != null) {
@@ -105,7 +105,7 @@ public class StoryPageActivityConfig extends IntentConfig {
         if (!v.v(list)) {
             for (UserStoryData userStoryData : list) {
                 if (userStoryData != null && userStoryData.storyUser != null) {
-                    l.bnU().a(userStoryData.storyUser.getUserIdLong(), userStoryData);
+                    l.bof().a(userStoryData.storyUser.getUserIdLong(), userStoryData);
                 }
             }
         }

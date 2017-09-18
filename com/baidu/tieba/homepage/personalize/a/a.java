@@ -15,20 +15,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public JSONArray daX;
-    private HttpMessageListener daY;
-    private BdUniqueId daZ = BdUniqueId.gen();
-    private BdUniqueId dba = BdUniqueId.gen();
-    private CustomMessageListener dbb = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.homepage.personalize.a.a.2
+    public JSONArray dbR;
+    private HttpMessageListener dbS;
+    private BdUniqueId dbT = BdUniqueId.gen();
+    private BdUniqueId dbU = BdUniqueId.gen();
+    private CustomMessageListener dbV = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.homepage.personalize.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && i.gW() && a.this.daX != null) {
-                a.this.a(a.this.daX, a.this.dba);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && i.gW() && a.this.dbR != null) {
+                a.this.a(a.this.dbR, a.this.dbU);
             }
         }
     };
-    private CustomMessageListener dbc = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.personalize.a.a.3
+    private CustomMessageListener dbW = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.personalize.a.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,28 +39,28 @@ public class a {
     };
 
     public a() {
-        if (this.daY == null) {
-            this.daY = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.homepage.personalize.a.a.1
+        if (this.dbS == null) {
+            this.dbS = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.homepage.personalize.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003184 && httpResponsedMessage.getError() == 0) {
-                        a.this.daX = null;
+                        a.this.dbR = null;
                     }
                 }
             };
         }
-        this.daY.setTag(this.dba);
-        MessageManager.getInstance().registerListener(this.daY);
-        MessageManager.getInstance().registerListener(this.dbb);
-        MessageManager.getInstance().registerListener(this.dbc);
+        this.dbS.setTag(this.dbU);
+        MessageManager.getInstance().registerListener(this.dbS);
+        MessageManager.getInstance().registerListener(this.dbV);
+        MessageManager.getInstance().registerListener(this.dbW);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.daY);
-        MessageManager.getInstance().unRegisterListener(this.dbb);
-        MessageManager.getInstance().unRegisterListener(this.dbc);
-        this.daX = null;
+        MessageManager.getInstance().unRegisterListener(this.dbS);
+        MessageManager.getInstance().unRegisterListener(this.dbV);
+        MessageManager.getInstance().unRegisterListener(this.dbW);
+        this.dbR = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -69,14 +69,14 @@ public class a {
             if (i.gW()) {
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
-                a(jSONArray, this.daZ);
+                a(jSONArray, this.dbT);
                 return;
             }
-            if (this.daX == null) {
-                this.daX = new JSONArray();
+            if (this.dbR == null) {
+                this.dbR = new JSONArray();
             }
-            if (this.daX.length() <= 100) {
-                this.daX.put(jSONObject);
+            if (this.dbR.length() <= 100) {
+                this.dbR.put(jSONObject);
             }
         }
     }

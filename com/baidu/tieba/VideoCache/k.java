@@ -6,8 +6,8 @@ import android.os.Message;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class k {
-    private static k aWp;
-    private Handler.Callback aUC = new Handler.Callback() { // from class: com.baidu.tieba.VideoCache.k.1
+    private static k aWm;
+    private Handler.Callback aUz = new Handler.Callback() { // from class: com.baidu.tieba.VideoCache.k.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 1) {
@@ -20,44 +20,44 @@ public class k {
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    k.this.aWq.setVideoUrl((String) message.obj);
-                    k.this.aWq.run();
+                    k.this.aWn.setVideoUrl((String) message.obj);
+                    k.this.aWn.run();
                 }
             } else if (message.what == 3) {
-                if (k.this.aWr != null) {
-                    k.this.aWr.Kz();
+                if (k.this.aWo != null) {
+                    k.this.aWo.Kz();
                 }
             } else if (message.what == 4) {
                 if (message.obj instanceof String) {
-                    k.this.aWr.hg((String) message.obj);
+                    k.this.aWo.hg((String) message.obj);
                 }
-            } else if (message.what == 5 && k.this.aWr != null) {
-                k.this.aWr.clearCache();
+            } else if (message.what == 5 && k.this.aWo != null) {
+                k.this.aWo.clearCache();
             }
             return true;
         }
     };
-    private g aWq;
-    private b aWr;
+    private g aWn;
+    private b aWo;
     private Handler mHandler;
 
     private k() {
         HandlerThread handlerThread = new HandlerThread("video_cache_handler");
         handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aUC);
-        this.aWq = new g();
-        this.aWr = new b();
+        this.mHandler = new Handler(handlerThread.getLooper(), this.aUz);
+        this.aWn = new g();
+        this.aWo = new b();
     }
 
     public static k KL() {
-        if (aWp == null) {
+        if (aWm == null) {
             synchronized (k.class) {
-                if (aWp == null) {
-                    aWp = new k();
+                if (aWm == null) {
+                    aWm = new k();
                 }
             }
         }
-        return aWp;
+        return aWm;
     }
 
     public void k(InputStream inputStream) {

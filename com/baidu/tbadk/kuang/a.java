@@ -21,11 +21,11 @@ import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
 public class a {
-    public static int aGs = 0;
+    public static int aGp = 0;
     private static String wq = "";
     private static String mUserId = "";
     private static String SS = "";
-    private static d aGt = null;
+    private static d aGq = null;
 
     public static void a(int i, String str, Class<?>[] clsArr, Object[] objArr, String str2, HostInvokeCallback hostInvokeCallback) {
         try {
@@ -53,8 +53,8 @@ public class a {
     }
 
     public static void a(TbPageContext<?> tbPageContext, AccountData accountData) {
-        aGt = new d(tbPageContext);
-        aGt.a(new d.a() { // from class: com.baidu.tbadk.kuang.a.1
+        aGq = new d(tbPageContext);
+        aGq.a(new d.a() { // from class: com.baidu.tbadk.kuang.a.1
             @Override // com.baidu.tbadk.coreExtra.view.d.a
             public void j(AccountData accountData2) {
                 b.b(accountData2);
@@ -64,7 +64,7 @@ public class a {
                 a.c(new ReLoginFromKuangMessage(true));
             }
         });
-        aGt.b(new d.a() { // from class: com.baidu.tbadk.kuang.a.2
+        aGq.b(new d.a() { // from class: com.baidu.tbadk.kuang.a.2
             @Override // com.baidu.tbadk.coreExtra.view.d.a
             public void j(AccountData accountData2) {
                 b.b(null);
@@ -72,23 +72,23 @@ public class a {
                 TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp());
             }
         });
-        aGt.Bi();
-        aGt.i(accountData);
-        aGt.Be();
+        aGq.Bi();
+        aGq.i(accountData);
+        aGq.Be();
     }
 
     public static void bQ(final boolean z) {
-        final a.InterfaceC0044a interfaceC0044a = new a.InterfaceC0044a() { // from class: com.baidu.tbadk.kuang.a.3
-            @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
+        final a.InterfaceC0043a interfaceC0043a = new a.InterfaceC0043a() { // from class: com.baidu.tbadk.kuang.a.3
+            @Override // com.baidu.tbadk.core.a.a.InterfaceC0043a
             public void cp(String str) {
             }
 
-            @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
+            @Override // com.baidu.tbadk.core.a.a.InterfaceC0043a
             public void a(AccountData accountData) {
                 if (TextUtils.isEmpty(accountData.getAccount())) {
                     if (z) {
-                        if (i.X(com.baidu.adp.base.a.ca().cb()) != null) {
-                            a.a((TbPageContext) i.X(com.baidu.adp.base.a.ca().cb()), accountData);
+                        if (i.Y(com.baidu.adp.base.a.ca().cb()) != null) {
+                            a.a((TbPageContext) i.Y(com.baidu.adp.base.a.ca().cb()), accountData);
                             return;
                         }
                         return;
@@ -106,7 +106,7 @@ public class a {
                 a.c(new ReLoginFromKuangMessage(true));
             }
 
-            @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
+            @Override // com.baidu.tbadk.core.a.a.InterfaceC0043a
             public void c(String str, int i, String str2) {
                 k.showToast(TbadkCoreApplication.getInst().getApp(), str2);
                 a.c(new ReLoginFromKuangMessage(false));
@@ -122,7 +122,7 @@ public class a {
                         return;
                     }
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
-                    com.baidu.tieba.model.b.a(a.mUserId, a.wq, a.SS, null, a.InterfaceC0044a.this);
+                    com.baidu.tieba.model.b.a(a.mUserId, a.wq, a.SS, null, a.InterfaceC0043a.this);
                 }
             }
         };
@@ -152,7 +152,7 @@ public class a {
             public void run() {
                 MessageManager.getInstance().dispatchResponsedMessage(CustomResponsedMessage.this);
             }
-        }, aGs);
+        }, aGp);
     }
 
     public static void EH() {

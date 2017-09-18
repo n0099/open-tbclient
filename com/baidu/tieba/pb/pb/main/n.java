@@ -9,22 +9,22 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class n {
     public long Vf;
-    public long eKB;
-    public long eKC;
-    public int eKD;
+    public long eLv;
+    public long eLw;
+    public int eLx;
     public long mForumId;
 
     public n() {
         El();
     }
 
-    public void aRh() {
+    public void aRs() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_SET_DECLARE);
         httpMessage.addParam("tid", this.Vf);
-        httpMessage.addParam("author_uid", this.eKB);
-        httpMessage.addParam("declare_id", this.eKC);
+        httpMessage.addParam("author_uid", this.eLv);
+        httpMessage.addParam("declare_id", this.eLw);
         httpMessage.addParam("forum_id", this.mForumId);
-        httpMessage.addParam("operation", this.eKD);
+        httpMessage.addParam("operation", this.eLx);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 

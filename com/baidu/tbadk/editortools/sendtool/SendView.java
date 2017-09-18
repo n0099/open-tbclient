@@ -12,18 +12,18 @@ import com.baidu.tieba.d;
 public class SendView extends TextView implements s {
     private int Jo;
     private i Jp;
-    private boolean[] aDW;
-    private int[] aDX;
-    private int apS;
+    private boolean[] aDT;
+    private int[] aDU;
+    private int apQ;
     private int mType;
-    public static int aDY = 1;
+    public static int aDV = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.aDW = new boolean[]{false, false, false, false, false};
-        this.aDX = new int[]{0, 0};
-        this.apS = 0;
+        this.aDT = new boolean[]{false, false, false, false, false};
+        this.aDU = new int[]{0, 0};
+        this.apQ = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(d.f.ds17), context.getResources().getDimensionPixelSize(d.f.ds28), context.getResources().getDimensionPixelSize(d.f.ds10), context.getResources().getDimensionPixelSize(d.f.ds28));
         setGravity(17);
@@ -46,71 +46,71 @@ public class SendView extends TextView implements s {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.aDW[0] = false;
+                        this.aDT[0] = false;
                         break;
                     } else {
-                        this.aDW[0] = true;
+                        this.aDT[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.aDW[0] = false;
-                    this.aDW[1] = false;
-                    this.aDW[2] = false;
-                    this.aDW[3] = false;
-                    this.aDW[4] = false;
-                    this.aDX[0] = 0;
-                    this.aDX[1] = 0;
+                    this.aDT[0] = false;
+                    this.aDT[1] = false;
+                    this.aDT[2] = false;
+                    this.aDT[3] = false;
+                    this.aDT[4] = false;
+                    this.aDU[0] = 0;
+                    this.aDU[1] = 0;
                     break;
                 case 10:
-                    this.aDW[2] = true;
+                    this.aDT[2] = true;
                     break;
                 case 11:
-                    this.aDW[2] = false;
+                    this.aDT[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.aCp != null) {
-                            if (aVar2.aCp.getChosedFiles() != null) {
-                                this.aDX[0] = aVar2.aCp.getChosedFiles().size();
+                        if (aVar2.aCm != null) {
+                            if (aVar2.aCm.getChosedFiles() != null) {
+                                this.aDU[0] = aVar2.aCm.getChosedFiles().size();
                             } else {
-                                this.aDX[0] = 0;
+                                this.aDU[0] = 0;
                             }
                         }
-                        if (this.aDX[0] > 0) {
-                            this.aDW[1] = true;
+                        if (this.aDU[0] > 0) {
+                            this.aDT[1] = true;
                             break;
                         } else {
-                            this.aDW[1] = false;
+                            this.aDT[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.aDX;
+                    int[] iArr = this.aDU;
                     iArr[0] = iArr[0] - 1;
-                    if (this.aDX[0] > 0) {
-                        this.aDW[1] = true;
+                    if (this.aDU[0] > 0) {
+                        this.aDT[1] = true;
                         break;
                     } else {
-                        this.aDW[1] = false;
+                        this.aDT[1] = false;
                         break;
                     }
                 case 28:
                 case d.n.View_filterTouchesWhenObscured /* 39 */:
-                    this.aDW[3] = true;
+                    this.aDT[3] = true;
                     break;
                 case 29:
-                    this.aDW[3] = false;
+                    this.aDT[3] = false;
                     break;
                 case d.n.View_drawingCacheQuality /* 40 */:
                     if (aVar.data instanceof String) {
-                        this.aDW[4] = true;
+                        this.aDT[4] = true;
                         break;
                     } else {
-                        this.aDW[4] = false;
+                        this.aDT[4] = false;
                         break;
                     }
             }
@@ -157,7 +157,7 @@ public class SendView extends TextView implements s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
-        this.apS = i;
+        this.apQ = i;
         if (isEnabled()) {
             aj.b(this, d.e.cp_link_tip_a, 1, i);
         } else {
@@ -171,17 +171,17 @@ public class SendView extends TextView implements s {
 
     public void eP(int i) {
         if (i == ALL) {
-            if (this.aDW[0] || this.aDW[1] || this.aDW[2] || this.aDW[3] || this.aDW[4]) {
+            if (this.aDT[0] || this.aDT[1] || this.aDT[2] || this.aDT[3] || this.aDT[4]) {
                 setEnabled(true);
-                aj.b(this, d.e.cp_link_tip_a, 1, this.apS);
+                aj.b(this, d.e.cp_link_tip_a, 1, this.apQ);
                 return;
             }
             setEnabled(false);
             aj.c(this, d.e.cp_cont_e, 1);
-        } else if (i == aDY) {
-            if (this.aDW[1]) {
+        } else if (i == aDV) {
+            if (this.aDT[1]) {
                 setEnabled(true);
-                aj.b(this, d.e.cp_link_tip_a, 1, this.apS);
+                aj.b(this, d.e.cp_link_tip_a, 1, this.apQ);
                 return;
             }
             setEnabled(false);

@@ -8,36 +8,36 @@ import java.util.List;
 import tbclient.SimpleForum;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.adp.framework.listener.a bIt = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450) { // from class: com.baidu.tieba.write.transmit.model.a.1
+    private com.baidu.adp.framework.listener.a bJk = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450) { // from class: com.baidu.tieba.write.transmit.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof GetRepostForumHttpResMessage) || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
                     if (responsedMessage.hasError()) {
-                        if (a.this.gzv != null) {
-                            a.this.gzv.bxq();
+                        if (a.this.gAp != null) {
+                            a.this.gAp.bxB();
                             return;
                         }
                         return;
                     }
                     if (responsedMessage instanceof GetRepostForumHttpResMessage) {
-                        a.this.edh = ((GetRepostForumHttpResMessage) responsedMessage).getForumList();
+                        a.this.eeb = ((GetRepostForumHttpResMessage) responsedMessage).getForumList();
                         a.this.recommendExt = ((GetRepostForumHttpResMessage) responsedMessage).getRecommendExtension();
                     }
                     if (responsedMessage instanceof GetRepostForumSocketResMessage) {
-                        a.this.edh = ((GetRepostForumSocketResMessage) responsedMessage).getForumList();
+                        a.this.eeb = ((GetRepostForumSocketResMessage) responsedMessage).getForumList();
                         a.this.recommendExt = ((GetRepostForumSocketResMessage) responsedMessage).getRecommendExtension();
                     }
-                    if (a.this.gzv != null) {
-                        a.this.gzv.B(a.this.edh);
+                    if (a.this.gAp != null) {
+                        a.this.gAp.B(a.this.eeb);
                     }
                 }
             }
         }
     };
-    private List<SimpleForum> edh;
+    private List<SimpleForum> eeb;
     private String forumId;
-    private InterfaceC0129a gzv;
+    private InterfaceC0128a gAp;
     private BdUniqueId mBdUniqueId;
     private String recommendExt;
     private String threadContent;
@@ -45,19 +45,19 @@ public class a {
 
     /* renamed from: com.baidu.tieba.write.transmit.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0129a {
+    public interface InterfaceC0128a {
         void B(List<SimpleForum> list);
 
-        void bxq();
+        void bxB();
     }
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.bIt.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.bIt);
+        this.bJk.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.bJk);
     }
 
-    public void PN() {
+    public void PP() {
         GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
         getRepostForumReqMessage.setThreadTitle(this.threadTitle);
         getRepostForumReqMessage.setThreadContent(this.threadContent);
@@ -66,7 +66,7 @@ public class a {
         MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
     }
 
-    public void aio() {
+    public void aiz() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, this.mBdUniqueId);
         MessageManager.getInstance().removeMessage(309450, this.mBdUniqueId);
     }
@@ -87,11 +87,11 @@ public class a {
         return this.recommendExt;
     }
 
-    public void a(InterfaceC0129a interfaceC0129a) {
-        this.gzv = interfaceC0129a;
+    public void a(InterfaceC0128a interfaceC0128a) {
+        this.gAp = interfaceC0128a;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.bIt);
+        MessageManager.getInstance().unRegisterListener(this.bJk);
     }
 }

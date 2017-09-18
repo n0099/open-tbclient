@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.j> {
-    private ImageView aZB;
-    private TextView cYO;
+    private ImageView aZy;
+    private TextView cZI;
     private View mRootView;
 
     public h(TbPageContext<?> tbPageContext) {
@@ -19,16 +19,16 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
     private void init(View view) {
         this.mRootView = view.findViewById(d.h.card_privacy_rootview);
-        this.aZB = (ImageView) view.findViewById(d.h.card_privacy_icon);
-        this.cYO = (TextView) view.findViewById(d.h.card_privacy_txt);
+        this.aZy = (ImageView) view.findViewById(d.h.card_privacy_icon);
+        this.cZI = (TextView) view.findViewById(d.h.card_privacy_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             aj.j(this.mRootView, d.e.cp_bg_line_d);
-            aj.c(this.aZB, d.g.icon_mine_lock);
-            aj.c(this.cYO, d.e.cp_cont_c, 1);
+            aj.c(this.aZy, d.g.icon_mine_lock);
+            aj.c(this.cZI, d.e.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -43,10 +43,10 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public void a(com.baidu.tieba.personPolymeric.c.j jVar) {
         String string = jVar.sex == 2 ? this.mContext.getString(d.l.she) : this.mContext.getString(d.l.he);
         StringBuffer stringBuffer = new StringBuffer();
-        if (jVar.fkP) {
+        if (jVar.flI) {
             stringBuffer.append(this.mContext.getString(d.l.text_post));
         }
-        this.cYO.setText(String.format(this.mContext.getString(d.l.person_polymeric_privacry_tip), string, stringBuffer.toString()));
+        this.cZI.setText(String.format(this.mContext.getString(d.l.person_polymeric_privacry_tip), string, stringBuffer.toString()));
     }
 
     @Override // android.view.View.OnClickListener

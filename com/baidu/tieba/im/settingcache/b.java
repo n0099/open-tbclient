@@ -11,13 +11,13 @@ import com.baidu.tbadk.util.u;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class b extends a {
-    private static b dHd = new b();
+    private static b dHY = new b();
 
     private b() {
     }
 
-    public static b aAf() {
-        return dHd;
+    public static b aAq() {
+        return dHY;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,8 +29,8 @@ public class b extends a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.dHa) {
-            ChatSetting chatSetting = this.dHa.get(str3);
+        synchronized (this.dHV) {
+            ChatSetting chatSetting = this.dHV.get(str3);
             groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
         }
         if (groupSettingItemData == null) {
@@ -49,7 +49,7 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void awe() {
+    public void awp() {
         super.m(GroupSettingItemData.class);
     }
 
@@ -88,7 +88,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> aAe() {
+    protected l<String> aAp() {
         return com.baidu.tbadk.core.c.a.tk().cJ("tb.im_group_setting");
     }
 
@@ -104,13 +104,13 @@ public class b extends a {
                 }
                 return;
             }
-            l<String> aAe = aAe();
+            l<String> aAp = aAp();
             String str = uid + "@" + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.dHa) {
-                this.dHa.put(str, groupSettingItemData);
+            synchronized (this.dHV) {
+                this.dHV.put(str, groupSettingItemData);
             }
-            aAe.e(str, jsonStrWithObject);
+            aAp.e(str, jsonStrWithObject);
         }
     }
 
@@ -127,15 +127,15 @@ public class b extends a {
                 return;
             }
             final String str = uid + "@" + gid;
-            synchronized (this.dHa) {
-                this.dHa.put(str, groupSettingItemData);
+            synchronized (this.dHV) {
+                this.dHV.put(str, groupSettingItemData);
             }
             u.b(new t<Void>() { // from class: com.baidu.tieba.im.settingcache.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.t
                 /* renamed from: Ly */
                 public Void doInBackground() {
-                    b.this.aAe().e(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.aAp().e(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, hVar);
@@ -145,15 +145,15 @@ public class b extends a {
     public void b(String str, String str2, h<Void> hVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             final String str3 = str + "@" + str2;
-            synchronized (this.dHa) {
-                this.dHa.remove(str3);
+            synchronized (this.dHV) {
+                this.dHV.remove(str3);
             }
             u.b(new t<Void>() { // from class: com.baidu.tieba.im.settingcache.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.t
                 /* renamed from: Ly */
                 public Void doInBackground() {
-                    b.this.aAe().remove(str3);
+                    b.this.aAp().remove(str3);
                     return null;
                 }
             }, hVar);

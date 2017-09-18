@@ -22,19 +22,19 @@ import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class PersonalChatActivityStatic {
-    private static e dJo;
-    private static CustomMessageListener dJp = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.1
+    private static e dKj;
+    private static CustomMessageListener dKk = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                e unused = PersonalChatActivityStatic.dJo = null;
+                e unused = PersonalChatActivityStatic.dKj = null;
             }
         }
     };
 
     static {
-        MessageManager.getInstance().registerListener(dJp);
+        MessageManager.getInstance().registerListener(dKk);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSONAL_CHAT, new CustomMessageTask.CustomRunnable<PersonalChatActivityConfig>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<PersonalChatActivityConfig> run(final CustomMessage<PersonalChatActivityConfig> customMessage) {
@@ -47,7 +47,7 @@ public class PersonalChatActivityStatic {
                         @Override // com.baidu.tbadk.util.t
                         /* renamed from: Ly */
                         public Void doInBackground() {
-                            return l.awt().q(linkedList);
+                            return l.awE().q(linkedList);
                         }
                     }, new h<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -74,7 +74,7 @@ public class PersonalChatActivityStatic {
                 }
                 String str = strArr[0];
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_chat=1")) {
-                    if (ax.aT(TbadkCoreApplication.getInst().getContext())) {
+                    if (ax.aU(TbadkCoreApplication.getInst().getContext())) {
                         String at = y.at(str, "userid=");
                         String at2 = y.at(str, "username=");
                         String at3 = y.at(str, "portrait=");
@@ -96,11 +96,11 @@ public class PersonalChatActivityStatic {
         });
     }
 
-    public static e aAM() {
-        return dJo;
+    public static e aAX() {
+        return dKj;
     }
 
     public static void a(e eVar) {
-        dJo = eVar;
+        dKj = eVar;
     }
 }

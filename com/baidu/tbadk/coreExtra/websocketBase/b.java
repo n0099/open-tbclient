@@ -6,11 +6,11 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a {
-        private static b ayE = new b();
+        private static b ayB = new b();
     }
 
     public static b BR() {
-        return a.ayE;
+        return a.ayB;
     }
 
     private b() {

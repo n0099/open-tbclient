@@ -3,6 +3,9 @@ package com.baidu.tbadk.l;
 import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
 public class m extends k {
+    public long aJD;
+    public long aJE;
+    public long aJF;
     public long aJG;
     public long aJH;
     public long aJI;
@@ -14,14 +17,11 @@ public class m extends k {
     public long aJO;
     public long aJP;
     public long aJQ;
-    public long aJR;
+    public boolean aJR;
     public long aJS;
     public long aJT;
     public boolean aJU;
     public long aJV;
-    public long aJW;
-    public boolean aJX;
-    public long aJY;
     public int errCode;
     public boolean isSuccess;
     public long ob;
@@ -33,56 +33,56 @@ public class m extends k {
     public m() {
         this.ob = 0L;
         this.oc = 0L;
-        this.aJN = 0L;
+        this.aJK = 0L;
+        this.aJM = 0L;
         this.aJP = 0L;
+        this.aJQ = 0L;
         this.aJS = 0L;
         this.aJT = 0L;
-        this.aJV = 0L;
-        this.aJW = 0L;
-        this.aJX = false;
+        this.aJU = false;
     }
 
     public m(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
         this.ob = 0L;
         this.oc = 0L;
-        this.aJN = 0L;
+        this.aJK = 0L;
+        this.aJM = 0L;
         this.aJP = 0L;
+        this.aJQ = 0L;
         this.aJS = 0L;
         this.aJT = 0L;
-        this.aJV = 0L;
-        this.aJW = 0L;
-        this.aJX = false;
+        this.aJU = false;
         if (responsedMessage != null) {
             this.mSubType = i;
-            this.aJU = z;
-            if (this.aJU) {
-                this.aJT = responsedMessage.getDownSize();
-                this.aJY = responsedMessage.getOrginalMessage().getClientLogID();
+            this.aJR = z;
+            if (this.aJR) {
+                this.aJQ = responsedMessage.getDownSize();
+                this.aJV = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.aJV = responsedMessage.performanceData.qp;
-                this.aJW = responsedMessage.performanceData.qq;
+                this.aJS = responsedMessage.performanceData.qp;
+                this.aJT = responsedMessage.performanceData.qq;
                 this.socketErrNo = responsedMessage.performanceData.qn;
                 this.socketCostTime = responsedMessage.performanceData.qo;
             } else {
-                this.aJS = responsedMessage.getDownSize();
+                this.aJP = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.aJG = j;
-            this.aJH = j2;
-            this.aJO = j3;
+            this.aJD = j;
+            this.aJE = j2;
+            this.aJL = j3;
             this.isSuccess = !responsedMessage.hasError();
-            this.aJI = responsedMessage.performanceData.qf;
-            this.aJJ = responsedMessage.performanceData.qg;
-            this.aJK = responsedMessage.performanceData.qh;
+            this.aJF = responsedMessage.performanceData.qf;
+            this.aJG = responsedMessage.performanceData.qg;
+            this.aJH = responsedMessage.performanceData.qh;
             this.ob = responsedMessage.performanceData.qi;
             this.oc = responsedMessage.performanceData.qj;
-            this.aJL = responsedMessage.performanceData.qk;
-            this.aJM = responsedMessage.performanceData.ql;
-            this.aJN = responsedMessage.performanceData.qm;
-            this.aJN += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.aJI = responsedMessage.performanceData.qk;
+            this.aJJ = responsedMessage.performanceData.ql;
+            this.aJK = responsedMessage.performanceData.qm;
+            this.aJK += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.aJX = z2;
-            this.aJP = j4;
+            this.aJU = z2;
+            this.aJM = j4;
         }
     }
 

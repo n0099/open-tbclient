@@ -446,7 +446,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public void startPlay(b bVar) {
-        if (bVar != null && !ab.aO(this.context.getPageActivity()) && !ab.aL(null)) {
+        if (bVar != null && !ab.aP(this.context.getPageActivity()) && !ab.aM(null)) {
             if (this.mHandle != null) {
                 this.mHandle.removeCallbacks(this.stopVoiceAndRePlayRunnable);
             }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public class an {
-    public Object csj;
-    public boolean csk = false;
+    public Object ctb;
+    public boolean ctc = false;
     public String forumId;
     public String forumName;
     public int pn;

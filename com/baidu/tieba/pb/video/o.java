@@ -24,15 +24,15 @@ import java.util.Random;
 /* loaded from: classes.dex */
 public class o extends j.a {
     private TbPageContext aby;
-    public TextView cAn;
-    public View ccU;
-    public TbImageView eYX;
-    public ImageView eYY;
-    public TextView eYZ;
-    public TextView eZa;
-    public TextView eZb;
-    public View eZc;
-    public View eZd;
+    public TextView cBf;
+    public View cdM;
+    public TbImageView eZR;
+    public ImageView eZS;
+    public TextView eZT;
+    public TextView eZU;
+    public TextView eZV;
+    public View eZW;
+    public View eZX;
     public View rootView;
 
     public o(TbPageContext tbPageContext, View view) {
@@ -40,72 +40,72 @@ public class o extends j.a {
         if (tbPageContext != null && view != null) {
             this.rootView = view;
             this.aby = tbPageContext;
-            this.eYX = (TbImageView) view.findViewById(d.h.video_thumbnail_view);
-            this.eYY = (ImageView) view.findViewById(d.h.channel_icon_view);
-            this.eYX.setDefaultBgResource(d.g.pic_bg_video_frs);
-            this.eYX.setDefaultErrorResource(d.g.pic_bg_video_frs);
-            this.eYZ = (TextView) view.findViewById(d.h.video_title_view);
-            this.eZa = (TextView) view.findViewById(d.h.channel_name_view);
-            this.cAn = (TextView) view.findViewById(d.h.video_play_count_view);
-            this.eZb = (TextView) view.findViewById(d.h.video_duration_view);
-            this.eZc = view.findViewById(d.h.divider_view);
-            this.eZd = view.findViewById(d.h.top_divider_view);
-            this.ccU = view.findViewById(d.h.top_divider_line);
+            this.eZR = (TbImageView) view.findViewById(d.h.video_thumbnail_view);
+            this.eZS = (ImageView) view.findViewById(d.h.channel_icon_view);
+            this.eZR.setDefaultBgResource(d.g.pic_bg_video_frs);
+            this.eZR.setDefaultErrorResource(d.g.pic_bg_video_frs);
+            this.eZT = (TextView) view.findViewById(d.h.video_title_view);
+            this.eZU = (TextView) view.findViewById(d.h.channel_name_view);
+            this.cBf = (TextView) view.findViewById(d.h.video_play_count_view);
+            this.eZV = (TextView) view.findViewById(d.h.video_duration_view);
+            this.eZW = view.findViewById(d.h.divider_view);
+            this.eZX = view.findViewById(d.h.top_divider_view);
+            this.cdM = view.findViewById(d.h.top_divider_line);
         }
     }
 
     public void a(final k kVar) {
         if (kVar != null) {
-            this.eYX.c(kVar.eYS, 10, false);
-            this.eYZ.setText(kVar.eYT);
+            this.eZR.c(kVar.eZM, 10, false);
+            this.eZT.setText(kVar.eZN);
             if (kVar.videoDuration <= 0) {
-                this.eZb.setText("");
+                this.eZV.setText("");
             } else {
-                this.eZb.setText(am.da(kVar.videoDuration * 1000));
+                this.eZV.setText(am.da(kVar.videoDuration * 1000));
             }
-            this.cAn.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.video_play_count), am.u(kVar.ctk)));
+            this.cBf.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.video_play_count), am.u(kVar.cud)));
             if (!StringUtils.isNull(kVar.channelName)) {
-                this.eZa.setText(am.f(kVar.channelName, 14, "..."));
-                this.eZa.setVisibility(0);
-                this.eYY.setVisibility(0);
+                this.eZU.setText(am.f(kVar.channelName, 14, "..."));
+                this.eZU.setVisibility(0);
+                this.eZS.setVisibility(0);
             } else {
                 if (!StringUtils.isNull(kVar.VI)) {
-                    this.eZa.setText(am.f(kVar.VI, 14, "..."));
-                    this.eZa.setVisibility(0);
+                    this.eZU.setText(am.f(kVar.VI, 14, "..."));
+                    this.eZU.setVisibility(0);
                 } else {
-                    this.eZa.setVisibility(8);
+                    this.eZU.setVisibility(8);
                 }
-                this.eYY.setVisibility(8);
+                this.eZS.setVisibility(8);
             }
-            if (kVar.eYU) {
-                this.eZc.setVisibility(0);
+            if (kVar.eZO) {
+                this.eZW.setVisibility(0);
             } else {
-                this.eZc.setVisibility(8);
+                this.eZW.setVisibility(8);
             }
-            if (kVar.eYV) {
-                this.eZd.setVisibility(0);
+            if (kVar.eZP) {
+                this.eZX.setVisibility(0);
             } else {
-                this.eZd.setVisibility(8);
+                this.eZX.setVisibility(8);
             }
-            if (kVar.czO) {
-                this.ccU.setVisibility(0);
+            if (kVar.cAG) {
+                this.cdM.setVisibility(0);
             } else {
-                this.ccU.setVisibility(8);
+                this.cdM.setVisibility(8);
             }
             this.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.o.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (kVar != null) {
-                        o.this.pI(kVar.threadId);
+                        o.this.pK(kVar.threadId);
                         ak akVar = new ak("c11927");
                         akVar.r("obj_locate", kVar.position);
                         akVar.ad("tid", kVar.threadId);
                         akVar.f("fid", kVar.forumId);
-                        akVar.ad("obj_param1", kVar.eYR);
+                        akVar.ad("obj_param1", kVar.eZL);
                         akVar.ad("obj_param2", "1");
                         akVar.f("obj_param3", System.currentTimeMillis() / 1000);
-                        akVar.ad("obj_name", kVar.eYP);
-                        akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, kVar.eYQ);
+                        akVar.ad("obj_name", kVar.eZJ);
+                        akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, kVar.eZK);
                         akVar.f("obj_id", kVar.channelId);
                         TiebaStatic.log(akVar);
                     }
@@ -117,7 +117,7 @@ public class o extends j.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pI(String str) {
+    public void pK(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.aby.getPageActivity()).createNormalCfg(str, null, null)));
         this.aby.getPageActivity().finish();
     }
@@ -125,7 +125,7 @@ public class o extends j.a {
     public void Ba() {
         this.aby.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
         this.aby.getLayoutMode().t(this.rootView);
-        aj.j(this.eYY, d.g.icon_weiba);
+        aj.j(this.eZS, d.g.icon_weiba);
     }
 
     private void a(k kVar, ArrayList<String> arrayList) {
@@ -153,11 +153,11 @@ public class o extends j.a {
                 akVar.r("obj_locate", kVar.position);
                 akVar.ad("tid", kVar.threadId);
                 akVar.f("fid", kVar.forumId);
-                akVar.ad("obj_param1", kVar.eYR);
+                akVar.ad("obj_param1", kVar.eZL);
                 akVar.ad("obj_param2", "1");
                 akVar.f("obj_param3", System.currentTimeMillis() / 1000);
-                akVar.ad("obj_name", kVar.eYP);
-                akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, kVar.eYQ);
+                akVar.ad("obj_name", kVar.eZJ);
+                akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, kVar.eZK);
                 akVar.f("obj_id", kVar.channelId);
                 TiebaStatic.log(akVar);
             }
@@ -165,21 +165,21 @@ public class o extends j.a {
     }
 
     private void a(k kVar, int i) {
-        ArrayList<String> pU;
+        ArrayList<String> pW;
         if (kVar != null && !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
             if (i < 1 || i > 10) {
                 i = 1;
             }
             if (i == 10) {
-                pU = null;
+                pW = null;
             } else {
-                pU = pU(i);
+                pW = pW(i);
             }
-            a(kVar, pU);
+            a(kVar, pW);
         }
     }
 
-    private ArrayList<String> pU(int i) {
+    private ArrayList<String> pW(int i) {
         if (i <= 0) {
             return null;
         }

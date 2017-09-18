@@ -31,7 +31,7 @@ public class b {
 
     /* renamed from: com.baidu.tbadk.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0043b {
+    public interface InterfaceC0042b {
         void l(List<ImageFileInfo> list);
     }
 
@@ -248,8 +248,8 @@ public class b {
         private String QJ;
         private List<com.baidu.tbadk.c.a> QK;
         private int QL = 1;
-        private InterfaceC0043b QM = new InterfaceC0043b() { // from class: com.baidu.tbadk.c.b.c.1
-            @Override // com.baidu.tbadk.c.b.InterfaceC0043b
+        private InterfaceC0042b QM = new InterfaceC0042b() { // from class: com.baidu.tbadk.c.b.c.1
+            @Override // com.baidu.tbadk.c.b.InterfaceC0042b
             public void l(List<ImageFileInfo> list) {
                 c.this.publishProgress(list);
             }
@@ -285,11 +285,11 @@ public class b {
             return arrayList;
         }
 
-        private void a(List<ImageFileInfo> list, InterfaceC0043b interfaceC0043b, String str) {
+        private void a(List<ImageFileInfo> list, InterfaceC0042b interfaceC0042b, String str) {
             if (list != null) {
-                a(list, interfaceC0043b, str, b.this.mContext, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                a(list, interfaceC0042b, str, b.this.mContext, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 if (list == null || list.size() <= 0) {
-                    a(list, interfaceC0043b, str, b.this.mContext, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                    a(list, interfaceC0042b, str, b.this.mContext, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 }
             }
         }
@@ -324,18 +324,18 @@ public class b {
             }
         }
 
-        private void a(List<ImageFileInfo> list, InterfaceC0043b interfaceC0043b) {
-            if (list != null && interfaceC0043b != null) {
+        private void a(List<ImageFileInfo> list, InterfaceC0042b interfaceC0042b) {
+            if (list != null && interfaceC0042b != null) {
                 if (this.QL == 1 || this.QL == 2) {
                     if (list.size() / this.QL > 50) {
-                        if (interfaceC0043b != null) {
-                            interfaceC0043b.l(list);
+                        if (interfaceC0042b != null) {
+                            interfaceC0042b.l(list);
                         }
                         this.QL++;
                     }
                 } else if (list.size() / this.QL > 500) {
-                    if (interfaceC0043b != null) {
-                        interfaceC0043b.l(list);
+                    if (interfaceC0042b != null) {
+                        interfaceC0042b.l(list);
                     }
                     this.QL++;
                 }
@@ -348,7 +348,7 @@ public class b {
         /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.String] */
         /* JADX WARN: Type inference failed for: r1v3 */
         /* JADX WARN: Type inference failed for: r1v5, types: [android.database.Cursor] */
-        private void a(List<ImageFileInfo> list, InterfaceC0043b interfaceC0043b, String str, Context context, Uri uri) {
+        private void a(List<ImageFileInfo> list, InterfaceC0042b interfaceC0042b, String str, Context context, Uri uri) {
             Cursor cursor;
             InputStream f;
             if (list == null) {
@@ -391,7 +391,7 @@ public class b {
                                 imageFileInfo.setIsGif(r0);
                                 imageFileInfo.setModifyTime(am.J(file.lastModified()));
                                 list.add(imageFileInfo);
-                                a(list, interfaceC0043b);
+                                a(list, interfaceC0042b);
                             }
                         } while (cursor.moveToNext());
                         com.baidu.adp.lib.g.a.e(cursor);

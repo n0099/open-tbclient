@@ -128,7 +128,7 @@ public final class c {
     }
 
     public static String a(Context context) {
-        return am(context).b();
+        return an(context).b();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
@@ -389,7 +389,7 @@ public final class c {
         return strArr;
     }
 
-    private static b am(Context context) {
+    private static b an(Context context) {
         if (LS == null) {
             synchronized (b.class) {
                 if (LS == null) {

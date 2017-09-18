@@ -30,13 +30,13 @@ public class am {
     }
 
     public static boolean k(PostData postData) {
-        if (postData == null || postData.bsw() == null) {
+        if (postData == null || postData.bsH() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.h bsw = postData.bsw();
-        if (bsw.ghP) {
-            int brV = bsw.brV();
-            return brV == 2 || brV == 1 || brV == 3;
+        com.baidu.tieba.tbadkCore.data.h bsH = postData.bsH();
+        if (bsH.giK) {
+            int bsg = bsH.bsg();
+            return bsg == 2 || bsg == 1 || bsg == 3;
         }
         return false;
     }

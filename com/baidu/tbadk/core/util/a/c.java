@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    public int ain;
+    public int aim;
     public String mErrorString;
     public int vm;
-    public String aio = null;
+    public String ain = null;
     public boolean rw = false;
     public Map<String, List<String>> mHeader = null;
 
@@ -16,7 +16,7 @@ public class c {
     }
 
     public boolean isRequestSuccess() {
-        return this.vm == 200 && this.ain == 0;
+        return this.vm == 200 && this.aim == 0;
     }
 
     public boolean fq() {

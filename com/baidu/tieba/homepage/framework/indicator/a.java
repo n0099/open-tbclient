@@ -28,51 +28,51 @@ import java.util.List;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.view.viewpager.a {
-    private int cpH;
-    private com.baidu.tieba.homepage.concern.b dai;
-    private com.baidu.tieba.homepage.personalize.a daj;
-    private BaseFragment dak;
-    private ah dal;
-    private String dam;
-    private String dan;
-    private List<com.baidu.tieba.homepage.b.a.a> dao;
-    private boolean dap;
-    private int daq;
-    private r dar;
-    private b das;
+    private int cqz;
+    private com.baidu.tieba.homepage.concern.b dbe;
+    private com.baidu.tieba.homepage.personalize.a dbf;
+    private BaseFragment dbg;
+    private ah dbh;
+    private String dbi;
+    private String dbj;
+    private List<com.baidu.tieba.homepage.b.a.a> dbk;
+    private boolean dbl;
+    private int dbm;
+    private r dbn;
+    private b dbo;
     private int mChildCount;
     private Context mContext;
 
     public a(Context context, FragmentManager fragmentManager, com.baidu.tieba.homepage.framework.b bVar, c.a aVar) {
         super(fragmentManager);
         CustomResponsedMessage runTask;
-        this.dam = "recommendFrsLastReadTabPositionNamespace";
-        this.dan = "recommendFrsLastReadTabPositionKey";
-        this.dap = false;
-        this.daq = -1;
+        this.dbi = "recommendFrsLastReadTabPositionNamespace";
+        this.dbj = "recommendFrsLastReadTabPositionKey";
+        this.dbl = false;
+        this.dbm = -1;
         this.mChildCount = 0;
         this.mContext = context;
-        this.das = new b();
-        if (this.das.le(0) != -1) {
-            this.dai = new com.baidu.tieba.homepage.concern.b(context);
-            this.dai.setCallback(aVar);
+        this.dbo = new b();
+        if (this.dbo.lg(0) != -1) {
+            this.dbe = new com.baidu.tieba.homepage.concern.b(context);
+            this.dbe.setCallback(aVar);
         }
-        if (this.das.le(1) != -1) {
-            this.daj = new com.baidu.tieba.homepage.personalize.a(context);
-            this.daj.setCallback(bVar);
+        if (this.dbo.lg(1) != -1) {
+            this.dbf = new com.baidu.tieba.homepage.personalize.a(context);
+            this.dbf.setCallback(bVar);
         }
-        if (this.das.le(2) != -1 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, BaseFragment.class)) != null) {
-            this.dak = (BaseFragment) runTask.getData();
+        if (this.dbo.lg(2) != -1 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, BaseFragment.class)) != null) {
+            this.dbg = (BaseFragment) runTask.getData();
         }
     }
 
-    public void bx(List<com.baidu.tieba.homepage.b.a.a> list) {
+    public void by(List<com.baidu.tieba.homepage.b.a.a> list) {
         if (!v.v(list)) {
-            this.dao = new ArrayList(list);
+            this.dbk = new ArrayList(list);
         }
     }
 
-    private Fragment aqs() {
+    private Fragment aqD() {
         CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GET_NEW_FRS_FRAGMENT);
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_GET_NEW_FRS_FRAGMENT);
         customResponsedMessage.setOrginalMessage(customMessage);
@@ -83,12 +83,12 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         return null;
     }
 
-    private Intent kW(int i) {
-        com.baidu.tieba.homepage.b.a.a aVar = (com.baidu.tieba.homepage.b.a.a) v.c(this.dao, i);
+    private Intent kY(int i) {
+        com.baidu.tieba.homepage.b.a.a aVar = (com.baidu.tieba.homepage.b.a.a) v.c(this.dbk, i);
         if (aVar == null) {
             return null;
         }
-        String str = aVar.ddR;
+        String str = aVar.deN;
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -100,20 +100,20 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
 
     @Override // com.baidu.tbadk.core.view.viewpager.a
     public Fragment getItem(int i) {
-        switch (this.das.getType(i)) {
+        switch (this.dbo.getType(i)) {
             case 0:
-                return this.dai;
+                return this.dbe;
             case 1:
-                return this.daj;
+                return this.dbf;
             case 2:
-                return this.dak;
+                return this.dbg;
             default:
-                Fragment aqs = aqs();
-                if (aqs instanceof ah) {
-                    ((ah) aqs).N(kW(i));
-                    return aqs;
+                Fragment aqD = aqD();
+                if (aqD instanceof ah) {
+                    ((ah) aqD).M(kY(i));
+                    return aqD;
                 }
-                return aqs;
+                return aqD;
         }
     }
 
@@ -126,12 +126,12 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         return super.getItemPosition(obj);
     }
 
-    public int kX(int i) {
-        return this.das.getType(i);
+    public int kZ(int i) {
+        return this.dbo.getType(i);
     }
 
-    public int kY(int i) {
-        return this.das.le(i);
+    public int la(int i) {
+        return this.dbo.lg(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -142,81 +142,81 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.das.getTabCount();
+        return this.dbo.getTabCount();
     }
 
     @Override // com.baidu.tbadk.core.view.viewpager.a, android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (obj != null && com.baidu.tieba.homepage.framework.a.a.aqB().daT != i) {
-            if (this.dal instanceof BaseFragment) {
-                ((BaseFragment) this.dal).setPrimary(false);
+        if (obj != null && com.baidu.tieba.homepage.framework.a.a.aqM().dbN != i) {
+            if (this.dbh instanceof BaseFragment) {
+                ((BaseFragment) this.dbh).setPrimary(false);
             }
-            com.baidu.tieba.homepage.framework.a.a.aqB().daT = i;
-            VoiceManager ca = com.baidu.tieba.tbadkCore.voice.b.ca(this.mContext);
-            if (ca != null) {
-                ca.stopPlay();
+            com.baidu.tieba.homepage.framework.a.a.aqM().dbN = i;
+            VoiceManager cb = com.baidu.tieba.tbadkCore.voice.b.cb(this.mContext);
+            if (cb != null) {
+                cb.stopPlay();
             }
             if (obj instanceof BaseFragment) {
                 ((BaseFragment) obj).setPrimary(true);
             }
             if ((obj instanceof com.baidu.tieba.homepage.personalize.a) && i == 0) {
-                ((com.baidu.tieba.homepage.personalize.a) obj).apW();
+                ((com.baidu.tieba.homepage.personalize.a) obj).aqh();
             }
             if (obj instanceof ah) {
                 ((ah) obj).showFloatingView();
             }
         }
         if (obj instanceof ah) {
-            this.dal = (ah) obj;
-            this.dal.setHeaderViewHeight(this.cpH);
-            this.dal.setRecommendFrsNavigationAnimDispatcher(this.dar);
+            this.dbh = (ah) obj;
+            this.dbh.setHeaderViewHeight(this.cqz);
+            this.dbh.setRecommendFrsNavigationAnimDispatcher(this.dbn);
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        return this.das.r(this.mContext, i);
+        return this.dbo.q(this.mContext, i);
     }
 
     public void setPrimary(boolean z) {
-        if (this.dal instanceof BaseFragment) {
+        if (this.dbh instanceof BaseFragment) {
             if (!z) {
-                int a = v.a(xt(), (BaseFragment) this.dal);
+                int a = v.a(xt(), (BaseFragment) this.dbh);
                 if (a < 0) {
-                    a = kY(1);
+                    a = la(1);
                 }
-                kZ(a);
+                lb(a);
                 completePullRefresh();
             }
-            ((BaseFragment) this.dal).setPrimary(z);
+            ((BaseFragment) this.dbh).setPrimary(z);
         }
     }
 
     public void setRecommendFrsNavigationAnimDispatcher(r rVar) {
-        this.dar = rVar;
+        this.dbn = rVar;
     }
 
     public void b(View view, int i, int i2, int i3, int i4) {
-        if (this.cpH != i2) {
-            this.cpH = i2;
+        if (this.cqz != i2) {
+            this.cqz = i2;
             Iterator<Fragment> it = xt().iterator();
             while (it.hasNext()) {
                 Fragment next = it.next();
                 if (next != null && (next instanceof ah)) {
-                    ((ah) next).setHeaderViewHeight(this.cpH);
+                    ((ah) next).setHeaderViewHeight(this.cqz);
                 }
             }
         }
     }
 
-    public void kZ(final int i) {
+    public void lb(final int i) {
         u.a(new t<Object>() { // from class: com.baidu.tieba.homepage.framework.indicator.a.1
             @Override // com.baidu.tbadk.util.t
             public Object doInBackground() {
-                l<String> O = com.baidu.tbadk.core.c.a.tk().O(a.this.dam, TbadkCoreApplication.getCurrentAccount());
+                l<String> O = com.baidu.tbadk.core.c.a.tk().O(a.this.dbi, TbadkCoreApplication.getCurrentAccount());
                 if (O != null) {
-                    O.a(a.this.dan, Integer.toString(i), 43200000L);
+                    O.a(a.this.dbj, Integer.toString(i), 43200000L);
                     return null;
                 }
                 return null;
@@ -225,96 +225,96 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     }
 
     public void a(d dVar) {
-        if (!this.dap) {
-            this.dap = true;
-            dVar.kU(1);
+        if (!this.dbl) {
+            this.dbl = true;
+            dVar.kW(1);
         }
     }
 
     private void completePullRefresh() {
-        if (this.daj != null && this.dal == this.daj) {
-            this.daj.completePullRefresh();
+        if (this.dbf != null && this.dbh == this.dbf) {
+            this.dbf.completePullRefresh();
         }
-        if (this.dai != null && this.dal == this.dai) {
-            this.dai.completePullRefresh();
+        if (this.dbe != null && this.dbh == this.dbe) {
+            this.dbe.completePullRefresh();
         }
     }
 
-    public boolean aqt() {
-        return this.dai != null;
+    public boolean aqE() {
+        return this.dbe != null;
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.daj != null) {
-            this.daj.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.dbf != null) {
+            this.dbf.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
     public void h(String str, int i, int i2) {
-        if (i2 == 1 && this.daj != null && this.dal == this.daj) {
-            this.daj.N(str, i);
+        if (i2 == 1 && this.dbf != null && this.dbh == this.dbf) {
+            this.dbf.N(str, i);
         }
-        if (i2 == 0 && this.dai != null) {
-            this.dai.N(str, i);
+        if (i2 == 0 && this.dbe != null) {
+            this.dbe.N(str, i);
         }
     }
 
-    public void apX() {
-        if (this.daj != null) {
-            this.daj.apX();
+    public void aqi() {
+        if (this.dbf != null) {
+            this.dbf.aqi();
         }
-        if (this.dai != null) {
-            this.dai.apX();
+        if (this.dbe != null) {
+            this.dbe.aqi();
         }
     }
 
     public void c(DataRes dataRes, boolean z, boolean z2) {
-        if (this.daj != null) {
-            this.daj.d(dataRes, z, z2);
+        if (this.dbf != null) {
+            this.dbf.d(dataRes, z, z2);
         }
     }
 
     public void d(tbclient.Userlike.DataRes dataRes, boolean z) {
-        if (this.dai != null) {
-            this.dai.a(dataRes, z);
+        if (this.dbe != null) {
+            this.dbe.a(dataRes, z);
         }
     }
 
     public void du(int i) {
-        if (this.dal != null) {
-            this.dal.xc();
+        if (this.dbh != null) {
+            this.dbh.xc();
         }
     }
 
-    public void aqu() {
-        if (this.dal != null) {
-            this.dal.ahj();
+    public void aqF() {
+        if (this.dbh != null) {
+            this.dbh.ahu();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void la(int i) {
-        Fragment fragment = (Fragment) v.c(xt(), kY(i));
+    public void lc(int i) {
+        Fragment fragment = (Fragment) v.c(xt(), la(i));
         if (fragment != null && (fragment instanceof ah)) {
-            ((ah) fragment).ahj();
+            ((ah) fragment).ahu();
         }
     }
 
     public ah getCurrentFragment() {
-        return this.dal;
+        return this.dbh;
     }
 
-    public void apW() {
-        switch (kX(com.baidu.tieba.homepage.framework.a.a.aqB().daT)) {
+    public void aqh() {
+        switch (kZ(com.baidu.tieba.homepage.framework.a.a.aqM().dbN)) {
             case 0:
-                if (this.dai != null) {
-                    this.dai.apW();
+                if (this.dbe != null) {
+                    this.dbe.aqh();
                     return;
                 }
                 return;
             case 1:
-                if (this.daj != null) {
-                    this.daj.apW();
+                if (this.dbf != null) {
+                    this.dbf.aqh();
                     return;
                 }
                 return;
@@ -323,32 +323,32 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
     }
 
-    public void lb(int i) {
-        if (i == 1 && this.daj != null) {
-            this.daj.aqC();
+    public void ld(int i) {
+        if (i == 1 && this.dbf != null) {
+            this.dbf.aqN();
         }
     }
 
-    public void lc(int i) {
-        if (com.baidu.tieba.homepage.framework.a.a.aqB().daT == i) {
-            this.daq = -1;
+    public void le(int i) {
+        if (com.baidu.tieba.homepage.framework.a.a.aqM().dbN == i) {
+            this.dbm = -1;
         } else {
-            this.daq = i;
+            this.dbm = i;
         }
     }
 
     public void onPageScrolled(int i, float f, int i2) {
-        if (this.daq == -1 || (i == this.daq && f == 0.0f)) {
+        if (this.dbm == -1 || (i == this.dbm && f == 0.0f)) {
             Fragment fragment = (Fragment) v.c(xt(), i - 1);
             Fragment fragment2 = (Fragment) v.c(xt(), i);
             Fragment fragment3 = (Fragment) v.c(xt(), i + 1);
-            this.daq = -1;
+            this.dbm = -1;
             if (f == 0.0f) {
                 if (fragment instanceof ah) {
-                    ((ah) fragment).agV();
+                    ((ah) fragment).ahg();
                 }
                 if (fragment3 instanceof ah) {
-                    ((ah) fragment3).agV();
+                    ((ah) fragment3).ahg();
                 }
                 if (fragment2 != null) {
                     fragment2.setMenuVisibility(true);
@@ -358,20 +358,20 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
                 return;
             }
             if (fragment instanceof ah) {
-                ((ah) fragment).agU();
+                ((ah) fragment).ahf();
             }
             if (fragment2 instanceof ah) {
-                ((ah) fragment2).agU();
+                ((ah) fragment2).ahf();
             }
             if (fragment3 instanceof ah) {
-                ((ah) fragment3).agU();
+                ((ah) fragment3).ahf();
             }
         }
     }
 
     public String getCurrentPageKey() {
-        if (this.dal instanceof BaseFragment) {
-            return ((BaseFragment) this.dal).getCurrentPageKey();
+        if (this.dbh instanceof BaseFragment) {
+            return ((BaseFragment) this.dbh).getCurrentPageKey();
         }
         return null;
     }

@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.coreExtra.data.q;
 /* loaded from: classes.dex */
 public class CommitGraffitiModel extends BdBaseModel {
-    private h cRJ;
-    private String cRK;
-    private final HttpMessageListener cRL;
+    private h cSD;
+    private String cSE;
+    private final HttpMessageListener cSF;
     private String forumId;
     private int height;
     private Context mContext;
@@ -30,29 +30,29 @@ public class CommitGraffitiModel extends BdBaseModel {
 
     public CommitGraffitiModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.cRL = new HttpMessageListener(CmdConfigHttp.CMD_COMMIT_GRAFFITI) { // from class: com.baidu.tieba.graffiti.CommitGraffitiModel.1
+        this.cSF = new HttpMessageListener(CmdConfigHttp.CMD_COMMIT_GRAFFITI) { // from class: com.baidu.tieba.graffiti.CommitGraffitiModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003081 && (httpResponsedMessage instanceof ResponseCommitGraffitiMessage) && CommitGraffitiModel.this.cRJ != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003081 && (httpResponsedMessage instanceof ResponseCommitGraffitiMessage) && CommitGraffitiModel.this.cSD != null) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     int error = httpResponsedMessage.getError();
                     ResponseCommitGraffitiMessage responseCommitGraffitiMessage = (ResponseCommitGraffitiMessage) httpResponsedMessage;
                     if (statusCode == 200 && error == 0) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS, CommitGraffitiModel.this.threadId));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_VOTE_SUCCESS, new f(CommitGraffitiModel.this.threadId, CommitGraffitiModel.this.forumId, null)));
-                        CommitGraffitiModel.this.cRJ.a(responseCommitGraffitiMessage.getErrMsg(), CommitGraffitiModel.this.forumId, CommitGraffitiModel.this.threadId, responseCommitGraffitiMessage.getGraffitiInfo());
+                        CommitGraffitiModel.this.cSD.a(responseCommitGraffitiMessage.getErrMsg(), CommitGraffitiModel.this.forumId, CommitGraffitiModel.this.threadId, responseCommitGraffitiMessage.getGraffitiInfo());
                         if (responseCommitGraffitiMessage.getGraffitiInfo() != null) {
                             TiebaStatic.log(new ak("c11001").ad("obj_id", String.valueOf(responseCommitGraffitiMessage.getGraffitiInfo().getGid())).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 3));
                         }
                     } else if (error != 224011) {
-                        CommitGraffitiModel.this.cRJ.a(responseCommitGraffitiMessage.getError(), responseCommitGraffitiMessage.getErrorString(), null, null, null, null, 0, 0, CommitGraffitiModel.this.cRK);
+                        CommitGraffitiModel.this.cSD.a(responseCommitGraffitiMessage.getError(), responseCommitGraffitiMessage.getErrorString(), null, null, null, null, 0, 0, CommitGraffitiModel.this.cSE);
                     } else {
                         q vCodeData = responseCommitGraffitiMessage.getVCodeData();
                         if (vCodeData == null || !"4".equals(vCodeData.yA()) || !responseCommitGraffitiMessage.isNeedVcode()) {
-                            CommitGraffitiModel.this.cRJ.a(responseCommitGraffitiMessage.getError(), responseCommitGraffitiMessage.getErrorString(), null, null, null, null, 0, 0, CommitGraffitiModel.this.cRK);
+                            CommitGraffitiModel.this.cSD.a(responseCommitGraffitiMessage.getError(), responseCommitGraffitiMessage.getErrorString(), null, null, null, null, 0, 0, CommitGraffitiModel.this.cSE);
                         } else {
-                            CommitGraffitiModel.this.cRJ.a(responseCommitGraffitiMessage.getError(), responseCommitGraffitiMessage.getErrorString(), responseCommitGraffitiMessage.getVCodeData(), CommitGraffitiModel.this.forumId, CommitGraffitiModel.this.threadId, CommitGraffitiModel.this.picId, CommitGraffitiModel.this.width, CommitGraffitiModel.this.height, CommitGraffitiModel.this.cRK);
+                            CommitGraffitiModel.this.cSD.a(responseCommitGraffitiMessage.getError(), responseCommitGraffitiMessage.getErrorString(), responseCommitGraffitiMessage.getVCodeData(), CommitGraffitiModel.this.forumId, CommitGraffitiModel.this.threadId, CommitGraffitiModel.this.picId, CommitGraffitiModel.this.width, CommitGraffitiModel.this.height, CommitGraffitiModel.this.cSE);
                         }
                     }
                 }
@@ -63,13 +63,13 @@ public class CommitGraffitiModel extends BdBaseModel {
     }
 
     private void registerListener() {
-        this.cRL.setTag(getUniqueId());
-        this.cRL.setSelfListener(true);
-        registerListener(this.cRL);
+        this.cSF.setTag(getUniqueId());
+        this.cSF.setSelfListener(true);
+        registerListener(this.cSF);
     }
 
     public void a(h hVar) {
-        this.cRJ = hVar;
+        this.cSD = hVar;
     }
 
     public void a(String str, String str2, String str3, int i, int i2, String str4, String str5, String str6) {
@@ -78,7 +78,7 @@ public class CommitGraffitiModel extends BdBaseModel {
         this.picId = str3;
         this.width = i;
         this.height = i2;
-        this.cRK = str4;
+        this.cSE = str4;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_COMMIT_GRAFFITI);
         httpMessage.addParam("tid", str);
         httpMessage.addParam("fid", str2);

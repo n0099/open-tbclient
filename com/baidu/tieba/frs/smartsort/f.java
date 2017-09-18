@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    public int cEg;
+    public int cEY;
     public String forumName;
 
     public f() {
@@ -15,14 +15,14 @@ public class f {
             throw new NullPointerException("JSONObject is Null");
         }
         this.forumName = jSONObject.optString("forum_name");
-        this.cEg = jSONObject.optInt("sort_tabId");
+        this.cEY = jSONObject.optInt("sort_tabId");
     }
 
-    public JSONObject ali() {
+    public JSONObject alt() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
-            jSONObject.put("sort_tabId", this.cEg);
+            jSONObject.put("sort_tabId", this.cEY);
             return jSONObject;
         } catch (JSONException e) {
             return null;

@@ -45,7 +45,7 @@ public class d {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
-                    a.ax(TbadkCoreApplication.getInst());
+                    a.ay(TbadkCoreApplication.getInst());
                 }
             }
         });
@@ -273,7 +273,7 @@ public class d {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    a.e(TbPageContext.this.getPageActivity(), str2, cb);
+                    a.f(TbPageContext.this.getPageActivity(), str2, cb);
                 }
             }, new a.b() { // from class: com.baidu.tbadk.browser.d.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -282,7 +282,7 @@ public class d {
                 }
             }, cb);
         } else {
-            a.e(tbPageContext.getPageActivity(), str2, cb);
+            a.f(tbPageContext.getPageActivity(), str2, cb);
         }
     }
 

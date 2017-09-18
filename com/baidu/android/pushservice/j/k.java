@@ -1,55 +1,99 @@
 package com.baidu.android.pushservice.j;
 
 import android.content.Context;
-import android.content.Intent;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes2.dex */
 public class k {
-    public static void a(Context context, Intent intent, Intent intent2) {
-        long j;
-        String stringExtra = intent.getStringExtra("message_id");
-        ArrayList<com.baidu.android.pushservice.h.h> arrayList = new ArrayList();
-        HashMap hashMap = new HashMap();
-        if (intent2 != null) {
-            long longExtra = intent.getLongExtra("bd.message.rate.GET", 0L);
-            long longExtra2 = intent.getLongExtra("bd.message.rate.REDIRECTION", 0L);
-            long longExtra3 = intent2.getLongExtra("bd.message.rate.BACK", 0L);
-            long longExtra4 = intent2.getLongExtra("bd.message.rate.END", 0L);
-            hashMap.put("030801", Long.valueOf(longExtra2 - longExtra));
-            hashMap.put("030802", Long.valueOf(longExtra3 - longExtra2));
-            hashMap.put("030803", Long.valueOf(longExtra4 - longExtra3));
-            j = longExtra4 - longExtra;
-        } else {
-            long longExtra5 = intent.getLongExtra("bd.message.rate.GET", 0L);
-            long longExtra6 = intent.getLongExtra("bd.message.rate.REDIRECTION", 0L);
-            long longExtra7 = intent.getLongExtra("bd.message.rate.TIMEOUT", 0L);
-            long j2 = longExtra7 - longExtra5;
-            hashMap.put("030801", Long.valueOf(longExtra6 - longExtra5));
-            hashMap.put("030803", Long.valueOf(longExtra7 - longExtra6));
-            hashMap.put("030805", Long.valueOf(j2));
-            j = j2;
+    private static ConnectivityManager a = null;
+
+    public static boolean a(Context context) {
+        NetworkInfo c = c(context);
+        if (c != null) {
+            return c.isConnectedOrConnecting();
         }
-        com.baidu.android.pushservice.h.h hVar = new com.baidu.android.pushservice.h.h();
-        hVar.d = "030804";
-        hVar.b = stringExtra;
-        hVar.c = j + "";
-        hVar.f = "100%";
-        hVar.j = j + "";
-        arrayList.add(hVar);
-        for (Map.Entry entry : hashMap.entrySet()) {
-            com.baidu.android.pushservice.h.h hVar2 = new com.baidu.android.pushservice.h.h();
-            hVar2.d = (String) entry.getKey();
-            hVar2.b = stringExtra;
-            hVar2.c = j + "";
-            hVar2.j = entry.getValue() + "";
-            hVar2.f = new DecimalFormat("#.##").format((((Long) entry.getValue()).longValue() / j) * 100.0d) + "%";
-            arrayList.add(hVar2);
+        return false;
+    }
+
+    public static boolean b(Context context) {
+        NetworkInfo c = c(context);
+        return c != null && c.getType() == 1;
+    }
+
+    public static NetworkInfo c(Context context) {
+        NetworkInfo networkInfo = null;
+        try {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext == null) {
+                com.baidu.android.pushservice.g.a.d("NetworkCheck", "context is null !!!");
+            }
+            ConnectivityManager f = f(applicationContext);
+            if (f != null) {
+                networkInfo = f.getActiveNetworkInfo();
+                if (networkInfo == null) {
+                    com.baidu.android.pushservice.g.a.d("NetworkCheck", "networkInfo is null !!!");
+                }
+            } else {
+                com.baidu.android.pushservice.g.a.d("NetworkCheck", "connManager is null !!!");
+            }
+        } catch (Exception e) {
+            com.baidu.android.pushservice.g.a.e("NetworkCheck", "exp: " + e.getMessage());
         }
-        for (com.baidu.android.pushservice.h.h hVar3 : arrayList) {
-            com.baidu.android.pushservice.h.p.a(context, hVar3);
+        return networkInfo;
+    }
+
+    public static String d(Context context) {
+        if (a(context)) {
+            NetworkInfo c = c(context);
+            switch (c != null ? c.getType() : -1) {
+                case 0:
+                    return "mobile";
+                case 1:
+                    return "wifi";
+                case 2:
+                    return "mobile_mms";
+                case 3:
+                    return "mobile_supl";
+                case 4:
+                    return "mobile_dun";
+                case 5:
+                    return "mobile_hipri";
+                case 6:
+                    return "wimax";
+                default:
+                    return "connectionless";
+            }
         }
+        return "connectionless";
+    }
+
+    public static boolean e(Context context) {
+        boolean a2 = a(context);
+        if (a2 || !p.t(context, "android.permission.INTERNET")) {
+            return a2;
+        }
+        try {
+            com.baidu.android.pushservice.f.a a3 = com.baidu.android.pushservice.f.b.a(com.baidu.android.pushservice.h.a(), "GET", (HashMap<String, String>) null);
+            if (a3.b() != 0) {
+                if (a3.a() != null) {
+                    return true;
+                }
+                return a2;
+            }
+            return a2;
+        } catch (Exception e) {
+            return a2;
+        }
+    }
+
+    private static ConnectivityManager f(Context context) {
+        if (context == null) {
+            return a;
+        }
+        if (a == null) {
+            a = (ConnectivityManager) context.getSystemService("connectivity");
+        }
+        return a;
     }
 }

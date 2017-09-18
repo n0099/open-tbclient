@@ -13,15 +13,15 @@ public class at {
     private static String a;
     private static at e = new at();
     private List<a> b = new ArrayList();
-    private a.C0146a c;
+    private a.C0145a c;
     private h.b d;
 
     /* loaded from: classes2.dex */
     public static abstract class a {
-        public void a(a.C0146a c0146a) {
+        public void a(a.C0145a c0145a) {
         }
 
-        public void a(b.C0147b c0147b) {
+        public void a(b.C0146b c0146b) {
         }
     }
 
@@ -75,7 +75,7 @@ public class at {
             try {
                 bufferedInputStream = new BufferedInputStream(com.xiaomi.channel.commonutils.android.j.a().openFileInput("XMCloudCfg"));
                 try {
-                    this.c = a.C0146a.c(com.google.protobuf.micro.b.m(bufferedInputStream));
+                    this.c = a.C0145a.c(com.google.protobuf.micro.b.m(bufferedInputStream));
                     bufferedInputStream.close();
                     com.xiaomi.channel.commonutils.file.a.a(bufferedInputStream);
                 } catch (Exception e2) {
@@ -100,7 +100,7 @@ public class at {
             throw th;
         }
         if (this.c != null) {
-            this.c = new a.C0146a();
+            this.c = new a.C0145a();
         }
     }
 
@@ -120,16 +120,16 @@ public class at {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(b.C0147b c0147b) {
+    public void a(b.C0146b c0146b) {
         a[] aVarArr;
-        if (c0147b.i() && c0147b.h() > c()) {
+        if (c0146b.i() && c0146b.h() > c()) {
             g();
         }
         synchronized (this) {
             aVarArr = (a[]) this.b.toArray(new a[this.b.size()]);
         }
         for (a aVar : aVarArr) {
-            aVar.a(c0147b);
+            aVar.a(c0146b);
         }
     }
 
@@ -151,7 +151,7 @@ public class at {
         return 0;
     }
 
-    public a.C0146a d() {
+    public a.C0145a d() {
         f();
         return this.c;
     }

@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ImageView implements l {
-    private int aAY;
-    private boolean aAZ;
+    private int aAV;
+    private boolean aAW;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -19,7 +19,7 @@ public class c extends ImageView implements l {
     public c(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.aAZ = false;
+        this.aAW = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -28,8 +28,8 @@ public class c extends ImageView implements l {
     }
 
     public void setIcon(int i) {
-        this.aAY = i;
-        aj.b((ImageView) this, this.aAY, this.mSkinType);
+        this.aAV = i;
+        aj.b((ImageView) this, this.aAV, this.mSkinType);
     }
 
     public void setToolId(int i) {
@@ -108,7 +108,7 @@ public class c extends ImageView implements l {
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        aj.b((ImageView) this, this.aAY, i);
+        aj.b((ImageView) this, this.aAV, i);
         if (this.mTip != null) {
             aj.b(this.mTip, d.e.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
@@ -120,11 +120,11 @@ public class c extends ImageView implements l {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.aAZ;
+        return this.aAW;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.aAZ = z;
+        this.aAW = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

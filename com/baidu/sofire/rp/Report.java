@@ -42,7 +42,7 @@ public class Report {
 
     public void r(boolean z) {
         try {
-            c.au(this.b).a();
+            c.av(this.b).a();
         } catch (Throwable th) {
             b.a();
         }
@@ -58,7 +58,7 @@ public class Report {
 
     public void b(String str, String str2) {
         try {
-            b.b(this.b, str, str2);
+            b.e(this.b, str, str2);
         } catch (Throwable th) {
             b.a();
         }
@@ -66,7 +66,7 @@ public class Report {
 
     public void n() {
         try {
-            c.au(this.b).e();
+            c.av(this.b).e();
         } catch (Throwable th) {
             b.a();
         }
@@ -74,7 +74,7 @@ public class Report {
 
     public void fr() {
         try {
-            c.au(this.b).f();
+            c.av(this.b).f();
         } catch (Throwable th) {
             b.a();
         }

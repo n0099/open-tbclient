@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, com.baidu.tbadk.j.a> {
-    private View.OnClickListener aYJ;
+    private View.OnClickListener aYG;
     private TbPageContext mF;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.d.azI, bdUniqueId);
+        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.d.azF, bdUniqueId);
         this.mF = tbPageContext;
     }
 
@@ -32,12 +32,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
         if (aVar == null || dVar == null) {
             return null;
         }
-        aVar.setOnClick(this.aYJ);
+        aVar.setOnClick(this.aYG);
         aVar.c(dVar);
         return aVar.getView();
     }
 
     public void setOnClick(View.OnClickListener onClickListener) {
-        this.aYJ = onClickListener;
+        this.aYG = onClickListener;
     }
 }

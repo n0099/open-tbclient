@@ -23,10 +23,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams ffp;
-    private boolean bmo;
-    private View.OnClickListener clY;
-    private List<TextView> ffo;
+    private static ViewGroup.LayoutParams fgi;
+    private boolean bmn;
+    private View.OnClickListener cmR;
+    private List<TextView> fgh;
 
     public ReplyLinearLayout(Context context) {
         this(context, null);
@@ -34,12 +34,12 @@ public class ReplyLinearLayout extends LinearLayout {
 
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.clY = new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.ReplyLinearLayout.1
+        this.cmR = new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.ReplyLinearLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 boolean z;
                 String[] strArr = (String[]) view.getTag();
-                TiebaStatic.log(new ak("c12043").r("obj_type", ReplyLinearLayout.this.bmo ? 1 : 2));
+                TiebaStatic.log(new ak("c12043").r("obj_type", ReplyLinearLayout.this.bmn ? 1 : 2));
                 if (strArr != null) {
                     Context context2 = ReplyLinearLayout.this.getContext();
                     if (strArr.length < 6 || strArr[5] == null || b.g(strArr[5], 0) != 33) {
@@ -61,24 +61,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.ffo = new ArrayList();
+        this.fgh = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (ffp == null) {
-            ffp = new LinearLayout.LayoutParams(-1, -2);
+        if (fgi == null) {
+            fgi = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.ffo.size();
+        int size2 = size - this.fgh.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.ffo.add(textView);
+            this.fgh.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.ffo.size(); i3++) {
-            TextView textView2 = this.ffo.get(i3);
+        for (int i3 = 0; i3 < this.fgh.size(); i3++) {
+            TextView textView2 = this.fgh.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -94,12 +94,12 @@ public class ReplyLinearLayout extends LinearLayout {
                     textView2.setText(charSequenceArr[4]);
                 }
                 textView2.setTag(charSequenceArr);
-                textView2.setOnClickListener(this.clY);
+                textView2.setOnClickListener(this.cmR);
                 p(textView2, i3);
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(ffp);
+                    textView2.setLayoutParams(fgi);
                     aj.c(textView2, d.e.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
@@ -107,11 +107,11 @@ public class ReplyLinearLayout extends LinearLayout {
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(ffp);
+                    textView2.setLayoutParams(fgi);
                     aj.c(textView2, d.e.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(ffp);
+                    textView2.setLayoutParams(fgi);
                     aj.c(textView2, d.e.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);
@@ -136,6 +136,6 @@ public class ReplyLinearLayout extends LinearLayout {
     }
 
     public void setIsHost(boolean z) {
-        this.bmo = z;
+        this.bmn = z;
     }
 }

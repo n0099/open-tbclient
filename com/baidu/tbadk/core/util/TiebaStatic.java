@@ -69,10 +69,10 @@ public class TiebaStatic {
     }
 
     public static void net(com.baidu.tbadk.core.util.a.a aVar) {
-        if (aVar != null && aVar.wh().aip.uT <= 180000) {
+        if (aVar != null && aVar.wh().aio.uT <= 180000) {
             try {
-                if (aVar.wh().aip.uT >= 0 && aVar.wh().aip.connectTime >= 0 && aVar.wh().aip.uR >= 0) {
-                    int i = aVar.wg().ain;
+                if (aVar.wh().aio.uT >= 0 && aVar.wh().aio.connectTime >= 0 && aVar.wh().aio.uR >= 0) {
+                    int i = aVar.wg().aim;
                     if (!aVar.wg().vm()) {
                         i = aVar.wg().vm;
                     }
@@ -81,10 +81,10 @@ public class TiebaStatic {
                     if (i != 0) {
                         str = aVar.wg().mErrorString;
                     }
-                    if (aVar.wf().ail) {
-                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.wf().wj(), vZ, aVar.wh().aip.uQ, aVar.wh().aip.uP, aVar.wh().aip.uT, aVar.wh().aip.connectTime, aVar.wh().aip.uR, aVar.wh().aip.uS, i, str, new Object[0]);
+                    if (aVar.wf().aik) {
+                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.wf().wj(), vZ, aVar.wh().aio.uQ, aVar.wh().aio.uP, aVar.wh().aio.uT, aVar.wh().aio.connectTime, aVar.wh().aio.uR, aVar.wh().aio.uS, i, str, new Object[0]);
                     } else {
-                        BdStatisticsManager.getInstance().net(aVar.wf().wj(), vZ, aVar.wh().aip.uQ, aVar.wh().aip.uP, aVar.wh().aip.uT, aVar.wh().aip.connectTime, aVar.wh().aip.uR, aVar.wh().aip.uS, i, str, new Object[0]);
+                        BdStatisticsManager.getInstance().net(aVar.wf().wj(), vZ, aVar.wh().aio.uQ, aVar.wh().aio.uP, aVar.wh().aio.uT, aVar.wh().aio.connectTime, aVar.wh().aio.uR, aVar.wh().aio.uS, i, str, new Object[0]);
                     }
                 }
             } catch (Exception e) {

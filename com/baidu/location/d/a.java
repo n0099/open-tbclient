@@ -21,7 +21,7 @@ import java.util.Iterator;
 public class a {
     private LocationClient MH;
     private AlarmManager MJ;
-    private C0027a MK;
+    private C0026a MK;
     private Context f;
     private boolean n;
     private ArrayList<BDNotifyListener> a = null;
@@ -36,8 +36,8 @@ public class a {
 
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0027a extends BroadcastReceiver {
-        public C0027a() {
+    public class C0026a extends BroadcastReceiver {
+        public C0026a() {
         }
 
         @Override // android.content.BroadcastReceiver
@@ -73,7 +73,7 @@ public class a {
         this.MH = locationClient;
         this.MH.registerNotifyLocationListener(this.ML);
         this.MJ = (AlarmManager) this.f.getSystemService("alarm");
-        this.MK = new C0027a();
+        this.MK = new C0026a();
         this.n = false;
     }
 

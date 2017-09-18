@@ -12,18 +12,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class k extends LinearLayout implements View.OnClickListener {
-    private View bhp;
-    private UserData eEh;
-    private com.baidu.tieba.view.g feW;
-    private View flF;
-    private TbImageView flG;
-    private TextView flH;
-    private View flI;
-    private TbImageView flJ;
-    private TextView flK;
-    private View flL;
-    private TbImageView flM;
-    private TextView flN;
+    private View bhm;
+    private UserData eFb;
+    private com.baidu.tieba.view.g ffP;
+    private TextView fmA;
+    private View fmB;
+    private TbImageView fmC;
+    private TextView fmD;
+    private View fmE;
+    private TbImageView fmF;
+    private TextView fmG;
+    private View fmy;
+    private TbImageView fmz;
 
     public k(Context context) {
         super(context);
@@ -33,58 +33,58 @@ public class k extends LinearLayout implements View.OnClickListener {
     private void init() {
         setOrientation(1);
         View inflate = LayoutInflater.from(getContext()).inflate(d.j.guest_function_layout, this);
-        this.flF = inflate.findViewById(d.h.guest_gift_container);
-        this.flF.setOnClickListener(this);
-        this.flG = (TbImageView) inflate.findViewById(d.h.gift_icon);
-        this.flH = (TextView) inflate.findViewById(d.h.gift_desc);
-        this.flI = inflate.findViewById(d.h.guest_video_container);
-        this.flI.setOnClickListener(this);
-        this.flK = (TextView) inflate.findViewById(d.h.video_desc);
-        this.flJ = (TbImageView) inflate.findViewById(d.h.video_icon);
-        this.flL = inflate.findViewById(d.h.guest_live_container);
-        this.flL.setOnClickListener(this);
-        this.flM = (TbImageView) inflate.findViewById(d.h.live_icon);
-        this.flN = (TextView) inflate.findViewById(d.h.live_desc);
-        this.bhp = inflate.findViewById(d.h.guest_function_divider);
+        this.fmy = inflate.findViewById(d.h.guest_gift_container);
+        this.fmy.setOnClickListener(this);
+        this.fmz = (TbImageView) inflate.findViewById(d.h.gift_icon);
+        this.fmA = (TextView) inflate.findViewById(d.h.gift_desc);
+        this.fmB = inflate.findViewById(d.h.guest_video_container);
+        this.fmB.setOnClickListener(this);
+        this.fmD = (TextView) inflate.findViewById(d.h.video_desc);
+        this.fmC = (TbImageView) inflate.findViewById(d.h.video_icon);
+        this.fmE = inflate.findViewById(d.h.guest_live_container);
+        this.fmE.setOnClickListener(this);
+        this.fmF = (TbImageView) inflate.findViewById(d.h.live_icon);
+        this.fmG = (TextView) inflate.findViewById(d.h.live_desc);
+        this.bhm = inflate.findViewById(d.h.guest_function_divider);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.feW != null) {
+        if (this.ffP != null) {
             com.baidu.tieba.personCenter.c.a aVar = new com.baidu.tieba.personCenter.c.a();
-            aVar.cec = new Bundle();
-            aVar.cec.putSerializable(UserData.TYPE_USER, this.eEh);
-            if (view == this.flF) {
-                aVar.ceb = 38;
-                this.feW.a(this.flF, aVar);
-            } else if (view == this.flI) {
-                aVar.ceb = 39;
-                this.feW.a(this.flI, aVar);
-            } else if (view == this.flL) {
-                aVar.ceb = 40;
-                this.feW.a(this.flL, aVar);
+            aVar.ceU = new Bundle();
+            aVar.ceU.putSerializable(UserData.TYPE_USER, this.eFb);
+            if (view == this.fmy) {
+                aVar.ceT = 38;
+                this.ffP.a(this.fmy, aVar);
+            } else if (view == this.fmB) {
+                aVar.ceT = 39;
+                this.ffP.a(this.fmB, aVar);
+            } else if (view == this.fmE) {
+                aVar.ceT = 40;
+                this.ffP.a(this.fmE, aVar);
             }
         }
     }
 
     public void setOnViewResponseListener(com.baidu.tieba.view.g gVar) {
-        this.feW = gVar;
+        this.ffP = gVar;
     }
 
     public void setUserData(UserData userData) {
-        this.eEh = userData;
+        this.eFb = userData;
     }
 
     public void onChangeSkinType() {
-        aj.k(this.bhp, d.e.cp_bg_line_b);
-        aj.j(this.flF, d.g.item_person_center_function_selector);
-        aj.j(this.flI, d.g.item_person_center_function_selector);
-        aj.j(this.flL, d.g.item_person_center_function_selector);
-        aj.c(this.flG, d.g.icon_liwu_caise_heibai);
-        aj.c(this.flJ, d.g.icon_shipin_caise_heibai);
-        aj.c(this.flM, d.g.icon_zhibou_caise_heibai);
-        aj.i(this.flH, d.e.cp_cont_d);
-        aj.i(this.flK, d.e.cp_cont_d);
-        aj.i(this.flN, d.e.cp_cont_d);
+        aj.k(this.bhm, d.e.cp_bg_line_b);
+        aj.j(this.fmy, d.g.item_person_center_function_selector);
+        aj.j(this.fmB, d.g.item_person_center_function_selector);
+        aj.j(this.fmE, d.g.item_person_center_function_selector);
+        aj.c(this.fmz, d.g.icon_liwu_caise_heibai);
+        aj.c(this.fmC, d.g.icon_shipin_caise_heibai);
+        aj.c(this.fmF, d.g.icon_zhibou_caise_heibai);
+        aj.i(this.fmA, d.e.cp_cont_d);
+        aj.i(this.fmD, d.e.cp_cont_d);
+        aj.i(this.fmG, d.e.cp_cont_d);
     }
 }

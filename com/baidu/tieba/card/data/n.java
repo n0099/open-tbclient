@@ -5,22 +5,22 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class n extends c {
-    public static final BdUniqueId bNp = BdUniqueId.gen();
-    public static final BdUniqueId bNq = BdUniqueId.gen();
-    public static String bNr = "";
-    public static String bNs = "";
-    public static String bNt = "";
-    public static String bNu = "";
-    public static String bNv = "";
-    public static String bNw = "";
-    public static String bNx = "";
-    public bj bcJ;
-    public boolean bNk = false;
-    public boolean bNy = true;
+    public static final BdUniqueId bOg = BdUniqueId.gen();
+    public static final BdUniqueId bOh = BdUniqueId.gen();
+    public static String bOi = "";
+    public static String bOj = "";
+    public static String bOk = "";
+    public static String bOl = "";
+    public static String bOm = "";
+    public static String bOn = "";
+    public static String bOo = "";
+    public bj bcG;
+    public boolean bOb = false;
+    public boolean bOp = true;
     public int sourceType = 0;
 
     public n(bj bjVar) {
-        this.bcJ = bjVar;
+        this.bcG = bjVar;
     }
 
     public static boolean F(bj bjVar) {
@@ -29,48 +29,48 @@ public class n extends c {
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        if (this.bcJ == null) {
-            return bNp;
+        if (this.bcG == null) {
+            return bOg;
         }
-        if (this.bcJ.rE() || this.bcJ.rF()) {
-            return bNq;
+        if (this.bcG.rE() || this.bcG.rF()) {
+            return bOh;
         }
-        return bNp;
+        return bOg;
     }
 
     @Override // com.baidu.tieba.card.data.c
     public bj MR() {
-        return this.bcJ;
+        return this.bcG;
     }
 
-    public ak jz(String str) {
-        ak jy = jy(str);
-        if (jy != null && this.bcJ != null) {
-            jy.f("fid", this.bcJ.getFid());
-            jy.ad("tid", this.bcJ.getTid());
-            jy.r("obj_type", 2);
+    public ak jB(String str) {
+        ak jA = jA(str);
+        if (jA != null && this.bcG != null) {
+            jA.f("fid", this.bcG.getFid());
+            jA.ad("tid", this.bcG.getTid());
+            jA.r("obj_type", 2);
         }
-        return jy;
+        return jA;
     }
 
-    public ak Yk() {
-        ak v = v(bNu, true);
+    public ak Yv() {
+        ak v = v(bOl, true);
         if (v != null && MR() != null) {
             bj MR = MR();
-            v.r("obj_name", MR.sR() != null && (MR.sR().aDg() != null || MR.sR().ID() != null) ? 1 : 0);
+            v.r("obj_name", MR.sR() != null && (MR.sR().aDr() != null || MR.sR().ID() != null) ? 1 : 0);
         }
         return v;
     }
 
     public ak G(bj bjVar) {
-        return (bjVar.sF() == null || bjVar.sF().channelId <= 0) ? v(bNv, true) : v(bNw, true);
+        return (bjVar.sF() == null || bjVar.sF().channelId <= 0) ? v(bOm, true) : v(bOn, true);
     }
 
-    public ak Ym() {
-        return v(bNs, true);
+    public ak Yx() {
+        return v(bOj, true);
     }
 
     public ak H(bj bjVar) {
-        return (bjVar.sF() == null || bjVar.sF().channelId <= 0) ? v(bNr, true) : v(bNx, true);
+        return (bjVar.sF() == null || bjVar.sF().channelId <= 0) ? v(bOi, true) : v(bOo, true);
     }
 }

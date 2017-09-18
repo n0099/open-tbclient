@@ -19,9 +19,9 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g {
-    private com.baidu.tbadk.core.view.h bJt;
-    private ViewGroup cGG;
-    private h.a cGH = new h.a() { // from class: com.baidu.tieba.frs.h.g.1
+    private com.baidu.tbadk.core.view.h bKk;
+    private ViewGroup cHA;
+    private h.a cHB = new h.a() { // from class: com.baidu.tieba.frs.h.g.1
         @Override // com.baidu.tbadk.core.view.h.a
         public void a(an anVar) {
             TiebaStatic.log(new ak("c11973").ad("fid", anVar.getFid()).ad("tid", anVar.getTid()).ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
@@ -50,7 +50,7 @@ public class g {
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mF = tbPageContext;
-        this.cGG = viewGroup;
+        this.cHA = viewGroup;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -59,52 +59,52 @@ public class g {
 
     public void T(bj bjVar) {
         int i = 0;
-        if (bjVar != null && this.mF != null && this.cGG != null) {
+        if (bjVar != null && this.mF != null && this.cHA != null) {
             boolean z = (bjVar.getAuthor() == null || bjVar.getAuthor().getUserId() == null || !bjVar.getAuthor().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (bjVar.sE() && bjVar.qs() != null && !z) {
-                if (this.bJt == null) {
-                    this.bJt = new com.baidu.tbadk.core.view.h(this.mF);
-                    this.bJt.setUniqueId(this.mBdUniqueId);
-                    this.bJt.setId(d.h.negative_feedback_view);
-                    this.bJt.wI();
-                    this.bJt.setLeftPadding((int) this.mF.getResources().getDimension(d.f.ds60));
-                    this.bJt.setDefaultReasonArray(new String[]{this.mF.getString(d.l.bad_quality), "", ""});
-                    this.bJt.setEventCallback(this.cGH);
-                    this.cGG.addView(this.bJt);
+                if (this.bKk == null) {
+                    this.bKk = new com.baidu.tbadk.core.view.h(this.mF);
+                    this.bKk.setUniqueId(this.mBdUniqueId);
+                    this.bKk.setId(d.h.negative_feedback_view);
+                    this.bKk.wI();
+                    this.bKk.setLeftPadding((int) this.mF.getResources().getDimension(d.f.ds60));
+                    this.bKk.setDefaultReasonArray(new String[]{this.mF.getString(d.l.bad_quality), "", ""});
+                    this.bKk.setEventCallback(this.cHB);
+                    this.cHA.addView(this.bKk);
                 }
-                if (this.bJt.getVisibility() != 0) {
-                    this.bJt.setVisibility(0);
+                if (this.bKk.getVisibility() != 0) {
+                    this.bKk.setVisibility(0);
                 }
                 an anVar = new an();
                 anVar.cy(bjVar.getTid());
                 anVar.setFid(bjVar.getFid());
                 anVar.a(bjVar.qs());
-                this.bJt.setData(anVar);
+                this.bKk.setData(anVar);
             } else {
-                if (this.bJt != null && this.bJt.getVisibility() != 8) {
-                    this.bJt.setVisibility(8);
+                if (this.bKk != null && this.bKk.getVisibility() != 8) {
+                    this.bKk.setVisibility(8);
                 }
-                i = k.g(this.mF.getPageActivity(), d.f.ds32);
+                i = k.f(this.mF.getPageActivity(), d.f.ds32);
             }
-            if (this.cGG.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cGG.getLayoutParams();
+            if (this.cHA.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cHA.getLayoutParams();
                 layoutParams.rightMargin = i;
-                this.cGG.setLayoutParams(layoutParams);
+                this.cHA.setLayoutParams(layoutParams);
             }
-            if (this.cGG.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.cGG.getLayoutParams();
+            if (this.cHA.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.cHA.getLayoutParams();
                 layoutParams2.rightMargin = i;
-                this.cGG.setLayoutParams(layoutParams2);
+                this.cHA.setLayoutParams(layoutParams2);
             }
-            if (this.bJt != null) {
-                this.bJt.wK();
+            if (this.bKk != null) {
+                this.bKk.wK();
             }
         }
     }
 
     public void onChangeSkinType() {
-        if (this.bJt != null) {
-            this.bJt.onChangeSkinType();
+        if (this.bKk != null) {
+            this.bKk.onChangeSkinType();
         }
     }
 }

@@ -18,24 +18,24 @@ import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class b extends FrameLayout {
     private float Fb;
-    private int aRr;
-    private int aRs;
+    private int aRo;
+    private int aRp;
     private TextView abu;
-    private float bvg;
-    private float ceA;
-    private EditText dHA;
-    private int eTA;
-    private float eTB;
-    private float eTC;
-    private int eTD;
-    private int eTE;
-    private int eTF;
-    private boolean eTG;
-    public int eTH;
-    private int eTI;
-    private int eTJ;
-    private ImageView eTy;
-    private ImageView eTz;
+    private float bvU;
+    private float cfs;
+    private EditText dIv;
+    private boolean eUA;
+    public int eUB;
+    private int eUC;
+    private int eUD;
+    private ImageView eUs;
+    private ImageView eUt;
+    private int eUu;
+    private float eUv;
+    private float eUw;
+    private int eUx;
+    private int eUy;
+    private int eUz;
 
     public b(Context context) {
         this(context, null);
@@ -47,42 +47,42 @@ public class b extends FrameLayout {
 
     public b(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ceA = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.cfs = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         init();
     }
 
     private void init() {
-        this.eTA = getResources().getDimensionPixelSize(d.f.ds20);
-        this.eTH = this.eTA * 2;
-        this.eTD = 24;
-        this.eTE = 16;
-        this.eTF = 40;
-        FrameLayout.LayoutParams aUi = aUi();
-        addView(this.dHA, aUi);
-        a(aUi);
-        aUh();
-        aUg();
-        setTextSize(2, this.eTD);
-        aUj();
+        this.eUu = getResources().getDimensionPixelSize(d.f.ds20);
+        this.eUB = this.eUu * 2;
+        this.eUx = 24;
+        this.eUy = 16;
+        this.eUz = 40;
+        FrameLayout.LayoutParams aUt = aUt();
+        addView(this.dIv, aUt);
+        a(aUt);
+        aUs();
+        aUr();
+        setTextSize(2, this.eUx);
+        aUu();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean t(MotionEvent motionEvent) {
-        return Math.abs(motionEvent.getRawX() - this.Fb) < this.ceA && Math.abs(motionEvent.getRawY() - this.bvg) < this.ceA;
+        return Math.abs(motionEvent.getRawX() - this.Fb) < this.cfs && Math.abs(motionEvent.getRawY() - this.bvU) < this.cfs;
     }
 
-    private void aUg() {
-        this.eTz = new ImageView(getContext());
-        this.eTz.setImageResource(d.g.icon_frame_enlarge_n);
-        this.eTz.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
+    private void aUr() {
+        this.eUt = new ImageView(getContext());
+        this.eUt.setImageResource(d.g.icon_frame_enlarge_n);
+        this.eUt.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
                         b.this.Fb = motionEvent.getRawX();
-                        b.this.bvg = motionEvent.getRawY();
-                        b.this.eTB = b.this.Fb;
-                        b.this.eTC = b.this.bvg;
+                        b.this.bvU = motionEvent.getRawY();
+                        b.this.eUv = b.this.Fb;
+                        b.this.eUw = b.this.bvU;
                         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                         layoutParams.setMargins(b.this.getLeft(), b.this.getTop(), 0, 0);
                         b.this.setLayoutParams(layoutParams);
@@ -93,7 +93,7 @@ public class b extends FrameLayout {
                     case 2:
                         float rawX = motionEvent.getRawX();
                         float rawY = motionEvent.getRawY();
-                        float f = rawX - b.this.eTB;
+                        float f = rawX - b.this.eUv;
                         if (!b.this.t(motionEvent)) {
                             if (f > 0.0f) {
                                 b.this.setSize(f);
@@ -101,23 +101,23 @@ public class b extends FrameLayout {
                                 b.this.setSize(f);
                             }
                         }
-                        b.this.eTB = rawX;
-                        b.this.eTC = rawY;
+                        b.this.eUv = rawX;
+                        b.this.eUw = rawY;
                         return true;
                 }
             }
         });
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 85;
-        this.eTz.setPadding(0, 0, this.eTA, this.eTA);
-        addView(this.eTz, layoutParams);
+        this.eUt.setPadding(0, 0, this.eUu, this.eUu);
+        addView(this.eUt, layoutParams);
     }
 
     private void a(FrameLayout.LayoutParams layoutParams) {
         this.abu = new TextView(getContext());
         this.abu.setHint(getContext().getResources().getString(d.l.emotion_edit_hint));
         this.abu.setBackgroundResource(d.g.bg_emotion_edit);
-        this.abu.setPadding(this.eTA, this.eTA / 2, this.eTA, this.eTA / 2);
+        this.abu.setPadding(this.eUu, this.eUu / 2, this.eUu, this.eUu / 2);
         this.abu.setSingleLine();
         this.abu.setIncludeFontPadding(false);
         this.abu.setEllipsize(TextUtils.TruncateAt.END);
@@ -126,40 +126,40 @@ public class b extends FrameLayout {
         addView(this.abu, layoutParams);
     }
 
-    private void aUh() {
-        this.eTy = new ImageView(getContext());
-        this.eTy.setImageResource(d.g.icon_frame_close_n);
-        this.eTy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.2
+    private void aUs() {
+        this.eUs = new ImageView(getContext());
+        this.eUs.setImageResource(d.g.icon_frame_close_n);
+        this.eUs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.dHA.setText("");
+                b.this.dIv.setText("");
                 b.this.abu.setText("");
             }
         });
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-        this.eTy.setPadding(this.eTA, this.eTA, this.eTA, this.eTA);
-        addView(this.eTy, layoutParams);
+        this.eUs.setPadding(this.eUu, this.eUu, this.eUu, this.eUu);
+        addView(this.eUs, layoutParams);
     }
 
-    private FrameLayout.LayoutParams aUi() {
-        this.dHA = new EditText(getContext());
-        this.dHA.setHint(getContext().getResources().getString(d.l.emotion_edit_hint));
-        this.dHA.setBackgroundDrawable(null);
+    private FrameLayout.LayoutParams aUt() {
+        this.dIv = new EditText(getContext());
+        this.dIv.setHint(getContext().getResources().getString(d.l.emotion_edit_hint));
+        this.dIv.setBackgroundDrawable(null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(this.eTH, this.eTH, this.eTH, this.eTH);
+        layoutParams.setMargins(this.eUB, this.eUB, this.eUB, this.eUB);
         layoutParams.gravity = 17;
-        this.dHA.setPadding(this.eTA, this.eTA / 2, this.eTA, this.eTA / 2);
-        this.dHA.setSingleLine();
-        this.dHA.setIncludeFontPadding(false);
-        this.dHA.getPaint().setFakeBoldText(true);
-        this.dHA.setHintTextColor(getResources().getColor(d.e.cp_cont_e));
+        this.dIv.setPadding(this.eUu, this.eUu / 2, this.eUu, this.eUu / 2);
+        this.dIv.setSingleLine();
+        this.dIv.setIncludeFontPadding(false);
+        this.dIv.getPaint().setFakeBoldText(true);
+        this.dIv.setHintTextColor(getResources().getColor(d.e.cp_cont_e));
         try {
             Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
             declaredField.setAccessible(true);
-            declaredField.set(this.dHA, Integer.valueOf(d.g.emotion_edittext_cursor));
+            declaredField.set(this.dIv, Integer.valueOf(d.g.emotion_edittext_cursor));
         } catch (Exception e) {
         }
-        this.dHA.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.3
+        this.dIv.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -171,9 +171,9 @@ public class b extends FrameLayout {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editable != null) {
-                    int width = (b.this.aRr - b.this.getWidth()) - b.this.getLeft();
-                    if (editable.toString().length() <= b.this.abu.getText().toString().length() || b.this.abu.getTextSize() <= b.this.d(b.this.getContext(), b.this.eTE) || b.this.abu.getTextSize() == b.this.d(b.this.getContext(), b.this.eTD) || width != 0) {
-                        if (editable.toString().length() < b.this.abu.getText().toString().length() && width > 0 && b.this.abu.getTextSize() != b.this.d(b.this.getContext(), b.this.eTD)) {
+                    int width = (b.this.aRo - b.this.getWidth()) - b.this.getLeft();
+                    if (editable.toString().length() <= b.this.abu.getText().toString().length() || b.this.abu.getTextSize() <= b.this.d(b.this.getContext(), b.this.eUy) || b.this.abu.getTextSize() == b.this.d(b.this.getContext(), b.this.eUx) || width != 0) {
+                        if (editable.toString().length() < b.this.abu.getText().toString().length() && width > 0 && b.this.abu.getTextSize() != b.this.d(b.this.getContext(), b.this.eUx)) {
                             b.this.setTextSize(2, b.this.c(b.this.getContext(), b.this.abu.getTextSize()) + 1);
                         }
                     } else {
@@ -181,12 +181,12 @@ public class b extends FrameLayout {
                     }
                     b.this.abu.setText(editable.toString());
                     if (editable.toString().length() > 0) {
-                        b.this.dHA.setHint("");
+                        b.this.dIv.setHint("");
                         b.this.abu.setHint("");
                         return;
                     }
-                    b.this.setTextSize(2, b.this.eTD);
-                    b.this.dHA.setHint(b.this.getContext().getResources().getString(d.l.emotion_edit_hint));
+                    b.this.setTextSize(2, b.this.eUx);
+                    b.this.dIv.setHint(b.this.getContext().getResources().getString(d.l.emotion_edit_hint));
                     b.this.abu.setHint(b.this.getContext().getResources().getString(d.l.emotion_edit_hint));
                 }
             }
@@ -196,37 +196,37 @@ public class b extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setSize(float f) {
-        int width = getWidth() - (this.eTA * 2);
-        int height = getHeight() - (this.eTA * 2);
-        if (this.eTI == 0 && this.eTJ == 0) {
-            this.eTI = width;
-            this.eTJ = height;
+        int width = getWidth() - (this.eUu * 2);
+        int height = getHeight() - (this.eUu * 2);
+        if (this.eUC == 0 && this.eUD == 0) {
+            this.eUC = width;
+            this.eUD = height;
         }
         if (f >= 0.0f) {
-            if (width + getLeft() < this.aRr && getTop() + height < this.aRs) {
+            if (width + getLeft() < this.aRo && getTop() + height < this.aRp) {
                 setTextSize(2, c(getContext(), this.abu.getTextSize()) + 1);
             }
-        } else if (this.abu.getTextSize() > d(getContext(), this.eTE)) {
+        } else if (this.abu.getTextSize() > d(getContext(), this.eUy)) {
             setTextSize(2, c(getContext(), this.abu.getTextSize()) - 1);
         }
     }
 
     public void setTextColor(int i) {
-        this.dHA.setTextColor(i);
+        this.dIv.setTextColor(i);
         this.abu.setTextColor(i);
     }
 
-    public void bk(int i, int i2) {
-        this.aRr = i;
-        this.aRs = i2;
-        if (this.aRr < k.ad(getContext()) / 4) {
-            setTextSize(2, this.eTE);
+    public void bo(int i, int i2) {
+        this.aRo = i;
+        this.aRp = i2;
+        if (this.aRo < k.ae(getContext()) / 4) {
+            setTextSize(2, this.eUy);
         }
     }
 
     public void setTextSize(int i, float f) {
-        if (this.dHA.getTextSize() != f) {
-            this.dHA.setTextSize(i, f);
+        if (this.dIv.getTextSize() != f) {
+            this.dIv.setTextSize(i, f);
         }
         if (this.abu.getTextSize() != f) {
             this.abu.setTextSize(i, f);
@@ -235,33 +235,33 @@ public class b extends FrameLayout {
 
     public void setEditTextEnable(boolean z) {
         if (z) {
-            this.dHA.setFocusable(true);
-            this.dHA.setFocusableInTouchMode(true);
-            this.dHA.requestFocus();
+            this.dIv.setFocusable(true);
+            this.dIv.setFocusableInTouchMode(true);
+            this.dIv.requestFocus();
             return;
         }
-        this.dHA.setFocusable(false);
-        this.dHA.setFocusableInTouchMode(false);
+        this.dIv.setFocusable(false);
+        this.dIv.setFocusableInTouchMode(false);
     }
 
-    public void aUj() {
-        if (!this.eTG) {
-            this.eTG = true;
-            this.dHA.setVisibility(4);
+    public void aUu() {
+        if (!this.eUA) {
+            this.eUA = true;
+            this.dIv.setVisibility(4);
             this.abu.setVisibility(0);
-            this.eTy.setVisibility(0);
-            this.eTz.setVisibility(0);
+            this.eUs.setVisibility(0);
+            this.eUt.setVisibility(0);
             setEditTextEnable(false);
         }
     }
 
-    public void aUk() {
-        if (this.eTG) {
-            this.eTG = false;
-            this.dHA.setVisibility(0);
+    public void aUv() {
+        if (this.eUA) {
+            this.eUA = false;
+            this.dIv.setVisibility(0);
             this.abu.setVisibility(4);
-            this.eTy.setVisibility(4);
-            this.eTz.setVisibility(4);
+            this.eUs.setVisibility(4);
+            this.eUt.setVisibility(4);
             setEditTextEnable(true);
         }
     }
@@ -271,7 +271,7 @@ public class b extends FrameLayout {
     }
 
     public View getEditText() {
-        return this.dHA;
+        return this.dIv;
     }
 
     public String getText() {

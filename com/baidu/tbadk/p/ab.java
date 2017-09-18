@@ -1,7 +1,7 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class ab extends com.baidu.adp.lib.b.a {
-    public static final String[] aLE = {"cn.jingling.lib"};
+    public static final String[] aLB = {"cn.jingling.lib"};
 
     @Override // com.baidu.adp.lib.b.a
     protected void X(int i) {
@@ -14,7 +14,7 @@ public class ab extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] eN() {
-        return aLE;
+        return aLB;
     }
 
     @Override // com.baidu.adp.lib.b.a

@@ -16,19 +16,19 @@ public interface p {
 
     void a(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5);
 
-    h bS(Context context);
+    h bT(Context context);
 
-    k bgX();
+    k bhi();
 
-    m bgY();
+    m bhj();
 
-    com.baidu.tieba.k.a bgZ();
+    com.baidu.tieba.k.a bhk();
 
-    i bha();
+    i bhl();
 
-    List<AppData> bhb();
+    List<AppData> bhm();
 
-    void bhc();
+    void bhn();
 
     com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 

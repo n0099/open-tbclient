@@ -21,31 +21,25 @@ public class i extends c {
     public JSONObject a(Context context) throws JSONException {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("app_type", this.b);
-        if (!TextUtils.isEmpty(d())) {
-            jSONObject.put("app_package_name", d());
-        }
-        if (!TextUtils.isEmpty(e())) {
-            jSONObject.put("app_name", e());
-        }
-        if (!TextUtils.isEmpty(f())) {
-            jSONObject.put("app_cfrom", f());
-        }
-        if (g() != -1) {
-            jSONObject.put("app_vercode", g());
-        }
-        if (!TextUtils.isEmpty(h())) {
-            jSONObject.put("app_vername", h());
-        }
-        if (i() != -1) {
-            jSONObject.put("app_push_version", i());
-        }
-        jSONObject.put("app_appid", a());
         if (!TextUtils.isEmpty(b())) {
-            jSONObject.put("user_id_rsa", b());
+            jSONObject.put("app_package_name", b());
         }
         if (!TextUtils.isEmpty(c())) {
-            jSONObject.put("user_id", c());
+            jSONObject.put("app_name", c());
         }
+        if (!TextUtils.isEmpty(d())) {
+            jSONObject.put("app_cfrom", d());
+        }
+        if (e() != -1) {
+            jSONObject.put("app_vercode", e());
+        }
+        if (!TextUtils.isEmpty(f())) {
+            jSONObject.put("app_vername", f());
+        }
+        if (g() != -1) {
+            jSONObject.put("app_push_version", g());
+        }
+        jSONObject.put("app_appid", a());
         return jSONObject;
     }
 
@@ -53,7 +47,7 @@ public class i extends c {
         this.b = i;
     }
 
-    public int j() {
+    public int h() {
         return this.b;
     }
 }

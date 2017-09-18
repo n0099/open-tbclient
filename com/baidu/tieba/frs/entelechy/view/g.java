@@ -15,7 +15,7 @@ import java.util.List;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
 public class g extends i {
-    private VoteView cwi;
+    private VoteView cxa;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -29,23 +29,23 @@ public class g extends i {
             findViewById = ((ViewStub) this.mRootView.findViewById(d.h.text_vote_view_stub)).inflate();
         }
         if (findViewById != null) {
-            this.cwi = (VoteView) findViewById;
-            this.cwi.setWidth(com.baidu.adp.lib.util.k.g(getContext(), d.f.ds560));
-            this.cwi.setProgressBarHeight(com.baidu.adp.lib.util.k.g(getContext(), d.f.ds20));
-            this.cwi.setDescTextColorResId(d.e.cp_cont_b);
-            this.cwi.setProgressBarTopMargin(com.baidu.adp.lib.util.k.g(getContext(), d.f.ds8));
-            this.cwi.setDescTopMargin(0);
+            this.cxa = (VoteView) findViewById;
+            this.cxa.setWidth(com.baidu.adp.lib.util.k.f(getContext(), d.f.ds560));
+            this.cxa.setProgressBarHeight(com.baidu.adp.lib.util.k.f(getContext(), d.f.ds20));
+            this.cxa.setDescTextColorResId(d.e.cp_cont_b);
+            this.cxa.setProgressBarTopMargin(com.baidu.adp.lib.util.k.f(getContext(), d.f.ds8));
+            this.cxa.setDescTopMargin(0);
             try {
-                ((ViewGroup.MarginLayoutParams) this.cwy.getLayoutParams()).topMargin = com.baidu.adp.lib.util.k.g(getContext(), d.f.ds38);
+                ((ViewGroup.MarginLayoutParams) this.cxq.getLayoutParams()).topMargin = com.baidu.adp.lib.util.k.f(getContext(), d.f.ds38);
             } catch (ClassCastException e) {
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
-    protected void jm(int i) {
-        if (this.cwi != null) {
-            this.cwi.onChangeSkinType(i);
+    protected void jo(int i) {
+        if (this.cxa != null) {
+            this.cxa.onChangeSkinType(i);
         }
     }
 
@@ -65,18 +65,18 @@ public class g extends i {
                             break;
                         }
                         au auVar = new au();
-                        auVar.eT(true);
+                        auVar.eU(true);
                         auVar.a(linkedList.size() + 1, pollOption, longValue);
                         linkedList.add(auVar);
                     }
                 }
                 if (linkedList.size() > 0) {
-                    this.cwi.setBoallotsForListView(linkedList);
-                    this.cwi.onChangeSkinType(getSkinType());
-                    this.cwi.setVisibility(0);
+                    this.cxa.setBoallotsForListView(linkedList);
+                    this.cxa.onChangeSkinType(getSkinType());
+                    this.cxa.setVisibility(0);
                     return;
                 }
-                this.cwi.setVisibility(8);
+                this.cxa.setVisibility(8);
             }
         }
     }

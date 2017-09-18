@@ -1,99 +1,36 @@
 package com.baidu.android.pushservice.j;
 
+import android.annotation.SuppressLint;
+import android.app.AppOpsManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import java.util.HashMap;
+import android.content.pm.ApplicationInfo;
 /* loaded from: classes2.dex */
 public class l {
-    private static ConnectivityManager a = null;
+    @SuppressLint({"NewApi"})
+    public static void a(Context context, String str, String str2) {
+        NotificationChannel notificationChannel = new NotificationChannel(str, str2, 3);
+        notificationChannel.setShowBadge(true);
+        notificationChannel.setLockscreenVisibility(1);
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+        if (notificationManager != null) {
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+    }
 
+    @SuppressLint({"NewApi"})
     public static boolean a(Context context) {
-        NetworkInfo c = c(context);
-        if (c != null) {
-            return c.isConnectedOrConnecting();
-        }
-        return false;
-    }
-
-    public static boolean b(Context context) {
-        NetworkInfo c = c(context);
-        return c != null && c.getType() == 1;
-    }
-
-    public static NetworkInfo c(Context context) {
-        NetworkInfo networkInfo = null;
+        AppOpsManager appOpsManager = (AppOpsManager) context.getSystemService("appops");
+        ApplicationInfo applicationInfo = context.getApplicationInfo();
+        String packageName = context.getApplicationContext().getPackageName();
+        int i = applicationInfo.uid;
         try {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext == null) {
-                com.baidu.android.pushservice.g.a.d("NetworkCheck", "context is null !!!");
-            }
-            ConnectivityManager f = f(applicationContext);
-            if (f != null) {
-                networkInfo = f.getActiveNetworkInfo();
-                if (networkInfo == null) {
-                    com.baidu.android.pushservice.g.a.d("NetworkCheck", "networkInfo is null !!!");
-                }
-            } else {
-                com.baidu.android.pushservice.g.a.d("NetworkCheck", "connManager is null !!!");
-            }
+            Class<?> cls = Class.forName(AppOpsManager.class.getName());
+            return ((Integer) cls.getMethod("checkOpNoThrow", Integer.TYPE, Integer.TYPE, String.class).invoke(appOpsManager, Integer.valueOf(((Integer) cls.getDeclaredField("OP_POST_NOTIFICATION").get(Integer.class)).intValue()), Integer.valueOf(i), packageName)).intValue() == 0;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.e("NetworkCheck", "exp: " + e.getMessage());
+            com.baidu.android.pushservice.g.a.e("NotificationsUtils", "error = " + e.getMessage());
+            return false;
         }
-        return networkInfo;
-    }
-
-    public static String d(Context context) {
-        if (a(context)) {
-            NetworkInfo c = c(context);
-            switch (c != null ? c.getType() : -1) {
-                case 0:
-                    return "mobile";
-                case 1:
-                    return "wifi";
-                case 2:
-                    return "mobile_mms";
-                case 3:
-                    return "mobile_supl";
-                case 4:
-                    return "mobile_dun";
-                case 5:
-                    return "mobile_hipri";
-                case 6:
-                    return "wimax";
-                default:
-                    return "connectionless";
-            }
-        }
-        return "connectionless";
-    }
-
-    public static boolean e(Context context) {
-        boolean a2 = a(context);
-        if (a2 || !q.t(context, "android.permission.INTERNET")) {
-            return a2;
-        }
-        try {
-            com.baidu.android.pushservice.f.a a3 = com.baidu.android.pushservice.f.b.a(com.baidu.android.pushservice.h.a(), "GET", (HashMap<String, String>) null);
-            if (a3.b() != 0) {
-                if (a3.a() != null) {
-                    return true;
-                }
-                return a2;
-            }
-            return a2;
-        } catch (Exception e) {
-            return a2;
-        }
-    }
-
-    private static ConnectivityManager f(Context context) {
-        if (context == null) {
-            return a;
-        }
-        if (a == null) {
-            a = (ConnectivityManager) context.getSystemService("connectivity");
-        }
-        return a;
     }
 }

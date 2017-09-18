@@ -27,7 +27,7 @@ import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class k {
     public static final File xQ = Environment.getExternalStorageDirectory();
-    private static final File afk = TbadkCoreApplication.getInst().getApp().getCacheDir();
+    private static final File afj = TbadkCoreApplication.getInst().getApp().getCacheDir();
 
     public static boolean dH() {
         return Environment.getExternalStorageState().equals("mounted");
@@ -1337,10 +1337,10 @@ public class k {
     }
 
     private static String a(int i, String str, boolean z) {
-        if (afk == null) {
+        if (afj == null) {
             return null;
         }
-        File[] listFiles = afk.listFiles();
+        File[] listFiles = afj.listFiles();
         String cF = cF(i);
         for (int i2 = 0; i2 < listFiles.length; i2++) {
             if (listFiles[i2] != null && listFiles[i2].getName().startsWith(cF)) {
@@ -1504,11 +1504,11 @@ public class k {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static final String afl = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
+        public static final String afk = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
         public static boolean dC(String str) {
             try {
-                return new File(new StringBuilder().append(afl).append("/").append(str).toString()).exists();
+                return new File(new StringBuilder().append(afk).append("/").append(str).toString()).exists();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 TiebaStatic.file(e, "FileHelper.checkFile " + str);
@@ -1518,7 +1518,7 @@ public class k {
 
         public static boolean dD(String str) {
             try {
-                File file = new File(afl + "/" + str);
+                File file = new File(afk + "/" + str);
                 if (file.exists()) {
                     return false;
                 }
@@ -1554,7 +1554,7 @@ public class k {
 
         public static boolean dx(String str) {
             try {
-                File file = new File(afl + "/" + str);
+                File file = new File(afk + "/" + str);
                 if (file.exists()) {
                     if (!file.isDirectory()) {
                         return false;
@@ -1572,7 +1572,7 @@ public class k {
         public static String dE(String str) {
             String str2 = null;
             try {
-                File file = new File(afl + "/" + str);
+                File file = new File(afk + "/" + str);
                 if (file.exists() && file.isDirectory()) {
                     File[] listFiles = file.listFiles();
                     int length = listFiles.length;

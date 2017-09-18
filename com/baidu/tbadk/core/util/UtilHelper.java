@@ -130,7 +130,7 @@ public class UtilHelper {
 
     /* loaded from: classes.dex */
     public static class a {
-        public NativePageType ahY = NativePageType.NONE;
+        public NativePageType ahX = NativePageType.NONE;
         public String id;
     }
 
@@ -211,7 +211,7 @@ public class UtilHelper {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
             }
-        }).b(com.baidu.adp.base.i.X(activity)).to();
+        }).b(com.baidu.adp.base.i.Y(activity)).to();
     }
 
     public static String getFixedBarText(String str, int i, boolean z) {
@@ -407,7 +407,7 @@ public class UtilHelper {
                 String group = matcher.group(2);
                 if (!TextUtils.isEmpty(group)) {
                     aVar.id = group;
-                    aVar.ahY = NativePageType.PB;
+                    aVar.ahX = NativePageType.PB;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -442,7 +442,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str2)) {
                 aVar.id = str2;
-                aVar.ahY = NativePageType.PB;
+                aVar.ahX = NativePageType.PB;
             }
         }
         if (str != null) {
@@ -474,7 +474,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str3)) {
                 aVar.id = str3;
-                aVar.ahY = NativePageType.FRS;
+                aVar.ahX = NativePageType.FRS;
             }
         }
         return aVar;
@@ -482,7 +482,7 @@ public class UtilHelper {
 
     public static boolean isSystemLocationProviderEnabled(Context context) {
         boolean z;
-        if (ab.aI(context)) {
+        if (ab.aJ(context)) {
             try {
                 LocationManager locationManager = (LocationManager) context.getSystemService("location");
                 if (!locationManager.isProviderEnabled("gps")) {
@@ -806,7 +806,7 @@ public class UtilHelper {
 
     public static String getDeviceId() {
         TelephonyManager telephonyManager;
-        return (!ab.aM(TbadkCoreApplication.getInst()) || (telephonyManager = (TelephonyManager) TbadkCoreApplication.getInst().getSystemService("phone")) == null) ? "" : telephonyManager.getDeviceId();
+        return (!ab.aN(TbadkCoreApplication.getInst()) || (telephonyManager = (TelephonyManager) TbadkCoreApplication.getInst().getSystemService("phone")) == null) ? "" : telephonyManager.getDeviceId();
     }
 
     public static String getTiebaApkMd5() {
@@ -944,10 +944,10 @@ public class UtilHelper {
         if (view != null) {
             if (i == 2) {
                 int statusBarHeight = getStatusBarHeight();
-                int ad = com.baidu.adp.lib.util.k.ad(TbadkCoreApplication.getInst());
+                int ae = com.baidu.adp.lib.util.k.ae(TbadkCoreApplication.getInst());
                 Bitmap cT = aj.cT(d.g.s_navbar_bg);
                 if (cT != null) {
-                    Bitmap resizeBitmap = BitmapHelper.resizeBitmap(cT, ad, statusBarHeight, false);
+                    Bitmap resizeBitmap = BitmapHelper.resizeBitmap(cT, ae, statusBarHeight, false);
                     if (resizeBitmap != null) {
                         view.setBackgroundDrawable(new BitmapDrawable(resizeBitmap));
                         return;
@@ -1205,7 +1205,7 @@ public class UtilHelper {
             bitmapDrawable.setBounds(0, 0, cT.getWidth(), cT.getHeight());
         }
         com.baidu.tbadk.core.view.m mVar = new com.baidu.tbadk.core.view.m(bitmapDrawable);
-        mVar.setOffset(com.baidu.adp.lib.util.k.g(context, d.f.ds4));
+        mVar.setOffset(com.baidu.adp.lib.util.k.f(context, d.f.ds4));
         int length = spannableStringBuilder.length();
         spannableStringBuilder.append((CharSequence) " ");
         if (z) {
@@ -1361,7 +1361,7 @@ public class UtilHelper {
                 }
                 break;
             case 8:
-                com.baidu.tbadk.core.e.b.j(context, 2);
+                com.baidu.tbadk.core.e.b.i(context, 2);
                 z = true;
                 break;
             case 9:
@@ -1475,18 +1475,18 @@ public class UtilHelper {
                 z2 = true;
                 String string2 = intent.getExtras().getString("jump_url");
                 boolean z6 = intent.getExtras().getBoolean("is_ad", false);
-                com.baidu.adp.base.h V = com.baidu.adp.base.i.V(context);
-                if (V instanceof BaseActivity) {
-                    au.wd().a(((BaseActivity) V).getPageContext(), new String[]{string2}, z6);
+                com.baidu.adp.base.h W = com.baidu.adp.base.i.W(context);
+                if (W instanceof BaseActivity) {
+                    au.wd().a(((BaseActivity) W).getPageContext(), new String[]{string2}, z6);
                     z = true;
                     break;
-                } else if (V instanceof BaseFragmentActivity) {
-                    au.wd().a(((BaseFragmentActivity) V).getPageContext(), new String[]{string2}, z6);
+                } else if (W instanceof BaseFragmentActivity) {
+                    au.wd().a(((BaseFragmentActivity) W).getPageContext(), new String[]{string2}, z6);
                     z = true;
                     break;
                 } else {
-                    if (V instanceof ProxyAdkBaseActivity) {
-                        au.wd().a(((ProxyAdkBaseActivity) V).getPageContext(), new String[]{string2}, z6);
+                    if (W instanceof ProxyAdkBaseActivity) {
+                        au.wd().a(((ProxyAdkBaseActivity) W).getPageContext(), new String[]{string2}, z6);
                         z = true;
                         break;
                     }
@@ -1548,7 +1548,7 @@ public class UtilHelper {
         intent.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, i);
         intent.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 1);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY, intent));
-        com.baidu.tbadk.core.e.b.j(TbadkCoreApplication.getInst().getApplicationContext(), 3);
+        com.baidu.tbadk.core.e.b.i(TbadkCoreApplication.getInst().getApplicationContext(), 3);
     }
 
     public static void startHardAccelerated(Window window) {
@@ -1815,9 +1815,9 @@ public class UtilHelper {
     }
 
     public static int getRealScreenOrientation(Context context) {
-        int[] ag = com.baidu.adp.lib.util.k.ag(context);
+        int[] ah = com.baidu.adp.lib.util.k.ah(context);
         int i = context.getResources().getConfiguration().orientation;
-        if (i == 2 || ag[0] <= ag[1]) {
+        if (i == 2 || ah[0] <= ah[1]) {
             return i;
         }
         return 2;

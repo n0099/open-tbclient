@@ -18,7 +18,7 @@ public class ClientStartStatic {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             new a().execute(new Void[0]);
             MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.tblauncher.ClientStartStatic.1
-                private long ddF;
+                private long deB;
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
@@ -26,10 +26,10 @@ public class ClientStartStatic {
                     Boolean data;
                     if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
                         if (data.booleanValue()) {
-                            this.ddF = SystemClock.elapsedRealtime();
+                            this.deB = SystemClock.elapsedRealtime();
                             return;
                         }
-                        if (SystemClock.elapsedRealtime() - this.ddF > 30000) {
+                        if (SystemClock.elapsedRealtime() - this.deB > 30000) {
                             new a().execute(new Void[0]);
                         }
                         TiebaStatic.log(new ak("c11894").r("obj_param1", 1));

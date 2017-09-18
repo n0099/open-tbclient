@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a anc;
+    private a ana;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -48,7 +48,7 @@ public class TbCheckBox extends ImageView {
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.anc = aVar;
+        this.ana = aVar;
     }
 
     public void xc() {
@@ -80,8 +80,8 @@ public class TbCheckBox extends ImageView {
             ((b) tag).setChecked(z);
         }
         xc();
-        if (this.anc != null) {
-            this.anc.a(this, z, getTag());
+        if (this.ana != null) {
+            this.ana.a(this, z, getTag());
         }
     }
 }

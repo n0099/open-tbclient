@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private View akK;
-    private TextView akL;
-    private ImageView akM;
+    private View akJ;
+    private TextView akK;
+    private ImageView akL;
     private Context mContext;
     private Toast yz;
-    public long akH = 3000;
+    public long akG = 3000;
+    private int akH = -1;
     private int akI = -1;
-    private int akJ = -1;
-    private Runnable akO = new Runnable() { // from class: com.baidu.tbadk.core.view.c.1
+    private Runnable akN = new Runnable() { // from class: com.baidu.tbadk.core.view.c.1
         @Override // java.lang.Runnable
         public void run() {
             if (c.this.yz != null) {
@@ -28,31 +28,31 @@ public class c {
             }
         }
     };
-    private Handler akN = new Handler();
+    private Handler akM = new Handler();
 
     public c() {
         this.mContext = null;
+        this.akJ = null;
         this.akK = null;
         this.akL = null;
-        this.akM = null;
         this.mContext = TbadkCoreApplication.getInst().getContext();
-        this.akK = LayoutInflater.from(this.mContext).inflate(d.j.image_toast_view, (ViewGroup) null);
-        this.akL = (TextView) this.akK.findViewById(d.h.tip_text);
-        this.akM = (ImageView) this.akK.findViewById(d.h.tip_iamge);
+        this.akJ = LayoutInflater.from(this.mContext).inflate(d.j.image_toast_view, (ViewGroup) null);
+        this.akK = (TextView) this.akJ.findViewById(d.h.tip_text);
+        this.akL = (ImageView) this.akJ.findViewById(d.h.tip_iamge);
     }
 
     public void showToast(int i, int i2) {
-        this.akL.setText(i2);
-        this.akM.setImageResource(i);
-        A(this.akK);
+        this.akK.setText(i2);
+        this.akL.setImageResource(i);
+        A(this.akJ);
     }
 
     public void A(View view) {
-        this.akN.removeCallbacks(this.akO);
+        this.akM.removeCallbacks(this.akN);
         if (this.yz == null) {
             this.yz = new Toast(this.mContext);
         }
-        this.akN.postDelayed(this.akO, this.akH);
+        this.akM.postDelayed(this.akN, this.akG);
         this.yz.setView(view);
         this.yz.setDuration(1);
         this.yz.setGravity(17, 0, 0);
@@ -60,15 +60,15 @@ public class c {
     }
 
     public void c(CharSequence charSequence) {
-        this.akL.setText(charSequence);
-        this.akM.setImageResource(d.g.icon_toast_game_ok);
-        A(this.akK);
+        this.akK.setText(charSequence);
+        this.akL.setImageResource(d.g.icon_toast_game_ok);
+        A(this.akJ);
     }
 
     public void d(CharSequence charSequence) {
-        this.akL.setText(charSequence);
-        this.akM.setImageResource(d.g.icon_toast_game_error);
-        A(this.akK);
+        this.akK.setText(charSequence);
+        this.akL.setImageResource(d.g.icon_toast_game_error);
+        A(this.akJ);
     }
 
     public void wC() {

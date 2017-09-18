@@ -20,10 +20,10 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ax {
+    private static int ahZ = -1;
     private static int aia = -1;
-    private static int aib = -1;
-    private static boolean aic = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> aid = new com.baidu.adp.lib.e.a<>(500);
+    private static boolean aib = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> aic = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -31,15 +31,15 @@ public class ax {
         boolean w(View view);
     }
 
-    public static void aQ(Context context) {
+    public static void aR(Context context) {
         mAppContext = context;
-        aic = true;
+        aib = true;
     }
 
     private static void we() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            aib = mAppContext.getResources().getColor(d.e.common_color_10097);
-            aia = mAppContext.getResources().getColor(d.e.common_color_10004);
+            aia = mAppContext.getResources().getColor(d.e.common_color_10097);
+            ahZ = mAppContext.getResources().getColor(d.e.common_color_10004);
         }
     }
 
@@ -49,11 +49,11 @@ public class ax {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int aF(boolean z) {
-        if (aic) {
-            aic = false;
+        if (aib) {
+            aib = false;
             we();
         }
-        return z ? aia : aib;
+        return z ? ahZ : aia;
     }
 
     public static void y(View view) {
@@ -64,16 +64,16 @@ public class ax {
 
     public static void z(View view) {
         if (view != null) {
-            aid.remove(Integer.valueOf(System.identityHashCode(view)));
+            aic.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void a(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = aid.get(Integer.valueOf(identityHashCode));
+        Integer num = aic.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             b(viewGroup, i);
-            aid.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            aic.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -172,17 +172,17 @@ public class ax {
         }
     }
 
-    public static void aR(Context context) {
+    public static void aS(Context context) {
         if (context != null) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RegisterActivityConfig(context, 3, true)));
         }
     }
 
-    public static void aS(Context context) {
+    public static void aT(Context context) {
         if (context != null) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            if (com.baidu.tbadk.coreExtra.a.a.aqW != null && com.baidu.tbadk.coreExtra.a.a.aqW == Domain.DOMAIN_QA) {
+            if (com.baidu.tbadk.coreExtra.a.a.aqT != null && com.baidu.tbadk.coreExtra.a.a.aqT == Domain.DOMAIN_QA) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new QALoginActivityConfig(context, true)));
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, 3, true)));
@@ -190,10 +190,10 @@ public class ax {
         }
     }
 
-    public static boolean aT(Context context) {
+    public static boolean aU(Context context) {
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (!isLogin) {
-            aS(context);
+            aT(context);
         }
         return isLogin;
     }

@@ -8,7 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ag extends l<com.baidu.tieba.pb.data.j, ah> {
-    private View.OnClickListener cUc;
+    private View.OnClickListener cUW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ag(PbActivity pbActivity, BdUniqueId bdUniqueId) {
@@ -20,10 +20,10 @@ public class ag extends l<com.baidu.tieba.pb.data.j, ah> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bo */
     public ah onCreateViewHolder(ViewGroup viewGroup) {
-        ah ahVar = new ah(this.eGQ.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_reply_title_layout, viewGroup, false));
-        ahVar.B(this.cUc);
-        if (getType() == com.baidu.tieba.pb.data.j.eEL) {
-            ahVar.i(com.baidu.tieba.pb.data.j.eEL);
+        ah ahVar = new ah(this.eHK.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_reply_title_layout, viewGroup, false));
+        ahVar.B(this.cUW);
+        if (getType() == com.baidu.tieba.pb.data.j.eFF) {
+            ahVar.i(com.baidu.tieba.pb.data.j.eFF);
         }
         return ahVar;
     }
@@ -41,10 +41,10 @@ public class ag extends l<com.baidu.tieba.pb.data.j, ah> {
     }
 
     public void onDestory() {
-        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.eEL);
+        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.eFF);
     }
 
     public void setCommonClickListener(View.OnClickListener onClickListener) {
-        this.cUc = onClickListener;
+        this.cUW = onClickListener;
     }
 }

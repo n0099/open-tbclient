@@ -6,6 +6,6 @@ public abstract class d {
     public String f;
     public int g;
     public String h = "0";
-    public String i = "0";
+    public String i;
     public String j;
 }

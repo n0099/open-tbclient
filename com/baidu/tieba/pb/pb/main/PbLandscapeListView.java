@@ -6,12 +6,12 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 /* loaded from: classes.dex */
 public class PbLandscapeListView extends BdTypeListView {
-    private a eKZ;
+    private a eLT;
     private boolean isLandscape;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aRo();
+        void aRz();
     }
 
     public PbLandscapeListView(Context context) {
@@ -34,7 +34,7 @@ public class PbLandscapeListView extends BdTypeListView {
     }
 
     public void setOnLayoutListener(a aVar) {
-        this.eKZ = aVar;
+        this.eLT = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
@@ -57,8 +57,8 @@ public class PbLandscapeListView extends BdTypeListView {
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.eKZ != null) {
-            this.eKZ.aRo();
+        if (this.eLT != null) {
+            this.eLT.aRz();
         }
     }
 }

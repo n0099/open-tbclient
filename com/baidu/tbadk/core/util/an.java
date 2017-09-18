@@ -3,19 +3,19 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class an {
-    private static an ahI = null;
+    private static an ahH = null;
+    private boolean ahI = false;
     private boolean ahJ = false;
-    private boolean ahK = false;
-    private int ahL = TbConfig.POST_IMAGE_SMALL;
-    private String ahM = String.valueOf(45);
+    private int ahK = TbConfig.POST_IMAGE_SMALL;
+    private String ahL = String.valueOf(45);
 
     public static an vO() {
-        if (ahI == null) {
+        if (ahH == null) {
             synchronized (an.class) {
-                ahI = new an();
+                ahH = new an();
             }
         }
-        return ahI;
+        return ahH;
     }
 
     public an() {
@@ -30,38 +30,38 @@ public class an {
     }
 
     public void aD(boolean z) {
-        this.ahK = z;
+        this.ahJ = z;
     }
 
     public boolean vQ() {
-        return this.ahK;
+        return this.ahJ;
     }
 
     public void aE(boolean z) {
-        this.ahJ = z;
+        this.ahI = z;
         vP();
     }
 
     private void vR() {
-        this.ahJ = com.baidu.adp.lib.util.i.hj();
+        this.ahI = com.baidu.adp.lib.util.i.hj();
     }
 
     public boolean vS() {
-        return this.ahJ;
+        return this.ahI;
     }
 
     public String vT() {
-        return this.ahM;
+        return this.ahL;
     }
 
     public int vU() {
         vX();
-        return this.ahL;
+        return this.ahK;
     }
 
     public void vV() {
         boolean z = true;
-        if (com.baidu.tbadk.core.h.oS().getViewImageQuality() != 0 ? com.baidu.tbadk.core.h.oS().getViewImageQuality() != 1 : !this.ahJ) {
+        if (com.baidu.tbadk.core.h.oS().getViewImageQuality() != 0 ? com.baidu.tbadk.core.h.oS().getViewImageQuality() != 1 : !this.ahI) {
             z = false;
         }
         aD(z);
@@ -76,7 +76,7 @@ public class an {
         } else if (com.baidu.tbadk.core.h.oS().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
-        this.ahM = valueOf;
+        this.ahL = valueOf;
     }
 
     public void vX() {
@@ -92,7 +92,7 @@ public class an {
                 i = 600;
                 break;
         }
-        this.ahL = i;
+        this.ahK = i;
     }
 
     public static boolean vY() {

@@ -22,11 +22,11 @@ public class b {
         return Qu;
     }
 
-    public View i(Context context, int i) {
+    public View h(Context context, int i) {
         if (this.Qt.get(i) == null) {
             return null;
         }
-        return this.Qt.get(i).aw(context);
+        return this.Qt.get(i).ax(context);
     }
 
     public void a(int i, d dVar) {

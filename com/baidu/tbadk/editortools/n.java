@@ -9,11 +9,11 @@ import com.baidu.tbadk.editortools.view.a;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tbadk.editortools.view.a {
-    LinkedList<l> aBr;
+    LinkedList<l> aBo;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void i(LinkedList<l> linkedList) {
-        this.aBr = linkedList;
+        this.aBo = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -25,13 +25,13 @@ public class n extends com.baidu.tbadk.editortools.view.a {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return (e) this.aBr.get(i);
+        return (e) this.aBo.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public int getCount() {
-        if (this.aBr != null) {
-            return this.aBr.size();
+        if (this.aBo != null) {
+            return this.aBo.size();
         }
         return 0;
     }
@@ -40,8 +40,8 @@ public class n extends com.baidu.tbadk.editortools.view.a {
     public void init(Context context) {
         eQ(4);
         eR(2);
-        a(new a.InterfaceC0058a() { // from class: com.baidu.tbadk.editortools.n.1
-            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0058a
+        a(new a.InterfaceC0057a() { // from class: com.baidu.tbadk.editortools.n.1
+            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0057a
             public View getView(int i, View view, ViewGroup viewGroup) {
                 e eF = n.this.eF(i);
                 if (eF.getLayoutParams() == null) {
@@ -63,9 +63,9 @@ public class n extends com.baidu.tbadk.editortools.view.a {
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void Dg() {
-        if (this.aBr != null) {
-            this.aBr.clear();
+        if (this.aBo != null) {
+            this.aBo.clear();
         }
-        this.aBr = null;
+        this.aBo = null;
     }
 }

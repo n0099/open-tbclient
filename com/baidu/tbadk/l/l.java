@@ -3,7 +3,7 @@ package com.baidu.tbadk.l;
 public class l extends k {
     public long GA;
     public String Gz;
-    public boolean aJF;
+    public boolean aJC;
     public boolean isSuccess;
 
     public void Gq() {

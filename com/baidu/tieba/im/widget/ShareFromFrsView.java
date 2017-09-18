@@ -11,13 +11,13 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ShareFromFrsView extends LinearLayout {
-    private ShareFromFrsMsgData cIB;
-    private HeadImageView cIy;
+    private HeadImageView cJs;
+    private ShareFromFrsMsgData cJv;
     private Context context;
-    private TextView dIr;
-    private TextView dIs;
-    private TextView dIt;
-    private TextView dIu;
+    private TextView dJm;
+    private TextView dJn;
+    private TextView dJo;
+    private TextView dJp;
     private TextView name;
 
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
@@ -35,41 +35,41 @@ public class ShareFromFrsView extends LinearLayout {
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(d.j.share_from_frs_view, this);
         this.name = (TextView) findViewById(d.h.frs_name);
-        this.cIy = (HeadImageView) findViewById(d.h.frs_img);
-        this.dIs = (TextView) findViewById(d.h.frs_member_num);
-        this.dIu = (TextView) findViewById(d.h.frs_post_num);
-        this.dIr = (TextView) findViewById(d.h.frs_member_num_label);
-        this.dIt = (TextView) findViewById(d.h.frs_post_num_label);
+        this.cJs = (HeadImageView) findViewById(d.h.frs_img);
+        this.dJn = (TextView) findViewById(d.h.frs_member_num);
+        this.dJp = (TextView) findViewById(d.h.frs_post_num);
+        this.dJm = (TextView) findViewById(d.h.frs_member_num_label);
+        this.dJo = (TextView) findViewById(d.h.frs_post_num_label);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.name.setTextColor(getContext().getResources().getColor(d.e.cp_cont_b));
-            this.dIs.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
-            this.dIu.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
-            this.dIr.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
-            this.dIt.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
+            this.dJn.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
+            this.dJp.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
+            this.dJm.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
+            this.dJo.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
             return;
         }
         this.name.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
-        this.dIs.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
-        this.dIu.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
-        this.dIr.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
-        this.dIt.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
+        this.dJn.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
+        this.dJp.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
+        this.dJm.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
+        this.dJo.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.cIB = shareFromFrsMsgData;
+        this.cJv = shareFromFrsMsgData;
         wO();
     }
 
     private void wO() {
-        this.name.setText(dZ(this.cIB.getName()));
-        this.cIy.setDefaultResource(d.g.icon_default_ba_120);
-        this.cIy.setAutoChangeStyle(false);
-        this.cIy.c(this.cIB.getImageUrl(), 10, false);
-        this.dIs.setText(am.y(this.cIB.getMemberNum()));
-        this.dIu.setText(am.y(this.cIB.getPostNum()));
+        this.name.setText(dZ(this.cJv.getName()));
+        this.cJs.setDefaultResource(d.g.icon_default_ba_120);
+        this.cJs.setAutoChangeStyle(false);
+        this.cJs.c(this.cJv.getImageUrl(), 10, false);
+        this.dJn.setText(am.y(this.cJv.getMemberNum()));
+        this.dJp.setText(am.y(this.cJv.getPostNum()));
     }
 
     private String dZ(String str) {

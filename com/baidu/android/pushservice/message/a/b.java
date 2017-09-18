@@ -4,54 +4,51 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.p;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends c {
-    private static final String b = b.class.getSimpleName();
-    private Context c;
+    private Context b;
 
     public b(Context context) {
         super(context);
-        this.c = context.getApplicationContext();
+        this.b = context.getApplicationContext();
     }
 
-    @Override // com.baidu.android.pushservice.message.a.c
-    public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
-        return null;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:25:0x006f  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0111  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x006f  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0112  */
     @Override // com.baidu.android.pushservice.message.a.c
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public com.baidu.android.pushservice.message.g a(String str, String str2, int i, byte[] bArr, String str3, byte[] bArr2) {
+    public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
         JSONObject jSONObject;
         JSONObject jSONObject2;
-        String str4;
-        Intent intent;
-        boolean z = true;
+        String str;
+        boolean z;
+        String str2;
+        Intent intent = null;
+        String h = kVar.h();
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
         try {
-            jSONObject = new JSONObject(new String(bArr2));
+            jSONObject = new JSONObject(new String(bArr));
             try {
-                str4 = jSONObject.getString("action");
+                str = jSONObject.getString("action");
+                z = true;
                 jSONObject2 = jSONObject;
             } catch (JSONException e) {
                 e = e;
-                com.baidu.android.pushservice.g.b.b(b, "Supper message parsing action Fail:\r\n" + e.getMessage(), this.c);
-                z = false;
+                com.baidu.android.pushservice.g.b.b("BaiduSupperHandler", "Supper message parsing action Fail:\r\n" + e.getMessage(), this.b);
                 jSONObject2 = jSONObject;
-                str4 = null;
+                str = null;
+                z = false;
                 if (z) {
                 }
                 intent = new Intent("com.baidu.pushservice.action.supper.MESSAGE");
-                intent.putExtra(PushConstants.EXTRA_PUSH_MESSAGE, bArr2);
-                q.b(">>> Deliver baidu supper msg with g action: com.baidu.pushservice.action.supper.MESSAGE", this.a);
+                intent.putExtra(PushConstants.EXTRA_PUSH_MESSAGE, bArr);
+                p.b(">>> Deliver baidu supper msg with g action: com.baidu.pushservice.action.supper.MESSAGE", this.a);
                 if (intent == null) {
                 }
                 return gVar;
@@ -60,27 +57,25 @@ public class b extends c {
             e = e2;
             jSONObject = null;
         }
-        if (z || TextUtils.isEmpty(str4)) {
+        if (z || TextUtils.isEmpty(str)) {
             intent = new Intent("com.baidu.pushservice.action.supper.MESSAGE");
-            intent.putExtra(PushConstants.EXTRA_PUSH_MESSAGE, bArr2);
-            q.b(">>> Deliver baidu supper msg with g action: com.baidu.pushservice.action.supper.MESSAGE", this.a);
-        } else if (str4.equalsIgnoreCase("push.NOTIFICATION")) {
+            intent.putExtra(PushConstants.EXTRA_PUSH_MESSAGE, bArr);
+            p.b(">>> Deliver baidu supper msg with g action: com.baidu.pushservice.action.supper.MESSAGE", this.a);
+        } else if (str.equalsIgnoreCase("push.NOTIFICATION")) {
             try {
-                f.a(this.a, jSONObject2.isNull(VrPlayerActivityConfig.TITLE) ? null : jSONObject2.getString(VrPlayerActivityConfig.TITLE), jSONObject2.getString("description"), jSONObject2.isNull("iconUrl") ? null : jSONObject2.getString("iconUrl"), jSONObject2.isNull("url") ? null : jSONObject2.getString("url"), str2);
+                f.a(this.a, !jSONObject2.isNull(VrPlayerActivityConfig.TITLE) ? jSONObject2.getString(VrPlayerActivityConfig.TITLE) : null, jSONObject2.getString("description"), !jSONObject2.isNull("iconUrl") ? jSONObject2.getString("iconUrl") : null, !jSONObject2.isNull("url") ? jSONObject2.getString("url") : null, h);
             } catch (JSONException e3) {
-                com.baidu.android.pushservice.g.b.b(b, "Supper message parsing notification action Fail:\r\n" + e3.getMessage(), this.c);
+                com.baidu.android.pushservice.g.b.b("BaiduSupperHandler", "Supper message parsing notification action Fail:\r\n" + e3.getMessage(), this.b);
             }
-            intent = null;
         } else {
-            String str5 = null;
             try {
-                str5 = jSONObject2.getString(PushConstants.EXTRA_PUSH_MESSAGE);
+                str2 = jSONObject2.getString(PushConstants.EXTRA_PUSH_MESSAGE);
             } catch (JSONException e4) {
-                com.baidu.android.pushservice.g.a.e(b, "Supper message parsing default action Fail:\r\n" + e4.getMessage());
+                com.baidu.android.pushservice.g.a.e("BaiduSupperHandler", "Supper message parsing default action Fail:\r\n" + e4.getMessage());
+                str2 = null;
             }
-            Intent intent2 = new Intent(str4);
-            intent2.putExtra(PushConstants.EXTRA_PUSH_MESSAGE, str5);
-            intent = intent2;
+            intent = new Intent(str);
+            intent.putExtra(PushConstants.EXTRA_PUSH_MESSAGE, str2);
         }
         if (intent == null) {
             intent.setFlags(32);

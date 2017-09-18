@@ -1019,9 +1019,9 @@ public class SubsamplingScaleImageView extends View {
             r5.inPreferredConfig = r3     // Catch: java.lang.Throwable -> Led
             com.baidu.adp.lib.util.m.d(r1)     // Catch: java.lang.Throwable -> Led
             android.content.Context r3 = r7.getContext()     // Catch: java.lang.Throwable -> Led
-            int r3 = com.baidu.adp.lib.util.k.ad(r3)     // Catch: java.lang.Throwable -> Led
+            int r3 = com.baidu.adp.lib.util.k.ae(r3)     // Catch: java.lang.Throwable -> Led
             android.content.Context r4 = r7.getContext()     // Catch: java.lang.Throwable -> Led
-            int r4 = com.baidu.adp.lib.util.k.ae(r4)     // Catch: java.lang.Throwable -> Led
+            int r4 = com.baidu.adp.lib.util.k.af(r4)     // Catch: java.lang.Throwable -> Led
             if (r3 <= 0) goto Lce
             if (r4 <= 0) goto Lce
             int r6 = r5.outWidth     // Catch: java.lang.Throwable -> Led

@@ -3,42 +3,42 @@ package com.baidu.tbadk.l;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class n extends q {
-    public static int aJZ = 100;
-    public static int aKa = 10;
+    public static int aJW = 100;
+    public static int aJX = 10;
 
     public static void Gv() {
         if (r.Gx().Gy()) {
-            if (b.aKe > aKa) {
+            if (b.aKb > aJX) {
                 b.Gp();
             }
-            if (a.aKb > aKa) {
+            if (a.aJY > aJX) {
                 a.Gp();
             }
         }
     }
 
     public static void d(boolean z, boolean z2, boolean z3) {
-        a.aKb++;
+        a.aJY++;
         if (z2) {
-            a.aKc++;
+            a.aJZ++;
         } else if (z3) {
-            a.aKd++;
+            a.aKa++;
         }
-        if (a.aKb > aJZ) {
+        if (a.aJY > aJW) {
             a.Gp();
         }
     }
 
     public void c(i iVar) {
         if (r.Gx().Gy()) {
-            if (b.aKe < aJZ) {
-                b.aKf += iVar.uH;
-                b.aKg += iVar.EY;
-                b.aKh += iVar.aJw;
-                b.aKi += iVar.aJx;
-                b.aKk += iVar.GA;
-                b.aKj += iVar.aJn;
-                b.aKe++;
+            if (b.aKb < aJW) {
+                b.aKc += iVar.uH;
+                b.aKd += iVar.EY;
+                b.aKe += iVar.aJt;
+                b.aKf += iVar.aJu;
+                b.aKh += iVar.GA;
+                b.aKg += iVar.aJk;
+                b.aKb++;
                 return;
             }
             b.Gp();
@@ -48,59 +48,59 @@ public class n extends q {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int aKb;
-        public static int aKc;
-        public static int aKd;
+        public static int aJY;
+        public static int aJZ;
+        public static int aKa;
 
         public static void Gp() {
             com.baidu.adp.lib.stats.a fL = q.fL();
             fL.p("action", "imbusy");
-            fL.p("totalNum", String.valueOf(aKb));
-            fL.p("tfailNum", String.valueOf(aKc));
-            fL.p("qfailNum", String.valueOf(aKd));
+            fL.p("totalNum", String.valueOf(aJY));
+            fL.p("tfailNum", String.valueOf(aJZ));
+            fL.p("qfailNum", String.valueOf(aKa));
             BdStatisticsManager.getInstance().performance("im", fL);
             resetData();
         }
 
         public static void resetData() {
-            aKb = 0;
-            aKc = 0;
-            aKd = 0;
+            aJY = 0;
+            aJZ = 0;
+            aKa = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int aKe;
-        public static long aKf;
-        public static long aKg;
+        public static int aKb;
+        public static long aKc;
+        public static long aKd;
+        public static long aKe;
+        public static int aKf;
+        public static int aKg;
         public static long aKh;
-        public static int aKi;
-        public static int aKj;
-        public static long aKk;
 
         public static void Gp() {
             com.baidu.adp.lib.stats.a fL = q.fL();
             fL.p("action", "imcost");
-            fL.p("dect", String.valueOf(aKf));
-            fL.p("dlsize", String.valueOf(aKg));
-            fL.p("dbt", String.valueOf(aKh));
-            fL.p("pnum", String.valueOf(aKi));
-            fL.p("reqcost", String.valueOf(aKk));
-            fL.p("cpu", String.valueOf(aKj));
-            fL.p("totalNum", String.valueOf(aKe));
+            fL.p("dect", String.valueOf(aKc));
+            fL.p("dlsize", String.valueOf(aKd));
+            fL.p("dbt", String.valueOf(aKe));
+            fL.p("pnum", String.valueOf(aKf));
+            fL.p("reqcost", String.valueOf(aKh));
+            fL.p("cpu", String.valueOf(aKg));
+            fL.p("totalNum", String.valueOf(aKb));
             BdStatisticsManager.getInstance().performance("im", fL);
             Gw();
         }
 
         public static void Gw() {
-            aKe = 0;
-            aKf = 0L;
-            aKg = 0L;
-            aKh = 0L;
-            aKi = 0;
-            aKj = 0;
+            aKb = 0;
+            aKc = 0L;
+            aKd = 0L;
+            aKe = 0L;
+            aKf = 0;
+            aKg = 0;
         }
     }
 }

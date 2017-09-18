@@ -13,20 +13,20 @@ import com.baidu.tieba.d;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b> {
-    private View aXa;
-    private TextView apl;
-    private TextView cih;
-    private HeadImageView crk;
-    private TextView dMk;
+    private View aWX;
+    private TextView apj;
+    private TextView ciZ;
+    private HeadImageView csc;
+    private TextView dNe;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.crk = (HeadImageView) view.findViewById(d.h.photo);
-        this.apl = (TextView) view.findViewById(d.h.user_name);
-        this.cih = (TextView) view.findViewById(d.h.time);
-        this.dMk = (TextView) view.findViewById(d.h.content);
-        this.aXa = view.findViewById(d.h.line);
-        this.crk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
+        this.csc = (HeadImageView) view.findViewById(d.h.photo);
+        this.apj = (TextView) view.findViewById(d.h.user_name);
+        this.ciZ = (TextView) view.findViewById(d.h.time);
+        this.dNe = (TextView) view.findViewById(d.h.content);
+        this.aWX = view.findViewById(d.h.line);
+        this.csc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 a.this.FL().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9483, a.this.getData(), null, null));
@@ -53,39 +53,39 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
     public void D(FeedData feedData) {
         super.D(feedData);
         if (feedData.getReplyer() != null) {
-            this.apl.setText(feedData.getReplyer().getName_show());
+            this.apj.setText(feedData.getReplyer().getName_show());
             if (feedData.getReplyer().isBigV()) {
-                aj.i(this.apl, d.e.cp_cont_r);
+                aj.i(this.apj, d.e.cp_cont_r);
             } else {
-                aj.i(this.apl, d.e.cp_cont_c);
+                aj.i(this.apj, d.e.cp_cont_c);
             }
-            this.crk.setShowV(feedData.getReplyer().isBigV());
-            this.crk.setIsRound(true);
-            this.crk.setVisibility(0);
+            this.csc.setShowV(feedData.getReplyer().isBigV());
+            this.csc.setIsRound(true);
+            this.csc.setVisibility(0);
             String portrait = feedData.getReplyer().getPortrait();
-            this.crk.setTag(null);
+            this.csc.setTag(null);
             if (portrait != null && portrait.length() > 0) {
-                this.crk.c(portrait, 12, false);
+                this.csc.c(portrait, 12, false);
             } else {
-                this.crk.setImageResource(d.g.photo);
+                this.csc.setImageResource(d.g.photo);
             }
         }
-        this.cih.setText(am.r(feedData.getTime()));
-        this.dMk.setText(feedData.getContent());
+        this.ciZ.setText(am.r(feedData.getTime()));
+        this.dNe.setText(feedData.getContent());
     }
 
     @Override // com.baidu.tieba.tbadkCore.l
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         aj.j(getRootView(), d.g.list_selector);
-        aj.k(this.aXa, d.e.cp_bg_line_b);
+        aj.k(this.aWX, d.e.cp_bg_line_b);
         if (i == 1) {
-            this.cih.setTextColor(getResources().getColor(d.e.common_color_10071));
-            this.dMk.setTextColor(getResources().getColor(d.e.common_color_10069));
+            this.ciZ.setTextColor(getResources().getColor(d.e.common_color_10071));
+            this.dNe.setTextColor(getResources().getColor(d.e.common_color_10069));
         } else {
-            this.cih.setTextColor(getResources().getColor(d.e.common_color_10070));
-            this.dMk.setTextColor(getResources().getColor(d.e.common_color_10235));
+            this.ciZ.setTextColor(getResources().getColor(d.e.common_color_10070));
+            this.dNe.setTextColor(getResources().getColor(d.e.common_color_10235));
         }
-        this.cih.setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.g.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.ciZ.setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.g.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;
     }
 }

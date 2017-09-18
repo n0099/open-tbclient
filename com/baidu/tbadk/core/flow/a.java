@@ -53,12 +53,12 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
             int size2 = this.abW.size();
             for (int i = 0; i < size2; i++) {
                 if (i >= size) {
-                    TbImageView ay = bVar.ay(this.context);
-                    this.abV.add(ay);
-                    tbImageView = bVar.ay(this.context);
+                    TbImageView az = bVar.az(this.context);
+                    this.abV.add(az);
+                    tbImageView = bVar.az(this.context);
                     this.abY.add(tbImageView);
                     this.abZ.add(new RelativeLayout(this.context));
-                    tbImageView2 = ay;
+                    tbImageView2 = az;
                 } else {
                     tbImageView = this.abY.get(i);
                     this.abZ.get(i);
@@ -69,7 +69,7 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
                     tbImageView2.setOnClickListener(this.abX);
                     if ((this.abW.get(i) instanceof t) && !((t) this.abW.get(i)).pQ()) {
                         t tVar = (t) this.abW.get(i);
-                        s.b(tVar.pN(), tbImageView, tVar.pO(), k.g(this.context, d.f.ds24));
+                        s.b(tVar.pN(), tbImageView, tVar.pO(), k.f(this.context, d.f.ds24));
                     }
                 }
             }
@@ -115,7 +115,7 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
                 layoutParams.addRule(12);
                 layoutParams.addRule(9);
             } else {
-                layoutParams.setMargins(0, k.g(this.context, d.f.ds220) - k.g(this.context, d.f.ds24), 0, 0);
+                layoutParams.setMargins(0, k.f(this.context, d.f.ds220) - k.f(this.context, d.f.ds24), 0, 0);
             }
             relativeLayout.addView(tbImageView, layoutParams);
             if (relativeLayout.getParent() == null) {

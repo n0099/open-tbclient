@@ -8,7 +8,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes2.dex */
 public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int dNq;
+    private int dOk;
     private String ids;
     private int mPn = 1;
 
@@ -20,17 +20,17 @@ public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.dNq = 4;
+        this.dOk = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.dNq = 1;
+        this.dOk = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.dNq;
+        return this.dOk;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -38,7 +38,7 @@ public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
         hashMap.put("pn", String.valueOf(this.mPn));
-        if (this.dNq == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.dOk == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;

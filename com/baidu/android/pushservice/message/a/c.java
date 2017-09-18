@@ -4,7 +4,6 @@ import android.content.Context;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class c {
-    private static final String b = c.class.getSimpleName();
     protected Context a;
 
     public c(Context context) {
@@ -12,8 +11,6 @@ public abstract class c {
     }
 
     public abstract com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr);
-
-    public abstract com.baidu.android.pushservice.message.g a(String str, String str2, int i, byte[] bArr, String str3, byte[] bArr2);
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Removed duplicated region for block: B:14:? A[RETURN, SYNTHETIC] */
@@ -27,7 +24,7 @@ public abstract class c {
         try {
             jSONObject = new JSONObject(new String(bArr));
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.e(b, "Message parsing feedback fail:\r\n" + e.getMessage());
+            com.baidu.android.pushservice.g.a.e("IPushMessageHandler", "Message parsing feedback fail:\r\n" + e.getMessage());
         }
         if (!jSONObject.isNull("bccs_fb")) {
             i = Integer.parseInt(jSONObject.getString("bccs_fb"));

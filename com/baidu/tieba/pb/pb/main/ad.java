@@ -18,7 +18,7 @@ public class ad extends l<au, ae> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bn */
     public ae onCreateViewHolder(ViewGroup viewGroup) {
-        return new ae(this.eGQ.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_recommend_novel, viewGroup, false));
+        return new ae(this.eHK.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_recommend_novel, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

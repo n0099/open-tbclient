@@ -4,15 +4,15 @@ import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class e {
     private final TbPageContext<?> aby;
-    private final int aru;
-    private final int arv;
-    private final boolean arw;
+    private final int arr;
+    private final int ars;
+    private final boolean art;
 
     public e(TbPageContext<?> tbPageContext, int i, int i2, boolean z) {
         this.aby = tbPageContext;
-        this.aru = i;
-        this.arv = i2;
-        this.arw = z;
+        this.arr = i;
+        this.ars = i2;
+        this.art = z;
     }
 
     public e(TbPageContext<?> tbPageContext, int i, int i2) {
@@ -24,14 +24,14 @@ public class e {
     }
 
     public int yj() {
-        return this.aru;
+        return this.arr;
     }
 
     public int yk() {
-        return this.arv;
+        return this.ars;
     }
 
     public boolean isAvailable() {
-        return this.aby != null && this.aru > 0 && this.arv > 0;
+        return this.aby != null && this.arr > 0 && this.ars > 0;
     }
 }

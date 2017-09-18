@@ -11,17 +11,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class l {
-    private int[] afm;
-    private SoftReference<ImageView> afo;
-    private int afp;
-    private a afq;
-    private int afr;
-    private BitmapFactory.Options aft;
+    private int[] afl;
+    private SoftReference<ImageView> afn;
+    private int afo;
+    private a afp;
+    private int afq;
+    private BitmapFactory.Options afs;
     private Bitmap mBitmap;
-    private int afs = 1;
+    private int afr = 1;
     private Handler mHandler = new Handler();
     private int mIndex = -1;
-    private boolean afn = false;
+    private boolean afm = false;
     private boolean wy = false;
 
     /* loaded from: classes.dex */
@@ -35,48 +35,48 @@ public class l {
 
     public l(ImageView imageView, int i, int i2, int i3) {
         this.mBitmap = null;
-        this.afm = cG(i);
-        this.afo = new SoftReference<>(imageView);
-        this.afp = 1000 / i2;
-        this.afr = i3;
-        imageView.setImageResource(this.afm[0]);
+        this.afl = cG(i);
+        this.afn = new SoftReference<>(imageView);
+        this.afo = 1000 / i2;
+        this.afq = i3;
+        imageView.setImageResource(this.afl[0]);
         if (Build.VERSION.SDK_INT >= 11) {
             Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
             this.mBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-            this.aft = new BitmapFactory.Options();
-            this.aft.inBitmap = this.mBitmap;
-            this.aft.inMutable = true;
-            this.aft.inSampleSize = 1;
+            this.afs = new BitmapFactory.Options();
+            this.afs.inBitmap = this.mBitmap;
+            this.afs.inMutable = true;
+            this.afs.inSampleSize = 1;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int uJ() {
         this.mIndex++;
-        if (this.mIndex + 1 >= this.afm.length) {
-            this.afs++;
+        if (this.mIndex + 1 >= this.afl.length) {
+            this.afr++;
         }
-        if (this.mIndex >= this.afm.length) {
+        if (this.mIndex >= this.afl.length) {
             this.mIndex = 0;
         }
-        return this.afm[this.mIndex];
+        return this.afl[this.mIndex];
     }
 
     public synchronized void b(ImageView imageView) {
-        this.afn = true;
+        this.afm = true;
         if (!this.wy) {
-            if (this.afo.get() == null) {
-                this.afo = new SoftReference<>(imageView);
+            if (this.afn.get() == null) {
+                this.afn = new SoftReference<>(imageView);
             }
             this.mHandler.post(new Runnable() { // from class: com.baidu.tbadk.core.util.l.1
                 @Override // java.lang.Runnable
                 public void run() {
                     Bitmap bitmap;
-                    ImageView imageView2 = (ImageView) l.this.afo.get();
-                    if (!l.this.afn || imageView2 == null || l.this.afs > l.this.afr) {
+                    ImageView imageView2 = (ImageView) l.this.afn.get();
+                    if (!l.this.afm || imageView2 == null || l.this.afr > l.this.afq) {
                         l.this.wy = false;
-                        if (l.this.afq != null) {
-                            l.this.afq.uK();
+                        if (l.this.afp != null) {
+                            l.this.afp.uK();
                         }
                         if (l.this.mBitmap != null && !l.this.mBitmap.isRecycled()) {
                             l.this.mBitmap.recycle();
@@ -86,12 +86,12 @@ public class l {
                         return;
                     }
                     l.this.wy = true;
-                    l.this.mHandler.postDelayed(this, l.this.afp);
+                    l.this.mHandler.postDelayed(this, l.this.afo);
                     if (imageView2.isShown()) {
                         int uJ = l.this.uJ();
                         if (l.this.mBitmap != null && !l.this.mBitmap.isRecycled()) {
                             try {
-                                bitmap = BitmapFactory.decodeResource(imageView2.getResources(), uJ, l.this.aft);
+                                bitmap = BitmapFactory.decodeResource(imageView2.getResources(), uJ, l.this.afs);
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 bitmap = null;
@@ -113,15 +113,15 @@ public class l {
     }
 
     public synchronized void stop() {
-        this.afn = false;
-        this.afo.clear();
+        this.afm = false;
+        this.afn.clear();
         this.wy = false;
         this.mIndex = -1;
-        this.afs = 1;
+        this.afr = 1;
     }
 
     public void a(a aVar) {
-        this.afq = aVar;
+        this.afp = aVar;
     }
 
     private int[] cG(int i) {

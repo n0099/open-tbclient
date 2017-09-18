@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public abstract class l<T, V extends j.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected PbActivity eGQ;
-    private SparseArray<SoftReference<Drawable>> eKx;
-    private SparseArray<Integer> eKy;
+    protected PbActivity eHK;
+    private SparseArray<SoftReference<Drawable>> eLr;
+    private SparseArray<Integer> eLs;
     protected boolean mIsFromCDN;
     protected ListView mListView;
     protected int mSkinType;
@@ -24,14 +24,14 @@ public abstract class l<T, V extends j.a> extends com.baidu.adp.widget.ListView.
         super(pbActivity == null ? null : pbActivity.getPageContext().getPageActivity(), bdUniqueId);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.eKx = new SparseArray<>();
-        this.eKy = new SparseArray<>();
+        this.eLr = new SparseArray<>();
+        this.eLs = new SparseArray<>();
         al(pbActivity);
     }
 
     public void al(PbActivity pbActivity) {
         if (pbActivity != null) {
-            this.eGQ = pbActivity;
+            this.eHK = pbActivity;
             this.mContext = pbActivity.getActivity();
         }
     }
@@ -50,26 +50,26 @@ public abstract class l<T, V extends j.a> extends com.baidu.adp.widget.ListView.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int getDimensionPixelSize(int i) {
-        Integer num = this.eKy.get(i);
+        Integer num = this.eLs.get(i);
         if (num != null) {
             return num.intValue();
         }
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-        this.eKy.put(i, Integer.valueOf(dimensionPixelSize));
+        this.eLs.put(i, Integer.valueOf(dimensionPixelSize));
         return dimensionPixelSize;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Drawable getDrawable(int i) {
         Drawable drawable;
-        SoftReference<Drawable> softReference = this.eKx.get(i);
+        SoftReference<Drawable> softReference = this.eLr.get(i);
         if (softReference == null) {
             drawable = null;
         } else {
             drawable = softReference.get();
         }
         if (drawable == null && (drawable = com.baidu.tbadk.core.util.aj.getDrawable(i)) != null) {
-            this.eKx.put(i, new SoftReference<>(drawable));
+            this.eLr.put(i, new SoftReference<>(drawable));
         }
         return drawable;
     }

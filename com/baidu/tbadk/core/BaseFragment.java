@@ -163,7 +163,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     }
 
     public void setNetRefreshViewEmotionDefMarginTop() {
-        setNetRefreshViewEmotionMarginTop(k.g(TbadkCoreApplication.getInst(), d.f.ds300));
+        setNetRefreshViewEmotionMarginTop(k.f(TbadkCoreApplication.getInst(), d.f.ds300));
     }
 
     public void showNetRefreshView(View view, String str, boolean z) {

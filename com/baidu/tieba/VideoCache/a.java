@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<d> aVD = new ArrayList();
-    private long aVE = 0;
+    private List<d> aVA = new ArrayList();
+    private long aVB = 0;
 
     public List<d> Ku() {
-        return this.aVD;
+        return this.aVA;
     }
 
     public long Kv() {
-        return this.aVE;
+        return this.aVB;
     }
 
     public void a(d dVar) {
-        if (this.aVD != null) {
-            this.aVD.add(dVar);
+        if (this.aVA != null) {
+            this.aVA.add(dVar);
             if (dVar != null) {
-                this.aVE += dVar.KC();
+                this.aVB += dVar.KC();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.aVD != null) {
-            this.aVD.remove(dVar);
+        if (this.aVA != null) {
+            this.aVA.remove(dVar);
             if (dVar != null) {
-                this.aVE -= dVar.KC();
+                this.aVB -= dVar.KC();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.aVD != null) {
-            d dVar = this.aVD.get(i);
+        if (this.aVA != null) {
+            d dVar = this.aVA.get(i);
             if (dVar != null) {
-                this.aVE -= dVar.KC();
+                this.aVB -= dVar.KC();
             }
-            this.aVD.remove(i);
+            this.aVA.remove(i);
         }
     }
 
     public int Kw() {
-        if (this.aVD != null) {
-            return this.aVD.size();
+        if (this.aVA != null) {
+            return this.aVA.size();
         }
         return 0;
     }
 
     public d fP(int i) {
-        if (this.aVD != null) {
-            return this.aVD.get(i);
+        if (this.aVA != null) {
+            return this.aVA.get(i);
         }
         return null;
     }

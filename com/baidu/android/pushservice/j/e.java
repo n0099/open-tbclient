@@ -69,9 +69,9 @@ public class e {
             }
             c();
             if (this.g != null) {
-                if (com.baidu.android.pushservice.a.b() > 0) {
+                if (com.baidu.android.pushservice.a.b() > 0 && this.g.getBooleanExtra("bd.message.rate.MH", false)) {
                     this.g.putExtra("bd.message.rate.END", System.currentTimeMillis());
-                    k.a(this.d, this.e, this.g);
+                    j.a(this.d, this.e, this.g);
                 }
                 gVar.a(this.g.getIntExtra("bd.cross.request.RESULT_CODE", 10));
                 if (this.g.hasExtra("bd.cross.request.RESULT_DATA")) {
@@ -81,9 +81,9 @@ public class e {
                     }
                 }
             } else {
-                if (com.baidu.android.pushservice.a.b() > 0) {
+                if (com.baidu.android.pushservice.a.b() > 0 && this.e.getBooleanExtra("bd.message.rate.MH", false)) {
                     this.e.putExtra("bd.message.rate.TIMEOUT", System.currentTimeMillis());
-                    k.a(this.d, this.e, null);
+                    j.a(this.d, this.e, null);
                 }
                 gVar.a(11);
             }

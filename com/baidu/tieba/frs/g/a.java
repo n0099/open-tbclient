@@ -31,8 +31,8 @@ public class a {
     }
 
     public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, FrsModelController frsModelController, List<com.baidu.adp.widget.ListView.f> list, int i) {
-        if (frsModelController != null && frsModelController.ajS() != null) {
-            a(bVar, frsModelController.ajS().aOV(), list, false, i);
+        if (frsModelController != null && frsModelController.akd() != null) {
+            a(bVar, frsModelController.akd().aPg(), list, false, i);
         }
     }
 
@@ -40,10 +40,10 @@ public class a {
         int[] iArr;
         int indexOf;
         if (eVar != null && v.u(list) > 0 && v.u(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.e.ghJ) {
+            for (int i : com.baidu.tieba.tbadkCore.data.e.giE) {
                 com.baidu.adp.widget.ListView.f fVar = (com.baidu.adp.widget.ListView.f) v.c(list, i);
                 if (fVar != null && (indexOf = list2.indexOf(fVar)) >= 0) {
-                    eVar.bG(i, indexOf);
+                    eVar.bK(i, indexOf);
                 }
             }
         }

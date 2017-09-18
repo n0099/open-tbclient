@@ -10,8 +10,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.h.p;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.p;
 import com.baidu.tbadk.core.atomData.SocialLoginActivityConfig;
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -127,13 +126,12 @@ public class PublicMsg implements Parcelable {
 
     private void insertBehavior(Context context, com.baidu.android.pushservice.b.f fVar, com.baidu.android.pushservice.h.j jVar, com.baidu.android.pushservice.h.i iVar) {
         if (fVar != null) {
-            iVar.d(fVar.c());
-            iVar.c(q.a(fVar.f));
-            iVar.b(fVar.f);
-            com.baidu.android.pushservice.h.i a = q.a(iVar, context, fVar.c());
+            iVar.b(fVar.c());
+            com.baidu.android.pushservice.h.i a = p.a(iVar, context, fVar.c());
+            jVar.j = fVar.c();
             try {
-                p.a(context, jVar);
-                p.a(context, a);
+                com.baidu.android.pushservice.h.p.a(context, jVar);
+                com.baidu.android.pushservice.h.p.a(context, a);
             } catch (Exception e) {
                 com.baidu.android.pushservice.g.a.b(TAG, "PM insert db exception");
             }
@@ -145,7 +143,7 @@ public class PublicMsg implements Parcelable {
         jVar.d = str3;
         jVar.a = str;
         jVar.e = System.currentTimeMillis();
-        jVar.f = com.baidu.android.pushservice.h.a.b.c(context);
+        jVar.f = com.baidu.android.pushservice.h.a.b.b(context);
         jVar.c = com.baidu.android.pushservice.message.a.l.MSG_TYPE_MULTI_PRIVATE_NOTIFICATION.a();
         jVar.h = str2;
         com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str2);
@@ -308,7 +306,7 @@ public class PublicMsg implements Parcelable {
                 intent.putExtra("notification_content", this.mDescription);
                 intent.putExtra("com.baidu.pushservice.app_id", str3);
                 addCustomContentToIntent(intent);
-                q.b(context, intent, "com.baidu.android.pushservice.action.notification.CLICK", this.mPkgName);
+                p.b(context, intent, "com.baidu.android.pushservice.action.notification.CLICK", this.mPkgName);
                 insertNotiBehavior(context, str2, str3, "010201");
                 if (this.mOpenType == 1 && this.mUrl != null) {
                     Intent intent2 = new Intent();
@@ -362,7 +360,7 @@ public class PublicMsg implements Parcelable {
         jVar.c = com.baidu.android.pushservice.message.a.l.MSG_TYPE_RICH_MEDIA.a();
         jVar.e = System.currentTimeMillis();
         jVar.g = 0;
-        jVar.f = com.baidu.android.pushservice.h.a.b.c(context);
+        jVar.f = com.baidu.android.pushservice.h.a.b.b(context);
         jVar.h = str2;
         com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str2);
         if (d != null) {

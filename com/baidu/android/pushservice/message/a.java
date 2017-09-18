@@ -3,30 +3,29 @@ package com.baidu.android.pushservice.message;
 import android.content.Context;
 /* loaded from: classes2.dex */
 public class a {
-    private static final String a = a.class.getSimpleName();
-    private Context b;
+    private Context a;
 
     public a(Context context) {
-        this.b = context;
+        this.a = context;
     }
 
     public c a(h hVar) {
         switch (hVar) {
             case MSG_ID_HANDSHAKE:
-                return new b(this.b);
+                return new b(this.a);
             case MSG_ID_HEARTBEAT_SERVER:
             case MSG_ID_TINY_HEARTBEAT_SERVER:
-                return new l(this.b);
+                return new l(this.a);
             case MSG_ID_HEARTBEAT_CLIENT:
-                com.baidu.android.pushservice.g.a.b(a, "handleMessage MSG_ID_HEARTBEAT_CLIENT");
+                com.baidu.android.pushservice.g.a.b("ConnectMessageHandlerFactory", "handleMessage MSG_ID_HEARTBEAT_CLIENT");
                 return null;
             case MSG_ID_TINY_HEARTBEAT_CLIENT:
-                com.baidu.android.pushservice.g.a.b(a, "handleMessage MSG_ID_TIMY_HEARTBEAT_CLIENT");
+                com.baidu.android.pushservice.g.a.b("ConnectMessageHandlerFactory", "handleMessage MSG_ID_TIMY_HEARTBEAT_CLIENT");
                 return null;
             case MSG_ID_PUSH_MSG:
-                return new j(this.b);
+                return new j(this.a);
             default:
-                com.baidu.android.pushservice.g.a.e(a, "handleMessage invalid messageType");
+                com.baidu.android.pushservice.g.a.e("ConnectMessageHandlerFactory", "handleMessage invalid messageType");
                 return null;
         }
     }

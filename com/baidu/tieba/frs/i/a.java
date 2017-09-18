@@ -32,121 +32,121 @@ public class a extends d<bj, b> implements c {
         }
         if (this.mSkinType == 1) {
             aj.k(bVar.mRootView, d.e.cp_bg_line_d_1);
-            aj.k(bVar.cIT, d.e.cp_bg_line_c_1);
-            aj.i(bVar.cIW, d.e.cp_cont_e);
-            aj.i(bVar.cIY, d.e.cp_cont_e);
-            aj.i(bVar.cIV, d.e.cp_cont_b);
-            aj.i(bVar.cIX, d.e.cp_cont_b);
+            aj.k(bVar.cJN, d.e.cp_bg_line_c_1);
+            aj.i(bVar.cJQ, d.e.cp_cont_e);
+            aj.i(bVar.cJS, d.e.cp_cont_e);
+            aj.i(bVar.cJP, d.e.cp_cont_b);
+            aj.i(bVar.cJR, d.e.cp_cont_b);
             str = "#4f93ef";
         } else {
             aj.k(bVar.mRootView, d.e.cp_bg_line_d);
-            aj.k(bVar.cIT, d.e.cp_bg_line_c);
-            aj.i(bVar.cIW, d.e.common_color_10139);
-            aj.i(bVar.cIY, d.e.common_color_10139);
-            aj.i(bVar.cIV, d.e.cp_bg_line_k);
-            aj.i(bVar.cIX, d.e.cp_bg_line_k);
+            aj.k(bVar.cJN, d.e.cp_bg_line_c);
+            aj.i(bVar.cJQ, d.e.common_color_10139);
+            aj.i(bVar.cJS, d.e.common_color_10139);
+            aj.i(bVar.cJP, d.e.cp_bg_line_k);
+            aj.i(bVar.cJR, d.e.cp_bg_line_k);
             str = "#3385ff";
         }
         final z zVar = (z) bjVar;
         String str3 = zVar.We;
         if (!StringUtils.isNull(str3)) {
-            bVar.cIU.setVisibility(0);
-            bVar.bJq.setVisibility(8);
-            bVar.cIU.setIsRound(true);
-            bVar.cIU.setUserId(bjVar.getAuthor().getUserId());
-            bVar.cIU.setImageDrawable(null);
-            bVar.cIU.c(str3, 10, false);
+            bVar.cJO.setVisibility(0);
+            bVar.bKh.setVisibility(8);
+            bVar.cJO.setIsRound(true);
+            bVar.cJO.setUserId(bjVar.getAuthor().getUserId());
+            bVar.cJO.setImageDrawable(null);
+            bVar.cJO.c(str3, 10, false);
         }
-        bVar.cIV.setText(zVar.userName);
-        bVar.cIW.setText(zVar.tips);
+        bVar.cJP.setText(zVar.userName);
+        bVar.cJQ.setText(zVar.tips);
         if (StringUtils.isNull(zVar.type)) {
             str2 = zVar.title;
         } else {
             str2 = "<font color='" + str + "'>" + zVar.type + "·</font>" + zVar.title;
         }
-        bVar.cIX.setText(Html.fromHtml(str2));
-        bVar.cIY.setText(zVar.Wf);
+        bVar.cJR.setText(Html.fromHtml(str2));
+        bVar.cJS.setText(zVar.Wf);
         if (zVar.pics != null) {
             int size = zVar.pics.size();
             if (size == 1) {
-                bVar.cJe.setVisibility(0);
-                bVar.cIZ.setVisibility(8);
-                bVar.cJa.setVisibility(8);
-                bVar.cJb.setVisibility(8);
-                bVar.cJc.setVisibility(8);
-                bVar.cJd.setVisibility(8);
-                bVar.cJe.c(zVar.pics.get(0), 10, false);
+                bVar.cJY.setVisibility(0);
+                bVar.cJT.setVisibility(8);
+                bVar.cJU.setVisibility(8);
+                bVar.cJV.setVisibility(8);
+                bVar.cJW.setVisibility(8);
+                bVar.cJX.setVisibility(8);
+                bVar.cJY.c(zVar.pics.get(0), 10, false);
             } else if (size == 2) {
-                bVar.cJe.setVisibility(8);
-                bVar.cIZ.setVisibility(8);
-                bVar.cJa.setVisibility(8);
-                bVar.cJb.setVisibility(8);
-                bVar.cJc.setVisibility(0);
-                bVar.cJd.setVisibility(8);
-                bVar.cJo.c(zVar.pics.get(0), 10, false);
-                bVar.cJp.c(zVar.pics.get(1), 10, false);
+                bVar.cJY.setVisibility(8);
+                bVar.cJT.setVisibility(8);
+                bVar.cJU.setVisibility(8);
+                bVar.cJV.setVisibility(8);
+                bVar.cJW.setVisibility(0);
+                bVar.cJX.setVisibility(8);
+                bVar.cKi.c(zVar.pics.get(0), 10, false);
+                bVar.cKj.c(zVar.pics.get(1), 10, false);
             } else if (size == 3) {
-                bVar.cJe.setVisibility(8);
-                bVar.cIZ.setVisibility(0);
-                bVar.cJa.setVisibility(8);
-                bVar.cJb.setVisibility(8);
-                bVar.cJc.setVisibility(8);
-                bVar.cJd.setVisibility(8);
-                bVar.cJf.c(zVar.pics.get(0), 10, false);
-                bVar.cJg.c(zVar.pics.get(1), 10, false);
-                bVar.cJh.c(zVar.pics.get(2), 10, false);
+                bVar.cJY.setVisibility(8);
+                bVar.cJT.setVisibility(0);
+                bVar.cJU.setVisibility(8);
+                bVar.cJV.setVisibility(8);
+                bVar.cJW.setVisibility(8);
+                bVar.cJX.setVisibility(8);
+                bVar.cJZ.c(zVar.pics.get(0), 10, false);
+                bVar.cKa.c(zVar.pics.get(1), 10, false);
+                bVar.cKb.c(zVar.pics.get(2), 10, false);
             } else if (size == 4) {
-                bVar.cJe.setVisibility(8);
-                bVar.cIZ.setVisibility(8);
-                bVar.cJa.setVisibility(8);
-                bVar.cJb.setVisibility(8);
-                bVar.cJc.setVisibility(0);
-                bVar.cJd.setVisibility(0);
-                bVar.cJo.c(zVar.pics.get(0), 10, false);
-                bVar.cJp.c(zVar.pics.get(1), 10, false);
-                bVar.cJq.c(zVar.pics.get(2), 10, false);
-                bVar.cJr.c(zVar.pics.get(3), 10, false);
+                bVar.cJY.setVisibility(8);
+                bVar.cJT.setVisibility(8);
+                bVar.cJU.setVisibility(8);
+                bVar.cJV.setVisibility(8);
+                bVar.cJW.setVisibility(0);
+                bVar.cJX.setVisibility(0);
+                bVar.cKi.c(zVar.pics.get(0), 10, false);
+                bVar.cKj.c(zVar.pics.get(1), 10, false);
+                bVar.cKk.c(zVar.pics.get(2), 10, false);
+                bVar.cKl.c(zVar.pics.get(3), 10, false);
             } else if (size == 5) {
-                bVar.cJe.setVisibility(8);
-                bVar.cIZ.setVisibility(0);
-                bVar.cJa.setVisibility(8);
-                bVar.cJb.setVisibility(8);
-                bVar.cJc.setVisibility(0);
-                bVar.cJd.setVisibility(8);
-                bVar.cJo.c(zVar.pics.get(0), 10, false);
-                bVar.cJp.c(zVar.pics.get(1), 10, false);
-                bVar.cJf.c(zVar.pics.get(2), 10, false);
-                bVar.cJg.c(zVar.pics.get(3), 10, false);
-                bVar.cJh.c(zVar.pics.get(4), 10, false);
+                bVar.cJY.setVisibility(8);
+                bVar.cJT.setVisibility(0);
+                bVar.cJU.setVisibility(8);
+                bVar.cJV.setVisibility(8);
+                bVar.cJW.setVisibility(0);
+                bVar.cJX.setVisibility(8);
+                bVar.cKi.c(zVar.pics.get(0), 10, false);
+                bVar.cKj.c(zVar.pics.get(1), 10, false);
+                bVar.cJZ.c(zVar.pics.get(2), 10, false);
+                bVar.cKa.c(zVar.pics.get(3), 10, false);
+                bVar.cKb.c(zVar.pics.get(4), 10, false);
             } else if (size >= 6 && size < 9) {
-                bVar.cJe.setVisibility(8);
-                bVar.cIZ.setVisibility(0);
-                bVar.cJa.setVisibility(0);
-                bVar.cJb.setVisibility(8);
-                bVar.cJc.setVisibility(8);
-                bVar.cJd.setVisibility(8);
-                bVar.cJf.c(zVar.pics.get(0), 10, false);
-                bVar.cJg.c(zVar.pics.get(1), 10, false);
-                bVar.cJh.c(zVar.pics.get(2), 10, false);
-                bVar.cJi.c(zVar.pics.get(3), 10, false);
-                bVar.cJj.c(zVar.pics.get(4), 10, false);
-                bVar.cJk.c(zVar.pics.get(5), 10, false);
+                bVar.cJY.setVisibility(8);
+                bVar.cJT.setVisibility(0);
+                bVar.cJU.setVisibility(0);
+                bVar.cJV.setVisibility(8);
+                bVar.cJW.setVisibility(8);
+                bVar.cJX.setVisibility(8);
+                bVar.cJZ.c(zVar.pics.get(0), 10, false);
+                bVar.cKa.c(zVar.pics.get(1), 10, false);
+                bVar.cKb.c(zVar.pics.get(2), 10, false);
+                bVar.cKc.c(zVar.pics.get(3), 10, false);
+                bVar.cKd.c(zVar.pics.get(4), 10, false);
+                bVar.cKe.c(zVar.pics.get(5), 10, false);
             } else if (size >= 9) {
-                bVar.cJe.setVisibility(8);
-                bVar.cIZ.setVisibility(0);
-                bVar.cJa.setVisibility(0);
-                bVar.cJb.setVisibility(0);
-                bVar.cJc.setVisibility(8);
-                bVar.cJd.setVisibility(8);
-                bVar.cJf.c(zVar.pics.get(0), 10, false);
-                bVar.cJg.c(zVar.pics.get(1), 10, false);
-                bVar.cJh.c(zVar.pics.get(2), 10, false);
-                bVar.cJi.c(zVar.pics.get(3), 10, false);
-                bVar.cJj.c(zVar.pics.get(4), 10, false);
-                bVar.cJk.c(zVar.pics.get(5), 10, false);
-                bVar.cJl.c(zVar.pics.get(6), 10, false);
-                bVar.cJm.c(zVar.pics.get(7), 10, false);
-                bVar.cJn.c(zVar.pics.get(8), 10, false);
+                bVar.cJY.setVisibility(8);
+                bVar.cJT.setVisibility(0);
+                bVar.cJU.setVisibility(0);
+                bVar.cJV.setVisibility(0);
+                bVar.cJW.setVisibility(8);
+                bVar.cJX.setVisibility(8);
+                bVar.cJZ.c(zVar.pics.get(0), 10, false);
+                bVar.cKa.c(zVar.pics.get(1), 10, false);
+                bVar.cKb.c(zVar.pics.get(2), 10, false);
+                bVar.cKc.c(zVar.pics.get(3), 10, false);
+                bVar.cKd.c(zVar.pics.get(4), 10, false);
+                bVar.cKe.c(zVar.pics.get(5), 10, false);
+                bVar.cKf.c(zVar.pics.get(6), 10, false);
+                bVar.cKg.c(zVar.pics.get(7), 10, false);
+                bVar.cKh.c(zVar.pics.get(8), 10, false);
             }
         }
         bVar.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.i.a.1

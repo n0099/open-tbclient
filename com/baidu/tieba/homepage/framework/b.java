@@ -3,9 +3,9 @@ package com.baidu.tieba.homepage.framework;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface b {
-    void aD(int i, int i2);
+    void aH(int i, int i2);
 
-    void aqn();
+    void aqy();
 
     void k(List<com.baidu.tieba.homepage.b.a.a> list, boolean z);
 

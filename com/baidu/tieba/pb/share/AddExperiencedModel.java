@@ -23,11 +23,11 @@ public class AddExperiencedModel extends BdBaseModel {
     public static String USELESS_FORUM_ID = "24981790";
     public static String WEIXIN_FRIEND = "weixin_friend";
     public static String WEIXIN_TIMELINE = "weixin_timeline";
-    private HttpMessageListener eXz;
+    private HttpMessageListener eYt;
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.eXz = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED) { // from class: com.baidu.tieba.pb.share.AddExperiencedModel.1
+        this.eYt = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED) { // from class: com.baidu.tieba.pb.share.AddExperiencedModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -37,7 +37,7 @@ public class AddExperiencedModel extends BdBaseModel {
             }
         };
         El();
-        registerListener(this.eXz);
+        registerListener(this.eYt);
     }
 
     private void El() {
@@ -53,11 +53,11 @@ public class AddExperiencedModel extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public static boolean pE(String str) {
+    public static boolean pG(String str) {
         return b.c(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean pF(String str) {
+    public static boolean pH(String str) {
         String str2;
         boolean z;
         l<String> O = a.tk().O("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());

@@ -6,10 +6,10 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-    private VcodeExtra asa;
+    private VcodeExtra arX;
     private String vcode_md5 = null;
     private String vcode_pic_url = null;
-    private String arZ = null;
+    private String arW = null;
 
     public String getVcode_md5() {
         return this.vcode_md5;
@@ -20,11 +20,11 @@ public class q {
     }
 
     public String yA() {
-        return this.arZ;
+        return this.arW;
     }
 
     public VcodeExtra yB() {
-        return this.asa;
+        return this.arX;
     }
 
     public void parserJson(String str) {
@@ -45,14 +45,14 @@ public class q {
             try {
                 this.vcode_md5 = jSONObject.optString(GraffitiVcodeActivityConfig.VCODE_MD5);
                 this.vcode_pic_url = jSONObject.optString(GraffitiVcodeActivityConfig.VCODE_PIC_URL);
-                this.arZ = jSONObject.optString("vcode_type");
+                this.arW = jSONObject.optString("vcode_type");
                 JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
-                this.asa = new VcodeExtra();
-                this.asa.textImg = jSONObject2.optString("textimg");
-                this.asa.slideImg = jSONObject2.optString("slideimg");
-                this.asa.endPoint = jSONObject2.optString("endpoint");
-                this.asa.successImg = jSONObject2.optString("successimg");
-                this.asa.slideEndPoint = jSONObject2.optString("slideendpoint");
+                this.arX = new VcodeExtra();
+                this.arX.textImg = jSONObject2.optString("textimg");
+                this.arX.slideImg = jSONObject2.optString("slideimg");
+                this.arX.endPoint = jSONObject2.optString("endpoint");
+                this.arX.successImg = jSONObject2.optString("successimg");
+                this.arX.slideEndPoint = jSONObject2.optString("slideendpoint");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

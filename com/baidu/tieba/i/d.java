@@ -36,7 +36,7 @@ final class d {
                 randomAccessFile.skipBytes(2);
                 a aVar = new a();
                 aVar.size = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
-                aVar.evZ = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                aVar.ewT = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
                 return aVar;
             }
             j3--;
@@ -47,7 +47,7 @@ final class d {
     static long a(RandomAccessFile randomAccessFile, a aVar) throws IOException {
         CRC32 crc32 = new CRC32();
         long j = aVar.size;
-        randomAccessFile.seek(aVar.evZ);
+        randomAccessFile.seek(aVar.ewT);
         byte[] bArr = new byte[16384];
         int read = randomAccessFile.read(bArr, 0, (int) Math.min((long) IjkMediaMeta.AV_CH_TOP_FRONT_RIGHT, j));
         while (read != -1) {
@@ -64,7 +64,7 @@ final class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        long evZ;
+        long ewT;
         long size;
 
         a() {

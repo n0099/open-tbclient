@@ -6,26 +6,26 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class a implements b {
-    private b aFs;
+    private b aFp;
 
     public a(TbPageContext<?> tbPageContext) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOD_RECOMMEND_CONTROLLER, b.class, tbPageContext);
         if (runTask != null && runTask.getData() != null) {
-            this.aFs = (b) runTask.getData();
+            this.aFp = (b) runTask.getData();
         }
     }
 
     @Override // com.baidu.tbadk.i.b
     public void aq(String str, String str2) {
-        if (this.aFs != null) {
-            this.aFs.aq(str, str2);
+        if (this.aFp != null) {
+            this.aFp.aq(str, str2);
         }
     }
 
     @Override // com.baidu.tbadk.i.b
     public void destory() {
-        if (this.aFs != null) {
-            this.aFs.destory();
+        if (this.aFp != null) {
+            this.aFp.destory();
         }
     }
 }

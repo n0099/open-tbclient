@@ -45,7 +45,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class i {
-    private static void kW(String str) {
+    private static void kY(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
@@ -55,7 +55,7 @@ public class i {
         }
     }
 
-    public static String P(Intent intent) {
+    public static String O(Intent intent) {
         int length;
         if (intent == null || intent.getData() == null) {
             return null;
@@ -71,11 +71,11 @@ public class i {
         Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
         if (matcher.find()) {
             if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                kW(decode);
+                kY(decode);
             }
             return matcher.group(2);
         }
-        kW(decode);
+        kY(decode);
         int indexOf = decode.indexOf("kw=");
         if (indexOf < 0 || (length = indexOf + "kw=".length()) > decode.length()) {
             return null;
@@ -153,7 +153,7 @@ public class i {
 
     public static void a(com.baidu.tieba.frs.f fVar, int i, String[] strArr, int[] iArr) {
         if (fVar != null && strArr != null && iArr != null && i == 1) {
-            if (ab.aJ(TbadkCoreApplication.getInst().getApplicationContext())) {
+            if (ab.aK(TbadkCoreApplication.getInst().getApplicationContext())) {
                 ai.c(fVar.getPageContext());
             } else {
                 fVar.showToast(d.l.system_permission_prompt_camera);
@@ -166,21 +166,21 @@ public class i {
     }
 
     public static void A(com.baidu.tieba.frs.f fVar) {
-        if (fVar != null && ax.aT(fVar.getActivity())) {
+        if (fVar != null && ax.aU(fVar.getActivity())) {
             TiebaStatic.log(new ak("c10177").ad("fid", fVar.getForumId()));
             fVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveListActivityConfig(fVar.getPageContext().getPageActivity(), String.valueOf(fVar.getForumId()), false, 0)));
         }
     }
 
     public static void a(com.baidu.tieba.frs.f fVar, bj bjVar) {
-        if (fVar != null && bjVar != null && ax.aT(fVar.getActivity())) {
+        if (fVar != null && bjVar != null && ax.aU(fVar.getActivity())) {
             fVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveHeadlineActivityConfig(fVar.getPageContext().getPageActivity()).createConfig(String.valueOf(fVar.getForumId()), bjVar.getTid(), 1)));
         }
     }
 
     public static void a(TbPageContext tbPageContext, com.baidu.tieba.tbadkCore.i iVar) {
         if (tbPageContext != null && iVar != null) {
-            com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + iVar.aOV().getId(), true, true, true);
+            com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + iVar.aPg().getId(), true, true, true);
         }
     }
 
@@ -223,12 +223,12 @@ public class i {
                 if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(str)) {
                     tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(1)));
                 } else {
-                    com.baidu.tbadk.core.e.b.j(tbPageContext.getPageActivity(), 1);
+                    com.baidu.tbadk.core.e.b.i(tbPageContext.getPageActivity(), 1);
                 }
             } else if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(str)) {
                 tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(2)));
             } else {
-                com.baidu.tbadk.core.e.b.j(tbPageContext.getPageActivity(), 2);
+                com.baidu.tbadk.core.e.b.i(tbPageContext.getPageActivity(), 2);
             }
             if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(str)) {
                 tbPageContext.getPageActivity().finish();
@@ -247,7 +247,7 @@ public class i {
         PhotoLiveActivityConfig pi;
         if (fVar != null && bjVar != null) {
             if (bjVar.getThreadType() == 33 || (bjVar instanceof ay)) {
-                if (bjVar.rX() > 0 && com.baidu.tieba.tbadkCore.util.g.btm()) {
+                if (bjVar.rX() > 0 && com.baidu.tieba.tbadkCore.util.g.btx()) {
                     pi = new PhotoLiveActivityConfig.a(fVar.getPageContext().getPageActivity(), bjVar.getTid()).cu("from_frs").bB(18003).cs(String.valueOf(bjVar.rX())).pi();
                 } else {
                     pi = new PhotoLiveActivityConfig.a(fVar.getPageContext().getPageActivity(), bjVar.getTid()).cu("from_frs").bB(18003).pi();
@@ -260,7 +260,7 @@ public class i {
     public static void a(com.baidu.tieba.frs.f fVar, bj bjVar, int i, boolean z) {
         PbActivityConfig createFromThreadCfg;
         if (fVar != null && bjVar != null) {
-            if (bjVar.rX() > 0 && com.baidu.tieba.tbadkCore.util.g.btm()) {
+            if (bjVar.rX() > 0 && com.baidu.tieba.tbadkCore.util.g.btx()) {
                 createFromThreadCfg = new PbActivityConfig(fVar.getPageContext().getPageActivity()).createHistoryCfg(bjVar.getTid(), String.valueOf(bjVar.rX()), false, true, null);
             } else {
                 createFromThreadCfg = new PbActivityConfig(fVar.getPageContext().getPageActivity()).createFromThreadCfg(bjVar, fVar.getForumName(), null, 18003, true, false, z);

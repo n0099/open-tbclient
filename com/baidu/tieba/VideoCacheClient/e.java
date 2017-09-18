@@ -18,12 +18,12 @@ import java.net.URLEncoder;
 /* loaded from: classes2.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e aWC;
+    private static e aWz;
     private Context mContext;
     private Handler mHandler;
     private long mLastCheckTime = 0;
-    private boolean aUq = false;
-    private Handler.Callback aUC = new Handler.Callback() { // from class: com.baidu.tieba.VideoCacheClient.e.1
+    private boolean aUn = false;
+    private Handler.Callback aUz = new Handler.Callback() { // from class: com.baidu.tieba.VideoCacheClient.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 1) {
@@ -47,27 +47,27 @@ public class e {
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.VideoCacheClient.e.2
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            e.this.aUq = true;
-            com.baidu.adp.lib.g.e.fQ().removeCallbacks(e.this.aUs);
+            e.this.aUn = true;
+            com.baidu.adp.lib.g.e.fQ().removeCallbacks(e.this.aUp);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            File file = new File(c.aWo);
+            File file = new File(c.aWl);
             if (file.exists()) {
                 file.delete();
             }
             b.KS().KU();
-            e.this.aUq = false;
-            com.baidu.adp.lib.g.e.fQ().postDelayed(e.this.aUs, 1000L);
+            e.this.aUn = false;
+            com.baidu.adp.lib.g.e.fQ().postDelayed(e.this.aUp, 1000L);
         }
     };
-    private Runnable aUs = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
+    private Runnable aUp = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
         @Override // java.lang.Runnable
         public void run() {
-            if (!e.this.aUq) {
+            if (!e.this.aUn) {
                 e.this.Ki();
-                com.baidu.adp.lib.g.e.fQ().postDelayed(e.this.aUs, 1000L);
+                com.baidu.adp.lib.g.e.fQ().postDelayed(e.this.aUp, 1000L);
             }
         }
     };
@@ -78,19 +78,19 @@ public class e {
         }
         HandlerThread handlerThread = new HandlerThread("video_cache_client_handler");
         handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aUC);
+        this.mHandler = new Handler(handlerThread.getLooper(), this.aUz);
         this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 
-    public static e bf(Context context) {
-        if (aWC == null) {
+    public static e bg(Context context) {
+        if (aWz == null) {
             synchronized (e.class) {
-                if (aWC == null) {
-                    aWC = new e(context);
+                if (aWz == null) {
+                    aWz = new e(context);
                 }
             }
         }
-        return aWC;
+        return aWz;
     }
 
     public void hz(String str) {

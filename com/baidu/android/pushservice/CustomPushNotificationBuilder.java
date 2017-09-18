@@ -1,10 +1,14 @@
 package com.baidu.android.pushservice;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
+import android.text.TextUtils;
 import android.widget.RemoteViews;
+import com.baidu.android.pushservice.j.l;
+import com.baidu.android.pushservice.j.p;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -37,6 +41,8 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
         }
         this.mNotificationTitle = (String) objectInputStream.readObject();
         this.mNotificationText = (String) objectInputStream.readObject();
+        this.mChannelId = (String) objectInputStream.readObject();
+        this.mChannelName = (String) objectInputStream.readObject();
         this.mLayoutId = objectInputStream.readInt();
         this.mLayoutIconId = objectInputStream.readInt();
         this.mLayoutTitleId = objectInputStream.readInt();
@@ -64,6 +70,8 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
         }
         objectOutputStream.writeObject(this.mNotificationTitle);
         objectOutputStream.writeObject(this.mNotificationText);
+        objectOutputStream.writeObject(this.mChannelId);
+        objectOutputStream.writeObject(this.mChannelName);
         objectOutputStream.writeInt(this.mLayoutId);
         objectOutputStream.writeInt(this.mLayoutIconId);
         objectOutputStream.writeInt(this.mLayoutTitleId);
@@ -72,6 +80,7 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
     }
 
     @Override // com.baidu.android.pushservice.PushNotificationBuilder
+    @SuppressLint({"NewApi"})
     public Notification construct(Context context) {
         Notification.Builder builder = new Notification.Builder(context);
         if (this.mNotificationDefaults != 0) {
@@ -101,6 +110,16 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
         } else {
             builder.setContentTitle(this.mNotificationTitle);
             builder.setContentText(this.mNotificationText);
+        }
+        if (p.F(context)) {
+            if (TextUtils.isEmpty(this.mChannelId)) {
+                this.mChannelId = "com.baidu.android.pushservice.push";
+            }
+            if (TextUtils.isEmpty(this.mChannelName)) {
+                this.mChannelName = "Push";
+            }
+            l.a(context, this.mChannelId, this.mChannelName);
+            builder.setChannelId(this.mChannelId);
         }
         Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();
         if (this.mNotificationFlags != 0 && build != null) {

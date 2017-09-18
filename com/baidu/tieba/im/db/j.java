@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class j {
-    public static void awr() {
+    public static void awC() {
         OldUserData oldUserData;
         ImMessageCenterPojo imMessageCenterPojo;
         ImMessageCenterPojo imMessageCenterPojo2;
@@ -21,45 +21,45 @@ public class j {
         ImMessageCenterPojo imMessageCenterPojo5;
         ImMessageCenterPojo imMessageCenterPojo6;
         ImMessageCenterPojo fromCommonMsg;
-        LinkedList<ImMessageCenterPojo> awo = i.awn().awo();
-        if (awo != null && awo.size() != 0) {
+        LinkedList<ImMessageCenterPojo> awz = i.awy().awz();
+        if (awz != null && awz.size() != 0) {
             BdLog.i("upgradeData");
             LinkedList linkedList = new LinkedList();
             LinkedList linkedList2 = new LinkedList();
             long j = 0;
             boolean z = false;
-            for (String str : l.awt().awb()) {
+            for (String str : l.awE().awm()) {
                 if (!TextUtils.isEmpty(str)) {
-                    long mo = l.awt().mo(str);
-                    if (j < mo) {
-                        j = mo;
+                    long mq = l.awE().mq(str);
+                    if (j < mq) {
+                        j = mq;
                     }
-                    CommonMsgPojo mp = l.awt().mp(str);
-                    if (mp != null && (fromCommonMsg = ImMessageCenterPojo.fromCommonMsg(mp)) != null) {
+                    CommonMsgPojo mr = l.awE().mr(str);
+                    if (mr != null && (fromCommonMsg = ImMessageCenterPojo.fromCommonMsg(mr)) != null) {
                         if (fromCommonMsg.getIsFriend() == 0 && fromCommonMsg.getUnread_count() > 0) {
                             z = true;
                         }
-                        fromCommonMsg.setUnread_count(l.awt().mn(str));
+                        fromCommonMsg.setUnread_count(l.awE().mp(str));
                         a(linkedList, fromCommonMsg);
                         z = z;
                     }
                 }
             }
             boolean z2 = false;
-            for (String str2 : k.aws().awb()) {
+            for (String str2 : k.awD().awm()) {
                 if (!TextUtils.isEmpty(str2)) {
-                    long mo2 = k.aws().mo(str2);
-                    if (j < mo2) {
-                        j = mo2;
+                    long mq2 = k.awD().mq(str2);
+                    if (j < mq2) {
+                        j = mq2;
                     }
-                    CommonMsgPojo mp2 = k.aws().mp(str2);
-                    if (mp2 != null) {
-                        mp2.checkRidAndSelf();
-                        ImMessageCenterPojo fromCommonMsg2 = ImMessageCenterPojo.fromCommonMsg(mp2);
+                    CommonMsgPojo mr2 = k.awD().mr(str2);
+                    if (mr2 != null) {
+                        mr2.checkRidAndSelf();
+                        ImMessageCenterPojo fromCommonMsg2 = ImMessageCenterPojo.fromCommonMsg(mr2);
                         if (fromCommonMsg2 != null) {
-                            int mn = k.aws().mn(str2);
-                            fromCommonMsg2.setUnread_count(mn);
-                            boolean z3 = mn > 0 ? true : z2;
+                            int mp = k.awD().mp(str2);
+                            fromCommonMsg2.setUnread_count(mp);
+                            boolean z3 = mp > 0 ? true : z2;
                             a(linkedList2, fromCommonMsg2);
                             z2 = z3;
                         }
@@ -72,7 +72,7 @@ public class j {
             ImMessageCenterPojo imMessageCenterPojo10 = null;
             ImMessageCenterPojo imMessageCenterPojo11 = null;
             ImMessageCenterPojo imMessageCenterPojo12 = null;
-            Iterator<ImMessageCenterPojo> it = awo.iterator();
+            Iterator<ImMessageCenterPojo> it = awz.iterator();
             while (it.hasNext()) {
                 ImMessageCenterPojo next = it.next();
                 if (next != null && next.getGid() != null) {
@@ -148,7 +148,7 @@ public class j {
                 imMessageCenterPojo7.setGid("-1000");
                 imMessageCenterPojo7.setCustomGroupType(-8);
                 imMessageCenterPojo7.setUnread_count(z2 ? 1 : 0);
-                awo.remove(imMessageCenterPojo7);
+                awz.remove(imMessageCenterPojo7);
             }
             if (linkedList2 != null && linkedList2.size() > 0) {
                 imMessageCenterPojo7.setLast_content(((ImMessageCenterPojo) linkedList2.get(0)).getLast_content());
@@ -156,13 +156,13 @@ public class j {
                 imMessageCenterPojo7.setLast_rid(((ImMessageCenterPojo) linkedList2.get(0)).getLast_rid());
                 imMessageCenterPojo7.setLast_user_name(((ImMessageCenterPojo) linkedList2.get(0)).getLast_user_name());
             }
-            i.awn().b(imMessageCenterPojo7, 2);
+            i.awy().b(imMessageCenterPojo7, 2);
             if (linkedList2 != null && linkedList2.size() > 0) {
                 Iterator it2 = linkedList2.iterator();
                 while (it2.hasNext()) {
                     ImMessageCenterPojo imMessageCenterPojo18 = (ImMessageCenterPojo) it2.next();
                     imMessageCenterPojo18.setCustomGroupType(4);
-                    Iterator<ImMessageCenterPojo> it3 = awo.iterator();
+                    Iterator<ImMessageCenterPojo> it3 = awz.iterator();
                     while (true) {
                         if (it3.hasNext()) {
                             ImMessageCenterPojo next2 = it3.next();
@@ -172,7 +172,7 @@ public class j {
                             }
                         }
                     }
-                    i.awn().b(imMessageCenterPojo18, 2);
+                    i.awy().b(imMessageCenterPojo18, 2);
                 }
             }
             if (linkedList != null && linkedList.size() > 0) {
@@ -180,7 +180,7 @@ public class j {
                 while (it4.hasNext()) {
                     ImMessageCenterPojo imMessageCenterPojo19 = (ImMessageCenterPojo) it4.next();
                     imMessageCenterPojo19.setCustomGroupType(2);
-                    Iterator<ImMessageCenterPojo> it5 = awo.iterator();
+                    Iterator<ImMessageCenterPojo> it5 = awz.iterator();
                     while (true) {
                         if (it5.hasNext()) {
                             ImMessageCenterPojo next3 = it5.next();
@@ -190,7 +190,7 @@ public class j {
                             }
                         }
                     }
-                    i.awn().b(imMessageCenterPojo19, 2);
+                    i.awy().b(imMessageCenterPojo19, 2);
                 }
             }
             if (imMessageCenterPojo8 == null) {
@@ -203,7 +203,7 @@ public class j {
                 imMessageCenterPojo8.setGid("-1001");
                 imMessageCenterPojo8.setCustomGroupType(-7);
                 imMessageCenterPojo8.setUnread_count(z ? 1 : 0);
-                awo.remove(imMessageCenterPojo8);
+                awz.remove(imMessageCenterPojo8);
             }
             if (linkedList != null && linkedList.size() > 0) {
                 Iterator it6 = linkedList.iterator();
@@ -224,85 +224,85 @@ public class j {
                     imMessageCenterPojo8.setLast_user_name(imMessageCenterPojo.getLast_user_name());
                 }
             }
-            i.awn().b(imMessageCenterPojo8, 2);
+            i.awy().b(imMessageCenterPojo8, 2);
             if (imMessageCenterPojo9 == null) {
                 imMessageCenterPojo9 = new ImMessageCenterPojo();
             } else {
-                i.awn().V(imMessageCenterPojo9.getGid(), 0);
+                i.awy().V(imMessageCenterPojo9.getGid(), 0);
             }
             imMessageCenterPojo9.setCustomGroupType(-2);
             imMessageCenterPojo9.setIs_hidden(1);
-            imMessageCenterPojo9.setPulled_msgId(c.awf().mo(imMessageCenterPojo9.getGid()));
-            i.awn().b(imMessageCenterPojo9, 2);
+            imMessageCenterPojo9.setPulled_msgId(c.awq().mq(imMessageCenterPojo9.getGid()));
+            i.awy().b(imMessageCenterPojo9, 2);
             if (imMessageCenterPojo10 == null) {
                 imMessageCenterPojo10 = new ImMessageCenterPojo();
             }
             imMessageCenterPojo10.setCustomGroupType(5);
             imMessageCenterPojo10.setIs_hidden(1);
-            imMessageCenterPojo10.setPulled_msgId(c.awf().mo(imMessageCenterPojo10.getGid()));
-            i.awn().b(imMessageCenterPojo10, 2);
+            imMessageCenterPojo10.setPulled_msgId(c.awq().mq(imMessageCenterPojo10.getGid()));
+            i.awy().b(imMessageCenterPojo10, 2);
             if (imMessageCenterPojo11 == null) {
                 imMessageCenterPojo11 = new ImMessageCenterPojo();
             }
             imMessageCenterPojo11.setCustomGroupType(6);
             imMessageCenterPojo11.setIs_hidden(1);
-            imMessageCenterPojo11.setPulled_msgId(c.awf().mo(imMessageCenterPojo11.getGid()));
-            i.awn().b(imMessageCenterPojo11, 2);
+            imMessageCenterPojo11.setPulled_msgId(c.awq().mq(imMessageCenterPojo11.getGid()));
+            i.awy().b(imMessageCenterPojo11, 2);
             if (imMessageCenterPojo12 == null) {
                 imMessageCenterPojo12 = new ImMessageCenterPojo();
             } else {
-                i.awn().V(imMessageCenterPojo12.getGid(), 2);
+                i.awy().V(imMessageCenterPojo12.getGid(), 2);
             }
             imMessageCenterPojo12.setCustomGroupType(-1);
             imMessageCenterPojo12.setIs_hidden(1);
             imMessageCenterPojo12.setPulled_msgId(j);
-            i.awn().b(imMessageCenterPojo12, 2);
+            i.awy().b(imMessageCenterPojo12, 2);
             ImMessageCenterPojo imMessageCenterPojo20 = new ImMessageCenterPojo();
             imMessageCenterPojo20.setGid("-1002");
             imMessageCenterPojo20.setCustomGroupType(-3);
             imMessageCenterPojo20.setIs_hidden(com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_show_updates", true) ? 0 : 1);
-            imMessageCenterPojo20.setUnread_count(d.awg().T("group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change", 1));
-            LinkedList<GroupNewsPojo> a = d.awg().a(0L, 1, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+            imMessageCenterPojo20.setUnread_count(d.awr().T("group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change", 1));
+            LinkedList<GroupNewsPojo> a = d.awr().a(0L, 1, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             if (a != null && a.size() > 0) {
                 imMessageCenterPojo20.setLast_content(a.get(0).getContent());
                 imMessageCenterPojo20.setLast_content_time(a.get(0).getTime());
             }
-            i.awn().b(imMessageCenterPojo20, 2);
+            i.awy().b(imMessageCenterPojo20, 2);
             ImMessageCenterPojo imMessageCenterPojo21 = new ImMessageCenterPojo();
             imMessageCenterPojo21.setGid("-1003");
             imMessageCenterPojo21.setCustomGroupType(-4);
             imMessageCenterPojo21.setIs_hidden(com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_show_validate", true) ? 0 : 1);
-            imMessageCenterPojo21.setUnread_count(d.awg().T("apply_join_group", 1));
-            LinkedList<GroupNewsPojo> a2 = d.awg().a(0L, 1, 0, "apply_join_group");
+            imMessageCenterPojo21.setUnread_count(d.awr().T("apply_join_group", 1));
+            LinkedList<GroupNewsPojo> a2 = d.awr().a(0L, 1, 0, "apply_join_group");
             if (a2 != null && a2.size() > 0) {
                 imMessageCenterPojo21.setLast_content(a2.get(0).getContent());
                 imMessageCenterPojo21.setLast_content_time(a2.get(0).getTime());
             }
-            i.awn().b(imMessageCenterPojo21, 2);
+            i.awy().b(imMessageCenterPojo21, 2);
             ImMessageCenterPojo imMessageCenterPojo22 = new ImMessageCenterPojo();
             imMessageCenterPojo22.setGid("-1004");
             imMessageCenterPojo22.setCustomGroupType(-5);
             imMessageCenterPojo22.setIs_hidden(com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_show_live_notify", true) ? 0 : 1);
-            imMessageCenterPojo22.setUnread_count(d.awg().T("live_notify", 1));
-            LinkedList<GroupNewsPojo> a3 = d.awg().a(0L, 1, 0, "live_notify");
+            imMessageCenterPojo22.setUnread_count(d.awr().T("live_notify", 1));
+            LinkedList<GroupNewsPojo> a3 = d.awr().a(0L, 1, 0, "live_notify");
             if (a3 != null && a3.size() > 0) {
                 imMessageCenterPojo22.setLast_content(a3.get(0).getContent());
                 imMessageCenterPojo22.setLast_content_time(a3.get(0).getTime());
             }
-            i.awn().b(imMessageCenterPojo22, 2);
-            Iterator<ImMessageCenterPojo> it7 = awo.iterator();
+            i.awy().b(imMessageCenterPojo22, 2);
+            Iterator<ImMessageCenterPojo> it7 = awz.iterator();
             while (it7.hasNext()) {
                 ImMessageCenterPojo next4 = it7.next();
                 if (next4 != null && next4.getGid() != null && next4.getCustomGroupType() == 1) {
-                    next4.setUnread_count(c.awf().mn(next4.getGid()));
-                    next4.setPulled_msgId(c.awf().mo(next4.getGid()));
-                    CommonMsgPojo mp3 = c.awf().mp(next4.getGid());
-                    if (mp3 != null) {
-                        mp3.checkRidAndSelf();
-                        String G = com.baidu.tieba.im.util.e.G(mp3.getMsg_type(), mp3.getContent());
+                    next4.setUnread_count(c.awq().mp(next4.getGid()));
+                    next4.setPulled_msgId(c.awq().mq(next4.getGid()));
+                    CommonMsgPojo mr3 = c.awq().mr(next4.getGid());
+                    if (mr3 != null) {
+                        mr3.checkRidAndSelf();
+                        String G = com.baidu.tieba.im.util.e.G(mr3.getMsg_type(), mr3.getContent());
                         UserData userData = new UserData();
                         try {
-                            userData = (UserData) OrmObject.objectWithJsonStr(mp3.getUser_info(), UserData.class);
+                            userData = (UserData) OrmObject.objectWithJsonStr(mr3.getUser_info(), UserData.class);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -311,7 +311,7 @@ public class j {
                             if (com.baidu.adp.lib.util.j.isEmpty(userData.getUserId())) {
                                 OldUserData oldUserData2 = new OldUserData();
                                 try {
-                                    oldUserData = (OldUserData) OrmObject.objectWithJsonStr(mp3.getUser_info(), OldUserData.class);
+                                    oldUserData = (OldUserData) OrmObject.objectWithJsonStr(mr3.getUser_info(), OldUserData.class);
                                 } catch (Exception e2) {
                                     e2.printStackTrace();
                                     oldUserData = oldUserData2;
@@ -324,13 +324,13 @@ public class j {
                         }
                         next4.setLast_content(G);
                         next4.setLast_user_name(str3);
-                        next4.setLast_rid(mp3.getRid());
-                        next4.setLast_content_time(mp3.getCreate_time() * 1000);
+                        next4.setLast_rid(mr3.getRid());
+                        next4.setLast_content_time(mr3.getCreate_time() * 1000);
                     }
-                    i.awn().b(next4, 2);
+                    i.awy().b(next4, 2);
                 }
             }
-            g.awj().mz("delete from tb_message_center where custom_group_type is null or custom_group_type=0 or gid in (0,2,3,6,11,12)");
+            g.awu().mB("delete from tb_message_center where custom_group_type is null or custom_group_type=0 or gid in (0,2,3,6,11,12)");
         }
     }
 

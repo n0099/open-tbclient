@@ -5,10 +5,10 @@ import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
     private String WA;
+    private int aQS;
+    private String aQT;
+    private int aQU;
     private int aQV;
-    private String aQW;
-    private int aQX;
-    private int aQY;
     private int duration;
     private int height;
     private String videoUrl;
@@ -20,11 +20,11 @@ public class e {
             this.WA = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aQV = pbContent.e_type.intValue();
-            this.aQW = pbContent.text;
+            this.aQS = pbContent.e_type.intValue();
+            this.aQT = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aQX = pbContent.count.intValue();
-            this.aQY = pbContent.origin_size.intValue();
+            this.aQU = pbContent.count.intValue();
+            this.aQV = pbContent.origin_size.intValue();
         }
     }
 
@@ -45,11 +45,11 @@ public class e {
     }
 
     public String Jg() {
-        return this.aQW;
+        return this.aQT;
     }
 
     public boolean Jh() {
-        return this.aQV == 15;
+        return this.aQS == 15;
     }
 
     public boolean isAvaliable() {
@@ -57,10 +57,10 @@ public class e {
     }
 
     public int Ji() {
-        return this.aQX;
+        return this.aQU;
     }
 
     public void fF(int i) {
-        this.aQX = i;
+        this.aQU = i;
     }
 }

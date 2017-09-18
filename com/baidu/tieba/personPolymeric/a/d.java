@@ -10,7 +10,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.e.fkE);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.e.flx);
         this.mF = tbPageContext;
     }
 
@@ -27,8 +27,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.d> aVar) {
-        aVar.Yy().a(eVar);
-        aVar.Yy().d(this.mF, TbadkCoreApplication.getInst().getSkinType());
+        aVar.YJ().a(eVar);
+        aVar.YJ().d(this.mF, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

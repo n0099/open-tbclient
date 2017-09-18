@@ -119,13 +119,13 @@ public class TiebaSyncService extends BdBaseService {
                 this.mNetWork.n("incremental", Build.VERSION.INCREMENTAL);
                 this.mNetWork.n("model", Build.MODEL);
                 StringBuffer stringBuffer = new StringBuffer(15);
-                stringBuffer.append(String.valueOf(k.ad(TbadkCoreApplication.getInst().getApp())));
-                stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 stringBuffer.append(String.valueOf(k.ae(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                stringBuffer.append(String.valueOf(k.af(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.n("_phone_screen", stringBuffer.toString());
-                this.mNetWork.n("scr_w", String.valueOf(k.ad(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.n("scr_h", String.valueOf(k.ae(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.n("scr_dip", String.valueOf(k.af(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.n("scr_w", String.valueOf(k.ae(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.n("scr_h", String.valueOf(k.af(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.n("scr_dip", String.valueOf(k.ag(TbadkCoreApplication.getInst().getApp())));
                 if (b.zA().zD() > 0) {
                     this.mNetWork.n("_msg_status", "0");
                 } else {
@@ -251,7 +251,7 @@ public class TiebaSyncService extends BdBaseService {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("localvideo_open", Ag.yZ());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LEFT_NAV_DRESSUP_CENTER_TIP));
                     TbadkCoreApplication.getInst().setTTSSwitchOpen(Ag.yX());
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("card_show_statistic_max_count", Ag.ast);
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("card_show_statistic_max_count", Ag.asq);
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("nick_name_activity_link", Ag.zb());
                     String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("clean_smart_frs_cookie", "");
                     String yY = Ag.yY();

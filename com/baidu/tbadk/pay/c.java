@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static c aIM = null;
+    private static c aIJ = null;
 
     private c() {
     }
@@ -22,10 +22,10 @@ public class c {
     public static synchronized c FY() {
         c cVar;
         synchronized (c.class) {
-            if (aIM == null) {
-                aIM = new c();
+            if (aIJ == null) {
+                aIJ = new c();
             }
-            cVar = aIM;
+            cVar = aIJ;
         }
         return cVar;
     }

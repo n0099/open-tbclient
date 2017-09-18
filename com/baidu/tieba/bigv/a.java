@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0078a bHg;
+    private InterfaceC0077a bHX;
     private boolean mIsLoading = false;
     private com.baidu.adp.framework.listener.a mNetMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CHECK_BIG_V, 309463) { // from class: com.baidu.tieba.bigv.a.1
         @Override // com.baidu.adp.framework.listener.a
@@ -29,8 +29,8 @@ public class a {
                         if (b.c(TbadkCoreApplication.getCurrentAccount(), 0L) == a.this.mUserId && TbadkCoreApplication.getCurrentAccountObj() != null) {
                             TbadkCoreApplication.getCurrentAccountObj().setIsBigV(isBigV);
                         }
-                        if (a.this.bHg != null) {
-                            a.this.bHg.a(error, errorString, a.this.mUserId, isBigV);
+                        if (a.this.bHX != null) {
+                            a.this.bHX.a(error, errorString, a.this.mUserId, isBigV);
                         }
                     }
                 }
@@ -42,12 +42,12 @@ public class a {
 
     /* renamed from: com.baidu.tieba.bigv.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0078a {
+    public interface InterfaceC0077a {
         void a(int i, String str, long j, boolean z);
     }
 
-    public void a(InterfaceC0078a interfaceC0078a) {
-        this.bHg = interfaceC0078a;
+    public void a(InterfaceC0077a interfaceC0077a) {
+        this.bHX = interfaceC0077a;
     }
 
     public a(e<?> eVar, BdUniqueId bdUniqueId) {
@@ -56,15 +56,15 @@ public class a {
         this.mNetMessageListener.getSocketMessageListener().isSelfListener();
         this.mNetMessageListener.getHttpMessageListener().isSelfListener();
         eVar.registerListener(this.mNetMessageListener);
-        Vt();
-        WY();
+        VE();
+        Xj();
     }
 
-    private void Vt() {
+    private void VE() {
         com.baidu.tieba.tbadkCore.a.a.a(309463, CmdConfigHttp.CMD_CHECK_BIG_V, TbConfig.URL_CHECK_BIG_V, BigVCheckHttpResponseMessage.class, true, true, true, true);
     }
 
-    private void WY() {
+    private void Xj() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(309463);
         socketMessageTask.m(true);
         socketMessageTask.setResponsedClass(BigVCheckSocketResponseMessage.class);

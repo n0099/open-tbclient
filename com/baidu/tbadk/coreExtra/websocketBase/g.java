@@ -23,23 +23,23 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
-    private static g azr = null;
-    private int azo;
-    private com.baidu.adp.framework.client.socket.link.a azp = null;
-    private UpdateClientInfoMessage azq = null;
-    private int azs = 0;
+    private static g azo = null;
+    private int azl;
+    private com.baidu.adp.framework.client.socket.link.a azm = null;
+    private UpdateClientInfoMessage azn = null;
+    private int azp = 0;
     private final com.baidu.adp.framework.client.socket.link.a oj = new com.baidu.adp.framework.client.socket.link.a() { // from class: com.baidu.tbadk.coreExtra.websocketBase.g.1
         @Override // com.baidu.adp.framework.client.socket.link.a
         public void a(k.a aVar) {
-            if (g.this.azp != null) {
-                g.this.azp.a(aVar);
+            if (g.this.azm != null) {
+                g.this.azm.a(aVar);
             }
         }
 
         @Override // com.baidu.adp.framework.client.socket.link.a
         public boolean d(int i, String str) {
-            if (g.this.azp != null) {
-                g.this.azp.d(i, str);
+            if (g.this.azm != null) {
+                g.this.azm.d(i, str);
                 return false;
             }
             return false;
@@ -47,49 +47,49 @@ public class g {
 
         @Override // com.baidu.adp.framework.client.socket.link.a
         public void d(Map<String, String> map) {
-            if (g.this.azp != null) {
-                g.this.azp.d(map);
+            if (g.this.azm != null) {
+                g.this.azm.d(map);
             }
             i.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
             if (r.Gx().Gy() && g.b(g.this) < 10) {
                 i.db();
             }
-            g.this.azq = g.this.Ch();
-            MessageManager.getInstance().sendMessage(g.this.azq);
+            g.this.azn = g.this.Ch();
+            MessageManager.getInstance().sendMessage(g.this.azn);
         }
 
         @Override // com.baidu.adp.framework.client.socket.link.a
         public void a(com.baidu.adp.lib.webSocket.c cVar) {
-            if (g.this.azp != null) {
-                g.this.azp.a(cVar);
+            if (g.this.azm != null) {
+                g.this.azm.a(cVar);
             }
         }
 
         @Override // com.baidu.adp.framework.client.socket.link.a
         public void C(String str) {
-            if (g.this.azp != null) {
-                g.this.azp.C(str);
+            if (g.this.azm != null) {
+                g.this.azm.C(str);
             }
         }
     };
 
     static /* synthetic */ int b(g gVar) {
-        int i = gVar.azs + 1;
-        gVar.azs = i;
+        int i = gVar.azp + 1;
+        gVar.azp = i;
         return i;
     }
 
     public static synchronized g Cg() {
         g gVar;
         synchronized (g.class) {
-            if (azr == null) {
+            if (azo == null) {
                 synchronized (g.class) {
-                    if (azr == null) {
-                        azr = new g();
+                    if (azo == null) {
+                        azo = new g();
                     }
                 }
             }
-            gVar = azr;
+            gVar = azo;
         }
         return gVar;
     }
@@ -115,11 +115,11 @@ public class g {
                 }
                 if (responseOnlineMessage.getError() != 0) {
                     g.this.b(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
-                    i.a("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + g.this.azo);
+                    i.a("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + g.this.azl);
                     return null;
                 }
                 g.this.Ck();
-                i.a("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + g.this.azo);
+                i.a("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + g.this.azl);
                 return socketResponsedMessage;
             }
         });
@@ -161,9 +161,9 @@ public class g {
         updateClientInfoMessage.addUserInfo("model", Build.MODEL);
         updateClientInfoMessage.addUserInfo("_os_version", Build.VERSION.RELEASE);
         StringBuffer stringBuffer = new StringBuffer(15);
-        stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.k.ad(TbadkCoreApplication.getInst().getApp())));
-        stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.k.ae(TbadkCoreApplication.getInst().getApp())));
+        stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.k.af(TbadkCoreApplication.getInst().getApp())));
         updateClientInfoMessage.addUserInfo("_phone_screen", stringBuffer.toString());
         if (com.baidu.tbadk.coreExtra.messageCenter.b.zA().zD() > 0) {
             updateClientInfoMessage.addUserInfo("_msg_status", "0");
@@ -204,11 +204,11 @@ public class g {
     }
 
     public boolean Ci() {
-        return this.azo >= 5;
+        return this.azl >= 5;
     }
 
     public void Cj() {
-        this.azo++;
+        this.azl++;
         if (Ci()) {
             BdSocketLinkService.setAvailable(false);
             NoNetworkView.wO();
@@ -217,7 +217,7 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ck() {
-        this.azo = 0;
+        this.azl = 0;
         MessageManager.getInstance().getSocketClient().cT();
         NoNetworkView.wO();
         BdSocketLinkService.stopReConnStrategy("online succ");
@@ -230,6 +230,6 @@ public class g {
     }
 
     public void a(com.baidu.adp.framework.client.socket.link.a aVar) {
-        this.azp = aVar;
+        this.azm = aVar;
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.tieba.enterForum.b;
 /* loaded from: classes.dex */
 public class i implements com.baidu.tbadk.mvc.b.a {
-    private int avN;
+    private int avK;
 
     public i(int i) {
-        this.avN = i;
+        this.avK = i;
     }
 
     public int getPosition() {
-        return this.avN;
+        return this.avK;
     }
 }

@@ -32,21 +32,21 @@ import java.lang.reflect.InvocationTargetException;
 public class aj {
     private static String Ss;
     private static int St;
-    private static String ahm;
+    private static String ahl;
+    private static Resources ahm;
     private static Resources ahn;
-    private static Resources aho;
-    private static String ahp;
-    private static AssetManager ahq;
+    private static String aho;
+    private static AssetManager ahp;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_NIGHTRES_PLUGIN_CHANGE) { // from class: com.baidu.tbadk.core.util.aj.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                Resources unused = aj.ahn = null;
+                Resources unused = aj.ahm = null;
             }
         });
-        ahm = "skinType not support";
+        ahl = "skinType not support";
         Ss = null;
         St = 0;
     }
@@ -56,14 +56,14 @@ public class aj {
             try {
                 Resources resources = TbadkCoreApplication.getInst().getResources();
                 if (resources != null) {
-                    ahq = (AssetManager) AssetManager.class.newInstance();
+                    ahp = (AssetManager) AssetManager.class.newInstance();
                     File m9do = k.m9do(str);
                     if (m9do == null || !m9do.exists()) {
                         com.baidu.adp.lib.util.k.showToast(BdBaseApplication.getInst().getApp(), d.l.theme_skin_apk_error);
                     } else {
-                        ahq.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(ahq, m9do.getAbsolutePath());
-                        aho = new Resources(ahq, resources.getDisplayMetrics(), resources.getConfiguration());
-                        ahp = k.dp(str);
+                        ahp.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(ahp, m9do.getAbsolutePath());
+                        ahn = new Resources(ahp, resources.getDisplayMetrics(), resources.getConfiguration());
+                        aho = k.dp(str);
                     }
                 }
             } catch (Throwable th) {
@@ -171,7 +171,7 @@ public class aj {
         if (i == 1) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(d.e.common_color_10004);
         }
-        throw new IllegalArgumentException(ahm);
+        throw new IllegalArgumentException(ahl);
     }
 
     public static int cR(int i) {
@@ -181,15 +181,15 @@ public class aj {
 
     public static int a(Resources resources, int i) {
         String str;
-        if (ahn == null) {
-            ahn = resources;
+        if (ahm == null) {
+            ahm = resources;
         }
         try {
             str = resources.getResourceName(i);
         } catch (Exception e) {
             str = null;
         }
-        if (TextUtils.isEmpty(str) || str.indexOf(":") <= 0 || ahn == null) {
+        if (TextUtils.isEmpty(str) || str.indexOf(":") <= 0 || ahm == null) {
             return 0;
         }
         if (St == 0) {
@@ -199,7 +199,7 @@ public class aj {
         if (str.length() > St && str.charAt(St) != ':' && str.startsWith(Ss)) {
             str = Ss + str.substring(str.indexOf(":"));
         }
-        return ahn.getIdentifier(str + "_1", null, null);
+        return ahm.getIdentifier(str + "_1", null, null);
     }
 
     public static void a(ImageView imageView, int i, int i2) {
@@ -262,10 +262,10 @@ public class aj {
 
     private static int b(Resources resources, int i) {
         String str;
-        if (aho == null) {
-            aho = resources;
+        if (ahn == null) {
+            ahn = resources;
         }
-        if (aho == null) {
+        if (ahn == null) {
             return 0;
         }
         try {
@@ -280,7 +280,7 @@ public class aj {
         if (StringUtils.isNull(substring) || !substring.startsWith("/s_")) {
             return 0;
         }
-        return aho.getIdentifier(ahp + str.substring(str.indexOf(":")), null, null);
+        return ahn.getIdentifier(aho + str.substring(str.indexOf(":")), null, null);
     }
 
     public static void i(View view, int i) {
@@ -302,8 +302,8 @@ public class aj {
         if (b == 0) {
             resources2 = resources;
             b = i;
-        } else if (aho != null) {
-            resources2 = aho;
+        } else if (ahn != null) {
+            resources2 = ahn;
         } else {
             resources2 = resources;
             b = i;
@@ -330,8 +330,8 @@ public class aj {
         if (b == 0) {
             resources2 = resources;
             b = i;
-        } else if (aho != null) {
-            resources2 = aho;
+        } else if (ahn != null) {
+            resources2 = ahn;
         } else {
             resources2 = resources;
             b = i;
@@ -356,8 +356,8 @@ public class aj {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (aho != null) {
-                resources2 = aho;
+            } else if (ahn != null) {
+                resources2 = ahn;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -367,8 +367,8 @@ public class aj {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (ahn != null) {
-                resources2 = ahn;
+            } else if (ahm != null) {
+                resources2 = ahm;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -404,8 +404,8 @@ public class aj {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (aho != null) {
-                resources2 = aho;
+            } else if (ahn != null) {
+                resources2 = ahn;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -415,8 +415,8 @@ public class aj {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (ahn != null) {
-                resources2 = ahn;
+            } else if (ahm != null) {
+                resources2 = ahm;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -452,8 +452,8 @@ public class aj {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (aho != null) {
-                resources2 = aho;
+            } else if (ahn != null) {
+                resources2 = ahn;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -463,8 +463,8 @@ public class aj {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (ahn != null) {
-                resources2 = ahn;
+            } else if (ahm != null) {
+                resources2 = ahm;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -518,13 +518,13 @@ public class aj {
             int a = a(resources, i);
             if (a == 0) {
                 a = i;
-            } else if (ahn != null) {
-                Resources resources2 = ahn;
+            } else if (ahm != null) {
+                Resources resources2 = ahm;
             } else {
                 a = i;
             }
             try {
-                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(ahn, a, i, options);
+                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(ahm, a, i, options);
                 if (nightCashBitmap == null) {
                     return BitmapHelper.getCashBitmap(i, options);
                 }
@@ -538,7 +538,7 @@ public class aj {
                 return BitmapHelper.getCashBitmap(i, options);
             }
             try {
-                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(aho, b, i, options);
+                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(ahn, b, i, options);
                 if (themeCashBitmap == null) {
                     return BitmapHelper.getCashBitmap(i, options);
                 }

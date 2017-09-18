@@ -5,6 +5,9 @@ import android.app.Notification;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.android.pushservice.j.l;
+import com.baidu.android.pushservice.j.p;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -24,6 +27,8 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         }
         this.mNotificationTitle = (String) objectInputStream.readObject();
         this.mNotificationText = (String) objectInputStream.readObject();
+        this.mChannelId = (String) objectInputStream.readObject();
+        this.mChannelName = (String) objectInputStream.readObject();
     }
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
@@ -46,6 +51,8 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         }
         objectOutputStream.writeObject(this.mNotificationTitle);
         objectOutputStream.writeObject(this.mNotificationText);
+        objectOutputStream.writeObject(this.mChannelId);
+        objectOutputStream.writeObject(this.mChannelName);
     }
 
     @Override // com.baidu.android.pushservice.PushNotificationBuilder
@@ -63,12 +70,28 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         }
         if (this.mStatusbarIcon != 0) {
             builder.setSmallIcon(this.mStatusbarIcon);
+        } else {
+            builder.setSmallIcon(context.getApplicationInfo().icon);
         }
         builder.setContentTitle(this.mNotificationTitle);
         builder.setContentText(this.mNotificationText);
+        if (p.F(context)) {
+            if (TextUtils.isEmpty(this.mChannelId)) {
+                this.mChannelId = "com.baidu.android.pushservice.push";
+            }
+            if (TextUtils.isEmpty(this.mChannelName)) {
+                this.mChannelName = "Push";
+            }
+            l.a(context, this.mChannelId, this.mChannelName);
+            builder.setChannelId(this.mChannelId);
+        }
         Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();
-        if (this.mNotificationFlags != 0 && build != null) {
-            build.flags = this.mNotificationFlags;
+        if (build != null) {
+            if (this.mNotificationFlags != 0) {
+                build.flags = this.mNotificationFlags;
+            } else {
+                build.flags |= 16;
+            }
         }
         return build;
     }

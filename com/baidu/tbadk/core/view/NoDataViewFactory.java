@@ -24,43 +24,43 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        a alZ;
-        a ama;
-        int amb = -1;
+        a alX;
+        a alY;
+        int alZ = -1;
 
         private b() {
         }
 
         public static b a(a aVar) {
             b bVar = new b();
-            bVar.alZ = aVar;
+            bVar.alX = aVar;
             return bVar;
         }
 
         public static b a(a aVar, int i) {
             b bVar = new b();
-            bVar.alZ = aVar;
-            bVar.amb = i;
+            bVar.alX = aVar;
+            bVar.alZ = i;
             return bVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        String afh;
-        View.OnClickListener alY;
+        String afg;
+        View.OnClickListener alW;
 
         public a(String str, View.OnClickListener onClickListener) {
-            this.afh = str;
-            this.alY = onClickListener;
+            this.afg = str;
+            this.alW = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        ImgType amc = ImgType.NONE;
-        int amd = -1;
-        int alW = -1;
+        ImgType ama = ImgType.NONE;
+        int amb = -1;
+        int alU = -1;
         int mHeight = -1;
         int mWidth = -1;
 
@@ -69,16 +69,16 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType, int i) {
             c cVar = new c();
-            cVar.amc = imgType;
-            cVar.amd = i;
+            cVar.ama = imgType;
+            cVar.amb = i;
             return cVar;
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             c cVar = new c();
-            cVar.amc = imgType;
-            cVar.alW = i;
-            cVar.amd = i2;
+            cVar.ama = imgType;
+            cVar.alU = i;
+            cVar.amb = i2;
             cVar.mHeight = i3;
             cVar.mWidth = i4;
             return cVar;
@@ -86,7 +86,7 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType) {
             c cVar = new c();
-            cVar.amc = imgType;
+            cVar.ama = imgType;
             return cVar;
         }
     }
@@ -95,8 +95,8 @@ public class NoDataViewFactory {
     public static class d {
         String VE;
         int acm;
-        String amf;
-        int amg = -1;
+        String amd;
+        int ame = -1;
         String mTitle;
 
         private d() {
@@ -105,7 +105,7 @@ public class NoDataViewFactory {
         public static d A(int i, int i2) {
             d dVar = new d();
             dVar.VE = TbadkCoreApplication.getInst().getResources().getString(i);
-            dVar.amg = i2;
+            dVar.ame = i2;
             return dVar;
         }
 

@@ -22,33 +22,33 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends HorizontalScrollView {
-    private int avm;
-    private int avn;
-    private TbPageContextSupport avo;
-    private ImageView[] avp;
-    private View avq;
-    private View avr;
-    private InterfaceC0052a avs;
-    private boolean avt;
-    private String avu;
+    private int avj;
+    private int avk;
+    private TbPageContextSupport avl;
+    private ImageView[] avm;
+    private View avn;
+    private View avo;
+    private InterfaceC0051a avp;
+    private boolean avq;
+    private String avr;
     private Context mContext;
     private Runnable scrollRunnable;
 
     /* renamed from: com.baidu.tbadk.coreExtra.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0052a {
+    public interface InterfaceC0051a {
         void ff(String str);
     }
 
-    public a(TbPageContextSupport tbPageContextSupport, InterfaceC0052a interfaceC0052a, String str) {
+    public a(TbPageContextSupport tbPageContextSupport, InterfaceC0051a interfaceC0051a, String str) {
         super(tbPageContextSupport.getPageContext().getContext());
-        this.avm = 0;
-        this.avn = 0;
+        this.avj = 0;
+        this.avk = 0;
         this.scrollRunnable = new Runnable() { // from class: com.baidu.tbadk.coreExtra.view.a.1
             @Override // java.lang.Runnable
             public void run() {
                 int i;
-                if (a.this.avq != null) {
+                if (a.this.avn != null) {
                     int childCount = ((LinearLayout) a.this.getChildAt(0)).getChildCount();
                     int i2 = 0;
                     while (true) {
@@ -57,14 +57,14 @@ public class a extends HorizontalScrollView {
                             break;
                         }
                         View childAt = ((LinearLayout) a.this.getChildAt(0)).getChildAt(i2);
-                        if (childAt != a.this.avq) {
+                        if (childAt != a.this.avn) {
                             i2++;
                         } else {
                             i = childAt.getRight();
                             break;
                         }
                     }
-                    a.this.avq = null;
+                    a.this.avn = null;
                     int width = i - a.this.getWidth();
                     if (width > 0) {
                         a.this.scrollBy(width, 0);
@@ -73,33 +73,33 @@ public class a extends HorizontalScrollView {
             }
         };
         this.mContext = null;
+        this.avm = null;
+        this.avn = null;
+        this.avo = null;
         this.avp = null;
-        this.avq = null;
-        this.avr = null;
-        this.avs = null;
-        this.avt = true;
-        this.avu = "normal";
+        this.avq = true;
+        this.avr = "normal";
         this.mContext = tbPageContextSupport.getPageContext().getContext();
-        this.avo = tbPageContextSupport;
-        this.avs = interfaceC0052a;
+        this.avl = tbPageContextSupport;
+        this.avp = interfaceC0051a;
         if (str != null) {
-            this.avu = str;
+            this.avr = str;
         }
         init();
     }
 
     private void init() {
-        this.avm = (int) this.mContext.getResources().getDimension(d.f.ds4);
-        this.avn = (int) this.mContext.getResources().getDimension(d.f.ds30);
+        this.avj = (int) this.mContext.getResources().getDimension(d.f.ds4);
+        this.avk = (int) this.mContext.getResources().getDimension(d.f.ds30);
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
         linearLayout.setGravity(16);
         linearLayout.setOrientation(0);
-        linearLayout.setPadding(this.avn, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
+        linearLayout.setPadding(this.avk, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
         setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
         addView(linearLayout);
         String[] stringArray = this.mContext.getResources().getStringArray(d.b.fiter_name);
-        this.avp = new ImageView[stringArray.length];
+        this.avm = new ImageView[stringArray.length];
         int length = stringArray.length;
         int i = 0;
         int i2 = 0;
@@ -112,7 +112,7 @@ public class a extends HorizontalScrollView {
             textView.setText(substring2);
             textView.setTag(substring);
             ImageView imageView = (ImageView) inflate.findViewById(d.h.filter_immage);
-            imageView.setPadding(this.avm, this.avm, this.avm, this.avm);
+            imageView.setPadding(this.avj, this.avj, this.avj, this.avj);
             imageView.setTag(textView);
             imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.a.2
                 @Override // android.view.View.OnClickListener
@@ -120,14 +120,14 @@ public class a extends HorizontalScrollView {
                     a.this.J(view);
                 }
             });
-            if (substring.equals(this.avu)) {
-                this.avq = inflate;
-                this.avr = imageView;
+            if (substring.equals(this.avr)) {
+                this.avn = inflate;
+                this.avo = imageView;
                 imageView.setBackgroundResource(d.g.bg_choose_filter);
                 textView.setSelected(true);
             }
             imageView.setImageResource(fe(substring));
-            this.avp[i2] = imageView;
+            this.avm[i2] = imageView;
             linearLayout.addView(inflate);
             i++;
             i2++;
@@ -137,33 +137,33 @@ public class a extends HorizontalScrollView {
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.avq != null) {
+        if (this.avn != null) {
             post(this.scrollRunnable);
         }
     }
 
     public String getSelectedFilter() {
-        return this.avr != null ? (String) ((View) this.avr.getTag()).getTag() : "normal";
+        return this.avo != null ? (String) ((View) this.avo.getTag()).getTag() : "normal";
     }
 
     public void setCanbeClick(boolean z) {
-        this.avt = z;
+        this.avq = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void J(View view) {
-        if (this.avt && view != this.avr && Bd()) {
-            if (this.avr != null) {
-                this.avr.setBackgroundDrawable(null);
-                ((TextView) this.avr.getTag()).setSelected(false);
+        if (this.avq && view != this.avo && Bd()) {
+            if (this.avo != null) {
+                this.avo.setBackgroundDrawable(null);
+                ((TextView) this.avo.getTag()).setSelected(false);
             }
-            this.avr = view;
+            this.avo = view;
             view.setBackgroundResource(d.g.bg_choose_filter);
             TextView textView = (TextView) view.getTag();
             textView.setSelected(true);
-            this.avu = (String) textView.getTag();
-            if (this.avs != null) {
-                this.avs.ff(this.avu);
+            this.avr = (String) textView.getTag();
+            if (this.avp != null) {
+                this.avp.ff(this.avr);
             }
         }
     }
@@ -180,7 +180,7 @@ public class a extends HorizontalScrollView {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDownloadActivityConfig(this.mContext, PluginPackageManager.jw().getPluginConfig(PluginCenter.NAME_MOTUSDK))));
             return false;
         } else if (bs == PluginPackageManager.PluginStatus.FORBIDDEN) {
-            com.baidu.tbadk.coreExtra.e.a.a(this.avo.getPageContext(), d.l.plugin_muto_not_install, new a.b() { // from class: com.baidu.tbadk.coreExtra.view.a.3
+            com.baidu.tbadk.coreExtra.e.a.a(this.avl.getPageContext(), d.l.plugin_muto_not_install, new a.b() { // from class: com.baidu.tbadk.coreExtra.view.a.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(a.this.mContext, PluginCenter.NAME_MOTUSDK)));

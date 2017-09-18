@@ -6,20 +6,20 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private int aPg;
-    private int aPh;
-    private double aPi;
+    private int aPd;
+    private int aPe;
+    private double aPf;
 
     public f() {
-        this.aPg = 3;
-        this.aPh = this.aPg;
+        this.aPd = 3;
+        this.aPe = this.aPd;
     }
 
     public f(int i) {
-        this.aPg = 3;
-        this.aPh = this.aPg;
+        this.aPd = 3;
+        this.aPe = this.aPd;
         if (i > 0) {
-            this.aPh = i;
+            this.aPe = i;
         }
     }
 
@@ -40,13 +40,13 @@ public class f implements c {
         }
         int u = v.u(list);
         if (u >= 2) {
-            bVar.setImageMaxChildCount(this.aPg);
+            bVar.setImageMaxChildCount(this.aPd);
         } else {
             bVar.setImageMaxChildCount(-1);
         }
-        int i3 = u - this.aPh;
+        int i3 = u - this.aPe;
         if (i3 > 0) {
-            i2 = this.aPh + i;
+            i2 = this.aPe + i;
             List<String> a = v.a(list, i, i2);
             bVar.setExtraCenterText(TbadkCoreApplication.getInst().getString(d.l.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)}));
             bVar.a(a, i, true);
@@ -64,13 +64,13 @@ public class f implements c {
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.aPi > 0.0d) {
-            return this.aPi;
+        if (this.aPf > 0.0d) {
+            return this.aPf;
         }
         return 0.6666666666666666d;
     }
 
     public void e(double d) {
-        this.aPi = d;
+        this.aPf = d;
     }
 }

@@ -13,22 +13,22 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class b implements h {
     public static final String TAG = b.class.getSimpleName();
-    private static b aWA;
-    private int aWB = 0;
+    private static b aWx;
+    private int aWy = 0;
 
     private b() {
         a.KP();
     }
 
     public static b KS() {
-        if (aWA == null) {
+        if (aWx == null) {
             synchronized (b.class) {
-                if (aWA == null) {
-                    aWA = new b();
+                if (aWx == null) {
+                    aWx = new b();
                 }
             }
         }
-        return aWA;
+        return aWx;
     }
 
     private static long KN() {
@@ -45,9 +45,9 @@ public class b implements h {
         return KN() > 314572800 && getPort() > 0;
     }
 
-    public void bd(Context context) {
+    public void be(Context context) {
         if (context != null) {
-            e.bf(context).Ki();
+            e.bg(context).Ki();
         }
     }
 
@@ -57,7 +57,7 @@ public class b implements h {
             String hx = hx(str);
             if (hx == null) {
                 String hu = hu(str);
-                if (hu != null && new File(c.aWn + hu + "/header_downloaded").exists()) {
+                if (hu != null && new File(c.aWk + hu + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
@@ -71,7 +71,7 @@ public class b implements h {
     public String hx(String str) {
         String hu;
         File file;
-        if (str == null || !str.contains("/") || (hu = hu(str)) == null || (file = new File(c.aWn + hu + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (hu = hu(str)) == null || (file = new File(c.aWk + hu + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -79,12 +79,12 @@ public class b implements h {
 
     @Override // com.baidu.tieba.play.h
     public void af(Context context, String str) {
-        e.bf(context).hz(str);
+        e.bg(context).hz(str);
     }
 
     @Override // com.baidu.tieba.play.h
     public void ag(Context context, String str) {
-        e.bf(context).hA(str);
+        e.bg(context).hA(str);
     }
 
     @Override // com.baidu.tieba.play.h
@@ -93,8 +93,8 @@ public class b implements h {
     }
 
     @Override // com.baidu.tieba.play.h
-    public void be(Context context) {
-        e.bf(context).clearCache();
+    public void bf(Context context) {
+        e.bg(context).clearCache();
     }
 
     public static String hu(String str) {
@@ -119,8 +119,8 @@ public class b implements h {
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        if (this.aWB == 0) {
-            File file = new File(c.aWo);
+        if (this.aWy == 0) {
+            File file = new File(c.aWl);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -164,7 +164,7 @@ public class b implements h {
                                         e5.printStackTrace();
                                     }
                                 }
-                                return this.aWB;
+                                return this.aWy;
                             } catch (Throwable th) {
                                 th = th;
                                 fileInputStream = fileInputStream2;
@@ -210,10 +210,10 @@ public class b implements h {
                 }
             }
         }
-        return this.aWB;
+        return this.aWy;
     }
 
     public void KU() {
-        this.aWB = 0;
+        this.aWy = 0;
     }
 }

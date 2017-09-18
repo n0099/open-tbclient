@@ -13,55 +13,55 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b fBc = null;
-    private com.baidu.tieba.play.a.a fBb;
-    private InterfaceC0118b fBd = null;
-    private int fBe = 0;
+    private static b fBV = null;
+    private com.baidu.tieba.play.a.a fBU;
+    private InterfaceC0117b fBW = null;
+    private int fBX = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0118b {
+    public interface InterfaceC0117b {
         void bV(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b bfS() {
-        if (fBc == null) {
+    public static b bgd() {
+        if (fBV == null) {
             synchronized (b.class) {
-                if (fBc == null) {
-                    fBc = new b();
+                if (fBV == null) {
+                    fBV = new b();
                 }
             }
         }
-        return fBc;
+        return fBV;
     }
 
-    public void a(InterfaceC0118b interfaceC0118b) {
-        this.fBd = interfaceC0118b;
+    public void a(InterfaceC0117b interfaceC0117b) {
+        this.fBW = interfaceC0117b;
     }
 
-    public boolean qD(String str) {
+    public boolean qF(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (qE(str) && this.fBb.bfR().size() > this.fBe) {
-            if (this.fBd != null) {
-                InterfaceC0118b interfaceC0118b = this.fBd;
-                List<String> bfR = this.fBb.bfR();
-                int i = this.fBe;
-                this.fBe = i + 1;
-                interfaceC0118b.bV(bfR.get(i), str);
+        if (qG(str) && this.fBU.bgc().size() > this.fBX) {
+            if (this.fBW != null) {
+                InterfaceC0117b interfaceC0117b = this.fBW;
+                List<String> bgc = this.fBU.bgc();
+                int i = this.fBX;
+                this.fBX = i + 1;
+                interfaceC0117b.bV(bgc.get(i), str);
             }
             return true;
-        } else if (this.fBb != null && this.fBb.bfR() != null && this.fBb.bfR().size() <= this.fBe) {
-            this.fBe = 0;
-            this.fBb = null;
+        } else if (this.fBU != null && this.fBU.bgc() != null && this.fBU.bgc().size() <= this.fBX) {
+            this.fBX = 0;
+            this.fBU = null;
             return false;
         } else {
-            this.fBe = 0;
-            this.fBb = null;
+            this.fBX = 0;
+            this.fBU = null;
             a aVar = new a();
             aVar.hd(str);
             aVar.execute(new Void[0]);
@@ -69,8 +69,8 @@ public class b {
         }
     }
 
-    private boolean qE(String str) {
-        return (this.fBb == null || TextUtils.isEmpty(str) || !str.equals(this.fBb.getHost()) || v.v(this.fBb.bfR()) || this.fBb.cz(System.currentTimeMillis()) || this.fBb.bfR().size() <= this.fBe) ? false : true;
+    private boolean qG(String str) {
+        return (this.fBU == null || TextUtils.isEmpty(str) || !str.equals(this.fBU.getHost()) || v.v(this.fBU.bgc()) || this.fBU.cz(System.currentTimeMillis()) || this.fBU.bgc().size() <= this.fBX) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -188,7 +188,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.qC(stringBuffer.toString()));
+                            publishProgress(aVar.qE(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
@@ -259,14 +259,14 @@ public class b {
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.zV)) {
-                b.this.fBb = aVarArr[0];
-                if (!v.v(aVarArr[0].bfR()) && b.this.fBd != null) {
-                    b.this.fBd.bV(aVarArr[0].bfR().get(0), aVarArr[0].getHost());
+                b.this.fBU = aVarArr[0];
+                if (!v.v(aVarArr[0].bgc()) && b.this.fBW != null) {
+                    b.this.fBW.bV(aVarArr[0].bgc().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.fBd != null) {
-                b.this.fBd.bV(null, null);
+            if (b.this.fBW != null) {
+                b.this.fBW.bV(null, null);
             }
         }
 

@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ag extends Thread {
-    private String ahi;
-    private boolean ahj;
+    private String ahh;
+    private boolean ahi;
     private String mObjTp;
     private String mParam;
     private String mType;
@@ -12,19 +12,19 @@ public class ag extends Thread {
     public ag(String str, boolean z) {
         this.mType = null;
         this.mParam = null;
-        this.ahi = null;
+        this.ahh = null;
         this.mObjTp = null;
-        this.ahj = false;
+        this.ahi = false;
         this.mType = str;
-        this.ahj = z;
+        this.ahi = z;
     }
 
     public ag(String str, String str2) {
         this.mType = null;
         this.mParam = null;
-        this.ahi = null;
+        this.ahh = null;
         this.mObjTp = null;
-        this.ahj = false;
+        this.ahi = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -33,7 +33,7 @@ public class ag extends Thread {
     public void run() {
         String str;
         super.run();
-        if (this.ahj) {
+        if (this.ahi) {
             str = TbConfig.IN_PV_ADDRESS;
         } else {
             str = TbConfig.LOAD_REG_PV_ADDRESS;
@@ -43,8 +43,8 @@ public class ag extends Thread {
         if (this.mParam != null) {
             xVar.n("st_param", this.mParam);
         }
-        if (this.ahi != null) {
-            xVar.n("obj", this.ahi);
+        if (this.ahh != null) {
+            xVar.n("obj", this.ahh);
         }
         if (this.mObjTp != null) {
             xVar.n("obj_tp", this.mObjTp);

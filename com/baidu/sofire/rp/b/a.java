@@ -14,13 +14,13 @@ import java.util.List;
 public final class a {
     private static a PV;
     private SQLiteDatabase NG;
-    private C0039a PW;
+    private C0038a PW;
     private com.baidu.sofire.rp.a.a PX;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.PW = new C0039a(context);
+        this.PW = new C0038a(context);
         this.PX = new com.baidu.sofire.rp.a.a(context);
         try {
             this.NG = this.PW.getWritableDatabase();
@@ -29,7 +29,7 @@ public final class a {
         }
     }
 
-    public static synchronized a ar(Context context) {
+    public static synchronized a as(Context context) {
         a aVar;
         synchronized (a.class) {
             if (PV == null) {
@@ -483,8 +483,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.rp.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    class C0039a extends SQLiteOpenHelper {
-        public C0039a(Context context) {
+    class C0038a extends SQLiteOpenHelper {
+        public C0038a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 2);
         }
 

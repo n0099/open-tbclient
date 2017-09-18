@@ -9,65 +9,65 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class v extends com.baidu.tbadk.core.dialog.b {
     private TbPageContext<?> aby;
-    private TextView bGN;
-    private View.OnClickListener cnr;
-    private TextView eMi;
-    private TextView eMj;
-    private TextView eMk;
-    private TextView eMl;
-    private TextView eMm;
-    private boolean eMn;
-    private boolean eMo;
+    private TextView bHE;
+    private View.OnClickListener cok;
+    private TextView eNc;
+    private TextView eNd;
+    private TextView eNe;
+    private TextView eNf;
+    private TextView eNg;
+    private boolean eNh;
+    private boolean eNi;
 
     public v(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext.getPageActivity());
-        this.eMo = false;
+        this.eNi = false;
         this.aby = tbPageContext;
-        this.cnr = onClickListener;
-        aSf();
+        this.cok = onClickListener;
+        aSq();
     }
 
-    public TextView aRZ() {
-        return this.eMi;
+    public TextView aSk() {
+        return this.eNc;
     }
 
-    public TextView aSa() {
-        return this.eMj;
+    public TextView aSl() {
+        return this.eNd;
     }
 
-    public TextView aSb() {
-        return this.bGN;
+    public TextView aSm() {
+        return this.bHE;
     }
 
-    public TextView aSc() {
-        return this.eMk;
+    public TextView aSn() {
+        return this.eNe;
     }
 
-    public TextView aSd() {
-        return this.eMm;
+    public TextView aSo() {
+        return this.eNg;
     }
 
-    public TextView aSe() {
-        return this.eMl;
+    public TextView aSp() {
+        return this.eNf;
     }
 
-    private void aSf() {
-        a(new CharSequence[]{this.aby.getString(d.l.reply_current_floor), this.aby.getString(d.l.no_interesting), this.aby.getString(d.l.mark), this.aby.getString(d.l.mute), this.aby.getString(d.l.report_text), this.aby.getString(d.l.delete)}, new b.InterfaceC0047b() { // from class: com.baidu.tieba.pb.pb.main.v.1
-            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0047b
+    private void aSq() {
+        a(new CharSequence[]{this.aby.getString(d.l.reply_current_floor), this.aby.getString(d.l.no_interesting), this.aby.getString(d.l.mark), this.aby.getString(d.l.mute), this.aby.getString(d.l.report_text), this.aby.getString(d.l.delete)}, new b.InterfaceC0046b() { // from class: com.baidu.tieba.pb.pb.main.v.1
+            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0046b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 if (bVar != null && view != null) {
                     bVar.dismiss();
-                    v.this.cnr.onClick(view);
+                    v.this.cok.onClick(view);
                 }
             }
         });
         d(this.aby);
-        this.eMl = aF(cj(0));
-        this.eMm = aF(cj(1));
-        this.eMi = aF(cj(2));
-        this.eMj = aF(cj(3));
-        this.bGN = aF(cj(4));
-        this.eMk = aF(cj(5));
+        this.eNf = aF(cj(0));
+        this.eNg = aF(cj(1));
+        this.eNc = aF(cj(2));
+        this.eNd = aF(cj(3));
+        this.bHE = aF(cj(4));
+        this.eNe = aF(cj(5));
     }
 
     public void showDialog() {
@@ -85,20 +85,20 @@ public class v extends com.baidu.tbadk.core.dialog.b {
         return view.findViewById(d.h.line);
     }
 
-    public void jp(boolean z) {
-        this.bGN.setVisibility(z ? 0 : 8);
-    }
-
     public void jq(boolean z) {
-        this.eMn = z;
-    }
-
-    public boolean aSg() {
-        return this.eMo;
+        this.bHE.setVisibility(z ? 0 : 8);
     }
 
     public void jr(boolean z) {
-        this.eMo = z;
+        this.eNh = z;
+    }
+
+    public boolean aSr() {
+        return this.eNi;
+    }
+
+    public void js(boolean z) {
+        this.eNi = z;
     }
 
     public void refreshUI() {

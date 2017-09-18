@@ -53,12 +53,12 @@ public class ReloginManager {
             }
         }
     };
-    private final a.InterfaceC0044a aeb = new a.InterfaceC0044a() { // from class: com.baidu.tbadk.core.relogin.ReloginManager.2
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
+    private final a.InterfaceC0043a aeb = new a.InterfaceC0043a() { // from class: com.baidu.tbadk.core.relogin.ReloginManager.2
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0043a
         public void cp(String str) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0043a
         public void a(AccountData accountData) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_auto_pass_success", 0, "", new Object[0]);
             ReloginManager.this.adX = false;
@@ -72,7 +72,7 @@ public class ReloginManager {
             ReloginManager.this.f(TbadkCoreApplication.getCurrentAccountObj());
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0043a
         public void c(String str, int i, String str2) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_auto_pass_fail", i, str2, "uname", str);
             ReloginManager.this.adX = false;
@@ -233,11 +233,11 @@ public class ReloginManager {
         return null;
     }
 
-    private void a(a.InterfaceC0044a interfaceC0044a) {
+    private void a(a.InterfaceC0043a interfaceC0043a) {
         com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_auto_pass_start", 0, "", new Object[0]);
         c xO = com.baidu.tbadk.coreExtra.a.a.xO();
         if (xO != null) {
-            xO.a(interfaceC0044a);
+            xO.a(interfaceC0043a);
         }
     }
 

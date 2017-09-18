@@ -28,7 +28,7 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
                     DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(discoverDelegateStatic);
                     if (((d) customResponsedMessage.getData()).getContext() != null && (EV = discoverDelegateStatic.EV()) != null) {
-                        EV.aGX.setArguments(new Bundle());
+                        EV.aGU.setArguments(new Bundle());
                     }
                 }
             }
@@ -46,22 +46,22 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public c EU() {
         c cVar = new c();
-        cVar.aGX = new a();
+        cVar.aGU = new a();
         cVar.type = 10;
-        cVar.aGY = d.l.home_discover;
-        cVar.aGZ = d.g.s_icon_tabbar_discover;
+        cVar.aGV = d.l.home_discover;
+        cVar.aGW = d.g.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public e aY(Context context) {
-        this.aGO = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
+    public e aZ(Context context) {
+        this.aGL = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
         e.a aVar = new e.a();
-        aVar.aHs = this.aGO;
+        aVar.aHp = this.aGL;
         aVar.uo = k.dip2px(context, 3.0f);
-        aVar.aHq = d.g.icon_news_down_bar_one;
-        this.aGO.a("emotion", aVar);
-        return this.aGO;
+        aVar.aHn = d.g.icon_news_down_bar_one;
+        this.aGL.a("emotion", aVar);
+        return this.aGL;
     }
 
     @Override // com.baidu.tbadk.mainTab.b

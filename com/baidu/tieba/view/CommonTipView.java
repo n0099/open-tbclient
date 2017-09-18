@@ -14,22 +14,22 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
     private int HD;
-    private TranslateAnimation csr;
-    private Runnable css;
-    private Animation gvT;
-    private a gvU;
+    private TranslateAnimation ctj;
+    private Runnable ctk;
+    private Animation gwN;
+    private a gwO;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bwu();
+        void bwF();
     }
 
     public CommonTipView(Context context) {
         super(context);
         this.HD = 4000;
-        this.gvT = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
-        this.csr = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds56), 0.0f);
-        this.css = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
+        this.gwN = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
+        this.ctj = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds56), 0.0f);
+        this.ctk = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
             @Override // java.lang.Runnable
             public void run() {
                 CommonTipView.this.hideTip();
@@ -41,7 +41,7 @@ public class CommonTipView extends TextView {
     private void init() {
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds24));
         setGravity(17);
-        this.gvT.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.2
+        this.gwN.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -53,8 +53,8 @@ public class CommonTipView extends TextView {
                 if (viewGroup != null) {
                     viewGroup.removeView(CommonTipView.this);
                 }
-                if (CommonTipView.this.gvU != null) {
-                    CommonTipView.this.gvU.bwu();
+                if (CommonTipView.this.gwO != null) {
+                    CommonTipView.this.gwO.bwF();
                 }
             }
 
@@ -62,15 +62,15 @@ public class CommonTipView extends TextView {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.csr.setDuration(400L);
-        this.csr.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.3
+        this.ctj.setDuration(400L);
+        this.ctj.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.3
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                CommonTipView.this.postDelayed(CommonTipView.this.css, CommonTipView.this.HD);
+                CommonTipView.this.postDelayed(CommonTipView.this.ctk, CommonTipView.this.HD);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -81,9 +81,9 @@ public class CommonTipView extends TextView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideTip() {
-        removeCallbacks(this.css);
+        removeCallbacks(this.ctk);
         if (this != null && getParent() != null) {
-            startAnimation(this.gvT);
+            startAnimation(this.gwN);
         }
     }
 
@@ -93,7 +93,7 @@ public class CommonTipView extends TextView {
             layoutParams.gravity = 48;
             linearLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.csr);
+            startAnimation(this.ctj);
         }
     }
 
@@ -103,7 +103,7 @@ public class CommonTipView extends TextView {
             layoutParams.setMargins(0, 0, 0, 0);
             frameLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.csr);
+            startAnimation(this.ctj);
         }
     }
 
@@ -119,6 +119,6 @@ public class CommonTipView extends TextView {
     }
 
     public void onDestroy() {
-        removeCallbacks(this.css);
+        removeCallbacks(this.ctk);
     }
 }

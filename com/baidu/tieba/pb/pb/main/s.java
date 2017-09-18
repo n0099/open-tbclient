@@ -8,23 +8,23 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class s extends j.a {
-    public TextView bEL;
-    public TextView cOa;
-    public HeadImageView czX;
-    public TextView drj;
-    public TbImageView eKU;
-    public TextView eKV;
+    public TextView bFC;
+    public HeadImageView cAP;
+    public TextView cOU;
+    public TextView dse;
+    public TbImageView eLO;
+    public TextView eLP;
     public int mSkinType;
 
     public s(View view) {
         super(view);
         this.mSkinType = 3;
-        this.czX = (HeadImageView) view.findViewById(d.h.photo);
-        this.czX.setRadius(com.baidu.adp.lib.util.k.g(view.getContext(), d.f.ds30));
-        this.bEL = (TextView) view.findViewById(d.h.user_name);
-        this.drj = (TextView) view.findViewById(d.h.time);
-        this.cOa = (TextView) view.findViewById(d.h.text);
-        this.eKU = (TbImageView) view.findViewById(d.h.god_pic);
-        this.eKV = (TextView) view.findViewById(d.h.god_btn);
+        this.cAP = (HeadImageView) view.findViewById(d.h.photo);
+        this.cAP.setRadius(com.baidu.adp.lib.util.k.f(view.getContext(), d.f.ds30));
+        this.bFC = (TextView) view.findViewById(d.h.user_name);
+        this.dse = (TextView) view.findViewById(d.h.time);
+        this.cOU = (TextView) view.findViewById(d.h.text);
+        this.eLO = (TbImageView) view.findViewById(d.h.god_pic);
+        this.eLP = (TextView) view.findViewById(d.h.god_btn);
     }
 }

@@ -7,30 +7,30 @@ public class h {
     private long VJ = 0;
     private String VK = "";
     private String imgUrl = "";
-    private int eEH = Integer.MAX_VALUE;
-    private String eEI = "";
-    private String eEJ = "";
+    private int eFB = Integer.MAX_VALUE;
+    private String eFC = "";
+    private String eFD = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
             this.VJ = forumHeadlineImgInfo.img_user_id.longValue();
             this.VK = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.eEH = forumHeadlineImgInfo.rank_num.intValue();
-            this.eEI = forumHeadlineImgInfo.rank_up_info;
-            this.eEJ = forumHeadlineImgInfo.rank_url;
+            this.eFB = forumHeadlineImgInfo.rank_num.intValue();
+            this.eFC = forumHeadlineImgInfo.rank_up_info;
+            this.eFD = forumHeadlineImgInfo.rank_url;
         }
     }
 
-    public boolean aPv() {
+    public boolean aPG() {
         return StringUtils.isNull(this.VK, true) || this.VJ <= 0;
     }
 
-    public String aPw() {
-        return this.eEJ;
+    public String aPH() {
+        return this.eFD;
     }
 
-    public String aPx() {
+    public String aPI() {
         return this.VK;
     }
 
@@ -38,11 +38,11 @@ public class h {
         return this.imgUrl;
     }
 
-    public int aPy() {
-        return this.eEH;
+    public int aPJ() {
+        return this.eFB;
     }
 
-    public String aPz() {
-        return this.eEI;
+    public String aPK() {
+        return this.eFC;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface c {
-    void a(a.InterfaceC0044a interfaceC0044a);
+    void a(a.InterfaceC0043a interfaceC0043a);
 
     void g(AccountData accountData);
 

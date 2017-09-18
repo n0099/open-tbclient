@@ -17,7 +17,7 @@ import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class n extends d<ay, o> implements View.OnClickListener, PhotoLiveCardView.b, com.baidu.tieba.frs.f.c {
-    private ay crw;
+    private ay cso;
 
     public n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -37,35 +37,35 @@ public class n extends d<ay, o> implements View.OnClickListener, PhotoLiveCardVi
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ay ayVar, o oVar) {
         super.onFillViewHolder(i, view, viewGroup, ayVar, oVar);
-        if (oVar.apS != this.mSkinType) {
+        if (oVar.apQ != this.mSkinType) {
             com.baidu.tbadk.o.a.a(this.mF, view);
-            oVar.apS = this.mSkinType;
+            oVar.apQ = this.mSkinType;
         }
-        this.crw = ayVar;
-        oVar.crx.setOnClickListener(this);
-        oVar.crx.setTag(ayVar);
-        oVar.cry.setShowBottom(false);
-        oVar.cry.setShowContent(false);
-        oVar.cry.setShowRefreshTimeInHead(true);
-        oVar.cry.setShowLiveIcon(true);
-        oVar.cry.setHeadPaddingTop(0);
-        oVar.cry.setChooseStyle(ayVar.qI().getShowStyle());
-        oVar.cry.setShowImage(com.baidu.tbadk.core.h.oS().oY());
-        oVar.cry.setData(ayVar.qI());
-        oVar.cry.setPortraitClicklistener(this);
-        oVar.crz.setOnClickListener(this);
-        oVar.crz.setTag(ayVar);
+        this.cso = ayVar;
+        oVar.csp.setOnClickListener(this);
+        oVar.csp.setTag(ayVar);
+        oVar.csq.setShowBottom(false);
+        oVar.csq.setShowContent(false);
+        oVar.csq.setShowRefreshTimeInHead(true);
+        oVar.csq.setShowLiveIcon(true);
+        oVar.csq.setHeadPaddingTop(0);
+        oVar.csq.setChooseStyle(ayVar.qI().getShowStyle());
+        oVar.csq.setShowImage(com.baidu.tbadk.core.h.oS().oY());
+        oVar.csq.setData(ayVar.qI());
+        oVar.csq.setPortraitClicklistener(this);
+        oVar.csr.setOnClickListener(this);
+        oVar.csr.setTag(ayVar);
         if (ayVar != null) {
             ayVar.sz();
         }
-        com.baidu.tieba.frs.f.b.alj().a(cEr, ayVar);
+        com.baidu.tieba.frs.f.b.alu().a(cFj, ayVar);
         return view;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof ay) {
-            this.coJ.a(view.getId(), 0, view, null, (ay) view.getTag());
+            this.cpB.a(view.getId(), 0, view, null, (ay) view.getTag());
         }
     }
 
@@ -79,14 +79,14 @@ public class n extends d<ay, o> implements View.OnClickListener, PhotoLiveCardVi
             }
             TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c10178").ad("fid", String.valueOf(photoLiveCardData.getForumId())));
         }
-        com.baidu.tieba.frs.f.b.alj().a(cEr, this.crw, 2);
+        com.baidu.tieba.frs.f.b.alu().a(cFj, this.cso, 2);
     }
 
-    public int ahP() {
+    public int aia() {
         return d.h.more_live_list;
     }
 
-    public int ahQ() {
+    public int aib() {
         return d.h.make_headlines;
     }
 }

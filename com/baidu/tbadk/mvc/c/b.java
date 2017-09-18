@@ -5,56 +5,56 @@ import com.baidu.adp.BdUniqueId;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private WeakReference<View> aHA;
-    private int aHt;
-    private boolean aHu = true;
-    private com.baidu.tbadk.mvc.b.a aHv;
-    private com.baidu.tbadk.mvc.d.b aHw;
-    private com.baidu.tbadk.mvc.a.a aHx;
-    private int aHy;
-    private Object aHz;
+    private int aHq;
+    private boolean aHr = true;
+    private com.baidu.tbadk.mvc.b.a aHs;
+    private com.baidu.tbadk.mvc.d.b aHt;
+    private com.baidu.tbadk.mvc.a.a aHu;
+    private int aHv;
+    private Object aHw;
+    private WeakReference<View> aHx;
     private BdUniqueId uniqueId;
 
     public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.d.b bVar, com.baidu.tbadk.mvc.a.a aVar2) {
-        this.aHt = i;
-        this.aHv = aVar;
-        this.aHw = bVar;
-        this.aHx = aVar2;
+        this.aHq = i;
+        this.aHs = aVar;
+        this.aHt = bVar;
+        this.aHu = aVar2;
     }
 
     public int Fd() {
-        return this.aHt;
+        return this.aHq;
     }
 
     public com.baidu.tbadk.mvc.b.a Fe() {
-        return this.aHv;
+        return this.aHs;
     }
 
     public Object getExtra() {
-        return this.aHz;
+        return this.aHw;
     }
 
     public void setExtra(Object obj) {
-        this.aHz = obj;
+        this.aHw = obj;
     }
 
     public View getView() {
-        if (this.aHA != null) {
-            return this.aHA.get();
+        if (this.aHx != null) {
+            return this.aHx.get();
         }
         return null;
     }
 
     public void setView(View view) {
-        this.aHA = new WeakReference<>(view);
+        this.aHx = new WeakReference<>(view);
     }
 
     public void fa(int i) {
-        this.aHy = i;
+        this.aHv = i;
     }
 
     public boolean Ff() {
-        return this.aHu;
+        return this.aHr;
     }
 
     public BdUniqueId getUniqueId() {

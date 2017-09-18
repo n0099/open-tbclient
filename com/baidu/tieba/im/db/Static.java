@@ -20,7 +20,7 @@ public class Static {
                         /* renamed from: Ly */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                f.my((String) customResponsedMessage.getData());
+                                f.mA((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;

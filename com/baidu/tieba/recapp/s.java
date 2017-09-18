@@ -53,12 +53,12 @@ public class s {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.c.a.bhi().a(advertAppInfo.TR, advertAppInfo.TQ, str2, i, com.baidu.tieba.recapp.c.a.qT(advertAppInfo.TR).intValue(), null, true, false, true, advertAppInfo.TY.userPortrait, downloadStaticsData, advertAppInfo.TY.userName);
+        com.baidu.tieba.recapp.c.a.bht().a(advertAppInfo.TR, advertAppInfo.TQ, str2, i, com.baidu.tieba.recapp.c.a.qV(advertAppInfo.TR).intValue(), null, true, false, true, advertAppInfo.TY.userPortrait, downloadStaticsData, advertAppInfo.TY.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.c.a.bhi().j(advertAppInfo.TQ, advertAppInfo.TR, true);
+        com.baidu.tieba.recapp.c.a.bht().j(advertAppInfo.TQ, advertAppInfo.TR, true);
     }
 
     public static final void aq(Context context, String str) {
@@ -104,14 +104,14 @@ public class s {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean aN = ab.aN(activity);
+        boolean aO = ab.aO(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return aN;
+        return aO;
     }
 
-    public static List<String> bT(Context context) {
+    public static List<String> bU(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             return arrayList;
@@ -185,11 +185,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bhd().sendFRS(z, str, str2, str3, list, str4);
+        r.bho().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bhd().a(z, str, str2, str3, str4, list, str5);
+        r.bho().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int h(TbPageContext tbPageContext, String str) {
@@ -208,14 +208,14 @@ public class s {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        i bha = r.bhd().bha();
-        if (bha == null) {
+        i bhl = r.bho().bhl();
+        if (bhl == null) {
             return false;
         }
-        if (bha.hE(str)) {
-            bha.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bhl.hE(str)) {
+            bhl.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bha.d(tbPageContext.getPageActivity(), strArr);
+        return bhl.d(tbPageContext.getPageActivity(), strArr);
     }
 }

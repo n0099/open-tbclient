@@ -25,7 +25,7 @@ public abstract class c extends SQLiteOpenHelper implements a {
     }
 
     @Override // com.baidu.adp.base.a.a
-    public boolean Y(Context context) {
+    public boolean Z(Context context) {
         return context.deleteDatabase(this.na);
     }
 

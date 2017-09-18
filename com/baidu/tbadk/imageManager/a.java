@@ -5,7 +5,7 @@ import android.content.Context;
 public interface a {
     int Di();
 
-    C0060a X(Context context, String str);
+    C0059a X(Context context, String str);
 
     int fG(String str);
 
@@ -15,11 +15,11 @@ public interface a {
 
     /* renamed from: com.baidu.tbadk.imageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0060a {
+    public static class C0059a {
         private int mHeight;
         private int mWidth;
 
-        public C0060a(int i, int i2) {
+        public C0059a(int i, int i2) {
             this.mWidth = 0;
             this.mHeight = 0;
             this.mWidth = i;

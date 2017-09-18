@@ -573,17 +573,17 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         ShowSoftKeyPadDelay(view, SHOW_SOFT_KEYBOARD_DELAY);
     }
 
-    protected b newListMenu(String[] strArr, b.InterfaceC0047b interfaceC0047b) {
+    protected b newListMenu(String[] strArr, b.InterfaceC0046b interfaceC0046b) {
         this.mListMenu = new b(getPageContext().getPageActivity());
         this.mListMenu.cN(TbadkCoreApplication.getInst().getResources().getString(d.l.operation));
-        this.mListMenu.a(strArr, interfaceC0047b);
+        this.mListMenu.a(strArr, interfaceC0046b);
         this.mListMenu.d(getPageContext());
         return this.mListMenu;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public b createListMenu(String[] strArr, b.InterfaceC0047b interfaceC0047b) {
-        return this.mListMenu != null ? this.mListMenu : newListMenu(strArr, interfaceC0047b);
+    public b createListMenu(String[] strArr, b.InterfaceC0046b interfaceC0046b) {
+        return this.mListMenu != null ? this.mListMenu : newListMenu(strArr, interfaceC0046b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -1035,7 +1035,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void setNetRefreshViewEmotionDefMarginTop() {
-        setNetRefreshViewEmotionMarginTop(k.g(getApplicationContext(), d.f.ds300));
+        setNetRefreshViewEmotionMarginTop(k.f(getApplicationContext(), d.f.ds300));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -1099,15 +1099,15 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void skipToRegisterActivity() {
-        ax.aR(getPageContext().getPageActivity());
-    }
-
-    public void skipToLoginActivity() {
         ax.aS(getPageContext().getPageActivity());
     }
 
+    public void skipToLoginActivity() {
+        ax.aT(getPageContext().getPageActivity());
+    }
+
     public boolean checkUpIsLogin() {
-        return ax.aT(getPageContext().getPageActivity());
+        return ax.aU(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

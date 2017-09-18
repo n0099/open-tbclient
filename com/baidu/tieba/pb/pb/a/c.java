@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.data.p;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<p, d> {
-    public boolean anP;
+    public boolean anN;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.anP = false;
+        this.anN = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ public class c extends com.baidu.adp.widget.ListView.a<p, d> {
     /* renamed from: bg */
     public d onCreateViewHolder(ViewGroup viewGroup) {
         d dVar = new d(LayoutInflater.from(this.mContext).inflate(d.j.pb_declare_area, (ViewGroup) null), this.mContext);
-        dVar.anP = this.anP;
+        dVar.anN = this.anN;
         return dVar;
     }
 

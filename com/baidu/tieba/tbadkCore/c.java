@@ -17,34 +17,34 @@ import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class c {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static c gfh;
-    private com.baidu.adp.lib.cache.l<byte[]> bdB;
+    private static c ggb;
+    private com.baidu.adp.lib.cache.l<byte[]> bdy;
     private g responseData = null;
 
     private c() {
-        this.bdB = null;
-        this.bdB = BdCacheService.eF().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.bdy = null;
+        this.bdy = BdCacheService.eF().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static synchronized c bqk() {
+    public static synchronized c bqv() {
         c cVar;
         synchronized (c.class) {
-            if (gfh == null) {
-                gfh = new c();
+            if (ggb == null) {
+                ggb = new c();
             }
-            cVar = gfh;
+            cVar = ggb;
         }
         return cVar;
     }
 
-    public boolean rO(String str) {
-        if (this.bdB != null && str != null) {
-            byte[] bArr = this.bdB.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public boolean rQ(String str) {
+        if (this.bdy != null && str != null) {
+            byte[] bArr = this.bdy.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 this.responseData = new g();
                 this.responseData.A(bArr);
-                if (this.responseData.eEb != null && this.responseData.eEb.getFrsBannerData() != null) {
-                    this.responseData.eEb.getFrsBannerData().VX = false;
+                if (this.responseData.eEV != null && this.responseData.eEV.getFrsBannerData() != null) {
+                    this.responseData.eEV.getFrsBannerData().VX = false;
                 }
                 return true;
             }
@@ -53,8 +53,8 @@ public class c {
     }
 
     public void ce(String str, String str2) {
-        if (this.bdB != null && str != null) {
-            byte[] bArr = this.bdB.get(TbadkCoreApplication.getCurrentAccount() + str);
+        if (this.bdy != null && str != null) {
+            byte[] bArr = this.bdy.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -81,8 +81,8 @@ public class c {
     }
 
     public void cf(String str, String str2) {
-        if (this.bdB != null && str != null) {
-            byte[] bArr = this.bdB.get(TbadkCoreApplication.getCurrentAccount() + str);
+        if (this.bdy != null && str != null) {
+            byte[] bArr = this.bdy.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -115,26 +115,26 @@ public class c {
     public void c(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.bdB.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+                this.bdy.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
                 return;
             }
-            this.bdB.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            this.bdy.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }
 
     public void ab(String str, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.bdB.remove(TbadkCoreApplication.getCurrentAccount() + str);
+                this.bdy.remove(TbadkCoreApplication.getCurrentAccount() + str);
                 return;
             }
-            this.bdB.X(TbadkCoreApplication.getCurrentAccount() + str);
+            this.bdy.X(TbadkCoreApplication.getCurrentAccount() + str);
         }
     }
 
     public boolean isSameDay(String str) {
         l.b<byte[]> W;
-        if (str == null || str.length() <= 0 || (W = this.bdB.W(str)) == null) {
+        if (str == null || str.length() <= 0 || (W = this.bdy.W(str)) == null) {
             return false;
         }
         return UtilHelper.isSameDay(W.ti, System.currentTimeMillis());

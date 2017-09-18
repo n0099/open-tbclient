@@ -11,13 +11,13 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class u extends d<v, w> {
-    private final LinkedList<com.baidu.tbadk.k.f> crN;
-    private final LinkedList<RelativeLayout> crO;
+    private final LinkedList<com.baidu.tbadk.k.f> csF;
+    private final LinkedList<RelativeLayout> csG;
 
     public u(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.crN = new LinkedList<>();
-        this.crO = new LinkedList<>();
+        this.csF = new LinkedList<>();
+        this.csG = new LinkedList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,14 +26,14 @@ public class u extends d<v, w> {
     /* renamed from: Q */
     public w onCreateViewHolder(ViewGroup viewGroup) {
         RelativeLayout relativeLayout = new RelativeLayout(this.mContext);
-        relativeLayout.setLayoutParams(new AbsListView.LayoutParams(-1, (com.baidu.adp.lib.util.k.ae(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds90)));
+        relativeLayout.setLayoutParams(new AbsListView.LayoutParams(-1, (com.baidu.adp.lib.util.k.af(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds90)));
         relativeLayout.setGravity(17);
         com.baidu.tbadk.k.f fVar = new com.baidu.tbadk.k.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(d.f.ds140));
         fVar.O(relativeLayout);
-        this.crN.add(fVar);
-        this.crO.add(relativeLayout);
+        this.csF.add(fVar);
+        this.csG.add(relativeLayout);
         w wVar = new w(relativeLayout);
-        wVar.crQ = fVar;
+        wVar.csI = fVar;
         return wVar;
     }
 
@@ -42,8 +42,8 @@ public class u extends d<v, w> {
     @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, v vVar, w wVar) {
-        if (wVar != null && wVar.crQ != null) {
-            wVar.crQ.onChangeSkinType();
+        if (wVar != null && wVar.csI != null) {
+            wVar.csI.onChangeSkinType();
         }
         return view;
     }
@@ -51,18 +51,18 @@ public class u extends d<v, w> {
     @Override // com.baidu.tieba.frs.d
     public void release() {
         super.release();
-        if (this.crN.size() != 0 && this.crO.size() == this.crN.size()) {
+        if (this.csF.size() != 0 && this.csG.size() == this.csF.size()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.crN.size()) {
+                if (i2 >= this.csF.size()) {
                     break;
                 }
-                this.crN.get(i2).N(this.crO.get(i2));
+                this.csF.get(i2).N(this.csG.get(i2));
                 i = i2 + 1;
             }
         }
-        this.crN.clear();
-        this.crO.clear();
+        this.csF.clear();
+        this.csG.clear();
     }
 }

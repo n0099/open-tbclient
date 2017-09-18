@@ -9,10 +9,10 @@ import com.baidu.tieba.card.v;
 import com.baidu.tieba.card.x;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.widget.ListView.a<bj, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.c>> implements v, com.baidu.tieba.frs.f.c {
-    private x<bj> bkW;
-    private com.baidu.tieba.frs.entelechy.view.c cvc;
-    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.b> cvd;
-    private com.baidu.adp.lib.e.b<TbImageView> cve;
+    private x<bj> bkV;
+    private com.baidu.tieba.frs.entelechy.view.c cvU;
+    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.b> cvV;
+    private com.baidu.adp.lib.e.b<TbImageView> cvW;
     private TbPageContext<?> mF;
     private String mForumName;
 
@@ -21,12 +21,12 @@ public class f extends com.baidu.adp.widget.ListView.a<bj, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: z */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cvc = new com.baidu.tieba.frs.entelechy.view.c(this.mF, this.mPageId);
-        this.cvc.setConstrainLayoutPool(this.cvd);
-        this.cvc.setConstrainImagePool(this.cve);
-        this.cvc.setForumName(this.mForumName);
-        this.cvc.l(this.mPageId);
-        return new com.baidu.tieba.card.a.a(this.cvc);
+        this.cvU = new com.baidu.tieba.frs.entelechy.view.c(this.mF, this.mPageId);
+        this.cvU.setConstrainLayoutPool(this.cvV);
+        this.cvU.setConstrainImagePool(this.cvW);
+        this.cvU.setForumName(this.mForumName);
+        this.cvU.l(this.mPageId);
+        return new com.baidu.tieba.card.a.a(this.cvU);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,12 +34,12 @@ public class f extends com.baidu.adp.widget.ListView.a<bj, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bj bjVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.Yy() == null) {
+        if (aVar == null || aVar.YJ() == null) {
             return null;
         }
-        aVar.Yy().a((com.baidu.tieba.card.a) bjVar);
-        aVar.Yy().b(this.bkW);
-        com.baidu.tieba.frs.f.b.alj().a(cEr, bjVar);
+        aVar.YJ().a((com.baidu.tieba.card.a) bjVar);
+        aVar.YJ().b(this.bkV);
+        com.baidu.tieba.frs.f.b.alu().a(cFj, bjVar);
         return aVar.getView();
     }
 

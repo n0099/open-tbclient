@@ -9,12 +9,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class d {
-    public static String aFH = "add_user_collect_emotoin";
-    public static String aFI = "image_url";
-    public static String aFJ = "package_id";
-    public static String aFK = "#(meme,setting)";
-    public static String aFL = "#(meme,collect_";
-    public static String aFM = "meme,collect_";
+    public static String aFE = "add_user_collect_emotoin";
+    public static String aFF = "image_url";
+    public static String aFG = "package_id";
+    public static String aFH = "#(meme,setting)";
+    public static String aFI = "#(meme,collect_";
+    public static String aFJ = "meme,collect_";
 
     /* loaded from: classes.dex */
     public static class a {

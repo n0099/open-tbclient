@@ -104,7 +104,7 @@ public class KuangFloatingViewController {
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
-            layoutParams.y = k.g(TbadkCoreApplication.getInst(), d.f.ds260) + UtilHelper.getStatusBarHeight();
+            layoutParams.y = k.f(TbadkCoreApplication.getInst(), d.f.ds260) + UtilHelper.getStatusBarHeight();
             layoutParams.width = -2;
             layoutParams.height = -2;
             layoutParams.gravity = 51;

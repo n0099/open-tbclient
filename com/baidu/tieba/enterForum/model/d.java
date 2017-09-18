@@ -5,14 +5,14 @@ import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class d {
-    public static boolean adq() {
+    public static boolean adB() {
         if (i.hi()) {
             return com.baidu.adp.lib.b.d.eW().af("is_call_test_https") == 1;
         }
         return false;
     }
 
-    public static void adr() {
+    public static void adC() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.enterForum.model.d.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

@@ -70,7 +70,7 @@ public abstract class d implements a {
     }
 
     @Override // com.baidu.adp.base.a.a
-    public boolean Y(Context context) {
+    public boolean Z(Context context) {
         File file = new File(this.nc);
         if (file.exists()) {
             return file.delete();

@@ -12,18 +12,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static Boolean gkF = true;
-    private static Boolean gkG = true;
+    private static Boolean glz = true;
+    private static Boolean glA = true;
 
-    public static void sg(String str) {
+    public static void si(String str) {
         Z(13, str);
     }
 
-    public static void btc() {
-        tA(2);
+    public static void btn() {
+        tC(2);
     }
 
-    private static void tA(int i) {
+    private static void tC(int i) {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             TiebaDatabase.getInstance().getMainDBDatabaseManager().a("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), TbadkCoreApplication.getCurrentAccount()});
         }
@@ -33,15 +33,15 @@ public class a {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().a("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
     }
 
-    public static ArrayList<String> btd() {
-        return tB(0);
+    public static ArrayList<String> bto() {
+        return tD(0);
     }
 
-    public static ArrayList<String> bte() {
-        return tB(1);
+    public static ArrayList<String> btp() {
+        return tD(1);
     }
 
-    private static ArrayList<String> tB(int i) {
+    private static ArrayList<String> tD(int i) {
         Cursor cursor = null;
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         ArrayList<String> arrayList = new ArrayList<>();
@@ -68,11 +68,11 @@ public class a {
         return arrayList;
     }
 
-    public static void sh(String str) {
+    public static void sj(String str) {
         aa(0, str);
     }
 
-    public static void si(String str) {
+    public static void sk(String str) {
         aa(1, str);
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    public static void sj(String str) {
+    public static void sl(String str) {
         ab(0, str);
     }
 
@@ -114,15 +114,15 @@ public class a {
         }
     }
 
-    public static void btf() {
-        tC(0);
+    public static void btq() {
+        tE(0);
     }
 
-    public static void btg() {
-        tC(1);
+    public static void btr() {
+        tE(1);
     }
 
-    public static void tC(int i) {
+    public static void tE(int i) {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         switch (i) {
             case 0:
@@ -136,7 +136,7 @@ public class a {
         }
     }
 
-    public static ArrayList<MarkData> bth() {
+    public static ArrayList<MarkData> bts() {
         Cursor cursor;
         Throwable th;
         Exception e;
@@ -193,7 +193,7 @@ public class a {
     }
 
     public static void g(Boolean bool) {
-        gkF = bool;
+        glz = bool;
     }
 
     public static void zB() {
@@ -217,7 +217,7 @@ public class a {
         }
     }
 
-    public static void bti() {
+    public static void btt() {
         if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             try {

@@ -50,7 +50,7 @@ public class k {
         View hF();
     }
 
-    public static void ac(Context context) {
+    public static void ad(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
@@ -66,30 +66,30 @@ public class k {
         yv = true;
     }
 
-    public static int ad(Context context) {
+    public static int ae(Context context) {
         if (!yv) {
-            ac(context);
+            ad(context);
         }
         return yx;
     }
 
-    public static int ae(Context context) {
+    public static int af(Context context) {
         if (!yv) {
-            ac(context);
+            ad(context);
         }
         return yy;
     }
 
     public static int dip2px(Context context, float f) {
         if (!yv) {
-            ac(context);
+            ad(context);
         }
         return (int) ((yw * f) + 0.5f);
     }
 
-    public static float af(Context context) {
+    public static float ag(Context context) {
         if (!yv) {
-            ac(context);
+            ad(context);
         }
         return yw;
     }
@@ -139,7 +139,7 @@ public class k {
         showToast(context, str, 3500);
     }
 
-    public static void f(Context context, int i) {
+    public static void e(Context context, int i) {
         F(context, context.getResources().getString(i));
     }
 
@@ -197,7 +197,7 @@ public class k {
         return i;
     }
 
-    public static int[] ag(Context context) {
+    public static int[] ah(Context context) {
         int[] iArr = new int[2];
         if (context == null) {
             return iArr;
@@ -309,7 +309,7 @@ public class k {
         return iArr;
     }
 
-    public static int g(Context context, int i) {
+    public static int f(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
     }
 

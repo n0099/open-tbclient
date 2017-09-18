@@ -5,9 +5,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class e {
-    private static e aMi = new e();
-    private b aMj;
-    private a aMk;
+    private static e aMf = new e();
+    private b aMg;
+    private a aMh;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,17 +18,17 @@ public class e {
     }
 
     public static e Ha() {
-        return aMi;
+        return aMf;
     }
 
     public void a(a aVar) {
-        this.aMk = aVar;
-        if (this.aMj != null) {
-            this.aMj.cancel();
+        this.aMh = aVar;
+        if (this.aMg != null) {
+            this.aMg.cancel();
         }
-        this.aMj = new b();
-        this.aMj.setPriority(4);
-        this.aMj.execute(new String[0]);
+        this.aMg = new b();
+        this.aMg.setPriority(4);
+        this.aMg.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -75,8 +75,8 @@ public class e {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (e.this.aMk != null && bool != null) {
-                e.this.aMk.al(bool.booleanValue());
+            if (e.this.aMh != null && bool != null) {
+                e.this.aMh.al(bool.booleanValue());
             }
         }
     }

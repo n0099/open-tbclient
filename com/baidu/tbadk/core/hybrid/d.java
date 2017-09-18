@@ -32,7 +32,7 @@ public abstract class d implements k {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void sendMessage(Message<?> message) {
-        a.C0048a.sendMessage(message);
+        a.C0047a.sendMessage(message);
     }
 
     protected void b(String str, JSONObject jSONObject) {

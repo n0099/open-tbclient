@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class g extends l {
     private static g e = null;
     private String c;
-    private com.baidu.android.pushservice.j.g d;
+    private com.baidu.android.pushservice.j.f d;
 
     private g(Context context) {
         super(context);
@@ -28,11 +28,11 @@ public class g extends l {
 
     @Override // com.baidu.android.pushservice.h.l
     String a(boolean z) {
-        return com.baidu.android.pushservice.j.h.a(this.a, z);
+        return com.baidu.android.pushservice.j.g.a(this.a, z);
     }
 
-    public void a(com.baidu.android.pushservice.j.g gVar) {
-        this.d = gVar;
+    public void a(com.baidu.android.pushservice.j.f fVar) {
+        this.d = fVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:? A[RETURN, SYNTHETIC] */
@@ -44,7 +44,7 @@ public class g extends l {
     void a(String str) {
         JSONObject jSONObject;
         JSONObject jSONObject2;
-        com.baidu.android.pushservice.j.h.a(this.a, System.currentTimeMillis());
+        com.baidu.android.pushservice.j.g.a(this.a, System.currentTimeMillis());
         com.baidu.android.pushservice.g.a.b(this.c, "<<< Location info send result return OK!");
         com.baidu.android.pushservice.g.a.c(this.c, "Lbs upload respponse: " + str);
         try {
@@ -55,7 +55,7 @@ public class g extends l {
         if (jSONObject2.has("lbsInfo")) {
             jSONObject = jSONObject2.optJSONObject("lbsInfo");
             if (jSONObject == null) {
-                String a = com.baidu.android.pushservice.j.h.a(this.a, jSONObject);
+                String a = com.baidu.android.pushservice.j.g.a(this.a, jSONObject);
                 if (this.d == null || TextUtils.isEmpty(a)) {
                     return;
                 }

@@ -7,7 +7,7 @@ public interface h {
 
     void ag(Context context, String str);
 
-    void be(Context context);
+    void bf(Context context);
 
     String hw(String str);
 

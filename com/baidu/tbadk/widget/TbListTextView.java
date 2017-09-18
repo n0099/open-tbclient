@@ -12,20 +12,20 @@ import java.util.List;
 @SuppressLint({"WrongCall"})
 /* loaded from: classes.dex */
 public class TbListTextView extends TextView {
-    private boolean aOp;
+    private boolean aOm;
 
     public TbListTextView(Context context) {
         super(context);
-        this.aOp = true;
+        this.aOm = true;
     }
 
     public void setCheckSelection(boolean z) {
-        this.aOp = z;
+        this.aOm = z;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.aOp) {
+        if (!this.aOm) {
             return super.onTouchEvent(motionEvent);
         }
         setLongClickable(false);
@@ -53,7 +53,7 @@ public class TbListTextView extends TextView {
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a b = b(spannableStringBuilder, i, i2);
-        if (b.aOq) {
+        if (b.aOn) {
             a(i, i2, spannableStringBuilder, b);
         } else {
             N(i, i2);
@@ -95,7 +95,7 @@ public class TbListTextView extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
-        for (Object obj : aVar.aOs) {
+        for (Object obj : aVar.aOp) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -105,7 +105,7 @@ public class TbListTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : aVar.aOr) {
+        for (Object obj2 : aVar.aOo) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -129,9 +129,9 @@ public class TbListTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean aOq;
-        public final List<Object> aOr;
-        public final List<Object> aOs;
+        public final boolean aOn;
+        public final List<Object> aOo;
+        public final List<Object> aOp;
 
         public static a c(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
@@ -142,9 +142,9 @@ public class TbListTextView extends TextView {
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.aOq = z;
-            this.aOr = list;
-            this.aOs = list2;
+            this.aOn = z;
+            this.aOo = list;
+            this.aOp = list2;
         }
     }
 }

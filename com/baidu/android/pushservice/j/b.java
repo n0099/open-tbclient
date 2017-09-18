@@ -107,7 +107,7 @@ public class b {
         }
         boolean z = false;
         try {
-            if (q.t(context, "android.permission.WRITE_SETTINGS")) {
+            if (p.t(context, "android.permission.WRITE_SETTINGS")) {
                 z = Settings.System.putInt(context.getContentResolver(), str, i);
             }
         } catch (Exception e) {
@@ -136,7 +136,7 @@ public class b {
     }
 
     private static boolean a(Context context, String str, Object obj) {
-        if (!q.t(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+        if (!p.t(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             com.baidu.android.pushservice.g.a.c("CommonParams", "android.permission.WRITE_EXTERNAL_STORAGE is not granted!");
             return false;
         }
@@ -191,7 +191,7 @@ public class b {
 
     private static Object b(Context context, String str) {
         Object opt;
-        if (!q.t(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+        if (!p.t(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             com.baidu.android.pushservice.g.a.c("CommonParams", "write permission not granted");
             return null;
         }

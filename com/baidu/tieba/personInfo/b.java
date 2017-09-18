@@ -6,19 +6,19 @@ public class b {
     public int UJ;
     public int UT;
     public String Vp;
-    public String ejb;
-    public String fip;
-    public long fiq;
+    public String ejV;
+    public String fjj;
+    public long fjk;
     public long updateTime;
 
     public void a(BookInfo bookInfo) {
         if (bookInfo != null) {
             this.Vp = bookInfo.book_id;
-            this.ejb = bookInfo.title;
-            this.fip = bookInfo.cover;
+            this.ejV = bookInfo.title;
+            this.fjj = bookInfo.cover;
             this.updateTime = bookInfo.update_time.intValue();
             this.UT = bookInfo.book_type.intValue();
-            this.fiq = bookInfo.forum_id.longValue();
+            this.fjk = bookInfo.forum_id.longValue();
             this.UJ = bookInfo.total_chapter.intValue();
         }
     }

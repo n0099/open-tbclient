@@ -18,29 +18,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private b bYH;
+    private b bZz;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean bjS = true;
+    private boolean bjR = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_HTML_LOADED) { // from class: com.baidu.tieba.discover.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.bYH != null && a.this.bYH.OF() != null && a.this.bYH.OF().getUrl() != null) {
-                if (a.this.bYH.OF().getUrl().contains((String) customResponsedMessage.getData())) {
-                    a.this.bYH.ND();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.bZz != null && a.this.bZz.OH() != null && a.this.bZz.OH().getUrl() != null) {
+                if (a.this.bZz.OH().getUrl().contains((String) customResponsedMessage.getData())) {
+                    a.this.bZz.NE();
                 }
             }
         }
     };
-    private CustomMessageListener bYI = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
+    private CustomMessageListener bZA = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    a.this.bYH.abK();
+                    a.this.bZz.abV();
                 } else {
-                    a.this.bYH.abL();
+                    a.this.bZz.abW();
                 }
             }
         }
@@ -53,29 +53,29 @@ public class a extends BaseFragment {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.bYH = new b();
-        return this.bYH.a(layoutInflater, viewGroup);
+        this.bZz = new b();
+        return this.bZz.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.bYH.m(getPageContext());
+        this.bZz.m(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.bYI);
-        y.a(this.bYH.OF(), getUniqueId());
+        registerListener(this.bZA);
+        y.a(this.bZz.OH(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.bjS || StringUtils.isNull(this.bYH.OF().getUrl())) {
+        if (this.bjR || StringUtils.isNull(this.bZz.OH().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.bYH.loadUrl(il(this.mUrl));
+                this.bZz.loadUrl(il(this.mUrl));
             } else {
-                this.bYH.loadUrl(this.mUrl);
+                this.bZz.loadUrl(this.mUrl);
             }
-            this.bjS = false;
+            this.bjR = false;
         }
     }
 
@@ -109,8 +109,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.bYH != null) {
-            this.bYH.onDestroy();
+        if (this.bZz != null) {
+            this.bZz.onDestroy();
         }
     }
 
@@ -136,11 +136,11 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.bjS) {
+        if (!this.bjR) {
             if (i == 1) {
-                this.bYH.loadUrl(il(this.mUrl));
+                this.bZz.loadUrl(il(this.mUrl));
             } else {
-                this.bYH.loadUrl(this.mUrl);
+                this.bZz.loadUrl(this.mUrl);
             }
         }
     }

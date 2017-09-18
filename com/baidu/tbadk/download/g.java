@@ -17,18 +17,18 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private static g aAU;
-    private static DownloadData aAW;
-    private static List<DownloadData> aAX = new LinkedList();
-    private SparseArray<c> aAV = new SparseArray<>();
+    private static g aAR;
+    private static DownloadData aAT;
+    private static List<DownloadData> aAU = new LinkedList();
+    private SparseArray<c> aAS = new SparseArray<>();
 
     public static g CS() {
         synchronized (g.class) {
-            if (aAU == null) {
-                aAU = new g();
+            if (aAR == null) {
+                aAR = new g();
             }
         }
-        return aAU;
+        return aAR;
     }
 
     private g() {
@@ -40,7 +40,7 @@ public class g {
     }
 
     public void a(String str, String str2, String str3, int i, int i2, boolean z) {
-        if (this.aAV.get(i2) == null) {
+        if (this.aAS.get(i2) == null) {
             throw new RuntimeException("you need register downloadType first");
         }
         DownloadData downloadData = new DownloadData(str);
@@ -56,16 +56,16 @@ public class g {
 
     private void h(DownloadData downloadData) {
         if (downloadData != null) {
-            aAX.add(downloadData);
+            aAU.add(downloadData);
             CL();
         }
     }
 
     private void CL() {
-        if (aAW == null && !aAX.isEmpty()) {
-            aAW = aAX.get(0);
-            if (aAW != null) {
-                j(i(aAW));
+        if (aAT == null && !aAU.isEmpty()) {
+            aAT = aAU.get(0);
+            if (aAT != null) {
+                j(i(aAT));
             }
         }
     }
@@ -79,9 +79,9 @@ public class g {
     private String y(String str, int i) {
         c ez = ez(i);
         StringBuilder sb = new StringBuilder();
-        sb.append(ez.aAM).append("/").append(ez.aAN).append("/").append(str);
-        if (!StringUtils.isNull(ez.aAO)) {
-            sb.append(".").append(ez.aAO);
+        sb.append(ez.aAJ).append("/").append(ez.aAK).append("/").append(str);
+        if (!StringUtils.isNull(ez.aAL)) {
+            sb.append(".").append(ez.aAL);
         }
         return sb.toString();
     }
@@ -131,9 +131,9 @@ public class g {
             } else {
                 e.CN().a(downloadData, ez(downloadData.getType()).maxSize);
             }
-            aAW = null;
-            if (!aAX.isEmpty()) {
-                aAX.remove(0);
+            aAT = null;
+            if (!aAU.isEmpty()) {
+                aAU.remove(0);
                 CL();
             }
         }
@@ -253,22 +253,22 @@ public class g {
     }
 
     public void a(int i, c cVar) {
-        this.aAV.put(i, cVar);
+        this.aAS.put(i, cVar);
     }
 
     public c ez(int i) {
-        c cVar = this.aAV.get(i);
+        c cVar = this.aAS.get(i);
         if (cVar == null) {
-            return this.aAV.get(10);
+            return this.aAS.get(10);
         }
         return cVar;
     }
 
     private void CT() {
         c cVar = new c();
-        cVar.aAM = new File(k.uH());
-        cVar.aAN = "common";
-        cVar.aAO = "";
-        this.aAV.put(10, cVar);
+        cVar.aAJ = new File(k.uH());
+        cVar.aAK = "common";
+        cVar.aAL = "";
+        this.aAS.put(10, cVar);
     }
 }

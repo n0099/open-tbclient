@@ -25,8 +25,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int cid;
     private int ctime;
     private int dataSize;
-    private String gfI;
-    private String gfJ;
+    private String ggC;
+    private String ggD;
     private int isGood;
     private String kw;
     private String lastId;
@@ -45,7 +45,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private String stType;
     private int updateType;
     private int withGroup;
-    private String aod = "";
+    private String aob = "";
     private int mSortType = -1;
     private int mLoadType = 1;
 
@@ -57,7 +57,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.mSortType = i;
     }
 
-    public int OC() {
+    public int OE() {
         return this.mSortType;
     }
 
@@ -154,7 +154,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void setYuelaouLocate(String str) {
-        this.aod = str;
+        this.aob = str;
     }
 
     public void setLastId(String str) {
@@ -181,12 +181,12 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void rQ(String str) {
-        this.gfI = str;
+    public void rS(String str) {
+        this.ggC = str;
     }
 
     public void setObjSource(String str) {
-        this.gfJ = str;
+        this.ggD = str;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -215,13 +215,13 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.aod;
+        builder.yuelaou_locate = this.aob;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.bhI().bhL();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.bhT().bhW();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.gfI;
-        builder.obj_source = this.gfJ;
+        builder.obj_locate = this.ggC;
+        builder.obj_source = this.ggD;
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);

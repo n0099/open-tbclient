@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class e extends FrameLayout {
-    protected boolean aHo;
+    protected boolean aHl;
 
     public e(Context context) {
         super(context);
-        this.aHo = false;
+        this.aHl = false;
     }
 
     public e(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aHo = false;
+        this.aHl = false;
     }
 
     public e(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aHo = false;
+        this.aHl = false;
     }
 
     public void du(int i) {
@@ -77,25 +77,25 @@ public abstract class e extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.aHo = z;
+        this.aHl = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aHq;
-        public e aHs;
+        public int aHn;
+        public e aHp;
         public int uo;
         public View view;
-        public boolean aHp = true;
-        public int aHr = d.e.common_color_10225;
+        public boolean aHm = true;
+        public int aHo = d.e.common_color_10225;
 
         public void du(int i) {
-            if (this.aHq != 0) {
-                aj.j(this.view, this.aHq);
+            if (this.aHn != 0) {
+                aj.j(this.view, this.aHn);
             }
             if (this.view instanceof TextView) {
-                if (this.aHr != 0) {
-                    aj.c((TextView) this.view, this.aHr, 1);
+                if (this.aHo != 0) {
+                    aj.c((TextView) this.view, this.aHo, 1);
                 }
                 int b = b((TextView) this.view);
                 if (b > 0 && b < 10) {

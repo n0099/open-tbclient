@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b implements c {
-    private static b eBf;
+    private static b eBZ;
 
     private b() {
     }
 
-    public static synchronized b aOd() {
+    public static synchronized b aOo() {
         b bVar;
         synchronized (b.class) {
-            if (eBf == null) {
-                eBf = new b();
+            if (eBZ == null) {
+                eBZ = new b();
             }
-            bVar = eBf;
+            bVar = eBZ;
         }
         return bVar;
     }
@@ -83,7 +83,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void a(a.InterfaceC0044a interfaceC0044a) {
+    public void a(a.InterfaceC0043a interfaceC0043a) {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c

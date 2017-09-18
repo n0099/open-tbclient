@@ -22,7 +22,7 @@ import java.util.List;
 public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.h, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public m(Context context) {
-        super(context, com.baidu.tieba.homepage.personalize.data.h.ddo);
+        super(context, com.baidu.tieba.homepage.personalize.data.h.dek);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.h hVar, a aVar) {
         aVar.a(hVar);
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        u.XY().jv("c10988");
+        u.Yj().jx("c10988");
         return aVar.getView();
     }
 
@@ -59,83 +59,83 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes.dex */
     public class a extends j.a {
-        private int apS;
-        private View bxJ;
-        private TextView cYO;
-        private TextView dcH;
-        private TextView dcI;
-        private LinearLayout dcJ;
-        private LinearLayout dcK;
-        private com.baidu.tieba.homepage.personalize.data.h dcL;
-        private View.OnClickListener dcM;
-        private View.OnClickListener dcN;
-        private View.OnClickListener dcO;
+        private int apQ;
+        private TextView cZI;
+        private TextView ddD;
+        private TextView ddE;
+        private LinearLayout ddF;
+        private LinearLayout ddG;
+        private com.baidu.tieba.homepage.personalize.data.h ddH;
+        private View.OnClickListener ddI;
+        private View.OnClickListener ddJ;
+        private View.OnClickListener ddK;
+        private View ddw;
 
         public a(View view) {
             super(view);
-            this.apS = 3;
-            this.dcM = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.m.a.1
+            this.apQ = 3;
+            this.ddI = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.m.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     TiebaStatic.log("c10984");
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLOSE_NEW_USER_GUIDE));
                 }
             };
-            this.dcN = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.m.a.2
+            this.ddJ = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.m.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.dcL != null) {
-                        a.this.a(a.this.dcL.ddp, view2, 1);
+                    if (a.this.ddH != null) {
+                        a.this.a(a.this.ddH.del, view2, 1);
                     }
                 }
             };
-            this.dcO = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.m.a.3
+            this.ddK = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.m.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.dcL != null) {
-                        a.this.a(a.this.dcL.ddq, view2, 2);
+                    if (a.this.ddH != null) {
+                        a.this.a(a.this.ddH.dem, view2, 2);
                     }
                 }
             };
-            this.cYO = (TextView) view.findViewById(d.h.new_user_guide_tip);
-            this.bxJ = view.findViewById(d.h.new_user_guide_close);
-            this.dcH = (TextView) view.findViewById(d.h.new_user_guide_man);
-            this.dcI = (TextView) view.findViewById(d.h.new_user_guide_woman);
-            this.dcJ = (LinearLayout) view.findViewById(d.h.new_user_guide_sex_layout);
-            this.dcK = (LinearLayout) view.findViewById(d.h.new_user_guide_age_layout);
-            this.dcH.setOnClickListener(this.dcN);
-            this.dcI.setOnClickListener(this.dcN);
-            this.bxJ.setOnClickListener(this.dcM);
+            this.cZI = (TextView) view.findViewById(d.h.new_user_guide_tip);
+            this.ddw = view.findViewById(d.h.new_user_guide_close);
+            this.ddD = (TextView) view.findViewById(d.h.new_user_guide_man);
+            this.ddE = (TextView) view.findViewById(d.h.new_user_guide_woman);
+            this.ddF = (LinearLayout) view.findViewById(d.h.new_user_guide_sex_layout);
+            this.ddG = (LinearLayout) view.findViewById(d.h.new_user_guide_age_layout);
+            this.ddD.setOnClickListener(this.ddJ);
+            this.ddE.setOnClickListener(this.ddJ);
+            this.ddw.setOnClickListener(this.ddI);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.apS != i) {
+            if (this.apQ != i) {
                 aj.k(getView(), d.e.cp_bg_line_d);
-                aj.i(this.cYO, d.e.cp_cont_d);
-                aj.j(this.bxJ, d.g.icon_x_normal);
-                this.apS = i;
+                aj.i(this.cZI, d.e.cp_cont_d);
+                aj.j(this.ddw, d.g.icon_x_normal);
+                this.apQ = i;
             }
-            if (this.dcL != null && this.dcL.ddp.size() == 2) {
-                if (this.dcL.ddp.get(0).isSelect) {
-                    aj.i(this.dcH, d.e.cp_cont_g);
-                    aj.j(this.dcH, d.g.shape_semi_circle_left_selected);
+            if (this.ddH != null && this.ddH.del.size() == 2) {
+                if (this.ddH.del.get(0).isSelect) {
+                    aj.i(this.ddD, d.e.cp_cont_g);
+                    aj.j(this.ddD, d.g.shape_semi_circle_left_selected);
                 } else {
-                    aj.i(this.dcH, d.e.cp_cont_f);
-                    aj.j(this.dcH, d.g.shape_semi_circle_left_line);
+                    aj.i(this.ddD, d.e.cp_cont_f);
+                    aj.j(this.ddD, d.g.shape_semi_circle_left_line);
                 }
-                if (this.dcL.ddp.get(1).isSelect) {
-                    aj.i(this.dcI, d.e.cp_cont_g);
-                    aj.j(this.dcI, d.g.shape_semi_circle_right_selected);
+                if (this.ddH.del.get(1).isSelect) {
+                    aj.i(this.ddE, d.e.cp_cont_g);
+                    aj.j(this.ddE, d.g.shape_semi_circle_right_selected);
                 } else {
-                    aj.i(this.dcI, d.e.cp_cont_f);
-                    aj.j(this.dcI, d.g.shape_semi_circle_right_line);
+                    aj.i(this.ddE, d.e.cp_cont_f);
+                    aj.j(this.ddE, d.g.shape_semi_circle_right_line);
                 }
             }
-            for (int i2 = 0; i2 < this.dcK.getChildCount(); i2++) {
-                View childAt = this.dcK.getChildAt(i2);
+            for (int i2 = 0; i2 < this.ddG.getChildCount(); i2++) {
+                View childAt = this.ddG.getChildAt(i2);
                 if (childAt instanceof TextView) {
-                    com.baidu.tieba.homepage.personalize.data.g lN = lN(((TextView) childAt).getText().toString());
-                    if (lN != null && lN.isSelect) {
+                    com.baidu.tieba.homepage.personalize.data.g lP = lP(((TextView) childAt).getText().toString());
+                    if (lP != null && lP.isSelect) {
                         aj.i(childAt, d.e.cp_cont_g);
                         aj.j(childAt, d.g.shape_semi_circle_all_selected);
                     } else {
@@ -146,11 +146,11 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             }
         }
 
-        private com.baidu.tieba.homepage.personalize.data.g lN(String str) {
-            if (StringUtils.isNull(str) || this.dcL == null || this.dcL.ddq == null) {
+        private com.baidu.tieba.homepage.personalize.data.g lP(String str) {
+            if (StringUtils.isNull(str) || this.ddH == null || this.ddH.dem == null) {
                 return null;
             }
-            for (com.baidu.tieba.homepage.personalize.data.g gVar : this.dcL.ddq) {
+            for (com.baidu.tieba.homepage.personalize.data.g gVar : this.ddH.dem) {
                 if (gVar != null && str.equals(gVar.tagName)) {
                     return gVar;
                 }
@@ -160,21 +160,21 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
         protected void a(com.baidu.tieba.homepage.personalize.data.h hVar) {
             if (hVar != null) {
-                this.dcL = hVar;
-                if (hVar.ddp.size() == 2) {
-                    this.dcH.setText(hVar.ddp.get(0).tagName);
-                    this.dcI.setText(hVar.ddp.get(1).tagName);
+                this.ddH = hVar;
+                if (hVar.del.size() == 2) {
+                    this.ddD.setText(hVar.del.get(0).tagName);
+                    this.ddE.setText(hVar.del.get(1).tagName);
                 } else {
-                    this.dcJ.setVisibility(8);
+                    this.ddF.setVisibility(8);
                 }
-                this.dcK.removeAllViews();
-                if (hVar.ddq.size() > 0) {
-                    for (int i = 0; i < hVar.ddq.size(); i++) {
-                        View lO = lO(hVar.ddq.get(i).tagName);
-                        if (lO != null) {
-                            this.dcK.addView(lO);
-                            if (i != hVar.ddq.size() - 1) {
-                                this.dcK.addView(aqU());
+                this.ddG.removeAllViews();
+                if (hVar.dem.size() > 0) {
+                    for (int i = 0; i < hVar.dem.size(); i++) {
+                        View lQ = lQ(hVar.dem.get(i).tagName);
+                        if (lQ != null) {
+                            this.ddG.addView(lQ);
+                            if (i != hVar.dem.size() - 1) {
+                                this.ddG.addView(arf());
                             }
                         }
                     }
@@ -208,7 +208,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             }
         }
 
-        private View lO(String str) {
+        private View lQ(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -221,11 +221,11 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             textView.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.fontsize24));
             textView.setText(str);
             textView.setLayoutParams(new LinearLayout.LayoutParams(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds110), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds60)));
-            textView.setOnClickListener(this.dcO);
+            textView.setOnClickListener(this.ddK);
             return textView;
         }
 
-        private View aqU() {
+        private View arf() {
             View view = new View(getView().getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;

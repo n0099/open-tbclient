@@ -9,7 +9,7 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.a.a;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.p;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class PushService extends Service {
@@ -22,7 +22,7 @@ public class PushService extends Service {
         public void run() {
             PushService.this.stopSelf();
             g.b();
-            if ((PushService.this.f > 0) && (PushService.this.getPackageName().equals(q.u(PushService.this.getApplicationContext())) ? false : true)) {
+            if ((PushService.this.f > 0) && (PushService.this.getPackageName().equals(p.u(PushService.this.getApplicationContext())) ? false : true)) {
                 PushService.this.onDestroy();
             }
         }
@@ -167,7 +167,7 @@ public class PushService extends Service {
             return;
         }
         this.b.removeCallbacks(this.e);
-        this.b.postDelayed(this.e, 1000L);
+        this.b.postDelayed(this.e, 3000L);
     }
 
     @Override // android.app.Service
@@ -184,10 +184,10 @@ public class PushService extends Service {
     public void onCreate() {
         super.onCreate();
         com.baidu.android.pushservice.g.b.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
-        q.b("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
+        p.b("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
         this.d = g.a(this).a();
         if (!this.d) {
-            a(true, true);
+            a(true, false);
             return;
         }
         try {
@@ -206,7 +206,7 @@ public class PushService extends Service {
         super.onDestroy();
         com.baidu.android.pushservice.d.c.b(getApplicationContext(), (String) null);
         com.baidu.android.pushservice.g.b.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
-        q.b("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
+        p.b("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
         try {
             unregisterReceiver(this.c);
         } catch (Exception e) {
@@ -227,7 +227,7 @@ public class PushService extends Service {
             try {
                 String uri = intent.toUri(0);
                 com.baidu.android.pushservice.g.a.c("PushService", "-- onStartCommand -- " + uri);
-                q.b("PushService onStartCommand from " + getPackageName() + " Intent " + uri + " at Time " + System.currentTimeMillis(), getApplicationContext());
+                p.b("PushService onStartCommand from " + getPackageName() + " Intent " + uri + " at Time " + System.currentTimeMillis(), getApplicationContext());
             } catch (Exception e) {
                 com.baidu.android.pushservice.g.a.a("PushService", e);
             }
@@ -244,11 +244,11 @@ public class PushService extends Service {
             if (this.d) {
                 return 1;
             }
-            a(true, true);
+            a(true, false);
             return 2;
         } catch (Exception e2) {
             com.baidu.android.pushservice.g.a.a("PushService", e2);
-            a(true, true);
+            a(true, false);
             return 2;
         }
     }

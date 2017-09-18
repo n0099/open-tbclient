@@ -39,7 +39,11 @@ public abstract class l {
                 HashMap<String, String> hashMap = new HashMap<>();
                 com.baidu.android.pushservice.e.b.b(hashMap);
                 a(a, hashMap);
-                for (int i = 0; i < 3; i++) {
+                int i = 0;
+                while (true) {
+                    if (i >= 3) {
+                        break;
+                    }
                     try {
                         com.baidu.android.pushservice.g.a.c("Statistics-BaseSender", "a request send, url=" + this.b);
                         com.baidu.android.pushservice.f.a a2 = com.baidu.android.pushservice.f.b.a(this.b, "POST", hashMap);
@@ -49,16 +53,18 @@ public abstract class l {
                         com.baidu.android.pushservice.g.a.c("Statistics-BaseSender", "return response, code= " + b + ", result=" + a3);
                         if (b == 200) {
                             b(a3);
+                            break;
                         } else if (b == 201) {
                             c(a3);
+                            break;
                         } else if (b == 403) {
                             d(a3);
-                        }
-                        if (b == 200 || b == 201 || b == 403) {
                             break;
+                        } else {
+                            j += i * 300;
+                            Thread.sleep(j);
+                            i++;
                         }
-                        j += i * 300;
-                        Thread.sleep(j);
                     } catch (Exception e) {
                         inputStream = inputStream2;
                         exc = e;
@@ -110,7 +116,7 @@ public abstract class l {
                 com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("PushService-stats-sender", (short) 90) { // from class: com.baidu.android.pushservice.h.l.1
                     @Override // com.baidu.android.pushservice.i.c
                     public void a() {
-                        if (!com.baidu.android.pushservice.j.l.e(l.this.a)) {
+                        if (!com.baidu.android.pushservice.j.k.e(l.this.a)) {
                             com.baidu.android.pushservice.g.a.d("Statistics-BaseSender", "Network is not reachable!");
                             return;
                         }

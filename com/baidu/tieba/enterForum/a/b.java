@@ -10,27 +10,27 @@ import com.baidu.tieba.enterForum.c.e;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends d<g, com.baidu.tbadk.mvc.d.b, e> implements c {
-    private int cby;
+    private int ccq;
 
     public b(TbPageContext<?> tbPageContext, Class<e> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.cby = -1;
+        this.ccq = -1;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void ai(int i, int i2) {
+    public void am(int i, int i2) {
         List<g> dataList = getDataList();
         com.baidu.tieba.enterForum.model.b.c(dataList, i, i2);
         D(dataList);
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void im(int i) {
-        this.cby = i;
+    public void io(int i) {
+        this.ccq = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void Zb() {
+    public void Zm() {
         notifyDataSetChanged();
     }
 
@@ -49,7 +49,7 @@ public class b extends d<g, com.baidu.tbadk.mvc.d.b, e> implements c {
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2 = super.getView(i, view, viewGroup);
         if (view2 != null) {
-            if (i == this.cby) {
+            if (i == this.ccq) {
                 view2.setVisibility(4);
             } else {
                 view2.setVisibility(0);

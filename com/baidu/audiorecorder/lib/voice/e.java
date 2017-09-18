@@ -41,7 +41,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
 
     @Override // com.baidu.tieba.tbadkCore.voice.a
     public boolean a(com.baidu.adp.lib.voice.f fVar, int i) {
-        if (fVar != null && !ab.aO(null)) {
+        if (fVar != null && !ab.aP(null)) {
             this.Jd = fVar;
             if (!k.dH()) {
                 String uE = k.uE();

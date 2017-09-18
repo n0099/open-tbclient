@@ -8,6 +8,7 @@ import tbclient.AlaLiveInfo;
 public class c {
     public AlaUserInfoData Uu;
     public AlaShareInfoData Uv;
+    public String appId;
     public int audience_count;
     public String cover;
     public String description;
@@ -50,6 +51,7 @@ public class c {
                 this.screen_direction = jSONObject.optInt("screen_direction");
                 this.label_name = jSONObject.optString("label_name");
                 this.distance = jSONObject.optDouble("distance");
+                this.appId = jSONObject.optString("third_app_id");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -81,6 +83,7 @@ public class c {
                 this.screen_direction = alaLiveInfo.screen_direction.intValue();
                 this.label_name = alaLiveInfo.label_name;
                 this.distance = alaLiveInfo.distance.longValue();
+                this.appId = alaLiveInfo.third_app_id;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

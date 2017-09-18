@@ -4,8 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.h.p;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.p;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.InetAddress;
@@ -31,7 +30,7 @@ public final class h {
     private static boolean p = false;
 
     public static int a(Context context) {
-        return q.E(context) ? b : a;
+        return p.E(context) ? b : a;
     }
 
     public static String a() {
@@ -131,7 +130,7 @@ public final class h {
         }
         Properties properties = new Properties();
         try {
-            if (q.t(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+            if (p.t(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                 fileInputStream = new FileInputStream(file);
                 try {
                     try {
@@ -149,7 +148,7 @@ public final class h {
                 }
             } else {
                 properties.put("http_server", "http://10.95.41.15:8080");
-                if (q.E(context)) {
+                if (p.E(context)) {
                     properties.put("socket_server_port_v3", "8006");
                 } else {
                     properties.put("socket_server_port", "8005");
@@ -168,7 +167,7 @@ public final class h {
             if (!TextUtils.isEmpty(property2)) {
                 i = property2;
             }
-            if (q.E(context)) {
+            if (p.E(context)) {
                 String property3 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property3)) {
                     b = Integer.parseInt(property3);
@@ -232,7 +231,7 @@ public final class h {
             }
         } catch (Exception e2) {
             com.baidu.android.pushservice.g.a.e("PushUrl", "  --- write bck Exception " + e2);
-            p.a(context, e2);
+            com.baidu.android.pushservice.h.p.a(context, e2);
         }
         return z;
     }

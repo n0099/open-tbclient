@@ -16,25 +16,25 @@ import com.baidu.tieba.d;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class e {
-    private a auN;
-    private b auO;
-    private String auP = TbadkCoreApplication.getInst().getContext().getString(d.l.share_tail);
-    private String auQ = TbadkCoreApplication.getInst().getContext().getString(d.l.weibo_share_tail) + this.auP;
+    private a auK;
+    private b auL;
+    private String auM = TbadkCoreApplication.getInst().getContext().getString(d.l.share_tail);
+    private String auN = TbadkCoreApplication.getInst().getContext().getString(d.l.weibo_share_tail) + this.auM;
     private final Context mContext;
 
     public e(Context context, a aVar) {
         c cVar;
-        this.auN = null;
-        this.auO = null;
+        this.auK = null;
+        this.auL = null;
         this.mContext = context;
-        this.auN = aVar;
+        this.auK = aVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG, c.class);
         if (runTask.getData() != null && (cVar = (c) runTask.getData()) != null) {
-            this.auO = cVar.a(this.mContext, this.auN);
+            this.auL = cVar.a(this.mContext, this.auK);
         }
     }
 
-    public static boolean aV(Context context) {
+    public static boolean aW(Context context) {
         return AY();
     }
 
@@ -43,56 +43,56 @@ public class e {
     }
 
     public void b(d dVar) {
-        if (this.auO != null && dVar != null) {
-            dVar.content = a(dVar.content, 80, 20, this.auP);
-            this.auO.a(a(dVar, "weixin"), 3, false);
+        if (this.auL != null && dVar != null) {
+            dVar.content = a(dVar.content, 80, 20, this.auM);
+            this.auL.a(a(dVar, "weixin"), 3, false);
         }
     }
 
     public void c(d dVar) {
-        if (this.auO != null && dVar != null) {
-            dVar.content = a(dVar.content, 80, 20, this.auP);
-            if (StringUtils.isNull(dVar.auG)) {
+        if (this.auL != null && dVar != null) {
+            dVar.content = a(dVar.content, 80, 20, this.auM);
+            if (StringUtils.isNull(dVar.auD)) {
                 dVar.title = dVar.content;
             } else {
-                dVar.title = dVar.auG;
+                dVar.title = dVar.auD;
             }
-            this.auO.a(a(dVar, "weixin_timeline"), 2, false);
+            this.auL.a(a(dVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void d(d dVar) {
-        if (this.auO != null && dVar != null) {
-            dVar.content = a(dVar.content, 80, 32, this.auP);
-            this.auO.a(a(dVar, "qqfriend"), 8, true);
+        if (this.auL != null && dVar != null) {
+            dVar.content = a(dVar.content, 80, 32, this.auM);
+            this.auL.a(a(dVar, "qqfriend"), 8, true);
         }
     }
 
     public void e(d dVar) {
-        if (this.auO != null) {
-            dVar.content = a(dVar.content, 80, 32, this.auP);
-            this.auO.a(a(dVar, "qzone"), 4, true);
+        if (this.auL != null) {
+            dVar.content = a(dVar.content, 80, 32, this.auM);
+            this.auL.a(a(dVar, "qzone"), 4, true);
         }
     }
 
     public void f(d dVar) {
-        if (this.auO != null) {
-            dVar.content = a(dVar.content, 140, 20, this.auP);
-            this.auO.a(a(dVar, "tencent_weibo"), 5, true);
+        if (this.auL != null) {
+            dVar.content = a(dVar.content, 140, 20, this.auM);
+            this.auL.a(a(dVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void g(d dVar) {
-        if (this.auO != null) {
-            dVar.content = a(dVar.content, 140, 20, this.auQ);
-            this.auO.a(a(dVar, "sina_weibo"), 6, true);
+        if (this.auL != null) {
+            dVar.content = a(dVar.content, 140, 20, this.auN);
+            this.auL.a(a(dVar, "sina_weibo"), 6, true);
         }
     }
 
     public void h(d dVar) {
-        if (this.auO != null) {
-            dVar.content = a(dVar.content, 140, 20, this.auP);
-            this.auO.a(a(dVar, "renren"), 7, true);
+        if (this.auL != null) {
+            dVar.content = a(dVar.content, 140, 20, this.auM);
+            this.auL.a(a(dVar, "renren"), 7, true);
         }
     }
 
@@ -110,23 +110,23 @@ public class e {
     private d a(d dVar, String str) {
         String str2;
         String aS;
-        if ((dVar.auC == null || dVar.auC.equals("")) && dVar.AX() == null) {
+        if ((dVar.auz == null || dVar.auz.equals("")) && dVar.AX() == null) {
             String str3 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             if (str.startsWith("weixin")) {
                 str3 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             }
-            dVar.auC = Uri.parse(str3);
+            dVar.auz = Uri.parse(str3);
         }
-        if (dVar.auC != null && !dVar.auC.equals("")) {
-            String uri = dVar.auC.toString();
+        if (dVar.auz != null && !dVar.auz.equals("")) {
+            String uri = dVar.auz.toString();
             if (!fd(uri)) {
-                dVar.auC = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
+                dVar.auz = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
-                dVar.auC = Uri.parse(uri);
+                dVar.auz = Uri.parse(uri);
                 ak(uri, "sfc=" + str);
             }
         }
-        String ak = ak(ak(ak(am.isEmpty(dVar.linkUrl) ? TbDomainConfig.DOMAIN_HTTPS_TIEBA : dVar.linkUrl, "sfc=" + str), "client_type=2"), "client_version=" + TbConfig.getVersion());
+        String ak = ak(ak(ak(ak(am.isEmpty(dVar.linkUrl) ? TbDomainConfig.DOMAIN_HTTPS_TIEBA : dVar.linkUrl, "sfc=" + str), "client_type=2"), "client_version=" + TbConfig.getVersion()), "st=" + (System.currentTimeMillis() / 1000));
         if (dVar.Xe != null) {
             if (com.baidu.adp.lib.b.d.eW().af("android_url_need_cuid") == 1) {
                 aS = r.aS(dVar.Xe + TbadkCoreApplication.getInst().getCuid() + (System.currentTimeMillis() / 1000) + "6&!N_j9#");

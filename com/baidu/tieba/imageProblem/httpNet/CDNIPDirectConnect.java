@@ -34,18 +34,18 @@ import java.util.ArrayList;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes2.dex */
 public class CDNIPDirectConnect extends e {
-    private static volatile CDNIPDirectConnect dPB;
-    private TbCdnMobileGetIpModel dPz;
-    private long dPq = 0;
-    private boolean dPr = false;
-    private final float dPs = 100.0f;
-    private CdnCacheItem dPt = null;
-    private IPListReceiver dPu = null;
-    private final long dPv = 3600000;
-    private final long dPw = TbConfig.APP_OVERDUR_DRAFT_BOX;
-    private final long dPx = 10000;
-    private final int dPy = 1003;
-    public a dPA = null;
+    private static volatile CDNIPDirectConnect dQv;
+    private TbCdnMobileGetIpModel dQt;
+    private long dQk = 0;
+    private boolean dQl = false;
+    private final float dQm = 100.0f;
+    private CdnCacheItem dQn = null;
+    private IPListReceiver dQo = null;
+    private final long dQp = 3600000;
+    private final long dQq = TbConfig.APP_OVERDUR_DRAFT_BOX;
+    private final long dQr = 10000;
+    private final int dQs = 1003;
+    public a dQu = null;
     @SuppressLint({"HandlerLeak"})
     private final Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect.1
         @Override // android.os.Handler
@@ -58,26 +58,26 @@ public class CDNIPDirectConnect extends e {
     };
 
     public static CDNIPDirectConnect getInstance() {
-        if (dPB == null) {
+        if (dQv == null) {
             synchronized (CDNIPDirectConnect.class) {
-                if (dPB == null) {
-                    dPB = new CDNIPDirectConnect();
+                if (dQv == null) {
+                    dQv = new CDNIPDirectConnect();
                 }
             }
         }
-        return dPB;
+        return dQv;
     }
 
     @Override // com.baidu.tbadk.core.util.a.e
     public void init() {
         try {
-            this.dPA = new a();
-            this.dPz = new TbCdnMobileGetIpModel();
-            aCF();
-            this.dPu = new IPListReceiver();
+            this.dQu = new a();
+            this.dQt = new TbCdnMobileGetIpModel();
+            aCQ();
+            this.dQo = new IPListReceiver();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbCDNTachometerService.TB_CDNIP_BROADCASE_ACTION);
-            TbadkCoreApplication.getInst().getApp().registerReceiver(this.dPu, intentFilter);
+            TbadkCoreApplication.getInst().getApp().registerReceiver(this.dQo, intentFilter);
             if (TbadkCoreApplication.getInst().isMainProcess(true) && k.hy()) {
                 try {
                     TbadkCoreApplication.getInst().getApp().registerReceiver(new CDNNetworkChangeReceiver(), new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
@@ -86,41 +86,41 @@ public class CDNIPDirectConnect extends e {
                 }
             }
             this.handler.sendEmptyMessageDelayed(1003, 10000L);
-            this.aiq = true;
+            this.aip = true;
         } catch (Exception e2) {
             BdLog.e(e2);
         }
     }
 
-    private void aCF() {
-        CdnCacheItem aCG = aCG();
+    private void aCQ() {
+        CdnCacheItem aCR = aCR();
         long currentTimeMillis = System.currentTimeMillis();
-        if (aCG != null && aCG.firstUseIpTime > 0 && currentTimeMillis - aCG.firstUseIpTime < TbConfig.APP_OVERDUR_DRAFT_BOX) {
-            this.dPt = aCG;
+        if (aCR != null && aCR.firstUseIpTime > 0 && currentTimeMillis - aCR.firstUseIpTime < TbConfig.APP_OVERDUR_DRAFT_BOX) {
+            this.dQn = aCR;
         }
-        if (this.dPt == null) {
-            this.dPt = new CdnCacheItem();
-            this.dPt.firstUseIpTime = currentTimeMillis;
-            this.dPt.identifier = getNetIdentifier();
+        if (this.dQn == null) {
+            this.dQn = new CdnCacheItem();
+            this.dQn.firstUseIpTime = currentTimeMillis;
+            this.dQn.identifier = getNetIdentifier();
         }
-        if (0 == this.dPt.firstUseIpTime) {
-            this.dPt.firstUseIpTime = currentTimeMillis;
+        if (0 == this.dQn.firstUseIpTime) {
+            this.dQn.firstUseIpTime = currentTimeMillis;
         }
     }
 
     public void normalUserStartTachometerCdnList() {
         long currentTimeMillis = System.currentTimeMillis();
         String netIdentifier = getNetIdentifier();
-        boolean z = (this.dPt.identifier == null || netIdentifier == null || this.dPt.identifier.equals(netIdentifier)) ? false : true;
+        boolean z = (this.dQn.identifier == null || netIdentifier == null || this.dQn.identifier.equals(netIdentifier)) ? false : true;
         if (i.hj()) {
-            if (this.dPt.lastTachometerTime == 0 || z || (this.dPt.getIsUsedIp() && currentTimeMillis - this.dPt.lastTachometerTime > 3600000)) {
-                this.dPt.lastTachometerTime = currentTimeMillis;
-                this.dPt.identifier = netIdentifier;
+            if (this.dQn.lastTachometerTime == 0 || z || (this.dQn.getIsUsedIp() && currentTimeMillis - this.dQn.lastTachometerTime > 3600000)) {
+                this.dQn.lastTachometerTime = currentTimeMillis;
+                this.dQn.identifier = netIdentifier;
                 TbCDNTachometerService.startTachometerService(TbadkCoreApplication.getInst().getApp(), true, false);
             }
-        } else if (this.dPt.mobileLastTachometerTime == 0 || z || (this.dPt.mobileIsUsedIp() && currentTimeMillis - this.dPt.mobileLastTachometerTime > 3600000)) {
-            this.dPt.identifier = netIdentifier;
-            aCE();
+        } else if (this.dQn.mobileLastTachometerTime == 0 || z || (this.dQn.mobileIsUsedIp() && currentTimeMillis - this.dQn.mobileLastTachometerTime > 3600000)) {
+            this.dQn.identifier = netIdentifier;
+            aCP();
         }
     }
 
@@ -135,8 +135,8 @@ public class CDNIPDirectConnect extends e {
             if (intent != null && intent.getAction().equals(TbCDNTachometerService.TB_CDNIP_BROADCASE_ACTION)) {
                 ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra(TbCDNTachometerService.TB_CDNIP_BROADCASE_KEY);
                 if (intent.getBooleanExtra(TbCDNTachometerService.TB_CDNIP_BROADCASE_ISMOBILE, false)) {
-                    CDNIPDirectConnect.this.dPt.setMobileIpList(stringArrayListExtra);
-                    CDNIPDirectConnect.this.b(CDNIPDirectConnect.this.dPt);
+                    CDNIPDirectConnect.this.dQn.setMobileIpList(stringArrayListExtra);
+                    CDNIPDirectConnect.this.b(CDNIPDirectConnect.this.dQn);
                     return;
                 }
                 boolean booleanExtra = intent.getBooleanExtra(TbCDNTachometerService.TB_CDNIP_BROADCASE_NEED_USEIP, false);
@@ -145,11 +145,11 @@ public class CDNIPDirectConnect extends e {
                 if ((1 == intExtra || 2 == intExtra) && size > 0) {
                     z = true;
                 } else if ((1 == intExtra || 2 == intExtra) && size == 0) {
-                    CDNIPDirectConnect.this.dPr = true;
+                    CDNIPDirectConnect.this.dQl = true;
                 }
-                CDNIPDirectConnect.this.dPt.setIpList(stringArrayListExtra, booleanExtra, z);
+                CDNIPDirectConnect.this.dQn.setIpList(stringArrayListExtra, booleanExtra, z);
                 if (size > 0) {
-                    CDNIPDirectConnect.this.b(CDNIPDirectConnect.this.dPt);
+                    CDNIPDirectConnect.this.b(CDNIPDirectConnect.this.dQn);
                 }
             }
         }
@@ -180,10 +180,10 @@ public class CDNIPDirectConnect extends e {
 
     private HttpGet ag(String str, int i) {
         String ipString;
-        if (!this.dPt.getIsUsedIp() || (ipString = this.dPt.getIpString(i)) == null) {
+        if (!this.dQn.getIsUsedIp() || (ipString = this.dQn.getIpString(i)) == null) {
             return new HttpGet(str);
         }
-        if (System.currentTimeMillis() - this.dPt.lastTachometerTime > 3600000) {
+        if (System.currentTimeMillis() - this.dQn.lastTachometerTime > 3600000) {
             regetCdnIpList();
         }
         return bw(str, ipString);
@@ -191,11 +191,11 @@ public class CDNIPDirectConnect extends e {
 
     private HttpGet ah(String str, int i) {
         String mobileCdnIp;
-        if (!this.dPA.RG || (mobileCdnIp = this.dPt.getMobileCdnIp(i)) == null) {
+        if (!this.dQu.RG || (mobileCdnIp = this.dQn.getMobileCdnIp(i)) == null) {
             return new HttpGet(str);
         }
-        if (System.currentTimeMillis() - this.dPt.mobileLastTachometerTime > 3600000) {
-            aCE();
+        if (System.currentTimeMillis() - this.dQn.mobileLastTachometerTime > 3600000) {
+            aCP();
         }
         return bw(str, mobileCdnIp);
     }
@@ -220,19 +220,19 @@ public class CDNIPDirectConnect extends e {
 
     @Override // com.baidu.tbadk.core.util.a.e
     public String getAllIPListCanUsed() {
-        return this.dPt.getAllIpFromItem();
+        return this.dQn.getAllIpFromItem();
     }
 
     public void regetCdnIpList() {
-        this.dPq = System.currentTimeMillis();
-        this.dPt.lastTachometerTime = this.dPq;
+        this.dQk = System.currentTimeMillis();
+        this.dQn.lastTachometerTime = this.dQk;
         TbCDNTachometerService.startTachometerService(TbadkCoreApplication.getInst().getApp(), false, false);
     }
 
-    private void aCE() {
-        if (this.dPA.RG) {
-            this.dPt.mobileLastTachometerTime = System.currentTimeMillis();
-            this.dPz.startGetMobileIpList();
+    private void aCP() {
+        if (this.dQu.RG) {
+            this.dQn.mobileLastTachometerTime = System.currentTimeMillis();
+            this.dQt.startGetMobileIpList();
         }
     }
 
@@ -259,48 +259,48 @@ public class CDNIPDirectConnect extends e {
             }
             if (z3) {
                 if (str2 != null && str2.length() > 0) {
-                    if (this.dPt.setIPRank(i, 100.0f, str2) >= 100.0f) {
+                    if (this.dQn.setIPRank(i, 100.0f, str2) >= 100.0f) {
                         regetCdnIpList();
-                        b(this.dPt);
+                        b(this.dQn);
                     }
-                } else if (this.dPt.setCdnDomainRank(i, 100.0f) >= 100.0f) {
+                } else if (this.dQn.setCdnDomainRank(i, 100.0f) >= 100.0f) {
                     regetCdnIpList();
-                    b(this.dPt);
+                    b(this.dQn);
                 }
             } else if (str2 != null && str2.length() > 0) {
-                if (this.dPt.setMoblieIPRank(i, 100.0f, str2) >= 100.0f) {
-                    aCE();
-                    b(this.dPt);
+                if (this.dQn.setMoblieIPRank(i, 100.0f, str2) >= 100.0f) {
+                    aCP();
+                    b(this.dQn);
                 }
-            } else if (this.dPt.setMoblieIPRank(i, 100.0f, null) >= 100.0f) {
-                aCE();
-                b(this.dPt);
+            } else if (this.dQn.setMoblieIPRank(i, 100.0f, null) >= 100.0f) {
+                aCP();
+                b(this.dQn);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.util.a.e
     public boolean isShouldCDNFallBack() {
-        return this.dPr;
+        return this.dQl;
     }
 
     @Override // com.baidu.tbadk.core.util.a.e
     public a getCDNImageTimeData() {
-        return this.dPA;
+        return this.dQu;
     }
 
     @Override // com.baidu.tbadk.core.util.a.e
     public void setCDNImageTimeData(a aVar) {
-        this.dPA = aVar;
+        this.dQu = aVar;
     }
 
     @Override // com.baidu.tbadk.core.util.a.e
     public String getCachedCdnIp(int i) {
         if (i.hj()) {
-            return this.dPt.getIpString(i);
+            return this.dQn.getIpString(i);
         }
-        if (this.dPA.RG) {
-            return this.dPt.getMobileCdnIp(i);
+        if (this.dQu.RG) {
+            return this.dQn.getMobileCdnIp(i);
         }
         return null;
     }
@@ -341,7 +341,7 @@ public class CDNIPDirectConnect extends e {
         return null;
     }
 
-    private CdnCacheItem aCG() {
+    private CdnCacheItem aCR() {
         String string = b.getInstance().getString("cdn_iplist_cache_key_three", "");
         if (string == null || string.length() == 0) {
             return null;
@@ -385,7 +385,7 @@ public class CDNIPDirectConnect extends e {
         } else {
             try {
                 Context context = TbadkCoreApplication.getInst().getContext();
-                if (ab.aM(context)) {
+                if (ab.aN(context)) {
                     return ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
                 }
             } catch (Exception e3) {
@@ -397,12 +397,12 @@ public class CDNIPDirectConnect extends e {
 
     @Override // com.baidu.tbadk.core.util.a.e
     public boolean hasImageProblem() {
-        return (this.dPt != null ? this.dPt.hasImageProblem() : false) || this.dPr;
+        return (this.dQn != null ? this.dQn.hasImageProblem() : false) || this.dQl;
     }
 
     @Override // com.baidu.tbadk.core.util.a.e
     public void setIpDisableTime(int i) {
-        this.dPt.setIpDisableTime(i);
+        this.dQn.setIpDisableTime(i);
     }
 
     /* loaded from: classes2.dex */

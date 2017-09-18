@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 public class q {
-    private View aMw;
-    private int aMx;
-    private boolean aMy;
+    private View aMt;
+    private int aMu;
+    private boolean aMv;
     private final Handler mHandler;
 
     public void Hl() {
@@ -29,41 +29,41 @@ public class q {
     }
 
     public void cf(boolean z) {
-        if (this.aMw != null) {
-            if (z || this.aMw.getVisibility() != 8) {
+        if (this.aMt != null) {
+            if (z || this.aMt.getVisibility() != 8) {
                 Hm();
             }
         }
     }
 
     public void cg(boolean z) {
-        if (this.aMw != null) {
-            if (z || this.aMw.getVisibility() != 0) {
+        if (this.aMt != null) {
+            if (z || this.aMt.getVisibility() != 0) {
                 Hl();
             }
         }
     }
 
     public void a(AbsListView absListView, int i, int i2, int i3, int i4) {
-        if (this.aMw != null) {
-            if (i != 0 && i2 > i && this.aMw.getVisibility() != 8) {
+        if (this.aMt != null) {
+            if (i != 0 && i2 > i && this.aMt.getVisibility() != 8) {
                 cf(false);
-            } else if ((i == 0 || i2 < i) && this.aMw.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.aMt.getVisibility() != 0) {
                 cg(false);
             }
-            this.aMx = i;
+            this.aMu = i;
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (absListView != null && i == 0) {
             int firstVisiblePosition = absListView.getFirstVisiblePosition();
-            if (firstVisiblePosition > this.aMx) {
+            if (firstVisiblePosition > this.aMu) {
                 cf(true);
-            } else if (firstVisiblePosition < this.aMx) {
+            } else if (firstVisiblePosition < this.aMu) {
                 cg(true);
-            } else if (firstVisiblePosition == this.aMx) {
-                if (firstVisiblePosition == 0 || !this.aMy) {
+            } else if (firstVisiblePosition == this.aMu) {
+                if (firstVisiblePosition == 0 || !this.aMv) {
                     cg(true);
                 } else {
                     cf(true);

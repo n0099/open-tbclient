@@ -5,27 +5,27 @@ import com.baidu.adp.widget.ListView.f;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b implements f {
-    public static final BdUniqueId feA = BdUniqueId.gen();
-    public boolean cPZ;
-    public String feB;
-    public String feC;
-    public String feD;
-    public String feE;
-    public int feF;
-    public List<com.baidu.tieba.personInfo.b> feG;
+    public static final BdUniqueId fft = BdUniqueId.gen();
+    public boolean cQT;
+    public String ffu;
+    public String ffv;
+    public String ffw;
+    public String ffx;
+    public int ffy;
+    public List<com.baidu.tieba.personInfo.b> ffz;
 
     public b(boolean z, com.baidu.tieba.personInfo.a aVar) {
-        this.cPZ = z;
-        this.feC = aVar.icon;
-        this.feB = aVar.title;
-        this.feD = aVar.booktown;
-        this.feE = aVar.tip;
-        this.feG = aVar.fio;
-        this.feF = aVar.fin;
+        this.cQT = z;
+        this.ffv = aVar.icon;
+        this.ffu = aVar.title;
+        this.ffw = aVar.booktown;
+        this.ffx = aVar.tip;
+        this.ffz = aVar.fji;
+        this.ffy = aVar.fjh;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return feA;
+        return fft;
     }
 }

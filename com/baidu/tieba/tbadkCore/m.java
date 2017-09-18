@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class m {
-    private static boolean rW(String str) {
+    private static boolean rY(String str) {
         String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(d.b.voice_black_frs_list);
         String string = TbadkCoreApplication.getInst().getApp().getResources().getString(d.l.forum);
         int length = stringArray.length;
@@ -18,7 +18,7 @@ public class m {
 
     public static boolean a(String str, Boolean bool) {
         if (com.baidu.adp.lib.b.d.eW().af("voice") == 0) {
-            if ((str == null || !rW(str)) && bool != null) {
+            if ((str == null || !rY(str)) && bool != null) {
                 return bool.booleanValue();
             }
             return false;

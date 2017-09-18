@@ -34,8 +34,8 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
     private void init() {
         aj.j(this, d.g.btn_home_neg_feedback_reason_selector);
         aj.c(this, d.g.text_home_neg_feedback_reason_selector, 4);
-        int g = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds24);
-        setPadding(g, 0, g, 0);
+        int f = com.baidu.adp.lib.util.k.f(this.mContext, d.f.ds24);
+        setPadding(f, 0, f, 0);
         setButtonDrawable((Drawable) null);
     }
 }

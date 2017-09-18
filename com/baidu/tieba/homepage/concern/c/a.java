@@ -16,9 +16,9 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    private d cZe = new d();
-    private final c cZd = new c();
-    private final int beU = b.getInstance().getInt("home_page_max_thread_count", 300);
+    private d cZY = new d();
+    private final c cZX = new c();
+    private final int beR = b.getInstance().getInt("home_page_max_thread_count", 300);
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -50,7 +50,7 @@ public class a {
                     k kVar = new k(bjVar);
                     if (kVar != null) {
                         kVar.Xe = bjVar.getTid();
-                        kVar.jx(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+                        kVar.jz(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                     }
                     if (kVar != null && kVar.isValid()) {
                         linkedList.add(kVar);
@@ -59,7 +59,7 @@ public class a {
                     l lVar = new l();
                     if (lVar != null) {
                         lVar.threadData = bjVar;
-                        lVar.jx(lVar.threadData.isLinkThread() ? "4" : "1");
+                        lVar.jz(lVar.threadData.isLinkThread() ? "4" : "1");
                         lVar.isLinkThread = false;
                     }
                     if (lVar.threadData != null && lVar.isValid() && !StringUtils.isNull(lVar.threadData.getId()) && !"0".equals(lVar.threadData.getTid())) {
@@ -68,8 +68,8 @@ public class a {
                 }
             }
         }
-        this.cZd.aTF = linkedList;
-        return this.cZd;
+        this.cZX.aTC = linkedList;
+        return this.cZX;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -96,7 +96,7 @@ public class a {
                     }
                 }
             }
-            this.cZd.ddt = v.u(list) - u;
+            this.cZX.dep = v.u(list) - u;
         }
     }
 

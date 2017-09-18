@@ -16,14 +16,14 @@ import java.util.Iterator;
 public class b extends d implements CommonTabWidgetView.a {
     private int Jo;
     private i Jp;
-    private int aBh;
-    private boolean aEA;
-    private a aEl;
-    private int aEq;
-    private CommonTabContentView aEy;
-    private CommonTabWidgetView aEz;
+    private int aBe;
+    private a aEi;
+    private int aEn;
+    private CommonTabContentView aEv;
+    private CommonTabWidgetView aEw;
+    private boolean aEx;
     private ArrayList<com.baidu.tbadk.editortools.view.a> abO;
-    private int apS;
+    private int apQ;
     private Context mContext;
     private ProgressBar mProgressBar;
 
@@ -39,17 +39,17 @@ public class b extends d implements CommonTabWidgetView.a {
     public b(Context context) {
         super(context);
         this.abO = new ArrayList<>();
-        this.aEq = -1;
-        this.apS = -1;
+        this.aEn = -1;
+        this.apQ = -1;
         this.Jo = 0;
-        this.aBh = d.e.common_color_10255;
-        this.aEl = new a() { // from class: com.baidu.tbadk.editortools.view.b.1
+        this.aBe = d.e.common_color_10255;
+        this.aEi = new a() { // from class: com.baidu.tbadk.editortools.view.b.1
             @Override // com.baidu.tbadk.editortools.view.b.a
             public void c(com.baidu.tbadk.editortools.view.a aVar) {
                 boolean z;
                 b.this.hideProgressBar();
-                b.this.aEz.reset();
-                b.this.aEz.setDatas(b.this.abO);
+                b.this.aEw.reset();
+                b.this.aEw.setDatas(b.this.abO);
                 int size = b.this.abO.size();
                 int i = 0;
                 boolean z2 = false;
@@ -65,10 +65,10 @@ public class b extends d implements CommonTabWidgetView.a {
                     z2 = z;
                 }
                 if (!z2) {
-                    b.this.aEz.setVisibility(8);
+                    b.this.aEw.setVisibility(8);
                 }
-                if (b.this.aEq >= 0) {
-                    b.this.setCurrentTab(b.this.aEq);
+                if (b.this.aEn >= 0) {
+                    b.this.setCurrentTab(b.this.aEn);
                 } else {
                     b.this.setCurrentTab(0);
                 }
@@ -84,12 +84,12 @@ public class b extends d implements CommonTabWidgetView.a {
                 b.this.hideProgressBar();
             }
         };
-        this.aEA = false;
+        this.aEx = false;
         init(context);
     }
 
     public void b(com.baidu.tbadk.editortools.view.a aVar) {
-        aVar.a(this.aEl);
+        aVar.a(this.aEi);
         aVar.setEditorTools(this.Jp);
         this.abO.add(aVar);
     }
@@ -98,13 +98,13 @@ public class b extends d implements CommonTabWidgetView.a {
         this.mContext = context;
         removeAllViews();
         LayoutInflater.from(context).inflate(d.j.common_tab_host, (ViewGroup) this, true);
-        this.aEy = (CommonTabContentView) findViewById(d.h.common_tab_content);
-        this.aEz = (CommonTabWidgetView) findViewById(d.h.common_tab_widget);
+        this.aEv = (CommonTabContentView) findViewById(d.h.common_tab_content);
+        this.aEw = (CommonTabWidgetView) findViewById(d.h.common_tab_widget);
         this.mProgressBar = (ProgressBar) findViewById(d.h.common_progress);
-        this.aEz.setOnTabSelectedListener(this);
-        this.aEz.setEditorTools(this.Jp);
+        this.aEw.setOnTabSelectedListener(this);
+        this.aEw.setEditorTools(this.Jp);
         setOrientation(1);
-        this.apS = TbadkCoreApplication.getInst().getSkinType();
+        this.apQ = TbadkCoreApplication.getInst().getSkinType();
         setBackgroundColor(d.e.common_color_10255);
     }
 
@@ -112,12 +112,12 @@ public class b extends d implements CommonTabWidgetView.a {
     public void setVisibility(int i) {
         super.setVisibility(i);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.apS) {
-            this.apS = skinType;
-            onChangeSkinType(this.apS);
+        if (skinType != this.apQ) {
+            this.apQ = skinType;
+            onChangeSkinType(this.apQ);
         }
-        if (i != 8 && i != 4 && !this.aEA) {
-            this.aEA = true;
+        if (i != 8 && i != 4 && !this.aEx) {
+            this.aEx = true;
             Iterator<com.baidu.tbadk.editortools.view.a> it = this.abO.iterator();
             while (it.hasNext()) {
                 it.next().init(this.mContext);
@@ -127,18 +127,18 @@ public class b extends d implements CommonTabWidgetView.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(a.b bVar) {
-        this.aEz.c(bVar);
+        this.aEw.c(bVar);
     }
 
     public void setShowDelete(boolean z) {
-        this.aEz.setShowDelete(z);
+        this.aEw.setShowDelete(z);
     }
 
     public void setCurrentTab(int i) {
         if (i >= 0 && i < this.abO.size()) {
-            this.aEy.a(this.abO.get(i));
-            this.aEz.setCurrentTab(i);
-            this.aEq = i;
+            this.aEv.a(this.abO.get(i));
+            this.aEw.setCurrentTab(i);
+            this.aEn = i;
         }
     }
 
@@ -159,9 +159,9 @@ public class b extends d implements CommonTabWidgetView.a {
 
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
-        aj.e(this, this.aBh, i);
-        this.aEz.onChangeSkinType(i);
-        this.aEy.onChangeSkinType(i);
+        aj.e(this, this.aBe, i);
+        this.aEw.onChangeSkinType(i);
+        this.aEv.onChangeSkinType(i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -182,8 +182,8 @@ public class b extends d implements CommonTabWidgetView.a {
                 it.next().setEditorTools(this.Jp);
             }
         }
-        if (this.aEz != null) {
-            this.aEz.setEditorTools(this.Jp);
+        if (this.aEw != null) {
+            this.aEw.setEditorTools(this.Jp);
         }
     }
 
@@ -225,6 +225,6 @@ public class b extends d implements CommonTabWidgetView.a {
 
     public void setBackgroundColorId(int i) {
         super.setBackgroundColor(getContext().getResources().getColor(i));
-        this.aBh = i;
+        this.aBe = i;
     }
 }

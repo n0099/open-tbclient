@@ -14,21 +14,21 @@ import com.baidu.tbadk.data.PayMemberInfoData;
 import com.baidu.tbadk.data.UserData;
 /* loaded from: classes.dex */
 public class b {
-    private static b aEL;
-    private UserData aEM;
+    private static b aEI;
+    private UserData aEJ;
 
     private b() {
     }
 
     public static b Ek() {
-        if (aEL == null) {
+        if (aEI == null) {
             synchronized (b.class) {
-                if (aEL == null) {
-                    aEL = new b();
+                if (aEI == null) {
+                    aEI = new b();
                 }
             }
         }
-        return aEL;
+        return aEI;
     }
 
     public void El() {
@@ -46,7 +46,7 @@ public class b {
     }
 
     public void a(UserData userData) {
-        this.aEM = userData;
+        this.aEJ = userData;
         if (userData != null) {
             final AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
@@ -92,6 +92,6 @@ public class b {
     }
 
     public UserData En() {
-        return this.aEM;
+        return this.aEJ;
     }
 }

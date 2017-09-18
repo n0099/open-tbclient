@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a dGU;
-    private b dGV;
+    private a dHP;
+    private b dHQ;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,24 +29,24 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.dGU = new a(str, chatMessage);
-        this.dGU.execute(new Object[0]);
+        this.dHP = new a(str, chatMessage);
+        this.dHP.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.dGV = bVar;
+        this.dHQ = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String dGW;
-        private ChatMessage dGX;
-        private com.baidu.tieba.im.sendmessage.b dGY = new com.baidu.tieba.im.sendmessage.b();
+        private String dHR;
+        private ChatMessage dHS;
+        private com.baidu.tieba.im.sendmessage.b dHT = new com.baidu.tieba.im.sendmessage.b();
 
         public a(String str, ChatMessage chatMessage) {
-            this.dGW = str;
-            this.dGX = chatMessage;
+            this.dHR = str;
+            this.dHS = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class VoiceSendModel extends BdBaseModel {
         /* renamed from: r */
         public String doInBackground(Object... objArr) {
             try {
-                return this.dGY.mX(this.dGW);
+                return this.dHT.mZ(this.dHR);
             } catch (Exception e) {
                 return null;
             }
@@ -66,8 +66,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.dGV != null) {
-                VoiceSendModel.this.dGV.a(str, this.dGX);
+            if (VoiceSendModel.this.dHQ != null) {
+                VoiceSendModel.this.dHQ.a(str, this.dHS);
             }
         }
     }

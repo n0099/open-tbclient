@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.b;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class h extends e {
         Iterator<a> it = arrayList.iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (!TextUtils.isEmpty(next.a()) && next.a().equals(str) && q.c(this.b, next.c()) && (0 == 0 || aVar.d() < next.d())) {
+            if (!TextUtils.isEmpty(next.a()) && next.a().equals(str) && p.c(this.b, next.c()) && (0 == 0 || aVar.d() < next.d())) {
                 g gVar = (g) next;
                 this.a.add(gVar);
                 return gVar;
@@ -134,10 +134,7 @@ public class h extends e {
         return arrayList;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.android.pushservice.b.e
-    /* renamed from: f */
-    public g b(String str) {
+    public g e(String str) {
         g a = a(str, this.a);
         if (a == null) {
             try {

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.play.h;
 /* loaded from: classes2.dex */
 public class VCacheClientStatic {
-    private static CustomMessageListener aWE = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1
+    private static CustomMessageListener aWB = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -18,7 +18,7 @@ public class VCacheClientStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.KS().bd(TbadkCoreApplication.getInst().getContext());
+                        b.KS().be(TbadkCoreApplication.getInst().getContext());
                     }
                 }).start();
             }
@@ -27,7 +27,7 @@ public class VCacheClientStatic {
 
     static {
         KX();
-        MessageManager.getInstance().registerListener(aWE);
+        MessageManager.getInstance().registerListener(aWB);
     }
 
     private static void KX() {

@@ -146,7 +146,7 @@ public class g {
                     aVar.p("seq_id", str4);
                 }
                 if (!str.equals("stat")) {
-                    aVar.p("net", com.baidu.adp.lib.stats.d.aa(BdBaseApplication.getInst()));
+                    aVar.p("net", com.baidu.adp.lib.stats.d.ab(BdBaseApplication.getInst()));
                 }
                 if (!str.equals("stat") && !str.equals("pfmonitor")) {
                     aVar.c(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));

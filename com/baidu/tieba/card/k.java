@@ -11,32 +11,32 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class k extends j {
-    private bj ajF;
-    private com.baidu.tieba.card.data.n bKQ;
-    private View.OnClickListener bKR;
-    private View.OnClickListener bKS;
+    private bj ajE;
+    private com.baidu.tieba.card.data.n bLH;
+    private View.OnClickListener bLI;
+    private View.OnClickListener bLJ;
     private TbPageContext mF;
     private int mSkinType;
 
     public k(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.bKR = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.1
+        this.bLI = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.ajF != null && k.this.ajF.getAuthor() != null && !StringUtils.isNull(k.this.ajF.getAuthor().getName_show()) && !StringUtils.isNull(k.this.ajF.getAuthor().getUserId()) && k.this.ajF.rG() != null) {
-                    if (k.this.XA() != null) {
-                        k.this.XA().a(view, k.this.bKQ);
+                if (k.this.ajE != null && k.this.ajE.getAuthor() != null && !StringUtils.isNull(k.this.ajE.getAuthor().getName_show()) && !StringUtils.isNull(k.this.ajE.getAuthor().getUserId()) && k.this.ajE.rG() != null) {
+                    if (k.this.XL() != null) {
+                        k.this.XL().a(view, k.this.bLH);
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(k.this.mF.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(k.this.ajF.getAuthor().getUserId(), 0L), false, k.this.ajF.getAuthor().isBigV())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(k.this.mF.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(k.this.ajE.getAuthor().getUserId(), 0L), false, k.this.ajE.getAuthor().isBigV())));
                 }
             }
         };
-        this.bKS = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.2
+        this.bLJ = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.XA() != null) {
-                    k.this.XA().a(view, k.this.bKQ);
+                if (k.this.XL() != null) {
+                    k.this.XL().a(view, k.this.bLH);
                 }
             }
         };
@@ -47,9 +47,9 @@ public class k extends j {
     @Override // com.baidu.tieba.card.j, com.baidu.tieba.card.a
     public void a(com.baidu.tieba.card.data.n nVar) {
         super.a(nVar);
-        if (nVar != null && nVar.bcJ != null) {
-            this.bKQ = nVar;
-            this.ajF = nVar.bcJ;
+        if (nVar != null && nVar.bcG != null) {
+            this.bLH = nVar;
+            this.ajE = nVar.bcG;
             nVar.sourceType = 0;
         }
     }

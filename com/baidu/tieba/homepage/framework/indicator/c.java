@@ -3,28 +3,28 @@ package com.baidu.tieba.homepage.framework.indicator;
 import com.baidu.tieba.homepage.framework.e;
 /* loaded from: classes.dex */
 public class c {
-    private int daQ = -1;
-    private boolean daR = false;
-    private boolean daS = false;
+    private int dbK = -1;
+    private boolean dbL = false;
+    private boolean dbM = false;
 
     public void a(e eVar) {
-        this.daR = true;
-        if (this.daQ != -1 && this.daS) {
-            eVar.kV(this.daQ);
+        this.dbL = true;
+        if (this.dbK != -1 && this.dbM) {
+            eVar.kX(this.dbK);
         }
     }
 
     public void a(int i, e eVar) {
-        this.daQ = i;
-        if (this.daR && this.daS) {
-            eVar.kV(this.daQ);
+        this.dbK = i;
+        if (this.dbL && this.dbM) {
+            eVar.kX(this.dbK);
         }
     }
 
     public void b(e eVar) {
-        this.daS = true;
-        if (this.daQ != -1 && this.daR) {
-            eVar.kV(this.daQ);
+        this.dbM = true;
+        if (this.dbK != -1 && this.dbL) {
+            eVar.kX(this.dbK);
         }
     }
 }

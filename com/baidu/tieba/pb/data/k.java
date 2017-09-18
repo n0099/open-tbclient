@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.data;
 /* loaded from: classes.dex */
 public class k {
-    public int eEP;
-    public l eEQ;
+    public int eFJ;
+    public l eFK;
     public String pid;
 }

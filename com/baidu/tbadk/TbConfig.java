@@ -519,14 +519,14 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds44);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds40);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds36);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds34);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds30);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds28);
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds44);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds40);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds36);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds34);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds30);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds28);
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
@@ -814,7 +814,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(k.ad(context) * k.ae(context));
+            int sqrt = (int) Math.sqrt(k.ae(context) * k.af(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

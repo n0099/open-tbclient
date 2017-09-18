@@ -8,19 +8,19 @@ public class o extends a {
     }
 
     @Override // com.baidu.tieba.personPolymeric.c.a
-    public void Xc() {
-        this.fkk.clear();
-        if (this.fki != null) {
-            this.fkk.add(this.fki);
+    public void Xn() {
+        this.fld.clear();
+        if (this.flb != null) {
+            this.fld.add(this.flb);
         }
-        if (this.mCardNullPolymericData != null && this.fki == null) {
-            this.fkk.add(this.mCardNullPolymericData);
+        if (this.mCardNullPolymericData != null && this.flb == null) {
+            this.fld.add(this.mCardNullPolymericData);
         }
-        if (!v.v(this.fkm)) {
-            this.fkk.addAll(this.fkm);
+        if (!v.v(this.flf)) {
+            this.fld.addAll(this.flf);
         }
-        if (!v.v(this.fkj)) {
-            this.fkk.addAll(this.fkj);
+        if (!v.v(this.flc)) {
+            this.fld.addAll(this.flc);
         }
     }
 }

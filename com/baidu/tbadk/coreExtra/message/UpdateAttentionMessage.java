@@ -11,12 +11,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public boolean BW;
-        public String asz;
+        public String asw;
         public String errorString;
         public boolean isAttention;
         public String toUid;
         public boolean isGod = false;
-        public boolean asy = false;
+        public boolean asv = false;
 
         public void l(String str, boolean z) {
             boolean z2 = true;
@@ -27,8 +27,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                         if (!z || optJSONObject.optInt("is_toast", 0) != 1) {
                             z2 = false;
                         }
-                        this.asy = z2;
-                        this.asz = optJSONObject.optString("toast_text");
+                        this.asv = z2;
+                        this.asw = optJSONObject.optString("toast_text");
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());

@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.jni;
 
 import android.content.Context;
 import com.baidu.android.pushservice.g.a;
-import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.k.b;
 import com.baidu.android.pushservice.k.e;
 /* loaded from: classes2.dex */
@@ -54,7 +54,7 @@ public class BaiduAppSSOJni {
             a.a(TAG, "getDecrypted: " + e);
         } catch (UnsatisfiedLinkError e2) {
             a.e(TAG, "UnsatisfiedLinkError getDecrypted ");
-            q.b("UnsatisfiedLinkError getDecrypted ", context);
+            p.b("UnsatisfiedLinkError getDecrypted ", context);
         }
         return bArr2;
     }
@@ -87,7 +87,7 @@ public class BaiduAppSSOJni {
             a.a(TAG, "getEncrypted: " + e);
         } catch (UnsatisfiedLinkError e2) {
             a.e(TAG, "UnsatisfiedLinkError getEncrypted " + bArr);
-            q.b("UnsatisfiedLinkError getEncrypted " + bArr, context);
+            p.b("UnsatisfiedLinkError getEncrypted " + bArr, context);
         }
         return bArr2;
     }
@@ -99,7 +99,7 @@ public class BaiduAppSSOJni {
             return null;
         }
         String str4 = str3 == null ? "other" : str3;
-        String q = q.q(context.getApplicationContext(), str);
+        String q = p.q(context.getApplicationContext(), str);
         if (q == null) {
             a.c(TAG, "can not get singInfo for: " + str);
             return null;
