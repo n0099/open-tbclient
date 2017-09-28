@@ -27,39 +27,39 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean ws() {
+    public boolean vW() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wt() {
+    public boolean vX() {
         return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
     /* renamed from: c */
-    public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a go = com.baidu.tbadk.imageManager.c.Ev().go(str);
-        if (go == null || go.kO() == null) {
+    public com.baidu.adp.widget.ImageView.a b(String str, String str2, Object... objArr) {
+        com.baidu.adp.widget.ImageView.a gi = com.baidu.tbadk.imageManager.c.DZ().gi(str);
+        if (gi == null || gi.kN() == null) {
             return null;
         }
-        return go;
+        return gi;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
-    public com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
         Bitmap decodeFile;
         if (StringUtils.isNull(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
             return null;
         }
-        return new com.baidu.adp.widget.a.a(decodeFile, false);
+        return new com.baidu.adp.widget.ImageView.a(decodeFile, false);
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int wu() {
+    public int vY() {
         return this.procType;
     }
 }

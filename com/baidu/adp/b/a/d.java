@@ -3,51 +3,44 @@ package com.baidu.adp.b.a;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class d {
-    public BitmapDrawable Bu;
-    public com.baidu.adp.widget.a.a Bv;
+    public BitmapDrawable Bw;
+    public com.baidu.adp.widget.ImageView.a Bx;
     public volatile boolean isDefault = true;
 
-    public boolean iE() {
-        return (this.Bu == null || this.Bu.getBitmap() == null || this.Bu.getBitmap().isRecycled()) ? false : true;
+    public boolean iD() {
+        return (this.Bw == null || this.Bw.getBitmap() == null || this.Bw.getBitmap().isRecycled()) ? false : true;
     }
 
-    public boolean iF() {
-        return this.Bv != null && this.Bv.kP();
+    public boolean iE() {
+        return this.Bx != null && this.Bx.kO();
     }
 
     public boolean isAvailable() {
-        return iE() || iF();
+        return iD() || iE();
     }
 
     public int getWidth() {
-        if (iE()) {
-            return this.Bu.getIntrinsicWidth();
+        if (iD()) {
+            return this.Bw.getIntrinsicWidth();
         }
-        if (iF()) {
-            return this.Bv.getWidth();
+        if (iE()) {
+            return this.Bx.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
-        if (iE()) {
-            return this.Bu.getIntrinsicHeight();
+        if (iD()) {
+            return this.Bw.getIntrinsicHeight();
         }
-        if (iF()) {
-            return this.Bv.getHeight();
+        if (iE()) {
+            return this.Bx.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.Bv = null;
-        this.Bu = null;
-    }
-
-    public boolean isGif() {
-        if (iF()) {
-            return this.Bv.isGif();
-        }
-        return false;
+        this.Bx = null;
+        this.Bw = null;
     }
 }

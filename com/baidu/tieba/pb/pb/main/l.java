@@ -1,76 +1,32 @@
 package com.baidu.tieba.pb.pb.main;
-
-import android.graphics.drawable.Drawable;
-import android.util.SparseArray;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.j;
-import com.baidu.adp.widget.ListView.j.a;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
-public abstract class l<T, V extends j.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected PbActivity eHK;
-    private SparseArray<SoftReference<Drawable>> eLr;
-    private SparseArray<Integer> eLs;
-    protected boolean mIsFromCDN;
-    protected ListView mListView;
-    protected int mSkinType;
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public l(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity == null ? null : pbActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.mSkinType = 3;
-        this.mIsFromCDN = false;
-        this.eLr = new SparseArray<>();
-        this.eLs = new SparseArray<>();
-        al(pbActivity);
+public class l extends com.baidu.adp.lib.b.a {
+    @Override // com.baidu.adp.lib.b.a
+    protected void X(int i) {
     }
 
-    public void al(PbActivity pbActivity) {
-        if (pbActivity != null) {
-            this.eHK = pbActivity;
-            this.mContext = pbActivity.getActivity();
-        }
+    @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return "pb_v89_smallflow_open";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
-        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.mListView = (ListView) viewGroup;
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] eM() {
         return null;
     }
 
-    public void setFromCDN(boolean z) {
-        this.mIsFromCDN = z;
+    @Override // com.baidu.adp.lib.b.a
+    protected int eN() {
+        return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int getDimensionPixelSize(int i) {
-        Integer num = this.eLs.get(i);
-        if (num != null) {
-            return num.intValue();
-        }
-        int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-        this.eLs.put(i, Integer.valueOf(dimensionPixelSize));
-        return dimensionPixelSize;
+    @Override // com.baidu.adp.lib.b.a
+    protected int eO() {
+        return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Drawable getDrawable(int i) {
-        Drawable drawable;
-        SoftReference<Drawable> softReference = this.eLr.get(i);
-        if (softReference == null) {
-            drawable = null;
-        } else {
-            drawable = softReference.get();
-        }
-        if (drawable == null && (drawable = com.baidu.tbadk.core.util.aj.getDrawable(i)) != null) {
-            this.eLr.put(i, new SoftReference<>(drawable));
-        }
-        return drawable;
+    @Override // com.baidu.adp.lib.b.a
+    protected int eP() {
+        return 10;
     }
 }

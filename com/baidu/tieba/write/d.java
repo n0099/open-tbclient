@@ -8,25 +8,25 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.ScrollView;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class d extends PopupWindow {
-    private int aEn;
-    private LinearLayout axO;
+    private int aDG;
+    private LinearLayout awY;
     private Context context;
     private int count;
-    private a gBd;
+    private a gGl;
     private int maxHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void sN(int i);
+        void sT(int i);
     }
 
     public d(Context context) {
         super(context);
-        this.aEn = -1;
+        this.aDG = -1;
         this.context = context;
         init(context);
     }
@@ -34,12 +34,12 @@ public class d extends PopupWindow {
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
         scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.axO = new LinearLayout(context);
-        this.axO.setOrientation(1);
-        this.axO.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.axO);
+        this.awY = new LinearLayout(context);
+        this.awY.setOrientation(1);
+        this.awY.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.awY);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        scrollView.setPadding(0, 0, k.dip2px(context, 1.0f), k.dip2px(context, 1.0f));
+        scrollView.setPadding(0, 0, l.dip2px(context, 1.0f), l.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
         scrollView.setScrollbarFadingEnabled(false);
         try {
@@ -68,8 +68,8 @@ public class d extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.gBd));
-        this.axO.addView(view);
+        view.setOnClickListener(new b(this.count, this.gGl));
+        this.awY.addView(view);
         this.count++;
     }
 
@@ -78,31 +78,31 @@ public class d extends PopupWindow {
     }
 
     public void setCurrentIndex(int i) {
-        if (this.aEn != -1) {
-            this.axO.getChildAt(this.aEn).setSelected(false);
+        if (this.aDG != -1) {
+            this.awY.getChildAt(this.aDG).setSelected(false);
         }
-        this.aEn = i;
-        this.axO.getChildAt(this.aEn).setSelected(true);
+        this.aDG = i;
+        this.awY.getChildAt(this.aDG).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.gBd = aVar;
+        this.gGl = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a gBe;
+        private a gGm;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.gBe = aVar;
+            this.gGm = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.gBe != null) {
-                this.gBe.sN(this.position);
+            if (this.gGm != null) {
+                this.gGm.sT(this.position);
             }
         }
     }

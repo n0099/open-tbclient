@@ -2,84 +2,42 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopCode;
+import tbclient.Topic;
 /* loaded from: classes.dex */
 public class bk {
-    private String aah;
-    private String aai;
-    private int aaj;
-    private String aak;
-    private long aal;
-    private String aam;
-    private String imgUrl;
-    private String subTitle;
-    private String summary;
+    private int aan = 0;
+    private int aao = 0;
+    private String link = "";
 
-    public String pR() {
-        return this.imgUrl;
-    }
-
-    public String sU() {
-        return this.summary;
-    }
-
-    public String sV() {
-        return this.aai;
+    public int sV() {
+        return this.aan;
     }
 
     public int sW() {
-        return this.aaj;
+        return this.aao;
     }
 
-    public String sX() {
-        return this.aak;
+    public String getLink() {
+        return this.link;
     }
 
-    public long sY() {
-        return this.aal;
-    }
-
-    public void a(TopCode topCode) {
-        if (topCode != null) {
-            this.imgUrl = topCode.img_url;
-            this.aah = topCode.game_link;
-            this.summary = topCode.summary;
-            this.aai = topCode.code_link;
-            this.aaj = topCode.get_type.intValue();
-            this.aak = topCode.surplusgift;
-            if (topCode.giftworth.longValue() < 0) {
-                this.aal = 0L;
-            } else {
-                this.aal = topCode.giftworth.longValue();
-            }
-            this.aam = topCode.type_text;
-            this.subTitle = topCode.subtitle;
-        }
-    }
-
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.imgUrl = jSONObject.optString("img_url");
-                this.aah = jSONObject.optString("game_link");
-                this.summary = jSONObject.optString("summary");
-                this.aai = jSONObject.optString("code_link");
-                this.aaj = jSONObject.optInt("get_type", 1);
-                this.aak = jSONObject.optString("surplusgift");
-                this.aal = jSONObject.optLong("giftworth", 0L);
-                this.aam = jSONObject.optString("type_text");
-                this.subTitle = jSONObject.optString("subtitle");
+                this.aan = jSONObject.optInt("is_lpost", 0);
+                this.aao = jSONObject.optInt("topic_type", 0);
+                this.link = jSONObject.optString("link", "");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    public String sZ() {
-        return this.aam;
-    }
-
-    public String getSubTitle() {
-        return this.subTitle;
+    public void a(Topic topic) {
+        if (topic != null) {
+            this.aan = topic.is_lpost.intValue();
+            this.aao = topic.topic_type.intValue();
+            this.link = topic.link;
+        }
     }
 }

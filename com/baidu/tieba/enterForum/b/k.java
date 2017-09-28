@@ -8,7 +8,7 @@ import tbclient.RecommendForumInfo;
 public class k {
     ArrayList<j> ccM = new ArrayList<>();
 
-    public void ap(List<RecommendForumInfo> list) {
+    public void ao(List<RecommendForumInfo> list) {
         if (list != null && list.size() > 0) {
             int size = list.size();
             for (int i = 0; i < size; i++) {

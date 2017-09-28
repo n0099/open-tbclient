@@ -1,6 +1,5 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
@@ -45,9 +44,6 @@ public class WriteData extends OrmObject implements Serializable {
     private int mFloorNum;
     private String mForumId;
     private String mForumName;
-    private String mGraffitiFileName;
-    private String mGraffitiImageId;
-    private String mGraffitiWriteCode;
     private boolean mHasLocationData;
     private boolean mHaveDraft;
     private boolean mIsAddition;
@@ -192,9 +188,9 @@ public class WriteData extends OrmObject implements Serializable {
     }
 
     public boolean hasContentToSave() {
-        if (com.baidu.adp.lib.util.j.isEmpty(this.mContent) && com.baidu.adp.lib.util.j.isEmpty(this.mTitle)) {
+        if (com.baidu.adp.lib.util.k.isEmpty(this.mContent) && com.baidu.adp.lib.util.k.isEmpty(this.mTitle)) {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
-                return (this.mVideoInfo != null && this.mVideoInfo.isAvaliable()) || this.mCategoryTo >= 0 || !TextUtils.isEmpty(this.mGraffitiFileName);
+                return (this.mVideoInfo != null && this.mVideoInfo.isAvaliable()) || this.mCategoryTo >= 0;
             }
             return true;
         }
@@ -220,7 +216,6 @@ public class WriteData extends OrmObject implements Serializable {
             if (this.mTaskId != null) {
                 jSONObject.put("mTaskId", this.mTaskId);
             }
-            jSONObject.put("mGraffitiFileName", this.mGraffitiFileName);
             jSONObject.put("is_barrage", this.mIsBarrage);
             jSONObject.put("barrage_time", this.mBarrageTime);
             jSONObject.put("big_count", this.mBigEmtionCount);
@@ -230,7 +225,7 @@ public class WriteData extends OrmObject implements Serializable {
     }
 
     public static WriteData fromDraftString(String str) {
-        if (com.baidu.adp.lib.util.j.isEmpty(str)) {
+        if (com.baidu.adp.lib.util.k.isEmpty(str)) {
             return null;
         }
         try {
@@ -252,7 +247,6 @@ public class WriteData extends OrmObject implements Serializable {
                 writeData.writeImagesInfo = new WriteImagesInfo();
                 writeData.writeImagesInfo.parseJson(optJSONObject2);
             }
-            writeData.mGraffitiFileName = jSONObject.optString("mGraffitiFileName");
             writeData.mIsBarrage = jSONObject.optBoolean("is_barrage");
             writeData.mBarrageTime = jSONObject.getLong("barrage_time");
             writeData.mBigEmtionCount = jSONObject.getInt("big_count");
@@ -437,14 +431,6 @@ public class WriteData extends OrmObject implements Serializable {
         this.writeImagesInfo = writeImagesInfo;
     }
 
-    public String getGraffitiWriteCode() {
-        return this.mGraffitiWriteCode;
-    }
-
-    public void setGraffitiWriteCode(String str) {
-        this.mGraffitiWriteCode = str;
-    }
-
     public void setVideoInfo(VideoInfo videoInfo) {
         this.mVideoInfo = videoInfo;
     }
@@ -475,7 +461,7 @@ public class WriteData extends OrmObject implements Serializable {
                 int i2 = 0;
                 while (i2 < chosedFiles.size()) {
                     ImageFileInfo imageFileInfo = chosedFiles.get(i2);
-                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.j.isEmpty(imageFileInfo.getFilePath())) {
+                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.k.isEmpty(imageFileInfo.getFilePath())) {
                         File file = new File(imageFileInfo.getFilePath());
                         if (file.exists()) {
                             file.delete();
@@ -680,14 +666,6 @@ public class WriteData extends OrmObject implements Serializable {
         return this.mVoteInfo;
     }
 
-    public void setGraffitiFileName(String str) {
-        this.mGraffitiFileName = str;
-    }
-
-    public String getGraffitiFileName() {
-        return this.mGraffitiFileName;
-    }
-
     public int getCategoryFrom() {
         return this.mCategoryFrom;
     }
@@ -710,14 +688,6 @@ public class WriteData extends OrmObject implements Serializable {
 
     public int getVideoReviewType() {
         return this.mVideoReviewType;
-    }
-
-    public void setGraffitiImageId(String str) {
-        this.mGraffitiImageId = str;
-    }
-
-    public String getGraffitiImageId() {
-        return this.mGraffitiImageId;
     }
 
     public VcodeExtra getVcodeExtra() {

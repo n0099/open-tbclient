@@ -9,6 +9,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -242,7 +243,7 @@ public class f extends d {
             jSONObject.put("channel_id", com.baidu.android.pushservice.j.a(this.a).a());
             jSONObject.put("sa_mode", com.baidu.android.pushservice.c.d.a(this.a).b());
             jSONObject.put("highest_version", com.baidu.android.pushservice.c.d.a(this.a).d());
-            jSONObject.put("period", 1800);
+            jSONObject.put("period", TbConfig.POST_IMAGE_MIDDLE);
             jSONObject.put("channel_type", 3);
             jSONObject.put("tinyheart", 1);
             if (p.E(this.a)) {

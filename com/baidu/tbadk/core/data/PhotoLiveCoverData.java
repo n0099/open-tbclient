@@ -15,22 +15,22 @@ public class PhotoLiveCoverData implements Serializable {
     private String threadID;
     private String threadTitle;
 
-    public static PhotoLiveCoverData build(bj bjVar, ForumData forumData) {
-        if (bjVar == null) {
+    public static PhotoLiveCoverData build(bh bhVar, ForumData forumData) {
+        if (bhVar == null) {
             return null;
         }
         PhotoLiveCoverData photoLiveCoverData = new PhotoLiveCoverData();
-        photoLiveCoverData.photoLiveCover = bjVar.getPhotoLiveCover();
-        photoLiveCoverData.author = bjVar.getAuthor();
-        PraiseData rr = bjVar.rr();
-        if (rr != null) {
-            photoLiveCoverData.praiseNum = rr.getNum();
+        photoLiveCoverData.photoLiveCover = bhVar.getPhotoLiveCover();
+        photoLiveCoverData.author = bhVar.getAuthor();
+        PraiseData rl = bhVar.rl();
+        if (rl != null) {
+            photoLiveCoverData.praiseNum = rl.getNum();
         }
-        photoLiveCoverData.replyNum = bjVar.rt();
-        photoLiveCoverData.threadID = bjVar.getId();
-        photoLiveCoverData.threadTitle = bjVar.getTitle();
-        photoLiveCoverData.isMarked = bjVar.getIsMarked();
-        photoLiveCoverData.forumName = bjVar.rG();
+        photoLiveCoverData.replyNum = bhVar.rn();
+        photoLiveCoverData.threadID = bhVar.getId();
+        photoLiveCoverData.threadTitle = bhVar.getTitle();
+        photoLiveCoverData.isMarked = bhVar.getIsMarked();
+        photoLiveCoverData.forumName = bhVar.rA();
         String name = forumData != null ? forumData.getName() : null;
         if (StringUtils.isNull(photoLiveCoverData.forumName) && !StringUtils.isNull(name)) {
             photoLiveCoverData.forumName = name;

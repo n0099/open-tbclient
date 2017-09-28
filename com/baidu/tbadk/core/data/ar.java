@@ -1,106 +1,25 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.Page;
+import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
 public class ar {
-    private int Xi = 0;
-    private int total_num = 0;
-    private int current_page = 0;
-    private int Xk = 0;
-    private int has_more = 0;
-    private int Xl = 0;
-    private int total_count = 0;
-    private int Xj = 0;
+    public String Xp;
+    public int Xq;
+    public String Xr;
+    public String buttonText;
+    public int position = 0;
+    public String subtitle;
+    public String summary;
 
-    public int qu() {
-        return this.Xi;
-    }
-
-    public void bG(int i) {
-        this.Xi = i;
-    }
-
-    public int pm() {
-        return this.total_num;
-    }
-
-    public void bH(int i) {
-        this.total_num = i;
-    }
-
-    public int qv() {
-        return this.total_count;
-    }
-
-    public int qw() {
-        return this.Xj;
-    }
-
-    public void bI(int i) {
-        this.Xj = i;
-    }
-
-    public int qx() {
-        return this.current_page;
-    }
-
-    public void bJ(int i) {
-        this.current_page = i;
-    }
-
-    public int qy() {
-        return this.Xk;
-    }
-
-    public void bK(int i) {
-        this.Xk = i;
-    }
-
-    public void bL(int i) {
-        this.has_more = i;
-    }
-
-    public int qz() {
-        return this.has_more;
-    }
-
-    public void bM(int i) {
-        this.Xl = i;
-    }
-
-    public int qA() {
-        return this.Xl;
-    }
-
-    public void a(Page page) {
-        if (page != null) {
-            this.Xi = page.total_page.intValue();
-            this.total_num = page.total_num.intValue();
-            this.total_count = page.total_count.intValue();
-            this.current_page = page.current_page.intValue();
-            this.Xk = page.page_size.intValue();
-            this.has_more = page.has_more.intValue();
-            this.Xl = page.has_prev.intValue();
-            this.Xj = page.lz_total_floor.intValue();
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.Xi = jSONObject.optInt("total_page", 0);
-                this.total_num = jSONObject.optInt("total_num", 0);
-                this.total_count = jSONObject.optInt("total_count", 0);
-                this.current_page = jSONObject.optInt("current_page", 0);
-                this.Xk = jSONObject.optInt("page_size", 0);
-                this.has_more = jSONObject.optInt("has_more", 0);
-                this.Xl = jSONObject.optInt("has_prev", 0);
-                this.Xj = jSONObject.optInt("lz_total_floor", 0);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    public void a(NewsInfo newsInfo) {
+        if (newsInfo != null) {
+            this.Xp = newsInfo.news_link;
+            this.summary = newsInfo.summary;
+            this.position = newsInfo.position.intValue();
+            this.Xq = newsInfo.news_type.intValue();
+            this.Xr = newsInfo.news_icon;
+            this.subtitle = newsInfo.subtitle;
+            this.buttonText = newsInfo.button_text;
         }
     }
 }

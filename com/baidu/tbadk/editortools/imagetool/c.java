@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.editortools.s;
 import com.baidu.tieba.d;
@@ -43,8 +43,8 @@ public class c {
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
         imageView.setContentDescription(context.getString(d.l.add));
-        int dip2px = k.dip2px(context, 3.0f);
-        imageView.setPadding(dip2px, k.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(d.f.ds30) + dip2px, context.getResources().getDimensionPixelSize(d.f.ds32) + dip2px, dip2px);
+        int dip2px = l.dip2px(context, 3.0f);
+        imageView.setPadding(dip2px, l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(d.f.ds30) + dip2px, context.getResources().getDimensionPixelSize(d.f.ds32) + dip2px, dip2px);
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

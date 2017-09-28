@@ -21,7 +21,7 @@ public class c {
         toast.show();
     }
 
-    public static void c(Context context, String str, String str2, String str3) {
+    public static void d(Context context, String str, String str2, String str3) {
         View inflate = LayoutInflater.from(context).inflate(d.j.post_write_or_reply_lay, (ViewGroup) null);
         View findViewById = inflate.findViewById(d.h.experience_score);
         TextView textView = (TextView) inflate.findViewById(d.h.success_text);
@@ -42,15 +42,15 @@ public class c {
     public static void a(x xVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
             xVar.n("is_location", "2");
-            Address D = com.baidu.adp.lib.d.a.fd().D(false);
+            Address D = com.baidu.adp.lib.d.a.fc().D(false);
             if (D != null) {
                 xVar.n("lat", String.valueOf(D.getLatitude()));
                 xVar.n("lng", String.valueOf(D.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.btf().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bse().getLocationData();
             if (locationData != null) {
-                xVar.n("name", locationData.btb());
-                xVar.n("sn", locationData.btd());
+                xVar.n("name", locationData.bsa());
+                xVar.n("sn", locationData.bsc());
             }
         }
     }

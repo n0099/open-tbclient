@@ -13,9 +13,10 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 /* loaded from: classes.dex */
 class b implements RemoteControlClient.OnGetPlaybackPositionListener, RemoteControlClient.OnPlaybackPositionUpdateListener {
-    RemoteControlClient jC;
-    boolean jD;
-    boolean jF;
+    PendingIntent jC;
+    RemoteControlClient jD;
+    boolean jE;
+    boolean jG;
     final View ju;
     final a jv;
     final String jw;
@@ -23,7 +24,6 @@ class b implements RemoteControlClient.OnGetPlaybackPositionListener, RemoteCont
     final AudioManager mAudioManager;
     final Context mContext;
     final Intent mIntent;
-    PendingIntent mPendingIntent;
     final ViewTreeObserver.OnWindowAttachListener jy = new ViewTreeObserver.OnWindowAttachListener() { // from class: android.support.v4.media.b.1
     };
     final ViewTreeObserver.OnWindowFocusChangeListener jz = new ViewTreeObserver.OnWindowFocusChangeListener() { // from class: android.support.v4.media.b.2
@@ -44,7 +44,7 @@ class b implements RemoteControlClient.OnGetPlaybackPositionListener, RemoteCont
             b.this.jv.k(i);
         }
     };
-    int jE = 0;
+    int jF = 0;
 
     public b(Context context, AudioManager audioManager, View view, a aVar) {
         this.mContext = context;
@@ -61,7 +61,7 @@ class b implements RemoteControlClient.OnGetPlaybackPositionListener, RemoteCont
     }
 
     public Object getRemoteControlClient() {
-        return this.jC;
+        return this.jD;
     }
 
     public void destroy() {
@@ -71,68 +71,68 @@ class b implements RemoteControlClient.OnGetPlaybackPositionListener, RemoteCont
     }
 
     void aQ() {
-        if (!this.jF) {
-            this.jF = true;
+        if (!this.jG) {
+            this.jG = true;
             this.mAudioManager.requestAudioFocus(this.jB, 3, 1);
         }
     }
 
     public void startPlaying() {
-        if (this.jE != 3) {
-            this.jE = 3;
-            this.jC.setPlaybackState(3);
+        if (this.jF != 3) {
+            this.jF = 3;
+            this.jD.setPlaybackState(3);
         }
-        if (this.jD) {
+        if (this.jE) {
             aQ();
         }
     }
 
     public void a(boolean z, long j, int i) {
-        if (this.jC != null) {
-            this.jC.setPlaybackState(z ? 3 : 1, j, z ? 1.0f : 0.0f);
-            this.jC.setTransportControlFlags(i);
+        if (this.jD != null) {
+            this.jD.setPlaybackState(z ? 3 : 1, j, z ? 1.0f : 0.0f);
+            this.jD.setTransportControlFlags(i);
         }
     }
 
     public void pausePlaying() {
-        if (this.jE == 3) {
-            this.jE = 2;
-            this.jC.setPlaybackState(2);
+        if (this.jF == 3) {
+            this.jF = 2;
+            this.jD.setPlaybackState(2);
         }
         aR();
     }
 
     public void stopPlaying() {
-        if (this.jE != 1) {
-            this.jE = 1;
-            this.jC.setPlaybackState(1);
+        if (this.jF != 1) {
+            this.jF = 1;
+            this.jD.setPlaybackState(1);
         }
         aR();
     }
 
     void aR() {
-        if (this.jF) {
-            this.jF = false;
+        if (this.jG) {
+            this.jG = false;
             this.mAudioManager.abandonAudioFocus(this.jB);
         }
     }
 
     void aS() {
         aR();
-        if (this.jD) {
-            this.jD = false;
-            this.mAudioManager.unregisterRemoteControlClient(this.jC);
-            this.mAudioManager.unregisterMediaButtonEventReceiver(this.mPendingIntent);
+        if (this.jE) {
+            this.jE = false;
+            this.mAudioManager.unregisterRemoteControlClient(this.jD);
+            this.mAudioManager.unregisterMediaButtonEventReceiver(this.jC);
         }
     }
 
     void aT() {
         aS();
-        if (this.mPendingIntent != null) {
+        if (this.jC != null) {
             this.mContext.unregisterReceiver(this.jA);
-            this.mPendingIntent.cancel();
-            this.mPendingIntent = null;
+            this.jC.cancel();
             this.jC = null;
+            this.jD = null;
         }
     }
 }

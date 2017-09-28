@@ -1,27 +1,71 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
 import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class ab {
-    private static ab csP = new ab();
-    private final SparseArray<String> csO = new SparseArray<>();
+public class ab extends SparseArray<aj> {
+    public BdUniqueId aPx = null;
 
-    private ab() {
+    public void a(al alVar) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                aj valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(alVar);
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public static ab aie() {
-        return csP;
+    public void init() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                aj valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public void jb(int i) {
-        this.csO.put(i, "1");
+    public void destory() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                aj valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(null);
+                    valueAt.Pl();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public boolean jc(int i) {
+    public void a(int i, aj ajVar) {
         if (i > 100) {
             i = 100;
         }
-        return !TextUtils.isEmpty(this.csO.get(i));
+        put(i, ajVar);
+    }
+
+    public aj ji(int i) {
+        if (i > 100) {
+            i = 100;
+        }
+        return get(i);
     }
 }

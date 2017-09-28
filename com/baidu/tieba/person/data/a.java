@@ -1,18 +1,35 @@
 package com.baidu.tieba.person.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.f;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BookInfo;
+import tbclient.TbBookrack;
 /* loaded from: classes.dex */
-public class a implements f {
-    public static final BdUniqueId ffr = BdUniqueId.gen();
-    private int ffs = 0;
+public class a {
+    public String booktown;
+    public int eZo;
+    public List<b> eZp;
+    public String icon;
+    public String tip;
+    public String title;
 
-    public int aXc() {
-        return this.ffs;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return ffr;
+    public void a(TbBookrack tbBookrack) {
+        if (tbBookrack != null) {
+            this.booktown = tbBookrack.booktown;
+            this.eZo = tbBookrack.num.intValue();
+            this.title = tbBookrack.title;
+            this.icon = tbBookrack.icon;
+            this.tip = tbBookrack.tip;
+            this.eZp = new ArrayList();
+            if (tbBookrack.book_list != null) {
+                for (BookInfo bookInfo : tbBookrack.book_list) {
+                    if (bookInfo != null) {
+                        b bVar = new b();
+                        bVar.a(bookInfo);
+                        this.eZp.add(bVar);
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,66 +1,48 @@
 package com.baidu.tbadk.j;
 
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.f;
-import com.baidu.adp.widget.ListView.j;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.view.HeadImageViewGroup;
-import com.baidu.tieba.d;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public class a extends j.a {
-    public HeadImageViewGroup aFq;
-    private f aFr;
-    public TextView mName;
-    private View.OnClickListener mOnClickListener;
-    private int mSkinType;
+public class a {
+    protected View aFX;
+    private boolean aFY;
 
     public a(View view) {
-        super(view);
-        this.mSkinType = 3;
-        View findViewById = view.findViewById(d.h.add_pic_root);
-        this.mName = (TextView) findViewById.findViewById(d.h.name_tv);
-        this.aFq = (HeadImageViewGroup) findViewById.findViewById(d.h.img);
+        this.aFX = view;
     }
 
-    public void c(f fVar) {
-        if (fVar instanceof com.baidu.tbadk.data.d) {
-            this.aFr = fVar;
-            this.aFq.getInnerImg().setIsRound(true);
-            this.aFq.getInnerImg().setVisibility(0);
-            this.aFq.getInnerImg().setTag(null);
-            this.aFq.getInnerImg().setImageResource(d.g.btn_story_release);
-            this.aFq.setOuterColor(d.e.cp_link_tip_g);
-            getView().setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tbadk.j.a.1
-                @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view, MotionEvent motionEvent) {
-                    if (motionEvent.getAction() == 0) {
-                        view.setScaleX(0.8f);
-                        view.setScaleY(0.8f);
-                    } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-                        view.setScaleX(1.0f);
-                        view.setScaleY(1.0f);
-                    }
-                    return view.onTouchEvent(motionEvent);
-                }
-            });
-            this.mName.setText(((com.baidu.tbadk.data.d) fVar).getName());
-            getView().setOnClickListener(this.mOnClickListener);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    public boolean En() {
+        return this.aFY;
+    }
+
+    public void c(View view, boolean z) {
+        if (view != null && this.aFX != null && this.aFX.getParent() == null) {
+            this.aFY = true;
+            d.Q(view).a(view, this.aFX, z);
+            Eo();
         }
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            aj.c(this.mName, d.e.cp_cont_f, 1);
-            this.aFq.onChangeSkinType(i);
-            this.mSkinType = i;
+    public void O(View view) {
+        if (view != null && this.aFX != null && this.aFX.getParent() != null && (view instanceof ViewGroup)) {
+            try {
+                Ep();
+                ((ViewGroup) view).removeView(this.aFX);
+                this.aFY = false;
+            } catch (Exception e) {
+            }
         }
     }
 
-    public void setOnClick(View.OnClickListener onClickListener) {
-        this.mOnClickListener = onClickListener;
+    public void P(View view) {
+        c(view, false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void Eo() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void Ep() {
     }
 }

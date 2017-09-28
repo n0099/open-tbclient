@@ -1,11 +1,19 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public interface ai {
-    void OQ();
+    void NI();
 
-    void a(int i, int i2, an anVar);
+    void NJ();
 
-    void a(ak akVar);
+    void NK();
 
-    void init();
+    void setHeaderViewHeight(int i);
+
+    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.q qVar);
+
+    void setVideoThreadId(String str);
+
+    void showFloatingView();
+
+    void wB();
 }

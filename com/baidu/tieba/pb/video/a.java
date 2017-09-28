@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tieba.pb.pb.main.l<b, c> {
-    public View.OnClickListener aSH;
+public class a extends com.baidu.tieba.pb.pb.main.k<b, c> {
+    public View.OnClickListener aTG;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -18,27 +18,27 @@ public class a extends com.baidu.tieba.pb.pb.main.l<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bq */
+    /* renamed from: bi */
     public c onCreateViewHolder(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(d.j.pb_god_reply_look_more_item, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.eHK.getLayoutMode().ah(this.mSkinType == 1);
-        this.eHK.getLayoutMode().t(view);
-        if (this.aSH != null) {
-            view.setOnClickListener(this.aSH);
+        this.eDC.getLayoutMode().ai(this.mSkinType == 1);
+        this.eDC.getLayoutMode().t(view);
+        if (this.aTG != null) {
+            view.setOnClickListener(this.aTG);
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aSH = onClickListener;
+        this.aTG = onClickListener;
     }
 }

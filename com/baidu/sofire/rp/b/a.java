@@ -12,18 +12,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    private static a PV;
-    private SQLiteDatabase NG;
-    private C0038a PW;
-    private com.baidu.sofire.rp.a.a PX;
+    private static a Qk;
+    private SQLiteDatabase NX;
+    private C0038a Ql;
+    private com.baidu.sofire.rp.a.a Qm;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.PW = new C0038a(context);
-        this.PX = new com.baidu.sofire.rp.a.a(context);
+        this.Ql = new C0038a(context);
+        this.Qm = new com.baidu.sofire.rp.a.a(context);
         try {
-            this.NG = this.PW.getWritableDatabase();
+            this.NX = this.Ql.getWritableDatabase();
         } catch (Throwable th) {
             b.a();
         }
@@ -32,10 +32,10 @@ public final class a {
     public static synchronized a as(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (PV == null) {
-                PV = new a(context);
+            if (Qk == null) {
+                Qk = new a(context);
             }
-            aVar = PV;
+            aVar = Qk;
         }
         return aVar;
     }
@@ -57,7 +57,7 @@ public final class a {
         }
         contentValues.put("h", str);
         try {
-            return this.NG.insert("r", null, contentValues);
+            return this.NX.insert("r", null, contentValues);
         } catch (Throwable th) {
             b.a();
             return -1L;
@@ -68,7 +68,7 @@ public final class a {
         ContentValues contentValues = new ContentValues();
         contentValues.put("b", str);
         try {
-            return this.NG.insert("c", null, contentValues);
+            return this.NX.insert("c", null, contentValues);
         } catch (Throwable th) {
             b.a();
             return -1L;
@@ -83,7 +83,7 @@ public final class a {
         boolean z;
         Cursor query;
         try {
-            query = this.NG.query("c", null, "b=?", new String[]{str}, null, null, null);
+            query = this.NX.query("c", null, "b=?", new String[]{str}, null, null, null);
         } catch (Throwable th) {
             z = true;
         }
@@ -110,7 +110,7 @@ public final class a {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r8v0 int)] */
     private int b(int i) {
         try {
-            return this.NG.delete("r", "a=?", new String[]{new StringBuilder().append(i).toString()});
+            return this.NX.delete("r", "a=?", new String[]{new StringBuilder().append(i).toString()});
         } catch (Throwable th) {
             b.a();
             return -1;
@@ -119,13 +119,13 @@ public final class a {
 
     public final int a(List<Integer> list) {
         try {
-            this.NG.beginTransaction();
+            this.NX.beginTransaction();
             for (Integer num : list) {
                 b(num.intValue());
             }
-            this.NG.setTransactionSuccessful();
+            this.NX.setTransactionSuccessful();
             try {
-                this.NG.endTransaction();
+                this.NX.endTransaction();
                 return -1;
             } catch (Exception e) {
                 b.a();
@@ -141,7 +141,7 @@ public final class a {
                 }
             } finally {
                 try {
-                    this.NG.endTransaction();
+                    this.NX.endTransaction();
                 } catch (Exception e3) {
                     b.a();
                 }
@@ -154,7 +154,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final List<com.baidu.sofire.rp.c.a> aW(int i) {
+    public final List<com.baidu.sofire.rp.c.a> ba(int i) {
         Cursor cursor;
         String str;
         Cursor cursor2 = null;
@@ -163,7 +163,7 @@ public final class a {
         com.baidu.sofire.rp.a.a aVar = new com.baidu.sofire.rp.a.a(this.e);
         String str2 = i == 2 ? "(d <= (" + currentTimeMillis + "-e*3600000) or e=0 )" : "(d <= (" + currentTimeMillis + "-e*3600000) or e=0 ) and (g!=2 or d<=" + (currentTimeMillis - (aVar.a.getInt("re_net_wt", 3) * 3600000)) + ")";
         try {
-            cursor = i == 2 ? this.NG.query("r", null, str2, null, null, null, "d desc", null) : this.NG.query("r", null, str2, null, null, null, "d desc", Integer.toString(aVar.a.getInt("up_nu_li", 100)));
+            cursor = i == 2 ? this.NX.query("r", null, str2, null, null, null, "d desc", null) : this.NX.query("r", null, str2, null, null, null, "d desc", Integer.toString(aVar.a.getInt("up_nu_li", 100)));
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -240,7 +240,7 @@ public final class a {
         Cursor cursor2 = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.NG.query("r", null, "i=5", null, null, null, "d desc", "100");
+            cursor = this.NX.query("r", null, "i=5", null, null, null, "d desc", "100");
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -322,10 +322,10 @@ public final class a {
         try {
             try {
                 if (i == 2) {
-                    cursor = this.NG.query("r", null, str2, null, null, null, "d desc", null);
+                    cursor = this.NX.query("r", null, str2, null, null, null, "d desc", null);
                 } else {
                     String str3 = " 3g limit" + Integer.toString(i2);
-                    cursor = this.NG.query("r", null, str2, null, null, null, "d desc", Integer.toString(new com.baidu.sofire.rp.a.a(this.e).a.getInt("up_nu_li", 100)));
+                    cursor = this.NX.query("r", null, str2, null, null, null, "d desc", Integer.toString(new com.baidu.sofire.rp.a.a(this.e).a.getInt("up_nu_li", 100)));
                 }
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
@@ -405,7 +405,7 @@ public final class a {
         ArrayList arrayList = new ArrayList();
         try {
             try {
-                cursor = this.NG.query("r", null, null, null, null, null, null, null);
+                cursor = this.NX.query("r", null, null, null, null, null, null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
@@ -474,7 +474,7 @@ public final class a {
         com.baidu.sofire.rp.a.a aVar = new com.baidu.sofire.rp.a.a(this.e);
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            return this.NG.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (aVar.a.getInt("re_net_over", 7) * 86400000))});
+            return this.NX.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (aVar.a.getInt("re_net_over", 7) * 86400000))});
         } catch (Exception e) {
             b.a();
             return -1;

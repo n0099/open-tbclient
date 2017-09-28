@@ -10,7 +10,7 @@ public class f {
         return z ? new b(i) : new a(i);
     }
 
-    public static e eD() {
+    public static e eC() {
         return new c();
     }
 
@@ -25,7 +25,7 @@ public class f {
         }
 
         @Override // com.baidu.adp.lib.cache.e
-        public boolean ey() {
+        public boolean ex() {
             return false;
         }
     }
@@ -45,7 +45,7 @@ public class f {
         }
 
         @Override // com.baidu.adp.lib.cache.e.a
-        public void ez() {
+        public void ey() {
             this.sM = new LinkedList<>();
         }
 
@@ -84,13 +84,13 @@ public class f {
         }
 
         @Override // com.baidu.adp.lib.cache.e.a
-        public void eA() {
+        public void ez() {
             this.sM.clear();
             this.sM = null;
         }
 
         @Override // com.baidu.adp.lib.cache.e
-        public boolean ey() {
+        public boolean ex() {
             return true;
         }
     }
@@ -110,7 +110,7 @@ public class f {
         }
 
         @Override // com.baidu.adp.lib.cache.e
-        public boolean ey() {
+        public boolean ex() {
             return true;
         }
 
@@ -151,7 +151,7 @@ public class f {
         }
 
         @Override // com.baidu.adp.lib.cache.e.b
-        public void eB() {
+        public void eA() {
         }
 
         @Override // com.baidu.adp.lib.cache.e.b
@@ -160,7 +160,7 @@ public class f {
         }
 
         @Override // com.baidu.adp.lib.cache.e.b
-        public void eC() {
+        public void eB() {
         }
 
         @Override // com.baidu.adp.lib.cache.e.b

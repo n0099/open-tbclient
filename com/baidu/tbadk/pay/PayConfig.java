@@ -12,6 +12,7 @@ public class PayConfig implements Serializable {
     private static final long serialVersionUID = 1473520404420820966L;
     private int isAutoPay;
     public long mCategoryId;
+    public String mClickZone;
     private int mFrom;
     private String mIsLeft;
     private boolean mIsPay;
@@ -25,12 +26,13 @@ public class PayConfig implements Serializable {
     private int mPayType;
     private String mPropsId;
     private String mPropsMon;
+    public String mReferPage;
     private String mTitle;
     public float mTotalPrice;
     public String paymentPosKey;
     private int tBeanNum;
 
-    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z) {
+    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, String str6) {
         this.mOrderName = "";
         this.mTitle = "";
         this.mOrderId = "";
@@ -46,9 +48,11 @@ public class PayConfig implements Serializable {
         this.mMoney = str3;
         this.mPropsMon = str4;
         this.mIsPay = z;
+        this.mReferPage = str5;
+        this.mClickZone = str6;
     }
 
-    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, boolean z2, PageDialogHelper.PayForm payForm) {
+    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, boolean z2, PageDialogHelper.PayForm payForm, String str5, String str6) {
         this.mOrderName = "";
         this.mTitle = "";
         this.mOrderId = "";
@@ -64,6 +68,8 @@ public class PayConfig implements Serializable {
         this.mMoney = str3;
         this.mPropsMon = str4;
         this.mIsPay = z;
+        this.mReferPage = str5;
+        this.mClickZone = str6;
         payForm = payForm == null ? PageDialogHelper.PayForm.NOT_SET : payForm;
         if (payForm == PageDialogHelper.PayForm.NOT_SET) {
             this.mIsPayDialog = z2;
@@ -78,7 +84,7 @@ public class PayConfig implements Serializable {
         return this.mIsPayDialog;
     }
 
-    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, boolean z2, PageDialogHelper.PayForm payForm) {
+    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, boolean z2, PageDialogHelper.PayForm payForm, String str6, String str7) {
         this.mOrderName = "";
         this.mTitle = "";
         this.mOrderId = "";
@@ -95,6 +101,8 @@ public class PayConfig implements Serializable {
         this.mPropsMon = str4;
         this.mIsPay = z;
         this.mOrderName = str5;
+        this.mReferPage = str6;
+        this.mClickZone = str7;
         this.tBeanNum = Integer.parseInt(str5);
         payForm = payForm == null ? PageDialogHelper.PayForm.NOT_SET : payForm;
         if (payForm == PageDialogHelper.PayForm.NOT_SET) {
@@ -104,38 +112,6 @@ public class PayConfig implements Serializable {
         } else if (payForm == PageDialogHelper.PayForm.DIALOG) {
             this.mIsPayDialog = true;
         }
-    }
-
-    public PayConfig(int i, String str, float f, boolean z, boolean z2) {
-        this.mOrderName = "";
-        this.mTitle = "";
-        this.mOrderId = "";
-        this.mTotalPrice = 0.0f;
-        this.mOrderInfo = "";
-        this.mCategoryId = 0L;
-        this.mNeedPayDetail = false;
-        this.paymentPosKey = "";
-        this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
-        this.mPayType = i;
-        this.mOrderId = str;
-        this.mTotalPrice = f;
-        this.mIsPay = z;
-        this.mNeedPayDetail = z2;
-    }
-
-    public PayConfig(int i, long j, boolean z) {
-        this.mOrderName = "";
-        this.mTitle = "";
-        this.mOrderId = "";
-        this.mTotalPrice = 0.0f;
-        this.mOrderInfo = "";
-        this.mCategoryId = 0L;
-        this.mNeedPayDetail = false;
-        this.paymentPosKey = "";
-        this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
-        this.mPayType = i;
-        this.mCategoryId = j;
-        this.mIsPay = z;
     }
 
     public int getPayType() {

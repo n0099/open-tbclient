@@ -34,7 +34,7 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public String p(String str) {
-        return e.np().e(str);
+        return e.nr().e(str);
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: boolean : 0x006e: INVOKE  (r1v7 boolean A[REMOVE]) = (r8v0 android.content.IntentFilter), ("android.intent.action.BOOT_COMPLETED") type: VIRTUAL call: android.content.IntentFilter.hasAction(java.lang.String):boolean)] */
@@ -43,15 +43,15 @@ public class F implements FI {
         String str4 = str + ", " + intentFilter + ", " + str2 + ", " + str3;
         b.a();
         if (!TextUtils.isEmpty(str) && intentFilter != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            e np = e.np();
-            String str5 = "h=" + np;
+            e nr = e.nr();
+            String str5 = "h=" + nr;
             b.a();
-            if (np != null) {
-                np.a(new f(str, intentFilter, str2, str3));
+            if (nr != null) {
+                nr.a(new f(str, intentFilter, str2, str3));
                 new StringBuilder().append(intentFilter.hasAction("android.intent.action.BOOT_COMPLETED")).toString();
                 b.a();
                 if (intentFilter.hasAction("android.intent.action.BOOT_COMPLETED")) {
-                    a aVar = a.Pt;
+                    a aVar = a.PJ;
                     String str6 = "d=" + aVar;
                     b.a();
                     if (aVar != null) {
@@ -60,7 +60,7 @@ public class F implements FI {
                         contentValues.put("b", str2);
                         contentValues.put(Info.kBaiduTimeKey, str3);
                         try {
-                            aVar.Ps.update("pgn", contentValues, "p=?", new String[]{str});
+                            aVar.PI.update("pgn", contentValues, "p=?", new String[]{str});
                         } catch (Throwable th) {
                             d.a(th);
                         }
@@ -72,9 +72,9 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public void ur(String str, IntentFilter intentFilter, String str2, String str3) {
-        e np;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && (np = e.np()) != null) {
-            np.b(new f(str, intentFilter, str2, str3));
+        e nr;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && (nr = e.nr()) != null) {
+            nr.b(new f(str, intentFilter, str2, str3));
         }
     }
 
@@ -90,16 +90,16 @@ public class F implements FI {
             }
             return;
         }
-        e np = e.np();
-        if (np == null) {
+        e nr = e.nr();
+        if (nr == null) {
             if (callback != null) {
                 callback.onEnd(new Object[0]);
                 return;
             }
             return;
         }
-        ApkInfo bT = np.bT(str2);
-        if (np.bT(str) == null || bT == null) {
+        ApkInfo bT = nr.bT(str2);
+        if (nr.bT(str) == null || bT == null) {
             if (callback != null) {
                 callback.onEnd(new Object[0]);
                 return;
@@ -125,18 +125,18 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public void u(String str) {
-        c.no().a(str);
+        c.nq().a(str);
     }
 
     @Override // com.baidu.sofire.ac.FI
     public void s(int i, boolean z) {
-        a aVar = a.Pt;
+        a aVar = a.PJ;
         if (aVar != null) {
             int i2 = z ? 1 : 0;
             ContentValues contentValues = new ContentValues();
             contentValues.put("s", Integer.valueOf(i2));
             try {
-                aVar.Ps.update("pgn", contentValues, "k=" + i + " and n=1", null);
+                aVar.PI.update("pgn", contentValues, "k=" + i + " and n=1", null);
             } catch (Throwable th) {
                 d.a(th);
             }
@@ -211,13 +211,13 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public void sp(String str, boolean z) {
-        a aVar = a.Pt;
+        a aVar = a.PJ;
         if (aVar != null) {
             int i = z ? 1 : 0;
             ContentValues contentValues = new ContentValues();
             contentValues.put("s", Integer.valueOf(i));
             try {
-                aVar.Ps.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+                aVar.PI.update("pgn", contentValues, "p=? and n=1", new String[]{str});
             } catch (Throwable th) {
                 d.a(th);
             }
@@ -232,8 +232,8 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public String gs(String str) {
         ApkInfo bT;
-        e np = e.np();
-        if (np != null && (bT = np.bT(str)) != null) {
+        e nr = e.nr();
+        if (nr != null && (bT = nr.bT(str)) != null) {
             return bT.libPath;
         }
         return "";

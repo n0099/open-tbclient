@@ -15,17 +15,17 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class TextSizeSeekBar extends View {
-    private Drawable dmV;
-    private int fbJ;
-    private int fbK;
-    private int fbL;
-    private int fbM;
-    private int fbN;
-    private int fbO;
-    private String[] fbP;
-    private int fbQ;
-    private int fbR;
-    private ArrayList<Rect> fbS;
+    private Drawable djl;
+    private int eVT;
+    private int eVU;
+    private int eVV;
+    private int eVW;
+    private int eVX;
+    private int eVY;
+    private String[] eVZ;
+    private int eWa;
+    private int eWb;
+    private ArrayList<Rect> eWc;
     private int index;
     private Paint paint;
     private int textSize;
@@ -33,21 +33,21 @@ public class TextSizeSeekBar extends View {
     public TextSizeSeekBar(Context context) {
         super(context);
         this.index = 1;
-        this.fbS = new ArrayList<>(4);
+        this.eWc = new ArrayList<>(4);
         init(context);
     }
 
     public TextSizeSeekBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.index = 1;
-        this.fbS = new ArrayList<>(4);
+        this.eWc = new ArrayList<>(4);
         init(context);
     }
 
     public TextSizeSeekBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.index = 1;
-        this.fbS = new ArrayList<>(4);
+        this.eWc = new ArrayList<>(4);
         init(context);
     }
 
@@ -56,13 +56,13 @@ public class TextSizeSeekBar extends View {
         this.paint.setAntiAlias(true);
         this.paint.setDither(true);
         this.paint.setFilterBitmap(true);
-        this.dmV = aj.getDrawable(d.g.btn_recommend_size_handle);
-        this.fbM = this.dmV.getIntrinsicWidth();
-        this.fbN = this.dmV.getIntrinsicHeight();
+        this.djl = aj.getDrawable(d.g.btn_recommend_size_handle);
+        this.eVW = this.djl.getIntrinsicWidth();
+        this.eVX = this.djl.getIntrinsicHeight();
         this.textSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.f.ds24);
-        this.fbP = new String[]{context.getString(d.l.font_size_small), context.getString(d.l.font_size_mid), context.getString(d.l.font_size_big), context.getString(d.l.font_size_xlarge)};
-        this.fbQ = aj.getColor(d.e.cp_link_tip_a);
-        this.fbR = aj.getColor(d.e.cp_cont_c);
+        this.eVZ = new String[]{context.getString(d.l.font_size_small), context.getString(d.l.font_size_mid), context.getString(d.l.font_size_big), context.getString(d.l.font_size_xlarge)};
+        this.eWa = aj.getColor(d.e.cp_link_tip_a);
+        this.eWb = aj.getColor(d.e.cp_cont_c);
         this.index = Math.abs(TbadkCoreApplication.getInst().getFontSize() - 3);
     }
 
@@ -72,7 +72,7 @@ public class TextSizeSeekBar extends View {
 
     @Override // android.view.View
     protected void onAttachedToWindow() {
-        this.dmV = aj.getDrawable(d.g.btn_recommend_size_handle);
+        this.djl = aj.getDrawable(d.g.btn_recommend_size_handle);
         this.index = Math.abs(TbadkCoreApplication.getInst().getFontSize() - 3);
         super.onAttachedToWindow();
     }
@@ -80,16 +80,16 @@ public class TextSizeSeekBar extends View {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.fbJ == 0 || this.fbK == 0) {
-            this.fbJ = View.MeasureSpec.getSize(i);
-            this.fbK = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.f.ds184);
-            this.fbL = (this.fbJ - this.fbM) / 3;
-            this.fbO = this.fbK / 2;
+        if (this.eVT == 0 || this.eVU == 0) {
+            this.eVT = View.MeasureSpec.getSize(i);
+            this.eVU = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.f.ds184);
+            this.eVV = (this.eVT - this.eVW) / 3;
+            this.eVY = this.eVU / 2;
             for (int i3 = 0; i3 < 4; i3++) {
-                this.fbS.add(new Rect(this.fbL * i3, this.fbO - (this.fbN / 2), (this.fbL * i3) + this.fbM, this.fbO + (this.fbN / 2)));
+                this.eWc.add(new Rect(this.eVV * i3, this.eVY - (this.eVX / 2), (this.eVV * i3) + this.eVW, this.eVY + (this.eVX / 2)));
             }
         }
-        setMeasuredDimension(this.fbJ, this.fbK);
+        setMeasuredDimension(this.eVT, this.eVU);
     }
 
     @Override // android.view.View
@@ -104,11 +104,11 @@ public class TextSizeSeekBar extends View {
                 while (true) {
                     int i2 = i;
                     if (i2 <= 3) {
-                        if (!this.fbS.get(i2).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
+                        if (!this.eWc.get(i2).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                             i = i2 + 1;
                         } else {
                             this.index = i2;
-                            com.baidu.tieba.pb.a.b.pg(Math.abs(this.index - 3));
+                            com.baidu.tieba.pb.a.b.oZ(Math.abs(this.index - 3));
                             invalidate();
                             return true;
                         }
@@ -123,46 +123,46 @@ public class TextSizeSeekBar extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         drawText(canvas);
-        w(canvas);
         x(canvas);
+        y(canvas);
     }
 
     private void drawText(Canvas canvas) {
         int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.f.ds42);
-        for (int i = 0; i < this.fbP.length; i++) {
+        for (int i = 0; i < this.eVZ.length; i++) {
             if (i == this.index) {
-                this.paint.setColor(this.fbQ);
+                this.paint.setColor(this.eWa);
             } else {
-                this.paint.setColor(this.fbR);
+                this.paint.setColor(this.eWb);
             }
             this.paint.setTextSize(this.textSize);
             this.paint.setTextAlign(Paint.Align.CENTER);
-            canvas.drawText(this.fbP[i], (this.fbL * i) + (this.fbM / 2), this.fbO - dimensionPixelSize, this.paint);
+            canvas.drawText(this.eVZ[i], (this.eVV * i) + (this.eVW / 2), this.eVY - dimensionPixelSize, this.paint);
         }
     }
 
-    private void w(Canvas canvas) {
-        this.paint.setColor(this.fbQ);
+    private void x(Canvas canvas) {
+        this.paint.setColor(this.eWa);
         this.paint.setStrokeWidth(4.0f);
-        canvas.drawLine((float) (this.fbM / 2.0d), this.fbO, (float) ((this.index * this.fbL) + (this.fbM / 2.0d)), this.fbO, this.paint);
-        this.paint.setColor(this.fbR);
-        canvas.drawLine((float) ((this.index * this.fbL) + (this.fbM / 2.0d)), this.fbO, (float) (this.fbJ - (this.fbM / 2.0d)), this.fbO, this.paint);
+        canvas.drawLine((float) (this.eVW / 2.0d), this.eVY, (float) ((this.index * this.eVV) + (this.eVW / 2.0d)), this.eVY, this.paint);
+        this.paint.setColor(this.eWb);
+        canvas.drawLine((float) ((this.index * this.eVV) + (this.eVW / 2.0d)), this.eVY, (float) (this.eVT - (this.eVW / 2.0d)), this.eVY, this.paint);
     }
 
-    private void x(Canvas canvas) {
-        Rect rect = (Rect) v.c(this.fbS, this.index);
-        if (rect != null && this.dmV != null) {
-            this.dmV.setBounds(rect.left, rect.top, rect.right, rect.bottom);
-            this.dmV.draw(canvas);
+    private void y(Canvas canvas) {
+        Rect rect = (Rect) v.c(this.eWc, this.index);
+        if (rect != null && this.djl != null) {
+            this.djl.setBounds(rect.left, rect.top, rect.right, rect.bottom);
+            this.djl.draw(canvas);
         }
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.dmV != null) {
-            this.dmV.setCallback(null);
-            this.dmV = null;
+        if (this.djl != null) {
+            this.djl.setCallback(null);
+            this.djl = null;
         }
     }
 }

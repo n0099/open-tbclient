@@ -1,32 +1,24 @@
 package com.baidu.tbadk.p;
+
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.lib.b.a {
-    @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
+public class a {
+    public static String gS(String str) {
+        if (StringUtils.isNull(str)) {
+            return null;
+        }
+        int indexOf = str.indexOf("(");
+        int indexOf2 = str.indexOf(")");
+        if (indexOf == -1 || indexOf2 == -1 || indexOf + 1 >= indexOf2) {
+            return null;
+        }
+        return str.substring(indexOf + 1, indexOf2);
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "switch_account_data_from_pass";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] eN() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eO() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eP() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eQ() {
-        return 10;
+    public static boolean gT(String str) {
+        if (StringUtils.isNull(str)) {
+            return false;
+        }
+        return str.equals("4") || str.equals("5");
     }
 }

@@ -13,7 +13,6 @@ import com.baidu.android.pushservice.j.k;
 import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.jni.PushSocket;
-import com.baidu.tbadk.TbConfig;
 import java.io.IOException;
 @SuppressLint({"WorldReadableFiles", "InlinedApi"})
 /* loaded from: classes2.dex */
@@ -153,7 +152,7 @@ public class g {
         m();
         long currentTimeMillis = this.f + System.currentTimeMillis();
         int i = ((int) (currentTimeMillis / 1000)) % 60;
-        if (((int) ((currentTimeMillis / TbConfig.USE_TIME_INTERVAL) % 5)) == 0 && i < 15) {
+        if (((int) ((currentTimeMillis / 60000) % 5)) == 0 && i < 15) {
             currentTimeMillis += ((long) (Math.random() * (this.f - 20000))) + 15000;
         }
         try {

@@ -11,7 +11,6 @@ public class GuildActivityConfig extends IntentConfig {
     public static final String FROM_LOGO_PAGE = "from_logo_page";
     public static final String FROM_PAGE = "from_page";
     public static final String GUIDE_TYPE = "guide_type";
-    public static final int GUIDE_TYPE_APP = 3;
     public static final int GUIDE_TYPE_CUSTOM = 2;
     public static final int GUIDE_TYPE_VERSION = 1;
 
@@ -25,7 +24,7 @@ public class GuildActivityConfig extends IntentConfig {
 
     public GuildActivityConfig createNormalCfg(String str, int i) {
         Intent intent = getIntent();
-        intent.putExtra("from_page", str);
+        intent.putExtra(FROM_PAGE, str);
         intent.putExtra(GUIDE_TYPE, i);
         return this;
     }

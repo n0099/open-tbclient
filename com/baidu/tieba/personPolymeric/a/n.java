@@ -1,73 +1,34 @@
 package com.baidu.tieba.personPolymeric.a;
 
 import android.view.View;
-import com.baidu.adp.BdUniqueId;
+import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.person.listview.BdPersonListView;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class n {
-    private com.baidu.tieba.personCenter.a.b ffp;
-    private h fjA;
-    private j fjB;
-    private e fjC;
-    private k fjD;
-    private d fjE;
-    private com.baidu.tieba.person.a.c fjF;
-    private p fjG;
-    private m fjv;
-    private b fjw;
-    private i fjx;
-    private a fjy;
-    private c fjz;
-    private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private BdUniqueId mBdUniqueId;
+public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.n, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.k>> {
+    private TbPageContext<?> mG;
 
-    public n(TbPageContext tbPageContext, BdPersonListView bdPersonListView, BdUniqueId bdUniqueId) {
-        this.mBdUniqueId = bdUniqueId;
-        a(tbPageContext, bdPersonListView);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public n(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.n.fhl);
+        this.mG = tbPageContext;
     }
 
-    private void a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
-        this.fjv = new m(tbPageContext);
-        this.fjw = new b(tbPageContext);
-        this.fjx = new i(tbPageContext);
-        this.fjy = new a(tbPageContext);
-        this.fjz = new c(tbPageContext);
-        this.fjA = new h(tbPageContext, tbPageContext.getUniqueId());
-        this.fjB = new j(tbPageContext);
-        this.fjC = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.flA);
-        this.fjD = new k(tbPageContext);
-        this.fjE = new d(tbPageContext);
-        this.fjF = new com.baidu.tieba.person.a.c(tbPageContext, com.baidu.tieba.person.a.e.ffq);
-        this.ffp = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.person.h.feY);
-        this.fjG = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-        this.mAdapters.add(this.fjv);
-        this.mAdapters.add(this.fjw);
-        this.mAdapters.add(this.fjx);
-        this.mAdapters.add(this.fjy);
-        this.mAdapters.add(this.fjz);
-        this.mAdapters.add(this.fjA);
-        this.mAdapters.add(this.fjB);
-        this.mAdapters.add(this.fjC);
-        this.mAdapters.add(this.fjD);
-        this.mAdapters.add(this.fjE);
-        this.mAdapters.add(this.fjF);
-        this.mAdapters.add(this.ffp);
-        this.mAdapters.add(this.fjG);
-        bdPersonListView.addAdapters(this.mAdapters);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: B */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.k> onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.k(this.mG));
     }
 
-    public void H(View.OnClickListener onClickListener) {
-        if (this.fjF != null) {
-            this.fjF.F(onClickListener);
-        }
-    }
-
-    public void setIsHost(boolean z) {
-        this.fjG.setIsHost(z);
-        this.fjx.setIsHost(z);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.n nVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.k> aVar) {
+        aVar.Yr().a(nVar);
+        aVar.Yr().d(this.mG, TbadkCoreApplication.getInst().getSkinType());
+        return aVar.getView();
     }
 }

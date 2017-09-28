@@ -1,39 +1,68 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class k implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId aAj = BdUniqueId.gen();
-    private String aAk;
-    private String aAl;
-    private boolean aAm = false;
+public class k implements com.baidu.tbadk.widget.vote.a {
+    private String aeD;
+    private long azH;
+    private int azI;
+    private boolean isSelected = false;
+    private int mId;
+    private String mUrl;
 
-    @Override // com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return aAj;
+    public k(int i, String str, String str2, long j) {
+        this.mId = i;
+        this.aeD = str;
+        this.mUrl = str2;
+        this.azH = j;
     }
 
-    public String Cx() {
-        return this.aAk;
+    public void setSelected(boolean z) {
+        this.isSelected = z;
     }
 
-    public void fv(String str) {
-        this.aAk = str;
+    public void setPercent(int i) {
+        this.azI = i;
     }
 
-    public String getSmallUrl() {
-        return this.aAl;
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int getId() {
+        return this.mId;
     }
 
-    public void fw(String str) {
-        this.aAl = str;
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Cd() {
+        return this.aeD;
     }
 
-    public boolean Cy() {
-        return this.aAm;
+    @Override // com.baidu.tbadk.widget.vote.a
+    public boolean isSelected() {
+        return this.isSelected;
     }
 
-    public void bw(boolean z) {
-        this.aAm = z;
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Ce() {
+        return this.azH + TbadkCoreApplication.getInst().getString(d.l.vote_unit);
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Cf() {
+        return this.azI + TbadkCoreApplication.getInst().getString(d.l.vote_percent);
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int Cg() {
+        return 0;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int Ch() {
+        return this.azI;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Ci() {
+        return this.mUrl;
     }
 }

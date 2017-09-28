@@ -6,14 +6,14 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private final String qN = Environment.getExternalStorageDirectory().getAbsolutePath();
-    private String qO = this.qN + "/baidu/";
-    private String qP;
+    private final String qO = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String qP = this.qO + "/baidu/";
+    private String qQ;
 
     public b() {
-        this.qP = null;
+        this.qQ = null;
         try {
-            this.qP = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
+            this.qQ = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -21,32 +21,32 @@ public class b {
 
     public void H(String str) {
         if (str != null) {
-            this.qO = this.qN + "/" + str + "/";
+            this.qP = this.qO + "/" + str + "/";
         }
     }
 
-    public boolean dH() {
+    public boolean dG() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
     public String a(String str, boolean z, boolean z2) {
         String str2;
         if (z2) {
-            if (!dH()) {
+            if (!dG()) {
                 return null;
             }
-            if (str != null) {
-                str2 = this.qO + str + "/";
-            } else {
-                str2 = this.qO;
-            }
-        } else if (this.qP == null) {
-            return null;
-        } else {
             if (str != null) {
                 str2 = this.qP + str + "/";
             } else {
                 str2 = this.qP;
+            }
+        } else if (this.qQ == null) {
+            return null;
+        } else {
+            if (str != null) {
+                str2 = this.qQ + str + "/";
+            } else {
+                str2 = this.qQ;
             }
         }
         File file = new File(str2);

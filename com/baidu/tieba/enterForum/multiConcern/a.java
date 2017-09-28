@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.lib.g.e;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbPageContext;
@@ -25,27 +25,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private BdListView Hw;
-    private View aHd;
+    private BdListView HN;
+    private View aGE;
     private ViewGroup aaQ;
-    private TextView abP;
-    private TbPageContext<?> aby;
+    private TextView abQ;
+    private TbPageContext<?> abz;
     private ViewEventCenter ccl;
-    private View cdK;
-    private TextView cdL;
-    private View cdM;
-    private TextView cdN;
-    private c cdO;
-    private MultiConcernModel cdP;
-    private MultiConcernModel.a cdQ;
+    private View cdL;
+    private TextView cdM;
+    private View cdN;
+    private TextView cdO;
+    private c cdP;
+    private MultiConcernModel cdQ;
+    private MultiConcernModel.a cdR;
     private List<b> forumList;
     private boolean isShowing = false;
-    private View.OnClickListener aYH = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.multiConcern.a.1
+    private View.OnClickListener aPe = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.multiConcern.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != a.this.aHd) {
-                if (view != a.this.cdL) {
-                    if (view == a.this.cdN) {
+            if (view != a.this.aGE) {
+                if (view != a.this.cdM) {
+                    if (view == a.this.cdO) {
                         ArrayList<Long> arrayList = new ArrayList<>();
                         StringBuilder sb = new StringBuilder();
                         for (b bVar : a.this.forumList) {
@@ -55,43 +55,43 @@ public class a {
                             }
                         }
                         TiebaStatic.log(new ak("c12239").ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ad("fid", sb.toString()));
-                        if (v.v(arrayList)) {
-                            a.this.adD();
+                        if (v.u(arrayList)) {
+                            a.this.adq();
                             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_recommend_forums_window_", false);
                             return;
-                        } else if (!k.hz()) {
-                            k.showToast(a.this.aby.getPageActivity(), d.l.neterror);
+                        } else if (!l.hy()) {
+                            l.showToast(a.this.abz.getPageActivity(), d.l.neterror);
                             return;
                         } else {
-                            a.this.cdN.setClickable(false);
-                            if (a.this.cdP == null) {
-                                a.this.cdP = new MultiConcernModel(a.this.aby);
-                            }
+                            a.this.cdO.setClickable(false);
                             if (a.this.cdQ == null) {
-                                a.this.cdQ = new MultiConcernModel.a() { // from class: com.baidu.tieba.enterForum.multiConcern.a.1.1
+                                a.this.cdQ = new MultiConcernModel(a.this.abz);
+                            }
+                            if (a.this.cdR == null) {
+                                a.this.cdR = new MultiConcernModel.a() { // from class: com.baidu.tieba.enterForum.multiConcern.a.1.1
                                     @Override // com.baidu.tieba.enterForum.multiConcern.MultiConcernModel.a
-                                    public void y(int i, String str) {
-                                        a.this.cdN.setClickable(true);
+                                    public void x(int i, String str) {
+                                        a.this.cdO.setClickable(true);
                                         if (i != 0) {
-                                            k.showToast(a.this.aby.getPageActivity(), str);
+                                            l.showToast(a.this.abz.getPageActivity(), str);
                                             return;
                                         }
-                                        a.this.adD();
+                                        a.this.adq();
                                         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_recommend_forums_window_", false);
                                         if (a.this.ccl != null) {
                                             a.this.ccl.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9, null, null, null));
                                         }
                                     }
                                 };
-                                a.this.cdP.a(a.this.cdQ);
+                                a.this.cdQ.a(a.this.cdR);
                             }
-                            a.this.cdP.C(arrayList);
+                            a.this.cdQ.B(arrayList);
                             return;
                         }
                     }
                     return;
                 }
-                a.this.adD();
+                a.this.adq();
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_recommend_forums_window_", false);
                 TiebaStatic.log(new ak("c12240").ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
             }
@@ -100,101 +100,101 @@ public class a {
 
     public a(TbPageContext<?> tbPageContext, ViewGroup viewGroup, ViewEventCenter viewEventCenter) {
         if (tbPageContext != null && viewGroup != null) {
-            this.aby = tbPageContext;
+            this.abz = tbPageContext;
             this.aaQ = viewGroup;
             this.ccl = viewEventCenter;
         }
     }
 
-    private void adz() {
-        this.aHd = LayoutInflater.from(this.aby.getPageActivity()).inflate(d.j.layout_recommend_forums_by_tag, (ViewGroup) null);
-        this.cdK = this.aHd.findViewById(d.h.rec_forum_list_container);
-        this.cdL = (TextView) this.aHd.findViewById(d.h.view_skip);
-        this.abP = (TextView) this.aHd.findViewById(d.h.view_recommend_tip);
-        this.cdM = this.aHd.findViewById(d.h.view_top_divider);
-        this.Hw = (BdListView) this.aHd.findViewById(d.h.listview_forums);
-        this.cdN = (TextView) this.aHd.findViewById(d.h.view_forums_concern);
-        this.cdN.setClickable(true);
-        this.cdO = new c(this.aby.getPageActivity());
-        this.Hw.setAdapter((ListAdapter) this.cdO);
-        this.Hw.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.enterForum.multiConcern.a.2
+    private void adm() {
+        this.aGE = LayoutInflater.from(this.abz.getPageActivity()).inflate(d.j.layout_recommend_forums_by_tag, (ViewGroup) null);
+        this.cdL = this.aGE.findViewById(d.h.rec_forum_list_container);
+        this.cdM = (TextView) this.aGE.findViewById(d.h.view_skip);
+        this.abQ = (TextView) this.aGE.findViewById(d.h.view_recommend_tip);
+        this.cdN = this.aGE.findViewById(d.h.view_top_divider);
+        this.HN = (BdListView) this.aGE.findViewById(d.h.listview_forums);
+        this.cdO = (TextView) this.aGE.findViewById(d.h.view_forums_concern);
+        this.cdO.setClickable(true);
+        this.cdP = new c(this.abz.getPageActivity());
+        this.HN.setAdapter((ListAdapter) this.cdP);
+        this.HN.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.enterForum.multiConcern.a.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (v.c(a.this.forumList, i) != null) {
                     ((b) v.c(a.this.forumList, i)).isSelected = !((b) v.c(a.this.forumList, i)).isSelected;
-                    a.this.cdO.setData(a.this.forumList);
-                    a.this.cdO.notifyDataSetChanged();
+                    a.this.cdP.setData(a.this.forumList);
+                    a.this.cdP.notifyDataSetChanged();
                 }
             }
         });
-        this.cdL.setOnClickListener(this.aYH);
-        this.cdN.setOnClickListener(this.aYH);
-        this.aHd.setOnClickListener(this.aYH);
+        this.cdM.setOnClickListener(this.aPe);
+        this.cdO.setOnClickListener(this.aPe);
+        this.aGE.setOnClickListener(this.aPe);
         onChangeSkinType();
     }
 
-    public void av(List<b> list) {
+    public void au(List<b> list) {
         this.forumList = list;
         if (!this.isShowing && this.aaQ != null) {
-            if (v.v(list)) {
-                adD();
+            if (v.u(list)) {
+                adq();
                 return;
             }
-            if (this.aHd == null) {
-                adz();
+            if (this.aGE == null) {
+                adm();
             }
-            this.cdN.setClickable(true);
+            this.cdO.setClickable(true);
             this.isShowing = true;
-            if (this.aHd.getParent() == null) {
-                com.baidu.tbadk.k.d.P(this.aaQ).a(this.aaQ, this.aHd, false);
+            if (this.aGE.getParent() == null) {
+                com.baidu.tbadk.j.d.Q(this.aaQ).a(this.aaQ, this.aGE, false);
             }
-            e.fQ().postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.multiConcern.a.3
+            e.fP().postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.multiConcern.a.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    Animation loadAnimation = AnimationUtils.loadAnimation(a.this.aby.getPageActivity(), d.a.anim_recommend_forums_window);
+                    Animation loadAnimation = AnimationUtils.loadAnimation(a.this.abz.getPageActivity(), d.a.anim_recommend_forums_window);
                     loadAnimation.setFillAfter(true);
-                    a.this.aHd.setVisibility(0);
-                    a.this.cdK.startAnimation(loadAnimation);
+                    a.this.aGE.setVisibility(0);
+                    a.this.cdL.startAnimation(loadAnimation);
                 }
             }, 100L);
-            this.cdO.setData(this.forumList);
-            this.cdO.notifyDataSetChanged();
+            this.cdP.setData(this.forumList);
+            this.cdP.notifyDataSetChanged();
             TiebaStatic.log(new ak("c12238").ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
-    public void adD() {
+    public void adq() {
         if (this.isShowing) {
             this.isShowing = false;
-            if (this.aHd != null && this.aaQ != null) {
-                this.aHd.setVisibility(8);
-                if (this.aHd.getParent() == this.aaQ) {
-                    this.aaQ.removeView(this.aHd);
+            if (this.aGE != null && this.aaQ != null) {
+                this.aGE.setVisibility(8);
+                if (this.aGE.getParent() == this.aaQ) {
+                    this.aaQ.removeView(this.aGE);
                 }
             }
         }
     }
 
     public void onDestroy() {
-        adD();
-        if (this.cdP != null) {
-            this.cdP.cancelMessage();
+        adq();
+        if (this.cdQ != null) {
+            this.cdQ.cancelMessage();
         }
     }
 
     public void onChangeSkinType() {
-        aj.i(this.cdL, d.e.cp_cont_d);
-        aj.i(this.abP, d.e.cp_cont_d);
-        aj.k(this.cdM, d.e.cp_bg_line_c);
-        aj.i(this.cdN, d.e.common_color_10310);
-        aj.j(this.cdN, d.g.bule_bg_commen_label_button);
-        aj.j(this.aHd, d.e.black_alpha50);
-        aj.j(this.cdK, d.g.bg_recommend_forum_by_tag);
-        this.cdO.notifyDataSetChanged();
+        aj.i(this.cdM, d.e.cp_cont_d);
+        aj.i(this.abQ, d.e.cp_cont_d);
+        aj.k(this.cdN, d.e.cp_bg_line_c);
+        aj.i(this.cdO, d.e.common_color_10310);
+        aj.j(this.cdO, d.g.bule_bg_commen_label_button);
+        aj.j(this.aGE, d.e.black_alpha50);
+        aj.j(this.cdL, d.g.bg_recommend_forum_by_tag);
+        this.cdP.notifyDataSetChanged();
     }
 
-    public View adE() {
-        return this.aHd;
+    public View adr() {
+        return this.aGE;
     }
 
     public boolean isShowing() {

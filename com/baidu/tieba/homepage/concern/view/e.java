@@ -3,22 +3,22 @@ package com.baidu.tieba.homepage.concern.view;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends d {
-    private ThreadLinkView bMJ;
+    private ThreadLinkView bMg;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d
-    protected void ab(View view) {
+    protected void aa(View view) {
         if (view != null) {
-            this.bMJ = (ThreadLinkView) view.findViewById(d.h.card_recommend_god_link_therad);
-            this.bMJ.setTag(getTag());
+            this.bMg = (ThreadLinkView) view.findViewById(d.h.card_recommend_god_link_therad);
+            this.bMg.setTag(getTag());
         }
     }
 
@@ -28,25 +28,25 @@ public class e extends d {
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d
-    protected void V(bj bjVar) {
-        if (bjVar != null && !StringUtils.isNull(bjVar.getTid())) {
+    protected void Q(bh bhVar) {
+        if (bhVar != null && !StringUtils.isNull(bhVar.getTid())) {
             if (getView() != null) {
-                getView().setOnClickListener(this.dan);
+                getView().setOnClickListener(this.cWQ);
             }
-            this.bMJ.setData(bjVar);
+            this.bMg.setData(bhVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.concern.view.d
-    public void XQ() {
-        super.XQ();
-        this.bMJ.es(this.bgF.getId());
+    public void Xw() {
+        super.Xw();
+        this.bMg.em(this.bit.getId());
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.bMJ.onChangeSkinType();
+        this.bMg.onChangeSkinType();
     }
 }

@@ -12,16 +12,16 @@ import com.baidu.tieba.d;
 import java.io.File;
 /* loaded from: classes.dex */
 public class s {
-    public static final void aq(Context context, String str) {
+    public static final void as(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.util.k.showToast(context, d.l.download_error);
+            com.baidu.adp.lib.util.l.showToast(context, d.l.download_error);
             return;
         }
-        File m9do = com.baidu.tbadk.core.util.k.m9do(str.replace(".", "_") + ".apk");
-        if (m9do != null) {
+        File de = com.baidu.tbadk.core.util.k.de(str.replace(".", "_") + ".apk");
+        if (de != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(m9do, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(de, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }

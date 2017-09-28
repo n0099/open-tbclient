@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.tab;
 
-import com.baidu.tieba.frs.at;
+import com.baidu.tieba.frs.au;
 /* loaded from: classes.dex */
 public class d {
-    public int cCh;
-    public at cFF;
+    public int cDa;
+    public au cGy;
     public String name;
     public String url;
 }

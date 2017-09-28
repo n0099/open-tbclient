@@ -17,9 +17,9 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends LinearLayout {
     private ViewEventCenter ccl;
-    private TextView ceG;
-    private ImageView ceH;
-    private LinearLayout ceQ;
+    private TextView ceH;
+    private ImageView ceI;
+    private LinearLayout ceR;
 
     public f(Context context) {
         this(context, null);
@@ -38,9 +38,9 @@ public class f extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(d.j.layout_enterforum_search, this);
         setOrientation(1);
         setDescendantFocusability(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
-        this.ceQ = (LinearLayout) findViewById(d.h.search_container);
-        this.ceQ.setVisibility(0);
-        this.ceQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.f.1
+        this.ceR = (LinearLayout) findViewById(d.h.search_container);
+        this.ceR.setVisibility(0);
+        this.ceR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (f.this.ccl != null) {
@@ -49,18 +49,18 @@ public class f extends LinearLayout {
                 }
             }
         });
-        this.ceG = (TextView) findViewById(d.h.search_text);
-        this.ceH = (ImageView) findViewById(d.h.search_icon);
+        this.ceH = (TextView) findViewById(d.h.search_text);
+        this.ceI = (ImageView) findViewById(d.h.search_icon);
     }
 
-    public void n(TbPageContext<?> tbPageContext) {
-        com.baidu.tbadk.o.a.a(tbPageContext, this);
-        aj.c(this.ceH, d.g.icon_search);
-        aj.i(this.ceG, d.e.enter_forum_search_text_color);
-        aj.j(this.ceQ, d.g.enter_forum_search_frame);
+    public void k(TbPageContext<?> tbPageContext) {
+        com.baidu.tbadk.n.a.a(tbPageContext, this);
+        aj.c(this.ceI, d.g.icon_search);
+        aj.i(this.ceH, d.e.enter_forum_search_text_color);
+        aj.j(this.ceR, d.g.enter_forum_search_frame);
     }
 
     public void setSearchHint(String str) {
-        this.ceG.setText(UtilHelper.getFixedText(str, 20));
+        this.ceH.setText(UtilHelper.getFixedText(str, 20));
     }
 }

@@ -1,13 +1,15 @@
 package com.baidu.tieba.model;
+
+import com.baidu.tieba.person.data.f;
 /* loaded from: classes.dex */
 public interface a {
-    void PP();
+    void Qj();
 
-    void a(int i, com.baidu.tieba.person.data.c cVar);
+    void a(int i, f fVar);
 
-    void g(boolean z, boolean z2, boolean z3);
+    void h(boolean z, boolean z2, boolean z3);
 
-    com.baidu.tieba.person.data.c hC(int i);
+    f oI(int i);
 
     void refreshData();
 

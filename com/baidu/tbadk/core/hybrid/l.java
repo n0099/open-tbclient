@@ -1,7 +1,9 @@
 package com.baidu.tbadk.core.hybrid;
-/* loaded from: classes.dex */
-interface l {
-    void cU(String str);
 
-    void tU();
+import org.json.JSONObject;
+/* loaded from: classes.dex */
+public interface l {
+    void a(n nVar, JSONObject jSONObject);
+
+    void b(int i, Throwable th);
 }

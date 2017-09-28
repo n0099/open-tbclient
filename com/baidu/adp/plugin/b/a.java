@@ -8,38 +8,37 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.appsearchlib.Info;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
 import com.baidu.tieba.compatible.EditorHelper;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a Df = null;
-    private HashMap<String, Integer> De = new HashMap<>();
+    private static volatile a Dh = null;
+    private HashMap<String, Integer> Dg = new HashMap<>();
 
-    public static synchronized a jj() {
+    public static synchronized a ji() {
         a aVar;
         synchronized (a.class) {
-            if (Df == null) {
+            if (Dh == null) {
                 synchronized (a.class) {
-                    if (Df == null) {
-                        Df = new a();
+                    if (Dh == null) {
+                        Dh = new a();
                     }
                 }
             }
-            aVar = Df;
+            aVar = Dh;
         }
         return aVar;
     }
 
     public void be(String str) {
         if (str != null) {
-            Integer num = this.De.get(str);
+            Integer num = this.Dg.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.De.put(str, Integer.valueOf(num.intValue() + 1));
+            this.Dg.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
@@ -62,44 +61,44 @@ public class a {
     }
 
     public void a(String str, long j, int i, String str2) {
-        com.baidu.adp.lib.stats.a fL = fL();
-        fL.p("workflow", str + "_cost");
-        fL.c("cost", Long.valueOf(j));
+        com.baidu.adp.lib.stats.a fK = fK();
+        fK.p("workflow", str + "_cost");
+        fK.c("cost", Long.valueOf(j));
         if (i != 0) {
-            fL.c(ImageViewerConfig.COUNT, Integer.valueOf(i));
+            fK.c("count", Integer.valueOf(i));
         }
         if (str2 != null) {
-            fL.p("pname", str2);
+            fK.p("pname", str2);
         }
-        fL.c(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
-        PluginSettings jV = c.jY().jV();
-        if (jV != null) {
-            fL.p("pver", jV.getContainerVersion());
+        fK.c(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
+        PluginSettings jU = c.jX().jU();
+        if (jU != null) {
+            fK.p("pver", jU.getContainerVersion());
         }
-        BdStatisticsManager.getInstance().debug("pluginproxy", fL);
+        BdStatisticsManager.getInstance().debug("pluginproxy", fK);
     }
 
     public void c(String str, String str2, String str3, String str4) {
-        com.baidu.adp.lib.stats.a fL = fL();
+        com.baidu.adp.lib.stats.a fK = fK();
         if (str != null) {
-            fL.p("workflow", str + "_debug");
+            fK.p("workflow", str + "_debug");
         }
         if (str2 != null) {
-            fL.p("reason", str2);
+            fK.p("reason", str2);
         }
         if (str3 != null) {
-            fL.p("pname", str3);
+            fK.p("pname", str3);
         }
         if (str4 != null) {
-            fL.p("comment", str4);
+            fK.p("comment", str4);
         }
-        fL.c(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
-        PluginSettings jV = c.jY().jV();
-        if (jV != null) {
-            fL.p("pver", jV.getContainerVersion());
+        fK.c(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
+        PluginSettings jU = c.jX().jU();
+        if (jU != null) {
+            fK.p("pver", jU.getContainerVersion());
         }
-        BdLog.e(fL.toString());
-        BdStatisticsManager.getInstance().debug("pluginproxy", fL);
+        BdLog.e(fK.toString());
+        BdStatisticsManager.getInstance().debug("pluginproxy", fK);
         BdStatisticsManager.getInstance().save();
     }
 
@@ -108,35 +107,35 @@ public class a {
     }
 
     public void d(String str, String str2, String str3, String str4) {
-        com.baidu.adp.lib.stats.a fL = fL();
+        com.baidu.adp.lib.stats.a fK = fK();
         if (str != null) {
-            fL.p("workflow", str + "_failure");
+            fK.p("workflow", str + "_failure");
         }
         if (str2 != null) {
-            fL.p("reason", str2);
+            fK.p("reason", str2);
         }
         if (str3 != null) {
-            fL.p("pname", str3);
+            fK.p("pname", str3);
         }
-        c(fL);
+        c(fK);
         if (str4 != null) {
-            fL.p("comment", str4);
+            fK.p("comment", str4);
         }
-        fL.c(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
-        PluginSettings jV = c.jY().jV();
-        if (jV != null) {
-            fL.p("pver", jV.getContainerVersion());
+        fK.c(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
+        PluginSettings jU = c.jX().jU();
+        if (jU != null) {
+            fK.p("pver", jU.getContainerVersion());
         }
-        BdLog.e(fL.toString());
-        BdStatisticsManager.getInstance().debug("pluginproxy", fL);
+        BdLog.e(fK.toString());
+        BdStatisticsManager.getInstance().debug("pluginproxy", fK);
         BdStatisticsManager.getInstance().save();
     }
 
-    public void jk() {
-        if (this.De.size() != 0) {
-            com.baidu.adp.lib.stats.a fL = fL();
-            c(fL);
-            BdStatisticsManager.getInstance().debug("pluginproxy", fL);
+    public void jj() {
+        if (this.Dg.size() != 0) {
+            com.baidu.adp.lib.stats.a fK = fK();
+            c(fK);
+            BdStatisticsManager.getInstance().debug("pluginproxy", fK);
         }
     }
 
@@ -154,14 +153,14 @@ public class a {
 
     public void e(String str, String str2, PluginSetting pluginSetting) {
         if (pluginSetting == null) {
-            pluginSetting = c.jY().findPluginSetting(str2);
+            pluginSetting = c.jX().findPluginSetting(str2);
         }
         BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), str, null, 1, "pname", str2, "index", Integer.valueOf(pluginSetting != null ? pluginSetting.install_fail_count : 0));
     }
 
     public void a(String str, String str2, PluginSetting pluginSetting, String str3) {
         if (pluginSetting == null) {
-            pluginSetting = c.jY().findPluginSetting(str2);
+            pluginSetting = c.jX().findPluginSetting(str2);
         }
         BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), str, null, 1, "pname", str2, "index", Integer.valueOf(pluginSetting != null ? pluginSetting.install_fail_count : 0), "reason", str3);
     }
@@ -172,14 +171,14 @@ public class a {
 
     private void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
-            for (Map.Entry<String, Integer> entry : this.De.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.Dg.entrySet()) {
                 aVar.p(entry.getKey() + "_count", String.valueOf(entry.getValue()));
             }
-            this.De.clear();
+            this.Dg.clear();
         }
     }
 
-    private com.baidu.adp.lib.stats.a fL() {
+    private com.baidu.adp.lib.stats.a fK() {
         return BdStatisticsManager.getInstance().getStatsItem("dbg");
     }
 
@@ -187,7 +186,7 @@ public class a {
         EditorHelper.putBoolean(BdBaseApplication.getInst().getSharedPreferences(PluginDownloadActivityConfig.PLUGIN_CONFIG, 0), "is_plugin_lastload_fail", z);
     }
 
-    public boolean jl() {
+    public boolean jk() {
         return BdBaseApplication.getInst().getSharedPreferences(PluginDownloadActivityConfig.PLUGIN_CONFIG, 0).getBoolean("is_plugin_lastload_fail", false);
     }
 }

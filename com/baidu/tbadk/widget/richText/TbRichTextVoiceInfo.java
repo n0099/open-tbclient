@@ -5,8 +5,8 @@ import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextVoiceInfo extends OrmObject {
-    private int aSe;
-    private Object aSf;
+    private int aTd;
+    private Object aTe;
     private int duration;
     private String md5;
 
@@ -17,7 +17,7 @@ public class TbRichTextVoiceInfo extends OrmObject {
         if (pbContent != null) {
             this.md5 = pbContent.voice_md5;
             this.duration = pbContent.during_time.intValue() / 1000;
-            this.aSe = pbContent.is_sub.intValue();
+            this.aTd = pbContent.is_sub.intValue();
         }
     }
 
@@ -25,11 +25,11 @@ public class TbRichTextVoiceInfo extends OrmObject {
         if (jSONObject != null) {
             this.md5 = jSONObject.optString("voice_md5");
             this.duration = jSONObject.optInt("during_time") / 1000;
-            this.aSe = jSONObject.optInt("is_sub");
+            this.aTd = jSONObject.optInt("is_sub");
         }
     }
 
-    public String ym() {
+    public String xL() {
         return this.md5;
     }
 
@@ -37,15 +37,15 @@ public class TbRichTextVoiceInfo extends OrmObject {
         return this.duration;
     }
 
-    public int Jo() {
-        return this.aSe;
+    public int Jx() {
+        return this.aTd;
     }
 
-    public Object Jp() {
-        return this.aSf;
+    public Object Jy() {
+        return this.aTe;
     }
 
-    public void F(Object obj) {
-        this.aSf = obj;
+    public void E(Object obj) {
+        this.aTe = obj;
     }
 }

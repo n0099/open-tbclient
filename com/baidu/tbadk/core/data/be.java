@@ -1,54 +1,31 @@
 package com.baidu.tbadk.core.data;
-
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class be {
-    private String avatar;
-    private String forumId;
-    private int forumLevel;
-    private String forumName;
+    protected String img_url = null;
+    protected String link = null;
+    protected String Yc = null;
 
-    public String getForumId() {
-        return this.forumId;
+    public String pS() {
+        return this.img_url;
     }
 
-    public String getForumName() {
-        return this.forumName;
+    public void cA(String str) {
+        this.img_url = str;
     }
 
-    public int qW() {
-        return this.forumLevel;
+    public String getLink() {
+        return this.link;
     }
 
-    public void setForumName(String str) {
-        this.forumName = str;
+    public void setLink(String str) {
+        this.link = str;
     }
 
-    public void setForumLevel(int i) {
-        this.forumLevel = i;
+    public String qU() {
+        return this.Yc;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.forumId = String.valueOf(jSONObject.optLong("id", 0L));
-                this.forumName = jSONObject.optString("name");
-                this.avatar = jSONObject.optString("avatar");
-                this.forumLevel = jSONObject.optInt("level_id");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void parserProtobuf(SimpleForum simpleForum) {
-        if (simpleForum != null) {
-            this.forumId = String.valueOf(simpleForum.id);
-            this.forumName = simpleForum.name;
-            this.avatar = simpleForum.avatar;
-            this.forumLevel = simpleForum.level_id.intValue();
-        }
+    public void cB(String str) {
+        this.Yc = str;
     }
 }

@@ -2,22 +2,22 @@ package com.baidu.tbadk.coreExtra.websocketBase;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.j;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class e {
-    private boolean aza = false;
-    private int azb = 0;
+    private boolean ayv = false;
+    private int ayw = 0;
 
-    public void fq(String str) {
+    public void fj(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.aza = false;
-        this.azb = 0;
+        this.ayv = false;
+        this.ayw = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
@@ -48,7 +48,7 @@ public class e {
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.aza = true;
+                                this.ayv = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -79,23 +79,23 @@ public class e {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.aza && i4 > 0) {
-                    this.azb = i3 / i4;
+                if (this.ayv && i4 > 0) {
+                    this.ayw = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.aza;
+        return this.ayv;
     }
 
-    public int Cb() {
-        return this.azb;
+    public int BE() {
+        return this.ayw;
     }
 
     private int getTimeout() {
-        switch (i.ho()) {
+        switch (j.hn()) {
             case 1:
                 return 3000;
             case 2:

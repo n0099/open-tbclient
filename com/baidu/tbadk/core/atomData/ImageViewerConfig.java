@@ -2,18 +2,16 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class ImageViewerConfig extends IntentConfig {
     public static final String ASSIST_URLS = "assist_urls";
-    public static final String COUNT = "count";
     public static final String DATA_NOT_VALID = "data_not_valid";
     public static final String DATA_VALID = "data_valid";
     public static final String FIXED_COUNT_IN_TITLE = "fixed_count_in_title";
@@ -23,12 +21,12 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String FROM_FRS = "frs";
     public static final String FROM_PB = "pb";
     public static final String HAS_NEXT = "hasnext";
+    public static final String IMAGE_DATA_LIST = "image_data_list";
     public static final String INDEX = "index";
     public static final String IS_DATA_VALID = "is_data_valid";
     public static final String IS_PV = "is_pv";
     public static final String IS_SHOW_AD = "is_show_ad";
     public static final String LAST_ID = "last_id";
-    private static final int MAX_ASSIST_URLS = 20;
     public static final String NEED_BROADCAST = "need_broadcast";
     public static final String NEXT_TILE = "nexttile";
     public static final String PARAM_IS_CDN = "isCdn";
@@ -55,35 +53,11 @@ public class ImageViewerConfig extends IntentConfig {
     }
 
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5) {
-        Intent intent = getIntent();
-        intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
-        if (arrayList != null && arrayList.size() > 0) {
-            intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra("url", arrayList);
-            intent.putExtra("index", i);
-            intent.putExtra("is_pv", true);
-            intent.putExtra(PV_TYPE, "pb");
-            intent.putExtra(PARAM_IS_CDN, z);
-            intent.putExtra(FORUM_NAME, str);
-            intent.putExtra("fid", str2);
-            intent.putExtra("tid", str3);
-            intent.putExtra(LAST_ID, str4);
-            intent.putExtra(REVERSE_MODE, z2);
-            intent.putExtra(ASSIST_URLS, concurrentHashMap);
-            intent.putExtra(IS_SHOW_AD, z3);
-            intent.putExtra(NEED_BROADCAST, z4);
-            intent.putExtra(SEE_HOST, z5);
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                intent.putExtra("user_id", currentAccountObj.getID());
-            }
-        } else {
-            intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
-        }
-        return this;
+        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, concurrentHashMap, z3, z4, z5, -1);
     }
 
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5, int i2) {
+        ImageUrlData imageUrlData;
         Intent intent = getIntent();
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
         if (arrayList != null && arrayList.size() > 0) {
@@ -102,7 +76,30 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(IS_SHOW_AD, z3);
             intent.putExtra(NEED_BROADCAST, z4);
             intent.putExtra(SEE_HOST, z5);
-            intent.putExtra("thread_type", i2);
+            if (i2 >= 0) {
+                intent.putExtra("thread_type", i2);
+            }
+            ArrayList arrayList2 = new ArrayList();
+            int size = arrayList.size();
+            for (int i3 = 0; i3 < size; i3++) {
+                String str5 = arrayList.get(i3);
+                if (!StringUtils.isNull(str5)) {
+                    ImageUrlData imageUrlData2 = null;
+                    if (concurrentHashMap != null) {
+                        imageUrlData2 = concurrentHashMap.get(str5);
+                    }
+                    if (imageUrlData2 == null) {
+                        ImageUrlData imageUrlData3 = new ImageUrlData();
+                        imageUrlData3.imageUrl = str5;
+                        imageUrlData = imageUrlData3;
+                    } else {
+                        imageUrlData = imageUrlData2;
+                    }
+                    imageUrlData.overAllIndex = i3 + 1;
+                    arrayList2.add(imageUrlData);
+                }
+            }
+            intent.putExtra(IMAGE_DATA_LIST, arrayList2);
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
                 intent.putExtra("user_id", currentAccountObj.getID());
@@ -120,19 +117,5 @@ public class ImageViewerConfig extends IntentConfig {
     public ImageViewerConfig setFixCountInTitle(int i) {
         getIntent().putExtra(FIXED_COUNT_IN_TITLE, i);
         return this;
-    }
-
-    private void cutAssistUrls(Map<String, ImageUrlData> map) {
-        if (map != null && map.size() > 20) {
-            int i = 0;
-            Iterator<Map.Entry<String, ImageUrlData>> it = map.entrySet().iterator();
-            while (it.hasNext()) {
-                it.next();
-                i++;
-                if (i > 20) {
-                    it.remove();
-                }
-            }
-        }
     }
 }

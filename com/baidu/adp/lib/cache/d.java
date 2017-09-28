@@ -40,7 +40,7 @@ public abstract class d<T> implements k<T> {
             }
             return null;
         } else {
-            if (this.sL.ey()) {
+            if (this.sL.ex()) {
                 Q.sR = System.currentTimeMillis();
                 c(Q);
             }
@@ -56,7 +56,7 @@ public abstract class d<T> implements k<T> {
         if (j == null) {
             return null;
         }
-        return j.rY;
+        return j.value;
     }
 
     @Override // com.baidu.adp.lib.cache.k
@@ -67,7 +67,7 @@ public abstract class d<T> implements k<T> {
         }
         l.b<T> bVar = new l.b<>();
         bVar.key = str2;
-        bVar.rY = j.rY;
+        bVar.value = j.value;
         bVar.sS = j.sS;
         bVar.ti = j.sQ;
         return bVar;
@@ -79,7 +79,7 @@ public abstract class d<T> implements k<T> {
         gVar.sO = h(str, str2);
         gVar.sP = str;
         gVar.sS = j;
-        gVar.rY = t;
+        gVar.value = t;
         gVar.sR = System.currentTimeMillis();
         gVar.sQ = System.currentTimeMillis();
         c(gVar);
@@ -91,7 +91,7 @@ public abstract class d<T> implements k<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public e ex() {
+    public e ew() {
         return this.sL;
     }
 }

@@ -8,45 +8,45 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a dbP;
-    public BdUniqueId aOu;
-    public int dbN = -1;
-    public boolean dbO = false;
-    private CustomMessageListener apK = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.framework.a.a.1
+    private static a cYo;
+    public BdUniqueId aPx;
+    public int cYm = -1;
+    public boolean cYn = false;
+    private CustomMessageListener aoT = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.framework.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.isSucc() && !updateAttentionMessage.isAttention() && updateAttentionMessage.isGod()) {
-                    a.this.dbO = true;
+                    a.this.cYn = true;
                 }
             }
         }
     };
 
-    public static synchronized a aqM() {
+    public static synchronized a apr() {
         a aVar;
         synchronized (a.class) {
-            if (dbP == null) {
-                dbP = new a();
+            if (cYo == null) {
+                cYo = new a();
             }
-            aVar = dbP;
+            aVar = cYo;
         }
         return aVar;
     }
 
     public void onDestory() {
-        if (this.aOu != null) {
-            MessageManager.getInstance().unRegisterListener(this.aOu);
+        if (this.aPx != null) {
+            MessageManager.getInstance().unRegisterListener(this.aPx);
         }
     }
 
-    public void o(BdUniqueId bdUniqueId) {
+    public void n(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.aOu = bdUniqueId;
-            this.apK.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.apK);
+            this.aPx = bdUniqueId;
+            this.aoT.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.aoT);
         }
     }
 }

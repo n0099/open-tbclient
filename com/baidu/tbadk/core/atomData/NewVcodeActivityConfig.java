@@ -25,7 +25,7 @@ public class NewVcodeActivityConfig extends IntentConfig {
 
     public void setHideFeedBackButton() {
         if (getIntent() != null) {
-            getIntent().putExtra("need_feed_back_button", false);
+            getIntent().putExtra(NEED_FEED_BACK_BUTTON, false);
         }
     }
 }

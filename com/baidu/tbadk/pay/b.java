@@ -1,7 +1,7 @@
 package com.baidu.tbadk.pay;
 
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.k;
 /* loaded from: classes.dex */
 public class b {
-    public static final String aII = j.aN("http://tieba.baidu.com/mo/q/tbeanget?_client_return_page=close");
+    public static final String aIj = k.aN("http://tieba.baidu.com/mo/q/tbeanget?_client_return_page=close");
 }

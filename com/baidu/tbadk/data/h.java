@@ -1,47 +1,31 @@
 package com.baidu.tbadk.data;
-
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.Lbs;
 /* loaded from: classes.dex */
 public class h {
-    private String lat;
-    private String lng;
-    private String name = null;
+    private int activityId;
+    private String activityNum;
+    private int azB;
 
-    public String getLat() {
-        return this.lat;
+    public int getActivityId() {
+        return this.activityId;
     }
 
-    public String getLng() {
-        return this.lng;
+    public void setActivityId(int i) {
+        this.activityId = i;
     }
 
-    public String getName() {
-        return this.name;
+    public int BY() {
+        return this.azB;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.name = jSONObject.optString("name");
-                this.lat = jSONObject.optString("lat");
-                this.lng = jSONObject.optString("lng");
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
+    public void eF(int i) {
+        this.azB = i;
     }
 
-    public void a(Lbs lbs) {
-        if (lbs != null) {
-            try {
-                this.name = lbs.name;
-                this.lat = lbs.lat;
-                this.lng = lbs.lng;
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
+    public String BZ() {
+        return this.activityNum;
+    }
+
+    public void fn(String str) {
+        this.activityNum = str;
     }
 }

@@ -1,19 +1,54 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.webkit.WebView;
-import java.util.concurrent.atomic.AtomicReference;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.data.bh;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public interface d {
-    public static final AtomicReference<a> eHN = new AtomicReference<>(null);
+public class d extends ao {
+    private TextView eBi;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        d a(PbActivity pbActivity);
+    public d(BaseActivity baseActivity, View view) {
+        super(baseActivity, view);
+        this.eBi = null;
     }
 
-    void Q(int i, String str);
+    @Override // com.baidu.tieba.pb.pb.main.ao
+    protected void a(b bVar) {
+        this.eBi = (TextView) this.mRootView.findViewById(d.h.icon_push);
+        this.eBi.setVisibility(8);
+    }
 
-    WebView aQf();
+    public void iJ(boolean z) {
+        if (this.eBi != null) {
+            if (z) {
+                this.eBi.setText(d.l.push);
+                com.baidu.tbadk.core.util.aj.i(this.eBi, d.g.push_text_selector);
+                com.baidu.tbadk.core.util.aj.j(this.eBi, d.g.push_bg_selector);
+                this.eBi.setClickable(true);
+            } else {
+                this.eBi.setText(d.l.already_push);
+                com.baidu.tbadk.core.util.aj.j(this.eBi, d.g.label_bg_gray80);
+                com.baidu.tbadk.core.util.aj.i(this.eBi, d.e.cp_cont_d);
+                this.eBi.setClickable(false);
+            }
+            this.eBi.setVisibility(0);
+        }
+    }
 
-    void aQg();
+    public void V(bh bhVar) {
+        if (bhVar != null && bhVar.rP() != null) {
+            int status = bhVar.rP().getStatus();
+            if (status == 1) {
+                iJ(true);
+            } else if (status == 2) {
+                iJ(false);
+            }
+        }
+    }
+
+    public TextView aOb() {
+        return this.eBi;
+    }
 }

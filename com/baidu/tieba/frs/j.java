@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class j extends d<k, l> {
-    private final int crP;
+    private final int csm;
 
     public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.crP = (com.baidu.adp.lib.util.k.af(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds90);
+        this.csm = (com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ public class j extends d<k, l> {
     /* renamed from: N */
     public l onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(d.j.frs_no_list_item_view, viewGroup, false);
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.crP));
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.csm));
         return new l(inflate);
     }
 
@@ -33,12 +33,12 @@ public class j extends d<k, l> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, k kVar, l lVar) {
         super.onFillViewHolder(i, view, viewGroup, kVar, lVar);
-        if (kVar.ahZ() == 6) {
-            lVar.crS.setText(d.l.attention_no_post_tip);
+        if (kVar.ahV() == 6) {
+            lVar.csp.setText(d.l.attention_no_post_tip);
         } else {
-            lVar.crS.setText(d.l.no_data_text);
+            lVar.csp.setText(d.l.no_data_text);
         }
-        com.baidu.tbadk.core.util.aj.c(lVar.crS, d.e.cp_cont_d, 1);
+        com.baidu.tbadk.core.util.aj.c(lVar.csp, d.e.cp_cont_d, 1);
         return view;
     }
 }

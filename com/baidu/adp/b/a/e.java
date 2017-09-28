@@ -1,20 +1,19 @@
 package com.baidu.adp.b.a;
 
 import android.graphics.Matrix;
-import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 public class e {
-    public boolean BA;
-    public boolean BB;
-    public Drawable BD;
-    public Matrix BE;
-    public int BF;
-    public boolean Bw;
-    public boolean Bx;
-    public int By;
-    public int Bz;
+    public int BA;
+    public int BB;
+    public boolean BC;
+    public boolean BD;
+    public Matrix BG;
+    public int BH;
+    public boolean By;
+    public boolean Bz;
     public float mRadius;
-    public boolean BC = true;
+    public boolean BE = false;
+    public boolean BF = true;
     public float mAlpha = 1.0f;
-    public boolean BG = false;
+    public boolean BI = false;
 }

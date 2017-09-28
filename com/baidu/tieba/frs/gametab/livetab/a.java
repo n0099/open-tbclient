@@ -6,12 +6,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends FragmentPagerAdapter {
-    private int[] bca;
+    private int[] bdM;
     private List<Fragment> list;
 
     public a(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.bca = new int[]{0, 1, 2};
+        this.bdM = new int[]{0, 1, 2};
     }
 
     public void aa(List<Fragment> list) {

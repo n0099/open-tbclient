@@ -6,7 +6,7 @@ public interface e {
     public interface a extends e {
         String d(g<?> gVar);
 
-        void eA();
+        void ey();
 
         void ez();
     }
@@ -15,16 +15,16 @@ public interface e {
     public interface b extends e {
         String e(g<?> gVar);
 
-        void eB();
+        void eA();
 
-        void eC();
+        void eB();
 
         String f(g<?> gVar);
 
         void release();
     }
 
-    boolean ey();
+    boolean ex();
 
     int getMaxSize();
 }

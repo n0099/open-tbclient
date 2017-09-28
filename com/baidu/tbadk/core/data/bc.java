@@ -1,42 +1,46 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
-import tbclient.SchoolRecomUserInfo;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class bc {
-    private String uid = "";
-    private String uname = "";
-    private String portrait = "";
-    private String institute = "";
-    private int isLike = -1;
+    private String avatar;
+    private String forumId;
+    private int forumLevel;
+    private String forumName;
 
-    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
-        if (schoolRecomUserInfo != null) {
-            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
-            this.uname = schoolRecomUserInfo.uname;
-            this.portrait = schoolRecomUserInfo.portrait;
-            this.institute = schoolRecomUserInfo.institute;
-            this.isLike = schoolRecomUserInfo.is_liked.intValue();
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public int qQ() {
+        return this.forumLevel;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.forumId = String.valueOf(jSONObject.optLong("id", 0L));
+                this.forumName = jSONObject.optString("name");
+                this.avatar = jSONObject.optString("avatar");
+                this.forumLevel = jSONObject.optInt("level_id");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 
-    public String getUid() {
-        return this.uid;
-    }
-
-    public String qO() {
-        return this.uname;
-    }
-
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public String qP() {
-        return this.institute;
-    }
-
-    public int getIsLike() {
-        return this.isLike;
+    public void parserProtobuf(SimpleForum simpleForum) {
+        if (simpleForum != null) {
+            this.forumId = String.valueOf(simpleForum.id);
+            this.forumName = simpleForum.name;
+            this.avatar = simpleForum.avatar;
+            this.forumLevel = simpleForum.level_id.intValue();
+        }
     }
 }

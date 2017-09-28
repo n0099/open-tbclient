@@ -10,15 +10,15 @@ public class e {
     private static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.yz != null) {
-                e.yz.cancel();
+            if (e.yB != null) {
+                e.yB.cancel();
             }
         }
     };
-    private static Toast yz;
-    private boolean aff;
+    private static Toast yB;
+    private boolean aeC;
 
-    public static e uC() {
+    public static e uf() {
         return new e();
     }
 
@@ -26,24 +26,24 @@ public class e {
     }
 
     public void c(String str, int i, int i2) {
-        if (!this.aff && str != null) {
+        if (!this.aeC && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
-                if (yz != null && yz.getView() != null) {
+                if (yB != null && yB.getView() != null) {
                     try {
-                        yz.setText(trim);
+                        yB.setText(trim);
                     } catch (RuntimeException e) {
                         BdLog.e(e);
-                        yz = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                        yz.setGravity(17, 0, i2);
+                        yB = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                        yB.setGravity(17, 0, i2);
                     }
                 } else {
-                    yz = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    yz.setGravity(17, 0, i2);
+                    yB = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    yB.setGravity(17, 0, i2);
                 }
                 mHandler.postDelayed(r, i);
-                yz.show();
+                yB.show();
             }
         }
     }
@@ -53,7 +53,7 @@ public class e {
     }
 
     public void showToast(String str, int i) {
-        c(str, i, com.baidu.adp.lib.util.k.dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+        c(str, i, com.baidu.adp.lib.util.l.dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
     }
 
     public void showToast(int i, int i2) {
@@ -65,19 +65,19 @@ public class e {
     }
 
     public void onPause() {
-        this.aff = true;
+        this.aeC = true;
         cancel();
     }
 
     public void onResume() {
-        this.aff = false;
+        this.aeC = false;
     }
 
     public static void cancel() {
-        if (yz != null) {
+        if (yB != null) {
             mHandler.removeCallbacks(r);
-            yz.cancel();
-            yz = null;
+            yB.cancel();
+            yB = null;
         }
     }
 }

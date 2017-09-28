@@ -5,5 +5,6 @@ public enum EmotionGroupType {
     BIG_EMOTION,
     PROMOTION,
     USER_COLLECT,
-    SINGLE_FORUM
+    SINGLE_FORUM,
+    NET_SUG
 }

@@ -1,25 +1,77 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.PbPage.NewsInfo;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.StoryPageActivityConfig;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class at {
-    public String Xo;
-    public int Xp;
-    public String Xq;
-    public String buttonText;
-    public int position = 0;
-    public String subtitle;
-    public String summary;
+    private ArrayList<UserData> Xz = new ArrayList<>();
+    private ArrayList<UserData> XA = new ArrayList<>();
+    private ap XB = new ap();
+    private int XC = 0;
+    private int XD = 0;
 
-    public void a(NewsInfo newsInfo) {
-        if (newsInfo != null) {
-            this.Xo = newsInfo.news_link;
-            this.summary = newsInfo.summary;
-            this.position = newsInfo.position.intValue();
-            this.Xp = newsInfo.news_type.intValue();
-            this.Xq = newsInfo.news_icon;
-            this.subtitle = newsInfo.subtitle;
-            this.buttonText = newsInfo.button_text;
+    public void a(ap apVar) {
+        this.XB = apVar;
+    }
+
+    public ap qx() {
+        return this.XB;
+    }
+
+    public ArrayList<UserData> qy() {
+        return this.Xz;
+    }
+
+    public ArrayList<UserData> qz() {
+        return this.XA;
+    }
+
+    public int qA() {
+        return this.XC;
+    }
+
+    public int qB() {
+        return this.XD;
+    }
+
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray(StoryPageActivityConfig.USER_LIST);
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        UserData userData = new UserData();
+                        userData.parserJson(optJSONArray.getJSONObject(i));
+                        userData.mAttentionType = 2;
+                        this.Xz.add(userData);
+                    }
+                }
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        UserData userData2 = new UserData();
+                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        userData2.mAttentionType = 1;
+                        this.XA.add(userData2);
+                    }
+                }
+                this.XB.parserJson(jSONObject.optJSONObject("page"));
+                this.XC = jSONObject.optInt("tafriendnum", 0);
+                this.XD = jSONObject.optInt("commonfriendnum", 0);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
         }
     }
 }

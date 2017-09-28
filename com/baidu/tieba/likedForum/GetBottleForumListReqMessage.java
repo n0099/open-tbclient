@@ -2,7 +2,7 @@ package com.baidu.tieba.likedForum;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.n;
+import com.baidu.tbadk.util.m;
 import tbclient.RecommendForumListForBottle.DataReq;
 import tbclient.RecommendForumListForBottle.RecommendForumListForBottleReqIdl;
 /* loaded from: classes.dex */
@@ -16,7 +16,7 @@ public class GetBottleForumListReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                n.bindCommonParamsToProtobufData(builder, true);
+                m.bindCommonParamsToProtobufData(builder, true);
             }
             RecommendForumListForBottleReqIdl.Builder builder2 = new RecommendForumListForBottleReqIdl.Builder();
             builder2.data = builder.build(false);

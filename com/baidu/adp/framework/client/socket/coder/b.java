@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.f;
-import com.baidu.adp.lib.util.t;
+import com.baidu.adp.lib.util.g;
+import com.baidu.adp.lib.util.u;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -14,17 +14,17 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class b {
-    private static b py = null;
+    private static b pz = null;
 
     public static b dj() {
-        if (py == null) {
+        if (pz == null) {
             synchronized (b.class) {
-                if (py == null) {
-                    py = new b();
+                if (pz == null) {
+                    pz = new b();
                 }
             }
         }
-        return py;
+        return pz;
     }
 
     private b() {
@@ -39,9 +39,9 @@ public class b {
             byte[] encodeInBackGround = socketMessage.encodeInBackGround();
             byte[] encodeExtraDataInBackGround = socketMessage.encodeExtraDataInBackGround();
             if (encodeExtraDataInBackGround != null) {
-                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.pj);
+                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.pl);
                 if (encodeExtraDataInBackGround.length > Integer.MAX_VALUE) {
-                    throw new CoderException(h.oA);
+                    throw new CoderException(h.oB);
                 }
                 allocate.putInt(encodeExtraDataInBackGround.length);
                 allocate.put(encodeExtraDataInBackGround);
@@ -53,38 +53,38 @@ public class b {
                 encodeInBackGround = f(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = t.a(d.dk().getSecretKey(), encodeInBackGround);
+                encodeInBackGround = u.a(d.dk().getSecretKey(), encodeInBackGround);
             }
             return a.a(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         } catch (Throwable th) {
-            throw new CoderException(h.oG);
+            throw new CoderException(h.oH);
         }
     }
 
     public c a(c cVar) throws CoderException {
-        if (cVar == null || cVar.pz == null || cVar.pA == null) {
-            throw new CoderException(h.ou);
+        if (cVar == null || cVar.pA == null || cVar.pB == null) {
+            throw new CoderException(h.ov);
         }
-        a aVar = cVar.pz;
-        if (aVar.df() && cVar.pC > 0) {
+        a aVar = cVar.pA;
+        if (aVar.df() && cVar.pD > 0) {
             if (d.dk().getSecretKey() == null) {
-                throw new CoderException(h.oD);
+                throw new CoderException(h.oE);
             }
             try {
-                cVar.pA = t.a(d.dk().getSecretKey(), cVar.pA, cVar.pB, cVar.pC);
-                cVar.pB = 0;
-                cVar.pC = cVar.pA.length;
+                cVar.pB = u.a(d.dk().getSecretKey(), cVar.pB, cVar.pC, cVar.pD);
+                cVar.pC = 0;
+                cVar.pD = cVar.pB.length;
             } catch (Exception e) {
-                throw new CoderException(h.oF);
+                throw new CoderException(h.oG);
             }
         }
-        if (aVar.dd() && cVar.pC > 0) {
+        if (aVar.dd() && cVar.pD > 0) {
             try {
-                cVar.pA = e(cVar.pA, cVar.pB, cVar.pC);
-                cVar.pB = 0;
-                cVar.pC = cVar.pA.length;
+                cVar.pB = e(cVar.pB, cVar.pC, cVar.pD);
+                cVar.pC = 0;
+                cVar.pD = cVar.pB.length;
             } catch (Exception e2) {
-                throw new CoderException(h.oC);
+                throw new CoderException(h.oD);
             }
         }
         return cVar;
@@ -93,17 +93,17 @@ public class b {
     public c e(byte[] bArr) throws CoderException {
         int dc = a.dc();
         if (bArr == null || bArr.length < dc) {
-            throw new CoderException(h.ou);
+            throw new CoderException(h.ov);
         }
         a d = a.d(bArr);
         if (d == null) {
-            throw new CoderException(h.ou);
+            throw new CoderException(h.ov);
         }
         c cVar = new c();
-        cVar.pz = d;
-        cVar.pA = bArr;
-        cVar.pB = dc;
-        cVar.pC = bArr.length - dc;
+        cVar.pA = d;
+        cVar.pB = bArr;
+        cVar.pC = dc;
+        cVar.pD = bArr.length - dc;
         return cVar;
     }
 
@@ -121,7 +121,7 @@ public class b {
             newInstance.setOrginalMessage(socketMessage);
             if (z) {
                 try {
-                    newInstance.onDecodeFailedInBackGround(i, bArr, h.ox);
+                    newInstance.onDecodeFailedInBackGround(i, bArr, h.oy);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -145,7 +145,7 @@ public class b {
                 str = th.getMessage();
             }
             BdStatisticsManager.getInstance().error("im", j, (String) null, IntentConfig.CMD, Integer.valueOf(i), "byteslength", Integer.valueOf(i2), "comment", str);
-            throw new CoderException(h.ox);
+            throw new CoderException(h.oy);
         }
     }
 
@@ -153,7 +153,7 @@ public class b {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            f.c(byteArrayInputStream, byteArrayOutputStream);
+            g.c(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
@@ -166,7 +166,7 @@ public class b {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            f.d(byteArrayInputStream, byteArrayOutputStream);
+            g.d(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {

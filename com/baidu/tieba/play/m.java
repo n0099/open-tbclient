@@ -1,206 +1,292 @@
 package com.baidu.tieba.play;
 
-import android.content.Context;
-import android.net.Uri;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.play.QuickVideoView;
-import com.baidu.tieba.play.i;
-import java.net.InetAddress;
+import android.view.View;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.util.BdListViewHelper;
 /* loaded from: classes.dex */
-public class m implements QuickVideoView.a {
-    private String aXU;
-    private w fBh;
-    private String fBj;
-    private t fBp;
-    private Context mContext;
-    private String zV;
-    private String fBi = "1";
-    private boolean fBk = false;
-    private long fBl = 0;
-    private long fBm = 0;
-    private long mStartTime = 0;
-    private long fBn = 0;
-    private int fBo = 0;
-    private Runnable fBq = new Runnable() { // from class: com.baidu.tieba.play.m.2
-        @Override // java.lang.Runnable
-        public void run() {
-            if (m.this.bfR()) {
-                r.af(m.this.mContext, m.this.fBj);
-            } else if (!m.this.fBk) {
-                r.hy(m.this.fBj);
+public class m {
+    private int bxv;
+    private int cYY;
+    private ListView dWo;
+    private View dWs;
+    private f dWu;
+    private com.baidu.adp.base.e mContext;
+    private int dWn = 0;
+    private String dWp = null;
+    private int dWq = 0;
+    private boolean dWt = false;
+    private boolean dWw = true;
+    private a dWx = new a();
+    private final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.play.m.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
+                m.this.ard();
+                if (m.this.dWw && m.this.dWw) {
+                    m.this.a(m.this.dWv.bew(), m.this.dWv.bex(), m.this.dWv.bey(), m.this.dWv.bez());
+                }
             }
         }
     };
-    private i.c fAI = new i.c() { // from class: com.baidu.tieba.play.m.3
-        @Override // com.baidu.tieba.play.i.c
-        public void bfH() {
-            m.e(m.this);
+    private b fwZ = new b(this);
+    private r dWv = new r();
+
+    public m(com.baidu.adp.base.e eVar, ListView listView) {
+        this.bxv = 0;
+        this.cYY = 0;
+        this.mContext = eVar;
+        this.bxv = com.baidu.adp.lib.util.l.af(this.mContext.getPageActivity());
+        this.dWo = listView;
+        this.cYY = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        eVar.registerListener(this.mNetworkChangedMessageListener);
+    }
+
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        if (bdUniqueId != null) {
+            if (this.mNetworkChangedMessageListener != null) {
+                this.mNetworkChangedMessageListener.setTag(bdUniqueId);
+            }
+            MessageManager.getInstance().registerListener(this.mNetworkChangedMessageListener);
         }
-    };
-    private i bLv = new i();
-
-    static /* synthetic */ int e(m mVar) {
-        int i = mVar.fBo;
-        mVar.fBo = i + 1;
-        return i;
     }
 
-    public m(Context context) {
-        this.mContext = context;
-        this.bLv.a(this.fAI);
-        this.fBp = new t();
-    }
-
-    @Override // com.baidu.tieba.play.QuickVideoView.a
-    public String hw(String str) {
-        this.fBj = str;
-        this.aXU = this.fBk ? this.fBj : r.hw(str);
-        if (this.fBp != null) {
-            u.a("start_play", this.fBj, bfR(), (int) this.fBp.bfZ(), this.fBp.getDuration());
-        }
-        this.fBm = System.currentTimeMillis();
-        return this.aXU;
-    }
-
-    @Override // com.baidu.tieba.play.QuickVideoView.a
-    public String bfN() {
-        return this.fBj;
-    }
-
-    @Override // com.baidu.tieba.play.QuickVideoView.a
-    public void onPrepared() {
-        com.baidu.adp.lib.g.e.fQ().removeCallbacks(this.fBq);
-        com.baidu.adp.lib.g.e.fQ().postDelayed(this.fBq, 200L);
-        if (this.fBm > 0) {
-            this.fBn = System.currentTimeMillis() - this.fBm;
-        }
-        BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.play.m.1
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public Void doInBackground(Void... voidArr) {
-                Uri parse;
-                if (!am.isEmpty(m.this.fBj) && (parse = Uri.parse(m.this.fBj)) != null) {
-                    try {
-                        m.this.zV = InetAddress.getByName(parse.getHost()).getHostAddress();
-                        return null;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        return null;
+    public void a(int i, int i2, boolean z, int i3) {
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        int i4 = 0;
+        this.dWv.i(i, i2, z);
+        if (this.dWo != null && this.dWo.getChildCount() != 0) {
+            ListAdapter wrappedAdapter = this.dWo instanceof BdListView ? ((BdListView) this.dWo).getWrappedAdapter() : this.dWo.getAdapter();
+            if (wrappedAdapter != null && wrappedAdapter.getCount() != 0) {
+                if (this.dWu != null && !aT(this.dWu.getVideoContainer())) {
+                    this.dWu.stopPlay();
+                }
+                int count = wrappedAdapter.getCount() + this.dWo.getHeaderViewsCount() + this.dWo.getFooterViewsCount();
+                if (i == 0) {
+                    z2 = true;
+                } else {
+                    z2 = i2 == count + (-1) ? false : false;
+                }
+                if (i == 0 || i2 == count - 1) {
+                    z3 = false;
+                    for (int i5 = 0; i5 < this.dWo.getChildCount(); i5++) {
+                        View childAt = this.dWo.getChildAt(z2 ? i5 : (this.dWo.getChildCount() - 1) - i5);
+                        if (childAt.getTag() instanceof f) {
+                            f fVar = (f) childAt.getTag();
+                            if (!z3 && aT(fVar.getVideoContainer())) {
+                                e(i3, childAt);
+                                z3 = true;
+                            } else {
+                                f(i3, childAt);
+                            }
+                        }
+                    }
+                } else {
+                    z3 = false;
+                }
+                if (!z3) {
+                    int i6 = 0;
+                    while (true) {
+                        if (i6 >= this.dWo.getChildCount()) {
+                            i6 = -1;
+                            break;
+                        }
+                        View childAt2 = this.dWo.getChildAt(i6);
+                        if (childAt2.getTag() instanceof f) {
+                            f fVar2 = (f) childAt2.getTag();
+                            if (fVar2.isPlayStarted() && aT(fVar2.getVideoContainer())) {
+                                break;
+                            }
+                        }
+                        i6++;
+                    }
+                    if (i6 >= 0) {
+                        while (i4 < this.dWo.getChildCount()) {
+                            View childAt3 = this.dWo.getChildAt(i4);
+                            if (i4 == i6) {
+                                e(i3, childAt3);
+                            } else {
+                                f(i3, childAt3);
+                            }
+                            i4++;
+                        }
+                        return;
+                    }
+                    boolean z5 = false;
+                    while (i4 < this.dWo.getChildCount()) {
+                        View childAt4 = this.dWo.getChildAt(z ? (this.dWo.getChildCount() - 1) - i4 : i4);
+                        if (childAt4.getTag() instanceof f) {
+                            f fVar3 = (f) childAt4.getTag();
+                            if (!z5 && aT(fVar3.getVideoContainer())) {
+                                e(i3, childAt4);
+                                z4 = true;
+                                i4++;
+                                z5 = z4;
+                            } else {
+                                f(i3, childAt4);
+                            }
+                        }
+                        z4 = z5;
+                        i4++;
+                        z5 = z4;
                     }
                 }
-                return null;
             }
-        };
-        bdAsyncTask.setSelfExecute(true);
-        bdAsyncTask.setPriority(2);
-        bdAsyncTask.execute(new Void[0]);
-    }
-
-    @Override // com.baidu.tieba.play.QuickVideoView.a
-    public void onStart() {
-        this.mStartTime = System.currentTimeMillis();
-        if (this.bLv != null) {
-            this.bLv.start();
         }
     }
 
-    @Override // com.baidu.tieba.play.QuickVideoView.a
-    public void onStop() {
-        com.baidu.adp.lib.g.e.fQ().removeCallbacks(this.fBq);
-        if (bfR()) {
-            r.ag(this.mContext, this.fBj);
-        }
-        long j = this.mStartTime;
-        if (this.mStartTime > 0) {
-            this.fBl += System.currentTimeMillis() - this.mStartTime;
-            this.mStartTime = 0L;
-        }
-        if (j > 0 && this.fBl >= 0 && this.fBl < 86400000) {
-            if (this.fBl > 0) {
-                ak akVar = new ak("c11244");
-                akVar.f("obj_duration", this.fBl);
-                akVar.ad("obj_type", this.fBi);
-                if (this.fBh != null) {
-                    this.fBh.f(akVar);
+    private void e(int i, View view) {
+        if (view != null) {
+            this.dWs = view;
+            if (i == 1 && (view.getTag() instanceof f)) {
+                f fVar = (f) view.getTag();
+                if (this.dWw && !fVar.isPlayStarted()) {
+                    fVar.startPlay();
                 }
-                TiebaStatic.log(akVar);
-                k.a(this.fBl, this.fBi, this.fBh, "");
-            } else {
-                k.a(this.fBl, this.fBi, this.fBh, "");
+            } else if (i == 2 && (view.getTag() instanceof e)) {
+                ((e) view.getTag()).aDY();
             }
         }
-        if (this.bLv != null) {
-            this.bLv.stop();
-        }
-        if (this.fBn > 0 && this.fBp != null) {
-            ak akVar2 = new ak("c11685");
-            akVar2.ad("service_ip", this.zV);
-            akVar2.ad("video_url", this.fBj);
-            akVar2.f("video_size", this.fBp.bfZ());
-            akVar2.r("video_duration", this.fBp.getDuration());
-            akVar2.ad("video_resolution", this.fBp.bga());
-            akVar2.r("loading_count", this.fBo);
-            akVar2.f("user_watch_time", this.fBl / 1000);
-            akVar2.f("start_play_time", this.fBn);
-            TiebaStatic.log(akVar2);
-        }
-        if (this.fBp != null && this.fBn > 0) {
-            u.a("stop_play", this.fBj, bfR(), (int) this.fBp.bfZ(), this.fBp.getDuration());
-        }
-        this.fBn = 0L;
-        this.fBl = 0L;
-        this.fBo = 0;
-        this.fBm = 0L;
-        this.mStartTime = 0L;
     }
 
-    @Override // com.baidu.tieba.play.QuickVideoView.a
-    public void onPause() {
-        if (this.mStartTime > 0) {
-            this.fBl += System.currentTimeMillis() - this.mStartTime;
-            this.mStartTime = 0L;
+    private void f(int i, View view) {
+        if (i == 1 && (view.getTag() instanceof f)) {
+            ((f) view.getTag()).stopPlay();
+        } else if (i == 2 && (view.getTag() instanceof e)) {
+            ((e) view.getTag()).aDZ();
         }
     }
 
-    @Override // com.baidu.tieba.play.QuickVideoView.a
-    public void onCompletion() {
-        if (this.mStartTime > 0) {
-            this.fBl += System.currentTimeMillis() - this.mStartTime;
-            this.mStartTime = 0L;
+    public boolean aT(View view) {
+        int measuredHeight;
+        if (view == null) {
+            return false;
+        }
+        int[] iArr = new int[2];
+        if (view != null) {
+            view.getLocationOnScreen(iArr);
+            return view != null && (measuredHeight = iArr[1] + (view.getMeasuredHeight() / 2)) > this.dWn && measuredHeight < this.bxv;
+        }
+        return false;
+    }
+
+    public void aU(View view) {
+        if (view != null && !aT(view) && (view.getTag() instanceof f)) {
+            ((f) view.getTag()).stopPlay();
         }
     }
 
-    public boolean bfO() {
-        return r.hx(this.fBj) != null;
+    public void destroy() {
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.dWx);
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fwZ);
+        aED();
     }
 
-    public void bfP() {
-        this.fBk = true;
+    public void nM(int i) {
+        this.dWq = i;
     }
 
-    public void qC(String str) {
-        this.fBi = str;
+    public void aED() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.dWo.getChildCount()) {
+                View childAt = this.dWo.getChildAt(i2);
+                if (childAt.getTag() instanceof f) {
+                    ((f) childAt.getTag()).stopPlay();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.play.QuickVideoView.a
-    public i getMediaProgressObserver() {
-        return this.bLv;
+    public void nl(String str) {
+        this.dWp = str;
     }
 
-    public t bfQ() {
-        return this.fBp;
+    public void aEG() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.dWo.getChildCount()) {
+                View childAt = this.dWo.getChildAt(i2);
+                if (childAt.getTag() instanceof f) {
+                    f fVar = (f) childAt.getTag();
+                    if (fVar.isPlayStarted()) {
+                        nM(fVar.getCurrentPosition());
+                        nl(fVar.getPlayUrl());
+                        this.dWs = childAt;
+                        this.dWt = fVar.isPlaying();
+                        fVar.stopPlay();
+                        return;
+                    }
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean bfR() {
-        return (this.fBk || this.aXU == null || this.aXU.equals(this.fBj)) ? false : true;
+    public void aEH() {
+        if (this.dWw) {
+            if (this.dWs != null && (this.dWs.getTag() instanceof f)) {
+                f fVar = (f) this.dWs.getTag();
+                if (this.dWt) {
+                    fVar.startPlay();
+                }
+                if (this.dWs.getTag() instanceof e) {
+                    ((e) this.dWs.getTag()).aEa();
+                }
+            }
+            this.dWs = null;
+        }
     }
 
-    public void setVideoStatsData(w wVar) {
-        this.fBh = wVar;
+    public void ard() {
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.dWx);
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fwZ);
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.dWo.getChildCount()) {
+                View childAt = this.dWo.getChildAt(i2);
+                if (childAt.getTag() instanceof f) {
+                    f fVar = (f) childAt.getTag();
+                    if (fVar.isPlayStarted()) {
+                        fVar.stopPlay();
+                        return;
+                    }
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
+    }
+
+    public void a(int i, int i2, boolean z, boolean z2) {
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fwZ);
+        this.fwZ.nE(i);
+        this.fwZ.nF(i2);
+        this.fwZ.eG(z);
+        this.fwZ.hr(z2);
+        this.dWv.hr(z2);
+        com.baidu.adp.lib.g.e.fP().postDelayed(this.fwZ, 500L);
+    }
+
+    public void ht(boolean z) {
+        this.dWw = z;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view.userLike;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
@@ -25,28 +25,28 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void init() {
         super.init();
-        setTextSize(0, k.f(getContext(), d.f.ds26));
-        setCompoundDrawablePadding(k.f(getContext(), d.f.ds6));
+        setTextSize(0, l.f(getContext(), d.f.ds26));
+        setCompoundDrawablePadding(l.f(getContext(), d.f.ds6));
         setGravity(5);
         setGravity(16);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
-    public void aQ(boolean z) {
-        this.apz = z;
+    public void aP(boolean z) {
+        this.aoJ = z;
         if (z) {
             setClickable(false);
-            setText(this.apx);
+            setText(this.aoH);
         } else {
             setClickable(true);
-            setText(this.apy);
+            setText(this.aoI);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.apz) {
+        if (this.aoJ) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             aj.i(this, d.e.cp_cont_d);
             setBackgroundDrawable(null);

@@ -1,15 +1,56 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.j;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import android.content.Context;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-public interface af {
-    com.baidu.adp.widget.ListView.a<? extends bj, ? extends j.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z);
+public class af {
+    private final List<com.baidu.tbadk.mainTab.b> ctv = new LinkedList();
+    private String forumGameLabel;
+    private String forumId;
+    private String forumName;
+    private Context mContext;
 
-    d<ICardInfo, ? extends j.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
+    public af(Context context) {
+        this.mContext = context;
+    }
 
-    com.baidu.adp.widget.ListView.a<? extends bj, ? extends j.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
+    public void b(com.baidu.tbadk.mainTab.b bVar) {
+        if (bVar != null && bVar.EA() != null) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.ctv) {
+                if (bVar2 != null && bVar2.EA() != null && bVar2.EA().type == bVar.EA().type) {
+                    return;
+                }
+            }
+            this.ctv.add(bVar);
+        }
+    }
+
+    public List<com.baidu.tbadk.mainTab.b> aig() {
+        return this.ctv;
+    }
+
+    public void setForumName(String str) {
+        this.forumName = str;
+    }
+
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public void setForumId(String str) {
+        this.forumId = str;
+    }
+
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public void setForumGameLabel(String str) {
+        this.forumGameLabel = str;
+    }
+
+    public String getForumGameLabel() {
+        return this.forumGameLabel;
+    }
 }

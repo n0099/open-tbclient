@@ -51,7 +51,7 @@ public class BdCacheService extends CustomMessageListener {
         return this.context == null ? BdBaseApplication.getInst().getApp() : this.context;
     }
 
-    public static BdCacheService eF() {
+    public static BdCacheService eE() {
         if (sZ == null) {
             synchronized (BdCacheService.class) {
                 if (sZ == null) {
@@ -64,54 +64,54 @@ public class BdCacheService extends CustomMessageListener {
 
     public synchronized String a(c<?> cVar, String str, String str2, int i) {
         h Y;
-        int et = cVar.et();
-        p eG = eG();
-        Y = eG.Y(str);
+        int es = cVar.es();
+        p eF = eF();
+        Y = eF.Y(str);
         if (Y == null) {
             Y = new h();
             Y.sP = str;
-            Y.sU = et;
+            Y.sU = es;
             Y.sT = str2;
             Y.maxSize = i;
             Y.sV = System.currentTimeMillis();
             Y.sD = cVar.J(str);
-            eG.a(Y);
+            eF.a(Y);
         } else if (!str2.equalsIgnoreCase(Y.sT)) {
             throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + Y.sT);
         } else {
             Y.maxSize = i;
             Y.sV = System.currentTimeMillis();
-            if (et != Y.sU) {
-                cVar.b(str, Y.sD, et, Y.sU);
+            if (es != Y.sU) {
+                cVar.b(str, Y.sD, es, Y.sU);
             }
-            eG.a(Y);
+            eF.a(Y);
         }
         return Y.sD;
     }
 
     public synchronized l<String> a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         l<String> lVar;
-        e eD;
+        e eC;
         r qVar;
         boolean z;
         lVar = this.td.get(str);
         if (lVar == null) {
             if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
-                eD = f.b(i, false);
+                eC = f.b(i, false);
             } else if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_INSERT) {
-                eD = f.b(i, true);
+                eC = f.b(i, true);
             } else {
-                eD = f.eD();
+                eC = f.eC();
             }
             if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                qVar = new r(ew());
+                qVar = new r(ev());
                 z = false;
             } else {
-                qVar = new q(ew(), "cache_kv_tshare");
+                qVar = new q(ev(), "cache_kv_tshare");
                 z = true;
             }
-            qVar.a(eD, a(qVar, str, "text", i));
-            lVar = a(str, new j(qVar, eD, z));
+            qVar.a(eC, a(qVar, str, "text", i));
+            lVar = a(str, new j(qVar, eC, z));
         }
         return lVar;
     }
@@ -128,9 +128,9 @@ public class BdCacheService extends CustomMessageListener {
                 boolean z = lVar instanceof l.c;
                 nVar2 = lVar;
                 if (z) {
-                    k<String> eI = ((l.c) lVar).eI();
+                    k<String> eH = ((l.c) lVar).eH();
                     nVar2 = lVar;
-                    if (eI != kVar) {
+                    if (eH != kVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + kVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
                 }
@@ -142,7 +142,7 @@ public class BdCacheService extends CustomMessageListener {
                 nVar = new n(str, kVar);
             }
             this.td.put(str, nVar);
-            nVar.eK();
+            nVar.eJ();
             nVar2 = nVar;
         }
         return nVar2;
@@ -150,27 +150,27 @@ public class BdCacheService extends CustomMessageListener {
 
     public synchronized l<byte[]> b(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         l<byte[]> lVar;
-        e eD;
+        e eC;
         b aVar;
         boolean z;
         lVar = this.te.get(str);
         if (lVar == null) {
             if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
-                eD = f.b(i, false);
+                eC = f.b(i, false);
             } else if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_INSERT) {
-                eD = f.b(i, true);
+                eC = f.b(i, true);
             } else {
-                eD = f.eD();
+                eC = f.eC();
             }
             if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                aVar = new b(ew());
+                aVar = new b(ev());
                 z = false;
             } else {
-                aVar = new a(ew(), "cache_kv_bshare");
+                aVar = new a(ev(), "cache_kv_bshare");
                 z = true;
             }
-            aVar.a(eD, a(aVar, str, "blob", i));
-            lVar = b(str, new j(aVar, eD, z));
+            aVar.a(eC, a(aVar, str, "blob", i));
+            lVar = b(str, new j(aVar, eC, z));
         }
         return lVar;
     }
@@ -187,9 +187,9 @@ public class BdCacheService extends CustomMessageListener {
                 boolean z = lVar instanceof l.c;
                 nVar2 = lVar;
                 if (z) {
-                    k<byte[]> eI = ((l.c) lVar).eI();
+                    k<byte[]> eH = ((l.c) lVar).eH();
                     nVar2 = lVar;
-                    if (eI != kVar) {
+                    if (eH != kVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + kVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
                 }
@@ -201,7 +201,7 @@ public class BdCacheService extends CustomMessageListener {
                 nVar = new n(str, kVar);
             }
             this.te.put(str, nVar);
-            nVar.eK();
+            nVar.eJ();
             nVar2 = nVar;
         }
         return nVar2;
@@ -211,21 +211,21 @@ public class BdCacheService extends CustomMessageListener {
         if (lVar instanceof l.c) {
             l.c cVar = (l.c) lVar;
             synchronized (cVar) {
-                String eH = cVar.eH();
-                cVar.eJ();
-                this.td.remove(eH);
+                String eG = cVar.eG();
+                cVar.eI();
+                this.td.remove(eG);
             }
         }
     }
 
-    public p eG() {
+    public p eF() {
         if (this.tb == null) {
-            this.tb = new p(getContext(), ew());
+            this.tb = new p(getContext(), ev());
         }
         return this.tb;
     }
 
-    public com.baidu.adp.base.a.b ew() {
+    public com.baidu.adp.base.a.b ev() {
         if (this.sC == null) {
             this.sC = new com.baidu.adp.base.a.b(new i(getContext(), this.tc));
         }

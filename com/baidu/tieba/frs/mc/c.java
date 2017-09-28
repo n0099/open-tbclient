@@ -1,86 +1,138 @@
 package com.baidu.tieba.frs.mc;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.o;
+import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
+import com.baidu.tieba.frs.smartsort.FrsSmartLoadMoreModel;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class c extends i {
-    public final com.baidu.adp.base.d cDT;
-    public final com.baidu.adp.base.d cDU;
-    private final CustomMessageListener cng;
+public class c {
+    private final FrsLoadMoreModel cEP;
+    private final FrsSmartLoadMoreModel cEQ;
+    private final FrsModelController cqC;
+    private final com.baidu.tieba.frs.i cqt;
+    private final com.baidu.tieba.frs.f cxi;
 
-    public c(com.baidu.tieba.frs.f fVar) {
-        super(fVar);
-        this.cng = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS) { // from class: com.baidu.tieba.frs.mc.c.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof o)) {
-                    c.this.b((o) customResponsedMessage.getData());
-                }
-            }
-        };
-        this.cDT = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.c.2
-            @Override // com.baidu.adp.base.d
-            public void f(Object obj) {
-                if (obj instanceof Boolean) {
-                    ((Boolean) obj).booleanValue();
-                }
-            }
-        };
-        this.cDU = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.c.3
-            @Override // com.baidu.adp.base.d
-            public void f(Object obj) {
-                boolean z = false;
-                if (obj instanceof Boolean) {
-                    z = ((Boolean) obj).booleanValue();
-                }
-                if (!z) {
-                    c.this.cws.refresh();
-                }
-            }
-        };
-        fVar.registerListener(this.cng);
+    public c(com.baidu.tieba.frs.f fVar, i iVar) {
+        if (fVar == null) {
+            throw new NullPointerException("FrsFragment is NullPointerException");
+        }
+        this.cxi = fVar;
+        this.cEP = new FrsLoadMoreModel(fVar, iVar);
+        this.cEQ = new FrsSmartLoadMoreModel(fVar, iVar);
+        this.cqt = fVar.agU();
+        this.cqC = fVar.agP();
+        this.cEQ.setSortType(this.cqC.OZ());
+        this.cEP.setSortType(this.cqC.OZ());
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(o oVar) {
-        if (oVar != null) {
-            com.baidu.tieba.tbadkCore.i ahq = this.cws.ahq();
-            if (this.cqf != null && this.cqg != null && this.cpW != null && ahq != null && ahq.aPg() != null && oVar.getFid() != null) {
-                boolean z = oVar.isLike() == 1;
-                if (oVar.getFid().equals(ahq.aPg().getId())) {
-                    ahq.aPg().setLike(oVar.isLike());
-                    if (!StringUtils.isNULL(oVar.getLevelName())) {
-                        ahq.aPg().setLevelName(oVar.getLevelName());
-                    }
-                    if (oVar.getUserLevel() >= 0) {
-                        ahq.aPg().setUser_level(oVar.getUserLevel());
-                    }
-                    if (z) {
-                        this.cqg.a(ahq, false);
-                        TbadkCoreApplication.getInst().addLikeForum(this.cws.getForumName());
-                        return;
-                    }
-                    com.baidu.tieba.tbadkCore.c.bqv().ab(this.cws.getForumName(), false);
-                    ahq.aPg().setLike(0);
-                    this.cqg.alS();
-                    TbadkCoreApplication.getInst().delLikeForum(this.cws.getForumName());
-                    return;
-                }
-                if (oVar.isLike() == 1) {
-                    ahq.rV(oVar.getFid());
-                    this.cqg.f(ahq);
-                    this.cqh.a(this.cpW.getListView(), ahq, this.cqf.akZ());
-                }
-                if (ahq.aPg().getBannerListData() != null) {
-                    ahq.aPg().getBannerListData().setFeedForumLiked(oVar.getFid(), oVar.isLike());
-                }
-                this.cpW.ahH();
+    public ArrayList<com.baidu.adp.widget.ListView.f> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.f> arrayList, com.baidu.tieba.tbadkCore.data.e eVar) {
+        return a(z, z2, arrayList, eVar, false);
+    }
+
+    public ArrayList<com.baidu.adp.widget.ListView.f> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.f> arrayList, com.baidu.tieba.tbadkCore.data.e eVar, boolean z3) {
+        if (this.cqC != null) {
+            boolean alg = this.cxi.agP().alg();
+            if (this.cqC.alh()) {
+                return this.cEQ.a(z, alg, arrayList, z3);
+            }
+            return this.cEP.a(z, alg, z2, arrayList, eVar);
+        }
+        return arrayList;
+    }
+
+    public void resetData() {
+        if (this.cqC != null) {
+            if (this.cqC.alh()) {
+                this.cEQ.resetData();
+            } else {
+                this.cEP.resetData();
             }
         }
+    }
+
+    public boolean aO(List<Long> list) {
+        if (this.cqC == null || this.cqC.alh()) {
+            return false;
+        }
+        return this.cEP.aO(list);
+    }
+
+    public void a(String str, String str2, com.baidu.tieba.tbadkCore.i iVar) {
+        if (this.cqC != null && this.cqt != null && iVar != null) {
+            if (this.cqC.alh()) {
+                if (this.cEQ.agV() == 1 && !this.cqC.wz()) {
+                    this.cEQ.setSortType(this.cqC.OZ());
+                    this.cqt.a(this.cEQ.getDataList(), iVar);
+                    int pn = this.cEQ.getPn();
+                    this.cEQ.setPn(pn);
+                    this.cqC.jC(pn + 1);
+                }
+            } else if (this.cqC.akX() == 1) {
+                if (!this.cEP.isLoading && !this.cqC.wz()) {
+                    int pn2 = this.cEP.getPn();
+                    if (this.cEP.aO(iVar.bpF())) {
+                        this.cqt.a(this.cEP.ajZ(), iVar);
+                        this.cEP.setSortType(this.cqC.OZ());
+                        this.cEP.a(com.baidu.adp.lib.g.b.c(str2, 0L), iVar.bpF(), str, pn2);
+                    } else if (this.cEP.agV() == 1) {
+                        this.cqt.a(this.cEP.ajZ(), iVar);
+                        this.cEP.setPn(pn2);
+                        this.cqC.jC(pn2 + 1);
+                        this.cEP.loadingDone = false;
+                        this.cEP.loadIndex = 0;
+                    }
+                }
+            } else if (!this.cqC.ala()) {
+                this.cqC.Zg();
+            }
+        }
+    }
+
+    public int agV() {
+        if (this.cqC == null) {
+            return -1;
+        }
+        if (this.cqC.alh()) {
+            return this.cEQ.agV();
+        }
+        return this.cEP.agV();
+    }
+
+    public void setHasMore(int i) {
+        if (this.cqC != null) {
+            if (this.cqC.alh()) {
+                this.cEQ.setHasMore(i);
+            } else {
+                this.cEP.setHasMore(i);
+            }
+        }
+    }
+
+    public int getPn() {
+        if (this.cqC == null) {
+            return 1;
+        }
+        if (this.cqC.alh()) {
+            return this.cEQ.getPn();
+        }
+        return this.cEP.getPn();
+    }
+
+    public void setPn(int i) {
+        if (this.cqC != null) {
+            if (this.cqC.alh()) {
+                this.cEQ.setPn(i);
+            } else {
+                this.cEP.setPn(i);
+            }
+        }
+    }
+
+    public ArrayList<com.baidu.adp.widget.ListView.f> getDataList() {
+        return this.cqC.alh() ? this.cEQ.getDataList() : this.cqC.alc();
+    }
+
+    public FrsSmartLoadMoreModel akR() {
+        return this.cEQ;
     }
 }

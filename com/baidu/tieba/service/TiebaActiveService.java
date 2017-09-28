@@ -50,9 +50,9 @@ public class TiebaActiveService extends BdBaseService {
     private String getChannelyFile() {
         String str = null;
         try {
-            File m9do = k.m9do(TbConfig.CHANNEL_FILE);
-            if (m9do != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(m9do));
+            File de = k.de(TbConfig.CHANNEL_FILE);
+            if (de != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(de));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
@@ -68,9 +68,9 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File ds = k.ds(TbConfig.CHANNEL_FILE);
-                if (ds != null) {
-                    FileWriter fileWriter = new FileWriter(ds);
+                File di = k.di(TbConfig.CHANNEL_FILE);
+                if (di != null) {
+                    FileWriter fileWriter = new FileWriter(di);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -142,10 +142,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        x fMj;
+        x fIU;
 
         private a() {
-            this.fMj = null;
+            this.fIU = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -153,22 +153,22 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            String uM;
+            String up;
             try {
-                this.fMj = new x("http://114.113.149.3:8086/partnersService");
-                this.fMj.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.fMj.n("imei", TbadkCoreApplication.getInst().getImei());
-                this.fMj.n("model", Build.MODEL);
-                this.fMj.n("edition", TbConfig.getVersion());
-                this.fMj.n("system", Build.VERSION.SDK);
-                this.fMj.vj().wf().wi().mIsBaiduServer = false;
-                uM = this.fMj.uM();
+                this.fIU = new x("http://114.113.149.3:8086/partnersService");
+                this.fIU.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.fIU.n("imei", TbadkCoreApplication.getInst().getImei());
+                this.fIU.n("model", Build.MODEL);
+                this.fIU.n("edition", TbConfig.getVersion());
+                this.fIU.n("system", Build.VERSION.SDK);
+                this.fIU.uN().vJ().vM().mIsBaiduServer = false;
+                up = this.fIU.up();
             } catch (Exception e) {
                 b.getInstance().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.fMj.vm()) {
-                return uM;
+            if (this.fIU.uQ()) {
+                return up;
             }
             return null;
         }
@@ -176,8 +176,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.fMj != null) {
-                this.fMj.fp();
+            if (this.fIU != null) {
+                this.fIU.fo();
             }
             super.cancel(true);
         }
@@ -192,7 +192,7 @@ public class TiebaActiveService extends BdBaseService {
                 TiebaActiveService.access$308(TiebaActiveService.this);
                 if (TiebaActiveService.this.mHaveRetry < 10) {
                     TiebaActiveService.this.mHandler.removeCallbacks(TiebaActiveService.this.mRunnable);
-                    TiebaActiveService.this.mHandler.postDelayed(TiebaActiveService.this.mRunnable, TbConfig.USE_TIME_INTERVAL);
+                    TiebaActiveService.this.mHandler.postDelayed(TiebaActiveService.this.mRunnable, 60000L);
                 } else {
                     b.getInstance().putInt("active", 1);
                     TiebaActiveService.this.stopSelf();

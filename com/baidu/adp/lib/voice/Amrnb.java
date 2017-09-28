@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.voice;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class Amrnb {
     public static boolean bLoadLibrary;
@@ -27,8 +28,8 @@ public class Amrnb {
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = com.baidu.adp.lib.util.g.gU().a("amrnb", 2, new com.baidu.adp.lib.util.h() { // from class: com.baidu.adp.lib.voice.Amrnb.1
-            @Override // com.baidu.adp.lib.util.h
+        bLoadLibrary = com.baidu.adp.lib.util.h.gT().a("amrnb", 2, new i() { // from class: com.baidu.adp.lib.voice.Amrnb.1
+            @Override // com.baidu.adp.lib.util.i
             public void p(boolean z) {
                 Amrnb.bLoadLibrary = z;
                 if (Amrnb.bLoadLibrary) {

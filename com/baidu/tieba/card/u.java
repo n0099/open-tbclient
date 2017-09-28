@@ -6,45 +6,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u {
-    private static u bNj;
-    private List<ak> bbO;
+    private static u bMM;
+    private List<ak> bdA;
 
-    public static u Yj() {
-        if (bNj == null) {
+    public static u XR() {
+        if (bMM == null) {
             synchronized (u.class) {
-                if (bNj == null) {
-                    bNj = new u();
+                if (bMM == null) {
+                    bMM = new u();
                 }
             }
         }
-        return bNj;
+        return bMM;
     }
 
     public void a(ak akVar) {
         if (akVar != null) {
-            if (this.bbO == null) {
-                this.bbO = new ArrayList();
+            if (this.bdA == null) {
+                this.bdA = new ArrayList();
             }
-            if (this.bbO != null) {
-                this.bbO.add(akVar);
+            if (this.bdA != null) {
+                this.bdA.add(akVar);
             }
         }
     }
 
-    public void jx(String str) {
+    public void jq(String str) {
         if (str != null) {
-            if (this.bbO == null) {
-                this.bbO = new ArrayList();
+            if (this.bdA == null) {
+                this.bdA = new ArrayList();
             }
-            if (this.bbO != null) {
-                this.bbO.add(new ak(str));
+            if (this.bdA != null) {
+                this.bdA.add(new ak(str));
             }
         }
     }
 
-    public void cC(boolean z) {
-        if (com.baidu.tbadk.core.util.v.u(this.bbO) != 0) {
-            for (ak akVar : this.bbO) {
+    public void cB(boolean z) {
+        if (com.baidu.tbadk.core.util.v.t(this.bdA) != 0) {
+            for (ak akVar : this.bdA) {
                 if (akVar != null) {
                     int i = 0;
                     if (z) {
@@ -54,13 +54,13 @@ public class u {
                     TiebaStatic.log(akVar);
                 }
             }
-            this.bbO.clear();
+            this.bdA.clear();
         }
     }
 
-    public void dJ(boolean z) {
-        if (com.baidu.tbadk.core.util.v.u(this.bbO) != 0) {
-            for (ak akVar : this.bbO) {
+    public void dC(boolean z) {
+        if (com.baidu.tbadk.core.util.v.t(this.bdA) != 0) {
+            for (ak akVar : this.bdA) {
                 if (akVar != null) {
                     int i = 0;
                     if (z) {
@@ -70,7 +70,18 @@ public class u {
                     TiebaStatic.log(akVar);
                 }
             }
-            this.bbO.clear();
+            this.bdA.clear();
+        }
+    }
+
+    public void MU() {
+        if (com.baidu.tbadk.core.util.v.t(this.bdA) != 0) {
+            for (ak akVar : this.bdA) {
+                if (akVar != null) {
+                    TiebaStatic.log(akVar);
+                }
+            }
+            this.bdA.clear();
         }
     }
 }

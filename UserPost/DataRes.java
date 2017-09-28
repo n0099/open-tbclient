@@ -13,6 +13,8 @@ public final class DataRes extends Message {
     public final Integer hide_post;
     @ProtoField(tag = 5, type = Message.Datatype.UINT64)
     public final Long logid;
+    @ProtoField(tag = 6, type = Message.Datatype.INT32)
+    public final Integer mask_type;
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<PostInfoList> post_list;
     @ProtoField(tag = 3, type = Message.Datatype.UINT64)
@@ -22,6 +24,7 @@ public final class DataRes extends Message {
     public static final Long DEFAULT_TIME = 0L;
     public static final Long DEFAULT_CTIME = 0L;
     public static final Long DEFAULT_LOGID = 0L;
+    public static final Integer DEFAULT_MASK_TYPE = 0;
 
     private DataRes(Builder builder, boolean z) {
         super(builder);
@@ -48,9 +51,14 @@ public final class DataRes extends Message {
             }
             if (builder.logid == null) {
                 this.logid = DEFAULT_LOGID;
-                return;
             } else {
                 this.logid = builder.logid;
+            }
+            if (builder.mask_type == null) {
+                this.mask_type = DEFAULT_MASK_TYPE;
+                return;
+            } else {
+                this.mask_type = builder.mask_type;
                 return;
             }
         }
@@ -59,6 +67,7 @@ public final class DataRes extends Message {
         this.time = builder.time;
         this.ctime = builder.ctime;
         this.logid = builder.logid;
+        this.mask_type = builder.mask_type;
     }
 
     /* loaded from: classes.dex */
@@ -66,6 +75,7 @@ public final class DataRes extends Message {
         public Long ctime;
         public Integer hide_post;
         public Long logid;
+        public Integer mask_type;
         public List<PostInfoList> post_list;
         public Long time;
 
@@ -80,6 +90,7 @@ public final class DataRes extends Message {
                 this.time = dataRes.time;
                 this.ctime = dataRes.ctime;
                 this.logid = dataRes.logid;
+                this.mask_type = dataRes.mask_type;
             }
         }
 

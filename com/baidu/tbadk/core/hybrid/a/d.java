@@ -2,33 +2,33 @@ package com.baidu.tbadk.core.hybrid.a;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.hybrid.m;
+import com.baidu.tbadk.core.hybrid.o;
 import com.baidu.tbadk.core.hybrid.p;
-import com.baidu.tbadk.core.hybrid.t;
-import com.baidu.tbadk.core.hybrid.u;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class d extends t {
-    private TbPageContext<?> aby;
+public class d extends o {
+    private TbPageContext<?> abz;
 
-    public d(p pVar, TbPageContext<?> tbPageContext) {
-        super(pVar);
-        this.aby = tbPageContext;
+    public d(m mVar, TbPageContext<?> tbPageContext) {
+        super(mVar);
+        this.abz = tbPageContext;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.hybrid.t
+    @Override // com.baidu.tbadk.core.hybrid.o
     public String oc() {
         return "TBHY_COMMON_Navigator";
     }
 
-    @u("toNativePage")
+    @p("toNativePage")
     protected void toNativePage(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             String optString = jSONObject.optString("url");
             if (!StringUtils.isNull(optString)) {
-                au.wd().c(this.aby, new String[]{optString});
+                av.vH().c(this.abz, new String[]{optString});
             }
         }
     }

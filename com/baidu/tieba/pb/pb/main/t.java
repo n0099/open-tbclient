@@ -1,62 +1,85 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.av;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
-    private BaseActivity bnc;
-    private PbModel eHJ;
-    private final CustomMessageListener eLQ = new CustomMessageListener(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS) { // from class: com.baidu.tieba.pb.pb.main.t.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            t.this.h(customResponsedMessage);
-        }
-    };
-    private final CustomMessageListener eLR = new CustomMessageListener(CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS) { // from class: com.baidu.tieba.pb.pb.main.t.2
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            t.this.h(customResponsedMessage);
-        }
-    };
+    private BaseActivity boM;
+    private PbModel eBQ;
 
     public t(PbModel pbModel, BaseActivity baseActivity) {
-        this.eHJ = pbModel;
-        this.bnc = baseActivity;
-        this.bnc.registerListener(this.eLQ);
-        this.bnc.registerListener(this.eLR);
+        this.eBQ = pbModel;
+        this.boM = baseActivity;
     }
 
-    public com.baidu.tbadk.core.data.af aRw() {
-        if (!aRx() || this.eHJ == null || this.eHJ.getPbData() == null) {
+    private void kV(String str) {
+        if (str.startsWith("//")) {
+            str = str.substring(2);
+        }
+        Map<String, String> dT = av.dT(str);
+        if (dT != null) {
+            com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak("c10320");
+            akVar.ad("obj_locate", dT.get("obj_locate"));
+            akVar.r("obj_type", 1);
+            akVar.ad("tid", dT.get("tid"));
+            akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dT.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
+            akVar.ad("obj_param2", dT.get("obj_param2"));
+            akVar.r("obj_to", 3);
+            akVar.ad("obj_id", dT.get("bdid"));
+            if (!com.baidu.tbadk.core.util.am.isEmpty(dT.get("ext_log"))) {
+                try {
+                    JSONObject jSONObject = new JSONObject(dT.get("ext_log"));
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        akVar.ad(next, jSONObject.getString(next));
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            TiebaStatic.log(akVar);
+        }
+    }
+
+    public String T(Intent intent) {
+        int length;
+        if (intent == null || intent.getData() == null) {
             return null;
         }
-        return this.eHJ.getPbData().aPe();
-    }
-
-    public boolean aRx() {
-        return com.baidu.tieba.graffiti.b.aos() && aRy();
-    }
-
-    private boolean aRy() {
-        if (this.eHJ == null || this.eHJ.getPbData() == null) {
-            return false;
+        String dataString = intent.getDataString();
+        if (StringUtils.isNull(dataString) || !dataString.startsWith("tbpb://")) {
+            return null;
         }
-        PostData postData = (PostData) com.baidu.tbadk.core.util.v.c(this.eHJ.getPbData().aPk(), 0);
-        return postData != null && (postData.getType() == PostData.gjc || postData.getType() == PostData.Yk || postData.getType() == PostData.gjf);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void h(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            String str = (String) customResponsedMessage.getData();
-            if (this.eHJ != null && this.eHJ.getPbData() != null && this.eHJ.getPbData().aPe() != null && str.equals(this.eHJ.getThreadID())) {
-                this.eHJ.getPbData().aPe().an(true);
+        String decode = Uri.decode(intent.getData().getEncodedPath());
+        if (StringUtils.isNull(decode)) {
+            return null;
+        }
+        Matcher matcher = Pattern.compile(".*fr=(.*)&tid=([\\\\d]+).*").matcher(decode);
+        if (matcher.find()) {
+            if ("mpush".equals(matcher.group(1))) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11895").ad("tid", matcher.group(2)));
+            } else {
+                kV(decode);
             }
+            return matcher.group(2);
         }
+        kV(decode);
+        int indexOf = decode.indexOf("tid=");
+        if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
+            return null;
+        }
+        return decode.substring(length);
     }
 }

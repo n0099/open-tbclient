@@ -1,56 +1,44 @@
 package com.baidu.tieba.person.a;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.f;
-import com.baidu.adp.widget.ListView.j;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.data.k;
-import com.baidu.tieba.horizonalList.widget.HTypeListView;
-import com.baidu.tieba.person.h;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class d {
-    private HTypeListView aYu;
-    private b ffn;
-    private a ffo;
-    private com.baidu.tieba.personCenter.a.b ffp;
-    private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private BdUniqueId mId;
-    private TbPageContext mTbPageContext;
+public class d extends com.baidu.tieba.a.e<f, com.baidu.tieba.person.b.d> {
+    private View.OnClickListener eZj;
+    private TbPageContext mG;
 
-    public d(TbPageContext tbPageContext, HTypeListView hTypeListView) {
-        this.mTbPageContext = tbPageContext;
-        this.aYu = hTypeListView;
-        this.mId = tbPageContext.getUniqueId();
-        initAdapters();
+    public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.mG = tbPageContext;
     }
 
-    private void initAdapters() {
-        this.ffn = new b(this.mTbPageContext, k.aAj);
-        this.ffo = new a(this.mTbPageContext, com.baidu.tieba.person.data.a.ffr);
-        this.ffp = new com.baidu.tieba.personCenter.a.b(this.mTbPageContext.getPageActivity(), h.feY);
-        this.mAdapters.add(this.ffn);
-        this.mAdapters.add(this.ffo);
-        this.mAdapters.add(this.ffp);
-        this.aYu.addAdapters(this.mAdapters);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bs */
+    public com.baidu.tieba.person.b.d onCreateViewHolder(ViewGroup viewGroup) {
+        com.baidu.tieba.person.b.d dVar = new com.baidu.tieba.person.b.d(LayoutInflater.from(this.mContext).inflate(d.j.person_info_user_pics_layout, viewGroup, false), this.mG);
+        dVar.eZL.setItemOnclickListener(this.eZj);
+        return dVar;
     }
 
-    public void setDatas(List<f> list) {
-        if (this.aYu != null) {
-            this.aYu.setData(list);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, f fVar, com.baidu.tieba.person.b.d dVar) {
+        if (fVar != null && dVar != null) {
+            dVar.DW();
+            dVar.a(fVar);
         }
+        return view;
     }
 
-    public void notifyDataSetChanged() {
-        if (this.aYu != null && (this.aYu.getAdapter() instanceof j)) {
-            ((j) this.aYu.getAdapter()).notifyDataSetChanged();
-        }
-    }
-
-    public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.ffn.p(onClickListener);
-        this.ffo.p(onClickListener);
+    public void H(View.OnClickListener onClickListener) {
+        this.eZj = onClickListener;
     }
 }

@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import tbclient.AlaUserInfo;
 /* loaded from: classes.dex */
 public class AlaUserInfoData extends OrmObject {
+    public long ala_id;
     public long anchor_live;
     public long charm_count;
     public String description;
@@ -18,6 +19,7 @@ public class AlaUserInfoData extends OrmObject {
     public int is_official;
     public long level_exp;
     public int level_id;
+    public long live_id;
     public int live_status;
     public String location;
     public String portrait;
@@ -29,6 +31,7 @@ public class AlaUserInfoData extends OrmObject {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
+                this.ala_id = jSONObject.optLong("ala_id");
                 this.user_name = jSONObject.optString("user_name");
                 this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
                 this.enter_live = jSONObject.optLong("enter_live");
@@ -36,6 +39,7 @@ public class AlaUserInfoData extends OrmObject {
                 this.description = jSONObject.optString("description");
                 this.sex = jSONObject.optString(MyGiftListActivityConfig.USER_SEX);
                 this.live_status = jSONObject.optInt("live_status");
+                this.live_id = jSONObject.optLong("live_id");
                 this.location = jSONObject.optString("location");
                 this.update_time = jSONObject.optInt("update_time");
                 this.charm_count = jSONObject.optLong("charm_count");
@@ -55,6 +59,7 @@ public class AlaUserInfoData extends OrmObject {
     public void a(AlaUserInfo alaUserInfo) {
         if (alaUserInfo != null) {
             try {
+                this.ala_id = alaUserInfo.ala_id.longValue();
                 this.user_name = alaUserInfo.user_name;
                 this.portrait = alaUserInfo.portrait;
                 this.anchor_live = alaUserInfo.anchor_live.longValue();
@@ -62,6 +67,7 @@ public class AlaUserInfoData extends OrmObject {
                 this.description = alaUserInfo.description;
                 this.sex = alaUserInfo.sex;
                 this.live_status = alaUserInfo.live_status.intValue();
+                this.live_id = alaUserInfo.live_id.longValue();
                 this.location = alaUserInfo.location;
                 this.update_time = alaUserInfo.update_time.intValue();
                 this.charm_count = alaUserInfo.charm_count.longValue();

@@ -2,8 +2,8 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.r;
-import com.baidu.adp.lib.util.t;
+import com.baidu.adp.lib.util.s;
+import com.baidu.adp.lib.util.u;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
@@ -19,23 +19,23 @@ public class f {
             return false;
         }
         try {
-            PublicKey m = t.m(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+            PublicKey m = u.m(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
             if (m == null) {
                 TiebaStatic.log(new ak("c10836").ad("obj_type", "publicKeyCode is null").ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
-            byte[] he = he(str);
-            if (he == null || he.length <= 0) {
+            byte[] decodeHex = decodeHex(str);
+            if (decodeHex == null || decodeHex.length <= 0) {
                 TiebaStatic.log(new ak("c10836").ad("obj_type", "server_data is null").ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
-            byte[] b = t.b((Key) m, he);
+            byte[] b = u.b((Key) m, decodeHex);
             if (b == null || b.length <= 0) {
                 TiebaStatic.log(new ak("c10836").ad("obj_type", "des is null").ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
             String trim = new String(b, "UTF-8").trim();
-            String e = r.e(new FileInputStream(file));
+            String e = s.e(new FileInputStream(file));
             if (e != null) {
                 e = e.trim();
             }
@@ -56,7 +56,7 @@ public class f {
         }
     }
 
-    private static int g(char c) {
+    private static int h(char c) {
         int digit = Character.digit(c, 16);
         if (digit == -1) {
             throw new RuntimeException("Illegal hexadecimal character " + c);
@@ -64,7 +64,7 @@ public class f {
         return digit;
     }
 
-    public static byte[] he(String str) {
+    public static byte[] decodeHex(String str) {
         int i = 0;
         if (str == null) {
             throw new IllegalArgumentException("binary string is null");
@@ -76,9 +76,9 @@ public class f {
         }
         for (int i2 = 0; i + 1 < charArray.length && i2 < bArr.length; i2++) {
             int i3 = i + 1;
-            int g = g(charArray[i]) << 4;
+            int h = h(charArray[i]) << 4;
             i = i3 + 1;
-            bArr[i2] = (byte) (g(charArray[i3]) | g);
+            bArr[i2] = (byte) (h(charArray[i3]) | h);
         }
         return bArr;
     }

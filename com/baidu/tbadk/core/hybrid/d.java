@@ -10,29 +10,29 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class d implements k {
-    private final HashMap<String, Method> acA = new HashMap<>();
-    private final p acz;
+public abstract class d implements i {
+    private final m acA;
+    private final HashMap<String, Method> acB = new HashMap<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.core.hybrid.d */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
-    public d(p pVar) {
-        this.acz = pVar;
+    public d(m mVar) {
+        this.acA = mVar;
         i(getClass());
-        if (this.acA.isEmpty()) {
+        if (this.acB.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Context getContext() {
-        return this.acz.getContext();
+        return this.acA.getContext();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void sendMessage(Message<?> message) {
-        a.C0047a.sendMessage(message);
+        a.C0048a.sendMessage(message);
     }
 
     protected void b(String str, JSONObject jSONObject) {
@@ -46,25 +46,25 @@ public abstract class d implements k {
         if (jSONObject != null) {
             hashMap.put("data", jSONObject);
         }
-        this.acz.a(q.b(str, hashMap));
+        this.acA.a(n.b(str, hashMap));
     }
 
-    @Override // com.baidu.tbadk.core.hybrid.k
+    @Override // com.baidu.tbadk.core.hybrid.i
     public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
-        Method method = this.acA.get(str);
+        Method method = this.acB.get(str);
         if (method != null) {
-            u uVar = (u) method.getAnnotation(u.class);
+            p pVar = (p) method.getAnnotation(p.class);
             String optString = jSONObject2.optString("callbackId");
             try {
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                if (!uVar.ua()) {
+                if (!pVar.tQ()) {
                     if (parameterTypes.length == 2) {
                         invoke = method.invoke(this, optString, jSONObject);
                     } else if (parameterTypes.length == 1) {
                         invoke = method.invoke(this, jSONObject);
                     } else if (parameterTypes.length == 0) {
-                        e.cP("native method " + getClass().getSimpleName() + ":" + uVar.value() + " ignored all parameters.");
+                        e.cP("native method " + getClass().getSimpleName() + ":" + pVar.value() + " ignored all parameters.");
                         invoke = method.invoke(this, new Object[0]);
                     } else {
                         a(str, jSONObject2, "500", "parameters too much!");
@@ -84,7 +84,7 @@ public abstract class d implements k {
                         }
                         return;
                     } else if (parameterTypes.length == 0) {
-                        e.cP("native method " + getClass().getSimpleName() + ":" + uVar.value() + " ignored all parameters.");
+                        e.cP("native method " + getClass().getSimpleName() + ":" + pVar.value() + " ignored all parameters.");
                         method.invoke(this, new Object[0]);
                         if (!TextUtils.isEmpty(optString)) {
                             b(optString, null);
@@ -125,26 +125,26 @@ public abstract class d implements k {
         HashMap hashMap = new HashMap(4);
         hashMap.put("errNo", str2);
         hashMap.put("errMsg", str3);
-        this.acz.a(q.b(optString, hashMap));
+        this.acA.a(n.b(optString, hashMap));
     }
 
     private void i(Class<? extends d> cls) {
         Method[] declaredMethods;
         for (Method method : cls.getDeclaredMethods()) {
-            u uVar = (u) method.getAnnotation(u.class);
-            if (uVar != null) {
-                String value = uVar.value();
+            p pVar = (p) method.getAnnotation(p.class);
+            if (pVar != null) {
+                String value = pVar.value();
                 if (TextUtils.isEmpty(value)) {
                     value = null;
                 }
-                if (uVar.ua() && !Void.TYPE.equals(method.getReturnType())) {
+                if (pVar.tQ() && !Void.TYPE.equals(method.getReturnType())) {
                     throw new IllegalArgumentException("Method with async flag should return void.");
                 }
                 if (TextUtils.isEmpty(value)) {
                     value = method.getName();
                 }
                 method.setAccessible(true);
-                this.acA.put(value, method);
+                this.acB.put(value, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();

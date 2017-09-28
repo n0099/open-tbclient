@@ -38,7 +38,7 @@ public class j<T> extends d<T> {
     @Override // com.baidu.adp.lib.cache.k
     public void V(final String str) {
         if (this.sL instanceof e.b) {
-            com.baidu.adp.lib.g.h.fR().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
+            com.baidu.adp.lib.g.h.fQ().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
                 @Override // java.lang.Runnable
                 public void run() {
                     j.this.sW.P(str);
@@ -46,7 +46,7 @@ public class j<T> extends d<T> {
             });
         }
         if (this.sL instanceof e.a) {
-            com.baidu.adp.lib.g.h.fR().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
+            com.baidu.adp.lib.g.h.fQ().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
                 @Override // java.lang.Runnable
                 public void run() {
                     j.this.sW.O(str);
@@ -55,7 +55,7 @@ public class j<T> extends d<T> {
         }
     }
 
-    public c<T> eE() {
+    public c<T> eD() {
         return this.sW;
     }
 }

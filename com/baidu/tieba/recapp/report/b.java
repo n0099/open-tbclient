@@ -6,50 +6,50 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b fJv;
-    private CustomMessageListener fJx = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b fGf;
+    private CustomMessageListener fGh = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && i.hi() && b.this.fJw != null) {
-                b.this.fJw.bia();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.hh() && b.this.fGg != null) {
+                b.this.fGg.bgG();
             }
         }
     };
-    private c fJw = new f();
+    private c fGg = new f();
 
-    public static b bhY() {
-        if (fJv == null) {
+    public static b bgE() {
+        if (fGf == null) {
             synchronized (b.class) {
-                if (fJv == null) {
-                    fJv = new b();
+                if (fGf == null) {
+                    fGf = new b();
                 }
             }
         }
-        return fJv;
+        return fGf;
     }
 
-    private boolean bhZ() {
-        return com.baidu.adp.lib.b.d.eW().af("ad_log_open") != 0;
+    private boolean bgF() {
+        return com.baidu.adp.lib.b.d.eV().af("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.fJx);
+        MessageManager.getInstance().registerListener(this.fGh);
     }
 
     public void a(a aVar) {
-        if (bhZ() && aVar != null && this.fJw != null) {
-            if (i.hi()) {
-                this.fJw.b(aVar);
+        if (bgF() && aVar != null && this.fGg != null) {
+            if (j.hh()) {
+                this.fGg.b(aVar);
             } else {
-                this.fJw.c(aVar);
+                this.fGg.c(aVar);
             }
         }
     }

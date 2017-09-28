@@ -3,7 +3,7 @@ package com.baidu.tbadk.a;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public abstract class a implements f {
-    public abstract String nr();
+    public abstract String nt();
 
     @Override // com.baidu.tbadk.a.f
     public h a(Object obj, HashMap<String, String> hashMap, String str) {

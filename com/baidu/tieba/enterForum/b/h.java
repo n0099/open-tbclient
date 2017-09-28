@@ -13,7 +13,7 @@ public class h {
     private boolean ccI;
     private int level;
 
-    public ArrayList<g> acV() {
+    public ArrayList<g> acI() {
         return this.ccH;
     }
 
@@ -21,14 +21,14 @@ public class h {
         this.level = i;
     }
 
-    public void acW() {
+    public void acJ() {
         Iterator<g> it = this.ccH.iterator();
         while (it.hasNext()) {
-            it.next().is(0);
+            it.next().iA(0);
         }
     }
 
-    public void ao(List<?> list) {
+    public void an(List<?> list) {
         if (list != null) {
             a(list, null);
         }

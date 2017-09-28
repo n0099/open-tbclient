@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ah;
-import com.baidu.tbadk.core.data.ax;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.af;
+import com.baidu.tbadk.core.data.av;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tieba.recapp.d.a;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -53,28 +53,28 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            a.bhT().re(threadListResIdl.data.asp_shown_info);
+            a.bgz().qO(threadListResIdl.data.asp_shown_info);
             this.threadList = new ArrayList<>();
             List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
             if (list2 != null) {
                 for (int i3 = 0; i3 < list2.size(); i3++) {
-                    bj bjVar = new bj();
-                    bjVar.setUserMap(this.userMap);
-                    bjVar.a(list2.get(i3));
-                    bjVar.bX(3);
-                    bjVar.sj();
-                    if (bjVar.getThreadType() == 33) {
-                        ax axVar = new ax();
-                        axVar.a(bjVar, 0);
+                    bh bhVar = new bh();
+                    bhVar.setUserMap(this.userMap);
+                    bhVar.a(list2.get(i3));
+                    bhVar.bY(3);
+                    bhVar.sd();
+                    if (bhVar.getThreadType() == 33) {
+                        av avVar = new av();
+                        avVar.a(bhVar, 0);
                         if (true == TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.threadList.add(axVar);
+                            this.threadList.add(avVar);
                         }
-                    } else if (!TextUtils.isEmpty(bjVar.sw())) {
-                        ah ahVar = new ah();
-                        ahVar.cx(bjVar.sw());
-                        this.threadList.add(ahVar);
+                    } else if (!TextUtils.isEmpty(bhVar.sq())) {
+                        af afVar = new af();
+                        afVar.cx(bhVar.sq());
+                        this.threadList.add(afVar);
                     } else {
-                        this.threadList.add(bjVar);
+                        this.threadList.add(bhVar);
                     }
                 }
             }

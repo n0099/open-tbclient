@@ -14,15 +14,18 @@ public interface IVideoConvertService extends IInterface {
 
     boolean isConvertRunning() throws RemoteException;
 
+    void setConvertType(int i) throws RemoteException;
+
     void setIVideoConvertListener(IVideoConvertListener iVideoConvertListener) throws RemoteException;
 
     /* loaded from: classes.dex */
     public static abstract class Stub extends Binder implements IVideoConvertService {
         private static final String DESCRIPTOR = "com.baidu.tieba.video.convert.IVideoConvertService";
-        static final int TRANSACTION_abortConvert = 3;
+        static final int TRANSACTION_abortConvert = 4;
         static final int TRANSACTION_doConvert = 1;
-        static final int TRANSACTION_isConvertRunning = 4;
-        static final int TRANSACTION_setIVideoConvertListener = 2;
+        static final int TRANSACTION_isConvertRunning = 5;
+        static final int TRANSACTION_setConvertType = 2;
+        static final int TRANSACTION_setIVideoConvertListener = 3;
 
         public Stub() {
             attachInterface(this, DESCRIPTOR);
@@ -55,15 +58,20 @@ public interface IVideoConvertService extends IInterface {
                     return true;
                 case 2:
                     parcel.enforceInterface(DESCRIPTOR);
-                    setIVideoConvertListener(IVideoConvertListener.Stub.asInterface(parcel.readStrongBinder()));
+                    setConvertType(parcel.readInt());
                     parcel2.writeNoException();
                     return true;
                 case 3:
                     parcel.enforceInterface(DESCRIPTOR);
-                    abortConvert();
+                    setIVideoConvertListener(IVideoConvertListener.Stub.asInterface(parcel.readStrongBinder()));
                     parcel2.writeNoException();
                     return true;
                 case 4:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    abortConvert();
+                    parcel2.writeNoException();
+                    return true;
+                case 5:
                     parcel.enforceInterface(DESCRIPTOR);
                     boolean isConvertRunning = isConvertRunning();
                     parcel2.writeNoException();
@@ -108,13 +116,28 @@ public interface IVideoConvertService extends IInterface {
             }
 
             @Override // com.baidu.tieba.video.convert.IVideoConvertService
+            public void setConvertType(int i) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(i);
+                    this.mRemote.transact(2, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.video.convert.IVideoConvertService
             public void setIVideoConvertListener(IVideoConvertListener iVideoConvertListener) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeStrongBinder(iVideoConvertListener != null ? iVideoConvertListener.asBinder() : null);
-                    this.mRemote.transact(2, obtain, obtain2, 0);
+                    this.mRemote.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -128,7 +151,7 @@ public interface IVideoConvertService extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(3, obtain, obtain2, 0);
+                    this.mRemote.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -142,7 +165,7 @@ public interface IVideoConvertService extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(4, obtain, obtain2, 0);
+                    this.mRemote.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

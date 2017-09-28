@@ -5,23 +5,24 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
 public interface d {
-    int IZ();
+    int Ji();
 
-    com.baidu.adp.lib.e.b<ImageView> Ja();
+    com.baidu.adp.lib.e.b<ImageView> Jj();
 
-    com.baidu.adp.lib.e.b<TextView> Jb();
+    com.baidu.adp.lib.e.b<TextView> Jk();
 
-    com.baidu.adp.lib.e.b<GifView> Jc();
+    com.baidu.adp.lib.e.b<GifView> Jl();
 
-    com.baidu.adp.lib.e.b<View> Jd();
+    com.baidu.adp.lib.e.b<View> Jm();
 
-    com.baidu.adp.lib.e.b<LinearLayout> Je();
+    com.baidu.adp.lib.e.b<LinearLayout> Jn();
 
-    com.baidu.adp.lib.e.b<View> Jf();
+    com.baidu.adp.lib.e.b<RelativeLayout> Jo();
 
     void Z(Context context, String str);
 

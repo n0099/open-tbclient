@@ -49,4 +49,9 @@ public class GiftTabActivityConfig extends IntentConfig {
         getIntent().putExtra(GIFT_THREAD_ID, j2);
         getIntent().putExtra(GIFT_POST_ID, j3);
     }
+
+    public void setReferPageAndClickZone(String str, String str2) {
+        getIntent().putExtra("refer_page", str);
+        getIntent().putExtra("click_zone", str2);
+    }
 }

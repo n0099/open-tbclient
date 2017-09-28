@@ -7,13 +7,14 @@ import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
+import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import java.util.HashMap;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public abstract class d {
     public static String c = null;
-    public com.baidu.location.f.i La = null;
-    public com.baidu.location.f.a Lb = null;
+    public com.baidu.location.f.i Lr = null;
+    public com.baidu.location.f.a Ls = null;
     private boolean e = true;
     private boolean f = false;
     final Handler d = new a();
@@ -54,19 +55,19 @@ public abstract class d {
         @Override // com.baidu.location.h.f
         public void a() {
             this.h = com.baidu.location.h.i.c();
-            String b = com.baidu.location.c.d.mw().b();
+            String b = com.baidu.location.c.d.my().b();
             if (g == com.baidu.location.h.b.e || g == com.baidu.location.h.b.f) {
                 this.h = "http://" + b + "/sdk.php";
             }
             if (b != null) {
-                com.baidu.location.c.f.my().mz().b("&host=" + b);
+                com.baidu.location.c.f.mA().mB().b("&host=" + b);
             }
             String encodeTp4 = Jni.encodeTp4(this.b);
             this.b = null;
             if (this.a == null) {
                 this.a = j.b();
             }
-            this.k.put("bloc", encodeTp4);
+            this.k.put(BaseLocationBox.TYPE, encodeTp4);
             if (this.a != null) {
                 this.k.put("up", this.a);
             }
@@ -96,9 +97,9 @@ public abstract class d {
                     d.c = str;
                     try {
                         bDLocation = new BDLocation(str);
-                        bDLocation.setOperators(com.baidu.location.f.c.mV().g());
-                        if (f.mf().f()) {
-                            bDLocation.setDirection(f.mf().mh());
+                        bDLocation.setOperators(com.baidu.location.f.c.mX().g());
+                        if (f.mh().f()) {
+                            bDLocation.setDirection(f.mh().mj());
                         }
                     } catch (Exception e) {
                         bDLocation = new BDLocation();
@@ -127,22 +128,22 @@ public abstract class d {
     }
 
     public String a(String str) {
-        if (this.Lb == null || !this.Lb.a()) {
-            this.Lb = com.baidu.location.f.c.mV().mR();
+        if (this.Ls == null || !this.Ls.a()) {
+            this.Ls = com.baidu.location.f.c.mX().mT();
         }
-        if (this.La == null || !this.La.f()) {
-            this.La = com.baidu.location.f.k.ne().nc();
+        if (this.Lr == null || !this.Lr.f()) {
+            this.Lr = com.baidu.location.f.k.ng().ne();
         }
-        Location mX = com.baidu.location.f.f.mY().i() ? com.baidu.location.f.f.mY().mX() : null;
-        if ((this.Lb == null || this.Lb.c()) && ((this.La == null || this.La.a() == 0) && mX == null)) {
+        Location mZ = com.baidu.location.f.f.na().i() ? com.baidu.location.f.f.na().mZ() : null;
+        if ((this.Ls == null || this.Ls.c()) && ((this.Lr == null || this.Lr.a() == 0) && mZ == null)) {
             return null;
         }
-        String c2 = com.baidu.location.a.a.mc().c();
-        String format = com.baidu.location.f.k.ne().g() ? "&cn=32" : String.format(Locale.CHINA, "&cn=%d", Integer.valueOf(com.baidu.location.f.c.mV().e()));
+        String c2 = com.baidu.location.a.a.me().c();
+        String format = com.baidu.location.f.k.ng().g() ? "&cn=32" : String.format(Locale.CHINA, "&cn=%d", Integer.valueOf(com.baidu.location.f.c.mX().e()));
         if (this.e) {
             this.e = false;
-            com.baidu.location.c.f.my().mz().a(true);
-            String l = com.baidu.location.f.k.ne().l();
+            com.baidu.location.c.f.mA().mB().a(true);
+            String l = com.baidu.location.f.k.ng().l();
             if (!TextUtils.isEmpty(l)) {
                 format = String.format(Locale.CHINA, "%s&mac=%s", format, l.replace(":", ""));
             }
@@ -159,7 +160,7 @@ public abstract class d {
         if (str != null) {
             str2 = str + str2;
         }
-        return com.baidu.location.h.i.a(this.Lb, this.La, mX, str2, 0);
+        return com.baidu.location.h.i.a(this.Ls, this.Lr, mZ, str2, 0);
     }
 
     public abstract void a();

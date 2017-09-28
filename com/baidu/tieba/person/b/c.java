@@ -2,65 +2,67 @@ package com.baidu.tieba.person.b;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.f;
 import com.baidu.adp.widget.ListView.j;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.o;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
-import com.baidu.tieba.horizonalList.widget.HTypeListView;
-import com.baidu.tieba.person.a.d;
-import com.baidu.tieba.person.a.e;
-import com.baidu.tieba.person.h;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes.dex */
 public class c extends j.a {
-    public TextView Ri;
-    public int apQ;
-    public View bTw;
-    public HTypeListView ffF;
-    public d ffG;
-    public TbPageContext mF;
-    public View rootView;
+    private f aEL;
+    private View.OnClickListener aPe;
+    public TbImageView aTA;
+    public View cjJ;
+    public TextView eZJ;
+    private int mSkinType;
 
-    public c(View view, TbPageContext tbPageContext) {
+    public c(View view) {
         super(view);
-        this.apQ = 3;
-        this.rootView = view;
-        this.mF = tbPageContext;
-        this.bTw = view.findViewById(d.h.divider_view_under_photo_album);
-        this.Ri = (TextView) view.findViewById(d.h.text_view_photo_album);
-        this.ffF = (HTypeListView) view.findViewById(d.h.listview_photo_album);
-        this.ffG = new com.baidu.tieba.person.a.d(this.mF, this.ffF);
+        this.mSkinType = 3;
+        this.aTA = (TbImageView) view.findViewById(d.h.photo_image_view);
+        this.aTA.setDefaultBgResource(d.e.cp_bg_line_e);
+        this.cjJ = view.findViewById(d.h.normal_pic_click_bg);
+        this.eZJ = (TextView) view.findViewById(d.h.tip_default_view);
     }
 
-    public void a(e eVar) {
-        if (eVar != null) {
-            this.ffG.setDatas(cH(eVar.getPhotoAlbum()));
+    public void c(f fVar) {
+        if (fVar instanceof com.baidu.tbadk.data.j) {
+            this.aEL = fVar;
+            com.baidu.tbadk.data.j jVar = (com.baidu.tbadk.data.j) fVar;
+            if (jVar.Cc()) {
+                String dz = o.dz(jVar.getSmallUrl());
+                this.eZJ.setVisibility(0);
+                if (StringUtils.isNull(dz)) {
+                    this.aTA.setDefaultResource(d.g.pic_mycenter_avatar_def_i);
+                } else {
+                    this.aTA.c(dz, 25, false);
+                }
+            } else {
+                this.aTA.setDefaultResource(d.g.img_default_100);
+                this.eZJ.setVisibility(8);
+                this.aTA.c(jVar.getSmallUrl(), 10, false);
+            }
+            getView().setOnClickListener(this.aPe);
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private List<f> cH(List<f> list) {
-        if (v.u(list) > 0) {
-            ArrayList arrayList = new ArrayList(list);
-            h hVar = new h(k.f(this.mF.getPageActivity(), d.f.ds32), k.f(this.mF.getPageActivity(), d.f.ds120));
-            v.a(arrayList, 0, hVar);
-            v.b(arrayList, hVar);
-            return arrayList;
+    public void onChangeSkinType(int i) {
+        if (this.mSkinType != i) {
+            aj.c(this.eZJ, d.e.cp_cont_g, 1);
+            aj.k(this.eZJ, d.e.black_alpha50);
+            this.mSkinType = i;
         }
-        return list;
     }
 
-    public void Es() {
-        if (this.apQ != TbadkCoreApplication.getInst().getSkinType()) {
-            this.apQ = TbadkCoreApplication.getInst().getSkinType();
-            aj.k(this.rootView, d.e.cp_bg_line_d);
-            aj.k(this.bTw, d.e.cp_bg_line_c);
-            aj.c(this.Ri, d.e.cp_cont_d, 1);
-            this.ffG.notifyDataSetChanged();
-        }
+    public f wT() {
+        return this.aEL;
+    }
+
+    public void p(View.OnClickListener onClickListener) {
+        this.aPe = onClickListener;
     }
 }

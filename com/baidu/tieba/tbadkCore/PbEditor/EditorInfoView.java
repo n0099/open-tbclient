@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int apQ;
-    private GradientDrawable ghZ;
-    protected int gia;
-    protected int gib;
+    private int aoZ;
+    private GradientDrawable gfH;
+    protected int gfI;
+    protected int gfJ;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -24,10 +24,10 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.apQ = 3;
-        this.gia = (int) context.getResources().getDimension(d.f.ds18);
-        this.gib = (int) context.getResources().getDimension(d.f.ds6);
-        setPadding(this.gia, this.gib, this.gia, this.gib);
+        this.aoZ = 3;
+        this.gfI = (int) context.getResources().getDimension(d.f.ds18);
+        this.gfJ = (int) context.getResources().getDimension(d.f.ds6);
+        setPadding(this.gfI, this.gfJ, this.gfI, this.gfJ);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(d.f.ds24));
@@ -39,21 +39,21 @@ public class EditorInfoView extends TextView {
         setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(d.f.ds48));
     }
 
-    public void xc() {
+    public void wB() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.apQ) {
-            this.apQ = skinType;
+        if (skinType != this.aoZ) {
+            this.aoZ = skinType;
             onChangeSkinType();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType() {
-        if (this.ghZ == null) {
-            this.ghZ = new GradientDrawable();
-            this.ghZ.setCornerRadius(getContext().getResources().getDimension(d.f.ds24));
+        if (this.gfH == null) {
+            this.gfH = new GradientDrawable();
+            this.gfH.setCornerRadius(getContext().getResources().getDimension(d.f.ds24));
         }
         aj.c(this, d.e.cp_cont_c, 1);
-        this.ghZ.setColor(aj.getColor(d.e.cp_bg_line_e));
+        this.gfH.setColor(aj.getColor(d.e.cp_bg_line_e));
     }
 }

@@ -138,8 +138,8 @@ public class AlaLiveInfoCoreData extends i implements Serializable {
     public void fillWithInfoData(com.baidu.tbadk.core.data.c cVar) {
         if (cVar != null) {
             this.liveID = cVar.live_id;
-            if (cVar.Uu != null) {
-                this.userName = cVar.Uu.user_name;
+            if (cVar.UJ != null) {
+                this.userName = cVar.UJ.user_name;
             }
             this.groupID = cVar.group_id;
             this.sessionID = cVar.session_id;

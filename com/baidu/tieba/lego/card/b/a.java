@@ -12,16 +12,16 @@ public interface a {
     /* renamed from: com.baidu.tieba.lego.card.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0105a {
-        public String dWA;
-        public Rect dWB;
+        public String dSI;
+        public Rect dSJ;
         public String picUrl;
         public Rect rect;
 
         public C0105a() {
             this.picUrl = "";
             this.rect = new Rect(0, 0, 0, 0);
-            this.dWA = "";
-            this.dWB = new Rect(0, 0, 0, 0);
+            this.dSI = "";
+            this.dSJ = new Rect(0, 0, 0, 0);
         }
 
         private C0105a(JSONObject jSONObject) {
@@ -33,8 +33,8 @@ public interface a {
             return (TextUtils.isEmpty(this.picUrl) || this.rect.isEmpty()) ? false : true;
         }
 
-        public boolean aEF() {
-            return (TextUtils.isEmpty(this.dWA) || this.dWB.isEmpty()) ? false : true;
+        public boolean aDv() {
+            return (TextUtils.isEmpty(this.dSI) || this.dSJ.isEmpty()) ? false : true;
         }
 
         public String toString() {
@@ -54,7 +54,7 @@ public interface a {
             return jSONObject.toString();
         }
 
-        public static C0105a nD(String str) {
+        public static C0105a nh(String str) {
             if (TextUtils.isEmpty(str)) {
                 return new C0105a();
             }
@@ -66,7 +66,7 @@ public interface a {
             }
         }
 
-        public void nE(String str) {
+        public void ni(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONArray optJSONArray = new JSONObject(str).optJSONArray("pics");
@@ -74,8 +74,8 @@ public interface a {
                         try {
                             JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
                             if (jSONObject != null) {
-                                this.dWA = jSONObject.optString("pic_url");
-                                this.dWB = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                                this.dSI = jSONObject.optString("pic_url");
+                                this.dSJ = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

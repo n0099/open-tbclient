@@ -5,13 +5,13 @@ import android.view.View;
 public abstract class b {
     private View mView = null;
 
-    public abstract View lb();
+    public abstract View ld();
 
     public abstract void onClick();
 
     public final View getView() {
         if (this.mView == null) {
-            this.mView = lb();
+            this.mView = ld();
         }
         return this.mView;
     }

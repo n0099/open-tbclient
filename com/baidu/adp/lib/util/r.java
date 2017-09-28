@@ -1,65 +1,113 @@
 package com.baidu.adp.lib.util;
 
-import java.io.InputStream;
-import java.security.MessageDigest;
+import android.database.Cursor;
+import com.baidu.adp.lib.cache.l;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class r {
-    private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-
-    public static String toMd5(byte[] bArr) {
+    /* JADX WARN: Type inference failed for: r4v11, types: [T, java.lang.String] */
+    public static List<l.b<String>> b(com.baidu.adp.lib.cache.l<String> lVar) {
+        Cursor cursor;
+        LinkedList linkedList = new LinkedList();
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(bArr);
-            return l(messageDigest.digest());
-        } catch (Exception e) {
-            BdLog.e(e);
+            cursor = d(lVar);
+        } catch (Throwable th) {
+            th = th;
+            cursor = null;
+        }
+        if (cursor == null) {
             return null;
         }
-    }
-
-    public static String l(byte[] bArr) {
-        if (bArr == null) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder(bArr.length * 2);
-        for (int i = 0; i < bArr.length; i++) {
-            sb.append(HEX_DIGITS[(bArr[i] & 240) >>> 4]);
-            sb.append(HEX_DIGITS[bArr[i] & 15]);
-        }
-        return sb.toString();
-    }
-
-    public static String e(InputStream inputStream) {
-        String str = null;
-        if (inputStream != null) {
+        while (cursor.moveToNext()) {
             try {
-                byte[] bArr = new byte[1024];
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read <= 0) {
-                        break;
-                    }
-                    messageDigest.update(bArr, 0, read);
+                l.b bVar = new l.b();
+                bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
+                bVar.ti = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.sS = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.value = cursor.getString(cursor.getColumnIndex("m_value"));
+                linkedList.add(bVar);
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    BdLog.e(th);
+                    Collections.sort(linkedList, new a());
+                    return linkedList;
+                } finally {
+                    com.baidu.adp.lib.g.a.e(cursor);
                 }
-                str = l(messageDigest.digest());
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            } finally {
-                m.d(inputStream);
             }
         }
-        return str;
+        com.baidu.adp.lib.g.a.e(cursor);
+        Collections.sort(linkedList, new a());
+        return linkedList;
     }
 
-    public static String aS(String str) {
-        if (str == null) {
+    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
+    public static List<l.b<byte[]>> c(com.baidu.adp.lib.cache.l<byte[]> lVar) {
+        Cursor cursor;
+        LinkedList linkedList = new LinkedList();
+        try {
+            cursor = d(lVar);
+        } catch (Throwable th) {
+            th = th;
+            cursor = null;
+        }
+        if (cursor == null) {
             return null;
         }
-        try {
-            return toMd5(str.getBytes("UTF-8"));
-        } catch (Exception e) {
+        while (cursor.moveToNext()) {
+            try {
+                l.b bVar = new l.b();
+                bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
+                bVar.ti = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.sS = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.value = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                linkedList.add(bVar);
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    BdLog.e(th);
+                    Collections.sort(linkedList, new a());
+                    return linkedList;
+                } finally {
+                    com.baidu.adp.lib.g.a.e(cursor);
+                }
+            }
+        }
+        com.baidu.adp.lib.g.a.e(cursor);
+        Collections.sort(linkedList, new a());
+        return linkedList;
+    }
+
+    private static Cursor d(com.baidu.adp.lib.cache.l<?> lVar) {
+        if (lVar != null && (lVar instanceof l.c)) {
+            l.c cVar = (l.c) lVar;
+            if (cVar.eH() instanceof com.baidu.adp.lib.cache.j) {
+                com.baidu.adp.lib.cache.c eD = ((com.baidu.adp.lib.cache.j) cVar.eH()).eD();
+                return eD.d(eD.ev().ch(), cVar.eG());
+            }
             return null;
+        }
+        return null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a implements Comparator<l.b<?>> {
+        private a() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(l.b<?> bVar, l.b<?> bVar2) {
+            if (bVar.ti == bVar2.ti) {
+                return 0;
+            }
+            return bVar.ti > bVar2.ti ? -1 : 1;
         }
     }
 }

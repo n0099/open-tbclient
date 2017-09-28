@@ -11,13 +11,13 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ShareFromFrsView extends LinearLayout {
-    private HeadImageView cJs;
-    private ShareFromFrsMsgData cJv;
+    private HeadImageView cKi;
+    private ShareFromFrsMsgData cKl;
     private Context context;
-    private TextView dJm;
-    private TextView dJn;
-    private TextView dJo;
-    private TextView dJp;
+    private TextView dFB;
+    private TextView dFC;
+    private TextView dFD;
+    private TextView dFE;
     private TextView name;
 
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
@@ -35,44 +35,44 @@ public class ShareFromFrsView extends LinearLayout {
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(d.j.share_from_frs_view, this);
         this.name = (TextView) findViewById(d.h.frs_name);
-        this.cJs = (HeadImageView) findViewById(d.h.frs_img);
-        this.dJn = (TextView) findViewById(d.h.frs_member_num);
-        this.dJp = (TextView) findViewById(d.h.frs_post_num);
-        this.dJm = (TextView) findViewById(d.h.frs_member_num_label);
-        this.dJo = (TextView) findViewById(d.h.frs_post_num_label);
+        this.cKi = (HeadImageView) findViewById(d.h.frs_img);
+        this.dFC = (TextView) findViewById(d.h.frs_member_num);
+        this.dFE = (TextView) findViewById(d.h.frs_post_num);
+        this.dFB = (TextView) findViewById(d.h.frs_member_num_label);
+        this.dFD = (TextView) findViewById(d.h.frs_post_num_label);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.name.setTextColor(getContext().getResources().getColor(d.e.cp_cont_b));
-            this.dJn.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
-            this.dJp.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
-            this.dJm.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
-            this.dJo.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
+            this.dFC.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
+            this.dFE.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
+            this.dFB.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
+            this.dFD.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
             return;
         }
         this.name.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
-        this.dJn.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
-        this.dJp.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
-        this.dJm.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
-        this.dJo.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
+        this.dFC.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
+        this.dFE.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
+        this.dFB.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
+        this.dFD.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.cJv = shareFromFrsMsgData;
-        wO();
+        this.cKl = shareFromFrsMsgData;
+        wn();
     }
 
-    private void wO() {
-        this.name.setText(dZ(this.cJv.getName()));
-        this.cJs.setDefaultResource(d.g.icon_default_ba_120);
-        this.cJs.setAutoChangeStyle(false);
-        this.cJs.c(this.cJv.getImageUrl(), 10, false);
-        this.dJn.setText(am.y(this.cJv.getMemberNum()));
-        this.dJp.setText(am.y(this.cJv.getPostNum()));
+    private void wn() {
+        this.name.setText(dS(this.cKl.getName()));
+        this.cKi.setDefaultResource(d.g.icon_default_ba_120);
+        this.cKi.setAutoChangeStyle(false);
+        this.cKi.c(this.cKl.getImageUrl(), 10, false);
+        this.dFC.setText(am.x(this.cKl.getMemberNum()));
+        this.dFE.setText(am.x(this.cKl.getPostNum()));
     }
 
-    private String dZ(String str) {
+    private String dS(String str) {
         return am.j(str, 8) + this.context.getString(d.l.forum);
     }
 }

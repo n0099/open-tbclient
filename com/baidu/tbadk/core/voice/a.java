@@ -2,31 +2,31 @@ package com.baidu.tbadk.core.voice;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.e;
-import com.baidu.adp.lib.util.p;
+import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.q;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.k;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String xB() {
-        return p.hJ();
+    public static String xa() {
+        return q.hI();
     }
 
-    public static String et(String str) {
+    public static String en(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
-    public static String eu(String str) {
+    public static String eo(String str) {
         return k.q(str, 1);
     }
 
-    public static String ev(String str) {
-        return e.az(et(str));
+    public static String ep(String str) {
+        return f.az(en(str));
     }
 
     public static boolean aE(String str) {

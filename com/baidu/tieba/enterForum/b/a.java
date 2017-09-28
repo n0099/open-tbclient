@@ -12,11 +12,11 @@ public class a<T extends e> extends c implements com.baidu.tbadk.mvc.b.a {
         setType(1);
     }
 
-    public T acN() {
+    public T acA() {
         return this.ccr;
     }
 
-    public T acO() {
+    public T acB() {
         return this.ccs;
     }
 }

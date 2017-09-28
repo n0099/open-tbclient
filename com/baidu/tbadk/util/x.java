@@ -1,57 +1,147 @@
 package com.baidu.tbadk.util;
 
-import android.content.Context;
-import android.media.AudioManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
-import java.lang.ref.WeakReference;
+import android.os.Bundle;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class x {
-    public static boolean a(WeakReference<Context> weakReference, boolean z) {
-        if (weakReference == null || weakReference.get() == null) {
+    public static String at(String str, String str2) {
+        int indexOf = str.indexOf(str2);
+        if (indexOf != -1) {
+            int length = str2.length() + indexOf;
+            int i = length;
+            while (i < str.length() && str.charAt(i) != '&') {
+                i++;
+            }
+            try {
+                return URLDecoder.decode(str.substring(length, i));
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+                return "";
+            }
+        }
+        return "";
+    }
+
+    public static String au(String str, String str2) {
+        String[] split;
+        String str3 = "";
+        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
+            for (int i = 1; i < split.length; i++) {
+                String[] split2 = split[i].split("&");
+                if (split2 != null && split2.length > 0) {
+                    int length = split2.length;
+                    int i2 = 0;
+                    while (true) {
+                        if (i2 < length) {
+                            String[] split3 = split2[i2].split("=");
+                            if (split3.length == 2) {
+                                String str4 = split3[0];
+                                String str5 = split3[1];
+                                if (str2.equals(str4)) {
+                                    try {
+                                        str3 = URLDecoder.decode(str5);
+                                        break;
+                                    } catch (Exception e) {
+                                        str3 = str5;
+                                    }
+                                }
+                            }
+                            i2++;
+                        }
+                    }
+                }
+            }
+        }
+        return str3;
+    }
+
+    public static Bundle gR(String str) {
+        URL url;
+        String query;
+        String[] split;
+        if (StringUtils.isNull(str)) {
+            return null;
+        }
+        Bundle bundle = new Bundle();
+        try {
+            url = new URL(str);
+            query = url.getQuery();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
+            return null;
+        }
+        bundle.putString("path", url.getPath());
+        for (String str2 : split) {
+            String[] split2 = str2.split("=");
+            if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
+                bundle.putString(split2[0], split2[1]);
+            }
+        }
+        return bundle;
+    }
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public String BDUSS;
+        public String aMh;
+
+        public a(String str, String str2) {
+            this.BDUSS = "";
+            this.aMh = "";
+            this.BDUSS = str;
+            this.aMh = str2;
+        }
+
+        public int hashCode() {
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aMh != null ? this.aMh.hashCode() : 0);
+        }
+
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && getClass() == obj.getClass()) {
+                a aVar = (a) obj;
+                if (this.BDUSS == null) {
+                    if (aVar.BDUSS != null) {
+                        return false;
+                    }
+                } else if (!this.BDUSS.equals(aVar.BDUSS)) {
+                    return false;
+                }
+                return this.aMh == null ? aVar.aMh == null : this.aMh.equals(aVar.aMh);
+            }
             return false;
         }
-        AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
-        if (z) {
-            return audioManager.requestAudioFocus(null, 3, 2) == 1;
-        }
-        return audioManager.abandonAudioFocus(null) == 1;
     }
 
-    public static boolean fo(int i) {
-        boolean z = true;
-        switch (i) {
-            case 2:
-                if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != -1) {
-                    return (com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.i.hj() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
+    public static void a(final BaseWebView baseWebView, BdUniqueId bdUniqueId) {
+        if (baseWebView != null) {
+            CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_WEBVIEW_LOGIN) { // from class: com.baidu.tbadk.util.x.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.adp.framework.listener.MessageListener
+                public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921024 && baseWebView != null) {
+                        baseWebView.reload();
+                    }
                 }
-                if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("auto_play_video_frs", 0) == 1) || !com.baidu.adp.lib.util.i.hj()) {
-                    z = false;
-                }
-                return z;
-            case 3:
-            case 4:
-                return com.baidu.adp.lib.util.i.hj();
-            case 5:
-                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.p.q.GQ() && com.baidu.adp.lib.util.i.hj() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
-            default:
-                if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != -1) {
-                    return (com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.i.hj() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
-                }
-                if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("auto_play_video_homepage", 0) == 1) || !com.baidu.adp.lib.util.i.hj()) {
-                    z = false;
-                }
-                return z;
-        }
-    }
-
-    public static boolean q(int i, String str) {
-        if (!am.isEmpty(com.baidu.tieba.play.r.hx(str))) {
-            if (TbadkCoreApplication.getInst().getVideoAutoPlay() == 1) {
-                return false;
+            };
+            if (bdUniqueId != null) {
+                customMessageListener.setTag(bdUniqueId);
+                MessageManager.getInstance().registerListener(customMessageListener);
             }
-            return (com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 0) ? false : true;
         }
-        return fo(i);
     }
 }

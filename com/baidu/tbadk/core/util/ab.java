@@ -12,7 +12,7 @@ public class ab {
     public static boolean aI(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.b.a.nk()) {
+        if (com.baidu.b.a.nm()) {
             if (context == null) {
                 return false;
             }
@@ -37,7 +37,7 @@ public class ab {
     }
 
     public static boolean aJ(Context context) {
-        if (com.baidu.b.a.nk()) {
+        if (com.baidu.b.a.nm()) {
             if (context != null) {
                 try {
                     if (!com.baidu.b.a.a.R(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -57,7 +57,7 @@ public class ab {
     }
 
     public static boolean aK(Context context) {
-        if (!com.baidu.b.a.nk()) {
+        if (!com.baidu.b.a.nm()) {
             return true;
         }
         if (context != null) {
@@ -72,7 +72,7 @@ public class ab {
     }
 
     public static boolean aL(Context context) {
-        if (!com.baidu.b.a.nk()) {
+        if (!com.baidu.b.a.nm()) {
             return true;
         }
         if (context != null) {
@@ -92,8 +92,8 @@ public class ab {
             return true;
         }
         try {
-            if (com.baidu.b.a.nk() && com.baidu.b.a.a.S(aQ, "android.permission.RECORD_AUDIO")) {
-                com.baidu.adp.lib.util.k.showToast(aQ, d.l.record_audio_permission_denied_fun_disable);
+            if (com.baidu.b.a.nm() && com.baidu.b.a.a.S(aQ, "android.permission.RECORD_AUDIO")) {
+                com.baidu.adp.lib.util.l.showToast(aQ, d.l.record_audio_permission_denied_fun_disable);
                 return true;
             }
         } catch (Exception e) {
@@ -103,7 +103,7 @@ public class ab {
     }
 
     public static boolean aN(Context context) {
-        if (!com.baidu.b.a.nk()) {
+        if (!com.baidu.b.a.nm()) {
             return true;
         }
         if (context != null) {
@@ -118,7 +118,7 @@ public class ab {
     }
 
     public static boolean aO(Context context) {
-        if (!com.baidu.b.a.nk()) {
+        if (!com.baidu.b.a.nm()) {
             return true;
         }
         if (context != null) {
@@ -138,8 +138,8 @@ public class ab {
             return true;
         }
         try {
-            if (com.baidu.b.a.nk() && com.baidu.b.a.a.S(aQ, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                com.baidu.adp.lib.util.k.showToast(aQ, d.l.write_external_storage_permission_denied_fun_disable);
+            if (com.baidu.b.a.nm() && com.baidu.b.a.a.S(aQ, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                com.baidu.adp.lib.util.l.showToast(aQ, d.l.write_external_storage_permission_denied_fun_disable);
                 return true;
             }
         } catch (Exception e) {

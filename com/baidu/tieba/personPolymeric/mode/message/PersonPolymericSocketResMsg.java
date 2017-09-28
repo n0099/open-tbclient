@@ -1,6 +1,7 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.person.b;
 import com.squareup.wire.Wire;
 import tbclient.Personal.PersonalResIdl;
 /* loaded from: classes.dex */
@@ -18,7 +19,10 @@ public class PersonPolymericSocketResMsg extends SocketResponsedMessage {
             setError(personalResIdl.error.errorno.intValue());
             setErrorString(personalResIdl.error.usermsg);
             if (getError() == 0) {
-                personPolymericReqMsg.getPersonPolymericData();
+                b personCenterData = personPolymericReqMsg.getPersonCenterData();
+                if (personalResIdl.data != null) {
+                    personCenterData.a(personalResIdl);
+                }
             }
         }
     }

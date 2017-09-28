@@ -13,7 +13,7 @@ public final class PrintHelper {
     public static final int ORIENTATION_PORTRAIT = 2;
     public static final int SCALE_MODE_FILL = 2;
     public static final int SCALE_MODE_FIT = 1;
-    c jG;
+    c jH;
 
     /* loaded from: classes.dex */
     interface c {
@@ -40,13 +40,13 @@ public final class PrintHelper {
 
     /* loaded from: classes.dex */
     private static final class b implements c {
-        int jI;
+        int jJ;
         int mOrientation;
         int mScaleMode;
 
         private b() {
             this.mScaleMode = 2;
-            this.jI = 2;
+            this.jJ = 2;
             this.mOrientation = 1;
         }
 
@@ -57,12 +57,12 @@ public final class PrintHelper {
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getColorMode() {
-            return this.jI;
+            return this.jJ;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setColorMode(int i) {
-            this.jI = i;
+            this.jJ = i;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
@@ -91,90 +91,90 @@ public final class PrintHelper {
 
     /* loaded from: classes.dex */
     private static final class a implements c {
-        private final android.support.v4.print.a jH;
+        private final android.support.v4.print.a jI;
 
         a(Context context) {
-            this.jH = new android.support.v4.print.a(context);
+            this.jI = new android.support.v4.print.a(context);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setScaleMode(int i) {
-            this.jH.setScaleMode(i);
+            this.jI.setScaleMode(i);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getScaleMode() {
-            return this.jH.getScaleMode();
+            return this.jI.getScaleMode();
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setColorMode(int i) {
-            this.jH.setColorMode(i);
+            this.jI.setColorMode(i);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getColorMode() {
-            return this.jH.getColorMode();
+            return this.jI.getColorMode();
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setOrientation(int i) {
-            this.jH.setOrientation(i);
+            this.jI.setOrientation(i);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getOrientation() {
-            return this.jH.getOrientation();
+            return this.jI.getOrientation();
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void printBitmap(String str, Bitmap bitmap) {
-            this.jH.printBitmap(str, bitmap);
+            this.jI.printBitmap(str, bitmap);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void printBitmap(String str, Uri uri) throws FileNotFoundException {
-            this.jH.printBitmap(str, uri);
+            this.jI.printBitmap(str, uri);
         }
     }
 
     public PrintHelper(Context context) {
         if (systemSupportsPrint()) {
-            this.jG = new a(context);
+            this.jH = new a(context);
         } else {
-            this.jG = new b();
+            this.jH = new b();
         }
     }
 
     public void setScaleMode(int i) {
-        this.jG.setScaleMode(i);
+        this.jH.setScaleMode(i);
     }
 
     public int getScaleMode() {
-        return this.jG.getScaleMode();
+        return this.jH.getScaleMode();
     }
 
     public void setColorMode(int i) {
-        this.jG.setColorMode(i);
+        this.jH.setColorMode(i);
     }
 
     public int getColorMode() {
-        return this.jG.getColorMode();
+        return this.jH.getColorMode();
     }
 
     public void setOrientation(int i) {
-        this.jG.setOrientation(i);
+        this.jH.setOrientation(i);
     }
 
     public int getOrientation() {
-        return this.jG.getOrientation();
+        return this.jH.getOrientation();
     }
 
     public void printBitmap(String str, Bitmap bitmap) {
-        this.jG.printBitmap(str, bitmap);
+        this.jH.printBitmap(str, bitmap);
     }
 
     public void printBitmap(String str, Uri uri) throws FileNotFoundException {
-        this.jG.printBitmap(str, uri);
+        this.jH.printBitmap(str, uri);
     }
 }

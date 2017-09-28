@@ -11,49 +11,49 @@ import java.net.Socket;
 /* loaded from: classes2.dex */
 public class n {
     private static final String TAG = n.class.getSimpleName();
-    private ServerSocket aWs;
+    private ServerSocket aYg;
     private Context mContext;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.VideoCache.n.1
         @Override // java.lang.Runnable
         public void run() {
             j.aw(n.TAG, "run ...");
-            n.this.KO();
+            n.this.Lg();
             int i = 9000;
-            while (n.this.aWs == null && i < 10000) {
+            while (n.this.aYg == null && i < 10000) {
                 try {
-                    n.this.aWs = new ServerSocket(i);
+                    n.this.aYg = new ServerSocket(i);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    n.this.aWs = null;
+                    n.this.aYg = null;
                     i++;
                 }
             }
             j.aw(n.TAG, "service port " + i);
-            n.this.fQ(i);
-            e.KD();
-            k.KL();
-            while (!n.this.aWs.isClosed()) {
+            n.this.ge(i);
+            e.KV();
+            k.Ld();
+            while (!n.this.aYg.isClosed()) {
                 try {
                     j.aw(n.TAG, "accept start");
-                    Socket accept = n.this.aWs.accept();
+                    Socket accept = n.this.aYg.accept();
                     j.aw(n.TAG, "accept end");
                     if (accept != null) {
                         j.aw(n.TAG, "连接视频服务的client:" + accept);
                         h b = f.b(accept);
-                        String KH = b.KH();
-                        if (KH != null && KH.contains("?file_access=1")) {
+                        String KZ = b.KZ();
+                        if (KZ != null && KZ.contains("?file_access=1")) {
                             n.this.b(b, accept);
-                        } else if (KH != null && KH.contains("?stop_cache=1")) {
+                        } else if (KZ != null && KZ.contains("?stop_cache=1")) {
                             n.this.a(b, accept);
-                        } else if (KH != null && KH.contains("delete_expired_files")) {
+                        } else if (KZ != null && KZ.contains("delete_expired_files")) {
                             n.this.c(b, accept);
-                        } else if (KH != null && KH.contains("clear_cache")) {
+                        } else if (KZ != null && KZ.contains("clear_cache")) {
                             n.this.d(b, accept);
                         } else {
                             f fVar = new f(n.this.mContext);
                             fVar.a(accept);
                             fVar.a(b);
-                            l.KM().e(fVar);
+                            l.Le().e(fVar);
                         }
                     }
                 } catch (Exception e2) {
@@ -68,16 +68,16 @@ public class n {
 
     public n(Context context) {
         this.mContext = context;
-        l.KM().e(this.mRunnable);
+        l.Le().e(this.mRunnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KO() {
-        File file = new File(i.aWf);
+    public void Lg() {
+        File file = new File(i.aXT);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(i.aWg);
+        File file2 = new File(i.aXU);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -89,11 +89,11 @@ public class n {
                 }
             }
         }
-        File file4 = new File(i.aWh);
+        File file4 = new File(i.aXV);
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(i.aWj);
+        File file5 = new File(i.aXX);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -115,8 +115,8 @@ public class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void fQ(int i) {
-        BufferedWriter bufferedWriter = i.aWl;
+    public void ge(int i) {
+        BufferedWriter bufferedWriter = i.aXZ;
         try {
             try {
                 bufferedWriter = new BufferedWriter(new FileWriter(new File((String) bufferedWriter)));
@@ -166,8 +166,8 @@ public class n {
 
     public void destroy() {
         try {
-            if (this.aWs != null) {
-                this.aWs.close();
+            if (this.aYg != null) {
+                this.aYg.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -177,11 +177,11 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(h hVar, Socket socket) {
         j.aw(TAG, "handleStopCache in");
-        String KH = hVar.KH();
-        if (KH != null) {
-            KH = KH.replace("?stop_cache=1", "");
+        String KZ = hVar.KZ();
+        if (KZ != null) {
+            KZ = KZ.replace("?stop_cache=1", "");
         }
-        e.KD().hm(KH);
+        e.KV().hj(KZ);
         d(socket);
         j.aw(TAG, "handleStopCache out");
     }
@@ -189,11 +189,11 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(h hVar, Socket socket) {
         j.aw(TAG, "handleFileAccess in");
-        String KH = hVar.KH();
-        if (KH != null) {
-            KH = KH.replace("?file_access=1", "");
+        String KZ = hVar.KZ();
+        if (KZ != null) {
+            KZ = KZ.replace("?file_access=1", "");
         }
-        k.KL().hg(KH);
+        k.Ld().hd(KZ);
         d(socket);
         j.aw(TAG, "handleFileAccess out");
     }
@@ -201,7 +201,7 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(h hVar, Socket socket) {
         j.aw(TAG, "handleDeleteExpiredFiles in");
-        k.KL().Kz();
+        k.Ld().KR();
         d(socket);
         j.aw(TAG, "handleDeleteExpiredFiles out");
     }
@@ -209,7 +209,7 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(h hVar, Socket socket) {
         j.aw(TAG, "handleClearCache in");
-        k.KL().clearCache();
+        k.Ld().clearCache();
         d(socket);
         j.aw(TAG, "handleClearCache out");
     }

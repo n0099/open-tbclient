@@ -5,7 +5,7 @@ import com.baidu.sofire.rp.f.b;
 import com.baidu.sofire.rp.f.c;
 /* loaded from: classes.dex */
 public class Report {
-    private static Report PQ;
+    private static Report Qf;
     private Context b;
 
     private Report(Context context) {
@@ -15,10 +15,10 @@ public class Report {
     public static synchronized Report getInstance(Context context) {
         Report report;
         synchronized (Report.class) {
-            if (PQ == null) {
-                PQ = new Report(context);
+            if (Qf == null) {
+                Qf = new Report(context);
             }
-            report = PQ;
+            report = Qf;
         }
         return report;
     }

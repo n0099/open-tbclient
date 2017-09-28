@@ -25,32 +25,32 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method ewJ;
+    private static Method epQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
         List<File> c;
         Log.i("MultiDex", "MultiDexExtractor.load(" + applicationInfo.sourceDir + ", " + z + ")");
         File file2 = new File(applicationInfo.sourceDir);
-        long F = F(file2);
-        if (!z && !a(context, file2, F)) {
+        long E = E(file2);
+        if (!z && !a(context, file2, E)) {
             try {
                 c = a(context, file2, file);
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().aMH();
+                    ((c.a) context).getSplash().aKC();
                 }
                 c = c(file2, file);
-                b(context, E(file2), F, c.size() + 1);
+                b(context, D(file2), E, c.size() + 1);
             }
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().aMH();
+                ((c.a) context).getSplash().aKC();
             }
             c = c(file2, file);
-            b(context, E(file2), F, c.size() + 1);
+            b(context, D(file2), E, c.size() + 1);
         }
         Log.i("MultiDex", "load found " + c.size() + " secondary dex files");
         return c;
@@ -67,7 +67,7 @@ final class b {
                 throw new IOException("Missing extracted secondary dex file '" + file3.getPath() + "'");
             }
             arrayList.add(file3);
-            if (!H(file3)) {
+            if (!G(file3)) {
                 Log.i("MultiDex", "Invalid zip file: " + file3);
                 throw new IOException("Invalid ZIP file.");
             }
@@ -77,10 +77,10 @@ final class b {
 
     private static boolean a(Context context, File file, long j) {
         SharedPreferences aC = aC(context);
-        return (aC.getLong("timestamp", -1L) == E(file) && aC.getLong("crc", -1L) == j) ? false : true;
+        return (aC.getLong("timestamp", -1L) == D(file) && aC.getLong("crc", -1L) == j) ? false : true;
     }
 
-    private static long E(File file) {
+    private static long D(File file) {
         long lastModified = file.lastModified();
         if (lastModified == -1) {
             return lastModified - 1;
@@ -88,12 +88,12 @@ final class b {
         return lastModified;
     }
 
-    private static long F(File file) throws IOException {
-        long F = d.F(file);
-        if (F == -1) {
-            return F - 1;
+    private static long E(File file) throws IOException {
+        long E = d.E(file);
+        if (E == -1) {
+            return E - 1;
         }
-        return F;
+        return E;
     }
 
     private static List<File> c(File file, File file2) throws IOException {
@@ -113,17 +113,17 @@ final class b {
                 while (i2 < 3 && !z) {
                     int i3 = i2 + 1;
                     a(zipFile, entry, file3, str);
-                    boolean H = H(file3);
-                    Log.i("MultiDex", "Extraction " + (H ? ImagesInvalidReceiver.SUCCESS : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
-                    if (!H) {
+                    boolean G = G(file3);
+                    Log.i("MultiDex", "Extraction " + (G ? ImagesInvalidReceiver.SUCCESS : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
+                    if (!G) {
                         file3.delete();
                         if (file3.exists()) {
                             Log.w("MultiDex", "Failed to delete corrupted secondary dex '" + file3.getPath() + "'");
-                            z = H;
+                            z = G;
                             i2 = i3;
                         }
                     }
-                    z = H;
+                    z = G;
                     i2 = i3;
                 }
                 if (!z) {
@@ -156,8 +156,8 @@ final class b {
     }
 
     private static void e(File file, final String str) throws IOException {
-        G(file.getParentFile());
-        G(file);
+        F(file.getParentFile());
+        F(file);
         File[] listFiles = file.listFiles(new FileFilter() { // from class: com.baidu.tieba.i.b.1
             @Override // java.io.FileFilter
             public boolean accept(File file2) {
@@ -178,7 +178,7 @@ final class b {
         }
     }
 
-    private static void G(File file) throws IOException {
+    private static void F(File file) throws IOException {
         file.mkdir();
         if (!file.isDirectory()) {
             File parentFile = file.getParentFile();
@@ -217,7 +217,7 @@ final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean H(File file) {
+    public static boolean G(File file) {
         try {
             try {
                 new ZipFile(file).close();
@@ -242,9 +242,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (ewJ != null) {
+        if (epQ != null) {
             try {
-                ewJ.invoke(editor, new Object[0]);
+                epQ.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -255,9 +255,9 @@ final class b {
 
     static {
         try {
-            ewJ = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            epQ = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException e) {
-            ewJ = null;
+            epQ = null;
         }
     }
 }

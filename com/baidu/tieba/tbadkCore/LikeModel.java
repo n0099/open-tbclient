@@ -17,9 +17,9 @@ import com.baidu.tbadk.util.c;
 public class LikeModel extends BdBaseModel {
     public static final int HASLIKE_ERROR = 22;
     private String from;
-    private String ghN;
-    private a ghO;
-    private String ghP;
+    private String gfv;
+    private a gfw;
+    private String gfx;
     private String mForumId;
     private String mForumName;
 
@@ -27,8 +27,8 @@ public class LikeModel extends BdBaseModel {
         super(tbPageContext);
         this.mForumName = null;
         this.mForumId = null;
-        this.ghN = null;
-        this.ghO = null;
+        this.gfv = null;
+        this.gfw = null;
     }
 
     public void setFrom(String str) {
@@ -45,30 +45,30 @@ public class LikeModel extends BdBaseModel {
         return false;
     }
 
-    public void brL() {
-        if (this.ghO != null) {
-            this.ghO.cancel();
-            this.ghO = null;
+    public void bqJ() {
+        if (this.gfw != null) {
+            this.gfw.cancel();
+            this.gfw = null;
         }
     }
 
-    public void I(String str, String str2, String str3) {
-        cg(str, str2);
-        this.ghN = str3;
+    public void J(String str, String str2, String str3) {
+        cb(str, str2);
+        this.gfv = str3;
     }
 
-    public void cg(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.ghO == null) {
+    public void cb(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.gfw == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.ghO = new a();
-            this.ghO.setPriority(2);
-            this.ghO.execute(new Object[0]);
+            this.gfw = new a();
+            this.gfw.setPriority(2);
+            this.gfw.execute(new Object[0]);
         }
     }
 
-    public boolean brM() {
-        return this.ghO != null;
+    public boolean bqK() {
+        return this.gfw != null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -90,24 +90,24 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.n("kw", LikeModel.this.mForumName);
                 this.mNetwork.n("fid", LikeModel.this.mForumId);
                 this.mNetwork.n("st_type", LikeModel.this.from);
-                if (!StringUtils.isNull(LikeModel.this.ghP)) {
-                    this.mNetwork.n("dev_id", LikeModel.this.ghP);
+                if (!StringUtils.isNull(LikeModel.this.gfx)) {
+                    this.mNetwork.n("dev_id", LikeModel.this.gfx);
                 }
-                if (!TextUtils.isEmpty(LikeModel.this.ghN)) {
-                    this.mNetwork.n("pagefrom", LikeModel.this.ghN);
+                if (!TextUtils.isEmpty(LikeModel.this.gfv)) {
+                    this.mNetwork.n("pagefrom", LikeModel.this.gfv);
                 }
                 this.mNetwork.n("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.n("user_id", TbadkCoreApplication.getCurrentAccount());
                 this.mNetwork.n("forum_name", LikeModel.this.mForumName);
-                this.mNetwork.vj().wf().mIsNeedTbs = true;
-                String uM = this.mNetwork.uM();
-                int vn = this.mNetwork.vm() ? this.mNetwork.vn() : this.mNetwork.vo();
-                String errorString = this.mNetwork.vm() ? this.mNetwork.getErrorString() : this.mNetwork.vp();
-                LikeModel.this.setErrorCode(vn);
+                this.mNetwork.uN().vJ().mIsNeedTbs = true;
+                String up = this.mNetwork.up();
+                int uR = this.mNetwork.uQ() ? this.mNetwork.uR() : this.mNetwork.uS();
+                String errorString = this.mNetwork.uQ() ? this.mNetwork.getErrorString() : this.mNetwork.uT();
+                LikeModel.this.setErrorCode(uR);
                 LikeModel.this.setErrorString(errorString);
-                if (this.mNetwork.vj().wg().isRequestSuccess() && uM != null) {
+                if (this.mNetwork.uN().vK().isRequestSuccess() && up != null) {
                     o oVar = new o();
-                    oVar.parserJson(uM);
+                    oVar.parserJson(up);
                     oVar.setFid(LikeModel.this.mForumId);
                     return oVar;
                 }
@@ -128,7 +128,7 @@ public class LikeModel extends BdBaseModel {
             if (this.mNetwork != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = com.baidu.adp.lib.g.b.c(oVar.getFid(), 0L);
-                if (oVar != null && this.mNetwork.vj().wg().isRequestSuccess()) {
+                if (oVar != null && this.mNetwork.uN().vK().isRequestSuccess()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.g.b.c(oVar.getFid(), 0L))));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM_NAME, new c.a(LikeModel.this.mForumName, oVar.getUserLevel())));
                     TbadkCoreApplication.getInst().addLikeForum(LikeModel.this.mForumName);
@@ -142,17 +142,17 @@ public class LikeModel extends BdBaseModel {
                     LikeModel.this.mLoadDataCallBack.f(oVar);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_LIKE_FORUM, aVar));
-                LikeModel.this.ghO = null;
+                LikeModel.this.gfw = null;
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetwork != null) {
-                this.mNetwork.fp();
+                this.mNetwork.fo();
                 this.mNetwork = null;
             }
-            LikeModel.this.ghO = null;
+            LikeModel.this.gfw = null;
             super.cancel(true);
             if (LikeModel.this.mLoadDataCallBack != null) {
                 LikeModel.this.mLoadDataCallBack.f(null);

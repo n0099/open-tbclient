@@ -13,9 +13,9 @@ public class a {
     private static a a = null;
     private boolean b = false;
     private Handler c = null;
-    private AlarmManager LU = null;
-    private C0025a LV = null;
-    private PendingIntent LW = null;
+    private AlarmManager Ml = null;
+    private C0025a Mm = null;
+    private PendingIntent Mn = null;
     private long g = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -32,7 +32,7 @@ public class a {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (a.this.b && intent.getAction().equals("com.baidu.location.autonotifyloc_6.2.3") && a.this.c != null) {
-                a.this.LW = null;
+                a.this.Mn = null;
                 a.this.c.sendEmptyMessage(1);
             }
         }
@@ -46,22 +46,22 @@ public class a {
         if (System.currentTimeMillis() - this.g < 1000) {
             return;
         }
-        if (this.LW != null) {
-            this.LU.cancel(this.LW);
-            this.LW = null;
+        if (this.Mn != null) {
+            this.Ml.cancel(this.Mn);
+            this.Mn = null;
         }
-        if (this.LW == null) {
-            this.LW = PendingIntent.getBroadcast(com.baidu.location.f.getServiceContext(), 0, new Intent("com.baidu.location.autonotifyloc_6.2.3"), 134217728);
-            this.LU.set(0, System.currentTimeMillis() + com.baidu.location.h.i.T, this.LW);
+        if (this.Mn == null) {
+            this.Mn = PendingIntent.getBroadcast(com.baidu.location.f.getServiceContext(), 0, new Intent("com.baidu.location.autonotifyloc_6.2.3"), 134217728);
+            this.Ml.set(0, System.currentTimeMillis() + com.baidu.location.h.i.T, this.Mn);
         }
         Message message = new Message();
         message.what = 22;
         if (System.currentTimeMillis() - this.g >= com.baidu.location.h.i.U) {
             this.g = System.currentTimeMillis();
-            if (com.baidu.location.f.f.mY().i()) {
+            if (com.baidu.location.f.f.na().i()) {
                 return;
             }
-            com.baidu.location.a.e.me().b(message);
+            com.baidu.location.a.e.mg().b(message);
         }
     }
 
@@ -69,21 +69,21 @@ public class a {
     public void g() {
         if (this.b) {
             try {
-                if (this.LW != null) {
-                    this.LU.cancel(this.LW);
-                    this.LW = null;
+                if (this.Mn != null) {
+                    this.Ml.cancel(this.Mn);
+                    this.Mn = null;
                 }
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.LV);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.Mm);
             } catch (Exception e) {
             }
-            this.LU = null;
-            this.LV = null;
+            this.Ml = null;
+            this.Mm = null;
             this.c = null;
             this.b = false;
         }
     }
 
-    public static synchronized a mt() {
+    public static synchronized a mv() {
         a aVar;
         synchronized (a.class) {
             if (a == null) {
@@ -99,11 +99,11 @@ public class a {
             if (this.c == null) {
                 this.c = new i(this);
             }
-            this.LU = (AlarmManager) com.baidu.location.f.getServiceContext().getSystemService("alarm");
-            this.LV = new C0025a(this, null);
-            com.baidu.location.f.getServiceContext().registerReceiver(this.LV, new IntentFilter("com.baidu.location.autonotifyloc_6.2.3"));
-            this.LW = PendingIntent.getBroadcast(com.baidu.location.f.getServiceContext(), 0, new Intent("com.baidu.location.autonotifyloc_6.2.3"), 134217728);
-            this.LU.set(0, System.currentTimeMillis() + com.baidu.location.h.i.T, this.LW);
+            this.Ml = (AlarmManager) com.baidu.location.f.getServiceContext().getSystemService("alarm");
+            this.Mm = new C0025a(this, null);
+            com.baidu.location.f.getServiceContext().registerReceiver(this.Mm, new IntentFilter("com.baidu.location.autonotifyloc_6.2.3"));
+            this.Mn = PendingIntent.getBroadcast(com.baidu.location.f.getServiceContext(), 0, new Intent("com.baidu.location.autonotifyloc_6.2.3"), 134217728);
+            this.Ml.set(0, System.currentTimeMillis() + com.baidu.location.h.i.T, this.Mn);
             this.b = true;
             this.g = System.currentTimeMillis();
         }

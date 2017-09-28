@@ -1,169 +1,228 @@
 package com.baidu.tieba.personPolymeric.d;
 
-import android.os.Build;
-import android.support.v4.view.PagerAdapter;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.l;
+import com.baidu.adp.widget.ColumnLayout;
+import com.baidu.adp.widget.ListView.j;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.widget.viewpager.ListViewPager;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tieba.personCenter.view.ReplyLinearLayout;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.c> {
-    public ListViewPager ecv;
-    private com.baidu.tieba.personPolymeric.c.c flU;
-    private C0116a flV;
-    private com.baidu.adp.lib.e.b<n> flW;
-    private TbPageContext<?> mF;
-    private int mSkinType;
-    public TextView mTitle;
+public class a extends j.a implements View.OnClickListener {
+    private static com.baidu.adp.widget.ImageView.a fhu;
+    private static String fhv;
+    public TextView amI;
+    public TextView anF;
+    private View bAO;
+    public TextView bKm;
+    private View bMb;
+    public TextView egO;
+    private final LinearLayout erq;
+    public ReplyLinearLayout fhp;
+    public TextView fhq;
+    protected final LinearLayout fhr;
+    protected final ColumnLayout fhs;
+    protected final ColumnLayout fht;
+    private int fhw;
+    public LinearLayout fhx;
+    public HeadImageView fhy;
+    private TbPageContext<?> mG;
+    private boolean mIsHost;
+    private final LinearLayout mLayout;
 
-    public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        this.mSkinType = 3;
-        this.flV = new C0116a();
-        this.mF = tbPageContext;
-        View view = getView();
-        this.mTitle = (TextView) view.findViewById(d.h.common_forum_title);
-        this.ecv = (ListViewPager) view.findViewById(d.h.common_forum_viewpager);
-        if ("NX40X".equals(Build.MODEL)) {
-            view.setLayerType(2, null);
-            if (view instanceof ViewGroup) {
-                ((ViewGroup) view).setClipChildren(true);
-            }
+    public a(View view, TbPageContext<?> tbPageContext, boolean z) {
+        super(view);
+        this.mG = tbPageContext;
+        this.mIsHost = z;
+        this.fhp = (ReplyLinearLayout) view.findViewById(d.h.content_container);
+        this.fhp.setIsHost(this.mIsHost);
+        this.fhq = (TextView) view.findViewById(d.h.original_post_title);
+        this.bMb = view.findViewById(d.h.reply_top_line);
+        this.bAO = view.findViewById(d.h.reply_bottom_line);
+        this.fhx = (LinearLayout) view.findViewById(d.h.top_line);
+        this.fhy = (HeadImageView) view.findViewById(d.h.portrait);
+        this.anF = (TextView) view.findViewById(d.h.username);
+        this.amI = (TextView) view.findViewById(d.h.reply_time);
+        this.bKm = (TextView) view.findViewById(d.h.forum_name);
+        this.egO = (TextView) view.findViewById(d.h.reply_count);
+        this.erq = (LinearLayout) view.findViewById(d.h.item_content);
+        this.fhs = (ColumnLayout) view.findViewById(d.h.item_header);
+        this.fht = (ColumnLayout) view.findViewById(d.h.item_footer);
+        this.mLayout = (LinearLayout) view.findViewById(d.h.person_thread);
+        this.fhr = (LinearLayout) view.findViewById(d.h.person_child);
+        this.fhw = l.dip2px(view.getContext(), 42.0f);
+        if (this.erq != null) {
+            this.erq.setOnClickListener(this);
         }
-        this.ecv.setOffscreenPageLimit(1);
+        this.fhy.setOnClickListener(this);
+        this.anF.setOnClickListener(this);
+        this.bKm.setOnClickListener(this);
+        this.egO.setOnClickListener(this);
+        this.fhs.setOnClickListener(this);
+        this.fht.setOnClickListener(this);
+        this.fhq.setOnClickListener(this);
     }
 
-    @Override // com.baidu.tieba.card.a
-    public void d(TbPageContext<?> tbPageContext, int i) {
-        if (this.mSkinType != i) {
-            aj.j(getView(), d.e.cp_bg_line_d);
-            aj.i(this.mTitle, d.e.cp_cont_d);
-            int childCount = this.ecv.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.ecv.getChildAt(i2);
-                if (childAt instanceof m) {
-                    ((m) childAt).onChangeSkinType();
-                }
-            }
-        }
-        this.mSkinType = i;
-    }
-
-    @Override // com.baidu.tieba.card.a
-    public int getLayout() {
-        return d.j.person_info_common_forum_layout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.a
-    public void a(com.baidu.tieba.personPolymeric.c.c cVar) {
-        if (b(cVar)) {
-            this.flU = cVar;
-            if (v.u(cVar.flv) <= 2) {
-                this.ecv.getLayoutParams().height = com.baidu.adp.lib.util.k.f(this.mF.getPageActivity(), d.f.ds140);
-            }
-            this.ecv.setAdapter(this.flV);
-        }
-        d(this.mF, TbadkCoreApplication.getInst().getSkinType());
+    public void dz(int i) {
+        aj.j(this.fhq, d.e.cp_bg_line_e);
+        aj.k(getView(), d.e.cp_bg_line_c);
+        aj.j(this.fhr, d.g.daily_recommend_item_selector);
+        aj.c(this.anF, d.e.cp_cont_d, 1);
+        aj.c(this.amI, d.e.cp_cont_d, 1);
+        aj.c(this.bKm, d.e.cp_cont_d, 1);
+        aj.c(this.egO, d.e.cp_cont_d, 1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: com.baidu.tieba.personPolymeric.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public class C0116a extends PagerAdapter {
-        private C0116a() {
-        }
-
-        @Override // android.support.v4.view.PagerAdapter
-        public int getCount() {
-            if (a.this.flU == null || v.v(a.this.flU.flv)) {
-                return 0;
+        String[] strArr;
+        TiebaStatic.log(new ak("c12043").r("obj_type", this.mIsHost ? 1 : 2));
+        if (view == this.bKm) {
+            if (this.mG != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mG.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-            return a.this.flU.flv.size() % 4 == 0 ? a.this.flU.flv.size() / 4 : (a.this.flU.flv.size() / 4) + 1;
-        }
-
-        @Override // android.support.v4.view.PagerAdapter
-        public boolean isViewFromObject(View view, Object obj) {
-            return view == obj;
-        }
-
-        @Override // android.support.v4.view.PagerAdapter
-        public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-            if (obj instanceof m) {
-                m mVar = (m) obj;
-                mVar.recycle();
-                viewGroup.removeView(mVar);
+        } else if (view == this.fhq && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
+            if ("0".equals(strArr[2]) || strArr[1] == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mG.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page")));
             }
-        }
-
-        @Override // android.support.v4.view.PagerAdapter
-        public Object instantiateItem(ViewGroup viewGroup, int i) {
-            List<com.baidu.tieba.personPolymeric.c.f> qr = a.this.qr(i);
-            if (v.v(qr)) {
-                return null;
-            }
-            m mVar = new m(a.this.mF.getPageActivity());
-            mVar.setForumItemViewBdObjectPool(a.this.flW);
-            mVar.setData(qr);
-            mVar.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.f.ds32));
-            viewGroup.addView(mVar);
-            return mVar;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.tieba.personPolymeric.c.f> qr(int i) {
-        if (this.flU == null || v.v(this.flU.flv)) {
-            return null;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x00f1 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x0008 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0045 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x009e  */
+    /* JADX WARN: Type inference failed for: r1v0 */
+    /* JADX WARN: Type inference failed for: r1v1 */
+    /* JADX WARN: Type inference failed for: r1v20 */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v6 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(PersonPostModel.PostInfoList postInfoList, boolean z, String str) {
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String q;
+        String str7;
+        String valueOf;
+        String str8 = null;
+        String str9 = 4;
+        String[] strArr = new String[4];
+        try {
+            try {
+                try {
+                    try {
+                        if (z) {
+                            str6 = TextUtils.isEmpty(postInfoList.name_show) ? postInfoList.user_name : postInfoList.name_show;
+                            strArr[0] = String.valueOf(postInfoList.thread_id);
+                            strArr[1] = String.valueOf(postInfoList.post_id);
+                            q = am.q(postInfoList.create_time * 1000);
+                            str7 = postInfoList.forum_name;
+                            valueOf = String.valueOf(postInfoList.reply_num);
+                            strArr[3] = String.valueOf(postInfoList.thread_type);
+                        } else {
+                            str6 = TextUtils.isEmpty(postInfoList.name_show) ? postInfoList.user_name : postInfoList.name_show;
+                            strArr[0] = String.valueOf(postInfoList.thread_id);
+                            strArr[1] = String.valueOf(postInfoList.content[0].post_id);
+                            strArr[2] = String.valueOf(postInfoList.content[0].post_type);
+                            strArr[3] = String.valueOf(postInfoList.thread_type);
+                            q = am.q(postInfoList.create_time * 1000);
+                            str7 = postInfoList.forum_name;
+                            valueOf = String.valueOf(postInfoList.reply_num);
+                        }
+                        str4 = str6;
+                        str3 = q;
+                        str2 = str7;
+                        str9 = valueOf;
+                        str8 = 1;
+                        str5 = str9;
+                    } catch (Exception e) {
+                        str9 = str8;
+                        str4 = str3;
+                        str3 = str2;
+                        str2 = str9;
+                        str5 = str8;
+                        str8 = null;
+                        if (str8 != null) {
+                        }
+                    }
+                } catch (Exception e2) {
+                    str9 = str8;
+                    str2 = str8;
+                    str4 = str3;
+                    str3 = str2;
+                    str2 = str9;
+                    str5 = str8;
+                    str8 = null;
+                    if (str8 != null) {
+                    }
+                }
+            } catch (Exception e3) {
+                str9 = 0;
+                str2 = null;
+                str3 = null;
+                str4 = str3;
+                str3 = str2;
+                str2 = str9;
+                str5 = str8;
+                str8 = null;
+                if (str8 != null) {
+                }
+            }
+        } catch (Exception e4) {
+            str4 = str3;
+            str3 = str2;
+            str2 = str9;
+            str5 = str8;
+            str8 = null;
+            if (str8 != null) {
+            }
         }
-        ArrayList arrayList = new ArrayList();
-        int i2 = i * 4;
-        while (true) {
-            int i3 = i2;
-            if (i3 >= (i * 4) + 4) {
-                return arrayList;
+        if (str8 != null) {
+            this.anF.setText(str4);
+            this.amI.setText(str3);
+            this.bKm.setText(str2);
+            this.bKm.setTag(str2);
+            this.egO.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(d.l.comment_num_tip), str5));
+            this.bKm.setOnClickListener(this);
+            fb(str);
+            if (this.erq != null) {
+                this.erq.setTag(strArr);
             }
-            com.baidu.tieba.personPolymeric.c.f fVar = (com.baidu.tieba.personPolymeric.c.f) v.c(this.flU.flv, i3);
-            if (fVar != null) {
-                arrayList.add(fVar);
-            }
-            i2 = i3 + 1;
+            this.fhs.setTag(strArr);
+            this.fht.setTag(strArr);
         }
     }
 
-    public void setForumCardItemViewPool(com.baidu.adp.lib.e.b<n> bVar) {
-        this.flW = bVar;
-    }
-
-    private boolean b(com.baidu.tieba.personPolymeric.c.c cVar) {
-        if (cVar == null || v.v(cVar.flv) || cVar == this.flU) {
-            return false;
+    private void fb(String str) {
+        if (fhv != null && !fhv.equals(str)) {
+            fhu = null;
         }
-        if (this.flU == null || v.v(this.flU.flv)) {
-            return true;
+        if (fhu != null) {
+            this.fhy.setImageBitmap(fhu.kN());
+            fhv = str;
+            return;
         }
-        if (v.v(cVar.flv)) {
-            return false;
-        }
-        if (cVar.flv.size() != this.flU.flv.size()) {
-            return true;
-        }
-        for (int i = 0; i < cVar.flv.size(); i++) {
-            if (this.flU.flv.get(i) == null || cVar.flv.get(i).forumId != this.flU.flv.get(i).forumId) {
-                return true;
-            }
-        }
-        return false;
+        this.fhy.a(str, 12, this.fhw, this.fhw, false);
     }
 }

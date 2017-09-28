@@ -22,4 +22,9 @@ public class BuyTBeanActivityConfig extends IntentConfig {
         getIntent().putExtra("pay_type", i);
         getIntent().putExtra(PAY_FORM, payForm);
     }
+
+    public void setReferPageAndClickZone(String str, String str2) {
+        getIntent().putExtra("refer_page", str);
+        getIntent().putExtra("click_zone", str2);
+    }
 }

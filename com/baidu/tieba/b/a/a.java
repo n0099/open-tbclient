@@ -1,27 +1,27 @@
 package com.baidu.tieba.b.a;
 /* loaded from: classes.dex */
 public abstract class a {
-    private int bFK = -1;
+    private int bHv = -1;
 
-    public abstract boolean b(float f, float f2, float f3, int i);
+    public abstract boolean c(float f, float f2, float f3, int i);
 
-    public abstract void d(float f, float f2, float f3, int i);
+    public abstract void e(float f, float f2, float f3, int i);
 
-    public boolean Wo() {
+    public boolean WI() {
         return true;
     }
 
-    public void a(float f, float f2, float f3, int i) {
+    public void b(float f, float f2, float f3, int i) {
     }
 
-    public void c(float f, float f2, float f3, int i) {
+    public void d(float f, float f2, float f3, int i) {
     }
 
-    public int Wp() {
-        return this.bFK;
+    public int WJ() {
+        return this.bHv;
     }
 
-    public void hv(int i) {
-        this.bFK = i;
+    public void hJ(int i) {
+        this.bHv = i;
     }
 }

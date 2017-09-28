@@ -13,7 +13,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.megapp.ma.MAFragmentActivity;
 /* loaded from: classes.dex */
 public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, f<T>, h {
@@ -69,7 +69,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
     }
 
     public void showToast(String str) {
-        k.showToast(getApplicationContext(), str);
+        l.showToast(getApplicationContext(), str);
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -138,7 +138,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.f.c.fK().d(this.mId);
+        com.baidu.adp.lib.f.c.fJ().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
         a.ca().i(getPageContext().getPageActivity());
     }
@@ -147,7 +147,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.f.c.fK().e(this.mId);
+        com.baidu.adp.lib.f.c.fJ().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 

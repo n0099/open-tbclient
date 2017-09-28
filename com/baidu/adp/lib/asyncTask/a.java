@@ -71,11 +71,11 @@ public class a implements Executor {
         return "mWaitingTasks = " + this.sq.size() + " mRunningTasks = " + this.sr.size() + " mTimeOutTasks = " + this.ss.size();
     }
 
-    public String ej() {
+    public String ei() {
         return this.sq.size() + "/" + this.sr.size() + "/" + this.ss.size();
     }
 
-    public static a ek() {
+    public static a ej() {
         if (si == null) {
             synchronized (a.class) {
                 if (si == null) {
@@ -107,7 +107,7 @@ public class a implements Executor {
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
                         }
-                        el();
+                        ek();
                     } finally {
                         if (!isSelfExecute()) {
                             a.this.mHandler.sendMessageDelayed(a.this.mHandler.obtainMessage(2, this), 1L);
@@ -145,7 +145,7 @@ public class a implements Executor {
             abstractRunnableC0003a.setTimeout(true);
             this.ss.add(abstractRunnableC0003a);
             if (this.ss.size() > 242 && (poll = this.ss.poll()) != null) {
-                poll.ei();
+                poll.eh();
             }
         } else {
             BdLog.e("task TimeOut but it's cancelled()");
@@ -155,7 +155,7 @@ public class a implements Executor {
 
     private synchronized void c(AbstractRunnableC0003a abstractRunnableC0003a) {
         if (abstractRunnableC0003a != null) {
-            if (abstractRunnableC0003a.en()) {
+            if (abstractRunnableC0003a.em()) {
                 this.ss.remove(abstractRunnableC0003a);
             } else {
                 this.sr.remove(abstractRunnableC0003a);
@@ -174,13 +174,13 @@ public class a implements Executor {
                         this.sj--;
                         break;
                 }
-                int eo = abstractRunnableC0003a.eo();
-                if (eo != 0) {
-                    int i = this.so.get(eo) - 1;
+                int en = abstractRunnableC0003a.en();
+                if (en != 0) {
+                    int i = this.so.get(en) - 1;
                     if (i <= 0) {
-                        this.so.delete(eo);
+                        this.so.delete(en);
                     } else {
-                        this.so.put(eo, i);
+                        this.so.put(en, i);
                     }
                     if (i < 0) {
                         BdLog.e("removeTask error < 0");
@@ -214,9 +214,9 @@ public class a implements Executor {
                     }
                     break;
             }
-            int eo = abstractRunnableC0003a.eo();
-            if (eo != 0) {
-                this.so.put(eo, this.so.get(eo, 0) + 1);
+            int en = abstractRunnableC0003a.en();
+            if (en != 0) {
+                this.so.put(en, this.so.get(en, 0) + 1);
             }
         }
     }
@@ -225,8 +225,8 @@ public class a implements Executor {
         if (abstractRunnableC0003a == null) {
             return false;
         }
-        BdAsyncTaskParallel.BdAsyncTaskParallelType ep = abstractRunnableC0003a.ep();
-        return ep == BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL ? i < 1 : ep == BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL ? i < 2 : ep == BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL ? i < 3 : ep == BdAsyncTaskParallel.BdAsyncTaskParallelType.FOUR_PARALLEL ? i < 4 : ep != BdAsyncTaskParallel.BdAsyncTaskParallelType.CUSTOM_PARALLEL || i < abstractRunnableC0003a.eq();
+        BdAsyncTaskParallel.BdAsyncTaskParallelType eo = abstractRunnableC0003a.eo();
+        return eo == BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL ? i < 1 : eo == BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL ? i < 2 : eo == BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL ? i < 3 : eo == BdAsyncTaskParallel.BdAsyncTaskParallelType.FOUR_PARALLEL ? i < 4 : eo != BdAsyncTaskParallel.BdAsyncTaskParallelType.CUSTOM_PARALLEL || i < abstractRunnableC0003a.ep();
     }
 
     protected synchronized void e(AbstractRunnableC0003a abstractRunnableC0003a) {
@@ -236,7 +236,7 @@ public class a implements Executor {
             if (i < this.sq.size()) {
                 AbstractRunnableC0003a abstractRunnableC0003a2 = this.sq.get(i);
                 if (abstractRunnableC0003a2 != null) {
-                    int eo = abstractRunnableC0003a2.eo();
+                    int en = abstractRunnableC0003a2.en();
                     switch (abstractRunnableC0003a2.getPriority()) {
                         case 1:
                             if (this.sk + this.sl + this.sm >= 5) {
@@ -254,13 +254,13 @@ public class a implements Executor {
                             }
                             break;
                         case 4:
-                            if (eo == 0) {
+                            if (en == 0) {
                                 d(abstractRunnableC0003a2);
                                 break;
                             }
                             break;
                     }
-                    if (a(this.so.get(eo), abstractRunnableC0003a2)) {
+                    if (a(this.so.get(en), abstractRunnableC0003a2)) {
                         d(abstractRunnableC0003a2);
                     }
                 }
@@ -299,7 +299,7 @@ public class a implements Executor {
                     if (z) {
                         it.remove();
                     }
-                    next.ei();
+                    next.eh();
                 }
             }
         }
@@ -318,7 +318,7 @@ public class a implements Executor {
                 break;
             }
             AbstractRunnableC0003a next = it.next();
-            if (next != null && next.em() == bdAsyncTask) {
+            if (next != null && next.el() == bdAsyncTask) {
                 break;
             }
         }
@@ -337,7 +337,7 @@ public class a implements Executor {
                 while (it.hasNext()) {
                     AbstractRunnableC0003a next = it.next();
                     int tag = next.getTag();
-                    i = (!((str != null && tag == id && str.equals(next.getKey())) || (str == null && id != 0 && tag == id)) || next.em() == null || next.em().isCancelled()) ? i : i + 1;
+                    i = (!((str != null && tag == id && str.equals(next.getKey())) || (str == null && id != 0 && tag == id)) || next.el() == null || next.el().isCancelled()) ? i : i + 1;
                 }
             }
         }
@@ -397,7 +397,7 @@ public class a implements Executor {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x002f, code lost:
-        r0 = r0.em();
+        r0 = r0.el();
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -413,7 +413,7 @@ public class a implements Executor {
                 }
                 AbstractRunnableC0003a next = it.next();
                 String key = next.getKey();
-                if (key != null && key.equals(str) && !next.em().isCancelled()) {
+                if (key != null && key.equals(str) && !next.el().isCancelled()) {
                     break;
                 }
             }
@@ -436,8 +436,8 @@ public class a implements Executor {
                 int tag = next.getTag();
                 String key = next.getKey();
                 if ((str != null && tag == id && str.equals(key)) || (str == null && id != 0 && tag == id)) {
-                    if (next.em() != null && !next.em().isCancelled()) {
-                        linkedList3.add(next.em());
+                    if (next.el() != null && !next.el().isCancelled()) {
+                        linkedList3.add(next.el());
                     }
                 }
             }
@@ -454,13 +454,13 @@ public class a implements Executor {
 
         public AbstractRunnableC0003a(b<?> bVar) {
             this.sw = null;
-            if (bVar == null || bVar.em() == null) {
+            if (bVar == null || bVar.el() == null) {
                 throw new InvalidParameterException("parameter is null");
             }
             this.sw = bVar;
         }
 
-        public void el() {
+        public void ek() {
             try {
                 this.sw.run();
             } catch (OutOfMemoryError e) {
@@ -468,58 +468,58 @@ public class a implements Executor {
             }
         }
 
-        public void ei() {
-            this.sw.ei();
+        public void eh() {
+            this.sw.eh();
         }
 
         public boolean isCancelled() {
             return this.sw.isCancelled();
         }
 
-        public BdAsyncTask<?, ?, ?> em() {
-            return this.sw.em();
+        public BdAsyncTask<?, ?, ?> el() {
+            return this.sw.el();
         }
 
         public int getPriority() {
-            return this.sw.em().getPriority();
+            return this.sw.el().getPriority();
         }
 
         public void setTimeout(boolean z) {
-            this.sw.em().setTimeout(z);
+            this.sw.el().setTimeout(z);
         }
 
-        public boolean en() {
-            return this.sw.em().isTimeout();
+        public boolean em() {
+            return this.sw.el().isTimeout();
         }
 
         public int getTag() {
-            return this.sw.em().getTag();
+            return this.sw.el().getTag();
         }
 
-        public int eo() {
-            if (this.sw.em().getParallel() != null) {
-                return this.sw.em().getParallel().getTag();
+        public int en() {
+            if (this.sw.el().getParallel() != null) {
+                return this.sw.el().getParallel().getTag();
             }
             return 0;
         }
 
         public String getKey() {
-            return this.sw.em().getKey();
+            return this.sw.el().getKey();
         }
 
-        public BdAsyncTaskParallel.BdAsyncTaskParallelType ep() {
-            return this.sw.em().getParallel() != null ? this.sw.em().getParallel().es() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
+        public BdAsyncTaskParallel.BdAsyncTaskParallelType eo() {
+            return this.sw.el().getParallel() != null ? this.sw.el().getParallel().er() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
         }
 
-        public int eq() {
-            if (this.sw.em().getParallel() != null) {
-                return this.sw.em().getParallel().er();
+        public int ep() {
+            if (this.sw.el().getParallel() != null) {
+                return this.sw.el().getParallel().eq();
             }
             return 1;
         }
 
         public boolean isSelfExecute() {
-            return this.sw.em().isSelfExecute();
+            return this.sw.el().isSelfExecute();
         }
     }
 }

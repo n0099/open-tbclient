@@ -433,14 +433,14 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.d.a.bhT().bhW();
+            builder.app_pos = com.baidu.tieba.recapp.d.a.bgz().bgC();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.refresh_count = Integer.valueOf(this.refreshCount);
             builder2.load_count = Integer.valueOf(this.loadCount);
             builder.ad_param = builder2.build(false);
-            com.baidu.tbadk.util.n.bindCommonParamsToProtobufData(builder, true, false, true);
+            com.baidu.tbadk.util.m.bindCommonParamsToProtobufData(builder, true, false, true);
             PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);

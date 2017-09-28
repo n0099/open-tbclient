@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    public static void H(List<a> list) {
+    public static void G(List<a> list) {
         if (list != null) {
             StringBuilder sb = new StringBuilder();
             HashMap hashMap = new HashMap();
@@ -25,7 +25,7 @@ public class c {
         }
     }
 
-    public static String[] GY() {
+    public static String[] GD() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];
@@ -34,33 +34,14 @@ public class c {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a gF = a.gF(str);
-                if (gF != null && !StringUtils.isNull(gF.forumName)) {
-                    arrayList.add(gF.forumName);
+                a gC = a.gC(str);
+                if (gC != null && !StringUtils.isNull(gC.forumName)) {
+                    arrayList.add(gC.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
         }
         return null;
-    }
-
-    public static a[] GZ() {
-        String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
-        if (StringUtils.isNull(string)) {
-            return new a[0];
-        }
-        String[] split = string.split("\\^");
-        if (split != null && split.length > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (String str : split) {
-                a gF = a.gF(str);
-                if (gF != null && !StringUtils.isNull(gF.forumName)) {
-                    arrayList.add(gF);
-                }
-            }
-            return (a[]) arrayList.toArray(new a[arrayList.size()]);
-        }
-        return new a[0];
     }
 
     /* loaded from: classes.dex */
@@ -83,7 +64,7 @@ public class c {
             return this.forumName + "#" + this.level;
         }
 
-        public static a gF(String str) {
+        public static a gC(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

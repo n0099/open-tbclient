@@ -5,36 +5,36 @@ import android.os.Build;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static c aIJ = null;
+    private static c aIk = null;
 
     private c() {
     }
 
-    public static synchronized c FY() {
+    public static synchronized c FD() {
         c cVar;
         synchronized (c.class) {
-            if (aIJ == null) {
-                aIJ = new c();
+            if (aIk == null) {
+                aIk = new c();
             }
-            cVar = aIJ;
+            cVar = aIk;
         }
         return cVar;
     }
 
-    public boolean FZ() {
-        return TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Ga();
+    public boolean FE() {
+        return TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && FF();
     }
 
-    public boolean Ga() {
+    public boolean FF() {
         try {
             Class.forName("com.baidu.wallet.api.BaiduWallet");
             return true;
@@ -46,14 +46,14 @@ public class c {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            au.wd().c(tbPageContext, new String[]{str});
+            av.vH().c(tbPageContext, new String[]{str});
         }
     }
 
     public void a(PayConfig payConfig, Context context) {
         if (payConfig == null || context == null) {
             showToast(d.l.plugin_pay_error);
-        } else if (!FZ()) {
+        } else if (!FE()) {
             showToast(d.l.plugin_pay_wallet_not_found);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PayWalletActivityConfig(context, payConfig)));
@@ -61,6 +61,6 @@ public class c {
     }
 
     private void showToast(int i) {
-        k.showToast(TbadkCoreApplication.getInst().getContext(), i);
+        l.showToast(TbadkCoreApplication.getInst().getContext(), i);
     }
 }

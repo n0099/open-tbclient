@@ -7,8 +7,8 @@ public class a implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.mChildView != null && (this.mChildView.getTag() instanceof e)) {
-            ((e) this.mChildView.getTag()).startPlay();
+        if (this.mChildView != null && (this.mChildView.getTag() instanceof f)) {
+            ((f) this.mChildView.getTag()).startPlay();
         }
     }
 }

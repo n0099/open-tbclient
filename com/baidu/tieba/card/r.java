@@ -4,13 +4,15 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class r extends c {
-    private TextView bJS;
-    private ThreadLinkView bMJ;
+    private View aWX;
+    private TextView bKl;
+    private ThreadLinkView bMg;
 
     public r(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -22,45 +24,47 @@ public class r extends c {
     }
 
     @Override // com.baidu.tieba.card.c
-    protected void ab(View view) {
+    protected void aa(View view) {
         if (view != null) {
-            this.bMJ = (ThreadLinkView) view.findViewById(d.h.link_thread_root);
-            this.bMJ.setTag(getTag());
-            this.bJS = (TextView) view.findViewById(d.h.card_home_page_normal_thread_title);
+            this.bMg = (ThreadLinkView) view.findViewById(d.h.link_thread_root);
+            this.bMg.setTag(getTag());
+            this.bKl = (TextView) view.findViewById(d.h.card_home_page_normal_thread_title);
+            this.aWX = view.findViewById(d.h.divider_line);
         }
     }
 
     @Override // com.baidu.tieba.card.c
     protected void b(com.baidu.tieba.card.data.l lVar) {
-        if (lVar != null && lVar.MR() != null) {
-            bj MR = lVar.MR();
-            m.b(MR, this.bJS);
-            if ((StringUtils.isNull(MR.getTitle()) && (MR.rz() == null || MR.rz().size() == 0)) || MR.rQ() == 1) {
-                MR.e(false, true);
-                if (MR.sb() == null || StringUtils.isNull(MR.sb().toString())) {
-                    this.bJS.setVisibility(8);
+        if (lVar != null && lVar.Nj() != null) {
+            bh Nj = lVar.Nj();
+            m.b(Nj, this.bKl);
+            if ((StringUtils.isNull(Nj.getTitle()) && (Nj.rt() == null || Nj.rt().size() == 0)) || Nj.rK() == 1) {
+                Nj.e(false, true);
+                if (Nj.rV() == null || StringUtils.isNull(Nj.rV().toString())) {
+                    this.bKl.setVisibility(8);
                 } else {
-                    this.bJS.setVisibility(0);
-                    this.bJS.setText(MR.sb());
+                    this.bKl.setVisibility(0);
+                    this.bKl.setText(Nj.rV());
                 }
             } else {
-                this.bJS.setVisibility(0);
+                this.bKl.setVisibility(0);
             }
-            this.bMJ.setData(MR);
+            this.bMg.setData(Nj);
         }
     }
 
     @Override // com.baidu.tieba.card.c, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.bMJ.onChangeSkinType();
+        this.bMg.onChangeSkinType();
+        aj.k(this.aWX, d.e.cp_bg_line_e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.card.c
-    public void XQ() {
-        super.XQ();
-        m.a(this.bJS, this.bKm.MR().getId(), d.e.cp_cont_b, d.e.cp_cont_d);
-        this.bMJ.es(this.bKm.MR().getId());
+    public void Xw() {
+        super.Xw();
+        m.a(this.bKl, this.bJz.Nj().getId(), d.e.cp_cont_b, d.e.cp_cont_d);
+        this.bMg.em(this.bJz.Nj().getId());
     }
 }

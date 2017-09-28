@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.c;
@@ -99,7 +99,7 @@ public class TbConfig {
     public static final String ECOMM_REFUND_DETAIL = "c/c/encourage/ecomm/order/refund/refuse";
     public static final String ECOMM_REFUND_DETAIL_PAGE = "c/e/ecomm/order/refund/detail";
     public static final String ECOMM_REFUND_PREPARE = "c/e/ecomm/order/refund/prepare";
-    public static final String EMOTION_DETAIL = "mo/q/meme/detail";
+    public static final String EMOTION_DETAIL = "/c/e/meme/detail";
     public static final int EMOTION_HEIGHT = 240;
     public static final int EMOTION_HEIGHT_LOW = 160;
     public static final int EMOTION_WIDTH = 240;
@@ -148,6 +148,7 @@ public class TbConfig {
     public static final String GET_CARD_DETAIL = "c/e/theme/getCard";
     public static final String GET_DEFAULT_GIFT_LIST = "c/e/present/getGiftList";
     public static final String GET_FORUM_DETAIL = "c/f/forum/getforumdetail";
+    public static final String GET_FORUM_PRIVATE_INFO = "c/f/forum/getForumPrivateInfo";
     public static final String GET_FRIEND_AND_STRANGER_MSG_SWITCH = "c/u/user/getMsgMask";
     public static final String GET_FRS_HOT = "c/f/frs/getHotThread";
     public static final String GET_FRS_LIVE = "c/f/frs/getFrsTWLiveList";
@@ -179,6 +180,7 @@ public class TbConfig {
     public static final String GET_PERSONAL_GIFT_LIST = "c/e/present/getMyGift";
     public static final String GET_PRIVATE_INFO = "c/u/user/getPrivateInfo";
     public static final String GET_SINGLE_GAME = "c/u/game/getsinglegamelist";
+    public static final String GET_STICKERS = "c/f/video/sticker";
     public static final String GET_SUGGEST_LOCATION_BY_NAME = "c/s/getSuggestionByAddrName";
     public static final String GET_SYNC_ADDRESS = "c/s/sync";
     public static final String GET_TASK_SCORE = "c/c/encourage/member/addTaskScores";
@@ -325,7 +327,7 @@ public class TbConfig {
     public static final String PLUGIN_NET_CONFIGS_MIS = "c/s/pluginsmisconf";
     public static final int POST_IMAGE_BIG = 2000;
     public static final int POST_IMAGE_DISPLAY = 100;
-    public static final int POST_IMAGE_MIDDLE = 2000;
+    public static final int POST_IMAGE_MIDDLE = 1800;
     public static final int POST_IMAGE_QUALITY = 85;
     public static final int POST_IMAGE_SMALL = 600;
     public static final String POST_SEARCH_URL = "c/s/searchpost";
@@ -360,6 +362,7 @@ public class TbConfig {
     public static final String SET_PERSONAL_CARD = "c/c/encourage/theme/setCard";
     public static final String SET_PRIVATE = "c/c/friend/setprivate";
     public static final String SET_USER_BOOK_HISTORY = "c/c/encourage/tbread/setUserBookHistory";
+    public static final String SET_USER_PRIVATE_FORUM = "c/c/user/setUserPrivateForum";
     public static final String SIGN_ADDRESS = "c/c/forum/sign";
     public static final String SKIN_DETAIL_PAGE = "c/e/theme/getSkin";
     public static final String SQUARE_SEARCH_PAGE = "https://tieba.baidu.com/n/apage-runtime/page/205?keyword=";
@@ -379,6 +382,7 @@ public class TbConfig {
     public static final String ST_TYPE_REG = "reg";
     public static final String ST_TYPE_USE = "use";
     public static final String SUBMIT_CLOSE_ADKILLER = "c/c/game/killAd";
+    public static final String SUBMIT_SHOW_PB_TIPS = "c/c/follow/showPbTips";
     public static final String SW_APID = "sw";
     public static final String SYNC_ACTIVE = "sync_active";
     public static final String TAIL_ADD = "c/u/tail/addTail";
@@ -425,8 +429,10 @@ public class TbConfig {
     public static final String URL_GET_HOT_RANKLIST_DATA = "c/f/recommend/topicList";
     public static final String URL_GET_HOT_TOPIC_DATA = "c/f/recommend/hottopic";
     public static final String URL_GET_INTEREST_LABEL_LIST = "c/f/recommtag/getTagList";
+    public static final String URL_GET_RECOMMEND_GOD = "c/u/user/getRecommendGod";
     public static final String URL_GET_STICKER_LIST = "c/f/story/getSticker";
     public static final String URL_GET_TOPIC_RELATE_THREAD = "c/f/recommend/getTopicRelateThread";
+    public static final String URL_HOST_TOPIC_LIST = "https://tieba.baidu.com/mo/q/hotMessage/list";
     public static final String URL_IMAGE_PREFIX = "http://c.tieba.baidu.com/c/p/img?src=";
     public static final String URL_JUMP_TAG_CARDBOX = "https://tieba.baidu.com/n/apage-runtime/page/packet?tieba_hybrid_enabled=1";
     public static final String URL_JUMP_TAG_WALLET = "http://www.bdwallet.activity";
@@ -435,12 +441,14 @@ public class TbConfig {
     public static final String URL_MANGA_OFFLINE_RESOURCE = "c/e/cartoon/getOfflineResource";
     public static final String URL_MANGA_REPORT = "c/e/cartoon/getReportType";
     public static final String URL_MANGA_REPORT_TYPE = "c/e/cartoon/getReportType";
+    public static final String URL_MEMBER_BUY = "http://tieba.baidu.com/mo/q/member/pk?jumptoforum=memberbuy";
     public static final String URL_PLAY_DURATION_STATISTICS = "c/c/video/playDura";
     public static final String URL_PLAY_STATISTICS = "c/c/video/playStat";
     public static final String URL_SHARE_REPORT = "c/c/thread/share";
     public static final String URL_STORY_PAGE = "c/f/story/storypage";
     public static final String URL_SUB_INTEREST_LABEL_LIST = "c/f/recommtag/subTagList";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
+    public static final String URL_UEG_SERVICE_CENTER = "http://tieba.baidu.com/n/apage-runtime/page/ueg_service_center";
     public static final String URL_UPLOAD_VIDEO = "c/c/video/uploadVideoData";
     public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
     public static final String USER_MUTE_CHECK = "c/u/user/userMuteCheck";
@@ -449,7 +457,6 @@ public class TbConfig {
     public static final int USER_PHOTO_AUTO = 0;
     public static final int USER_PHOTO_CLOSE = 2;
     public static final int USER_PHOTO_OPEN = 1;
-    public static final long USE_TIME_INTERVAL = 60000;
     public static final String VIDEO_FINISH_ADDRESS = "c/c/video/uploadVideoChunkFinish";
     public static final String VIDEO_SINGLE_UPLOAD_ADDRESS = "c/c/video/uploadVideo";
     public static final String VIDEO_UPLOAD_ADDRESS = "c/c/video/uploadVideoChunk";
@@ -488,6 +495,7 @@ public class TbConfig {
     private static int PB_LIST_ITEM_MAX_NUM = 300;
     private static int IMG_CHUNK_UPLOAD_ENABLE = 1;
     public static boolean KUANG_TEST_MODE = false;
+    public static long DEFALT_USE_TIME_INTERVAL = 30;
     private static String POSITION_PAGER_NAME = "贴吧客户端反馈";
     private static String POSITION_PAGER_ID = "2631903";
     private static String VERSION = "";
@@ -519,14 +527,14 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds44);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds40);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds36);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds34);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds30);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = k.f(TbadkCoreApplication.getInst().getContext(), d.f.ds28);
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds44);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds40);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds36);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds34);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds30);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds28);
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
@@ -652,7 +660,7 @@ public class TbConfig {
 
     public static int initPbImageSize(Context context) {
         int i = PB_IMAGE_NEW_MAX_WIDTH;
-        int dip2px = k.dip2px(context, 427.0f);
+        int dip2px = l.dip2px(context, 427.0f);
         if (dip2px <= 640) {
             i = dip2px;
         }
@@ -680,7 +688,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.Ev().eU(i);
+            c.DZ().ff(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -814,7 +822,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(k.ae(context) * k.af(context));
+            int sqrt = (int) Math.sqrt(l.ad(context) * l.af(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

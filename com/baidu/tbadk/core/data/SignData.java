@@ -1,11 +1,13 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SignData implements Serializable {
     private static final long serialVersionUID = -7905612002845096083L;
+    public BlockPopInfoData blockPopInfoData;
     public String forumId;
     public String forumName;
     public int levelup_score;
@@ -38,6 +40,14 @@ public class SignData implements Serializable {
             this.sign_bonus_point = optJSONObject.optInt("sign_bonus_point");
             this.levelup_score = optJSONObject.optInt("levelup_score");
             this.miss_sign_num = optJSONObject.optInt("miss_sign_num");
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject(LoginActivityConfig.INFO);
+        if (optJSONObject2 != null) {
+            this.blockPopInfoData = new BlockPopInfoData();
+            this.blockPopInfoData.block_info = optJSONObject2.optString("block_content");
+            this.blockPopInfoData.ahead_info = optJSONObject2.optString("block_confirm");
+            this.blockPopInfoData.ahead_url = optJSONObject2.optString("block_dealurl");
+            this.blockPopInfoData.ok_info = optJSONObject2.optString("block_cancel");
         }
     }
 }

@@ -8,7 +8,6 @@ import com.baidu.android.pushservice.j.k;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.jni.PushSocket;
-import com.baidu.tbadk.TbConfig;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
 import java.io.FileInputStream;
@@ -167,7 +166,7 @@ public final class e {
                             e.this.o = false;
                         }
                         e.this.a.removeCallbacks(e.this.t);
-                        e.this.a.postDelayed(e.this.t, TbConfig.USE_TIME_INTERVAL);
+                        e.this.a.postDelayed(e.this.t, 60000L);
                     }
                     try {
                         i = PushSocket.sendMsg(e.c, removeFirst.a(), removeFirst.a().length);
@@ -536,7 +535,7 @@ public final class e {
                     public void a() {
                         long currentTimeMillis = System.currentTimeMillis();
                         int i = ((int) (currentTimeMillis / 1000)) % 60;
-                        if (((int) ((currentTimeMillis / TbConfig.USE_TIME_INTERVAL) % 5)) == 0 && i < 15) {
+                        if (((int) ((currentTimeMillis / 60000) % 5)) == 0 && i < 15) {
                             long random = (long) (Math.random() * 60.0d * 1000.0d);
                             com.baidu.android.pushservice.g.a.c("PushConnection", "sleep for current: " + currentTimeMillis + " delta: " + random);
                             try {

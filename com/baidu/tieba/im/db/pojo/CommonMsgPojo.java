@@ -3,7 +3,7 @@ package com.baidu.tieba.im.db.pojo;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.g.b;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.data.MsgLocalData;
@@ -90,9 +90,9 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.dHu);
+                this.gid = String.valueOf(a.dDJ);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(a.dHv);
+                this.gid = String.valueOf(a.dDK);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());
@@ -253,7 +253,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         personalChatMessage.setContent(this.content);
         userInfo = personalChatMessage.getUserInfo();
         if (userInfo != null) {
-            if (j.isEmpty(userInfo.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
+            if (k.isEmpty(userInfo.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
                 oldUserData2.setToUserData(userInfo);
             }
             try {
@@ -265,7 +265,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         }
         toUserInfo = personalChatMessage.getToUserInfo();
         if (toUserInfo != null) {
-            if (j.isEmpty(toUserInfo.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
+            if (k.isEmpty(toUserInfo.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
                 oldUserData.setToUserData(toUserInfo);
             }
             try {

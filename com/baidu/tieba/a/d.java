@@ -7,31 +7,31 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class d extends e<com.baidu.tbadk.data.e, com.baidu.tbadk.j.b> {
-    private View.OnClickListener aYH;
-    private com.baidu.tbadk.j.b aYI;
-    private TbPageContext mF;
+public class d extends e<com.baidu.tbadk.data.d, com.baidu.tbadk.i.b> {
+    private View.OnClickListener aPe;
+    private com.baidu.tbadk.i.b bav;
+    private TbPageContext mG;
     private BdUniqueId mId;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.mF = tbPageContext;
+        this.mG = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: f */
-    public com.baidu.tbadk.j.b onCreateViewHolder(ViewGroup viewGroup) {
-        this.aYI = new com.baidu.tbadk.j.b(LayoutInflater.from(this.mContext).inflate(d.j.entrance_story_pics_layout, viewGroup, false), this.mF);
-        if (this.mId != null && this.aYI.aFu != null) {
-            this.aYI.aFu.j(this.mId);
-            this.aYI.aFu.setItemOnclickListener(this.aYH);
+    public com.baidu.tbadk.i.b onCreateViewHolder(ViewGroup viewGroup) {
+        this.bav = new com.baidu.tbadk.i.b(LayoutInflater.from(this.mContext).inflate(d.j.entrance_story_pics_layout, viewGroup, false), this.mG);
+        if (this.mId != null && this.bav.aEN != null) {
+            this.bav.aEN.i(this.mId);
+            this.bav.aEN.setItemOnclickListener(this.aPe);
         }
-        return this.aYI;
+        return this.bav;
     }
 
-    public void k(BdUniqueId bdUniqueId) {
+    public void j(BdUniqueId bdUniqueId) {
         this.mId = bdUniqueId;
     }
 
@@ -39,15 +39,15 @@ public class d extends e<com.baidu.tbadk.data.e, com.baidu.tbadk.j.b> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.e eVar, com.baidu.tbadk.j.b bVar) {
-        if (eVar != null && bVar != null) {
-            bVar.Es();
-            bVar.a(eVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.d dVar, com.baidu.tbadk.i.b bVar) {
+        if (dVar != null && bVar != null) {
+            bVar.DW();
+            bVar.a(dVar);
         }
         return view;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.aYH = onClickListener;
+        this.aPe = onClickListener;
     }
 }

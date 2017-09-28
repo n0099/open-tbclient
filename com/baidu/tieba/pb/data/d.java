@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d extends PostData {
-    private String arp;
-    private String eEQ;
-    private String eER;
-    private String eES;
-    private String eET;
+    private String aqx;
+    private String eyk;
+    private String eyl;
+    private String eyn;
+    private String eyo;
     private String imgUrl;
     private int pos;
 
@@ -18,11 +18,11 @@ public class d extends PostData {
         if (jSONObject != null) {
             try {
                 this.pos = jSONObject.optInt("pos", 1);
-                this.arp = jSONObject.optString("app_name", "");
-                this.eEQ = jSONObject.optString("app_desc", "");
-                this.eER = jSONObject.optString("p_name", "");
-                this.eES = jSONObject.optString("p_url", "");
-                this.eET = jSONObject.optString("web_url", "");
+                this.aqx = jSONObject.optString("app_name", "");
+                this.eyk = jSONObject.optString("app_desc", "");
+                this.eyl = jSONObject.optString("p_name", "");
+                this.eyn = jSONObject.optString("p_url", "");
+                this.eyo = jSONObject.optString("web_url", "");
                 this.imgUrl = jSONObject.optString("img_url", "");
             } catch (Exception e) {
                 BdLog.detailException(e);

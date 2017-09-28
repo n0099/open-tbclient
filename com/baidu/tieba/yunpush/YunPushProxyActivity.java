@@ -7,7 +7,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
@@ -34,7 +34,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     TiebaStatic.log(new ak("c11703").r("obj_type", 2).ad(InterviewLiveActivityConfig.KEY_TASK_ID, str).ad("obj_to", str2));
                     if (!TextUtils.isEmpty(str2)) {
                         if (str2.startsWith("http") || str2.startsWith("https")) {
-                            au.wd().c(getPageContext(), new String[]{str2});
+                            av.vH().c(getPageContext(), new String[]{str2});
                         } else {
                             Intent parseUri = Intent.parseUri(str2, 1);
                             parseUri.setFlags(276824064);

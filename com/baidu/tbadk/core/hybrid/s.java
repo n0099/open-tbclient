@@ -1,396 +1,215 @@
 package com.baidu.tbadk.core.hybrid;
 
-import com.baidu.adp.plugin.Plugin;
-import com.baidu.appsearchlib.Info;
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.io.OutputStream;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public class s {
-    private static final Map<String, String> adq = new HashMap();
-    private static final Map<String, String> adr = new HashMap();
-
-    static {
-        add("application/andrew-inset", "ez");
-        add("application/dsptype", "tsp");
-        add("application/futuresplash", "spl");
-        add("application/hta", "hta");
-        add("application/mac-binhex40", "hqx");
-        add("application/mac-compactpro", "cpt");
-        add("application/mathematica", "nb");
-        add("application/msaccess", "mdb");
-        add("application/oda", "oda");
-        add("application/ogg", "ogg");
-        add("application/ogg", "oga");
-        add("application/pdf", "pdf");
-        add("application/pgp-keys", "key");
-        add("application/pgp-signature", "pgp");
-        add("application/pics-rules", "prf");
-        add("application/pkix-cert", "cer");
-        add("application/rar", "rar");
-        add("application/rdf+xml", "rdf");
-        add("application/rss+xml", "rss");
-        add("application/zip", "zip");
-        add("application/vnd.android.package-archive", "apk");
-        add("application/vnd.cinderella", "cdy");
-        add("application/vnd.ms-pki.stl", "stl");
-        add("application/vnd.oasis.opendocument.database", "odb");
-        add("application/vnd.oasis.opendocument.formula", "odf");
-        add("application/vnd.oasis.opendocument.graphics", "odg");
-        add("application/vnd.oasis.opendocument.graphics-template", "otg");
-        add("application/vnd.oasis.opendocument.image", "odi");
-        add("application/vnd.oasis.opendocument.spreadsheet", "ods");
-        add("application/vnd.oasis.opendocument.spreadsheet-template", "ots");
-        add("application/vnd.oasis.opendocument.text", "odt");
-        add("application/vnd.oasis.opendocument.text-master", "odm");
-        add("application/vnd.oasis.opendocument.text-template", "ott");
-        add("application/vnd.oasis.opendocument.text-web", "oth");
-        add("application/vnd.google-earth.kml+xml", "kml");
-        add("application/vnd.google-earth.kmz", "kmz");
-        add("application/msword", "doc");
-        add("application/msword", "dot");
-        add("application/vnd.openxmlformats-officedocument.wordprocessingml.document", "docx");
-        add("application/vnd.openxmlformats-officedocument.wordprocessingml.template", "dotx");
-        add("application/vnd.ms-excel", "xls");
-        add("application/vnd.ms-excel", "xlt");
-        add("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "xlsx");
-        add("application/vnd.openxmlformats-officedocument.spreadsheetml.template", "xltx");
-        add("application/vnd.ms-powerpoint", "ppt");
-        add("application/vnd.ms-powerpoint", "pot");
-        add("application/vnd.ms-powerpoint", "pps");
-        add("application/vnd.openxmlformats-officedocument.presentationml.presentation", "pptx");
-        add("application/vnd.openxmlformats-officedocument.presentationml.template", "potx");
-        add("application/vnd.openxmlformats-officedocument.presentationml.slideshow", "ppsx");
-        add("application/vnd.rim.cod", "cod");
-        add("application/vnd.smaf", "mmf");
-        add("application/vnd.stardivision.calc", "sdc");
-        add("application/vnd.stardivision.draw", "sda");
-        add("application/vnd.stardivision.impress", "sdd");
-        add("application/vnd.stardivision.impress", "sdp");
-        add("application/vnd.stardivision.math", "smf");
-        add("application/vnd.stardivision.writer", "sdw");
-        add("application/vnd.stardivision.writer", "vor");
-        add("application/vnd.stardivision.writer-global", "sgl");
-        add("application/vnd.sun.xml.calc", "sxc");
-        add("application/vnd.sun.xml.calc.template", "stc");
-        add("application/vnd.sun.xml.draw", "sxd");
-        add("application/vnd.sun.xml.draw.template", "std");
-        add("application/vnd.sun.xml.impress", "sxi");
-        add("application/vnd.sun.xml.impress.template", "sti");
-        add("application/vnd.sun.xml.math", "sxm");
-        add("application/vnd.sun.xml.writer", "sxw");
-        add("application/vnd.sun.xml.writer.global", "sxg");
-        add("application/vnd.sun.xml.writer.template", "stw");
-        add("application/vnd.visio", "vsd");
-        add("application/x-abiword", "abw");
-        add("application/x-apple-diskimage", "dmg");
-        add("application/x-bcpio", "bcpio");
-        add("application/x-bittorrent", "torrent");
-        add("application/x-cdf", "cdf");
-        add("application/x-cdlink", "vcd");
-        add("application/x-chess-pgn", "pgn");
-        add("application/x-cpio", "cpio");
-        add("application/x-debian-package", "deb");
-        add("application/x-debian-package", "udeb");
-        add("application/x-director", "dcr");
-        add("application/x-director", "dir");
-        add("application/x-director", "dxr");
-        add("application/x-dms", "dms");
-        add("application/x-doom", "wad");
-        add("application/x-dvi", "dvi");
-        add("application/x-flac", "flac");
-        add("application/x-font", "pfa");
-        add("application/x-font", "pfb");
-        add("application/x-font", "gsf");
-        add("application/x-font", "pcf");
-        add("application/x-font", "pcf.Z");
-        add("application/x-freemind", "mm");
-        add("application/x-futuresplash", "spl");
-        add("application/x-gnumeric", "gnumeric");
-        add("application/x-go-sgf", "sgf");
-        add("application/x-graphing-calculator", "gcf");
-        add("application/x-gtar", "tgz");
-        add("application/x-gtar", "gtar");
-        add("application/x-gtar", "taz");
-        add("application/x-hdf", "hdf");
-        add("application/x-ica", "ica");
-        add("application/x-internet-signup", "ins");
-        add("application/x-internet-signup", "isp");
-        add("application/x-iphone", "iii");
-        add("application/x-iso9660-image", "iso");
-        add("application/x-jmol", "jmz");
-        add("application/x-kchart", "chrt");
-        add("application/x-killustrator", "kil");
-        add("application/x-koan", "skp");
-        add("application/x-koan", "skd");
-        add("application/x-koan", "skt");
-        add("application/x-koan", "skm");
-        add("application/x-kpresenter", "kpr");
-        add("application/x-kpresenter", "kpt");
-        add("application/x-kspread", "ksp");
-        add("application/x-kword", "kwd");
-        add("application/x-kword", "kwt");
-        add("application/x-latex", "latex");
-        add("application/x-lha", "lha");
-        add("application/x-lzh", "lzh");
-        add("application/x-lzx", "lzx");
-        add("application/x-maker", "frm");
-        add("application/x-maker", "maker");
-        add("application/x-maker", "frame");
-        add("application/x-maker", "fb");
-        add("application/x-maker", "book");
-        add("application/x-maker", "fbdoc");
-        add("application/x-mif", "mif");
-        add("application/x-ms-wmd", "wmd");
-        add("application/x-ms-wmz", "wmz");
-        add("application/x-msi", "msi");
-        add("application/x-ns-proxy-autoconfig", "pac");
-        add("application/x-nwc", "nwc");
-        add("application/x-object", "o");
-        add("application/x-oz-application", "oza");
-        add("application/x-pem-file", "pem");
-        add("application/x-pkcs12", "p12");
-        add("application/x-pkcs12", "pfx");
-        add("application/x-pkcs7-certreqresp", "p7r");
-        add("application/x-pkcs7-crl", "crl");
-        add("application/x-quicktimeplayer", "qtl");
-        add("application/x-shar", "shar");
-        add("application/x-shockwave-flash", "swf");
-        add("application/x-stuffit", "sit");
-        add("application/x-sv4cpio", "sv4cpio");
-        add("application/x-sv4crc", "sv4crc");
-        add("application/x-tar", "tar");
-        add("application/x-texinfo", "texinfo");
-        add("application/x-texinfo", "texi");
-        add("application/x-troff", Info.kBaiduTimeKey);
-        add("application/x-troff", "roff");
-        add("application/x-troff-man", "man");
-        add("application/x-ustar", "ustar");
-        add("application/x-wais-source", "src");
-        add("application/x-wingz", "wz");
-        add("application/x-webarchive", "webarchive");
-        add("application/x-webarchive-xml", "webarchivexml");
-        add("application/x-x509-ca-cert", "crt");
-        add("application/x-x509-user-cert", "crt");
-        add("application/x-x509-server-cert", "crt");
-        add("application/x-xcf", "xcf");
-        add("application/x-xfig", "fig");
-        add("application/xhtml+xml", "xhtml");
-        add("audio/3gpp", "3gpp");
-        add("audio/aac", "aac");
-        add("audio/aac-adts", "aac");
-        add("audio/amr", "amr");
-        add("audio/amr-wb", "awb");
-        add("audio/basic", "snd");
-        add("audio/imelody", "imy");
-        add("audio/midi", "mid");
-        add("audio/midi", "midi");
-        add("audio/midi", "ota");
-        add("audio/midi", "kar");
-        add("audio/midi", "rtttl");
-        add("audio/midi", "xmf");
-        add("audio/mobile-xmf", "mxmf");
-        add("audio/mpeg", "mp3");
-        add("audio/mpeg", "mpga");
-        add("audio/mpeg", "mpega");
-        add("audio/mpeg", "mp2");
-        add("audio/mpeg", "m4a");
-        add("audio/mpegurl", "m3u");
-        add("audio/prs.sid", "sid");
-        add("audio/x-aiff", "aif");
-        add("audio/x-aiff", "aiff");
-        add("audio/x-aiff", "aifc");
-        add("audio/x-gsm", "gsm");
-        add("audio/x-matroska", "mka");
-        add("audio/x-mpegurl", "m3u");
-        add("audio/x-ms-wma", "wma");
-        add("audio/x-ms-wax", "wax");
-        add("audio/x-pn-realaudio", "ra");
-        add("audio/x-pn-realaudio", "rm");
-        add("audio/x-pn-realaudio", "ram");
-        add("audio/x-realaudio", "ra");
-        add("audio/x-scpls", "pls");
-        add("audio/x-sd2", "sd2");
-        add("audio/x-wav", "wav");
-        add("image/bmp", "bmp");
-        add("image/gif", "gif");
-        add("image/ico", "cur");
-        add("image/ico", "ico");
-        add("image/ief", "ief");
-        add("image/jpeg", "jpeg");
-        add("image/jpeg", "jpg");
-        add("image/jpeg", "jpe");
-        add("image/pcx", "pcx");
-        add("image/png", "png");
-        add("image/svg+xml", "svg");
-        add("image/svg+xml", "svgz");
-        add("image/tiff", "tiff");
-        add("image/tiff", "tif");
-        add("image/vnd.djvu", "djvu");
-        add("image/vnd.djvu", "djv");
-        add("image/vnd.wap.wbmp", "wbmp");
-        add("image/webp", "webp");
-        add("image/x-cmu-raster", "ras");
-        add("image/x-coreldraw", "cdr");
-        add("image/x-coreldrawpattern", "pat");
-        add("image/x-coreldrawtemplate", "cdt");
-        add("image/x-corelphotopaint", "cpt");
-        add("image/x-icon", "ico");
-        add("image/x-jg", "art");
-        add("image/x-jng", "jng");
-        add("image/x-ms-bmp", "bmp");
-        add("image/x-photoshop", "psd");
-        add("image/x-portable-anymap", "pnm");
-        add("image/x-portable-bitmap", "pbm");
-        add("image/x-portable-graymap", "pgm");
-        add("image/x-portable-pixmap", "ppm");
-        add("image/x-rgb", "rgb");
-        add("image/x-xbitmap", "xbm");
-        add("image/x-xpixmap", "xpm");
-        add("image/x-xwindowdump", "xwd");
-        add("model/iges", "igs");
-        add("model/iges", "iges");
-        add("model/mesh", "msh");
-        add("model/mesh", "mesh");
-        add("model/mesh", "silo");
-        add("text/calendar", "ics");
-        add("text/calendar", "icz");
-        add("text/comma-separated-values", "csv");
-        add("text/css", "css");
-        add("text/html", "htm");
-        add("text/html", "html");
-        add("text/javascript", "js");
-        add("text/h323", "323");
-        add("text/iuls", "uls");
-        add("text/mathml", "mml");
-        add("text/plain", "txt");
-        add("text/plain", "asc");
-        add("text/plain", "text");
-        add("text/plain", "diff");
-        add("text/plain", "po");
-        add("text/richtext", "rtx");
-        add("text/rtf", "rtf");
-        add("text/texmacs", "ts");
-        add("text/text", "phps");
-        add("text/tab-separated-values", "tsv");
-        add("text/xml", "xml");
-        add("text/x-bibtex", "bib");
-        add("text/x-boo", "boo");
-        add("text/x-c++hdr", "hpp");
-        add("text/x-c++hdr", "h++");
-        add("text/x-c++hdr", "hxx");
-        add("text/x-c++hdr", "hh");
-        add("text/x-c++src", "cpp");
-        add("text/x-c++src", "c++");
-        add("text/x-c++src", "cc");
-        add("text/x-c++src", "cxx");
-        add("text/x-chdr", "h");
-        add("text/x-component", "htc");
-        add("text/x-csh", "csh");
-        add("text/x-csrc", "c");
-        add("text/x-dsrc", "d");
-        add("text/x-haskell", "hs");
-        add("text/x-java", "java");
-        add("text/x-literate-haskell", "lhs");
-        add("text/x-moc", "moc");
-        add("text/x-pascal", "p");
-        add("text/x-pascal", "pas");
-        add("text/x-pcs-gcd", "gcd");
-        add("text/x-setext", "etx");
-        add("text/x-tcl", "tcl");
-        add("text/x-tex", "tex");
-        add("text/x-tex", "ltx");
-        add("text/x-tex", "sty");
-        add("text/x-tex", "cls");
-        add("text/x-vcalendar", "vcs");
-        add("text/x-vcard", "vcf");
-        add("video/3gpp", "3gpp");
-        add("video/3gpp", "3gp");
-        add("video/3gpp2", "3gpp2");
-        add("video/3gpp2", "3g2");
-        add("video/avi", "avi");
-        add("video/dl", "dl");
-        add("video/dv", "dif");
-        add("video/dv", "dv");
-        add("video/fli", "fli");
-        add("video/m4v", "m4v");
-        add("video/mp2ts", "ts");
-        add("video/mpeg", "mpeg");
-        add("video/mpeg", "mpg");
-        add("video/mpeg", "mpe");
-        add("video/mp4", "mp4");
-        add("video/mpeg", "VOB");
-        add("video/quicktime", "qt");
-        add("video/quicktime", "mov");
-        add("video/vnd.mpegurl", "mxu");
-        add("video/webm", "webm");
-        add("video/x-la-asf", "lsf");
-        add("video/x-la-asf", "lsx");
-        add("video/x-matroska", "mkv");
-        add("video/x-mng", "mng");
-        add("video/x-ms-asf", "asf");
-        add("video/x-ms-asf", "asx");
-        add("video/x-ms-wm", "wm");
-        add("video/x-ms-wmv", "wmv");
-        add("video/x-ms-wmx", "wmx");
-        add("video/x-ms-wvx", "wvx");
-        add("video/x-sgi-movie", "movie");
-        add("video/x-webex", "wrf");
-        add("x-conference/x-cooltalk", "ice");
-        add("x-epoc/x-sisx-app", "sisx");
-        tZ();
+    public static boolean U(String str, String str2) {
+        return b(new File(str), str2);
     }
 
-    private static void add(String str, String str2) {
-        if (!adq.containsKey(str)) {
-            adq.put(str, str2);
-        }
-        adr.put(str2, str);
-    }
-
-    private static InputStream tY() {
-        String property = System.getProperty("content.types.user.table");
-        if (property != null) {
-            File file = new File(property);
-            if (file.exists()) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=4, 65=4, 66=4, 59=5, 60=4, 61=4] */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x00c0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x00bb A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x0063 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean b(File file, String str) {
+        ZipFile zipFile;
+        InputStream inputStream;
+        FileOutputStream fileOutputStream;
+        InputStream inputStream2;
+        boolean z;
+        ZipEntry nextElement;
+        File file2;
+        FileOutputStream fileOutputStream2;
+        ZipFile zipFile2 = null;
+        r3 = null;
+        FileOutputStream fileOutputStream3 = null;
+        File file3 = new File(str);
+        if (file3.exists() || file3.mkdirs()) {
+            boolean z2 = true;
+            try {
+                zipFile = new ZipFile(file);
                 try {
-                    return new FileInputStream(file);
-                } catch (IOException e) {
+                    Enumeration<? extends ZipEntry> entries = zipFile.entries();
+                    while (entries.hasMoreElements()) {
+                        InputStream inputStream3 = null;
+                        OutputStream outputStream = null;
+                        try {
+                            nextElement = entries.nextElement();
+                            file2 = new File(str, nextElement.getName());
+                        } catch (Exception e) {
+                            e = e;
+                            fileOutputStream = null;
+                            inputStream2 = null;
+                        } catch (Throwable th) {
+                            th = th;
+                            inputStream = null;
+                        }
+                        if (nextElement.isDirectory()) {
+                            file2.mkdirs();
+                            if (0 != 0) {
+                                try {
+                                    inputStream3.close();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+                            if (0 != 0) {
+                                try {
+                                    outputStream.close();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                        } else {
+                            inputStream = zipFile.getInputStream(nextElement);
+                            try {
+                                fileOutputStream2 = new FileOutputStream(file2);
+                            } catch (Exception e4) {
+                                e = e4;
+                                fileOutputStream = null;
+                                inputStream2 = inputStream;
+                            } catch (Throwable th2) {
+                                th = th2;
+                            }
+                            try {
+                                byte[] bArr = new byte[1024];
+                                while (true) {
+                                    int read = inputStream.read(bArr);
+                                    if (read <= 0) {
+                                        break;
+                                    }
+                                    fileOutputStream2.write(bArr, 0, read);
+                                }
+                                fileOutputStream2.flush();
+                                if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (IOException e5) {
+                                        e5.printStackTrace();
+                                    }
+                                }
+                                if (fileOutputStream2 != null) {
+                                    try {
+                                        fileOutputStream2.close();
+                                    } catch (IOException e6) {
+                                        e6.printStackTrace();
+                                        z = z2;
+                                    }
+                                }
+                                z = z2;
+                            } catch (Exception e7) {
+                                e = e7;
+                                fileOutputStream = fileOutputStream2;
+                                inputStream2 = inputStream;
+                                try {
+                                    e.printStackTrace();
+                                    if (inputStream2 != null) {
+                                        try {
+                                            inputStream2.close();
+                                        } catch (IOException e8) {
+                                            e8.printStackTrace();
+                                        }
+                                    }
+                                    if (fileOutputStream != null) {
+                                        try {
+                                            fileOutputStream.close();
+                                        } catch (IOException e9) {
+                                            e9.printStackTrace();
+                                            z = false;
+                                        }
+                                    }
+                                    z = false;
+                                    z2 = z;
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    fileOutputStream3 = fileOutputStream;
+                                    inputStream = inputStream2;
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (IOException e10) {
+                                            e10.printStackTrace();
+                                        }
+                                    }
+                                    if (fileOutputStream3 != null) {
+                                        try {
+                                            fileOutputStream3.close();
+                                        } catch (IOException e11) {
+                                            e11.printStackTrace();
+                                        }
+                                    }
+                                    throw th;
+                                }
+                            } catch (Throwable th4) {
+                                th = th4;
+                                fileOutputStream3 = fileOutputStream2;
+                                if (inputStream != null) {
+                                }
+                                if (fileOutputStream3 != null) {
+                                }
+                                throw th;
+                            }
+                            z2 = z;
+                        }
+                    }
+                    if (zipFile != null) {
+                        try {
+                            zipFile.close();
+                        } catch (IOException e12) {
+                            e12.printStackTrace();
+                        }
+                    }
+                } catch (Exception e13) {
+                    e = e13;
+                    zipFile2 = zipFile;
+                    try {
+                        e.printStackTrace();
+                        if (zipFile2 != null) {
+                            try {
+                                zipFile2.close();
+                            } catch (IOException e14) {
+                                e14.printStackTrace();
+                                z2 = false;
+                            }
+                        }
+                        z2 = false;
+                        return z2;
+                    } catch (Throwable th5) {
+                        th = th5;
+                        zipFile = zipFile2;
+                        if (zipFile != null) {
+                            try {
+                                zipFile.close();
+                            } catch (IOException e15) {
+                                e15.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th6) {
+                    th = th6;
+                    if (zipFile != null) {
+                    }
+                    throw th;
                 }
+            } catch (Exception e16) {
+                e = e16;
+            } catch (Throwable th7) {
+                th = th7;
+                zipFile = null;
             }
+            return z2;
         }
-        File file2 = new File(System.getProperty("java.home"), Plugin.SO_LIB_DIR_NAME + File.separator + "content-types.properties");
-        if (file2.exists()) {
-            try {
-                return new FileInputStream(file2);
-            } catch (IOException e2) {
-            }
-        }
-        return null;
-    }
-
-    private static void tZ() {
-        InputStream tY = tY();
-        if (tY != null) {
-            try {
-                Properties properties = new Properties();
-                properties.load(tY);
-                for (Map.Entry entry : properties.entrySet()) {
-                    add((String) entry.getValue(), (String) entry.getKey());
-                }
-                tY.close();
-            }
-        }
-    }
-
-    public static String cV(String str) {
-        if (str == null || str.isEmpty()) {
-            return null;
-        }
-        return adr.get(str);
+        return false;
     }
 }

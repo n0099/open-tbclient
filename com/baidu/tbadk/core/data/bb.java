@@ -1,96 +1,68 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.RecomTopicInfo;
-import tbclient.RecomTopicList;
+import tbclient.SeniorLottery;
 /* loaded from: classes.dex */
 public class bb {
-    private String XM;
-    private List<a> XN = new ArrayList();
+    private ak XU;
+    private List<f> XV;
+    private String XW;
+    private List<g> XX;
+    private String XY;
+    private List<aj> XZ;
 
-    public String qK() {
-        return StringUtils.isNull(this.XM) ? TbadkCoreApplication.getInst().getString(d.l.hot_topic_card_title) : this.XM;
+    public ak qK() {
+        return this.XU;
     }
 
-    public com.baidu.tieba.card.data.p qL() {
-        com.baidu.tieba.card.data.p pVar = new com.baidu.tieba.card.data.p();
-        ArrayList arrayList = null;
-        pVar.bOt = qK();
-        if (this.XN != null) {
-            ArrayList arrayList2 = new ArrayList();
-            for (a aVar : this.XN) {
-                if (aVar != null) {
-                    arrayList2.add(aVar.qN());
-                }
+    public List<f> qL() {
+        return this.XV;
+    }
+
+    public String qM() {
+        return this.XW;
+    }
+
+    public List<g> qN() {
+        return this.XX;
+    }
+
+    public String qO() {
+        return this.XY;
+    }
+
+    public List<aj> qP() {
+        return this.XZ;
+    }
+
+    public void a(SeniorLottery seniorLottery) {
+        if (seniorLottery != null) {
+            this.XU = new ak();
+            this.XU.a(seniorLottery.theme);
+            this.XV = new ArrayList();
+            int size = seniorLottery.award_info.size();
+            for (int i = 0; i < size; i++) {
+                f fVar = new f();
+                fVar.a(seniorLottery.award_info.get(i));
+                this.XV.add(fVar);
             }
-            arrayList = arrayList2;
-        }
-        pVar.bOu = arrayList;
-        return pVar;
-    }
-
-    public void a(RecomTopicInfo recomTopicInfo) {
-        if (recomTopicInfo != null) {
-            this.XM = recomTopicInfo.recom_title;
-            if (com.baidu.tbadk.core.util.v.u(recomTopicInfo.topic_list) > 0) {
-                for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
-                    if (recomTopicList != null) {
-                        a aVar = new a();
-                        aVar.a(recomTopicList);
-                        if (!a(aVar)) {
-                            this.XN.add(aVar);
-                        }
-                    }
-                }
+            this.XW = seniorLottery.myaward;
+            this.XX = new ArrayList();
+            int size2 = seniorLottery.luck_users.size();
+            for (int i2 = 0; i2 < size2; i2++) {
+                g gVar = new g();
+                gVar.a(seniorLottery.luck_users.get(i2));
+                this.XX.add(gVar);
             }
-        }
-    }
-
-    private boolean a(a aVar) {
-        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.qM() <= 0;
-    }
-
-    /* loaded from: classes.dex */
-    public static class a {
-        private long XO;
-        private String XP;
-        private long XQ;
-        private String XR;
-        private String XS;
-        private int tag;
-        private int type;
-
-        public long qM() {
-            return this.XO;
-        }
-
-        public String getTopicName() {
-            return this.XP;
-        }
-
-        public void a(RecomTopicList recomTopicList) {
-            if (recomTopicList != null) {
-                this.XO = recomTopicList.topic_id.longValue();
-                this.XP = recomTopicList.topic_name;
-                this.type = recomTopicList.type.intValue();
-                this.XQ = recomTopicList.discuss_num.longValue();
-                this.tag = recomTopicList.tag.intValue();
-                this.XR = recomTopicList.topic_desc;
-                this.XS = recomTopicList.topic_pic;
+            this.XY = seniorLottery.act_desc;
+            this.XZ = new ArrayList();
+            int size3 = seniorLottery.act_regular.size();
+            for (int i3 = 0; i3 < size3; i3++) {
+                aj ajVar = new aj();
+                ajVar.a(seniorLottery.act_regular.get(i3));
+                this.XZ.add(ajVar);
             }
-        }
-
-        public com.baidu.tieba.card.data.o qN() {
-            com.baidu.tieba.card.data.o oVar = new com.baidu.tieba.card.data.o();
-            oVar.tag = this.tag;
-            oVar.desc = this.XR;
-            oVar.XO = this.XO;
-            oVar.XP = this.XP;
-            return oVar;
         }
     }
 }

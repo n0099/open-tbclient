@@ -9,12 +9,12 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 public class SnapChatMsgHelper extends b {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.SnapChatMsgHelper.1
-            boolean dtT = ChatStatusManager.getInst().getIsOpen(3);
-            String aMe = ChatStatusManager.getInst().getCurId(3);
+            boolean dqj = ChatStatusManager.getInst().getIsOpen(3);
+            String aLG = ChatStatusManager.getInst().getCurId(3);
 
             @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-            public boolean md(String str) {
-                return !TextUtils.isEmpty(str) && this.dtT && str.equals(this.aMe);
+            public boolean lH(String str) {
+                return !TextUtils.isEmpty(str) && this.dqj && str.equals(this.aLG);
             }
         }, false);
     }

@@ -1,61 +1,74 @@
 package com.baidu.tieba.homepage.personalize.b;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tieba.card.u;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.e>> {
-    private BdUniqueId aOu;
-    private com.baidu.tieba.card.e dda;
-    private TbPageContext<?> mF;
+public class a extends com.baidu.tieba.card.a<c> {
+    private View Rt;
+    private View daH;
+    private View daI;
+    private TextView daJ;
+    private String daK;
+    private c daL;
+    private final TbPageContext<?> mG;
+    private int mSkinType;
 
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.def);
-        this.mF = tbPageContext;
-        this.dda = new com.baidu.tieba.card.e(this.mF);
-        this.dda.i("c10714", "c10739", "c10712", "c10738");
-        this.dda.setFrom("home");
+        super(tbPageContext);
+        this.mSkinType = 3;
+        this.mG = tbPageContext;
+        this.Rt = getView();
+        this.daJ = (TextView) this.Rt.findViewById(d.h.read_progress_bar_time);
+        this.daH = this.Rt.findViewById(d.h.divider_line_under_homepage_read_progress);
+        this.daI = this.Rt.findViewById(d.h.divider_line_under_homepage_read_time);
+        this.daK = this.mG.getResources().getString(d.l.read_here);
+        this.Rt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.a.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (a.this.Xr() != null) {
+                    a.this.Xr().a(view, a.this.daL);
+                }
+            }
+        });
     }
 
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aOu = bdUniqueId;
-        if (this.dda != null) {
-            this.dda.i(this.aOu);
+    @Override // com.baidu.tieba.card.a
+    public void d(TbPageContext<?> tbPageContext, int i) {
+        if (this.mSkinType != i) {
+            aj.i(this.daJ, d.e.cp_link_tip_a);
+            aj.j(this.Rt, d.g.addresslist_item_bg);
+            aj.k(this.daH, d.e.cp_bg_line_c);
+            aj.k(this.daI, d.e.cp_bg_line_c);
         }
+        this.mSkinType = i;
+    }
+
+    @Override // com.baidu.tieba.card.a
+    public int getLayout() {
+        return d.j.card_read_progress_bar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar.YJ() == null) {
-            return null;
+    @Override // com.baidu.tieba.card.a
+    public void a(c cVar) {
+        if (cVar != null) {
+            this.daL = cVar;
+            this.daJ.setText(am.r(cVar.daP) + this.daK);
+            if (cVar.showBottomDivider) {
+                this.daI.setVisibility(0);
+            } else {
+                this.daI.setVisibility(8);
+            }
+            d(this.mG, TbadkCoreApplication.getInst().getSkinType());
         }
-        aVar.YJ().a((com.baidu.tieba.card.a) bVar);
-        u.Yj().a(new ak("c10714").ad("obj_param3", com.baidu.tieba.card.m.Ya()));
-        return aVar.getView();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: z */
-    public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        if (this.dda == null) {
-            this.dda = new com.baidu.tieba.card.e(this.mF);
-            this.dda.i(this.aOu);
-            this.dda.i("c10714", "c10739", "c10712", "c10738");
-        }
-        return new com.baidu.tieba.card.a.a(this.dda);
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.dda != null) {
-            this.dda.d(this.mF, i);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
     }
 }

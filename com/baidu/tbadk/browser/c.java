@@ -1,51 +1,51 @@
 package com.baidu.tbadk.browser;
 
 import android.os.Build;
-import com.baidu.adp.lib.util.i;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.l;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.hybrid.m;
+import com.baidu.tbadk.core.hybrid.o;
 import com.baidu.tbadk.core.hybrid.p;
-import com.baidu.tbadk.core.hybrid.t;
-import com.baidu.tbadk.core.hybrid.u;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class c extends t {
-    public c(p pVar) {
-        super(pVar);
+public class c extends o {
+    public c(m mVar) {
+        super(mVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.hybrid.t
+    @Override // com.baidu.tbadk.core.hybrid.o
     public String oc() {
         return "TBHY_COMMON_Utils";
     }
 
-    @u(ua = false, value = "showToast")
+    @p(tQ = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString(PushConstants.EXTRA_PUSH_MESSAGE)).tw();
+            BdToast.a(getContext(), jSONObject.optString(PushConstants.EXTRA_PUSH_MESSAGE)).tq();
         }
     }
 
-    @u(ua = false, value = "showNetStatus")
+    @p(tQ = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
         String str = "NotReachable";
-        if (i.hj()) {
+        if (j.hi()) {
             i = 1;
             str = "WIFI";
-        } else if (i.hn()) {
+        } else if (j.hm()) {
             i = 3;
             str = "2G";
-        } else if (i.hm()) {
+        } else if (j.hl()) {
             i = 4;
             str = "3G";
-        } else if (i.hl()) {
+        } else if (j.hk()) {
             i = 5;
             str = "4G";
         }
@@ -57,13 +57,13 @@ public class c extends t {
         return jSONObject;
     }
 
-    @u(ua = false, value = "showDeviceInfo")
+    @p(tQ = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
-        String str3 = String.valueOf(k.ae(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(k.af(getContext()));
+        String str3 = String.valueOf(l.ad(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(l.af(getContext()));
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
             jSONObject.put("systemName", "android");

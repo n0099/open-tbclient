@@ -1,46 +1,66 @@
 package com.baidu.tbadk.f;
 
-import org.json.JSONObject;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.sharedPref.b;
+import com.baidu.tbadk.core.util.c;
+import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public int RA = 300;
-    public int RB = 5000;
-    public int RC = 10000;
-    public int RD = 1500;
-    public int RE = 3000;
-    public int RF = 6000;
-    public boolean RG = true;
+    private static long RU = 86400000;
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void p(File file) {
+        if (file != null) {
             try {
-                int optInt = jSONObject.optInt("wifiSlow", -1);
-                if (optInt > 0) {
-                    this.RA = optInt;
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (int i = 0; i < listFiles.length; i++) {
+                            if (listFiles[i].isDirectory()) {
+                                p(listFiles[i]);
+                            } else if (!listFiles[i].delete()) {
+                            }
+                        }
+                        return;
+                    }
+                    return;
                 }
-                int optInt2 = jSONObject.optInt("threeGSlow", -1);
-                if (optInt2 > 0) {
-                    this.RB = optInt2;
+                if (!file.delete()) {
                 }
-                int optInt3 = jSONObject.optInt("twoGSlow", -1);
-                if (optInt3 > 0) {
-                    this.RC = optInt3;
-                }
-                int optInt4 = jSONObject.optInt("wifiLog", -1);
-                if (optInt4 > 0) {
-                    this.RD = optInt4;
-                }
-                int optInt5 = jSONObject.optInt("threeGLog", -1);
-                if (optInt5 > 0) {
-                    this.RE = optInt5;
-                }
-                int optInt6 = jSONObject.optInt("twoGLog", -1);
-                if (optInt6 > 0) {
-                    this.RF = optInt6;
-                }
-                this.RG = jSONObject.optInt("mobile_cdn_switch", 1) == 1;
             } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
+    }
+
+    public static void init() {
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tbadk.f.a.1
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.tbadk.f.a$1$1] */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                long j = b.getInstance().getLong("key_clear_resource", 0L);
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - j > a.RU) {
+                    new Thread() { // from class: com.baidu.tbadk.f.a.1.1
+                        @Override // java.lang.Thread, java.lang.Runnable
+                        public void run() {
+                            super.run();
+                            try {
+                                c.ue();
+                                a.p(TbadkCoreApplication.getInst().getCacheDir());
+                            } catch (Exception e) {
+                            }
+                        }
+                    }.start();
+                    b.getInstance().putLong("key_clear_resource", currentTimeMillis);
+                }
+            }
+        });
     }
 }

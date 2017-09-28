@@ -13,14 +13,14 @@ public class BazhuInfoData extends OrmObject {
         public static final Parcelable.Creator<BaInfo> CREATOR = new Parcelable.Creator<BaInfo>() { // from class: com.baidu.tbadk.data.BazhuInfoData.BaInfo.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: g */
+            /* renamed from: h */
             public BaInfo createFromParcel(Parcel parcel) {
                 return new BaInfo(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: et */
+            /* renamed from: eE */
             public BaInfo[] newArray(int i) {
                 return new BaInfo[i];
             }

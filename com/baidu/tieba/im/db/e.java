@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.m;
+import com.baidu.adp.lib.util.n;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.Iterator;
@@ -211,7 +211,7 @@ public class e extends SQLiteOpenHelper {
                 Iterator<String> it = C.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    if (!TextUtils.isEmpty(next) && (next.startsWith(l.dwb) || next.startsWith(k.dwb))) {
+                    if (!TextUtils.isEmpty(next) && (next.startsWith(l.dsr) || next.startsWith(k.dsr))) {
                         try {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_friend int default 1;");
                         } catch (Exception e) {
@@ -246,17 +246,17 @@ public class e extends SQLiteOpenHelper {
                             try {
                                 TiebaStatic.printDBExceptionLog(exc, "ImDatabaseHelper.getAllTable", new Object[0]);
                                 exc.printStackTrace();
-                                m.e(cursor);
+                                n.e(cursor);
                                 return linkedList;
                             } catch (Throwable th2) {
                                 th = th2;
-                                m.e(cursor);
+                                n.e(cursor);
                                 throw th;
                             }
                         } catch (Throwable th3) {
                             cursor = cursor2;
                             th = th3;
-                            m.e(cursor);
+                            n.e(cursor);
                             throw th;
                         }
                     }
@@ -269,7 +269,7 @@ public class e extends SQLiteOpenHelper {
                 th = th4;
             }
         }
-        m.e(cursor2);
+        n.e(cursor2);
         return linkedList;
     }
 
@@ -314,12 +314,12 @@ public class e extends SQLiteOpenHelper {
                 sQLiteDatabase.setTransactionSuccessful();
                 try {
                     sQLiteDatabase.beginTransaction();
-                    f.dwh.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
-                    j.awC();
+                    f.dsx.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
+                    j.avn();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();
-                    f.dwh.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
+                    f.dsx.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
                 }
             } finally {
                 sQLiteDatabase.endTransaction();

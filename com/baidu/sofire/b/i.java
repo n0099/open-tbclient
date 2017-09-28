@@ -68,7 +68,7 @@ public final class i {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private HttpURLConnection nn() throws IOException {
+    private HttpURLConnection np() throws IOException {
         String str;
         HttpURLConnection httpURLConnection;
         String[] e;
@@ -298,7 +298,7 @@ public final class i {
             this.c = "POST";
             this.d = str;
             try {
-                httpURLConnection = nn();
+                httpURLConnection = np();
                 try {
                     inputStream = a(bArr, httpURLConnection);
                     String a2 = a(inputStream);
@@ -366,7 +366,7 @@ public final class i {
             try {
                 this.c = "GET";
                 this.d = str;
-                httpURLConnection = nn();
+                httpURLConnection = np();
                 try {
                     inputStream = a(null, httpURLConnection);
                     String a2 = a(inputStream);
@@ -465,7 +465,7 @@ public final class i {
             java.lang.String r1 = "GET"
             r6.c = r1     // Catch: java.lang.Throwable -> L9b
             r6.d = r7     // Catch: java.lang.Throwable -> L9b
-            java.net.HttpURLConnection r2 = r6.nn()     // Catch: java.lang.Throwable -> L9b
+            java.net.HttpURLConnection r2 = r6.np()     // Catch: java.lang.Throwable -> L9b
             java.io.InputStream r3 = r6.g(r2)     // Catch: java.lang.Throwable -> L104
             boolean r1 = r6.b(r3, r8)     // Catch: java.lang.Throwable -> L104
             if (r3 == 0) goto L77
@@ -642,24 +642,24 @@ public final class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements X509TrustManager {
-        private X509TrustManager Py;
+        private X509TrustManager PO;
 
         a(X509TrustManager x509TrustManager) {
-            this.Py = null;
-            this.Py = x509TrustManager;
+            this.PO = null;
+            this.PO = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             com.baidu.sofire.b.a();
-            this.Py.checkClientTrusted(x509CertificateArr, str);
+            this.PO.checkClientTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             com.baidu.sofire.b.a();
             try {
-                this.Py.checkServerTrusted(x509CertificateArr, str);
+                this.PO.checkServerTrusted(x509CertificateArr, str);
                 com.baidu.sofire.b.a();
             } catch (CertificateException e) {
                 d.a(e);
@@ -678,7 +678,7 @@ public final class i {
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
             com.baidu.sofire.b.a();
-            return this.Py.getAcceptedIssuers();
+            return this.PO.getAcceptedIssuers();
         }
     }
 }

@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BarImageView extends com.baidu.tbadk.widget.b {
-    private int ajw;
-    private int ajx;
+    private int aiY;
+    private int aiZ;
 
     public BarImageView(Context context) {
         this(context, null, 0);
@@ -18,8 +18,8 @@ public class BarImageView extends com.baidu.tbadk.widget.b {
 
     public BarImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ajw = d.g.transparent_bg;
-        this.ajx = d.e.cp_bg_line_e;
+        this.aiY = d.g.icon_default_ba_120;
+        this.aiZ = d.e.cp_bg_line_e;
         init();
     }
 
@@ -27,8 +27,8 @@ public class BarImageView extends com.baidu.tbadk.widget.b {
         setDrawerType(0);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultResource(this.ajw);
+        setDefaultResource(this.aiY);
         setDefaultErrorResource(d.g.icon_default_ba_120);
-        setDefaultBgResource(this.ajx);
+        setDefaultBgResource(this.aiZ);
     }
 }

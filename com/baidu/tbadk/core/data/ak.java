@@ -1,55 +1,23 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.LotteryTheme;
 /* loaded from: classes.dex */
 public class ak {
-    private ArrayList<String> WZ;
-    private int smsCodeTime = 0;
-    private UserData WX = new UserData();
-    private AntiData WY = new AntiData();
+    private String Xd;
+    private String Xe;
 
-    public ak() {
-        this.WZ = null;
-        this.WZ = new ArrayList<>();
-        setSmsCodeTime(0);
+    public String qk() {
+        return this.Xd;
     }
 
-    public UserData getUser() {
-        return this.WX;
+    public String ql() {
+        return this.Xe;
     }
 
-    public AntiData qn() {
-        return this.WY;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public void a(LotteryTheme lotteryTheme) {
+        if (lotteryTheme != null) {
+            this.Xd = lotteryTheme.bgcolor;
+            this.Xe = lotteryTheme.bgimage;
         }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.WX.parserJson(jSONObject.optJSONObject("user"));
-            this.WY.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.WZ.add(optJSONArray.optString(i, null));
-                }
-            }
-            setSmsCodeTime(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void setSmsCodeTime(int i) {
-        this.smsCodeTime = i;
     }
 }

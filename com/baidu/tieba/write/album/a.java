@@ -5,53 +5,53 @@ import android.view.View;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
-    private String gBD;
-    private String gBE;
-    private AlbumActivity gBF;
-    private Fragment[] gBG;
-    private String[] gBH;
-    private l gBI;
-    private b gBJ;
+    private String gGL;
+    private String gGM;
+    private AlbumActivity gGN;
+    private Fragment[] gGO;
+    private String[] gGP;
+    private l gGQ;
+    private b gGR;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.gBD = "tag_image";
-        this.gBE = "tag_b_image";
-        this.gBF = albumActivity;
+        this.gGL = "tag_image";
+        this.gGM = "tag_b_image";
+        this.gGN = albumActivity;
     }
 
-    public void aOd() {
-        this.gBG = new Fragment[2];
-        this.gBH = new String[2];
-        this.gBI = new l();
-        this.gBG[0] = this.gBI;
-        this.gBH[0] = this.gBD;
-        this.gBJ = new b();
-        this.gBG[1] = this.gBJ;
-        this.gBH[1] = this.gBE;
+    public void aLX() {
+        this.gGO = new Fragment[2];
+        this.gGP = new String[2];
+        this.gGQ = new l();
+        this.gGO[0] = this.gGQ;
+        this.gGP[0] = this.gGL;
+        this.gGR = new b();
+        this.gGO[1] = this.gGR;
+        this.gGP[1] = this.gGM;
     }
 
-    public Fragment uq(int i) {
+    public Fragment uN(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.gBG[i];
+        return this.gGO[i];
     }
 
-    public String ur(int i) {
+    public String uO(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.gBH[i];
+        return this.gGP[i];
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.gBG.length) {
-                if (this.gBG[i3] != null && (this.gBG[i3] instanceof l)) {
-                    ((l) this.gBG[i3]).onChangeSkinType(i);
+            if (i3 < this.gGO.length) {
+                if (this.gGO[i3] != null && (this.gGO[i3] instanceof l)) {
+                    ((l) this.gGO[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -60,59 +60,66 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView bxY() {
-        if (this.gBI == null) {
+    public TbCameraView bzn() {
+        if (this.gGQ == null) {
             return null;
         }
-        return this.gBI.bxY();
+        return this.gGQ.bzn();
     }
 
-    public View bxZ() {
-        if (this.gBI == null) {
+    public View bzo() {
+        if (this.gGQ == null) {
             return null;
         }
-        return this.gBI.bku();
+        return this.gGQ.biX();
     }
 
-    public View bya() {
-        if (this.gBI == null) {
+    public View bzp() {
+        if (this.gGQ == null) {
             return null;
         }
-        return this.gBI.byu();
+        return this.gGQ.bzK();
     }
 
-    public View byb() {
-        if (this.gBJ == null) {
+    public View bzq() {
+        if (this.gGR == null) {
             return null;
         }
-        return this.gBJ.bku();
+        return this.gGR.biX();
     }
 
-    public View byc() {
-        if (this.gBJ == null) {
+    public View bzr() {
+        if (this.gGR == null) {
             return null;
         }
-        return this.gBJ.byi();
+        return this.gGR.bzy();
     }
 
-    public View byd() {
-        if (this.gBJ == null) {
+    public View bzs() {
+        if (this.gGR == null) {
             return null;
         }
-        return this.gBJ.byd();
+        return this.gGR.bzs();
+    }
+
+    public View bzt() {
+        if (this.gGQ == null) {
+            return null;
+        }
+        return this.gGQ.bzs();
     }
 
     public void onDestroy() {
-        if (this.gBF.apd() != null) {
-            this.gBF.apd().EF();
+        if (this.gGN.aLU() != null) {
+            this.gGN.aLU().Ek();
         }
     }
 
-    public b bye() {
-        return this.gBJ;
+    public b bzu() {
+        return this.gGR;
     }
 
-    public l byf() {
-        return this.gBI;
+    public l bzv() {
+        return this.gGQ;
     }
 }

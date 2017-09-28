@@ -18,29 +18,29 @@ public class b extends d<g, com.baidu.tbadk.mvc.d.b, e> implements c {
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void am(int i, int i2) {
+    public void ar(int i, int i2) {
         List<g> dataList = getDataList();
         com.baidu.tieba.enterForum.model.b.c(dataList, i, i2);
-        D(dataList);
+        C(dataList);
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void io(int i) {
+    public void iw(int i) {
         this.ccq = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void Zm() {
+    public void YV() {
         notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.mvc.f.c
-    public void D(List<g> list) {
+    public void C(List<g> list) {
         if (list != null) {
             if (list.size() >= 1 && list.get(0) != null && list.get(0).getType() == 1) {
-                super.D(list);
+                super.C((List) list);
             } else {
-                super.D(list);
+                super.C((List) list);
             }
         }
     }

@@ -6,10 +6,10 @@ import java.util.Locale;
 public class TextDirectionHeuristicsCompat {
     public static final TextDirectionHeuristicCompat LTR = new e(null, false);
     public static final TextDirectionHeuristicCompat RTL = new e(null, true);
-    public static final TextDirectionHeuristicCompat FIRSTSTRONG_LTR = new e(b.kj, false);
-    public static final TextDirectionHeuristicCompat FIRSTSTRONG_RTL = new e(b.kj, true);
-    public static final TextDirectionHeuristicCompat ANYRTL_LTR = new e(a.kh, false);
-    public static final TextDirectionHeuristicCompat LOCALE = f.km;
+    public static final TextDirectionHeuristicCompat FIRSTSTRONG_LTR = new e(b.kk, false);
+    public static final TextDirectionHeuristicCompat FIRSTSTRONG_RTL = new e(b.kk, true);
+    public static final TextDirectionHeuristicCompat ANYRTL_LTR = new e(a.ki, false);
+    public static final TextDirectionHeuristicCompat LOCALE = f.kn;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -49,12 +49,12 @@ public class TextDirectionHeuristicsCompat {
 
     /* loaded from: classes.dex */
     private static abstract class d implements TextDirectionHeuristicCompat {
-        private final c kk;
+        private final c kl;
 
         protected abstract boolean bf();
 
         public d(c cVar) {
-            this.kk = cVar;
+            this.kl = cVar;
         }
 
         @Override // android.support.v4.text.TextDirectionHeuristicCompat
@@ -67,11 +67,11 @@ public class TextDirectionHeuristicsCompat {
             if (charSequence == null || i < 0 || i2 < 0 || charSequence.length() - i2 < i) {
                 throw new IllegalArgumentException();
             }
-            return this.kk == null ? bf() : c(charSequence, i, i2);
+            return this.kl == null ? bf() : c(charSequence, i, i2);
         }
 
         private boolean c(CharSequence charSequence, int i, int i2) {
-            switch (this.kk.b(charSequence, i, i2)) {
+            switch (this.kl.b(charSequence, i, i2)) {
                 case 0:
                     return true;
                 case 1:
@@ -84,22 +84,22 @@ public class TextDirectionHeuristicsCompat {
 
     /* loaded from: classes.dex */
     private static class e extends d {
-        private final boolean kl;
+        private final boolean km;
 
         private e(c cVar, boolean z) {
             super(cVar);
-            this.kl = z;
+            this.km = z;
         }
 
         @Override // android.support.v4.text.TextDirectionHeuristicsCompat.d
         protected boolean bf() {
-            return this.kl;
+            return this.km;
         }
     }
 
     /* loaded from: classes.dex */
     private static class b implements c {
-        public static final b kj = new b();
+        public static final b kk = new b();
 
         @Override // android.support.v4.text.TextDirectionHeuristicsCompat.c
         public int b(CharSequence charSequence, int i, int i2) {
@@ -118,9 +118,9 @@ public class TextDirectionHeuristicsCompat {
 
     /* loaded from: classes.dex */
     private static class a implements c {
-        public static final a kh = new a(true);
-        public static final a ki = new a(false);
-        private final boolean kg;
+        public static final a ki = new a(true);
+        public static final a kj = new a(false);
+        private final boolean kh;
 
         @Override // android.support.v4.text.TextDirectionHeuristicsCompat.c
         public int b(CharSequence charSequence, int i, int i2) {
@@ -129,14 +129,14 @@ public class TextDirectionHeuristicsCompat {
             while (i < i3) {
                 switch (TextDirectionHeuristicsCompat.l(Character.getDirectionality(charSequence.charAt(i)))) {
                     case 0:
-                        if (!this.kg) {
+                        if (!this.kh) {
                             z = true;
                             break;
                         } else {
                             return 0;
                         }
                     case 1:
-                        if (this.kg) {
+                        if (this.kh) {
                             z = true;
                             break;
                         } else {
@@ -146,19 +146,19 @@ public class TextDirectionHeuristicsCompat {
                 i++;
             }
             if (z) {
-                return !this.kg ? 0 : 1;
+                return !this.kh ? 0 : 1;
             }
             return 2;
         }
 
         private a(boolean z) {
-            this.kg = z;
+            this.kh = z;
         }
     }
 
     /* loaded from: classes.dex */
     private static class f extends d {
-        public static final f km = new f();
+        public static final f kn = new f();
 
         public f() {
             super(null);

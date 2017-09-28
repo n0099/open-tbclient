@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
@@ -45,19 +46,6 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra("member_type", i);
     }
 
-    public MemberPayActivityConfig(Context context, int i, int i2) {
-        super(context);
-        getIntent().putExtra("member_type", i);
-        getIntent().putExtra(FROM_SCENE, i2);
-    }
-
-    public MemberPayActivityConfig(Context context, int i, int i2, String str) {
-        super(context);
-        getIntent().putExtra("member_type", i);
-        getIntent().putExtra(FROM_SCENE, i2);
-        getIntent().putExtra("scene_id", str);
-    }
-
     public MemberPayActivityConfig(Context context, int i, boolean z, int i2) {
         super(context);
         getIntent().putExtra("member_type", i);
@@ -73,34 +61,11 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra(FROM_SCENE, i3);
     }
 
-    public MemberPayActivityConfig(Context context, int i, String str) {
-        super(context);
-        getIntent().putExtra("member_type", i);
-        getIntent().putExtra("st_type", str);
-    }
-
     public MemberPayActivityConfig(Context context, int i, String str, int i2) {
         super(context);
         getIntent().putExtra("member_type", i);
         getIntent().putExtra("st_type", str);
         getIntent().putExtra("from", i2);
-    }
-
-    public MemberPayActivityConfig(Context context, int i, String str, int i2, int i3) {
-        super(context);
-        getIntent().putExtra("member_type", i);
-        getIntent().putExtra("st_type", str);
-        getIntent().putExtra("from", i2);
-        getIntent().putExtra(FROM_SCENE, i3);
-    }
-
-    public MemberPayActivityConfig(Context context, int i, String str, int i2, String str2, int i3) {
-        super(context);
-        getIntent().putExtra("member_type", i);
-        getIntent().putExtra("st_type", str);
-        getIntent().putExtra("from", i2);
-        getIntent().putExtra(FROM_SCENE, i3);
-        getIntent().putExtra("scene_id", str2);
     }
 
     public MemberPayActivityConfig(Context context, int i, String str, int i2, int i3, String str2) {
@@ -134,6 +99,15 @@ public class MemberPayActivityConfig extends IntentConfig {
         }
         if (i2 > 0) {
             getIntent().putExtra("from", i2);
+        }
+    }
+
+    public void setReferPageClickZone(String str, String str2) {
+        if (!StringUtils.isNull(str)) {
+            getIntent().putExtra("refer_page", str);
+        }
+        if (!StringUtils.isNull(str2)) {
+            getIntent().putExtra("click_zone", str2);
         }
     }
 

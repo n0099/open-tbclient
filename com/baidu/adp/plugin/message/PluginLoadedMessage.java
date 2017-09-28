@@ -9,12 +9,12 @@ public class PluginLoadedMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String Dg;
+        public String Di;
         public String errMsg;
         public int errNo;
 
         public a(String str, int i, String str2) {
-            this.Dg = str;
+            this.Di = str;
             this.errNo = i;
             this.errMsg = str2;
         }

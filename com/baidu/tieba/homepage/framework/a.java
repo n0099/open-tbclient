@@ -3,30 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class a {
-    private static a dav = new a();
-    private long daw = 0;
-    private SparseArray<Long> dax = new SparseArray<>();
-    private SparseArray<Long> daz = new SparseArray<>();
-    private SparseArray<Long> daA = new SparseArray<>();
-    private SparseArray<Long> daB = new SparseArray<>();
+    private static a cXa = new a();
+    private long cXb = 0;
+    private SparseArray<Long> cXc = new SparseArray<>();
+    private SparseArray<Long> cXd = new SparseArray<>();
+    private SparseArray<Long> cXe = new SparseArray<>();
+    private SparseArray<Long> cXf = new SparseArray<>();
 
     private a() {
     }
 
-    public static a aqx() {
-        return dav;
+    public static a apd() {
+        return cXa;
     }
 
     public long getCreateTime() {
-        return this.daw;
+        return this.cXb;
     }
 
     public void setCreateTime(long j) {
-        this.daw = j;
+        this.cXb = j;
     }
 
-    public long kS(int i) {
-        Long l = this.daz.get(i);
+    public long kO(int i) {
+        Long l = this.cXd.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void c(long j, int i) {
-        this.daz.put(i, Long.valueOf(j));
+        this.cXd.put(i, Long.valueOf(j));
     }
 
-    public long kT(int i) {
-        Long l = this.dax.get(i);
+    public long kP(int i) {
+        Long l = this.cXc.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void d(long j, int i) {
-        this.dax.put(i, Long.valueOf(j));
+        this.cXc.put(i, Long.valueOf(j));
     }
 
-    public long kU(int i) {
-        Long l = this.daA.get(i);
+    public long kQ(int i) {
+        Long l = this.cXe.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void e(long j, int i) {
-        this.daA.put(i, Long.valueOf(j));
+        this.cXe.put(i, Long.valueOf(j));
     }
 
-    public long kV(int i) {
-        Long l = this.daB.get(i);
+    public long kR(int i) {
+        Long l = this.cXf.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void f(long j, int i) {
-        this.daB.put(i, Long.valueOf(j));
+        this.cXf.put(i, Long.valueOf(j));
     }
 }

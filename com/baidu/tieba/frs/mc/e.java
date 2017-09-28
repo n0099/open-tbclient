@@ -1,159 +1,189 @@
 package com.baidu.tieba.frs.mc;
 
+import android.text.TextUtils;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ao;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.d;
-import com.baidu.tieba.frs.y;
-import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
-import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
-import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.frs.p;
 import java.util.ArrayList;
-import tbclient.GetMyPost.GetMyPostResIdl;
-import tbclient.GetMyPost.User_Info;
-import tbclient.ThreadInfo;
-import tbclient.User;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class e extends i {
-    private final CustomMessageListener cEv;
-    private final CustomMessageListener cEw;
-    private final com.baidu.adp.framework.listener.a cEx;
+public class e {
+    private CustomMessageListener cFu = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.frs.mc.e.2
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            e.this.d(customResponsedMessage);
+        }
+    };
+    private CustomMessageListener cFv = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB) { // from class: com.baidu.tieba.frs.mc.e.3
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            e.this.d(customResponsedMessage);
+        }
+    };
+    private CustomMessageListener cFw = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.mc.e.5
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && e.this.crG != null && e.this.crG.agP() != null && e.this.crG.agP().akh() != null) {
+                String str = (String) customResponsedMessage.getData();
+                e.this.g(str, e.this.crG.agP().akh().aMZ().getBannerListData().getAllAdvertList());
+                e.this.h(str, e.this.crG.agU().getListView().getData());
+                e.this.h(str, e.this.crG.agQ().akR().getDataList());
+                e.this.crG.agP().kN(str);
+                if (e.this.crG.agU() != null && e.this.crG.agU().ahK() != null) {
+                    e.this.crG.agU().ahK().notifyDataSetChanged();
+                }
+            }
+        }
+    };
+    private j crG;
 
-    public e(com.baidu.tieba.frs.f fVar) {
-        super(fVar);
-        this.cEv = new CustomMessageListener(CmdConfigCustom.CMD_VIDEO_WRITE_POST_SUCCESS) { // from class: com.baidu.tieba.frs.mc.e.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
-                    e.this.a((PostWriteCallBackData) customResponsedMessage.getData());
-                }
-            }
-        };
-        this.cEw = new CustomMessageListener(CmdConfigCustom.PB_DELETE_THREAD) { // from class: com.baidu.tieba.frs.mc.e.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                    String str = (String) customResponsedMessage.getData();
-                    if (!StringUtils.isNull(str) && e.this.cws.ahq() != null) {
-                        com.baidu.tieba.tbadkCore.i ahq = e.this.cws.ahq();
-                        ahq.ao(ahq.rX(str));
-                        e.this.cpW.a(ahq.getThreadList(), ahq);
-                        if (com.baidu.tieba.tbadkCore.c.bqv() != null) {
-                            com.baidu.tieba.tbadkCore.c.bqv().ab(e.this.cws.getForumName(), false);
-                        }
-                    }
-                }
-            }
-        };
-        this.cEx = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.frs.mc.e.3
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                String errorString;
-                String errorString2;
-                if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
-                    GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-                    if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                        errorString2 = e.this.cws.getResources().getString(d.l.neterror);
-                    } else {
-                        errorString2 = getMyPostHttpResponseMessage.getErrorString();
-                    }
-                    e.this.a(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
-                } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
-                    GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-                    if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                        errorString = e.this.cws.getResources().getString(d.l.neterror);
-                    } else {
-                        errorString = getMyPostSocketResponseMessage.getErrorString();
-                    }
-                    e.this.a(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
-                }
-            }
-        };
-        this.cEx.getSocketMessageListener().setSelfListener(true);
-        this.cEx.getHttpMessageListener().setSelfListener(true);
-        this.cEw.setSelfListener(false);
-        fVar.registerListener(this.cEw);
-        this.cws.registerListener(this.cEx);
-        this.cws.registerListener(this.cEv);
+    public e(j jVar, BdUniqueId bdUniqueId) {
+        this.crG = jVar;
+        this.cFu.setTag(bdUniqueId);
+        this.cFw.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.cFu);
+        MessageManager.getInstance().registerListener(this.cFw);
+        this.cFv.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.cFv);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, String str, GetMyPostResIdl getMyPostResIdl) {
-        if (i != 0) {
-            this.cws.showToast(str);
-            return;
-        }
-        com.baidu.tieba.tbadkCore.i ahq = this.cws.ahq();
-        if (ahq != null && ahq.aPg() != null && getMyPostResIdl != null && this.cpW != null && this.cqf != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
-            ao aoVar = new ao();
-            ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
-            User.Builder builder2 = new User.Builder(builder.author);
-            a(builder2, getMyPostResIdl.data.user_info);
-            builder.author = builder2.build(true);
-            builder.cheak_repeat = 1;
-            builder.fname = ahq.aPg().getName();
-            aoVar.a(builder.build(true));
-            aoVar.bX(3);
-            this.cqf.a(aoVar);
-            ArrayList<com.baidu.adp.widget.ListView.f> a = this.cEK.a(false, true, ahq.getThreadList(), null);
-            if (a != null) {
-                ahq.aA(a);
-                ahq.brt();
-                this.cpW.a(a, ahq);
-                this.cpW.iX(0);
+    public void d(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.crG != null && this.crG.agP() != null && this.crG.agP().akh() != null) {
+            final String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
+            if (!StringUtils.isNull(optString) && this.crG.agU() != null && this.crG.agU().ahK() != null) {
+                final View childAt = this.crG.agU().getListView().getChildAt(a(optString, this.crG.agU().getListView()));
+                if (childAt != null) {
+                    a(childAt, new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.mc.e.1
+                        @Override // android.view.animation.Animation.AnimationListener
+                        public void onAnimationStart(Animation animation) {
+                        }
+
+                        @Override // android.view.animation.Animation.AnimationListener
+                        public void onAnimationRepeat(Animation animation) {
+                        }
+
+                        @Override // android.view.animation.Animation.AnimationListener
+                        public void onAnimationEnd(Animation animation) {
+                            e.this.kO(optString);
+                            childAt.setVisibility(8);
+                            if (e.this.crG.agU() != null && e.this.crG.agU().ahK() != null) {
+                                e.this.crG.agU().ahK().notifyDataSetChanged();
+                            }
+                        }
+                    });
+                    return;
+                }
+                kO(optString);
+                this.crG.agU().ahK().notifyDataSetChanged();
             }
         }
     }
 
-    private void a(User.Builder builder, User_Info user_Info) {
-        if (user_Info != null) {
-            builder.id = user_Info.id;
-            builder.gender = user_Info.gender;
-            builder.type = user_Info.type;
-            builder.name = user_Info.name;
-            builder.name_show = user_Info.name_show;
-            builder.portrait = TbadkCoreApplication.getCurrentPortrait();
-            builder.god_data = user_Info.god_data;
-            builder.fans_num = user_Info.fans_num;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void kO(String str) {
+        ArrayList<com.baidu.adp.widget.ListView.f> threadList = this.crG.agP().akh().getThreadList();
+        f(str, threadList);
+        f(str, this.crG.agU().getListView().getData());
+        this.crG.agP().kM(str);
+        if (threadList != null && threadList.size() < 5) {
+            this.crG.Ny();
         }
     }
 
-    public void a(PostWriteCallBackData postWriteCallBackData) {
-        if (this.cqf != null) {
-            if (this.cqf.akZ() == 2 || this.cqf.akZ() == 3 || this.cqf.akZ() == 7) {
-                int akR = this.cqf.akR();
-                if (y.aid().iZ(1) == null) {
-                    akR = 0;
+    private void f(String str, List<com.baidu.adp.widget.ListView.f> list) {
+        if (v.t(list) != 0) {
+            ArrayList arrayList = new ArrayList();
+            for (com.baidu.adp.widget.ListView.f fVar : list) {
+                if (fVar instanceof bh) {
+                    bh bhVar = (bh) fVar;
+                    if (bhVar.getTid() != null && bhVar.getTid().equals(str)) {
+                        arrayList.add(bhVar);
+                    }
                 }
-                if (akR == 0 && postWriteCallBackData != null) {
-                    final long c = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getPostId(), 0L);
-                    final long c2 = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getThreadId(), 0L);
-                    final long c3 = com.baidu.adp.lib.g.b.c(this.cws.getForumId(), 0L);
-                    if (c != 0 && c2 != 0 && c3 != 0) {
-                        com.baidu.adp.lib.g.e.fQ().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.mc.e.4
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                int ae = com.baidu.adp.lib.util.k.ae(TbadkCoreApplication.getInst());
-                                int af = com.baidu.adp.lib.util.k.af(TbadkCoreApplication.getInst());
-                                float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-                                int i = 1;
-                                if (an.vO().vQ()) {
-                                    i = 2;
-                                }
-                                RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                                requestGetMyPostNetMessage.setParams(c2, c, c3, ae, af, f, i);
-                                e.this.cws.sendMessage(requestGetMyPostNetMessage);
-                            }
-                        }, 1000L);
+            }
+            list.removeAll(arrayList);
+            com.baidu.adp.widget.ListView.f fVar2 = (com.baidu.adp.widget.ListView.f) v.c(list, 0);
+            if (fVar2 instanceof p) {
+                list.remove(fVar2);
+            }
+        }
+    }
+
+    private int a(String str, BdTypeListView bdTypeListView) {
+        int headerViewsCount = bdTypeListView.getHeaderViewsCount();
+        int firstVisiblePosition = bdTypeListView.getFirstVisiblePosition();
+        int i = 0;
+        for (int i2 = 0; i2 < bdTypeListView.getAdapter().getCount(); i2++) {
+            com.baidu.adp.widget.ListView.f item = bdTypeListView.getItem(i2);
+            if (item instanceof bh) {
+                bh bhVar = (bh) item;
+                if (bhVar.getTid() != null && bhVar.getTid().equals(str)) {
+                    i = i2;
+                }
+            }
+        }
+        return (i + headerViewsCount) - firstVisiblePosition;
+    }
+
+    private void a(final View view, Animation.AnimationListener animationListener) {
+        final int measuredHeight = view.getMeasuredHeight();
+        Animation animation = new Animation() { // from class: com.baidu.tieba.frs.mc.e.4
+            @Override // android.view.animation.Animation
+            protected void applyTransformation(float f, Transformation transformation) {
+                view.getLayoutParams().height = measuredHeight - ((int) (measuredHeight * f));
+                view.requestLayout();
+            }
+
+            @Override // android.view.animation.Animation
+            public boolean willChangeBounds() {
+                return true;
+            }
+        };
+        animation.setAnimationListener(animationListener);
+        animation.setDuration(300L);
+        view.startAnimation(animation);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void g(String str, List<AdvertAppInfo> list) {
+        if (list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
+            Iterator<AdvertAppInfo> it = list.iterator();
+            while (it.hasNext()) {
+                AdvertAppInfo next = it.next();
+                if (next != null && str.equals(next.Ua)) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void h(String str, List<com.baidu.adp.widget.ListView.f> list) {
+        if (list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
+            Iterator<com.baidu.adp.widget.ListView.f> it = list.iterator();
+            while (it.hasNext()) {
+                com.baidu.adp.widget.ListView.f next = it.next();
+                if (next instanceof com.baidu.tieba.InjectPlugin.a) {
+                    Object JH = ((com.baidu.tieba.InjectPlugin.a) next).JH();
+                    if ((JH instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) JH).Ua)) {
+                        it.remove();
                     }
                 }
             }

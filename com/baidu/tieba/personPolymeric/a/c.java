@@ -6,31 +6,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.w;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.d, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.c>> {
-    private w bJV;
-    private TbPageContext<?> mF;
+public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.d, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.c>> {
+    private w bJj;
+    private TbPageContext<?> mG;
 
     public c(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.d.flw);
-        this.mF = tbPageContext;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.d.fgW);
+        this.mG = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: z */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.c> onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.d.c(this.mF));
+    /* renamed from: B */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.c> onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.c(this.mG));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.c> aVar) {
-        aVar.YJ().a(this.bJV);
-        aVar.YJ().d(this.mF, TbadkCoreApplication.getInst().getSkinType());
-        aVar.YJ().a(dVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.c> aVar) {
+        aVar.Yr().a(this.bJj);
+        aVar.Yr().d(this.mG, TbadkCoreApplication.getInst().getSkinType());
+        aVar.Yr().a(dVar);
         return aVar.getView();
     }
 }

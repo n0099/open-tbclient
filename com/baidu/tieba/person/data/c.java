@@ -1,30 +1,17 @@
 package com.baidu.tieba.person.data;
 
-import com.baidu.adp.widget.ListView.f;
-import java.util.ArrayList;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class c {
-    private ArrayList<f> abO;
-    private int ffA = 0;
-    private boolean ffB = true;
+public class c implements com.baidu.adp.widget.ListView.f {
+    public static final BdUniqueId eZs = BdUniqueId.gen();
+    private int eZt = 0;
 
-    public void am(ArrayList<f> arrayList) {
-        this.abO = arrayList;
+    public int aVj() {
+        return this.eZt;
     }
 
-    public void qj(int i) {
-        this.ffA = i;
-    }
-
-    public boolean aXd() {
-        return this.ffB;
-    }
-
-    public void kn(boolean z) {
-        this.ffB = z;
-    }
-
-    public ArrayList<f> aXe() {
-        return this.abO;
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return eZs;
     }
 }

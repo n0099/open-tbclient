@@ -8,27 +8,27 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class n {
-    public long Vf;
-    public long eLv;
-    public long eLw;
-    public int eLx;
+    public long Vt;
+    public long eEU;
+    public long eEV;
+    public int eEW;
     public long mForumId;
 
     public n() {
-        El();
+        DP();
     }
 
-    public void aRs() {
+    public void aPo() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_SET_DECLARE);
-        httpMessage.addParam("tid", this.Vf);
-        httpMessage.addParam("author_uid", this.eLv);
-        httpMessage.addParam("declare_id", this.eLw);
+        httpMessage.addParam("tid", this.Vt);
+        httpMessage.addParam("author_uid", this.eEU);
+        httpMessage.addParam("declare_id", this.eEV);
         httpMessage.addParam("forum_id", this.mForumId);
-        httpMessage.addParam("operation", this.eLx);
+        httpMessage.addParam("operation", this.eEW);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private void El() {
+    private void DP() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_SET_DECLARE, TbConfig.SERVER_ADDRESS + TbConfig.PB_SET_DECLARE_URL);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);

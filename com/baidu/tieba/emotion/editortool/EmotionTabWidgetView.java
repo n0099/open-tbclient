@@ -17,7 +17,7 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmotionTabWidgetView extends LinearLayout {
-    private i Jp;
+    private i JG;
     private EmotionTabHorizonScrollView cbN;
     private ImageView cbO;
     private ImageView cbP;
@@ -26,7 +26,7 @@ public class EmotionTabWidgetView extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void eT(int i);
+        void fd(int i);
     }
 
     public EmotionTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -49,8 +49,8 @@ public class EmotionTabWidgetView extends LinearLayout {
         this.cbO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (EmotionTabWidgetView.this.Jp != null) {
-                    EmotionTabWidgetView.this.Jp.b(new com.baidu.tbadk.editortools.a(3, -1, null));
+                if (EmotionTabWidgetView.this.JG != null) {
+                    EmotionTabWidgetView.this.JG.b(new com.baidu.tbadk.editortools.a(3, -1, null));
                 }
             }
         });
@@ -98,7 +98,7 @@ public class EmotionTabWidgetView extends LinearLayout {
 
     public void onChangeSkinType(int i) {
         aj.e(this, d.e.common_color_10255, i);
-        this.cbN.du(i);
+        this.cbN.dE(i);
         aj.b(this.cbO, d.g.emotion_delete, i);
         aj.e(this.cbO, d.e.common_color_10255, i);
         aj.b(this.cbP, d.g.icon_sett_s, i);
@@ -114,8 +114,8 @@ public class EmotionTabWidgetView extends LinearLayout {
         }
     }
 
-    public void m(int i, boolean z) {
-        this.cbN.m(i, z);
+    public void k(int i, boolean z) {
+        this.cbN.k(i, z);
     }
 
     public void setTabWidgetBigEmontionVisibility(boolean z) {
@@ -123,7 +123,7 @@ public class EmotionTabWidgetView extends LinearLayout {
     }
 
     public void setOnDataSelected(i iVar) {
-        this.Jp = iVar;
-        this.cbN.setEditorTools(this.Jp);
+        this.JG = iVar;
+        this.cbN.setEditorTools(this.JG);
     }
 }

@@ -20,7 +20,7 @@ import javax.crypto.spec.SecretKeySpec;
 public final class d {
     public static String a(Context context) {
         com.baidu.sofire.rp.a.a aVar = new com.baidu.sofire.rp.a.a(context);
-        String string = aVar.PR.getString("xyus", "");
+        String string = aVar.Qg.getString("xyus", "");
         if (TextUtils.isEmpty(string)) {
             String h = h(context);
             String i = i(context);
@@ -28,8 +28,8 @@ public final class d {
                 i = "0";
             }
             String str = h + "|" + new StringBuffer(i).reverse().toString();
-            aVar.PU.putString("xyus", str);
-            aVar.PU.commit();
+            aVar.Qj.putString("xyus", str);
+            aVar.Qj.commit();
             return str;
         }
         return string;

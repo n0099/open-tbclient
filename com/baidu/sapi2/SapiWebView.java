@@ -76,6 +76,7 @@ import com.baidu.sapi2.utils.f;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.huawei.hwid.openapi.OpenHwID;
 import com.huawei.hwid.openapi.out.IHwIDCallBack;
 import com.tencent.mm.sdk.modelmsg.SendAuth;
@@ -1688,7 +1689,7 @@ public final class SapiWebView extends WebView {
             arrayList.add(new BasicNameValuePair("skin", str2));
         }
         if (z2) {
-            arrayList.add(new BasicNameValuePair("skip", "1"));
+            arrayList.add(new BasicNameValuePair(FreeSpaceBox.TYPE, "1"));
         }
         String a2 = SapiAccountManager.getInstance().getAccountService().a(bindWidgetAction);
         if (arrayList.size() > 0) {

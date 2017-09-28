@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class h {
-    public static void dk(String str) {
+    public static void da(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -46,7 +46,7 @@ public class h {
         }
     }
 
-    public static void uD() {
+    public static void ug() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.h.1
             @Override // java.lang.Runnable
             public void run() {
@@ -64,18 +64,18 @@ public class h {
                             th = th2;
                             try {
                                 mainDBDatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
-                                com.baidu.adp.lib.util.m.e(cursor);
+                                com.baidu.adp.lib.util.n.e(cursor);
                                 ak akVar = new ak("c12232");
                                 akVar.ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
                                 akVar.r("obj_param1", i);
                                 TiebaStatic.log(akVar);
                             } catch (Throwable th3) {
-                                com.baidu.adp.lib.util.m.e(cursor);
+                                com.baidu.adp.lib.util.n.e(cursor);
                                 throw th3;
                             }
                         }
                     }
-                    com.baidu.adp.lib.util.m.e(cursor);
+                    com.baidu.adp.lib.util.n.e(cursor);
                 } catch (Throwable th4) {
                     cursor = null;
                     th = th4;

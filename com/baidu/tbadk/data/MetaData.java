@@ -27,8 +27,9 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private boolean isBigV;
     private boolean isGod;
     private int is_manager;
+    private int is_myfans;
     private int is_myfriend;
-    private j pendantData;
+    private i pendantData;
     private String virtualUserUrl;
     private boolean isLikeStatusFromNet = false;
     private int is_like = 0;
@@ -233,6 +234,10 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.is_myfriend;
     }
 
+    public int getIsMyFans() {
+        return this.is_myfans;
+    }
+
     public int getGender() {
         return this.gender;
     }
@@ -349,6 +354,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.is_manager = user.is_manager.intValue();
             this.bawu_type = user.bawu_type;
             this.is_myfriend = user.is_friend.intValue();
+            this.is_myfans = user.is_fans.intValue();
             this.concernNum = user.concern_num.intValue();
             this.mHadConcerned = user.has_concerned.intValue() == 1;
             this.fansNickName = user.fans_nickname;
@@ -402,7 +408,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.giftNum = user.gift_num.intValue();
             this.themeCard.parser(user.theme_card);
             if (user.pendant != null) {
-                this.pendantData = new j();
+                this.pendantData = new i();
                 this.pendantData.a(user.pendant);
             }
             this.isLikeStatusFromNet = true;
@@ -440,6 +446,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 this.isMem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM, 0);
                 this.bawu_type = jSONObject.optString("bawu_type");
                 this.is_myfriend = jSONObject.optInt("is_friend");
+                this.is_myfans = jSONObject.optInt("is_fans");
                 if (this.userName != null && this.userName.length() <= 0) {
                     this.userName = null;
                 }
@@ -509,12 +516,12 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.themeCard;
     }
 
-    public j getPendantData() {
+    public i getPendantData() {
         return this.pendantData;
     }
 
-    public void setPendantData(j jVar) {
-        this.pendantData = jVar;
+    public void setPendantData(i iVar) {
+        this.pendantData = iVar;
     }
 
     public String getVirtualUserUrl() {

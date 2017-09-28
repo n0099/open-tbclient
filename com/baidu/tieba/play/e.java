@@ -1,19 +1,9 @@
 package com.baidu.tieba.play;
-
-import android.view.View;
 /* loaded from: classes.dex */
 public interface e {
-    int getCurrentPosition();
+    void aDY();
 
-    String getPlayUrl();
+    void aDZ();
 
-    View getVideoContainer();
-
-    boolean isPlayStarted();
-
-    boolean isPlaying();
-
-    void startPlay();
-
-    void stopPlay();
+    void aEa();
 }

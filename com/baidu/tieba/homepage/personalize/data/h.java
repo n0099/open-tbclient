@@ -6,9 +6,9 @@ import java.util.List;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
 public class h implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId dek = BdUniqueId.gen();
-    public List<g> del = null;
-    public List<g> dem = null;
+    public static final BdUniqueId daz = BdUniqueId.gen();
+    public List<g> daA = null;
+    public List<g> daB = null;
 
     public static h c(DataRes.Builder builder) {
         if (builder == null || builder.age_sex == null) {
@@ -18,21 +18,21 @@ public class h implements com.baidu.adp.widget.ListView.f {
             return null;
         }
         h hVar = new h();
-        hVar.del = new ArrayList();
-        hVar.dem = new ArrayList();
+        hVar.daA = new ArrayList();
+        hVar.daB = new ArrayList();
         if (builder.age_sex.sex_tag != null && builder.age_sex.sex_tag.size() == 2) {
             g a = g.a(builder.age_sex.sex_tag.get(0));
             g a2 = g.a(builder.age_sex.sex_tag.get(1));
             if (a != null && a2 != null) {
-                hVar.del.add(a);
-                hVar.del.add(a2);
+                hVar.daA.add(a);
+                hVar.daA.add(a2);
             }
         }
         if (builder.age_sex.age_tag != null && builder.age_sex.age_tag.size() > 0) {
             for (int i = 0; i < builder.age_sex.age_tag.size() && i < 5; i++) {
                 g a3 = g.a(builder.age_sex.age_tag.get(i));
                 if (a3 != null) {
-                    hVar.dem.add(a3);
+                    hVar.daB.add(a3);
                 }
             }
         }
@@ -41,6 +41,6 @@ public class h implements com.baidu.adp.widget.ListView.f {
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return dek;
+        return daz;
     }
 }
