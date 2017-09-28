@@ -29,25 +29,25 @@ public class am {
         return intent;
     }
 
-    public static boolean k(PostData postData) {
-        if (postData == null || postData.bsH() == null) {
+    public static boolean l(PostData postData) {
+        if (postData == null || postData.brG() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.h bsH = postData.bsH();
-        if (bsH.giK) {
-            int bsg = bsH.bsg();
-            return bsg == 2 || bsg == 1 || bsg == 3;
+        com.baidu.tieba.tbadkCore.data.h brG = postData.brG();
+        if (brG.ggr) {
+            int bre = brG.bre();
+            return bre == 2 || bre == 1 || bre == 3;
         }
         return false;
     }
 
-    public static String a(MetaData metaData) {
+    public static String b(MetaData metaData) {
         if (metaData == null || metaData.getGodUserData() == null) {
             return "";
         }
         String forumName = metaData.getGodUserData().getForumName();
         if ((metaData.getGodUserData().getType() == 2 || metaData.getGodUserData().getType() == 1) && !TextUtils.isEmpty(forumName)) {
-            return UtilHelper.getForumNameWithBar(forumName);
+            return UtilHelper.getForumNameWithBar(UtilHelper.getFixedBarText(forumName, 5, true, true));
         }
         if (StringUtils.isNull(metaData.getGodIntro())) {
             return "";
@@ -55,12 +55,12 @@ public class am {
         return metaData.getGodIntro();
     }
 
-    public static void z(TbPageContext tbPageContext) {
+    public static void w(TbPageContext tbPageContext) {
         if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.j.user_like_success_dialog, (ViewGroup) null);
             com.baidu.tbadk.core.util.aj.i((TextView) inflate.findViewById(d.h.dialog_title), d.e.cp_cont_b);
-            com.baidu.tbadk.core.util.aj.i((TextView) inflate.findViewById(d.h.dialog_message), d.e.cp_cont_f);
+            com.baidu.tbadk.core.util.aj.i((TextView) inflate.findViewById(d.h.dialog_message), d.e.cp_cont_j);
             aVar.a(d.l.know, new a.b() { // from class: com.baidu.tieba.pb.pb.main.am.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -78,7 +78,8 @@ public class am {
                 }
             });
             aVar.v(inflate);
-            aVar.b(tbPageContext).to();
+            aVar.ar(false);
+            aVar.b(tbPageContext).ti();
         }
     }
 }

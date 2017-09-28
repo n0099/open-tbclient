@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.lib.guide.b;
 import com.baidu.adp.lib.guide.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
@@ -12,62 +11,62 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a {
-    private View.OnClickListener aYG;
-    private boolean bTK;
-    private String bTL;
-    private int bTP;
-    private int bTQ;
-    private int bTR;
-    private int bTS;
+    private int bTA;
+    private int bTB;
+    private int bTC;
+    private int bTD;
+    private boolean bTv;
+    private String bTw;
+    private View.OnClickListener bat;
     private View ju;
-    private TbPageContext mF;
+    private TbPageContext mG;
     private String mMessage;
     private Handler mHandler = null;
-    private c bTJ = null;
-    private int bTM = d.g.pic_sign_tip;
-    private int bTN = 0;
-    private int bTO = 1;
-    private int bvC = 1000;
-    private int bvB = 3000;
-    private int alu = 5;
+    private c bTu = null;
+    private int bTx = d.g.pic_sign_tip;
+    private int bTy = 0;
+    private int bTz = 1;
+    private int bxm = 1000;
+    private int bxl = 3000;
+    private int aVG = 5;
     private int mYOffset = 0;
-    private Runnable bTT = new Runnable() { // from class: com.baidu.tieba.d.a.1
+    private Runnable bTE = new Runnable() { // from class: com.baidu.tieba.d.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.bTJ == null && !StringUtils.isNull(a.this.mMessage)) {
+            if (a.this.bTu == null && !StringUtils.isNull(a.this.mMessage)) {
                 com.baidu.adp.lib.guide.d dVar = new com.baidu.adp.lib.guide.d();
                 dVar.o(a.this.ju).ad(0).A(true).B(true);
-                dVar.a(new b() { // from class: com.baidu.tieba.d.a.1.1
+                dVar.a(new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.d.a.1.1
                     @Override // com.baidu.adp.lib.guide.b
                     public View a(LayoutInflater layoutInflater) {
-                        TextView textView = new TextView(a.this.mF.getPageActivity());
+                        TextView textView = new TextView(a.this.mG.getPageActivity());
                         textView.setText(a.this.mMessage);
                         textView.setGravity(17);
                         aj.i(textView, d.e.cp_cont_i);
-                        textView.setTextSize(0, a.this.mF.getResources().getDimensionPixelSize(d.f.fontsize28));
-                        textView.setHeight(a.this.mF.getResources().getDimensionPixelSize(d.f.ds76));
-                        textView.setPadding(a.this.bTP, a.this.bTQ, a.this.bTR, a.this.bTS);
+                        textView.setTextSize(0, a.this.mG.getResources().getDimensionPixelSize(d.f.fontsize28));
+                        textView.setHeight(a.this.mG.getResources().getDimensionPixelSize(d.f.ds76));
+                        textView.setPadding(a.this.bTA, a.this.bTB, a.this.bTC, a.this.bTD);
                         textView.setSingleLine(true);
-                        aj.j(textView, a.this.bTM);
-                        if (a.this.aYG != null) {
-                            textView.setOnClickListener(a.this.aYG);
+                        aj.j(textView, a.this.bTx);
+                        if (a.this.bat != null) {
+                            textView.setOnClickListener(a.this.bat);
                         }
                         return textView;
                     }
 
                     @Override // com.baidu.adp.lib.guide.b
-                    public int eX() {
+                    public int eW() {
                         return 4;
                     }
 
                     @Override // com.baidu.adp.lib.guide.b
-                    public int eY() {
+                    public int eX() {
                         return 48;
                     }
 
                     @Override // com.baidu.adp.lib.guide.b
                     public int getXOffset() {
-                        return a.this.alu;
+                        return a.this.aVG;
                     }
 
                     @Override // com.baidu.adp.lib.guide.b
@@ -75,40 +74,40 @@ public class a {
                         return a.this.mYOffset;
                     }
                 });
-                a.this.bTJ = dVar.eZ();
-                a.this.bTJ.y(false);
-                a.this.bTJ.j(a.this.mF.getPageActivity());
-                a.this.bTK = true;
-                a.this.ZN();
-                a.this.mHandler.postDelayed(a.this.bTU, a.this.bvB);
+                a.this.bTu = dVar.eY();
+                a.this.bTu.y(false);
+                a.this.bTu.j(a.this.mG.getPageActivity());
+                a.this.bTv = true;
+                a.this.Zy();
+                a.this.mHandler.postDelayed(a.this.bTF, a.this.bxl);
             }
         }
     };
-    private Runnable bTU = new Runnable() { // from class: com.baidu.tieba.d.a.2
+    private Runnable bTF = new Runnable() { // from class: com.baidu.tieba.d.a.2
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.bTJ != null) {
-                a.this.bTJ.dismiss();
+            if (a.this.bTu != null) {
+                a.this.bTu.dismiss();
             }
         }
     };
 
     public a(TbPageContext tbPageContext, View view) {
-        this.bTP = 0;
-        this.bTQ = 0;
-        this.bTR = 0;
-        this.bTS = 0;
-        this.mF = tbPageContext;
+        this.bTA = 0;
+        this.bTB = 0;
+        this.bTC = 0;
+        this.bTD = 0;
+        this.mG = tbPageContext;
         this.ju = view;
-        this.bTP = this.mF.getResources().getDimensionPixelSize(d.f.ds24);
-        this.bTQ = this.mF.getResources().getDimensionPixelSize(d.f.ds24);
-        this.bTR = this.mF.getResources().getDimensionPixelSize(d.f.ds24);
-        this.bTS = this.mF.getResources().getDimensionPixelSize(d.f.ds10);
+        this.bTA = this.mG.getResources().getDimensionPixelSize(d.f.ds24);
+        this.bTB = this.mG.getResources().getDimensionPixelSize(d.f.ds24);
+        this.bTC = this.mG.getResources().getDimensionPixelSize(d.f.ds24);
+        this.bTD = this.mG.getResources().getDimensionPixelSize(d.f.ds10);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZN() {
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(this.bTL, this.bTN + 1);
+    public void Zy() {
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(this.bTw, this.bTy + 1);
     }
 
     public void aM(String str, String str2) {
@@ -116,68 +115,79 @@ public class a {
     }
 
     public void g(String str, String str2, boolean z) {
-        if (!this.bTK && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.ju != null && this.ju.getVisibility() == 0) {
+        if (!this.bTv && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.ju != null && this.ju.getVisibility() == 0) {
             this.mMessage = str;
-            this.bTL = str2;
-            this.bTN = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
-            if (this.bTN < this.bTO) {
+            this.bTw = str2;
+            this.bTy = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
+            if (this.bTy < this.bTz) {
                 if (z) {
-                    ZN();
-                    this.bTK = true;
+                    Zy();
+                    this.bTv = true;
                 }
                 if (this.mHandler == null) {
                     this.mHandler = new Handler();
                 }
-                this.mHandler.postDelayed(this.bTT, this.bvC);
+                this.mHandler.postDelayed(this.bTE, this.bxm);
             }
         }
     }
 
-    public void ZO() {
-        if (this.bTJ != null) {
-            this.bTJ.dismiss();
-            this.bTJ = null;
+    public void jA(String str) {
+        if (!StringUtils.isNull(str)) {
+            this.mMessage = str;
+            if (this.mHandler == null) {
+                this.mHandler = new Handler();
+            }
+            this.mHandler.postDelayed(this.bTE, this.bxm);
+        }
+    }
+
+    public void Zz() {
+        if (this.bTu != null) {
+            this.bTu.dismiss();
+            this.bTu = null;
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.bTT);
-            this.mHandler.removeCallbacks(this.bTU);
+            this.mHandler.removeCallbacks(this.bTE);
+            this.mHandler.removeCallbacks(this.bTF);
         }
     }
 
-    public void hW(int i) {
+    public void ie(int i) {
         if (i > 0) {
-            this.bTM = i;
+            this.bTx = i;
         }
     }
 
-    public void hX(int i) {
+    /* renamed from: if  reason: not valid java name */
+    public void m11if(int i) {
         if (i > 0) {
-            this.bvB = i;
+            this.bxl = i;
         }
     }
 
-    public void hY(int i) {
+    public void ig(int i) {
         if (i > 0) {
-            this.bTO = i;
+            this.bTz = i;
         }
     }
 
-    public void hZ(int i) {
-        this.alu = i;
+    public void ih(int i) {
+        this.aVG = i;
     }
 
-    public void ia(int i) {
+    public void ii(int i) {
         this.mYOffset = i;
     }
 
-    public void j(int i, int i2, int i3, int i4) {
-        this.bTP = i;
-        this.bTQ = i2;
-        this.bTR = i3;
-        this.bTS = i4;
+    public void l(int i, int i2, int i3, int i4) {
+        this.bTA = i;
+        this.bTB = i2;
+        this.bTC = i3;
+        this.bTD = i4;
     }
 
     public void i(View.OnClickListener onClickListener) {
-        this.aYG = onClickListener;
+        this.bat = onClickListener;
     }
 }

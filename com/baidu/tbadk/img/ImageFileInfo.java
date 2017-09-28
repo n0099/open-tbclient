@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import java.io.Serializable;
@@ -21,6 +21,7 @@ public class ImageFileInfo extends OrmObject implements Serializable {
     private String filePath;
     private boolean hasAddPostQualityAction;
     private boolean isGif;
+    private boolean isLong;
     private boolean isOrginalBitmapShared;
     private boolean isTempFile;
     private String modifyTime;
@@ -105,6 +106,7 @@ public class ImageFileInfo extends OrmObject implements Serializable {
             this.serverPicInfo = new ImageUploadResult.picInfo();
             this.serverPicInfo.parseJson(jSONObject.optJSONObject("serverPicInfo"));
             this.isGif = jSONObject.optBoolean("isGif", false);
+            this.isLong = jSONObject.optBoolean("isLong", false);
         }
     }
 
@@ -134,6 +136,7 @@ public class ImageFileInfo extends OrmObject implements Serializable {
                 jSONObject.put("serverPicInfo", this.serverPicInfo.toJson());
             }
             jSONObject.put("isGif", this.isGif);
+            jSONObject.put("isLong", this.isLong);
             return jSONObject;
         } catch (JSONException e) {
             BdLog.e(e.getMessage());
@@ -269,7 +272,7 @@ public class ImageFileInfo extends OrmObject implements Serializable {
     }
 
     public boolean isAlreadyUploadedToServer() {
-        return !j.isEmpty(this.serverImageCode);
+        return !k.isEmpty(this.serverImageCode);
     }
 
     public Bitmap getOrginalBitmap() {
@@ -294,6 +297,14 @@ public class ImageFileInfo extends OrmObject implements Serializable {
 
     public boolean isGif() {
         return this.isGif;
+    }
+
+    public void setIsLong(boolean z) {
+        this.isLong = z;
+    }
+
+    public boolean isLong() {
+        return this.isLong;
     }
 
     public void applayRotatePageActionToPersistAction() {
@@ -331,6 +342,7 @@ public class ImageFileInfo extends OrmObject implements Serializable {
             }
         }
         imageFileInfo.setIsGif(isGif());
+        imageFileInfo.setIsLong(isLong());
         return imageFileInfo;
     }
 }

@@ -1,13 +1,14 @@
 package com.baidu.tbadk.core.util.a;
 
 import android.net.Proxy;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class h {
     public static String getNetType() {
         try {
-            if (com.baidu.adp.lib.util.i.hi()) {
-                if (com.baidu.adp.lib.util.i.hj()) {
+            if (j.hh()) {
+                if (j.hi()) {
                     return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
                 }
                 String defaultHost = Proxy.getDefaultHost();

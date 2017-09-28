@@ -97,19 +97,19 @@ public class HttpMessageTask extends MessageTask {
     /* loaded from: classes.dex */
     public static class a {
         private int mCmd;
-        private String qy;
-        private boolean qz;
+        private boolean qA;
+        private String qz;
 
         public int getCmd() {
             return this.mCmd;
         }
 
         public String dx() {
-            return this.qy;
+            return this.qz;
         }
 
         public boolean dy() {
-            return this.qz;
+            return this.qA;
         }
     }
 }

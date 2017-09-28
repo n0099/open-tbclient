@@ -2,15 +2,15 @@ package com.baidu.tieba.frs.entelechy.b;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tieba.frs.entelechy.a.q;
+import com.baidu.tieba.frs.entelechy.a.r;
 import com.baidu.tieba.frs.f;
 /* loaded from: classes.dex */
 public interface a {
-    q a(f fVar, BdTypeListView bdTypeListView, boolean z);
+    r a(f fVar, BdTypeListView bdTypeListView, boolean z);
 
     com.baidu.tieba.frs.view.b a(String str, f fVar, int i);
 
-    b aiE();
+    b aiI();
 
     c b(f fVar, NoPressedRelativeLayout noPressedRelativeLayout);
 

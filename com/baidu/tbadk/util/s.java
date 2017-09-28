@@ -1,24 +1,5 @@
 package com.baidu.tbadk.util;
-
-import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
-public class s {
-    private static String mThreadId;
-
-    public static void gR(String str) {
-        mThreadId = str;
-    }
-
-    public static String Hq() {
-        if (StringUtils.isNull(mThreadId)) {
-            return null;
-        }
-        return mThreadId;
-    }
-
-    public static void Hr() {
-        if (mThreadId != null) {
-            mThreadId = null;
-        }
-    }
+public abstract class s<T> {
+    public abstract T doInBackground();
 }

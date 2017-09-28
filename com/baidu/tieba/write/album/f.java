@@ -13,34 +13,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class f {
-    private static f gCe;
-    private ContentObserver gCf;
+    private static f gHi;
+    private ContentObserver gHj;
     private BroadcastReceiver mReceiver;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<a> jq = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable gCg = new Runnable() { // from class: com.baidu.tieba.write.album.f.1
+    private Runnable gHk = new Runnable() { // from class: com.baidu.tieba.write.album.f.1
         @Override // java.lang.Runnable
         public void run() {
-            f.this.nl(false);
+            f.this.nr(false);
         }
     };
 
     /* loaded from: classes2.dex */
     public interface a {
-        void nm(boolean z);
+        void ns(boolean z);
     }
 
-    public static f byq() {
-        if (gCe == null) {
+    public static f bzG() {
+        if (gHi == null) {
             synchronized (f.class) {
-                if (gCe == null) {
-                    gCe = new f();
-                    gCe.init(TbadkCoreApplication.getInst());
+                if (gHi == null) {
+                    gHi = new f();
+                    gHi.init(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return gCe;
+        return gHi;
     }
 
     private f() {
@@ -50,14 +50,14 @@ public class f {
         this.mReceiver = new BroadcastReceiver() { // from class: com.baidu.tieba.write.album.f.2
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context2, Intent intent) {
-                f.this.af(intent);
+                f.this.ab(intent);
             }
         };
-        this.gCf = new ContentObserver(this.mHandler) { // from class: com.baidu.tieba.write.album.f.3
+        this.gHj = new ContentObserver(this.mHandler) { // from class: com.baidu.tieba.write.album.f.3
             @Override // android.database.ContentObserver
             public void onChange(boolean z) {
-                f.this.handler.removeCallbacks(f.this.gCg);
-                f.this.handler.postDelayed(f.this.gCg, 2000L);
+                f.this.handler.removeCallbacks(f.this.gHk);
+                f.this.handler.postDelayed(f.this.gHk, 2000L);
             }
         };
         IntentFilter intentFilter = new IntentFilter();
@@ -68,23 +68,23 @@ public class f {
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
         context.registerReceiver(this.mReceiver, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.gCf);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.gHj);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void af(Intent intent) {
+    public void ab(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            nl(true);
+            nr(true);
             return;
         }
-        this.handler.removeCallbacks(this.gCg);
-        this.handler.postDelayed(this.gCg, 2000L);
+        this.handler.removeCallbacks(this.gHk);
+        this.handler.postDelayed(this.gHk, 2000L);
     }
 
-    public void nl(boolean z) {
+    public void nr(boolean z) {
         Iterator<a> it = this.jq.iterator();
         while (it.hasNext()) {
-            it.next().nm(z);
+            it.next().ns(z);
         }
     }
 
@@ -108,8 +108,8 @@ public class f {
         removeAllListeners();
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.unregisterReceiver(this.mReceiver);
-        inst.getContentResolver().unregisterContentObserver(this.gCf);
-        this.handler.removeCallbacks(this.gCg);
-        gCe = null;
+        inst.getContentResolver().unregisterContentObserver(this.gHj);
+        this.handler.removeCallbacks(this.gHk);
+        gHi = null;
     }
 }

@@ -3,21 +3,21 @@ package com.baidu.tbadk.core.data;
 import tbclient.DeclareInfo;
 /* loaded from: classes.dex */
 public class q {
-    public int Vg;
-    public String Vh;
-    public String Vi;
-    public long Vj;
-    public boolean Vk;
-    public int Vl;
+    public int Vu;
+    public String Vv;
+    public String Vw;
+    public long Vx;
+    public boolean Vy;
+    public int Vz;
 
     public void a(DeclareInfo declareInfo) {
         if (declareInfo != null) {
-            this.Vg = declareInfo.declare_id.intValue();
-            this.Vh = declareInfo.declare_url;
-            this.Vi = declareInfo.declare_text;
-            this.Vk = declareInfo.is_declare.intValue() == 1;
-            this.Vj = declareInfo.declare_num.longValue();
-            this.Vk = this.Vj > 0 ? this.Vk : false;
+            this.Vu = declareInfo.declare_id.intValue();
+            this.Vv = declareInfo.declare_url;
+            this.Vw = declareInfo.declare_text;
+            this.Vy = declareInfo.is_declare.intValue() == 1;
+            this.Vx = declareInfo.declare_num.longValue();
+            this.Vy = this.Vx > 0 ? this.Vy : false;
         }
     }
 }

@@ -1,11 +1,12 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class l {
-    private EmotionGroupType arP;
+    private EmotionGroupType aqX;
     private int height;
     private String name;
     private String pid;
     private String pname;
+    private String url;
     private int width;
 
     public String getName() {
@@ -16,19 +17,19 @@ public class l {
         this.name = str;
     }
 
-    public EmotionGroupType ys() {
-        return this.arP;
+    public EmotionGroupType xR() {
+        return this.aqX;
     }
 
     public void a(EmotionGroupType emotionGroupType) {
-        this.arP = emotionGroupType;
+        this.aqX = emotionGroupType;
     }
 
-    public String yt() {
+    public String xS() {
         return this.pname;
     }
 
-    public void eC(String str) {
+    public void ew(String str) {
         this.pname = str;
     }
 
@@ -36,7 +37,7 @@ public class l {
         return this.pid;
     }
 
-    public void eD(String str) {
+    public void ex(String str) {
         this.pid = str;
     }
 
@@ -54,5 +55,13 @@ public class l {
 
     public void setHeight(int i) {
         this.height = i;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
     }
 }

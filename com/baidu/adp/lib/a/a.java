@@ -5,7 +5,7 @@ import android.location.Address;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tieba.compatible.EditorHelper;
 import java.net.InetAddress;
 import java.net.URL;
@@ -21,7 +21,7 @@ public class a {
     private String f0tv;
     private long tw;
 
-    public static final a eM() {
+    public static final a eL() {
         if (ts == null) {
             synchronized (a.class) {
                 if (ts == null) {
@@ -44,7 +44,7 @@ public class a {
 
     public void b(String str, String str2, boolean z, boolean z2) {
         String host;
-        if (!TextUtils.isEmpty(str) && i.hi()) {
+        if (!TextUtils.isEmpty(str) && j.hh()) {
             try {
                 URL url = new URL(str);
                 String host2 = url.getHost();
@@ -98,7 +98,7 @@ public class a {
                 statsItem.p("hostip", str2);
                 statsItem.c("issuc", Boolean.valueOf(z));
                 statsItem.c("isuseip", Boolean.valueOf(z2));
-                Address b = com.baidu.adp.lib.d.a.fd().b(false, false);
+                Address b = com.baidu.adp.lib.d.a.fc().b(false, false);
                 if (b != null) {
                     statsItem.c("lati", Double.valueOf(b.getLatitude()));
                     statsItem.c("longi", Double.valueOf(b.getLongitude()));

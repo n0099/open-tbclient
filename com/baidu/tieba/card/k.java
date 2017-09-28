@@ -7,49 +7,49 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class k extends j {
-    private bj ajE;
-    private com.baidu.tieba.card.data.n bLH;
-    private View.OnClickListener bLI;
-    private View.OnClickListener bLJ;
-    private TbPageContext mF;
+    private bh ajg;
+    private com.baidu.tieba.card.data.n bLd;
+    private View.OnClickListener bLe;
+    private View.OnClickListener bLf;
+    private TbPageContext mG;
     private int mSkinType;
 
     public k(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.bLI = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.1
+        this.bLe = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.ajE != null && k.this.ajE.getAuthor() != null && !StringUtils.isNull(k.this.ajE.getAuthor().getName_show()) && !StringUtils.isNull(k.this.ajE.getAuthor().getUserId()) && k.this.ajE.rG() != null) {
-                    if (k.this.XL() != null) {
-                        k.this.XL().a(view, k.this.bLH);
+                if (k.this.ajg != null && k.this.ajg.getAuthor() != null && !StringUtils.isNull(k.this.ajg.getAuthor().getName_show()) && !StringUtils.isNull(k.this.ajg.getAuthor().getUserId()) && k.this.ajg.rA() != null) {
+                    if (k.this.Xr() != null) {
+                        k.this.Xr().a(view, k.this.bLd);
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(k.this.mF.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(k.this.ajE.getAuthor().getUserId(), 0L), false, k.this.ajE.getAuthor().isBigV())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(k.this.mG.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(k.this.ajg.getAuthor().getUserId(), 0L), false, k.this.ajg.getAuthor().isBigV())));
                 }
             }
         };
-        this.bLJ = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.2
+        this.bLf = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.XL() != null) {
-                    k.this.XL().a(view, k.this.bLH);
+                if (k.this.Xr() != null) {
+                    k.this.Xr().a(view, k.this.bLd);
                 }
             }
         };
-        this.mF = tbPageContext;
+        this.mG = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.j, com.baidu.tieba.card.a
     public void a(com.baidu.tieba.card.data.n nVar) {
         super.a(nVar);
-        if (nVar != null && nVar.bcG != null) {
-            this.bLH = nVar;
-            this.ajE = nVar.bcG;
+        if (nVar != null && nVar.bes != null) {
+            this.bLd = nVar;
+            this.ajg = nVar.bes;
             nVar.sourceType = 0;
         }
     }
@@ -61,7 +61,7 @@ public class k extends j {
     }
 
     @Override // com.baidu.tieba.card.j
-    public void l(BdUniqueId bdUniqueId) {
-        super.l(bdUniqueId);
+    public void k(BdUniqueId bdUniqueId) {
+        super.k(bdUniqueId);
     }
 }

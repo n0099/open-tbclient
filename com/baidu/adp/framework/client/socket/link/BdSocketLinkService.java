@@ -20,6 +20,7 @@ import com.baidu.adp.framework.client.socket.i;
 import com.baidu.adp.lib.g.f;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.l;
 import com.baidu.adp.lib.webSocket.h;
 import com.baidu.adp.lib.webSocket.j;
 import com.baidu.adp.lib.webSocket.k;
@@ -104,7 +105,7 @@ public class BdSocketLinkService extends BdBaseService {
                 }
                 z = BdSocketLinkService.connStateCallBack.d(i, null);
             }
-            if (!z && i != 1 && com.baidu.adp.lib.util.k.hz()) {
+            if (!z && i != 1 && l.hy()) {
                 BdSocketLinkService.reConnStra.start("onClose:" + i + ":" + str);
             }
         }
@@ -135,7 +136,7 @@ public class BdSocketLinkService extends BdBaseService {
         mHandler.removeMessages(1);
         mHandler.sendEmptyMessageDelayed(1, com.baidu.adp.framework.c.c.du().dv().dw());
         try {
-            return h.hV().hW();
+            return h.hU().hV();
         } catch (Throwable th) {
             connCallback.e(-1001, "open error");
             BdLog.e(th.getMessage());
@@ -144,8 +145,8 @@ public class BdSocketLinkService extends BdBaseService {
     }
 
     public static void init() {
-        h.hV().a(com.baidu.adp.framework.client.socket.h.getUrl(), com.baidu.adp.framework.client.socket.h.cY(), null, com.baidu.adp.framework.client.socket.h.cZ());
-        h.hV().a(connCallback);
+        h.hU().a(com.baidu.adp.framework.client.socket.h.getUrl(), com.baidu.adp.framework.client.socket.h.cY(), null, com.baidu.adp.framework.client.socket.h.cZ());
+        h.hU().a(connCallback);
     }
 
     public static void close(String str) {
@@ -157,27 +158,27 @@ public class BdSocketLinkService extends BdBaseService {
             i.a(MODULE_NAME, 0, 0, IntentConfig.CLOSE, i, str);
             i.da();
             mHandler.removeMessages(1);
-            h.hV().close(i, str);
+            h.hU().close(i, str);
         }
     }
 
     public boolean isIdle() {
-        return h.hV().hX();
+        return h.hU().hW();
     }
 
     public static boolean sendMessage(com.baidu.adp.lib.webSocket.c cVar) {
-        if (cVar != null && h.hV().hY() && h.hV().hX()) {
-            return h.hV().sendMessage(cVar);
+        if (cVar != null && h.hU().hX() && h.hU().hW()) {
+            return h.hU().sendMessage(cVar);
         }
         return false;
     }
 
     public static boolean isClose() {
-        return (h.hV().hY() || h.hV().hZ()) ? false : true;
+        return (h.hU().hX() || h.hU().hY()) ? false : true;
     }
 
     public static boolean isOpen() {
-        return h.hV().hY();
+        return h.hU().hX();
     }
 
     public static boolean isAvailable() {
@@ -224,7 +225,7 @@ public class BdSocketLinkService extends BdBaseService {
                 BdLog.w("进行重连" + stringExtra);
                 close(stringExtra);
                 open(stringExtra);
-            } else if (!h.hV().hY() && !h.hV().hZ()) {
+            } else if (!h.hU().hX() && !h.hU().hY()) {
                 BdLog.w("进行连接" + stringExtra);
                 close(stringExtra);
                 open(stringExtra);

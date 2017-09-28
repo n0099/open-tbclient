@@ -1,54 +1,27 @@
 package com.baidu.tbadk.core.util;
 
-import android.text.TextUtils;
-import java.util.HashMap;
+import android.util.Log;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class as {
-    private static String ahN;
-    private static String ahO;
-    private static final HashMap<String, String> ahP = new HashMap<>();
+    private static String[] aho = {"com.baidu.tieba.write.accountAccess.AccountAccessActivityStatic", "com.baidu.tieba.write.WriteHelperStatic", "com.baidu.tieba.write.write.WriteActivityStatic", "com.baidu.tieba.write.bottomButton.WriteThreadFrsDeleagteStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.VideoCacheClient.VCacheClientStatic", "com.baidu.tieba.yunpush.PushStatic", "com.baidu.tieba.imMessageCenter.mention.TiebaRuningTaskStatic", "com.baidu.tieba.imMessageCenter.mention.MessageAggregationActivityStatic", "com.baidu.tieba.imMessageCenter.im.addFriend.AddFriendActivityStatic", "com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivityStatic", "com.baidu.tieba.imMessageCenter.im.friend.InviteFriendListActivityStatic", "com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivityStatic", "com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivityStatic", "com.baidu.tieba.imMessageCenter.im.chat.personaltalk.TaskRegisterStatic", "com.baidu.tieba.imMessageCenter.im.chat.PersonalMsgImageActivityStatic", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterActivityStatic", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterFragmentStatic", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic", "com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivityStatic", "com.baidu.tieba.imMessageCenter.im.stranger.PersonalMsglistAdapterStatic", "com.baidu.tieba.imMessageCenter.chatmessage.ChatMessageActivityStatic", "com.baidu.tieba.screenlocknotify.ScreenLockActivityStatic", "com.baidu.tieba.keepLive.KeepLiveStatic", "com.baidu.audiorecorder.lib.voice.RecorderManagerStatic", "com.baidu.tieba.pluginCenter.PluginCenterActivityStatic", "com.baidu.tieba.launcherGuide.tblauncher.GuideActivityStatic", "main.com.baidu.tieba.video.Static", "main.com.baidu.tieba.video.localvideo.LocalVideoActivityStatic", "com.baidu.tieba.imageProblem.cdnOptimize.Static", "com.baidu.tieba.nightResource.NightResourceStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.homepage.framework.RecommendFrsStatic", "com.baidu.tieba.frs.FrsActivityStatic", "com.baidu.tieba.frs.gametab.livetab.AlaGameFrsLiveTabStatic", "com.baidu.tieba.frs.SideBarViewAddDeskEntranceSwitchStatic", "com.baidu.tieba.frs.SideBarViewShareEntranceSwitchStatic", "com.baidu.tieba.im.db.Static", "com.baidu.tieba.im.AddMsgRecordStatic", "com.baidu.tieba.card.CardFromStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic", "com.baidu.tieba.homepage.HomePageStatic", "com.baidu.tieba.play.CustomPlayerSwitchStatic", "com.baidu.tieba.play.VCacheSwitchStatic", "com.baidu.tieba.tbadkCore.tiebaSwitchMsg.Static", "com.baidu.tieba.tbadkCore.tiebaStatMsg.Static", "com.baidu.tieba.likedForum.LikedForumStatic", "com.baidu.tbadk.pageStayDuration.PageStayDurationSwitchStatic", "com.baidu.tbadk.commonReceiver.ReceiverStatic", "com.baidu.tbadk.plugins.Static", "com.baidu.tbadk.coreExtra.messageCenter.Static", "com.baidu.tbadk.core.util.TiebaStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.kuang.KuangConfigStatic", "com.baidu.tieba.pb.pb.main.PbActivityStatic", "com.baidu.tieba.pb.pb.sub.SubPbActivityStatic", "com.baidu.tieba.pb.pb.praise.PraiseListActivityStatic", "com.baidu.tieba.pb.account.forbid.ForbidActivityStatic", "com.baidu.tieba.floatingLayer.FloatingLayerStatic", "com.baidu.tieba.emotion.PlugInFaceProviderStatic", "com.baidu.tieba.passaccount.framework.PassManagerStatic", "com.baidu.tieba.tblauncher.ClientStartStatic", "com.baidu.tieba.tblauncher.MainTabActivityStatic", "com.baidu.tieba.LogoActivityStatic", "com.baidu.tieba.discover.DiscoverFragmentStatic", "com.baidu.tieba.discover.DiscoverDelegateStatic", "com.baidu.tieba.exitAction.ExitAppActionStatic", "com.baidu.adp.lib.stats.BdStatisticsSwitchStatic", "com.baidu.tieba.person.PersonInfoActivityStatic", "com.baidu.tieba.personCenter.PersonCenterFragmentStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic", "com.baidu.tieba.square.recommend.DailyRecommendActivityStatic", "com.baidu.tieba.tblauncher.MainTabActivityStatic", "com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic", "com.baidu.tieba.emotion.BasePlugInFaceProviderStatic", "com.baidu.tieba.im.Static", "com.baidu.tbadk.TbLaunchStatic", "com.baidu.tieba.miniComponents.leftNavi.MiniLeftNaviStatic", "com.baidu.tieba.pb.pb.main.PbActivityStatic", "com.baidu.tieba.pb.pb.main.PbNormalLikeButtonSwitchStatic", "com.baidu.tieba.pb.video.VideoPbUserShowStyleSwitchStatic", "com.baidu.tieba.vote.VoteStatic", "com.baidu.tieba.frs.utils.BarDetailForFrsSwitchStatic", "com.baidu.tieba.frs.FrsActivityStatic", "com.baidu.tieba.frs.loadmore.FrsLoadMoreStatic", "com.baidu.tieba.account.AccountActivityStatic", "com.baidu.tieba.enterForum.home.EnterForumStatic", "com.baidu.tieba.enterForum.home.CoreSearchRequestStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.QuickPlayer.QuickPlayerStatic"};
 
-    public static void dY(String str) {
-        ahO = str;
-        if (TextUtils.isEmpty(str)) {
-            ahN = str;
-            return;
-        }
-        int lastIndexOf = str.lastIndexOf(".");
-        if (lastIndexOf != -1 && lastIndexOf + 1 < str.length()) {
-            str = str.substring(lastIndexOf + 1, str.length());
-        }
-        String str2 = "";
-        if (ahP != null) {
-            str2 = ahP.get(str);
-        }
-        if (str2 == null) {
-            str2 = dZ(str);
-            if (ahP != null) {
-                ahP.put(str, str2);
+    public static boolean loadStaticClasses() {
+        String[] strArr;
+        try {
+            if (aho.length <= 0) {
+                return false;
             }
-        }
-        if (str2 != null) {
-            ahN = str2 + System.currentTimeMillis();
-        }
-    }
-
-    private static String dZ(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            int length = str.length();
-            if ((str.toLowerCase().endsWith("activity") || str.toLowerCase().endsWith("fragment")) && length - 8 >= 0) {
-                return str.substring(0, length - 8);
+            for (String str : aho) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Class.forName(str);
+                Log.e("TiebaStaticClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));
             }
-            return str;
+            return true;
+        } catch (Throwable th) {
+            BdLog.e(th);
+            Log.e("TiebaStaticClassesArray", "init class failed. " + th.getMessage());
+            return false;
         }
-        return str;
-    }
-
-    public static String vZ() {
-        return ahN;
-    }
-
-    public static String wa() {
-        return ahO;
     }
 }

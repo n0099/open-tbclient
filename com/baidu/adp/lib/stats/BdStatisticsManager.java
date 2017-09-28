@@ -18,7 +18,7 @@ import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
 import com.baidu.adp.lib.stats.switchs.a;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.r;
+import com.baidu.adp.lib.util.s;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tieba.compatible.EditorHelper;
 import java.io.UnsupportedEncodingException;
@@ -60,10 +60,10 @@ public class BdStatisticsManager {
     private boolean isSwitchReady = false;
     private a.InterfaceC0006a mLogSwitchInitCallback = new a.InterfaceC0006a() { // from class: com.baidu.adp.lib.stats.BdStatisticsManager.2
         @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0006a
-        public void fS() {
+        public void fR() {
             BdStatisticsManager.this.isSwitchReady = true;
             if (BdStatisticsManager.this.mIsMainProcess) {
-                g.gI().gP();
+                g.gH().gO();
             }
             BdStatisticsManager.mHandler.removeMessages(2);
             BdStatisticsManager.mHandler.sendMessageDelayed(BdStatisticsManager.mHandler.obtainMessage(2), 15000L);
@@ -91,10 +91,10 @@ public class BdStatisticsManager {
         this.mNotUploadWriteFileDir = this.mWriteFileDir + "/notUpload";
         this.mIsMainProcess = z;
         this.mBdLogSetting = bVar;
-        com.baidu.adp.lib.Disk.d.dI().I(str2);
-        com.baidu.adp.lib.stats.switchs.a.gA().a(z, str, this.mContext, this.mLogSwitchInitCallback);
-        com.baidu.adp.lib.stats.upload.b.gG().a(cVar, str4);
-        g.gI().init();
+        com.baidu.adp.lib.Disk.d.dH().I(str2);
+        com.baidu.adp.lib.stats.switchs.a.gz().a(z, str, this.mContext, this.mLogSwitchInitCallback);
+        com.baidu.adp.lib.stats.upload.b.gF().a(cVar, str4);
+        g.gH().init();
         if (cVar != null) {
             this.mAppVersion = cVar.mAppVersion;
         }
@@ -119,7 +119,7 @@ public class BdStatisticsManager {
     }
 
     public long getClientLogId() {
-        return com.baidu.adp.lib.stats.a.a.gz().getClientLogId();
+        return com.baidu.adp.lib.stats.a.a.gy().getClientLogId();
     }
 
     private String getProcessNameMd5() {
@@ -140,7 +140,7 @@ public class BdStatisticsManager {
                     String str = runningAppProcesses.get(i2).processName;
                     if (!TextUtils.isEmpty(str)) {
                         try {
-                            String md5 = r.toMd5(str.getBytes("UTF-8"));
+                            String md5 = s.toMd5(str.getBytes("UTF-8"));
                             if (!TextUtils.isEmpty(md5) && md5.length() > 8) {
                                 return md5.substring(md5.length() - 8);
                             }
@@ -170,17 +170,17 @@ public class BdStatisticsManager {
     }
 
     public String getUid() {
-        return g.gI().getUid();
+        return g.gH().getUid();
     }
 
     public void setUid(String str) {
         if (!TextUtils.isEmpty(str)) {
-            g.gI().setUid(str);
+            g.gH().setUid(str);
         }
     }
 
     public void setUser(String str, String str2, String str3) {
-        com.baidu.adp.lib.stats.upload.b.gG().setUser(str, str2, str3);
+        com.baidu.adp.lib.stats.upload.b.gF().setUser(str, str2, str3);
     }
 
     public String getAppVersion() {
@@ -188,7 +188,7 @@ public class BdStatisticsManager {
     }
 
     public void save() {
-        g.gI().gJ();
+        g.gH().gI();
     }
 
     public boolean isMainProcess() {
@@ -198,7 +198,7 @@ public class BdStatisticsManager {
     public void addEntryToTmpSwitchConfDic(String str, String str2, BdUploadStatMsgData bdUploadStatMsgData) {
         if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && bdUploadStatMsgData != null) {
             forceUploadAllLogIgnoreSwitch();
-            com.baidu.adp.lib.stats.switchs.a.gA().a(str, str2, bdUploadStatMsgData);
+            com.baidu.adp.lib.stats.switchs.a.gz().a(str, str2, bdUploadStatMsgData);
         }
     }
 
@@ -212,7 +212,7 @@ public class BdStatisticsManager {
             if (intent != null) {
                 String action = intent.getAction();
                 if ("com.baidu.adp.stats.uploadallfile".equals(action) && !BdStatisticsManager.this.mIsMainProcess) {
-                    g.gI().gM();
+                    g.gH().gL();
                 }
                 if ("com.baidu.adp.stats.upload.alertlog".equals(action) && BdStatisticsManager.this.mIsMainProcess) {
                     Bundle extras = intent.getExtras();
@@ -227,15 +227,15 @@ public class BdStatisticsManager {
     }
 
     public void saveAndUploadlog(String str) {
-        g.gI().d(g.gI().q(str, null));
+        g.gH().d(g.gH().q(str, null));
     }
 
     public void forceUploadAllLog() {
-        g.gI().gK();
+        g.gH().gJ();
     }
 
     public void forceUploadAllLogIgnoreSwitch() {
-        g.gI().gM();
+        g.gH().gL();
         if (this.mIsMainProcess) {
             Intent intent = new Intent("com.baidu.adp.stats.uploadallfile");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -245,7 +245,7 @@ public class BdStatisticsManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkLogToUpload() {
-        g.gI().gO();
+        g.gH().gN();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -266,7 +266,7 @@ public class BdStatisticsManager {
 
     public void performance(String str, com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
-            Address b = com.baidu.adp.lib.d.a.fd().b(false, false);
+            Address b = com.baidu.adp.lib.d.a.fc().b(false, false);
             if (b != null) {
                 aVar.p("location", b.getLocality());
             }
@@ -324,9 +324,9 @@ public class BdStatisticsManager {
     }
 
     private void alert(String str, String str2, Object[] objArr) {
-        if (com.baidu.adp.lib.stats.switchs.a.gA().isUpload("alert", str) && !checkUploadRecently(str)) {
+        if (com.baidu.adp.lib.stats.switchs.a.gz().isUpload("alert", str) && !checkUploadRecently(str)) {
             setUploadTime(str);
-            com.baidu.adp.lib.stats.base.a q = g.gI().q("alert", null);
+            com.baidu.adp.lib.stats.base.a q = g.gH().q("alert", null);
             com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("alert");
             aVar.p("module", "alert");
             if (!TextUtils.isEmpty(str)) {
@@ -341,7 +341,7 @@ public class BdStatisticsManager {
             }
             q.a(aVar);
             BdLog.i("alert item = " + aVar.toString());
-            com.baidu.adp.lib.stats.upload.b.gG().a(q, aVar.toString());
+            com.baidu.adp.lib.stats.upload.b.gF().a(q, aVar.toString());
         }
     }
 
@@ -349,7 +349,7 @@ public class BdStatisticsManager {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return System.currentTimeMillis() - getConfig().getLong(str, 0L) < ((long) (((com.baidu.adp.lib.stats.switchs.a.gA().geUploadCycle(str, 24) * 60) * 60) * 1000));
+        return System.currentTimeMillis() - getConfig().getLong(str, 0L) < ((long) (((com.baidu.adp.lib.stats.switchs.a.gz().geUploadCycle(str, 24) * 60) * 60) * 1000));
     }
 
     private void setUploadTime(String str) {
@@ -381,18 +381,18 @@ public class BdStatisticsManager {
     }
 
     private void addLog(String str, String str2, long j, String str3, com.baidu.adp.lib.stats.a aVar, Object... objArr) {
-        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !e.fW().ao(str)) {
+        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !e.fV().ao(str)) {
             if (j == -1) {
-                g.gI().a(str, str2, null, str3, aVar, objArr);
+                g.gH().a(str, str2, null, str3, aVar, objArr);
             } else {
-                g.gI().a(str, str2, String.valueOf(j), str3, aVar, objArr);
+                g.gH().a(str, str2, String.valueOf(j), str3, aVar, objArr);
             }
         }
     }
 
     public void log(String str, Object... objArr) {
-        com.baidu.adp.lib.stats.base.a q = g.gI().q(str, null);
-        if (q != null && com.baidu.adp.lib.stats.switchs.a.gA().isWrite(str, null)) {
+        com.baidu.adp.lib.stats.base.a q = g.gH().q(str, null);
+        if (q != null && com.baidu.adp.lib.stats.switchs.a.gz().isWrite(str, null)) {
             com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a(str);
             if (objArr != null && objArr.length > 0) {
                 aVar.c(objArr);
@@ -430,37 +430,37 @@ public class BdStatisticsManager {
     }
 
     public void file(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.fW().ao("file")) {
+        if (!e.fV().ao("file")) {
             op(true, "file", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void db(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.fW().ao("db")) {
+        if (!e.fV().ao("db")) {
             op(true, "db", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void imgErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.fW().ao("img")) {
+        if (!e.fV().ao("img")) {
             op(true, "img", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void voiceErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.fW().ao("voice")) {
+        if (!e.fV().ao("voice")) {
             op(true, "voice", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void liveErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.fW().ao("live")) {
+        if (!e.fV().ao("live")) {
             op(true, "live", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void aladinPortErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.fW().ao("aladin_port_error")) {
+        if (!e.fV().ao("aladin_port_error")) {
             op(true, "aladin_port_error", str, str2, 0L, i, str3, objArr);
         }
     }

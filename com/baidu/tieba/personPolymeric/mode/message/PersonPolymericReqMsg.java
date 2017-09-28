@@ -1,17 +1,17 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.h;
-import com.baidu.tbadk.util.n;
-import com.baidu.tieba.personPolymeric.c.o;
+import com.baidu.tbadk.util.m;
+import com.baidu.tieba.person.b;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
 /* loaded from: classes.dex */
 public class PersonPolymericReqMsg extends NetMessage {
-    private o mPersonPolymericData;
+    private b mPersonCenterData;
     private int pn;
     private long uid;
 
@@ -35,12 +35,12 @@ public class PersonPolymericReqMsg extends NetMessage {
         return this.pn;
     }
 
-    public void setPersonPolymericData(o oVar) {
-        this.mPersonPolymericData = oVar;
+    public void setPersonCenterData(b bVar) {
+        this.mPersonCenterData = bVar;
     }
 
-    public o getPersonPolymericData() {
-        return this.mPersonPolymericData;
+    public b getPersonCenterData() {
+        return this.mPersonCenterData;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -48,12 +48,12 @@ public class PersonPolymericReqMsg extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.uid = Long.valueOf(this.uid);
         builder.pn = Integer.valueOf(this.pn);
-        builder.scr_w = Integer.valueOf(k.ae(TbadkCoreApplication.getInst().getApp()));
-        builder.scr_h = Integer.valueOf(k.af(TbadkCoreApplication.getInst().getApp()));
-        builder.q_type = Integer.valueOf(h.oS().getViewImageQuality());
-        builder.scr_dip = Double.valueOf(k.ag(TbadkCoreApplication.getInst().getApp()));
+        builder.scr_w = Integer.valueOf(l.ad(TbadkCoreApplication.getInst().getApp()));
+        builder.scr_h = Integer.valueOf(l.af(TbadkCoreApplication.getInst().getApp()));
+        builder.q_type = Integer.valueOf(h.oT().getViewImageQuality());
+        builder.scr_dip = Double.valueOf(l.ag(TbadkCoreApplication.getInst().getApp()));
         if (z) {
-            n.bindCommonParamsToProtobufData(builder, true);
+            m.bindCommonParamsToProtobufData(builder, true);
         }
         PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
         builder2.data = builder.build(false);

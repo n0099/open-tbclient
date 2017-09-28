@@ -6,11 +6,11 @@ import android.widget.FrameLayout;
 import com.baidu.adp.widget.IndicatorView;
 /* loaded from: classes.dex */
 public class c {
-    private int acm;
     private int acn;
     private int aco;
     private int acp;
     private int acq;
+    private int acr;
     private int gravity;
 
     public final void setGravity(int i) {
@@ -18,54 +18,54 @@ public class c {
     }
 
     public final void cv(int i) {
-        this.acm = i;
-    }
-
-    public int tI() {
-        return this.acm;
-    }
-
-    public int tJ() {
-        return this.acn;
-    }
-
-    public final void cw(int i) {
         this.acn = i;
     }
 
-    public final void setSpacing(int i) {
+    public int tC() {
+        return this.acn;
+    }
+
+    public int tD() {
+        return this.aco;
+    }
+
+    public final void cw(int i) {
         this.aco = i;
     }
 
-    public final void cx(int i) {
+    public final void setSpacing(int i) {
         this.acp = i;
     }
 
-    public void cy(int i) {
+    public final void cx(int i) {
         this.acq = i;
+    }
+
+    public void cy(int i) {
+        this.acr = i;
     }
 
     public void g(IndicatorView indicatorView) {
         Resources resources;
         if (indicatorView != null && (resources = indicatorView.getResources()) != null) {
-            if (this.aco > 0) {
-                indicatorView.setSpacing(resources.getDimensionPixelSize(this.aco));
-            }
-            if (this.acm > 0) {
-                indicatorView.setDrawable(resources.getDrawable(this.acm));
+            if (this.acp > 0) {
+                indicatorView.setSpacing(resources.getDimensionPixelSize(this.acp));
             }
             if (this.acn > 0) {
-                indicatorView.setSelector(resources.getDrawable(this.acn));
+                indicatorView.setDrawable(resources.getDrawable(this.acn));
+            }
+            if (this.aco > 0) {
+                indicatorView.setSelector(resources.getDrawable(this.aco));
             }
             ViewGroup.LayoutParams layoutParams = indicatorView.getLayoutParams();
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
                 layoutParams2.gravity = this.gravity;
-                if (this.acp > 0) {
-                    layoutParams2.bottomMargin = resources.getDimensionPixelSize(this.acp);
-                }
                 if (this.acq > 0) {
-                    layoutParams2.rightMargin = resources.getDimensionPixelSize(this.acq);
+                    layoutParams2.bottomMargin = resources.getDimensionPixelSize(this.acq);
+                }
+                if (this.acr > 0) {
+                    layoutParams2.rightMargin = resources.getDimensionPixelSize(this.acr);
                 }
                 indicatorView.setLayoutParams(layoutParams);
             }

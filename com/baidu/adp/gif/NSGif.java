@@ -2,20 +2,20 @@ package com.baidu.adp.gif;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import com.baidu.adp.lib.util.g;
 import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class NSGif implements b {
-    public static boolean qI = g.gU().a("nsgif_jni", 2, new h() { // from class: com.baidu.adp.gif.NSGif.2
-        @Override // com.baidu.adp.lib.util.h
+    public static boolean qJ = h.gT().a("nsgif_jni", 2, new i() { // from class: com.baidu.adp.gif.NSGif.2
+        @Override // com.baidu.adp.lib.util.i
         public void p(boolean z) {
-            NSGif.qI = z;
+            NSGif.qJ = z;
         }
     });
     private final int mFrameCount;
     private final int mHeight;
     private final int mWidth;
-    private int qJ;
+    private int qK;
 
     private static native int nativeCreate(String str);
 
@@ -37,7 +37,7 @@ public class NSGif implements b {
     private static native boolean nativeWriteTo(int i, Bitmap bitmap);
 
     private NSGif(int i) {
-        this.qJ = i;
+        this.qK = i;
         this.mWidth = nativeGetWidth(i);
         this.mHeight = nativeGetHeight(i);
         this.mFrameCount = nativeGetFrameCount(i);
@@ -61,10 +61,10 @@ public class NSGif implements b {
 
     @Override // com.baidu.adp.gif.b
     public void close() {
-        if (this.qJ != 0) {
-            final int i = this.qJ;
-            this.qJ = 0;
-            com.baidu.adp.lib.g.h.fR().c(new Runnable() { // from class: com.baidu.adp.gif.NSGif.1
+        if (this.qK != 0) {
+            final int i = this.qK;
+            this.qK = 0;
+            com.baidu.adp.lib.g.h.fQ().c(new Runnable() { // from class: com.baidu.adp.gif.NSGif.1
                 @Override // java.lang.Runnable
                 public void run() {
                     NSGif.nativeDestroy(i);
@@ -92,13 +92,13 @@ public class NSGif implements b {
     }
 
     @Override // com.baidu.adp.gif.b
-    public int dE() {
+    public int getFrameCount() {
         return this.mFrameCount;
     }
 
     @Override // com.baidu.adp.gif.b
     public int U(int i) {
-        int nativeGetFrameDelay = nativeGetFrameDelay(this.qJ, i);
+        int nativeGetFrameDelay = nativeGetFrameDelay(this.qK, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
         }
@@ -107,7 +107,7 @@ public class NSGif implements b {
 
     @Override // com.baidu.adp.gif.b
     public boolean T(int i) {
-        return nativeDecodeFrame(this.qJ, i);
+        return nativeDecodeFrame(this.qK, i);
     }
 
     @Override // com.baidu.adp.gif.b
@@ -115,6 +115,6 @@ public class NSGif implements b {
         if (bitmap == null) {
             return false;
         }
-        return nativeWriteTo(this.qJ, bitmap);
+        return nativeWriteTo(this.qK, bitmap);
     }
 }

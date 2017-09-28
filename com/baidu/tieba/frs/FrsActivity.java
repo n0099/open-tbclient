@@ -11,22 +11,22 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 /* loaded from: classes.dex */
 public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsCommonImageLayout.c {
-    private com.baidu.tieba.frs.gametab.b cpr;
+    private com.baidu.tieba.frs.gametab.b cpQ;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cpr = new com.baidu.tieba.frs.gametab.b(this);
-        this.cpr.init(bundle);
+        this.cpQ = new com.baidu.tieba.frs.gametab.b(this);
+        this.cpQ.init(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.cpr != null) {
-            this.cpr.onNewIntent(intent);
+        if (this.cpQ != null) {
+            this.cpQ.onNewIntent(intent);
         }
     }
 
@@ -34,8 +34,8 @@ public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c,
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.cpr != null) {
-            this.cpr.onResume();
+        if (this.cpQ != null) {
+            this.cpQ.onResume();
         }
     }
 
@@ -43,8 +43,8 @@ public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c,
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.cpr != null) {
-            this.cpr.onPause();
+        if (this.cpQ != null) {
+            this.cpQ.onPause();
         }
     }
 
@@ -52,15 +52,15 @@ public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c,
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.cpr != null) {
-            this.cpr.onSaveInstanceState(bundle);
+        if (this.cpQ != null) {
+            this.cpQ.onSaveInstanceState(bundle);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.cpr != null) {
-            this.cpr.onChangeSkinType(i);
+        if (this.cpQ != null) {
+            this.cpQ.onChangeSkinType(i);
         }
     }
 
@@ -71,7 +71,7 @@ public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c,
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return this.cpr != null ? this.cpr.onKeyDown(i, keyEvent) : super.onKeyDown(i, keyEvent);
+        return this.cpQ != null ? this.cpQ.onKeyDown(i, keyEvent) : super.onKeyDown(i, keyEvent);
     }
 
     public boolean a(int i, KeyEvent keyEvent) {
@@ -81,15 +81,15 @@ public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c,
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.cpr != null) {
-            this.cpr.onActivityResult(i, i2, intent);
+        if (this.cpQ != null) {
+            this.cpQ.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.cpr != null) {
-            return this.cpr.getVoiceManager();
+        if (this.cpQ != null) {
+            return this.cpQ.getVoiceManager();
         }
         return null;
     }
@@ -101,37 +101,37 @@ public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c,
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
     public void a(int i, com.baidu.tieba.InjectPlugin.a.a aVar) {
-        if (this.cpr instanceof com.baidu.tieba.InjectPlugin.a.b) {
-            this.cpr.a(i, aVar);
+        if (this.cpQ instanceof com.baidu.tieba.InjectPlugin.a.b) {
+            this.cpQ.a(i, aVar);
         }
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
-    public com.baidu.tieba.InjectPlugin.a.a fJ(int i) {
-        if (this.cpr instanceof com.baidu.tieba.InjectPlugin.a.b) {
-            return this.cpr.fJ(i);
+    public com.baidu.tieba.InjectPlugin.a.a fW(int i) {
+        if (this.cpQ instanceof com.baidu.tieba.InjectPlugin.a.b) {
+            return this.cpQ.fW(i);
         }
         return null;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
     public void a(com.baidu.tieba.InjectPlugin.b bVar) {
-        if (this.cpr instanceof com.baidu.tieba.InjectPlugin.a.b) {
-            this.cpr.a(bVar);
+        if (this.cpQ instanceof com.baidu.tieba.InjectPlugin.a.b) {
+            this.cpQ.a(bVar);
         }
     }
 
-    public f agB() {
-        if (this.cpr == null) {
+    public f agy() {
+        if (this.cpQ == null) {
             return null;
         }
-        return this.cpr.agB();
+        return this.cpQ.agy();
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.e.b<TbImageView> agC() {
-        if (this.cpr != null) {
-            return this.cpr.agC();
+    public com.baidu.adp.lib.e.b<TbImageView> agz() {
+        if (this.cpQ != null) {
+            return this.cpQ.agz();
         }
         return null;
     }

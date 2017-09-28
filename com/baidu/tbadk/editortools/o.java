@@ -8,10 +8,10 @@ public class o extends r {
     public o(Context context) {
         super(context, null, 2, 0);
         this.name = TbadkCoreApplication.getInst().getString(d.l.more_function);
-        this.aBZ = d.g.selector_more_tool_btn;
-        this.aBn = new m(context);
-        this.aCd = true;
-        this.aCc = 6;
-        this.aCe = new int[]{1};
+        this.aBt = d.g.selector_more_tool_btn;
+        this.aAH = new m(context);
+        this.aBx = true;
+        this.aBw = 6;
+        this.aBy = new int[]{1};
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.tieba.face;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
-import com.baidu.tieba.face.data.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -11,7 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
-    private a mData;
+    private com.baidu.tieba.face.data.a mData;
 
     public SearchEmotionResponseMessage(int i) {
         super(i);
@@ -21,14 +20,14 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
-        if (statusCode == 200 && error >= 0 && jSONObject != null) {
-            this.mData = new a();
+        if (statusCode == 200 && error == 0 && jSONObject != null) {
+            this.mData = new com.baidu.tieba.face.data.a();
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
             if (optJSONObject != null) {
                 this.mData.setPage(optJSONObject.optInt("current_pn"));
                 this.mData.setHasMore(optJSONObject.optInt("has_more"));
             }
-            this.mData.ay(parseImageData(jSONObject.optJSONArray(IntentConfig.LIST)));
+            this.mData.ax(parseImageData(jSONObject.optJSONArray(IntentConfig.LIST)));
         }
     }
 
@@ -55,7 +54,7 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
         return arrayList;
     }
 
-    public a getData() {
+    public com.baidu.tieba.face.data.a getData() {
         return this.mData;
     }
 }

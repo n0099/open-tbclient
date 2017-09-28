@@ -9,28 +9,28 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class g {
-    private static g dwi;
+    private static g dsy;
 
-    public static g awu() {
-        if (dwi == null) {
+    public static g avf() {
+        if (dsy == null) {
             synchronized (g.class) {
-                if (dwi == null) {
-                    dwi = new g();
+                if (dsy == null) {
+                    dsy = new g();
                 }
             }
         }
-        return dwi;
+        return dsy;
     }
 
-    public void awv() {
-        SQLiteDatabase aws = f.aws();
-        if (aws != null) {
-            if (aws.inTransaction()) {
+    public void avg() {
+        SQLiteDatabase avd = f.avd();
+        if (avd != null) {
+            if (avd.inTransaction()) {
                 BdLog.e("there is exist transaction");
                 return;
             }
             try {
-                aws.beginTransaction();
+                avd.beginTransaction();
                 BdLog.i("db.beginTransaction");
             } catch (Exception e) {
                 TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
@@ -40,13 +40,13 @@ public class g {
     }
 
     public void endTransaction() {
-        SQLiteDatabase aws = f.aws();
-        if (aws != null) {
+        SQLiteDatabase avd = f.avd();
+        if (avd != null) {
             BdLog.i("begin commit transaction");
-            if (aws.inTransaction()) {
+            if (avd.inTransaction()) {
                 try {
-                    aws.setTransactionSuccessful();
-                    aws.endTransaction();
+                    avd.setTransactionSuccessful();
+                    avd.endTransaction();
                     return;
                 } catch (Exception e) {
                     TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
@@ -58,13 +58,13 @@ public class g {
         }
     }
 
-    public boolean mB(String str) {
-        SQLiteDatabase aws = f.aws();
-        if (aws == null) {
+    public boolean mf(String str) {
+        SQLiteDatabase avd = f.avd();
+        if (avd == null) {
             return false;
         }
         try {
-            aws.execSQL(str);
+            avd.execSQL(str);
             return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -73,12 +73,12 @@ public class g {
     }
 
     public Cursor rawQuery(String str, String[] strArr) {
-        SQLiteDatabase aws = f.aws();
-        if (aws == null) {
+        SQLiteDatabase avd = f.avd();
+        if (avd == null) {
             return null;
         }
         try {
-            return aws.rawQuery(str, strArr);
+            return avd.rawQuery(str, strArr);
         } catch (Exception e) {
             BdLog.e(e.getMessage() + str);
             return null;
@@ -86,12 +86,12 @@ public class g {
     }
 
     public boolean a(String str, String str2, String[] strArr) {
-        SQLiteDatabase aws = f.aws();
-        if (aws == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase avd = f.avd();
+        if (avd == null || TextUtils.isEmpty(str)) {
             return false;
         }
         try {
-            return aws.delete(str, str2, strArr) > 0;
+            return avd.delete(str, str2, strArr) > 0;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
@@ -99,12 +99,12 @@ public class g {
     }
 
     public int update(String str, ContentValues contentValues, String str2, String[] strArr) {
-        SQLiteDatabase aws = f.aws();
-        if (aws == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase avd = f.avd();
+        if (avd == null || TextUtils.isEmpty(str)) {
             return -1;
         }
         try {
-            return aws.update(str, contentValues, str2, strArr);
+            return avd.update(str, contentValues, str2, strArr);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return -1;
@@ -124,12 +124,12 @@ public class g {
     }
 
     public long insert(String str, String str2, ContentValues contentValues) {
-        SQLiteDatabase aws = f.aws();
-        if (aws == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase avd = f.avd();
+        if (avd == null || TextUtils.isEmpty(str)) {
             return -1L;
         }
         try {
-            return aws.insert(str, str2, contentValues);
+            return avd.insert(str, str2, contentValues);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return -1L;
@@ -137,12 +137,12 @@ public class g {
     }
 
     public SQLiteStatement compileStatement(String str) {
-        SQLiteDatabase aws;
-        if (TextUtils.isEmpty(str) || (aws = f.aws()) == null) {
+        SQLiteDatabase avd;
+        if (TextUtils.isEmpty(str) || (avd = f.avd()) == null) {
             return null;
         }
         try {
-            return aws.compileStatement(str);
+            return avd.compileStatement(str);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;

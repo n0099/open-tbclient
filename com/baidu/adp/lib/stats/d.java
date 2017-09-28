@@ -1,20 +1,20 @@
 package com.baidu.adp.lib.stats;
 
 import android.content.Context;
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class d {
     public static String ab(Context context) {
         if (context == null) {
             return null;
         }
-        if (i.hj()) {
+        if (j.hi()) {
             return "WIFI";
         }
-        if (i.hk()) {
-            int hr = i.hr();
+        if (j.hj()) {
+            int hq = j.hq();
             StringBuilder sb = new StringBuilder();
-            switch (hr) {
+            switch (hq) {
                 case 1:
                     sb.append('M');
                     break;
@@ -28,16 +28,16 @@ public class d {
                     sb.append('N');
                     break;
             }
-            if (i.isWap()) {
+            if (j.isWap()) {
                 sb.append("_WAP_");
             } else {
                 sb.append("_NET_");
             }
-            if (i.hm()) {
+            if (j.hl()) {
                 sb.append("3G");
-            } else if (i.hl()) {
+            } else if (j.hk()) {
                 sb.append("4G");
-            } else if (i.hn()) {
+            } else if (j.hm()) {
                 sb.append("2G");
             } else {
                 sb.append('N');

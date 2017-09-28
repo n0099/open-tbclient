@@ -1,138 +1,163 @@
 package com.baidu.tieba.frs.mc;
 
-import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
-import com.baidu.tieba.frs.smartsort.FrsSmartLoadMoreModel;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tieba.d;
+import com.baidu.tieba.frs.z;
+import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
+import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
+import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import java.util.ArrayList;
-import java.util.List;
+import tbclient.GetMyPost.GetMyPostResIdl;
+import tbclient.GetMyPost.User_Info;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes.dex */
-public class d {
-    private final FrsLoadMoreModel cDW;
-    private final FrsSmartLoadMoreModel cDX;
-    private final com.baidu.tieba.frs.i cpW;
-    private final FrsModelController cqf;
-    private final com.baidu.tieba.frs.f cws;
+public class d extends h {
+    private final com.baidu.adp.framework.listener.a bTR;
+    private final CustomMessageListener cFo;
+    private final CustomMessageListener cFp;
 
-    public d(com.baidu.tieba.frs.f fVar, j jVar) {
-        if (fVar == null) {
-            throw new NullPointerException("FrsFragment is NullPointerException");
-        }
-        this.cws = fVar;
-        this.cDW = new FrsLoadMoreModel(fVar, jVar);
-        this.cDX = new FrsSmartLoadMoreModel(fVar, jVar);
-        this.cpW = fVar.agY();
-        this.cqf = fVar.agT();
-        this.cDX.setSortType(this.cqf.OE());
-        this.cDW.setSortType(this.cqf.OE());
-    }
-
-    public ArrayList<com.baidu.adp.widget.ListView.f> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.f> arrayList, com.baidu.tieba.tbadkCore.data.e eVar) {
-        return a(z, z2, arrayList, eVar, false);
-    }
-
-    public ArrayList<com.baidu.adp.widget.ListView.f> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.f> arrayList, com.baidu.tieba.tbadkCore.data.e eVar, boolean z3) {
-        if (this.cqf != null) {
-            boolean alc = this.cws.agT().alc();
-            if (this.cqf.ald()) {
-                return this.cDX.a(z, alc, arrayList, z3);
-            }
-            return this.cDW.a(z, alc, z2, arrayList, eVar);
-        }
-        return arrayList;
-    }
-
-    public void resetData() {
-        if (this.cqf != null) {
-            if (this.cqf.ald()) {
-                this.cDX.resetData();
-            } else {
-                this.cDW.resetData();
-            }
-        }
-    }
-
-    public boolean aO(List<Long> list) {
-        if (this.cqf == null || this.cqf.ald()) {
-            return false;
-        }
-        return this.cDW.aO(list);
-    }
-
-    public void a(String str, String str2, com.baidu.tieba.tbadkCore.i iVar) {
-        if (this.cqf != null && this.cpW != null && iVar != null) {
-            if (this.cqf.ald()) {
-                if (this.cDX.agZ() == 1 && !this.cqf.xa()) {
-                    this.cDX.setSortType(this.cqf.OE());
-                    this.cpW.a(this.cDX.getDataList(), iVar);
-                    int pn = this.cDX.getPn();
-                    this.cDX.setPn(pn);
-                    this.cqf.ju(pn + 1);
+    public d(com.baidu.tieba.frs.f fVar) {
+        super(fVar);
+        this.cFo = new CustomMessageListener(CmdConfigCustom.CMD_VIDEO_WRITE_POST_SUCCESS) { // from class: com.baidu.tieba.frs.mc.d.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
+                    d.this.b((PostWriteCallBackData) customResponsedMessage.getData());
                 }
-            } else if (this.cqf.akT() == 1) {
-                if (!this.cDW.isLoading && !this.cqf.xa()) {
-                    int pn2 = this.cDW.getPn();
-                    if (this.cDW.aO(iVar.bqI())) {
-                        this.cpW.a(this.cDW.ajV(), iVar);
-                        this.cDW.setSortType(this.cqf.OE());
-                        this.cDW.a(com.baidu.adp.lib.g.b.c(str2, 0L), iVar.bqI(), str, pn2);
-                    } else if (this.cDW.agZ() == 1) {
-                        this.cpW.a(this.cDW.ajV(), iVar);
-                        this.cDW.setPn(pn2);
-                        this.cqf.ju(pn2 + 1);
-                        this.cDW.loadingDone = false;
-                        this.cDW.loadIndex = 0;
+            }
+        };
+        this.cFp = new CustomMessageListener(CmdConfigCustom.PB_DELETE_THREAD) { // from class: com.baidu.tieba.frs.mc.d.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+                    String str = (String) customResponsedMessage.getData();
+                    if (!StringUtils.isNull(str) && d.this.cxi.ahk() != null) {
+                        com.baidu.tieba.tbadkCore.i ahk = d.this.cxi.ahk();
+                        ahk.ai(ahk.rH(str));
+                        d.this.cqt.a(ahk.getThreadList(), ahk);
+                        if (com.baidu.tieba.tbadkCore.c.bpq() != null) {
+                            com.baidu.tieba.tbadkCore.c.bpq().Y(d.this.cxi.getForumName(), false);
+                        }
                     }
                 }
-            } else if (!this.cqf.akW()) {
-                this.cqf.Zv();
+            }
+        };
+        this.bTR = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.frs.mc.d.3
+            @Override // com.baidu.adp.framework.listener.a
+            public void onMessage(ResponsedMessage<?> responsedMessage) {
+                String errorString;
+                String errorString2;
+                if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
+                    GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
+                    if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
+                        errorString2 = d.this.cxi.getResources().getString(d.l.neterror);
+                    } else {
+                        errorString2 = getMyPostHttpResponseMessage.getErrorString();
+                    }
+                    d.this.a(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
+                } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
+                    GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
+                    if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
+                        errorString = d.this.cxi.getResources().getString(d.l.neterror);
+                    } else {
+                        errorString = getMyPostSocketResponseMessage.getErrorString();
+                    }
+                    d.this.a(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
+                }
+            }
+        };
+        this.bTR.getSocketMessageListener().setSelfListener(true);
+        this.bTR.getHttpMessageListener().setSelfListener(true);
+        this.cFp.setSelfListener(false);
+        fVar.registerListener(this.cFp);
+        this.cxi.registerListener(this.bTR);
+        this.cxi.registerListener(this.cFo);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i, String str, GetMyPostResIdl getMyPostResIdl) {
+        if (i != 0) {
+            this.cxi.showToast(str);
+            return;
+        }
+        com.baidu.tieba.tbadkCore.i ahk = this.cxi.ahk();
+        if (ahk != null && ahk.aMZ() != null && getMyPostResIdl != null && this.cqt != null && this.cqC != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
+            am amVar = new am();
+            ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
+            User.Builder builder2 = new User.Builder(builder.author);
+            a(builder2, getMyPostResIdl.data.user_info);
+            builder.author = builder2.build(true);
+            builder.cheak_repeat = 1;
+            builder.fname = ahk.aMZ().getName();
+            amVar.a(builder.build(true));
+            amVar.bY(3);
+            this.cqC.a(amVar);
+            ArrayList<com.baidu.adp.widget.ListView.f> a = this.cFD.a(false, true, ahk.getThreadList(), null);
+            if (a != null) {
+                ahk.az(a);
+                ahk.bqq();
+                this.cqt.a(a, ahk);
+                this.cqt.jf(0);
             }
         }
     }
 
-    public int agZ() {
-        if (this.cqf == null) {
-            return -1;
+    private void a(User.Builder builder, User_Info user_Info) {
+        if (user_Info != null) {
+            builder.id = user_Info.id;
+            builder.gender = user_Info.gender;
+            builder.type = user_Info.type;
+            builder.name = user_Info.name;
+            builder.name_show = user_Info.name_show;
+            builder.portrait = TbadkCoreApplication.getCurrentPortrait();
+            builder.god_data = user_Info.god_data;
+            builder.fans_num = user_Info.fans_num;
         }
-        if (this.cqf.ald()) {
-            return this.cDX.agZ();
-        }
-        return this.cDW.agZ();
     }
 
-    public void setHasMore(int i) {
-        if (this.cqf != null) {
-            if (this.cqf.ald()) {
-                this.cDX.setHasMore(i);
-            } else {
-                this.cDW.setHasMore(i);
+    public void b(PostWriteCallBackData postWriteCallBackData) {
+        if (this.cqC != null) {
+            if (this.cqC.ald() == 2 || this.cqC.ald() == 3 || this.cqC.ald() == 7) {
+                int akV = this.cqC.akV();
+                if (z.aib().jh(1) == null) {
+                    akV = 0;
+                }
+                if (akV == 0 && postWriteCallBackData != null) {
+                    final long c = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getPostId(), 0L);
+                    final long c2 = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getThreadId(), 0L);
+                    final long c3 = com.baidu.adp.lib.g.b.c(this.cxi.getForumId(), 0L);
+                    if (c != 0 && c2 != 0 && c3 != 0) {
+                        com.baidu.adp.lib.g.e.fP().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.mc.d.4
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                int ad = l.ad(TbadkCoreApplication.getInst());
+                                int af = l.af(TbadkCoreApplication.getInst());
+                                float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
+                                int i = 1;
+                                if (an.vs().vu()) {
+                                    i = 2;
+                                }
+                                RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
+                                requestGetMyPostNetMessage.setParams(c2, c, c3, ad, af, f, i);
+                                d.this.cxi.sendMessage(requestGetMyPostNetMessage);
+                            }
+                        }, 1000L);
+                    }
+                }
             }
         }
-    }
-
-    public int getPn() {
-        if (this.cqf == null) {
-            return 1;
-        }
-        if (this.cqf.ald()) {
-            return this.cDX.getPn();
-        }
-        return this.cDW.getPn();
-    }
-
-    public void setPn(int i) {
-        if (this.cqf != null) {
-            if (this.cqf.ald()) {
-                this.cDX.setPn(i);
-            } else {
-                this.cDW.setPn(i);
-            }
-        }
-    }
-
-    public ArrayList<com.baidu.adp.widget.ListView.f> getDataList() {
-        return this.cqf.ald() ? this.cDX.getDataList() : this.cqf.akY();
-    }
-
-    public FrsSmartLoadMoreModel akN() {
-        return this.cDX;
     }
 }

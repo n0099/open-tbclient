@@ -1,73 +1,76 @@
 package com.baidu.tbadk.util;
 
-import android.os.Build;
-import android.text.TextUtils;
+import android.net.wifi.WifiManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sofire.ac.FH;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class n {
-    public static void bindCommonParamsToProtobufData(Object obj, boolean z) {
-        bindCommonParamsToProtobufData(obj, z, false);
-    }
+    private static final byte[] aLO = new byte[1];
+    private static n aLP = null;
+    private CustomMessageListener mNetworkChangedListener;
 
-    public static void bindCommonParamsToProtobufData(Object obj, boolean z, boolean z2) {
-        bindCommonParamsToProtobufData(obj, z, z2, false);
-    }
-
-    public static void bindCommonParamsToProtobufData(Object obj, boolean z, boolean z2, boolean z3) {
-        AccountData currentAccountInfo;
-        if (obj != null) {
-            try {
-                Field field = obj.getClass().getField("common");
-                if (!field.isAccessible()) {
-                    field.setAccessible(true);
-                }
-                CommonReq.Builder builder = new CommonReq.Builder();
-                builder._client_type = 2;
-                builder._client_version = TbConfig.getVersion();
-                builder._client_id = TbadkCoreApplication.getClientId();
-                if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                    builder.subapp_type = TbConfig.getSubappType();
-                }
-                if (!TbadkCoreApplication.getInst().isOfficial()) {
-                    builder.apid = TbConfig.SW_APID;
-                }
-                builder._phone_imei = TbadkCoreApplication.getInst().getImei();
-                builder.from = TbadkCoreApplication.getFrom();
-                builder.cuid = TbadkCoreApplication.getInst().getCuid();
-                builder._timestamp = Long.valueOf(System.currentTimeMillis());
-                builder.model = Build.MODEL;
-                if (z && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
-                    builder.BDUSS = currentAccountInfo.getBDUSS();
-                    String d = com.baidu.tbadk.core.a.e.d(currentAccountInfo);
-                    if (!StringUtils.isNull(d)) {
-                        builder.stoken = d;
-                    }
-                }
-                if (z2) {
-                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
-                }
-                if (z3) {
-                    builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
-                }
-                builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
-                builder.lego_lib_version = TbConfig.getLegoLibVersion();
-                if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("android_safe_sdk_open", 0) == 1) {
-                    builder.z_id = FH.gz(TbadkCoreApplication.getInst());
-                }
-                field.set(obj, builder.build(false));
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    th.printStackTrace();
+    public static n GL() {
+        if (aLP == null) {
+            synchronized (aLO) {
+                if (aLP == null) {
+                    aLP = new n();
                 }
             }
+        }
+        return aLP;
+    }
+
+    private n() {
+        com.baidu.adp.lib.util.j.init();
+    }
+
+    public void GM() {
+        try {
+            if (this.mNetworkChangedListener == null) {
+                this.mNetworkChangedListener = GN();
+                MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
+            }
+        } catch (Exception e) {
+            this.mNetworkChangedListener = null;
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    private CustomMessageListener GN() {
+        return new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.util.n.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                    n.this.GO();
+                }
+            }
+        };
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void GO() {
+        try {
+            boolean hh = com.baidu.adp.lib.util.j.hh();
+            if (hh) {
+                if (com.baidu.adp.lib.util.j.hi()) {
+                    an.vs().aE(true);
+                    com.baidu.tieba.recapp.d.a.bgz().qN(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                } else if (com.baidu.adp.lib.util.j.hj()) {
+                    an.vs().aE(false);
+                }
+            }
+            NoNetworkView.setIsHasNetwork(hh);
+            CompatibleUtile.dealWebView(null);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
         }
     }
 }

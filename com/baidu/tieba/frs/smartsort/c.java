@@ -12,7 +12,7 @@ public class c {
     }
 
     public static boolean a(ArrayList<com.baidu.adp.widget.ListView.f> arrayList, String str, CardHListViewData cardHListViewData, int i) {
-        if (cardHListViewData == null || v.v(arrayList) || StringUtils.isNull(str) || i < 0) {
+        if (cardHListViewData == null || v.u(arrayList) || StringUtils.isNull(str) || i < 0) {
             return false;
         }
         int size = arrayList.size();

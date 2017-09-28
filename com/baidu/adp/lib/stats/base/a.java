@@ -7,36 +7,36 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 /* loaded from: classes.dex */
 public class a {
-    private String wE;
-    protected String wO;
+    private String wG;
     protected String wQ;
-    protected i wR;
-    private StringBuffer wF = new StringBuffer();
-    private StringBuffer wG = new StringBuffer();
-    private int wH = 0;
-    private int wI = 0;
-    private long wx = 0;
-    private long wJ = 0;
-    protected long wK = 0;
+    protected String wS;
+    protected i wT;
+    private StringBuffer wH = new StringBuffer();
+    private StringBuffer wI = new StringBuffer();
+    private int wJ = 0;
+    private int wK = 0;
+    private long wz = 0;
     private long wL = 0;
-    private long wM = 0;
-    protected int wN = 50;
-    protected final String wP = ".log";
+    protected long wM = 0;
+    private long wN = 0;
+    private long wO = 0;
+    protected int wP = 50;
+    protected final String wR = ".log";
     protected boolean mUseSdCard = true;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
 
     public a(i iVar) {
-        this.wR = iVar;
+        this.wT = iVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.wF.append(aVar.toString());
-                    this.wF.append("\r\n");
-                    this.wH++;
+                    this.wH.append(aVar.toString());
+                    this.wH.append("\r\n");
+                    this.wJ++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -44,19 +44,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.wR != null) {
-            this.wR.g(this);
+        if (this.wT != null) {
+            this.wT.g(this);
         }
-        this.wx = System.currentTimeMillis();
+        this.wz = System.currentTimeMillis();
     }
 
     public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.wG.append(aVar.toString());
-                    this.wG.append("\r\n");
-                    this.wI++;
+                    this.wI.append(aVar.toString());
+                    this.wI.append("\r\n");
+                    this.wK++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -64,51 +64,51 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.wR != null) {
-            this.wR.g(this);
+        if (this.wT != null) {
+            this.wT.g(this);
         }
-        this.wJ = System.currentTimeMillis();
+        this.wL = System.currentTimeMillis();
     }
 
-    public int gg() {
-        return this.wH;
-    }
-
-    public int gh() {
-        return this.wI;
-    }
-
-    public long gi() {
-        return this.wK;
-    }
-
-    public void g(long j) {
-        this.wK = j;
-    }
-
-    public long gj() {
-        return this.wx;
-    }
-
-    public long gk() {
+    public int gf() {
         return this.wJ;
     }
 
-    public String gl() {
-        if (TextUtils.isEmpty(this.wQ)) {
+    public int gg() {
+        return this.wK;
+    }
+
+    public long gh() {
+        return this.wM;
+    }
+
+    public void g(long j) {
+        this.wM = j;
+    }
+
+    public long gi() {
+        return this.wz;
+    }
+
+    public long gj() {
+        return this.wL;
+    }
+
+    public String gk() {
+        if (TextUtils.isEmpty(this.wS)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.wO);
+            sb.append(this.wQ);
             sb.append(BdStatisticsManager.getInstance().getProcessName());
             sb.append("Writing");
             sb.append(".log");
-            this.wQ = sb.toString();
+            this.wS = sb.toString();
         }
-        return this.wQ;
+        return this.wS;
     }
 
-    public String gm() {
+    public String gl() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.wO);
+        sb.append(this.wQ);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -116,45 +116,45 @@ public class a {
         return sb.toString();
     }
 
-    public long gn() {
-        return this.wL;
+    public long gm() {
+        return this.wN;
     }
 
-    public long go() {
-        return this.wM;
+    public long gn() {
+        return this.wO;
     }
 
     public void h(long j) {
-        this.wL = j;
+        this.wN = j;
     }
 
     public void i(long j) {
-        this.wM = j;
+        this.wO = j;
+    }
+
+    public synchronized void go() {
+        this.wH = new StringBuffer();
+        this.wJ = 0;
+        this.wN = 0L;
     }
 
     public synchronized void gp() {
-        this.wF = new StringBuffer();
-        this.wH = 0;
-        this.wL = 0L;
-    }
-
-    public synchronized void gq() {
-        this.wG = new StringBuffer();
-        this.wI = 0;
-        this.wM = 0L;
+        this.wI = new StringBuffer();
+        this.wK = 0;
+        this.wO = 0L;
     }
 
     public void ap(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.wE = str;
+            this.wG = str;
         }
     }
 
-    public String gr() {
-        return this.wE;
+    public String gq() {
+        return this.wG;
     }
 
-    public boolean gs() {
+    public boolean gr() {
         return this.isUploading;
     }
 
@@ -162,28 +162,28 @@ public class a {
         this.isUploading = z;
     }
 
-    public String gt() {
+    public String gs() {
         return "omp";
     }
 
+    public StringBuffer gt() {
+        return this.wH;
+    }
+
     public StringBuffer gu() {
-        return this.wF;
+        return this.wI;
     }
 
-    public StringBuffer gv() {
-        return this.wG;
-    }
-
-    public boolean gw() {
+    public boolean gv() {
         return this.mUseSdCard;
     }
 
-    public boolean gx() {
+    public boolean gw() {
         return this.mMustSuccess;
     }
 
-    public String gy() {
-        return this.wO;
+    public String gx() {
+        return this.wQ;
     }
 
     public static String aq(String str) {

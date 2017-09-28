@@ -5,17 +5,19 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public interface a {
-    e Xp();
-
-    void Xq();
-
-    void a(BaseFragmentActivity baseFragmentActivity, d dVar, BdUniqueId bdUniqueId, long j, boolean z, boolean z2);
+    void a(BaseFragmentActivity baseFragmentActivity, e eVar, BdUniqueId bdUniqueId, long j, boolean z, boolean z2);
 
     void a(com.baidu.tieba.personPolymeric.c.a aVar);
 
+    f aWx();
+
+    void aWy();
+
     void b(BaseFragment baseFragment);
 
-    void dE(boolean z);
+    void ki(boolean z);
+
+    void kj(boolean z);
 
     void onChangeSkinType(int i);
 

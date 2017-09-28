@@ -5,12 +5,13 @@ import UserPost.UserPostReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.n;
+import com.baidu.tbadk.util.m;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.squareup.wire.Message;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class UserPostPageRequestMessage extends NetMessage {
+    private boolean isHost;
     private boolean isReset;
     private boolean isThread;
     private WeakReference<PersonPostModel.a> mCallbackWeakReference;
@@ -26,6 +27,14 @@ public class UserPostPageRequestMessage extends NetMessage {
 
     public UserPostPageRequestMessage() {
         super(CmdConfigHttp.USER_POST_HTTP_CMD, 303002);
+    }
+
+    public boolean isHost() {
+        return this.isHost;
+    }
+
+    public void setHost(boolean z) {
+        this.isHost = z;
     }
 
     public WeakReference<PersonPostModel.a> getmCallbackWeakReference() {
@@ -139,7 +148,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         builder.scr_w = Integer.valueOf(this.scr_w);
         builder.subtype = Integer.valueOf(this.sub_type);
         if (z) {
-            n.bindCommonParamsToProtobufData(builder, true);
+            m.bindCommonParamsToProtobufData(builder, true);
         }
         UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
         builder2.data = builder.build(false);

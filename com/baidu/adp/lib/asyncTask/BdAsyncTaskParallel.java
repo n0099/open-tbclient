@@ -41,7 +41,7 @@ public class BdAsyncTaskParallel {
         this.sx = bdUniqueId;
     }
 
-    public int er() {
+    public int eq() {
         return this.sz;
     }
 
@@ -52,7 +52,7 @@ public class BdAsyncTaskParallel {
         return this.sx.getId();
     }
 
-    public BdAsyncTaskParallelType es() {
+    public BdAsyncTaskParallelType er() {
         return this.sy;
     }
 }

@@ -1,110 +1,114 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
+import android.graphics.drawable.AnimationDrawable;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.an;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.af;
 import com.baidu.tieba.d;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class h extends ImageView {
-    private long alh;
-    private int ali;
-    private int alj;
-    i alk;
-    private View.OnClickListener alm;
-    private Context mContext;
+public class h extends g {
+    protected boolean amD;
+    private CustomMessageListener amE;
+    private CustomMessageListener amF;
+    protected boolean isDone;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void a(an anVar);
-
-        void a(an anVar, CompoundButton compoundButton, boolean z);
-
-        void a(ArrayList<Integer> arrayList, an anVar);
-    }
-
-    public h(TbPageContext tbPageContext) {
+    public h(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.mContext = null;
-        this.alh = 0L;
-        this.alm = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.h.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                h.this.wK();
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - h.this.alh > 500) {
-                    h.this.wJ();
+        this.isDone = true;
+        this.amE = new CustomMessageListener(CmdConfigCustom.CMD_PULL_IMAGE_CHANGE) { // from class: com.baidu.tbadk.core.view.h.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (h.this.isDone) {
+                    h.this.dz(TbadkCoreApplication.getInst().getSkinType());
                 }
-                h.this.alh = currentTimeMillis;
             }
         };
-        this.mContext = tbPageContext.getPageActivity();
+        this.amF = new CustomMessageListener(CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE) { // from class: com.baidu.tbadk.core.view.h.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                h.this.amn.setBackgroundColor(af.vb().cM(TbadkCoreApplication.getInst().getSkinType()));
+            }
+        };
         d(tbPageContext);
     }
 
-    private void d(TbPageContext tbPageContext) {
-        this.alk = new i(tbPageContext, this);
-        setOnClickListener(this.alm);
-        aj.c(this, d.g.icon_home_feedback_selector);
-        this.ali = com.baidu.adp.lib.util.k.f(this.mContext, d.f.ds60);
-        this.alj = com.baidu.adp.lib.util.k.f(this.mContext, d.f.ds16);
+    @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
+    public void V(boolean z) {
+        this.amo.setBackgroundDrawable(null);
+        super.V(z);
+        this.isDone = true;
     }
 
-    public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.alk.setUniqueId(bdUniqueId);
+    @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
+    public void U(boolean z) {
+        super.U(z);
+        this.isDone = false;
+        if (!this.amD) {
+            dz(TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 
-    public void wI() {
-        int f = com.baidu.adp.lib.util.k.f(this.mContext, d.f.ds48);
-        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-2, -2);
-        layoutParams.height = f;
-        setLayoutParams(layoutParams);
-        setPadding(this.ali, 0, this.alj, 0);
+    @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
+    public void lf() {
+        super.lf();
+        this.isDone = false;
     }
 
-    public void setLeftPadding(int i) {
-        this.ali = i;
-        setPadding(i, 0, this.alj, 0);
+    @Override // com.baidu.tbadk.core.view.g
+    public void dz(int i) {
+        super.dz(i);
+        if (this.amn != null && this.amo != null) {
+            this.amD = false;
+            if (!vj()) {
+                this.ams = af.vb().cK(i);
+                if (this.ams != null) {
+                    this.amD = true;
+                } else {
+                    this.ams = new AnimationDrawable();
+                }
+                this.amn.setBackgroundColor(af.vb().cM(i));
+                if (!this.amD) {
+                    this.ams = af.vb().cL(i);
+                }
+                this.ams.setOneShot(false);
+                this.amo.setBackgroundDrawable(this.ams);
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void wJ() {
-        this.alk.wJ();
+    @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
+    public void W(boolean z) {
+        super.W(z);
+        setPadding(0, -getContext().getResources().getDimensionPixelSize(d.f.ds46), 0, 0);
     }
 
-    public void wK() {
-        this.alk.wK();
+    private void d(TbPageContext<?> tbPageContext) {
+        this.amE.setTag(tbPageContext.getUniqueId());
+        this.amF.setTag(tbPageContext.getUniqueId());
+        tbPageContext.registerListener(this.amE);
+        tbPageContext.registerListener(this.amF);
     }
 
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        this.alk.onDetachedFromWindow();
+    public void setTag(BdUniqueId bdUniqueId) {
+        if (this.amE != null) {
+            this.amE.setTag(bdUniqueId);
+        }
+        if (this.amF != null) {
+            this.amF.setTag(bdUniqueId);
+        }
+        MessageManager.getInstance().registerListener(this.amE);
+        MessageManager.getInstance().registerListener(this.amF);
     }
 
-    public void setData(an anVar) {
-        this.alk.setData(anVar);
-    }
-
-    public void setFirstRowSingleColumn(boolean z) {
-        this.alk.setFirstRowSingleColumn(z);
-    }
-
-    public void onChangeSkinType() {
-        aj.c(this, d.g.icon_home_feedback_selector);
-    }
-
-    public void setEventCallback(a aVar) {
-        this.alk.setEventCallback(aVar);
-    }
-
-    public void setDefaultReasonArray(String[] strArr) {
-        this.alk.setDefaultReasonArray(strArr);
+    public void release() {
+        MessageManager.getInstance().unRegisterListener(this.amE);
+        MessageManager.getInstance().unRegisterListener(this.amF);
     }
 }

@@ -12,7 +12,7 @@ public interface b {
 
     void close();
 
-    int dE();
+    int getFrameCount();
 
     int getHeight();
 

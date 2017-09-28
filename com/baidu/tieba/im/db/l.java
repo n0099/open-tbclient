@@ -3,27 +3,27 @@ package com.baidu.tieba.im.db;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.m;
+import com.baidu.adp.lib.util.n;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class l extends a {
-    public static String dwb = "tb_private_msg_";
-    private static a dwq;
+    private static a dsG;
+    public static String dsr = "tb_private_msg_";
 
     private l() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized l awE() {
+    public static synchronized l avp() {
         l lVar;
         synchronized (l.class) {
-            if (dwq == null) {
-                dwq = new l();
+            if (dsG == null) {
+                dsG = new l();
             }
-            lVar = (l) dwq;
+            lVar = (l) dsG;
         }
         return lVar;
     }
@@ -43,20 +43,20 @@ public class l extends a {
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v8 */
-    public CommonMsgPojo Y(String str, int i) {
+    public CommonMsgPojo X(String str, int i) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = dwb;
+            ?? r2 = dsr;
             try {
                 try {
-                    cursor = g.awu().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = g.avf().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
-                            m.e(cursor);
+                            n.e(cursor);
                             r2 = cursor;
                         } else {
                             commonMsgPojo2.setGid(str);
@@ -74,7 +74,7 @@ public class l extends a {
                             commonMsgPojo2.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
                             commonMsgPojo2.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
                             commonMsgPojo2.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
-                            m.e(cursor);
+                            n.e(cursor);
                             commonMsgPojo = commonMsgPojo2;
                             r2 = cursor;
                         }
@@ -82,21 +82,21 @@ public class l extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        mv(str);
-                        m.e(cursor);
+                        lZ(str);
+                        n.e(cursor);
                         r2 = cursor;
                         return commonMsgPojo;
                     } catch (Exception e2) {
                         e = e2;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        m.e(cursor);
+                        n.e(cursor);
                         r2 = cursor;
                         return commonMsgPojo;
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    m.e(r2);
+                    n.e(r2);
                     throw th;
                 }
             } catch (SQLiteException e3) {
@@ -108,7 +108,7 @@ public class l extends a {
             } catch (Throwable th3) {
                 r2 = 0;
                 th = th3;
-                m.e(r2);
+                n.e(r2);
                 throw th;
             }
         }

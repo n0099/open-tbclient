@@ -73,7 +73,7 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_KV_CACHE_SUCC));
     }
 
-    public static a tk() {
+    public static a te() {
         if (aaz == null) {
             aaz = new a();
         }
@@ -100,7 +100,7 @@ public class a extends CustomMessageListener {
         String str3 = str2 != null ? str + str2 : str;
         l<byte[]> lVar = aaC.get(str3);
         if (lVar == null || !(lVar instanceof l)) {
-            BdCacheService eF = BdCacheService.eF();
+            BdCacheService eE = BdCacheService.eE();
             Integer num = aaA.get(str);
             num = (num == null || num.intValue() == 0) ? 20 : 20;
             BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
@@ -108,7 +108,7 @@ public class a extends CustomMessageListener {
                 cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
             }
             try {
-                lVar = eF.b(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                lVar = eE.b(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -124,7 +124,7 @@ public class a extends CustomMessageListener {
         }
         String str3 = str2 != null ? str + str2 : str;
         l<String> lVar = aaD.get(str3);
-        BdCacheService eF = BdCacheService.eF();
+        BdCacheService eE = BdCacheService.eE();
         Integer num = aaA.get(str);
         num = (num == null || num.intValue() == 0) ? 20 : 20;
         BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
@@ -132,7 +132,7 @@ public class a extends CustomMessageListener {
             cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
         }
         try {
-            return eF.a(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+            return eE.a(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
         } catch (Exception e) {
             BdLog.detailException(e);
             return lVar;
@@ -147,7 +147,7 @@ public class a extends CustomMessageListener {
             l<String> lVar = aaD.get(str);
             if (lVar != null) {
                 try {
-                    BdCacheService.eF().a(lVar);
+                    BdCacheService.eE().a(lVar);
                     aaD.remove(str);
                 } catch (Exception e) {
                     BdLog.detailException(e);

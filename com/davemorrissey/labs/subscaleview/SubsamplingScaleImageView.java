@@ -16,7 +16,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.FloatMath;
@@ -55,6 +54,7 @@ public class SubsamplingScaleImageView extends View {
     public static final int SCALE_TYPE_CUSTOM = 3;
     public static final int ZOOM_FOCUS_CENTER = 2;
     public static final int ZOOM_FOCUS_CENTER_IMMEDIATE = 3;
+    public static final int ZOOM_FOCUS_CENTER_IN_TO_MAX_OUT_TO_INIT = 4;
     public static final int ZOOM_FOCUS_FIXED = 1;
     private Anim anim;
     private Bitmap bitmap;
@@ -75,6 +75,7 @@ public class SubsamplingScaleImageView extends View {
     private boolean isPanning;
     private boolean isQuickScaling;
     private boolean isZooming;
+    private Float mInitScale;
     private Matrix matrix;
     private float maxScale;
     private int maxTouchCount;
@@ -119,7 +120,7 @@ public class SubsamplingScaleImageView extends View {
     public static final int ORIENTATION_180 = 180;
     public static final int ORIENTATION_270 = 270;
     private static final List<Integer> VALID_ORIENTATIONS = Arrays.asList(0, 90, Integer.valueOf((int) ORIENTATION_180), Integer.valueOf((int) ORIENTATION_270), -1);
-    private static final List<Integer> VALID_ZOOM_STYLES = Arrays.asList(1, 2, 3);
+    private static final List<Integer> VALID_ZOOM_STYLES = Arrays.asList(1, 2, 3, 4);
     private static final List<Integer> VALID_EASING_STYLES = Arrays.asList(2, 1);
     private static final List<Integer> VALID_PAN_LIMITS = Arrays.asList(1, 2, 3);
     private static final List<Integer> VALID_SCALE_TYPES = Arrays.asList(2, 1, 3);
@@ -282,6 +283,7 @@ public class SubsamplingScaleImageView extends View {
         this.vTranslate = null;
         this.vTranslateStart = null;
         this.pendingScale = Float.valueOf(0.0f);
+        this.mInitScale = Float.valueOf(0.0f);
         this.sPendingCenter = null;
         this.sRequestedCenter = null;
         this.isZooming = false;
@@ -419,7 +421,7 @@ public class SubsamplingScaleImageView extends View {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.View
-    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
+    public boolean onTouchEvent(MotionEvent motionEvent) {
         float f;
         boolean z = false;
         if (this.anim != null && !this.anim.interruptible) {
@@ -633,17 +635,24 @@ public class SubsamplingScaleImageView extends View {
         }
         float min = Math.min(this.maxScale, this.doubleTapZoomScale);
         boolean z = ((double) this.scale) <= ((double) min) * 0.9d;
-        if (!z) {
-            min = minScale();
-        }
-        if (this.doubleTapZoomStyle == 3) {
-            setScaleAndCenter(min, pointF);
-        } else if (this.doubleTapZoomStyle == 2 || !z || !this.panEnabled) {
+        float minScale = z ? min : minScale();
+        if (this.doubleTapZoomStyle == 4) {
+            if (!z) {
+                min = this.mInitScale.floatValue();
+            }
             new AnimationBuilder(this, min, pointF, (AnimationBuilder) null).withInterruptible(false).start();
+        } else if (this.doubleTapZoomStyle == 3) {
+            setScaleAndCenter(minScale, pointF);
+        } else if (this.doubleTapZoomStyle == 2 || !z || !this.panEnabled) {
+            new AnimationBuilder(this, minScale, pointF, (AnimationBuilder) null).withInterruptible(false).start();
         } else if (this.doubleTapZoomStyle == 1) {
-            new AnimationBuilder(this, min, pointF, pointF2, null).withInterruptible(false).start();
+            new AnimationBuilder(this, minScale, pointF, pointF2, null).withInterruptible(false).start();
         }
         invalidate();
+    }
+
+    public void setInitScale(float f) {
+        this.mInitScale = Float.valueOf(f);
     }
 
     @Override // android.view.View
@@ -928,146 +937,31 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    private int calculateInSampleSize(float r8) {
-        /*
-            r7 = this;
-            r3 = 0
-            r2 = 1
-            int r0 = r7.minimumTileDpi
-            if (r0 <= 0) goto L1c
-            android.content.res.Resources r0 = r7.getResources()
-            android.util.DisplayMetrics r0 = r0.getDisplayMetrics()
-            float r1 = r0.xdpi
-            float r0 = r0.ydpi
-            float r0 = r0 + r1
-            r1 = 1073741824(0x40000000, float:2.0)
-            float r0 = r0 / r1
-            int r1 = r7.minimumTileDpi
-            float r1 = (float) r1
-            float r0 = r1 / r0
-            float r8 = r8 * r0
-        L1c:
-            int r0 = r7.sWidth()
-            float r0 = (float) r0
-            float r0 = r0 * r8
-            int r1 = (int) r0
-            int r0 = r7.sHeight()
-            float r0 = (float) r0
-            float r0 = r0 * r8
-            int r0 = (int) r0
-            if (r1 == 0) goto L2e
-            if (r0 != 0) goto L31
-        L2e:
-            r0 = 32
-        L30:
-            return r0
-        L31:
-            int r4 = r7.sHeight()
-            if (r4 > r0) goto L3d
-            int r4 = r7.sWidth()
-            if (r4 <= r1) goto Lef
-        L3d:
-            int r4 = r7.sHeight()
-            float r4 = (float) r4
-            float r0 = (float) r0
-            float r0 = r4 / r0
-            int r0 = java.lang.Math.round(r0)
-            int r4 = r7.sWidth()
-            float r4 = (float) r4
-            float r1 = (float) r1
-            float r1 = r4 / r1
-            int r1 = java.lang.Math.round(r1)
-            if (r0 >= r1) goto Ld9
-        L57:
-            com.davemorrissey.labs.subscaleview.ImageSource r1 = r7.imageSource
-            if (r1 == 0) goto Ld1
-            com.davemorrissey.labs.subscaleview.ImageSource r1 = r7.imageSource
-            android.net.Uri r1 = r1.getUri()
-            if (r1 == 0) goto Ld1
-            com.davemorrissey.labs.subscaleview.ImageSource r1 = r7.imageSource
-            android.net.Uri r1 = r1.getUri()
-            java.lang.String r1 = r1.toString()
-            boolean r4 = android.text.TextUtils.isEmpty(r1)
-            if (r4 != 0) goto Ld1
-            java.lang.String r4 = "file://"
-            boolean r4 = r1.startsWith(r4)
-            if (r4 == 0) goto Ld1
-            java.lang.String r4 = "file://"
-            int r4 = r4.length()
-            java.lang.String r1 = r1.substring(r4)
-            java.io.File r4 = new java.io.File
-            r4.<init>(r1)
-            boolean r1 = r4.exists()
-            if (r1 == 0) goto Ld1
-            android.graphics.BitmapFactory$Options r5 = new android.graphics.BitmapFactory$Options     // Catch: java.lang.Throwable -> Ldc
-            r5.<init>()     // Catch: java.lang.Throwable -> Ldc
-            r1 = 1
-            r5.inJustDecodeBounds = r1     // Catch: java.lang.Throwable -> Ldc
-            java.io.FileInputStream r1 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> Ldc
-            r1.<init>(r4)     // Catch: java.lang.Throwable -> Ldc
-            r3 = 0
-            android.graphics.BitmapFactory.decodeStream(r1, r3, r5)     // Catch: java.lang.Throwable -> Led
-            android.graphics.Bitmap$Config r3 = android.graphics.Bitmap.Config.RGB_565     // Catch: java.lang.Throwable -> Led
-            r5.inPreferredConfig = r3     // Catch: java.lang.Throwable -> Led
-            com.baidu.adp.lib.util.m.d(r1)     // Catch: java.lang.Throwable -> Led
-            android.content.Context r3 = r7.getContext()     // Catch: java.lang.Throwable -> Led
-            int r3 = com.baidu.adp.lib.util.k.ae(r3)     // Catch: java.lang.Throwable -> Led
-            android.content.Context r4 = r7.getContext()     // Catch: java.lang.Throwable -> Led
-            int r4 = com.baidu.adp.lib.util.k.af(r4)     // Catch: java.lang.Throwable -> Led
-            if (r3 <= 0) goto Lce
-            if (r4 <= 0) goto Lce
-            int r6 = r5.outWidth     // Catch: java.lang.Throwable -> Led
-            int r3 = r6 / r3
-            int r5 = r5.outHeight     // Catch: java.lang.Throwable -> Led
-            int r4 = r5 / r4
-            int r3 = java.lang.Math.max(r3, r4)     // Catch: java.lang.Throwable -> Led
-            int r0 = java.lang.Math.max(r0, r3)     // Catch: java.lang.Throwable -> Led
-        Lce:
-            com.baidu.adp.lib.util.m.d(r1)
-        Ld1:
-            r1 = r2
-        Ld2:
-            int r2 = r1 * 2
-            if (r2 < r0) goto Le8
-            r0 = r1
-            goto L30
-        Ld9:
-            r0 = r1
-            goto L57
-        Ldc:
-            r1 = move-exception
-            r1 = r3
-        Lde:
-            com.baidu.adp.lib.util.m.d(r1)
-            goto Ld1
-        Le2:
-            r0 = move-exception
-            r1 = r3
-        Le4:
-            com.baidu.adp.lib.util.m.d(r1)
-            throw r0
-        Le8:
-            int r1 = r1 * 2
-            goto Ld2
-        Leb:
-            r0 = move-exception
-            goto Le4
-        Led:
-            r3 = move-exception
-            goto Lde
-        Lef:
-            r0 = r2
-            goto L57
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.calculateInSampleSize(float):int");
+    private int calculateInSampleSize(float f) {
+        int round;
+        if (this.minimumTileDpi > 0) {
+            DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+            f *= this.minimumTileDpi / ((displayMetrics.ydpi + displayMetrics.xdpi) / 2.0f);
+        }
+        int sWidth = (int) (sWidth() * f);
+        int sHeight = (int) (sHeight() * f);
+        if (sWidth == 0 || sHeight == 0) {
+            return 32;
+        }
+        if (sHeight() > sHeight || sWidth() > sWidth) {
+            round = Math.round(sHeight() / sHeight);
+            int round2 = Math.round(sWidth() / sWidth);
+            if (round >= round2) {
+                round = round2;
+            }
+        } else {
+            round = 1;
+        }
+        int i = 1;
+        while (i * 2 < round) {
+            i *= 2;
+        }
+        return i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

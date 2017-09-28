@@ -27,7 +27,7 @@ public class RequestSetCommForumStateNetMessage extends NetMessage {
         builder.forum_id = Long.valueOf(this.mForumId);
         builder.operation = Integer.valueOf(this.operation);
         if (z) {
-            com.baidu.tbadk.util.n.bindCommonParamsToProtobufData(builder, true);
+            com.baidu.tbadk.util.m.bindCommonParamsToProtobufData(builder, true);
         }
         SetCommonForumStateReqIdl.Builder builder2 = new SetCommonForumStateReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -27,7 +27,7 @@ public abstract class c<T> {
 
     public abstract Cursor d(SQLiteDatabase sQLiteDatabase, String str);
 
-    public abstract int et();
+    public abstract int es();
 
     public c(com.baidu.adp.base.a.b bVar) {
         this.sC = bVar;
@@ -63,7 +63,7 @@ public abstract class c<T> {
             if (ch.update(this.sD, a, "m_key = ?", new String[]{gVar.sO}) == 0) {
                 ch.insert(this.sD, null, a);
                 if (this.sF != null) {
-                    eu();
+                    et();
                 }
             }
             if (this.sE != null && (e = this.sE.e(gVar)) != null) {
@@ -74,15 +74,15 @@ public abstract class c<T> {
         }
     }
 
-    protected void eu() {
+    protected void et() {
         if (this.sF != null) {
             this.sG++;
             if (this.sG >= ((int) Math.min(this.sF.getMaxSize() * 0.2d, 5.0d))) {
                 this.sG = 0;
-                com.baidu.adp.lib.g.h.fR().d(new Runnable() { // from class: com.baidu.adp.lib.cache.c.1
+                com.baidu.adp.lib.g.h.fQ().d(new Runnable() { // from class: com.baidu.adp.lib.cache.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.ev();
+                        c.this.eu();
                     }
                 });
             }
@@ -104,7 +104,7 @@ public abstract class c<T> {
             this.sH.clear();
         }
         if (K(str)) {
-            BdCacheService.eF().eG().Z(str);
+            BdCacheService.eE().eF().Z(str);
         }
     }
 
@@ -113,7 +113,7 @@ public abstract class c<T> {
             if (!this.sH.contains(str)) {
                 this.sH.addLast(str);
                 if (z) {
-                    eu();
+                    et();
                 }
             }
         }
@@ -123,7 +123,7 @@ public abstract class c<T> {
         if (this.sF != null) {
             Cursor cursor = null;
             try {
-                this.sF.ez();
+                this.sF.ey();
                 cursor = d(this.sC.ch(), str);
                 while (cursor.moveToNext()) {
                     g<?> gVar = new g<>();
@@ -136,13 +136,13 @@ public abstract class c<T> {
                         c(d, false);
                     }
                 }
-                ev();
+                eu();
             } catch (Throwable th) {
                 try {
                     this.sC.a(th, "performEvict");
                 } finally {
                     com.baidu.adp.lib.g.a.e(cursor);
-                    this.sF.eA();
+                    this.sF.ez();
                 }
             }
         }
@@ -152,7 +152,7 @@ public abstract class c<T> {
         if (this.sE != null) {
             Cursor cursor = null;
             try {
-                this.sE.eB();
+                this.sE.eA();
                 cursor = d(this.sC.ch(), str);
                 while (cursor.moveToNext()) {
                     g<?> gVar = new g<>();
@@ -165,19 +165,19 @@ public abstract class c<T> {
                         c(f, false);
                     }
                 }
-                ev();
+                eu();
             } catch (Throwable th) {
                 try {
                     this.sC.a(th, "performPump");
                 } finally {
                     com.baidu.adp.lib.g.a.e(cursor);
-                    this.sE.eC();
+                    this.sE.eB();
                 }
             }
         }
     }
 
-    protected void ev() {
+    protected void eu() {
         String removeFirst;
         if (!this.sH.isEmpty()) {
             SQLiteDatabase ch = this.sC.ch();
@@ -206,7 +206,7 @@ public abstract class c<T> {
         }
     }
 
-    public com.baidu.adp.base.a.b ew() {
+    public com.baidu.adp.base.a.b ev() {
         return this.sC;
     }
 }

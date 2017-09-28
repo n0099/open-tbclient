@@ -12,15 +12,15 @@ import com.baidu.tieba.pb.CustomDialogData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PbFloorAgreeModel {
-    private PbModel eHJ;
-    private final HttpMessageListener eLJ = new HttpMessageListener(CmdConfigHttp.CMD_PB_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.1
+    private PbModel eBQ;
+    private final HttpMessageListener eFj = new HttpMessageListener(CmdConfigHttp.CMD_PB_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             PbFloorAgreeModel.this.a(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
         }
     };
-    private final HttpMessageListener eLK = new HttpMessageListener(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.2
+    private final HttpMessageListener eFk = new HttpMessageListener(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -33,17 +33,17 @@ public class PbFloorAgreeModel {
     public interface a {
         void a(CustomDialogData customDialogData);
 
-        void pm(int i);
+        void pf(int i);
     }
 
     public PbFloorAgreeModel(PbModel pbModel) {
-        this.eHJ = pbModel;
-        El();
-        MessageManager.getInstance().registerListener(this.eLJ);
-        MessageManager.getInstance().registerListener(this.eLK);
+        this.eBQ = pbModel;
+        DP();
+        MessageManager.getInstance().registerListener(this.eFj);
+        MessageManager.getInstance().registerListener(this.eFk);
     }
 
-    private void El() {
+    private void DP() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_FLOOR_AGREE, TbConfig.SERVER_ADDRESS + TbConfig.PB_FLOOR_AGREE_URL);
         tbHttpMessageTask.setResponsedClass(PbFloorAgreeResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -55,16 +55,16 @@ public class PbFloorAgreeModel {
     }
 
     public void a(String str, int i, a aVar) {
-        if (this.eHJ != null && this.eHJ.getPbData() != null) {
+        if (this.eBQ != null && this.eBQ.getPbData() != null) {
             a(str, i, 1, 2, "", aVar);
         }
     }
 
     public void a(String str, int i, int i2, int i3, String str2, a aVar) {
-        if (this.eHJ != null && this.eHJ.getPbData() != null) {
+        if (this.eBQ != null && this.eBQ.getPbData() != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("post_id", str);
-            httpMessage.addParam("thread_id", this.eHJ.getPbData().getThreadId());
+            httpMessage.addParam("thread_id", this.eBQ.getPbData().getThreadId());
             httpMessage.addParam("op_type", i);
             httpMessage.addParam("obj_type", i2);
             httpMessage.addParam("agree_type", i3);
@@ -75,9 +75,9 @@ public class PbFloorAgreeModel {
     }
 
     public void a(String str, int i, int i2, String str2, a aVar) {
-        if (this.eHJ != null && this.eHJ.getPbData() != null) {
+        if (this.eBQ != null && this.eBQ.getPbData() != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
-            httpMessage.addParam("thread_id", this.eHJ.getPbData().getThreadId());
+            httpMessage.addParam("thread_id", this.eBQ.getPbData().getThreadId());
             httpMessage.addParam("post_id", str);
             httpMessage.addParam("obj_type", i);
             httpMessage.addParam("agree_type", i2);
@@ -100,7 +100,7 @@ public class PbFloorAgreeModel {
             if (aVar != null) {
                 PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage;
                 if (!pbFloorAgreeResponseMessage.hasError()) {
-                    aVar.pm(pbFloorAgreeResponseMessage.getScore());
+                    aVar.pf(pbFloorAgreeResponseMessage.getScore());
                     if (pbFloorAgreeResponseMessage.getActivityDialogData() == null) {
                         return;
                     }
@@ -130,7 +130,7 @@ public class PbFloorAgreeModel {
                 if (optJSONObject2 != null) {
                     this.mScore = optJSONObject2.optInt("score");
                 }
-                this.mActDialogData = com.baidu.tieba.pb.c.F(optJSONObject);
+                this.mActDialogData = com.baidu.tieba.pb.b.F(optJSONObject);
             }
         }
 
@@ -144,8 +144,8 @@ public class PbFloorAgreeModel {
     }
 
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.eLJ);
-        MessageManager.getInstance().unRegisterListener(this.eLK);
+        MessageManager.getInstance().unRegisterListener(this.eFj);
+        MessageManager.getInstance().unRegisterListener(this.eFk);
         return true;
     }
 }

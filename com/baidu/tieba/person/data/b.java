@@ -1,31 +1,25 @@
 package com.baidu.tieba.person.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.f;
-import java.util.List;
+import tbclient.BookInfo;
 /* loaded from: classes.dex */
-public class b implements f {
-    public static final BdUniqueId fft = BdUniqueId.gen();
-    public boolean cQT;
-    public String ffu;
-    public String ffv;
-    public String ffw;
-    public String ffx;
-    public int ffy;
-    public List<com.baidu.tieba.personInfo.b> ffz;
+public class b {
+    public int UY;
+    public String VD;
+    public int Vh;
+    public String eZq;
+    public long eZr;
+    public String egg;
+    public long updateTime;
 
-    public b(boolean z, com.baidu.tieba.personInfo.a aVar) {
-        this.cQT = z;
-        this.ffv = aVar.icon;
-        this.ffu = aVar.title;
-        this.ffw = aVar.booktown;
-        this.ffx = aVar.tip;
-        this.ffz = aVar.fji;
-        this.ffy = aVar.fjh;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return fft;
+    public void a(BookInfo bookInfo) {
+        if (bookInfo != null) {
+            this.VD = bookInfo.book_id;
+            this.egg = bookInfo.title;
+            this.eZq = bookInfo.cover;
+            this.updateTime = bookInfo.update_time.intValue();
+            this.Vh = bookInfo.book_type.intValue();
+            this.eZr = bookInfo.forum_id.longValue();
+            this.UY = bookInfo.total_chapter.intValue();
+        }
     }
 }

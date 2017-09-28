@@ -10,6 +10,7 @@ import android.net.wifi.WifiManager;
 import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.coremedia.iso.boxes.UserBox;
 import com.xiaomi.channel.commonutils.network.d;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -374,7 +375,7 @@ public class HostManager {
         ArrayList<String> arrayList2 = new ArrayList<>();
         ArrayList<com.xiaomi.channel.commonutils.network.c> arrayList3 = new ArrayList();
         arrayList3.add(new com.xiaomi.channel.commonutils.network.a("type", str));
-        arrayList3.add(new com.xiaomi.channel.commonutils.network.a("uuid", str2));
+        arrayList3.add(new com.xiaomi.channel.commonutils.network.a(UserBox.TYPE, str2));
         arrayList3.add(new com.xiaomi.channel.commonutils.network.a(IntentConfig.LIST, join(arrayList, Constants.ACCEPT_TIME_SEPARATOR_SP)));
         Fallback localFallback = getLocalFallback("resolver.gslb.mi-idc.com");
         String format = String.format("http://%1$s/gslb/gslb/getbucket.asp?ver=3.0", "resolver.gslb.mi-idc.com");

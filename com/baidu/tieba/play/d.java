@@ -1,9 +1,19 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    void aFi();
+    String bei();
 
-    void aFj();
+    j getMediaProgressObserver();
 
-    void aFk();
+    String ht(String str);
+
+    void onCompletion();
+
+    void onPause();
+
+    void onPrepared();
+
+    void onStart();
+
+    void onStop();
 }

@@ -1,58 +1,58 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class h {
-    private String Qq;
-    private String aWa;
-    private boolean aWb;
-    private long aWc = -1;
-    private long aWd = -1;
-    private long aWe = 0;
+    private String QF;
+    private String aXO;
+    private boolean aXP;
+    private long aXQ = -1;
+    private long aXR = -1;
+    private long aXS = 0;
 
-    public String KG() {
-        return this.aWa;
+    public String KY() {
+        return this.aXO;
     }
 
-    public void hp(String str) {
-        this.aWa = str;
+    public void hm(String str) {
+        this.aXO = str;
     }
 
-    public String KH() {
-        return this.Qq;
+    public String KZ() {
+        return this.QF;
     }
 
-    public void hq(String str) {
-        this.Qq = str;
+    public void hn(String str) {
+        this.QF = str;
     }
 
-    public boolean KI() {
-        return this.aWb;
+    public boolean La() {
+        return this.aXP;
     }
 
-    public void cq(boolean z) {
-        this.aWb = z;
+    public void cp(boolean z) {
+        this.aXP = z;
     }
 
-    public long KJ() {
-        return this.aWc;
+    public long Lb() {
+        return this.aXQ;
     }
 
     public void ar(long j) {
-        this.aWc = j;
+        this.aXQ = j;
     }
 
-    public long KK() {
-        return this.aWd;
+    public long Lc() {
+        return this.aXR;
     }
 
     public void as(long j) {
-        this.aWd = j;
+        this.aXR = j;
     }
 
     public long getTotalLength() {
-        return this.aWe;
+        return this.aXS;
     }
 
-    public void N(long j) {
-        this.aWe = j;
+    public void M(long j) {
+        this.aXS = j;
     }
 }

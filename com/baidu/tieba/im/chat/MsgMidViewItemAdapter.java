@@ -18,18 +18,18 @@ public class MsgMidViewItemAdapter extends e<f> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<f> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        aVar.auo().setData(chatMessage);
-        this.mF.getLayoutMode().ah(false);
-        this.mF.getLayoutMode().t(view);
+        aVar.asZ().setData(chatMessage);
+        this.mG.getLayoutMode().ai(false);
+        this.mG.getLayoutMode().t(view);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aH */
+    /* renamed from: aI */
     public e.a<f> onCreateViewHolder(ViewGroup viewGroup) {
-        f fVar = new f(this.mF);
+        f fVar = new f(this.mG);
         return new a(fVar.cf(), fVar);
     }
 

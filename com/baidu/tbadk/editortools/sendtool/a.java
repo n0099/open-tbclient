@@ -9,30 +9,30 @@ import com.baidu.tbadk.editortools.r;
 public class a extends r {
     public a(Context context) {
         super(context, (String) null, 4);
-        this.aCd = false;
-        this.aCc = 2;
-        this.aCe = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9, 40};
-        this.aBn = new SendView(context);
+        this.aBx = false;
+        this.aBw = 2;
+        this.aBy = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
+        this.aAH = new SendView(context);
         p.a aVar = new p.a(-2, -2);
         aVar.gravity = 80;
-        ((View) this.aBn).setLayoutParams(aVar);
+        ((View) this.aAH).setLayoutParams(aVar);
     }
 
     public void setText(int i) {
-        if (this.aBn != null && (this.aBn instanceof TextView)) {
-            ((TextView) this.aBn).setText(i);
+        if (this.aAH != null && (this.aAH instanceof TextView)) {
+            ((TextView) this.aAH).setText(i);
         }
     }
 
     public void setType(int i) {
-        if (this.aBn != null) {
-            ((SendView) this.aBn).setType(i);
+        if (this.aAH != null) {
+            ((SendView) this.aAH).setType(i);
         }
     }
 
-    public void eP(int i) {
-        if (this.aBn != null) {
-            ((SendView) this.aBn).eP(i);
+    public void fa(int i) {
+        if (this.aAH != null) {
+            ((SendView) this.aAH).fa(i);
         }
     }
 }

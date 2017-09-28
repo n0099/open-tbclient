@@ -1,6 +1,5 @@
 package com.xiaomi.push.service;
 
-import com.baidu.tbadk.TbConfig;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,7 +21,7 @@ public class al implements ak.b.a {
         if (cVar2 == ak.c.binding) {
             xMPushService2 = this.a.p;
             bVar2 = this.a.q;
-            xMPushService2.a(bVar2, TbConfig.USE_TIME_INTERVAL);
+            xMPushService2.a(bVar2, 60000L);
             return;
         }
         xMPushService = this.a.p;

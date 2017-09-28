@@ -16,7 +16,7 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tieba.keepLive.nativekeepalive.NativeGuardService1;
+import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
 /* loaded from: classes2.dex */
 public class SyncService extends Service {
     private static final Object syncLock = new Object();
@@ -31,7 +31,7 @@ public class SyncService extends Service {
                 if (Build.VERSION.SDK_INT >= 23) {
                     BdSocketLinkService.startService(false, "restart");
                 } else {
-                    NativeGuardService1.startNativeServiceForUnder23(this);
+                    GuardServiceObserver.startNativeServiceForUnder23(this);
                 }
                 synchronized (syncLock) {
                     if (syncAdapter == null) {
@@ -72,7 +72,7 @@ public class SyncService extends Service {
         if (((AccountManager) context.getSystemService(LoginActivityConfig.ACCOUNT)).addAccountExplicitly(account, null, null)) {
             ContentResolver.setIsSyncable(account, TbConfig.MAIN_PACKAGE_NAME, 1);
             ContentResolver.setSyncAutomatically(account, TbConfig.MAIN_PACKAGE_NAME, true);
-            ContentResolver.addPeriodicSync(account, TbConfig.MAIN_PACKAGE_NAME, new Bundle(), 600L);
+            ContentResolver.addPeriodicSync(account, TbConfig.MAIN_PACKAGE_NAME, new Bundle(), 900L);
         }
     }
 

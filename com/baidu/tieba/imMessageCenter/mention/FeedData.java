@@ -183,7 +183,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.fromForumId = jSONObject.optLong("v_forum_id");
                 this.hideForumName = jSONObject.optInt("hide_fname");
                 this.mIsStory = jSONObject.optInt("is_story") == 1;
-                if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
+                if (((!com.baidu.adp.lib.util.k.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                     this.mPraiseNum = optJSONObject.optInt("num");
                     this.mPraiseLiked = optJSONObject.optInt(ThreadExpressionActivityConfig.IS_LIKED);
                     this.isAuthor = optJSONObject.optInt("consent_type") == 2;
@@ -222,7 +222,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             this.mPraiseItemType = replyList.item_type;
             this.hideForumName = replyList.hide_fname.intValue();
             this.fromForumId = replyList.v_forum_id.longValue();
-            if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
+            if (((!com.baidu.adp.lib.util.k.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
                 this.mPraiseNum = zan.num.intValue();
                 this.mPraiseLiked = zan.is_liked.intValue();
                 this.isAuthor = zan.consent_type.intValue() == 2;

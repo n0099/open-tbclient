@@ -4,17 +4,17 @@ import android.location.Location;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements Runnable {
-    final /* synthetic */ Location MD;
-    final /* synthetic */ e Mv;
+    final /* synthetic */ e MM;
+    final /* synthetic */ Location MU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(e eVar, Location location) {
-        this.Mv = eVar;
-        this.MD = location;
+        this.MM = eVar;
+        this.MU = location;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.Mv.c(this.MD);
+        this.MM.c(this.MU);
     }
 }

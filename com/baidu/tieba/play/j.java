@@ -1,43 +1,87 @@
 package com.baidu.tieba.play;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
-import java.lang.ref.WeakReference;
+import android.widget.MediaController;
 /* loaded from: classes.dex */
-public class j implements SensorEventListener {
-    private WeakReference<Handler> mHandler;
-
-    public j(Handler handler) {
-        this.mHandler = new WeakReference<>(handler);
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        Handler handler;
-        Message obtainMessage;
-        if (sensorEvent != null && sensorEvent.values != null && sensorEvent.values.length >= 3) {
-            float[] fArr = sensorEvent.values;
-            float f = -fArr[0];
-            float f2 = -fArr[1];
-            float f3 = -fArr[2];
-            if ((f * f) + (f2 * f2) >= f3 * f3) {
-                int round = 90 - Math.round(((float) Math.atan2(-f2, f)) * 57.29578f);
-                if (round >= 360) {
-                    round -= 360;
+public class j {
+    private MediaController.MediaPlayerControl aZU;
+    private a bLa;
+    private c fwW;
+    private b fwX;
+    private int fwU = 3000;
+    private int fwV = 0;
+    private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.j.1
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            if (message != null && message.what == 1 && j.this.aZU != null && j.this.aZU.isPlaying()) {
+                int currentPosition = j.this.aZU.getCurrentPosition();
+                int duration = j.this.aZU.getDuration();
+                if (currentPosition < j.this.fwV) {
+                    if (j.this.bLa != null) {
+                        j.this.bLa.XF();
+                    }
+                } else if (currentPosition == j.this.fwV && j.this.fwW != null) {
+                    j.this.fwW.bek();
                 }
-                int i = round < 0 ? round + 360 : round;
-                if (this.mHandler != null && this.mHandler.get() != null && (obtainMessage = (handler = this.mHandler.get()).obtainMessage(1)) != null) {
-                    obtainMessage.arg1 = i;
-                    handler.sendMessage(obtainMessage);
+                if (j.this.fwX != null) {
+                    j.this.fwX.bH(duration, currentPosition);
                 }
+                j.this.fwV = currentPosition;
+                j.this.bej();
             }
         }
+    };
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void XF();
+    }
+
+    /* loaded from: classes.dex */
+    public interface b {
+        void bH(int i, int i2);
+    }
+
+    /* loaded from: classes.dex */
+    public interface c {
+        void bek();
+    }
+
+    public void rN(int i) {
+        if (i > 0) {
+            this.fwU = i;
+        }
+    }
+
+    public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
+        this.aZU = mediaPlayerControl;
+    }
+
+    public void start() {
+        this.fwV = 0;
+        bej();
+    }
+
+    public void stop() {
+        this.mHandler.removeMessages(1);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bej() {
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.fwU);
+    }
+
+    public void a(a aVar) {
+        this.bLa = aVar;
+    }
+
+    public void a(c cVar) {
+        this.fwW = cVar;
+    }
+
+    public void a(b bVar) {
+        this.fwX = bVar;
     }
 }

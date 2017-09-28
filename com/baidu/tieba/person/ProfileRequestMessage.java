@@ -1,9 +1,11 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.n;
+import com.baidu.tbadk.core.h;
+import com.baidu.tbadk.util.m;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
 /* loaded from: classes.dex */
@@ -14,6 +16,7 @@ public class ProfileRequestMessage extends NetMessage {
     private Integer has_plist;
     private boolean isSelf;
     private Integer is_guest;
+    private b mPersonCenterData;
     private Integer need_post_count;
     private Integer pn;
     private Integer rn;
@@ -84,10 +87,6 @@ public class ProfileRequestMessage extends NetMessage {
         return this.st_type;
     }
 
-    public void set_st_type(String str) {
-        this.st_type = str;
-    }
-
     public Integer get_pn() {
         return this.pn;
     }
@@ -124,16 +123,16 @@ public class ProfileRequestMessage extends NetMessage {
             builder.pn = get_pn();
             builder.rn = get_rn();
             builder.has_plist = get_has_plist();
-            double ag = com.baidu.adp.lib.util.k.ag(TbadkCoreApplication.getInst().getApp());
-            int ae = com.baidu.adp.lib.util.k.ae(TbadkCoreApplication.getInst().getApp());
-            int af = com.baidu.adp.lib.util.k.af(TbadkCoreApplication.getInst().getApp());
-            int viewImageQuality = com.baidu.tbadk.core.h.oS().getViewImageQuality();
-            builder.scr_w = Integer.valueOf(ae);
+            double ag = l.ag(TbadkCoreApplication.getInst().getApp());
+            int ad = l.ad(TbadkCoreApplication.getInst().getApp());
+            int af = l.af(TbadkCoreApplication.getInst().getApp());
+            int viewImageQuality = h.oT().getViewImageQuality();
+            builder.scr_w = Integer.valueOf(ad);
             builder.scr_h = Integer.valueOf(af);
             builder.scr_dip = Double.valueOf(ag);
             builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
-                n.bindCommonParamsToProtobufData(builder, true);
+                m.bindCommonParamsToProtobufData(builder, true);
             }
             ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -141,5 +140,13 @@ public class ProfileRequestMessage extends NetMessage {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public void setPersonCenterData(b bVar) {
+        this.mPersonCenterData = bVar;
+    }
+
+    public b getPersonCenterData() {
+        return this.mPersonCenterData;
     }
 }

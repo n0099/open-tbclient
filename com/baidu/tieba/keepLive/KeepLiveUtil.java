@@ -6,7 +6,7 @@ import android.content.Context;
 import android.os.Build;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.keepLive.nativekeepalive.NativeGuardService1;
+import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
 import com.baidu.tieba.keepLive.startActivity.ScreenBroadcastListener;
 import com.baidu.tieba.keepLive.startActivity.ScreenManager;
 import com.baidu.tieba.keepLive.sync.SyncService;
@@ -33,7 +33,7 @@ public class KeepLiveUtil {
                     if (Build.VERSION.SDK_INT >= 23) {
                         BdSocketLinkService.startService(false, "restart");
                     } else {
-                        NativeGuardService1.startNativeServiceForUnder23(context);
+                        GuardServiceObserver.startNativeServiceForUnder23(context);
                     }
                 } catch (Throwable th) {
                     BdSocketLinkService.startService(false, "restart");

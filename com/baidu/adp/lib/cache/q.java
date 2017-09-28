@@ -24,7 +24,7 @@ public class q extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int et() {
+    public int es() {
         return 1;
     }
 
@@ -48,7 +48,7 @@ public class q extends c<String> {
                 gVar.sQ = cursor.getLong(2);
                 gVar.sR = cursor.getLong(3);
                 gVar.sS = cursor.getLong(4);
-                gVar.rY = cursor.getString(5);
+                gVar.value = cursor.getString(5);
                 com.baidu.adp.lib.g.a.e(cursor);
             } else {
                 com.baidu.adp.lib.g.a.e(cursor);
@@ -66,7 +66,7 @@ public class q extends c<String> {
         ContentValues contentValues = new ContentValues();
         contentValues.put("m_key", gVar.sO);
         contentValues.put("m_ns", gVar.sP);
-        contentValues.put("m_value", gVar.rY);
+        contentValues.put("m_value", gVar.value);
         contentValues.put("saveTime", Long.valueOf(gVar.sQ));
         contentValues.put("lastHitTime", Long.valueOf(gVar.sR));
         contentValues.put("timeToExpire", Long.valueOf(gVar.sS));

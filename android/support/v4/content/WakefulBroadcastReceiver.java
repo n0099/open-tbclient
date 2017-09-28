@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.PowerManager;
 import android.util.Log;
 import android.util.SparseArray;
-import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
     private static final String EXTRA_WAKE_LOCK_ID = "android.support.content.wakelockid";
@@ -28,7 +27,7 @@ public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
             }
             PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(1, "wake:" + startService.flattenToShortString());
             newWakeLock.setReferenceCounted(false);
-            newWakeLock.acquire(TbConfig.USE_TIME_INTERVAL);
+            newWakeLock.acquire(60000L);
             mActiveWakeLocks.put(i, newWakeLock);
             return startService;
         }

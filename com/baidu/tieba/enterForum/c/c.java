@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.aj;
@@ -17,36 +17,36 @@ import com.baidu.tieba.enterForum.b.j;
 public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, com.baidu.tbadk.mvc.d.b> {
     private ViewEventCenter ccl;
     private ImageView ceA;
-    private View cer;
-    private TextView ces;
-    private ImageView cet;
+    private ImageView ceB;
+    private View ces;
+    private TextView cet;
     private ImageView ceu;
-    private View cev;
-    private TextView cew;
-    private ImageView cex;
+    private ImageView cev;
+    private View cew;
+    private TextView cex;
     private ImageView cey;
     private ImageView cez;
 
     public c(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.ccl = viewEventCenter;
-        this.cer = view.findViewById(d.h.left_container);
-        this.ces = (TextView) this.cer.findViewById(d.h.name);
-        this.cet = (ImageView) this.cer.findViewById(d.h.sign);
-        this.ceu = (ImageView) this.cer.findViewById(d.h.grade);
-        this.cev = view.findViewById(d.h.right_container);
-        this.cew = (TextView) this.cev.findViewById(d.h.name);
-        this.cex = (ImageView) this.cev.findViewById(d.h.sign);
-        this.cey = (ImageView) this.cev.findViewById(d.h.grade);
-        this.cez = (ImageView) view.findViewById(d.h.divide_line_middle);
-        this.ceA = (ImageView) view.findViewById(d.h.divide_line);
-        int f = k.f(tbPageContext.getPageActivity(), d.f.ds20);
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.ceu.getLayoutParams();
+        this.ces = view.findViewById(d.h.left_container);
+        this.cet = (TextView) this.ces.findViewById(d.h.name);
+        this.ceu = (ImageView) this.ces.findViewById(d.h.sign);
+        this.cev = (ImageView) this.ces.findViewById(d.h.grade);
+        this.cew = view.findViewById(d.h.right_container);
+        this.cex = (TextView) this.cew.findViewById(d.h.name);
+        this.cey = (ImageView) this.cew.findViewById(d.h.sign);
+        this.cez = (ImageView) this.cew.findViewById(d.h.grade);
+        this.ceA = (ImageView) view.findViewById(d.h.divide_line_middle);
+        this.ceB = (ImageView) view.findViewById(d.h.divide_line);
+        int f = l.f(tbPageContext.getPageActivity(), d.f.ds20);
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.cev.getLayoutParams();
         if (marginLayoutParams != null) {
             marginLayoutParams.rightMargin = f;
         }
-        int f2 = k.f(tbPageContext.getPageActivity(), d.f.ds32);
-        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.cew.getLayoutParams();
+        int f2 = l.f(tbPageContext.getPageActivity(), d.f.ds32);
+        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.cex.getLayoutParams();
         if (marginLayoutParams2 != null) {
             marginLayoutParams2.leftMargin = f2;
         }
@@ -58,23 +58,23 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, c
     public void D(com.baidu.tieba.enterForum.b.a aVar) {
         super.D(aVar);
         if (aVar != null) {
-            a(aVar.acN(), true);
-            a(aVar.acO(), false);
-            b(aVar.acN(), true);
-            b(aVar.acO(), false);
-            aj.k(this.cez, d.e.cp_bg_line_c);
+            a(aVar.acA(), true);
+            a(aVar.acB(), false);
+            b(aVar.acA(), true);
+            b(aVar.acB(), false);
             aj.k(this.ceA, d.e.cp_bg_line_c);
-            aj.j(this.cet, d.g.icon_sign);
-            aj.j(this.cex, d.g.icon_sign);
+            aj.k(this.ceB, d.e.cp_bg_line_c);
+            aj.j(this.ceu, d.g.icon_sign);
+            aj.j(this.cey, d.g.icon_sign);
         }
     }
 
     private void a(com.baidu.tieba.enterForum.b.e eVar, boolean z) {
         if (eVar != null) {
-            View view = z ? this.cer : this.cev;
-            TextView textView = z ? this.ces : this.cew;
-            ImageView imageView = z ? this.cet : this.cex;
-            ImageView imageView2 = z ? this.ceu : this.cey;
+            View view = z ? this.ces : this.cew;
+            TextView textView = z ? this.cet : this.cex;
+            ImageView imageView = z ? this.ceu : this.cey;
+            ImageView imageView2 = z ? this.cev : this.cez;
             switch (eVar.getType()) {
                 case 1:
                     view.setVisibility(0);
@@ -93,7 +93,7 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, c
                     if (eVar instanceof g) {
                         g gVar = (g) eVar;
                         textView.setText(gVar.getName());
-                        imageView.setVisibility(gVar.acU() == 0 ? 8 : 0);
+                        imageView.setVisibility(gVar.acH() == 0 ? 8 : 0);
                         if (gVar.getLevel() == 0) {
                             imageView2.setVisibility(8);
                         } else {
@@ -114,9 +114,9 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, c
     private void b(final com.baidu.tieba.enterForum.b.e eVar, boolean z) {
         View view;
         if (z) {
-            view = this.cer;
+            view = this.ces;
         } else {
-            view = this.cev;
+            view = this.cew;
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.c.1
             @Override // android.view.View.OnClickListener
@@ -151,7 +151,7 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, c
 
     @Override // com.baidu.tieba.tbadkCore.l
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.o.a.a(tbPageContext, getRootView());
+        com.baidu.tbadk.n.a.a(tbPageContext, getRootView());
         return true;
     }
 }

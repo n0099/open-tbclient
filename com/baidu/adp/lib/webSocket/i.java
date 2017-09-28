@@ -15,25 +15,25 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class i implements g {
-    protected Handler zC;
-    protected volatile m zD;
-    protected volatile o zE;
-    protected e.a zF;
-    private URI zG;
-    private String zH;
-    private String zI;
-    private int zJ;
+    protected Handler zE;
+    protected volatile m zF;
+    protected volatile o zG;
+    protected e.a zH;
+    private URI zI;
+    private String zJ;
     private String zK;
-    private String zL;
-    private g.a zM;
-    protected l zN;
-    private boolean zO = false;
-    private boolean zP = false;
-    private volatile boolean zQ = false;
-    private long zR = 0;
-    private c zS = null;
-    private List<BasicNameValuePair> zv;
-    private String[] zw;
+    private int zL;
+    private String zM;
+    private String zN;
+    private g.a zO;
+    protected l zP;
+    private boolean zQ = false;
+    private boolean zR = false;
+    private volatile boolean zS = false;
+    private long zT = 0;
+    private c zU = null;
+    private List<BasicNameValuePair> zx;
+    private String[] zy;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -47,30 +47,30 @@ public class i implements g {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 e eVar = new e();
-                i.this.zF = eVar.a(i.this.zI, i.this.zJ, i.this.zN, false);
-                if (i.this.zQ) {
+                i.this.zH = eVar.a(i.this.zK, i.this.zL, i.this.zP, false);
+                if (i.this.zS) {
                     i.this.q(new k.c());
                     return;
                 }
                 try {
-                    if (!i.this.zF.isConnected()) {
+                    if (!i.this.zH.isConnected()) {
                         i.this.q(new k.e(2, "cannot connect"));
                     } else {
-                        i.this.zR = System.currentTimeMillis() - currentTimeMillis;
-                        i.this.ig();
+                        i.this.zT = System.currentTimeMillis() - currentTimeMillis;
                         i.this.m5if();
-                        k.b bVar = new k.b(i.this.zI + ":" + i.this.zJ);
-                        bVar.mPath = i.this.zK;
-                        bVar.zW = i.this.zL;
-                        bVar.zY = i.this.zw;
-                        bVar.zZ = i.this.zv;
-                        i.this.zE.t(bVar);
-                        if (i.this.zQ) {
+                        i.this.ie();
+                        k.b bVar = new k.b(i.this.zK + ":" + i.this.zL);
+                        bVar.mPath = i.this.zM;
+                        bVar.zY = i.this.zN;
+                        bVar.Aa = i.this.zy;
+                        bVar.Ab = i.this.zx;
+                        i.this.zG.t(bVar);
+                        if (i.this.zS) {
                             i.this.q(new k.c());
                         }
                     }
                 } catch (Throwable th) {
-                    if (i.this.ia()) {
+                    if (i.this.hZ()) {
                         BdLog.e("----WebSocketConnector error. e:" + th.getMessage());
                     }
                     i.this.q(new k.f(new Exception(th)));
@@ -82,15 +82,15 @@ public class i implements g {
     }
 
     public i() {
-        ie();
+        id();
     }
 
     public boolean sendMessage(c cVar) {
         if (cVar == null) {
             return false;
         }
-        if (this.zS != null || !isOpen()) {
-            if (ia()) {
+        if (this.zU != null || !isOpen()) {
+            if (hZ()) {
             }
             if (cVar != null) {
                 cVar.M(1);
@@ -98,46 +98,46 @@ public class i implements g {
             }
             return false;
         }
-        this.zS = cVar;
-        return d(this.zS);
+        this.zU = cVar;
+        return d(this.zU);
     }
 
     private boolean d(c cVar) {
-        if (this.zE == null) {
+        if (this.zG == null) {
             q(new k.f(new Exception("mWriter = null")));
             return false;
         }
-        return this.zE.t(new k.i(cVar));
+        return this.zG.t(new k.i(cVar));
     }
 
     public void close(int i, String str) {
-        this.zO = false;
-        this.zQ = true;
-        if (this.zD != null) {
-            this.zD.quit();
-            this.zD = null;
-        }
-        if (this.zE != null) {
-            this.zE.quit();
-            this.zE = null;
-        }
+        this.zQ = false;
+        this.zS = true;
         if (this.zF != null) {
+            this.zF.quit();
+            this.zF = null;
+        }
+        if (this.zG != null) {
+            this.zG.quit();
+            this.zG = null;
+        }
+        if (this.zH != null) {
             try {
-                this.zF.close();
+                this.zH.close();
             } catch (Throwable th) {
-                if (ia()) {
+                if (hZ()) {
                     th.printStackTrace();
                 }
             }
-            this.zF = null;
+            this.zH = null;
         }
-        g.a aVar = this.zM;
-        this.zM = null;
+        g.a aVar = this.zO;
+        this.zO = null;
         if (aVar != null) {
             try {
                 aVar.e(i, str);
             } catch (Exception e) {
-                if (ia()) {
+                if (hZ()) {
                     BdLog.d(e.getMessage());
                 }
             }
@@ -145,46 +145,46 @@ public class i implements g {
     }
 
     public void a(String str, String[] strArr, g.a aVar, l lVar, List<BasicNameValuePair> list) throws WebSocketException {
-        this.zP = true;
-        if (this.zF != null && this.zF.isConnected()) {
+        this.zR = true;
+        if (this.zH != null && this.zH.isConnected()) {
             throw new WebSocketException("already connected");
         }
         try {
-            this.zG = new URI(str);
-            if (!this.zG.getScheme().equals("ws") && !this.zG.getScheme().equals("wss")) {
+            this.zI = new URI(str);
+            if (!this.zI.getScheme().equals("ws") && !this.zI.getScheme().equals("wss")) {
                 throw new WebSocketException("unsupported scheme for WebSockets URI");
             }
-            if (this.zG.getScheme().equals("wss")) {
+            if (this.zI.getScheme().equals("wss")) {
                 throw new WebSocketException("secure WebSockets not implemented");
             }
-            this.zH = this.zG.getScheme();
-            if (this.zG.getPort() == -1) {
-                if (this.zH.equals("ws")) {
-                    this.zJ = 80;
+            this.zJ = this.zI.getScheme();
+            if (this.zI.getPort() == -1) {
+                if (this.zJ.equals("ws")) {
+                    this.zL = 80;
                 } else {
-                    this.zJ = 443;
+                    this.zL = 443;
                 }
             } else {
-                this.zJ = this.zG.getPort();
+                this.zL = this.zI.getPort();
             }
-            if (this.zG.getHost() == null) {
+            if (this.zI.getHost() == null) {
                 throw new WebSocketException("no host specified in WebSockets URI");
             }
-            this.zI = this.zG.getHost();
-            if (this.zG.getPath() == null || this.zG.getPath().equals("")) {
-                this.zK = "/";
+            this.zK = this.zI.getHost();
+            if (this.zI.getPath() == null || this.zI.getPath().equals("")) {
+                this.zM = "/";
             } else {
-                this.zK = this.zG.getPath();
+                this.zM = this.zI.getPath();
             }
-            if (this.zG.getQuery() == null || this.zG.getQuery().equals("")) {
-                this.zL = null;
+            if (this.zI.getQuery() == null || this.zI.getQuery().equals("")) {
+                this.zN = null;
             } else {
-                this.zL = this.zG.getQuery();
+                this.zN = this.zI.getQuery();
             }
-            this.zw = strArr;
-            this.zv = list;
-            this.zM = aVar;
-            this.zN = new l(lVar);
+            this.zy = strArr;
+            this.zx = list;
+            this.zO = aVar;
+            this.zP = new l(lVar);
             new a().start();
         } catch (URISyntaxException e) {
             throw new WebSocketException("invalid WebSockets URI");
@@ -193,54 +193,54 @@ public class i implements g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q(Object obj) {
-        Message obtainMessage = this.zC.obtainMessage();
+        Message obtainMessage = this.zE.obtainMessage();
         obtainMessage.obj = obj;
-        this.zC.sendMessage(obtainMessage);
+        this.zE.sendMessage(obtainMessage);
     }
 
-    protected void ie() {
-        this.zC = new Handler() { // from class: com.baidu.adp.lib.webSocket.i.1
+    protected void id() {
+        this.zE = new Handler() { // from class: com.baidu.adp.lib.webSocket.i.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.obj instanceof k.s) {
                     k.s sVar = (k.s) message.obj;
-                    if (i.this.zM != null) {
-                        i.this.zM.C(sVar.Ak);
+                    if (i.this.zO != null) {
+                        i.this.zO.C(sVar.Am);
                     }
                 } else if (message.obj instanceof k.m) {
                     k.m mVar = (k.m) message.obj;
-                    if (i.this.zM != null) {
-                        i.this.zM.o(mVar.zU);
-                    } else if (i.this.ia()) {
+                    if (i.this.zO != null) {
+                        i.this.zO.o(mVar.zW);
+                    } else if (i.this.hZ()) {
                         BdLog.d("could not call onRawTextMessage() .. handler already NULL");
                     }
                 } else if (message.obj instanceof k.a) {
                     k.a aVar = (k.a) message.obj;
-                    if (i.this.zM != null) {
-                        i.this.zM.b(aVar);
-                    } else if (i.this.ia()) {
+                    if (i.this.zO != null) {
+                        i.this.zO.b(aVar);
+                    } else if (i.this.hZ()) {
                         BdLog.d("could not call onBinaryMessage() .. handler already NULL");
                     }
                 } else if (message.obj instanceof k.j) {
                     k.C0008k c0008k = new k.C0008k();
-                    c0008k.zU = ((k.j) message.obj).zU;
-                    i.this.zE.t(c0008k);
+                    c0008k.zW = ((k.j) message.obj).zW;
+                    i.this.zG.t(c0008k);
                 } else if (message.obj instanceof k.C0008k) {
                     k.C0008k c0008k2 = (k.C0008k) message.obj;
-                    if (i.this.zM != null) {
-                        i.this.zM.hU();
+                    if (i.this.zO != null) {
+                        i.this.zO.hT();
                     }
                 } else if (message.obj instanceof k.c) {
                     i.this.close(1, null);
                 } else if (message.obj instanceof k.q) {
                     k.q qVar = (k.q) message.obj;
-                    if (qVar.Ai) {
-                        if (i.this.zM != null) {
-                            i.this.zM.e(qVar.Aj);
-                            i.this.zO = true;
-                            i.this.zP = false;
-                            if (i.this.zM != null) {
-                                i.this.zM.a(null);
+                    if (qVar.Ak) {
+                        if (i.this.zO != null) {
+                            i.this.zO.e(qVar.Al);
+                            i.this.zQ = true;
+                            i.this.zR = false;
+                            if (i.this.zO != null) {
+                                i.this.zO.a(null);
                                 return;
                             }
                             return;
@@ -248,39 +248,39 @@ public class i implements g {
                         i.this.close(6, "handler already NULL");
                     }
                 } else if (message.obj instanceof k.d) {
-                    SocketException socketException = ((k.d) message.obj).Ab;
+                    SocketException socketException = ((k.d) message.obj).Ae;
                     i.this.close(3, "WebSockets connection lost = " + (socketException != null ? socketException.getMessage() : null));
                 } else if (message.obj instanceof k.l) {
-                    WebSocketException webSocketException = ((k.l) message.obj).Ag;
+                    WebSocketException webSocketException = ((k.l) message.obj).Ai;
                     i.this.close(4, "WebSockets protocol violation error = " + (webSocketException != null ? webSocketException.getMessage() : null));
                 } else if (message.obj instanceof k.f) {
-                    i.this.close(5, "WebSockets internal error (" + ((k.f) message.obj).Ae.toString() + ")");
+                    i.this.close(5, "WebSockets internal error (" + ((k.f) message.obj).Ag.toString() + ")");
                 } else if (message.obj instanceof k.p) {
                     k.p pVar = (k.p) message.obj;
-                    i.this.close(6, "Server error " + pVar.mStatusCode + " (" + pVar.Ac + ")");
+                    i.this.close(6, "Server error " + pVar.mStatusCode + " (" + pVar.Af + ")");
                 } else if (message.obj instanceof k.e) {
-                    i.this.close(2, "WebSockets connot connect:" + ((k.e) message.obj).Ac);
+                    i.this.close(2, "WebSockets connot connect:" + ((k.e) message.obj).Af);
                 } else if (message.obj instanceof k.r) {
-                    if (i.this.zM != null) {
-                        i.this.zM.b(((k.r) message.obj).Ah);
+                    if (i.this.zO != null) {
+                        i.this.zO.b(((k.r) message.obj).Aj);
                     }
                 } else if (message.obj instanceof k.g) {
-                    i.this.zS = null;
-                    c cVar = ((k.g) message.obj).Ah;
-                    if (i.this.zM != null) {
-                        i.this.zM.c(cVar);
+                    i.this.zU = null;
+                    c cVar = ((k.g) message.obj).Aj;
+                    if (i.this.zO != null) {
+                        i.this.zO.c(cVar);
                     }
-                    if (i.this.zM != null) {
-                        i.this.zM.a(cVar);
+                    if (i.this.zO != null) {
+                        i.this.zO.a(cVar);
                     }
                 } else if (message.obj instanceof k.n) {
-                    i.this.zS = null;
-                    c cVar2 = ((k.n) message.obj).Ah;
-                    if (i.this.zM != null) {
-                        i.this.zM.a(2, cVar2);
+                    i.this.zU = null;
+                    c cVar2 = ((k.n) message.obj).Aj;
+                    if (i.this.zO != null) {
+                        i.this.zO.a(2, cVar2);
                     }
-                    if (i.this.zM != null) {
-                        i.this.zM.a(cVar2);
+                    if (i.this.zO != null) {
+                        i.this.zO.a(cVar2);
                     }
                 } else {
                     i.this.r(message.obj);
@@ -292,89 +292,89 @@ public class i implements g {
     protected void r(Object obj) {
     }
 
-    /* renamed from: if  reason: not valid java name */
-    protected void m5if() {
+    protected void ie() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
-        this.zE = new o(handlerThread.getLooper(), this.zC, this.zF, this.zN);
+        this.zG = new o(handlerThread.getLooper(), this.zE, this.zH, this.zP);
     }
 
-    protected void ig() {
-        this.zD = new m(this.zC, this.zF, this.zN, "WebSocketReader");
-        this.zD.start();
+    /* renamed from: if  reason: not valid java name */
+    protected void m5if() {
+        this.zF = new m(this.zE, this.zH, this.zP, "WebSocketReader");
+        this.zF.start();
     }
 
-    public boolean ih() {
-        return this.zS != null;
+    public boolean ig() {
+        return this.zU != null;
     }
 
-    public boolean hZ() {
-        return this.zP;
+    public boolean hY() {
+        return this.zR;
     }
 
     public boolean isOpen() {
-        return this.zO;
+        return this.zQ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ia() {
+    public boolean hZ() {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void ib() {
-        if (this.zE != null) {
-            this.zE.ib();
+    public void ia() {
+        if (this.zG != null) {
+            this.zG.ia();
         }
     }
 
     public long getUpFlowSize() {
-        if (this.zE != null) {
-            return this.zE.getUpFlowSize();
+        if (this.zG != null) {
+            return this.zG.getUpFlowSize();
         }
         return 0L;
     }
 
-    public void ic() {
-        if (this.zD != null) {
-            this.zD.ic();
+    public void ib() {
+        if (this.zF != null) {
+            this.zF.ib();
         }
     }
 
     public long getDownFlowSize() {
-        if (this.zD != null) {
-            return this.zD.getDownFlowSize();
+        if (this.zF != null) {
+            return this.zF.getDownFlowSize();
         }
         return 0L;
     }
 
-    public long ii() {
-        if (this.zF != null) {
-            return this.zF.hS();
+    public long ih() {
+        if (this.zH != null) {
+            return this.zH.hR();
         }
         return 0L;
     }
 
-    public String ij() {
-        if (this.zF != null) {
-            return this.zF.hR();
+    public String ii() {
+        if (this.zH != null) {
+            return this.zH.hQ();
         }
         return null;
     }
 
-    public long ik() {
-        return this.zR;
+    public long ij() {
+        return this.zT;
+    }
+
+    public String hz() {
+        if (this.zH != null) {
+            return this.zH.hz();
+        }
+        return null;
     }
 
     public String hA() {
-        if (this.zF != null) {
-            return this.zF.hA();
-        }
-        return null;
-    }
-
-    public String hB() {
-        if (this.zF != null) {
-            return this.zF.hB();
+        if (this.zH != null) {
+            return this.zH.hA();
         }
         return null;
     }

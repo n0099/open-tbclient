@@ -1,63 +1,63 @@
 package com.baidu.tieba.tbadkCore.d;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a gkf;
-    private final int gkg = 10;
-    private final int gkh = 3000;
-    public String gki = null;
-    public boolean aiL = false;
+    private com.baidu.adp.lib.stats.a ghP;
+    private final int ghQ = 10;
+    private final int ghR = 3000;
+    public String ghS = null;
+    public boolean ain = false;
 
     public b(String str) {
-        ac(str, false);
+        Z(str, false);
     }
 
-    public void ac(String str, boolean z) {
-        this.gki = str;
-        this.aiL = z;
-        this.gkf = new com.baidu.adp.lib.stats.a("dbg");
+    public void Z(String str, boolean z) {
+        this.ghS = str;
+        this.ain = z;
+        this.ghP = new com.baidu.adp.lib.stats.a("dbg");
         c.k(str, getNetType(), z);
     }
 
     public void start() {
-        this.gkf.fU();
+        this.ghP.fT();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e bsQ;
-        if (this.gkf != null && (bsQ = bsQ()) != null) {
+        e brP;
+        if (this.ghP != null && (brP = brP()) != null) {
             if (z) {
-                if (bsQ.gkn != null) {
-                    bsQ.gkn.num++;
+                if (brP.ghX != null) {
+                    brP.ghX.num++;
                     if (z2) {
-                        bsQ.gkn.gkk += j2;
-                        bsQ.gkn.size += j;
+                        brP.ghX.ghU += j2;
+                        brP.ghX.size += j;
                     } else {
-                        bsQ.gkn.gkl++;
+                        brP.ghX.ghV++;
                     }
                 } else {
                     return;
                 }
-            } else if (bsQ.gko != null) {
-                bsQ.gko.num++;
+            } else if (brP.ghY != null) {
+                brP.ghY.num++;
                 if (z2) {
-                    bsQ.gko.gkk += j3;
-                    bsQ.gko.size += j;
+                    brP.ghY.ghU += j3;
+                    brP.ghY.size += j;
                     j2 = j3;
                 } else {
-                    bsQ.gko.gkl++;
+                    brP.ghY.ghV++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.gkf = null;
+            this.ghP = null;
             if (z2) {
-                c.a(bsQ, 10);
+                c.a(brP, 10);
             }
-            if (this.gki == "frsStat") {
+            if (this.ghS == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.p("act", "frs");
@@ -74,34 +74,34 @@ public class b {
     }
 
     public void destory() {
-        e bsQ;
-        if (this.gkf != null && (bsQ = bsQ()) != null && bsQ.gkp != null) {
-            long fV = this.gkf.fV();
-            if (fV > 3000) {
-                d dVar = bsQ.gkp;
-                dVar.gkk = fV + dVar.gkk;
-                bsQ.gkp.num++;
-                c.a(bsQ, 10);
+        e brP;
+        if (this.ghP != null && (brP = brP()) != null && brP.ghZ != null) {
+            long fU = this.ghP.fU();
+            if (fU > 3000) {
+                d dVar = brP.ghZ;
+                dVar.ghU = fU + dVar.ghU;
+                brP.ghZ.num++;
+                c.a(brP, 10);
             }
         }
     }
 
-    private e bsQ() {
-        return c.l(this.gki, getNetType(), this.aiL);
+    private e brP() {
+        return c.l(this.ghS, getNetType(), this.ain);
     }
 
     private String getNetType() {
-        int ho = i.ho();
-        if (ho == 0) {
+        int hn = j.hn();
+        if (hn == 0) {
             return "N";
         }
-        if (ho == 1) {
+        if (hn == 1) {
             return "WIFI";
         }
-        if (ho == 3) {
+        if (hn == 3) {
             return "3G";
         }
-        if (ho != 2) {
+        if (hn != 2) {
             return "N";
         }
         return "2G";

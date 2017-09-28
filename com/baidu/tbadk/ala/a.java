@@ -3,6 +3,7 @@ package com.baidu.tbadk.ala;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 /* loaded from: classes.dex */
 public class a {
-    public AlaUserInfoData Qs;
+    public AlaUserInfoData QH;
+    public boolean QI;
     public int type;
 }

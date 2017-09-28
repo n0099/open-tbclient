@@ -19,7 +19,7 @@ public class d {
         this.cbY = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c acA() {
+    public com.baidu.tbadk.editortools.emotiontool.c acn() {
         return this.cbY;
     }
 
@@ -27,11 +27,11 @@ public class d {
         this.cbT = emotionGroupType;
     }
 
-    public EmotionGroupType acB() {
+    public EmotionGroupType aco() {
         return this.cbT;
     }
 
-    public void eR(int i) {
+    public void fc(int i) {
         this.row = i;
     }
 
@@ -39,43 +39,43 @@ public class d {
         return this.row;
     }
 
-    public void eQ(int i) {
+    public void fb(int i) {
         this.column = i;
     }
 
-    public int acC() {
+    public int acp() {
         return this.column;
     }
 
-    public void ij(int i) {
+    public void ir(int i) {
         this.cca = i;
     }
 
-    public int acD() {
+    public int acq() {
         return this.cca;
     }
 
-    public void ik(int i) {
+    public void is(int i) {
         this.cbZ = i;
     }
 
-    public int acE() {
+    public int acr() {
         return this.cbZ;
     }
 
-    public void il(int i) {
+    public void it(int i) {
         this.cbU = i;
     }
 
-    public int acF() {
+    public int acs() {
         return this.cbU;
     }
 
-    public void im(int i) {
+    public void iu(int i) {
         this.cbW = i;
     }
 
-    public int acG() {
+    public int act() {
         return this.cbW;
     }
 
@@ -91,11 +91,11 @@ public class d {
         return this.index;
     }
 
-    public void in(int i) {
+    public void iv(int i) {
         this.cbV = i;
     }
 
-    public int acH() {
+    public int acu() {
         return this.cbV;
     }
 }

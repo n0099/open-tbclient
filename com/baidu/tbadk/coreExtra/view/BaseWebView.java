@@ -15,14 +15,10 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.hybrid.HybridManager;
-import com.baidu.tbadk.coreExtra.data.WebCacheWhiteListData;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
-    private boolean isUrlHitCache;
     private com.baidu.tieba.tbadkCore.e.c jsCallback;
     private Context mContext;
     private b mDownloadListener;
@@ -36,7 +32,6 @@ public class BaseWebView extends WebView {
     private g mOnReceivedSslErrorListener;
     private h mWebChromeClient;
     private WebViewClient mWebViewClient;
-    private WebCacheWhiteListData webCacheData;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -79,7 +74,6 @@ public class BaseWebView extends WebView {
         this.mOnReceivedErrorListener = null;
         this.mOnReceivedSslErrorListener = null;
         this.mOnProgressChangedListener = null;
-        this.isUrlHitCache = false;
         this.jsCallback = new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tbadk.coreExtra.view.BaseWebView.1
             @Override // com.baidu.tieba.tbadkCore.e.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
@@ -104,7 +98,6 @@ public class BaseWebView extends WebView {
         this.mOnReceivedErrorListener = null;
         this.mOnReceivedSslErrorListener = null;
         this.mOnProgressChangedListener = null;
-        this.isUrlHitCache = false;
         this.jsCallback = new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tbadk.coreExtra.view.BaseWebView.1
             @Override // com.baidu.tieba.tbadkCore.e.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
@@ -116,31 +109,6 @@ public class BaseWebView extends WebView {
         };
         this.mContext = context;
         init();
-    }
-
-    @Override // android.webkit.WebView
-    public void loadUrl(String str) {
-        if (!str.contains("javascript:")) {
-            this.isUrlHitCache = isUrlMatchWhiteList(str);
-        }
-        super.loadUrl(fixStaticsParam(str));
-    }
-
-    private boolean isUrlMatchWhiteList(String str) {
-        if (StringUtils.isNull(str) || this.webCacheData == null || this.webCacheData.size() == 0) {
-            return false;
-        }
-        return this.webCacheData.checkUrl(str);
-    }
-
-    private String fixStaticsParam(String str) {
-        if (str != null) {
-            if ((str.contains("tieba.baidu.com/n") || str.contains("tiebac.baidu.com/n")) && !str.contains("_webview_time=")) {
-                return str + (str.contains("?") ? "&" : "?") + "_webview_time=" + System.currentTimeMillis();
-            }
-            return str;
-        }
-        return str;
     }
 
     public void setDownloadEnabled(boolean z) {
@@ -170,9 +138,10 @@ public class BaseWebView extends WebView {
         setWebChromeClient(this.mWebChromeClient);
         if (Build.VERSION.SDK_INT >= 11) {
             removeJavascriptInterface("searchBoxJavaBridge_");
+            removeJavascriptInterface("accessibility");
+            removeJavascriptInterface("accessibilityTraversal");
         }
         com.baidu.tbadk.browser.a.ay(getContext());
-        this.webCacheData = WebCacheWhiteListData.createBySP();
     }
 
     public void initCommonJsBridge(Context context) {
@@ -289,8 +258,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebViewClient
         public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
-            WebResourceResponse shouldInterceptRequest;
-            return (!BaseWebView.this.isUrlHitCache || (shouldInterceptRequest = HybridManager.tT().shouldInterceptRequest(webView, str)) == null) ? super.shouldInterceptRequest(webView, str) : shouldInterceptRequest;
+            return super.shouldInterceptRequest(webView, str);
         }
     }
 

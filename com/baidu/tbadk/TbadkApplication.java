@@ -29,12 +29,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.h;
-import com.baidu.tbadk.coreExtra.message.UninstallInquirerBySwitchMessage;
-import com.baidu.tbadk.l.s;
-import com.baidu.tbadk.m.a;
-import com.baidu.tbadk.util.k;
+import com.baidu.tbadk.k.s;
+import com.baidu.tbadk.l.a;
+import com.baidu.tbadk.util.j;
 import com.baidu.tieba.d;
 import com.baidu.tieba.service.SignAlertReceiver;
 import com.xiaomi.mipush.sdk.Constants;
@@ -92,16 +91,16 @@ public class TbadkApplication extends TbadkCoreApplication {
             }
         }
         if (b.getInstance().getBoolean("is_domain_qa", false)) {
-            com.baidu.tbadk.coreExtra.a.b.aqT = Domain.DOMAIN_QA;
+            com.baidu.tbadk.coreExtra.a.b.aqb = Domain.DOMAIN_QA;
             build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(Domain.DOMAIN_QA).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(str).fastLoginSupport(generateFastLoginFeatures()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
         } else {
-            build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.aqT).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(str).fastLoginSupport(generateFastLoginFeatures()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
+            build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.aqb).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(str).fastLoginSupport(generateFastLoginFeatures()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
         }
         try {
             SapiAccountManager.getInstance().init(build);
         } catch (Exception e2) {
         }
-        s.GD().V(System.currentTimeMillis() - currentTimeMillis);
+        s.Gi().V(System.currentTimeMillis() - currentTimeMillis);
     }
 
     private FastLoginFeature[] generateFastLoginFeatures() {
@@ -125,9 +124,9 @@ public class TbadkApplication extends TbadkCoreApplication {
             initSapi();
         }
         if ((this.isCdnTachometerProcess == null || !this.isCdnTachometerProcess.booleanValue()) && !this.isPluginInstallProcess) {
-            boolean He = k.He();
+            boolean GI = j.GI();
             boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-            boolean z = He && isXiaomiPushSdkShouldOpen;
+            boolean z = GI && isXiaomiPushSdkShouldOpen;
             long currentTimeMillis = System.currentTimeMillis();
             if (Build.VERSION.SDK_INT >= 24) {
                 try {
@@ -136,20 +135,17 @@ public class TbadkApplication extends TbadkCoreApplication {
                 }
             }
             String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
-            PluginPackageManager.jw().a(a.GI(), new com.baidu.tbadk.m.b(), He && isXiaomiPushSdkShouldOpen);
-            PluginSettings jV = com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().jV();
-            if (jV != null) {
-                String containerVersion = jV.getContainerVersion();
+            PluginPackageManager.jv().a(a.Gn(), new com.baidu.tbadk.l.b(), GI && isXiaomiPushSdkShouldOpen);
+            PluginSettings jU = com.baidu.adp.plugin.packageManager.pluginSettings.c.jX().jU();
+            if (jU != null) {
+                String containerVersion = jU.getContainerVersion();
                 if (!TextUtils.isEmpty(containerVersion) && Util.I(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                    s.GD().cc(z);
-                    s.GD().X(System.currentTimeMillis() - currentTimeMillis);
+                    s.Gi().cb(z);
+                    s.Gi().X(System.currentTimeMillis() - currentTimeMillis);
                 }
             }
         }
         initSettings();
-        if (isMainProcess(true)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new UninstallInquirerBySwitchMessage());
-        }
         setActivityStackMaxSize(20);
         if (isMainProcess(false)) {
             updateSignAlarm();
@@ -158,20 +154,20 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
         if (this.isRemoteProcess) {
-            s.GD().ao(System.currentTimeMillis() - this.processCreateTime);
+            s.Gi().ao(System.currentTimeMillis() - this.processCreateTime);
         }
         if (isMainProcess(true)) {
             long currentTimeMillis2 = System.currentTimeMillis();
             NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.3
                 @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                 public void callback(String str2, String str3) {
-                    au.wd().c(null, new String[]{str3});
+                    av.vH().c(null, new String[]{str3});
                 }
             });
-            s.GD().ag(System.currentTimeMillis() - currentTimeMillis2);
+            s.Gi().ag(System.currentTimeMillis() - currentTimeMillis2);
         }
-        s.GD().T(System.currentTimeMillis());
-        h.uD();
+        s.Gi().T(System.currentTimeMillis());
+        h.ug();
     }
 
     private void initSettings() {
@@ -247,7 +243,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     protected Intent createIntentForSignAlarm() {
-        Intent intent = new Intent(com.baidu.tbadk.data.c.getBroadcastActionSignAlert());
+        Intent intent = new Intent(com.baidu.tbadk.data.b.getBroadcastActionSignAlert());
         intent.setData(Uri.parse("tieba_sign://alert"));
         intent.setClass(getInst().getContext(), SignAlertReceiver.class);
         return intent;
@@ -326,13 +322,13 @@ public class TbadkApplication extends TbadkCoreApplication {
     @Override // com.baidu.tbadk.core.TbadkCoreApplication
     public void loadPatchs() {
         super.loadPatchs();
-        PluginPackageManager.jw().c(TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
+        PluginPackageManager.jv().c(TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
         int i = b.getInstance().getInt("plugin_patch_hook_failed_count", 0);
-        PluginPackageManager.jw().aC(i);
-        if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.jh() && i == 0 && PluginPackageManager.jw().jA()) {
+        PluginPackageManager.jv().aF(i);
+        if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.jg() && i == 0 && PluginPackageManager.jv().jz()) {
             long currentTimeMillis = System.currentTimeMillis();
-            PluginPackageManager.jw().jB();
-            s.GD().W(System.currentTimeMillis() - currentTimeMillis);
+            PluginPackageManager.jv().jA();
+            s.Gi().W(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -341,11 +337,11 @@ public class TbadkApplication extends TbadkCoreApplication {
         Map<String, PluginSetting> plugins;
         PluginSetting pluginSetting;
         try {
-            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().jV().getPlugins();
+            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.jX().jU().getPlugins();
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
-        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().jV().hasPatch() || plugins == null || plugins.isEmpty()) {
+        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.jX().jU().hasPatch() || plugins == null || plugins.isEmpty()) {
             return false;
         }
         Iterator<PluginSetting> it = plugins.values().iterator();

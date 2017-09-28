@@ -10,54 +10,54 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected com.baidu.adp.lib.c.a dqC;
-    protected b dqD;
-    protected long dqJ;
-    private boolean dqK;
-    private boolean dqL;
-    protected int dqM;
-    protected TbPageContext<MsglistActivity<?>> mF;
+    protected com.baidu.adp.lib.c.a dmR;
+    protected b dmS;
+    protected long dmY;
+    private boolean dmZ;
+    private boolean dna;
+    protected int dnb;
+    protected TbPageContext<MsglistActivity<?>> mG;
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dqC = null;
-        this.dqD = null;
-        this.dqJ = 0L;
-        this.dqK = false;
-        this.dqL = false;
-        this.mF = tbPageContext;
+        this.dmR = null;
+        this.dmS = null;
+        this.dmY = 0L;
+        this.dmZ = false;
+        this.dna = false;
+        this.mG = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.dqC = aVar;
+        this.dmR = aVar;
     }
 
     public void setOnItemViewLongClickListener(b bVar) {
-        this.dqD = bVar;
+        this.dmS = bVar;
     }
 
-    private void aul() {
-        this.dqJ = System.currentTimeMillis() / 1000;
+    private void asW() {
+        this.dmY = System.currentTimeMillis() / 1000;
     }
 
-    public boolean aum() {
-        return this.dqK;
+    public boolean asX() {
+        return this.dmZ;
     }
 
-    public void ge(boolean z) {
-        this.dqK = z;
+    public void fQ(boolean z) {
+        this.dmZ = z;
     }
 
-    public boolean aun() {
-        return this.dqL;
+    public boolean asY() {
+        return this.dna;
     }
 
-    public void gf(boolean z) {
-        this.dqL = z;
+    public void fR(boolean z) {
+        this.dna = z;
     }
 
-    public void mo(int i) {
-        this.dqM = i;
+    public void mk(int i) {
+        this.dnb = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,21 +68,21 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        aul();
+        asW();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends j.a {
-        private T dqN;
+        private T dnc;
 
         public a(View view, T t) {
             super(view);
-            this.dqN = t;
+            this.dnc = t;
         }
 
-        public T auo() {
-            return this.dqN;
+        public T asZ() {
+            return this.dnc;
         }
     }
 }

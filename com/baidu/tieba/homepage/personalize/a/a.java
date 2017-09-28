@@ -1,91 +1,61 @@
 package com.baidu.tieba.homepage.personalize.a;
 
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.adp.lib.util.i;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tieba.card.u;
 /* loaded from: classes.dex */
-public class a {
-    public JSONArray dbR;
-    private HttpMessageListener dbS;
-    private BdUniqueId dbT = BdUniqueId.gen();
-    private BdUniqueId dbU = BdUniqueId.gen();
-    private CustomMessageListener dbV = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.homepage.personalize.a.a.2
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && i.gW() && a.this.dbR != null) {
-                a.this.a(a.this.dbR, a.this.dbU);
-            }
-        }
-    };
-    private CustomMessageListener dbW = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.personalize.a.a.3
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                a.this.u((JSONObject) customResponsedMessage.getData());
-            }
-        }
-    };
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.e>> {
+    private BdUniqueId aPx;
+    private com.baidu.tieba.card.e cZo;
+    private TbPageContext<?> mG;
 
-    public a() {
-        if (this.dbS == null) {
-            this.dbS = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.homepage.personalize.a.a.1
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.adp.framework.listener.MessageListener
-                public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003184 && httpResponsedMessage.getError() == 0) {
-                        a.this.dbR = null;
-                    }
-                }
-            };
-        }
-        this.dbS.setTag(this.dbU);
-        MessageManager.getInstance().registerListener(this.dbS);
-        MessageManager.getInstance().registerListener(this.dbV);
-        MessageManager.getInstance().registerListener(this.dbW);
+    public a(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.das);
+        this.mG = tbPageContext;
+        this.cZo = new com.baidu.tieba.card.e(this.mG);
+        this.cZo.i("c10714", "c10739", "c10712", "c10738");
+        this.cZo.setFrom("home");
     }
 
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dbS);
-        MessageManager.getInstance().unRegisterListener(this.dbV);
-        MessageManager.getInstance().unRegisterListener(this.dbW);
-        this.dbR = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void u(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            if (i.gW()) {
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put(jSONObject);
-                a(jSONArray, this.dbT);
-                return;
-            }
-            if (this.dbR == null) {
-                this.dbR = new JSONArray();
-            }
-            if (this.dbR.length() <= 100) {
-                this.dbR.put(jSONObject);
-            }
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        this.aPx = bdUniqueId;
+        if (this.cZo != null) {
+            this.cZo.h(this.aPx);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(JSONArray jSONArray, BdUniqueId bdUniqueId) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEG_FEED_BACK);
-        httpMessage.addParam("dislike", jSONArray.toString());
-        httpMessage.setTag(bdUniqueId);
-        MessageManager.getInstance().sendMessage(httpMessage);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a aVar) {
+        if (aVar.Yr() == null) {
+            return null;
+        }
+        aVar.Yr().a((com.baidu.tieba.card.a) bVar);
+        u.XR().a(new ak("c10714").ad("obj_param3", com.baidu.tieba.card.m.XG()));
+        return aVar.getView();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: B */
+    public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
+        if (this.cZo == null) {
+            this.cZo = new com.baidu.tieba.card.e(this.mG);
+            this.cZo.h(this.aPx);
+            this.cZo.i("c10714", "c10739", "c10712", "c10738");
+        }
+        return new com.baidu.tieba.card.a.a(this.cZo);
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.cZo != null) {
+            this.cZo.d(this.mG, i);
+        }
     }
 }

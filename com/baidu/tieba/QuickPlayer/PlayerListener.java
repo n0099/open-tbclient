@@ -24,8 +24,8 @@ public class PlayerListener extends IQuickMediaPlayerListener.Stub {
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener
-    public void onError(int i, int i2) throws RemoteException {
-        sendMessage(8, i, i2);
+    public void onError(int i, int i2, int i3) throws RemoteException {
+        sendMessage(8, new com.baidu.tieba.play.b.c(i, i2, i3));
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener
@@ -38,6 +38,11 @@ public class PlayerListener extends IQuickMediaPlayerListener.Stub {
         sendMessage(11);
     }
 
+    @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener
+    public void onSeekComplete() throws RemoteException {
+        sendMessage(12);
+    }
+
     private void sendMessage(int i) {
         sendMessage(i, 0, 0);
     }
@@ -48,6 +53,15 @@ public class PlayerListener extends IQuickMediaPlayerListener.Stub {
             Message obtainMessage = handler.obtainMessage(i);
             obtainMessage.arg1 = i2;
             obtainMessage.arg2 = i3;
+            handler.sendMessage(obtainMessage);
+        }
+    }
+
+    private void sendMessage(int i, Object obj) {
+        if (this.mHandler != null && this.mHandler.get() != null) {
+            Handler handler = this.mHandler.get();
+            Message obtainMessage = handler.obtainMessage(i);
+            obtainMessage.obj = obj;
             handler.sendMessage(obtainMessage);
         }
     }

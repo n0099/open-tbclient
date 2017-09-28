@@ -15,7 +15,7 @@ public class f extends com.baidu.tbadk.editortools.emotiontool.a {
         return 1;
     }
 
-    public static synchronized f acI() {
+    public static synchronized f acv() {
         f fVar;
         synchronized (f.class) {
             fVar = ccb;
@@ -28,14 +28,14 @@ public class f extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
-    public void a(a.InterfaceC0056a interfaceC0056a) {
+    public void a(a.InterfaceC0055a interfaceC0055a) {
         if (this.ccc == null || this.ccc.isEmpty()) {
             this.ccc = new LinkedList<>();
-            if (TbFaceManager.Eu().Di() > 0) {
+            if (TbFaceManager.DY().CM() > 0) {
                 e eVar = new e();
                 this.ccc.add(eVar);
-                if (interfaceC0056a != null) {
-                    interfaceC0056a.a(eVar);
+                if (interfaceC0055a != null) {
+                    interfaceC0055a.a(eVar);
                     return;
                 }
                 return;
@@ -45,8 +45,8 @@ public class f extends com.baidu.tbadk.editortools.emotiontool.a {
         Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.ccc.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-            if (interfaceC0056a != null) {
-                interfaceC0056a.a(next);
+            if (interfaceC0055a != null) {
+                interfaceC0055a.a(next);
             }
         }
     }

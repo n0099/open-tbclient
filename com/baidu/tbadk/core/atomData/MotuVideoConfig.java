@@ -21,7 +21,7 @@ public class MotuVideoConfig extends IntentConfig {
         getIntent().putExtra("forum_id", str);
         getIntent().putExtra("forum_name", str2);
         getIntent().putExtra("video_title", str3);
-        getIntent().putExtra(LOCAL_VIDEO_OPEN, z);
+        getIntent().putExtra("is_local_video_open", z);
         setRequestCode(13010);
         setIntentAction(IntentAction.ActivityForResult);
     }

@@ -1,32 +1,74 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.tbadk.TbConfig;
+import android.os.Handler;
+import android.view.View;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-public class p extends Thread {
-    private int aMr;
-    private int aMs;
-    private String type = null;
+public class p {
+    private View aLV;
+    private int aLW;
+    private boolean aLX;
+    private final Handler mHandler;
 
-    public p(int i, int i2) {
-        this.aMr = 0;
-        this.aMs = 0;
-        this.aMr = i;
-        this.aMs = i2;
-    }
-
-    public void setType(String str) {
-        this.type = str;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        com.baidu.tbadk.core.util.x xVar = new com.baidu.tbadk.core.util.x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-        xVar.n("img_num", String.valueOf(this.aMr));
-        xVar.n("img_total", String.valueOf(this.aMs));
-        if (this.type != null) {
-            xVar.n("img_type", this.type);
+    public void GP() {
+        this.mHandler.removeMessages(2);
+        if (!this.mHandler.hasMessages(1)) {
+            this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
-        xVar.uM();
+    }
+
+    public void GQ() {
+        this.mHandler.removeMessages(1);
+        if (!this.mHandler.hasMessages(2)) {
+            this.mHandler.sendEmptyMessageDelayed(2, 110L);
+        }
+    }
+
+    public void GR() {
+        this.mHandler.removeCallbacksAndMessages(null);
+    }
+
+    public void ce(boolean z) {
+        if (this.aLV != null) {
+            if (z || this.aLV.getVisibility() != 8) {
+                GQ();
+            }
+        }
+    }
+
+    public void cf(boolean z) {
+        if (this.aLV != null) {
+            if (z || this.aLV.getVisibility() != 0) {
+                GP();
+            }
+        }
+    }
+
+    public void a(AbsListView absListView, int i, int i2, int i3, int i4) {
+        if (this.aLV != null) {
+            if (i != 0 && i2 > i && this.aLV.getVisibility() != 8) {
+                ce(false);
+            } else if ((i == 0 || i2 < i) && this.aLV.getVisibility() != 0) {
+                cf(false);
+            }
+            this.aLW = i;
+        }
+    }
+
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        if (absListView != null && i == 0) {
+            int firstVisiblePosition = absListView.getFirstVisiblePosition();
+            if (firstVisiblePosition > this.aLW) {
+                ce(true);
+            } else if (firstVisiblePosition < this.aLW) {
+                cf(true);
+            } else if (firstVisiblePosition == this.aLW) {
+                if (firstVisiblePosition == 0 || !this.aLX) {
+                    cf(true);
+                } else {
+                    ce(true);
+                }
+            }
+        }
     }
 }

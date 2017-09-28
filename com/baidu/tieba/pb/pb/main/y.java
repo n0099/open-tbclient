@@ -1,22 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
-public class y {
-    public String eNQ;
-    public boolean eNR;
-    public boolean eNC = false;
-    public boolean eND = false;
-    public boolean eNE = false;
-    public boolean eFW = false;
-    public boolean eNF = false;
-    public boolean eNG = false;
-    public boolean eNH = false;
-    public boolean eNI = false;
-    public boolean eNJ = false;
-    public boolean eNK = false;
-    public boolean eNL = false;
-    public boolean eNM = false;
-    public boolean eNN = false;
-    public boolean eNO = false;
-    public boolean eNP = false;
-    public boolean isHostOnly = false;
+public class y extends PostData {
+    public static final BdUniqueId eHF = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.ar eHG;
+    public com.baidu.tbadk.core.data.ar eHH;
+    public com.baidu.tbadk.core.data.ar eHI;
+
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return eHF;
+    }
+
+    public boolean hasData() {
+        if (this.eHG == null || StringUtils.isNull(this.eHG.summary)) {
+            if (this.eHH == null || StringUtils.isNull(this.eHH.summary)) {
+                return (this.eHI == null || StringUtils.isNull(this.eHI.summary)) ? false : true;
+            }
+            return true;
+        }
+        return true;
+    }
 }

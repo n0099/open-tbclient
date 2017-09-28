@@ -1,47 +1,98 @@
 package com.baidu.tieba.frs.entelechy.a;
 
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bj;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tieba.card.v;
+import com.baidu.tieba.card.x;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public interface q {
-    void a(com.baidu.tieba.frs.b bVar);
+public class q extends com.baidu.tieba.frs.d<bh, a<com.baidu.tieba.frs.entelechy.view.a>> implements v, com.baidu.tieba.frs.f.c {
+    private x<bh> bmJ;
+    private String mForumName;
+    private TbPageContext<?> mG;
 
-    HashMap<Integer, bj> aiZ();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public q(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
+        this.bmJ = new x<bh>() { // from class: com.baidu.tieba.frs.entelechy.a.q.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.card.x
+            public void a(View view, bh bhVar) {
+                if (view != null && bhVar != null) {
+                    if (view.getId() == d.h.layout_root) {
+                        com.baidu.tieba.frs.f.b.aly().a(com.baidu.tieba.frs.f.c.cGc, bhVar, 1);
+                        TiebaStatic.log(new ak("c12126").ad("tid", bhVar.getId()).r("obj_locate", q.this.agI() ? 2 : 1).f("obj_id", bhVar.rN() == null ? -1L : bhVar.rN().live_id).r("obj_type", 1));
+                    } else if (view.getId() == d.h.card_home_page_normal_thread_user_name || view.getId() == d.h.card_home_page_normal_thread_user_header) {
+                        com.baidu.tieba.frs.f.b.aly().a(com.baidu.tieba.frs.f.c.cGc, bhVar, 2);
+                    } else if (view.getId() == d.h.header_divider) {
+                        com.baidu.tieba.frs.g.h.a(com.baidu.tieba.frs.f.c.cGc, bhVar.rT());
+                    } else if (view.getId() == d.h.frame_video) {
+                        com.baidu.tieba.frs.f.b.aly().a(com.baidu.tieba.frs.f.c.cGc, bhVar, 4);
+                    }
+                }
+            }
+        };
+        this.mG = tbPageContext;
+    }
 
-    int aib();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: S */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        com.baidu.tieba.frs.entelechy.view.a aVar = new com.baidu.tieba.frs.entelechy.view.a(this.mG, this.mPageId);
+        aVar.k(this.mPageId);
+        aVar.setForumName(this.mForumName);
+        return new a(aVar);
+    }
 
-    void aja();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bh bhVar, a aVar) {
+        if (aVar == null || aVar.Yr() == null) {
+            return null;
+        }
+        aVar.Yr().setVideoStatsData(D(bhVar));
+        aVar.Yr().a(bhVar);
+        aVar.Yr().setForumName(this.mForumName);
+        aVar.Yr().b(this.bmJ);
+        com.baidu.tieba.frs.f.b.aly().a(cGc, bhVar);
+        com.baidu.tieba.frs.f.b.aly().L(bhVar);
+        if (bhVar != null) {
+            TiebaStatic.log(new ak("c12125").ad("tid", bhVar.getId()).r("obj_locate", agI() ? 2 : 1).f("obj_id", bhVar.rN() != null ? bhVar.rN().live_id : -1L).r("obj_type", 1));
+            bhVar.st();
+        }
+        return aVar.getView();
+    }
 
-    int ajb();
+    private com.baidu.tieba.play.x D(bh bhVar) {
+        if (bhVar == null) {
+            return null;
+        }
+        com.baidu.tieba.play.x xVar = new com.baidu.tieba.play.x();
+        xVar.mLocate = bhVar.sp() ? TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE : "2";
+        xVar.azf = cGc.cFU;
+        xVar.cyX = bhVar.getTid();
+        xVar.mSource = bhVar.ZH;
+        xVar.fyc = bhVar.ZM;
+        xVar.fyd = bhVar.ZI;
+        xVar.fyf = bhVar.ZJ;
+        if (bhVar.rM() != null) {
+            xVar.fyg = bhVar.rM().video_md5;
+        }
+        return xVar;
+    }
 
-    int ajc();
-
-    int ajd();
-
-    int aje();
-
-    void ajf();
-
-    void b(ArrayList<com.baidu.adp.widget.ListView.f> arrayList, com.baidu.tieba.tbadkCore.i iVar);
-
-    void cK(boolean z);
-
-    void eZ(boolean z);
-
-    List<com.baidu.adp.widget.ListView.f> getDatas();
-
-    boolean m(BdUniqueId bdUniqueId);
-
-    void notifyDataSetChanged();
-
-    void onDestory();
-
-    void setForumName(String str);
-
-    void setFromCDN(boolean z);
-
-    void setOnAdapterItemClickListener(com.baidu.adp.widget.ListView.h hVar);
+    @Override // com.baidu.tieba.card.v
+    public void setForumName(String str) {
+        this.mForumName = str;
+    }
 }

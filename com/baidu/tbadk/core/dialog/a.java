@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.g.g;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -64,7 +64,7 @@ public class a {
         return this;
     }
 
-    public a cb(int i) {
+    public a cc(int i) {
         cL(this.mActivity.getResources().getString(i));
         return this;
     }
@@ -96,7 +96,7 @@ public class a {
         return this;
     }
 
-    public a cc(int i) {
+    public a cd(int i) {
         if (this.mActivity != null) {
             this.mMessage = this.mActivity.getResources().getString(i);
         }
@@ -135,7 +135,7 @@ public class a {
         this.aaR = (ViewGroup) this.aaQ.findViewById(d.h.real_view);
     }
 
-    public a cd(int i) {
+    public a ce(int i) {
         if (isAutoNight()) {
             this.aaJ = aj.getColor(i);
         } else {
@@ -144,7 +144,7 @@ public class a {
         return this;
     }
 
-    public a ce(int i) {
+    public a cf(int i) {
         this.aaK = i;
         return this;
     }
@@ -163,10 +163,10 @@ public class a {
                 linearLayout.removeAllViews();
                 linearLayout.addView(this.mContentView);
             } else {
-                View tl = tl();
-                if (tl != null) {
+                View tf = tf();
+                if (tf != null) {
                     linearLayout.removeAllViews();
-                    linearLayout.addView(tl);
+                    linearLayout.addView(tf);
                 }
             }
             c(eVar);
@@ -184,7 +184,7 @@ public class a {
                 this.aaV.setText(this.aaH);
                 this.aaV.setTag(this.aaU);
                 if (this.aaL != null) {
-                    this.aaV.setOnClickListener(new View$OnClickListenerC0045a(this, this.aaL));
+                    this.aaV.setOnClickListener(new View$OnClickListenerC0046a(this, this.aaL));
                 }
                 z = true;
             }
@@ -193,7 +193,7 @@ public class a {
             } else {
                 this.aaW.setText(this.aaI);
                 if (this.aaM != null) {
-                    this.aaW.setOnClickListener(new View$OnClickListenerC0045a(this, this.aaM));
+                    this.aaW.setOnClickListener(new View$OnClickListenerC0046a(this, this.aaM));
                 }
             }
             h(z, z2);
@@ -201,7 +201,7 @@ public class a {
         return this;
     }
 
-    public View tl() {
+    public View tf() {
         boolean z = !StringUtils.isNull(this.mTitle);
         boolean z2 = StringUtils.isNull(this.mMessage) ? false : true;
         if (z || z2) {
@@ -235,7 +235,7 @@ public class a {
     public void c(com.baidu.adp.base.e<?> eVar) {
         int skinType = isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0;
         if (eVar instanceof TbPageContext) {
-            ((TbPageContext) eVar).getLayoutMode().ah(skinType == 1);
+            ((TbPageContext) eVar).getLayoutMode().ai(skinType == 1);
             ((TbPageContext) eVar).getLayoutMode().t(this.aaQ);
             if (this.mContentView != null) {
                 ((TbPageContext) eVar).getLayoutMode().t(this.mContentView);
@@ -289,7 +289,7 @@ public class a {
         }
     }
 
-    public a tm() {
+    public a tg() {
         return at(false);
     }
 
@@ -305,7 +305,7 @@ public class a {
             }
         } else {
             this.aaP = new AlertDialog.Builder(this.mActivity).create();
-            this.aaP.setCanceledOnTouchOutside(this.aaT && !this.mCancelable);
+            this.aaP.setCanceledOnTouchOutside(this.aaT);
             this.aaP.setCancelable(this.mCancelable);
             this.aaP.setOnKeyListener(this.aaO);
             if (this.aaN != null) {
@@ -326,13 +326,13 @@ public class a {
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.7f;
                 attributes.width = -1;
-                DisplayMetrics o = k.o(this.mActivity);
+                DisplayMetrics o = l.o(this.mActivity);
                 if (o != null) {
-                    int tn = tn();
+                    int th = th();
                     if (UtilHelper.getRealScreenOrientation(this.mActivity) == 2) {
-                        attributes.width = o.heightPixels - (tn * 2);
+                        attributes.width = o.heightPixels - (th * 2);
                     } else {
-                        attributes.width = o.widthPixels - (tn * 2);
+                        attributes.width = o.widthPixels - (th * 2);
                     }
                 }
                 attributes.height = -2;
@@ -357,8 +357,8 @@ public class a {
         return this;
     }
 
-    public int tn() {
-        return this.aaK == 1 ? k.f(this.mActivity, d.f.ds40) : k.f(this.mActivity, d.f.ds90);
+    public int th() {
+        return this.aaK == 1 ? l.f(this.mActivity, d.f.ds40) : l.f(this.mActivity, d.f.ds90);
     }
 
     public boolean isShowing() {
@@ -380,7 +380,7 @@ public class a {
         }
     }
 
-    public a to() {
+    public a ti() {
         return at(true);
     }
 
@@ -399,24 +399,24 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.core.dialog.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class View$OnClickListenerC0045a implements View.OnClickListener {
-        private final a Kj;
+    public class View$OnClickListenerC0046a implements View.OnClickListener {
+        private final a KA;
         private final b abb;
 
-        public View$OnClickListenerC0045a(a aVar, b bVar) {
-            this.Kj = aVar;
+        public View$OnClickListenerC0046a(a aVar, b bVar) {
+            this.KA = aVar;
             this.abb = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (this.abb != null) {
-                this.abb.onClick(this.Kj);
+                this.abb.onClick(this.KA);
             }
         }
     }
 
-    public ViewGroup tp() {
+    public ViewGroup tj() {
         return this.aaR;
     }
 
@@ -424,7 +424,7 @@ public class a {
         this.aaU = obj;
     }
 
-    public Object tq() {
+    public Object tk() {
         return this.aaU;
     }
 

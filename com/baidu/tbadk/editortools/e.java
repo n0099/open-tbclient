@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends RelativeLayout implements l {
-    private int aAV;
-    private TextView aAX;
-    private int aAY;
-    private String afg;
+    private int aAp;
+    private TextView aAr;
+    private int aAs;
+    private String aeD;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -23,30 +23,30 @@ public class e extends RelativeLayout implements l {
         if (i > 0 && i2 > 0) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, context.getResources().getDimensionPixelSize(d.f.ds144));
             setGravity(5);
-            this.aAX = new TextView(context);
+            this.aAr = new TextView(context);
             setName(str);
             setIcon(i);
             setToolId(i2);
             layoutParams.addRule(13);
-            this.aAX.setGravity(17);
-            this.aAX.setTextSize(0, context.getResources().getDimensionPixelSize(d.f.fontsize24));
-            this.aAY = context.getResources().getDimensionPixelSize(d.f.ds12);
+            this.aAr.setGravity(17);
+            this.aAr.setTextSize(0, context.getResources().getDimensionPixelSize(d.f.fontsize24));
+            this.aAs = context.getResources().getDimensionPixelSize(d.f.ds12);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.f.ds16);
-            this.aAX.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
-            addView(this.aAX, layoutParams);
+            this.aAr.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+            addView(this.aAr, layoutParams);
         }
     }
 
     public void setName(String str) {
-        this.aAX.setText(str);
+        this.aAr.setText(str);
     }
 
     public void setIcon(int i) {
-        this.aAV = i;
+        this.aAp = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public void lK() {
+    public void lM() {
         setVisibility(0);
     }
 
@@ -60,8 +60,8 @@ public class e extends RelativeLayout implements l {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = (this.aAX.getRight() - this.mTip.getMeasuredWidth()) - this.aAY;
-                int top = this.aAX.getTop() + this.aAY;
+                int right = (this.aAr.getRight() - this.mTip.getMeasuredWidth()) - this.aAs;
+                int top = this.aAr.getTop() + this.aAs;
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -69,14 +69,14 @@ public class e extends RelativeLayout implements l {
         }
     }
 
-    public void fE(String str) {
-        fF(str);
+    public void fx(String str) {
+        fy(str);
         this.mTip.setVisibility(0);
     }
 
-    private void fF(String str) {
+    private void fy(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.afg = str;
+            this.aeD = str;
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
                 addView(this.mTip, new RelativeLayout.LayoutParams(-2, -2));
@@ -96,8 +96,8 @@ public class e extends RelativeLayout implements l {
         }
     }
 
-    public void CU() {
-        this.afg = null;
+    public void Cy() {
+        this.aeD = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -107,9 +107,9 @@ public class e extends RelativeLayout implements l {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                CU();
+                Cy();
             } else if (aVar.data instanceof String) {
-                fE((String) aVar.data);
+                fx((String) aVar.data);
             }
         }
     }
@@ -126,12 +126,12 @@ public class e extends RelativeLayout implements l {
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        aj.d(this.aAX, d.g.btn_editor_selector, i);
-        aj.b(this.aAX, d.e.cp_cont_c, 1, i);
-        if (TextUtils.isEmpty(this.aAX.getText())) {
-            aj.d(this.aAX, this.aAV, i);
+        aj.d(this.aAr, d.g.btn_editor_selector, i);
+        aj.b(this.aAr, d.e.cp_cont_c, 1, i);
+        if (TextUtils.isEmpty(this.aAr.getText())) {
+            aj.d(this.aAr, this.aAp, i);
         } else {
-            this.aAX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.u(i, this.aAV), (Drawable) null, (Drawable) null);
+            this.aAr.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.u(i, this.aAp), (Drawable) null, (Drawable) null);
         }
         if (this.mTip != null) {
             aj.b(this.mTip, d.e.common_color_10225, 1, i);
@@ -145,6 +145,6 @@ public class e extends RelativeLayout implements l {
     }
 
     public String getText() {
-        return this.afg;
+        return this.aeD;
     }
 }

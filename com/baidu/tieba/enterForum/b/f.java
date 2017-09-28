@@ -8,11 +8,11 @@ public class f {
     private long mId;
     private String mName;
 
-    public String acS() {
+    public String acF() {
         return this.ccD;
     }
 
-    public long acT() {
+    public long acG() {
         return this.ccE;
     }
 

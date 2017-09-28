@@ -100,8 +100,8 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean notifyOnError(int i, int i2) {
-        return this.mOnErrorListener != null && this.mOnErrorListener.onError(this, i, i2);
+    public final boolean notifyOnError(int i, int i2, int i3) {
+        return this.mOnErrorListener != null && this.mOnErrorListener.onError(this, i, i2, i3);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

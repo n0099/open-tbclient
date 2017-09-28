@@ -1,9 +1,10 @@
 package com.baidu.tbadk.widget.layout;
 
+import com.baidu.tbadk.core.data.MediaData;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface c {
-    int a(b bVar, List<String> list, int i, int i2);
+    int a(b bVar, List<MediaData> list, int i, int i2);
 
-    int fs(int i);
+    int fG(int i);
 }

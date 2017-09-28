@@ -5,21 +5,21 @@ import com.baidu.tbadk.core.data.FeedForumData;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId ggw = BdUniqueId.gen();
-    private List<FeedForumData> cyD;
+    public static final BdUniqueId ged = BdUniqueId.gen();
+    private List<FeedForumData> czv;
     private String forumId;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return ggw;
+        return ged;
     }
 
-    public List<FeedForumData> bqx() {
-        return this.cyD;
+    public List<FeedForumData> bpt() {
+        return this.czv;
     }
 
-    public void dh(List<FeedForumData> list) {
-        this.cyD = list;
+    public void de(List<FeedForumData> list) {
+        this.czv = list;
     }
 
     public String getForumId() {

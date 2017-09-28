@@ -7,6 +7,7 @@ import com.baidu.tbadk.TbConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.Serializable;
+import java.util.List;
 /* loaded from: classes.dex */
 public class VideoInfo extends OrmObject implements Serializable {
     public static final String DRAFT_JSON_NAME = "new_video_info";
@@ -14,6 +15,10 @@ public class VideoInfo extends OrmObject implements Serializable {
     public static final int VIDEO_TYPE_UPLOAD = 2;
     private static final long serialVersionUID = 4168698601975684150L;
     private boolean isCompressedVideo;
+    private List<String> mBeautifyListInfo;
+    private List<String> mFilterListInfo;
+    private List<String> mMusicListInfo;
+    private List<String> mStickListInfo;
     private long thumbId;
     private String thumbPath;
     private int videoDuration;
@@ -151,6 +156,10 @@ public class VideoInfo extends OrmObject implements Serializable {
             this.thumbId = videoInfo.thumbId;
             this.videoLength = videoInfo.videoLength;
             this.videoType = videoInfo.videoType;
+            this.mBeautifyListInfo = videoInfo.mBeautifyListInfo;
+            this.mFilterListInfo = videoInfo.mFilterListInfo;
+            this.mMusicListInfo = videoInfo.mMusicListInfo;
+            this.mStickListInfo = videoInfo.mStickListInfo;
         }
     }
 
@@ -167,5 +176,37 @@ public class VideoInfo extends OrmObject implements Serializable {
         sb.append(this.videoLength).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         sb.append(this.videoType).append(")");
         return sb.toString();
+    }
+
+    public List<String> getStickListInfo() {
+        return this.mStickListInfo;
+    }
+
+    public void setStickListInfo(List<String> list) {
+        this.mStickListInfo = list;
+    }
+
+    public List<String> getFilterListInfo() {
+        return this.mFilterListInfo;
+    }
+
+    public void setFilterListInfo(List<String> list) {
+        this.mFilterListInfo = list;
+    }
+
+    public List<String> getBeautifyListInfo() {
+        return this.mBeautifyListInfo;
+    }
+
+    public void setBeautifyListInfo(List<String> list) {
+        this.mBeautifyListInfo = list;
+    }
+
+    public List<String> getMusicListInfo() {
+        return this.mMusicListInfo;
+    }
+
+    public void setMusicListInfo(List<String> list) {
+        this.mMusicListInfo = list;
     }
 }

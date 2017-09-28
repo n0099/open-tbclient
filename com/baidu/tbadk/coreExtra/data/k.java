@@ -9,8 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    private Hashtable<String, String> arM = new Hashtable<>();
-    private Hashtable<String, String> arN = new Hashtable<>();
+    private Hashtable<String, String> aqU = new Hashtable<>();
+    private Hashtable<String, String> aqV = new Hashtable<>();
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -18,10 +18,10 @@ public class k {
                 JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
                 BdLog.e("consumepath is:" + jSONObject.toString());
-                a(this.arM, optJSONArray);
-                a(this.arN, optJSONArray2);
-                BdLog.e("pay mPayCashierType:" + this.arM.toString());
-                BdLog.e("pay mPayCashierType:" + this.arN.toString());
+                a(this.aqU, optJSONArray);
+                a(this.aqV, optJSONArray2);
+                BdLog.e("pay mPayCashierType:" + this.aqU.toString());
+                BdLog.e("pay mPayCashierType:" + this.aqV.toString());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -52,9 +52,9 @@ public class k {
         }
         String str2 = null;
         if (i == 1) {
-            str2 = this.arN.get(str);
+            str2 = this.aqV.get(str);
         } else if (i == 2) {
-            str2 = this.arM.get(str);
+            str2 = this.aqU.get(str);
         }
         if (StringUtils.isNull(str2)) {
             return true;

@@ -18,7 +18,7 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.f.c;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.g;
 /* loaded from: classes.dex */
 public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, h {
@@ -75,7 +75,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     }
 
     public void showToast(String str) {
-        k.showToast(getApplicationContext(), str);
+        l.showToast(getApplicationContext(), str);
     }
 
     public void releaseResouce() {
@@ -147,7 +147,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        c.fK().d(this.mId);
+        c.fJ().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
         a.ca().i(getPageContext().getPageActivity());
     }
@@ -156,7 +156,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
         super.onPause();
-        c.fK().e(this.mId);
+        c.fJ().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 

@@ -12,12 +12,12 @@ import android.widget.TextView;
 import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d extends BaseAdapter {
-    private boolean Ht;
+    private boolean HK;
     private DataSetObserver mAdapterDataSetObserver;
     private Context mContext;
     private ArrayList<b> mFooterViewInfos;
@@ -37,7 +37,7 @@ public class d extends BaseAdapter {
         this.mContext = null;
         this.mHeaderViewInfos = null;
         this.mFooterViewInfos = null;
-        this.Ht = false;
+        this.HK = false;
         this.mAdapterDataSetObserver = null;
         this.mContext = context;
         this.mHeaderViewInfos = new ArrayList<>();
@@ -45,7 +45,7 @@ public class d extends BaseAdapter {
         if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
             z = true;
         }
-        this.Ht = z;
+        this.HK = z;
         this.mAdapterDataSetObserver = new DataSetObserver() { // from class: com.baidu.adp.widget.ListView.d.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
@@ -143,7 +143,7 @@ public class d extends BaseAdapter {
                 if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.Ht = z;
+                this.HK = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -162,7 +162,7 @@ public class d extends BaseAdapter {
                 if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.Ht = z;
+                this.HK = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -257,7 +257,7 @@ public class d extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.Ht && this.mAdapter.areAllItemsEnabled();
+            return this.HK && this.mAdapter.areAllItemsEnabled();
         }
         return super.areAllItemsEnabled();
     }
@@ -316,7 +316,7 @@ public class d extends BaseAdapter {
         if (i < headersCount) {
             View view4 = this.mHeaderViewInfos.get(i).view;
             if (view4 == null) {
-                return lh();
+                return lj();
             }
             return view4;
         }
@@ -337,7 +337,7 @@ public class d extends BaseAdapter {
                 view3 = this.mAdapter.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
-                return lh();
+                return lj();
             }
             return view3;
         }
@@ -348,15 +348,15 @@ public class d extends BaseAdapter {
             view2 = null;
         }
         if (view2 == null) {
-            return lh();
+            return lj();
         }
         return view2;
     }
 
-    private View lh() {
+    private View lj() {
         TextView textView = new TextView(this.mContext);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
-        int dip2px = k.dip2px(this.mContext, 15.0f);
+        int dip2px = l.dip2px(this.mContext, 15.0f);
         textView.setPadding(dip2px, dip2px, dip2px, dip2px);
         return textView;
     }

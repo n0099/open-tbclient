@@ -20,23 +20,23 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class MyActivity extends Activity {
-    public static Method NP;
-    public static Method NQ;
-    public static Method NR;
-    public static Method NS;
-    public static Field Pg;
-    public static Field Ph;
-    public static Field Pi;
-    public static Method Pj;
-    public static Method Pk;
-    public static Method Pl;
+    public static Method Of;
+    public static Method Og;
+    public static Method Oh;
+    public static Method Oi;
+    public static Method PA;
+    public static Field Pv;
+    public static Field Pw;
+    public static Field Px;
+    public static Method Py;
+    public static Method Pz;
     public static Method l;
-    private Resources Pc;
+    private Resources Pr;
     protected boolean a = false;
-    protected a Pd = new a();
+    protected a Ps = new a();
     protected Activity c = null;
-    protected Configuration Pe = null;
-    protected ActivityInfo Pf = null;
+    protected Configuration Pt = null;
+    protected ActivityInfo Pu = null;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -54,28 +54,28 @@ public class MyActivity extends Activity {
     }
 
     static {
-        Pg = null;
-        Ph = null;
-        Pi = null;
-        Pj = null;
-        Pk = null;
-        NP = null;
+        Pv = null;
+        Pw = null;
+        Px = null;
+        Py = null;
+        Pz = null;
+        Of = null;
         l = null;
-        NQ = null;
-        NR = null;
-        NS = null;
-        Pl = null;
-        Pj = f.a((Class<?>) Activity.class, "onCreate", (Class<?>[]) new Class[]{Bundle.class});
-        Pk = f.a((Class<?>) Activity.class, "onPostCreate", (Class<?>[]) new Class[]{Bundle.class});
-        NP = f.a((Class<?>) Activity.class, "onStart", (Class<?>[]) new Class[0]);
+        Og = null;
+        Oh = null;
+        Oi = null;
+        PA = null;
+        Py = f.a((Class<?>) Activity.class, "onCreate", (Class<?>[]) new Class[]{Bundle.class});
+        Pz = f.a((Class<?>) Activity.class, "onPostCreate", (Class<?>[]) new Class[]{Bundle.class});
+        Of = f.a((Class<?>) Activity.class, "onStart", (Class<?>[]) new Class[0]);
         l = f.a((Class<?>) Activity.class, "onResume", (Class<?>[]) new Class[0]);
-        NQ = f.a((Class<?>) Activity.class, "onPostResume", (Class<?>[]) new Class[0]);
-        NR = f.a((Class<?>) Activity.class, "onPause", (Class<?>[]) new Class[0]);
-        NS = f.a((Class<?>) Activity.class, "onStop", (Class<?>[]) new Class[0]);
-        Pl = f.a((Class<?>) Activity.class, "onDestroy", (Class<?>[]) new Class[0]);
-        Pg = f.d(Activity.class, "mCurrentConfig");
-        Ph = f.d(Activity.class, "mConfigChangeFlags");
-        Pi = f.d(Activity.class, "mCalled");
+        Og = f.a((Class<?>) Activity.class, "onPostResume", (Class<?>[]) new Class[0]);
+        Oh = f.a((Class<?>) Activity.class, "onPause", (Class<?>[]) new Class[0]);
+        Oi = f.a((Class<?>) Activity.class, "onStop", (Class<?>[]) new Class[0]);
+        PA = f.a((Class<?>) Activity.class, "onDestroy", (Class<?>[]) new Class[0]);
+        Pv = f.d(Activity.class, "mCurrentConfig");
+        Pw = f.d(Activity.class, "mConfigChangeFlags");
+        Px = f.d(Activity.class, "mCalled");
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
@@ -88,14 +88,14 @@ public class MyActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         ActivityInfo activityInfo;
         String str;
-        com.baidu.sofire.core.e np = com.baidu.sofire.core.e.np();
-        if (np == null) {
+        com.baidu.sofire.core.e nr = com.baidu.sofire.core.e.nr();
+        if (nr == null) {
             b.a();
             super.onCreate(bundle);
             finish();
             return;
         }
-        a aVar = this.Pd;
+        a aVar = this.Ps;
         Intent intent = getIntent();
         String stringExtra = intent.getStringExtra("from_plugin_package");
         String stringExtra2 = intent.getStringExtra("target_class");
@@ -105,15 +105,15 @@ public class MyActivity extends Activity {
             aVar.b = stringExtra2;
             aVar.e = intent;
         }
-        this.Pd.toString();
+        this.Ps.toString();
         b.a();
-        if (TextUtils.isEmpty(this.Pd.d)) {
+        if (TextUtils.isEmpty(this.Ps.d)) {
             b.a();
             super.onCreate(bundle);
             finish();
             return;
         }
-        ApkInfo bT = np.bT(this.Pd.d);
+        ApkInfo bT = nr.bT(this.Ps.d);
         if (bT == null || bT.activities == null) {
             b.a();
             super.onCreate(bundle);
@@ -129,7 +129,7 @@ public class MyActivity extends Activity {
                 break;
             }
             ActivityInfo activityInfo2 = activityInfoArr[i];
-            if (activityInfo2.name.equals(this.Pd.b)) {
+            if (activityInfo2.name.equals(this.Ps.b)) {
                 activityInfo = activityInfo2;
                 break;
             }
@@ -141,7 +141,7 @@ public class MyActivity extends Activity {
             finish();
             return;
         }
-        this.Pf = activityInfo;
+        this.Pu = activityInfo;
         int i2 = activityInfo.theme;
         if (i2 == 0) {
             i2 = bT.applicationTheme;
@@ -150,7 +150,7 @@ public class MyActivity extends Activity {
         setTheme(i3);
         this.a = true;
         try {
-            Object newInstance = bT.classLoader.loadClass(this.Pd.b).newInstance();
+            Object newInstance = bT.classLoader.loadClass(this.Ps.b).newInstance();
             if (!(newInstance instanceof Activity)) {
                 String str2 = newInstance.toString();
                 b.a();
@@ -179,14 +179,14 @@ public class MyActivity extends Activity {
                     assetManager.addAssetPath(bT.pkgPath);
                     String str3 = "p=" + bT.pkgPath;
                     b.a();
-                    this.Pc = new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
-                    String str4 = "r=" + this.Pc + ", l=" + activityInfo.labelRes;
+                    this.Pr = new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
+                    String str4 = "r=" + this.Pr + ", l=" + activityInfo.labelRes;
                     b.a();
                     if (activityInfo.labelRes > 0) {
-                        String str5 = this.Pc.getString(activityInfo.labelRes);
+                        String str5 = this.Pr.getString(activityInfo.labelRes);
                         b.a();
                     }
-                    d3.set(activity, this.Pc);
+                    d3.set(activity, this.Pr);
                 }
                 activity.setTheme(i3);
                 activity.getTheme().applyStyle(i3, true);
@@ -235,12 +235,12 @@ public class MyActivity extends Activity {
                         str = activityInfo.nonLocalizedLabel.toString();
                     } else if (activityInfo.labelRes == 0) {
                         str = activityInfo.name != null ? activityInfo.name : activityInfo.packageName;
-                    } else if (this.Pc != null) {
+                    } else if (this.Pr != null) {
                         String str6 = "p= " + bT.pkgPath;
                         b.a();
-                        String str7 = "r=" + this.Pc + ", l=" + activityInfo.labelRes;
+                        String str7 = "r=" + this.Pr + ", l=" + activityInfo.labelRes;
                         b.a();
-                        str = this.Pc.getString(activityInfo.labelRes);
+                        str = this.Pr.getString(activityInfo.labelRes);
                     } else {
                         str = null;
                     }
@@ -262,11 +262,11 @@ public class MyActivity extends Activity {
                         b.b();
                     }
                 }
-                this.Pd.e.setExtrasClassLoader(bT.classLoader);
-                activity.setIntent(this.Pd.e);
-                if (this.a && Pj != null && this.c != null) {
+                this.Ps.e.setExtrasClassLoader(bT.classLoader);
+                activity.setIntent(this.Ps.e);
+                if (this.a && Py != null && this.c != null) {
                     try {
-                        Pj.invoke(newInstance, bundle);
+                        Py.invoke(newInstance, bundle);
                     } catch (Throwable th7) {
                         th7.getMessage();
                         b.b();
@@ -285,9 +285,9 @@ public class MyActivity extends Activity {
     @Override // android.app.Activity
     protected void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        if (this.a && Pk != null && this.c != null) {
+        if (this.a && Pz != null && this.c != null) {
             try {
-                Pk.invoke(this.c, bundle);
+                Pz.invoke(this.c, bundle);
             } catch (Throwable th) {
                 th.getMessage();
                 b.b();
@@ -298,9 +298,9 @@ public class MyActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        if (this.a && Pl != null && this.c != null) {
+        if (this.a && PA != null && this.c != null) {
             try {
-                Pl.invoke(this.c, new Object[0]);
+                PA.invoke(this.c, new Object[0]);
             } catch (Throwable th) {
                 th.getMessage();
                 b.b();
@@ -311,9 +311,9 @@ public class MyActivity extends Activity {
     @Override // android.app.Activity
     protected void onPause() {
         super.onPause();
-        if (this.a && NR != null && this.c != null) {
+        if (this.a && Oh != null && this.c != null) {
             try {
-                NR.invoke(this.c, new Object[0]);
+                Oh.invoke(this.c, new Object[0]);
             } catch (Throwable th) {
                 th.getMessage();
                 b.b();
@@ -337,9 +337,9 @@ public class MyActivity extends Activity {
     @Override // android.app.Activity
     protected void onPostResume() {
         super.onPostResume();
-        if (this.a && NQ != null && this.c != null) {
+        if (this.a && Og != null && this.c != null) {
             try {
-                NQ.invoke(this.c, new Object[0]);
+                Og.invoke(this.c, new Object[0]);
             } catch (Throwable th) {
                 th.getMessage();
                 b.b();
@@ -350,9 +350,9 @@ public class MyActivity extends Activity {
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (this.a && NP != null && this.c != null) {
+        if (this.a && Of != null && this.c != null) {
             try {
-                NP.invoke(this.c, new Object[0]);
+                Of.invoke(this.c, new Object[0]);
             } catch (Throwable th) {
                 th.getMessage();
                 b.b();
@@ -363,9 +363,9 @@ public class MyActivity extends Activity {
     @Override // android.app.Activity
     protected void onStop() {
         super.onStop();
-        if (this.a && NS != null && this.c != null) {
+        if (this.a && Oi != null && this.c != null) {
             try {
-                NS.invoke(this.c, new Object[0]);
+                Oi.invoke(this.c, new Object[0]);
             } catch (Throwable th) {
                 th.getMessage();
                 b.b();
@@ -386,15 +386,15 @@ public class MyActivity extends Activity {
         boolean z3 = false;
         super.onConfigurationChanged(configuration);
         if (this.a && this.c != null) {
-            if (this.Pe != null) {
-                Configuration configuration2 = this.Pe;
-                int i = this.Pf.configChanges;
+            if (this.Pt != null) {
+                Configuration configuration2 = this.Pt;
+                int i = this.Pu.configChanges;
                 int diff = configuration2.diff(configuration);
                 if (diff != 0 && (diff & i) == 0) {
                     z = true;
                     if (!z) {
                         try {
-                            Pi.setBoolean(this.c, false);
+                            Px.setBoolean(this.c, false);
                             z2 = false;
                         } catch (Throwable th) {
                             th.getMessage();
@@ -403,7 +403,7 @@ public class MyActivity extends Activity {
                         }
                         this.c.onConfigurationChanged(configuration);
                         try {
-                            z3 = Pi.getBoolean(this.c);
+                            z3 = Px.getBoolean(this.c);
                         } catch (Throwable th2) {
                             th2.getMessage();
                             b.b();
@@ -411,21 +411,21 @@ public class MyActivity extends Activity {
                         }
                         if (z2 || z3) {
                             try {
-                                Ph.setInt(this.c, 0);
+                                Pw.setInt(this.c, 0);
                             } catch (Throwable th3) {
                                 th3.getMessage();
                                 b.b();
                             }
                             try {
-                                Pg.set(this.c, new Configuration(configuration));
+                                Pv.set(this.c, new Configuration(configuration));
                             } catch (Throwable th4) {
                                 th4.getMessage();
                                 b.b();
                             }
                         }
                     }
-                    if (this.Pe == null) {
-                        this.Pe.updateFrom(configuration);
+                    if (this.Pt == null) {
+                        this.Pt.updateFrom(configuration);
                         return;
                     }
                     return;
@@ -434,7 +434,7 @@ public class MyActivity extends Activity {
             z = false;
             if (!z) {
             }
-            if (this.Pe == null) {
+            if (this.Pt == null) {
             }
         }
     }

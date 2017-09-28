@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb.pb.main.emotion.message;
 
+import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
@@ -22,10 +23,10 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
-        if (statusCode == 200 && error >= 0 && jSONObject != null && jSONObject != null) {
+        if (statusCode == 200 && error == 0 && jSONObject != null && jSONObject != null) {
             this.mData = new a();
-            this.mData.ay(parseImageData(jSONObject.optJSONArray("memes")));
-            this.mData.cF(parseHotWordsData(jSONObject.optJSONArray("topwords")));
+            this.mData.ax(parseImageData(jSONObject.optJSONArray("memes")));
+            this.mData.cx(parseHotWordsData(jSONObject.optJSONArray("topwords")));
             this.mData.a(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
         }
     }
@@ -40,7 +41,7 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
                 EmotionImageData emotionImageData = new EmotionImageData();
-                emotionImageData.setPicId(jSONObject.optString("pic_id"));
+                emotionImageData.setPicId(jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY));
                 emotionImageData.setPicUrl(jSONObject.optString("pic_url"));
                 emotionImageData.setThumbUrl(jSONObject.optString("thumbnail"));
                 emotionImageData.setWidth(jSONObject.optInt("width"));

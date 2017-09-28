@@ -25,16 +25,16 @@ public class f extends a {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
     /* renamed from: c */
-    public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a b = super.b(str, str2, objArr);
-        if (b != null && b.kO() != null && b.kO().isRecycled()) {
+    public com.baidu.adp.widget.ImageView.a b(String str, String str2, Object... objArr) {
+        com.baidu.adp.widget.ImageView.a b = super.b(str, str2, objArr);
+        if (b != null && b.kN() != null && b.kN().isRecycled()) {
             return null;
         }
         return b;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
-    public boolean fN() {
+    public boolean fM() {
         return true;
     }
 
@@ -54,17 +54,17 @@ public class f extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean ws() {
+    public boolean vW() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wt() {
+    public boolean vX() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int wu() {
+    public int vY() {
         return this.procType;
     }
 }

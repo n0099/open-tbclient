@@ -5,6 +5,8 @@ import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PersonalBackgroundPreviewActivityConfig extends IntentConfig {
+    public static final int FROM_BACKGROUND_ALL = 0;
+    public static final int FROM_BACKGROUND_GROUP = 1;
     public static final String INUSE = "inuse";
     public static final String PROPID = "propid";
 
@@ -13,5 +15,9 @@ public class PersonalBackgroundPreviewActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra(PROPID, i);
         intent.putExtra(INUSE, i2);
+    }
+
+    public void setFrom(int i) {
+        getIntent().putExtra("from", i);
     }
 }

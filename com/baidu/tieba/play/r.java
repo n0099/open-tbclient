@@ -1,69 +1,34 @@
 package com.baidu.tieba.play;
-
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class r {
-    private static h fBF = null;
-    private static boolean fBG = true;
-    private static boolean fBH = true;
+    private int eLR = 0;
+    private int fxR = 0;
+    private boolean fxS = false;
+    private boolean fxT = true;
 
-    private static h bfX() {
-        if (fBF == null) {
-            fBG = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, h.class);
-            if (runTask != null) {
-                fBF = (h) runTask.getData();
-            }
-        }
-        return fBF;
+    public int bew() {
+        return this.eLR;
     }
 
-    public static String hw(String str) {
-        if (fBH && fBG && bfX() != null) {
-            return bfX().hw(str);
-        }
-        return str;
+    public int bex() {
+        return this.fxR;
     }
 
-    public static String hx(String str) {
-        if (bfX() != null) {
-            return bfX().hx(str);
-        }
-        return null;
+    public boolean bey() {
+        return this.fxS;
     }
 
-    public static void af(Context context, String str) {
-        if (bfX() != null) {
-            bfX().af(context, str);
-        }
+    public boolean bez() {
+        return this.fxT;
     }
 
-    public static void ag(Context context, String str) {
-        if (fBH && fBG && bfX() != null) {
-            bfX().ag(context, str);
-        }
+    public void i(int i, int i2, boolean z) {
+        this.eLR = i;
+        this.fxR = i2;
+        this.fxS = z;
     }
 
-    public static void hy(String str) {
-        if (fBH && fBG && bfX() != null) {
-            bfX().hy(str);
-        }
-    }
-
-    public static void bf(Context context) {
-        if (bfX() != null) {
-            bfX().bf(context);
-        }
-    }
-
-    public static void lE(boolean z) {
-        fBG = z;
-    }
-
-    public static void bfY() {
-        fBH = com.baidu.adp.lib.b.d.eW().af("android_video_cache_open") == 1;
+    public void hr(boolean z) {
+        this.fxT = z;
     }
 }

@@ -4,79 +4,79 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private int arc;
-    private long ard;
-    private long are;
-    private String arf;
-    private int aqZ = 1;
-    private int arb = 0;
-    private int arg = 0;
-    private int arh = 1;
-    private int ari = 0;
-    private int arj = 300;
-    private int ark = 1;
-    private c ara = new c();
+    private int aqk;
+    private long aql;
+    private long aqm;
+    private String aqn;
+    private int aqh = 1;
+    private int aqj = 0;
+    private int aqo = 0;
+    private int aqp = 1;
+    private int aqq = 0;
+    private int aqr = 300;
+    private int aqs = 1;
+    private c aqi = new c();
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.aqZ = jSONObject.optInt("als_control", 1);
-            this.arb = jSONObject.optInt("not_use_lego_patch", 0);
-            this.arh = jSONObject.optInt("ad_video_not_autoplay", 1);
-            this.ari = jSONObject.optInt("lp_video_not_autoplay", 0);
-            this.ara.parserJson(jSONObject);
+            this.aqh = jSONObject.optInt("als_control", 1);
+            this.aqj = jSONObject.optInt("not_use_lego_patch", 0);
+            this.aqp = jSONObject.optInt("ad_video_not_autoplay", 1);
+            this.aqq = jSONObject.optInt("lp_video_not_autoplay", 0);
+            this.aqi.parserJson(jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
             if (optJSONObject != null) {
-                this.arc = optJSONObject.optInt("log_feed_switch", 0);
-                this.ard = optJSONObject.optLong("start_time", -1L);
-                this.are = optJSONObject.optLong("end_time", -1L);
-                this.arf = optJSONObject.optString("ext_info");
+                this.aqk = optJSONObject.optInt("log_feed_switch", 0);
+                this.aql = optJSONObject.optLong("start_time", -1L);
+                this.aqm = optJSONObject.optLong("end_time", -1L);
+                this.aqn = optJSONObject.optString("ext_info");
             }
-            this.arg = jSONObject.optInt("ad_collect_switch", 0);
+            this.aqo = jSONObject.optInt("ad_collect_switch", 0);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("splash");
             if (optJSONObject2 != null) {
-                this.arj = optJSONObject2.optInt("interval", 300);
+                this.aqr = optJSONObject2.optInt("interval", 300);
             }
-            this.ark = jSONObject.optInt("video_page_style", 1);
+            this.aqs = jSONObject.optInt("video_page_style", 1);
         }
     }
 
-    public c xW() {
-        return this.ara;
+    public c xv() {
+        return this.aqi;
     }
 
-    public boolean xX() {
-        return this.aqZ > 0;
+    public boolean xw() {
+        return this.aqh > 0;
     }
 
-    public boolean xY() {
-        if (this.arc == 1) {
+    public boolean xx() {
+        if (this.aqk == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.ard < currentTimeMillis && currentTimeMillis < this.are;
+            return this.aql < currentTimeMillis && currentTimeMillis < this.aqm;
         }
         return false;
     }
 
-    public boolean xZ() {
-        return this.arh == 1;
+    public boolean xy() {
+        return this.aqp == 1;
     }
 
-    public boolean ya() {
-        return this.ari == 1;
+    public boolean xz() {
+        return this.aqq == 1;
     }
 
-    public String yb() {
-        return this.arf;
+    public String xA() {
+        return this.aqn;
     }
 
-    public boolean yc() {
-        return this.arg == 1;
+    public boolean xB() {
+        return this.aqo == 1;
     }
 
-    public int yd() {
-        return this.arj;
+    public int xC() {
+        return this.aqr;
     }
 
-    public int ye() {
-        return this.ark;
+    public int xD() {
+        return this.aqs;
     }
 }

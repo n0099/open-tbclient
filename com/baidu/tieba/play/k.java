@@ -1,69 +1,43 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.os.Handler;
+import android.os.Message;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class k {
-    static {
-        bfI();
-        bfJ();
+public class k implements SensorEventListener {
+    private WeakReference<Handler> mHandler;
+
+    public k(Handler handler) {
+        this.mHandler = new WeakReference<>(handler);
     }
 
-    private static void bfI() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
-        tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        messageManager.registerTask(tbHttpMessageTask);
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i) {
     }
 
-    private static void bfJ() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
-        tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        messageManager.registerTask(tbHttpMessageTask);
-    }
-
-    public static void a(String str, String str2, String str3, w wVar) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_PLAY_STATISTICS_CMD);
-        httpMessage.addParam("video_md5", str);
-        httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-        httpMessage.addParam("obj_param2", str2);
-        httpMessage.addParam("obj_type", str3);
-        a(httpMessage, wVar);
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    public static void a(long j, String str, w wVar, String str2) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS);
-        httpMessage.addParam("obj_duration", j);
-        httpMessage.addParam("obj_type", str);
-        if (wVar != null) {
-            httpMessage.addParam("video_md5", wVar.fBR);
-        }
-        httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-        httpMessage.addParam("obj_param2", str2);
-        a(httpMessage, wVar);
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    private static void a(HttpMessage httpMessage, w wVar) {
-        if (httpMessage != null && wVar != null) {
-            httpMessage.addParam("tid", wVar.bHy);
-            httpMessage.addParam("fid", wVar.azL);
-            httpMessage.addParam("obj_to", wVar.fBN);
-            httpMessage.addParam("obj_id", wVar.VU);
-            httpMessage.addParam("obj_param3", wVar.fBO);
-            httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, wVar.mSource);
-            httpMessage.addParam("obj_locate", wVar.mLocate);
-            httpMessage.addParam("obj_param1", wVar.fBP);
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Handler handler;
+        Message obtainMessage;
+        if (sensorEvent != null && sensorEvent.values != null && sensorEvent.values.length >= 3) {
+            float[] fArr = sensorEvent.values;
+            float f = -fArr[0];
+            float f2 = -fArr[1];
+            float f3 = -fArr[2];
+            if ((f * f) + (f2 * f2) >= f3 * f3) {
+                int round = 90 - Math.round(((float) Math.atan2(-f2, f)) * 57.29578f);
+                if (round >= 360) {
+                    round -= 360;
+                }
+                int i = round < 0 ? round + 360 : round;
+                if (this.mHandler != null && this.mHandler.get() != null && (obtainMessage = (handler = this.mHandler.get()).obtainMessage(1)) != null) {
+                    obtainMessage.arg1 = i;
+                    handler.sendMessage(obtainMessage);
+                }
+            }
         }
     }
 }

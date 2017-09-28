@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.Disk.b;
 import com.baidu.adp.lib.Disk.d;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.g;
+import com.baidu.adp.lib.util.h;
 /* loaded from: classes.dex */
 public class BdNativeCrash {
     private static NativeCrashCallback mCallback;
@@ -34,7 +34,7 @@ public class BdNativeCrash {
 
     static {
         mbLibLoaded = false;
-        mbLibLoaded = g.gU().i("nativecrashlog", 1);
+        mbLibLoaded = h.gT().i("nativecrashlog", 1);
     }
 
     private BdNativeCrash() {
@@ -63,7 +63,7 @@ public class BdNativeCrash {
 
     public void initCrash(String str, String str2) {
         this.mCrashLogPath = str2;
-        d.dI().I(str);
+        d.dH().I(str);
         if (!TextUtils.isEmpty(this.mCrashLogPath)) {
             b bVar = new b();
             bVar.H(str);

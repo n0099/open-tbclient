@@ -1,24 +1,13 @@
 package com.baidu.tieba.frs;
 
-import android.content.Intent;
-import com.baidu.tbadk.util.r;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public interface ah {
-    void M(Intent intent);
+    void a(TbPageContext tbPageContext, View view, int i, boolean z, BdUniqueId bdUniqueId);
 
-    void ahf();
+    void changeSkinType(int i);
 
-    void ahg();
-
-    void ahu();
-
-    ForumWriteData ahv();
-
-    void setHeaderViewHeight(int i);
-
-    void setRecommendFrsNavigationAnimDispatcher(r rVar);
-
-    void showFloatingView();
-
-    void xc();
+    void hide();
 }

@@ -1,30 +1,17 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.view.n;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class d {
-    private static String eCZ;
-
-    public static SpannableStringBuilder ao(Context context, String str) {
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) str);
-        int length = spannableStringBuilder.length();
-        Drawable drawable = context.getResources().getDrawable(d.g.icon_nichenghuodong);
-        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        spannableStringBuilder.append((CharSequence) "tag");
-        spannableStringBuilder.setSpan(new n(drawable), length, spannableStringBuilder.length(), 33);
-        return spannableStringBuilder;
-    }
-
-    public static String aOJ() {
-        if (TextUtils.isEmpty(eCZ)) {
-            eCZ = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("nick_name_activity_link", "");
+    public static int v(TbPageContext tbPageContext) {
+        String fromPageKey = UtilHelper.getFromPageKey(tbPageContext);
+        if (fromPageKey == null) {
+            return 3;
         }
-        return eCZ;
+        if (fromPageKey.equals("a002")) {
+            return 1;
+        }
+        return fromPageKey.equals("a006") ? 2 : 3;
     }
 }

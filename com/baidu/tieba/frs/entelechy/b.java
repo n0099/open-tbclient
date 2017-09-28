@@ -2,18 +2,18 @@ package com.baidu.tieba.frs.entelechy;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tieba.frs.entelechy.a.q;
+import com.baidu.tieba.frs.entelechy.a.r;
 import com.baidu.tieba.frs.f;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tieba.frs.entelechy.b.a {
-    private a cuQ;
+    private a cvu;
 
-    public com.baidu.tieba.frs.entelechy.b.d y(f fVar) {
+    public com.baidu.tieba.frs.entelechy.b.d z(f fVar) {
         return new com.baidu.tieba.frs.entelechy.c.a(fVar);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b aiE() {
+    public com.baidu.tieba.frs.entelechy.b.b aiI() {
         return new d();
     }
 
@@ -22,13 +22,13 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
         if (fVar == null) {
             return null;
         }
-        this.cuQ = new c(fVar, null, null, i);
-        this.cuQ.a(fVar.agQ());
-        return this.cuQ;
+        this.cvu = new c(fVar, null, null, i);
+        this.cvu.a(fVar.agM());
+        return this.cvu;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public q a(f fVar, BdTypeListView bdTypeListView, boolean z) {
+    public r a(f fVar, BdTypeListView bdTypeListView, boolean z) {
         return new com.baidu.tieba.frs.entelechy.a.b(fVar, bdTypeListView, z);
     }
 
@@ -36,7 +36,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
     @Override // com.baidu.tieba.frs.entelechy.b.a
     /* renamed from: a */
     public com.baidu.tieba.frs.h.d c(f fVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (fVar.aht()) {
+        if (fVar.ahn()) {
             return null;
         }
         return new com.baidu.tieba.frs.h.d(fVar, noPressedRelativeLayout);
@@ -47,9 +47,9 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
         return new com.baidu.tieba.frs.h.b(fVar, noPressedRelativeLayout);
     }
 
-    public c aiF() {
-        if (this.cuQ instanceof c) {
-            return (c) this.cuQ;
+    public c aiJ() {
+        if (this.cvu instanceof c) {
+            return (c) this.cvu;
         }
         return null;
     }

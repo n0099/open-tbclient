@@ -8,40 +8,40 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.sapi2.SapiSafeFacade;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.x;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.s;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private TbPageContext<?> aby;
-    private String auV;
-    private String auW;
-    protected Button auX;
-    protected TbImageView auY;
-    private TbImageView auZ;
-    private View ava;
-    private boolean avb;
-    private float avc;
-    private boolean avd;
-    private x ave;
-    private a avf;
-    View.OnClickListener avg;
+    private TbPageContext<?> abz;
+    private String aud;
+    private String aue;
+    protected Button auf;
+    protected TbImageView aug;
+    private TbImageView auh;
+    private View aui;
+    private boolean auj;
+    private float auk;
+    private boolean aul;
+    private x aum;
+    private a aun;
+    View.OnClickListener auo;
     private String link;
     private String type;
 
     /* loaded from: classes.dex */
     public interface a {
-        void Bb();
+        void AA();
 
-        void Bc();
+        void Az();
     }
 
     public void setBannerType(String str) {
@@ -49,51 +49,51 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerData(x xVar) {
-        this.ave = xVar;
-        s.a(this.ave.VV, this.auZ, this.ave.VW, k.f(getContext(), d.f.ds26));
+        this.aum = xVar;
+        s.a(this.aum.Wj, this.auh, this.aum.Wk, l.f(getContext(), d.f.ds26));
     }
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.auV = "";
-        this.auW = "";
-        this.avb = false;
-        this.avc = 0.16875f;
-        this.avd = false;
-        this.avg = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.BannerView.1
+        this.aud = "";
+        this.aue = "";
+        this.auj = false;
+        this.auk = 0.16875f;
+        this.aul = false;
+        this.auo = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.BannerView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == BannerView.this.auX) {
-                    if (!TextUtils.isEmpty(BannerView.this.auW)) {
-                        TiebaStatic.log(BannerView.this.auW);
+                if (view == BannerView.this.auf) {
+                    if (!TextUtils.isEmpty(BannerView.this.aue)) {
+                        TiebaStatic.log(BannerView.this.aue);
                     }
-                    BannerView.this.avb = true;
+                    BannerView.this.auj = true;
                     BannerView.this.setVisibility(8);
-                    if (BannerView.this.avf != null) {
-                        BannerView.this.avf.Bc();
+                    if (BannerView.this.aun != null) {
+                        BannerView.this.aun.AA();
                         return;
                     }
                     return;
                 }
-                if (!TextUtils.isEmpty(BannerView.this.auV)) {
-                    TiebaStatic.log(BannerView.this.auV);
+                if (!TextUtils.isEmpty(BannerView.this.aud)) {
+                    TiebaStatic.log(BannerView.this.aud);
                 }
-                if (BannerView.this.avf == null) {
+                if (BannerView.this.aun == null) {
                     if (!TextUtils.isEmpty(BannerView.this.link)) {
-                        au.wd().c(BannerView.this.aby, new String[]{BannerView.this.link});
+                        av.vH().c(BannerView.this.abz, new String[]{BannerView.this.link});
                         if (!BannerView.this.link.startsWith("game:detail:") || !"frs_banner".equals(BannerView.this.type)) {
                             if (BannerView.this.link.startsWith("game:detail:") && "enterforum_banner".equals(BannerView.this.type)) {
-                                TiebaStatic.eventStat(BannerView.this.aby.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", "4000401", "ref_type", "603");
+                                TiebaStatic.eventStat(BannerView.this.abz.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", "4000401", "ref_type", "603");
                                 return;
                             }
                             return;
                         }
-                        TiebaStatic.eventStat(BannerView.this.aby.getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", "603");
+                        TiebaStatic.eventStat(BannerView.this.abz.getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", "603");
                         return;
                     }
                     return;
                 }
-                BannerView.this.avf.Bb();
+                BannerView.this.aun.Az();
             }
         };
         init(context);
@@ -105,41 +105,41 @@ public class BannerView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.j.bannerview, this);
-        this.auX = (Button) findViewById(d.h.btn_close);
-        this.auX.setOnClickListener(this.avg);
-        this.auY = (TbImageView) findViewById(d.h.banner_image);
-        this.auY.setAutoChangeStyle(true);
-        this.auY.setOnClickListener(this.avg);
-        this.auZ = (TbImageView) findViewById(d.h.tv_advert);
-        this.ava = findViewById(d.h.banner_mask);
-        aj.k(this.ava, d.e.black_alpha0);
+        this.auf = (Button) findViewById(d.h.btn_close);
+        this.auf.setOnClickListener(this.auo);
+        this.aug = (TbImageView) findViewById(d.h.banner_image);
+        this.aug.setAutoChangeStyle(true);
+        this.aug.setOnClickListener(this.auo);
+        this.auh = (TbImageView) findViewById(d.h.tv_advert);
+        this.aui = findViewById(d.h.banner_mask);
+        aj.k(this.aui, d.e.black_alpha0);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
-        if (this.auY != null && aVar != null) {
-            this.auY.setEvent(aVar);
+        if (this.aug != null && aVar != null) {
+            this.aug.setEvent(aVar);
         }
     }
 
     public void setTagViewVisible(boolean z) {
         if (z) {
-            this.auZ.setVisibility(0);
+            this.auh.setVisibility(0);
         } else {
-            this.auZ.setVisibility(8);
+            this.auh.setVisibility(8);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, String str, String str2) {
-        this.aby = tbPageContext;
+        this.abz = tbPageContext;
         this.link = str2;
-        this.avd = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.aul = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.avb && this.avd) {
-            ViewGroup.LayoutParams layoutParams = this.auY.getLayoutParams();
-            layoutParams.width = k.ae(getContext());
-            layoutParams.height = (int) ((k.ae(getContext()) * this.avc) + 0.5d);
-            this.auY.setLayoutParams(layoutParams);
-            this.auY.a(str, 10, TbConfig.PB_IMAGE_NEW_MAX_WIDTH, SapiSafeFacade.SAPIWEBVIEW_SMS_LOGIN, false);
+        if (!this.auj && this.aul) {
+            ViewGroup.LayoutParams layoutParams = this.aug.getLayoutParams();
+            layoutParams.width = l.ad(getContext());
+            layoutParams.height = (int) ((l.ad(getContext()) * this.auk) + 0.5d);
+            this.aug.setLayoutParams(layoutParams);
+            this.aug.a(str, 10, TbConfig.PB_IMAGE_NEW_MAX_WIDTH, SapiSafeFacade.SAPIWEBVIEW_SMS_LOGIN, false);
             ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
             if (layoutParams2 != null) {
                 layoutParams2.height = layoutParams.height;
@@ -154,27 +154,27 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(a aVar) {
-        this.avf = aVar;
+        this.aun = aVar;
     }
 
     public void setBannerMaskColor(int i) {
-        this.ava.setBackgroundColor(i);
+        this.aui.setBackgroundColor(i);
     }
 
-    public boolean AZ() {
-        return this.avd;
+    public boolean Ax() {
+        return this.aul;
     }
 
     public TbImageView getBannerView() {
-        return this.auY;
+        return this.aug;
     }
 
     public void reset() {
-        this.avb = false;
-        this.avd = false;
+        this.auj = false;
+        this.aul = false;
     }
 
-    public void Ba() {
-        this.auY.postInvalidate();
+    public void Ay() {
+        this.aug.postInvalidate();
     }
 }

@@ -25,18 +25,19 @@ import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalBackdropGroupActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-import com.baidu.tbadk.data.k;
+import com.baidu.tbadk.data.j;
 import com.baidu.tieba.d;
-import com.baidu.tieba.personPolymeric.b.d;
+import com.baidu.tieba.personPolymeric.b.e;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -47,21 +48,21 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.f.a {
-    private d bIZ;
-    private com.baidu.tieba.personPolymeric.b.a fjX;
+    private com.baidu.tieba.personPolymeric.b.a ffy;
+    private e fga;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
-    public void c(d dVar) {
-        this.bIZ = dVar;
-        if (this.bIZ != null) {
-            this.fjX = this.bIZ.aYg();
+    public void a(e eVar) {
+        this.fga = eVar;
+        if (this.fga != null) {
+            this.ffy = this.fga.aWE();
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0127, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0130, code lost:
         if (r0.equalsIgnoreCase(r2.getPersonalBgUrl()) == false) goto L48;
      */
     @Override // com.baidu.tieba.f.a, com.baidu.tieba.view.g
@@ -75,21 +76,21 @@ public class b extends com.baidu.tieba.f.a {
         int i2 = 1;
         super.a(view, bVar);
         if (bVar != null) {
-            if (bVar.ceU == null) {
+            if (bVar.ceV == null) {
                 userData = null;
             } else {
-                userData = (UserData) bVar.ceU.getSerializable(UserData.TYPE_USER);
+                userData = (UserData) bVar.ceV.getSerializable(UserData.TYPE_USER);
             }
-            switch (bVar.ceT) {
+            switch (bVar.ceU) {
                 case 1:
                     if (userData != null) {
-                        k kVar = new k();
-                        kVar.fv(userData.getPortraitH());
-                        kVar.fw(userData.getPortrait());
-                        kVar.bw(true);
+                        j jVar = new j();
+                        jVar.fo(userData.getPortraitH());
+                        jVar.fp(userData.getPortrait());
+                        jVar.bv(true);
                         ArrayList arrayList = new ArrayList();
-                        arrayList.add(kVar);
-                        this.bIZ.aYh().a((f) kVar, (List<f>) arrayList, 0);
+                        arrayList.add(jVar);
+                        this.fga.aWF().a((f) jVar, (List<f>) arrayList, 0);
                         return;
                     }
                     return;
@@ -110,12 +111,12 @@ public class b extends com.baidu.tieba.f.a {
                 default:
                     return;
                 case 8:
-                    this.mF.getPageActivity().finish();
+                    this.mG.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.fjX != null && this.fjX.Xp() != null) {
+                    if (this.ffy != null && this.ffy.aWx() != null) {
                         TiebaStatic.log("c12207");
-                        this.fjX.Xp().aYo();
+                        this.ffy.aWx().aWL();
                         return;
                     }
                     return;
@@ -128,7 +129,7 @@ public class b extends com.baidu.tieba.f.a {
                         str = userData.getUserId();
                         String bg_pic = userData.getBg_pic();
                         try {
-                            i = com.baidu.adp.lib.g.b.g(pS(bg_pic).get("props_id"), -1);
+                            i = com.baidu.adp.lib.g.b.g(pC(bg_pic).get("props_id"), -1);
                             str2 = bg_pic;
                         } catch (URISyntaxException e) {
                             str2 = bg_pic;
@@ -136,7 +137,7 @@ public class b extends com.baidu.tieba.f.a {
                         }
                     }
                     if (i == -1 || str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(this.mF.getPageActivity())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(this.mG.getPageActivity())));
                         return;
                     }
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
@@ -146,11 +147,11 @@ public class b extends com.baidu.tieba.f.a {
                         } else {
                             i2 = 0;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(this.mF.getPageActivity(), i, i2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(this.mG.getPageActivity(), i, i2)));
                         return;
                     }
                     i2 = 0;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(this.mF.getPageActivity(), i, i2)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(this.mG.getPageActivity(), i, i2)));
                     return;
                 case 11:
                     if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
@@ -162,148 +163,167 @@ public class b extends com.baidu.tieba.f.a {
                             personChangeData.setIntro(userData.getIntro());
                             personChangeData.setNameShow(userData.getName_show());
                             personChangeData.setMem(userData.getIsMem());
-                            if (bVar.ceU != null) {
-                                personChangeData.setNickNameLeftDays(bVar.ceU.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
+                            if (bVar.ceV != null) {
+                                personChangeData.setNickNameLeftDays(bVar.ceV.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                             }
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonChangeActivityConfig(this.mF.getPageActivity(), 101, personChangeData, false)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonChangeActivityConfig(this.mG.getPageActivity(), 101, personChangeData, false)));
                         return;
                     }
                     return;
                 case 12:
                     if (userData != null) {
                         TiebaStatic.log("igift_icon_ck");
-                        if (ax.aU(this.mF.getPageActivity())) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(this.mF.getPageActivity(), userData.getUserIdLong(), userData.getUserName(), userData.getName_show(), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001)));
+                        if (ax.aU(this.mG.getPageActivity())) {
+                            GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(this.mG.getPageActivity(), userData.getUserIdLong(), userData.getUserName(), userData.getName_show(), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001);
+                            giftTabActivityConfig.setReferPageAndClickZone("he/her_personal_center_V8.9", "T_recharge_V8.9");
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, giftTabActivityConfig));
                             return;
                         }
                         return;
                     }
                     return;
                 case 13:
-                    au.wd().c(this.mF, new String[]{TbConfig.WEB_URL_FANS});
+                    av.vH().c(this.mG, new String[]{TbConfig.WEB_URL_FANS});
                     return;
                 case 14:
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(this.mF.getPageActivity(), 0L)));
+                    BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(this.mG.getPageActivity(), 0L);
+                    buyTBeanActivityConfig.setReferPageAndClickZone("personal_center_V8.9", "T_recharge_V8.9");
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, buyTBeanActivityConfig));
                     return;
                 case 15:
-                    hD(8);
+                    qp(8);
                     if (userData != null && userData.membershipInfo != null) {
                         String str3 = userData.membershipInfo.mLink;
                         if (!StringUtils.isNull(str3)) {
-                            au.wd().c(this.mF, new String[]{str3});
+                            av.vH().c(this.mG, new String[]{str3});
                             return;
                         }
                         return;
                     }
                     return;
                 case 16:
-                    hD(7);
-                    com.baidu.tieba.j.a.bij().b(7, false, this.bwa);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MembercenterActivityConfig(this.mF.getPageActivity())));
+                    qp(7);
+                    com.baidu.tieba.j.a.bgP().b(7, false, this.isHost);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MembercenterActivityConfig(this.mG.getPageActivity())));
                     return;
                 case 17:
-                    hD(12);
+                    qp(12);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ConsumptionRecordsActivityConfig(TbadkCoreApplication.getInst().getApplicationContext())));
                     return;
                 case 20:
-                    hD(2);
-                    com.baidu.tieba.j.a.bij().b(3, false, this.bwa);
+                    qp(2);
+                    com.baidu.tieba.j.a.bgP().b(3, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.LEFT_NAV_COLLECTION_CLICK));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_EDITMARK, new IntentConfig(this.mF.getPageActivity())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_EDITMARK, new IntentConfig(this.mG.getPageActivity())));
                     return;
                 case 21:
-                    hD(5);
+                    qp(5);
                     TiebaStatic.log(new ak("c11590").r("obj_locate", 2).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbHistoryActivityConfig(this.mF.getPageActivity())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbHistoryActivityConfig(this.mG.getPageActivity())));
                     return;
                 case 22:
                     TiebaStatic.log(new ak("c11590").r("obj_locate", 3).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                     if (userData != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MissonDetailsActivityConfig(this.mF.getPageActivity(), 24004, userData.getAnchorLevel(), userData.getPortrait(), userData.getName_show(), MissonDetailsActivityConfig.FROM_PERSON)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MissonDetailsActivityConfig(this.mG.getPageActivity(), 24004, userData.getAnchorLevel(), userData.getPortrait(), userData.getName_show(), MissonDetailsActivityConfig.FROM_PERSON)));
                         return;
                     }
                     return;
                 case 24:
-                    hD(3);
-                    com.baidu.tieba.j.a.bij().b(4, false, this.bwa);
+                    qp(3);
+                    com.baidu.tieba.j.a.bgP().b(4, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLEAR_ADDRESSLIST_TIP));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddressListActivityConfig(this.mF.getPageActivity())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddressListActivityConfig(this.mG.getPageActivity())));
                     return;
                 case 27:
-                    hD(10);
+                    qp(10);
                     TiebaStatic.log(new ak("c11948"));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigImgPbActivityConfig(this.mF.getPageActivity())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigImgPbActivityConfig(this.mG.getPageActivity())));
                     return;
                 case 29:
                     if (userData != null) {
-                        hD(6);
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(this.mF.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getPortrait(), userData.getSex(), true)));
+                        qp(6);
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(this.mG.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getPortrait(), userData.getSex(), true)));
                         return;
                     }
                     return;
                 case 30:
                     if (TbadkCoreApplication.getInst().appResponseToIntentClass(ChannelHomeActivityConfig.class)) {
-                        hD(7);
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(this.mF.getPageActivity(), 4)));
+                        qp(7);
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(this.mG.getPageActivity(), 4)));
                         return;
                     }
                     return;
                 case 31:
                     if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(ChannelListActivityConfig.class)) {
                         TiebaStatic.log(new ak("c11955"));
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelListActivityConfig(this.mF.getPageActivity(), userData.getUserId())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelListActivityConfig(this.mG.getPageActivity(), userData.getUserId())));
                         return;
                     }
                     return;
                 case 32:
-                    hD(1);
-                    com.baidu.tieba.j.a.bij().b(8, false, this.bwa);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MessageCenterActivityConfig(this.mF.getPageActivity())));
+                    qp(1);
+                    com.baidu.tieba.j.a.bgP().b(8, false, this.isHost);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MessageCenterActivityConfig(this.mG.getPageActivity())));
                     return;
                 case 33:
-                    hD(9);
-                    au.wd().a(this.mF, new String[]{bVar.ceU.getString("book_jump_link")}, true);
+                    qp(9);
+                    av.vH().a(this.mG, new String[]{bVar.ceV.getString("book_jump_link")}, true);
                     return;
                 case 34:
-                    hD(4);
-                    com.baidu.tieba.j.a.bij().b(1, false, this.bwa);
-                    if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mF.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
+                    if (ax.aU(this.mG.getPageActivity())) {
+                        qp(4);
+                        com.baidu.tieba.j.a.bgP().b(1, false, this.isHost);
+                        if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mG.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
+                            return;
+                        }
                         return;
                     }
                     return;
                 case 35:
-                    hD(11);
-                    au.wd().a(this.mF, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+                    qp(11);
+                    av.vH().a(this.mG, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
                     return;
                 case d.n.View_clickable /* 36 */:
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CHANGE_BIG_V_TO_EDIT_MODE, false));
                     return;
                 case d.n.View_saveEnabled /* 38 */:
                     if (userData != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mF.getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getName_show(), userData.getSex())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mG.getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getName_show(), userData.getSex())));
                         return;
                     }
                     return;
                 case d.n.View_drawingCacheQuality /* 40 */:
                     if (userData != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(this.mF.getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getPortrait(), userData.getSex(), false)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(this.mG.getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getPortrait(), userData.getSex(), false)));
                         return;
                     }
                     return;
                 case d.n.View_keepScreenOn /* 41 */:
-                    com.baidu.tbadk.browser.a.T(this.mF.getPageActivity(), "http://tieba.baidu.com/n/apage-runtime/page/ueg_service_center");
+                    com.baidu.tbadk.browser.a.T(this.mG.getPageActivity(), TbConfig.URL_UEG_SERVICE_CENTER);
+                    return;
+                case d.n.View_duplicateParentState /* 42 */:
+                    if (userData != null && ax.aU(this.mG.getPageActivity()) && userData != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                        try {
+                            TiebaStatic.log(new ak("c11593"));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.mG.getPageActivity(), Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getPortrait(), userData.getSex(), userData.getIsFriend())));
+                            return;
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            return;
+                        }
+                    }
                     return;
             }
         }
     }
 
-    private void hD(int i) {
+    private void qp(int i) {
         TiebaStatic.log(new ak("c12044").r("obj_locate", i));
     }
 
-    private Map<String, String> pS(final String str) throws URISyntaxException {
+    private Map<String, String> pC(final String str) throws URISyntaxException {
         return new HashMap<String, String>() { // from class: com.baidu.tieba.personPolymeric.event.PersonPolymericEventController$1
             /* JADX INFO: Access modifiers changed from: package-private */
             {

@@ -34,11 +34,11 @@ public class c {
         }
     }
 
-    public Type[] eg() {
+    public Type[] ef() {
         return this.sb;
     }
 
-    public Class<?> eh() {
+    public Class<?> eg() {
         return this.sd;
     }
 }

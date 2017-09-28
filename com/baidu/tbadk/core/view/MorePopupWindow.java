@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.d;
@@ -93,7 +94,7 @@ public class MorePopupWindow extends PopupWindow {
     private void applaySkin(com.baidu.tbadk.core.c cVar, int i, Drawable drawable) {
         if (this.mContentView != null) {
             setBackgroundDrawable(drawable);
-            cVar.ah(i == 1);
+            cVar.ai(i == 1);
             try {
                 cVar.t(this.mContentView);
             } catch (IllegalArgumentException e) {
@@ -110,9 +111,9 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void setWidthAsWidthOfDeviceScreen(Context context) {
-        int ae = com.baidu.adp.lib.util.k.ae(context);
-        this.mContentView.getLayoutParams().width = ae;
-        setWidth(ae);
+        int ad = l.ad(context);
+        this.mContentView.getLayoutParams().width = ad;
+        setWidth(ad);
     }
 
     public void setWindowHeight(int i) {
@@ -157,7 +158,7 @@ public class MorePopupWindow extends PopupWindow {
             setWidth(measuredWidth);
             this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(d.f.ds4));
             setHeight(this.mWindowHeight);
-            int[] ah = com.baidu.adp.lib.util.k.ah(this.mActivity);
+            int[] ah = l.ah(this.mActivity);
             if (ah != null && ah.length > 1 && ah[0] > measuredWidth) {
                 this.mShowRightTopXOff = ah[0] - measuredWidth;
             }

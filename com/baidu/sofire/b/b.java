@@ -27,13 +27,13 @@ public final class b {
             currentTimeMillis = eVar.a.getLong("npuct", 0L);
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = System.currentTimeMillis() + 86400000;
-                eVar.PP.putLong("npuct", currentTimeMillis);
-                eVar.PP.commit();
+                eVar.Qe.putLong("npuct", currentTimeMillis);
+                eVar.Qe.commit();
             }
         } else {
             currentTimeMillis = ((System.currentTimeMillis() + 86400000) - 600000) + ((long) (1200000.0d * Math.random()));
-            eVar.PP.putLong("npuct", currentTimeMillis);
-            eVar.PP.commit();
+            eVar.Qe.putLong("npuct", currentTimeMillis);
+            eVar.Qe.commit();
         }
         String str = "b=" + z + ", n=" + currentTimeMillis + ", t=86400000, c=" + System.currentTimeMillis();
         com.baidu.sofire.b.a();

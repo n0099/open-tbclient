@@ -1,27 +1,33 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.LotteryRegular;
+import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class al {
-    private String Xa;
-    private List<Integer> Xb;
+    private String Xf;
+    public SparseArray<String> Xg = null;
+    private String fid;
 
-    public String qo() {
-        return this.Xa;
+    public String getTid() {
+        return this.Xf;
     }
 
-    public List<Integer> qp() {
-        return this.Xb;
+    public void cy(String str) {
+        this.Xf = str;
     }
 
-    public void a(LotteryRegular lotteryRegular) {
-        this.Xa = lotteryRegular.regular;
-        this.Xb = new ArrayList();
-        int size = lotteryRegular.chance.size();
-        for (int i = 0; i < size; i++) {
-            this.Xb.add(lotteryRegular.chance.get(i));
-        }
+    public String getFid() {
+        return this.fid;
+    }
+
+    public void setFid(long j) {
+        this.fid = String.valueOf(j);
+    }
+
+    public SparseArray<String> qm() {
+        return this.Xg;
+    }
+
+    public void a(SparseArray<String> sparseArray) {
+        this.Xg = sparseArray;
     }
 }

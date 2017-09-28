@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.v4.widget.ExploreByTouchHelper;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
@@ -14,17 +14,17 @@ public class DynamicHeightListView extends BdListView {
 
     public DynamicHeightListView(Context context) {
         super(context);
-        this.maxHeight = k.f(TbadkCoreApplication.getInst(), d.f.ds484);
+        this.maxHeight = l.f(TbadkCoreApplication.getInst(), d.f.ds484);
     }
 
     public DynamicHeightListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.maxHeight = k.f(TbadkCoreApplication.getInst(), d.f.ds484);
+        this.maxHeight = l.f(TbadkCoreApplication.getInst(), d.f.ds484);
     }
 
     public DynamicHeightListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.maxHeight = k.f(TbadkCoreApplication.getInst(), d.f.ds484);
+        this.maxHeight = l.f(TbadkCoreApplication.getInst(), d.f.ds484);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

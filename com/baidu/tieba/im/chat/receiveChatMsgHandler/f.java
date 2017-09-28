@@ -12,7 +12,7 @@ public class f {
     public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.f.1
             @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-            public boolean md(String str) {
+            public boolean lH(String str) {
                 return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
             }
         }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0094a() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.f.2
@@ -46,10 +46,10 @@ public class f {
             }
             JSONObject jSONObject = new JSONObject(content);
             String optString = jSONObject.optString("eventId");
-            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.sendmessage.a.dHu) {
+            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.sendmessage.a.dDJ) {
                 return -1L;
             }
-            return com.baidu.tieba.im.util.d.bQ(optJSONObject.optLong("readMsgId"));
+            return com.baidu.tieba.im.util.d.bN(optJSONObject.optLong("readMsgId"));
         } catch (Exception e) {
             return -1L;
         }

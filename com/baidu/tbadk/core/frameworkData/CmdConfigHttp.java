@@ -97,10 +97,12 @@ public class CmdConfigHttp {
     public static final int CMD_GET_FACE_GROUP_INFO = 1003338;
     public static final int CMD_GET_FACE_MAKE_HOT_WORDS = 1003352;
     public static final int CMD_GET_FINE_PB = 1003006;
+    public static final int CMD_GET_FORUM_PRIVATE_INFO = 1003372;
     public static final int CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH = 1003319;
     public static final int CMD_GET_FRIEND_LIST = 1003004;
     public static final int CMD_GET_GAME_BANNER = 1003013;
     public static final int CMD_GET_GAME_NEW = 1003014;
+    public static final int CMD_GET_GOD_RECOMMEND = 1003375;
     public static final int CMD_GET_HOT_GOD = 1003099;
     public static final int CMD_GET_HOT_THREAD = 1003005;
     public static final int CMD_GET_INTEREST_LABEL_LIST = 1003333;
@@ -112,10 +114,13 @@ public class CmdConfigHttp {
     public static final int CMD_GET_OPEN_USERINFO = 1003012;
     public static final int CMD_GET_ORDER = 1003029;
     public static final int CMD_GET_PB_EMOTION_PID = 1003331;
+    public static final int CMD_GET_PB_QUERY_MATCH_EMOTION = 1003369;
+    public static final int CMD_GET_PB_SUG_MATCH_WORDS = 1003370;
     public static final int CMD_GET_PERSONAL_GIFT_LIST = 1003051;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
     public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
     public static final int CMD_GET_SPLASH_INFO = 1003192;
+    public static final int CMD_GET_STICKERS = 1003368;
     public static final int CMD_GET_STICKET_LIST = 1003341;
     public static final int CMD_GET_STORE_REMIND_TIME = 1003067;
     public static final int CMD_GET_SUBSCRIBE_CHANNEL_LIST = 1003304;
@@ -184,6 +189,7 @@ public class CmdConfigHttp {
     public static final int CMD_SET_READER_LACK_IMAGE_URL = 1003169;
     public static final int CMD_SET_USER_BOOK_HISTORY = 1003170;
     public static final int CMD_SET_USER_PICS = 1003064;
+    public static final int CMD_SET_USER_PRIVATE_FORUM = 1003373;
     public static final int CMD_SHARE_FACE_GROUP = 1003340;
     public static final int CMD_SHARE_REPORT = 1003363;
     public static final int CMD_SKIN_DETAIL = 1003037;
@@ -191,6 +197,7 @@ public class CmdConfigHttp {
     public static final int CMD_STATIC_SPLASH = 1003193;
     public static final int CMD_STORY_PAGE = 1003342;
     public static final int CMD_SUBMIT_CLOSE_ADKILLER = 1003076;
+    public static final int CMD_SUBMIT_PB_SHOW_TIP = 1003374;
     public static final int CMD_SUB_INTEREST_LABEL_LIST = 1003334;
     public static final int CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP = 1003351;
     public static final int CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP = 1003350;
@@ -214,6 +221,9 @@ public class CmdConfigHttp {
     public static final int CMD_USER_MUTE_QUERY = 1003026;
     public static final int CMD_VIDEO_ACTIVE_INFO = 1003191;
     public static final int CMD_VIDEO_AGGREGATION = 1003360;
+    public static final int CMD_VIDEO_CLOUD_MUSIC_LIST = 1003367;
+    public static final int CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS = 1003371;
+    public static final int CMD_VIDEO_SUG_MUSIC = 1003366;
     public static final int CMD_VIDEO_TEXT_UEG = 1003356;
     public static final int CMD_VOTE_EMOTION = 1003358;
     public static final int CMD_VOTE_GRAFFITI = 1003083;

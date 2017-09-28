@@ -10,22 +10,22 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tbadk.core.view.d;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.at;
+import com.baidu.tieba.frs.au;
 /* loaded from: classes.dex */
 public class e {
-    private MorePopupWindow Rq;
-    private a cFA;
-    private at cFM;
-    private View cFN;
-    private SparseArray<com.baidu.tieba.frs.tab.a> cFO = new SparseArray<>();
-    private com.baidu.tieba.frs.tab.a cFP;
-    private b cFz;
-    private LinearLayout cgJ;
+    private MorePopupWindow RC;
+    private au cGF;
+    private View cGG;
+    private SparseArray<com.baidu.tieba.frs.tab.a> cGH = new SparseArray<>();
+    private com.baidu.tieba.frs.tab.a cGI;
+    private b cGs;
+    private a cGt;
+    private LinearLayout cfX;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -35,118 +35,118 @@ public class e {
 
     /* loaded from: classes.dex */
     public interface b {
-        void jQ(int i);
+        void jY(int i);
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        public ImageView cFS;
-        public View cFT;
-        public View cFU;
+        public ImageView cGL;
+        public View cGM;
+        public View cGN;
         public TextView name;
     }
 
     public e(Context context, b bVar, a aVar) {
         this.mContext = context;
-        this.cFz = bVar;
-        this.cFA = aVar;
-        this.cgJ = new LinearLayout(context);
-        this.cgJ.setOrientation(1);
-        this.cgJ.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.cFN = new View(context);
-        this.cFN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.e.1
+        this.cGs = bVar;
+        this.cGt = aVar;
+        this.cfX = new LinearLayout(context);
+        this.cfX.setOrientation(1);
+        this.cfX.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.cGG = new View(context);
+        this.cGG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.adp.lib.g.g.a(e.this.Rq);
+                com.baidu.adp.lib.g.g.a(e.this.RC);
             }
         });
     }
 
     private void a(Activity activity, View view, final TabItemView tabItemView) {
-        if (this.Rq == null) {
-            this.Rq = new MorePopupWindow(activity, this.cgJ, view, aj.getDrawable(d.g.transparent_bg), new d.a() { // from class: com.baidu.tieba.frs.tab.e.2
+        if (this.RC == null) {
+            this.RC = new MorePopupWindow(activity, this.cfX, view, aj.getDrawable(d.g.transparent_bg), new d.a() { // from class: com.baidu.tieba.frs.tab.e.2
                 @Override // com.baidu.tbadk.core.view.d.a
-                public void oo() {
+                public void op() {
                 }
 
                 @Override // com.baidu.tbadk.core.view.d.a
-                public void op() {
-                    if (e.this.Rq != null) {
-                        com.baidu.adp.lib.g.g.a(e.this.Rq);
+                public void oq() {
+                    if (e.this.RC != null) {
+                        com.baidu.adp.lib.g.g.a(e.this.RC);
                     }
                 }
             });
         }
-        this.Rq.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.tab.e.3
+        this.RC.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.tab.e.3
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                if (e.this.cFA != null) {
-                    e.this.cFA.a(tabItemView);
+                if (e.this.cGt != null) {
+                    e.this.cGt.a(tabItemView);
                 }
             }
         });
     }
 
-    public void a(Activity activity, View view, TabItemView tabItemView, at atVar) {
-        this.cFM = atVar;
-        this.cFP = this.cFO.get(this.cFM.csM);
-        if (this.cFP == null) {
-            this.cFP = h.jS(this.cFM.csM);
-            this.cFP.a(this.mContext, this);
-            this.cFO.put(this.cFM.csM, this.cFP);
+    public void a(Activity activity, View view, TabItemView tabItemView, au auVar) {
+        this.cGF = auVar;
+        this.cGI = this.cGH.get(this.cGF.cto);
+        if (this.cGI == null) {
+            this.cGI = h.ka(this.cGF.cto);
+            this.cGI.a(this.mContext, this);
+            this.cGH.put(this.cGF.cto, this.cGI);
         }
-        this.cFP.setData(atVar.csN);
+        this.cGI.setData(auVar.ctp);
         if (view instanceof HorizontalTabView) {
             HorizontalTabView horizontalTabView = (HorizontalTabView) view;
             if (horizontalTabView.getmShowMenuCallBack() != null) {
                 int[] iArr = new int[2];
                 horizontalTabView.getLocationInWindow(iArr);
-                k.ad(horizontalTabView.getContext());
-                int af = k.af(horizontalTabView.getContext());
-                int alx = this.cFP.alx();
+                l.ae(horizontalTabView.getContext());
+                int af = l.af(horizontalTabView.getContext());
+                int alB = this.cGI.alB();
                 int measuredHeight = (af - iArr[1]) - horizontalTabView.getMeasuredHeight();
-                if (measuredHeight < alx) {
-                    horizontalTabView.getmShowMenuCallBack().jk(alx - measuredHeight);
+                if (measuredHeight < alB) {
+                    horizontalTabView.getmShowMenuCallBack().jt(alB - measuredHeight);
                 }
             }
         }
-        this.cgJ.removeAllViews();
-        this.cgJ.addView(this.cFP.getView());
+        this.cfX.removeAllViews();
+        this.cfX.addView(this.cGI.getView());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        aj.j(this.cFN, d.e.common_color_10050);
-        this.cgJ.addView(this.cFN, layoutParams);
+        aj.j(this.cGG, d.e.common_color_10050);
+        this.cfX.addView(this.cGG, layoutParams);
         a(activity, view, tabItemView);
-        if (this.Rq != null) {
-            this.Rq.refresh();
-            this.Rq.setWidthAsWidthOfDeviceScreen(activity);
-            this.Rq.setHeight(-1);
-            this.Rq.showWindowInCustomPosition(0, 0);
+        if (this.RC != null) {
+            this.RC.refresh();
+            this.RC.setWidthAsWidthOfDeviceScreen(activity);
+            this.RC.setHeight(-1);
+            this.RC.showWindowInCustomPosition(0, 0);
         }
     }
 
-    public void alz() {
-        if (this.Rq != null) {
+    public void alD() {
+        if (this.RC != null) {
             try {
-                this.Rq.dismiss();
+                this.RC.dismiss();
             } catch (Exception e) {
                 BdLog.e(e);
             }
         }
     }
 
-    public void xc() {
-        if (this.cFP != null) {
-            this.cFP.xc();
+    public void wB() {
+        if (this.cGI != null) {
+            this.cGI.wB();
         }
-        if (this.cFN != null) {
-            aj.j(this.cFN, d.e.common_color_10050);
+        if (this.cGG != null) {
+            aj.j(this.cGG, d.e.common_color_10050);
         }
-        if (this.Rq != null) {
-            this.Rq.setBackgroundDrawable(aj.getDrawable(d.g.transparent_bg));
+        if (this.RC != null) {
+            this.RC.setBackgroundDrawable(aj.getDrawable(d.g.transparent_bg));
         }
     }
 
-    public b alA() {
-        return this.cFz;
+    public b alE() {
+        return this.cGs;
     }
 }

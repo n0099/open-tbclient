@@ -8,36 +8,36 @@ import android.text.style.ForegroundColorSpan;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class m {
-    public static void ju(String str) {
-        com.baidu.tieba.tbadkCore.util.f readThreadHistory;
-        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.sq(str)) {
-            readThreadHistory.so(str);
+    public static void jn(String str) {
+        com.baidu.tieba.tbadkCore.util.e readThreadHistory;
+        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.sa(str)) {
+            readThreadHistory.rY(str);
         }
     }
 
-    public static boolean jv(String str) {
-        com.baidu.tieba.tbadkCore.util.f readThreadHistory;
-        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.sp(str)) ? false : true;
+    public static boolean jo(String str) {
+        com.baidu.tieba.tbadkCore.util.e readThreadHistory;
+        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.rZ(str)) ? false : true;
     }
 
-    public static String Ya() {
+    public static String XG() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 
-    public static String rs() {
+    public static String rm() {
         return "personalize_page";
     }
 
     public static void a(TextView textView, String str, int i, int i2) {
         if (textView instanceof TextView) {
-            if (jv(str)) {
+            if (jo(str)) {
                 aj.i(textView, i2);
             } else {
                 aj.i(textView, i);
@@ -52,7 +52,7 @@ public class m {
         String string = context.getString(i);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(string + " " + ((Object) charSequence));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(i2)), 0, string.length(), 17);
-        com.baidu.adp.widget.b bVar = new com.baidu.adp.widget.b(context, aj.cT(i3), 1);
+        com.baidu.adp.widget.b bVar = new com.baidu.adp.widget.b(context, aj.cR(i3), 1);
         bVar.setOffset(3);
         spannableStringBuilder.setSpan(bVar, string.length(), string.length() + 1, 33);
         return spannableStringBuilder;
@@ -64,49 +64,49 @@ public class m {
 
     /* loaded from: classes.dex */
     public static class a {
-        public int bLQ;
-        public String bLR;
-        public int bLS;
-        public int bLT;
-        public int bLU;
+        public int bLm;
+        public String bLn;
+        public int bLo;
+        public int bLp;
+        public int bLq;
 
         public a(int i, int i2, int i3) {
-            this.bLQ = -1;
-            this.bLR = "";
-            this.bLS = d.e.cp_link_tip_c;
-            this.bLT = d.g.pic_dot_title;
-            this.bLU = 0;
-            this.bLQ = i;
-            this.bLS = i2;
-            this.bLT = i3;
+            this.bLm = -1;
+            this.bLn = "";
+            this.bLo = d.e.cp_link_tip_c;
+            this.bLp = d.g.pic_dot_title;
+            this.bLq = 0;
+            this.bLm = i;
+            this.bLo = i2;
+            this.bLp = i3;
         }
 
         public a(int i) {
-            this.bLQ = -1;
-            this.bLR = "";
-            this.bLS = d.e.cp_link_tip_c;
-            this.bLT = d.g.pic_dot_title;
-            this.bLU = 0;
-            this.bLQ = i;
+            this.bLm = -1;
+            this.bLn = "";
+            this.bLo = d.e.cp_link_tip_c;
+            this.bLp = d.g.pic_dot_title;
+            this.bLq = 0;
+            this.bLm = i;
         }
 
         public a(String str) {
-            this.bLQ = -1;
-            this.bLR = "";
-            this.bLS = d.e.cp_link_tip_c;
-            this.bLT = d.g.pic_dot_title;
-            this.bLU = 0;
-            this.bLR = str;
+            this.bLm = -1;
+            this.bLn = "";
+            this.bLo = d.e.cp_link_tip_c;
+            this.bLp = d.g.pic_dot_title;
+            this.bLq = 0;
+            this.bLn = str;
         }
 
         public a(String str, int i) {
-            this.bLQ = -1;
-            this.bLR = "";
-            this.bLS = d.e.cp_link_tip_c;
-            this.bLT = d.g.pic_dot_title;
-            this.bLU = 0;
-            this.bLR = str;
-            this.bLT = i;
+            this.bLm = -1;
+            this.bLn = "";
+            this.bLo = d.e.cp_link_tip_c;
+            this.bLp = d.g.pic_dot_title;
+            this.bLq = 0;
+            this.bLn = str;
+            this.bLp = i;
         }
     }
 
@@ -122,28 +122,28 @@ public class m {
         for (int i = 0; i != arrayList.size(); i++) {
             a aVar = arrayList.get(i);
             if (aVar != null) {
-                if (aVar.bLQ > 0) {
-                    aVar.bLR = context.getString(aVar.bLQ);
+                if (aVar.bLm > 0) {
+                    aVar.bLn = context.getString(aVar.bLm);
                 }
-                if (!com.baidu.adp.lib.util.j.isEmpty(aVar.bLR)) {
+                if (!com.baidu.adp.lib.util.k.isEmpty(aVar.bLn)) {
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) aVar.bLR);
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(aVar.bLS)), length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.append((CharSequence) aVar.bLn);
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(aVar.bLo)), length, spannableStringBuilder.length(), 17);
                     if (i == arrayList.size() - 1 && !z2) {
                         break;
                     }
-                    Bitmap cT = aj.cT(aVar.bLT);
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(cT);
-                    if (cT != null) {
-                        bitmapDrawable.setBounds(0, 0, cT.getWidth(), cT.getHeight());
+                    Bitmap cR = aj.cR(aVar.bLp);
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(cR);
+                    if (cR != null) {
+                        bitmapDrawable.setBounds(0, 0, cR.getWidth(), cR.getHeight());
                     }
-                    com.baidu.tbadk.core.view.m mVar = new com.baidu.tbadk.core.view.m(bitmapDrawable);
-                    if (aVar.bLU != 0) {
-                        mVar.setOffset(aVar.bLU);
+                    com.baidu.tbadk.core.view.i iVar = new com.baidu.tbadk.core.view.i(bitmapDrawable);
+                    if (aVar.bLq != 0) {
+                        iVar.setOffset(aVar.bLq);
                     }
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) " ");
-                    spannableStringBuilder.setSpan(mVar, length2, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.setSpan(iVar, length2, spannableStringBuilder.length(), 17);
                 } else {
                     continue;
                 }
@@ -155,53 +155,53 @@ public class m {
         return spannableStringBuilder;
     }
 
-    public static void a(bj bjVar, TextView textView) {
-        if ((StringUtils.isNull(bjVar.getTitle()) && (bjVar.rz() == null || bjVar.rz().size() == 0)) || bjVar.rQ() == 1) {
-            bjVar.b(false, true, false);
-            if (bjVar.sb() == null || StringUtils.isNull(bjVar.sb().toString())) {
+    public static void a(bh bhVar, TextView textView) {
+        if ((StringUtils.isNull(bhVar.getTitle()) && (bhVar.rt() == null || bhVar.rt().size() == 0)) || bhVar.rK() == 1) {
+            bhVar.b(false, true, false);
+            if (bhVar.rV() == null || StringUtils.isNull(bhVar.rV().toString())) {
                 textView.setVisibility(8);
                 return;
             }
             textView.setVisibility(0);
-            textView.setText(bjVar.sb());
+            textView.setText(bhVar.rV());
             return;
         }
         textView.setVisibility(0);
-        bjVar.Yv = 0;
-        bjVar.b(false, true, false);
-        SpannableStringBuilder sb = bjVar.sb();
-        textView.setOnTouchListener(new com.baidu.tieba.view.m(sb));
-        textView.setText(sb);
-        a(textView, bjVar.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
+        bhVar.Yw = 0;
+        bhVar.b(false, true, false);
+        SpannableStringBuilder rV = bhVar.rV();
+        textView.setOnTouchListener(new com.baidu.tieba.view.k(rV));
+        textView.setText(rV);
+        a(textView, bhVar.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
     }
 
-    public static void b(bj bjVar, TextView textView) {
-        if ((StringUtils.isNull(bjVar.getTitle()) && (bjVar.rz() == null || bjVar.rz().size() == 0)) || bjVar.rQ() == 1) {
-            bjVar.e(false, true);
-            if (bjVar.sb() == null || StringUtils.isNull(bjVar.sb().toString())) {
+    public static void b(bh bhVar, TextView textView) {
+        if ((StringUtils.isNull(bhVar.getTitle()) && (bhVar.rt() == null || bhVar.rt().size() == 0)) || bhVar.rK() == 1) {
+            bhVar.e(false, true);
+            if (bhVar.rV() == null || StringUtils.isNull(bhVar.rV().toString())) {
                 textView.setVisibility(8);
                 return;
             }
             textView.setVisibility(0);
-            textView.setText(bjVar.sb());
+            textView.setText(bhVar.rV());
             return;
         }
         textView.setVisibility(0);
-        bjVar.Yv = 0;
-        bjVar.e(false, true);
-        SpannableStringBuilder sb = bjVar.sb();
-        textView.setOnTouchListener(new com.baidu.tieba.view.m(sb));
-        textView.setText(sb);
-        a(textView, bjVar.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
+        bhVar.Yw = 0;
+        bhVar.e(false, true);
+        SpannableStringBuilder rV = bhVar.rV();
+        textView.setOnTouchListener(new com.baidu.tieba.view.k(rV));
+        textView.setText(rV);
+        a(textView, bhVar.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
     }
 
-    public static void a(Context context, bj bjVar, TextView textView) {
+    public static void a(Context context, bh bhVar, TextView textView) {
         String string;
-        if (context != null && bjVar != null) {
-            if (StringUtils.isNull(bjVar.rG())) {
+        if (context != null && bhVar != null) {
+            if (StringUtils.isNull(bhVar.rA())) {
                 string = "吧";
             } else {
-                string = context.getString(d.l.chosen_pb_original_bar, UtilHelper.getFixedBarText(bjVar.rG(), 7, true));
+                string = context.getString(d.l.chosen_pb_original_bar, UtilHelper.getFixedBarText(bhVar.rA(), 7, true));
             }
             textView.setVisibility(0);
             textView.setText(string);

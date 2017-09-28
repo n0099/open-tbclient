@@ -14,11 +14,11 @@ public class m {
         this.type = i;
     }
 
-    public ImageFileInfo aoD() {
+    public ImageFileInfo bzN() {
         return this.imageFileInfo;
     }
 
-    public void b(ImageFileInfo imageFileInfo) {
+    public void h(ImageFileInfo imageFileInfo) {
         this.imageFileInfo = imageFileInfo;
     }
 }

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static final HashMap<Class<?>, Class<?>> EL = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> EN = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class d {
     }
 
     static {
-        EL.put(Boolean.class, Boolean.TYPE);
-        EL.put(Byte.class, Byte.TYPE);
-        EL.put(Character.class, Character.TYPE);
-        EL.put(Short.class, Short.TYPE);
-        EL.put(Integer.class, Integer.TYPE);
-        EL.put(Float.class, Float.TYPE);
-        EL.put(Long.class, Long.TYPE);
-        EL.put(Double.class, Double.TYPE);
-        EL.put(Boolean.TYPE, Boolean.TYPE);
-        EL.put(Byte.TYPE, Byte.TYPE);
-        EL.put(Character.TYPE, Character.TYPE);
-        EL.put(Short.TYPE, Short.TYPE);
-        EL.put(Integer.TYPE, Integer.TYPE);
-        EL.put(Float.TYPE, Float.TYPE);
-        EL.put(Long.TYPE, Long.TYPE);
-        EL.put(Double.TYPE, Double.TYPE);
+        EN.put(Boolean.class, Boolean.TYPE);
+        EN.put(Byte.class, Byte.TYPE);
+        EN.put(Character.class, Character.TYPE);
+        EN.put(Short.class, Short.TYPE);
+        EN.put(Integer.class, Integer.TYPE);
+        EN.put(Float.class, Float.TYPE);
+        EN.put(Long.class, Long.TYPE);
+        EN.put(Double.class, Double.TYPE);
+        EN.put(Boolean.TYPE, Boolean.TYPE);
+        EN.put(Byte.TYPE, Byte.TYPE);
+        EN.put(Character.TYPE, Character.TYPE);
+        EN.put(Short.TYPE, Short.TYPE);
+        EN.put(Integer.TYPE, Integer.TYPE);
+        EN.put(Float.TYPE, Float.TYPE);
+        EN.put(Long.TYPE, Long.TYPE);
+        EN.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -84,7 +84,7 @@ public class d {
                 if (clsArr[i].isAssignableFrom(clsArr2[i])) {
                     return true;
                 }
-                if (EL.containsKey(clsArr[i]) && EL.get(clsArr[i]).equals(EL.get(clsArr2[i]))) {
+                if (EN.containsKey(clsArr[i]) && EN.get(clsArr[i]).equals(EN.get(clsArr2[i]))) {
                     return true;
                 }
             }

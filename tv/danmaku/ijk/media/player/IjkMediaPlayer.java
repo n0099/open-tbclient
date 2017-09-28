@@ -16,7 +16,9 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
+import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.play.b.a;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -28,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
+import tv.danmaku.ijk.media.player.misc.IAndroidIO;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
 /* loaded from: classes.dex */
 public final class IjkMediaPlayer extends AbstractMediaPlayer {
@@ -40,8 +43,10 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     public static final int FFP_PROP_INT64_AUDIO_CACHED_DURATION = 20006;
     public static final int FFP_PROP_INT64_AUDIO_CACHED_PACKETS = 20010;
     public static final int FFP_PROP_INT64_AUDIO_DECODER = 20004;
+    public static final int FFP_PROP_INT64_BIT_RATE = 20100;
     public static final int FFP_PROP_INT64_SELECTED_AUDIO_STREAM = 20002;
     public static final int FFP_PROP_INT64_SELECTED_VIDEO_STREAM = 20001;
+    public static final int FFP_PROP_INT64_TCP_SPEED = 20200;
     public static final int FFP_PROP_INT64_VIDEO_CACHED_BYTES = 20007;
     public static final int FFP_PROP_INT64_VIDEO_CACHED_DURATION = 20005;
     public static final int FFP_PROP_INT64_VIDEO_CACHED_PACKETS = 20009;
@@ -58,6 +63,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     private static final int MEDIA_BUFFERING_UPDATE = 3;
     private static final int MEDIA_ERROR = 100;
     private static final int MEDIA_ERROR_IO = -1004;
+    private static final int MEDIA_ERROR_LOG = 400;
     private static final int MEDIA_ERROR_MALFORMED = -1007;
     private static final int MEDIA_ERROR_NOT_VALID_FOR_PROGRESSIVE_PLAYBACK = 200;
     private static final int MEDIA_ERROR_SERVER_DIED = 100;
@@ -80,6 +86,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     private static final int MEDIA_INFO_VIDEO_RENDERING_START = 3;
     private static final int MEDIA_INFO_VIDEO_ROTATION_CHANGED = 10001;
     private static final int MEDIA_INFO_VIDEO_TRACK_LAGGING = 700;
+    private static final int MEDIA_LOG = 300;
     private static final int MEDIA_NOP = 0;
     private static final int MEDIA_PLAYBACK_COMPLETE = 2;
     private static final int MEDIA_PREPARED = 1;
@@ -99,6 +106,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     private String mDataSource;
     private EventHandler mEventHandler;
     private int mListenerContext;
+    private long mNativeAndroidIO;
     private long mNativeMediaDataSource;
     private long mNativeMediaPlayer;
     private int mNativeSurfaceTexture;
@@ -160,17 +168,23 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
 
     private native String _getVideoCodecInfo();
 
+    private native void _injectCacheNode(int i, long j, long j2, long j3, long j4);
+
     private native void _pause() throws IllegalStateException;
 
     private native void _release();
 
     private native void _reset();
 
+    private native void _setAndroidIOCallback(IAndroidIO iAndroidIO) throws IllegalArgumentException, SecurityException, IllegalStateException;
+
     private native void _setDataSource(String str, String[] strArr, String[] strArr2) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException;
 
     private native void _setDataSource(IMediaDataSource iMediaDataSource) throws IllegalArgumentException, SecurityException, IllegalStateException;
 
     private native void _setDataSourceFd(int i) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException;
+
+    private native void _setFrameAtTime(String str, long j, long j2, int i, int i2) throws IllegalArgumentException, IllegalStateException;
 
     private native void _setLoopCount(int i);
 
@@ -300,7 +314,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         setDataSource(context, uri, (Map<String, String>) null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [360=6, 361=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [378=6, 379=5] */
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     @TargetApi(14)
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
@@ -411,6 +425,10 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     @Override // tv.danmaku.ijk.media.player.AbstractMediaPlayer, tv.danmaku.ijk.media.player.IMediaPlayer
     public void setDataSource(IMediaDataSource iMediaDataSource) throws IllegalArgumentException, SecurityException, IllegalStateException {
         _setDataSource(iMediaDataSource);
+    }
+
+    public void setAndroidIOCallback(IAndroidIO iAndroidIO) throws IllegalArgumentException, SecurityException, IllegalStateException {
+        _setAndroidIOCallback(iAndroidIO);
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
@@ -644,6 +662,14 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         return _getPropertyLong(FFP_PROP_INT64_AUDIO_CACHED_PACKETS, 0L);
     }
 
+    public long getTcpSpeed() {
+        return _getPropertyLong(FFP_PROP_INT64_TCP_SPEED, 0L);
+    }
+
+    public long getBitRate() {
+        return _getPropertyLong(FFP_PROP_INT64_BIT_RATE, 0L);
+    }
+
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public MediaInfo getMediaInfo() {
         MediaInfo mediaInfo = new MediaInfo();
@@ -730,6 +756,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
             switch (message.what) {
                 case 0:
                 case IjkMediaPlayer.MEDIA_TIMED_TEXT /* 99 */:
+                case 300:
                 default:
                     return;
                 case 1:
@@ -760,7 +787,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                     ijkMediaPlayer.notifyOnVideoSizeChanged(ijkMediaPlayer.mVideoWidth, ijkMediaPlayer.mVideoHeight, ijkMediaPlayer.mVideoSarNum, ijkMediaPlayer.mVideoSarDen);
                     return;
                 case 100:
-                    if (!ijkMediaPlayer.notifyOnError(message.arg1, message.arg2)) {
+                    if (!ijkMediaPlayer.notifyOnError(SapiErrorCode.NETWORK_FAILED, message.arg1, message.arg2)) {
                         ijkMediaPlayer.notifyOnCompletion();
                     }
                     ijkMediaPlayer.stayAwake(false);
@@ -774,6 +801,9 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         e.printStackTrace();
                         return;
                     }
+                case IjkMediaPlayer.MEDIA_ERROR_LOG /* 400 */:
+                    a.bI(message.arg1, message.arg2);
+                    return;
                 case IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND /* 10001 */:
                     ijkMediaPlayer.mVideoSarNum = message.arg1;
                     ijkMediaPlayer.mVideoSarDen = message.arg2;

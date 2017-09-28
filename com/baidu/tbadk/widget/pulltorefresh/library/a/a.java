@@ -14,67 +14,67 @@ import com.baidu.tieba.d;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes.dex */
 public class a extends b {
-    private final Animation aPO;
-    private final Animation aPP;
+    private final Animation aQR;
+    private final Animation aQS;
 
     public a(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
         super(context, mode, orientation, typedArray);
         int i = mode == PullToRefreshBase.Mode.PULL_FROM_START ? -180 : 180;
-        this.aPO = new RotateAnimation(0.0f, i, 1, 0.5f, 1, 0.5f);
-        this.aPO.setInterpolator(aPQ);
-        this.aPO.setDuration(150L);
-        this.aPO.setFillAfter(true);
-        this.aPP = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.aPP.setInterpolator(aPQ);
-        this.aPP.setDuration(150L);
-        this.aPP.setFillAfter(true);
+        this.aQR = new RotateAnimation(0.0f, i, 1, 0.5f, 1, 0.5f);
+        this.aQR.setInterpolator(aQT);
+        this.aQR.setDuration(150L);
+        this.aQR.setFillAfter(true);
+        this.aQS = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.aQS.setInterpolator(aQT);
+        this.aQS.setDuration(150L);
+        this.aQS.setFillAfter(true);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void c(Drawable drawable) {
+    protected void e(Drawable drawable) {
         if (drawable != null) {
             int intrinsicHeight = drawable.getIntrinsicHeight();
             int intrinsicWidth = drawable.getIntrinsicWidth();
-            ViewGroup.LayoutParams layoutParams = this.aPS.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.aQV.getLayoutParams();
             int max = Math.max(intrinsicHeight, intrinsicWidth);
             layoutParams.height = max;
             layoutParams.width = max;
-            this.aPS.requestLayout();
-            this.aPS.setScaleType(ImageView.ScaleType.MATRIX);
+            this.aQV.requestLayout();
+            this.aQV.setScaleType(ImageView.ScaleType.MATRIX);
             Matrix matrix = new Matrix();
             matrix.postTranslate((layoutParams.width - intrinsicWidth) / 2.0f, (layoutParams.height - intrinsicHeight) / 2.0f);
             matrix.postRotate(getDrawableRotationAngle(), layoutParams.width / 2.0f, layoutParams.height / 2.0f);
-            this.aPS.setImageMatrix(matrix);
+            this.aQV.setImageMatrix(matrix);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void F(float f) {
+    protected void I(float f) {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Io() {
-        if (this.aPO == this.aPS.getAnimation()) {
-            this.aPS.startAnimation(this.aPP);
+    protected void Ix() {
+        if (this.aQR == this.aQV.getAnimation()) {
+            this.aQV.startAnimation(this.aQS);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Ip() {
-        this.aPS.setVisibility(0);
-        this.aPT.setVisibility(8);
+    protected void Iy() {
+        this.aQV.setVisibility(0);
+        this.aQW.setVisibility(8);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Iq() {
-        this.aPS.startAnimation(this.aPO);
+    protected void Iz() {
+        this.aQV.startAnimation(this.aQR);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Ir() {
-        this.aPS.clearAnimation();
-        this.aPT.setVisibility(8);
-        this.aPS.setVisibility(0);
+    protected void IA() {
+        this.aQV.clearAnimation();
+        this.aQW.setVisibility(8);
+        this.aQV.setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
@@ -83,14 +83,14 @@ public class a extends b {
     }
 
     private float getDrawableRotationAngle() {
-        switch (this.aPj) {
+        switch (this.aQn) {
             case PULL_FROM_END:
-                if (this.aPX == PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.aRa == PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 90.0f;
                 }
                 return 180.0f;
             case PULL_FROM_START:
-                if (this.aPX != PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.aRa != PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 0.0f;
                 }
                 return 270.0f;

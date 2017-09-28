@@ -4,83 +4,83 @@ import android.content.Context;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    private int dbv;
-    private int dbw;
-    private int dbx;
+    private int cXU;
+    private int cXV;
+    private int cXW;
+    private int cXX;
 
     public b() {
-        this.dbv = -1;
-        this.dbw = -1;
-        this.dbx = -1;
-        int aqH = aqH();
+        this.cXU = -1;
+        this.cXV = -1;
+        this.cXW = -1;
+        this.cXX = -1;
+        int apo = apo();
         int i = 0;
-        if ((aqH & 4) > 0) {
-            this.dbv = 0;
+        if ((apo & 4) > 0) {
+            this.cXU = 0;
             i = 1;
         }
-        this.dbw = i;
+        this.cXV = i;
         int i2 = i + 1;
-        if ((aqH & 1) > 0) {
-            this.dbx = i2;
+        if ((apo & 8) > 0) {
+            this.cXW = i2;
+            i2++;
+        }
+        if ((apo & 1) > 0) {
+            this.cXX = i2;
         }
     }
 
-    public int lg(int i) {
+    public int lb(int i) {
         switch (i) {
             case 0:
-                return this.dbv;
+                return this.cXU;
             case 1:
-                return this.dbw;
+                return this.cXV;
             case 2:
-                return this.dbx;
+                return this.cXW;
+            case 3:
+                return this.cXX;
             default:
                 return -1;
         }
     }
 
     public int getType(int i) {
-        if (i == this.dbv) {
+        if (i == this.cXU) {
             return 0;
         }
-        if (i == this.dbw) {
+        if (i == this.cXV) {
             return 1;
         }
-        if (i == this.dbx) {
+        if (i == this.cXW) {
             return 2;
+        }
+        if (i == this.cXX) {
+            return 3;
         }
         return -1;
     }
 
-    private int aqH() {
+    private int apo() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("recommend_tab_show", 7);
     }
 
-    public int getTabCount() {
-        int i = 0;
-        if (this.dbv != -1) {
-            i = 1;
-        }
-        if (this.dbw != -1) {
-            i++;
-        }
-        if (this.dbx != -1) {
-            return i + 1;
-        }
-        return i;
-    }
-
-    public String q(Context context, int i) {
+    public String n(Context context, int i) {
         if (context == null) {
             return null;
         }
-        if (i == this.dbv) {
+        if (i == this.cXU) {
             return context.getString(d.l.tab_name_concern);
         }
-        if (i == this.dbw) {
+        if (i == this.cXV) {
             return context.getString(d.l.tab_name_recommend);
         }
-        if (i == this.dbx) {
+        if (i == this.cXW) {
             return context.getString(d.l.tab_name_discover);
+        }
+        if (i == this.cXX) {
+            return context.getString(d.l.tab_name_video_recommend);
         }
         return null;
     }

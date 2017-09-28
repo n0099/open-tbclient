@@ -6,65 +6,65 @@ import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class a {
     private static String mFileName;
-    private static b yT;
-    private static c yU;
-    private static int yS = 0;
+    private static b yV;
+    private static c yW;
+    private static int yU = 0;
     private static Handler mHandler = new Handler(new Handler.Callback() { // from class: com.baidu.adp.lib.voice.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    if (a.yU != null) {
-                        a.yU.k(a.mFileName, message.arg1);
+                    if (a.yW != null) {
+                        a.yW.k(a.mFileName, message.arg1);
                         break;
                     }
                     break;
                 case 1:
-                    if (a.yU != null) {
-                        a.yU.f(message.what, h.getString(R.string.voice_err_no_file));
+                    if (a.yW != null) {
+                        a.yW.f(message.what, h.getString(R.string.voice_err_no_file));
                         break;
                     }
                     break;
                 case 6:
-                    if (a.yU != null) {
-                        a.yU.ax(message.arg1);
+                    if (a.yW != null) {
+                        a.yW.aA(message.arg1);
                     }
                     return true;
                 default:
-                    if (a.yU != null) {
-                        a.yU.f(message.what, h.getString(R.string.voice_err_play));
+                    if (a.yW != null) {
+                        a.yW.f(message.what, h.getString(R.string.voice_err_play));
                         break;
                     }
                     break;
             }
-            int unused = a.yS = 0;
-            c unused2 = a.yU = null;
+            int unused = a.yU = 0;
+            c unused2 = a.yW = null;
             return false;
         }
     });
 
     public static boolean a(String str, c cVar, int i) {
-        if (yS == 0) {
-            if (yT == null) {
-                yT = new b(mHandler, i);
+        if (yU == 0) {
+            if (yV == null) {
+                yV = new b(mHandler, i);
             } else {
-                yT.aw(i);
+                yV.az(i);
             }
             mFileName = str;
-            yU = cVar;
-            yT.aU(str);
-            yS = 2;
-            new Thread(yT).start();
+            yW = cVar;
+            yV.aU(str);
+            yU = 2;
+            new Thread(yV).start();
             return true;
         }
         return false;
     }
 
     public static void stop() {
-        if (yT != null) {
-            yT.stop();
+        if (yV != null) {
+            yV.stop();
         } else {
-            yS = 0;
+            yU = 0;
         }
     }
 }

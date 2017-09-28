@@ -33,130 +33,135 @@ import java.util.regex.Pattern;
 import tbclient.SimpleForum;
 /* loaded from: classes2.dex */
 public class c {
-    private static final Pattern gJc = Pattern.compile("[ ]*http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?#%&=]*)?", 2);
-    private TbPageContext aby;
-    private com.baidu.tbadk.core.view.a gAj;
-    private com.baidu.tieba.write.transmit.model.a gEM;
-    private WriteUrlModel gIX;
-    private d gJd;
-    private com.baidu.tieba.write.model.a gJe;
-    private View.OnClickListener aYH = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.c.1
+    private static final Pattern gNZ = Pattern.compile("[ ]*http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?#%&=]*)?", 2);
+    private TbPageContext abz;
+    private com.baidu.tbadk.core.view.a gFr;
+    private WriteUrlModel gNU;
+    private d gOa;
+    private com.baidu.tieba.write.model.a gOb;
+    private com.baidu.tieba.write.transmit.model.a gOc;
+    private View.OnClickListener aPe = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getId() != 0) {
                 if (view.getId() == d.h.icon_invoke_link) {
-                    c.this.bAE();
+                    c.this.bBS();
                     TiebaStatic.log(new ak("c12169"));
                 }
                 if (view.getId() == d.h.url_edit_back_view) {
-                    c.this.bAD();
+                    c.this.bBR();
                 }
             }
         }
     };
-    private View.OnClickListener gJf = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.c.2
+    private View.OnClickListener gOd = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getId() == d.h.url_add) {
                 TiebaStatic.log(new ak("c12163"));
-                String bAP = c.this.gJd.bAP();
-                if (c.gJc.matcher(bAP).matches()) {
-                    c.this.bAD();
-                    c.this.gJe.ta(bAP);
-                    c.this.gJd.a(null, true);
+                String bCd = c.this.gOa.bCd();
+                if (c.gNZ.matcher(bCd).matches()) {
+                    c.this.bBR();
+                    c.this.gOb.te(bCd);
+                    c.this.gOa.a(null, true);
                     return;
                 }
                 TiebaStatic.log(new ak("c12164"));
-                c.this.gJd.bAQ();
+                c.this.gOa.bCe();
             }
         }
     };
-    private DialogInterface.OnCancelListener gAq = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.write.c.3
+    private DialogInterface.OnCancelListener gFy = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.write.c.3
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            if (c.this.gEM != null) {
-                c.this.gEM.aiz();
+            if (c.this.gOc != null) {
+                c.this.gOc.aiD();
             }
         }
     };
-    private a.InterfaceC0128a gAp = new a.InterfaceC0128a() { // from class: com.baidu.tieba.write.write.c.4
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0128a
-        public void bxB() {
-            c.this.dF(null);
+    private a.InterfaceC0139a gFx = new a.InterfaceC0139a() { // from class: com.baidu.tieba.write.write.c.4
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0139a
+        public void byQ() {
+            c.this.dL(null);
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0128a
-        public void B(List<SimpleForum> list) {
-            c.this.dF(list);
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0139a
+        public void A(List<SimpleForum> list) {
+            c.this.dL(list);
         }
     };
-    private final NewWriteModel.d aDB = new NewWriteModel.d() { // from class: com.baidu.tieba.write.write.c.5
+    private final NewWriteModel.d aCR = new NewWriteModel.d() { // from class: com.baidu.tieba.write.write.c.5
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, q qVar, WriteData writeData, AntiData antiData) {
-            c.this.gJd.closeLoadingDialog();
+            c.this.gOa.closeLoadingDialog();
             if (postWriteCallBackData != null) {
                 if (z) {
-                    com.baidu.tieba.tbadkCore.writeModel.c.c(c.this.aby.getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                    String errorString = postWriteCallBackData.getErrorString();
+                    String preMsg = postWriteCallBackData.getPreMsg();
+                    String colorMsg = postWriteCallBackData.getColorMsg();
+                    if (c.this.c(writeData)) {
+                        com.baidu.tieba.tbadkCore.writeModel.c.d(c.this.abz.getPageActivity(), errorString, preMsg, colorMsg);
+                    }
                     Intent intent = new Intent();
                     Bundle bundle = new Bundle();
                     bundle.putSerializable(WriteActivityConfig.POST_WRITE_CALLBACK_DATA, postWriteCallBackData);
                     intent.putExtras(bundle);
-                    c.this.aby.getPageActivity().setResult(-1, intent);
-                    c.this.aby.getPageActivity().finish();
+                    c.this.abz.getPageActivity().setResult(-1, intent);
+                    c.this.abz.getPageActivity().finish();
                 } else if ((qVar == null || writeData == null || qVar.getVcode_pic_url() == null || AntiHelper.h(antiData)) && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() != 227001) {
-                    c.this.gJd.d(postWriteCallBackData);
+                    c.this.gOa.e(postWriteCallBackData);
                 } else if (qVar != null && writeData != null && qVar.getVcode_pic_url() != null) {
                     writeData.setVcodeMD5(qVar.getVcode_md5());
                     writeData.setVcodeUrl(qVar.getVcode_pic_url());
-                    writeData.setVcodeExtra(qVar.yB());
-                    if (!com.baidu.tbadk.q.a.gX(qVar.yA())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(c.this.aby.getPageActivity(), writeData, 12006)));
+                    writeData.setVcodeExtra(qVar.ya());
+                    if (!com.baidu.tbadk.p.a.gT(qVar.xZ())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(c.this.abz.getPageActivity(), writeData, 12006)));
                         return;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(c.this.aby.getPageActivity(), 12006, writeData, false, qVar.yA())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(c.this.abz.getPageActivity(), 12006, writeData, false, qVar.xZ())));
                 } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(c.this.aby.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(c.this.abz.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
                 }
             }
         }
     };
 
     public c(TbPageContext tbPageContext, d dVar, com.baidu.tieba.write.model.a aVar, WriteUrlModel writeUrlModel) {
-        this.gAj = null;
-        this.aby = tbPageContext;
-        this.gJd = dVar;
-        this.gJe = aVar;
-        this.gIX = writeUrlModel;
-        this.gJd.S(this.aYH);
-        this.gJd.T(this.gJf);
-        bAE();
-        this.gAj = new com.baidu.tbadk.core.view.a(this.aby);
-        this.gAj.c(this.gAq);
-        bAC();
-        this.gIX.b(this.aDB);
+        this.gFr = null;
+        this.abz = tbPageContext;
+        this.gOa = dVar;
+        this.gOb = aVar;
+        this.gNU = writeUrlModel;
+        this.gOa.T(this.aPe);
+        this.gOa.U(this.gOd);
+        bBS();
+        this.gFr = new com.baidu.tbadk.core.view.a(this.abz);
+        this.gFr.c(this.gFy);
+        bBQ();
+        this.gNU.b(this.aCR);
     }
 
-    private void bAC() {
-        this.gEM = new com.baidu.tieba.write.transmit.model.a(this.aby.getUniqueId());
-        this.gEM.a(this.gAp);
-        if (this.gIX.getWriteData() != null) {
-            this.gEM.setForumId(this.gIX.getWriteData().getForumId());
+    private void bBQ() {
+        this.gOc = new com.baidu.tieba.write.transmit.model.a(this.abz.getUniqueId());
+        this.gOc.a(this.gFx);
+        if (this.gNU.getWriteData() != null) {
+            this.gOc.setForumId(this.gNU.getWriteData().getForumId());
         }
     }
 
-    protected void bAD() {
-        this.gJd.bAO();
+    protected void bBR() {
+        this.gOa.bCc();
     }
 
-    protected void bAE() {
-        this.gJd.b((com.baidu.tieba.write.a.a) null);
+    protected void bBS() {
+        this.gOa.b((com.baidu.tieba.write.a.a) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dF(List<SimpleForum> list) {
-        WriteData writeData = this.gIX.getWriteData();
+    public void dL(List<SimpleForum> list) {
+        WriteData writeData = this.gNU.getWriteData();
         if (writeData != null) {
-            this.gAj.aH(false);
+            this.gFr.aH(false);
             ArrayList<TransmitForumData> arrayList = new ArrayList<>();
             if (!StringUtils.isNull(writeData.getForumId()) && !writeData.getForumId().equals("0") && !StringUtils.isNull(writeData.getForumName())) {
                 TransmitForumData transmitForumData = new TransmitForumData(com.baidu.adp.lib.g.b.c(writeData.getForumId(), 0L), writeData.getForumName(), true, 0);
@@ -164,14 +169,14 @@ public class c {
                     arrayList.add(transmitForumData);
                 }
             }
-            if (v.u(list) > 0) {
+            if (v.t(list) > 0) {
                 for (SimpleForum simpleForum : list) {
                     if (simpleForum != null && simpleForum.id != null && !StringUtils.isNull(simpleForum.name) && simpleForum.id.longValue() != com.baidu.adp.lib.g.b.c(writeData.getForumId(), 0L)) {
                         arrayList.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1));
                     }
                 }
             }
-            TransmitForumActivityConfig transmitForumActivityConfig = new TransmitForumActivityConfig(this.aby.getPageActivity(), 25013);
+            TransmitForumActivityConfig transmitForumActivityConfig = new TransmitForumActivityConfig(this.abz.getPageActivity(), 25013);
             CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, transmitForumActivityConfig);
             transmitForumActivityConfig.setRecommendForumList(arrayList);
             MessageManager.getInstance().sendMessage(customMessage);
@@ -179,20 +184,25 @@ public class c {
     }
 
     public void destroy() {
-        if (this.gEM != null) {
-            this.gEM.destroy();
+        if (this.gOc != null) {
+            this.gOc.destroy();
         }
-        if (this.gJe != null) {
-            this.gJe.destroy();
+        if (this.gOb != null) {
+            this.gOb.destroy();
         }
-        if (this.gIX != null) {
-            this.gIX.cancelLoadData();
+        if (this.gNU != null) {
+            this.gNU.cancelLoadData();
         }
     }
 
-    public void bAF() {
-        this.gEM.setThreadContent(this.gJd.bAJ());
-        this.gEM.PP();
+    public void bBT() {
+        this.gOc.setThreadContent(this.gOa.bBX());
+        this.gOc.Qj();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean c(WriteData writeData) {
+        return writeData == null || !("1".equals(writeData.getCallFrom()) || "2".equals(writeData.getCallFrom()));
     }
 
     public void a(BaseActivity baseActivity, int i, int i2, Intent intent) {
@@ -205,19 +215,19 @@ public class c {
                     Bundle bundle = new Bundle();
                     bundle.putSerializable(WriteActivityConfig.POST_WRITE_CALLBACK_DATA, postWriteCallBackData);
                     intent2.putExtras(bundle);
-                    this.aby.getPageActivity().setResult(-1, intent2);
+                    this.abz.getPageActivity().setResult(-1, intent2);
                 }
                 baseActivity.finish();
                 return;
-            } else if (i == 25013 && (writeData = this.gIX.getWriteData()) != null && this.gJe.byD() != null) {
+            } else if (i == 25013 && (writeData = this.gNU.getWriteData()) != null && this.gOb.bzU() != null) {
                 if (intent != null) {
                     writeData.setTransmitForumData(intent.getStringExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED));
                 }
                 writeData.setForumId("0");
                 writeData.setCanNoForum(true);
-                writeData.setRecommendExt(this.gEM.getRecommendExt());
-                this.gIX.n("", this.gJd.bAJ(), this.gJe.byD().linkUrl, this.gJe.byD().linkUrlCode);
-                this.gJd.showLoadingDialog();
+                writeData.setRecommendExt(this.gOc.getRecommendExt());
+                this.gNU.n("", this.gOa.bBX(), this.gOb.bzU().linkUrl, this.gOb.bzU().linkUrlCode);
+                this.gOa.showLoadingDialog();
                 return;
             } else {
                 return;

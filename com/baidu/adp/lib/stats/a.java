@@ -13,18 +13,18 @@ public class a {
     private long mStartTime;
     public String mType;
     public long sequenceID;
-    boolean we;
-    private ArrayList<BasicNameValuePair> wf;
-    private StringBuilder wg;
+    boolean wg;
+    private ArrayList<BasicNameValuePair> wh;
+    private StringBuilder wi;
 
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.we = false;
+        this.wg = false;
         this.mType = null;
-        this.wg = new StringBuilder(100);
+        this.wi = new StringBuilder(100);
         this.mType = str;
-        this.we = false;
+        this.wg = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -32,27 +32,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.we = false;
+        this.wg = false;
         this.mType = null;
-        this.wg = new StringBuilder(100);
+        this.wi = new StringBuilder(100);
     }
 
     public void b(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.wf == null) {
-                this.wf = new ArrayList<>();
+            if (this.wh == null) {
+                this.wh = new ArrayList<>();
             }
-            this.wf.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.wh.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.wg.length() > 0) {
-            sb.append((CharSequence) this.wg);
+        if (this.wi.length() > 0) {
+            sb.append((CharSequence) this.wi);
         }
-        if (this.wf != null) {
-            Iterator<BasicNameValuePair> it = this.wf.iterator();
+        if (this.wh != null) {
+            Iterator<BasicNameValuePair> it = this.wh.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -88,25 +88,25 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.wg.length() > 0) {
-                this.wg.append('&');
+            if (this.wi.length() > 0) {
+                this.wi.append('&');
             }
-            this.wg.append(str);
-            this.wg.append("=");
+            this.wi.append(str);
+            this.wi.append("=");
             try {
-                this.wg.append(URLEncoder.encode(am(str2), "utf-8"));
+                this.wi.append(URLEncoder.encode(am(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.wg.append(am(str2));
+                this.wi.append(am(str2));
             }
         }
     }
 
-    public void fU() {
+    public void fT() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long fV() {
+    public long fU() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 

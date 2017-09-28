@@ -1,34 +1,44 @@
 package com.baidu.tieba.play;
+
+import android.content.Context;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.provider.Settings;
 /* loaded from: classes.dex */
-public class q {
-    private int eSh = 0;
-    private int fBC = 0;
-    private boolean fBD = false;
-    private boolean fBE = true;
+public class q extends ContentObserver {
+    private a fxP;
+    private Context mContext;
 
-    public int bfT() {
-        return this.eSh;
+    /* loaded from: classes.dex */
+    public interface a {
+        void onChange(boolean z);
     }
 
-    public int bfU() {
-        return this.fBC;
+    public q(Context context, Handler handler) {
+        super(handler);
+        this.mContext = context;
     }
 
-    public boolean bfV() {
-        return this.fBD;
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        bev();
     }
 
-    public boolean bfW() {
-        return this.fBE;
+    private void bev() {
+        if (this.mContext != null) {
+            try {
+                int i = Settings.System.getInt(this.mContext.getContentResolver(), "accelerometer_rotation");
+                if (this.fxP != null) {
+                    this.fxP.onChange(i == 1);
+                }
+            } catch (Settings.SettingNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    public void i(int i, int i2, boolean z) {
-        this.eSh = i;
-        this.fBC = i2;
-        this.fBD = z;
-    }
-
-    public void hE(boolean z) {
-        this.fBE = z;
+    public void a(a aVar) {
+        this.fxP = aVar;
+        bev();
     }
 }

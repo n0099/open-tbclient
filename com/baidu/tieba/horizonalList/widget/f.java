@@ -4,12 +4,12 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.j;
 /* loaded from: classes.dex */
 public abstract class f extends j.a {
-    public View.OnClickListener avg;
-    public int dhO;
+    public View.OnClickListener auo;
+    public int deb;
 
     public abstract void a(d dVar);
 
-    public abstract f ac(View view);
+    public abstract f ab(View view);
 
     public abstract void onChangeSkinType(int i);
 
@@ -18,6 +18,6 @@ public abstract class f extends j.a {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.avg = onClickListener;
+        this.auo = onClickListener;
     }
 }

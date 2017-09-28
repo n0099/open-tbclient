@@ -5,12 +5,12 @@ import android.os.Handler;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class a {
-    protected com.baidu.sofire.rp.d.a PZ;
+    protected com.baidu.sofire.rp.d.a Qo;
     protected Context b;
     private Handler c = null;
 
     public a(Context context) {
-        this.PZ = new com.baidu.sofire.rp.d.a(context);
+        this.Qo = new com.baidu.sofire.rp.d.a(context);
         this.b = context;
     }
 
@@ -19,13 +19,13 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.PZ.g(str, bArr);
+        return this.Qo.g(str, bArr);
     }
 
     public final String a(String str) throws Exception {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.PZ.a(str);
+        return this.Qo.a(str);
     }
 }

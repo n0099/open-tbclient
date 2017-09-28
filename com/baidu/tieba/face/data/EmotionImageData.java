@@ -3,6 +3,7 @@ package com.baidu.tieba.face.data;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class EmotionImageData implements Serializable {
+    private String mAuthorNameShow;
     private int mHeight;
     private String mMemeContSign;
     private String mMemeText;
@@ -65,5 +66,13 @@ public class EmotionImageData implements Serializable {
 
     public void setHeight(int i) {
         this.mHeight = i;
+    }
+
+    public String getAuthorNameShow() {
+        return this.mAuthorNameShow;
+    }
+
+    public void setAuthorNameShow(String str) {
+        this.mAuthorNameShow = str;
     }
 }

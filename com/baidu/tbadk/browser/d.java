@@ -28,16 +28,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.coreExtra.data.WhiteListData;
-import com.baidu.tbadk.util.y;
+import com.baidu.tbadk.util.x;
 import com.baidu.tieba.d;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class d {
-    public static boolean QY = true;
+    public static boolean Rk = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new CustomMessageListener(0) { // from class: com.baidu.tbadk.browser.d.1
@@ -49,9 +49,9 @@ public class d {
                 }
             }
         });
-        au.wd().a(new au.c() { // from class: com.baidu.tbadk.browser.d.2
-            @Override // com.baidu.tbadk.core.util.au.c
-            public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, au.d dVar, boolean z2) {
+        av.vH().a(new av.c() { // from class: com.baidu.tbadk.browser.d.2
+            @Override // com.baidu.tbadk.core.util.av.c
+            public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, av.d dVar, boolean z2) {
                 if (z2) {
                     d.c(tbPageContext, str2, null, false, true, true, true);
                 } else {
@@ -59,17 +59,17 @@ public class d {
                 }
             }
         });
-        com.baidu.adp.lib.b.d.eW().a(new com.baidu.adp.lib.b.b("switch_mbaidu_startup", 1, null));
+        com.baidu.adp.lib.b.d.eV().a(new com.baidu.adp.lib.b.b("switch_mbaidu_startup", 1, null));
         od();
         of();
         og();
     }
 
     private static void od() {
-        au.wd().a(new au.a() { // from class: com.baidu.tbadk.browser.d.3
-            @Override // com.baidu.tbadk.core.util.au.a
+        av.vH().a(new av.a() { // from class: com.baidu.tbadk.browser.d.3
+            @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-                Bundle gV;
+                Bundle gR;
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
@@ -87,7 +87,7 @@ public class d {
                     String substring = str.substring(4);
                     String str4 = "";
                     if (str.contains("body=")) {
-                        str4 = y.at(str, "body=");
+                        str4 = x.at(str, "body=");
                         int indexOf = substring.indexOf("?");
                         if (indexOf >= 1) {
                             substring = substring.substring(0, indexOf - 1);
@@ -122,10 +122,10 @@ public class d {
                     tbPageContext.getPageActivity().finish();
                     return 1;
                 } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("bunding_phone=1")) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, y.at(str, "bindid=")));
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, x.at(str, "bindid=")));
                     tbPageContext.getPageActivity().finish();
                     return 1;
-                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gV = y.gV(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gV.getString("path"))) {
+                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gR = x.gR(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gR.getString("path"))) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
                     return 0;
                 } else {
@@ -216,7 +216,7 @@ public class d {
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
         String ca = ca(str);
-        if (!cd(ca) && oe() && cf("com.baidu.searchbox") && ce(ca) && QY) {
+        if (!cd(ca) && oe() && cf("com.baidu.searchbox") && ce(ca) && Rk) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;
@@ -229,7 +229,7 @@ public class d {
     }
 
     private static boolean oe() {
-        return com.baidu.adp.lib.b.d.eW().af("switch_mbaidu_startup") == 1;
+        return com.baidu.adp.lib.b.d.eV().af("switch_mbaidu_startup") == 1;
     }
 
     private static boolean ce(String str) {
@@ -287,8 +287,8 @@ public class d {
     }
 
     private static void of() {
-        au.wd().a(new au.a() { // from class: com.baidu.tbadk.browser.d.6
-            @Override // com.baidu.tbadk.core.util.au.a
+        av.vH().a(new av.a() { // from class: com.baidu.tbadk.browser.d.6
+            @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 PbActivityConfig createNormalCfg;
                 if (strArr == null || strArr[0] == null) {
@@ -346,8 +346,8 @@ public class d {
     }
 
     private static void og() {
-        au.wd().a(new au.a() { // from class: com.baidu.tbadk.browser.d.7
-            @Override // com.baidu.tbadk.core.util.au.a
+        av.vH().a(new av.a() { // from class: com.baidu.tbadk.browser.d.7
+            @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;

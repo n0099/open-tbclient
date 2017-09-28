@@ -10,15 +10,15 @@ public class e {
             return null;
         }
         a aVar = new a();
-        aVar.sd(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
-        aVar.sc(i);
-        aVar.rh(advertAppInfo.price);
-        aVar.rf(advertAppInfo.extensionInfo);
+        aVar.sf(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
+        aVar.se(i);
+        aVar.qR(advertAppInfo.price);
+        aVar.qP(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.rj(advertAppInfo.Ua);
-        aVar.rk(advertAppInfo.Ub);
-        aVar.rl(advertAppInfo.Uc);
-        aVar.rm(advertAppInfo.Tr);
+        aVar.qT(advertAppInfo.Uo);
+        aVar.qU(advertAppInfo.Up);
+        aVar.qV(advertAppInfo.Uq);
+        aVar.qW(advertAppInfo.TF);
         return aVar;
     }
 
@@ -27,15 +27,15 @@ public class e {
             return null;
         }
         a aVar = new a();
-        aVar.sd(advertAppInfo.TS);
-        aVar.sc(i);
-        aVar.rh(advertAppInfo.price);
-        aVar.rf(advertAppInfo.extensionInfo);
+        aVar.sf(advertAppInfo.Ug);
+        aVar.se(i);
+        aVar.qR(advertAppInfo.price);
+        aVar.qP(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.rj(advertAppInfo.Ua);
-        aVar.rk(advertAppInfo.Ub);
-        aVar.rl(advertAppInfo.Uc);
-        aVar.rm(advertAppInfo.Tr);
+        aVar.qT(advertAppInfo.Uo);
+        aVar.qU(advertAppInfo.Up);
+        aVar.qV(advertAppInfo.Uq);
+        aVar.qW(advertAppInfo.TF);
         return aVar;
     }
 
@@ -45,45 +45,45 @@ public class e {
         }
         a aVar = new a();
         aVar.setDownloadStaticsData(downloadStaticsData);
-        aVar.sc(i);
+        aVar.se(i);
         aVar.setPageNumber(i2);
         return aVar;
     }
 
-    public static a Q(int i, int i2, int i3) {
+    public static a X(int i, int i2, int i3) {
         a aVar = new a();
-        aVar.sc(i);
-        aVar.sd(i2);
+        aVar.se(i);
+        aVar.sf(i2);
         aVar.setPageNumber(i3);
         return aVar;
     }
 
     public static a c(l lVar, int i) {
-        if (lVar == null || lVar.bso() == null) {
+        if (lVar == null || lVar.brm() == null) {
             return null;
         }
-        AppData bso = lVar.bso();
+        AppData brm = lVar.brm();
         a aVar = new a();
-        aVar.sd(com.baidu.adp.lib.g.b.g(bso.pos_name, 0));
-        aVar.rf(bso.ext_info);
+        aVar.sf(com.baidu.adp.lib.g.b.g(brm.pos_name, 0));
+        aVar.qP(brm.ext_info);
         aVar.setPageNumber(lVar.pageNumber);
-        aVar.sc(i);
-        aVar.rh(bso.price);
-        aVar.rj(lVar.Ua);
-        aVar.rk(lVar.Ub);
-        aVar.rl(lVar.forumId);
-        aVar.rm("PB");
+        aVar.se(i);
+        aVar.qR(brm.price);
+        aVar.qT(lVar.Uo);
+        aVar.qU(lVar.Up);
+        aVar.qV(lVar.forumId);
+        aVar.qW("PB");
         return aVar;
     }
 
     public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4, int i5) {
         a c = c(advertAppInfo, i, i2);
-        c.se(i3);
-        c.sg(i4);
-        c.sf(i5);
-        c.rm(advertAppInfo.Tr);
+        c.sg(i3);
+        c.si(i4);
+        c.sh(i5);
+        c.qW(advertAppInfo.TF);
         if (i == 2) {
-            c.ri("video");
+            c.qS("video");
         }
         return c;
     }
@@ -94,23 +94,23 @@ public class e {
 
     public static a c(String str, int i, String str2, String str3) {
         a aVar = new a();
-        aVar.sc(i);
-        aVar.rg(str2);
-        aVar.rm("HOMEPAGE");
-        aVar.rf(str);
-        aVar.rn(str3);
+        aVar.se(i);
+        aVar.qQ(str2);
+        aVar.qW("HOMEPAGE");
+        aVar.qP(str);
+        aVar.qX(str3);
         return aVar;
     }
 
     public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
         a c = c(advertAppInfo, i, i2);
-        c.se(i3);
+        c.sg(i3);
         return c;
     }
 
     public static a b(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
         a d = d(advertAppInfo, i, i2);
-        d.se(i3);
+        d.sg(i3);
         return d;
     }
 }

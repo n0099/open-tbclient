@@ -1,37 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.support.v4.util.LongSparseArray;
-import java.util.LinkedList;
+import android.text.TextUtils;
+import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class ac {
-    private static final ac csR = new ac();
-    private LongSparseArray<LinkedList<String>> csQ = new LongSparseArray<>();
+    private static ac ctr = new ac();
+    private final SparseArray<String> ctq = new SparseArray<>();
 
     private ac() {
     }
 
-    public static ac aif() {
-        return csR;
+    public static ac aic() {
+        return ctr;
     }
 
-    public void d(long j, String str) {
-        LinkedList<String> linkedList = this.csQ.get(j);
-        if (linkedList == null) {
-            linkedList = new LinkedList<>();
-            this.csQ.put(j, linkedList);
+    public void jj(int i) {
+        this.ctq.put(i, "1");
+    }
+
+    public boolean jk(int i) {
+        if (i > 100) {
+            i = 100;
         }
-        linkedList.add(str);
-    }
-
-    public boolean e(long j, String str) {
-        LinkedList<String> linkedList = this.csQ.get(j);
-        return linkedList != null && linkedList.contains(str);
-    }
-
-    public void bi(long j) {
-        LinkedList<String> linkedList = this.csQ.get(j);
-        if (linkedList != null) {
-            linkedList.clear();
-        }
+        return !TextUtils.isEmpty(this.ctq.get(i));
     }
 }

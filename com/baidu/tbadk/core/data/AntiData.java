@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -211,8 +210,8 @@ public class AntiData implements Serializable {
                     TbadkCoreApplication.getInst().setTbs(this.tbs);
                 }
                 this.need_vcode = jSONObject.optInt("need_vcode", 0);
-                this.vcode_md5 = jSONObject.optString(GraffitiVcodeActivityConfig.VCODE_MD5);
-                this.vcode_pic_url = jSONObject.optString(GraffitiVcodeActivityConfig.VCODE_PIC_URL);
+                this.vcode_md5 = jSONObject.optString("vcode_md5");
+                this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
                 this.forbid_info = jSONObject.optString("forbid_info");
                 this.ifvoice = jSONObject.optInt("ifvoice", 1);
                 this.voice_message = jSONObject.optString("voice_message");
@@ -247,8 +246,8 @@ public class AntiData implements Serializable {
             jSONObject.put("forbid_flag", this.forbid_flag);
             jSONObject.put("tbs", this.tbs);
             jSONObject.put("need_vcode", this.need_vcode);
-            jSONObject.put(GraffitiVcodeActivityConfig.VCODE_MD5, this.vcode_md5);
-            jSONObject.put(GraffitiVcodeActivityConfig.VCODE_PIC_URL, this.vcode_pic_url);
+            jSONObject.put("vcode_md5", this.vcode_md5);
+            jSONObject.put("vcode_pic_url", this.vcode_pic_url);
             jSONObject.put("forbid_info", this.forbid_info);
             jSONObject.put("ifvoice", this.ifvoice);
             jSONObject.put("voice_message", this.voice_message);

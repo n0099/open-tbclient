@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<f> apT;
-    private List<f> apU;
-    private boolean apV;
-    private boolean apW;
-    private int apY;
-    private int apX = 2;
-    private int apZ = 1;
+    private List<f> apc;
+    private List<f> apd;
+    private boolean ape;
+    private boolean apf;
+    private int aph;
+    private int apg = 2;
+    private int api = 1;
 
     public d(List<f> list, boolean z, int i) {
-        this.apY = 2;
-        this.apT = list;
-        this.apW = z;
-        this.apY = i;
-        w(list);
+        this.aph = 2;
+        this.apc = list;
+        this.apf = z;
+        this.aph = i;
+        v(list);
     }
 
-    public void w(List<f> list) {
-        if (list != null && list.size() >= this.apX && list.size() <= this.apY) {
-            this.apV = true;
-        } else if (list.size() > this.apY && this.apW) {
-            this.apV = true;
+    public void v(List<f> list) {
+        if (list != null && list.size() >= this.apg && list.size() <= this.aph) {
+            this.ape = true;
+        } else if (list.size() > this.aph && this.apf) {
+            this.ape = true;
         } else {
-            this.apV = false;
+            this.ape = false;
         }
-        this.apU = xw();
+        this.apd = wV();
     }
 
-    private List<f> xw() {
+    private List<f> wV() {
         ArrayList arrayList = new ArrayList();
-        if (this.apT != null) {
-            if (this.apV) {
-                if (this.apT.size() > this.apY && this.apT.size() >= this.apZ) {
-                    arrayList.addAll(this.apT.subList(0, this.apY));
-                    arrayList.addAll(0, this.apT.subList(this.apY - this.apZ, this.apY));
-                    arrayList.addAll(this.apT.subList(0, this.apZ));
+        if (this.apc != null) {
+            if (this.ape) {
+                if (this.apc.size() > this.aph && this.apc.size() >= this.api) {
+                    arrayList.addAll(this.apc.subList(0, this.aph));
+                    arrayList.addAll(0, this.apc.subList(this.aph - this.api, this.aph));
+                    arrayList.addAll(this.apc.subList(0, this.api));
                 } else {
-                    arrayList.addAll(this.apT);
-                    arrayList.addAll(0, this.apT.subList(this.apT.size() - this.apZ, this.apT.size()));
-                    arrayList.addAll(this.apT.subList(0, this.apZ));
+                    arrayList.addAll(this.apc);
+                    arrayList.addAll(0, this.apc.subList(this.apc.size() - this.api, this.apc.size()));
+                    arrayList.addAll(this.apc.subList(0, this.api));
                 }
-            } else if (this.apT != null && this.apT.size() > 0 && this.apT.size() >= this.apZ) {
-                arrayList.addAll(this.apT.subList(0, this.apZ));
+            } else if (this.apc != null && this.apc.size() > 0 && this.apc.size() >= this.api) {
+                arrayList.addAll(this.apc.subList(0, this.api));
             }
         }
         return arrayList;
     }
 
-    public int dz(int i) {
-        if (this.apV) {
-            int size = this.apU.size();
+    public int dJ(int i) {
+        if (this.ape) {
+            int size = this.apd.size();
             if (i == 0) {
-                return (size - 1) - this.apZ;
+                return (size - 1) - this.api;
             }
-            if (i == size - this.apZ) {
-                return this.apZ;
+            if (i == size - this.api) {
+                return this.api;
             }
             return i;
         }
         return i;
     }
 
-    public int dA(int i) {
-        if (this.apV) {
-            return i - this.apZ;
+    public int dK(int i) {
+        if (this.ape) {
+            return i - this.api;
         }
         return i;
     }
 
-    public int xx() {
-        if (this.apT == null) {
+    public int wW() {
+        if (this.apc == null) {
             return 0;
         }
-        return this.apT.size();
+        return this.apc.size();
     }
 
-    public int xy() {
-        if (this.apV) {
-            return this.apZ;
+    public int wX() {
+        if (this.ape) {
+            return this.api;
         }
         return 0;
     }
 
-    public void dB(int i) {
-        this.apY = i;
-        w(this.apT);
+    public void dL(int i) {
+        this.aph = i;
+        v(this.apc);
     }
 
-    public void dC(int i) {
-        this.apX = i;
-        w(this.apT);
+    public void dM(int i) {
+        this.apg = i;
+        v(this.apc);
     }
 
-    public List<f> xz() {
-        return this.apU;
+    public List<f> wY() {
+        return this.apd;
     }
 
-    public void dD(int i) {
-        this.apZ = i;
-        w(this.apT);
+    public void dN(int i) {
+        this.api = i;
+        v(this.apc);
     }
 }

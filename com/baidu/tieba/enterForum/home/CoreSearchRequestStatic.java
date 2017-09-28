@@ -20,19 +20,19 @@ public class CoreSearchRequestStatic {
     private static EnterForumModel ccN;
 
     static {
-        acX();
+        acK();
     }
 
-    private static void acX() {
-        c.bsR();
+    private static void acK() {
+        c.brQ();
         if (ccN == null) {
             ccN = new EnterForumModel(null);
             ccN.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1
                 @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
                 public void a(EnterForumModel.a aVar) {
-                    h acP = aVar.cdF.acP();
+                    h acC = aVar.cdG.acC();
                     ArrayList arrayList = new ArrayList();
-                    Iterator<g> it = acP.acV().iterator();
+                    Iterator<g> it = acC.acI().iterator();
                     while (it.hasNext()) {
                         arrayList.add(it.next().getName());
                     }
@@ -59,9 +59,9 @@ public class CoreSearchRequestStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
                     if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                        CoreSearchRequestStatic.ccN.eq(true);
+                        CoreSearchRequestStatic.ccN.ej(true);
                     } else {
-                        CoreSearchRequestStatic.ccN.ep(true);
+                        CoreSearchRequestStatic.ccN.ei(true);
                     }
                 }
             }

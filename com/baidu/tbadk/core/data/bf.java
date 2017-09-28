@@ -1,58 +1,126 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
+import com.xiaomi.mipush.sdk.Constants;
+import org.json.JSONObject;
+import tbclient.TaskInfo;
 /* loaded from: classes.dex */
-public class bf extends bj {
-    public static final BdUniqueId XZ = BdUniqueId.gen();
-    private PhotoLiveCardData Ya;
+public class bf {
+    private long Yd;
+    private String Ye;
+    private String Yf;
+    private long endTime;
+    private long forumId;
+    private String forumName;
+    private int mHeight;
+    private int mWidth;
+    private String obj_id;
+    private long taskId;
+    private long threadId;
 
-    public PhotoLiveCardData b(bj bjVar, int i) {
-        if (this.Ya == null) {
-            if (bjVar == null) {
-                return null;
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public String getForumId() {
+        return this.forumId + "";
+    }
+
+    public long qV() {
+        return this.Yd;
+    }
+
+    public long qW() {
+        return this.endTime;
+    }
+
+    public String getTaskId() {
+        return this.taskId + "";
+    }
+
+    public String getThreadId() {
+        return this.threadId + "";
+    }
+
+    public String qX() {
+        return this.Ye;
+    }
+
+    public String qY() {
+        return this.Yf;
+    }
+
+    public int qZ() {
+        return this.mWidth;
+    }
+
+    public int ra() {
+        return this.mHeight;
+    }
+
+    public String pD() {
+        return this.obj_id;
+    }
+
+    public void a(TaskInfo taskInfo) {
+        if (taskInfo != null) {
+            this.forumName = taskInfo.forum_name;
+            this.forumId = taskInfo.forum_id.longValue();
+            this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
+            this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
+            this.Ye = taskInfo.bgimg;
+            this.Yf = taskInfo.thread_img;
+            this.Yd = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
+            this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
+            String str = taskInfo.thread_img_size;
+            if (str != null) {
+                try {
+                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    this.mWidth = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    this.mHeight = com.baidu.adp.lib.g.b.g(split[1], 1);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
             }
-            this.Ya = new PhotoLiveCardData();
-            MetaData author = bjVar.getAuthor();
-            if (author != null) {
-                this.Ya.setAuthorName(author.getUserName());
-                this.Ya.setAuthorPortrait(author.getPortrait());
-                this.Ya.setFansNum(author.getFansNum());
-                this.Ya.setNickName(author.getFansNickName());
-                this.Ya.setAuthorId(author.getUserId());
-                this.Ya.setGodInfo(author.getGodInfo());
+            if (this.mWidth <= 0) {
+                this.mWidth = 1;
             }
-            PraiseData rr = bjVar.rr();
-            if (rr != null) {
-                this.Ya.setPraiseNum((int) rr.getNum());
+            if (this.mHeight <= 0) {
+                this.mHeight = 1;
             }
-            this.Ya.setDiscussNum(bjVar.rt());
-            this.Ya.setPostNum(bjVar.getPost_num());
-            this.Ya.setTitle(bjVar.getTitle());
-            this.Ya.setLastModifiedTime(bjVar.rv());
-            this.Ya.setPhotoLiveCover(bjVar.getPhotoLiveCover());
-            this.Ya.setContent(bjVar.rJ());
-            this.Ya.setThreadId(com.baidu.adp.lib.g.b.c(bjVar.getTid(), 0L));
-            this.Ya.setHeadlive(bjVar.isHeadLive());
-            this.Ya.setExpressionDatas(bjVar.rU());
-            if (this.Ya.getShowStyle() < 0) {
-                PhotoLiveCardData photoLiveCardData = this.Ya;
-                this.Ya.setShowStyle(PhotoLiveCardData.getRandom(3, i));
-            }
-            this.Ya.setShowExpressionViewIndexList(this.Ya.getExpressionDatas());
+            this.obj_id = taskInfo.obj_id;
         }
-        cy(bjVar.getTid());
-        setId(bjVar.getId());
-        setThreadType(bjVar.getThreadType());
-        cC(bjVar.rG());
-        return this.Ya;
     }
 
-    public PhotoLiveCardData qX() {
-        return this.Ya;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return XZ;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.forumName = jSONObject.optString("forum_name");
+                this.forumId = jSONObject.optLong("forum_id");
+                this.taskId = jSONObject.optLong(InterviewLiveActivityConfig.KEY_TASK_ID);
+                this.threadId = jSONObject.optLong("thread_id");
+                this.Ye = jSONObject.optString("bgimg");
+                this.Yd = jSONObject.optLong("start_time");
+                this.endTime = jSONObject.optLong("end_time");
+                this.Yf = jSONObject.optString("thread_img");
+                String optString = jSONObject.optString("thread_img_size");
+                if (optString != null && optString.length() > 0) {
+                    String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    if (split.length > 1) {
+                        this.mWidth = Integer.valueOf(split[0]).intValue();
+                        this.mHeight = Integer.valueOf(split[1]).intValue();
+                    }
+                }
+                if (this.mWidth <= 0) {
+                    this.mWidth = 1;
+                }
+                if (this.mHeight <= 0) {
+                    this.mHeight = 1;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
     }
 }

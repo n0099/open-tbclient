@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.horizonalList.widget.f {
-    private TbPageContext aby;
-    public TextView bFC;
-    public ClickableHeaderImageView bKL;
-    public TextView bKM;
-    public EntelechyUserLikeButton bKN;
-    private com.baidu.tbadk.core.view.userLike.c bKO;
-    private com.baidu.tieba.card.data.i bKP;
+    private TbPageContext abz;
+    public TextView bHn;
+    public ClickableHeaderImageView bJY;
+    public TextView bJZ;
+    public EntelechyUserLikeButton bKa;
+    private com.baidu.tbadk.core.view.userLike.c bKb;
+    private com.baidu.tieba.card.data.i bKc;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
     private BdUniqueId uniqueId;
@@ -35,21 +35,22 @@ public class g extends com.baidu.tieba.horizonalList.widget.f {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.card.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (g.this.bKP != null && g.this.bKP.author != null && !StringUtils.isNull(g.this.bKP.author.getName_show()) && !StringUtils.isNull(g.this.bKP.author.getUserId())) {
-                    if (g.this.avg != null) {
-                        g.this.avg.onClick(view2);
+                if (g.this.bKc != null && g.this.bKc.author != null && !StringUtils.isNull(g.this.bKc.author.getName_show()) && !StringUtils.isNull(g.this.bKc.author.getUserId())) {
+                    if (g.this.auo != null) {
+                        g.this.auo.onClick(view2);
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(g.this.aby.getPageActivity(), g.this.bKP.author.getUserId(), g.this.bKP.author.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(g.this.abz.getPageActivity(), g.this.bKc.author.getUserId(), g.this.bKc.author.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
-        this.aby = tbPageContext;
-        this.bKL = (ClickableHeaderImageView) view.findViewById(d.h.rec_god_item_header);
-        this.bKL.setGodIconMargin(d.f.ds6);
-        this.bFC = (TextView) view.findViewById(d.h.rec_god_item_user_name);
-        this.bKM = (TextView) view.findViewById(d.h.rec_god_item_user_describe);
-        this.bKN = (EntelechyUserLikeButton) view.findViewById(d.h.rec_god_item_user_like_btn);
-        this.bKO = new com.baidu.tbadk.core.view.userLike.c(this.aby, this.bKN);
+        this.abz = tbPageContext;
+        this.bJY = (ClickableHeaderImageView) view.findViewById(d.h.rec_god_item_header);
+        this.bJY.setGodIconMargin(d.f.ds6);
+        this.bHn = (TextView) view.findViewById(d.h.rec_god_item_user_name);
+        this.bJZ = (TextView) view.findViewById(d.h.rec_god_item_user_describe);
+        this.bKa = (EntelechyUserLikeButton) view.findViewById(d.h.rec_god_item_user_like_btn);
+        this.bKb = new com.baidu.tbadk.core.view.userLike.c(this.abz, this.bKa);
+        this.bKb.setFromType("0");
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -57,28 +58,28 @@ public class g extends com.baidu.tieba.horizonalList.widget.f {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.f
-    public com.baidu.tieba.horizonalList.widget.f ac(View view) {
-        g gVar = new g(view, this.aby);
-        gVar.bKO.i(this.uniqueId);
+    public com.baidu.tieba.horizonalList.widget.f ab(View view) {
+        g gVar = new g(view, this.abz);
+        gVar.bKb.h(this.uniqueId);
         return gVar;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.f
     public void a(com.baidu.tieba.horizonalList.widget.d dVar) {
         if (dVar instanceof com.baidu.tieba.card.data.i) {
-            this.bKP = (com.baidu.tieba.card.data.i) dVar;
-            if (this.bKP.author != null) {
-                getView().setTag(d.h.rec_god_item_root, this.bKP.author.getUserId());
-                this.bKL.setTag(d.h.rec_god_item_root, this.bKP.author.getUserId());
-                this.bKN.setTag(this.bKP.author);
-                this.bKL.setData(this.bKP.author);
-                this.bKL.setAfterClickListener(this.avg);
-                this.bFC.setText(am.t(this.bKP.author.getName_show(), 5));
+            this.bKc = (com.baidu.tieba.card.data.i) dVar;
+            if (this.bKc.author != null) {
+                getView().setTag(d.h.rec_god_item_root, this.bKc.author.getUserId());
+                this.bJY.setTag(d.h.rec_god_item_root, this.bKc.author.getUserId());
+                this.bKa.setTag(this.bKc.author);
+                this.bJY.setData(this.bKc.author);
+                this.bJY.setAfterClickListener(this.auo);
+                this.bHn.setText(am.t(this.bKc.author.getName_show(), 5));
                 getView().setOnClickListener(this.mOnClickListener);
-                if (this.bKP.author.getGodUserData() != null) {
-                    this.bKM.setText(am.t(this.bKP.author.getGodUserData().getIntro(), 6));
+                if (this.bKc.author.getGodUserData() != null) {
+                    this.bJZ.setText(am.t(this.bKc.author.getGodUserData().getIntro(), 6));
                 }
-                this.bKO.a(this.bKP.author);
+                this.bKb.a(this.bKc.author);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
         }
@@ -87,10 +88,10 @@ public class g extends com.baidu.tieba.horizonalList.widget.f {
     @Override // com.baidu.tieba.horizonalList.widget.f
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            aj.i(this.bFC, d.e.cp_cont_b);
-            aj.i(this.bKM, d.e.cp_cont_d);
-            if (this.bKN != null) {
-                this.bKN.onChangeSkinType(i);
+            aj.i(this.bHn, d.e.cp_cont_b);
+            aj.i(this.bJZ, d.e.cp_cont_d);
+            if (this.bKa != null) {
+                this.bKa.onChangeSkinType(i);
             }
         }
         this.mSkinType = i;

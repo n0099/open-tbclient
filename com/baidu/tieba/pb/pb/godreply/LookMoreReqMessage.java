@@ -1,10 +1,10 @@
 package com.baidu.tieba.pb.pb.godreply;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.n;
+import com.baidu.tbadk.util.m;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
@@ -54,18 +54,18 @@ public class LookMoreReqMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         try {
-            int ae = k.ae(TbadkCoreApplication.getInst());
-            int af = k.af(TbadkCoreApplication.getInst());
+            int ad = l.ad(TbadkCoreApplication.getInst());
+            int af = l.af(TbadkCoreApplication.getInst());
             DataReq.Builder builder = new DataReq.Builder();
             builder.kz = this.kz;
             builder.with_floor = Integer.valueOf(this.with_floor);
             builder.post_id = this.post_id;
-            builder.scr_w = Integer.valueOf(ae);
+            builder.scr_w = Integer.valueOf(ad);
             builder.scr_h = Integer.valueOf(af);
             builder.st_type = Integer.valueOf(this.st_type);
             builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
             if (z) {
-                n.bindCommonParamsToProtobufData(builder, true);
+                m.bindCommonParamsToProtobufData(builder, true);
             }
             GetPostListReqIdl.Builder builder2 = new GetPostListReqIdl.Builder();
             builder2.data = builder.build(false);

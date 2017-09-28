@@ -1,104 +1,141 @@
 package com.baidu.tieba.frs.entelechy.a;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.widget.ListView.j;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.ak;
-import com.baidu.tieba.card.v;
-import com.baidu.tieba.card.x;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.view.ClickableHeaderImageView;
+import com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollView;
+import com.baidu.tieba.card.u;
 import com.baidu.tieba.d;
-import com.baidu.tieba.play.w;
+import com.baidu.tieba.frs.view.UserRecommendLayout;
 /* loaded from: classes.dex */
-public class p extends com.baidu.tieba.frs.d<bj, a<com.baidu.tieba.frs.entelechy.view.a>> implements v, com.baidu.tieba.frs.f.c {
-    private x<bj> bkY;
-    private TbPageContext<?> mF;
-    private String mForumName;
+public class p extends com.baidu.tieba.frs.d<com.baidu.tieba.frs.q, a> {
+    private com.baidu.adp.lib.e.b<com.baidu.tieba.frs.view.g> cwZ;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public p(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.bkY = new x<bj>() { // from class: com.baidu.tieba.frs.entelechy.a.p.1
+        this.cwZ = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<com.baidu.tieba.frs.view.g>() { // from class: com.baidu.tieba.frs.entelechy.a.p.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.x
-            public void a(View view, bj bjVar) {
-                if (view != null && bjVar != null) {
-                    if (view.getId() == d.h.layout_root) {
-                        com.baidu.tieba.frs.f.b.alu().a(com.baidu.tieba.frs.f.c.cFj, bjVar, 1);
-                        TiebaStatic.log(new ak("c12126").ad("tid", bjVar.getId()).r("obj_locate", p.this.agM() ? 2 : 1).f("obj_id", bjVar.rT() == null ? -1L : bjVar.rT().live_id).r("obj_type", 1));
-                    } else if (view.getId() == d.h.card_home_page_normal_thread_user_name || view.getId() == d.h.card_home_page_normal_thread_user_header) {
-                        com.baidu.tieba.frs.f.b.alu().a(com.baidu.tieba.frs.f.c.cFj, bjVar, 2);
-                    } else if (view.getId() == d.h.header_divider) {
-                        com.baidu.tieba.frs.g.h.a(com.baidu.tieba.frs.f.c.cFj, bjVar.rZ());
-                    } else if (view.getId() == d.h.frame_video) {
-                        com.baidu.tieba.frs.f.b.alu().a(com.baidu.tieba.frs.f.c.cFj, bjVar, 4);
-                    }
-                }
+            @Override // com.baidu.adp.lib.e.c
+            /* renamed from: ajn */
+            public com.baidu.tieba.frs.view.g fI() {
+                return new com.baidu.tieba.frs.view.g(p.this.mContext);
             }
-        };
-        this.mF = tbPageContext;
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.e.c
+            /* renamed from: a */
+            public void n(com.baidu.tieba.frs.view.g gVar) {
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.e.c
+            /* renamed from: b */
+            public com.baidu.tieba.frs.view.g o(com.baidu.tieba.frs.view.g gVar) {
+                return gVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.e.c
+            /* renamed from: c */
+            public com.baidu.tieba.frs.view.g p(com.baidu.tieba.frs.view.g gVar) {
+                return gVar;
+            }
+        }, 10, 0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: S */
+    /* renamed from: X */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.entelechy.view.a aVar = new com.baidu.tieba.frs.entelechy.view.a(this.mF, this.mPageId);
-        aVar.l(this.mPageId);
-        aVar.setForumName(this.mForumName);
-        return new a(aVar);
+        a aVar = new a(LayoutInflater.from(this.mContext).inflate(d.j.card_user_recommend_layout, (ViewGroup) null, true));
+        aVar.cxc.setViewPool(this.cwZ);
+        return aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bj bjVar, a aVar) {
-        if (aVar == null || aVar.YJ() == null) {
-            return null;
-        }
-        aVar.YJ().setVideoStatsData(I(bjVar));
-        aVar.YJ().a(bjVar);
-        aVar.YJ().setForumName(this.mForumName);
-        aVar.YJ().b(this.bkY);
-        com.baidu.tieba.frs.f.b.alu().a(cFj, bjVar);
-        com.baidu.tieba.frs.f.b.alu().Q(bjVar);
-        if (bjVar != null) {
-            TiebaStatic.log(new ak("c12125").ad("tid", bjVar.getId()).r("obj_locate", agM() ? 2 : 1).f("obj_id", bjVar.rT() != null ? bjVar.rT().live_id : -1L).r("obj_type", 1));
-            bjVar.sz();
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.q qVar, a aVar) {
+        if (qVar != null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            aVar.cxd.setText(qVar.ahZ());
+            aVar.cxc.setPageContext(this.mG);
+            aVar.cxc.setData(qVar.getUserInfo());
+            aVar.cxb.setMaxOverScrollDistance(aVar.cxc.getChildItemWidth());
+            aVar.cxd.setTextColor(aj.getColor(skinType, d.e.cp_cont_b));
+            aVar.aLj.setBackgroundColor(aj.getColor(skinType, d.e.cp_bg_line_e));
+            if (!qVar.aia()) {
+                for (MetaData metaData : qVar.getUserInfo()) {
+                    if (metaData != null && !am.isEmpty(metaData.getUserId())) {
+                        u.XR().a(new ak("c12530").ad("obj_id", metaData.getUserId()));
+                    }
+                }
+                qVar.eJ(true);
+            }
         }
         return aVar.getView();
     }
 
-    private w I(bj bjVar) {
-        if (bjVar == null) {
-            return null;
-        }
-        w wVar = new w();
-        wVar.mLocate = bjVar.sv() ? TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE : "2";
-        wVar.azL = cFj.cFb;
-        wVar.bHy = bjVar.getTid();
-        wVar.mSource = bjVar.ZH;
-        wVar.fBN = bjVar.ZM;
-        wVar.fBO = bjVar.ZI;
-        wVar.fBQ = bjVar.ZJ;
-        if (bjVar.rS() != null) {
-            wVar.fBR = bjVar.rS().video_md5;
-        }
-        if (bjVar.sF() != null && bjVar.sF().channelId > 0) {
-            wVar.VU = "" + bjVar.sF().channelId;
-        } else {
-            wVar.VU = "0";
-        }
-        return wVar;
-    }
+    /* loaded from: classes.dex */
+    public static class a extends j.a {
+        LinearLayout aLj;
+        FlexibleHorizontalScrollView cxb;
+        UserRecommendLayout cxc;
+        TextView cxd;
+        View.OnClickListener cxe;
+        View.OnClickListener cxf;
 
-    @Override // com.baidu.tieba.card.v
-    public void setForumName(String str) {
-        this.mForumName = str;
+        public a(View view) {
+            super(view);
+            this.cxe = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.p.a.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    com.baidu.tbadk.core.view.userLike.a wR;
+                    if (a.this.cxb != null && a.this.cxc != null) {
+                        a.this.cxb.smoothScrollBy(a.this.cxc.getChildItemWidth(), 0);
+                        if ((view2.getTag() instanceof com.baidu.tbadk.core.view.userLike.c) && (wR = ((com.baidu.tbadk.core.view.userLike.c) view2.getTag()).wR()) != null) {
+                            a.this.L(wR.getUserId(), 2);
+                        }
+                    }
+                }
+            };
+            this.cxf = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.p.a.2
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    if (view2 instanceof ClickableHeaderImageView) {
+                        a.this.L(((ClickableHeaderImageView) view2).getUserId(), 1);
+                    }
+                }
+            };
+            this.cxb = (FlexibleHorizontalScrollView) view.findViewById(d.h.user_recommend_scroll_container);
+            this.cxc = (UserRecommendLayout) view.findViewById(d.h.user_recommend_container);
+            this.cxc.setItemSpace(com.baidu.adp.lib.util.l.f(view.getContext(), d.f.ds16));
+            this.cxc.setAfterLikeBtnClickListener(this.cxe);
+            this.cxc.setAfterHeaderLickListener(this.cxf);
+            this.cxd = (TextView) view.findViewById(d.h.user_recommend_document);
+            this.aLj = (LinearLayout) view.findViewById(d.h.user_recommend_root);
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void L(String str, int i) {
+            if (!am.isEmpty(str)) {
+                TiebaStatic.log(new ak("c12531").r("obj_locate", i).ad("obj_id", str));
+            }
+        }
     }
 }

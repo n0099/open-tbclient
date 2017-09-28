@@ -31,7 +31,7 @@ public final class d {
     public static String b;
     public static String c;
     public static boolean a = false;
-    public static MyReceiver Px = null;
+    public static MyReceiver PN = null;
 
     public static void a(Throwable th) {
         com.baidu.sofire.b.b(th);
@@ -313,18 +313,18 @@ public final class d {
             Report report = Report.getInstance(context);
             JSONObject jSONObject = new JSONObject();
             com.baidu.sofire.a.a ao = com.baidu.sofire.a.a.ao(context);
-            Map<Integer, String> nl = ao.nl();
-            jSONObject.put("0", nl.keySet());
-            jSONObject.put("1", nl.values());
+            Map<Integer, String> nn = ao.nn();
+            jSONObject.put("0", nn.keySet());
+            jSONObject.put("1", nn.values());
             jSONObject.toString();
             com.baidu.sofire.b.a();
             JSONObject jSONObject2 = new JSONObject();
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("1003003", jSONObject);
             jSONObject2.put("0", jSONObject3);
-            Map<Integer, String> nm = ao.nm();
+            Map<Integer, String> no = ao.no();
             JSONArray jSONArray = new JSONArray();
-            for (String str : nm.values()) {
+            for (String str : no.values()) {
                 jSONArray.put(str);
             }
             jSONArray.put("com.baidu.sofire");
@@ -469,10 +469,10 @@ public final class d {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (!(activeNetworkInfo != null && 1 == activeNetworkInfo.getType())) {
                 IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                if (Px == null) {
-                    Px = new MyReceiver().a();
+                if (PN == null) {
+                    PN = new MyReceiver().a();
                 }
-                context.getApplicationContext().registerReceiver(Px, intentFilter);
+                context.getApplicationContext().registerReceiver(PN, intentFilter);
                 a = true;
                 return false;
             }
@@ -512,8 +512,8 @@ public final class d {
                 }
                 new StringBuilder().append(z).toString();
                 com.baidu.sofire.b.a();
-                eVar.PP.putBoolean("hac", z);
-                eVar.PP.commit();
+                eVar.Qe.putBoolean("hac", z);
+                eVar.Qe.commit();
                 if (!z) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("0", packageName);
@@ -542,21 +542,21 @@ public final class d {
         long j = eVar.a.getLong("se_ae_fd", 0L);
         if (j == 0) {
             j = System.currentTimeMillis();
-            eVar.PP.putLong("se_ae_fd", System.currentTimeMillis());
-            eVar.PP.commit();
+            eVar.Qe.putLong("se_ae_fd", System.currentTimeMillis());
+            eVar.Qe.commit();
         }
         if (currentTimeMillis - j > 86400000) {
             HashMap hashMap = new HashMap();
             hashMap.put("0", Integer.valueOf(eVar.a.getInt("mo_ae_fa_ct", 0) + 1));
-            eVar.PP.putInt("mo_ae_fa_ct", 0);
-            eVar.PP.commit();
-            eVar.PP.putLong("se_ae_fd", System.currentTimeMillis());
-            eVar.PP.commit();
+            eVar.Qe.putInt("mo_ae_fa_ct", 0);
+            eVar.Qe.commit();
+            eVar.Qe.putLong("se_ae_fd", System.currentTimeMillis());
+            eVar.Qe.commit();
             a(context, "1003119", hashMap);
             return;
         }
-        eVar.PP.putInt("mo_ae_fa_ct", eVar.a.getInt("mo_ae_fa_ct", 0) + 1);
-        eVar.PP.commit();
+        eVar.Qe.putInt("mo_ae_fa_ct", eVar.a.getInt("mo_ae_fa_ct", 0) + 1);
+        eVar.Qe.commit();
     }
 
     public static boolean c(String str, String str2) {

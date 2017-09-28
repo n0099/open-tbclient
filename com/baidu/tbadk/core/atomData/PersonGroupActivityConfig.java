@@ -42,6 +42,17 @@ public class PersonGroupActivityConfig extends IntentConfig {
         setRequestCode(i);
     }
 
+    public PersonGroupActivityConfig(Context context, int i, int i2, int i3) {
+        super(context);
+        Intent intent = getIntent();
+        intent.putExtra("key_uid", TbadkCoreApplication.getCurrentAccount());
+        intent.putExtra("key_sex", i);
+        intent.putExtra("key_from_where", i3);
+        intent.putExtra("tb_request_code", i2);
+        setIntentAction(IntentAction.ActivityForResult);
+        setRequestCode(i2);
+    }
+
     public PersonGroupActivityConfig(Context context, int i) {
         super(context);
         Intent intent = getIntent();

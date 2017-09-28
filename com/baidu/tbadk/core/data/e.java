@@ -17,7 +17,7 @@ public class e {
         return this.post_url;
     }
 
-    public String pw() {
+    public String px() {
         return this.button_text;
     }
 

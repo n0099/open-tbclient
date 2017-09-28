@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import com.baidu.adp.b.a.h;
 import com.baidu.adp.b.a.k;
 import com.baidu.adp.b.a.n;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -18,16 +19,16 @@ import com.baidu.tieba.d;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ChatClipImageItemView extends TbImageView implements k.a {
-    private final Path BN;
-    private boolean dnf;
-    public k dtV;
-    private boolean dtW;
-    private a dtX;
+    private final Path BP;
+    private boolean djv;
+    public k dql;
+    private boolean dqm;
+    private a dqn;
     public int position;
 
     /* loaded from: classes.dex */
     public interface a {
-        void v(Canvas canvas);
+        void w(Canvas canvas);
     }
 
     public ChatClipImageItemView(Context context) {
@@ -40,11 +41,11 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
 
     public ChatClipImageItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dnf = true;
+        this.djv = true;
         this.position = 0;
-        this.BN = new Path();
-        this.dtW = true;
-        this.dtX = null;
+        this.BP = new Path();
+        this.dqm = true;
+        this.dqn = null;
         b(context, attributeSet, i);
     }
 
@@ -77,21 +78,20 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             }
         }
         if (z) {
-            this.dtV = new h();
+            this.dql = new h();
         } else {
-            this.dtV = new n();
+            this.dql = new n();
         }
-        this.Ba.BG = true;
-        this.Ba.BD = getResources().getDrawable(d.g.icon_im_gif);
-        this.dtV.a(this);
-        this.Bh = this.dtV;
-        this.Bh.a(this.Ba);
+        this.Bc.BI = true;
+        this.dql.a(this);
+        this.Bj = this.dql;
+        this.Bj.a(this.Bc);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        this.dtV.iI();
+        this.dql.iH();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,12 +99,12 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i != 0) {
-            this.dtV.iI();
-        } else if (!this.dtW) {
-            this.dtV.iH();
+            this.dql.iH();
+        } else if (!this.dqm) {
+            this.dql.iG();
             invalidate();
         } else {
-            this.dtW = false;
+            this.dqm = false;
         }
     }
 
@@ -113,21 +113,21 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     }
 
     public void setLeft(boolean z) {
-        this.dnf = z;
+        this.djv = z;
     }
 
-    public void auN() {
-        this.dtV.iH();
-        this.dtV.L(true);
+    public void aty() {
+        this.dql.iG();
+        this.dql.L(true);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.b.a.b
-    public com.baidu.adp.widget.a.a getBdImage() {
+    public com.baidu.adp.widget.ImageView.a getBdImage() {
         boolean z = false;
-        com.baidu.adp.widget.a.a bdImage = super.getBdImage();
+        com.baidu.adp.widget.ImageView.a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
-        boolean z3 = bdImage != null && bdImage.kP();
-        k kVar = this.dtV;
+        boolean z3 = bdImage != null && bdImage.kO();
+        k kVar = this.dql;
         if (z3 || z2) {
             z = true;
         }
@@ -137,8 +137,8 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.b.a.b
-    public com.baidu.adp.widget.a.a getDefaultBdImage() {
-        this.dtV.L(false);
+    public com.baidu.adp.widget.ImageView.a getDefaultBdImage() {
+        this.dql.L(false);
         return super.getDefaultBdImage();
     }
 
@@ -149,21 +149,21 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         }
         float width = rectF.width();
         float height = rectF.height();
-        this.BN.reset();
-        this.BN.set(b(width, height, 1.0f));
-        return this.BN;
+        this.BP.reset();
+        this.BP.set(d(width, height, 1.0f));
+        return this.BP;
     }
 
-    private Path b(float f, float f2, float f3) {
-        int dip2px = com.baidu.adp.lib.util.k.dip2px(getContext(), 4.0f);
-        int dip2px2 = com.baidu.adp.lib.util.k.dip2px(getContext(), 12.0f);
-        int dip2px3 = com.baidu.adp.lib.util.k.dip2px(getContext(), 6.0f);
-        int dip2px4 = com.baidu.adp.lib.util.k.dip2px(getContext(), 10.0f);
+    private Path d(float f, float f2, float f3) {
+        int dip2px = l.dip2px(getContext(), 4.0f);
+        int dip2px2 = l.dip2px(getContext(), 12.0f);
+        int dip2px3 = l.dip2px(getContext(), 6.0f);
+        int dip2px4 = l.dip2px(getContext(), 10.0f);
         float f4 = (f - dip2px3) - (f3 * 2.0f);
         float f5 = f2 - (f3 * 2.0f);
         Path path = new Path();
         path.offset(0.0f, 0.0f);
-        if (this.dnf) {
+        if (this.djv) {
             path.moveTo(dip2px3 + f3, dip2px + f3);
             path.quadTo(dip2px3 + f3, f3, dip2px3 + f3 + dip2px, f3);
             path.lineTo(((dip2px3 + f3) + f4) - dip2px, f3);
@@ -203,15 +203,15 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.b.a.b, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.dtX == null) {
+        if (this.dqn == null) {
             aj.e(this, d.e.cp_bg_line_c, 0);
         } else {
-            this.dtX.v(canvas);
+            this.dqn.w(canvas);
         }
         super.onDraw(canvas);
     }
 
     public void setOnDrawCallback(a aVar) {
-        this.dtX = aVar;
+        this.dqn = aVar;
     }
 }

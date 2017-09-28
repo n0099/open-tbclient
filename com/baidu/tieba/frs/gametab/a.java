@@ -13,29 +13,33 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.e.a;
 /* loaded from: classes.dex */
 public class a {
-    private boolean cDd;
-    private com.baidu.tieba.e.b csZ;
+    private boolean cDW;
+    private com.baidu.tieba.e.b ctE;
     private Context mContext;
     private BdUniqueId mPageId;
-    private boolean aMv = false;
+    private boolean aLX = false;
     private a.InterfaceC0081a caG = new a.InterfaceC0081a() { // from class: com.baidu.tieba.frs.gametab.a.1
-        final int bAv = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
+        final int bCg = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
 
         @Override // com.baidu.tieba.e.a.InterfaceC0081a
-        public void ak(int i, int i2) {
-            if (N(i2)) {
-                a.this.es(false);
+        public void ao(int i, int i2) {
+            if (Q(i2)) {
+                a.this.eK(false);
             }
         }
 
         @Override // com.baidu.tieba.e.a.InterfaceC0081a
-        public void al(int i, int i2) {
-            if (N(i2)) {
-                a.this.es(true);
+        public void ap(int i, int i2) {
+            if (Q(i2)) {
+                a.this.eK(true);
             }
         }
 
-        private boolean N(float f) {
+        @Override // com.baidu.tieba.e.a.InterfaceC0081a
+        public void aq(int i, int i2) {
+        }
+
+        private boolean Q(float f) {
             return Math.abs(f) >= 5.0f;
         }
     };
@@ -43,28 +47,28 @@ public class a {
     public a(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.cDd = z;
-        if (this.cDd) {
-            this.csZ = new com.baidu.tieba.e.b(context);
-            this.csZ.a(this.caG);
+        this.cDW = z;
+        if (this.cDW) {
+            this.ctE = new com.baidu.tieba.e.b(context);
+            this.ctE.a(this.caG);
         }
     }
 
     public void d(View view, MotionEvent motionEvent) {
-        if (this.cDd && this.csZ != null) {
-            this.csZ.onTouchEvent(motionEvent);
+        if (this.cDW && this.ctE != null) {
+            this.ctE.onTouchEvent(motionEvent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void es(boolean z) {
-        this.aMv = z;
-        if (this.cDd) {
-            m(!this.aMv, true);
+    public void eK(boolean z) {
+        this.aLX = z;
+        if (this.cDW) {
+            n(!this.aLX, true);
         }
     }
 
-    private void m(boolean z, boolean z2) {
+    private void n(boolean z, boolean z2) {
         if (z) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB);
             customMessage.setTag(this.mPageId);

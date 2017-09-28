@@ -18,6 +18,8 @@ public class MediaData extends OrmObject implements Serializable {
     private long original_size = 0;
     private String thumbnails_url = null;
     private int during_time = 0;
+    private boolean isLongPic = false;
+    private boolean showOriginBtn = false;
 
     public MediaData() {
         this.postId = -1L;
@@ -100,6 +102,18 @@ public class MediaData extends OrmObject implements Serializable {
         this.during_time = i;
     }
 
+    public boolean isLongPic() {
+        return this.isLongPic;
+    }
+
+    public void setIsLongPic(boolean z) {
+        this.isLongPic = z;
+    }
+
+    public boolean isShowOriginBtn() {
+        return this.showOriginBtn;
+    }
+
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
@@ -115,6 +129,8 @@ public class MediaData extends OrmObject implements Serializable {
                 this.original_size = jSONObject.optLong("original_size");
                 this.postId = jSONObject.optLong("post_id");
                 this.during_time = jSONObject.optInt("during_time");
+                this.isLongPic = jSONObject.optInt("is_long_pic", 0) == 1;
+                this.showOriginBtn = jSONObject.optInt("show_original_btn", 1) == 1;
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -137,6 +153,8 @@ public class MediaData extends OrmObject implements Serializable {
             this.original_url = media.origin_pic;
             this.original_size = media.origin_size.intValue();
             this.postId = media.post_id.longValue();
+            this.isLongPic = media.is_long_pic.intValue() == 1;
+            this.showOriginBtn = media.show_original_btn.intValue() == 1;
         }
     }
 }

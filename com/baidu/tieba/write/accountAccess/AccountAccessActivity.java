@@ -7,40 +7,40 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.data.bp;
+import com.baidu.tbadk.core.data.bn;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes2.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
-    private NewWriteModel aDk;
-    private b gBg;
-    private a gBh;
-    private AccessState gBi;
+    private NewWriteModel aCB;
+    private b gGo;
+    private a gGp;
+    private AccessState gGq;
     private WriteData mWriteData;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gBg = new b(this);
+        this.gGo = new b(this);
         Intent intent = getIntent();
         if (intent != null) {
-            this.gBi = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
+            this.gGq = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
             this.mWriteData = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
-            if (this.mWriteData == null || this.gBi == null) {
+            if (this.mWriteData == null || this.gGq == null) {
                 finish();
                 return;
             }
-            this.aDk = new NewWriteModel(this);
-            this.aDk.setWriteData(this.mWriteData);
+            this.aCB = new NewWriteModel(this);
+            this.aCB.setWriteData(this.mWriteData);
             if (this.mWriteData.getWriteImagesInfo() != null) {
-                this.aDk.mM(this.mWriteData.getWriteImagesInfo().size() > 0);
+                this.aCB.mG(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
-            this.gBh = new a(this.gBg, this.aDk);
-            this.gBg.c(this.gBh);
-            this.gBh.start(bxJ());
+            this.gGp = new a(this.gGo, this.aCB);
+            this.gGo.c(this.gGp);
+            this.gGp.start(byZ());
         }
     }
 
@@ -58,20 +58,20 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         if (this.mWriteData != null && this.mWriteData.getIsStory() == 1) {
-            bp bpVar = new bp();
-            bpVar.aat = this.mWriteData;
-            bpVar.aaw = this.gBh.bxM();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_VCODE_CHECK_INFO, bpVar));
+            bn bnVar = new bn();
+            bnVar.aat = this.mWriteData;
+            bnVar.aaw = this.gGp.bzc();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_VCODE_CHECK_INFO, bnVar));
         }
         super.onDestroy();
-        this.gBg.onDestory();
+        this.gGo.onDestory();
     }
 
-    public String bxJ() {
-        if (this.gBi == null || this.gBi.getUserInfo() == null) {
+    public String byZ() {
+        if (this.gGq == null || this.gGq.getUserInfo() == null) {
             return null;
         }
-        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.gBi.getToken(), this.gBi.getType(), this.gBi.getUserInfo().strMobile, this.gBi.getUserInfo().strEmail);
+        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.gGq.getToken(), this.gGq.getType(), this.gGq.getUserInfo().strMobile, this.gGq.getUserInfo().strEmail);
     }
 
     @Override // android.app.Activity

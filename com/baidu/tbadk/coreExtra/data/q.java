@@ -1,15 +1,14 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-    private VcodeExtra arX;
+    private VcodeExtra arf;
     private String vcode_md5 = null;
     private String vcode_pic_url = null;
-    private String arW = null;
+    private String are = null;
 
     public String getVcode_md5() {
         return this.vcode_md5;
@@ -19,12 +18,12 @@ public class q {
         return this.vcode_pic_url;
     }
 
-    public String yA() {
-        return this.arW;
+    public String xZ() {
+        return this.are;
     }
 
-    public VcodeExtra yB() {
-        return this.arX;
+    public VcodeExtra ya() {
+        return this.arf;
     }
 
     public void parserJson(String str) {
@@ -43,16 +42,16 @@ public class q {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.vcode_md5 = jSONObject.optString(GraffitiVcodeActivityConfig.VCODE_MD5);
-                this.vcode_pic_url = jSONObject.optString(GraffitiVcodeActivityConfig.VCODE_PIC_URL);
-                this.arW = jSONObject.optString("vcode_type");
+                this.vcode_md5 = jSONObject.optString("vcode_md5");
+                this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
+                this.are = jSONObject.optString("vcode_type");
                 JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
-                this.arX = new VcodeExtra();
-                this.arX.textImg = jSONObject2.optString("textimg");
-                this.arX.slideImg = jSONObject2.optString("slideimg");
-                this.arX.endPoint = jSONObject2.optString("endpoint");
-                this.arX.successImg = jSONObject2.optString("successimg");
-                this.arX.slideEndPoint = jSONObject2.optString("slideendpoint");
+                this.arf = new VcodeExtra();
+                this.arf.textImg = jSONObject2.optString("textimg");
+                this.arf.slideImg = jSONObject2.optString("slideimg");
+                this.arf.endPoint = jSONObject2.optString("endpoint");
+                this.arf.successImg = jSONObject2.optString("successimg");
+                this.arf.slideEndPoint = jSONObject2.optString("slideendpoint");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

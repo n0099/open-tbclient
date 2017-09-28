@@ -10,7 +10,6 @@ import com.baidu.adp.BuildConfig;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.PushSettings;
-import com.baidu.tbadk.TbConfig;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -210,7 +209,7 @@ public final class n {
             public void a() {
                 if (n.this.d()) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    int i = (int) ((currentTimeMillis / TbConfig.USE_TIME_INTERVAL) % 5);
+                    int i = (int) ((currentTimeMillis / 60000) % 5);
                     int i2 = ((int) (currentTimeMillis / 1000)) % 60;
                     if (i == 0 && i2 < 15) {
                         try {

@@ -6,7 +6,9 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 /* loaded from: classes.dex */
 public class UserPostPageHttpResponseMessage extends TbHttpResponsedMessage {
+    private boolean isHost;
     private boolean isThread;
+    private int page;
     private PersonPostModel personPostModel;
 
     public UserPostPageHttpResponseMessage(int i) {
@@ -17,15 +19,18 @@ public class UserPostPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void setOrginalMessage(Message<?> message) {
         super.setOrginalMessage(message);
         if (message.getExtra() instanceof UserPostPageRequestMessage) {
-            this.isThread = ((UserPostPageRequestMessage) message.getExtra()).isThread();
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) message.getExtra();
+            this.isThread = userPostPageRequestMessage.isThread();
+            this.isHost = userPostPageRequestMessage.isHost();
+            this.page = userPostPageRequestMessage.getPn();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        this.personPostModel = new PersonPostModel(null, null);
-        UserPostResIdl parseProtobuf = this.personPostModel.parseProtobuf(bArr);
+        this.personPostModel = new PersonPostModel(null, null, this.isHost);
+        UserPostResIdl parseProtobuf = this.personPostModel.parseProtobuf(bArr, this.page);
         setError(parseProtobuf.error.errorno.intValue());
         setErrorString(parseProtobuf.error.usermsg);
         this.personPostModel.setErrorCode(parseProtobuf.error.errorno.intValue());

@@ -53,8 +53,8 @@ public class FH {
     }
 
     public static Pair<Integer, Object> callSync(int i, String str, Class<?>[] clsArr, Object... objArr) {
-        c no = c.no();
-        return no == null ? new Pair<>(3, null) : no.a(i, str, clsArr, objArr);
+        c nq = c.nq();
+        return nq == null ? new Pair<>(3, null) : nq.a(i, str, clsArr, objArr);
     }
 
     public static boolean call(int i, String str, Callback callback) {
@@ -67,24 +67,24 @@ public class FH {
 
     public static boolean call(int i, String str, Callback callback, Class<?>[] clsArr, Object... objArr) {
         try {
-            c no = c.no();
-            if (no == null) {
+            c nq = c.nq();
+            if (nq == null) {
                 for (int i2 = 0; i2 < 20; i2++) {
                     try {
                         Thread.sleep(50L);
                     } catch (InterruptedException e) {
                         d.a(e);
                     }
-                    no = c.no();
-                    if (no != null) {
+                    nq = c.nq();
+                    if (nq != null) {
                         break;
                     }
                 }
-                if (no == null) {
+                if (nq == null) {
                     return false;
                 }
             }
-            no.a(i, str, callback, clsArr, objArr);
+            nq.a(i, str, callback, clsArr, objArr);
             return true;
         } catch (Throwable th) {
             d.a(th);
@@ -93,10 +93,10 @@ public class FH {
     }
 
     public static boolean isInitSuc(int i) {
-        ApkInfo aT;
-        com.baidu.sofire.core.e np;
-        a aVar = a.Pt;
-        return (aVar == null || (aT = aVar.aT(i)) == null || aT.initStatus != 1 || (np = com.baidu.sofire.core.e.np()) == null || np.bT(aT.packageName) == null) ? false : true;
+        ApkInfo aX;
+        com.baidu.sofire.core.e nr;
+        a aVar = a.PJ;
+        return (aVar == null || (aX = aVar.aX(i)) == null || aX.initStatus != 1 || (nr = com.baidu.sofire.core.e.nr()) == null || nr.bT(aX.packageName) == null) ? false : true;
     }
 
     public static Object getPInfo(int i, int i2) {
@@ -106,11 +106,11 @@ public class FH {
                     return "";
                 }
                 try {
-                    com.baidu.sofire.core.e np = com.baidu.sofire.core.e.np();
-                    if (np == null) {
+                    com.baidu.sofire.core.e nr = com.baidu.sofire.core.e.nr();
+                    if (nr == null) {
                         return "";
                     }
-                    List<ApkInfo> b = np.b();
+                    List<ApkInfo> b = nr.b();
                     if (b == null || b.size() <= 0) {
                         return "";
                     }

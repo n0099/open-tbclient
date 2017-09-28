@@ -9,14 +9,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
-    private String aiO;
-    protected x<T> bHZ;
-    protected w bJV;
+    private String aiq;
+    protected x<T> bJi;
+    protected w bJj;
     public Context mContext;
+    public int mSkinType;
+    private BdUniqueId mTag;
     public TbPageContext<?> mTbPageContext;
-    public int mSkinType = 3;
-    private BdUniqueId mTag = null;
-    private View mView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null, false);
+    private View mView;
 
     public abstract void a(T t);
 
@@ -25,8 +25,19 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     public abstract int getLayout();
 
     public a(TbPageContext<?> tbPageContext) {
+        this.mSkinType = 3;
+        this.mTag = null;
         this.mTbPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
+        this.mView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null, false);
+    }
+
+    public a(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        this.mSkinType = 3;
+        this.mTag = null;
+        this.mTbPageContext = tbPageContext;
+        this.mContext = tbPageContext.getPageActivity();
+        this.mView = LayoutInflater.from(getContext()).inflate(getLayout(), viewGroup, false);
     }
 
     public BdUniqueId getTag() {
@@ -38,11 +49,11 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     }
 
     public String getFrom() {
-        return this.aiO;
+        return this.aiq;
     }
 
     public void setFrom(String str) {
-        this.aiO = str;
+        this.aiq = str;
     }
 
     public View getView() {
@@ -53,7 +64,7 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
         return this.mContext;
     }
 
-    public TbPageContext<?> XK() {
+    public TbPageContext<?> Xq() {
         return this.mTbPageContext;
     }
 
@@ -61,14 +72,14 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     }
 
     public void b(x<T> xVar) {
-        this.bHZ = xVar;
+        this.bJi = xVar;
     }
 
     public void a(w wVar) {
-        this.bJV = wVar;
+        this.bJj = wVar;
     }
 
-    public x<T> XL() {
-        return this.bHZ;
+    public x<T> Xr() {
+        return this.bJi;
     }
 }

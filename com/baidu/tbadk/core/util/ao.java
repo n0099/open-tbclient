@@ -32,7 +32,7 @@ public class ao {
             return null;
         }
         try {
-            return com.baidu.adp.lib.util.r.toMd5(packageInfo.signatures[0].toCharsString().getBytes());
+            return com.baidu.adp.lib.util.s.toMd5(packageInfo.signatures[0].toCharsString().getBytes());
         } catch (Exception e) {
             BdLog.detailException(e);
             return null;
@@ -67,7 +67,7 @@ public class ao {
         File file = new File(packageInfo.applicationInfo.publicSourceDir);
         if (file.exists()) {
             try {
-                return com.baidu.adp.lib.util.r.e(new FileInputStream(file));
+                return com.baidu.adp.lib.util.s.e(new FileInputStream(file));
             } catch (FileNotFoundException e) {
                 BdLog.detailException(e);
                 return null;
@@ -76,7 +76,7 @@ public class ao {
         return null;
     }
 
-    public static String dX(String str) {
-        return com.baidu.adp.lib.util.r.aS(str);
+    public static String dQ(String str) {
+        return com.baidu.adp.lib.util.s.aS(str);
     }
 }

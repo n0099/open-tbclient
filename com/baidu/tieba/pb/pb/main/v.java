@@ -1,148 +1,97 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.b;
-import com.baidu.tieba.d;
-import java.util.ArrayList;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
+import com.baidu.tieba.pb.pb.godreply.LookMoreReqMessage;
+import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import java.util.List;
 /* loaded from: classes.dex */
-public class v extends com.baidu.tbadk.core.dialog.b {
-    private TbPageContext<?> aby;
-    private TextView bHE;
-    private View.OnClickListener cok;
-    private TextView eNc;
-    private TextView eNd;
-    private TextView eNe;
-    private TextView eNf;
-    private TextView eNg;
-    private boolean eNh;
-    private boolean eNi;
-
-    public v(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
-        super(tbPageContext.getPageActivity());
-        this.eNi = false;
-        this.aby = tbPageContext;
-        this.cok = onClickListener;
-        aSq();
-    }
-
-    public TextView aSk() {
-        return this.eNc;
-    }
-
-    public TextView aSl() {
-        return this.eNd;
-    }
-
-    public TextView aSm() {
-        return this.bHE;
-    }
-
-    public TextView aSn() {
-        return this.eNe;
-    }
-
-    public TextView aSo() {
-        return this.eNg;
-    }
-
-    public TextView aSp() {
-        return this.eNf;
-    }
-
-    private void aSq() {
-        a(new CharSequence[]{this.aby.getString(d.l.reply_current_floor), this.aby.getString(d.l.no_interesting), this.aby.getString(d.l.mark), this.aby.getString(d.l.mute), this.aby.getString(d.l.report_text), this.aby.getString(d.l.delete)}, new b.InterfaceC0046b() { // from class: com.baidu.tieba.pb.pb.main.v.1
-            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0046b
-            public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
-                if (bVar != null && view != null) {
-                    bVar.dismiss();
-                    v.this.cok.onClick(view);
-                }
-            }
-        });
-        d(this.aby);
-        this.eNf = aF(cj(0));
-        this.eNg = aF(cj(1));
-        this.eNc = aF(cj(2));
-        this.eNd = aF(cj(3));
-        this.bHE = aF(cj(4));
-        this.eNe = aF(cj(5));
-    }
-
-    public void showDialog() {
-        tr();
-    }
-
-    private TextView aF(View view) {
-        return (TextView) view.findViewById(d.h.dialog_item_btn);
-    }
-
-    private View bl(View view) {
-        if (view == null) {
-            return null;
-        }
-        return view.findViewById(d.h.line);
-    }
-
-    public void jq(boolean z) {
-        this.bHE.setVisibility(z ? 0 : 8);
-    }
-
-    public void jr(boolean z) {
-        this.eNh = z;
-    }
-
-    public boolean aSr() {
-        return this.eNi;
-    }
-
-    public void js(boolean z) {
-        this.eNi = z;
-    }
-
-    public void refreshUI() {
-        View view;
-        TextView aF;
-        int itemCount = getItemCount();
-        ArrayList arrayList = new ArrayList();
-        boolean z = true;
-        for (int i = itemCount - 1; i >= 0; i--) {
-            View cj = cj(i);
-            if (cj != null) {
-                TextView aF2 = aF(cj(i));
-                View bl = bl(cj(i));
-                if (aF2 != null) {
-                    if (aF2.getVisibility() == 8) {
-                        bl.setVisibility(8);
-                    } else {
-                        arrayList.add(cj);
-                        if (z) {
-                            bl.setVisibility(8);
-                            com.baidu.tbadk.core.util.aj.j(cj, d.g.dialog_single_button_bg_selector);
-                            z = false;
-                        } else {
-                            bl.setVisibility(0);
+public class v {
+    private PbModel eBQ;
+    public a eCr;
+    protected final com.baidu.adp.framework.listener.a eGS = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PB_GOD_MORE, 309446) { // from class: com.baidu.tieba.pb.pb.main.v.1
+        @Override // com.baidu.adp.framework.listener.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (responsedMessage != null) {
+                if (responsedMessage instanceof LookMoreHttpResMessage) {
+                    LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
+                    List<PostData> data = lookMoreHttpResMessage.getData();
+                    String errorString = lookMoreHttpResMessage.getErrorString();
+                    int error = lookMoreHttpResMessage.getError();
+                    if (error == 0) {
+                        if (!com.baidu.tbadk.core.util.v.u(data)) {
+                            v.this.eCr.A(data);
+                            return;
                         }
+                        return;
                     }
+                    v.this.eCr.h(error, errorString, "");
+                } else if (responsedMessage instanceof LookMoreSocketResMessage) {
+                    LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
+                    List<PostData> data2 = lookMoreSocketResMessage.getData();
+                    String errorString2 = lookMoreSocketResMessage.getErrorString();
+                    int error2 = lookMoreSocketResMessage.getError();
+                    if (error2 == 0) {
+                        if (data2 != null) {
+                            v.this.eCr.A(data2);
+                            return;
+                        }
+                        return;
+                    }
+                    v.this.eCr.h(error2, errorString2, "");
                 }
             }
         }
-        int i2 = 0;
-        while (true) {
-            if (i2 >= itemCount) {
-                break;
-            }
-            View cj2 = cj(i2);
-            if (cj2 == null || (aF = aF(cj(i2))) == null || aF.getVisibility() != 0) {
-                i2++;
-            } else {
-                com.baidu.tbadk.core.util.aj.j(cj2, d.g.dialog_single_button_first_bg_selector);
-                break;
-            }
-        }
-        if (com.baidu.tbadk.core.util.v.u(arrayList) == 1 && (view = (View) arrayList.get(0)) != null) {
-            com.baidu.tbadk.core.util.aj.j(view, d.g.dialog_single_button_only_one_bg_selector);
+    };
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void A(List<PostData> list);
+
+        void h(int i, String str, String str2);
+    }
+
+    public v(PbModel pbModel, BaseActivity baseActivity) {
+        this.eBQ = pbModel;
+        DP();
+        MessageManager.getInstance().registerListener(this.eGS);
+        this.eCr = null;
+    }
+
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.eGS);
+    }
+
+    public void a(a aVar) {
+        this.eCr = aVar;
+    }
+
+    private void DP() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, com.baidu.tieba.tbadkCore.a.a.ay(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
+        tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        com.baidu.tieba.tbadkCore.a.a.c(309446, LookMoreSocketResMessage.class, false);
+    }
+
+    public void cu(List<Long> list) {
+        if (this.eBQ != null && this.eBQ.getPbData() != null) {
+            int ad = com.baidu.adp.lib.util.l.ad(TbadkCoreApplication.getInst());
+            int af = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst());
+            LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
+            lookMoreReqMessage.setKz(Long.valueOf(com.baidu.adp.lib.g.b.c(this.eBQ.eFx, 0L)));
+            lookMoreReqMessage.setPost_id(list);
+            lookMoreReqMessage.setSt_type(com.baidu.adp.lib.g.b.g(this.eBQ.mStType, 0));
+            lookMoreReqMessage.setWith_floor(1);
+            lookMoreReqMessage.setScr_w(ad);
+            lookMoreReqMessage.setScr_h(af);
+            MessageManager.getInstance().sendMessage(lookMoreReqMessage);
         }
     }
 }

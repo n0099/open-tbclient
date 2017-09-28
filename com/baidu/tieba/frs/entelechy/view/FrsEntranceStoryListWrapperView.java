@@ -12,9 +12,9 @@ import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FrsEntranceStoryListWrapperView extends LinearLayout {
-    private HTypeListView aFt;
-    private com.baidu.tieba.a.a aFu;
-    private TbPageContext aby;
+    private HTypeListView aEM;
+    private com.baidu.tieba.a.a aEN;
+    private TbPageContext abz;
     private View mRootView;
     private int mSkinType;
 
@@ -32,39 +32,39 @@ public class FrsEntranceStoryListWrapperView extends LinearLayout {
         this.mRootView = View.inflate(getContext(), d.j.entrance_story_pics_layout, this);
     }
 
-    public void p(TbPageContext tbPageContext) {
-        this.aby = tbPageContext;
-        if (this.aby != null) {
-            this.aFt = (HTypeListView) this.mRootView.findViewById(d.h.listview_story_pic);
-            this.aFt.setSelector(d.g.transparent_bg);
-            this.aFu = new com.baidu.tieba.a.a(this.aby, this.aFt);
+    public void m(TbPageContext tbPageContext) {
+        this.abz = tbPageContext;
+        if (this.abz != null) {
+            this.aEM = (HTypeListView) this.mRootView.findViewById(d.h.listview_story_pic);
+            this.aEM.setSelector(d.g.transparent_bg);
+            this.aEN = new com.baidu.tieba.a.a(this.abz, this.aEM);
         }
     }
 
     public void changeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.aFu != null) {
-                this.aFu.notifyDataSetChanged();
+            if (this.aEN != null) {
+                this.aEN.notifyDataSetChanged();
             }
             aj.k(this.mRootView, d.e.cp_bg_line_e);
-            aj.k(this.aFt, d.e.cp_bg_line_d);
+            aj.k(this.aEM, d.e.cp_bg_line_d);
         }
         this.mSkinType = i;
     }
 
     public void b(List<com.baidu.adp.widget.ListView.f> list, String str, String str2) {
-        com.baidu.tieba.story.l.bof().boi();
-        if (v.v(list)) {
+        com.baidu.tieba.story.l.bmZ().bnc();
+        if (v.u(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        if (this.aFu != null) {
-            this.aFu.a(list, str, str2);
+        if (this.aEN != null) {
+            this.aEN.a(list, str, str2);
         }
     }
 
     public void setOnClick(View.OnClickListener onClickListener) {
-        this.aFu.setItemOnclickListener(onClickListener);
+        this.aEN.setItemOnclickListener(onClickListener);
     }
 }

@@ -10,18 +10,18 @@ public interface l<T> {
     /* loaded from: classes.dex */
     public static class b<T> {
         public String key;
-        public T rY;
         public long sS;
         public long ti;
+        public T value;
     }
 
     /* loaded from: classes.dex */
     public interface c<T> extends l<T> {
-        String eH();
+        String eG();
 
-        k<T> eI();
+        k<T> eH();
 
-        void eJ();
+        void eI();
     }
 
     b<T> W(String str);

@@ -3,7 +3,7 @@ package com.baidu.adp.base;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.lib.util.l;
 import com.baidu.megapp.ma.MAApplication;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends MAApplication {
@@ -23,14 +23,14 @@ public class BdBaseApplication extends MAApplication {
     private void initBdBaseApp(Application application) {
         sApp = this;
         this.mContext = application;
-        k.ad(application);
+        l.ae(application);
         initWorkMode();
         initBitmapHelper();
         initPlugin();
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.jm().init();
+        com.baidu.adp.plugin.c.a.jl().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -62,7 +62,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.gQ().ac(this.mContext);
+        com.baidu.adp.lib.util.d.gP().ac(this.mContext);
     }
 
     public void onAppMemoryLow() {

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class VideoListMediaControllerView extends s {
+public class VideoListMediaControllerView extends t {
     public VideoListMediaControllerView(Context context) {
         super(context);
     }
@@ -18,7 +18,7 @@ public class VideoListMediaControllerView extends s {
         super(context, attributeSet, i);
     }
 
-    @Override // com.baidu.tieba.play.s
+    @Override // com.baidu.tieba.play.t
     protected View bh(Context context) {
         return View.inflate(context, d.j.video_list_video_controller, null);
     }

@@ -6,12 +6,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes.dex */
 public abstract class e {
-    private static e aiq = null;
-    public boolean aip = false;
+    private static e ahS = null;
+    public boolean ahR = false;
 
     public abstract String getAllIPListCanUsed();
 
-    public abstract com.baidu.tbadk.f.a getCDNImageTimeData();
+    public abstract com.baidu.tbadk.e.a getCDNImageTimeData();
 
     public abstract String getCachedCdnIp(int i);
 
@@ -27,22 +27,22 @@ public abstract class e {
 
     public abstract void result(String str, String str2, boolean z, boolean z2, boolean z3);
 
-    public abstract void setCDNImageTimeData(com.baidu.tbadk.f.a aVar);
+    public abstract void setCDNImageTimeData(com.baidu.tbadk.e.a aVar);
 
     public abstract void setIpDisableTime(int i);
 
     public static e getInstance() {
-        if (aiq == null) {
+        if (ahS == null) {
             synchronized (e.class) {
-                if (aiq == null) {
+                if (ahS == null) {
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_IP_DIRECT_CONNECT, e.class);
                     if (runTask != null && runTask.getData() != null) {
-                        aiq = (e) runTask.getData();
+                        ahS = (e) runTask.getData();
                     }
-                    return aiq;
+                    return ahS;
                 }
             }
         }
-        return aiq;
+        return ahS;
     }
 }

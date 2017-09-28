@@ -7,21 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    public SharedPreferences PR;
-    public SharedPreferences.Editor PS;
-    private SharedPreferences.Editor PT;
-    public SharedPreferences.Editor PU;
+    public SharedPreferences Qg;
+    public SharedPreferences.Editor Qh;
+    private SharedPreferences.Editor Qi;
+    public SharedPreferences.Editor Qj;
     public SharedPreferences a;
     public SharedPreferences b;
 
     public a(Context context) {
         try {
             this.a = context.getSharedPreferences("re_po_rt", 0);
-            this.PS = this.a.edit();
+            this.Qh = this.a.edit();
             this.b = context.getSharedPreferences("leroadcfg", 0);
-            this.PT = this.b.edit();
-            this.PR = context.getSharedPreferences("leroadcfg", 0);
-            this.PU = this.PR.edit();
+            this.Qi = this.b.edit();
+            this.Qg = context.getSharedPreferences("leroadcfg", 0);
+            this.Qj = this.Qg.edit();
         } catch (Throwable th) {
             com.baidu.sofire.rp.f.b.a();
         }
@@ -29,8 +29,8 @@ public final class a {
 
     public final void a(b bVar) {
         if (bVar != null) {
-            this.PS.putString("re_con", this.a.getString("re_con", "") + "||" + b.b(bVar));
-            this.PS.commit();
+            this.Qh.putString("re_con", this.a.getString("re_con", "") + "||" + b.b(bVar));
+            this.Qh.commit();
         }
     }
 

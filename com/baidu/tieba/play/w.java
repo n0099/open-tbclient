@@ -1,56 +1,84 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.util.ak;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class w {
-    public String VU;
-    public String azL;
-    public String bHy;
-    public String fBN;
-    public String fBO;
-    public String fBP;
-    public String fBQ;
-    public String fBR;
-    public String mLocate;
-    public String mSource;
-    public String mUid;
+    private static w fxZ = null;
+    private HashMap<String, a> fya = new HashMap<>();
 
-    public ak f(ak akVar) {
-        if (akVar != null) {
-            if (!StringUtils.isNull(this.mLocate)) {
-                akVar.ad("obj_locate", this.mLocate);
-            }
-            if (!StringUtils.isNull(this.bHy)) {
-                akVar.ad("tid", this.bHy);
-            }
-            if (!StringUtils.isNull(this.azL)) {
-                akVar.ad("fid", this.azL);
-            }
-            if (!StringUtils.isNull(this.mUid)) {
-                akVar.ad(SapiAccountManager.SESSION_UID, this.mUid);
-            }
-            if (!StringUtils.isNull(this.mSource)) {
-                akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
-            }
-            if (!StringUtils.isNull(this.fBN)) {
-                akVar.ad("obj_param1", this.fBN);
-            }
-            if (!StringUtils.isNull(this.fBO)) {
-                akVar.ad("obj_param2", this.fBO);
-            }
-            if (!StringUtils.isNull(this.fBP)) {
-                akVar.ad("obj_param3", this.fBP);
-            }
-            if (!StringUtils.isNull(this.VU)) {
-                akVar.ad("obj_id", this.VU);
-            }
-            if (!StringUtils.isNull(this.fBQ)) {
-                akVar.ad("ab_tag", this.fBQ);
+    private w() {
+    }
+
+    public static w beE() {
+        if (fxZ == null) {
+            synchronized (w.class) {
+                if (fxZ == null) {
+                    fxZ = new w();
+                }
             }
         }
-        return akVar;
+        return fxZ;
+    }
+
+    public void ao(String str, int i) {
+        a aVar = this.fya.get(str);
+        if (aVar == null) {
+            this.fya.put(str, new a(i, System.currentTimeMillis()));
+        } else {
+            aVar.lastUpdateTime = System.currentTimeMillis();
+            aVar.position = i;
+        }
+        if (this.fya.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.fya.entrySet());
+            Collections.sort(arrayList, new Comparator<Map.Entry<String, a>>() { // from class: com.baidu.tieba.play.w.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // java.util.Comparator
+                /* renamed from: b */
+                public int compare(Map.Entry<String, a> entry, Map.Entry<String, a> entry2) {
+                    return (int) (entry.getValue().lastUpdateTime - entry2.getValue().lastUpdateTime);
+                }
+            });
+            int i2 = 0;
+            while (true) {
+                int i3 = i2;
+                if (i3 < 10) {
+                    this.fya.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    i2 = i3 + 1;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public void remove(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            this.fya.remove(str);
+        }
+    }
+
+    public int qn(String str) {
+        a aVar = this.fya.get(str);
+        if (aVar != null) {
+            return aVar.position;
+        }
+        return 0;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a {
+        public long lastUpdateTime;
+        public int position;
+
+        public a(int i, long j) {
+            this.position = i;
+            this.lastUpdateTime = j;
+        }
     }
 }

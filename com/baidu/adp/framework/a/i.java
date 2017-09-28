@@ -15,26 +15,27 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.l;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class i {
-    private final LinkedList<d> pK = new LinkedList<>();
-    private final LinkedList<k> pL = new LinkedList<>();
-    private final LinkedList<b> pM = new LinkedList<>();
-    private final LinkedList<c> pN = new LinkedList<>();
-    private final LinkedList<j> pO = new LinkedList<>();
-    private final LinkedList<a> pP = new LinkedList<>();
-    private final LinkedList<e> pQ = new LinkedList<>();
+    private final LinkedList<d> pL = new LinkedList<>();
+    private final LinkedList<k> pM = new LinkedList<>();
+    private final LinkedList<b> pN = new LinkedList<>();
+    private final LinkedList<c> pO = new LinkedList<>();
+    private final LinkedList<j> pP = new LinkedList<>();
+    private final LinkedList<a> pQ = new LinkedList<>();
+    private final LinkedList<e> pR = new LinkedList<>();
 
     public void addMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            com.baidu.adp.lib.util.k.hx();
+            l.hw();
             if (fVar instanceof d) {
-                FrameHelper.a(this.pK, (d) fVar);
+                FrameHelper.a(this.pL, (d) fVar);
             } else if (fVar instanceof k) {
-                FrameHelper.a(this.pL, (k) fVar);
+                FrameHelper.a(this.pM, (k) fVar);
             } else if (fVar instanceof b) {
-                FrameHelper.a(this.pM, (b) fVar);
+                FrameHelper.a(this.pN, (b) fVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -43,13 +44,13 @@ public class i {
 
     public void removeMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            com.baidu.adp.lib.util.k.hx();
+            l.hw();
             if (fVar instanceof d) {
-                this.pK.remove(fVar);
-            } else if (fVar instanceof k) {
                 this.pL.remove(fVar);
-            } else if (fVar instanceof b) {
+            } else if (fVar instanceof k) {
                 this.pM.remove(fVar);
+            } else if (fVar instanceof b) {
+                this.pN.remove(fVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -58,13 +59,13 @@ public class i {
 
     public void a(g<?> gVar) {
         if (gVar != null) {
-            com.baidu.adp.lib.util.k.hx();
+            l.hw();
             if (gVar instanceof c) {
-                FrameHelper.a(this.pN, (c) gVar);
+                FrameHelper.a(this.pO, (c) gVar);
             } else if (gVar instanceof j) {
-                FrameHelper.a(this.pO, (j) gVar);
+                FrameHelper.a(this.pP, (j) gVar);
             } else if (gVar instanceof a) {
-                FrameHelper.a(this.pP, (a) gVar);
+                FrameHelper.a(this.pQ, (a) gVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -73,13 +74,13 @@ public class i {
 
     public void b(g<?> gVar) {
         if (gVar != null) {
-            com.baidu.adp.lib.util.k.hx();
+            l.hw();
             if (gVar instanceof c) {
-                this.pN.remove(gVar);
-            } else if (gVar instanceof j) {
                 this.pO.remove(gVar);
-            } else if (gVar instanceof a) {
+            } else if (gVar instanceof j) {
                 this.pP.remove(gVar);
+            } else if (gVar instanceof a) {
+                this.pQ.remove(gVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -87,15 +88,15 @@ public class i {
     }
 
     public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        return (HttpMessage) a(this.pK, httpMessage, httpMessageTask);
+        return (HttpMessage) a(this.pL, httpMessage, httpMessageTask);
     }
 
     public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        return (SocketMessage) a(this.pL, socketMessage, socketMessageTask);
+        return (SocketMessage) a(this.pM, socketMessage, socketMessageTask);
     }
 
     public CustomMessage<?> b(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        return (CustomMessage) a(this.pM, customMessage, customMessageTask);
+        return (CustomMessage) a(this.pN, customMessage, customMessageTask);
     }
 
     private <M extends Message<?>, T extends MessageTask> M a(LinkedList<? extends f<M, T>> linkedList, M m, T t) {
@@ -120,15 +121,15 @@ public class i {
     }
 
     public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        return (HttpResponsedMessage) a(this.pN, httpResponsedMessage);
+        return (HttpResponsedMessage) a(this.pO, httpResponsedMessage);
     }
 
     public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-        return (SocketResponsedMessage) a(this.pO, socketResponsedMessage);
+        return (SocketResponsedMessage) a(this.pP, socketResponsedMessage);
     }
 
     public CustomResponsedMessage<?> b(CustomResponsedMessage<?> customResponsedMessage) {
-        return (CustomResponsedMessage) a(this.pP, customResponsedMessage);
+        return (CustomResponsedMessage) a(this.pQ, customResponsedMessage);
     }
 
     private <M extends ResponsedMessage<?>> M a(LinkedList<? extends g<M>> linkedList, M m) {
@@ -153,24 +154,24 @@ public class i {
     }
 
     public void a(e eVar) {
-        this.pQ.add(eVar);
+        this.pR.add(eVar);
     }
 
     public void b(e eVar) {
-        this.pQ.remove(eVar);
+        this.pR.remove(eVar);
     }
 
     public void c(int i, BdUniqueId bdUniqueId) {
-        int size = this.pQ.size();
+        int size = this.pR.size();
         for (int i2 = 0; i2 < size; i2++) {
-            this.pQ.get(i2).b(i, bdUniqueId);
+            this.pR.get(i2).b(i, bdUniqueId);
         }
     }
 
     public void c(BdUniqueId bdUniqueId) {
-        int size = this.pQ.size();
+        int size = this.pR.size();
         for (int i = 0; i < size; i++) {
-            this.pQ.get(i).b(bdUniqueId);
+            this.pR.get(i).b(bdUniqueId);
         }
     }
 }

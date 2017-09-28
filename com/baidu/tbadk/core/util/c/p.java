@@ -1,39 +1,45 @@
 package com.baidu.tbadk.core.util.c;
+
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class p extends a {
+    private boolean aiG;
     private int procType;
 
-    public p(int i) {
+    public p(boolean z, int i) {
+        this.aiG = true;
+        this.procType = 0;
+        this.aiG = z;
         this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public int getWidth() {
-        return 0;
+        return com.baidu.adp.lib.util.l.ad(TbadkCoreApplication.getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public int getHeight() {
-        return 0;
+        return com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
+        return this.aiG;
+    }
+
+    @Override // com.baidu.tbadk.core.util.c.a
+    public boolean vW() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean ws() {
+    public boolean vX() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wt() {
-        return true;
-    }
-
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int wu() {
+    public int vY() {
         return this.procType;
     }
 }

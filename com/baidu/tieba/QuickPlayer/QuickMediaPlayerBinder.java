@@ -18,26 +18,51 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes.dex */
 public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     private static final String MODEL_MX4 = "MX4";
+    private static final int STATE_ERROR = -1;
+    private static final int STATE_IDLE = 0;
+    private static final int STATE_PAUSED = 4;
+    private static final int STATE_PLAYBACK_COMPLETED = 5;
+    private static final int STATE_PLAYING = 3;
+    private static final int STATE_PREPARED = 2;
+    private static final int STATE_PREPARING = 1;
     private static boolean mCreatePlayerFailed = false;
     private Context mContext;
     private IMediaPlayer mMediaPlayer;
     private IQuickMediaPlayerListener mQuickMediaPlayerListener;
+    private int mSeekWhenPrepared;
+    private int mCurrentState = 0;
+    private int mTargetState = 0;
     private boolean mForceUseSystemMediaPlayer = false;
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.1
         @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnPreparedListener
         public void onPrepared(IMediaPlayer iMediaPlayer) {
             try {
-                if (QuickMediaPlayerBinder.this.mQuickMediaPlayerListener != null) {
-                    QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onPrepared();
+                QuickMediaPlayerBinder.this.mCurrentState = 2;
+                int i = QuickMediaPlayerBinder.this.mSeekWhenPrepared;
+                if (i != 0) {
+                    QuickMediaPlayerBinder.this.seekTo(i);
+                }
+                if (QuickMediaPlayerBinder.this.mTargetState == 3) {
+                    QuickMediaPlayerBinder.this.start();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+            }
+            QuickMediaPlayerBinder.this.mSeekWhenPrepared = 0;
+            try {
+                if (QuickMediaPlayerBinder.this.mQuickMediaPlayerListener != null) {
+                    QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onPrepared();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     };
     private IMediaPlayer.OnCompletionListener mOnCompletionListener = new IMediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.2
         @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnCompletionListener
         public void onCompletion(IMediaPlayer iMediaPlayer) {
+            QuickMediaPlayerBinder.this.mCurrentState = 5;
+            QuickMediaPlayerBinder.this.mTargetState = 5;
             try {
                 if (QuickMediaPlayerBinder.this.mQuickMediaPlayerListener != null) {
                     QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onCompletion();
@@ -49,16 +74,12 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     };
     private IMediaPlayer.OnErrorListener mOnErrorListener = new IMediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.3
         @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnErrorListener
-        public boolean onError(IMediaPlayer iMediaPlayer, int i, int i2) {
-            int i3;
+        public boolean onError(IMediaPlayer iMediaPlayer, int i, int i2, int i3) {
+            QuickMediaPlayerBinder.this.mCurrentState = -1;
+            QuickMediaPlayerBinder.this.mTargetState = -1;
             try {
-                if (QuickMediaPlayerBinder.this.needUseSystemMediaPlayer()) {
-                    i3 = -100;
-                } else {
-                    i3 = SapiErrorCode.NETWORK_FAILED;
-                }
                 if (QuickMediaPlayerBinder.this.mQuickMediaPlayerListener != null) {
-                    QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onError(i, i3);
+                    QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onError(i, i2, i3);
                     return true;
                 }
                 return true;
@@ -95,6 +116,18 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             }
         }
     };
+    private IMediaPlayer.OnSeekCompleteListener mOnSeekCompleteListener = new IMediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.6
+        @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnSeekCompleteListener
+        public void onSeekComplete(IMediaPlayer iMediaPlayer) {
+            try {
+                if (QuickMediaPlayerBinder.this.mQuickMediaPlayerListener != null) {
+                    QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onSeekComplete();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
 
     public QuickMediaPlayerBinder(Context context) {
         this.mContext = context;
@@ -107,16 +140,19 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public void openVideo(Uri uri, Surface surface, String str) throws RemoteException {
+        int i = SapiErrorCode.NETWORK_FAILED;
+        int i2 = 0;
         try {
             this.mMediaPlayer = createPlayer();
+            this.mCurrentState = 0;
+            this.mTargetState = 0;
             if (needUseSystemMediaPlayer() && !this.mForceUseSystemMediaPlayer) {
-                int i = 0;
                 if (mCreatePlayerFailed) {
-                    i = 1;
+                    i2 = 1;
                 } else if (MODEL_MX4.equals(Build.MODEL)) {
-                    i = 2;
+                    i2 = 2;
                 }
-                TiebaStatic.log(new ak("c12200").r("obj_type", i).ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new ak("c12200").r("obj_type", i2).ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
             }
             if (this.mContext instanceof a) {
                 ((a) this.mContext).addPlayer(this.mMediaPlayer);
@@ -125,6 +161,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mMediaPlayer.setOnCompletionListener(this.mOnCompletionListener);
             this.mMediaPlayer.setOnErrorListener(this.mOnErrorListener);
             this.mMediaPlayer.setOnInfoListener(this.mOnInfoListener);
+            this.mMediaPlayer.setOnSeekCompleteListener(this.mOnSeekCompleteListener);
             this.mMediaPlayer.setOnMediaReleaseFinishedListener(this.mOnMediaReleaseFinishedListener);
             if (!TextUtils.isEmpty(str)) {
                 HashMap hashMap = new HashMap();
@@ -136,8 +173,26 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mMediaPlayer.setSurface(surface);
             this.mMediaPlayer.setAudioStreamType(3);
             this.mMediaPlayer.prepareAsync();
+            this.mCurrentState = 1;
         } catch (Exception e) {
             e.printStackTrace();
+            this.mCurrentState = -1;
+            this.mTargetState = -1;
+            if (this.mOnErrorListener != null) {
+                this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? -200 : -100, -24399, -24399);
+            }
+        } catch (OutOfMemoryError e2) {
+            e2.printStackTrace();
+            this.mCurrentState = -1;
+            this.mTargetState = -1;
+            if (this.mOnErrorListener != null) {
+                IMediaPlayer.OnErrorListener onErrorListener = this.mOnErrorListener;
+                IMediaPlayer iMediaPlayer = this.mMediaPlayer;
+                if (!isIjkPlayer()) {
+                    i = -100;
+                }
+                onErrorListener.onError(iMediaPlayer, i, -34399, -34399);
+            }
         }
     }
 
@@ -151,25 +206,35 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             }
             this.mMediaPlayer = null;
         }
+        this.mCurrentState = 0;
+        this.mTargetState = 0;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public void start() throws RemoteException {
-        if (this.mMediaPlayer != null) {
+        if (isInPlaybackState()) {
             this.mMediaPlayer.start();
+            this.mCurrentState = 3;
         }
+        this.mTargetState = 3;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public void pause() throws RemoteException {
-        if (this.mMediaPlayer != null) {
+        if (isInPlaybackState() && this.mMediaPlayer.isPlaying()) {
             this.mMediaPlayer.pause();
+            this.mCurrentState = 4;
         }
+        this.mTargetState = 4;
+    }
+
+    private boolean isInPlaybackState() {
+        return (this.mMediaPlayer == null || this.mCurrentState == -1 || this.mCurrentState == 0 || this.mCurrentState == 1) ? false : true;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public int getDuration() throws RemoteException {
-        if (this.mMediaPlayer != null) {
+        if (isInPlaybackState()) {
             return (int) this.mMediaPlayer.getDuration();
         }
         return 0;
@@ -177,7 +242,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public int getCurrentPosition() throws RemoteException {
-        if (this.mMediaPlayer != null) {
+        if (isInPlaybackState()) {
             return (int) this.mMediaPlayer.getCurrentPosition();
         }
         return 0;
@@ -185,17 +250,17 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public void seekTo(int i) throws RemoteException {
-        if (this.mMediaPlayer != null) {
+        if (isInPlaybackState()) {
             this.mMediaPlayer.seekTo(i);
+            this.mSeekWhenPrepared = 0;
+            return;
         }
+        this.mSeekWhenPrepared = i;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public boolean isPlaying() throws RemoteException {
-        if (this.mMediaPlayer != null) {
-            return this.mMediaPlayer.isPlaying();
-        }
-        return false;
+        return isInPlaybackState() && this.mMediaPlayer.isPlaying();
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
@@ -255,6 +320,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             ijkMediaPlayer.setOption(4, "start-on-prepared", 0L);
             ijkMediaPlayer.setOption(1, "http-detect-range-support", 0L);
             ijkMediaPlayer.setOption(2, "skip_loop_filter", 0L);
+            ijkMediaPlayer.setOption(4, "enable-accurate-seek", 1L);
             return ijkMediaPlayer;
         } catch (Throwable th) {
             th.printStackTrace();
@@ -263,8 +329,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean needUseSystemMediaPlayer() {
+    private boolean needUseSystemMediaPlayer() {
         return this.mForceUseSystemMediaPlayer || mCreatePlayerFailed || MODEL_MX4.equals(Build.MODEL);
     }
 
@@ -274,5 +339,10 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             return false;
         }
         return ((a) this.mContext).isExistInRemote(this.mMediaPlayer);
+    }
+
+    @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+    public boolean isIjkPlayer() throws RemoteException {
+        return this.mMediaPlayer != null && (this.mMediaPlayer instanceof IjkMediaPlayer);
     }
 }

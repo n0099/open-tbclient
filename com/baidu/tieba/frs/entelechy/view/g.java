@@ -6,16 +6,16 @@ import android.view.ViewStub;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.widget.vote.VoteView;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.au;
+import com.baidu.tieba.frs.av;
 import java.util.LinkedList;
 import java.util.List;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
 public class g extends i {
-    private VoteView cxa;
+    private VoteView cxQ;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -29,34 +29,34 @@ public class g extends i {
             findViewById = ((ViewStub) this.mRootView.findViewById(d.h.text_vote_view_stub)).inflate();
         }
         if (findViewById != null) {
-            this.cxa = (VoteView) findViewById;
-            this.cxa.setWidth(com.baidu.adp.lib.util.k.f(getContext(), d.f.ds560));
-            this.cxa.setProgressBarHeight(com.baidu.adp.lib.util.k.f(getContext(), d.f.ds20));
-            this.cxa.setDescTextColorResId(d.e.cp_cont_b);
-            this.cxa.setProgressBarTopMargin(com.baidu.adp.lib.util.k.f(getContext(), d.f.ds8));
-            this.cxa.setDescTopMargin(0);
+            this.cxQ = (VoteView) findViewById;
+            this.cxQ.setWidth(com.baidu.adp.lib.util.l.f(getContext(), d.f.ds560));
+            this.cxQ.setProgressBarHeight(com.baidu.adp.lib.util.l.f(getContext(), d.f.ds20));
+            this.cxQ.setDescTextColorResId(d.e.cp_cont_b);
+            this.cxQ.setProgressBarTopMargin(com.baidu.adp.lib.util.l.f(getContext(), d.f.ds8));
+            this.cxQ.setDescTopMargin(0);
             try {
-                ((ViewGroup.MarginLayoutParams) this.cxq.getLayoutParams()).topMargin = com.baidu.adp.lib.util.k.f(getContext(), d.f.ds38);
+                ((ViewGroup.MarginLayoutParams) this.cyg.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.f(getContext(), d.f.ds38);
             } catch (ClassCastException e) {
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
-    protected void jo(int i) {
-        if (this.cxa != null) {
-            this.cxa.onChangeSkinType(i);
+    protected void jx(int i) {
+        if (this.cxQ != null) {
+            this.cxQ.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
-    protected void L(bj bjVar) {
-        if (bjVar != null && bjVar.rp() != null) {
-            long longValue = bjVar.rp().total_poll.longValue();
+    protected void G(bh bhVar) {
+        if (bhVar != null && bhVar.rj() != null) {
+            long longValue = bhVar.rj().total_poll.longValue();
             if (longValue < 0) {
                 longValue = 0;
             }
-            List<PollOption> list = bjVar.rp().options;
+            List<PollOption> list = bhVar.rj().options;
             if (list != null && !list.isEmpty()) {
                 LinkedList linkedList = new LinkedList();
                 for (PollOption pollOption : list) {
@@ -64,19 +64,19 @@ public class g extends i {
                         if (linkedList.size() >= 3) {
                             break;
                         }
-                        au auVar = new au();
-                        auVar.eU(true);
-                        auVar.a(linkedList.size() + 1, pollOption, longValue);
-                        linkedList.add(auVar);
+                        av avVar = new av();
+                        avVar.eN(true);
+                        avVar.a(linkedList.size() + 1, pollOption, longValue);
+                        linkedList.add(avVar);
                     }
                 }
                 if (linkedList.size() > 0) {
-                    this.cxa.setBoallotsForListView(linkedList);
-                    this.cxa.onChangeSkinType(getSkinType());
-                    this.cxa.setVisibility(0);
+                    this.cxQ.setBoallotsForListView(linkedList);
+                    this.cxQ.onChangeSkinType(getSkinType());
+                    this.cxQ.setVisibility(0);
                     return;
                 }
-                this.cxa.setVisibility(8);
+                this.cxQ.setVisibility(8);
             }
         }
     }

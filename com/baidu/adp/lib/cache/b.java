@@ -25,7 +25,7 @@ public class b extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int et() {
+    public int es() {
         return 1;
     }
 
@@ -44,7 +44,7 @@ public class b extends c<byte[]> {
                     gVar.sQ = cursor.getLong(1);
                     gVar.sR = cursor.getLong(2);
                     gVar.sS = cursor.getLong(3);
-                    gVar.rY = cursor.getBlob(4);
+                    gVar.value = cursor.getBlob(4);
                     com.baidu.adp.lib.g.a.e(cursor);
                 } else {
                     com.baidu.adp.lib.g.a.e(cursor);
@@ -65,7 +65,7 @@ public class b extends c<byte[]> {
     protected ContentValues a(g<byte[]> gVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("m_key", gVar.sO);
-        contentValues.put("m_value", gVar.rY);
+        contentValues.put("m_value", gVar.value);
         contentValues.put("saveTime", Long.valueOf(gVar.sQ));
         contentValues.put("lastHitTime", Long.valueOf(gVar.sR));
         contentValues.put("timeToExpire", Long.valueOf(gVar.sS));

@@ -1,47 +1,36 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.util.v;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.BannerUserStory;
 import tbclient.UserStory;
 /* loaded from: classes.dex */
-public class e implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId azG = BdUniqueId.gen();
-    private List<com.baidu.adp.widget.ListView.f> azH;
+public class e extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId azg = BdUniqueId.gen();
+    public int azd;
+    public com.baidu.tieba.story.process.b aze;
+    public String azf;
+    public int has_read;
+    private boolean isStop;
+    public String portrait;
+    public long user_id;
+    public String user_name;
+    public int azc = -1;
+    public int mStatus = 0;
+
+    public void bu(boolean z) {
+        this.isStop = z;
+    }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return azG;
+        return azg;
     }
 
-    public List<com.baidu.adp.widget.ListView.f> Co() {
-        return this.azH;
-    }
-
-    public void x(List<com.baidu.adp.widget.ListView.f> list) {
-        this.azH = list;
-    }
-
-    public void a(BannerUserStory bannerUserStory, long j) {
-        List<com.baidu.adp.widget.ListView.f> arrayList = new ArrayList<>();
-        arrayList.add(new d());
-        if (bannerUserStory == null || v.v(bannerUserStory.user_story)) {
-            x(arrayList);
-            return;
+    public void a(UserStory userStory) {
+        if (userStory != null) {
+            this.user_id = userStory.user_id.longValue();
+            this.user_name = userStory.user_name;
+            this.has_read = userStory.has_read.intValue();
+            this.portrait = userStory.portrait;
         }
-        List<UserStory> list = bannerUserStory.user_story;
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            UserStory userStory = list.get(i);
-            if (userStory != null && userStory != null) {
-                f fVar = new f();
-                fVar.a(userStory);
-                fVar.azL = String.valueOf(j);
-                arrayList.add(fVar);
-            }
-        }
-        x(arrayList);
     }
 }

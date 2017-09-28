@@ -469,8 +469,8 @@ public final class b {
                 aVar.a(bVar2);
             } else {
                 if (a2 != null && (indexOf = a2.indexOf(bVar2)) != -1 && (bVar = a2.get(indexOf)) != null) {
-                    aVar.PS.putString("re_con", aVar.a.getString("re_con", "").replace(com.baidu.sofire.rp.a.b.b(bVar), com.baidu.sofire.rp.a.b.b(bVar2)));
-                    aVar.PS.commit();
+                    aVar.Qh.putString("re_con", aVar.a.getString("re_con", "").replace(com.baidu.sofire.rp.a.b.b(bVar), com.baidu.sofire.rp.a.b.b(bVar2)));
+                    aVar.Qh.commit();
                 }
                 c.av(context).b();
                 return;
@@ -589,8 +589,8 @@ public final class b {
                         }
                     }
                     if (!TextUtils.isEmpty(str2)) {
-                        aVar.PS.putString("al_da" + str2, optJSONObject.optString(str2));
-                        aVar.PS.commit();
+                        aVar.Qh.putString("al_da" + str2, optJSONObject.optString(str2));
+                        aVar.Qh.commit();
                     }
                 }
             } catch (Exception e) {
@@ -606,8 +606,8 @@ public final class b {
                         }
                     }
                     if (!TextUtils.isEmpty(str3)) {
-                        aVar.PS.putString("in_da" + str3, optJSONObject2.optString(str3));
-                        aVar.PS.commit();
+                        aVar.Qh.putString("in_da" + str3, optJSONObject2.optString(str3));
+                        aVar.Qh.commit();
                     }
                 }
             } catch (Exception e2) {
@@ -615,8 +615,8 @@ public final class b {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("2");
                 if (optJSONArray != null) {
-                    aVar.PS.putString("li_pk_s", optJSONArray.toString());
-                    aVar.PS.commit();
+                    aVar.Qh.putString("li_pk_s", optJSONArray.toString());
+                    aVar.Qh.commit();
                 }
             } catch (Exception e3) {
             }

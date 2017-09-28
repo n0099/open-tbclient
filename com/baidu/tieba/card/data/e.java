@@ -13,8 +13,8 @@ public class e implements com.baidu.tieba.horizonalList.widget.d {
         if (this == obj) {
             return true;
         }
-        if (obj instanceof com.baidu.tbadk.widget.a.a) {
-            com.baidu.tbadk.widget.a.a aVar = (com.baidu.tbadk.widget.a.a) obj;
+        if (obj instanceof com.baidu.tbadk.widget.horizonalScrollListView.a) {
+            com.baidu.tbadk.widget.horizonalScrollListView.a aVar = (com.baidu.tbadk.widget.horizonalScrollListView.a) obj;
             return aVar.forumId == this.forumId && aVar.forumName.equals(this.forumName) && aVar.forumAvatar.equals(this.forumAvatar) && aVar.isLiked == this.isLiked && aVar.rank == this.rank;
         }
         return false;

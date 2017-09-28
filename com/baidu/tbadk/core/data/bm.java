@@ -1,43 +1,31 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.Topic;
+import tbclient.VideoChannelInfo;
 /* loaded from: classes.dex */
 public class bm {
-    private int aan = 0;
-    private int aao = 0;
-    private String link = "";
+    public int aas;
+    public String channelAvatar;
+    public long channelId;
+    public String channelName;
+    public int mCurrentPage;
 
-    public int tb() {
-        return this.aan;
-    }
-
-    public int tc() {
-        return this.aao;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.aan = jSONObject.optInt("is_lpost", 0);
-                this.aao = jSONObject.optInt("topic_type", 0);
-                this.link = jSONObject.optString("link", "");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    public void a(VideoChannelInfo videoChannelInfo) {
+        if (videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
+            this.channelId = videoChannelInfo.channel_id.longValue();
+            this.channelName = videoChannelInfo.channel_name;
+            this.channelAvatar = videoChannelInfo.channel_avatar;
         }
     }
 
-    public void a(Topic topic) {
-        if (topic != null) {
-            this.aan = topic.is_lpost.intValue();
-            this.aao = topic.topic_type.intValue();
-            this.link = topic.link;
+    public void d(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.channelId = jSONObject.optLong("channel_id", 0L);
+                this.channelName = jSONObject.optString("channel_name");
+                this.channelAvatar = jSONObject.optString("channel_avatar");
+            } catch (Exception e) {
+            }
         }
     }
 }

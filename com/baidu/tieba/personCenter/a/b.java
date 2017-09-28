@@ -1,49 +1,32 @@
 package com.baidu.tieba.personCenter.a;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tieba.d;
-import com.baidu.tieba.person.h;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.widget.ListView.a<h, com.baidu.tieba.personCenter.d.a> {
-    public b(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCenter.c.b, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.b>> {
+    private TbPageContext mG;
+
+    public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.mG = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bA */
-    public com.baidu.tieba.personCenter.d.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.personCenter.d.a(LayoutInflater.from(this.mContext).inflate(d.j.item_person_center_list_interval, viewGroup, false));
+    /* renamed from: B */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.b> onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personCenter.view.b(this.mG));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, h hVar, com.baidu.tieba.personCenter.d.a aVar) {
-        if (hVar != null && aVar != null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.apQ != skinType) {
-                aVar.apQ = skinType;
-                aj.j(aVar.bKW, hVar.aGX);
-            }
-            ViewGroup.LayoutParams layoutParams = aVar.bKW.getLayoutParams();
-            if (hVar.fbK > 0) {
-                layoutParams.height = hVar.fbK;
-            }
-            if (hVar.fbJ > 0) {
-                layoutParams.width = hVar.fbJ;
-            }
-            aVar.bKW.setLayoutParams(layoutParams);
-            aVar.bKW.setOnClickListener(null);
-        }
-        return view;
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.c.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.b> aVar) {
+        aVar.Yr().a(bVar);
+        return aVar.getView();
     }
 }

@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CardGroupDividerView extends LinearLayout {
-    private static final int bOX = d.e.cp_bg_line_c;
-    private static final int bOY = d.e.cp_bg_line_c;
-    private View bOV;
-    private View bOW;
-    private int bOZ;
+    private static final int bOD = d.e.cp_bg_line_c;
+    private static final int bOE = d.e.cp_bg_line_c;
+    private View bOB;
+    private View bOC;
+    private int bOF;
     private TextView mTitle;
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
@@ -27,35 +27,35 @@ public class CardGroupDividerView extends LinearLayout {
 
     public CardGroupDividerView(Context context) {
         super(context);
-        this.bOZ = bOY;
+        this.bOF = bOE;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bOZ = bOY;
+        this.bOF = bOE;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bOZ = bOY;
+        this.bOF = bOE;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(d.j.card_divider_view, (ViewGroup) this, true);
-        this.bOV = findViewById(d.h.card_divider_top_margin);
+        this.bOB = findViewById(d.h.card_divider_top_margin);
         this.mTitle = (TextView) findViewById(d.h.card_divider_tv);
-        this.bOW = findViewById(d.h.bottom_line);
+        this.bOC = findViewById(d.h.bottom_line);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         aj.k(this, d.e.cp_bg_line_d);
-        aj.k(this.bOV, d.e.cp_bg_line_c);
+        aj.k(this.bOB, d.e.cp_bg_line_c);
         aj.i(this.mTitle, d.e.cp_cont_d);
-        aj.k(this.bOW, this.bOZ);
+        aj.k(this.bOC, this.bOF);
     }
 
     public void setTitleText(String str) {
@@ -66,34 +66,34 @@ public class CardGroupDividerView extends LinearLayout {
         this.mTitle.setTextSize(i, f);
     }
 
-    public void YG() {
-        if (this.bOV.getVisibility() != 8) {
-            this.bOV.setVisibility(8);
+    public void Yo() {
+        if (this.bOB.getVisibility() != 8) {
+            this.bOB.setVisibility(8);
         }
     }
 
-    public void YH() {
-        if (this.bOV.getVisibility() != 0) {
-            this.bOV.setVisibility(0);
+    public void Yp() {
+        if (this.bOB.getVisibility() != 0) {
+            this.bOB.setVisibility(0);
         }
     }
 
-    public void YI() {
-        YG();
+    public void Yq() {
+        Yo();
         if (this.mTitle.getVisibility() != 8) {
             this.mTitle.setVisibility(8);
         }
-        if (this.bOW.getVisibility() != 0) {
-            this.bOW.setVisibility(0);
-            setDividerColor(bOY);
+        if (this.bOC.getVisibility() != 0) {
+            this.bOC.setVisibility(0);
+            setDividerColor(bOE);
         }
     }
 
-    public void B(String str, boolean z) {
+    public void y(String str, boolean z) {
         if (z) {
-            YH();
+            Yp();
         } else {
-            YG();
+            Yo();
         }
         if (TextUtils.isEmpty(str)) {
             this.mTitle.setVisibility(8);
@@ -101,18 +101,18 @@ public class CardGroupDividerView extends LinearLayout {
             this.mTitle.setVisibility(0);
             this.mTitle.setText(str);
         }
-        if (this.bOW.getVisibility() != 0) {
-            this.bOW.setVisibility(0);
-            setDividerColor(bOX);
+        if (this.bOC.getVisibility() != 0) {
+            this.bOC.setVisibility(0);
+            setDividerColor(bOD);
         }
     }
 
     private void setDividerColor(int i) {
-        this.bOZ = i;
-        aj.k(this.bOW, this.bOZ);
+        this.bOF = i;
+        aj.k(this.bOC, this.bOF);
     }
 
     public View getBotttomLine() {
-        return this.bOW;
+        return this.bOC;
     }
 }

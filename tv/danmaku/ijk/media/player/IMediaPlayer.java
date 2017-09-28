@@ -24,7 +24,7 @@ public interface IMediaPlayer {
 
     /* loaded from: classes.dex */
     public interface OnErrorListener {
-        boolean onError(IMediaPlayer iMediaPlayer, int i, int i2);
+        boolean onError(IMediaPlayer iMediaPlayer, int i, int i2, int i3);
     }
 
     /* loaded from: classes.dex */
