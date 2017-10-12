@@ -7,8 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private List<String> fyh;
-    private long fyi;
+    private List<String> fyg;
+    private long fyh;
     private long mStartTime = System.currentTimeMillis();
     private String zX;
 
@@ -19,19 +19,19 @@ public class a {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.fyi = jSONObject.optLong("ttl");
+            this.fyh = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 this.zX = optJSONObject.keys().next();
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.zX);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("ip")) != null && optJSONArray.length() > 0) {
-                this.fyh = new ArrayList();
+                this.fyg = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.fyh.add((String) optJSONArray.get(i2));
+                        this.fyg.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -51,8 +51,8 @@ public class a {
         this.mStartTime = j;
     }
 
-    public List<String> beG() {
-        return this.fyh;
+    public List<String> beF() {
+        return this.fyg;
     }
 
     public String getHost() {
@@ -60,6 +60,6 @@ public class a {
     }
 
     public boolean cx(long j) {
-        return j - this.mStartTime > this.fyi * 1000;
+        return j - this.mStartTime > this.fyh * 1000;
     }
 }

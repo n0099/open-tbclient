@@ -24,13 +24,13 @@ public class k {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern ggE = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern ggD = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String ggC = null;
-    private SpannableStringBuilder ggD = null;
-    private boolean ggB = false;
+    private String ggB = null;
+    private SpannableStringBuilder ggC = null;
+    private boolean ggA = false;
 
     public static boolean bT(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
@@ -48,20 +48,20 @@ public class k {
         return this.text;
     }
 
-    public String bri() {
+    public String brh() {
         return this.c;
     }
 
-    public SpannableStringBuilder brj() {
-        return this.ggD;
+    public SpannableStringBuilder bri() {
+        return this.ggC;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.ggD == null) {
-            this.ggD = new SpannableStringBuilder();
+        if (this.ggC == null) {
+            this.ggC = new SpannableStringBuilder();
         }
-        this.ggD.append((CharSequence) spannableString);
-        return this.ggD;
+        this.ggC.append((CharSequence) spannableString);
+        return this.ggC;
     }
 
     public SpannableString bV(Context context) {
@@ -87,7 +87,7 @@ public class k {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = k.ggE.matcher(k.this.link);
+                        Matcher matcher2 = k.ggD.matcher(k.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();
@@ -162,7 +162,7 @@ public class k {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.ggC = jSONObject.optString("cdn_src", null);
+                    this.ggB = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         if (split.length > 1) {
@@ -177,7 +177,7 @@ public class k {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.ggB = true;
+                        this.ggA = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");

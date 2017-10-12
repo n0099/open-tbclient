@@ -232,16 +232,16 @@ public class a implements d {
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public void a(BdListView bdListView, i iVar, int i) {
         boolean z;
-        if (iVar != null && iVar.bqa() != null && iVar.bqa().tab != null) {
-            this.cxk.i(iVar.bqa().menu, i);
+        if (iVar != null && iVar.bpZ() != null && iVar.bpZ().tab != null) {
+            this.cxk.i(iVar.bpZ().menu, i);
             if (iVar.aMZ() != null) {
                 this.cxk.setFid(iVar.aMZ().getId());
             }
             this.cxo = iVar;
             b(iVar);
             this.cxn = new TabData();
-            if (v.u(iVar.bqh())) {
-                for (FrsTabInfo frsTabInfo : iVar.bqa().tab) {
+            if (v.u(iVar.bqg())) {
+                for (FrsTabInfo frsTabInfo : iVar.bpZ().tab) {
                     if (!a(frsTabInfo) && !b(frsTabInfo)) {
                         com.baidu.tieba.frs.tab.d dVar = new com.baidu.tieba.frs.tab.d();
                         dVar.cDa = frsTabInfo.tab_id.intValue();
@@ -316,14 +316,14 @@ public class a implements d {
                         } else if (frsTabInfo.tab_id.intValue() == 49 && this.cxi.agU().ahK().l(bh.Ym)) {
                             com.baidu.tieba.frs.tab.d dVar2 = new com.baidu.tieba.frs.tab.d();
                             dVar2.name = frsTabInfo.tab_name;
-                            if (iVar.bpx() != 0 && iVar.bpx() <= 99) {
-                                dVar2.name = frsTabInfo.tab_name + "(" + iVar.bpx() + ")";
+                            if (iVar.bpw() != 0 && iVar.bpw() <= 99) {
+                                dVar2.name = frsTabInfo.tab_name + "(" + iVar.bpw() + ")";
                             }
-                            if (this.liveCount > 0 && this.liveCount != iVar.bpx() && this.liveCount <= 99) {
+                            if (this.liveCount > 0 && this.liveCount != iVar.bpw() && this.liveCount <= 99) {
                                 dVar2.name = frsTabInfo.tab_name + "(" + this.liveCount + ")";
-                            } else if (this.liveCount > 99 || iVar.bpx() > 99) {
+                            } else if (this.liveCount > 99 || iVar.bpw() > 99) {
                                 dVar2.name = frsTabInfo.tab_name + "(99+)";
-                            } else if (this.liveCount == 0 && this.liveCount != iVar.bpx()) {
+                            } else if (this.liveCount == 0 && this.liveCount != iVar.bpw()) {
                                 dVar2.name = frsTabInfo.tab_name;
                             }
                             dVar2.cDa = frsTabInfo.tab_id.intValue();
@@ -332,7 +332,7 @@ public class a implements d {
                     }
                 }
             } else {
-                Iterator<FrsTabInfo> it = iVar.bqa().tab.iterator();
+                Iterator<FrsTabInfo> it = iVar.bpZ().tab.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -347,7 +347,7 @@ public class a implements d {
                     }
                 }
             }
-            this.cxj.d(this.cxn, iVar.bpU(), 12);
+            this.cxj.d(this.cxn, iVar.bpT(), 12);
             if (!this.cxm) {
                 a(bdListView, bdListView.getHeaderViewsCount());
             }
@@ -412,22 +412,22 @@ public class a implements d {
     }
 
     private void b(i iVar) {
-        if (iVar == null || iVar.bpR() == null || iVar.bpR().size() == 0) {
+        if (iVar == null || iVar.bpQ() == null || iVar.bpQ().size() == 0) {
             z.aib().a(1, null);
             return;
         }
-        List<CategoryInfo> bpR = iVar.bpR();
+        List<CategoryInfo> bpQ = iVar.bpQ();
         aa aaVar = new aa();
         aaVar.cto = 1;
         ArrayList arrayList = new ArrayList();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < bpR.size()) {
-                if (bpR.get(i2) != null) {
+            if (i2 < bpQ.size()) {
+                if (bpQ.get(i2) != null) {
                     y yVar = new y();
-                    yVar.ctl = bpR.get(i2).category_id.intValue();
-                    yVar.name = bpR.get(i2).category_name;
+                    yVar.ctl = bpQ.get(i2).category_id.intValue();
+                    yVar.name = bpQ.get(i2).category_name;
                     arrayList.add(yVar);
                 }
                 i = i2 + 1;

@@ -30,7 +30,7 @@ public class ai {
                 this.eIK.ii(-4);
             }
             this.eIK.m11if(5000);
-            this.eIK.jA(str);
+            this.eIK.jz(str);
             bH(str2, str3);
             this.eIL = true;
             TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12504"));

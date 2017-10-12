@@ -23,7 +23,7 @@ public class g {
                 return null;
             }
             PostData postData = fVar.aNd().get(0);
-            if (postData.bry() != 1) {
+            if (postData.brx() != 1) {
                 return a(fVar);
             }
             return postData;

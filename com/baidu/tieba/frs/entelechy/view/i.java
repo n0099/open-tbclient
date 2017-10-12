@@ -260,7 +260,7 @@ public abstract class i extends com.baidu.tieba.card.a<bh> implements v {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if ((view == this.mRootView || view == this.bLz.getCommentNumView() || view == this.bKe) && this.ajg != null) {
-            if (this.ajg.rR() > 0 && com.baidu.tieba.tbadkCore.util.f.bsw()) {
+            if (this.ajg.rR() > 0 && com.baidu.tieba.tbadkCore.util.f.bsv()) {
                 PbActivityConfig createHistoryCfg = new PbActivityConfig(this.mG.getPageActivity()).createHistoryCfg(this.ajg.getTid(), String.valueOf(this.ajg.rR()), false, true, null);
                 createHistoryCfg.setFromSmartFrs(this.ajg.sy());
                 createHistoryCfg.setSmartFrsPosition(this.ajg.sF());

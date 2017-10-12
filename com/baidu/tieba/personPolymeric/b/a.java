@@ -9,9 +9,9 @@ public interface a {
 
     void a(com.baidu.tieba.personPolymeric.c.a aVar);
 
-    f aWx();
+    f aWw();
 
-    void aWy();
+    void aWx();
 
     void b(BaseFragment baseFragment);
 

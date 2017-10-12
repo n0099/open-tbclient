@@ -14,8 +14,8 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends LinearLayout {
     private TextView bvH;
-    private ImageView gGj;
-    private View gGk;
+    private ImageView gGi;
+    private View gGj;
     private Context mContext;
 
     public c(Context context) {
@@ -33,12 +33,12 @@ public class c extends LinearLayout {
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
         this.bvH = (TextView) findViewById(d.h.prefix_text);
-        this.gGj = (ImageView) findViewById(d.h.prefix_checked);
-        this.gGk = findViewById(d.h.prefix_item_divider);
+        this.gGi = (ImageView) findViewById(d.h.prefix_checked);
+        this.gGj = findViewById(d.h.prefix_item_divider);
         this.bvH.setEllipsize(TextUtils.TruncateAt.MIDDLE);
         aj.j(this.bvH, d.e.cp_bg_line_d);
-        this.gGj.setBackgroundDrawable(aj.getDrawable(d.g.icon_set_list_ok_s));
-        aj.j(this.gGk, d.e.cp_bg_line_c);
+        this.gGi.setBackgroundDrawable(aj.getDrawable(d.g.icon_set_list_ok_s));
+        aj.j(this.gGj, d.e.cp_bg_line_c);
     }
 
     public void setPrefixText(String str) {
@@ -51,15 +51,15 @@ public class c extends LinearLayout {
 
     public void no(boolean z) {
         if (z) {
-            this.gGj.setVisibility(0);
+            this.gGi.setVisibility(0);
         } else {
-            this.gGj.setVisibility(8);
+            this.gGi.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.gGk.getLayoutParams()).setMargins(l.f(this.mContext, d.f.ds30), 0, l.f(this.mContext, d.f.ds30), 0);
+            ((LinearLayout.LayoutParams) this.gGj.getLayoutParams()).setMargins(l.f(this.mContext, d.f.ds30), 0, l.f(this.mContext, d.f.ds30), 0);
         }
     }
 }

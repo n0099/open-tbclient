@@ -31,7 +31,7 @@ public class u {
         }
     }
 
-    public void jq(String str) {
+    public void jp(String str) {
         if (str != null) {
             if (this.bdA == null) {
                 this.bdA = new ArrayList();

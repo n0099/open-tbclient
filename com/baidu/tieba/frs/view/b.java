@@ -128,7 +128,7 @@ public abstract class b {
                     return;
                 }
                 av.vH().c(b.this.abz, new String[]{url});
-                a.C0126a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", eVar.bps(), b.this.crI.getForumId(), b.this.crI.getForumName(), null);
+                a.C0126a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", eVar.bpr(), b.this.crI.getForumId(), b.this.crI.getForumName(), null);
                 b.ce("obj_url", eVar.getUrl());
                 b.save();
             }

@@ -58,8 +58,8 @@ public class a implements f {
             if (this.bnh != null && this.bit.rN() != null) {
                 this.bNg = this.bit.rN();
                 this.bnh.setVideoThumbnail(this.bNg.cover);
-                if (this.bKD != null && this.bKD.bet() != null) {
-                    this.bKD.bet().b(this.bNg);
+                if (this.bKD != null && this.bKD.bes() != null) {
+                    this.bKD.bes().b(this.bNg);
                 }
                 if (z) {
                     this.bnh.setTitle(this.bit.getTitle());

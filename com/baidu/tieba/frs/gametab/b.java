@@ -158,12 +158,12 @@ public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsC
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(g gVar) {
-        if (v.t(gVar.bqh()) > 0) {
+        if (v.t(gVar.bqg()) > 0) {
             this.cEe = gVar;
             this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.frs.gametab.b.8
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.aS(b.this.cEe.bqh());
+                    b.this.aS(b.this.cEe.bqg());
                 }
             });
         } else if (this.bdu != null) {
@@ -495,7 +495,7 @@ public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsC
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             if (this.bdu != null && this.cEa != null && this.cEa.isShowing()) {
-                this.cEa.byS();
+                this.cEa.byR();
             } else if (this.cDZ != null && this.cDZ.isAdded()) {
                 if (this.cDZ.onKeyDown(i, keyEvent)) {
                     return true;

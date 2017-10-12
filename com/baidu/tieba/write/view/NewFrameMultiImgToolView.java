@@ -36,8 +36,8 @@ public class NewFrameMultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.
     private int aBR;
     private int aBS;
     private boolean aBT;
-    private b gKa;
-    private a gKb;
+    private b gJZ;
+    private a gKa;
     protected com.baidu.tbadk.editortools.b mActionListener;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -51,10 +51,10 @@ public class NewFrameMultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.
         this.aBR = 49;
         this.aBS = 27;
         this.aBT = false;
-        this.gKb = new a() { // from class: com.baidu.tieba.write.view.NewFrameMultiImgToolView.1
+        this.gKa = new a() { // from class: com.baidu.tieba.write.view.NewFrameMultiImgToolView.1
             @Override // com.baidu.tieba.write.view.NewFrameMultiImgToolView.a
             public void M(View view) {
-                if (!NewFrameMultiImgToolView.this.aBK.brX()) {
+                if (!NewFrameMultiImgToolView.this.aBK.brW()) {
                     NewFrameMultiImgToolView.this.bF(view);
                     int bG = NewFrameMultiImgToolView.this.aBK.bG(view);
                     if (bG >= 0 && bG < NewFrameMultiImgToolView.this.aBN.getChosedFiles().size()) {
@@ -93,8 +93,8 @@ public class NewFrameMultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.
                 if (aVar != null) {
                     switch (aVar.code) {
                         case 9:
-                            if (NewFrameMultiImgToolView.this.gKa != null) {
-                                NewFrameMultiImgToolView.this.gKa.notifyDataSetChanged();
+                            if (NewFrameMultiImgToolView.this.gJZ != null) {
+                                NewFrameMultiImgToolView.this.gJZ.notifyDataSetChanged();
                             }
                             NewFrameMultiImgToolView.this.b(new com.baidu.tbadk.editortools.a(2, NewFrameMultiImgToolView.this.aBS, null));
                             return;
@@ -118,10 +118,10 @@ public class NewFrameMultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.
         this.aBR = 49;
         this.aBS = 27;
         this.aBT = false;
-        this.gKb = new a() { // from class: com.baidu.tieba.write.view.NewFrameMultiImgToolView.1
+        this.gKa = new a() { // from class: com.baidu.tieba.write.view.NewFrameMultiImgToolView.1
             @Override // com.baidu.tieba.write.view.NewFrameMultiImgToolView.a
             public void M(View view) {
-                if (!NewFrameMultiImgToolView.this.aBK.brX()) {
+                if (!NewFrameMultiImgToolView.this.aBK.brW()) {
                     NewFrameMultiImgToolView.this.bF(view);
                     int bG = NewFrameMultiImgToolView.this.aBK.bG(view);
                     if (bG >= 0 && bG < NewFrameMultiImgToolView.this.aBN.getChosedFiles().size()) {
@@ -160,8 +160,8 @@ public class NewFrameMultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.
                 if (aVar != null) {
                     switch (aVar.code) {
                         case 9:
-                            if (NewFrameMultiImgToolView.this.gKa != null) {
-                                NewFrameMultiImgToolView.this.gKa.notifyDataSetChanged();
+                            if (NewFrameMultiImgToolView.this.gJZ != null) {
+                                NewFrameMultiImgToolView.this.gJZ.notifyDataSetChanged();
                             }
                             NewFrameMultiImgToolView.this.b(new com.baidu.tbadk.editortools.a(2, NewFrameMultiImgToolView.this.aBS, null));
                             return;
@@ -196,9 +196,9 @@ public class NewFrameMultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.
     /* JADX INFO: Access modifiers changed from: private */
     public void a(WriteImagesInfo writeImagesInfo, boolean z) {
         this.aBN = writeImagesInfo;
-        this.gKa = new b(getContext(), this.aBO, this, this.gKb, this.aBS == 27);
-        this.gKa.a(this.aBN);
-        this.aBK.a(this.gKa, z);
+        this.gJZ = new b(getContext(), this.aBO, this, this.gKa, this.aBS == 27);
+        this.gJZ.a(this.aBN);
+        this.aBK.a(this.gJZ, z);
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -206,8 +206,8 @@ public class NewFrameMultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.
         if (aVar != null) {
             switch (aVar.code) {
                 case 9:
-                    if (this.gKa != null) {
-                        this.gKa.notifyDataSetChanged();
+                    if (this.gJZ != null) {
+                        this.gJZ.notifyDataSetChanged();
                     }
                     b(new com.baidu.tbadk.editortools.a(2, this.aBS, null));
                     return;
@@ -224,7 +224,7 @@ public class NewFrameMultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.
         }
     }
 
-    public void bAo() {
+    public void bAn() {
         if (this.JG != null) {
             this.JG.a(46, this.mActionListener);
             this.JG.a(47, this.mActionListener);
@@ -290,8 +290,8 @@ public class NewFrameMultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.
         private WriteImagesInfo aBX = null;
         private s aBY;
         private boolean aCa;
-        private a gKd;
-        private LayoutInflater gKe;
+        private a gKc;
+        private LayoutInflater gKd;
         private Context mContext;
 
         private int getDimensionPixelSize(int i) {
@@ -306,9 +306,9 @@ public class NewFrameMultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.
             this.aCa = true;
             this.aBY = sVar;
             this.mContext = context;
-            this.gKe = LayoutInflater.from(this.mContext);
+            this.gKd = LayoutInflater.from(this.mContext);
             this.aBO = bVar;
-            this.gKd = aVar;
+            this.gKc = aVar;
             this.aCa = z;
         }
 
@@ -336,7 +336,7 @@ public class NewFrameMultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.
 
         @Override // android.widget.Adapter
         public View getView(int i, View view, final ViewGroup viewGroup) {
-            FrameLayout frameLayout = view == null ? (FrameLayout) this.gKe.inflate(d.j.new_frame_editor_muti_image_item, (ViewGroup) null) : view;
+            FrameLayout frameLayout = view == null ? (FrameLayout) this.gKd.inflate(d.j.new_frame_editor_muti_image_item, (ViewGroup) null) : view;
             ImageFileInfo imageFileInfo = (ImageFileInfo) v.c(this.aBX.getChosedFiles(), i);
             if (imageFileInfo == null) {
                 return null;
@@ -392,8 +392,8 @@ public class NewFrameMultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.
             ((LinearLayout) frameLayout2.findViewById(d.h.delete_info)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.NewFrameMultiImgToolView.b.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.gKd != null) {
-                        b.this.gKd.M(frameLayout2);
+                    if (b.this.gKc != null) {
+                        b.this.gKc.M(frameLayout2);
                     }
                 }
             });

@@ -312,7 +312,7 @@ public class s extends a<CardPersonDynamicThreadData> {
             VoiceData.VoiceModel voiceModel = voiceModelArr[0];
             this.bLr.setVoiceModel(voiceModel);
             this.bLr.setTag(voiceModel);
-            this.bLr.bgi();
+            this.bLr.bgh();
             if (voiceModel != null) {
                 this.bLr.nh(voiceModel.voice_status.intValue());
             }
@@ -330,7 +330,7 @@ public class s extends a<CardPersonDynamicThreadData> {
         this.bMy.setVisibility(8);
         this.bMu.setVisibility(8);
         this.bMx.setVisibility(8);
-        this.bKx.bxT();
+        this.bKx.bxS();
         if (cardPersonDynamicThreadData.bOe == 36) {
             this.bLu.setVisibility(8);
             this.bMz.setVisibility(0);
@@ -503,7 +503,7 @@ public class s extends a<CardPersonDynamicThreadData> {
                 return;
             }
             if (!Xv()) {
-                m.jn(this.bMi.threadId);
+                m.jm(this.bMi.threadId);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
             alaLiveInfoCoreData.fillWithInfoData(this.bMi.threadData.rN());
@@ -518,7 +518,7 @@ public class s extends a<CardPersonDynamicThreadData> {
     public void XQ() {
         if (this.bMi != null && this.bMi.threadData != null && this.bMi.threadData.rN() != null && this.bMi.threadData.rN().UK != null) {
             if (!Xv()) {
-                m.jn(this.bMi.threadId);
+                m.jm(this.bMi.threadId);
             }
             if (this.bMi.threadData.rN().UK.record_tid <= 0) {
                 XP();
@@ -535,7 +535,7 @@ public class s extends a<CardPersonDynamicThreadData> {
     public void XJ() {
         if (this.bMi != null) {
             if (!Xv()) {
-                m.jn(this.bMi.threadId);
+                m.jm(this.bMi.threadId);
             }
             PbActivityConfig pbActivityConfig = new PbActivityConfig(this.mG.getPageActivity());
             if (this.bMi.bOe == 40) {

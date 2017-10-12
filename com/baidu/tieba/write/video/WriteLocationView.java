@@ -25,7 +25,7 @@ public class WriteLocationView extends LocationInfoView {
     private LocationModel aCA;
     private int aCH;
     private final LocationModel.a aCP;
-    private final CustomMessageListener giX;
+    private final CustomMessageListener giW;
     private BaseActivity<?> mBaseActivity;
 
     public WriteLocationView(Context context) {
@@ -54,14 +54,14 @@ public class WriteLocationView extends LocationInfoView {
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-                if (aVar != null && !StringUtils.isNull(aVar.bsa())) {
-                    WriteLocationView.this.b(2, true, aVar.bsa());
+                if (aVar != null && !StringUtils.isNull(aVar.brZ())) {
+                    WriteLocationView.this.b(2, true, aVar.brZ());
                 } else {
                     fR(null);
                 }
             }
         };
-        this.giX = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.video.WriteLocationView.5
+        this.giW = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.video.WriteLocationView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -82,7 +82,7 @@ public class WriteLocationView extends LocationInfoView {
 
     public void e(BaseActivity<?> baseActivity) {
         this.mBaseActivity = baseActivity;
-        this.mBaseActivity.registerListener(this.giX);
+        this.mBaseActivity.registerListener(this.giW);
         this.aCA = new LocationModel(this.mBaseActivity);
         this.aCA.a(this.aCP);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.video.WriteLocationView.1
@@ -117,23 +117,23 @@ public class WriteLocationView extends LocationInfoView {
             b(0, true, null);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             Dd();
-        } else if (this.aCA.bsi()) {
+        } else if (this.aCA.bsh()) {
             Db();
         } else {
             this.aCA.mE(false);
             b(1, true, null);
-            this.aCA.bsg();
+            this.aCA.bsf();
         }
     }
 
     private void De() {
         if (this.aCA.UW()) {
-            if (this.aCA.bsi()) {
-                b(2, true, c.bse().getLocationData().bsa());
+            if (this.aCA.bsh()) {
+                b(2, true, c.bsd().getLocationData().brZ());
                 return;
             }
             b(1, true, null);
-            this.aCA.bsg();
+            this.aCA.bsf();
             return;
         }
         b(0, true, null);
@@ -163,7 +163,7 @@ public class WriteLocationView extends LocationInfoView {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bkM() {
+    public void bkL() {
         if (this.aCA != null) {
             this.aCA.cancelLoadData();
         }

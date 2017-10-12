@@ -1,11 +1,11 @@
 package com.baidu.tieba.video;
 /* loaded from: classes2.dex */
 public class a {
+    public float gtO;
     public float gtP;
     public float gtQ;
     public float gtR;
     public float gtS;
-    public float gtT;
     public int level;
 
     public static a uq(int i) {
@@ -30,11 +30,11 @@ public class a {
     private static a a(int i, float f, float f2, float f3, float f4, float f5) {
         a aVar = new a();
         aVar.level = i;
-        aVar.gtP = f;
-        aVar.gtQ = f2;
-        aVar.gtR = f3;
-        aVar.gtS = f4;
-        aVar.gtT = f5;
+        aVar.gtO = f;
+        aVar.gtP = f2;
+        aVar.gtQ = f3;
+        aVar.gtR = f4;
+        aVar.gtS = f5;
         return aVar;
     }
 }

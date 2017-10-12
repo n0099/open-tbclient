@@ -11,74 +11,74 @@ public class e {
     private List<com.baidu.tbadk.b.a> QX;
     private int aDG;
     private String ckn;
-    private WriteImagesInfo fdB;
-    private final AlbumActivity gGN;
+    private WriteImagesInfo fdA;
+    private final AlbumActivity gGM;
+    private List<ImageFileInfo> gHd;
     private List<ImageFileInfo> gHe;
-    private List<ImageFileInfo> gHf;
-    private String gHg;
-    private boolean gHh = false;
+    private String gHf;
+    private boolean gHg = false;
 
     public e(AlbumActivity albumActivity) {
-        this.gGN = albumActivity;
+        this.gGM = albumActivity;
     }
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.fdB == null) {
-            this.fdB = new WriteImagesInfo();
+        if (this.fdA == null) {
+            this.fdA = new WriteImagesInfo();
         }
-        this.fdB.addChooseFile(imageFileInfo);
+        this.fdA.addChooseFile(imageFileInfo);
     }
 
     public void delChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.fdB != null) {
-            this.fdB.delChooseFile(imageFileInfo);
+        if (this.fdA != null) {
+            this.fdA.delChooseFile(imageFileInfo);
         }
     }
 
     public boolean isAdded(ImageFileInfo imageFileInfo) {
-        if (this.fdB == null) {
+        if (this.fdA == null) {
             return false;
         }
-        return this.fdB.isAdded(imageFileInfo);
+        return this.fdA.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> bzz() {
-        if (this.fdB != null) {
-            return this.fdB.getChosedFiles();
+    public List<ImageFileInfo> bzy() {
+        if (this.fdA != null) {
+            return this.fdA.getChosedFiles();
         }
         return null;
     }
 
     public WriteImagesInfo getWriteImagesInfo() {
-        return this.fdB;
+        return this.fdA;
     }
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
-        this.fdB = writeImagesInfo;
+        this.fdA = writeImagesInfo;
     }
 
     public String getLastAlbumId() {
-        if (this.fdB != null) {
-            return this.fdB.getLastAlbumId();
+        if (this.fdA != null) {
+            return this.fdA.getLastAlbumId();
         }
         return null;
     }
 
     public void setLastAlbumId(String str) {
-        if (this.fdB == null) {
-            this.fdB = new WriteImagesInfo();
+        if (this.fdA == null) {
+            this.fdA = new WriteImagesInfo();
         }
-        this.fdB.setLastAlbumId(str);
+        this.fdA.setLastAlbumId(str);
     }
 
     public int getMaxImagesAllowed() {
-        if (this.fdB != null) {
-            return this.fdB.getMaxImagesAllowed();
+        if (this.fdA != null) {
+            return this.fdA.getMaxImagesAllowed();
         }
         return 0;
     }
 
-    public String bzA() {
+    public String bzz() {
         return this.ckn;
     }
 
@@ -86,12 +86,12 @@ public class e {
         this.ckn = str;
     }
 
-    public List<ImageFileInfo> bzB() {
-        return this.gHe;
+    public List<ImageFileInfo> bzA() {
+        return this.gHd;
     }
 
     public void dE(List<ImageFileInfo> list) {
-        this.gHe = list;
+        this.gHd = list;
     }
 
     public int getCurrentIndex() {
@@ -102,7 +102,7 @@ public class e {
         this.aDG = i;
     }
 
-    public List<com.baidu.tbadk.b.a> bzC() {
+    public List<com.baidu.tbadk.b.a> bzB() {
         return this.QX;
     }
 
@@ -110,43 +110,43 @@ public class e {
         this.QX = list;
     }
 
-    public List<ImageFileInfo> bzD() {
-        return this.gHf;
+    public List<ImageFileInfo> bzC() {
+        return this.gHe;
     }
 
     public void dG(List<ImageFileInfo> list) {
-        this.gHf = list;
+        this.gHe = list;
     }
 
     public int size() {
-        if (this.fdB == null) {
+        if (this.fdA == null) {
             return 0;
         }
-        return this.fdB.size();
+        return this.fdA.size();
     }
 
-    public String bzE() {
-        return this.gHg;
+    public String bzD() {
+        return this.gHf;
     }
 
     public void tb(String str) {
-        this.gHg = str;
+        this.gHf = str;
     }
 
     public void setOriginalImg(boolean z) {
-        this.fdB.setOriginalImg(z);
+        this.fdA.setOriginalImg(z);
     }
 
     public boolean isOriginalImg() {
-        return this.fdB.isOriginalImg();
+        return this.fdA.isOriginalImg();
     }
 
     public void nq(boolean z) {
-        this.gHh = z;
+        this.gHg = z;
     }
 
-    public List<m> bzF() {
-        List<ImageFileInfo> list = this.gHe;
+    public List<m> bzE() {
+        List<ImageFileInfo> list = this.gHd;
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 3; i++) {
             m mVar = new m();
@@ -160,7 +160,7 @@ public class e {
             mVar2.h(list.get(i2));
             arrayList.add(mVar2);
         }
-        int af = ((((com.baidu.adp.lib.util.l.af(this.gGN.getPageContext().getPageActivity()) - this.gGN.getResources().getDimensionPixelSize(d.f.ds300)) / (com.baidu.adp.lib.util.l.ad(this.gGN.getPageContext().getPageActivity()) / 3)) + 1) * 3) - t;
+        int af = ((((com.baidu.adp.lib.util.l.af(this.gGM.getPageContext().getPageActivity()) - this.gGM.getResources().getDimensionPixelSize(d.f.ds300)) / (com.baidu.adp.lib.util.l.ad(this.gGM.getPageContext().getPageActivity()) / 3)) + 1) * 3) - t;
         if (af <= 0) {
             af = t % 3 == 0 ? 0 : 3 - (t % 3);
         }

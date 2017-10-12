@@ -6,27 +6,27 @@ import com.baidu.tieba.video.record.ProgressView;
 /* loaded from: classes2.dex */
 public class i {
     private long IZ;
-    private int gAc;
-    private ProgressView gAd;
-    private boolean gAe;
-    private RecordVideoActivity gzw;
+    private int gAb;
+    private ProgressView gAc;
+    private boolean gAd;
+    private RecordVideoActivity gzv;
     private int mProgress;
     private int mStatus = 1;
 
     public i(RecordVideoActivity recordVideoActivity) {
-        this.gzw = recordVideoActivity;
-        if (this.gzw != null) {
-            ImageView imageView = (ImageView) this.gzw.findViewById(d.h.camera_switch);
-            ImageView imageView2 = (ImageView) this.gzw.findViewById(d.h.flash_switch);
-            this.gAd = (ProgressView) this.gzw.findViewById(d.h.video_progress_view);
-            this.gAd.setListener(new ProgressView.a() { // from class: com.baidu.tieba.video.record.i.1
+        this.gzv = recordVideoActivity;
+        if (this.gzv != null) {
+            ImageView imageView = (ImageView) this.gzv.findViewById(d.h.camera_switch);
+            ImageView imageView2 = (ImageView) this.gzv.findViewById(d.h.flash_switch);
+            this.gAc = (ProgressView) this.gzv.findViewById(d.h.video_progress_view);
+            this.gAc.setListener(new ProgressView.a() { // from class: com.baidu.tieba.video.record.i.1
                 @Override // com.baidu.tieba.video.record.ProgressView.a
                 public void uE(int i) {
                     i.this.mProgress = i;
                     if (i == 100) {
                         i.this.stopRecord();
-                        if (i.this.gzw != null) {
-                            i.this.gzw.bxE();
+                        if (i.this.gzv != null) {
+                            i.this.gzv.bxD();
                         }
                     }
                 }
@@ -41,59 +41,59 @@ public class i {
     }
 
     public int getVideoDuration() {
-        return this.gAc;
+        return this.gAb;
     }
 
     public void startRecord() {
-        if (!this.gAe) {
-            if (this.gAd != null) {
-                this.gAd.setVisibility(0);
-                this.gAd.setCurrentState(ProgressView.State.START);
+        if (!this.gAd) {
+            if (this.gAc != null) {
+                this.gAc.setVisibility(0);
+                this.gAc.setCurrentState(ProgressView.State.START);
             }
-            if (!this.gAe) {
-                this.gAe = true;
+            if (!this.gAd) {
+                this.gAd = true;
                 this.IZ = System.currentTimeMillis();
             }
-            if (this.gzw != null && this.gzw.gyZ != null) {
-                this.gzw.gyZ.startRecord();
+            if (this.gzv != null && this.gzv.gyY != null) {
+                this.gzv.gyY.startRecord();
             }
         }
     }
 
     public void stopRecord() {
-        if (this.gAe) {
-            if (this.gAd != null) {
-                this.gAd.setCurrentState(ProgressView.State.PAUSE);
+        if (this.gAd) {
+            if (this.gAc != null) {
+                this.gAc.setCurrentState(ProgressView.State.PAUSE);
             }
-            this.gAe = false;
-            this.gAc = (int) (this.gAc + (System.currentTimeMillis() - this.IZ));
-            if (this.gAd != null && this.gAd.getLastProgress() != this.gAc) {
-                this.gAd.uD(this.gAc);
+            this.gAd = false;
+            this.gAb = (int) (this.gAb + (System.currentTimeMillis() - this.IZ));
+            if (this.gAc != null && this.gAc.getLastProgress() != this.gAb) {
+                this.gAc.uD(this.gAb);
             }
-            if (this.gzw != null && this.gzw.gyZ != null) {
-                this.gzw.gyZ.stopRecord();
+            if (this.gzv != null && this.gzv.gyY != null) {
+                this.gzv.gyY.stopRecord();
             }
+        }
+    }
+
+    public void bxq() {
+        if (!this.gAd && this.gAc != null) {
+            this.gAc.setCurrentState(ProgressView.State.ROLLBACK);
         }
     }
 
     public void bxr() {
-        if (!this.gAe && this.gAd != null) {
-            this.gAd.setCurrentState(ProgressView.State.ROLLBACK);
+        if (this.gAc != null) {
+            this.gAc.setCurrentState(ProgressView.State.DELETE);
         }
-    }
-
-    public void bxs() {
-        if (this.gAd != null) {
-            this.gAd.setCurrentState(ProgressView.State.DELETE);
-        }
-        this.gAc = this.gAd.getLastProgress();
-        if (this.gzw.gyZ != null) {
-            this.gzw.gyZ.bxe();
+        this.gAb = this.gAc.getLastProgress();
+        if (this.gzv.gyY != null) {
+            this.gzv.gyY.bxd();
         }
     }
 
     public boolean onBackPressed() {
-        return this.gAd.bxq();
+        return this.gAc.bxp();
     }
 
     public int getStatus() {
@@ -103,9 +103,9 @@ public class i {
     public void setStatus(int i) {
         this.mStatus = i;
         if (i == 1) {
-            this.gAd.setVisibility(4);
-            this.gAd.reset();
-            this.gAc = 0;
+            this.gAc.setVisibility(4);
+            this.gAc.reset();
+            this.gAb = 0;
         }
     }
 

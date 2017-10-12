@@ -59,9 +59,9 @@ public class a extends BaseFragment {
             this.eZU.aVp();
         }
         if (isAdded()) {
-            com.baidu.tieba.j.a.bgP().bgV();
+            com.baidu.tieba.j.a.bgO().bgU();
         }
-        com.baidu.tieba.j.a.bgP().lI(isPrimary());
+        com.baidu.tieba.j.a.bgO().lI(isPrimary());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment

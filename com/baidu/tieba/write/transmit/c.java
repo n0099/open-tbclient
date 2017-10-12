@@ -15,33 +15,33 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<TransmitForumData, a> {
-    private com.baidu.tieba.write.transmit.a gJh;
-    private h gJi;
+    private com.baidu.tieba.write.transmit.a gJg;
+    private h gJh;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        this.gJi = new h() { // from class: com.baidu.tieba.write.transmit.c.1
+        this.gJh = new h() { // from class: com.baidu.tieba.write.transmit.c.1
             @Override // com.baidu.adp.widget.ListView.h
             public void a(View view, f fVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 if (fVar instanceof TransmitForumData) {
                     CheckBox checkBox = (CheckBox) view.findViewById(d.h.transmit_check_box);
                     boolean isChecked = checkBox.isChecked();
-                    boolean bzY = c.this.gJh != null ? c.this.gJh.bzY() : false;
-                    if (!isChecked && bzY) {
-                        c.this.gJh.bzZ();
+                    boolean bzX = c.this.gJg != null ? c.this.gJg.bzX() : false;
+                    if (!isChecked && bzX) {
+                        c.this.gJg.bzY();
                     }
-                    if (isChecked || !bzY) {
+                    if (isChecked || !bzX) {
                         checkBox.setChecked(checkBox.isChecked() ? false : true);
                         ((TransmitForumData) fVar).checked = checkBox.isChecked();
-                        if (c.this.gJh != null) {
-                            c.this.gJh.bAa();
+                        if (c.this.gJg != null) {
+                            c.this.gJg.bzZ();
                         }
                     }
                 }
             }
         };
-        setOnAdapterItemClickListener(this.gJi);
+        setOnAdapterItemClickListener(this.gJh);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -77,6 +77,6 @@ public class c extends com.baidu.adp.widget.ListView.a<TransmitForumData, a> {
     }
 
     public void a(com.baidu.tieba.write.transmit.a aVar) {
-        this.gJh = aVar;
+        this.gJg = aVar;
     }
 }

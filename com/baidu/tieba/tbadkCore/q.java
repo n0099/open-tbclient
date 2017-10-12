@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class q implements View.OnTouchListener {
-    private a gfF;
+    private a gfE;
     private int count = 0;
     private long ezw = 0;
     private long ezx = 0;
@@ -19,8 +19,8 @@ public class q implements View.OnTouchListener {
                 q.this.ezw = 0L;
                 q.this.ezx = 0L;
             } else if (message.what == 1 && q.this.count == 1) {
-                if (q.this.gfF != null) {
-                    q.this.gfF.ahT();
+                if (q.this.gfE != null) {
+                    q.this.gfE.ahT();
                 }
                 q.this.count = 0;
                 q.this.ezw = 0L;
@@ -37,13 +37,13 @@ public class q implements View.OnTouchListener {
     }
 
     public q(a aVar) {
-        this.gfF = aVar;
+        this.gfE = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.gfF == null) {
+            if (this.gfE == null) {
                 return false;
             }
             this.count++;
@@ -54,7 +54,7 @@ public class q implements View.OnTouchListener {
             } else if (this.count == 2) {
                 this.ezx = System.currentTimeMillis();
                 if (this.ezx - this.ezw < this.ezz) {
-                    this.gfF.ahU();
+                    this.gfE.ahU();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

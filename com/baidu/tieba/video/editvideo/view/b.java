@@ -26,96 +26,96 @@ import com.baidu.tieba.video.editvideo.view.CoverSeekBar;
 import com.baidu.tieba.video.editvideo.view.CoverTextLayout;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.base.c {
-    private Resources fEV;
-    private a gvb;
-    private CoverSeekBar gwn;
-    private CoverTextLayout gwo;
-    private LinearLayout gwp;
-    private CoverDragLayout gwq;
-    private EditText gwr;
-    private FrameLayout gws;
-    private TextView gwt;
-    private View gwu;
+    private Resources fEU;
+    private a gva;
+    private CoverSeekBar gwm;
+    private CoverTextLayout gwn;
+    private LinearLayout gwo;
+    private CoverDragLayout gwp;
+    private EditText gwq;
+    private FrameLayout gwr;
+    private TextView gws;
+    private View gwt;
     private View mRootView;
 
     public b(e eVar, a aVar) {
         super(eVar);
-        this.gvb = aVar;
+        this.gva = aVar;
         this.mRootView = LayoutInflater.from(eVar.getPageActivity()).inflate(d.j.edit_cover_layout, (ViewGroup) null);
-        this.fEV = this.mRootView.getResources();
+        this.fEU = this.mRootView.getResources();
         initView();
     }
 
     private void initView() {
-        this.gwn = (CoverSeekBar) this.mRootView.findViewById(d.h.cover_seek_bar);
-        this.gwo = (CoverTextLayout) this.mRootView.findViewById(d.h.cover_text_layout);
-        this.gwn.setOnProgressChanged(new CoverSeekBar.a() { // from class: com.baidu.tieba.video.editvideo.view.b.1
+        this.gwm = (CoverSeekBar) this.mRootView.findViewById(d.h.cover_seek_bar);
+        this.gwn = (CoverTextLayout) this.mRootView.findViewById(d.h.cover_text_layout);
+        this.gwm.setOnProgressChanged(new CoverSeekBar.a() { // from class: com.baidu.tieba.video.editvideo.view.b.1
             @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
             public void onProgress(int i) {
-                long duration = (b.this.gvb.bwd().getDuration() * i) / 1000;
-                b.this.gwn.bY(i, (int) duration);
-                b.this.gvb.bwd().seekTo((int) duration);
+                long duration = (b.this.gva.bwc().getDuration() * i) / 1000;
+                b.this.gwm.bY(i, (int) duration);
+                b.this.gva.bwc().seekTo((int) duration);
+            }
+
+            @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
+            public void bvX() {
             }
 
             @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
             public void bvY() {
-            }
-
-            @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
-            public void bvZ() {
                 TiebaStatic.log("c12304");
             }
         });
-        bwl();
+        bwk();
     }
 
-    public void beW() {
-        if (this.gws.getVisibility() == 0) {
-            this.gwt.setText(this.gwr.getText());
-            this.gwt.setVisibility(0);
-            this.gwr.setVisibility(8);
+    public void beV() {
+        if (this.gwr.getVisibility() == 0) {
+            this.gws.setText(this.gwq.getText());
+            this.gws.setVisibility(0);
+            this.gwq.setVisibility(8);
             setEditTextEnable(false);
-            HidenSoftKeyPad(this.gwr);
+            HidenSoftKeyPad(this.gwq);
         }
     }
 
-    public void bwk() {
-        if (this.gws.getVisibility() == 0) {
-            this.gwt.setText(this.gwr.getText());
-            this.gwt.setVisibility(8);
-            this.gwr.setVisibility(0);
+    public void bwj() {
+        if (this.gwr.getVisibility() == 0) {
+            this.gws.setText(this.gwq.getText());
+            this.gws.setVisibility(8);
+            this.gwq.setVisibility(0);
             setEditTextEnable(true);
-            ShowSoftKeyPad(this.gwr);
+            ShowSoftKeyPad(this.gwq);
         }
     }
 
     public void uy(int i) {
         switch (i) {
             case 0:
-                this.gws.setVisibility(8);
-                this.gwr.setText("");
-                int height = (this.gvb.bwd().getHeight() - this.gws.getHeight()) / 2;
-                if (this.gws.getTop() != height) {
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gws.getLayoutParams();
+                this.gwr.setVisibility(8);
+                this.gwq.setText("");
+                int height = (this.gva.bwc().getHeight() - this.gwr.getHeight()) / 2;
+                if (this.gwr.getTop() != height) {
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gwr.getLayoutParams();
                     layoutParams.setMargins(0, height, 0, 0);
-                    this.gws.setLayoutParams(layoutParams);
+                    this.gwr.setLayoutParams(layoutParams);
                 }
-                beW();
+                beV();
                 return;
             case 1:
-                this.gws.setVisibility(0);
-                this.gws.setBackgroundResource(d.g.bg_cover_edit_blue);
-                bwk();
+                this.gwr.setVisibility(0);
+                this.gwr.setBackgroundResource(d.g.bg_cover_edit_blue);
+                bwj();
                 return;
             case 2:
-                this.gws.setVisibility(0);
-                this.gws.setBackgroundResource(d.g.bg_cover_edit_black);
-                bwk();
+                this.gwr.setVisibility(0);
+                this.gwr.setBackgroundResource(d.g.bg_cover_edit_black);
+                bwj();
                 return;
             case 3:
-                this.gws.setVisibility(0);
-                this.gws.setBackgroundDrawable(null);
-                bwk();
+                this.gwr.setVisibility(0);
+                this.gwr.setBackgroundDrawable(null);
+                bwj();
                 return;
             default:
                 return;
@@ -124,17 +124,17 @@ public class b extends com.baidu.adp.base.c {
 
     public void setEditTextEnable(boolean z) {
         if (z) {
-            this.gwr.setFocusable(true);
-            this.gwr.setFocusableInTouchMode(true);
-            this.gwr.requestFocus();
+            this.gwq.setFocusable(true);
+            this.gwq.setFocusableInTouchMode(true);
+            this.gwq.requestFocus();
             return;
         }
-        this.gwr.setFocusable(false);
-        this.gwr.setFocusableInTouchMode(false);
+        this.gwq.setFocusable(false);
+        this.gwq.setFocusableInTouchMode(false);
     }
 
-    private void bwl() {
-        this.gwo.setOnTextClickCallback(new CoverTextLayout.a() { // from class: com.baidu.tieba.video.editvideo.view.b.2
+    private void bwk() {
+        this.gwn.setOnTextClickCallback(new CoverTextLayout.a() { // from class: com.baidu.tieba.video.editvideo.view.b.2
             @Override // com.baidu.tieba.video.editvideo.view.CoverTextLayout.a
             public void bI(View view) {
                 Integer num = (Integer) view.getTag();
@@ -147,51 +147,51 @@ public class b extends com.baidu.adp.base.c {
     }
 
     public String getText() {
-        if (this.gwt == null || this.gwt.getText() == null) {
+        if (this.gws == null || this.gws.getText() == null) {
             return null;
         }
-        return this.gwt.getText().toString();
+        return this.gws.getText().toString();
     }
 
-    public void bwm() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gwq.getLayoutParams();
-        layoutParams.width = this.gvb.bwd().getWidth();
-        layoutParams.height = this.gvb.bwd().getHeight();
-        this.gwq.setLayoutParams(layoutParams);
-        bZ(this.gvb.bwd().getWidth(), l.ad(TbadkCoreApplication.getInst()));
+    public void bwl() {
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gwp.getLayoutParams();
+        layoutParams.width = this.gva.bwc().getWidth();
+        layoutParams.height = this.gva.bwc().getHeight();
+        this.gwp.setLayoutParams(layoutParams);
+        bZ(this.gva.bwc().getWidth(), l.ad(TbadkCoreApplication.getInst()));
     }
 
     private void bZ(int i, int i2) {
         if (i != i2) {
             int f = (int) ((l.f(TbadkCoreApplication.getInst(), d.f.ds100) * i) / i2);
-            ((FrameLayout.LayoutParams) this.gwt.getLayoutParams()).height = f;
-            ((FrameLayout.LayoutParams) this.gwr.getLayoutParams()).height = f;
+            ((FrameLayout.LayoutParams) this.gws.getLayoutParams()).height = f;
+            ((FrameLayout.LayoutParams) this.gwq.getLayoutParams()).height = f;
             float f2 = (l.f(this.mContext.getPageActivity(), d.f.fontsize40) * i) / i2;
-            this.gwt.setTextSize(0, f2);
-            this.gwr.setTextSize(0, f2);
+            this.gws.setTextSize(0, f2);
+            this.gwq.setTextSize(0, f2);
         }
     }
 
     public Bitmap j(Bitmap bitmap) {
-        beW();
+        beV();
         String text = getText();
         if (bitmap == null || TextUtils.isEmpty(text)) {
             return null;
         }
-        int width = this.gwq.getWidth();
-        int height = this.gwq.getHeight();
+        int width = this.gwp.getWidth();
+        int height = this.gwp.getHeight();
         int width2 = bitmap.getWidth();
         int height2 = bitmap.getHeight();
         Bitmap createBitmap = Bitmap.createBitmap(width2, height2, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-        this.gws.buildDrawingCache();
-        Bitmap drawingCache = this.gws.getDrawingCache();
+        this.gwr.buildDrawingCache();
+        Bitmap drawingCache = this.gwr.getDrawingCache();
         Matrix matrix = new Matrix();
         matrix.postScale(width2 / width, height2 / height);
         Bitmap createBitmap2 = Bitmap.createBitmap(drawingCache, 0, 0, drawingCache.getWidth(), drawingCache.getHeight(), matrix, true);
         if (createBitmap2 != null) {
-            canvas.drawBitmap(createBitmap2, (this.gws.getLeft() * width2) / width, (this.gws.getTop() * height2) / height, (Paint) null);
+            canvas.drawBitmap(createBitmap2, (this.gwr.getLeft() * width2) / width, (this.gwr.getTop() * height2) / height, (Paint) null);
         }
         canvas.save(31);
         canvas.restore();
@@ -199,12 +199,12 @@ public class b extends com.baidu.adp.base.c {
     }
 
     public int getCurrentPosition() {
-        return this.gwn.getCurrentPosition();
+        return this.gwm.getCurrentPosition();
     }
 
     public void setData(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.gwn.setData(str);
+            this.gwm.setData(str);
         }
     }
 
@@ -213,37 +213,37 @@ public class b extends com.baidu.adp.base.c {
     }
 
     public void bJ(View view) {
-        this.gwu = view.findViewById(d.h.center_container);
-        this.gwq = (CoverDragLayout) view.findViewById(d.h.cover_layout);
-        this.gwr = (EditText) view.findViewById(d.h.cover_edit);
-        this.gws = (FrameLayout) view.findViewById(d.h.cover_edit_container);
-        this.gwt = (TextView) view.findViewById(d.h.cover_text);
-        this.gws.setVisibility(8);
-        this.gwq.a(this, this.gws);
-        this.gwr.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.video.editvideo.view.b.3
+        this.gwt = view.findViewById(d.h.center_container);
+        this.gwp = (CoverDragLayout) view.findViewById(d.h.cover_layout);
+        this.gwq = (EditText) view.findViewById(d.h.cover_edit);
+        this.gwr = (FrameLayout) view.findViewById(d.h.cover_edit_container);
+        this.gws = (TextView) view.findViewById(d.h.cover_text);
+        this.gwr.setVisibility(8);
+        this.gwp.a(this, this.gwr);
+        this.gwq.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.video.editvideo.view.b.3
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view2, boolean z) {
                 if (z) {
-                    b.this.bwk();
+                    b.this.bwj();
                 } else {
-                    b.this.beW();
+                    b.this.beV();
                 }
             }
         });
-        this.gwu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.b.4
+        this.gwt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                b.this.beW();
+                b.this.beV();
             }
         });
-        this.gwp = (LinearLayout) view.findViewById(d.h.cover_tips);
+        this.gwo = (LinearLayout) view.findViewById(d.h.cover_tips);
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("video_cover_first_in", true)) {
-            this.gwp.setVisibility(0);
-            this.gwp.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.video.editvideo.view.b.5
+            this.gwo.setVisibility(0);
+            this.gwo.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.video.editvideo.view.b.5
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
-                    b.this.gwp.animate().alphaBy(1.0f).alpha(0.0f).setDuration(500L).setStartDelay(2000L).start();
+                    b.this.gwo.animate().alphaBy(1.0f).alpha(0.0f).setDuration(500L).setStartDelay(2000L).start();
                 }
             }).start();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("video_cover_first_in", false);
@@ -256,18 +256,18 @@ public class b extends com.baidu.adp.base.c {
 
     public void nc(boolean z) {
         if (z) {
-            if (this.gwo.getCurrentTextIndex() != 0) {
-                this.gws.setVisibility(0);
-                bwk();
+            if (this.gwn.getCurrentTextIndex() != 0) {
+                this.gwr.setVisibility(0);
+                bwj();
             }
-            this.gwn.seekTo(this.gwn.getCurrentPosition());
-        } else if (this.gwo.getCurrentTextIndex() != 0) {
-            this.gws.setVisibility(8);
+            this.gwm.seekTo(this.gwm.getCurrentPosition());
+        } else if (this.gwn.getCurrentTextIndex() != 0) {
+            this.gwr.setVisibility(8);
         }
     }
 
-    public void bwf() {
-        this.gws.destroyDrawingCache();
+    public void bwe() {
+        this.gwr.destroyDrawingCache();
     }
 
     public void onPause() {
@@ -277,15 +277,15 @@ public class b extends com.baidu.adp.base.c {
         com.baidu.adp.lib.g.e.fP().postDelayed(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.b.6
             @Override // java.lang.Runnable
             public void run() {
-                b.this.gwn.seekTo(b.this.gwn.getCurrentPosition());
-                b.this.gvb.bwe();
+                b.this.gwm.seekTo(b.this.gwm.getCurrentPosition());
+                b.this.gva.bwd();
             }
         }, 500L);
     }
 
     public void release() {
-        if (this.gwn != null) {
-            this.gwn.release();
+        if (this.gwm != null) {
+            this.gwm.release();
         }
     }
 }

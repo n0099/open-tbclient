@@ -6,16 +6,16 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class c {
-    a fal;
+    a fak;
     private BdTypeListView mListView;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mListView = bdTypeListView;
-        this.fal = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.fak = new a(bdTypeListView, tbPageContext, bdUniqueId);
         this.mListView.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.personCenter.b.c.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
-                c.this.fal.aVn();
+                c.this.fak.aVn();
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
@@ -25,22 +25,22 @@ public class c {
     }
 
     public void b(com.baidu.tieba.personCenter.c.c cVar) {
-        this.mListView.setData(cVar.faz);
+        this.mListView.setData(cVar.fay);
     }
 
     public void notifyDataSetChanged() {
-        this.fal.onChangeSkinType();
+        this.fak.onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        this.fal.onChangeSkinType();
+        this.fak.onChangeSkinType();
     }
 
     public void aVm() {
-        this.fal.aVm();
+        this.fak.aVm();
     }
 
     public void aVn() {
-        this.fal.aVn();
+        this.fak.aVn();
     }
 }

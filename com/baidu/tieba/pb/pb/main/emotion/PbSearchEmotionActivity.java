@@ -323,12 +323,12 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     }
 
     @Override // com.baidu.tieba.face.view.SearchEditView.a
-    public void jO(String str) {
+    public void jN(String str) {
         ou(str);
     }
 
     @Override // com.baidu.tieba.face.view.SearchEditView.a
-    public void jP(String str) {
+    public void jO(String str) {
         if (this.mEmotionList != null && str.length() == 0) {
             this.mEmotionList.clear();
             if (this.eMz != null) {

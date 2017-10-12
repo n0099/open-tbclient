@@ -60,7 +60,7 @@ public class c extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
             return null;
         }
         kVar.hR(i + 1);
-        u.XR().a(kVar.ju("c12351"));
+        u.XR().a(kVar.jt("c12351"));
         aVar.Yr().a(kVar);
         aVar.Yr().b(this.cVT);
         return aVar.getView();

@@ -65,7 +65,7 @@ public class b {
                 if ((fVar instanceof com.baidu.tieba.card.data.c) && (Nj = (cVar = (com.baidu.tieba.card.data.c) fVar).Nj()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.g.b.c(Nj.getTid(), 0L)))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.jr(threadPersonalized.abtest_tag);
+                    cVar.jq(threadPersonalized.abtest_tag);
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {
                         SparseArray<String> sparseArray = new SparseArray<>();

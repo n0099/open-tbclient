@@ -82,11 +82,11 @@ public class q extends com.baidu.tieba.frs.d<bh, a<com.baidu.tieba.frs.entelechy
         xVar.azf = cGc.cFU;
         xVar.cyX = bhVar.getTid();
         xVar.mSource = bhVar.ZH;
-        xVar.fyc = bhVar.ZM;
-        xVar.fyd = bhVar.ZI;
-        xVar.fyf = bhVar.ZJ;
+        xVar.fyb = bhVar.ZM;
+        xVar.fyc = bhVar.ZI;
+        xVar.fye = bhVar.ZJ;
         if (bhVar.rM() != null) {
-            xVar.fyg = bhVar.rM().video_md5;
+            xVar.fyf = bhVar.rM().video_md5;
         }
         return xVar;
     }

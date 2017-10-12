@@ -6,36 +6,36 @@ import android.animation.ValueAnimator;
 import android.view.View;
 /* loaded from: classes.dex */
 public class m {
+    private ValueAnimator fWB;
     private ValueAnimator fWC;
-    private ValueAnimator fWD;
-    private int fWE = 800;
-    private b fWF;
+    private int fWD = 800;
+    private b fWE;
 
-    public void bnd() {
-        if (this.fWC != null) {
-            this.fWC.cancel();
-            this.fWC = null;
+    public void bnc() {
+        if (this.fWB != null) {
+            this.fWB.cancel();
+            this.fWB = null;
         }
     }
 
     public void bD(View view) {
-        if (this.fWC == null || !this.fWC.isStarted()) {
-            if (this.fWF != null) {
-                this.fWF.bmU();
+        if (this.fWB == null || !this.fWB.isStarted()) {
+            if (this.fWE != null) {
+                this.fWE.bmT();
             }
-            this.fWC = ObjectAnimator.ofFloat(view, "rotation", 0.0f, 360.0f);
-            this.fWC.setRepeatCount(-1);
-            this.fWC.setRepeatMode(1);
-            this.fWC.setDuration(this.fWE);
-            this.fWC.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.story.m.1
+            this.fWB = ObjectAnimator.ofFloat(view, "rotation", 0.0f, 360.0f);
+            this.fWB.setRepeatCount(-1);
+            this.fWB.setRepeatMode(1);
+            this.fWB.setDuration(this.fWD);
+            this.fWB.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.story.m.1
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (m.this.fWF != null) {
-                        m.this.fWF.bmV();
+                    if (m.this.fWE != null) {
+                        m.this.fWE.bmU();
                     }
                 }
 
@@ -47,32 +47,32 @@ public class m {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.fWC.start();
+            this.fWB.start();
         }
     }
 
-    public void bne() {
-        bnd();
-        this.fWD = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.fWD.setRepeatCount(0);
-        this.fWD.setDuration(800L);
-        this.fWD.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.story.m.2
+    public void bnd() {
+        bnc();
+        this.fWC = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.fWC.setRepeatCount(0);
+        this.fWC.setDuration(800L);
+        this.fWC.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.story.m.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue() * 360.0f;
-                if (m.this.fWF != null) {
-                    m.this.fWF.ab(floatValue);
+                if (m.this.fWE != null) {
+                    m.this.fWE.ab(floatValue);
                 }
             }
         });
-        this.fWD.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.story.m.3
+        this.fWC.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.story.m.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                m.this.bmY();
+                m.this.bmX();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -83,26 +83,26 @@ public class m {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.fWD.start();
+        this.fWC.start();
     }
 
     public m(b bVar) {
-        this.fWF = bVar;
+        this.fWE = bVar;
     }
 
     public boolean isRunning() {
-        if (this.fWC == null || !this.fWC.isStarted()) {
-            return this.fWD != null && this.fWD.isStarted();
+        if (this.fWB == null || !this.fWB.isStarted()) {
+            return this.fWC != null && this.fWC.isStarted();
         }
         return true;
     }
 
-    public void bmY() {
+    public void bmX() {
+        if (this.fWB != null) {
+            this.fWB.cancel();
+        }
         if (this.fWC != null) {
             this.fWC.cancel();
-        }
-        if (this.fWD != null) {
-            this.fWD.cancel();
         }
     }
 }

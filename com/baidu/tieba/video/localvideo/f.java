@@ -1,7 +1,7 @@
 package com.baidu.tieba.video.localvideo;
 /* loaded from: classes2.dex */
 public interface f {
-    void bvR();
+    void bvQ();
 
     void onConvertAborted();
 

@@ -13,10 +13,10 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b fyk = null;
-    private com.baidu.tieba.play.a.a fyj;
-    private InterfaceC0118b fyl = null;
-    private int fym = 0;
+    private static b fyj = null;
+    private com.baidu.tieba.play.a.a fyi;
+    private InterfaceC0118b fyk = null;
+    private int fyl = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -27,41 +27,41 @@ public class b {
     private b() {
     }
 
-    public static b beH() {
-        if (fyk == null) {
+    public static b beG() {
+        if (fyj == null) {
             synchronized (b.class) {
-                if (fyk == null) {
-                    fyk = new b();
+                if (fyj == null) {
+                    fyj = new b();
                 }
             }
         }
-        return fyk;
+        return fyj;
     }
 
     public void a(InterfaceC0118b interfaceC0118b) {
-        this.fyl = interfaceC0118b;
+        this.fyk = interfaceC0118b;
     }
 
     public boolean qp(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (qq(str) && this.fyj.beG().size() > this.fym) {
-            if (this.fyl != null) {
-                InterfaceC0118b interfaceC0118b = this.fyl;
-                List<String> beG = this.fyj.beG();
-                int i = this.fym;
-                this.fym = i + 1;
-                interfaceC0118b.bQ(beG.get(i), str);
+        if (qq(str) && this.fyi.beF().size() > this.fyl) {
+            if (this.fyk != null) {
+                InterfaceC0118b interfaceC0118b = this.fyk;
+                List<String> beF = this.fyi.beF();
+                int i = this.fyl;
+                this.fyl = i + 1;
+                interfaceC0118b.bQ(beF.get(i), str);
             }
             return true;
-        } else if (this.fyj != null && this.fyj.beG() != null && this.fyj.beG().size() <= this.fym) {
-            this.fym = 0;
-            this.fyj = null;
+        } else if (this.fyi != null && this.fyi.beF() != null && this.fyi.beF().size() <= this.fyl) {
+            this.fyl = 0;
+            this.fyi = null;
             return false;
         } else {
-            this.fym = 0;
-            this.fyj = null;
+            this.fyl = 0;
+            this.fyi = null;
             a aVar = new a();
             aVar.hb(str);
             aVar.execute(new Void[0]);
@@ -70,7 +70,7 @@ public class b {
     }
 
     private boolean qq(String str) {
-        return (this.fyj == null || TextUtils.isEmpty(str) || !str.equals(this.fyj.getHost()) || v.u(this.fyj.beG()) || this.fyj.cx(System.currentTimeMillis()) || this.fyj.beG().size() <= this.fym) ? false : true;
+        return (this.fyi == null || TextUtils.isEmpty(str) || !str.equals(this.fyi.getHost()) || v.u(this.fyi.beF()) || this.fyi.cx(System.currentTimeMillis()) || this.fyi.beF().size() <= this.fyl) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -259,14 +259,14 @@ public class b {
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.zX)) {
-                b.this.fyj = aVarArr[0];
-                if (!v.u(aVarArr[0].beG()) && b.this.fyl != null) {
-                    b.this.fyl.bQ(aVarArr[0].beG().get(0), aVarArr[0].getHost());
+                b.this.fyi = aVarArr[0];
+                if (!v.u(aVarArr[0].beF()) && b.this.fyk != null) {
+                    b.this.fyk.bQ(aVarArr[0].beF().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.fyl != null) {
-                b.this.fyl.bQ(null, null);
+            if (b.this.fyk != null) {
+                b.this.fyk.bQ(null, null);
             }
         }
 

@@ -4,26 +4,26 @@ import android.support.v4.view.MotionEventCompat;
 import com.baidu.ueg.lib.b;
 /* loaded from: classes.dex */
 public class a extends b {
-    static final byte[] gOP = {13, 10};
-    private static final byte[] gOQ = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
-    private static final byte[] gOR = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
-    private static final byte[] gOS = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51};
+    static final byte[] gOO = {13, 10};
+    private static final byte[] gOP = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+    private static final byte[] gOQ = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
+    private static final byte[] gOR = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51};
+    private final byte[] gOS;
     private final byte[] gOT;
     private final byte[] gOU;
-    private final byte[] gOV;
+    private final int gOV;
     private final int gOW;
-    private final int gOX;
 
     public a() {
         this(0);
     }
 
     public a(boolean z) {
-        this(76, gOP, z);
+        this(76, gOO, z);
     }
 
     public a(int i) {
-        this(i, gOP);
+        this(i, gOO);
     }
 
     public a(int i, byte[] bArr) {
@@ -32,24 +32,24 @@ public class a extends b {
 
     public a(int i, byte[] bArr, boolean z) {
         super(3, 4, i, bArr == null ? 0 : bArr.length);
-        this.gOU = gOS;
+        this.gOT = gOR;
         if (bArr != null) {
             if (E(bArr)) {
                 throw new IllegalArgumentException("lineSeparator must not contain base64 characters: [" + d.G(bArr) + "]");
             } else if (i > 0) {
-                this.gOX = bArr.length + 4;
-                this.gOV = new byte[bArr.length];
-                System.arraycopy(bArr, 0, this.gOV, 0, bArr.length);
+                this.gOW = bArr.length + 4;
+                this.gOU = new byte[bArr.length];
+                System.arraycopy(bArr, 0, this.gOU, 0, bArr.length);
             } else {
-                this.gOX = 4;
-                this.gOV = null;
+                this.gOW = 4;
+                this.gOU = null;
             }
         } else {
-            this.gOX = 4;
-            this.gOV = null;
+            this.gOW = 4;
+            this.gOU = null;
         }
-        this.gOW = this.gOX - 1;
-        this.gOT = z ? gOR : gOQ;
+        this.gOV = this.gOW - 1;
+        this.gOS = z ? gOQ : gOP;
     }
 
     @Override // com.baidu.ueg.lib.b
@@ -57,20 +57,20 @@ public class a extends b {
         if (!aVar.eof) {
             if (i2 < 0) {
                 aVar.eof = true;
-                if (aVar.gPg != 0 || this.xJ != 0) {
-                    byte[] a = a(this.gOX, aVar);
+                if (aVar.gPf != 0 || this.xJ != 0) {
+                    byte[] a = a(this.gOW, aVar);
                     int i3 = aVar.pos;
-                    switch (aVar.gPg) {
+                    switch (aVar.gPf) {
                         case 0:
                             break;
                         case 1:
                             int i4 = aVar.pos;
                             aVar.pos = i4 + 1;
-                            a[i4] = this.gOT[(aVar.gPc >> 2) & 63];
+                            a[i4] = this.gOS[(aVar.gPb >> 2) & 63];
                             int i5 = aVar.pos;
                             aVar.pos = i5 + 1;
-                            a[i5] = this.gOT[(aVar.gPc << 4) & 63];
-                            if (this.gOT == gOQ) {
+                            a[i5] = this.gOS[(aVar.gPb << 4) & 63];
+                            if (this.gOS == gOP) {
                                 int i6 = aVar.pos;
                                 aVar.pos = i6 + 1;
                                 a[i6] = 61;
@@ -83,14 +83,14 @@ public class a extends b {
                         case 2:
                             int i8 = aVar.pos;
                             aVar.pos = i8 + 1;
-                            a[i8] = this.gOT[(aVar.gPc >> 10) & 63];
+                            a[i8] = this.gOS[(aVar.gPb >> 10) & 63];
                             int i9 = aVar.pos;
                             aVar.pos = i9 + 1;
-                            a[i9] = this.gOT[(aVar.gPc >> 4) & 63];
+                            a[i9] = this.gOS[(aVar.gPb >> 4) & 63];
                             int i10 = aVar.pos;
                             aVar.pos = i10 + 1;
-                            a[i10] = this.gOT[(aVar.gPc << 2) & 63];
-                            if (this.gOT == gOQ) {
+                            a[i10] = this.gOS[(aVar.gPb << 2) & 63];
+                            if (this.gOS == gOP) {
                                 int i11 = aVar.pos;
                                 aVar.pos = i11 + 1;
                                 a[i11] = 61;
@@ -98,12 +98,12 @@ public class a extends b {
                             }
                             break;
                         default:
-                            throw new IllegalStateException("Impossible modulus " + aVar.gPg);
+                            throw new IllegalStateException("Impossible modulus " + aVar.gPf);
                     }
-                    aVar.gPf = (aVar.pos - i3) + aVar.gPf;
-                    if (this.xJ > 0 && aVar.gPf > 0) {
-                        System.arraycopy(this.gOV, 0, a, aVar.pos, this.gOV.length);
-                        aVar.pos += this.gOV.length;
+                    aVar.gPe = (aVar.pos - i3) + aVar.gPe;
+                    if (this.xJ > 0 && aVar.gPe > 0) {
+                        System.arraycopy(this.gOU, 0, a, aVar.pos, this.gOU.length);
+                        aVar.pos += this.gOU.length;
                         return;
                     }
                     return;
@@ -112,32 +112,32 @@ public class a extends b {
             }
             int i12 = 0;
             while (i12 < i2) {
-                byte[] a2 = a(this.gOX, aVar);
-                aVar.gPg = (aVar.gPg + 1) % 3;
+                byte[] a2 = a(this.gOW, aVar);
+                aVar.gPf = (aVar.gPf + 1) % 3;
                 int i13 = i + 1;
                 int i14 = bArr[i];
                 if (i14 < 0) {
                     i14 += 256;
                 }
-                aVar.gPc = i14 + (aVar.gPc << 8);
-                if (aVar.gPg == 0) {
+                aVar.gPb = i14 + (aVar.gPb << 8);
+                if (aVar.gPf == 0) {
                     int i15 = aVar.pos;
                     aVar.pos = i15 + 1;
-                    a2[i15] = this.gOT[(aVar.gPc >> 18) & 63];
+                    a2[i15] = this.gOS[(aVar.gPb >> 18) & 63];
                     int i16 = aVar.pos;
                     aVar.pos = i16 + 1;
-                    a2[i16] = this.gOT[(aVar.gPc >> 12) & 63];
+                    a2[i16] = this.gOS[(aVar.gPb >> 12) & 63];
                     int i17 = aVar.pos;
                     aVar.pos = i17 + 1;
-                    a2[i17] = this.gOT[(aVar.gPc >> 6) & 63];
+                    a2[i17] = this.gOS[(aVar.gPb >> 6) & 63];
                     int i18 = aVar.pos;
                     aVar.pos = i18 + 1;
-                    a2[i18] = this.gOT[aVar.gPc & 63];
-                    aVar.gPf += 4;
-                    if (this.xJ > 0 && this.xJ <= aVar.gPf) {
-                        System.arraycopy(this.gOV, 0, a2, aVar.pos, this.gOV.length);
-                        aVar.pos += this.gOV.length;
-                        aVar.gPf = 0;
+                    a2[i18] = this.gOS[aVar.gPb & 63];
+                    aVar.gPe += 4;
+                    if (this.xJ > 0 && this.xJ <= aVar.gPe) {
+                        System.arraycopy(this.gOU, 0, a2, aVar.pos, this.gOU.length);
+                        aVar.pos += this.gOU.length;
+                        aVar.gPe = 0;
                     }
                 }
                 i12++;
@@ -158,53 +158,53 @@ public class a extends b {
                 if (i3 >= i2) {
                     break;
                 }
-                byte[] a = a(this.gOW, aVar);
+                byte[] a = a(this.gOV, aVar);
                 int i4 = i + 1;
                 byte b2 = bArr[i];
                 if (b2 == 61) {
                     aVar.eof = true;
                     break;
                 }
-                if (b2 >= 0 && b2 < gOS.length && (b = gOS[b2]) >= 0) {
-                    aVar.gPg = (aVar.gPg + 1) % 4;
-                    aVar.gPc = b + (aVar.gPc << 6);
-                    if (aVar.gPg == 0) {
+                if (b2 >= 0 && b2 < gOR.length && (b = gOR[b2]) >= 0) {
+                    aVar.gPf = (aVar.gPf + 1) % 4;
+                    aVar.gPb = b + (aVar.gPb << 6);
+                    if (aVar.gPf == 0) {
                         int i5 = aVar.pos;
                         aVar.pos = i5 + 1;
-                        a[i5] = (byte) ((aVar.gPc >> 16) & MotionEventCompat.ACTION_MASK);
+                        a[i5] = (byte) ((aVar.gPb >> 16) & MotionEventCompat.ACTION_MASK);
                         int i6 = aVar.pos;
                         aVar.pos = i6 + 1;
-                        a[i6] = (byte) ((aVar.gPc >> 8) & MotionEventCompat.ACTION_MASK);
+                        a[i6] = (byte) ((aVar.gPb >> 8) & MotionEventCompat.ACTION_MASK);
                         int i7 = aVar.pos;
                         aVar.pos = i7 + 1;
-                        a[i7] = (byte) (aVar.gPc & MotionEventCompat.ACTION_MASK);
+                        a[i7] = (byte) (aVar.gPb & MotionEventCompat.ACTION_MASK);
                     }
                 }
                 i3++;
                 i = i4;
             }
-            if (aVar.eof && aVar.gPg != 0) {
-                byte[] a2 = a(this.gOW, aVar);
-                switch (aVar.gPg) {
+            if (aVar.eof && aVar.gPf != 0) {
+                byte[] a2 = a(this.gOV, aVar);
+                switch (aVar.gPf) {
                     case 1:
                         return;
                     case 2:
-                        aVar.gPc >>= 4;
+                        aVar.gPb >>= 4;
                         int i8 = aVar.pos;
                         aVar.pos = i8 + 1;
-                        a2[i8] = (byte) (aVar.gPc & MotionEventCompat.ACTION_MASK);
+                        a2[i8] = (byte) (aVar.gPb & MotionEventCompat.ACTION_MASK);
                         return;
                     case 3:
-                        aVar.gPc >>= 2;
+                        aVar.gPb >>= 2;
                         int i9 = aVar.pos;
                         aVar.pos = i9 + 1;
-                        a2[i9] = (byte) ((aVar.gPc >> 8) & MotionEventCompat.ACTION_MASK);
+                        a2[i9] = (byte) ((aVar.gPb >> 8) & MotionEventCompat.ACTION_MASK);
                         int i10 = aVar.pos;
                         aVar.pos = i10 + 1;
-                        a2[i10] = (byte) (aVar.gPc & MotionEventCompat.ACTION_MASK);
+                        a2[i10] = (byte) (aVar.gPb & MotionEventCompat.ACTION_MASK);
                         return;
                     default:
-                        throw new IllegalStateException("Impossible modulus " + aVar.gPg);
+                        throw new IllegalStateException("Impossible modulus " + aVar.gPf);
                 }
             }
         }
@@ -224,7 +224,7 @@ public class a extends b {
 
     public static byte[] a(byte[] bArr, boolean z, boolean z2, int i) {
         if (bArr != null && bArr.length != 0) {
-            a aVar = z ? new a(z2) : new a(0, gOP, z2);
+            a aVar = z ? new a(z2) : new a(0, gOO, z2);
             long F = aVar.F(bArr);
             if (F > i) {
                 throw new IllegalArgumentException("Input array too big, the output array would be bigger (" + F + ") than the specified maximum size of " + i);
@@ -240,6 +240,6 @@ public class a extends b {
 
     @Override // com.baidu.ueg.lib.b
     protected boolean b(byte b) {
-        return b >= 0 && b < this.gOU.length && this.gOU[b] != -1;
+        return b >= 0 && b < this.gOT.length && this.gOT[b] != -1;
     }
 }

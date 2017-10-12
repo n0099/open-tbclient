@@ -28,9 +28,9 @@ import java.util.List;
 public class a extends PopupWindow {
     private ViewGroup cjx;
     private int cjz;
-    private AlbumActivity gJW;
-    private d gJX;
-    private InterfaceC0142a gJY;
+    private AlbumActivity gJV;
+    private d gJW;
+    private InterfaceC0142a gJX;
     private ListView mListView;
 
     /* renamed from: com.baidu.tieba.write.view.a$a  reason: collision with other inner class name */
@@ -40,12 +40,12 @@ public class a extends PopupWindow {
     }
 
     public void a(InterfaceC0142a interfaceC0142a) {
-        this.gJY = interfaceC0142a;
+        this.gJX = interfaceC0142a;
     }
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext().getPageActivity());
-        this.gJW = albumActivity;
+        this.gJV = albumActivity;
         setWidth(-1);
         setHeight(-1);
         setContentView(c(new ArrayList(), "-1"));
@@ -58,32 +58,32 @@ public class a extends PopupWindow {
 
     @SuppressLint({"ResourceAsColor"})
     private View c(List<com.baidu.tbadk.b.a> list, String str) {
-        BdListView bdListView = new BdListView(this.gJW.getPageContext().getPageActivity());
+        BdListView bdListView = new BdListView(this.gJV.getPageContext().getPageActivity());
         this.mListView = bdListView;
-        bdListView.setCacheColorHint(this.gJW.getResources().getColor(17170445));
+        bdListView.setCacheColorHint(this.gJV.getResources().getColor(17170445));
         bdListView.setDivider(null);
         bdListView.setDividerHeight(0);
         bdListView.setFadingEdgeLength(0);
-        this.gJX = new d(this.gJW);
-        this.gJX.d(list, str);
-        bdListView.setAdapter((ListAdapter) this.gJX);
+        this.gJW = new d(this.gJV);
+        this.gJW.d(list, str);
+        bdListView.setAdapter((ListAdapter) this.gJW);
         bdListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.write.view.a.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tbadk.b.a item = a.this.gJX.getItem(i);
+                com.baidu.tbadk.b.a item = a.this.gJW.getItem(i);
                 if (item instanceof com.baidu.tbadk.b.a) {
                     com.baidu.tbadk.b.a aVar = item;
-                    if (a.this.gJY != null) {
-                        a.this.gJY.a(i, aVar);
+                    if (a.this.gJX != null) {
+                        a.this.gJX.a(i, aVar);
                     }
                 }
                 a.this.afc();
             }
         });
-        FrameLayout frameLayout = new FrameLayout(this.gJW.getPageContext().getPageActivity());
-        FrameLayout frameLayout2 = new FrameLayout(this.gJW.getPageContext().getPageActivity());
+        FrameLayout frameLayout = new FrameLayout(this.gJV.getPageContext().getPageActivity());
+        FrameLayout frameLayout2 = new FrameLayout(this.gJV.getPageContext().getPageActivity());
         this.cjx = frameLayout2;
-        frameLayout2.setBackgroundColor(this.gJW.getResources().getColor(d.e.common_color_10175));
+        frameLayout2.setBackgroundColor(this.gJV.getResources().getColor(d.e.common_color_10175));
         frameLayout2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -102,7 +102,7 @@ public class a extends PopupWindow {
             if (list.size() <= 5) {
                 i = -2;
             } else {
-                i = this.gJW.getResources().getDimensionPixelSize(d.f.ds618);
+                i = this.gJV.getResources().getDimensionPixelSize(d.f.ds618);
             }
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mListView.getLayoutParams();
             if (layoutParams == null) {
@@ -111,8 +111,8 @@ public class a extends PopupWindow {
                 layoutParams.height = i;
             }
             this.mListView.setLayoutParams(layoutParams);
-            this.gJX.d(list, str);
-            this.gJX.notifyDataSetChanged();
+            this.gJW.d(list, str);
+            this.gJW.notifyDataSetChanged();
         }
     }
 

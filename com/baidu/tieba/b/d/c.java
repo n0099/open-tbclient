@@ -360,7 +360,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             }
             if (this.bIm == null || this.bIm == EGL10.EGL_NO_CONTEXT) {
                 this.bIm = null;
-                jh("createContext");
+                jg("createContext");
             }
             this.bIk = null;
         }
@@ -456,7 +456,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             }
         }
 
-        private void jh(String str) {
+        private void jg(String str) {
             G(str, this.bIi.eglGetError());
         }
 

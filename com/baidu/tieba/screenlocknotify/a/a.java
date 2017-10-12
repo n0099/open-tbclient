@@ -18,50 +18,50 @@ import java.util.Locale;
 public class a extends LinearLayout {
     View aYL;
     private EditText dEK;
-    TextView fIE;
+    TextView fID;
+    View fIE;
     View fIF;
-    View fIG;
+    TextView fIG;
     TextView fIH;
     TextView fII;
-    TextView fIJ;
-    private e fIK;
-    private TextView fIL;
-    private RelativeLayout fIM;
+    private e fIJ;
+    private TextView fIK;
+    private RelativeLayout fIL;
 
     public a(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(d.j.screenlock_show_item_header, (ViewGroup) this, true);
-        this.fIE = (TextView) findViewById(d.h.friend_name_show1);
-        this.fIF = findViewById(d.h.friend_name_layout);
-        this.fIG = findViewById(d.h.msg_content_layout);
-        this.fIH = (TextView) findViewById(d.h.last_msg_time_show1);
-        this.fII = (TextView) findViewById(d.h.one_msg_content_show1);
-        this.fIJ = (TextView) findViewById(d.h.unread_msg_count_show1);
+        this.fID = (TextView) findViewById(d.h.friend_name_show1);
+        this.fIE = findViewById(d.h.friend_name_layout);
+        this.fIF = findViewById(d.h.msg_content_layout);
+        this.fIG = (TextView) findViewById(d.h.last_msg_time_show1);
+        this.fIH = (TextView) findViewById(d.h.one_msg_content_show1);
+        this.fII = (TextView) findViewById(d.h.unread_msg_count_show1);
         this.aYL = findViewById(d.h.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(d.g.screen_notify_item_background);
         setOrientation(1);
-        this.fIM = (RelativeLayout) findViewById(d.h.screenlock_input_layout);
-        this.fIL = (TextView) findViewById(d.h.screenlock_send_button);
+        this.fIL = (RelativeLayout) findViewById(d.h.screenlock_input_layout);
+        this.fIK = (TextView) findViewById(d.h.screenlock_send_button);
         this.dEK = (EditText) findViewById(d.h.screenlock_edit_view);
-        this.fIM.setVisibility(8);
+        this.fIL.setVisibility(8);
     }
 
     public void f(e eVar) {
-        this.fIK = eVar;
-        this.fIE.setText(eVar.groupName);
-        this.fIH.setText(cz(eVar.lastTime));
-        this.fII.setText(eVar.content);
-        this.fIJ.setText(sp(eVar.fIA));
+        this.fIJ = eVar;
+        this.fID.setText(eVar.groupName);
+        this.fIG.setText(cz(eVar.lastTime));
+        this.fIH.setText(eVar.content);
+        this.fII.setText(sp(eVar.fIz));
     }
 
     public void lK(boolean z) {
         if (z) {
-            this.fIM.setVisibility(0);
+            this.fIL.setVisibility(0);
             this.aYL.setVisibility(8);
             return;
         }
-        this.fIM.setVisibility(8);
+        this.fIL.setVisibility(8);
         this.aYL.setVisibility(0);
     }
 
@@ -85,12 +85,12 @@ public class a extends LinearLayout {
     }
 
     public e getData() {
-        return this.fIK;
+        return this.fIJ;
     }
 
     public void a(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.fIL.setOnClickListener(onClickListener);
+        this.fIK.setOnClickListener(onClickListener);
+        this.fIE.setOnClickListener(onClickListener2);
         this.fIF.setOnClickListener(onClickListener2);
-        this.fIG.setOnClickListener(onClickListener2);
     }
 }

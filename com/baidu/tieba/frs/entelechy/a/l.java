@@ -62,7 +62,7 @@ public class l extends com.baidu.adp.widget.ListView.a<bh, com.baidu.tieba.card.
                     } else if (view.getId() == d.h.card_frs_god_reply_layout) {
                         int i = 6;
                         if (bhVar.sL() != null && bhVar.sL().aCd() != null && bhVar.sL().aCd().ID() != null && bhVar.sL().aCd().ID().size() > 0) {
-                            i = bhVar.sL().ghu ? 9 : 8;
+                            i = bhVar.sL().ght ? 9 : 8;
                         }
                         com.baidu.tieba.frs.f.b.aly().a(com.baidu.tieba.frs.f.c.cGc, bhVar, i);
                     } else {

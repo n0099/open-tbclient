@@ -21,7 +21,7 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             this.addLinkResponseData = new com.baidu.tieba.write.a.a();
             this.errno = jSONObject.optInt("errno", -1);
-            this.addLinkResponseData.gIo = this.errno == 0;
+            this.addLinkResponseData.gIn = this.errno == 0;
             if (this.errno == 0) {
                 this.errmsg = jSONObject.optString("errmsg");
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
@@ -31,23 +31,23 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("link_content");
                     if (optJSONArray != null && optJSONArray.length() != 0) {
                         JSONObject jSONObject2 = (JSONObject) optJSONArray.get(0);
-                        this.addLinkResponseData.gIp = jSONObject2.optInt("link_type");
+                        this.addLinkResponseData.gIo = jSONObject2.optInt("link_type");
                         this.addLinkResponseData.WT = jSONObject2.optString("link_title");
                         this.addLinkResponseData.WU = jSONObject2.optString("link_abstract");
-                        this.addLinkResponseData.gIq = jSONObject2.optString("link_head_pic");
-                        this.addLinkResponseData.gIr = jSONObject2.optString("link_head_small_pic");
-                        this.addLinkResponseData.gIs = jSONObject2.optString("link_head_big_pic");
+                        this.addLinkResponseData.gIp = jSONObject2.optString("link_head_pic");
+                        this.addLinkResponseData.gIq = jSONObject2.optString("link_head_small_pic");
+                        this.addLinkResponseData.gIr = jSONObject2.optString("link_head_big_pic");
                         this.addLinkResponseData.videoUrl = jSONObject2.optString("video_url");
                         this.addLinkResponseData.videoDuration = jSONObject2.optInt("video_duration", 0);
                         this.addLinkResponseData.cuW = jSONObject2.optString("video_format");
-                        this.addLinkResponseData.gIt = jSONObject2.optInt("video_from", 0);
+                        this.addLinkResponseData.gIs = jSONObject2.optInt("video_from", 0);
                         this.addLinkResponseData.videoHeight = jSONObject2.optInt("video_height", 0);
                         this.addLinkResponseData.videoWidth = jSONObject2.optInt("video_width", 0);
                         this.addLinkResponseData.cuU = jSONObject2.optLong("video_size", 0L);
-                        this.addLinkResponseData.gIx = jSONObject2.optInt("thumbnail_height", 0);
-                        this.addLinkResponseData.gIw = jSONObject2.optInt("thumbnail_width", 0);
-                        this.addLinkResponseData.gIv = jSONObject2.optInt("thumbnail_pid", 0);
-                        this.addLinkResponseData.gIu = jSONObject2.optString("thumbnail_url");
+                        this.addLinkResponseData.gIw = jSONObject2.optInt("thumbnail_height", 0);
+                        this.addLinkResponseData.gIv = jSONObject2.optInt("thumbnail_width", 0);
+                        this.addLinkResponseData.gIu = jSONObject2.optInt("thumbnail_pid", 0);
+                        this.addLinkResponseData.gIt = jSONObject2.optString("thumbnail_url");
                     }
                 }
             }

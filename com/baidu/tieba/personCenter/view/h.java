@@ -21,14 +21,14 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class h extends RelativeLayout implements View.OnClickListener {
     private TextView abQ;
-    private ImageView fby;
-    private a fbz;
+    private ImageView fbx;
+    private a fby;
     private Context mContext;
     private View mRootView;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aVu();
+        void aVt();
     }
 
     public h(Context context) {
@@ -40,8 +40,8 @@ public class h extends RelativeLayout implements View.OnClickListener {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(d.j.person_privacy_tip_view, this);
         this.abQ = (TextView) findViewById(d.h.tip_view);
-        this.fby = (ImageView) findViewById(d.h.close_view);
-        this.fby.setOnClickListener(this);
+        this.fbx = (ImageView) findViewById(d.h.close_view);
+        this.fbx.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
     }
 
@@ -59,15 +59,15 @@ public class h extends RelativeLayout implements View.OnClickListener {
         if (viewGroup != null) {
             viewGroup.removeView(this);
         }
-        if (this.fbz != null) {
-            this.fbz.aVu();
+        if (this.fby != null) {
+            this.fby.aVt();
         }
     }
 
     public void onChangeSkinType(int i) {
         aj.d(this, d.e.cp_link_tip_a_alpha80, i);
         aj.b(this.abQ, d.e.cp_cont_g, 1, i);
-        aj.c(this.fby, d.g.icon_home_card_close_white);
+        aj.c(this.fbx, d.g.icon_home_card_close_white);
         this.abQ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aj.getDrawable(d.g.icon_arrow_more_white), (Drawable) null);
     }
 
@@ -76,7 +76,7 @@ public class h extends RelativeLayout implements View.OnClickListener {
         if (view == this.mRootView) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ThreadPrivacyIntermediateActivityConfig(this.mContext)));
             TiebaStatic.log(new ak("c12521").r("obj_locate", 1));
-        } else if (view == this.fby) {
+        } else if (view == this.fbx) {
             hide();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("clicked_blue_tip", true);
             TiebaStatic.log(new ak("c12521").r("obj_locate", 2));

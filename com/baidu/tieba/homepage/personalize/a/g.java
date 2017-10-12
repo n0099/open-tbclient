@@ -33,7 +33,7 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                             if (g.this.cZz.Xu() == null || view.getId() != g.this.cZz.Xu().getId()) {
                                 if (g.this.cZz.bnj == null || g.this.cZz.bnj.getBarNameTv() == null || view.getId() != g.this.cZz.bnj.getBarNameTv().getId()) {
                                     if (g.this.cZz.Xt() != null && view.getId() == g.this.cZz.Xt().getId()) {
-                                        TiebaStatic.log(lVar.jy("c12202"));
+                                        TiebaStatic.log(lVar.jx("c12202"));
                                         return;
                                     }
                                     return;
@@ -41,13 +41,13 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                                 TiebaStatic.log(lVar.Yf());
                                 return;
                             }
-                            TiebaStatic.log(lVar.jx("c12191"));
+                            TiebaStatic.log(lVar.jw("c12191"));
                             return;
                         }
-                        TiebaStatic.log(lVar.jx("c12191"));
+                        TiebaStatic.log(lVar.jw("c12191"));
                         return;
                     }
-                    TiebaStatic.log(lVar.jx("c12192"));
+                    TiebaStatic.log(lVar.jw("c12192"));
                 }
             }
         };
@@ -74,7 +74,7 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         lVar.hR(i + 1);
-        u.XR().a(lVar.jw("c12190"));
+        u.XR().a(lVar.jv("c12190"));
         aVar.Yr().a(lVar);
         aVar.Yr().b(this.cVT);
         aVar.Yr().a(this.aVH);

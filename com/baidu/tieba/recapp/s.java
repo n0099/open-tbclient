@@ -53,12 +53,12 @@ public class s {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.c.a.bfZ().a(advertAppInfo.Uf, advertAppInfo.Ue, str2, i, com.baidu.tieba.recapp.c.a.qF(advertAppInfo.Uf).intValue(), null, true, false, true, advertAppInfo.Um.userPortrait, downloadStaticsData, advertAppInfo.Um.userName);
+        com.baidu.tieba.recapp.c.a.bfY().a(advertAppInfo.Uf, advertAppInfo.Ue, str2, i, com.baidu.tieba.recapp.c.a.qF(advertAppInfo.Uf).intValue(), null, true, false, true, advertAppInfo.Um.userPortrait, downloadStaticsData, advertAppInfo.Um.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.c.a.bfZ().j(advertAppInfo.Ue, advertAppInfo.Uf, true);
+        com.baidu.tieba.recapp.c.a.bfY().j(advertAppInfo.Ue, advertAppInfo.Uf, true);
     }
 
     public static final void as(Context context, String str) {
@@ -185,11 +185,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bfU().sendFRS(z, str, str2, str3, list, str4);
+        r.bfT().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bfU().a(z, str, str2, str3, str4, list, str5);
+        r.bfT().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int h(TbPageContext tbPageContext, String str) {
@@ -208,14 +208,14 @@ public class s {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        i bfR = r.bfU().bfR();
-        if (bfR == null) {
+        i bfQ = r.bfT().bfQ();
+        if (bfQ == null) {
             return false;
         }
-        if (bfR.hB(str)) {
-            bfR.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bfQ.hB(str)) {
+            bfQ.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bfR.d(tbPageContext.getPageActivity(), strArr);
+        return bfQ.d(tbPageContext.getPageActivity(), strArr);
     }
 }

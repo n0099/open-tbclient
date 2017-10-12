@@ -70,10 +70,10 @@ public class c {
             } else if (this.cqC.akX() == 1) {
                 if (!this.cEP.isLoading && !this.cqC.wz()) {
                     int pn2 = this.cEP.getPn();
-                    if (this.cEP.aO(iVar.bpF())) {
+                    if (this.cEP.aO(iVar.bpE())) {
                         this.cqt.a(this.cEP.ajZ(), iVar);
                         this.cEP.setSortType(this.cqC.OZ());
-                        this.cEP.a(com.baidu.adp.lib.g.b.c(str2, 0L), iVar.bpF(), str, pn2);
+                        this.cEP.a(com.baidu.adp.lib.g.b.c(str2, 0L), iVar.bpE(), str, pn2);
                     } else if (this.cEP.agV() == 1) {
                         this.cqt.a(this.cEP.ajZ(), iVar);
                         this.cEP.setPn(pn2);

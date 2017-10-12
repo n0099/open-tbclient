@@ -58,7 +58,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                                 dataRes = ((ConcernPageHttpResMessage) responsedMessage).getResultData();
                             }
                             ConcernNetModel.this.cWx.b(dataRes, z);
-                            l.bmZ().bnc();
+                            l.bmY().bnb();
                             return;
                         }
                     }

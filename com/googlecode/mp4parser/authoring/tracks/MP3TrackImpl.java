@@ -56,7 +56,7 @@ public class MP3TrackImpl extends AbstractTrack {
         double size;
         this.samples = new LinkedList();
         this.firstHeader = readSamples(dataSource);
-        double d = this.firstHeader.gxP / 1152.0d;
+        double d = this.firstHeader.gxO / 1152.0d;
         double size2 = this.samples.size() / d;
         LinkedList linkedList = new LinkedList();
         long j = 0;
@@ -82,7 +82,7 @@ public class MP3TrackImpl extends AbstractTrack {
         this.sampleDescriptionBox = new SampleDescriptionBox();
         AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
         audioSampleEntry.setChannelCount(this.firstHeader.channelCount);
-        audioSampleEntry.setSampleRate(this.firstHeader.gxP);
+        audioSampleEntry.setSampleRate(this.firstHeader.gxO);
         audioSampleEntry.setDataReferenceIndex(1);
         audioSampleEntry.setSampleSize(16);
         ESDescriptorBox eSDescriptorBox = new ESDescriptorBox();
@@ -104,7 +104,7 @@ public class MP3TrackImpl extends AbstractTrack {
         this.trackMetaData.setModificationTime(new Date());
         this.trackMetaData.setLanguage(this.lang);
         this.trackMetaData.setVolume(1.0f);
-        this.trackMetaData.setTimescale(this.firstHeader.gxP);
+        this.trackMetaData.setTimescale(this.firstHeader.gxO);
         this.durations = new long[this.samples.size()];
         Arrays.fill(this.durations, 1152L);
     }
@@ -143,21 +143,21 @@ public class MP3TrackImpl extends AbstractTrack {
     /* loaded from: classes2.dex */
     public class a {
         int channelCount;
+        int gZN;
         int gZO;
         int gZP;
-        int gZQ;
+        int gZu;
         int gZv;
         int gZw;
-        int gZx;
-        int gxP;
+        int gxO;
         int layer;
         int padding;
 
         a() {
         }
 
-        int bFO() {
-            return ((this.gZP * 144) / this.gxP) + this.padding;
+        int bFN() {
+            return ((this.gZO * 144) / this.gxO) + this.padding;
         }
     }
 
@@ -171,7 +171,7 @@ public class MP3TrackImpl extends AbstractTrack {
                     aVar = readMP3Header;
                 }
                 dataSource.position(position);
-                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.bFO());
+                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.bFN());
                 dataSource.read(allocate);
                 allocate.rewind();
                 this.samples.add(new SampleImpl(allocate));
@@ -193,29 +193,29 @@ public class MP3TrackImpl extends AbstractTrack {
         if (bitReaderBuffer.readBits(11) != 2047) {
             throw new IOException("Expected Start Word 0x7ff");
         }
-        aVar.gZw = bitReaderBuffer.readBits(2);
-        if (aVar.gZw != 3) {
+        aVar.gZv = bitReaderBuffer.readBits(2);
+        if (aVar.gZv != 3) {
             throw new IOException("Expected MPEG Version 1 (ISO/IEC 11172-3)");
         }
         aVar.layer = bitReaderBuffer.readBits(2);
         if (aVar.layer != 1) {
             throw new IOException("Expected Layer III");
         }
-        aVar.gZx = bitReaderBuffer.readBits(1);
-        aVar.gZO = bitReaderBuffer.readBits(4);
-        aVar.gZP = BIT_RATE[aVar.gZO];
-        if (aVar.gZP == 0) {
+        aVar.gZw = bitReaderBuffer.readBits(1);
+        aVar.gZN = bitReaderBuffer.readBits(4);
+        aVar.gZO = BIT_RATE[aVar.gZN];
+        if (aVar.gZO == 0) {
             throw new IOException("Unexpected (free/bad) bit rate");
         }
-        aVar.gZv = bitReaderBuffer.readBits(2);
-        aVar.gxP = SAMPLE_RATE[aVar.gZv];
-        if (aVar.gxP == 0) {
+        aVar.gZu = bitReaderBuffer.readBits(2);
+        aVar.gxO = SAMPLE_RATE[aVar.gZu];
+        if (aVar.gxO == 0) {
             throw new IOException("Unexpected (reserved) sample rate frequency");
         }
         aVar.padding = bitReaderBuffer.readBits(1);
         bitReaderBuffer.readBits(1);
-        aVar.gZQ = bitReaderBuffer.readBits(2);
-        aVar.channelCount = aVar.gZQ == 3 ? 1 : 2;
+        aVar.gZP = bitReaderBuffer.readBits(2);
+        aVar.channelCount = aVar.gZP == 3 ? 1 : 2;
         return aVar;
     }
 

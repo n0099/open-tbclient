@@ -20,37 +20,37 @@ import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
 /* loaded from: classes.dex */
 public class c implements com.baidu.tieba.personPolymeric.mode.a {
     private com.baidu.tbadk.core.view.a cdg;
-    private BdUniqueId fff;
+    private BdUniqueId ffe;
     private TbPageContext mG;
-    private int ffd = -1;
-    private String ffe = "";
+    private int ffc = -1;
+    private String ffd = "";
     private com.baidu.tbadk.core.view.c eCi = new com.baidu.tbadk.core.view.c();
 
     public BdUniqueId getUniqueId() {
-        return this.fff;
+        return this.ffe;
     }
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mG = tbPageContext;
         this.eCi.akH = 1000L;
-        this.fff = bdUniqueId;
+        this.ffe = bdUniqueId;
         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_REGISTER_LISTENER);
-        userMuteAddAndDelCustomMessage.mId = this.fff;
+        userMuteAddAndDelCustomMessage.mId = this.ffe;
         userMuteAddAndDelCustomMessage.from = 0;
-        userMuteAddAndDelCustomMessage.setTag(this.fff);
+        userMuteAddAndDelCustomMessage.setTag(this.ffe);
         MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
         UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(CmdConfigCustom.CMD_USER_MUTE_CHECK_REGISTER_LISTENER);
-        userMuteCheckCustomMessage.mId = this.fff;
-        userMuteCheckCustomMessage.setTag(this.fff);
+        userMuteCheckCustomMessage.mId = this.ffe;
+        userMuteCheckCustomMessage.setTag(this.ffe);
         MessageManager.getInstance().sendMessage(userMuteCheckCustomMessage);
     }
 
-    public int aWB() {
-        return this.ffd;
+    public int aWA() {
+        return this.ffc;
     }
 
-    public String aWC() {
-        return this.ffe;
+    public String aWB() {
+        return this.ffd;
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.a
@@ -58,8 +58,8 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
         if (this.cdg != null) {
             this.cdg.aH(false);
         }
-        this.ffd = i2;
-        this.ffe = str;
+        this.ffc = i2;
+        this.ffd = str;
         if (i3 == 0) {
             if (i == 1) {
                 this.eCi.c(this.mG.getString(d.l.mute_success));
@@ -91,7 +91,7 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
             this.cdg.c(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.personPolymeric.b.c.1
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    MessageManager.getInstance().removeMessage(c.this.fff);
+                    MessageManager.getInstance().removeMessage(c.this.ffe);
                 }
             });
         }

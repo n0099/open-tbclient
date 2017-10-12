@@ -18,7 +18,7 @@ import com.baidu.tieba.video.editvideo.data.MusicData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    public int gvr;
+    public int gvq;
     private List<MusicData> mList;
     private e mPageContext;
 
@@ -60,16 +60,16 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.j.layout_music_item, (ViewGroup) null);
             c0130a = new C0130a();
-            c0130a.guD = (TbImageView) view.findViewById(d.h.music_image);
-            c0130a.guG = (TextView) view.findViewById(d.h.music_title);
-            c0130a.guF = view.findViewById(d.h.music_loading);
-            c0130a.guD.setDrawerType(1);
-            c0130a.guD.setIsRound(true);
-            c0130a.guD.setDefaultBgResource(d.e.transparent);
-            c0130a.guD.setDefaultErrorResource(d.g.bg_video_cloudmusic);
-            c0130a.guD.setDefaultResource(d.g.bg_video_cloudmusic);
-            c0130a.guD.setBorderWidth(l.f(this.mPageContext.getPageActivity(), d.f.ds4));
-            c0130a.guD.setBorderColor(aj.getColor(d.e.cp_link_tip_a));
+            c0130a.guC = (TbImageView) view.findViewById(d.h.music_image);
+            c0130a.guF = (TextView) view.findViewById(d.h.music_title);
+            c0130a.guE = view.findViewById(d.h.music_loading);
+            c0130a.guC.setDrawerType(1);
+            c0130a.guC.setIsRound(true);
+            c0130a.guC.setDefaultBgResource(d.e.transparent);
+            c0130a.guC.setDefaultErrorResource(d.g.bg_video_cloudmusic);
+            c0130a.guC.setDefaultResource(d.g.bg_video_cloudmusic);
+            c0130a.guC.setBorderWidth(l.f(this.mPageContext.getPageActivity(), d.f.ds4));
+            c0130a.guC.setBorderColor(aj.getColor(d.e.cp_link_tip_a));
             view.setTag(c0130a);
         } else {
             c0130a = (C0130a) view.getTag();
@@ -78,23 +78,23 @@ public class a extends BaseAdapter {
         if (musicData != null) {
             switch (musicData.editMusicType) {
                 case 1:
-                    c0130a.guD.c(String.valueOf(d.g.icon_video_mute), 24, false);
+                    c0130a.guC.c(String.valueOf(d.g.icon_video_mute), 24, false);
                     break;
                 case 2:
-                    c0130a.guD.c(String.valueOf(d.g.icon_video_cloudmusic), 24, false);
+                    c0130a.guC.c(String.valueOf(d.g.icon_video_cloudmusic), 24, false);
                     break;
                 default:
-                    c0130a.guD.c(musicData.img, 10, false);
+                    c0130a.guC.c(musicData.img, 10, false);
                     break;
             }
-            c0130a.guF.setVisibility(4);
-            c0130a.guG.setTextColor(aj.getColor(d.e.cp_cont_j));
-            c0130a.guG.setText(musicData.name);
-            b(c0130a.guG, l.f(this.mPageContext.getPageActivity(), d.f.ds120), musicData.name);
-            if (i == this.gvr) {
-                c0130a.guD.setDrawBorder(true);
+            c0130a.guE.setVisibility(4);
+            c0130a.guF.setTextColor(aj.getColor(d.e.cp_cont_j));
+            c0130a.guF.setText(musicData.name);
+            b(c0130a.guF, l.f(this.mPageContext.getPageActivity(), d.f.ds120), musicData.name);
+            if (i == this.gvq) {
+                c0130a.guC.setDrawBorder(true);
             } else {
-                c0130a.guD.setDrawBorder(false);
+                c0130a.guC.setDrawBorder(false);
             }
             if (i == 0) {
                 view.setPadding(l.f(this.mPageContext.getPageActivity(), d.f.ds34), l.f(this.mPageContext.getPageActivity(), d.f.ds44), 0, 0);
@@ -115,12 +115,12 @@ public class a extends BaseAdapter {
     }
 
     public void ux(int i) {
-        this.gvr = i;
+        this.gvq = i;
         notifyDataSetChanged();
     }
 
-    public int bvS() {
-        return this.gvr;
+    public int bvR() {
+        return this.gvq;
     }
 
     public void b(TextView textView, int i, String str) {
@@ -139,9 +139,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public class C0130a {
-        public TbImageView guD;
-        public View guF;
-        public TextView guG;
+        public TbImageView guC;
+        public View guE;
+        public TextView guF;
 
         public C0130a() {
         }

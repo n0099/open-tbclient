@@ -66,7 +66,7 @@ public class b extends BaseAdapter {
         public CheckBox euH;
         public BarImageView euI;
         private Drawable euJ;
-        private Drawable gIY;
+        private Drawable gIX;
         public int mSkinType = 3;
 
         public a(View view) {
@@ -83,7 +83,7 @@ public class b extends BaseAdapter {
                 this.euH.setChecked(transmitForumData.checked);
                 this.euI.c(transmitForumData.avatar, 10, false);
                 if (transmitForumData.aaq) {
-                    this.euH.setButtonDrawable(this.gIY);
+                    this.euH.setButtonDrawable(this.gIX);
                 } else {
                     this.euH.setButtonDrawable(this.euJ);
                 }
@@ -93,7 +93,7 @@ public class b extends BaseAdapter {
         public void wB() {
             if (b.euG != this.mSkinType) {
                 aj.i(this.bKm, d.e.cp_cont_b);
-                this.gIY = aj.getDrawable(d.g.icon_list_confirm_d);
+                this.gIX = aj.getDrawable(d.g.icon_list_confirm_d);
                 this.euJ = aj.getDrawable(d.g.transmit_check_box);
             }
             this.mSkinType = b.euG;

@@ -9,11 +9,11 @@ public class x {
     public String Wi;
     public String azf;
     public String cyX;
+    public String fyb;
     public String fyc;
     public String fyd;
     public String fye;
     public String fyf;
-    public String fyg;
     public String mLocate;
     public String mSource;
     public String mType;
@@ -36,26 +36,26 @@ public class x {
             if (!StringUtils.isNull(this.mSource)) {
                 akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
             }
+            if (!StringUtils.isNull(this.fyb)) {
+                akVar.ad("obj_param1", this.fyb);
+            }
             if (!StringUtils.isNull(this.fyc)) {
-                akVar.ad("obj_param1", this.fyc);
+                akVar.ad("obj_param2", this.fyc);
             }
             if (!StringUtils.isNull(this.fyd)) {
-                akVar.ad("obj_param2", this.fyd);
-            }
-            if (!StringUtils.isNull(this.fye)) {
-                akVar.ad("obj_param3", this.fye);
+                akVar.ad("obj_param3", this.fyd);
             }
             if (!StringUtils.isNull(this.Wi)) {
                 akVar.ad("obj_id", this.Wi);
             }
-            if (!StringUtils.isNull(this.fyf)) {
-                akVar.ad("ab_tag", this.fyf);
+            if (!StringUtils.isNull(this.fye)) {
+                akVar.ad("ab_tag", this.fye);
             }
         }
         return akVar;
     }
 
-    public x beF() {
+    public x beE() {
         x xVar = new x();
         xVar.mLocate = this.mLocate;
         xVar.mType = this.mType;
@@ -63,12 +63,12 @@ public class x {
         xVar.azf = this.azf;
         xVar.mUid = this.mUid;
         xVar.mSource = this.mSource;
+        xVar.fyb = this.fyb;
         xVar.fyc = this.fyc;
         xVar.fyd = this.fyd;
-        xVar.fye = this.fye;
         xVar.Wi = this.Wi;
+        xVar.fye = this.fye;
         xVar.fyf = this.fyf;
-        xVar.fyg = this.fyg;
         return xVar;
     }
 }

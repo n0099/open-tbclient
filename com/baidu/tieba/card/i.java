@@ -184,7 +184,7 @@ public class i extends a<com.baidu.tieba.card.data.k> {
             this.bJx.setFirstRowSingleColumn(true);
         }
         d(this.abz, TbadkCoreApplication.getInst().getSkinType());
-        if (m.jo(this.bKq.threadData.getId())) {
+        if (m.jn(this.bKq.threadData.getId())) {
             aj.c(this.mTextTitle, d.e.cp_cont_d, 1);
         } else {
             aj.c(this.mTextTitle, d.e.cp_cont_b, 1);
@@ -221,7 +221,7 @@ public class i extends a<com.baidu.tieba.card.data.k> {
             Xr().a(view, this.bKq);
         }
         if (this.bKq != null && this.bKq.Nj() != null && this.bKq.Nj().rN() != null) {
-            m.jn(this.bKq.threadData.getId());
+            m.jm(this.bKq.threadData.getId());
             m.a(this.mTextTitle, this.bKq.threadData.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
             alaLiveInfoCoreData.fillWithInfoData(this.bKq.Nj().rN());

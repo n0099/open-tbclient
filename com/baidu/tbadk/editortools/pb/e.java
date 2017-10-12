@@ -213,7 +213,7 @@ public class e extends com.baidu.tbadk.editortools.f {
                 this.aCB.getWriteData().setVoice(null);
                 this.aCB.getWriteData().setVoiceDuringTime(-1);
             }
-            if (!this.aCB.bsE()) {
+            if (!this.aCB.bsD()) {
                 xH().showToast(d.l.write_img_limit);
                 return;
             }

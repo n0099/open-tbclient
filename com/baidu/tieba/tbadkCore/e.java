@@ -58,7 +58,7 @@ public class e implements com.baidu.adp.widget.ListView.f {
         this.time = i;
     }
 
-    public String bps() {
+    public String bpr() {
         return this.obj_id;
     }
 

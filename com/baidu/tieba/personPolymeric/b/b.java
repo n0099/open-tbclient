@@ -3,7 +3,7 @@ package com.baidu.tieba.personPolymeric.b;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface b {
-    void aWA();
+    void aWy();
 
     void aWz();
 

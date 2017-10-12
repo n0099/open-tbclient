@@ -24,8 +24,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SelectCoverModel extends BdBaseModel {
     private final HttpMessageListener eNd;
-    private a gvA;
-    private com.baidu.tieba.video.editvideo.a gvz;
+    private com.baidu.tieba.video.editvideo.a gvy;
+    private a gvz;
 
     public SelectCoverModel(TbPageContext tbPageContext, com.baidu.tieba.video.editvideo.a aVar) {
         super(tbPageContext);
@@ -36,24 +36,24 @@ public class SelectCoverModel extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003356 && (httpResponsedMessage instanceof VideoCheckUegResponseMessage)) {
                     String status = ((VideoCheckUegResponseMessage) httpResponsedMessage).getStatus();
                     if (VideoCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                        SelectCoverModel.this.gvz.aSg();
+                        SelectCoverModel.this.gvy.aSg();
                     } else if (VideoCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                         String msg = ((VideoCheckUegResponseMessage) httpResponsedMessage).getMsg();
                         if (TextUtils.isEmpty(msg)) {
                             msg = TbadkCoreApplication.getInst().getResources().getString(d.l.video_ueg_fail);
                         }
-                        SelectCoverModel.this.gvz.pc(msg);
+                        SelectCoverModel.this.gvy.pc(msg);
                     } else {
                         String errorString = httpResponsedMessage.getErrorString();
                         if (TextUtils.isEmpty(errorString)) {
                             errorString = TbadkCoreApplication.getInst().getResources().getString(d.l.video_fail);
                         }
-                        SelectCoverModel.this.gvz.pc(errorString);
+                        SelectCoverModel.this.gvy.pc(errorString);
                     }
                 }
             }
         };
-        this.gvz = aVar;
+        this.gvy = aVar;
         DP();
         this.eNd.setTag(getUniqueId());
         this.eNd.setSelfListener(true);
@@ -73,8 +73,8 @@ public class SelectCoverModel extends BdBaseModel {
     }
 
     public void aA(String str, int i) {
-        this.gvA = new a(str, i);
-        this.gvA.execute(new Void[0]);
+        this.gvz = new a(str, i);
+        this.gvz.execute(new Void[0]);
     }
 
     public void b(final Bitmap bitmap, final String str) {
@@ -95,7 +95,7 @@ public class SelectCoverModel extends BdBaseModel {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass2) str2);
-                    SelectCoverModel.this.gvz.sz(str2);
+                    SelectCoverModel.this.gvy.sz(str2);
                 }
             }.execute(new Void[0]);
         }
@@ -136,7 +136,7 @@ public class SelectCoverModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            SelectCoverModel.this.gvz.r(bitmap);
+            SelectCoverModel.this.gvy.r(bitmap);
         }
     }
 
@@ -253,8 +253,8 @@ public class SelectCoverModel extends BdBaseModel {
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterListener(this.eNd);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
-        if (this.gvA != null) {
-            this.gvA.cancel();
+        if (this.gvz != null) {
+            this.gvz.cancel();
             return false;
         }
         return false;

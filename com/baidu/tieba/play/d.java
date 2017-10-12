@@ -1,7 +1,7 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    String bei();
+    String beh();
 
     j getMediaProgressObserver();
 

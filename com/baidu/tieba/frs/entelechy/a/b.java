@@ -155,7 +155,7 @@ public class b implements r {
         this.cvQ = new q(fVar.getPageContext(), bh.Yl, this.crI.getUniqueId());
         this.cvR = new g(fVar.getPageContext(), bh.Yp, this.crI.getUniqueId());
         this.cvN = new c(fVar.getPageContext(), av.XF, this.crI.getUniqueId());
-        this.cvO = com.baidu.tieba.frs.a.agx().a(fVar.getPageContext(), com.baidu.tieba.tbadkCore.p.gfC, this.crI.getUniqueId(), false);
+        this.cvO = com.baidu.tieba.frs.a.agx().a(fVar.getPageContext(), com.baidu.tieba.tbadkCore.p.gfB, this.crI.getUniqueId(), false);
         this.cvW = new com.baidu.tieba.frs.j(fVar.getPageContext(), k.csn);
         this.cvP = new n(fVar.getPageContext(), aw.XI);
         this.cvU = new d(fVar.getPageContext(), bh.Yt, this.crI.getUniqueId());
@@ -265,13 +265,13 @@ public class b implements r {
             return false;
         }
         this.cvY = new ArrayList();
-        ArrayList<BdUniqueId> bqH = com.baidu.tieba.tbadkCore.n.bqH();
-        if (bqH == null || bqH.size() <= 0) {
+        ArrayList<BdUniqueId> bqG = com.baidu.tieba.tbadkCore.n.bqG();
+        if (bqG == null || bqG.size() <= 0) {
             return false;
         }
-        int size = bqH.size();
+        int size = bqG.size();
         for (int i = 0; i < size; i++) {
-            com.baidu.tieba.frs.d<ICardInfo, ? extends j.a> a = com.baidu.tieba.frs.a.agx().a(this.crI.getPageContext(), bqH.get(i), this.crI.getUniqueId());
+            com.baidu.tieba.frs.d<ICardInfo, ? extends j.a> a = com.baidu.tieba.frs.a.agx().a(this.crI.getPageContext(), bqG.get(i), this.crI.getUniqueId());
             if (a != null) {
                 this.mAdapters.add(a);
                 this.cvY.add(a);
@@ -554,7 +554,7 @@ public class b implements r {
                 if (aVar instanceof com.baidu.tieba.frs.f.c) {
                     com.baidu.tieba.frs.f.c cVar = (com.baidu.tieba.frs.f.c) aVar;
                     if (com.baidu.tieba.frs.f.c.cGc != null) {
-                        if (this.cwe.gel == 1) {
+                        if (this.cwe.gek == 1) {
                             com.baidu.tieba.frs.f.c.cGc.cFS = true;
                         } else {
                             com.baidu.tieba.frs.f.c.cGc.cFS = false;
@@ -574,7 +574,7 @@ public class b implements r {
 
     private void ajl() {
         com.baidu.tieba.frs.f.a aVar = new com.baidu.tieba.frs.f.a();
-        if (this.cwe.gel == 1) {
+        if (this.cwe.gek == 1) {
             aVar.cFS = true;
         } else {
             aVar.cFS = false;

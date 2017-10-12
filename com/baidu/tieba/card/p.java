@@ -169,7 +169,7 @@ public class p extends com.baidu.tieba.card.a<com.baidu.tieba.card.data.m> {
         } else {
             this.bLI.bLM.setVisibility(8);
         }
-        if (m.jo(this.bLH.bes.getId())) {
+        if (m.jn(this.bLH.bes.getId())) {
             aj.c(this.bLI.bKl, d.e.cp_cont_d, 1);
         } else {
             aj.c(this.bLI.bKl, d.e.cp_cont_b, 1);
@@ -199,17 +199,17 @@ public class p extends com.baidu.tieba.card.a<com.baidu.tieba.card.data.m> {
 
     private void XM() {
         if (this.bLH != null && this.bLH.bes != null) {
-            m.jn(this.bLH.bes.getId());
+            m.jm(this.bLH.bes.getId());
             if (!XN()) {
                 UtilHelper.showToast(this.mG.getPageActivity(), d.l.plugin_config_not_found);
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.mG.getPageActivity(), this.bLH.bes.getTid()).cs(this.bLH.bes.rL()).cv(this.bLH.XV()).ct(m.rm()).pj()));
-            jp(this.bLH.bes.getTid());
+            jo(this.bLH.bes.getTid());
         }
     }
 
-    public void jp(final String str) {
+    public void jo(final String str) {
         new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.card.p.1
             @Override // java.lang.Runnable
             public void run() {

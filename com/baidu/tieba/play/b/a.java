@@ -14,123 +14,123 @@ import com.baidu.tieba.play.a.b;
 import com.baidu.tieba.play.g;
 /* loaded from: classes.dex */
 public class a {
-    private b fyp;
+    private b fyo;
+    private int fyp = 0;
     private int fyq = 0;
-    private int fyr = 0;
 
     public a(b bVar) {
-        this.fyp = bVar;
+        this.fyo = bVar;
     }
 
     public boolean a(g gVar, int i, int i2, int i3, Uri uri) {
-        if (this.fyp == null) {
+        if (this.fyo == null) {
             return false;
         }
         if (i == -300) {
-            if (this.fyr == 0) {
-                this.fyr++;
-                this.fyp.b(gVar, i, i2, i3);
-            } else if (this.fyr != 1) {
+            if (this.fyq == 0) {
+                this.fyq++;
+                this.fyo.b(gVar, i, i2, i3);
+            } else if (this.fyq != 1) {
                 return false;
             } else {
-                this.fyr++;
-                this.fyp.c(gVar, i, i2, i3);
+                this.fyq++;
+                this.fyo.c(gVar, i, i2, i3);
             }
             return true;
         } else if (i3 == -4399) {
-            if (this.fyq < 4 && i == -200) {
-                this.fyq = 4;
+            if (this.fyp < 4 && i == -200) {
+                this.fyp = 4;
                 if (!b(gVar, i, i2, i3, uri)) {
-                    this.fyp.b(gVar, i, i2, i3);
+                    this.fyo.b(gVar, i, i2, i3);
                 }
                 return true;
             } else if (i == -100) {
-                this.fyp.c(gVar, i, i2, i3);
+                this.fyo.c(gVar, i, i2, i3);
                 return true;
             } else {
                 return false;
             }
         } else {
-            this.fyq++;
-            if (this.fyq <= 2) {
+            this.fyp++;
+            if (this.fyp <= 2) {
                 if (!b(gVar, i, i2, i3, uri)) {
                     if (i != -200) {
                         return false;
                     }
-                    this.fyq = 2;
-                    this.fyp.b(gVar, i, i2, i3);
+                    this.fyp = 2;
+                    this.fyo.b(gVar, i, i2, i3);
                 }
                 return true;
-            } else if (this.fyq <= 4) {
+            } else if (this.fyp <= 4) {
                 if (i == -200) {
-                    this.fyp.b(gVar, i, i2, i3);
+                    this.fyo.b(gVar, i, i2, i3);
                     return true;
                 }
                 return false;
-            } else if (this.fyq > 6 || i != -200) {
+            } else if (this.fyp > 6 || i != -200) {
                 return false;
             } else {
-                this.fyp.c(gVar, i, i2, i3);
+                this.fyo.c(gVar, i, i2, i3);
                 return true;
             }
         }
     }
 
     private boolean b(g gVar, int i, int i2, int i3, Uri uri) {
-        if (!beI() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost())) {
+        if (!beH() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost())) {
             return false;
         }
-        com.baidu.tieba.play.a.b.beH().a(new C0119a(this.fyp, i, uri, gVar, i2, i3));
-        return com.baidu.tieba.play.a.b.beH().qp(uri.getHost());
+        com.baidu.tieba.play.a.b.beG().a(new C0119a(this.fyo, i, uri, gVar, i2, i3));
+        return com.baidu.tieba.play.a.b.beG().qp(uri.getHost());
     }
 
-    private boolean beI() {
-        return (d.eV().af("android_video_http_dns_open") == 0 || !j.hh() || CustomPlayerSwitchStatic.bdW() == 0) ? false : true;
+    private boolean beH() {
+        return (d.eV().af("android_video_http_dns_open") == 0 || !j.hh() || CustomPlayerSwitchStatic.bdV() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.play.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0119a implements b.InterfaceC0118b {
-        private b fyp;
-        private g fys;
+        private b fyo;
+        private g fyr;
+        private int fys;
         private int fyt;
-        private int fyu;
         private Uri mUri;
         private int what;
 
         public C0119a(b bVar, int i, Uri uri, g gVar, int i2, int i3) {
-            this.fyp = bVar;
+            this.fyo = bVar;
             this.mUri = uri;
-            this.fys = gVar;
-            this.fyt = i;
+            this.fyr = gVar;
+            this.fys = i;
             this.what = i2;
-            this.fyu = i3;
+            this.fyt = i3;
         }
 
         @Override // com.baidu.tieba.play.a.b.InterfaceC0118b
         public void bQ(String str, String str2) {
             try {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || this.mUri == null || !str2.equals(this.mUri.getHost())) {
-                    if (this.fyp != null) {
-                        this.fyp.b(this.fys, this.fyt, this.what, this.fyu);
+                    if (this.fyo != null) {
+                        this.fyo.b(this.fyr, this.fys, this.what, this.fyt);
                     }
-                } else if (this.fyp != null) {
-                    this.fyp.a(this.fys, this.fyt, this.what, this.fyu, str);
+                } else if (this.fyo != null) {
+                    this.fyo.a(this.fyr, this.fys, this.what, this.fyt, str);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
-                if (this.fyp != null) {
-                    this.fyp.b(this.fys, this.fyt, this.what, this.fyu);
+                if (this.fyo != null) {
+                    this.fyo.b(this.fyr, this.fys, this.what, this.fyt);
                 }
             }
         }
     }
 
-    public boolean beJ() {
-        boolean z = this.fyq > 0 || this.fyr > 0;
+    public boolean beI() {
+        boolean z = this.fyp > 0 || this.fyq > 0;
+        this.fyp = 0;
         this.fyq = 0;
-        this.fyr = 0;
         return z;
     }
 

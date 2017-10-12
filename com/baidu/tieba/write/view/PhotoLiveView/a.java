@@ -31,10 +31,10 @@ public class a extends BaseAdapter {
     private b aBO = new b();
     private i aAt = null;
     private int aBR = 13;
-    private int gKg = 6;
-    private boolean gKh = false;
+    private int gKf = 6;
+    private boolean gKg = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    private InterfaceC0141a gKi = new InterfaceC0141a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
+    private InterfaceC0141a gKh = new InterfaceC0141a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
         @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0141a
         public void uY(int i) {
             if (a.this.chosedFiles != null) {
@@ -56,9 +56,9 @@ public class a extends BaseAdapter {
                         a.this.aAt.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                     }
                 }
-                a.this.bAs();
+                a.this.bAr();
                 ((WriteActivity) a.this.mBaseActivity).u(a.this.chosedFiles);
-                a.this.bAp();
+                a.this.bAo();
                 a.this.notifyDataSetChanged();
                 a.this.cjl.invalidateViews();
             }
@@ -71,17 +71,17 @@ public class a extends BaseAdapter {
         void uY(int i);
     }
 
-    public void bAp() {
+    public void bAo() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
-            bAq();
-        } else if (this.chosedFiles.size() < this.gKg) {
+            bAp();
+        } else if (this.chosedFiles.size() < this.gKf) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
-                bAq();
+                bAp();
             }
         }
     }
 
-    private void bAq() {
+    private void bAp() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath("android.resource://" + this.mContext.getPackageName() + "/" + d.g.btn_addpic_n);
         imageFileInfo.setTempFile(true);
@@ -92,14 +92,14 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean bAr() {
+    public boolean bAq() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             return false;
         }
         return this.chosedFiles.get(this.chosedFiles.size() + (-1)).getFilePath().startsWith("android.resource://");
     }
 
-    public void bAs() {
+    public void bAr() {
         if (this.chosedFiles != null && this.chosedFiles.size() > 0) {
             int size = this.chosedFiles.size() - 1;
             if (this.chosedFiles.get(size).getFilePath().startsWith("android.resource://")) {
@@ -156,7 +156,7 @@ public class a extends BaseAdapter {
         if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.size() > 0) {
             this.chosedFiles.addAll(writeImagesInfo.getChosedFiles());
         }
-        bAp();
+        bAo();
         notifyDataSetInvalidated();
     }
 
@@ -229,8 +229,8 @@ public class a extends BaseAdapter {
                     if (!z2) {
                         l.e(a.this.mContext, d.l.editor_mutiiamge_image_error);
                     } else if (a.this.aAt != null) {
-                        if (a.this.bAr()) {
-                            a.this.bAs();
+                        if (a.this.bAq()) {
+                            a.this.bAr();
                         }
                         ((WriteActivity) a.this.mBaseActivity).u(a.this.chosedFiles);
                         a.this.aAt.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
@@ -241,8 +241,8 @@ public class a extends BaseAdapter {
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.gKi != null) {
-                    a.this.gKi.uY(i);
+                if (a.this.gKh != null) {
+                    a.this.gKh.uY(i);
                 }
             }
         });
@@ -250,6 +250,6 @@ public class a extends BaseAdapter {
     }
 
     public void uX(int i) {
-        this.gKg = i;
+        this.gKf = i;
     }
 }

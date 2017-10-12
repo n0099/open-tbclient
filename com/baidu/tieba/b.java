@@ -21,8 +21,8 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.bfU().bfP() != null) {
-                r.bfU().bfP().bfH();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.bfT().bfO() != null) {
+                r.bfT().bfO().bfG();
             }
         }
     };
@@ -94,8 +94,8 @@ public class b {
         MessageManager.getInstance().registerListener(this.aUi);
         MessageManager.getInstance().registerListener(this.aUg);
         MessageManager.getInstance().registerListener(this.aUj);
-        if (r.bfU().bfP() != null) {
-            r.bfU().bfP().bfG();
+        if (r.bfT().bfO() != null) {
+            r.bfT().bfO().bfF();
         }
     }
 
@@ -116,8 +116,8 @@ public class b {
         } else if (currentTimeMillis - this.aUb <= 2 || currentTimeMillis - this.aUb <= this.aUf) {
             return false;
         } else {
-            m bfP = r.bfU().bfP();
-            return (bfP != null ? bfP.bfI() : 3) < 3;
+            m bfO = r.bfT().bfO();
+            return (bfO != null ? bfO.bfH() : 3) < 3;
         }
     }
 

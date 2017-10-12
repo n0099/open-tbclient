@@ -65,7 +65,7 @@ public class b extends h {
                         TbadkCoreApplication.getInst().addLikeForum(this.cxi.getForumName());
                         return;
                     }
-                    com.baidu.tieba.tbadkCore.c.bpq().Y(this.cxi.getForumName(), false);
+                    com.baidu.tieba.tbadkCore.c.bpp().Y(this.cxi.getForumName(), false);
                     ahk.aMZ().setLike(0);
                     this.cqD.alW();
                     TbadkCoreApplication.getInst().delLikeForum(this.cxi.getForumName());

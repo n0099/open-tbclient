@@ -69,7 +69,7 @@ public class a extends BaseFragment implements ai {
         super.onPrimary();
         if (this.blC || StringUtils.isNull(this.bZv.Pc().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.bZv.loadUrl(ih(this.mUrl));
+                this.bZv.loadUrl(ig(this.mUrl));
             } else {
                 this.bZv.loadUrl(this.mUrl);
             }
@@ -77,7 +77,7 @@ public class a extends BaseFragment implements ai {
         }
     }
 
-    private String ih(String str) {
+    private String ig(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -126,7 +126,7 @@ public class a extends BaseFragment implements ai {
         super.onChangeSkinType(i);
         if (!this.blC) {
             if (i == 1) {
-                this.bZv.loadUrl(ih(this.mUrl));
+                this.bZv.loadUrl(ig(this.mUrl));
             } else {
                 this.bZv.loadUrl(this.mUrl);
             }

@@ -139,8 +139,8 @@ public class c {
     protected final a.InterfaceC0109a eRD = new a.InterfaceC0109a() { // from class: com.baidu.tieba.pb.pb.sub.c.1
         @Override // com.baidu.tieba.pb.a.InterfaceC0109a
         public void d(String str, String str2, String str3, String str4, String str5) {
-            if (c.this.ePx != null && c.this.ezm != null && c.this.ePx.aNR() != null && c.this.ePx.Nj() != null && c.this.ezm.brG() != null && !"VIEW_TRUE".equals(str3) && !"VIEW_CAROUSEL".equals(str3)) {
-                com.baidu.tieba.pb.a.a(c.this.ezm.brG().getTemplateId(), c.this.ezm.brG().brf(), str, "PB", str2, str3, "tpoint", str4, str5, c.this.ePx.aNR().getId(), c.this.ePx.aNR().getName(), c.this.ePx.Nj().getTid());
+            if (c.this.ePx != null && c.this.ezm != null && c.this.ePx.aNR() != null && c.this.ePx.Nj() != null && c.this.ezm.brF() != null && !"VIEW_TRUE".equals(str3) && !"VIEW_CAROUSEL".equals(str3)) {
+                com.baidu.tieba.pb.a.a(c.this.ezm.brF().getTemplateId(), c.this.ezm.brF().bre(), str, "PB", str2, str3, "tpoint", str4, str5, c.this.ePx.aNR().getId(), c.this.ePx.aNR().getName(), c.this.ePx.Nj().getTid());
             }
         }
     };
@@ -736,7 +736,7 @@ public class c {
             }
             if (mVar.aNK() != null) {
                 this.eRs = mVar.aNK().getId();
-                this.aRp = mVar.aNK().bry();
+                this.aRp = mVar.aNK().brx();
                 if (this.aRp > 0) {
                     this.mNavigationBar.setCenterTextTitle(String.format(this.eQZ.getResources().getString(d.l.subpb_floor_reply_count), am.x(mVar.getTotalCount())));
                     this.eRv.setText(d.l.say_your_point);
@@ -825,14 +825,14 @@ public class c {
     public void a(PostData postData, boolean z, boolean z2, int i, boolean z3) {
         if (postData != null && !this.eQR) {
             this.ezm = postData;
-            if (!StringUtils.isNull(postData.brE())) {
+            if (!StringUtils.isNull(postData.brD())) {
                 this.eRj.setVisibility(0);
-                this.eRj.c(postData.brE(), 10, true);
+                this.eRj.c(postData.brD(), 10, true);
             } else {
                 this.eRj.setVisibility(8);
             }
-            h brG = postData.brG();
-            if (brG != null && brG.ggr) {
+            h brF = postData.brF();
+            if (brF != null && brF.ggq) {
                 this.eRk.setVisibility(0);
             } else {
                 this.eRk.setVisibility(8);
@@ -862,10 +862,10 @@ public class c {
             } else {
                 int i3 = d.g.icon_click;
             }
-            this.eRh.setText(String.format(this.eQZ.getPageContext().getString(d.l.is_floor), Integer.valueOf(postData.bry())));
+            this.eRh.setText(String.format(this.eQZ.getPageContext().getString(d.l.is_floor), Integer.valueOf(postData.brx())));
             postData.getAuthor().getUserTbVipInfoData();
             boolean a = a(this.eRi, postData.aCd());
-            if (StringUtils.isNull(postData.brE()) && !a && postData.IL() != null) {
+            if (StringUtils.isNull(postData.brD()) && !a && postData.IL() != null) {
                 this.bLr.setVisibility(0);
                 this.bLr.setTag(postData.IL());
                 return;
@@ -935,7 +935,7 @@ public class c {
                     case 2:
                     case 18:
                         tbRichTextData.ch(true);
-                        textView.setMovementMethod(com.baidu.tieba.view.b.bxX());
+                        textView.setMovementMethod(com.baidu.tieba.view.b.bxW());
                         continue;
                     case 17:
                         String str = next.IO().mGifInfo.mSharpText;
@@ -988,7 +988,7 @@ public class c {
         this.eRw.setVisibility(8);
     }
 
-    public void kH(String str) {
+    public void kG(String str) {
         b(NoDataViewFactory.d.ag(str, this.eQZ.getPageContext().getString(d.l.refresh_view_title_text)));
         if (this.eQQ != null) {
             this.eQQ.bm(this.ewK);
@@ -1071,7 +1071,7 @@ public class c {
                         z5 = true;
                         z4 = true;
                     }
-                    int i2 = postData.bry() != 1 ? 0 : 1;
+                    int i2 = postData.brx() != 1 ? 0 : 1;
                     if (com.baidu.tieba.pb.pb.main.am.l(postData)) {
                         z6 = z2;
                     } else {
@@ -1142,7 +1142,7 @@ public class c {
                 z5 = true;
                 z4 = true;
             }
-            if (postData.bry() != 1) {
+            if (postData.brx() != 1) {
             }
             if (com.baidu.tieba.pb.pb.main.am.l(postData)) {
             }
@@ -1193,7 +1193,7 @@ public class c {
             this.dKF.Cz().onChangeSkinType(i);
         }
         this.eRm.dz(i);
-        this.bLr.bgi();
+        this.bLr.bgh();
         aj.i(this.eRv, d.e.cp_cont_e);
         aj.i(this.eJr, d.e.cp_link_tip_a);
         aj.i(this.aou, d.e.cp_cont_c);

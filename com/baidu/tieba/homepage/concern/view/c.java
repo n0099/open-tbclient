@@ -184,7 +184,7 @@ public class c extends com.baidu.tieba.card.a<n> {
         }
         if (this.bKK != null && this.bKK.bes != null) {
             if (!Xv()) {
-                m.jn(this.bKK.bes.getId());
+                m.jm(this.bKK.bes.getId());
                 m.a(this.mTextTitle, this.bKK.bes.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
             }
             PbActivityConfig addLocateParam = new PbActivityConfig(this.abz.getPageActivity()).createFromThreadCfg(this.bKK.bes, null, m.rm(), 18003, true, false, false).addLocateParam(this.bKK.XV());
@@ -210,7 +210,7 @@ public class c extends com.baidu.tieba.card.a<n> {
         }
         this.bmW.setVisibility(0);
         XE();
-        if (!Xv() && m.jo(this.bKK.bes.getId())) {
+        if (!Xv() && m.jn(this.bKK.bes.getId())) {
             m.a(this.mTextTitle, this.bKK.bes.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
             m.a(this.bJw.getGodReplyContent(), this.bKK.Nj().getId(), d.e.cp_cont_f, d.e.cp_cont_d);
         }
@@ -239,7 +239,7 @@ public class c extends com.baidu.tieba.card.a<n> {
         this.bJw.setData(this.bKK.Nj().sL());
         this.bJw.onChangeSkinType();
         d(this.abz, TbadkCoreApplication.getInst().getSkinType());
-        if (m.jo(this.bKK.bes.getId())) {
+        if (m.jn(this.bKK.bes.getId())) {
             aj.c(this.mTextTitle, d.e.cp_cont_d, 1);
         } else {
             aj.c(this.mTextTitle, d.e.cp_cont_b, 1);

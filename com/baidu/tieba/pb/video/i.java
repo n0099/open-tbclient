@@ -107,7 +107,7 @@ public class i {
     private c.d eTM = new c.d() { // from class: com.baidu.tieba.pb.video.i.3
         @Override // com.baidu.tieba.play.c.d
         public void jX(boolean z) {
-            i.this.kA(z ? "1" : "2");
+            i.this.kz(z ? "1" : "2");
         }
     };
     private t.a dXN = new t.a() { // from class: com.baidu.tieba.pb.video.i.6
@@ -275,13 +275,13 @@ public class i {
             this.cus.azf = str;
             this.cus.mUid = TbadkCoreApplication.getCurrentAccount();
             this.cus.mSource = bhVar.ZH;
-            this.cus.fyd = bhVar.ZI;
-            this.cus.fye = this.eDC.aOf();
-            this.cus.fyf = bhVar.ZJ;
-            this.cus.fyg = videoInfo.video_md5;
-            x beF = this.cus.beF();
-            beF.mLocate = "6";
-            this.bKD.setVideoStatsData(beF);
+            this.cus.fyc = bhVar.ZI;
+            this.cus.fyd = this.eDC.aOf();
+            this.cus.fye = bhVar.ZJ;
+            this.cus.fyf = videoInfo.video_md5;
+            x beE = this.cus.beE();
+            beE.mLocate = "6";
+            this.bKD.setVideoStatsData(beE);
             this.cup.getVideoView().setBusiness(this.bKD);
             if (this.cup.aEt()) {
                 this.cup.aEr();
@@ -332,7 +332,7 @@ public class i {
                         if (i.this.eTs.sz() != null) {
                             j = i.this.eTs.sz().channelId;
                         }
-                        i.this.kA(z ? "1" : "2");
+                        i.this.kz(z ? "1" : "2");
                         TiebaStatic.log(new ak("c10795").ad("tid", i.this.eTs.getTid()).f("fid", i.this.eTs.getFid()).f("obj_id", j));
                     }
                 }
@@ -407,10 +407,10 @@ public class i {
 
     public void onPause() {
         if (this.cup != null) {
-            if (this.cup.bea()) {
+            if (this.cup.bdZ()) {
                 this.eTv = true;
                 this.cup.pausePlay();
-            } else if (this.cup.beg() == 3) {
+            } else if (this.cup.bef() == 3) {
                 this.eTv = false;
             } else {
                 this.eTv = false;
@@ -496,7 +496,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kA(String str) {
+    public void kz(String str) {
         if (this.eTp != null) {
             if ("1".equals(str) || "2".equals(str)) {
                 com.baidu.tieba.play.l.a(this.eTp.video_md5, "", str, this.cus);
@@ -601,7 +601,7 @@ public class i {
                     }, 100L);
                 }
             } else if (this.eTy == 0) {
-                if (this.cup.bea()) {
+                if (this.cup.bdZ()) {
                     int height = aUo().getHeight() - Math.abs((int) aUo().getY());
                     return;
                 }

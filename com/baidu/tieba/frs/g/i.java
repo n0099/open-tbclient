@@ -270,7 +270,7 @@ public class i {
         PhotoLiveActivityConfig pj;
         if (fVar != null && bhVar != null) {
             if (bhVar.getThreadType() == 33 || (bhVar instanceof aw)) {
-                if (bhVar.rR() > 0 && com.baidu.tieba.tbadkCore.util.f.bsw()) {
+                if (bhVar.rR() > 0 && com.baidu.tieba.tbadkCore.util.f.bsv()) {
                     pj = new PhotoLiveActivityConfig.a(fVar.getPageContext().getPageActivity(), bhVar.getTid()).cu("from_frs").bF(18003).cs(String.valueOf(bhVar.rR())).pj();
                 } else {
                     pj = new PhotoLiveActivityConfig.a(fVar.getPageContext().getPageActivity(), bhVar.getTid()).cu("from_frs").bF(18003).pj();
@@ -283,7 +283,7 @@ public class i {
     public static void a(com.baidu.tieba.frs.f fVar, bh bhVar, int i, boolean z) {
         PbActivityConfig createFromThreadCfg;
         if (fVar != null && bhVar != null) {
-            if (bhVar.rR() > 0 && com.baidu.tieba.tbadkCore.util.f.bsw()) {
+            if (bhVar.rR() > 0 && com.baidu.tieba.tbadkCore.util.f.bsv()) {
                 createFromThreadCfg = new PbActivityConfig(fVar.getPageContext().getPageActivity()).createHistoryCfg(bhVar.getTid(), String.valueOf(bhVar.rR()), false, true, null);
             } else {
                 createFromThreadCfg = new PbActivityConfig(fVar.getPageContext().getPageActivity()).createFromThreadCfg(bhVar, fVar.getForumName(), null, 18003, true, false, z);

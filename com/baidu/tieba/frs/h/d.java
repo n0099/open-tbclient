@@ -74,7 +74,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.e {
         if (this.cEa == null || !this.cEa.isShowing()) {
             return false;
         }
-        this.cEa.byS();
+        this.cEa.byR();
         return true;
     }
 

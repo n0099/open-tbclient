@@ -7,36 +7,36 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private static int gjt = 6144000;
-    private static int gju = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b gjv;
+    private static int gjs = 6144000;
+    private static int gjt = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b gju;
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (d.eV().af("is_video_batch") == 1) {
-                this.gjv = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gju);
+                this.gju = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gjt);
             } else {
-                this.gjv = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gjt);
+                this.gju = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gjs);
             }
-            this.gjv.a(eVar);
-            return this.gjv.az(str2, i);
+            this.gju.a(eVar);
+            return this.gju.az(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;
         }
     }
 
-    public void bsx() {
-        if (this.gjv != null) {
-            this.gjv.cancel();
+    public void bsw() {
+        if (this.gju != null) {
+            this.gju.cancel();
         }
     }
 
     public static void tK(int i) {
         if (i <= 0) {
-            gju = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+            gjt = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
-            gju = i;
+            gjt = i;
         }
     }
 
@@ -50,9 +50,9 @@ public class a {
 
     public static void tM(int i) {
         if (i <= 0) {
-            gjt = 6144000;
+            gjs = 6144000;
         } else {
-            gjt = i;
+            gjs = i;
         }
     }
 }

@@ -137,9 +137,9 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         spannableStringBuilder2.append((CharSequence) "tag");
         spannableStringBuilder2.setSpan(new com.baidu.adp.widget.b(drawable, 1), 0, spannableStringBuilder2.length(), 33);
-        if (postData.brK() >= 0) {
+        if (postData.brJ() >= 0) {
             int length = spannableStringBuilder2.length();
-            spannableStringBuilder2.append((CharSequence) (" " + am.u(postData.brK()) + getResources().getString(d.l.zan)));
+            spannableStringBuilder2.append((CharSequence) (" " + am.u(postData.brJ()) + getResources().getString(d.l.zan)));
             spannableStringBuilder2.setSpan(new ForegroundColorSpan(aj.getColor(d.e.cp_cont_h)), length, spannableStringBuilder2.length(), 33);
         }
         spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
@@ -268,7 +268,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         aj.k(this.mRootView, d.e.cp_bg_line_e);
         aj.k(this.anN, d.e.cp_bg_line_e);
         aj.i(this.anN, d.e.cp_cont_f);
-        this.anO.bgi();
+        this.anO.bgh();
     }
 
     public TextView getGodReplyContent() {

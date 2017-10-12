@@ -197,7 +197,7 @@ public class g extends k<PostData, h> implements View.OnClickListener {
             } else {
                 sparseArray.put(d.h.tag_richtext_bg, postData.getBimg_url());
                 hVar.eAA.gX(postData.getBimg_url());
-                if (postData.bry() == 1) {
+                if (postData.brx() == 1) {
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) hVar.eAA.getLayoutParams();
                     layoutParams2.topMargin = getDimensionPixelSize(d.f.ds16);
                     layoutParams2.bottomMargin = getDimensionPixelSize(d.f.ds40);
@@ -211,7 +211,7 @@ public class g extends k<PostData, h> implements View.OnClickListener {
             }
             hVar.eAy.setText(am.q(postData.getTime()));
             hVar.eAD.setVisibility(8);
-            if (postData.bry() == 1) {
+            if (postData.brx() == 1) {
                 aj.k(hVar.eAq, d.e.cp_bg_line_d);
                 hVar.eAr.setVisibility(8);
                 hVar.eAI.setVisibility(8);
@@ -230,7 +230,7 @@ public class g extends k<PostData, h> implements View.OnClickListener {
                     str = postData.getAuthor().getUserName();
                     str2 = postData.getAuthor().getName_show();
                 }
-                hVar.eAD.a(postData.brF(), str, str2, j, com.baidu.adp.lib.g.b.c(this.eAc.aNb().getId(), 0L), com.baidu.adp.lib.g.b.c(postData.getId(), 0L));
+                hVar.eAD.a(postData.brE(), str, str2, j, com.baidu.adp.lib.g.b.c(this.eAc.aNb().getId(), 0L), com.baidu.adp.lib.g.b.c(postData.getId(), 0L));
                 hVar.eAD.onChangeSkinType();
                 if (this.eAb) {
                     PraiseData rl = this.eAc.aNb().rl();
@@ -275,13 +275,13 @@ public class g extends k<PostData, h> implements View.OnClickListener {
                 hVar.eAI.setVisibility(0);
                 aj.k(hVar.eAq, d.e.cp_bg_line_e);
                 hVar.eAr.setVisibility(0);
-                com.baidu.tbadk.data.g brB = postData.brB();
+                com.baidu.tbadk.data.g brA = postData.brA();
                 hVar.eAR.setVisibility(8);
-                if (brB != null && !TextUtils.isEmpty(brB.getName()) && !TextUtils.isEmpty(brB.getName().trim())) {
-                    final String name = brB.getName();
-                    final String lat = brB.getLat();
-                    final String lng = brB.getLng();
-                    hVar.eAV.setText(brB.getName());
+                if (brA != null && !TextUtils.isEmpty(brA.getName()) && !TextUtils.isEmpty(brA.getName().trim())) {
+                    final String name = brA.getName();
+                    final String lat = brA.getLat();
+                    final String lng = brA.getLng();
+                    hVar.eAV.setText(brA.getName());
                     aj.c(hVar.eAV, d.e.cp_cont_c, 1);
                     hVar.eAV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.a.g.1
                         @Override // android.view.View.OnClickListener
@@ -302,7 +302,7 @@ public class g extends k<PostData, h> implements View.OnClickListener {
                 hVar.eAC.setVisibility(8);
                 hVar.eAE.setVisibility(0);
                 hVar.eAy.setVisibility(0);
-                String format = String.format(this.mContext.getString(d.l.is_floor), Integer.valueOf(postData.bry()));
+                String format = String.format(this.mContext.getString(d.l.is_floor), Integer.valueOf(postData.brx()));
                 hVar.eAx.setVisibility(0);
                 hVar.eAx.setText(format);
             }
@@ -321,8 +321,8 @@ public class g extends k<PostData, h> implements View.OnClickListener {
             sparseArray2.put(d.h.tag_load_sub_data, postData);
             sparseArray2.put(d.h.tag_load_sub_view, view);
             sparseArray2.put(d.h.tag_pb_floor_postion, Integer.valueOf(i));
-            sparseArray2.put(d.h.tag_pb_floor_number, Integer.valueOf(postData.bry()));
-            if (postData.brC() > 0) {
+            sparseArray2.put(d.h.tag_pb_floor_number, Integer.valueOf(postData.brx()));
+            if (postData.brB() > 0) {
                 if (this.eAd == null) {
                     this.eAd = new com.baidu.tieba.pb.pb.sub.d(this.mContext);
                     this.eAd.setIsFromCDN(this.mIsFromCDN);
@@ -499,7 +499,7 @@ public class g extends k<PostData, h> implements View.OnClickListener {
                                 hVar.eAM.setVisibility(8);
                             }
                             int i6 = 1;
-                            if (postData.bry() == 1) {
+                            if (postData.brx() == 1) {
                                 i6 = 0;
                             }
                             sparseArray2.put(d.h.tag_forbid_user_post_id, postData.getId());
@@ -533,11 +533,11 @@ public class g extends k<PostData, h> implements View.OnClickListener {
                             } else {
                                 sparseArray2.put(d.h.tag_should_delete_visible, false);
                             }
-                            a(hVar, postData, postData.bry() != 1, tbRichText);
+                            a(hVar, postData, postData.brx() != 1, tbRichText);
                             b(hVar);
                             a(view, postData);
                             if (this.eAl == null && tbRichText != null && !TextUtils.isEmpty(tbRichText.toString())) {
-                                this.eAl.bya();
+                                this.eAl.bxZ();
                                 return;
                             }
                             return;
@@ -554,7 +554,7 @@ public class g extends k<PostData, h> implements View.OnClickListener {
                     if (!z) {
                     }
                     int i62 = 1;
-                    if (postData.bry() == 1) {
+                    if (postData.brx() == 1) {
                     }
                     sparseArray2.put(d.h.tag_forbid_user_post_id, postData.getId());
                     if (!z) {
@@ -563,7 +563,7 @@ public class g extends k<PostData, h> implements View.OnClickListener {
                     }
                     if (!z6) {
                     }
-                    a(hVar, postData, postData.bry() != 1, tbRichText);
+                    a(hVar, postData, postData.brx() != 1, tbRichText);
                     b(hVar);
                     a(view, postData);
                     if (this.eAl == null) {
@@ -592,7 +592,7 @@ public class g extends k<PostData, h> implements View.OnClickListener {
                     if (!z) {
                     }
                     int i622 = 1;
-                    if (postData.bry() == 1) {
+                    if (postData.brx() == 1) {
                     }
                     sparseArray2.put(d.h.tag_forbid_user_post_id, postData.getId());
                     if (!z) {
@@ -601,7 +601,7 @@ public class g extends k<PostData, h> implements View.OnClickListener {
                     }
                     if (!z6) {
                     }
-                    a(hVar, postData, postData.bry() != 1, tbRichText);
+                    a(hVar, postData, postData.brx() != 1, tbRichText);
                     b(hVar);
                     a(view, postData);
                     if (this.eAl == null) {
@@ -619,7 +619,7 @@ public class g extends k<PostData, h> implements View.OnClickListener {
             if (!z) {
             }
             int i6222 = 1;
-            if (postData.bry() == 1) {
+            if (postData.brx() == 1) {
             }
             sparseArray2.put(d.h.tag_forbid_user_post_id, postData.getId());
             if (!z) {
@@ -628,7 +628,7 @@ public class g extends k<PostData, h> implements View.OnClickListener {
             }
             if (!z6) {
             }
-            a(hVar, postData, postData.bry() != 1, tbRichText);
+            a(hVar, postData, postData.brx() != 1, tbRichText);
             b(hVar);
             a(view, postData);
             if (this.eAl == null) {
@@ -659,7 +659,7 @@ public class g extends k<PostData, h> implements View.OnClickListener {
     }
 
     private boolean f(PostData postData) {
-        return (this.eAc == null || this.eAc.aNb() == null || !this.eAc.aNb().sh() || this.eAc.aNb().rj() == null || postData.bry() != 1) ? false : true;
+        return (this.eAc == null || this.eAc.aNb() == null || !this.eAc.aNb().sh() || this.eAc.aNb().rj() == null || postData.brx() != 1) ? false : true;
     }
 
     private void a(View view, PostData postData) {

@@ -27,21 +27,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class g {
-    private static volatile g gxV;
+    private static volatile g gxU;
 
     private g() {
-        f.bwC();
+        f.bwB();
     }
 
-    public static g bwI() {
-        if (gxV == null) {
+    public static g bwH() {
+        if (gxU == null) {
             synchronized (g.class) {
-                if (gxV == null) {
-                    gxV = new g();
+                if (gxU == null) {
+                    gxU = new g();
                 }
             }
         }
-        return gxV;
+        return gxU;
     }
 
     public boolean j(List<String> list, String str) {
@@ -127,7 +127,7 @@ public class g {
             return false;
         }
         long currentTimeMillis2 = System.currentTimeMillis();
-        String str5 = com.baidu.tieba.video.b.gtW + (ao.dQ(str + str2 + str3) + "/");
+        String str5 = com.baidu.tieba.video.b.gtV + (ao.dQ(str + str2 + str3) + "/");
         new File(str5).mkdirs();
         File file2 = new File(str3);
         file2.mkdirs();
@@ -214,10 +214,10 @@ public class g {
                 }
                 String str5 = str2 + "temp_" + i + "_" + System.currentTimeMillis();
                 if (new b(strArr[i]).a(str5, z, sP, aVar) != null) {
-                    if (!z && i != 0 && aVar.bwD()) {
+                    if (!z && i != 0 && aVar.bwC()) {
                         str3 = str2 + "resample_" + System.currentTimeMillis();
                         long currentTimeMillis = System.currentTimeMillis();
-                        boolean e = f.e(str5, str3, aVar.gxP, sP.gxP);
+                        boolean e = f.e(str5, str3, aVar.gxO, sP.gxO);
                         BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
                     }
                     str3 = str5;
@@ -227,26 +227,26 @@ public class g {
                 aVar2 = aVar;
                 z2 = z;
             }
-            MultiAudioMixer bwG = MultiAudioMixer.bwG();
-            bwG.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.g.1
-                FileOutputStream gxW;
+            MultiAudioMixer bwF = MultiAudioMixer.bwF();
+            bwF.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.g.1
+                FileOutputStream gxV;
 
                 {
-                    this.gxW = new FileOutputStream(str4);
+                    this.gxV = new FileOutputStream(str4);
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
                 public void C(byte[] bArr) throws IOException {
-                    if (this.gxW != null) {
-                        this.gxW.write(bArr);
+                    if (this.gxV != null) {
+                        this.gxV.write(bArr);
                     }
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
                 public void uA(int i2) {
                     try {
-                        if (this.gxW != null) {
-                            this.gxW.close();
+                        if (this.gxV != null) {
+                            this.gxV.close();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -254,19 +254,19 @@ public class g {
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
-                public void bwH() {
+                public void bwG() {
                     try {
-                        if (this.gxW != null) {
-                            this.gxW.close();
+                        if (this.gxV != null) {
+                            this.gxV.close();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 }
             });
-            bwG.a(fileArr);
+            bwF.a(fileArr);
             d sO = d.sO(str4);
-            sO.setSampleRate(sP.gxP);
+            sO.setSampleRate(sP.gxO);
             sO.setChannelCount(sP.channelCount);
             sO.sN(str);
             return true;

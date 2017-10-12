@@ -262,7 +262,7 @@ public class e extends com.baidu.tieba.card.a<bh> implements v {
             }
         }
         d(this.mG, TbadkCoreApplication.getInst().getSkinType());
-        if (m.jo(this.ajg.getId())) {
+        if (m.jn(this.ajg.getId())) {
             m.a(this.mTitle, this.ajg.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
             m.a(this.bLt, this.ajg.getId(), d.e.cp_cont_c, d.e.cp_cont_d);
         }
@@ -378,7 +378,7 @@ public class e extends com.baidu.tieba.card.a<bh> implements v {
             VoiceData.VoiceModel voiceModel = rJ.get(0);
             this.bLr.setVoiceModel(voiceModel);
             this.bLr.setTag(voiceModel);
-            this.bLr.bgi();
+            this.bLr.bgh();
             if (voiceModel != null) {
                 this.bLr.nh(voiceModel.voice_status.intValue());
             }
@@ -569,7 +569,7 @@ public class e extends com.baidu.tieba.card.a<bh> implements v {
     public void XJ() {
         PbActivityConfig createFromThreadCfg;
         if (this.ajg != null) {
-            m.jn(this.ajg.getId());
+            m.jm(this.ajg.getId());
             m.a(this.mTitle, this.ajg.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
             m.a(this.bLt, this.ajg.getId(), d.e.cp_cont_c, d.e.cp_cont_d);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_AD_FRS_THREAD_CLICKED, this.ajg));
@@ -602,7 +602,7 @@ public class e extends com.baidu.tieba.card.a<bh> implements v {
             } else {
                 r.gO(this.ajg.getId());
                 boolean z = this.ajg.getType() != bh.Yi;
-                if (this.ajg.rR() > 0 && com.baidu.tieba.tbadkCore.util.f.bsw()) {
+                if (this.ajg.rR() > 0 && com.baidu.tieba.tbadkCore.util.f.bsv()) {
                     createFromThreadCfg = new PbActivityConfig(this.mG.getPageActivity()).createHistoryCfg(this.ajg.getTid(), String.valueOf(this.ajg.rR()), false, z, m.rm());
                 } else {
                     createFromThreadCfg = new PbActivityConfig(this.mG.getPageActivity()).createFromThreadCfg(this.ajg, this.mForumName, m.rm(), 18003, z, false, false);

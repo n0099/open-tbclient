@@ -136,7 +136,7 @@ public class e extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
             return null;
         }
         lVar.hR(i + 1);
-        u.XR().a(lVar.jv("c12351"));
+        u.XR().a(lVar.ju("c12351"));
         aVar.Yr().a(lVar);
         aVar.Yr().b(this.cVT);
         return aVar.getView();

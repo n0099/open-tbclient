@@ -25,8 +25,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int cid;
     private int ctime;
     private int dataSize;
+    private String gei;
     private String gej;
-    private String gek;
     private int isGood;
     private String kw;
     private String lastId;
@@ -182,11 +182,11 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void rC(String str) {
-        this.gej = str;
+        this.gei = str;
     }
 
     public void setObjSource(String str) {
-        this.gek = str;
+        this.gej = str;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -218,10 +218,10 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.yuelaou_locate = this.anq;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.bgz().bgC();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.bgy().bgB();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.gej;
-        builder.obj_source = this.gek;
+        builder.obj_locate = this.gei;
+        builder.obj_source = this.gej;
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);

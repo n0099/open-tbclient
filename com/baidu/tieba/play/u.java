@@ -8,7 +8,7 @@ import tbclient.VideoInfo;
 public class u {
     private long cuU;
     private int duration;
-    private String fxY;
+    private String fxX;
     private String videoMd5;
     private String videoUrl;
 
@@ -45,7 +45,7 @@ public class u {
                     this.videoUrl = str;
                     this.cuU = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.fxY = videoInfo.video_width + "x" + videoInfo.video_height;
+                    this.fxX = videoInfo.video_width + "x" + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
@@ -53,7 +53,7 @@ public class u {
             this.videoUrl = str;
             this.cuU = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.fxY = videoInfo.video_width + "x" + videoInfo.video_height;
+            this.fxX = videoInfo.video_width + "x" + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -68,7 +68,7 @@ public class u {
         }
     }
 
-    public long beC() {
+    public long beB() {
         return this.cuU;
     }
 
@@ -76,7 +76,7 @@ public class u {
         return this.duration;
     }
 
-    public String beD() {
-        return this.fxY;
+    public String beC() {
+        return this.fxX;
     }
 }

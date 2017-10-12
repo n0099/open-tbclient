@@ -27,7 +27,7 @@ import com.baidu.tieba.d;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static c gfW;
+    private static c gfV;
 
     /* renamed from: com.baidu.tieba.tbadkCore.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -123,8 +123,8 @@ public class a {
                         textView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.b.a.3.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                if (a.gfW != null) {
-                                    a.gfW.dismiss();
+                                if (a.gfV != null) {
+                                    a.gfV.dismiss();
                                 }
                                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) BaseActivity.this.getPageContext().getPageActivity(), true, 23004, "expiring");
                                 memberPayActivityConfig.setReferPageClickZone("posting_V8.9", "bubble_pop_ups_opende/renewalfee_button_V8.9");
@@ -156,7 +156,7 @@ public class a {
                 });
                 dVar.z(true);
                 dVar.B(false);
-                gfW = dVar.eY();
+                gfV = dVar.eY();
                 new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.4
                     @Override // java.lang.Runnable
                     public void run() {
@@ -170,15 +170,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Activity activity, boolean z) {
-        if (gfW != null) {
-            gfW.j(activity);
+        if (gfV != null) {
+            gfV.j(activity);
         }
         if (!z) {
             new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.gfW != null) {
-                        a.gfW.dismiss();
+                    if (a.gfV != null) {
+                        a.gfV.dismiss();
                     }
                 }
             }, TbConfig.NOTIFY_SOUND_INTERVAL);

@@ -142,10 +142,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        x fIU;
+        x fIT;
 
         private a() {
-            this.fIU = null;
+            this.fIT = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -155,19 +155,19 @@ public class TiebaActiveService extends BdBaseService {
         public String doInBackground(String... strArr) {
             String up;
             try {
-                this.fIU = new x("http://114.113.149.3:8086/partnersService");
-                this.fIU.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.fIU.n("imei", TbadkCoreApplication.getInst().getImei());
-                this.fIU.n("model", Build.MODEL);
-                this.fIU.n("edition", TbConfig.getVersion());
-                this.fIU.n("system", Build.VERSION.SDK);
-                this.fIU.uN().vJ().vM().mIsBaiduServer = false;
-                up = this.fIU.up();
+                this.fIT = new x("http://114.113.149.3:8086/partnersService");
+                this.fIT.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.fIT.n("imei", TbadkCoreApplication.getInst().getImei());
+                this.fIT.n("model", Build.MODEL);
+                this.fIT.n("edition", TbConfig.getVersion());
+                this.fIT.n("system", Build.VERSION.SDK);
+                this.fIT.uN().vJ().vM().mIsBaiduServer = false;
+                up = this.fIT.up();
             } catch (Exception e) {
                 b.getInstance().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.fIU.uQ()) {
+            if (this.fIT.uQ()) {
                 return up;
             }
             return null;
@@ -176,8 +176,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.fIU != null) {
-                this.fIU.fo();
+            if (this.fIT != null) {
+                this.fIT.fo();
             }
             super.cancel(true);
         }

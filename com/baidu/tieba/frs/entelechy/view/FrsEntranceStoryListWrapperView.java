@@ -53,7 +53,7 @@ public class FrsEntranceStoryListWrapperView extends LinearLayout {
     }
 
     public void b(List<com.baidu.adp.widget.ListView.f> list, String str, String str2) {
-        com.baidu.tieba.story.l.bmZ().bnc();
+        com.baidu.tieba.story.l.bmY().bnb();
         if (v.u(list)) {
             setVisibility(8);
             return;

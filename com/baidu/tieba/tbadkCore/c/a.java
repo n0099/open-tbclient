@@ -36,13 +36,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static final String ghF = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS;
-    private static final String ghG = TbConfig.SERVER_ADDRESS + TbConfig.REPLY_THREAD_ADDRESS;
-    public static final String ghH = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_FOR_SHARE_ADDRESS;
+    private static final String ghE = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS;
+    private static final String ghF = TbConfig.SERVER_ADDRESS + TbConfig.REPLY_THREAD_ADDRESS;
+    public static final String ghG = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_FOR_SHARE_ADDRESS;
     private f aFj;
-    private AntiData ghI;
-    private com.baidu.tieba.tbadkCore.videoupload.a ghJ;
-    private InterfaceC0125a ghK;
+    private AntiData ghH;
+    private com.baidu.tieba.tbadkCore.videoupload.a ghI;
+    private InterfaceC0125a ghJ;
     private ErrorData mErrorData;
     private x mNetwork = null;
     private boolean isCancelled = false;
@@ -59,7 +59,7 @@ public class a {
     }
 
     public void a(InterfaceC0125a interfaceC0125a) {
-        this.ghK = interfaceC0125a;
+        this.ghJ = interfaceC0125a;
     }
 
     public ImageUploadResult e(ImageFileInfo imageFileInfo, boolean z) {
@@ -91,7 +91,7 @@ public class a {
                 }
                 this.mNetwork.n("newVcode", "1");
                 this.mNetwork.n("content", writeData.getContent());
-                this.mNetwork.setUrl(ghH);
+                this.mNetwork.setUrl(ghG);
                 this.mNetwork.n(ImageViewerConfig.FORUM_NAME, writeData.getForumName());
                 this.mNetwork.n(VrPlayerActivityConfig.TITLE, writeData.getTitle());
                 this.mNetwork.n("apiKey", writeData.getShareApiKey());
@@ -163,15 +163,15 @@ public class a {
                         VideoInfo videoInfo = writeData.getVideoInfo();
                         if (videoInfo != null) {
                             if (videoInfo.needUploadVideo()) {
-                                this.ghJ = new com.baidu.tieba.tbadkCore.videoupload.a();
-                                VideoFinishResult a = this.ghJ.a(writeData.getForumId(), videoInfo.getVideoPath(), videoInfo.getVideoDuration(), new e() { // from class: com.baidu.tieba.tbadkCore.c.a.1
-                                    int ghL = 0;
+                                this.ghI = new com.baidu.tieba.tbadkCore.videoupload.a();
+                                VideoFinishResult a = this.ghI.a(writeData.getForumId(), videoInfo.getVideoPath(), videoInfo.getVideoDuration(), new e() { // from class: com.baidu.tieba.tbadkCore.c.a.1
+                                    int ghK = 0;
 
                                     @Override // com.baidu.tieba.tbadkCore.videoupload.a.e
                                     public void ad(float f) {
                                         int i = (int) (90.0f * f);
-                                        if (i != this.ghL) {
-                                            this.ghL = i;
+                                        if (i != this.ghK) {
+                                            this.ghK = i;
                                             a.this.notifyUploadProgress(i);
                                         }
                                     }
@@ -275,7 +275,7 @@ public class a {
                                 str2 = writeData.getVoteInfo().buildWriteContent();
                             }
                             com.baidu.tbadk.core.util.h.da(str2);
-                            this.mNetwork.n("content", com.baidu.tieba.face.a.jN(str2));
+                            this.mNetwork.n("content", com.baidu.tieba.face.a.jM(str2));
                             this.mNetwork.n("reply_uid", writeData.getReplyId());
                             if (!TextUtils.isEmpty(writeData.getMemeText())) {
                                 this.mNetwork.n("meme_text", writeData.getMemeText());
@@ -287,7 +287,7 @@ public class a {
                                 case 0:
                                 case 7:
                                 case 9:
-                                    this.mNetwork.setUrl(ghF);
+                                    this.mNetwork.setUrl(ghE);
                                     if (writeData.isCanNoForum()) {
                                         this.mNetwork.n("fid", "0");
                                         this.mNetwork.n("kw", "");
@@ -329,7 +329,7 @@ public class a {
                                     str3 = imagesCodeForPost;
                                     break;
                                 case 1:
-                                    this.mNetwork.setUrl(ghG);
+                                    this.mNetwork.setUrl(ghF);
                                     this.mNetwork.n("fid", writeData.getForumId());
                                     this.mNetwork.n("v_fid", writeData.getVForumId());
                                     this.mNetwork.n("v_fname", writeData.getVForumName());
@@ -351,7 +351,7 @@ public class a {
                                     str3 = imagesCodeForPost;
                                     break;
                                 case 2:
-                                    this.mNetwork.setUrl(ghG);
+                                    this.mNetwork.setUrl(ghF);
                                     this.mNetwork.n("fid", writeData.getForumId());
                                     this.mNetwork.n("v_fid", writeData.getVForumId());
                                     this.mNetwork.n("v_fname", writeData.getVForumName());
@@ -390,7 +390,7 @@ public class a {
                                         break;
                                     }
                                 case 4:
-                                    this.mNetwork.setUrl(ghF);
+                                    this.mNetwork.setUrl(ghE);
                                     this.mNetwork.n("fid", writeData.getForumId());
                                     this.mNetwork.n("kw", writeData.getForumName());
                                     this.mNetwork.n(VrPlayerActivityConfig.TITLE, writeData.getTitle());
@@ -399,7 +399,7 @@ public class a {
                                     str3 = imagesCodeForPost;
                                     break;
                                 case 5:
-                                    this.mNetwork.setUrl(ghG);
+                                    this.mNetwork.setUrl(ghF);
                                     this.mNetwork.n("fid", writeData.getForumId());
                                     this.mNetwork.n("tid", writeData.getThreadId());
                                     this.mNetwork.n("kw", writeData.getForumName());
@@ -408,7 +408,7 @@ public class a {
                                     str3 = imagesCodeForPost;
                                     break;
                                 case 6:
-                                    this.mNetwork.setUrl(ghF);
+                                    this.mNetwork.setUrl(ghE);
                                     this.mNetwork.n("fid", writeData.getForumId());
                                     this.mNetwork.n("kw", writeData.getForumName());
                                     this.mNetwork.n("thread_type", String.valueOf(36));
@@ -439,8 +439,8 @@ public class a {
                 this.mErrorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(d.l.img_upload_error));
             }
             try {
-                this.ghI = new AntiData();
-                this.ghI.parserJson(new JSONObject(str4).optJSONObject("anti_stat"));
+                this.ghH = new AntiData();
+                this.ghH.parserJson(new JSONObject(str4).optJSONObject("anti_stat"));
             } catch (Exception e2) {
             }
             notifyUploadProgress(100);
@@ -450,8 +450,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyUploadProgress(int i) {
-        if (this.ghK != null) {
-            this.ghK.onUploadProgress(i);
+        if (this.ghJ != null) {
+            this.ghJ.onUploadProgress(i);
         }
     }
 
@@ -470,13 +470,13 @@ public class a {
         if (this.aFj != null) {
             this.aFj.cancel();
         }
-        if (this.ghJ != null) {
-            this.ghJ.bsx();
+        if (this.ghI != null) {
+            this.ghI.bsw();
         }
     }
 
-    public AntiData brN() {
-        return this.ghI;
+    public AntiData brM() {
+        return this.ghH;
     }
 
     public ErrorData getErrorData() {

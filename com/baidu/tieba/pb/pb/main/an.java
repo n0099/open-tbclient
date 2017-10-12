@@ -509,7 +509,7 @@ public class an {
         if (aQX < 0) {
             aQX = 0;
         }
-        if (this.eJQ.pg(aQX) != null && this.eJQ.pg(aQX) != PostData.ggI) {
+        if (this.eJQ.pg(aQX) != null && this.eJQ.pg(aQX) != PostData.ggH) {
             i = aQX + 1;
         }
         return this.eJQ.getItem(i) instanceof PostData ? (PostData) this.eJQ.getItem(i) : null;
@@ -1674,7 +1674,7 @@ public class an {
             Iterator<PostData> it = fVar.aNd().iterator();
             while (it.hasNext()) {
                 postData = it.next();
-                if (postData != null && postData.bry() == 1) {
+                if (postData != null && postData.brx() == 1) {
                     break;
                 }
             }
@@ -1734,7 +1734,7 @@ public class an {
         String e;
         ArrayList<IconData> tShowInfoNew;
         int f;
-        com.baidu.tbadk.data.g brB;
+        com.baidu.tbadk.data.g brA;
         String portrait;
         if (fVar != null && fVar.aNb() != null) {
             PostData b = b(fVar, z);
@@ -1914,14 +1914,14 @@ public class an {
                             } else {
                                 this.eJG.setPadding(0, 0, f, 0);
                             }
-                            brB = b.brB();
-                            if (brB == null && !TextUtils.isEmpty(brB.getName()) && !TextUtils.isEmpty(brB.getName().trim())) {
-                                final String name = brB.getName();
-                                final String lat = brB.getLat();
-                                final String lng = brB.getLng();
+                            brA = b.brA();
+                            if (brA == null && !TextUtils.isEmpty(brA.getName()) && !TextUtils.isEmpty(brA.getName().trim())) {
+                                final String name = brA.getName();
+                                final String lat = brA.getLat();
+                                final String lng = brA.getLng();
                                 this.eJH.setVisibility(0);
                                 this.eJI.setVisibility(0);
-                                this.eJH.setText(brB.getName());
+                                this.eJH.setText(brA.getName());
                                 this.eJH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.an.21
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view) {
@@ -2006,8 +2006,8 @@ public class an {
                         if (this.eJp == null) {
                         }
                         this.eJG.setPadding(0, 0, f, 0);
-                        brB = b.brB();
-                        if (brB == null) {
+                        brA = b.brA();
+                        if (brA == null) {
                         }
                         this.eJH.setVisibility(8);
                         this.eJI.setVisibility(8);
@@ -2065,8 +2065,8 @@ public class an {
                             if (this.eJp == null) {
                             }
                             this.eJG.setPadding(0, 0, f, 0);
-                            brB = b.brB();
-                            if (brB == null) {
+                            brA = b.brA();
+                            if (brA == null) {
                             }
                             this.eJH.setVisibility(8);
                             this.eJI.setVisibility(8);
@@ -2119,8 +2119,8 @@ public class an {
                         if (this.eJp == null) {
                         }
                         this.eJG.setPadding(0, 0, f, 0);
-                        brB = b.brB();
-                        if (brB == null) {
+                        brA = b.brA();
+                        if (brA == null) {
                         }
                         this.eJH.setVisibility(8);
                         this.eJI.setVisibility(8);
@@ -2365,7 +2365,7 @@ public class an {
             }
             ArrayList<PostData> aNd = fVar.aNd();
             if (fVar.qx().qt() == 0 || aNd == null || aNd.size() < fVar.qx().qs()) {
-                if (com.baidu.tbadk.core.util.v.t(aNd) == 0 || (com.baidu.tbadk.core.util.v.t(aNd) == 1 && aNd.get(0) != null && aNd.get(0).bry() == 1)) {
+                if (com.baidu.tbadk.core.util.v.t(aNd) == 0 || (com.baidu.tbadk.core.util.v.t(aNd) == 1 && aNd.get(0) != null && aNd.get(0).brx() == 1)) {
                     this.cvc.setText(this.eDC.getResources().getString(d.l.list_no_more_new));
                 } else {
                     this.cvc.setText(this.eDC.getResources().getString(d.l.list_has_no_more));

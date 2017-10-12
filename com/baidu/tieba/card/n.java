@@ -259,7 +259,7 @@ public class n extends a<com.baidu.tieba.card.data.l> {
                 this.bJx.setVisibility(0);
             }
         }
-        if (!Xv() && m.jo(this.bJz.threadData.getId())) {
+        if (!Xv() && m.jn(this.bJz.threadData.getId())) {
             m.a(this.mTitle, this.bJz.Nj().getId(), d.e.cp_cont_b, d.e.cp_cont_d);
             m.a(this.bLt, this.bJz.threadData.getId(), d.e.cp_cont_f, d.e.cp_cont_d);
             m.a(this.bJw.getGodReplyContent(), this.bJz.threadData.getId(), d.e.cp_cont_f, d.e.cp_cont_d);
@@ -295,7 +295,7 @@ public class n extends a<com.baidu.tieba.card.data.l> {
             VoiceData.VoiceModel voiceModel = rJ.get(0);
             this.bLr.setVoiceModel(voiceModel);
             this.bLr.setTag(voiceModel);
-            this.bLr.bgi();
+            this.bLr.bgh();
             if (voiceModel != null) {
                 this.bLr.nh(voiceModel.voice_status.intValue());
             }
@@ -482,7 +482,7 @@ public class n extends a<com.baidu.tieba.card.data.l> {
     public void dA(boolean z) {
         if (this.bJz != null && this.bJz.threadData != null) {
             if (!Xv()) {
-                m.jn(this.bJz.threadData.getId());
+                m.jm(this.bJz.threadData.getId());
                 m.a(this.mTitle, this.bJz.Nj().getId(), d.e.cp_cont_b, d.e.cp_cont_d);
                 m.a(this.bLt, this.bJz.threadData.getId(), d.e.cp_cont_f, d.e.cp_cont_d);
                 m.a(this.bJw.getGodReplyContent(), this.bJz.threadData.getId(), d.e.cp_cont_f, d.e.cp_cont_d);

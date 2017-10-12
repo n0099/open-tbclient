@@ -97,8 +97,8 @@ public class o {
     private void bt(Context context) {
         this.dab = new a(this.mG);
         this.dac = new n(this.mG);
-        this.czP = r.bfU().c(this.mG, AdvertAppInfo.TV);
-        this.dad = r.bfU().c(this.mG, AdvertAppInfo.TY);
+        this.czP = r.bfT().c(this.mG, AdvertAppInfo.TV);
+        this.dad = r.bfT().c(this.mG, AdvertAppInfo.TY);
         this.dae = new h(this.mG, com.baidu.tieba.card.data.l.TYPE);
         this.daf = new g(this.mG, com.baidu.tieba.card.data.l.Yj);
         this.dag = new j(this.mG, com.baidu.tieba.card.data.n.bNL);
@@ -251,13 +251,13 @@ public class o {
     public boolean ajc() {
         if (this.cvY == null || this.cvY.size() <= 0) {
             this.cvY = new ArrayList();
-            ArrayList<BdUniqueId> bqH = com.baidu.tieba.tbadkCore.n.bqH();
-            if (bqH == null || bqH.size() <= 0) {
+            ArrayList<BdUniqueId> bqG = com.baidu.tieba.tbadkCore.n.bqG();
+            if (bqG == null || bqG.size() <= 0) {
                 return false;
             }
-            int size = bqH.size();
+            int size = bqG.size();
             for (int i = 0; i < size; i++) {
-                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.aEZ().a(this.mG, bqH.get(i), 2);
+                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.aEZ().a(this.mG, bqG.get(i), 2);
                 if (this.dao) {
                     a.setBusinessType(3);
                 }

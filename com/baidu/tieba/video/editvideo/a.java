@@ -5,11 +5,11 @@ import android.graphics.Bitmap;
 public interface a {
     void aSg();
 
-    void bvL();
+    void bvK();
 
-    void bvO();
+    void bvN();
 
-    void bvQ();
+    void bvP();
 
     void finishPage();
 

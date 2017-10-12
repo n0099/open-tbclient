@@ -47,8 +47,8 @@ public class e implements View.OnClickListener {
         this.cKn = forumData;
         String string = this.mContext.getString(d.l.frs_star_ticket_name);
         if (hVar != null) {
-            z = hVar.bqk();
-            if (com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("FRS_STARTICKET_LAST_CLICK_TIME" + forumData.getId() + TbadkCoreApplication.getCurrentAccount(), 0L) >= hVar.bql()) {
+            z = hVar.bqj();
+            if (com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("FRS_STARTICKET_LAST_CLICK_TIME" + forumData.getId() + TbadkCoreApplication.getCurrentAccount(), 0L) >= hVar.bqk()) {
                 z2 = false;
             }
         } else {
@@ -83,9 +83,9 @@ public class e implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.cKo) {
             if ((this.mTbPageContext == null || ax.aU(this.mTbPageContext.getPageActivity())) && this.cKm != null && this.cKn != null) {
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("FRS_STARTICKET_LAST_CLICK_TIME" + this.cKn.getId() + TbadkCoreApplication.getCurrentAccount(), this.cKm.bql());
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("FRS_STARTICKET_LAST_CLICK_TIME" + this.cKn.getId() + TbadkCoreApplication.getCurrentAccount(), this.cKm.bqk());
                 fk(false);
-                com.baidu.tbadk.browser.a.a(this.cKo.getContext(), k.a(this.cKq.getText(), this.mContext.getString(d.l.frs_star_ticket_name)), com.baidu.tbadk.browser.a.appendVersionCode(com.baidu.tbadk.browser.a.appendCuidParam(this.cKm.bqm())), true, false, true);
+                com.baidu.tbadk.browser.a.a(this.cKo.getContext(), k.a(this.cKq.getText(), this.mContext.getString(d.l.frs_star_ticket_name)), com.baidu.tbadk.browser.a.appendVersionCode(com.baidu.tbadk.browser.a.appendCuidParam(this.cKm.bql())), true, false, true);
             }
         }
     }

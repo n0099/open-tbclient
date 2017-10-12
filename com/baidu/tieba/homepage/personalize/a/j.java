@@ -103,13 +103,13 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             if (nVar.Nj() != null) {
                 xVar.azf = String.valueOf(nVar.Nj().getFid());
                 if (nVar.Nj().rM() != null) {
-                    xVar.fyg = nVar.Nj().rM().video_md5;
+                    xVar.fyf = nVar.Nj().rM().video_md5;
                 }
             }
             xVar.Wi = nVar.getExtra();
             xVar.mSource = nVar.getSource();
-            xVar.fyf = nVar.XW();
-            xVar.fyd = nVar.getWeight();
+            xVar.fye = nVar.XW();
+            xVar.fyc = nVar.getWeight();
         }
         return xVar;
     }

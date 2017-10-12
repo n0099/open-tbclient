@@ -95,7 +95,7 @@ public class g {
         return false;
     }
 
-    public boolean jI(String str) {
+    public boolean jH(String str) {
         if (str == null || !fC(str)) {
             return false;
         }
@@ -109,11 +109,11 @@ public class g {
         return false;
     }
 
-    public boolean jJ(String str) {
+    public boolean jI(String str) {
         return com.baidu.tbadk.imageManager.d.aFc.equals(str) || str.startsWith(com.baidu.tbadk.imageManager.d.aFd);
     }
 
-    public String jK(String str) {
+    public String jJ(String str) {
         if (str.startsWith("#(meme,")) {
             String replace = str.replace("#(meme,", "");
             String substring = replace.substring(0, replace.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP));
@@ -124,7 +124,7 @@ public class g {
         return "";
     }
 
-    public boolean jL(String str) {
+    public boolean jK(String str) {
         if (!com.baidu.tbadk.imageManager.d.aFc.equals(str) && str.startsWith("#(meme,")) {
             String replace = str.replace("#(meme,", "");
             String substring = replace.substring(0, replace.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP));

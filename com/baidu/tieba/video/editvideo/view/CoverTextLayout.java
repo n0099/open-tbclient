@@ -9,13 +9,13 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class CoverTextLayout extends LinearLayout {
+    private TextView gvY;
     private TextView gvZ;
     private TextView gwa;
     private TextView gwb;
-    private TextView gwc;
-    private int gwd;
-    private a gwe;
-    private View.OnClickListener gwf;
+    private int gwc;
+    private a gwd;
+    private View.OnClickListener gwe;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -32,12 +32,12 @@ public class CoverTextLayout extends LinearLayout {
 
     public CoverTextLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gwf = new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverTextLayout.1
+        this.gwe = new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverTextLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (CoverTextLayout.this.gwe != null && view != null && (view.getTag() instanceof Integer)) {
-                    CoverTextLayout.this.gwe.bI(view);
-                    CoverTextLayout.this.gwd = ((Integer) view.getTag()).intValue();
+                if (CoverTextLayout.this.gwd != null && view != null && (view.getTag() instanceof Integer)) {
+                    CoverTextLayout.this.gwd.bI(view);
+                    CoverTextLayout.this.gwc = ((Integer) view.getTag()).intValue();
                 }
             }
         };
@@ -46,23 +46,23 @@ public class CoverTextLayout extends LinearLayout {
     }
 
     private void init() {
-        this.gvZ = (TextView) findViewById(d.h.cover_text_no);
-        this.gwa = (TextView) findViewById(d.h.cover_text_blue);
-        this.gwb = (TextView) findViewById(d.h.cover_text_black);
-        this.gwc = (TextView) findViewById(d.h.cover_text_transparent);
+        this.gvY = (TextView) findViewById(d.h.cover_text_no);
+        this.gvZ = (TextView) findViewById(d.h.cover_text_blue);
+        this.gwa = (TextView) findViewById(d.h.cover_text_black);
+        this.gwb = (TextView) findViewById(d.h.cover_text_transparent);
         for (int i = 0; i < getChildCount(); i++) {
             View childAt = getChildAt(i);
             childAt.setTag(Integer.valueOf(i));
-            childAt.setOnClickListener(this.gwf);
+            childAt.setOnClickListener(this.gwe);
         }
-        this.gwd = 0;
+        this.gwc = 0;
     }
 
     public int getCurrentTextIndex() {
-        return this.gwd;
+        return this.gwc;
     }
 
     public void setOnTextClickCallback(a aVar) {
-        this.gwe = aVar;
+        this.gwd = aVar;
     }
 }

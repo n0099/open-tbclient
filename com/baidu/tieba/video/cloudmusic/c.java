@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes2.dex */
 public class c implements d.a {
-    private final CloudMusicModel gus;
-    private final d.b gut;
+    private final CloudMusicModel gur;
+    private final d.b gus;
 
     public c(CloudMusicModel cloudMusicModel, d.b bVar) {
-        this.gus = cloudMusicModel;
-        this.gut = bVar;
+        this.gur = cloudMusicModel;
+        this.gus = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
-    public void bvy() {
-        this.gut.mY(true);
-        this.gus.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.c.1
+    public void bvx() {
+        this.gus.mY(true);
+        this.gur.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void Y(CloudMusicData cloudMusicData) {
-                c.this.gut.mY(false);
+                c.this.gus.mY(false);
                 if (cloudMusicData != null) {
-                    c.this.gut.mZ(false);
+                    c.this.gus.mZ(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        c.this.gut.mZ(true);
+                        c.this.gus.mZ(true);
                         return;
                     } else {
-                        c.this.gut.a(cloudMusicData);
+                        c.this.gus.a(cloudMusicData);
                         return;
                     }
                 }
-                c.this.gut.mZ(true);
+                c.this.gus.mZ(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
     public void aiD() {
-        this.gus.cancelLoadData();
+        this.gur.cancelLoadData();
     }
 }

@@ -32,7 +32,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     private VoiceManager cqs;
     private ImageView dFN;
     private VoiceData.VoiceModel dFR;
-    private TextView gjV;
+    private TextView gjU;
     private Context mContext;
     private ProgressBar mProgress;
     private int play_type;
@@ -93,24 +93,24 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     public void aj(Context context) {
         LayoutInflater.from(context).inflate(d.j.play_voice_bnt, (ViewGroup) this, true);
         this.dFN = (ImageView) findViewById(d.h.playingImg);
-        this.gjV = (TextView) findViewById(d.h.playTime);
+        this.gjU = (TextView) findViewById(d.h.playTime);
         this.mProgress = (ProgressBar) findViewById(d.h.progress);
         if (this.mProgress != null) {
             this.mProgress.setVisibility(4);
         }
         this.mContext = context;
-        bsz();
+        bsy();
         setContentDescription(TbadkCoreApplication.getInst().getString(d.l.editor_record));
     }
 
-    private void bsz() {
+    private void bsy() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.play_type == 0) {
             int i = skinType != 1 ? -13553101 : -6574132;
             aj.j(this, d.g.but_thread_voice_selector);
-            if (this.gjV != null) {
-                this.gjV.setTextSize(0, this.mContext.getResources().getDimension(d.f.ds36));
-                this.gjV.setTextColor(i);
+            if (this.gjU != null) {
+                this.gjU.setTextSize(0, this.mContext.getResources().getDimension(d.f.ds36));
+                this.gjU.setTextColor(i);
             }
             if (this.dFN != null) {
                 aj.c(this.dFN, d.a.voice_btn_play_anim);
@@ -119,9 +119,9 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         } else {
             int i2 = skinType != 1 ? ViewCompat.MEASURED_STATE_MASK : -8682095;
             aj.j(this, d.g.but_thread_voice_reply_selector);
-            if (this.gjV != null) {
-                this.gjV.setTextSize(0, this.mContext.getResources().getDimension(d.f.ds28));
-                this.gjV.setTextColor(i2);
+            if (this.gjU != null) {
+                this.gjU.setTextSize(0, this.mContext.getResources().getDimension(d.f.ds28));
+                this.gjU.setTextColor(i2);
             }
             if (this.dFN != null) {
                 aj.c(this.dFN, d.a.voice_btn_play_anim);
@@ -142,22 +142,22 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
                 return;
             }
             nh(this.dFR.voice_status.intValue());
-            this.gjV.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
+            this.gjU.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
         }
     }
 
     public void ng(int i) {
         String formatVoiceTime;
-        if (this.dFR != null && this.gjV != null) {
+        if (this.dFR != null && this.gjU != null) {
             int i2 = i / 1000;
             if (i2 > 0 && i2 < this.dFR.duration) {
                 formatVoiceTime = VoiceManager.formatVoiceTime(this.dFR.duration - i2);
             } else {
                 formatVoiceTime = VoiceManager.formatVoiceTime(this.dFR.duration);
             }
-            String a = k.a(this.gjV.getText(), null);
+            String a = k.a(this.gjU.getText(), null);
             if (a == null || !a.equals(formatVoiceTime)) {
-                this.gjV.setText(formatVoiceTime);
+                this.gjU.setText(formatVoiceTime);
             }
         }
     }
@@ -177,12 +177,12 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
                 this.dFN.setVisibility(0);
             }
             if (this.dFR != null) {
-                this.gjV.setText(VoiceManager.formatVoiceTime(this.dFR.duration));
+                this.gjU.setText(VoiceManager.formatVoiceTime(this.dFR.duration));
             }
             this.mProgress.setVisibility(4);
         } else if (i == 2) {
             if (this.dFR != null) {
-                this.gjV.setText(VoiceManager.formatVoiceTime(this.dFR.duration));
+                this.gjU.setText(VoiceManager.formatVoiceTime(this.dFR.duration));
             }
             this.mProgress.setVisibility(0);
         }
@@ -203,7 +203,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         }
     }
 
-    private void bsA() {
+    private void bsz() {
         int i;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.play_type == 0) {
@@ -231,7 +231,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         if (this.aGL != null) {
             this.aGL.stop();
         }
-        bsA();
+        bsz();
         this.aGL = (AnimationDrawable) this.dFN.getDrawable();
         this.aGL.start();
     }
@@ -282,7 +282,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
             }
             this.play_type = tbRichTextVoiceInfo.Jx();
             setVoiceModel(voiceModel);
-            bsz();
+            bsy();
             obj = voiceModel;
         }
         super.setTag(obj);
@@ -301,7 +301,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void aS(int i) {
-        if (!bsB()) {
+        if (!bsA()) {
             nh(1);
             return;
         }
@@ -314,7 +314,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         }
     }
 
-    private boolean bsB() {
+    private boolean bsA() {
         if (this.dFR == null) {
             return false;
         }
@@ -332,8 +332,8 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         return this.dFR;
     }
 
-    public void bgi() {
-        bsz();
+    public void bgh() {
+        bsy();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b

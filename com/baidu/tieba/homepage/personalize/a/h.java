@@ -112,7 +112,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                                         return;
                                     } else if (!(view instanceof TbImageView)) {
                                         if (h.this.cZB.Xt() != null && view.getId() == h.this.cZB.Xt().getId()) {
-                                            TiebaStatic.log(lVar.jy("c10760"));
+                                            TiebaStatic.log(lVar.jx("c10760"));
                                             return;
                                         }
                                         return;

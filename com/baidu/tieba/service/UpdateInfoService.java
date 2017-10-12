@@ -19,9 +19,9 @@ public class UpdateInfoService extends BdBaseService {
                     if (address != null) {
                         float longitude = (float) address.getLongitude();
                         float latitude = (float) address.getLatitude();
-                        com.baidu.tieba.recapp.d.a.bgz().lN(String.valueOf(longitude));
-                        com.baidu.tieba.recapp.d.a.bgz().lO(String.valueOf(latitude));
-                        com.baidu.tieba.recapp.d.a.bgz().cy(System.currentTimeMillis());
+                        com.baidu.tieba.recapp.d.a.bgy().lN(String.valueOf(longitude));
+                        com.baidu.tieba.recapp.d.a.bgy().lO(String.valueOf(latitude));
+                        com.baidu.tieba.recapp.d.a.bgy().cy(System.currentTimeMillis());
                         if (UpdateInfoService.this.mModel.aKx() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                             UpdateInfoService.this.mModel.b(1, longitude, latitude);
                             UpdateInfoService.this.mModel.aKy();

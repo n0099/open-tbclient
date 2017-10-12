@@ -3,46 +3,46 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes2.dex */
 class h {
-    static h hon = new h();
+    static h hom = new h();
+    static h hon;
     static h hoo;
-    static h hop;
+    boolean hod = true;
     boolean hoe = true;
-    boolean hof = true;
+    boolean hof = false;
     boolean hog = false;
     boolean hoh = false;
-    boolean hoi = false;
+    boolean hoi = true;
     boolean hoj = true;
     boolean hok = true;
-    boolean hol = true;
-    int hom;
+    int hol;
 
     h() {
     }
 
     static {
+        hom.hod = true;
+        hom.hoe = false;
+        hom.hof = false;
+        hom.hog = false;
+        hom.hoh = true;
+        hom.hoi = false;
+        hom.hoj = false;
+        hom.hol = 0;
+        hon = new h();
+        hon.hod = true;
         hon.hoe = true;
         hon.hof = false;
         hon.hog = false;
         hon.hoh = false;
-        hon.hoi = true;
-        hon.hoj = false;
-        hon.hok = false;
-        hon.hom = 0;
+        hom.hol = 1;
         hoo = new h();
+        hoo.hod = false;
         hoo.hoe = true;
-        hoo.hof = true;
-        hoo.hog = false;
+        hoo.hof = false;
+        hoo.hog = true;
         hoo.hoh = false;
-        hoo.hoi = false;
-        hon.hom = 1;
-        hop = new h();
-        hop.hoe = false;
-        hop.hof = true;
-        hop.hog = false;
-        hop.hoh = true;
-        hop.hoi = false;
-        hop.hol = false;
-        hop.hom = 2;
+        hoo.hok = false;
+        hoo.hol = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,7 +53,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String wT(int i) {
-        if (this.hoh) {
+        if (this.hog) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
@@ -80,11 +80,11 @@ class h {
     }
 
     public String o(Class cls) {
-        return b(cls, cls.getName(), this.hoe);
+        return b(cls, cls.getName(), this.hod);
     }
 
     public String e(Class cls, String str) {
-        return b(cls, str, this.hoi);
+        return b(cls, str, this.hoh);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.hof) {
+            if (!this.hoe) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.hog && clsArr != null && clsArr.length != 0) {
+        if (this.hof && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

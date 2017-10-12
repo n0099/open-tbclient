@@ -11,9 +11,9 @@ import com.baidu.tieba.tbadkCore.location.c;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a fFM;
-    private String fFK;
-    private String fFL = b.getInstance().getString("asp_shown_info", "");
+    private static a fFL;
+    private String fFJ;
+    private String fFK = b.getInstance().getString("asp_shown_info", "");
     private String latitude;
     private String longitude;
     private long sQ;
@@ -21,15 +21,15 @@ public class a {
     private a() {
     }
 
-    public static a bgz() {
-        if (fFM == null) {
+    public static a bgy() {
+        if (fFL == null) {
             synchronized (c.class) {
-                if (fFM == null) {
-                    fFM = new a();
+                if (fFL == null) {
+                    fFL = new a();
                 }
             }
         }
-        return fFM;
+        return fFL;
     }
 
     public void lN(String str) {
@@ -44,39 +44,39 @@ public class a {
         this.sQ = j;
     }
 
-    private String bgA() {
-        if (TextUtils.isEmpty(this.fFK)) {
+    private String bgz() {
+        if (TextUtils.isEmpty(this.fFJ)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
-                this.fFK = connectionInfo.getBSSID();
+                this.fFJ = connectionInfo.getBSSID();
             } else {
-                this.fFK = "";
+                this.fFJ = "";
             }
         }
-        return this.fFK;
+        return this.fFJ;
     }
 
     public void qN(String str) {
-        this.fFK = str;
+        this.fFJ = str;
     }
 
     public void qO(String str) {
-        this.fFL = str;
+        this.fFK = str;
     }
 
-    public void bgB() {
-        b.getInstance().putString("asp_shown_info", this.fFL);
+    public void bgA() {
+        b.getInstance().putString("asp_shown_info", this.fFK);
     }
 
-    public AppPosInfo bgC() {
+    public AppPosInfo bgB() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = bgA();
+        builder.ap_mac = bgz();
         builder.ap_connected = Boolean.valueOf(j.hi());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;
         builder.addr_timestamp = Long.valueOf(this.sQ);
         builder.coordinate_type = BDLocation.BDLOCATION_GCJ02_TO_BD09LL;
-        builder.asp_shown_info = this.fFL;
+        builder.asp_shown_info = this.fFK;
         return builder.build(false);
     }
 }

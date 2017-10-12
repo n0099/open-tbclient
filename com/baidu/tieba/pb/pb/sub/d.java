@@ -121,16 +121,16 @@ public class d extends BaseAdapter {
             postData = (PostData) getItem(i);
         }
         if (view == null) {
-            if (postData.getType() == PostData.ggS) {
+            if (postData.getType() == PostData.ggR) {
                 view = aTC();
             } else {
                 view = ld();
             }
         }
-        if ((view.getTag() instanceof a) && postData.getType() != PostData.ggS) {
+        if ((view.getTag() instanceof a) && postData.getType() != PostData.ggR) {
             view = ld();
         }
-        if ((view.getTag() instanceof SparseArray) && postData.getType() == PostData.ggS) {
+        if ((view.getTag() instanceof SparseArray) && postData.getType() == PostData.ggR) {
             view = aTC();
         }
         if ((view.getTag() instanceof SparseArray) && (bVar = (b) ((SparseArray) view.getTag()).get(d.h.tag_holder)) != null && postData != null) {
@@ -230,7 +230,7 @@ public class d extends BaseAdapter {
             } else {
                 bVar.rootView.setBackgroundResource(0);
             }
-            if (postData.brz()) {
+            if (postData.bry()) {
                 bVar.eRP.setVisibility(0);
             } else {
                 bVar.eRP.setVisibility(8);

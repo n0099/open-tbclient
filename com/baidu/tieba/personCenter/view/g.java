@@ -9,7 +9,7 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private com.baidu.tieba.personCenter.b.d fbw;
+    private com.baidu.tieba.personCenter.b.d fbv;
     TbPageContext mG;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
@@ -24,7 +24,7 @@ public class g {
         this.mNavigationBar = (NavigationBar) view.findViewById(d.h.person_more_navigation_bar);
         aiB();
         this.mListView = (BdTypeListView) view.findViewById(d.h.person_more_listview);
-        this.fbw = new com.baidu.tieba.personCenter.b.d(this.mG, this.mListView);
+        this.fbv = new com.baidu.tieba.personCenter.b.d(this.mG, this.mListView);
     }
 
     private void aiB() {

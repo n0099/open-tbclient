@@ -148,7 +148,7 @@ public abstract class j extends com.baidu.tieba.card.a<bh> implements v {
             getView().setVisibility(0);
             getView().setOnClickListener(this.bJA);
         }
-        if (!Xv() && m.jo(this.ajg.getId())) {
+        if (!Xv() && m.jn(this.ajg.getId())) {
             Xw();
         }
         this.cxD.O(this.ajg);
@@ -214,7 +214,7 @@ public abstract class j extends com.baidu.tieba.card.a<bh> implements v {
     /* JADX INFO: Access modifiers changed from: private */
     public void dA(boolean z) {
         if (this.ajg != null) {
-            m.jn(this.ajg.getId());
+            m.jm(this.ajg.getId());
             Xw();
             n sr = this.ajg.sr();
             if (sr != null) {

@@ -8,8 +8,8 @@ public class b {
     private String colorMsg;
     final int errorCode;
     private String errorString;
+    private String gkk;
     private String gkl;
-    private String gkm;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private String preMsg;
@@ -26,15 +26,15 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean bsF() {
+    public boolean bsE() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean bsG() {
+    public boolean bsF() {
         return this.errorCode == 1990055;
     }
 
-    public boolean bsH() {
+    public boolean bsG() {
         return this.errorCode == 227001;
     }
 
@@ -94,20 +94,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
+    public String bsH() {
+        return this.gkk;
+    }
+
+    public void se(String str) {
+        this.gkk = str;
+    }
+
     public String bsI() {
         return this.gkl;
     }
 
-    public void se(String str) {
-        this.gkl = str;
-    }
-
-    public String bsJ() {
-        return this.gkm;
-    }
-
     public void sf(String str) {
-        this.gkm = str;
+        this.gkl = str;
     }
 
     public CustomDialogData getActivityDialog() {
