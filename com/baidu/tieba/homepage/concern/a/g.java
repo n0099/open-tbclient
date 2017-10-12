@@ -64,7 +64,7 @@ public class g extends com.baidu.adp.widget.ListView.a<n, a> {
             return null;
         }
         nVar.hR(i + 1);
-        u.XR().a(nVar.jv("c12351"));
+        u.XR().a(nVar.ju("c12351"));
         aVar.cWn.a(nVar);
         aVar.cWn.b(this.cVT);
         return aVar.getView();

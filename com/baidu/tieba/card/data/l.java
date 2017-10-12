@@ -58,29 +58,29 @@ public class l extends c {
 
     public ak Yd() {
         if (Yc()) {
-            ak jt = jt(bNy);
-            if (jt != null && Nj() != null) {
+            ak js = js(bNy);
+            if (js != null && Nj() != null) {
                 bh Nj = Nj();
-                jt.r("obj_name", Nj.sL() != null && (Nj.sL().aCd() != null || Nj.sL().IL() != null) ? 1 : 0);
+                js.r("obj_name", Nj.sL() != null && (Nj.sL().aCd() != null || Nj.sL().IL() != null) ? 1 : 0);
             }
-            return jt;
+            return js;
         }
-        ak jt2 = jt(bNt);
-        if (jt2 != null) {
-            jt2.ad("ab_tag", XW()).ad("ab_action", "show");
+        ak js2 = js(bNt);
+        if (js2 != null) {
+            js2.ad("ab_tag", XW()).ad("ab_action", "show");
             if (Nj() != null) {
                 bh Nj2 = Nj();
                 boolean z = (Nj2.sL() == null || (Nj2.sL().aCd() == null && Nj2.sL().IL() == null)) ? false : true;
-                jt2.r("obj_name", z ? 1 : 0);
+                js2.r("obj_name", z ? 1 : 0);
                 if (z && Nj2.sL().aCd() != null && Nj2.sL().aCd().ID() != null && Nj2.sL().aCd().ID().size() > 0) {
-                    jt2.r("obj_to", Nj2.sL().ghu ? 2 : 1);
+                    js2.r("obj_to", Nj2.sL().ght ? 2 : 1);
                 }
             }
         }
-        return jt2;
+        return js2;
     }
 
-    public ak jv(String str) {
+    public ak ju(String str) {
         ak akVar = new ak(str);
         if (akVar != null && this.threadData != null) {
             akVar.f("fid", this.threadData.getFid());
@@ -91,45 +91,45 @@ public class l extends c {
         return akVar;
     }
 
-    public ak jw(String str) {
-        ak jt = jt(str);
-        if (jt != null) {
-            jt.ad("ab_tag", XW()).ad("ab_action", "show");
+    public ak jv(String str) {
+        ak js = js(str);
+        if (js != null) {
+            js.ad("ab_tag", XW()).ad("ab_action", "show");
             if (Nj() != null) {
                 bh Nj = Nj();
                 boolean z = (Nj.sL() == null || (Nj.sL().aCd() == null && Nj.sL().IL() == null)) ? false : true;
-                jt.r("obj_name", z ? 1 : 0);
+                js.r("obj_name", z ? 1 : 0);
                 if (z && Nj.sL().aCd() != null && Nj.sL().aCd().ID() != null && Nj.sL().aCd().ID().size() > 0) {
-                    jt.r("obj_to", Nj.sL().ghu ? 2 : 1);
+                    js.r("obj_to", Nj.sL().ght ? 2 : 1);
                 }
             }
         }
-        return jt;
+        return js;
     }
 
-    public ak jx(String str) {
-        ak jt = jt(str);
-        if (jt != null) {
-            jt.ad("ab_tag", XW()).ad("ab_action", "click");
+    public ak jw(String str) {
+        ak js = js(str);
+        if (js != null) {
+            js.ad("ab_tag", XW()).ad("ab_action", "click");
         }
-        return jt;
+        return js;
     }
 
     public ak Ye() {
         if (Yc()) {
-            return jt(bNz);
+            return js(bNz);
         }
-        ak jt = jt(bNu);
-        if (jt != null) {
-            jt.ad("ab_tag", XW()).ad("ab_action", "click");
-            return jt;
+        ak js = js(bNu);
+        if (js != null) {
+            js.ad("ab_tag", XW()).ad("ab_action", "click");
+            return js;
         }
-        return jt;
+        return js;
     }
 
     public ak Yf() {
         if (Yc()) {
-            return jt(bNA);
+            return js(bNA);
         }
         ak J = J(bNv, 0);
         if (J != null) {
@@ -141,33 +141,33 @@ public class l extends c {
 
     public ak Yg() {
         if (Yc()) {
-            return jt(bNB);
+            return js(bNB);
         }
-        ak jt = jt(bNw);
-        if (jt != null) {
-            jt.ad("ab_tag", XW()).ad("ab_action", "click");
-            return jt;
+        ak js = js(bNw);
+        if (js != null) {
+            js.ad("ab_tag", XW()).ad("ab_action", "click");
+            return js;
         }
-        return jt;
+        return js;
     }
 
     public ak Yh() {
         if (Yc()) {
-            return jt(bNC);
+            return js(bNC);
         }
-        ak jt = jt(bNx);
-        if (jt != null) {
-            jt.ad("ab_tag", XW()).ad("ab_action", "click");
-            return jt;
+        ak js = js(bNx);
+        if (js != null) {
+            js.ad("ab_tag", XW()).ad("ab_action", "click");
+            return js;
         }
-        return jt;
+        return js;
     }
 
     public ak Yi() {
-        return jt(bND);
+        return js(bND);
     }
 
-    public ak jy(String str) {
-        return jt(str);
+    public ak jx(String str) {
+        return js(str);
     }
 }

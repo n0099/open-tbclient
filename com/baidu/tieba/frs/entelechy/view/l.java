@@ -216,7 +216,7 @@ public class l extends com.baidu.tieba.card.a<bh> implements v {
         }
         d(this.mG, TbadkCoreApplication.getInst().getSkinType());
         this.bJw.onChangeSkinType();
-        if (!Xv() && m.jo(this.ajg.getId())) {
+        if (!Xv() && m.jn(this.ajg.getId())) {
             m.a(this.mTitle, this.ajg.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
             m.a(this.bLt, this.ajg.getId(), d.e.cp_cont_f, d.e.cp_cont_d);
             m.a(this.bJw.getGodReplyContent(), this.ajg.getId(), d.e.cp_cont_f, d.e.cp_cont_d);
@@ -253,7 +253,7 @@ public class l extends com.baidu.tieba.card.a<bh> implements v {
             VoiceData.VoiceModel voiceModel = rJ.get(0);
             this.bLr.setVoiceModel(voiceModel);
             this.bLr.setTag(voiceModel);
-            this.bLr.bgi();
+            this.bLr.bgh();
             if (voiceModel != null) {
                 this.bLr.nh(voiceModel.voice_status.intValue());
             }
@@ -419,7 +419,7 @@ public class l extends com.baidu.tieba.card.a<bh> implements v {
     /* JADX INFO: Access modifiers changed from: private */
     public void dA(boolean z) {
         if (this.ajg != null) {
-            m.jn(this.ajg.getId());
+            m.jm(this.ajg.getId());
             m.a(this.mTitle, this.ajg.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
             m.a(this.bLt, this.ajg.getId(), d.e.cp_cont_f, d.e.cp_cont_d);
             m.a(this.bJw.getGodReplyContent(), this.ajg.getId(), d.e.cp_cont_f, d.e.cp_cont_d);

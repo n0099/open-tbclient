@@ -67,12 +67,12 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             xVar = new com.baidu.tieba.play.x();
             xVar.mLocate = "1";
             xVar.cyX = nVar.Xf;
-            xVar.fyf = nVar.XW();
+            xVar.fye = nVar.XW();
             xVar.Wi = nVar.getExtra();
             if (nVar.Nj() != null) {
                 xVar.azf = String.valueOf(nVar.Nj().getFid());
                 if (nVar.Nj().rM() != null) {
-                    xVar.fyg = nVar.Nj().rM().video_md5;
+                    xVar.fyf = nVar.Nj().rM().video_md5;
                 }
             }
         }

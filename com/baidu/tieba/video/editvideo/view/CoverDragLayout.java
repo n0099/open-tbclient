@@ -35,7 +35,7 @@ public class CoverDragLayout extends FrameLayout {
             public boolean tryCaptureView(View view2, int i) {
                 boolean z = view2 == view;
                 if (!z) {
-                    bVar.beW();
+                    bVar.beV();
                 }
                 return z;
             }
@@ -52,7 +52,7 @@ public class CoverDragLayout extends FrameLayout {
                     CoverDragLayout.this.eOp = System.currentTimeMillis();
                     CoverDragLayout.this.eOn = view2.getX();
                     CoverDragLayout.this.eOo = view2.getY();
-                    bVar.beW();
+                    bVar.beV();
                 }
             }
 
@@ -65,7 +65,7 @@ public class CoverDragLayout extends FrameLayout {
                     float abs = Math.abs(x - CoverDragLayout.this.eOn);
                     float abs2 = Math.abs(y - CoverDragLayout.this.eOo);
                     if (abs < CoverDragLayout.this.cfl && abs2 < CoverDragLayout.this.cfl && System.currentTimeMillis() - CoverDragLayout.this.eOp < 300) {
-                        bVar.bwk();
+                        bVar.bwj();
                     }
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                     layoutParams.setMargins(0, view2.getTop(), 0, 0);

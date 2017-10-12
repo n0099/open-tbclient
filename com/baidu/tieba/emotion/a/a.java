@@ -60,13 +60,13 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
             return null;
         }
         ArrayList<com.baidu.tbadk.editortools.emotiontool.c> acy = g.acw().acy();
-        if (g.acw().jJ(valueOf2) && valueOf3.booleanValue() && !new File(g.acw().F(valueOf2, true)).exists()) {
+        if (g.acw().jI(valueOf2) && valueOf3.booleanValue() && !new File(g.acw().F(valueOf2, true)).exists()) {
             valueOf3 = false;
         }
         boolean booleanValue = valueOf3.booleanValue();
-        if (g.acw().jL(valueOf2) && valueOf3.booleanValue()) {
+        if (g.acw().jK(valueOf2) && valueOf3.booleanValue()) {
             String F = g.acw().F(valueOf2, true);
-            valueOf = g.acw().jK(valueOf2);
+            valueOf = g.acw().jJ(valueOf2);
             if (!new File(k.xS + "/" + TbConfig.getTempDirName() + "/.emotions/" + valueOf + "/" + F).exists()) {
                 valueOf3 = false;
                 str3 = valueOf;
@@ -92,7 +92,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
                     }
                 } else {
                     String F3 = g.acw().F(valueOf2, false);
-                    if (booleanValue && g.acw().jL(valueOf2)) {
+                    if (booleanValue && g.acw().jK(valueOf2)) {
                         F3.replaceFirst("s_", "d_");
                     }
                     Iterator<com.baidu.tbadk.editortools.emotiontool.c> it2 = acy.iterator();

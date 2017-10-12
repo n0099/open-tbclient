@@ -19,7 +19,7 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
     private int dHS;
     private int dHT;
     private HeadImageView dHU;
-    private a gLx;
+    private a gLw;
     private final Context mContext;
     private int mItemHeight;
     private LinearLayout mLayout;
@@ -42,8 +42,8 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
                 if (!AtSelectFriendList.this.aAb()) {
                     AtSelectFriendList.this.azZ();
                 }
-                if (AtSelectFriendList.this.gLx != null) {
-                    AtSelectFriendList.this.gLx.b(view, view.getTag());
+                if (AtSelectFriendList.this.gLw != null) {
+                    AtSelectFriendList.this.gLw.b(view, view.getTag());
                 }
             }
         };
@@ -64,8 +64,8 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
                 if (!AtSelectFriendList.this.aAb()) {
                     AtSelectFriendList.this.azZ();
                 }
-                if (AtSelectFriendList.this.gLx != null) {
-                    AtSelectFriendList.this.gLx.b(view, view.getTag());
+                if (AtSelectFriendList.this.gLw != null) {
+                    AtSelectFriendList.this.gLw.b(view, view.getTag());
                 }
             }
         };
@@ -80,7 +80,7 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setItemOPerationHandler(a aVar) {
-        this.gLx = aVar;
+        this.gLw = aVar;
     }
 
     private void wA() {

@@ -21,10 +21,10 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
     private final QuickWebView bZz;
-    private String fAK;
-    private HashSet<String> fAG = new HashSet<>();
+    private String fAJ;
+    private HashSet<String> fAF = new HashSet<>();
+    private HashMap<String, String> fAG = new HashMap<>();
     private HashMap<String, String> fAH = new HashMap<>();
-    private HashMap<String, String> fAI = new HashMap<>();
     private HttpMessageListener dKi = new HttpMessageListener(CmdConfigHttp.CMD_WEB_HTTP_PROXY) { // from class: com.baidu.tieba.quickWebView.b.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:23:0x00dd  */
@@ -48,14 +48,14 @@ public class b {
                         long j = quickWebViewHttpReqMsg.begin;
                         str = quickWebViewHttpReqMsg.jsCallbackMethod;
                         if (TextUtils.isEmpty(str)) {
-                            str = (String) b.this.fAH.remove(str2);
+                            str = (String) b.this.fAG.remove(str2);
                             if (!TextUtils.isEmpty(str)) {
                             }
                             z = true;
                         } else {
                             z = false;
                         }
-                        b.this.fAG.remove(str2);
+                        b.this.fAF.remove(str2);
                         String str4 = "\"\"";
                         if (!quickWebViewHttpResMsg.isSuccess() && !TextUtils.isEmpty(quickWebViewHttpResMsg.getResult())) {
                             str3 = "200";
@@ -64,7 +64,7 @@ public class b {
                             str3 = quickWebViewHttpResMsg.getError() + "";
                         }
                         int i = z ? 1 : 0;
-                        String bfw = c.bfv().bfw();
+                        String bfv = c.bfu().bfv();
                         StringBuilder sb = new StringBuilder();
                         sb.append("{");
                         sb.append("\"status\":");
@@ -77,7 +77,7 @@ public class b {
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         sb.append("\"cache_version\":");
                         sb.append("\"");
-                        sb.append(bfw);
+                        sb.append(bfv);
                         sb.append("\"");
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         sb.append("\"cache\":");
@@ -86,7 +86,7 @@ public class b {
                         sb.append("\"");
                         sb.append("}");
                         if (!StringUtils.isNull(str)) {
-                            b.this.fAI.put(str2, sb.toString());
+                            b.this.fAH.put(str2, sb.toString());
                             return;
                         } else {
                             b.this.runJsMethod(str, sb.toString());
@@ -103,7 +103,7 @@ public class b {
                 str3 = quickWebViewHttpResMsg.getError() + "";
                 if (z) {
                 }
-                String bfw2 = c.bfv().bfw();
+                String bfv2 = c.bfu().bfv();
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("{");
                 sb2.append("\"status\":");
@@ -116,7 +116,7 @@ public class b {
                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 sb2.append("\"cache_version\":");
                 sb2.append("\"");
-                sb2.append(bfw2);
+                sb2.append(bfv2);
                 sb2.append("\"");
                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 sb2.append("\"cache\":");
@@ -129,12 +129,12 @@ public class b {
             }
         }
     };
-    private String fAJ = ".tieba.baidu.com";
+    private String fAI = ".tieba.baidu.com";
     private BdUniqueId aPx = BdUniqueId.gen();
 
     public b(QuickWebView quickWebView) {
         this.bZz = quickWebView;
-        this.fAK = quickWebView.getSettings().getUserAgentString();
+        this.fAJ = quickWebView.getSettings().getUserAgentString();
         this.dKi.setTag(this.aPx);
         this.dKi.setSelfListener(true);
         MessageManager.getInstance().registerListener(this.dKi);
@@ -142,12 +142,12 @@ public class b {
 
     public void a(QuickWebViewBridgeData quickWebViewBridgeData, String str) {
         if (quickWebViewBridgeData != null && !StringUtils.isNull(quickWebViewBridgeData.url) && !StringUtils.isNull(quickWebViewBridgeData.type)) {
-            String remove = this.fAI.remove(quickWebViewBridgeData.url);
+            String remove = this.fAH.remove(quickWebViewBridgeData.url);
             if (!StringUtils.isNull(remove) && str != null) {
                 runJsMethod(str, remove);
-            } else if (this.fAG.contains(quickWebViewBridgeData.url)) {
+            } else if (this.fAF.contains(quickWebViewBridgeData.url)) {
                 if (!TextUtils.isEmpty(str)) {
-                    this.fAH.put(quickWebViewBridgeData.url, str);
+                    this.fAG.put(quickWebViewBridgeData.url, str);
                 }
             } else {
                 String currentBduss = TbadkCoreApplication.getCurrentBduss();
@@ -162,8 +162,8 @@ public class b {
                 quickWebViewHttpReqMsg.setTag(this.aPx);
                 quickWebViewHttpReqMsg.addCookie("BDUSS", currentBduss);
                 quickWebViewHttpReqMsg.addCookie("STOKEN", str2);
-                quickWebViewHttpReqMsg.addCookie("domain", this.fAJ);
-                quickWebViewHttpReqMsg.setUserAgent(this.fAK);
+                quickWebViewHttpReqMsg.addCookie("domain", this.fAI);
+                quickWebViewHttpReqMsg.setUserAgent(this.fAJ);
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, quickWebViewBridgeData.url);
                 tbHttpMessageTask.setResponsedClass(QuickWebViewHttpResMsg.class);
                 tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -180,7 +180,7 @@ public class b {
                     tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
                 }
                 MessageManager.getInstance().sendMessage(quickWebViewHttpReqMsg, tbHttpMessageTask);
-                this.fAG.add(quickWebViewBridgeData.url);
+                this.fAF.add(quickWebViewBridgeData.url);
             }
         }
     }
@@ -195,11 +195,11 @@ public class b {
     public void onDestory() {
         MessageManager.getInstance().unRegisterListener(this.aPx);
         MessageManager.getInstance().removeMessage(this.aPx);
+        this.fAF.clear();
+        this.fAF = null;
         this.fAG.clear();
         this.fAG = null;
         this.fAH.clear();
         this.fAH = null;
-        this.fAI.clear();
-        this.fAI = null;
     }
 }

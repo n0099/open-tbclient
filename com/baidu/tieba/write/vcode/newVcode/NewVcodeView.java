@@ -20,7 +20,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.write.vcode.newVcode.a.b;
 /* loaded from: classes2.dex */
 public class NewVcodeView {
-    private b gJp;
+    private b gJo;
     private BaseActivity mContext;
     private float mRatio;
     private BaseWebView mWebView = null;
@@ -47,7 +47,7 @@ public class NewVcodeView {
     }
 
     public void setPresenter(b bVar) {
-        this.gJp = bVar;
+        this.gJo = bVar;
         this.onPageFinishHasBeenCalled = false;
     }
 
@@ -65,7 +65,7 @@ public class NewVcodeView {
         this.mBlackBackLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NewVcodeView.this.gJp.onPostThreadCancle();
+                NewVcodeView.this.gJo.onPostThreadCancle();
                 NewVcodeView.this.mContext.finish();
             }
         });
@@ -90,12 +90,12 @@ public class NewVcodeView {
                         if (!NewVcodeView.this.onPageFinishHasBeenCalled) {
                             NewVcodeView.this.onPageFinishHasBeenCalled = true;
                             e.fP().postDelayed(NewVcodeView.this.mShowWebViewRunnable, 500L);
-                            if (NewVcodeView.this.gJp != null) {
-                                NewVcodeView.this.gJp.onPageFinished(webView, str);
+                            if (NewVcodeView.this.gJo != null) {
+                                NewVcodeView.this.gJo.onPageFinished(webView, str);
                             }
                         }
-                        if (NewVcodeView.this.gJp != null) {
-                            return NewVcodeView.this.gJp.onUrlLoad(webView, str);
+                        if (NewVcodeView.this.gJo != null) {
+                            return NewVcodeView.this.gJo.onUrlLoad(webView, str);
                         }
                         return false;
                     }
@@ -104,8 +104,8 @@ public class NewVcodeView {
                     public void onPageFinished(WebView webView, String str) {
                         super.onPageFinished(webView, str);
                         NewVcodeView.this.onPageFinishHasBeenCalled = true;
-                        if (NewVcodeView.this.gJp != null) {
-                            NewVcodeView.this.gJp.onPageFinished(webView, str);
+                        if (NewVcodeView.this.gJo != null) {
+                            NewVcodeView.this.gJo.onPageFinished(webView, str);
                         }
                     }
 

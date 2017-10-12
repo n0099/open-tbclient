@@ -10,7 +10,7 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.j.fhg);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.j.fhf);
         this.mG = tbPageContext;
     }
 

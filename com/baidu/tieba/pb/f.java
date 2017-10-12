@@ -29,7 +29,7 @@ public class f {
 
     public static boolean c(PostData postData) {
         if (TbadkCoreApplication.isLogin()) {
-            if (postData != null && postData.ghy) {
+            if (postData != null && postData.ghx) {
                 BdToast.a(TbadkCoreApplication.getInst().getContext(), ewt).tq();
                 return true;
             }

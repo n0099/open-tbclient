@@ -118,8 +118,8 @@ public class c extends com.baidu.tbadk.editortools.f implements r.a {
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-                if (aVar != null && !StringUtils.isNull(aVar.bsa())) {
-                    c.this.a(2, true, aVar.bsa());
+                if (aVar != null && !StringUtils.isNull(aVar.brZ())) {
+                    c.this.a(2, true, aVar.brZ());
                 } else {
                     fR(null);
                 }
@@ -500,12 +500,12 @@ public class c extends com.baidu.tbadk.editortools.f implements r.a {
             this.mContext.showToast(d.l.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             Dd();
-        } else if (this.aCA.bsi()) {
+        } else if (this.aCA.bsh()) {
             Db();
         } else {
             this.aCA.mE(false);
             a(1, true, (String) null);
-            this.aCA.bsg();
+            this.aCA.bsf();
         }
     }
 
@@ -534,12 +534,12 @@ public class c extends com.baidu.tbadk.editortools.f implements r.a {
 
     public void De() {
         if (this.aCA.UW()) {
-            if (this.aCA.bsi()) {
-                this.aCP.a(com.baidu.tieba.tbadkCore.location.c.bse().getLocationData());
+            if (this.aCA.bsh()) {
+                this.aCP.a(com.baidu.tieba.tbadkCore.location.c.bsd().getLocationData());
                 return;
             }
             if (l.hy()) {
-                this.aCA.bsg();
+                this.aCA.bsf();
             }
             a(0, true, (String) null);
             return;
@@ -757,7 +757,7 @@ public class c extends com.baidu.tbadk.editortools.f implements r.a {
                 this.aCB.getWriteData().setVoice(null);
                 this.aCB.getWriteData().setVoiceDuringTime(-1);
             }
-            if (!this.aCB.bsE()) {
+            if (!this.aCB.bsD()) {
                 this.mContext.showToast(d.l.write_img_limit);
                 return;
             }

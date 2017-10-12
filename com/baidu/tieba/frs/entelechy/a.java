@@ -36,10 +36,10 @@ public abstract class a extends com.baidu.tieba.frs.view.b {
     public void aiF() {
         if (this.crI != null && this.crI.ahk() != null && this.cvp != null) {
             ArrayList arrayList = new ArrayList();
-            List<com.baidu.adp.widget.ListView.f> bqC = this.crI.ahk().bqC();
-            if (bqC != null) {
-                for (int i = 0; i < v.t(bqC); i++) {
-                    com.baidu.adp.widget.ListView.f fVar = (com.baidu.adp.widget.ListView.f) v.c(bqC, i);
+            List<com.baidu.adp.widget.ListView.f> bqB = this.crI.ahk().bqB();
+            if (bqB != null) {
+                for (int i = 0; i < v.t(bqB); i++) {
+                    com.baidu.adp.widget.ListView.f fVar = (com.baidu.adp.widget.ListView.f) v.c(bqB, i);
                     if (fVar instanceof bh) {
                         arrayList.add((bh) fVar);
                     }
@@ -48,7 +48,7 @@ public abstract class a extends com.baidu.tieba.frs.view.b {
             if (this.cvp instanceof com.baidu.tieba.frs.f.c) {
                 f fVar2 = this.cvp;
                 if (com.baidu.tieba.frs.f.c.cGc != null && this.crI.ahk() != null) {
-                    if (this.crI.ahk().gel == 1) {
+                    if (this.crI.ahk().gek == 1) {
                         com.baidu.tieba.frs.f.c.cGc.cFS = true;
                     } else {
                         com.baidu.tieba.frs.f.c.cGc.cFS = false;

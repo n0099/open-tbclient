@@ -13,33 +13,33 @@ import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 /* loaded from: classes2.dex */
 public class LocalVideoInfoView extends RelativeLayout {
-    public static final Object gwT = new Object();
-    private static long gwU = 3600000;
+    public static final Object gwS = new Object();
+    private static long gwT = 3600000;
     private TextView awZ;
     private ImageView axe;
-    private TextView gwS;
+    private TextView gwR;
+    private SimpleDateFormat gwU;
     private SimpleDateFormat gwV;
-    private SimpleDateFormat gwW;
-    private boolean gwX;
+    private boolean gwW;
     private Context mContext;
     private View mRootView;
     private String videoPath;
 
     public LocalVideoInfoView(Context context) {
         super(context);
-        this.gwX = false;
+        this.gwW = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gwX = false;
+        this.gwW = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gwX = false;
+        this.gwW = false;
         init(context);
     }
 
@@ -49,21 +49,21 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.axe = (ImageView) this.mRootView.findViewById(d.h.local_video_selet_thumb);
         this.axe.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.awZ = (TextView) this.mRootView.findViewById(d.h.local_video_select_duration);
-        this.gwS = (TextView) this.mRootView.findViewById(d.h.no_video_title);
+        this.gwR = (TextView) this.mRootView.findViewById(d.h.no_video_title);
         addView(this.mRootView, -1, -1);
-        this.gwW = new SimpleDateFormat("mm:ss");
-        this.gwV = new SimpleDateFormat("HH:mm:ss");
+        this.gwV = new SimpleDateFormat("mm:ss");
+        this.gwU = new SimpleDateFormat("HH:mm:ss");
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.gwW.setTimeZone(timeZone);
         this.gwV.setTimeZone(timeZone);
+        this.gwU.setTimeZone(timeZone);
     }
 
     public void setDataToView(d dVar) {
-        if (!this.gwX) {
+        if (!this.gwW) {
             if (dVar != null) {
                 if (dVar.getVideoPath().equals(this.videoPath)) {
                     this.axe.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    this.axe.setImageBitmap(dVar.bwy());
+                    this.axe.setImageBitmap(dVar.bwx());
                     this.awZ.setText(cS(dVar.getDuration()));
                     return;
                 }
@@ -78,13 +78,13 @@ public class LocalVideoInfoView extends RelativeLayout {
     }
 
     public void lk(boolean z) {
-        this.gwX = true;
+        this.gwW = true;
         if (z) {
             this.axe.setScaleType(ImageView.ScaleType.CENTER);
             this.axe.setImageBitmap(null);
             this.axe.setImageResource(0);
             this.axe.setBackgroundColor(getResources().getColor(d.e.cp_bg_line_d));
-            this.gwS.setVisibility(0);
+            this.gwR.setVisibility(0);
             return;
         }
         this.axe.setScaleType(ImageView.ScaleType.CENTER);
@@ -92,14 +92,14 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.axe.setImageBitmap(null);
         this.axe.setBackgroundColor(getResources().getColor(d.e.white_alpha50));
         this.awZ.setText("");
-        this.gwS.setVisibility(8);
+        this.gwR.setVisibility(8);
     }
 
     public void a(d dVar) {
-        this.gwX = false;
-        this.gwS.setVisibility(8);
+        this.gwW = false;
+        this.gwR.setVisibility(8);
         this.videoPath = dVar.getVideoPath();
-        if (dVar != null && dVar.bwz()) {
+        if (dVar != null && dVar.bwy()) {
             setDataToView(dVar);
         } else {
             setDataToView(null);
@@ -107,6 +107,6 @@ public class LocalVideoInfoView extends RelativeLayout {
     }
 
     private String cS(long j) {
-        return j > gwU ? this.gwV.format(Long.valueOf(j)) : this.gwW.format(Long.valueOf(j));
+        return j > gwT ? this.gwU.format(Long.valueOf(j)) : this.gwV.format(Long.valueOf(j));
     }
 }

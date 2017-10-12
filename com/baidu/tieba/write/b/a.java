@@ -24,9 +24,9 @@ public class a extends RelativeLayout implements s {
     private TextView btI;
     private boolean dqm;
     private com.baidu.tieba.d.a eIK;
-    protected LocationInfoView gIB;
-    private EditorInfoView gIC;
-    private String gID;
+    protected LocationInfoView gIA;
+    private EditorInfoView gIB;
+    private String gIC;
     private View.OnClickListener mOnClickListener;
 
     public a(Context context) {
@@ -49,51 +49,51 @@ public class a extends RelativeLayout implements s {
         setPadding(dimension, 0, dimension, 0);
         setGravity(48);
         int dimensionPixelSize = getResources().getDimensionPixelSize(d.f.ds16);
-        this.gIB = new LocationInfoView(context);
-        this.gIB.setId(d.h.editor_id_location);
-        this.gIC = new EditorInfoView(context);
-        this.gIC.setId(d.h.view_write_thread_add_title);
+        this.gIA = new LocationInfoView(context);
+        this.gIA.setId(d.h.editor_id_location);
+        this.gIB = new EditorInfoView(context);
+        this.gIB.setId(d.h.view_write_thread_add_title);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.rightMargin = dimensionPixelSize;
-        addView(this.gIB, layoutParams);
+        addView(this.gIA, layoutParams);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams2.rightMargin = dimensionPixelSize;
         layoutParams2.addRule(1, d.h.editor_id_location);
-        addView(this.gIC, layoutParams2);
+        addView(this.gIB, layoutParams2);
         this.btI = (TextView) LayoutInflater.from(context).inflate(d.j.view_select_forum, (ViewGroup) null);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(d.f.ds48));
         layoutParams3.addRule(1, d.h.view_write_thread_add_title);
         addView(this.btI, layoutParams3);
         this.btI.setOnClickListener(this.mOnClickListener);
-        this.gIC.setText(context.getString(d.l.write_add_title));
+        this.gIB.setText(context.getString(d.l.write_add_title));
         int dimension2 = (int) context.getResources().getDimension(d.f.ds26);
-        this.gIC.setPadding(dimension2, 0, dimension2, 0);
-        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.gIC.getLayoutParams();
-        layoutParams4.rightMargin = dimensionPixelSize;
-        this.gIC.setLayoutParams(layoutParams4);
-        aj.i(this.gIC, d.e.cp_cont_f);
-        aj.j(this.gIC, d.g.write_add_title_bg);
         this.gIB.setPadding(dimension2, 0, dimension2, 0);
+        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.gIB.getLayoutParams();
+        layoutParams4.rightMargin = dimensionPixelSize;
+        this.gIB.setLayoutParams(layoutParams4);
         aj.i(this.gIB, d.e.cp_cont_f);
         aj.j(this.gIB, d.g.write_add_title_bg);
-        this.gIC.setVisibility(0);
-        this.gIB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.b.a.1
+        this.gIA.setPadding(dimension2, 0, dimension2, 0);
+        aj.i(this.gIA, d.e.cp_cont_f);
+        aj.j(this.gIA, d.g.write_add_title_bg);
+        this.gIB.setVisibility(0);
+        this.gIA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.b.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.b(new com.baidu.tbadk.editortools.a(18, -1, null));
             }
         });
-        this.gIC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.b.a.2
+        this.gIB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.b.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.gIC.setVisibility(8);
+                a.this.gIB.setVisibility(8);
                 a.this.b(new com.baidu.tbadk.editortools.a(45, -1, null));
             }
         });
     }
 
     public void setCallFrom(String str) {
-        this.gID = str;
+        this.gIC = str;
     }
 
     public void aRv() {
@@ -109,7 +109,7 @@ public class a extends RelativeLayout implements s {
     }
 
     public LocationInfoView getLocationInfoView() {
-        return this.gIB;
+        return this.gIA;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -130,21 +130,21 @@ public class a extends RelativeLayout implements s {
             case 19:
                 if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.editortools.d.a)) {
                     com.baidu.tbadk.editortools.d.a aVar2 = (com.baidu.tbadk.editortools.d.a) aVar.data;
-                    this.gIB.setVisibility(aVar2.aCt ? 0 : 8);
-                    this.gIB.k(aVar2.state, aVar2.addr);
+                    this.gIA.setVisibility(aVar2.aCt ? 0 : 8);
+                    this.gIA.k(aVar2.state, aVar2.addr);
                     return;
                 }
                 return;
             case 20:
-                this.gIB.setVisibility(8);
+                this.gIA.setVisibility(8);
                 return;
             case 21:
-                this.gIC.setVisibility(8);
+                this.gIB.setVisibility(8);
                 return;
             case 50:
                 if (aVar.data instanceof c) {
                     c cVar = (c) aVar.data;
-                    if ("1".equals(this.gID)) {
+                    if ("1".equals(this.gIC)) {
                         if (this.eIK == null) {
                             this.eIK = new com.baidu.tieba.d.a(cVar.context, this.btI);
                         }
@@ -203,11 +203,11 @@ public class a extends RelativeLayout implements s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
-        if (this.gIC != null) {
-            this.gIC.wB();
-        }
         if (this.gIB != null) {
             this.gIB.wB();
+        }
+        if (this.gIA != null) {
+            this.gIA.wB();
         }
         aj.i(this.btI, d.e.cp_link_tip_a);
         Drawable drawable = aj.getDrawable(d.g.selector_select_forum);

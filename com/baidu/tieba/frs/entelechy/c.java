@@ -184,26 +184,26 @@ public class c extends a {
     }
 
     private void aiN() {
-        final m bqb = this.cxo.bqb();
-        if (bqb != null && this.cxo.aMZ() != null) {
+        final m bqa = this.cxo.bqa();
+        if (bqa != null && this.cxo.aMZ() != null) {
             final String id = this.cxo.aMZ().getId();
             final String name = this.cxo.aMZ().getName();
-            if (this.cJJ.add(bqb.pD())) {
-                a.C0126a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0130", "ad_plat", "VIEW_TRUE", bqb.pD(), id, name, null);
-                b.ce("obj_url", bqb.getUrl());
+            if (this.cJJ.add(bqa.pD())) {
+                a.C0126a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0130", "ad_plat", "VIEW_TRUE", bqa.pD(), id, name, null);
+                b.ce("obj_url", bqa.getUrl());
                 b.save();
             }
             this.cIY.setVisibility(0);
-            this.cIZ.setText(bqb.getText());
-            this.cJa.setText(bqb.getTitle());
-            this.cJb.c(bqb.pC(), 10, false);
+            this.cIZ.setText(bqa.getText());
+            this.cJa.setText(bqa.getTitle());
+            this.cJb.c(bqa.pC(), 10, false);
             this.cIY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.C0126a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0130", "ad_plat", "CLICK", bqb.pD(), id, name, null);
-                    b2.ce("obj_url", bqb.getUrl());
+                    a.C0126a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0130", "ad_plat", "CLICK", bqa.pD(), id, name, null);
+                    b2.ce("obj_url", bqa.getUrl());
                     b2.save();
-                    av.vH().c(c.this.crI.getPageContext(), new String[]{bqb.getUrl()});
+                    av.vH().c(c.this.crI.getPageContext(), new String[]{bqa.getUrl()});
                 }
             });
         }
@@ -339,7 +339,7 @@ public class c extends a {
             aiT();
             aiN();
             if (this.cxo != null) {
-                this.cvC.b(this.cxo.bpu(), this.crI.getForumId(), "0");
+                this.cvC.b(this.cxo.bpt(), this.crI.getForumId(), "0");
             } else {
                 this.cvC.setVisibility(8);
                 this.cvx.setVisibility(8);
@@ -349,9 +349,9 @@ public class c extends a {
                 this.cvz = new g(this.crI.getPageContext(), 2, com.baidu.adp.lib.g.b.c(this.mForumId, 0L), this.mForumName);
                 this.cvC.setOnClick(this.cvz);
             }
-            if (iVar != null && iVar.bpw() != null) {
-                jo(iVar.bpw().grade.intValue());
-                this.cvD = iVar.bpw().url;
+            if (iVar != null && iVar.bpv() != null) {
+                jo(iVar.bpv().grade.intValue());
+                this.cvD = iVar.bpv().url;
             }
         }
     }
@@ -406,14 +406,14 @@ public class c extends a {
             }
         }
         if (this.cIW != null && this.cIX != null) {
-            if (this.cxo != null && this.cxo.bpH()) {
-                if (com.baidu.tbadk.core.util.m.dy(this.cxo.bpK()) == 1 && !n.aeR) {
+            if (this.cxo != null && this.cxo.bpG()) {
+                if (com.baidu.tbadk.core.util.m.dy(this.cxo.bpJ()) == 1 && !n.aeR) {
                     this.cIW.setVisibility(8);
                 } else {
                     this.cIW.setVisibility(0);
                     if (!TextUtils.isEmpty(this.cxo.getGameName()) && !TextUtils.isEmpty(this.cxo.getGameName().trim())) {
                         this.cIX.setText(UtilHelper.getFixedText(this.cxo.getGameName(), 10));
-                        String rW = com.baidu.tieba.tbadkCore.util.b.rW(this.cxo.bpK());
+                        String rW = com.baidu.tieba.tbadkCore.util.b.rW(this.cxo.bpJ());
                         if (!StringUtils.isNull(rW)) {
                             TiebaStatic.eventStat(this.abz.getPageActivity(), "game_show", "show", 1, "dev_id", rW, "ref_id", "1000601", "ref_type", "603");
                         }
@@ -426,10 +426,10 @@ public class c extends a {
             }
         }
         this.cvt.clearData();
-        if (this.cxo != null && !v.u(this.cxo.bpI())) {
-            List<com.baidu.tieba.tbadkCore.e> bpI = this.cxo.bpI();
-            aY(bpI);
-            this.cvt.aX(bpI);
+        if (this.cxo != null && !v.u(this.cxo.bpH())) {
+            List<com.baidu.tieba.tbadkCore.e> bpH = this.cxo.bpH();
+            aY(bpH);
+            this.cvt.aX(bpH);
         }
         this.cJc.setVisibility(8);
         this.cJp.a(null, null);

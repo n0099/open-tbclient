@@ -11,11 +11,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class l {
     static {
+        bek();
         bel();
-        bem();
     }
 
-    private static void bel() {
+    private static void bek() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -23,7 +23,7 @@ public class l {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private static void bem() {
+    private static void bel() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -46,7 +46,7 @@ public class l {
         httpMessage.addParam("obj_duration", j);
         httpMessage.addParam("obj_type", str);
         if (xVar != null) {
-            httpMessage.addParam("video_md5", xVar.fyg);
+            httpMessage.addParam("video_md5", xVar.fyf);
         }
         httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("obj_param2", str2);
@@ -58,12 +58,12 @@ public class l {
         if (httpMessage != null && xVar != null) {
             httpMessage.addParam("tid", xVar.cyX);
             httpMessage.addParam("fid", xVar.azf);
-            httpMessage.addParam("obj_to", xVar.fyc);
+            httpMessage.addParam("obj_to", xVar.fyb);
             httpMessage.addParam("obj_id", xVar.Wi);
-            httpMessage.addParam("obj_param3", xVar.fyd);
+            httpMessage.addParam("obj_param3", xVar.fyc);
             httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, xVar.mSource);
             httpMessage.addParam("obj_locate", xVar.mLocate);
-            httpMessage.addParam("obj_param1", xVar.fye);
+            httpMessage.addParam("obj_param1", xVar.fyd);
         }
     }
 }

@@ -18,10 +18,10 @@ import java.util.List;
 public class l extends LinearLayout {
     private View aWX;
     public ListViewPager dYE;
-    private com.baidu.tieba.personPolymeric.c.c fhG;
-    private com.baidu.adp.lib.e.b<n> fhI;
-    private Context fit;
-    private a fiu;
+    private com.baidu.tieba.personPolymeric.c.c fhF;
+    private com.baidu.adp.lib.e.b<n> fhH;
+    private Context fis;
+    private a fit;
     private int mSkinType;
     public TextView mTitle;
     private View rootView;
@@ -29,13 +29,13 @@ public class l extends LinearLayout {
     public l(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.fiu = new a();
-        this.fhI = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<n>() { // from class: com.baidu.tieba.personPolymeric.view.l.1
+        this.fit = new a();
+        this.fhH = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<n>() { // from class: com.baidu.tieba.personPolymeric.view.l.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aWw */
+            /* renamed from: aWv */
             public n fI() {
-                return new n(l.this.fit);
+                return new n(l.this.fis);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -65,8 +65,8 @@ public class l extends LinearLayout {
     }
 
     private void init(Context context) {
-        this.fit = context;
-        this.rootView = LayoutInflater.from(this.fit).inflate(d.j.person_info_common_forum_layout, this);
+        this.fis = context;
+        this.rootView = LayoutInflater.from(this.fis).inflate(d.j.person_info_common_forum_layout, this);
         this.mTitle = (TextView) this.rootView.findViewById(d.h.common_forum_title);
         this.dYE = (ListViewPager) this.rootView.findViewById(d.h.common_forum_viewpager);
         this.aWX = this.rootView.findViewById(d.h.divider_line);
@@ -96,11 +96,11 @@ public class l extends LinearLayout {
     public void a(com.baidu.tieba.personPolymeric.c.c cVar) {
         if (cVar != null) {
             if (b(cVar)) {
-                this.fhG = cVar;
-                if (v.t(cVar.fgV) <= 2) {
-                    this.dYE.getLayoutParams().height = com.baidu.adp.lib.util.l.f(this.fit, d.f.ds140);
+                this.fhF = cVar;
+                if (v.t(cVar.fgU) <= 2) {
+                    this.dYE.getLayoutParams().height = com.baidu.adp.lib.util.l.f(this.fis, d.f.ds140);
                 }
-                this.dYE.setAdapter(this.fiu);
+                this.dYE.setAdapter(this.fit);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -113,10 +113,10 @@ public class l extends LinearLayout {
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            if (l.this.fhG == null || v.u(l.this.fhG.fgV)) {
+            if (l.this.fhF == null || v.u(l.this.fhF.fgU)) {
                 return 0;
             }
-            return l.this.fhG.fgV.size() % 4 == 0 ? l.this.fhG.fgV.size() / 4 : (l.this.fhG.fgV.size() / 4) + 1;
+            return l.this.fhF.fgU.size() % 4 == 0 ? l.this.fhF.fgU.size() / 4 : (l.this.fhF.fgU.size() / 4) + 1;
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -139,8 +139,8 @@ public class l extends LinearLayout {
             if (v.u(qq)) {
                 return null;
             }
-            m mVar = new m(l.this.fit);
-            mVar.setForumItemViewBdObjectPool(l.this.fhI);
+            m mVar = new m(l.this.fis);
+            mVar.setForumItemViewBdObjectPool(l.this.fhH);
             mVar.setData(qq);
             mVar.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.f.ds34));
             mVar.setHorizontalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.f.ds34));
@@ -151,7 +151,7 @@ public class l extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public List<com.baidu.tieba.personPolymeric.c.f> qq(int i) {
-        if (this.fhG == null || v.u(this.fhG.fgV)) {
+        if (this.fhF == null || v.u(this.fhF.fgU)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
@@ -161,7 +161,7 @@ public class l extends LinearLayout {
             if (i3 >= (i * 4) + 4) {
                 return arrayList;
             }
-            com.baidu.tieba.personPolymeric.c.f fVar = (com.baidu.tieba.personPolymeric.c.f) v.c(this.fhG.fgV, i3);
+            com.baidu.tieba.personPolymeric.c.f fVar = (com.baidu.tieba.personPolymeric.c.f) v.c(this.fhF.fgU, i3);
             if (fVar != null) {
                 arrayList.add(fVar);
             }
@@ -170,24 +170,24 @@ public class l extends LinearLayout {
     }
 
     public void setForumCardItemViewPool(com.baidu.adp.lib.e.b<n> bVar) {
-        this.fhI = bVar;
+        this.fhH = bVar;
     }
 
     private boolean b(com.baidu.tieba.personPolymeric.c.c cVar) {
-        if (cVar == null || v.u(cVar.fgV) || cVar == this.fhG) {
+        if (cVar == null || v.u(cVar.fgU) || cVar == this.fhF) {
             return false;
         }
-        if (this.fhG == null || v.u(this.fhG.fgV)) {
+        if (this.fhF == null || v.u(this.fhF.fgU)) {
             return true;
         }
-        if (v.u(cVar.fgV)) {
+        if (v.u(cVar.fgU)) {
             return false;
         }
-        if (cVar.fgV.size() != this.fhG.fgV.size()) {
+        if (cVar.fgU.size() != this.fhF.fgU.size()) {
             return true;
         }
-        for (int i = 0; i < cVar.fgV.size(); i++) {
-            if (this.fhG.fgV.get(i) == null || cVar.fgV.get(i).forumId != this.fhG.fgV.get(i).forumId) {
+        for (int i = 0; i < cVar.fgU.size(); i++) {
+            if (this.fhF.fgU.get(i) == null || cVar.fgU.get(i).forumId != this.fhF.fgU.get(i).forumId) {
                 return true;
             }
         }

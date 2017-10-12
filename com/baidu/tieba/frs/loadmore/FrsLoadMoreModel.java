@@ -57,7 +57,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 if (FrsLoadMoreModel.this.cEC != null) {
                     FrsLoadMoreModel.this.isLoading = false;
                     if (responsedMessage == null) {
-                        FrsLoadMoreModel.this.cEC.ky(FrsLoadMoreModel.this.cEC.getPageContext().getString(d.l.neterror));
+                        FrsLoadMoreModel.this.cEC.kx(FrsLoadMoreModel.this.cEC.getPageContext().getString(d.l.neterror));
                     } else if (responsedMessage.getError() == 0) {
                         com.baidu.tieba.tbadkCore.i ahk = FrsLoadMoreModel.this.cEC.ahk();
                         if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
@@ -75,14 +75,14 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                             FrsLoadMoreModel.this.cEC.G(loadMoreResponseSocketMessage.getThreadList());
                             FrsLoadMoreModel.this.a((LoadMoreResponseSocketMessage) responsedMessage);
                         }
-                        if (!TextUtils.isEmpty(FrsLoadMoreModel.this.cEC.getForumName()) && r.bfU().bfO() != null) {
-                            r.bfU().bfO().g(FrsLoadMoreModel.this.cEC.getForumName(), 2, false);
+                        if (!TextUtils.isEmpty(FrsLoadMoreModel.this.cEC.getForumName()) && r.bfT().bfN() != null) {
+                            r.bfT().bfN().g(FrsLoadMoreModel.this.cEC.getForumName(), 2, false);
                         }
                         FrsLoadMoreModel.this.loadIndex++;
                     } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                        FrsLoadMoreModel.this.cEC.ky(responsedMessage.getErrorString());
+                        FrsLoadMoreModel.this.cEC.kx(responsedMessage.getErrorString());
                     } else {
-                        FrsLoadMoreModel.this.cEC.ky(FrsLoadMoreModel.this.cEC.getPageContext().getString(d.l.neterror));
+                        FrsLoadMoreModel.this.cEC.kx(FrsLoadMoreModel.this.cEC.getPageContext().getString(d.l.neterror));
                     }
                 }
             }
@@ -141,8 +141,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     private void a(String str, LoadMoreRequestMessage loadMoreRequestMessage) {
-        if (r.bfU().bfO() != null) {
-            loadMoreRequestMessage.setLoadCount(r.bfU().bfO().V(str, false) + 1);
+        if (r.bfT().bfN() != null) {
+            loadMoreRequestMessage.setLoadCount(r.bfT().bfN().V(str, false) + 1);
         }
     }
 

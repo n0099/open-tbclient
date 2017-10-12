@@ -25,24 +25,24 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class h {
     private int dSd;
-    protected String gvf;
-    private List<String> gzA;
-    protected boolean gzB;
-    private boolean gzE;
-    private g gzF;
-    private SurfaceView gzG;
-    protected List<String> gzH;
-    private b gzI;
+    protected String gve;
+    protected boolean gzA;
+    private boolean gzD;
+    private g gzE;
+    private SurfaceView gzF;
+    protected List<String> gzG;
+    private b gzH;
+    private int gzh;
     private int gzi;
-    private int gzj;
-    private RecordVideoActivity gzw;
-    private Bitmap gzx;
-    private a gzy;
-    private FrameLayout gzz;
+    private RecordVideoActivity gzv;
+    private Bitmap gzw;
+    private a gzx;
+    private FrameLayout gzy;
+    private List<String> gzz;
     private Camera mCamera;
     protected int mCameraId = -1;
-    protected int gzC = 0;
-    private Camera.Parameters gzD = null;
+    protected int gzB = 0;
+    private Camera.Parameters gzC = null;
     private Handler mMainHandler = new Handler() { // from class: com.baidu.tieba.video.record.h.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -51,16 +51,16 @@ public class h {
                     h.this.startPreview();
                     return;
                 case 2:
-                    if (h.this.gzw != null) {
-                        com.baidu.adp.lib.util.l.showToast(h.this.gzw, d.l.disallow_camera_permission);
-                        h.this.gzw.finish();
+                    if (h.this.gzv != null) {
+                        com.baidu.adp.lib.util.l.showToast(h.this.gzv, d.l.disallow_camera_permission);
+                        h.this.gzv.finish();
                         return;
                     }
                     return;
                 case 3:
-                    if (h.this.gzw != null) {
-                        com.baidu.adp.lib.util.l.showToast(h.this.gzw, d.l.disallow_audio_record_permission);
-                        h.this.gzw.finish();
+                    if (h.this.gzv != null) {
+                        com.baidu.adp.lib.util.l.showToast(h.this.gzv, d.l.disallow_audio_record_permission);
+                        h.this.gzv.finish();
                         return;
                     }
                     return;
@@ -69,7 +69,7 @@ public class h {
             }
         }
     };
-    private boolean fML = true;
+    private boolean fMK = true;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -81,72 +81,72 @@ public class h {
     }
 
     public h(RecordVideoActivity recordVideoActivity) {
-        this.gzw = recordVideoActivity;
-        bxo();
-        this.gzx = BitmapFactory.decodeResource(recordVideoActivity.getResources(), d.g.box_recorder_focus);
+        this.gzv = recordVideoActivity;
+        bxn();
+        this.gzw = BitmapFactory.decodeResource(recordVideoActivity.getResources(), d.g.box_recorder_focus);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         recordVideoActivity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         this.dSd = displayMetrics.widthPixels;
-        this.gzz = this.gzw.bxv();
+        this.gzy = this.gzv.bxu();
         if (Build.VERSION.SDK_INT >= 18) {
             f fVar = new f(recordVideoActivity, this);
-            this.gzG = fVar;
             this.gzF = fVar;
+            this.gzE = fVar;
         } else {
             l lVar = new l(recordVideoActivity, this);
-            this.gzG = lVar;
             this.gzF = lVar;
+            this.gzE = lVar;
         }
-        if (recordVideoActivity != null && recordVideoActivity.bxv() != null) {
-            recordVideoActivity.bxv().addView(this.gzG, new FrameLayout.LayoutParams(-1, -1));
+        if (recordVideoActivity != null && recordVideoActivity.bxu() != null) {
+            recordVideoActivity.bxu().addView(this.gzF, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     public void startPreview() {
-        this.gzF.d(this.mCamera);
+        this.gzE.d(this.mCamera);
     }
 
     public void startRecord() {
-        this.gzF.e(this.mCamera);
+        this.gzE.e(this.mCamera);
     }
 
     public void stopRecord() {
-        this.gzF.f(this.mCamera);
+        this.gzE.f(this.mCamera);
     }
 
-    public void bxc() {
-        this.gzH = null;
+    public void bxb() {
+        this.gzG = null;
     }
 
-    public String bxd() {
-        if (this.gzH == null) {
-            this.gzH = new ArrayList();
+    public String bxc() {
+        if (this.gzG == null) {
+            this.gzG = new ArrayList();
         }
-        File file = new File(com.baidu.tieba.video.b.gtW);
+        File file = new File(com.baidu.tieba.video.b.gtV);
         if (!file.exists()) {
             file.mkdirs();
         }
-        String str = com.baidu.tieba.video.b.gtW + System.currentTimeMillis() + ".mp4";
-        this.gzH.add(str);
+        String str = com.baidu.tieba.video.b.gtV + System.currentTimeMillis() + ".mp4";
+        this.gzG.add(str);
         return str;
     }
 
-    public void bxe() {
-        if (this.gzH != null && this.gzH.size() != 0) {
-            File file = new File(this.gzH.get(0));
+    public void bxd() {
+        if (this.gzG != null && this.gzG.size() != 0) {
+            File file = new File(this.gzG.get(0));
             if (file.exists()) {
                 file.delete();
             }
         }
     }
 
-    public String bxf() {
-        File file = new File(com.baidu.tieba.video.b.gtW);
+    public String bxe() {
+        File file = new File(com.baidu.tieba.video.b.gtV);
         if (!file.exists()) {
             file.mkdirs();
         }
-        this.gvf = com.baidu.tieba.video.b.gtW + "f_" + System.currentTimeMillis() + ".mp4";
-        return this.gvf;
+        this.gve = com.baidu.tieba.video.b.gtV + "f_" + System.currentTimeMillis() + ".mp4";
+        return this.gve;
     }
 
     public boolean a(MotionEvent motionEvent, ViewParent viewParent) {
@@ -154,27 +154,27 @@ public class h {
             case 0:
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y <= this.dSd && x >= com.baidu.adp.lib.util.l.f(this.gzw, d.f.ds60)) {
-                    int width = this.gzx.getWidth();
-                    int height = this.gzx.getHeight();
+                if (y <= this.dSd && x >= com.baidu.adp.lib.util.l.f(this.gzv, d.f.ds60)) {
+                    int width = this.gzw.getWidth();
+                    int height = this.gzw.getHeight();
                     int clamp = com.baidu.tieba.video.record.a.clamp(x, width / 2, this.dSd - (width / 2));
                     int clamp2 = com.baidu.tieba.video.record.a.clamp(y, height / 2, this.dSd - (height / 2));
                     if (viewParent != null && (viewParent instanceof FrameLayout)) {
-                        if (this.gzz == null) {
-                            this.gzz = (FrameLayout) viewParent;
+                        if (this.gzy == null) {
+                            this.gzy = (FrameLayout) viewParent;
                         }
                         int i = 0;
                         while (true) {
-                            if (i < this.gzz.getChildCount()) {
-                                if (this.gzy != this.gzz.getChildAt(i)) {
+                            if (i < this.gzy.getChildCount()) {
+                                if (this.gzx != this.gzy.getChildAt(i)) {
                                     i++;
                                 } else {
-                                    this.gzz.removeViewAt(i);
+                                    this.gzy.removeViewAt(i);
                                 }
                             }
                         }
-                        this.gzy = new a(this.gzw, clamp - (width / 2), clamp2 - (height / 2), this.gzx);
-                        this.gzz.addView(this.gzy, new ViewGroup.LayoutParams(-2, -2));
+                        this.gzx = new a(this.gzv, clamp - (width / 2), clamp2 - (height / 2), this.gzw);
+                        this.gzy.addView(this.gzx, new ViewGroup.LayoutParams(-2, -2));
                         cb(clamp, clamp2);
                         break;
                     }
@@ -184,7 +184,7 @@ public class h {
                 this.mMainHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.video.record.h.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        h.this.bxp();
+                        h.this.bxo();
                     }
                 }, 800L);
                 break;
@@ -192,53 +192,53 @@ public class h {
         return true;
     }
 
-    public void bxg() {
-        if (this.mCamera == null && this.gzw != null) {
-            this.gzw.finish();
+    public void bxf() {
+        if (this.mCamera == null && this.gzv != null) {
+            this.gzv.finish();
             return;
         }
         Camera.Size a2 = com.baidu.tieba.video.record.a.a(this.mCamera, 720, TbConfig.HEAD_IMG_SIZE);
         if (a2 != null) {
-            this.gzi = a2.width;
-            this.gzj = a2.height;
-            this.gzD.setPreviewSize(this.gzi, this.gzj);
-            if (this.gzF != null) {
-                this.gzF.setPreviewSize(this.gzi, this.gzj);
+            this.gzh = a2.width;
+            this.gzi = a2.height;
+            this.gzC.setPreviewSize(this.gzh, this.gzi);
+            if (this.gzE != null) {
+                this.gzE.setPreviewSize(this.gzh, this.gzi);
             }
         }
-        this.gzD.setPreviewFormat(17);
-        bxh();
-        this.mCamera.setDisplayOrientation(com.baidu.tieba.video.record.a.g(this.gzw, this.mCameraId));
-        this.gzA = this.gzD.getSupportedFocusModes();
-        if (this.gzA != null) {
-            if ((Build.MODEL.startsWith("GT-I950") || Build.MODEL.endsWith("SCH-I959") || Build.MODEL.endsWith("MEIZU MX3")) && this.gzA.contains("continuous-picture")) {
-                this.gzD.setFocusMode("continuous-picture");
-            } else if (this.gzA.contains("continuous-video")) {
-                this.gzD.setFocusMode("continuous-video");
+        this.gzC.setPreviewFormat(17);
+        bxg();
+        this.mCamera.setDisplayOrientation(com.baidu.tieba.video.record.a.g(this.gzv, this.mCameraId));
+        this.gzz = this.gzC.getSupportedFocusModes();
+        if (this.gzz != null) {
+            if ((Build.MODEL.startsWith("GT-I950") || Build.MODEL.endsWith("SCH-I959") || Build.MODEL.endsWith("MEIZU MX3")) && this.gzz.contains("continuous-picture")) {
+                this.gzC.setFocusMode("continuous-picture");
+            } else if (this.gzz.contains("continuous-video")) {
+                this.gzC.setFocusMode("continuous-video");
             }
         }
-        this.mCamera.setParameters(this.gzD);
-        if (this.gzw != null && this.gzw.bxv() != null) {
-            int i = (int) (this.dSd * (this.gzi / (this.gzj * 1.0f)));
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gzG.getLayoutParams();
+        this.mCamera.setParameters(this.gzC);
+        if (this.gzv != null && this.gzv.bxu() != null) {
+            int i = (int) (this.dSd * (this.gzh / (this.gzi * 1.0f)));
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gzF.getLayoutParams();
             layoutParams.width = this.dSd;
             layoutParams.height = i;
-            this.gzG.setLayoutParams(layoutParams);
-            this.gzG.invalidate();
-            if (this.gzI != null) {
-                this.gzI.cc(layoutParams.width, layoutParams.height);
+            this.gzF.setLayoutParams(layoutParams);
+            this.gzF.invalidate();
+            if (this.gzH != null) {
+                this.gzH.cc(layoutParams.width, layoutParams.height);
             }
         }
     }
 
-    private void bxh() {
+    private void bxg() {
         int i;
         int i2;
         int[] iArr;
         int i3 = Integer.MAX_VALUE;
         int[] iArr2 = null;
         int i4 = Integer.MAX_VALUE;
-        for (int[] iArr3 : this.gzD.getSupportedPreviewFpsRange()) {
+        for (int[] iArr3 : this.gzC.getSupportedPreviewFpsRange()) {
             if (Math.abs(20000 - iArr3[1]) > i4 || Math.abs(15000 - iArr3[0]) > i3) {
                 i = i3;
                 i2 = i4;
@@ -252,7 +252,7 @@ public class h {
             i4 = i2;
             i3 = i;
         }
-        this.gzD.setPreviewFpsRange(iArr2[0], iArr2[1]);
+        this.gzC.setPreviewFpsRange(iArr2[0], iArr2[1]);
     }
 
     public void nh(boolean z) {
@@ -260,43 +260,43 @@ public class h {
             if (!com.baidu.tieba.video.record.a.nf(z)) {
                 z = !z;
                 if (!com.baidu.tieba.video.record.a.nf(z)) {
-                    bxj();
+                    bxi();
                 }
             }
             this.mCameraId = com.baidu.tieba.video.record.a.getCameraId(z);
             if (-1 != this.mCameraId) {
-                bxi();
-                this.gzB = z;
+                bxh();
+                this.gzA = z;
             } else {
-                bxj();
+                bxi();
             }
         } catch (Exception e) {
             e.printStackTrace();
-            bxj();
+            bxi();
         }
     }
 
-    private void bxi() {
+    private void bxh() {
         try {
             this.mCamera = Camera.open(this.mCameraId);
-            this.gzD = this.mCamera.getParameters();
-            bxg();
+            this.gzC = this.mCamera.getParameters();
+            bxf();
         } catch (RuntimeException e) {
             e.printStackTrace();
             this.mMainHandler.sendEmptyMessageDelayed(2, 1000L);
         }
     }
 
-    private void bxj() {
-        if (this.gzw != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.gzw.getPageContext().getPageActivity());
+    private void bxi() {
+        if (this.gzv != null) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.gzv.getPageContext().getPageActivity());
             aVar.cd(d.l.video_quit_confirm);
             aVar.a(d.l.dialog_ok, new a.b() { // from class: com.baidu.tieba.video.record.h.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    if (h.this.gzw != null) {
-                        h.this.gzw.finish();
+                    if (h.this.gzv != null) {
+                        h.this.gzv.finish();
                     }
                 }
             });
@@ -307,12 +307,12 @@ public class h {
                 }
             });
             aVar.ar(true);
-            aVar.b(this.gzw.getPageContext());
+            aVar.b(this.gzv.getPageContext());
             aVar.ti();
         }
     }
 
-    private void bxk() {
+    private void bxj() {
         if (this.mCamera != null) {
             this.mCamera.stopPreview();
             this.mCamera.setPreviewCallback(null);
@@ -326,69 +326,69 @@ public class h {
         }
     }
 
-    public void bxl() {
+    public void bxk() {
         try {
             if (this.mCamera != null) {
-                if (this.gzD == null) {
-                    this.gzD = this.mCamera.getParameters();
+                if (this.gzC == null) {
+                    this.gzC = this.mCamera.getParameters();
                 }
-                if ("off".equals(this.gzD.getFlashMode())) {
-                    this.gzD.setFlashMode("torch");
-                    this.gzE = true;
+                if ("off".equals(this.gzC.getFlashMode())) {
+                    this.gzC.setFlashMode("torch");
+                    this.gzD = true;
                 } else {
-                    this.gzD.setFlashMode("off");
-                    this.gzE = false;
+                    this.gzC.setFlashMode("off");
+                    this.gzD = false;
                 }
-                this.mCamera.setParameters(this.gzD);
+                this.mCamera.setParameters(this.gzC);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public boolean bxm() {
-        return this.gzE;
+    public boolean bxl() {
+        return this.gzD;
     }
 
-    public void bxn() {
-        if (this.gzG != null && (this.gzG instanceof f)) {
-            f fVar = (f) this.gzG;
+    public void bxm() {
+        if (this.gzF != null && (this.gzF instanceof f)) {
+            f fVar = (f) this.gzF;
             fVar.setIsChangingCamera(true);
-            bxk();
+            bxj();
+            fVar.bwW();
+            this.gzB = this.gzB == 0 ? 1 : 0;
+            nh(this.gzB == 1);
             fVar.bwX();
-            this.gzC = this.gzC == 0 ? 1 : 0;
-            nh(this.gzC == 1);
-            fVar.bwY();
             fVar.setIsChangingCamera(false);
-        } else if (this.gzG != null && (this.gzG instanceof l)) {
-            ((l) this.gzG).g(this.mCamera);
-            bxk();
-            this.gzC = this.gzC == 0 ? 1 : 0;
-            nh(this.gzC == 1);
+        } else if (this.gzF != null && (this.gzF instanceof l)) {
+            ((l) this.gzF).g(this.mCamera);
+            bxj();
+            this.gzB = this.gzB == 0 ? 1 : 0;
+            nh(this.gzB == 1);
             startPreview();
         }
-        this.fML = this.fML ? false : true;
+        this.fMK = this.fMK ? false : true;
     }
 
-    private void bxo() {
-        this.gzi = 720;
-        this.gzj = TbConfig.HEAD_IMG_SIZE;
+    private void bxn() {
+        this.gzh = 720;
+        this.gzi = TbConfig.HEAD_IMG_SIZE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bxp() {
-        if (this.gzz != null && this.gzy != null) {
-            this.gzz.removeView(this.gzy);
+    public void bxo() {
+        if (this.gzy != null && this.gzx != null) {
+            this.gzy.removeView(this.gzx);
         }
     }
 
     private void cb(int i, int i2) {
         try {
             this.mCamera.cancelAutoFocus();
-            if (this.gzA.contains("auto")) {
-                this.gzD.setFocusMode("auto");
+            if (this.gzz.contains("auto")) {
+                this.gzC.setFocusMode("auto");
             }
-            this.mCamera.setParameters(this.gzD);
+            this.mCamera.setParameters(this.gzC);
             this.mCamera.autoFocus(null);
         } catch (Exception e) {
             e.printStackTrace();
@@ -417,47 +417,47 @@ public class h {
     }
 
     public void setBeautyLevel(com.baidu.tieba.video.a aVar) {
-        if (this.gzG instanceof f) {
-            ((f) this.gzG).setBeautyLevel(aVar);
+        if (this.gzF instanceof f) {
+            ((f) this.gzF).setBeautyLevel(aVar);
         }
     }
 
     public void setFilter(String str) {
-        if (this.gzG instanceof f) {
-            ((f) this.gzG).setFilter(str);
+        if (this.gzF instanceof f) {
+            ((f) this.gzF).setFilter(str);
         }
     }
 
     public void setSticker(StickerItem stickerItem) {
-        if (this.gzG instanceof f) {
-            ((f) this.gzG).setSticker(stickerItem);
+        if (this.gzF instanceof f) {
+            ((f) this.gzF).setSticker(stickerItem);
         }
     }
 
     public void onResume() {
-        nh(this.gzC == 1);
-        if (this.gzG != null && (this.gzG instanceof f)) {
-            ((f) this.gzG).onResume();
+        nh(this.gzB == 1);
+        if (this.gzF != null && (this.gzF instanceof f)) {
+            ((f) this.gzF).onResume();
         }
-        if (this.gzG != null && (this.gzG instanceof l)) {
-            ((l) this.gzG).onResume();
+        if (this.gzF != null && (this.gzF instanceof l)) {
+            ((l) this.gzF).onResume();
         }
-        if (!com.baidu.tieba.video.record.b.bwU()) {
+        if (!com.baidu.tieba.video.record.b.bwT()) {
             this.mMainHandler.sendEmptyMessageDelayed(3, 1000L);
         }
     }
 
     public void onPause() {
-        bxk();
-        this.gzF.g(this.mCamera);
-        if (this.gzG != null && (this.gzG instanceof f)) {
-            ((f) this.gzG).onPause();
+        bxj();
+        this.gzE.g(this.mCamera);
+        if (this.gzF != null && (this.gzF instanceof f)) {
+            ((f) this.gzF).onPause();
         }
     }
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.gzI = bVar;
+            this.gzH = bVar;
         }
     }
 }

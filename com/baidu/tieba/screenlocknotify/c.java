@@ -14,7 +14,7 @@ import java.util.List;
 public class c extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<e> fIr = new ArrayList();
+    private List<e> fIq = new ArrayList();
 
     public c(Context context) {
         this.mContext = context;
@@ -22,8 +22,8 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fIr != null) {
-            return this.fIr.size();
+        if (this.fIq != null) {
+            return this.fIq.size();
         }
         return 0;
     }
@@ -32,10 +32,10 @@ public class c extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: so */
     public e getItem(int i) {
-        if (this.fIr == null || i >= this.fIr.size()) {
+        if (this.fIq == null || i >= this.fIq.size()) {
             return null;
         }
-        return this.fIr.get(i);
+        return this.fIq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.fIr.get(i), view, viewGroup);
+        return a(this.fIq.get(i), view, viewGroup);
     }
 
     public View a(e eVar, View view, ViewGroup viewGroup) {
@@ -62,17 +62,17 @@ public class c extends BaseAdapter {
         if (eVar == null) {
             return inflate;
         }
-        bB.fIs.setText(eVar.title);
-        bB.fIt.setText(eVar.content);
-        bB.fIu.setDefaultErrorResource(d.g.screen_notify_default_bg);
-        bB.fIu.setDefaultResource(d.g.screen_notify_default_bg);
-        bB.fIu.a(eVar.pic, 10, 0, 0, false);
+        bB.fIr.setText(eVar.title);
+        bB.fIs.setText(eVar.content);
+        bB.fIt.setDefaultErrorResource(d.g.screen_notify_default_bg);
+        bB.fIt.setDefaultResource(d.g.screen_notify_default_bg);
+        bB.fIt.a(eVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
     public void cY(List<e> list) {
         if (list != null && list.size() != 0) {
-            this.fIr.addAll(list);
+            this.fIq.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -81,9 +81,9 @@ public class c extends BaseAdapter {
     /* loaded from: classes2.dex */
     public class a {
         View aYL;
+        TextView fIr;
         TextView fIs;
-        TextView fIt;
-        TbImageView fIu;
+        TbImageView fIt;
 
         private a() {
         }
@@ -91,10 +91,10 @@ public class c extends BaseAdapter {
 
     private a bB(View view) {
         a aVar = new a();
-        aVar.fIs = (TextView) view.findViewById(d.h.push_msg_title);
-        aVar.fIt = (TextView) view.findViewById(d.h.push_msg_content);
-        aVar.fIu = (TbImageView) view.findViewById(d.h.push_msg_pic);
-        aVar.fIu.setAutoChangeStyle(false);
+        aVar.fIr = (TextView) view.findViewById(d.h.push_msg_title);
+        aVar.fIs = (TextView) view.findViewById(d.h.push_msg_content);
+        aVar.fIt = (TbImageView) view.findViewById(d.h.push_msg_pic);
+        aVar.fIt.setAutoChangeStyle(false);
         aVar.aYL = view.findViewById(d.h.line);
         return aVar;
     }

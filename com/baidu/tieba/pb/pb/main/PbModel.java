@@ -906,16 +906,16 @@ public class PbModel extends DataModel {
     }
 
     private void a(PbPageRequestMessage pbPageRequestMessage) {
-        if (!TextUtils.isEmpty(aPw()) && com.baidu.tieba.recapp.r.bfU().bfO() != null) {
-            pbPageRequestMessage.setRefreshCount(com.baidu.tieba.recapp.r.bfU().bfO().U(aPw(), true) + 1);
-            pbPageRequestMessage.setLoadCount(com.baidu.tieba.recapp.r.bfU().bfO().V(aPw(), true));
+        if (!TextUtils.isEmpty(aPw()) && com.baidu.tieba.recapp.r.bfT().bfN() != null) {
+            pbPageRequestMessage.setRefreshCount(com.baidu.tieba.recapp.r.bfT().bfN().U(aPw(), true) + 1);
+            pbPageRequestMessage.setLoadCount(com.baidu.tieba.recapp.r.bfT().bfN().V(aPw(), true));
         }
     }
 
     private void b(PbPageRequestMessage pbPageRequestMessage) {
-        if (!TextUtils.isEmpty(aPw()) && com.baidu.tieba.recapp.r.bfU().bfO() != null) {
-            pbPageRequestMessage.setLoadCount(com.baidu.tieba.recapp.r.bfU().bfO().V(aPw(), true) + 1);
-            pbPageRequestMessage.setRefreshCount(com.baidu.tieba.recapp.r.bfU().bfO().U(aPw(), true));
+        if (!TextUtils.isEmpty(aPw()) && com.baidu.tieba.recapp.r.bfT().bfN() != null) {
+            pbPageRequestMessage.setLoadCount(com.baidu.tieba.recapp.r.bfT().bfN().V(aPw(), true) + 1);
+            pbPageRequestMessage.setRefreshCount(com.baidu.tieba.recapp.r.bfT().bfN().U(aPw(), true));
         }
     }
 
@@ -991,15 +991,15 @@ public class PbModel extends DataModel {
             String j = j(fVar);
             for (int i = 0; i < fVar.aNd().size(); i++) {
                 PostData postData = fVar.aNd().get(i);
-                for (int i2 = 0; i2 < postData.brv().size(); i2++) {
-                    postData.brv().get(i2).b(this.boM.getPageContext(), j.equals(postData.brv().get(i2).getAuthor().getUserId()));
+                for (int i2 = 0; i2 < postData.bru().size(); i2++) {
+                    postData.bru().get(i2).b(this.boM.getPageContext(), j.equals(postData.bru().get(i2).getAuthor().getUserId()));
                 }
             }
             com.baidu.tieba.pb.data.n aNl = fVar.aNl();
             if (aNl != null && !com.baidu.tbadk.core.util.v.u(aNl.ezu)) {
                 for (PostData postData2 : aNl.ezu) {
-                    for (int i3 = 0; i3 < postData2.brv().size(); i3++) {
-                        postData2.brv().get(i3).b(this.boM.getPageContext(), j.equals(postData2.brv().get(i3).getAuthor().getUserId()));
+                    for (int i3 = 0; i3 < postData2.bru().size(); i3++) {
+                        postData2.bru().get(i3).b(this.boM.getPageContext(), j.equals(postData2.bru().get(i3).getAuthor().getUserId()));
                     }
                 }
             }
@@ -1015,8 +1015,8 @@ public class PbModel extends DataModel {
                     int i2 = 0;
                     while (true) {
                         int i3 = i2;
-                        if (i3 < postData.brv().size()) {
-                            postData.brv().get(i3).b(this.boM.getPageContext(), j.equals(postData.brv().get(i3).getAuthor().getUserId()));
+                        if (i3 < postData.bru().size()) {
+                            postData.bru().get(i3).b(this.boM.getPageContext(), j.equals(postData.bru().get(i3).getAuthor().getUserId()));
                             i2 = i3 + 1;
                         }
                     }
@@ -1100,8 +1100,8 @@ public class PbModel extends DataModel {
             this.cdz.a(z2, z4, i2, str, i3, j, j2);
             this.cdz = null;
         }
-        if (z4 && !z3 && !TextUtils.isEmpty(aPw()) && com.baidu.tieba.recapp.r.bfU().bfO() != null) {
-            com.baidu.tieba.recapp.r.bfU().bfO().g(aPw(), pq(aPO()), true);
+        if (z4 && !z3 && !TextUtils.isEmpty(aPw()) && com.baidu.tieba.recapp.r.bfT().bfN() != null) {
+            com.baidu.tieba.recapp.r.bfT().bfN().g(aPw(), pq(aPO()), true);
         }
         if (fVar == null || (this.eFF == 1 && i == 5 && fVar.aNd() != null && fVar.aNd().size() < 1)) {
             if (this.eFU != null) {
@@ -1179,7 +1179,7 @@ public class PbModel extends DataModel {
                         if (this.eFC) {
                             if (this.eFO.aNd().size() - this.eGz >= 3) {
                                 this.eGy = new PostData();
-                                this.eGy.ghm = true;
+                                this.eGy.ghl = true;
                                 this.eGy.setPostType(53);
                                 this.eFO.aNd().add(this.eGy);
                             }
@@ -1189,7 +1189,7 @@ public class PbModel extends DataModel {
                         } else {
                             if (this.eGz - this.eGA >= 3) {
                                 this.eGy = new PostData();
-                                this.eGy.ghm = false;
+                                this.eGy.ghl = false;
                                 this.eGy.setPostType(53);
                                 this.eFO.aNd().add(0, this.eGy);
                             }
@@ -1465,7 +1465,7 @@ public class PbModel extends DataModel {
         markData.setHostMode(this.eFA);
         markData.setSequence(Boolean.valueOf(this.eFC));
         markData.setId(this.eFx);
-        markData.setFloor(postData.bry());
+        markData.setFloor(postData.brx());
         markData.setForumId(this.mForumId);
         if (postData instanceof com.baidu.tieba.pb.data.d) {
             markData.setApp(true);

@@ -14,8 +14,8 @@ public class a {
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof GetRepostForumHttpResMessage) || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
                     if (responsedMessage.hasError()) {
-                        if (a.this.gFx != null) {
-                            a.this.gFx.byQ();
+                        if (a.this.gFw != null) {
+                            a.this.gFw.byP();
                             return;
                         }
                         return;
@@ -28,8 +28,8 @@ public class a {
                         a.this.eak = ((GetRepostForumSocketResMessage) responsedMessage).getForumList();
                         a.this.recommendExt = ((GetRepostForumSocketResMessage) responsedMessage).getRecommendExtension();
                     }
-                    if (a.this.gFx != null) {
-                        a.this.gFx.A(a.this.eak);
+                    if (a.this.gFw != null) {
+                        a.this.gFw.A(a.this.eak);
                     }
                 }
             }
@@ -37,7 +37,7 @@ public class a {
     };
     private List<SimpleForum> eak;
     private String forumId;
-    private InterfaceC0139a gFx;
+    private InterfaceC0139a gFw;
     private BdUniqueId mBdUniqueId;
     private String recommendExt;
     private String threadContent;
@@ -48,7 +48,7 @@ public class a {
     public interface InterfaceC0139a {
         void A(List<SimpleForum> list);
 
-        void byQ();
+        void byP();
     }
 
     public a(BdUniqueId bdUniqueId) {
@@ -88,7 +88,7 @@ public class a {
     }
 
     public void a(InterfaceC0139a interfaceC0139a) {
-        this.gFx = interfaceC0139a;
+        this.gFw = interfaceC0139a;
     }
 
     public void destroy() {

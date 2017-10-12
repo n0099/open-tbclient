@@ -58,9 +58,9 @@ public class g extends com.baidu.adp.widget.ListView.a<bh, a<CardFrsGodAutoVideo
         xVar.mLocate = bhVar.sp() ? TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE : "2";
         xVar.azf = cGc.cFU;
         xVar.cyX = bhVar.getTid();
-        xVar.fyf = bhVar.ZJ;
+        xVar.fye = bhVar.ZJ;
         if (bhVar.rM() != null) {
-            xVar.fyg = bhVar.rM().video_md5;
+            xVar.fyf = bhVar.rM().video_md5;
         }
         bhVar.st();
         return xVar;

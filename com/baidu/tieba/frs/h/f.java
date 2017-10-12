@@ -186,19 +186,19 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
                         }
                     }
                 } else if (id == d.h.frs_header_games) {
-                    if (ax.aU(f.this.mContext.getPageActivity()) && ahk != null && ahk.bpK() != null) {
-                        String bpK = ahk.bpK();
-                        if (m.dy(bpK) == 3) {
-                            m.a(f.this.cxi.getPageContext(), bpK);
+                    if (ax.aU(f.this.mContext.getPageActivity()) && ahk != null && ahk.bpJ() != null) {
+                        String bpJ = ahk.bpJ();
+                        if (m.dy(bpJ) == 3) {
+                            m.a(f.this.cxi.getPageContext(), bpJ);
                         } else {
-                            av.vH().a((TbPageContext) f.this.getPageContext(), new String[]{bpK}, true);
+                            av.vH().a((TbPageContext) f.this.getPageContext(), new String[]{bpJ}, true);
                         }
                     }
                 } else if (id == d.h.frs_bawu_center) {
                     if (ahk != null && ahk.getUserData() != null && ahk.getUserData().isBawu()) {
-                        String bpS = ahk.bpS();
-                        if (!am.isEmpty(bpS)) {
-                            com.baidu.tbadk.browser.a.T(f.this.getPageContext().getPageActivity(), bpS);
+                        String bpR = ahk.bpR();
+                        if (!am.isEmpty(bpR)) {
+                            com.baidu.tbadk.browser.a.T(f.this.getPageContext().getPageActivity(), bpR);
                             if (ahk.aMZ() != null) {
                                 TiebaStatic.log(new ak("c10502").ad("fid", ahk.aMZ().getId()).ad(SapiAccountManager.SESSION_UID, ahk.getUserData().getUserId()));
                             }
@@ -244,7 +244,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
             this.cId.onDestory();
         }
         if (this.bJK != null) {
-            this.bJK.bqJ();
+            this.bJK.bqI();
         }
         if (this.cIh != null) {
             com.baidu.adp.lib.g.e.fP().removeCallbacks(this.cIh);
@@ -611,7 +611,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void kW(String str) {
         if (this.cxi.agP() != null && this.cxi.agP().akS() != null) {
-            com.baidu.tieba.tbadkCore.c.bpq().Y(com.baidu.tieba.tbadkCore.c.bpq().d(str, this.cxi.agP().akS().OZ(), this.cxi.agP().akS().getIsGood(), this.cxi.agP().akS().getCategoryId()), false);
+            com.baidu.tieba.tbadkCore.c.bpp().Y(com.baidu.tieba.tbadkCore.c.bpp().d(str, this.cxi.agP().akS().OZ(), this.cxi.agP().akS().getIsGood(), this.cxi.agP().akS().getCategoryId()), false);
         }
     }
 
@@ -650,7 +650,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
                         f.this.kW(name);
                         oVar.setLike(1);
                         ahk.c(oVar);
-                        ahk.dk(oVar.bpt());
+                        ahk.dk(oVar.bps());
                         f.this.a(ahk, f.this.cIm);
                         f.this.cIm = true;
                         f.this.cxi.showToast(f.this.getPageContext().getResources().getString(d.l.attention_success));
@@ -738,14 +738,14 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
 
     public static boolean h(i iVar) {
         if (iVar != null) {
-            return (iVar.bpW() == null || StringUtils.isNull(iVar.bpW().pL(), true) || iVar.bpW().pL().equals("0")) ? false : true;
+            return (iVar.bpV() == null || StringUtils.isNull(iVar.bpV().pL(), true) || iVar.bpV().pL().equals("0")) ? false : true;
         }
         return false;
     }
 
     public static boolean i(i iVar) {
         if (iVar != null) {
-            return ((iVar.bpA() == null || iVar.bpA().bqj() != 1) && iVar.bpV() == null && (iVar.bpB() == null || v.u(iVar.bpB().pK())) && ((iVar.aMZ() == null || iVar.aMZ().getFrsBannerData() == null || iVar.aMZ().getFrsBannerData().getType() != 2) && (iVar.bpX() == null || StringUtils.isNull(iVar.bpX().pS(), true)))) ? false : true;
+            return ((iVar.bpz() == null || iVar.bpz().bqi() != 1) && iVar.bpU() == null && (iVar.bpA() == null || v.u(iVar.bpA().pK())) && ((iVar.aMZ() == null || iVar.aMZ().getFrsBannerData() == null || iVar.aMZ().getFrsBannerData().getType() != 2) && (iVar.bpW() == null || StringUtils.isNull(iVar.bpW().pS(), true)))) ? false : true;
         }
         return false;
     }

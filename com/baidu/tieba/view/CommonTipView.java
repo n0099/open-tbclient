@@ -16,18 +16,18 @@ public class CommonTipView extends TextView {
     private int HU;
     private TranslateAnimation ctO;
     private Runnable ctP;
-    private Animation gCu;
-    private a gCv;
+    private Animation gCt;
+    private a gCu;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aVu();
+        void aVt();
     }
 
     public CommonTipView(Context context) {
         super(context);
         this.HU = 4000;
-        this.gCu = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
+        this.gCt = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
         this.ctO = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds56), 0.0f);
         this.ctP = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
             @Override // java.lang.Runnable
@@ -41,7 +41,7 @@ public class CommonTipView extends TextView {
     private void init() {
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds24));
         setGravity(17);
-        this.gCu.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.2
+        this.gCt.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -53,8 +53,8 @@ public class CommonTipView extends TextView {
                 if (viewGroup != null) {
                     viewGroup.removeView(CommonTipView.this);
                 }
-                if (CommonTipView.this.gCv != null) {
-                    CommonTipView.this.gCv.aVu();
+                if (CommonTipView.this.gCu != null) {
+                    CommonTipView.this.gCu.aVt();
                 }
             }
 
@@ -83,7 +83,7 @@ public class CommonTipView extends TextView {
     public void hideTip() {
         removeCallbacks(this.ctP);
         if (this != null && getParent() != null) {
-            startAnimation(this.gCu);
+            startAnimation(this.gCt);
         }
     }
 

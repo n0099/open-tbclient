@@ -86,9 +86,9 @@ public class i extends com.baidu.adp.widget.ListView.a<bh, a<com.baidu.tieba.frs
             xVar.mLocate = jr(bhVar.sw());
             xVar.azf = cGc.cFU;
             xVar.cyX = bhVar.getTid();
-            xVar.fyf = bhVar.ZJ;
+            xVar.fye = bhVar.ZJ;
             if (bhVar.rM() != null) {
-                xVar.fyg = bhVar.rM().video_md5;
+                xVar.fyf = bhVar.rM().video_md5;
             }
             bhVar.st();
         }

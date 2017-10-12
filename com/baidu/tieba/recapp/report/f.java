@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private TbHttpMessageTask fGk;
+    private TbHttpMessageTask fGj;
     private HttpMessageListener bFK = new HttpMessageListener(CmdConfigHttp.CMD_AD_UPLOAD) { // from class: com.baidu.tieba.recapp.report.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -29,7 +29,7 @@ public class f implements c {
             }
         }
     };
-    private ArrayList<a> fGl = new ArrayList<>();
+    private ArrayList<a> fGk = new ArrayList<>();
 
     public f() {
         aJp();
@@ -37,10 +37,10 @@ public class f implements c {
     }
 
     private void aJp() {
-        this.fGk = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
-        this.fGk.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.fGk.setIsNeedAddCommenParam(true);
-        this.fGk.setResponsedClass(JsonHttpResponsedMessage.class);
+        this.fGj = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
+        this.fGj.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.fGj.setIsNeedAddCommenParam(true);
+        this.fGj.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.c
@@ -48,16 +48,16 @@ public class f implements c {
         if (aVar != null) {
             com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
             if (!(adAdSense == null || adAdSense.xw())) {
-                this.fGk.setUrl("http://als.baidu.com/clog/clog");
+                this.fGj.setUrl("http://als.baidu.com/clog/clog");
             }
             d(aVar);
-            bgH();
+            bgG();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.c
-    public void bgG() {
-        bgH();
+    public void bgF() {
+        bgG();
     }
 
     @Override // com.baidu.tieba.recapp.report.c
@@ -67,10 +67,10 @@ public class f implements c {
         }
     }
 
-    private void bgH() {
-        if (v.t(this.fGl) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.fGl), this.fGk);
-            this.fGl.clear();
+    private void bgG() {
+        if (v.t(this.fGk) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.fGk), this.fGj);
+            this.fGk.clear();
         }
     }
 
@@ -87,10 +87,10 @@ public class f implements c {
 
     private void d(a aVar) {
         if (aVar != null) {
-            if (v.t(this.fGl) >= 20) {
-                this.fGl.remove(0);
+            if (v.t(this.fGk) >= 20) {
+                this.fGk.remove(0);
             }
-            this.fGl.add(aVar);
+            this.fGk.add(aVar);
         }
     }
 }

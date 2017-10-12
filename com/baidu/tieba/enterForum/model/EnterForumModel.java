@@ -207,7 +207,7 @@ public class EnterForumModel extends BdBaseModel {
                 this.cdx = new com.baidu.tieba.enterForum.b.b();
                 this.cdx.setTime(forumrecommendhttpresponsemessage.GetTime().intValue());
                 this.cdx.iy(forumrecommendhttpresponsemessage.GetMsignValid().intValue());
-                this.cdx.jM(forumrecommendhttpresponsemessage.GetMsignText());
+                this.cdx.jL(forumrecommendhttpresponsemessage.GetMsignText());
                 this.cdx.iz(forumrecommendhttpresponsemessage.GetMsignLevel().intValue());
                 this.cdx.setIsMem(forumrecommendhttpresponsemessage.GetIsMem().intValue());
                 this.cdx.ix(forumrecommendhttpresponsemessage.GetIsLogin().intValue());
@@ -267,7 +267,7 @@ public class EnterForumModel extends BdBaseModel {
                 this.cdx = new com.baidu.tieba.enterForum.b.b();
                 this.cdx.setTime(forumrecommendsocketresponsemessage.GetTime().intValue());
                 this.cdx.iy(forumrecommendsocketresponsemessage.GetMsignValid().intValue());
-                this.cdx.jM(forumrecommendsocketresponsemessage.GetMsignText());
+                this.cdx.jL(forumrecommendsocketresponsemessage.GetMsignText());
                 this.cdx.iz(forumrecommendsocketresponsemessage.GetMsignLevel().intValue());
                 this.cdx.setIsMem(forumrecommendsocketresponsemessage.GetIsMem().intValue());
                 this.cdx.ix(forumrecommendsocketresponsemessage.GetIsLogin().intValue());

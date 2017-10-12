@@ -132,7 +132,7 @@ public class a {
         }
     }
 
-    public void jA(String str) {
+    public void jz(String str) {
         if (!StringUtils.isNull(str)) {
             this.mMessage = str;
             if (this.mHandler == null) {

@@ -71,9 +71,9 @@ public class a {
                         bVar.dismiss();
                         if (a.this.cxv != 7) {
                             r.GV();
-                            com.baidu.tieba.tbadkCore.util.f.bsv();
-                        } else {
                             com.baidu.tieba.tbadkCore.util.f.bsu();
+                        } else {
+                            com.baidu.tieba.tbadkCore.util.f.bst();
                         }
                         if (a.this.crI.agP() != null && a.this.crI.agU() != null) {
                             a.this.crI.agP().jN(yVar.ctl);
@@ -101,7 +101,7 @@ public class a {
         return this.cxs;
     }
 
-    public void kE(String str) {
+    public void kD(String str) {
         this.cxs.setText(str);
     }
 
@@ -181,7 +181,7 @@ public class a {
             y yVar3 = this.cxt.get(0);
             if (yVar3 != null) {
                 jv(yVar3.ctl);
-                kE(yVar3.name);
+                kD(yVar3.name);
                 if (this.crI != null && this.crI.agP() != null) {
                     this.crI.agP().jN(yVar3.ctl);
                     return;
@@ -210,20 +210,20 @@ public class a {
         }
         if (!z) {
             if (TbadkCoreApplication.isLogin() && i == 6) {
-                kE(TbadkCoreApplication.getInst().getResources().getString(d.l.attention_users_thread));
+                kD(TbadkCoreApplication.getInst().getResources().getString(d.l.attention_users_thread));
                 return;
             }
             y yVar4 = this.cxt.get(0);
             if (yVar4 != null) {
                 jv(yVar4.ctl);
-                kE(yVar4.name);
+                kD(yVar4.name);
                 if (this.crI != null && this.crI.agP() != null) {
                     this.crI.agP().jN(yVar4.ctl);
                 }
             }
         } else if (yVar != null) {
             jv(yVar.ctl);
-            kE(yVar.name);
+            kD(yVar.name);
             if (this.crI != null && this.crI.agP() != null) {
                 this.crI.agP().jN(yVar.ctl);
             }

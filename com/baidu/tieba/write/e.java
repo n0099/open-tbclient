@@ -18,7 +18,7 @@ import com.baidu.tieba.d;
 public class e {
     private static String mForumId;
     private static String mForumName;
-    private static a gGn = null;
+    private static a gGm = null;
     private static com.baidu.tbadk.core.dialog.c cHt = null;
 
     public static void b(TbPageContext tbPageContext, String str, String str2) {
@@ -31,7 +31,7 @@ public class e {
         String str5;
         mForumId = str;
         mForumName = str2;
-        if (byV()) {
+        if (byU()) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RecordVideoActivityConfig(tbPageContext.getPageActivity(), false, str, str2, str3)));
         } else if (XiaoyingUtil.isXiaoyingInstalled()) {
             if (XiaoyingUtil.isXiaoyingForbidden()) {
@@ -60,14 +60,14 @@ public class e {
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
                     e.n(TbPageContext.this);
-                    if (e.gGn == null) {
-                        a unused = e.gGn = new a();
+                    if (e.gGm == null) {
+                        a unused = e.gGm = new a();
                     }
-                    e.gGn.c(TbPageContext.this, e.mForumId, e.mForumName);
+                    e.gGm.c(TbPageContext.this, e.mForumId, e.mForumName);
                     if (PluginPackageManager.jv().br(XiaoyingUtil.PKG_NAME_VIDEO)) {
-                        PluginPackageManager.jv().a(e.gGn);
+                        PluginPackageManager.jv().a(e.gGm);
                     } else {
-                        PluginPackageManager.jv().a(pluginConfig, e.gGn);
+                        PluginPackageManager.jv().a(pluginConfig, e.gGm);
                     }
                 }
             });
@@ -155,7 +155,7 @@ public class e {
         g.a(cHt, tbPageContext.getPageActivity());
     }
 
-    public static boolean byV() {
+    public static boolean byU() {
         return com.baidu.adp.lib.b.d.eV().af("add_video_thread_switch") != 1;
     }
 }

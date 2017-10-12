@@ -17,23 +17,23 @@ import java.util.List;
 public class k extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.n> {
     private TextView abf;
     private HTypeListView bah;
-    private com.baidu.tieba.personPolymeric.a.p fif;
-    private View.OnClickListener fin;
+    private com.baidu.tieba.personPolymeric.a.p fie;
+    private View.OnClickListener fim;
     private View mRootView;
     private long uid;
 
     public k(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fin = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.1
+        this.fim = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                k.this.aXf();
+                k.this.aXe();
             }
         };
         this.mRootView = getView();
         this.abf = (TextView) this.mRootView.findViewById(d.h.card_person_vedio_list_title);
         this.bah = (HTypeListView) this.mRootView.findViewById(d.h.card_person_vedio_view_pager);
-        this.fif = new com.baidu.tieba.personPolymeric.a.p(this.mTbPageContext, this.bah);
+        this.fie = new com.baidu.tieba.personPolymeric.a.p(this.mTbPageContext, this.bah);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -53,18 +53,18 @@ public class k extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.n nVar) {
-        if (nVar == null || v.u(nVar.fhm)) {
+        if (nVar == null || v.u(nVar.fhl)) {
             this.mRootView.setVisibility(8);
             return;
         }
         this.uid = nVar.uid;
         this.abf.setText(d.l.msglist_video);
-        this.bah.setData(cH(nVar.fhm));
-        this.fif.L(this.fin);
+        this.bah.setData(cH(nVar.fhl));
+        this.fie.L(this.fim);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXf() {
+    public void aXe() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoListActivityConfig(this.mContext).createNormalCfg(this.uid, "personal")));
     }
 

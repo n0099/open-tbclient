@@ -20,76 +20,76 @@ import java.nio.ByteBuffer;
 @TargetApi(18)
 /* loaded from: classes2.dex */
 public class c {
-    private static final int[] gYb = {1, 0, 5, 7, 6};
-    private com.faceunity.a.b gXB;
-    private com.faceunity.gles.e gXI;
-    private com.faceunity.gles.a gXJ;
-    private com.faceunity.gles.c gXK;
-    private int gXL;
-    private com.faceunity.a.d gXM;
-    private com.faceunity.a.a gXN;
-    private volatile d gXO;
-    private int gXP;
-    private InterfaceC0146c gXQ;
+    private static final int[] gYa = {1, 0, 5, 7, 6};
+    private com.faceunity.a.b gXA;
+    private com.faceunity.gles.e gXH;
+    private com.faceunity.gles.a gXI;
+    private com.faceunity.gles.c gXJ;
+    private int gXK;
+    private com.faceunity.a.d gXL;
+    private com.faceunity.a.a gXM;
+    private volatile d gXN;
+    private int gXO;
+    private InterfaceC0146c gXP;
+    private int gXS;
     private int gXT;
-    private int gXU;
     private int mHeight;
     private boolean mReady;
     private boolean mRunning;
     private int mTextureId;
     private int mWidth;
     private Object mReadyFence = new Object();
+    private long gXQ = 0;
     private long gXR = 0;
-    private long gXS = 0;
-    private b gXV = null;
-    private final Object gXW = new Object();
-    private boolean gXX = false;
-    private final Object gXY = new Object();
+    private b gXU = null;
+    private final Object gXV = new Object();
+    private boolean gXW = false;
+    private final Object gXX = new Object();
+    private boolean gXY = false;
     private boolean gXZ = false;
-    private boolean gYa = false;
-    private long gYc = 0;
+    private long gYb = 0;
 
     /* renamed from: com.faceunity.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0146c {
-        void bFl();
+        void bFk();
 
-        void bFm();
+        void bFl();
     }
 
     public boolean vT(int i) {
-        return this.gXP == i;
+        return this.gXO == i;
     }
 
     public c() {
-        this.gXP = 4;
-        this.gXP = 2;
+        this.gXO = 4;
+        this.gXO = 2;
     }
 
     /* loaded from: classes2.dex */
     public static class b {
-        final long gXR;
-        final int gYe;
-        final EGLContext gYf;
-        final File gxB;
+        final long gXQ;
+        final int gYd;
+        final EGLContext gYe;
+        final File gxA;
         final int mHeight;
         final int mWidth;
 
         public b(File file, int i, int i2, int i3, EGLContext eGLContext, long j) {
-            this.gxB = file;
+            this.gxA = file;
             this.mWidth = i;
             this.mHeight = i2;
-            this.gYe = i3;
+            this.gYd = i3;
             if (eGLContext != null) {
-                this.gYf = eGLContext;
+                this.gYe = eGLContext;
             } else {
-                this.gYf = EGL14.eglGetCurrentContext();
+                this.gYe = EGL14.eglGetCurrentContext();
             }
-            this.gXR = j;
+            this.gXQ = j;
         }
 
         public String toString() {
-            return "EncoderConfig: " + this.mWidth + "x" + this.mHeight + " @" + this.gYe + " to '" + this.gxB.toString() + "' ctxt=" + this.gYf;
+            return "EncoderConfig: " + this.mWidth + "x" + this.mHeight + " @" + this.gYd + " to '" + this.gxA.toString() + "' ctxt=" + this.gYe;
         }
     }
 
@@ -98,19 +98,19 @@ public class c {
         this.mHeight = bVar.mHeight;
         int[] iArr = new int[1];
         GLES20.glGenTextures(1, iArr, 0);
-        this.gXT = iArr[0];
-        GLES20.glBindTexture(3553, this.gXT);
+        this.gXS = iArr[0];
+        GLES20.glBindTexture(3553, this.gXS);
         GLES20.glTexParameteri(3553, 10241, 9729);
         GLES20.glTexParameteri(3553, 10240, 9729);
         GLES20.glTexImage2D(3553, 0, 6408, this.mWidth, this.mHeight, 0, 6408, 5121, null);
         GLES20.glBindTexture(3553, 0);
         int[] iArr2 = new int[1];
         GLES20.glGenFramebuffers(1, iArr2, 0);
-        this.gXU = iArr2[0];
+        this.gXT = iArr2[0];
         Log.d("TextureMovieEncoder", "Encoder: startRecording()");
-        this.gXP = 5;
-        this.gXR = bVar.gXR;
-        this.gXS = System.nanoTime();
+        this.gXO = 5;
+        this.gXQ = bVar.gXQ;
+        this.gXR = System.nanoTime();
         synchronized (this.mReadyFence) {
             if (this.mRunning) {
                 Log.w("TextureMovieEncoder", "Encoder thread already running");
@@ -125,18 +125,18 @@ public class c {
                 } catch (InterruptedException e2) {
                 }
             }
-            this.gXO.sendMessage(this.gXO.obtainMessage(0, bVar));
+            this.gXN.sendMessage(this.gXN.obtainMessage(0, bVar));
         }
     }
 
     public void stopRecording() {
-        GLES20.glDeleteFramebuffers(1, new int[]{this.gXU}, 0);
-        GLES20.glDeleteTextures(1, new int[]{this.gXT}, 0);
-        this.gXU = 0;
+        GLES20.glDeleteFramebuffers(1, new int[]{this.gXT}, 0);
+        GLES20.glDeleteTextures(1, new int[]{this.gXS}, 0);
         this.gXT = 0;
-        this.gXP = 4;
-        this.gXO.sendMessage(this.gXO.obtainMessage(1));
-        this.gXO.sendMessage(this.gXO.obtainMessage(5));
+        this.gXS = 0;
+        this.gXO = 4;
+        this.gXN.sendMessage(this.gXN.obtainMessage(1));
+        this.gXN.sendMessage(this.gXN.obtainMessage(5));
     }
 
     public void c(SurfaceTexture surfaceTexture) {
@@ -148,18 +148,18 @@ public class c {
                 if (timestamp == 0) {
                     Log.w("TextureMovieEncoder", "HEY: got SurfaceTexture with timestamp of zero");
                 } else {
-                    this.gXO.sendMessage(this.gXO.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
+                    this.gXN.sendMessage(this.gXN.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
                 }
             }
         }
     }
 
     public void a(com.faceunity.gles.c cVar, int i, float[] fArr) {
-        if (this.gXT != 0) {
+        if (this.gXS != 0) {
             int[] iArr = new int[4];
             GLES20.glGetIntegerv(2978, iArr, 0);
-            GLES20.glBindFramebuffer(36160, this.gXU);
-            GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.gXT, 0);
+            GLES20.glBindFramebuffer(36160, this.gXT);
+            GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.gXS, 0);
             GLES20.glViewport(0, 0, this.mWidth, this.mHeight);
             if (cVar != null) {
                 cVar.drawFrame(i, fArr);
@@ -168,7 +168,7 @@ public class c {
             GLES20.glViewport(iArr[0], iArr[1], iArr[2], iArr[3]);
             synchronized (this.mReadyFence) {
                 if (this.mReady) {
-                    this.gXO.sendMessage(this.gXO.obtainMessage(3, this.gXT, 0, null));
+                    this.gXN.sendMessage(this.gXN.obtainMessage(3, this.gXS, 0, null));
                 }
             }
         }
@@ -184,7 +184,7 @@ public class c {
         public void run() {
             Looper.prepare();
             synchronized (c.this.mReadyFence) {
-                c.this.gXO = new d(c.this);
+                c.this.gXN = new d(c.this);
                 c.this.mReady = true;
                 c.this.mReadyFence.notify();
             }
@@ -192,7 +192,7 @@ public class c {
             Log.d("TextureMovieEncoder", "Encoder thread exiting");
             synchronized (c.this.mReadyFence) {
                 c.this.mReady = c.this.mRunning = false;
-                c.this.gXO = null;
+                c.this.gXN = null;
             }
         }
     }
@@ -241,29 +241,29 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(b bVar) {
         Log.d("TextureMovieEncoder", "handleStartRecording " + bVar);
-        this.gXV = bVar;
-        this.gXL = 0;
-        a(bVar.gYf, bVar.mWidth, bVar.mHeight, bVar.gYe, bVar.gxB);
-        this.gYa = false;
-        if (this.gXQ != null) {
-            this.gXQ.bFl();
+        this.gXU = bVar;
+        this.gXK = 0;
+        a(bVar.gYe, bVar.mWidth, bVar.mHeight, bVar.gYd, bVar.gxA);
+        this.gXZ = false;
+        if (this.gXP != null) {
+            this.gXP.bFk();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float[] fArr, long j) {
-        if (this.gXT != 0) {
+        if (this.gXS != 0) {
             try {
-                this.gXM.nO(false);
+                this.gXL.nO(false);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            GLES20.glViewport(0, 0, this.gXV.mWidth, this.gXV.mHeight);
+            GLES20.glViewport(0, 0, this.gXU.mWidth, this.gXU.mHeight);
             synchronized (c.class) {
-                this.gXK.drawFrame(this.mTextureId, fArr);
+                this.gXJ.drawFrame(this.mTextureId, fArr);
             }
-            this.gXI.setPresentationTime(bFj() * 1000);
-            this.gXI.swapBuffers();
+            this.gXH.setPresentationTime(bFi() * 1000);
+            this.gXH.swapBuffers();
         }
     }
 
@@ -271,25 +271,25 @@ public class c {
     public void handleStopRecording() {
         Log.d("TextureMovieEncoder", "handleStopRecording");
         try {
-            this.gXM.nO(true);
+            this.gXL.nO(true);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        this.gYa = true;
+        this.gXZ = true;
         releaseEncoder();
         Log.e("TextureMovieEncoder", "handleStopRecording before stop success");
-        while (!this.gXZ) {
-            synchronized (this.gXY) {
+        while (!this.gXY) {
+            synchronized (this.gXX) {
                 try {
-                    this.gXY.wait();
+                    this.gXX.wait();
                 } catch (InterruptedException e3) {
                     e3.printStackTrace();
                 }
             }
         }
-        this.gXZ = false;
-        if (this.gXQ != null) {
-            this.gXQ.bFm();
+        this.gXY = false;
+        if (this.gXP != null) {
+            this.gXP.bFl();
         }
     }
 
@@ -301,28 +301,28 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void handleUpdateSharedContext(EGLContext eGLContext) {
         Log.d("TextureMovieEncoder", "handleUpdatedSharedContext " + eGLContext);
-        this.gXI.releaseEglSurface();
-        this.gXK.release(false);
-        this.gXJ.release();
-        this.gXJ = new com.faceunity.gles.a(eGLContext, 1);
-        this.gXI.a(this.gXJ);
-        this.gXI.makeCurrent();
-        this.gXK = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+        this.gXH.releaseEglSurface();
+        this.gXJ.release(false);
+        this.gXI.release();
+        this.gXI = new com.faceunity.gles.a(eGLContext, 1);
+        this.gXH.a(this.gXI);
+        this.gXH.makeCurrent();
+        this.gXJ = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
     }
 
     private void a(EGLContext eGLContext, int i, int i2, int i3, File file) {
         try {
-            this.gXB = new com.faceunity.a.b(file.toString());
-            this.gXM = new com.faceunity.a.d(i, i2, i3, this.gXB);
-            this.gXN = new com.faceunity.a.a(this.gXB);
-            synchronized (this.gXW) {
-                this.gXX = true;
-                this.gXW.notify();
+            this.gXA = new com.faceunity.a.b(file.toString());
+            this.gXL = new com.faceunity.a.d(i, i2, i3, this.gXA);
+            this.gXM = new com.faceunity.a.a(this.gXA);
+            synchronized (this.gXV) {
+                this.gXW = true;
+                this.gXV.notify();
             }
-            this.gXJ = new com.faceunity.gles.a(eGLContext, 1);
-            this.gXI = new com.faceunity.gles.e(this.gXJ, this.gXM.getInputSurface(), true);
-            this.gXI.makeCurrent();
-            this.gXK = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+            this.gXI = new com.faceunity.gles.a(eGLContext, 1);
+            this.gXH = new com.faceunity.gles.e(this.gXI, this.gXL.getInputSurface(), true);
+            this.gXH.makeCurrent();
+            this.gXJ = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
         } catch (IOException e2) {
             throw new RuntimeException(e2);
         }
@@ -330,18 +330,18 @@ public class c {
 
     private void releaseEncoder() {
         try {
-            this.gXM.release();
+            this.gXL.release();
+            if (this.gXH != null) {
+                this.gXH.release();
+                this.gXH = null;
+            }
+            if (this.gXJ != null) {
+                this.gXJ.release(false);
+                this.gXJ = null;
+            }
             if (this.gXI != null) {
                 this.gXI.release();
                 this.gXI = null;
-            }
-            if (this.gXK != null) {
-                this.gXK.release(false);
-                this.gXK = null;
-            }
-            if (this.gXJ != null) {
-                this.gXJ.release();
-                this.gXJ = null;
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -357,23 +357,23 @@ public class c {
         public void run() {
             AudioRecord audioRecord;
             Process.setThreadPriority(-19);
-            synchronized (c.this.gXW) {
-                while (!c.this.gXX) {
+            synchronized (c.this.gXV) {
+                while (!c.this.gXW) {
                     try {
-                        c.this.gXW.wait();
+                        c.this.gXV.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             }
-            c.this.gXX = false;
+            c.this.gXW = false;
             try {
                 int minBufferSize = AudioRecord.getMinBufferSize(48000, 16, 2);
                 int i = 49152;
                 if (49152 < minBufferSize) {
                     i = ((minBufferSize / 2048) + 1) * 2048 * 2;
                 }
-                int[] iArr = c.gYb;
+                int[] iArr = c.gYa;
                 int length = iArr.length;
                 int i2 = 0;
                 AudioRecord audioRecord2 = null;
@@ -399,50 +399,50 @@ public class c {
                 if (audioRecord != null) {
                     ByteBuffer allocateDirect = ByteBuffer.allocateDirect(2048);
                     audioRecord.startRecording();
-                    c.this.gXP = 1;
-                    while (!c.this.gYa) {
+                    c.this.gXO = 1;
+                    while (!c.this.gXZ) {
                         allocateDirect.clear();
                         int read = audioRecord.read(allocateDirect, 2048);
                         if (read > 0) {
                             allocateDirect.position(read);
                             allocateDirect.flip();
-                            c.this.gXN.a(allocateDirect, read, c.this.bFj());
-                            c.this.gXN.bFi();
+                            c.this.gXM.a(allocateDirect, read, c.this.bFi());
+                            c.this.gXM.bFh();
                         }
                     }
-                    c.this.gXN.a(null, 0, c.this.bFj());
+                    c.this.gXM.a(null, 0, c.this.bFi());
                     audioRecord.stop();
                     audioRecord.release();
-                    c.this.gXN.release();
+                    c.this.gXM.release();
                 } else {
                     Log.e("TextureMovieEncoder", "failed to initialize AudioRecord");
                 }
             } catch (Exception e3) {
                 Log.e("TextureMovieEncoder", "AudioThread#run", e3);
             }
-            synchronized (c.this.gXY) {
-                c.this.gXZ = true;
-                c.this.gXY.notify();
+            synchronized (c.this.gXX) {
+                c.this.gXY = true;
+                c.this.gXX.notify();
             }
         }
     }
 
-    protected long bFj() {
+    protected long bFi() {
         long nanoTime = System.nanoTime();
-        if (this.gXR != 0) {
-            if (this.gXS == 0) {
-                this.gXS = nanoTime;
+        if (this.gXQ != 0) {
+            if (this.gXR == 0) {
+                this.gXR = nanoTime;
             }
-            nanoTime = (nanoTime - this.gXS) + this.gXR;
+            nanoTime = (nanoTime - this.gXR) + this.gXQ;
         }
         long j = nanoTime / 1000;
-        if (j < this.gYc) {
-            j += this.gYc - j;
+        if (j < this.gYb) {
+            j += this.gYb - j;
         }
-        if (j == this.gYc) {
+        if (j == this.gYb) {
             j += 100;
         }
-        this.gYc = j;
+        this.gYb = j;
         return j;
     }
 }

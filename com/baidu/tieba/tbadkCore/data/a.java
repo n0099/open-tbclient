@@ -7,15 +7,15 @@ import tbclient.ActHot;
 /* loaded from: classes.dex */
 public class a {
     private int ahN;
+    private String gga;
     private String ggb;
     private String ggc;
-    private String ggd;
     private int mHeight;
     private String mTitle;
     private int mWidth;
 
-    public String bqS() {
-        return this.ggb;
+    public String bqR() {
+        return this.gga;
     }
 
     public int getImageWidth() {
@@ -26,8 +26,8 @@ public class a {
         return this.mHeight;
     }
 
-    public String bqT() {
-        return this.ggc;
+    public String bqS() {
+        return this.ggb;
     }
 
     public String getTitle() {
@@ -35,7 +35,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.ggd;
+        return this.ggc;
     }
 
     public void a(ActHot actHot) {
@@ -56,10 +56,10 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.ggb = actHot.img_src;
-            this.ggc = actHot.link;
+            this.gga = actHot.img_src;
+            this.ggb = actHot.link;
             this.mTitle = actHot.author_name;
-            this.ggd = actHot.img_des;
+            this.ggc = actHot.img_des;
             this.ahN = actHot.img_type.intValue();
         }
     }
@@ -67,10 +67,10 @@ public class a {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.ggb = jSONObject.optString("img_src");
-                this.ggc = jSONObject.optString("link");
+                this.gga = jSONObject.optString("img_src");
+                this.ggb = jSONObject.optString("link");
                 this.mTitle = jSONObject.optString("author_name");
-                this.ggd = jSONObject.optString("img_des");
+                this.ggc = jSONObject.optString("img_des");
                 String optString = jSONObject.optString("bsize");
                 if (optString != null && optString.length() > 0) {
                     String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);

@@ -4,10 +4,10 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a ghP;
-    private final int ghQ = 10;
-    private final int ghR = 3000;
-    public String ghS = null;
+    private com.baidu.adp.lib.stats.a ghO;
+    private final int ghP = 10;
+    private final int ghQ = 3000;
+    public String ghR = null;
     public boolean ain = false;
 
     public b(String str) {
@@ -15,49 +15,49 @@ public class b {
     }
 
     public void Z(String str, boolean z) {
-        this.ghS = str;
+        this.ghR = str;
         this.ain = z;
-        this.ghP = new com.baidu.adp.lib.stats.a("dbg");
+        this.ghO = new com.baidu.adp.lib.stats.a("dbg");
         c.k(str, getNetType(), z);
     }
 
     public void start() {
-        this.ghP.fT();
+        this.ghO.fT();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e brP;
-        if (this.ghP != null && (brP = brP()) != null) {
+        e brO;
+        if (this.ghO != null && (brO = brO()) != null) {
             if (z) {
-                if (brP.ghX != null) {
-                    brP.ghX.num++;
+                if (brO.ghW != null) {
+                    brO.ghW.num++;
                     if (z2) {
-                        brP.ghX.ghU += j2;
-                        brP.ghX.size += j;
+                        brO.ghW.ghT += j2;
+                        brO.ghW.size += j;
                     } else {
-                        brP.ghX.ghV++;
+                        brO.ghW.ghU++;
                     }
                 } else {
                     return;
                 }
-            } else if (brP.ghY != null) {
-                brP.ghY.num++;
+            } else if (brO.ghX != null) {
+                brO.ghX.num++;
                 if (z2) {
-                    brP.ghY.ghU += j3;
-                    brP.ghY.size += j;
+                    brO.ghX.ghT += j3;
+                    brO.ghX.size += j;
                     j2 = j3;
                 } else {
-                    brP.ghY.ghV++;
+                    brO.ghX.ghU++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.ghP = null;
+            this.ghO = null;
             if (z2) {
-                c.a(brP, 10);
+                c.a(brO, 10);
             }
-            if (this.ghS == "frsStat") {
+            if (this.ghR == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.p("act", "frs");
@@ -74,20 +74,20 @@ public class b {
     }
 
     public void destory() {
-        e brP;
-        if (this.ghP != null && (brP = brP()) != null && brP.ghZ != null) {
-            long fU = this.ghP.fU();
+        e brO;
+        if (this.ghO != null && (brO = brO()) != null && brO.ghY != null) {
+            long fU = this.ghO.fU();
             if (fU > 3000) {
-                d dVar = brP.ghZ;
-                dVar.ghU = fU + dVar.ghU;
-                brP.ghZ.num++;
-                c.a(brP, 10);
+                d dVar = brO.ghY;
+                dVar.ghT = fU + dVar.ghT;
+                brO.ghY.num++;
+                c.a(brO, 10);
             }
         }
     }
 
-    private e brP() {
-        return c.l(this.ghS, getNetType(), this.ain);
+    private e brO() {
+        return c.l(this.ghR, getNetType(), this.ain);
     }
 
     private String getNetType() {

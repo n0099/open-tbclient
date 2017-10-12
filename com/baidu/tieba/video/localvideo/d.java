@@ -5,10 +5,10 @@ import android.graphics.Bitmap;
 public class d {
     private String cva;
     private long duration;
-    private long gdz;
-    private String gxt;
-    private Bitmap gxu;
-    private boolean gxv = false;
+    private long gdy;
+    private String gxs;
+    private Bitmap gxt;
+    private boolean gxu = false;
     private String mimeType;
     private int videoHeight;
     private String videoPath;
@@ -59,30 +59,30 @@ public class d {
     }
 
     public void sH(String str) {
-        this.gxt = str;
+        this.gxs = str;
     }
 
     public long getLastModified() {
-        return this.gdz;
+        return this.gdy;
     }
 
     public void cK(long j) {
-        this.gdz = j;
+        this.gdy = j;
     }
 
-    public synchronized Bitmap bwy() {
-        return this.gxu;
+    public synchronized Bitmap bwx() {
+        return this.gxt;
     }
 
     public void s(Bitmap bitmap) {
-        this.gxu = bitmap;
+        this.gxt = bitmap;
     }
 
     public void ne(boolean z) {
-        this.gxv = z;
+        this.gxu = z;
     }
 
-    public boolean bwz() {
-        return this.gxv;
+    public boolean bwy() {
+        return this.gxu;
     }
 }

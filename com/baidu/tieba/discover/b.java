@@ -173,11 +173,11 @@ public class b {
             this.bZz.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.discover.b.3
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
                 public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                    b.this.ii(str);
+                    b.this.ih(str);
                     if (StringUtils.isNull(str) || str.contains("jump_webview_type=2")) {
                         return false;
                     }
-                    if (b.this.ij(str)) {
+                    if (b.this.ii(str)) {
                         return true;
                     }
                     av.vH().c(b.this.mG, new String[]{str});
@@ -211,18 +211,18 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ii(String str) {
+    public void ih(String str) {
         if (!StringUtils.isNull(str) && str.contains("squaresearch:")) {
             TiebaStatic.log(new ak("c10378").r("obj_type", 2));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ij(String str) {
-        return ik(str) || il(str) || im(str) || in(str) || io(str) || ip(str) || iq(str) || ir(str);
+    public boolean ii(String str) {
+        return ij(str) || ik(str) || il(str) || im(str) || in(str) || io(str) || ip(str) || iq(str);
     }
 
-    private boolean ik(String str) {
+    private boolean ij(String str) {
         if (str.contains("tieba://lego?")) {
             if (!(MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null)) {
                 l.showToast(this.mG.getPageActivity(), d.l.plugin_install_fail);
@@ -234,7 +234,7 @@ public class b {
         return false;
     }
 
-    private boolean il(String str) {
+    private boolean ik(String str) {
         if (str.contains("nohead:url") || str.contains("booktown")) {
             av.vH().a(this.mG, new String[]{"http://dushu.m.baidu.com/?from=tieba&jump=open_full_screen_web_page&nonavigationbar=1"}, true);
             return true;
@@ -242,7 +242,7 @@ public class b {
         return false;
     }
 
-    private boolean im(String str) {
+    private boolean il(String str) {
         if (str.startsWith("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") || str.startsWith("http://tieba.baidu.com/mo/q/newhotmessage?") || str.startsWith("https://tieba.baidu.com/mo/q/hotMessage?topic_id=") || str.startsWith("https://tieba.baidu.com/mo/q/newhotmessage?")) {
             String at = x.at(str, "topic_id=");
             String at2 = x.at(str, "topic_name=");
@@ -264,7 +264,7 @@ public class b {
         }
     }
 
-    private boolean in(String str) {
+    private boolean im(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("forumsquarelist")) {
             return false;
         }
@@ -276,7 +276,7 @@ public class b {
         return true;
     }
 
-    private boolean io(String str) {
+    private boolean in(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("membercenter:")) {
             return false;
         }
@@ -288,7 +288,7 @@ public class b {
         return true;
     }
 
-    private boolean ip(String str) {
+    private boolean io(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("dressupcenter:")) {
             return false;
         }
@@ -300,7 +300,7 @@ public class b {
         return true;
     }
 
-    private boolean iq(String str) {
+    private boolean ip(String str) {
         if (str.contains("beautypic:") && str.contains("data=")) {
             String substring = str.substring("data=".length() + str.indexOf("data="));
             ArrayList<String> arrayList = new ArrayList<>();
@@ -324,7 +324,7 @@ public class b {
         return false;
     }
 
-    private boolean ir(String str) {
+    private boolean iq(String str) {
         if (str.contains("share:")) {
             String aO = k.aO(str);
             if (aO.contains("data=")) {

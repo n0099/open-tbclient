@@ -151,7 +151,7 @@ public abstract class c extends a<com.baidu.tieba.card.data.l> {
         }
         this.bnf.setData(lVar.threadData);
         this.bJw.setData(lVar.threadData.sL());
-        if (!Xv() && m.jo(this.bJz.threadData.getId())) {
+        if (!Xv() && m.jn(this.bJz.threadData.getId())) {
             Xw();
         }
         this.bnf.setUserAfterClickListener(this.anJ);
@@ -219,7 +219,7 @@ public abstract class c extends a<com.baidu.tieba.card.data.l> {
     public void dA(boolean z) {
         if (this.bJz != null && this.bJz.threadData != null) {
             if (!Xv()) {
-                m.jn(this.bJz.threadData.getId());
+                m.jm(this.bJz.threadData.getId());
                 Xw();
             }
             PbActivityConfig addLocateParam = new PbActivityConfig(this.mG.getPageActivity()).createFromThreadCfg(this.bJz.threadData, null, m.rm(), 18003, true, false, false).addLocateParam(this.bJz.XV());

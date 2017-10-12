@@ -1,9 +1,9 @@
 package com.baidu.tieba.personCenter.c;
 /* loaded from: classes.dex */
 public class g {
-    public boolean faK;
-    public String faM;
-    public int faI = -1;
-    public boolean faJ = false;
-    public long faL = -1;
+    public boolean faJ;
+    public String faL;
+    public int faH = -1;
+    public boolean faI = false;
+    public long faK = -1;
 }

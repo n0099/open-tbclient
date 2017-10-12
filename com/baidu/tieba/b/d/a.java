@@ -395,7 +395,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
             if (this.bIm == null || this.bIm == EGL10.EGL_NO_CONTEXT) {
                 this.bIm = null;
-                jh("createContext");
+                jg("createContext");
             }
             this.bIk = null;
         }
@@ -494,7 +494,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
         }
 
-        private void jh(String str) {
+        private void jg(String str) {
             G(str, this.bIi.eglGetError());
         }
 

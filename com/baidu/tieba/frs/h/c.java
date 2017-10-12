@@ -18,7 +18,7 @@ public class c {
     }
 
     public void refresh() {
-        if (TbadkCoreApplication.isLogin() && this.crI != null && this.crI.ahk() != null && this.crI.ahk().aMZ() != null && !StringUtils.isNull(this.crI.ahk().aMZ().getName()) && this.crI.ahk().geX != null && alP() && this.cHQ == null) {
+        if (TbadkCoreApplication.isLogin() && this.crI != null && this.crI.ahk() != null && this.crI.ahk().aMZ() != null && !StringUtils.isNull(this.crI.ahk().aMZ().getName()) && this.crI.ahk().geW != null && alP() && this.cHQ == null) {
             this.cHQ = new a();
             this.cHQ.execute(new Void[0]);
         }
@@ -26,8 +26,8 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean alP() {
-        PopInfo popInfo = this.crI.ahk().geX;
-        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.crI.ahk().geX.if_pop.intValue() == 0) ? false : true;
+        PopInfo popInfo = this.crI.ahk().geW;
+        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.crI.ahk().geW.if_pop.intValue() == 0) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -54,7 +54,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             if (bool.booleanValue() && c.this.alP() && c.this.crI.isAdded()) {
-                final PopInfo popInfo = c.this.crI.ahk().geX;
+                final PopInfo popInfo = c.this.crI.ahk().geW;
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.crI.getActivity());
                 aVar.cL(popInfo.title);
                 aVar.cM(popInfo.v_title);

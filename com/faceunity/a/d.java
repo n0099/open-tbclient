@@ -10,11 +10,11 @@ import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class d {
-    private b gXB;
-    private MediaCodec gXC;
-    private int gXD;
-    private boolean gXE;
-    private Surface gYg;
+    private b gXA;
+    private MediaCodec gXB;
+    private int gXC;
+    private boolean gXD;
+    private Surface gYf;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
 
     public d(int i, int i2, int i3, b bVar) throws IOException {
@@ -23,66 +23,66 @@ public class d {
         createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, i3);
         createVideoFormat.setInteger("frame-rate", 20);
         createVideoFormat.setInteger("i-frame-interval", 1);
-        this.gXC = MediaCodec.createEncoderByType("video/avc");
-        this.gXC.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.gYg = this.gXC.createInputSurface();
-        this.gXC.start();
-        this.gXD = -1;
-        this.gXE = false;
-        this.gXB = bVar;
+        this.gXB = MediaCodec.createEncoderByType("video/avc");
+        this.gXB.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+        this.gYf = this.gXB.createInputSurface();
+        this.gXB.start();
+        this.gXC = -1;
+        this.gXD = false;
+        this.gXA = bVar;
     }
 
     public Surface getInputSurface() {
-        return this.gYg;
+        return this.gYf;
     }
 
     public void release() {
-        if (this.gXC != null) {
-            this.gXC.stop();
-            this.gXC.release();
-            this.gXC = null;
-        }
         if (this.gXB != null) {
+            this.gXB.stop();
+            this.gXB.release();
+            this.gXB = null;
+        }
+        if (this.gXA != null) {
             try {
-                this.gXB.stop();
+                this.gXA.stop();
             } catch (IllegalStateException e) {
             }
-            this.gXB = null;
+            this.gXA = null;
         }
     }
 
     public void nO(boolean z) throws Exception {
         if (z) {
-            this.gXC.signalEndOfInputStream();
+            this.gXB.signalEndOfInputStream();
         }
-        ByteBuffer[] outputBuffers = this.gXC.getOutputBuffers();
+        ByteBuffer[] outputBuffers = this.gXB.getOutputBuffers();
         while (true) {
-            int dequeueOutputBuffer = this.gXC.dequeueOutputBuffer(this.mBufferInfo, 10000L);
+            int dequeueOutputBuffer = this.gXB.dequeueOutputBuffer(this.mBufferInfo, 10000L);
             if (dequeueOutputBuffer == -1) {
                 if (!z) {
                     return;
                 }
             } else if (dequeueOutputBuffer == -3) {
-                outputBuffers = this.gXC.getOutputBuffers();
+                outputBuffers = this.gXB.getOutputBuffers();
             } else if (dequeueOutputBuffer == -2) {
-                if (this.gXE) {
+                if (this.gXD) {
                     throw new RuntimeException("format changed twice");
                 }
-                MediaFormat outputFormat = this.gXC.getOutputFormat();
+                MediaFormat outputFormat = this.gXB.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.gXD = this.gXB.a(outputFormat);
-                if (!this.gXB.start()) {
-                    synchronized (this.gXB) {
-                        while (!this.gXB.isStarted()) {
+                this.gXC = this.gXA.a(outputFormat);
+                if (!this.gXA.start()) {
+                    synchronized (this.gXA) {
+                        while (!this.gXA.isStarted()) {
                             try {
-                                this.gXB.wait(100L);
+                                this.gXA.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                this.gXE = true;
+                this.gXD = true;
             } else if (dequeueOutputBuffer < 0) {
                 Log.w("VideoEncoder", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
             } else {
@@ -94,14 +94,14 @@ public class d {
                     this.mBufferInfo.size = 0;
                 }
                 if (this.mBufferInfo.size != 0) {
-                    if (!this.gXE) {
+                    if (!this.gXD) {
                         throw new RuntimeException("muxer hasn't started");
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.gXB.a(this.gXD, byteBuffer, this.mBufferInfo);
+                    this.gXA.a(this.gXC, byteBuffer, this.mBufferInfo);
                 }
-                this.gXC.releaseOutputBuffer(dequeueOutputBuffer, false);
+                this.gXB.releaseOutputBuffer(dequeueOutputBuffer, false);
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {
                         Log.w("VideoEncoder", "reached end of stream unexpectedly");

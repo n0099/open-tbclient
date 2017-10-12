@@ -166,7 +166,7 @@ public class a extends com.baidu.tieba.card.a<k> {
         }
         this.cWD.setData(kVar.threadData);
         d(this.mG, TbadkCoreApplication.getInst().getSkinType());
-        if (m.jo(this.bKq.threadData.getId())) {
+        if (m.jn(this.bKq.threadData.getId())) {
             m.a(this.mTitle, this.bKq.Nj().getId(), d.e.cp_cont_b, d.e.cp_cont_d);
         }
         this.cWD.setUserAfterClickListener(this.anJ);

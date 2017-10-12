@@ -3,11 +3,11 @@ package com.baidu.tieba.video.record;
 import android.media.AudioRecord;
 /* loaded from: classes2.dex */
 public class b {
-    public static boolean bwU() {
-        return bwV() != -2;
+    public static boolean bwT() {
+        return bwU() != -2;
     }
 
-    private static int bwV() {
+    private static int bwU() {
         int minBufferSize = AudioRecord.getMinBufferSize(44100, 16, 2);
         AudioRecord audioRecord = new AudioRecord(0, 44100, 16, 2, minBufferSize * 100);
         short[] sArr = new short[minBufferSize];

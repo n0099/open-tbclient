@@ -73,7 +73,7 @@ public class FrsActivityStatic {
         agC();
         agD();
         agE();
-        LocationModel.bsj();
+        LocationModel.bsi();
         agG();
         MessageManager.getInstance().registerListener(cpT);
         MessageManager.getInstance().registerListener(cpU);
@@ -196,11 +196,11 @@ public class FrsActivityStatic {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
                     com.baidu.tieba.frs.smartsort.d.alt().alu();
                     com.baidu.tieba.frs.smartsort.a.alm().alo();
-                    if (r.bfU().bfO() != null) {
-                        r.bfU().bfO().bfF();
+                    if (r.bfT().bfN() != null) {
+                        r.bfT().bfN().bfE();
                     }
-                    if (r.bfU().bfP() != null) {
-                        r.bfU().bfP().bfG();
+                    if (r.bfT().bfO() != null) {
+                        r.bfT().bfO().bfF();
                     }
                 }
             }

@@ -37,10 +37,10 @@ public class e implements com.baidu.adp.widget.ListView.f {
                         com.baidu.tieba.personCenter.c.d dVar = new com.baidu.tieba.personCenter.c.d();
                         dVar.iconId = d.g.icon_mine_buy;
                         dVar.title = TbadkCoreApplication.getInst().getString(d.l.consumption_records);
-                        dVar.faC = new com.baidu.tieba.personCenter.d.a();
-                        dVar.faC.ceU = 13;
-                        dVar.faC.ceV = new Bundle();
-                        dVar.faC.ceV.putString("type_center_consume_url", aVar.eZg);
+                        dVar.faB = new com.baidu.tieba.personCenter.d.a();
+                        dVar.faB.ceU = 13;
+                        dVar.faB.ceV = new Bundle();
+                        dVar.faB.ceV.putString("type_center_consume_url", aVar.eZg);
                         this.eZD = aVar.eZg;
                         this.eZC.add(dVar);
                     } else if (aVar.title.equals(TbadkCoreApplication.getInst().getResources().getString(d.l.person_wallet_money)) || aVar.title.equals(TbadkCoreApplication.getInst().getResources().getString(d.l.person_wallet_bankCard)) || aVar.title.equals(TbadkCoreApplication.getInst().getResources().getString(d.l.person_wallet_card_coupons)) || aVar.title.equals(TbadkCoreApplication.getInst().getResources().getString(d.l.get_tdou))) {

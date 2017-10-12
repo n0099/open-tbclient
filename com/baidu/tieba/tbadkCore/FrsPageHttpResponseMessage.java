@@ -75,7 +75,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         int g;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bpW() != null && !StringUtils.isNull(this.responseData.bpW().pL(), true) && !this.responseData.bpW().pL().equals("0") && this.responseData.bpW().pM() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.bpW().pL(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
+        if (this.responseData.bpV() != null && !StringUtils.isNull(this.responseData.bpV().pL(), true) && !this.responseData.bpV().pL().equals("0") && this.responseData.bpV().pM() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.bpV().pL(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
             this.responseData.j(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -86,7 +86,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         if (!hasError() && this.responseData != null) {
             boolean z = v.t(this.responseData.getThreadList()) >= 15;
             if (this.needCache && this.responseData.aMZ() != null && z) {
-                c.bpq().c(c.bpq().d(this.responseData.aMZ().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+                c.bpp().c(c.bpp().d(this.responseData.aMZ().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
             }
         }
     }

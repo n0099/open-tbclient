@@ -59,6 +59,6 @@ public class d {
     }
 
     public boolean Fw() {
-        return StringUtils.isNull(this.aHZ) || !this.aHX;
+        return StringUtils.isNull(this.aHZ);
     }
 }

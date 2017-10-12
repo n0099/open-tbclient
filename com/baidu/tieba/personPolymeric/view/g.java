@@ -11,7 +11,7 @@ import com.baidu.tieba.d;
 public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.i> {
     private ImageView bbl;
     private TextView cWj;
-    private String feH;
+    private String feG;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -51,7 +51,7 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.feH)) {
+        if (StringUtils.isNull(this.feG)) {
             TextView textView = this.cWj;
             String string2 = this.mContext.getString(d.l.person_polymeric_null_data);
             Object[] objArr = new Object[1];
@@ -66,11 +66,11 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.cWj.setText(this.feH);
+        this.cWj.setText(this.feG);
     }
 
     public void setTip(String str) {
-        this.feH = str;
+        this.feG = str;
     }
 
     @Override // android.view.View.OnClickListener

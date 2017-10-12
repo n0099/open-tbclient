@@ -47,9 +47,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     private c pageSocketListener;
     public final ArrayList<f> postList;
     public final ArrayList<f> threadList;
-    private static int fev = 0;
-    private static int fhD = 1;
-    private static String few = "";
+    private static int feu = 0;
+    private static int fhC = 1;
+    private static String fev = "";
 
     /* loaded from: classes.dex */
     public interface a {
@@ -172,32 +172,32 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        fhD = 1;
+        fhC = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(few)) {
-                fev = 1;
-                few = str;
+            if (z || !str.equals(fev)) {
+                feu = 1;
+                fev = str;
             } else {
-                fev++;
+                feu++;
             }
         } else {
-            if (z || !str.equals(few)) {
-                fhD = 1;
-                few = str;
+            if (z || !str.equals(fev)) {
+                fhC = 1;
+                fev = str;
             }
-            fhD++;
+            fhC++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(few);
+        userPostPageRequestMessage.setUid(fev);
         if (z3) {
-            userPostPageRequestMessage.setPn(fev);
+            userPostPageRequestMessage.setPn(feu);
         } else {
-            userPostPageRequestMessage.setPn(fhD);
+            userPostPageRequestMessage.setPn(fhC);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);

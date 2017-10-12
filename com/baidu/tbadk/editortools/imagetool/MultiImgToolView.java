@@ -60,7 +60,7 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
         this.aBV = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
             @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.a
             public void M(View view) {
-                if (!MultiImgToolView.this.aBK.brX()) {
+                if (!MultiImgToolView.this.aBK.brW()) {
                     MultiImgToolView.this.bF(view);
                     int bG = MultiImgToolView.this.aBK.bG(view);
                     if (bG >= 0 && bG < MultiImgToolView.this.aBN.getChosedFiles().size()) {
@@ -104,7 +104,7 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
         this.aBV = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
             @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.a
             public void M(View view) {
-                if (!MultiImgToolView.this.aBK.brX()) {
+                if (!MultiImgToolView.this.aBK.brW()) {
                     MultiImgToolView.this.bF(view);
                     int bG = MultiImgToolView.this.aBK.bG(view);
                     if (bG >= 0 && bG < MultiImgToolView.this.aBN.getChosedFiles().size()) {

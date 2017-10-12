@@ -363,10 +363,10 @@ public class a extends com.baidu.tieba.card.a<bh> implements v {
             Xr().a(view, this.ajg);
         }
         if (this.ajg != null) {
-            m.jn(this.ajg.getId());
+            m.jm(this.ajg.getId());
             aj.c(this.mTextTitle, d.e.cp_cont_d, 1);
             r.gO(this.ajg.getId());
-            if (this.ajg.rR() > 0 && com.baidu.tieba.tbadkCore.util.f.bsw()) {
+            if (this.ajg.rR() > 0 && com.baidu.tieba.tbadkCore.util.f.bsv()) {
                 PbActivityConfig createHistoryCfg = new PbActivityConfig(this.abz.getPageActivity()).createHistoryCfg(this.ajg.getTid(), String.valueOf(this.ajg.rR()), false, true, m.rm());
                 createHistoryCfg.setVideo_source(this.ajg.sp() ? "floor5" : "frs");
                 createHistoryCfg.setFromSmartFrs(this.ajg.sy());
@@ -526,7 +526,7 @@ public class a extends com.baidu.tieba.card.a<bh> implements v {
         this.bnj.setCommentNumClickListener(this);
         this.bJw.setData(this.ajg.sL());
         this.bJw.onChangeSkinType();
-        if (m.jo(this.ajg.getId())) {
+        if (m.jn(this.ajg.getId())) {
             aj.c(this.mTextTitle, d.e.cp_cont_d, 1);
             m.a(this.bJw.getGodReplyContent(), this.ajg.getId(), d.e.cp_cont_f, d.e.cp_cont_d);
         } else {
@@ -560,8 +560,8 @@ public class a extends com.baidu.tieba.card.a<bh> implements v {
                     g(true, 4);
                     TiebaStatic.log(new ak("c12026").ad("tid", this.ajg.getId()));
                 }
-                if (this.bMZ != null && this.bMZ.bet() != null) {
-                    this.bMZ.bet().d(this.ajg.rM());
+                if (this.bMZ != null && this.bMZ.bes() != null) {
+                    this.bMZ.bes().d(this.ajg.rM());
                     return;
                 }
                 return;
@@ -633,10 +633,10 @@ public class a extends com.baidu.tieba.card.a<bh> implements v {
             xVar.azf = this.ajg.getFid() + "";
             xVar.mUid = TbadkCoreApplication.getCurrentAccount();
             xVar.mSource = this.ajg.ZH;
-            xVar.fyc = this.ajg.ZJ;
-            xVar.fyd = this.ajg.ZI;
-            xVar.fye = "";
-            xVar.fyg = this.ajg.rM().video_md5;
+            xVar.fyb = this.ajg.ZJ;
+            xVar.fyc = this.ajg.ZI;
+            xVar.fyd = "";
+            xVar.fyf = this.ajg.rM().video_md5;
             com.baidu.tieba.play.l.a(this.ajg.rM().video_md5, "", "1", xVar);
         }
     }

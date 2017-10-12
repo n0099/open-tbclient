@@ -157,7 +157,7 @@ public class f extends d {
             VoiceData.VoiceModel voiceModel = rJ.get(0);
             this.bLr.setVoiceModel(voiceModel);
             this.bLr.setTag(voiceModel);
-            this.bLr.bgi();
+            this.bLr.bgh();
             if (voiceModel != null) {
                 this.bLr.nh(voiceModel.voice_status.intValue());
             }

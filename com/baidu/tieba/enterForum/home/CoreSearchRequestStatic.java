@@ -24,7 +24,7 @@ public class CoreSearchRequestStatic {
     }
 
     private static void acK() {
-        c.brQ();
+        c.brP();
         if (ccN == null) {
             ccN = new EnterForumModel(null);
             ccN.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1

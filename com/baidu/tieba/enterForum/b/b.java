@@ -52,7 +52,7 @@ public class b {
         this.ccx = i;
     }
 
-    public void jM(String str) {
+    public void jL(String str) {
         this.ccy = str;
     }
 
@@ -73,7 +73,7 @@ public class b {
                 iy(dataRes.msign_valid.intValue());
                 iz(dataRes.msign_level.intValue());
                 ix(dataRes.is_login.intValue());
-                jM(dataRes.msign_text);
+                jL(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
                 this.cct.setLevel(this.ccx);

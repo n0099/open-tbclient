@@ -31,12 +31,12 @@ public class m {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
                 m.this.ard();
                 if (m.this.dWw && m.this.dWw) {
-                    m.this.a(m.this.dWv.bew(), m.this.dWv.bex(), m.this.dWv.bey(), m.this.dWv.bez());
+                    m.this.a(m.this.dWv.bev(), m.this.dWv.bew(), m.this.dWv.bex(), m.this.dWv.bey());
                 }
             }
         }
     };
-    private b fwZ = new b(this);
+    private b fwY = new b(this);
     private r dWv = new r();
 
     public m(com.baidu.adp.base.e eVar, ListView listView) {
@@ -187,7 +187,7 @@ public class m {
 
     public void destroy() {
         com.baidu.adp.lib.g.e.fP().removeCallbacks(this.dWx);
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fwZ);
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fwY);
         aED();
     }
 
@@ -256,7 +256,7 @@ public class m {
 
     public void ard() {
         com.baidu.adp.lib.g.e.fP().removeCallbacks(this.dWx);
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fwZ);
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fwY);
         int i = 0;
         while (true) {
             int i2 = i;
@@ -277,13 +277,13 @@ public class m {
     }
 
     public void a(int i, int i2, boolean z, boolean z2) {
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fwZ);
-        this.fwZ.nE(i);
-        this.fwZ.nF(i2);
-        this.fwZ.eG(z);
-        this.fwZ.hr(z2);
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fwY);
+        this.fwY.nE(i);
+        this.fwY.nF(i2);
+        this.fwY.eG(z);
+        this.fwY.hr(z2);
         this.dWv.hr(z2);
-        com.baidu.adp.lib.g.e.fP().postDelayed(this.fwZ, 500L);
+        com.baidu.adp.lib.g.e.fP().postDelayed(this.fwY, 500L);
     }
 
     public void ht(boolean z) {

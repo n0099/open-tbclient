@@ -17,15 +17,15 @@ public class d extends BaseAdapter {
     private com.baidu.tbadk.img.b axw;
     private String ckn;
     private int cko;
-    private AlbumActivity gGN;
+    private AlbumActivity gGM;
     private List<com.baidu.tbadk.b.a> mList;
     private int mWidth;
 
     public d(AlbumActivity albumActivity) {
-        this.gGN = albumActivity;
+        this.gGM = albumActivity;
         this.axw = albumActivity.aLU();
-        this.mWidth = (int) this.gGN.getResources().getDimension(d.f.ds120);
-        this.cko = com.baidu.adp.lib.util.l.ad(this.gGN.getPageContext().getPageActivity()) / 2;
+        this.mWidth = (int) this.gGM.getResources().getDimension(d.f.ds120);
+        this.cko = com.baidu.adp.lib.util.l.ad(this.gGM.getPageContext().getPageActivity()) / 2;
     }
 
     public void d(List<com.baidu.tbadk.b.a> list, String str) {
@@ -62,7 +62,7 @@ public class d extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.gGN.getPageContext().getPageActivity()).inflate(d.j.album_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.gGM.getPageContext().getPageActivity()).inflate(d.j.album_list_item, viewGroup, false);
             a aVar2 = new a();
             aVar2.ckq = (HeadImageView) view.findViewById(d.h.item_head);
             aVar2.ckr = (TextView) view.findViewById(d.h.item_name);
@@ -105,14 +105,14 @@ public class d extends BaseAdapter {
                                 headImageView.invalidate();
                             }
                         }
-                    }, false, this.gGN.isScroll());
+                    }, false, this.gGM.isScroll());
                 }
             }
         } else {
             aVar.ckr.setText("");
         }
-        this.gGN.getLayoutMode().ai(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.gGN.getLayoutMode().t(view);
+        this.gGM.getLayoutMode().ai(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.gGM.getLayoutMode().t(view);
         return view;
     }
 

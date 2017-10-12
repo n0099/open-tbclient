@@ -2,15 +2,19 @@ package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class r {
     private int eLR = 0;
-    private int fxR = 0;
-    private boolean fxS = false;
-    private boolean fxT = true;
+    private int fxQ = 0;
+    private boolean fxR = false;
+    private boolean fxS = true;
 
-    public int bew() {
+    public int bev() {
         return this.eLR;
     }
 
-    public int bex() {
+    public int bew() {
+        return this.fxQ;
+    }
+
+    public boolean bex() {
         return this.fxR;
     }
 
@@ -18,17 +22,13 @@ public class r {
         return this.fxS;
     }
 
-    public boolean bez() {
-        return this.fxT;
-    }
-
     public void i(int i, int i2, boolean z) {
         this.eLR = i;
-        this.fxR = i2;
-        this.fxS = z;
+        this.fxQ = i2;
+        this.fxR = z;
     }
 
     public void hr(boolean z) {
-        this.fxT = z;
+        this.fxS = z;
     }
 }

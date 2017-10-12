@@ -9,10 +9,10 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fha = BdUniqueId.gen();
-    public boolean fhb;
-    public String fhc;
-    public List<com.baidu.adp.widget.ListView.f> fhd;
+    public static final BdUniqueId fgZ = BdUniqueId.gen();
+    public boolean fha;
+    public String fhb;
+    public List<com.baidu.adp.widget.ListView.f> fhc;
     public int giftNum = 0;
     public boolean mIsHost;
     public int mSex;
@@ -23,7 +23,7 @@ public class g extends com.baidu.tieba.card.data.b {
         if (user != null && !v.u(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
             this.wr = user.name;
-            this.fhc = user.name_show;
+            this.fhb = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.fhb = false;
+                this.fha = false;
             } else {
-                this.fhb = true;
+                this.fha = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.fhd = new ArrayList();
+            this.fhc = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     p pVar = new p();
                     pVar.a(giftInfo);
-                    this.fhd.add(pVar);
+                    this.fhc.add(pVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !v.u(this.fhd);
+        return !v.u(this.fhc);
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return fha;
+        return fgZ;
     }
 }

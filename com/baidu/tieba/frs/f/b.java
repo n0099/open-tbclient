@@ -150,7 +150,7 @@ public class b {
                 akVar.f("exposure_time", System.currentTimeMillis());
                 boolean z = (bhVar.sL() == null || (bhVar.sL().aCd() == null && bhVar.sL().IL() == null)) ? false : true;
                 if (z && bhVar.sL().aCd() != null && bhVar.sL().aCd().ID() != null && bhVar.sL().aCd().ID().size() > 0) {
-                    akVar.r("obj_name", bhVar.sL().ghu ? 3 : 2);
+                    akVar.r("obj_name", bhVar.sL().ght ? 3 : 2);
                 } else {
                     akVar.r("obj_name", z ? 1 : 0);
                 }
@@ -205,7 +205,7 @@ public class b {
     }
 
     public static void a(i iVar, int i, int i2) {
-        if (iVar != null && iVar.aMZ() != null && iVar.gel == 1) {
+        if (iVar != null && iVar.aMZ() != null && iVar.gek == 1) {
             TiebaStatic.log(new ak("c11440").ad("fid", iVar.aMZ().getId()).r("obj_locate", i).r("obj_type", i2));
         }
     }

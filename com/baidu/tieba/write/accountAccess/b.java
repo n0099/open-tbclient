@@ -20,15 +20,15 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class b {
-    private float gGu;
+    private float gGt;
     private BaseActivity mContext;
-    private a gGp = null;
+    private a gGo = null;
     private View mBlackBackLayout = null;
     private BaseWebView mWebView = null;
     private View mPostThreadLoadingView = null;
     private TextView mPostThreadLoadingText = null;
     private com.baidu.tbadk.core.view.a mWebLoadingDialog = null;
-    private c gGv = null;
+    private c gGu = null;
     private boolean onPageFinishHasBeenCalled = false;
     private float mRatio = 1.2631578f;
     private Runnable mShowWebViewRunnable = new Runnable() { // from class: com.baidu.tieba.write.accountAccess.b.1
@@ -36,11 +36,11 @@ public class b {
         public void run() {
             if (b.this.mWebView != null) {
                 b.this.showWebLoadingView(false);
-                b.this.bze();
+                b.this.bzd();
             }
         }
     };
-    private Runnable gGw = new Runnable() { // from class: com.baidu.tieba.write.accountAccess.b.2
+    private Runnable gGv = new Runnable() { // from class: com.baidu.tieba.write.accountAccess.b.2
         @Override // java.lang.Runnable
         public void run() {
             if (b.this.mContext != null) {
@@ -60,7 +60,7 @@ public class b {
     }
 
     public void c(a aVar) {
-        this.gGp = aVar;
+        this.gGo = aVar;
     }
 
     private boolean a(AccountAccessActivity accountAccessActivity) {
@@ -71,16 +71,16 @@ public class b {
         this.mBlackBackLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.accountAccess.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.gGp.onPostThreadCancle();
+                b.this.gGo.onPostThreadCancle();
                 b.this.mContext.finish();
             }
         });
         this.mPostThreadLoadingView = accountAccessActivity.findViewById(d.h.aa_post_thread_loading_view);
         this.mPostThreadLoadingText = (TextView) this.mPostThreadLoadingView.findViewById(d.h.custom_loading_text);
         this.mPostThreadLoadingText.setText(accountAccessActivity.getResources().getString(d.l.sending));
-        this.gGv = new c();
-        this.gGv.akH = 1000L;
-        this.gGu = l.ad(accountAccessActivity.getBaseContext()) / l.af(accountAccessActivity.getBaseContext());
+        this.gGu = new c();
+        this.gGu.akH = 1000L;
+        this.gGt = l.ad(accountAccessActivity.getBaseContext()) / l.af(accountAccessActivity.getBaseContext());
         if (this.mWebView == null) {
             try {
                 this.mWebView = (BaseWebView) accountAccessActivity.findViewById(d.h.account_access_webview);
@@ -89,25 +89,25 @@ public class b {
                 this.mWebView.setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.write.accountAccess.b.4
                     @Override // android.webkit.WebViewClient
                     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                        if (StringUtils.isNull(str) || b.this.gGp == null) {
+                        if (StringUtils.isNull(str) || b.this.gGo == null) {
                             return false;
                         }
                         if (!b.this.onPageFinishHasBeenCalled) {
                             b.this.onPageFinishHasBeenCalled = true;
                             b.this.showWebLoadingView(false);
-                            b.this.bze();
-                            b.this.gGp.bza();
+                            b.this.bzd();
+                            b.this.gGo.byZ();
                             return true;
                         }
-                        return b.this.gGp.sY(str);
+                        return b.this.gGo.sY(str);
                     }
 
                     @Override // android.webkit.WebViewClient
                     public void onPageFinished(WebView webView, String str) {
                         super.onPageFinished(webView, str);
                         b.this.onPageFinishHasBeenCalled = true;
-                        if (b.this.gGp != null) {
-                            b.this.gGp.bza();
+                        if (b.this.gGo != null) {
+                            b.this.gGo.byZ();
                         }
                     }
 
@@ -145,7 +145,7 @@ public class b {
 
     public void onDestory() {
         e.fP().removeCallbacks(this.mShowWebViewRunnable);
-        e.fP().removeCallbacks(this.gGw);
+        e.fP().removeCallbacks(this.gGv);
         this.mWebLoadingDialog = null;
     }
 
@@ -189,8 +189,8 @@ public class b {
         return this.mRatio;
     }
 
-    public float bzd() {
-        return this.gGu;
+    public float bzc() {
+        return this.gGt;
     }
 
     public void x(int i, int i2, int i3, int i4) {
@@ -208,11 +208,11 @@ public class b {
         return translateAnimation;
     }
 
-    public void bze() {
+    public void bzd() {
         if (this.mContext != null) {
-            if (this.mRatio == this.gGu) {
+            if (this.mRatio == this.gGt) {
                 this.mWebView.startAnimation(k(l.af(this.mContext.getBaseContext()) - (this.mWebView.getWidth() * 1.2631578f), 0.0f));
-                e.fP().postDelayed(this.gGw, 800L);
+                e.fP().postDelayed(this.gGv, 800L);
                 return;
             }
             this.mWebView.startAnimation(k(this.mWebView.getHeight(), 0.0f));

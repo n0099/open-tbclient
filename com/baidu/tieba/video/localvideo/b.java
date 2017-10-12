@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes2.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long gwU = 3600000;
+    private static long gwT = 3600000;
     private Context context;
-    private a gxb;
+    private a gxa;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat gwW = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat gwV = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat gwV = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat gwU = new SimpleDateFormat("HH:mm:ss");
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -26,12 +26,12 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(d.f.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.gwW.setTimeZone(timeZone);
         this.gwV.setTimeZone(timeZone);
+        this.gwU.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.gxb = aVar;
+        this.gxa = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,8 +51,8 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(List<d> list) {
         super.onPostExecute((b) list);
-        if (this.gxb != null) {
-            this.gxb.dA(list);
+        if (this.gxa != null) {
+            this.gxa.dA(list);
         }
     }
 }

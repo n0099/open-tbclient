@@ -199,7 +199,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
                 NewSubPbActivity.this.eQE.Sv();
                 SparseArray<Object> sparseArray = (SparseArray) NewSubPbActivity.this.mExtra;
-                DataRes dataRes = aVar.gtO;
+                DataRes dataRes = aVar.gtN;
                 if (aVar.error == 0 && dataRes != null) {
                     boolean z2 = com.baidu.adp.lib.g.b.g(dataRes.is_mute, 0) == 1;
                     sparseArray.put(d.h.tag_user_mute_visible, true);
@@ -491,7 +491,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 Object[] objArr = (Object[]) obj;
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.length() > 0) {
-                    if (!NewSubPbActivity.this.eQD.bsk() && objArr != null && objArr.length >= 4) {
+                    if (!NewSubPbActivity.this.eQD.bsj() && objArr != null && objArr.length >= 4) {
                         String valueOf = String.valueOf(objArr[0]);
                         int g = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[1]), 0);
                         boolean d = com.baidu.adp.lib.g.b.d(String.valueOf(objArr[2]), false);
@@ -518,7 +518,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 switch (NewSubPbActivity.this.eQD.getLoadDataMode()) {
                     case 0:
                         ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                        if (!bVar.cRU && bVar.eRJ > 0 && bVar.gjc != 1 && bVar.eRJ != 1002) {
+                        if (!bVar.cRU && bVar.eRJ > 0 && bVar.gjb != 1 && bVar.eRJ != 1002) {
                             com.baidu.tieba.c.a.a(NewSubPbActivity.this.getPageContext(), 3, 1);
                             z = false;
                         }
@@ -529,7 +529,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                         return;
                     case 1:
                         ForumManageModel.d dVar = (ForumManageModel.d) obj;
-                        NewSubPbActivity.this.eQE.a(1, dVar.Ak, dVar.gje, true);
+                        NewSubPbActivity.this.eQE.a(1, dVar.Ak, dVar.gjd, true);
                         return;
                     default:
                         return;
@@ -987,7 +987,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(Context context, String str, String str2) {
-        long templateId = this.eQC.aTE().aNK().brG() != null ? this.eQC.aTE().aNK().brG().getTemplateId() : 0L;
+        long templateId = this.eQC.aTE().aNK().brF() != null ? this.eQC.aTE().aNK().brF().getTemplateId() : 0L;
         if (!TextUtils.isEmpty(str) && av.vH().c(getPageContext(), new String[]{str}) && templateId != 0) {
             com.baidu.tieba.pb.a.a(templateId, str, "PB", str2, "CLICK", "ad_tpoint", this.eQC.aTE().aNR().getId(), this.eQC.aTE().aNR().getName(), this.eQC.aTE().Nj().getTid());
         }
@@ -999,7 +999,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
             showToast(str);
         } else if (l.hy()) {
             if (i == 4) {
-                this.eQE.kH(str + "(4)");
+                this.eQE.kG(str + "(4)");
             } else {
                 this.eQE.gA(d.l.no_data_text);
             }
@@ -1143,11 +1143,11 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
 
     public void a(ForumManageModel.b bVar, boolean z) {
         if (bVar != null) {
-            this.eQE.a(0, bVar.Ak, bVar.gje, z);
+            this.eQE.a(0, bVar.Ak, bVar.gjd, z);
             if (bVar.Ak) {
-                if (bVar.gjc == 1) {
+                if (bVar.gjb == 1) {
                     finish();
-                } else if (bVar.gjc == 2) {
+                } else if (bVar.gjb == 2) {
                     this.eQC.pn(bVar.mPostId);
                     this.eQE.a(this.eQC.aTE(), this.eQC.aNm(), this.eQC.aTU() != null);
                     if (this.eQC.aTP()) {

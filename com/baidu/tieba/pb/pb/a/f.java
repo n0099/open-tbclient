@@ -56,7 +56,7 @@ public class f extends k<PostData, a> {
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.ghm) {
+                if (postData.ghl) {
                     Drawable drawable = aj.getDrawable(d.g.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                     this.ezY.setCompoundDrawables(null, null, drawable, null);

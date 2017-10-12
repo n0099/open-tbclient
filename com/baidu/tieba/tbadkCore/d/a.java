@@ -58,25 +58,25 @@ public class a {
         private final String TF;
         private final boolean WO;
         private final ak dRi;
+        private final String ghM;
         private final String ghN;
-        private final String ghO;
         private final String key;
         private final String locate;
 
         private C0126a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.ghN = str2;
+            this.ghM = str2;
             this.TF = str3;
             this.locate = str4;
-            this.ghO = str5;
+            this.ghN = str5;
             this.WO = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.dRi = brO();
+            this.dRi = brN();
         }
 
-        private ak brO() {
+        private ak brN() {
             ak akVar = new ak(this.key);
-            if (!StringUtils.isNull(this.ghN)) {
-                akVar = akVar.ad("line", this.ghN);
+            if (!StringUtils.isNull(this.ghM)) {
+                akVar = akVar.ad("line", this.ghM);
             }
             if (!StringUtils.isNull(this.TF)) {
                 akVar = akVar.ad("page", this.TF);
@@ -84,8 +84,8 @@ public class a {
             if (!StringUtils.isNull(this.locate)) {
                 akVar = akVar.ad("locate", this.locate);
             }
-            if (!StringUtils.isNull(this.ghO)) {
-                return akVar.ad("task", this.ghO);
+            if (!StringUtils.isNull(this.ghN)) {
+                return akVar.ad("task", this.ghN);
             }
             return akVar;
         }

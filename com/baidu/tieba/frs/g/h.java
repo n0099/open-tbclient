@@ -79,7 +79,7 @@ public class h {
                 }
                 if (iVar != null && iVar.aMZ() != null) {
                     com.baidu.tieba.frs.f.a aVar = new com.baidu.tieba.frs.f.a();
-                    aVar.cFS = iVar.gel == 1;
+                    aVar.cFS = iVar.gek == 1;
                     aVar.cFU = iVar.aMZ().getId();
                     aVar.cFT = agP.ald();
                     com.baidu.tieba.frs.f.b.aly().a(aVar, bhVar, 1);

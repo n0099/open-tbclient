@@ -99,12 +99,12 @@ public class j extends a<com.baidu.tieba.card.data.n> {
             xVar.azf = this.bKK.bes.getFid() + "";
             xVar.mUid = TbadkCoreApplication.getCurrentAccount();
             xVar.mSource = this.bKK.bes.ZH;
-            xVar.fyc = this.bKK.bes.ZJ;
-            xVar.fyd = this.bKK.bes.ZI;
-            xVar.fye = "";
+            xVar.fyb = this.bKK.bes.ZJ;
+            xVar.fyc = this.bKK.bes.ZI;
+            xVar.fyd = "";
             xVar.Wi = this.bKK.getExtra();
             if (this.bKK.bes.rM() != null) {
-                xVar.fyg = this.bKK.bes.rM().video_md5;
+                xVar.fyf = this.bKK.bes.rM().video_md5;
             }
             com.baidu.tieba.play.l.a(this.bKK.bes.rM().video_md5, "", "1", xVar);
         }
@@ -333,7 +333,7 @@ public class j extends a<com.baidu.tieba.card.data.n> {
         }
         if (this.bKK != null && this.bKK.bes != null) {
             if (!Xv()) {
-                m.jn(this.bKK.bes.getId());
+                m.jm(this.bKK.bes.getId());
                 m.a(this.mTextTitle, this.bKK.bes.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
             }
             PbActivityConfig addLocateParam = new PbActivityConfig(this.abz.getPageActivity()).createFromThreadCfg(this.bKK.bes, null, m.rm(), 18003, true, false, false).addLocateParam(this.bKK.XV());
@@ -456,7 +456,7 @@ public class j extends a<com.baidu.tieba.card.data.n> {
         }
         this.bmW.setVisibility(0);
         XE();
-        if (!Xv() && m.jo(this.bKK.bes.getId())) {
+        if (!Xv() && m.jn(this.bKK.bes.getId())) {
             m.a(this.mTextTitle, this.bKK.bes.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
             m.a(this.bJw.getGodReplyContent(), this.bKK.Nj().getId(), d.e.cp_cont_f, d.e.cp_cont_d);
         }
@@ -497,7 +497,7 @@ public class j extends a<com.baidu.tieba.card.data.n> {
         this.bJw.setData(this.bKK.Nj().sL());
         this.bJw.onChangeSkinType();
         d(this.abz, TbadkCoreApplication.getInst().getSkinType());
-        if (m.jo(this.bKK.bes.getId())) {
+        if (m.jn(this.bKK.bes.getId())) {
             aj.c(this.mTextTitle, d.e.cp_cont_d, 1);
         } else {
             aj.c(this.mTextTitle, d.e.cp_cont_b, 1);
@@ -527,8 +527,8 @@ public class j extends a<com.baidu.tieba.card.data.n> {
                 if (StringUtils.isNull(this.bKK.bes.rM().video_url)) {
                     g(true, 4);
                 }
-                if (this.bKD != null && this.bKD.bet() != null) {
-                    this.bKD.bet().d(this.bKK.bes.rM());
+                if (this.bKD != null && this.bKD.bes() != null) {
+                    this.bKD.bes().d(this.bKK.bes.rM());
                     return;
                 }
                 return;

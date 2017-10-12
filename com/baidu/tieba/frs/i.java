@@ -286,7 +286,7 @@ public class i {
     }
 
     public void eA(boolean z) {
-        boolean z2 = z && com.baidu.tbadk.core.util.v.u(this.crI.ahk().bqh());
+        boolean z2 = z && com.baidu.tbadk.core.util.v.u(this.crI.ahk().bqg());
         if (this.csa != null) {
             this.csa.eA(z2);
         }
@@ -874,7 +874,7 @@ public class i {
     }
 
     public void eI(boolean z) {
-        if (!this.crR.bqD()) {
+        if (!this.crR.bqC()) {
             this.crR.setStarForum(true);
             if (z && !this.crI.ahn()) {
                 this.mPullView = new com.baidu.tbadk.core.view.h(this.crI.getPageContext());

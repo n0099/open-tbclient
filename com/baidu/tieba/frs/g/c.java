@@ -23,7 +23,7 @@ public class c {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            com.baidu.tieba.recapp.c.a.bfZ().n(arrayList);
+            com.baidu.tieba.recapp.c.a.bfY().n(arrayList);
         }
     }
 

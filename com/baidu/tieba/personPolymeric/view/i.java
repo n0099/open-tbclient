@@ -43,7 +43,7 @@ public class i extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public void a(com.baidu.tieba.personPolymeric.c.j jVar) {
         String string = jVar.sex == 2 ? this.mContext.getString(d.l.she) : this.mContext.getString(d.l.he);
         StringBuffer stringBuffer = new StringBuffer();
-        if (jVar.fhi) {
+        if (jVar.fhh) {
             stringBuffer.append(this.mContext.getString(d.l.text_post));
         }
         this.cWj.setText(String.format(this.mContext.getString(d.l.person_polymeric_privacry_tip), string, stringBuffer.toString()));

@@ -81,9 +81,9 @@ public class h extends com.baidu.tieba.frs.mc.h {
                         h.this.cqG.alr();
                     }
                     if (h.this.cqt != null && h.this.cFC != null && h.this.cqD != null && h.this.cqG != null) {
-                        AlaLiveNotify bqg = h.this.cxi.ahk().bqg();
-                        if (bqg != null) {
-                            new com.baidu.tieba.frs.d.a().a(h.this.cxi, bqg);
+                        AlaLiveNotify bqf = h.this.cxi.ahk().bqf();
+                        if (bqf != null) {
+                            new com.baidu.tieba.frs.d.a().a(h.this.cxi, bqf);
                         }
                         h.this.cxi.ez(true);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
@@ -121,13 +121,13 @@ public class h extends com.baidu.tieba.frs.mc.h {
                 if (h.this.cqt != null && ahk != null && h.this.cqC != null) {
                     if (j.hh()) {
                         if (h.this.cqt.aht() instanceof com.baidu.tieba.frs.tab.c) {
-                            if (!(h.this.cqt.getListView() instanceof BdExpandListView) || !((BdExpandListView) h.this.cqt.getListView()).bqD()) {
+                            if (!(h.this.cqt.getListView() instanceof BdExpandListView) || !((BdExpandListView) h.this.cqt.getListView()).bqC()) {
                                 ((com.baidu.tieba.frs.tab.c) h.this.cqt.aht()).la();
                             }
                             h.this.cqt.ck(true);
                         }
                         TiebaStatic.eventStat(h.this.cxi.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
-                        if (ahk.aMZ() != null && ahk.gel == 1) {
+                        if (ahk.aMZ() != null && ahk.gek == 1) {
                             com.baidu.tieba.frs.f.b.a(ahk, h.this.cqC.ald(), 1);
                         }
                         h.this.cxi.refresh();

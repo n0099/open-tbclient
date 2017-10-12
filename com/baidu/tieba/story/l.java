@@ -8,43 +8,43 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    private static volatile l fWB;
-    private MetaData fWA;
-    private final Map<Long, UserStoryData> fWz = new HashMap();
+    private static volatile l fWA;
+    private final Map<Long, UserStoryData> fWy = new HashMap();
+    private MetaData fWz;
 
     private l() {
     }
 
-    public static l bmZ() {
-        if (fWB == null) {
+    public static l bmY() {
+        if (fWA == null) {
             synchronized (l.class) {
-                if (fWB == null) {
-                    fWB = new l();
+                if (fWA == null) {
+                    fWA = new l();
                 }
             }
         }
-        return fWB;
+        return fWA;
     }
 
     public void a(long j, UserStoryData userStoryData) {
-        this.fWz.put(Long.valueOf(j), userStoryData);
+        this.fWy.put(Long.valueOf(j), userStoryData);
     }
 
     public void d(MetaData metaData) {
-        this.fWA = metaData;
+        this.fWz = metaData;
     }
 
-    public MetaData bna() {
-        return this.fWA;
+    public MetaData bmZ() {
+        return this.fWz;
     }
 
     public UserStoryData cE(long j) {
-        return this.fWz.get(Long.valueOf(j));
+        return this.fWy.get(Long.valueOf(j));
     }
 
     public void clear() {
-        this.fWz.clear();
-        this.fWA = null;
+        this.fWy.clear();
+        this.fWz = null;
     }
 
     public boolean a(d dVar, List<MetaData> list, int i, long j, long j2, f fVar) {
@@ -69,11 +69,11 @@ public class l {
         return true;
     }
 
-    public int bnb() {
+    public int bna() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), 0);
     }
 
-    public void bnc() {
+    public void bnb() {
         tb(0);
     }
 

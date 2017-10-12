@@ -26,13 +26,13 @@ public class n {
         if (pbTopAgreePost.post_list != null && pbTopAgreePost.post_list.size() > 0) {
             for (Post post : pbTopAgreePost.post_list) {
                 PostData postData = new PostData();
-                postData.ghv = SapiSafeFacade.SAPIWEBVIEW_BACK;
+                postData.ghu = SapiSafeFacade.SAPIWEBVIEW_BACK;
                 postData.a(post, context);
                 this.ezu.add(postData);
             }
         }
         if (!v.u(this.ezu)) {
-            this.ezu.get(0).ghw = true;
+            this.ezu.get(0).ghv = true;
             setCount(this.ezu.size());
         }
         List<Long> list = pbTopAgreePost.post_id_list;

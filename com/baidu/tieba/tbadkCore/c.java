@@ -17,7 +17,7 @@ import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class c {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static c gdI;
+    private static c gdH;
     private com.baidu.adp.lib.cache.l<byte[]> bfm;
     private g responseData = null;
 
@@ -26,13 +26,13 @@ public class c {
         this.bfm = BdCacheService.eE().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static synchronized c bpq() {
+    public static synchronized c bpp() {
         c cVar;
         synchronized (c.class) {
-            if (gdI == null) {
-                gdI = new c();
+            if (gdH == null) {
+                gdH = new c();
             }
-            cVar = gdI;
+            cVar = gdH;
         }
         return cVar;
     }

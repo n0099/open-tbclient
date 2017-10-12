@@ -11,14 +11,14 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class a {
-    private static volatile a gvt;
-    private HashMap<String, String> gvu;
-    private DownloadData gvv;
+    private static volatile a gvs;
+    private HashMap<String, String> gvt;
+    private DownloadData gvu;
 
     /* renamed from: com.baidu.tieba.video.editvideo.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0131a {
-        void bvw();
+        void bvv();
 
         void cj(String str, String str2);
 
@@ -28,15 +28,15 @@ public class a {
     private a() {
     }
 
-    public static a bvT() {
-        if (gvt == null) {
+    public static a bvS() {
+        if (gvs == null) {
             synchronized (a.class) {
-                if (gvt == null) {
-                    gvt = new a();
+                if (gvs == null) {
+                    gvs = new a();
                 }
             }
         }
-        return gvt;
+        return gvs;
     }
 
     public String sB(String str) {
@@ -44,29 +44,29 @@ public class a {
         if (dQ == null) {
             return null;
         }
-        if (this.gvu == null) {
-            this.gvu = new HashMap<>();
-            bvU();
-            if (this.gvu.size() > 0) {
-                return this.gvu.get(dQ);
+        if (this.gvt == null) {
+            this.gvt = new HashMap<>();
+            bvT();
+            if (this.gvt.size() > 0) {
+                return this.gvt.get(dQ);
             }
             return null;
         }
-        return this.gvu.get(dQ);
+        return this.gvt.get(dQ);
     }
 
-    public void bvU() {
-        if (this.gvu == null) {
-            this.gvu = new HashMap<>();
+    public void bvT() {
+        if (this.gvt == null) {
+            this.gvt = new HashMap<>();
         } else {
-            this.gvu.clear();
+            this.gvt.clear();
         }
-        File file = new File(b.gtU);
+        File file = new File(b.gtT);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.gvu.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    this.gvt.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
             }
         }
@@ -75,10 +75,10 @@ public class a {
     public void a(String str, final String str2, final InterfaceC0131a interfaceC0131a) {
         String dQ;
         if (!TextUtils.isEmpty(str2) && (dQ = ao.dQ(str2)) != null) {
-            if (this.gvv != null) {
-                e.Cr().q(this.gvv.getUrl(), true);
+            if (this.gvu != null) {
+                e.Cr().q(this.gvu.getUrl(), true);
             }
-            File file = new File(b.gtU);
+            File file = new File(b.gtT);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -86,7 +86,7 @@ public class a {
             downloadData.setType(17);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(b.gtU + dQ + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(b.gtT + dQ + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new d() { // from class: com.baidu.tieba.video.editvideo.model.a.1
                 @Override // com.baidu.tbadk.download.d
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -95,11 +95,11 @@ public class a {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (a.this.gvv != null && downloadData2.getUrl().equals(a.this.gvv.getUrl())) {
-                            a.this.gvv = null;
+                        if (a.this.gvu != null && downloadData2.getUrl().equals(a.this.gvu.getUrl())) {
+                            a.this.gvu = null;
                         }
                         if (interfaceC0131a != null) {
-                            interfaceC0131a.bvw();
+                            interfaceC0131a.bvv();
                         }
                     }
                 }
@@ -117,11 +117,11 @@ public class a {
                 @Override // com.baidu.tbadk.download.d
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (a.this.gvv != null && downloadData2.getUrl().equals(a.this.gvv.getUrl())) {
-                            a.this.gvv = null;
+                        if (a.this.gvu != null && downloadData2.getUrl().equals(a.this.gvu.getUrl())) {
+                            a.this.gvu = null;
                         }
                         if (interfaceC0131a != null) {
-                            a.this.gvu.put(downloadData2.getPath().substring(b.gtU.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
+                            a.this.gvt.put(downloadData2.getPath().substring(b.gtT.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
                             interfaceC0131a.cj(str2, downloadData2.getPath());
                         }
                     }
@@ -133,22 +133,22 @@ public class a {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (a.this.gvv != null && downloadData2.getUrl().equals(a.this.gvv.getUrl())) {
-                        a.this.gvv = null;
+                    if (a.this.gvu != null && downloadData2.getUrl().equals(a.this.gvu.getUrl())) {
+                        a.this.gvu = null;
                     }
                     if (interfaceC0131a != null) {
                         interfaceC0131a.sy(str3);
                     }
                 }
             });
-            this.gvv = downloadData;
+            this.gvu = downloadData;
             e.Cr().f(downloadData);
         }
     }
 
-    public void bvV() {
-        if (this.gvv != null) {
-            e.Cr().q(this.gvv.getUrl(), true);
+    public void bvU() {
+        if (this.gvu != null) {
+            e.Cr().q(this.gvu.getUrl(), true);
         }
     }
 }

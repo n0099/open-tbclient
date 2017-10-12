@@ -8,9 +8,9 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
     public String aXr;
-    public int gjA;
-    public ArrayList<Integer> gjy;
-    public String gjz;
+    public ArrayList<Integer> gjx;
+    public String gjy;
+    public int gjz;
     public String mErrorMessage;
 
     public void parseJson(String str) {
@@ -21,12 +21,12 @@ public class a {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
                     if (optJSONArray != null) {
                         int length = optJSONArray.length();
-                        this.gjy = new ArrayList<>();
+                        this.gjx = new ArrayList<>();
                         for (int i = 0; i < length; i++) {
-                            this.gjy.add(Integer.valueOf(optJSONArray.getInt(i)));
+                            this.gjx.add(Integer.valueOf(optJSONArray.getInt(i)));
                         }
                     }
-                    this.gjz = optJSONObject.optString("upload_id");
+                    this.gjy = optJSONObject.optString("upload_id");
                     this.aXr = optJSONObject.optString("video_url");
                 }
             } catch (JSONException e) {

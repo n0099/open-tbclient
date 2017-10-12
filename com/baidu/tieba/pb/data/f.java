@@ -117,8 +117,8 @@ public class f {
         String str2 = "";
         if (isValid()) {
             PostData postData = this.eys.get(0);
-            PreLoadImageInfo brD = postData.brD();
-            str = brD != null ? brD.imgUrl : "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
+            PreLoadImageInfo brC = postData.brC();
+            str = brC != null ? brC.imgUrl : "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             str2 = postData.bY(context);
             if (this.bes != null && this.bes.sg() != null && this.bes.sg().getGroup_id() != 0) {
                 str2 = "[" + context.getString(d.l.photo_live_tips) + "] " + str2;
@@ -241,7 +241,7 @@ public class f {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                com.baidu.tieba.recapp.d.a.bgz().qO(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.bgy().qO(dataRes.asp_shown_info);
                 List<User> list = dataRes.user_list;
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
@@ -289,17 +289,17 @@ public class f {
                         postData.setUserMap(this.userMap);
                         postData.a(post, context);
                         postData.a(aNb().rl());
-                        if (postData.bry() == 1 && this.bes.sa()) {
+                        if (postData.brx() == 1 && this.bes.sa()) {
                             if (aNh()) {
                                 postData.setPostType(0);
                             } else {
                                 postData.setPostType(this.bes.rZ());
                             }
-                        } else if (postData.bry() == 1 && this.bes != null && this.bes.sh()) {
+                        } else if (postData.brx() == 1 && this.bes != null && this.bes.sh()) {
                             postData.setPostType(36);
-                        } else if (postData.bry() == 1 && this.bes.sn()) {
+                        } else if (postData.brx() == 1 && this.bes.sn()) {
                             postData.setPostType(41);
-                        } else if (postData.bry() == 1 && this.bes != null && this.bes.si()) {
+                        } else if (postData.brx() == 1 && this.bes != null && this.bes.si()) {
                             postData.setPostType(0);
                             postData.IN();
                             if (this.bes.rt() == null || this.bes.rt().size() == 0) {
@@ -317,7 +317,7 @@ public class f {
                                 postData.g(new TbRichText((Context) TbadkCoreApplication.getInst(), this.bes.rt(), true));
                             }
                             this.eyQ = postData;
-                        } else if (postData.bry() == 1 && this.bes.so()) {
+                        } else if (postData.brx() == 1 && this.bes.so()) {
                             postData.setPostType(48);
                         }
                         this.eys.add(postData);
@@ -346,24 +346,24 @@ public class f {
                     }
                 }
                 this.bes.bS(this.bes.rn() > 0 ? this.bes.rn() - 1 : 0);
-                List<AppData> bfS = r.bfU().bfS();
-                if (bfS != null) {
-                    bfS.clear();
+                List<AppData> bfR = r.bfT().bfR();
+                if (bfR != null) {
+                    bfR.clear();
                 }
                 if (dataRes.banner_list != null) {
                     for (App app : dataRes.banner_list.app) {
                         com.baidu.tieba.tbadkCore.data.l lVar = new com.baidu.tieba.tbadkCore.data.l();
                         lVar.c(app);
-                        AppData brm = lVar.brm();
-                        if (!this.eyI.contains(lVar) && brm.goods != null && (!StringUtils.isNull(brm.goods.user_name) || !StringUtils.isNull(brm.goods.lego_card))) {
+                        AppData brl = lVar.brl();
+                        if (!this.eyI.contains(lVar) && brl.goods != null && (!StringUtils.isNull(brl.goods.user_name) || !StringUtils.isNull(brl.goods.lego_card))) {
                             this.eyI.add(lVar);
-                            if (bfS != null) {
-                                bfS.add(lVar.brm());
+                            if (bfR != null) {
+                                bfR.add(lVar.brl());
                             }
                         }
                     }
                 }
-                r.bfU().bfT();
+                r.bfT().bfS();
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
                     currentAccountObj.setIsSelectTail(this.eyy.getIsSelectTail());

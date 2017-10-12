@@ -387,7 +387,7 @@ public class SubPbModel extends DataModel {
         markData.setTime(date.getTime());
         markData.setHostMode(false);
         markData.setId(this.threadID);
-        markData.setFloor(postData.bry());
+        markData.setFloor(postData.brx());
         return markData;
     }
 

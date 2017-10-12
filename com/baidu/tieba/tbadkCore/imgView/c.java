@@ -11,9 +11,9 @@ import android.util.DisplayMetrics;
 public class c {
     private Rect Hl = new Rect();
     public Bitmap aNp;
-    public Bundle giM;
+    public Bundle giL;
+    public boolean giM;
     public boolean giN;
-    public boolean giO;
     private Context mContext;
     public Rect rect;
 

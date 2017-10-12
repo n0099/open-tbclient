@@ -8,7 +8,7 @@ public interface d {
     public interface a {
         void aiD();
 
-        void bvy();
+        void bvx();
     }
 
     /* loaded from: classes2.dex */

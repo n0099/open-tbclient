@@ -11,26 +11,26 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean fhF;
+    private boolean fhE;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.fhF = false;
+        this.fhE = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fhF = false;
+        this.fhE = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fhF = false;
+        this.fhE = false;
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void aP(boolean z) {
-        this.fhF = z;
+        this.fhE = z;
         if (z) {
             setText(d.l.followed);
             setBackgroundDrawable(aj.getDrawable(d.g.selector_like_button_gray_bg));
@@ -65,7 +65,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
 
     public void onChangeSkinType(int i) {
         aj.c(this, d.e.cp_cont_i, 1);
-        if (this.fhF) {
+        if (this.fhE) {
             setBackgroundDrawable(aj.getDrawable(d.g.selector_like_button_gray_bg));
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             return;

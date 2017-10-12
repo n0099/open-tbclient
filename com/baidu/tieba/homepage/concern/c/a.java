@@ -50,7 +50,7 @@ public class a {
                     k kVar = new k(bhVar);
                     if (kVar != null) {
                         kVar.Xf = bhVar.getTid();
-                        kVar.js(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+                        kVar.jr(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                     }
                     if (kVar != null && kVar.isValid()) {
                         linkedList.add(kVar);
@@ -59,7 +59,7 @@ public class a {
                     l lVar = new l();
                     if (lVar != null) {
                         lVar.threadData = bhVar;
-                        lVar.js(lVar.threadData.isLinkThread() ? "4" : "1");
+                        lVar.jr(lVar.threadData.isLinkThread() ? "4" : "1");
                         lVar.isLinkThread = false;
                     }
                     if (lVar.threadData != null && lVar.isValid() && !StringUtils.isNull(lVar.threadData.getId()) && !"0".equals(lVar.threadData.getTid())) {

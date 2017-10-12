@@ -10,32 +10,32 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class f {
     private Bundle eZW;
-    private g fbu;
-    private List<com.baidu.adp.widget.ListView.f> fbv;
+    private g fbt;
+    private List<com.baidu.adp.widget.ListView.f> fbu;
     private TbPageContext mG;
 
     public f(TbPageContext tbPageContext, Bundle bundle) {
         this.mG = tbPageContext;
         this.eZW = bundle;
-        this.fbu = new g(tbPageContext);
+        this.fbt = new g(tbPageContext);
     }
 
     public void initView() {
         this.mG.getPageActivity().setContentView(d.j.person_center_more_layout);
-        this.fbu.X(this.mG.getPageActivity().findViewById(d.h.person_more_layout));
-        aVy();
-        this.fbu.setData(this.fbv);
+        this.fbt.X(this.mG.getPageActivity().findViewById(d.h.person_more_layout));
+        aVx();
+        this.fbt.setData(this.fbu);
     }
 
-    private void aVy() {
-        this.fbv = new ArrayList();
+    private void aVx() {
+        this.fbu = new ArrayList();
         com.baidu.tieba.personCenter.c.e eVar = new com.baidu.tieba.personCenter.c.e();
         eVar.title = this.mG.getString(d.l.consumption_records);
         eVar.type = 13;
         if (this.eZW != null) {
             eVar.cRz = this.eZW.getString(PersonMoreActivityConfig.CONSUME_RECORD, null);
         }
-        this.fbv.add(eVar);
+        this.fbu.add(eVar);
         if (this.eZW != null) {
             String string = this.eZW.getString(PersonMoreActivityConfig.FUN_NAME, null);
             if (!StringUtils.isNull(string)) {
@@ -43,7 +43,7 @@ public class f {
                 eVar2.title = this.mG.getString(d.l.fun);
                 eVar2.type = 35;
                 eVar2.cRz = string;
-                this.fbv.add(eVar2);
+                this.fbu.add(eVar2);
             }
         }
         if (this.eZW != null) {
@@ -53,7 +53,7 @@ public class f {
                 eVar3.title = this.mG.getString(d.l.love_bean);
                 eVar3.type = 36;
                 eVar3.cRz = string2;
-                this.fbv.add(eVar3);
+                this.fbu.add(eVar3);
             }
         }
         com.baidu.tieba.personCenter.c.e eVar4 = new com.baidu.tieba.personCenter.c.e();
@@ -64,7 +64,7 @@ public class f {
             if (!StringUtils.isNull(string3)) {
                 eVar4.cRz = string3;
             }
-            this.fbv.add(eVar4);
+            this.fbu.add(eVar4);
         }
     }
 }

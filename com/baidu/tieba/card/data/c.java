@@ -35,7 +35,7 @@ public abstract class c extends b implements ae {
         this.bNk = i;
     }
 
-    public void jr(String str) {
+    public void jq(String str) {
         this.bNl = str;
     }
 
@@ -63,7 +63,7 @@ public abstract class c extends b implements ae {
         return this.bNm;
     }
 
-    public void js(String str) {
+    public void jr(String str) {
         this.bNm = str;
     }
 
@@ -83,7 +83,7 @@ public abstract class c extends b implements ae {
         return this.bNo;
     }
 
-    public ak jt(String str) {
+    public ak js(String str) {
         return u(str, false);
     }
 
@@ -99,7 +99,7 @@ public abstract class c extends b implements ae {
             ad.ad("ab_tag", XW());
         }
         if (Nj.sL() != null && Nj.sL().aCd() != null && Nj.sL().aCd().ID() != null && Nj.sL().aCd().ID().size() > 0) {
-            ad.r("obj_to", Nj.sL().ghu ? 2 : 1);
+            ad.r("obj_to", Nj.sL().ght ? 2 : 1);
         }
         return ad;
     }

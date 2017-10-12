@@ -9,7 +9,7 @@ public class a {
     public static final Pattern ceW = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
     public static final Pattern ceX = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
-    public static String jN(String str) {
+    public static String jM(String str) {
         String replaceAll = str.replaceAll(d.aFe, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);

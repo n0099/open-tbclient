@@ -15,14 +15,14 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class m {
-    public static void jn(String str) {
+    public static void jm(String str) {
         com.baidu.tieba.tbadkCore.util.e readThreadHistory;
         if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.sa(str)) {
             readThreadHistory.rY(str);
         }
     }
 
-    public static boolean jo(String str) {
+    public static boolean jn(String str) {
         com.baidu.tieba.tbadkCore.util.e readThreadHistory;
         return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.rZ(str)) ? false : true;
     }
@@ -37,7 +37,7 @@ public class m {
 
     public static void a(TextView textView, String str, int i, int i2) {
         if (textView instanceof TextView) {
-            if (jo(str)) {
+            if (jn(str)) {
                 aj.i(textView, i2);
             } else {
                 aj.i(textView, i);

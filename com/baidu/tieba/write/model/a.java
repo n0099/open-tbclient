@@ -13,31 +13,31 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes2.dex */
 public class a {
     private String VR;
-    private InterfaceC0137a gIF;
-    private com.baidu.tieba.write.a.a gIG;
+    private InterfaceC0137a gIE;
+    private com.baidu.tieba.write.a.a gIF;
     private BdUniqueId mBdUniqueId;
-    private HttpMessageListener gIH = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
+    private HttpMessageListener gIG = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AddLinkResponseMessage) {
                 AddLinkResponseMessage addLinkResponseMessage = (AddLinkResponseMessage) httpResponsedMessage;
                 e.fP().removeCallbacks(a.this.aZR);
-                if (a.this.gIF != null) {
+                if (a.this.gIE != null) {
                     if (addLinkResponseMessage.getAddLinkResponseData() == null) {
                         com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-                        aVar.gIo = false;
+                        aVar.gIn = false;
                         aVar.linkUrl = a.this.VR;
-                        aVar.gIp = 1;
-                        a.this.gIG = aVar;
+                        aVar.gIo = 1;
+                        a.this.gIF = aVar;
                     } else {
-                        a.this.gIG = addLinkResponseMessage.getAddLinkResponseData();
-                        if (!a.this.gIG.gIo) {
-                            a.this.gIG.linkUrl = a.this.VR;
-                            a.this.gIG.gIp = 1;
+                        a.this.gIF = addLinkResponseMessage.getAddLinkResponseData();
+                        if (!a.this.gIF.gIn) {
+                            a.this.gIF.linkUrl = a.this.VR;
+                            a.this.gIF.gIo = 1;
                         }
                     }
-                    a.this.gIF.a(a.this.gIG);
+                    a.this.gIE.a(a.this.gIF);
                 }
             }
         }
@@ -45,14 +45,14 @@ public class a {
     private Runnable aZR = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bzT();
+            a.this.bzS();
             com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-            aVar.gIo = false;
+            aVar.gIn = false;
             aVar.linkUrl = a.this.VR;
-            aVar.gIp = 1;
-            a.this.gIG = aVar;
-            if (a.this.gIF != null) {
-                a.this.gIF.a(a.this.gIG);
+            aVar.gIo = 1;
+            a.this.gIF = aVar;
+            if (a.this.gIE != null) {
+                a.this.gIE.a(a.this.gIF);
             }
         }
     };
@@ -65,8 +65,8 @@ public class a {
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.gIH.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.gIH);
+        this.gIG.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.gIG);
     }
 
     public void te(String str) {
@@ -83,21 +83,21 @@ public class a {
         e.fP().postDelayed(this.aZR, 15000L);
     }
 
-    public void bzT() {
+    public void bzS() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
         e.fP().removeCallbacks(this.aZR);
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.gIH);
+        MessageManager.getInstance().unRegisterListener(this.gIG);
         e.fP().removeCallbacks(this.aZR);
     }
 
     public void a(InterfaceC0137a interfaceC0137a) {
-        this.gIF = interfaceC0137a;
+        this.gIE = interfaceC0137a;
     }
 
-    public com.baidu.tieba.write.a.a bzU() {
-        return this.gIG;
+    public com.baidu.tieba.write.a.a bzT() {
+        return this.gIF;
     }
 }

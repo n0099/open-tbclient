@@ -71,10 +71,10 @@ public class e implements d.a, com.baidu.tieba.play.g {
                 if (message.obj != null && (message.obj instanceof com.baidu.tieba.play.b.c)) {
                     com.baidu.tieba.play.b.c cVar = (com.baidu.tieba.play.b.c) message.obj;
                     if (e.this.aWf != null) {
-                        e.this.aWf.onError(e.this, cVar.what, cVar.fyu);
+                        e.this.aWf.onError(e.this, cVar.what, cVar.fyt);
                     }
                     if (e.this.aWg != null) {
-                        e.this.aWg.a(e.this, cVar.fyt, cVar.what, cVar.fyu);
+                        e.this.aWg.a(e.this, cVar.fys, cVar.what, cVar.fyt);
                     }
                 }
             } else if (message.what == 9) {
@@ -112,7 +112,7 @@ public class e implements d.a, com.baidu.tieba.play.g {
         this.aWl = bVar;
         try {
             this.aWc = d.Ky().createPlayer();
-            this.aWc.forceUseSystemMediaPlayer((CustomPlayerSwitchStatic.bdW() == 0) | this.aWm);
+            this.aWc.forceUseSystemMediaPlayer((CustomPlayerSwitchStatic.bdV() == 0) | this.aWm);
             this.aWc.setListener(new PlayerListener(this.aWk));
             this.aWc.openVideo(this.aWl.getUri(), new Surface(this.aWl.getSurfaceTexture()), this.aWl.getHost());
         } catch (Exception e) {
@@ -141,7 +141,7 @@ public class e implements d.a, com.baidu.tieba.play.g {
         this.aWl = bVar;
         try {
             this.aWc = d.Ky().createPlayer();
-            this.aWc.forceUseSystemMediaPlayer((CustomPlayerSwitchStatic.bdW() == 0) | this.aWm);
+            this.aWc.forceUseSystemMediaPlayer((CustomPlayerSwitchStatic.bdV() == 0) | this.aWm);
             this.aWc.setListener(new PlayerListener(this.aWk));
             this.aWc.openVideo(this.aWl.getUri(), new Surface(this.aWl.getSurfaceTexture()), this.aWl.getHost());
             if (i == 3) {

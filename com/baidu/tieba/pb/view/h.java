@@ -85,7 +85,7 @@ public class h extends FrameLayout implements View.OnClickListener {
                 this.eVQ.setOnClickListener(this);
                 this.eVQ.setInterceptOnClick(true);
                 this.eVQ.setDefaultResource(d.g.icon_click);
-                this.eVQ.c(aVar.bqS(), 18, false);
+                this.eVQ.c(aVar.bqR(), 18, false);
                 int ad = l.ad(this.mContext) - (l.f(this.mContext, d.f.ds30) * 2);
                 float f = imageHeight / imageWidth;
                 if (f > 1.7777778f) {
@@ -115,7 +115,7 @@ public class h extends FrameLayout implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.eVP != null) {
-            com.baidu.tbadk.browser.a.T(this.mContext, this.eVP.bqT());
+            com.baidu.tbadk.browser.a.T(this.mContext, this.eVP.bqS());
         }
     }
 

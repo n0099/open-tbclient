@@ -1041,7 +1041,7 @@ public class e {
 
     public void apE() {
         this.cqp = new com.baidu.tieba.tbadkCore.data.e("new_index", null);
-        this.cqp.bqY();
+        this.cqp.bqX();
     }
 
     public void a(int i, List<com.baidu.adp.widget.ListView.f> list, int i2) {
@@ -1049,10 +1049,10 @@ public class e {
         int i4;
         if (this.cqp != null) {
             if (i == 0) {
-                this.cqp.bqY();
+                this.cqp.bqX();
             }
             if (list != null && !list.isEmpty()) {
-                int[] iArr = com.baidu.tieba.tbadkCore.data.e.ggk;
+                int[] iArr = com.baidu.tieba.tbadkCore.data.e.ggj;
                 int i5 = 0;
                 int i6 = 0;
                 int i7 = 0;

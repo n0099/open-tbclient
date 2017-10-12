@@ -153,7 +153,7 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
                 this.cWJ.setText(apb);
             }
             this.bit = bVar.bfa;
-            if (m.jo(this.bit.getId())) {
+            if (m.jn(this.bit.getId())) {
                 Xw();
             }
             this.bnj.setData(this.bit);
@@ -186,7 +186,7 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     public void XJ() {
         if (this.cWN != null && this.bit != null) {
-            m.jn(this.bit.getId());
+            m.jm(this.bit.getId());
             Xw();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mG.getPageActivity()).createCfgForPersonCenter(this.bit.getId(), this.bit.rL(), m.rm(), 18005)));
         }

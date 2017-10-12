@@ -10,7 +10,7 @@ public interface e {
 
         void aiD();
 
-        void bfq();
+        void bfp();
 
         void c(CloudMusicData.MusicTagList musicTagList);
 
@@ -23,7 +23,7 @@ public interface e {
 
         void b(CloudMusicData.MusicTagList musicTagList);
 
-        void bvv();
+        void bvu();
 
         void mZ(boolean z);
 

@@ -11,7 +11,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     private TbPageContext<?> mG;
 
     public c(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.d.fgW);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.d.fgV);
         this.mG = tbPageContext;
     }
 

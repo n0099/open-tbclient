@@ -310,7 +310,7 @@ public class AlaVideoContainer extends LinearLayout {
         layoutParams.height = (this.bMO.getWidth() * 9) / 16;
         this.bMO.setLayoutParams(layoutParams);
         this.bMZ = new n(getContext());
-        this.bMZ.bes();
+        this.bMZ.ber();
         this.bMO.setBusiness(this.bMZ);
         this.bMO.setOnPreparedListener(this.aWe);
         this.bMO.setOnSurfaceDestroyedListener(this.bKW);
@@ -404,7 +404,7 @@ public class AlaVideoContainer extends LinearLayout {
         if (this.bMQ != null) {
             this.bMQ.clearAnimation();
         }
-        this.bMU.bxW();
+        this.bMU.bxV();
         this.bMV.setVisibility(8);
         this.bMX.setVisibility(8);
         e.fP().removeCallbacks(this.bNd);

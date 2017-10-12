@@ -61,7 +61,7 @@ public class f extends BaseAdapter implements c {
                             return;
                         }
                         av.vH().c(f.this.crI.xH(), new String[]{url});
-                        a.C0126a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", eVar.bps(), f.this.crI.getForumId(), f.this.crI.getForumName(), null);
+                        a.C0126a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", eVar.bpr(), f.this.crI.getForumId(), f.this.crI.getForumName(), null);
                         b.ce("obj_url", eVar.getUrl());
                         b.save();
                     }
@@ -247,8 +247,8 @@ public class f extends BaseAdapter implements c {
         if (this.cJQ != null) {
             aVar.cKx.setOnClickListener(this.cJQ);
         }
-        if (this.cJJ != null && this.cJJ.add(eVar.bps())) {
-            a.C0126a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", eVar.bps(), this.crI.getForumId(), this.crI.getForumName(), null);
+        if (this.cJJ != null && this.cJJ.add(eVar.bpr())) {
+            a.C0126a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", eVar.bpr(), this.crI.getForumId(), this.crI.getForumName(), null);
             b.ce("obj_url", eVar.getUrl());
             b.save();
         }

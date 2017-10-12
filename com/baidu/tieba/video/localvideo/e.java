@@ -21,7 +21,7 @@ import java.util.Comparator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    public static final String gxw = Environment.getExternalStorageDirectory().toString() + "/.video_pics";
+    public static final String gxv = Environment.getExternalStorageDirectory().toString() + "/.video_pics";
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [97=4, 120=4] */
     /* JADX WARN: Removed duplicated region for block: B:53:0x0163  */
@@ -250,12 +250,12 @@ public class e {
             dVar.setVideoPath(str);
             dVar.cK(file.lastModified());
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            File file2 = new File(gxw);
+            File file2 = new File(gxv);
             if (!file2.exists()) {
                 file2.mkdir();
             }
             ?? r3 = ".png";
-            StringBuilder append = new StringBuilder().append(gxw).append(File.separator).append(sL(str)).append(".png");
+            StringBuilder append = new StringBuilder().append(gxv).append(File.separator).append(sL(str)).append(".png");
             String sb = append.toString();
             try {
                 try {

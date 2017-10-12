@@ -220,7 +220,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                 pVar.eAA.setLayoutParams(layoutParams2);
             }
             pVar.eAA.setIsSupportNewFirstFloor(true);
-            if (postData.bry() != 1) {
+            if (postData.brx() != 1) {
                 if (TextUtils.isEmpty(postData.getBimg_url())) {
                     pVar.eAA.setOnClickListener(this.eAg);
                     pVar.eAA.setTextViewOnClickListener(this.eAg);
@@ -232,7 +232,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
             } else {
                 pVar.eAq.setOnClickListener(null);
             }
-            if (postData.bry() == 1) {
+            if (postData.brx() == 1) {
                 if (!this.eDC.aOT()) {
                     if (this.eAc != null && !com.baidu.tbadk.core.util.v.u(this.eAc.aNv())) {
                         pVar.eBc.setVisibility(0);
@@ -277,7 +277,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                     str2 = postData.getAuthor().getName_show();
                 }
                 if (this.eAc != null && this.eAc.aNb() != null) {
-                    pVar.eAD.a(postData.brF(), str, str2, j, com.baidu.adp.lib.g.b.c(this.eAc.aNb().getId(), 0L), com.baidu.adp.lib.g.b.c(postData.getId(), 0L));
+                    pVar.eAD.a(postData.brE(), str, str2, j, com.baidu.adp.lib.g.b.c(this.eAc.aNb().getId(), 0L), com.baidu.adp.lib.g.b.c(postData.getId(), 0L));
                 }
                 pVar.eAD.onChangeSkinType();
                 if (this.eDC.aOh().aRP()) {
@@ -317,8 +317,8 @@ public class o extends k<PostData, p> implements View.OnClickListener {
             sparseArray2.put(d.h.tag_load_sub_data, postData);
             sparseArray2.put(d.h.tag_load_sub_view, view);
             sparseArray2.put(d.h.tag_pb_floor_postion, Integer.valueOf(i));
-            sparseArray2.put(d.h.tag_pb_floor_number, Integer.valueOf(postData.bry()));
-            if (postData.brC() > 0 && postData.brv() != null && postData.brv().size() > 0) {
+            sparseArray2.put(d.h.tag_pb_floor_number, Integer.valueOf(postData.brx()));
+            if (postData.brB() > 0 && postData.bru() != null && postData.bru().size() > 0) {
                 if (this.eAd == null) {
                     this.eAd = new com.baidu.tieba.pb.pb.sub.d(this.mContext);
                     this.eAd.setIsFromCDN(this.mIsFromCDN);
@@ -391,7 +391,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
                         z = false;
                     }
                     int i3 = 1;
-                    if (postData.bry() == 1) {
+                    if (postData.brx() == 1) {
                         i3 = 0;
                     }
                     sparseArray2.put(d.h.tag_forbid_user_post_id, postData.getId());
@@ -445,7 +445,7 @@ public class o extends k<PostData, p> implements View.OnClickListener {
             if (z7) {
             }
             int i32 = 1;
-            if (postData.bry() == 1) {
+            if (postData.brx() == 1) {
             }
             sparseArray2.put(d.h.tag_forbid_user_post_id, postData.getId());
             if (!z8) {

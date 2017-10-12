@@ -11,7 +11,7 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 public class PersonCenterFragmentStatic {
     static {
         Nw();
-        com.baidu.tieba.j.a.bgP();
+        com.baidu.tieba.j.a.bgO();
         TbadkCoreApplication.getInst().RegisterIntent(PersonMoreActivityConfig.class, PersonCenterMoreActivity.class);
     }
 

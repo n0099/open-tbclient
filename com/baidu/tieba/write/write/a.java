@@ -16,10 +16,10 @@ import java.util.ArrayList;
 public class a extends BaseAdapter {
     private ArrayList<MetaData> abP;
     private TbCheckBox.a dIg;
-    private AtListActivity gLt;
-    private boolean gLv;
+    private AtListActivity gLs;
+    private boolean gLu;
     private final Context mContext;
-    private b gLu = null;
+    private b gLt = null;
     private ViewGroup bqn = null;
 
     /* loaded from: classes2.dex */
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.gLu = bVar;
+        this.gLt = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.gLv = true;
-        this.gLt = atListActivity;
-        this.mContext = this.gLt.getPageContext().getContext();
-        this.gLv = z;
+        this.gLu = true;
+        this.gLs = atListActivity;
+        this.mContext = this.gLs.getPageContext().getContext();
+        this.gLu = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -94,29 +94,29 @@ public class a extends BaseAdapter {
         C0143a c0143a;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (obj == null) {
-            c0143a = bAV();
+            c0143a = bAU();
         } else {
             c0143a = (C0143a) obj;
         }
-        if (this.gLu != null) {
-            this.gLu.a(c0143a.rootView, metaData);
+        if (this.gLt != null) {
+            this.gLt.a(c0143a.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
         c0143a.bHn.setText(metaData.getName_show());
         c0143a.dIj.setTagData(metaData);
         c0143a.dHP.setTag(portrait);
-        if (this.gLv) {
+        if (this.gLu) {
             c0143a.dIj.setVisibility(0);
         } else {
             c0143a.dIj.setVisibility(8);
         }
         c0143a.dHP.c(portrait, 12, false);
-        this.gLt.getPageContext().getLayoutMode().ai(skinType == 1);
-        this.gLt.getPageContext().getLayoutMode().t(c0143a.rootView);
+        this.gLs.getPageContext().getLayoutMode().ai(skinType == 1);
+        this.gLs.getPageContext().getLayoutMode().t(c0143a.rootView);
         return c0143a;
     }
 
-    private C0143a bAV() {
+    private C0143a bAU() {
         C0143a c0143a = new C0143a();
         c0143a.rootView = LayoutInflater.from(this.mContext).inflate(d.j.invite_friend_list_item, (ViewGroup) null);
         c0143a.dHP = (HeadImageView) c0143a.rootView.findViewById(d.h.photo);

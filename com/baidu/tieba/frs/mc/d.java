@@ -48,8 +48,8 @@ public class d extends h {
                         com.baidu.tieba.tbadkCore.i ahk = d.this.cxi.ahk();
                         ahk.ai(ahk.rH(str));
                         d.this.cqt.a(ahk.getThreadList(), ahk);
-                        if (com.baidu.tieba.tbadkCore.c.bpq() != null) {
-                            com.baidu.tieba.tbadkCore.c.bpq().Y(d.this.cxi.getForumName(), false);
+                        if (com.baidu.tieba.tbadkCore.c.bpp() != null) {
+                            com.baidu.tieba.tbadkCore.c.bpp().Y(d.this.cxi.getForumName(), false);
                         }
                     }
                 }
@@ -108,7 +108,7 @@ public class d extends h {
             ArrayList<com.baidu.adp.widget.ListView.f> a = this.cFD.a(false, true, ahk.getThreadList(), null);
             if (a != null) {
                 ahk.az(a);
-                ahk.bqq();
+                ahk.bqp();
                 this.cqt.a(a, ahk);
                 this.cqt.jf(0);
             }

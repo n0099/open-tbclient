@@ -108,7 +108,7 @@ public class f extends com.baidu.tbadk.editortools.d {
         if (eP != null) {
             eP.bF(false);
         }
-        if (com.baidu.tieba.tbadkCore.voice.c.bsD() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Cz.getContext()), r.class)) != null && (rVar = (r) runTask.getData()) != null) {
+        if (com.baidu.tieba.tbadkCore.voice.c.bsC() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Cz.getContext()), r.class)) != null && (rVar = (r) runTask.getData()) != null) {
             rVar.aBv = 2;
             Cz.b(rVar);
         }

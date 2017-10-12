@@ -31,15 +31,15 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     private SapiWebView euS;
     private FrameLayout euV;
-    private boolean gOA;
-    private Intent gOB;
-    private Runnable gOC = new Runnable() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.1
+    private Intent gOA;
+    private Runnable gOB = new Runnable() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.1
         @Override // java.lang.Runnable
         public void run() {
             WXEntryActivity.this.closeActivity();
         }
     };
-    private IWXAPI gOz;
+    private IWXAPI gOy;
+    private boolean gOz;
     private NavigationBar mNavigationBar;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -63,7 +63,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         this.euS.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
-                e.fP().postDelayed(WXEntryActivity.this.gOC, 500L);
+                e.fP().postDelayed(WXEntryActivity.this.gOB, 500L);
             }
         });
         this.euS.setWeixinHandler(new SapiWebView.WeixinHandler() { // from class: com.baidu.tieba.wxapi.WXEntryActivity.4
@@ -101,10 +101,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                 WXEntryActivity.this.closeActivity();
             }
         });
-        this.gOz = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
-        this.gOB = getIntent();
-        if (this.gOB != null) {
-            this.gOz.handleIntent(getIntent(), this);
+        this.gOy = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
+        this.gOA = getIntent();
+        if (this.gOA != null) {
+            this.gOy.handleIntent(getIntent(), this);
         }
     }
 
@@ -112,7 +112,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!this.gOA) {
+        if (!this.gOz) {
             this.euS.loadWeixinSSOLogin();
         }
     }
@@ -121,9 +121,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.gOB = intent;
-        if (this.gOB != null) {
-            this.gOz.handleIntent(intent, this);
+        this.gOA = intent;
+        if (this.gOA != null) {
+            this.gOy.handleIntent(intent, this);
         }
     }
 
@@ -143,8 +143,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
     public void onReq(BaseReq baseReq) {
-        if (this.gOB != null && this.gOz != null) {
-            this.gOz.handleIntent(this.gOB, this);
+        if (this.gOA != null && this.gOy != null) {
+            this.gOy.handleIntent(this.gOA, this);
         }
         closeActivity();
     }
@@ -153,7 +153,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     public void onResp(BaseResp baseResp) {
         if (baseResp != null) {
             if (1 == baseResp.getType()) {
-                this.gOA = true;
+                this.gOz = true;
                 if (baseResp.errCode == 0) {
                     if (baseResp instanceof SendAuth.Resp) {
                         String str = ((SendAuth.Resp) baseResp).state;
@@ -188,7 +188,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                 } else {
                     intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_FAIL);
                 }
-                this.gOA = true;
+                this.gOz = true;
                 BdBaseApplication.getInst().sendBroadcast(intent);
                 closeActivity();
             }

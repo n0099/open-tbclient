@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class o extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.p> {
-    private TbImageView fiK;
-    private TextView fiL;
+    private TbImageView fiJ;
+    private TextView fiK;
     private TbPageContext mG;
     private View mRootView;
 
@@ -19,16 +19,16 @@ public class o extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mG = tbPageContext;
         this.mRootView.setTag(this);
-        this.fiK = (TbImageView) this.mRootView.findViewById(d.h.gift_pic);
-        this.fiL = (TextView) this.mRootView.findViewById(d.h.gift_num_text);
+        this.fiJ = (TbImageView) this.mRootView.findViewById(d.h.gift_pic);
+        this.fiK = (TextView) this.mRootView.findViewById(d.h.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         aj.k(this.mRootView, d.e.cp_bg_line_d);
-        aj.j(this.fiK, d.g.item_gift_selector);
-        aj.k(this.fiL, d.e.common_color_10294);
-        aj.i(this.fiL, d.e.cp_link_tip_a);
+        aj.j(this.fiJ, d.g.item_gift_selector);
+        aj.k(this.fiK, d.e.common_color_10294);
+        aj.i(this.fiK, d.e.cp_link_tip_a);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -44,19 +44,19 @@ public class o extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             return;
         }
         d(this.mG, TbadkCoreApplication.getInst().getSkinType());
-        this.fiK.c(pVar.picUrl, 10, false);
+        this.fiJ.c(pVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
-        if (pVar.fho > 0) {
-            this.fiL.setVisibility(0);
-            if (pVar.fho > 99) {
-                this.fiL.setText("99");
+        if (pVar.fhn > 0) {
+            this.fiK.setVisibility(0);
+            if (pVar.fhn > 99) {
+                this.fiK.setText("99");
                 return;
             } else {
-                this.fiL.setText(String.valueOf(pVar.fho));
+                this.fiK.setText(String.valueOf(pVar.fhn));
                 return;
             }
         }
-        this.fiL.setVisibility(8);
+        this.fiK.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
