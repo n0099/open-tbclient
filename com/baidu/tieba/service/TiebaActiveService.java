@@ -50,9 +50,9 @@ public class TiebaActiveService extends BdBaseService {
     private String getChannelyFile() {
         String str = null;
         try {
-            File de = k.de(TbConfig.CHANNEL_FILE);
-            if (de != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(de));
+            File dd = k.dd(TbConfig.CHANNEL_FILE);
+            if (dd != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(dd));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
@@ -68,9 +68,9 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File di = k.di(TbConfig.CHANNEL_FILE);
-                if (di != null) {
-                    FileWriter fileWriter = new FileWriter(di);
+                File dh = k.dh(TbConfig.CHANNEL_FILE);
+                if (dh != null) {
+                    FileWriter fileWriter = new FileWriter(dh);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -142,10 +142,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        x fIT;
+        x fIF;
 
         private a() {
-            this.fIT = null;
+            this.fIF = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -153,22 +153,22 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            String up;
+            String ui;
             try {
-                this.fIT = new x("http://114.113.149.3:8086/partnersService");
-                this.fIT.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.fIT.n("imei", TbadkCoreApplication.getInst().getImei());
-                this.fIT.n("model", Build.MODEL);
-                this.fIT.n("edition", TbConfig.getVersion());
-                this.fIT.n("system", Build.VERSION.SDK);
-                this.fIT.uN().vJ().vM().mIsBaiduServer = false;
-                up = this.fIT.up();
+                this.fIF = new x("http://114.113.149.3:8086/partnersService");
+                this.fIF.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.fIF.n("imei", TbadkCoreApplication.getInst().getImei());
+                this.fIF.n("model", Build.MODEL);
+                this.fIF.n("edition", TbConfig.getVersion());
+                this.fIF.n("system", Build.VERSION.SDK);
+                this.fIF.uG().vC().vF().mIsBaiduServer = false;
+                ui = this.fIF.ui();
             } catch (Exception e) {
                 b.getInstance().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.fIT.uQ()) {
-                return up;
+            if (this.fIF.uJ()) {
+                return ui;
             }
             return null;
         }
@@ -176,8 +176,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.fIT != null) {
-                this.fIT.fo();
+            if (this.fIF != null) {
+                this.fIF.fo();
             }
             super.cancel(true);
         }

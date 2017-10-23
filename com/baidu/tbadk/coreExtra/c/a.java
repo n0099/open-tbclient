@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private C0050a asj;
+    private C0050a arX;
     private com.baidu.adp.base.d mLoadDataCallBack;
 
     public a(com.baidu.adp.base.d dVar) {
@@ -37,18 +37,18 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.asj == null) {
-            this.asj = new C0050a();
-            this.asj.setPriority(2);
-            this.asj.bi(z);
-            this.asj.setPortrait(str);
-            this.asj.setToUid(str2);
-            this.asj.setIsGod(z2);
-            this.asj.setFrom(str3);
-            this.asj.setPageId(bdUniqueId);
-            this.asj.setForumId(str4);
-            this.asj.setInLive(str5);
-            this.asj.execute(new Integer[0]);
+        if (this.arX == null) {
+            this.arX = new C0050a();
+            this.arX.setPriority(2);
+            this.arX.bh(z);
+            this.arX.setPortrait(str);
+            this.arX.setToUid(str2);
+            this.arX.setIsGod(z2);
+            this.arX.setFrom(str3);
+            this.arX.setPageId(bdUniqueId);
+            this.arX.setForumId(str4);
+            this.arX.setInLive(str5);
+            this.arX.execute(new Integer[0]);
         }
     }
 
@@ -84,7 +84,7 @@ public class a {
             this.toUid = str;
         }
 
-        public void bi(boolean z) {
+        public void bh(boolean z) {
             this.isAttention = z;
         }
 
@@ -131,8 +131,8 @@ public class a {
                         this.mNetwork.n("forum_id", this.forumId);
                     }
                     this.mNetwork.n("in_live", this.inLive);
-                    this.mNetwork.uN().vJ().mIsNeedTbs = true;
-                    return this.mNetwork.up();
+                    this.mNetwork.uG().vC().mIsNeedTbs = true;
+                    return this.mNetwork.ui();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -145,10 +145,10 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0050a) str);
-            a.this.asj = null;
+            a.this.arX = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.BY = this.mNetwork.uN().vK().isRequestSuccess();
+                aVar.BZ = this.mNetwork.uG().vD().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
@@ -167,9 +167,9 @@ public class a {
                 this.mNetwork.fo();
                 this.mNetwork = null;
             }
-            if (a.this.asj != null) {
-                a.this.asj.cancel();
-                a.this.asj = null;
+            if (a.this.arX != null) {
+                a.this.arX.cancel();
+                a.this.arX = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.f(false);
@@ -178,8 +178,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.asj != null) {
-            this.asj.cancel();
+        if (this.arX != null) {
+            this.arX.cancel();
         }
     }
 }

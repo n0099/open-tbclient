@@ -24,81 +24,81 @@ import com.baidu.tieba.personCenter.view.ReplyLinearLayout;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 /* loaded from: classes.dex */
 public class a extends j.a implements View.OnClickListener {
-    private static com.baidu.adp.widget.ImageView.a fht;
-    private static String fhu;
-    public TextView amI;
-    public TextView anF;
-    private View bAO;
-    public TextView bKm;
-    private View bMb;
-    public TextView egO;
-    private final LinearLayout erq;
-    public ReplyLinearLayout fho;
-    public TextView fhp;
-    protected final LinearLayout fhq;
-    protected final ColumnLayout fhr;
-    protected final ColumnLayout fhs;
-    private int fhv;
-    public LinearLayout fhw;
-    public HeadImageView fhx;
-    private TbPageContext<?> mG;
+    private static com.baidu.adp.widget.ImageView.a fhf;
+    private static String fhg;
+    public TextView amw;
+    public TextView ant;
+    private View bAC;
+    public TextView bKa;
+    private View bLP;
+    public TextView egA;
+    private final LinearLayout erc;
+    public ReplyLinearLayout fha;
+    public TextView fhb;
+    protected final LinearLayout fhc;
+    protected final ColumnLayout fhd;
+    protected final ColumnLayout fhe;
+    private int fhh;
+    public LinearLayout fhi;
+    public HeadImageView fhj;
+    private TbPageContext<?> mH;
     private boolean mIsHost;
     private final LinearLayout mLayout;
 
     public a(View view, TbPageContext<?> tbPageContext, boolean z) {
         super(view);
-        this.mG = tbPageContext;
+        this.mH = tbPageContext;
         this.mIsHost = z;
-        this.fho = (ReplyLinearLayout) view.findViewById(d.h.content_container);
-        this.fho.setIsHost(this.mIsHost);
-        this.fhp = (TextView) view.findViewById(d.h.original_post_title);
-        this.bMb = view.findViewById(d.h.reply_top_line);
-        this.bAO = view.findViewById(d.h.reply_bottom_line);
-        this.fhw = (LinearLayout) view.findViewById(d.h.top_line);
-        this.fhx = (HeadImageView) view.findViewById(d.h.portrait);
-        this.anF = (TextView) view.findViewById(d.h.username);
-        this.amI = (TextView) view.findViewById(d.h.reply_time);
-        this.bKm = (TextView) view.findViewById(d.h.forum_name);
-        this.egO = (TextView) view.findViewById(d.h.reply_count);
-        this.erq = (LinearLayout) view.findViewById(d.h.item_content);
-        this.fhr = (ColumnLayout) view.findViewById(d.h.item_header);
-        this.fhs = (ColumnLayout) view.findViewById(d.h.item_footer);
+        this.fha = (ReplyLinearLayout) view.findViewById(d.h.content_container);
+        this.fha.setIsHost(this.mIsHost);
+        this.fhb = (TextView) view.findViewById(d.h.original_post_title);
+        this.bLP = view.findViewById(d.h.reply_top_line);
+        this.bAC = view.findViewById(d.h.reply_bottom_line);
+        this.fhi = (LinearLayout) view.findViewById(d.h.top_line);
+        this.fhj = (HeadImageView) view.findViewById(d.h.portrait);
+        this.ant = (TextView) view.findViewById(d.h.username);
+        this.amw = (TextView) view.findViewById(d.h.reply_time);
+        this.bKa = (TextView) view.findViewById(d.h.forum_name);
+        this.egA = (TextView) view.findViewById(d.h.reply_count);
+        this.erc = (LinearLayout) view.findViewById(d.h.item_content);
+        this.fhd = (ColumnLayout) view.findViewById(d.h.item_header);
+        this.fhe = (ColumnLayout) view.findViewById(d.h.item_footer);
         this.mLayout = (LinearLayout) view.findViewById(d.h.person_thread);
-        this.fhq = (LinearLayout) view.findViewById(d.h.person_child);
-        this.fhv = l.dip2px(view.getContext(), 42.0f);
-        if (this.erq != null) {
-            this.erq.setOnClickListener(this);
+        this.fhc = (LinearLayout) view.findViewById(d.h.person_child);
+        this.fhh = l.dip2px(view.getContext(), 42.0f);
+        if (this.erc != null) {
+            this.erc.setOnClickListener(this);
         }
-        this.fhx.setOnClickListener(this);
-        this.anF.setOnClickListener(this);
-        this.bKm.setOnClickListener(this);
-        this.egO.setOnClickListener(this);
-        this.fhr.setOnClickListener(this);
-        this.fhs.setOnClickListener(this);
-        this.fhp.setOnClickListener(this);
+        this.fhj.setOnClickListener(this);
+        this.ant.setOnClickListener(this);
+        this.bKa.setOnClickListener(this);
+        this.egA.setOnClickListener(this);
+        this.fhd.setOnClickListener(this);
+        this.fhe.setOnClickListener(this);
+        this.fhb.setOnClickListener(this);
     }
 
-    public void dz(int i) {
-        aj.j(this.fhp, d.e.cp_bg_line_e);
+    public void dy(int i) {
+        aj.j(this.fhb, d.e.cp_bg_line_e);
         aj.k(getView(), d.e.cp_bg_line_c);
-        aj.j(this.fhq, d.g.daily_recommend_item_selector);
-        aj.c(this.anF, d.e.cp_cont_d, 1);
-        aj.c(this.amI, d.e.cp_cont_d, 1);
-        aj.c(this.bKm, d.e.cp_cont_d, 1);
-        aj.c(this.egO, d.e.cp_cont_d, 1);
+        aj.j(this.fhc, d.g.daily_recommend_item_selector);
+        aj.c(this.ant, d.e.cp_cont_d, 1);
+        aj.c(this.amw, d.e.cp_cont_d, 1);
+        aj.c(this.bKa, d.e.cp_cont_d, 1);
+        aj.c(this.egA, d.e.cp_cont_d, 1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String[] strArr;
         TiebaStatic.log(new ak("c12043").r("obj_type", this.mIsHost ? 1 : 2));
-        if (view == this.bKm) {
-            if (this.mG != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mG.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
+        if (view == this.bKa) {
+            if (this.mH != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mH.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (view == this.fhp && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
+        } else if (view == this.fhb && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
             if ("0".equals(strArr[2]) || strArr[1] == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mG.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page")));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mH.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page")));
             }
         }
     }
@@ -122,7 +122,7 @@ public class a extends j.a implements View.OnClickListener {
         String str4;
         String str5;
         String str6;
-        String q;
+        String r;
         String str7;
         String valueOf;
         String str8 = null;
@@ -136,7 +136,7 @@ public class a extends j.a implements View.OnClickListener {
                             str6 = TextUtils.isEmpty(postInfoList.name_show) ? postInfoList.user_name : postInfoList.name_show;
                             strArr[0] = String.valueOf(postInfoList.thread_id);
                             strArr[1] = String.valueOf(postInfoList.post_id);
-                            q = am.q(postInfoList.create_time * 1000);
+                            r = am.r(postInfoList.create_time * 1000);
                             str7 = postInfoList.forum_name;
                             valueOf = String.valueOf(postInfoList.reply_num);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
@@ -146,12 +146,12 @@ public class a extends j.a implements View.OnClickListener {
                             strArr[1] = String.valueOf(postInfoList.content[0].post_id);
                             strArr[2] = String.valueOf(postInfoList.content[0].post_type);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
-                            q = am.q(postInfoList.create_time * 1000);
+                            r = am.r(postInfoList.create_time * 1000);
                             str7 = postInfoList.forum_name;
                             valueOf = String.valueOf(postInfoList.reply_num);
                         }
                         str4 = str6;
-                        str3 = q;
+                        str3 = r;
                         str2 = str7;
                         str9 = valueOf;
                         str8 = 1;
@@ -199,30 +199,30 @@ public class a extends j.a implements View.OnClickListener {
             }
         }
         if (str8 != null) {
-            this.anF.setText(str4);
-            this.amI.setText(str3);
-            this.bKm.setText(str2);
-            this.bKm.setTag(str2);
-            this.egO.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(d.l.comment_num_tip), str5));
-            this.bKm.setOnClickListener(this);
-            fb(str);
-            if (this.erq != null) {
-                this.erq.setTag(strArr);
+            this.ant.setText(str4);
+            this.amw.setText(str3);
+            this.bKa.setText(str2);
+            this.bKa.setTag(str2);
+            this.egA.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(d.l.comment_num_tip), str5));
+            this.bKa.setOnClickListener(this);
+            fa(str);
+            if (this.erc != null) {
+                this.erc.setTag(strArr);
             }
-            this.fhr.setTag(strArr);
-            this.fhs.setTag(strArr);
+            this.fhd.setTag(strArr);
+            this.fhe.setTag(strArr);
         }
     }
 
-    private void fb(String str) {
-        if (fhu != null && !fhu.equals(str)) {
-            fht = null;
+    private void fa(String str) {
+        if (fhg != null && !fhg.equals(str)) {
+            fhf = null;
         }
-        if (fht != null) {
-            this.fhx.setImageBitmap(fht.kN());
-            fhu = str;
+        if (fhf != null) {
+            this.fhj.setImageBitmap(fhf.kN());
+            fhg = str;
             return;
         }
-        this.fhx.a(str, 12, this.fhv, this.fhv, false);
+        this.fhj.a(str, 12, this.fhh, this.fhh, false);
     }
 }

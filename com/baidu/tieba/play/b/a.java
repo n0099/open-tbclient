@@ -14,123 +14,123 @@ import com.baidu.tieba.play.a.b;
 import com.baidu.tieba.play.g;
 /* loaded from: classes.dex */
 public class a {
-    private b fyo;
-    private int fyp = 0;
-    private int fyq = 0;
+    private b fya;
+    private int fyb = 0;
+    private int fyc = 0;
 
     public a(b bVar) {
-        this.fyo = bVar;
+        this.fya = bVar;
     }
 
     public boolean a(g gVar, int i, int i2, int i3, Uri uri) {
-        if (this.fyo == null) {
+        if (this.fya == null) {
             return false;
         }
         if (i == -300) {
-            if (this.fyq == 0) {
-                this.fyq++;
-                this.fyo.b(gVar, i, i2, i3);
-            } else if (this.fyq != 1) {
+            if (this.fyc == 0) {
+                this.fyc++;
+                this.fya.b(gVar, i, i2, i3);
+            } else if (this.fyc != 1) {
                 return false;
             } else {
-                this.fyq++;
-                this.fyo.c(gVar, i, i2, i3);
+                this.fyc++;
+                this.fya.c(gVar, i, i2, i3);
             }
             return true;
         } else if (i3 == -4399) {
-            if (this.fyp < 4 && i == -200) {
-                this.fyp = 4;
+            if (this.fyb < 4 && i == -200) {
+                this.fyb = 4;
                 if (!b(gVar, i, i2, i3, uri)) {
-                    this.fyo.b(gVar, i, i2, i3);
+                    this.fya.b(gVar, i, i2, i3);
                 }
                 return true;
             } else if (i == -100) {
-                this.fyo.c(gVar, i, i2, i3);
+                this.fya.c(gVar, i, i2, i3);
                 return true;
             } else {
                 return false;
             }
         } else {
-            this.fyp++;
-            if (this.fyp <= 2) {
+            this.fyb++;
+            if (this.fyb <= 2) {
                 if (!b(gVar, i, i2, i3, uri)) {
                     if (i != -200) {
                         return false;
                     }
-                    this.fyp = 2;
-                    this.fyo.b(gVar, i, i2, i3);
+                    this.fyb = 2;
+                    this.fya.b(gVar, i, i2, i3);
                 }
                 return true;
-            } else if (this.fyp <= 4) {
+            } else if (this.fyb <= 4) {
                 if (i == -200) {
-                    this.fyo.b(gVar, i, i2, i3);
+                    this.fya.b(gVar, i, i2, i3);
                     return true;
                 }
                 return false;
-            } else if (this.fyp > 6 || i != -200) {
+            } else if (this.fyb > 6 || i != -200) {
                 return false;
             } else {
-                this.fyo.c(gVar, i, i2, i3);
+                this.fya.c(gVar, i, i2, i3);
                 return true;
             }
         }
     }
 
     private boolean b(g gVar, int i, int i2, int i3, Uri uri) {
-        if (!beH() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost())) {
+        if (!beC() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost())) {
             return false;
         }
-        com.baidu.tieba.play.a.b.beG().a(new C0119a(this.fyo, i, uri, gVar, i2, i3));
-        return com.baidu.tieba.play.a.b.beG().qp(uri.getHost());
+        com.baidu.tieba.play.a.b.beB().a(new C0119a(this.fya, i, uri, gVar, i2, i3));
+        return com.baidu.tieba.play.a.b.beB().qo(uri.getHost());
     }
 
-    private boolean beH() {
-        return (d.eV().af("android_video_http_dns_open") == 0 || !j.hh() || CustomPlayerSwitchStatic.bdV() == 0) ? false : true;
+    private boolean beC() {
+        return (d.eV().af("android_video_http_dns_open") == 0 || !j.hh() || CustomPlayerSwitchStatic.bdQ() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.play.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0119a implements b.InterfaceC0118b {
-        private b fyo;
-        private g fyr;
-        private int fys;
-        private int fyt;
+        private b fya;
+        private g fyd;
+        private int fye;
+        private int fyf;
         private Uri mUri;
         private int what;
 
         public C0119a(b bVar, int i, Uri uri, g gVar, int i2, int i3) {
-            this.fyo = bVar;
+            this.fya = bVar;
             this.mUri = uri;
-            this.fyr = gVar;
-            this.fys = i;
+            this.fyd = gVar;
+            this.fye = i;
             this.what = i2;
-            this.fyt = i3;
+            this.fyf = i3;
         }
 
         @Override // com.baidu.tieba.play.a.b.InterfaceC0118b
-        public void bQ(String str, String str2) {
+        public void bP(String str, String str2) {
             try {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || this.mUri == null || !str2.equals(this.mUri.getHost())) {
-                    if (this.fyo != null) {
-                        this.fyo.b(this.fyr, this.fys, this.what, this.fyt);
+                    if (this.fya != null) {
+                        this.fya.b(this.fyd, this.fye, this.what, this.fyf);
                     }
-                } else if (this.fyo != null) {
-                    this.fyo.a(this.fyr, this.fys, this.what, this.fyt, str);
+                } else if (this.fya != null) {
+                    this.fya.a(this.fyd, this.fye, this.what, this.fyf, str);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
-                if (this.fyo != null) {
-                    this.fyo.b(this.fyr, this.fys, this.what, this.fyt);
+                if (this.fya != null) {
+                    this.fya.b(this.fyd, this.fye, this.what, this.fyf);
                 }
             }
         }
     }
 
-    public boolean beI() {
-        boolean z = this.fyp > 0 || this.fyq > 0;
-        this.fyp = 0;
-        this.fyq = 0;
+    public boolean beD() {
+        boolean z = this.fyb > 0 || this.fyc > 0;
+        this.fyb = 0;
+        this.fyc = 0;
         return z;
     }
 

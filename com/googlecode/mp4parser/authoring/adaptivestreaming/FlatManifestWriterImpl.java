@@ -101,7 +101,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 createElement3.setAttribute("MaxWidth", Long.toString(aVar.width));
                 createElement3.setAttribute("MaxHeight", Long.toString(aVar.height));
                 createElement3.setAttribute("CodecPrivateData", aVar.codecPrivateData);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.gZi));
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.gYT));
                 createElement2.appendChild(createElement3);
             }
             for (int i2 = 0; i2 < this.videoFragmentsDurations.length; i2++) {
@@ -209,9 +209,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 1:
                     s2 = (short) (s2 + 1);
                     if (entry.num_dep_sub > 0) {
-                        a bFF = new a(b2, b, entry).bFF();
-                        b2 = (byte) (b2 | bFF.bFD());
-                        b = (byte) (b | bFF.bFE());
+                        a bFx = new a(b2, b, entry).bFx();
+                        b2 = (byte) (b2 | bFx.bFv());
+                        b = (byte) (b | bFx.bFw());
                         break;
                     } else {
                         b2 = (byte) (b2 | 32);
@@ -220,9 +220,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 2:
                     s2 = (short) (s2 + 2);
                     if (entry.num_dep_sub > 0) {
-                        a bFF2 = new a(b2, b, entry).bFF();
-                        b2 = (byte) (b2 | bFF2.bFD());
-                        b = (byte) (b | bFF2.bFE());
+                        a bFx2 = new a(b2, b, entry).bFx();
+                        b2 = (byte) (b2 | bFx2.bFv());
+                        b = (byte) (b | bFx2.bFw());
                         break;
                     } else {
                         b2 = (byte) (b2 | 192);
@@ -231,9 +231,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 3:
                     s2 = (short) (s2 + 3);
                     if (entry.num_dep_sub > 0) {
-                        a bFF3 = new a(b2, b, entry).bFF();
-                        b2 = (byte) (b2 | bFF3.bFD());
-                        b = (byte) (b | bFF3.bFE());
+                        a bFx3 = new a(b2, b, entry).bFx();
+                        b2 = (byte) (b2 | bFx3.bFv());
+                        b = (byte) (b | bFx3.bFw());
                         break;
                     } else {
                         b2 = (byte) (b2 | 224);
@@ -242,9 +242,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 4:
                     s2 = (short) (s2 + 3);
                     if (entry.num_dep_sub > 0) {
-                        a bFF4 = new a(b2, b, entry).bFF();
-                        b2 = (byte) (b2 | bFF4.bFD());
-                        b = (byte) (b | bFF4.bFE());
+                        a bFx4 = new a(b2, b, entry).bFx();
+                        b2 = (byte) (b2 | bFx4.bFv());
+                        b = (byte) (b | bFx4.bFw());
                         break;
                     } else {
                         b2 = (byte) (b2 | 192);
@@ -254,9 +254,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 5:
                     s2 = (short) (s2 + 4);
                     if (entry.num_dep_sub > 0) {
-                        a bFF5 = new a(b2, b, entry).bFF();
-                        b2 = (byte) (b2 | bFF5.bFD());
-                        b = (byte) (b | bFF5.bFE());
+                        a bFx5 = new a(b2, b, entry).bFx();
+                        b2 = (byte) (b2 | bFx5.bFv());
+                        b = (byte) (b | bFx5.bFw());
                         break;
                     } else {
                         b2 = (byte) (b2 | 224);
@@ -266,9 +266,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 6:
                     s2 = (short) (s2 + 4);
                     if (entry.num_dep_sub > 0) {
-                        a bFF6 = new a(b2, b, entry).bFF();
-                        b2 = (byte) (b2 | bFF6.bFD());
-                        b = (byte) (b | bFF6.bFE());
+                        a bFx6 = new a(b2, b, entry).bFx();
+                        b2 = (byte) (b2 | bFx6.bFv());
+                        b = (byte) (b | bFx6.bFw());
                         break;
                     } else {
                         b2 = (byte) (b2 | 204);
@@ -277,9 +277,9 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 7:
                     s2 = (short) (s2 + 5);
                     if (entry.num_dep_sub > 0) {
-                        a bFF7 = new a(b2, b, entry).bFF();
-                        b2 = (byte) (b2 | bFF7.bFD());
-                        b = (byte) (b | bFF7.bFE());
+                        a bFx7 = new a(b2, b, entry).bFx();
+                        b2 = (byte) (b2 | bFx7.bFv());
+                        b = (byte) (b | bFx7.bFw());
                         break;
                     } else {
                         b2 = (byte) (b2 | 236);
@@ -463,7 +463,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             aVar.fourCC = "AVC1";
             aVar.width = visualSampleEntry.getWidth();
             aVar.height = visualSampleEntry.getHeight();
-            aVar.gZi = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            aVar.gYT = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -495,43 +495,43 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a {
-        private byte gZe;
-        private byte gZf;
-        private EC3SpecificBox.Entry gZg;
+        private byte gYP;
+        private byte gYQ;
+        private EC3SpecificBox.Entry gYR;
 
         public a(byte b, byte b2, EC3SpecificBox.Entry entry) {
-            this.gZe = b;
-            this.gZf = b2;
-            this.gZg = entry;
+            this.gYP = b;
+            this.gYQ = b2;
+            this.gYR = entry;
         }
 
-        public byte bFD() {
-            return this.gZe;
+        public byte bFv() {
+            return this.gYP;
         }
 
-        public byte bFE() {
-            return this.gZf;
+        public byte bFw() {
+            return this.gYQ;
         }
 
-        public a bFF() {
-            switch (this.gZg.chan_loc) {
+        public a bFx() {
+            switch (this.gYR.chan_loc) {
                 case 0:
-                    this.gZe = (byte) (this.gZe | 3);
+                    this.gYP = (byte) (this.gYP | 3);
                     break;
                 case 1:
-                    this.gZe = (byte) (this.gZe | 12);
+                    this.gYP = (byte) (this.gYP | 12);
                     break;
                 case 2:
-                    this.gZf = (byte) (this.gZf | 128);
+                    this.gYQ = (byte) (this.gYQ | 128);
                     break;
                 case 3:
-                    this.gZf = (byte) (this.gZf | 8);
+                    this.gYQ = (byte) (this.gYQ | 8);
                     break;
                 case 6:
-                    this.gZf = (byte) (this.gZf | 5);
+                    this.gYQ = (byte) (this.gYQ | 5);
                     break;
                 case 7:
-                    this.gZf = (byte) (this.gZf | 2);
+                    this.gYQ = (byte) (this.gYQ | 2);
                     break;
             }
             return this;

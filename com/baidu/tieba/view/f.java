@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 public interface f {
     void a(Context context, NavigationBar navigationBar);
 
-    void bxX();
+    void bxP();
 
     void c(float f, boolean z);
 

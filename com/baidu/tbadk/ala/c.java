@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener QL = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener Qz = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
@@ -30,7 +30,7 @@ public class c {
                     return;
                 }
                 a aVar = (a) view.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.QH;
+                AlaUserInfoData alaUserInfoData = aVar.Qv;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
@@ -46,22 +46,22 @@ public class c {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     switch (i) {
                         case 1:
-                            TiebaStatic.log(new ak("c11850").ad(SapiAccountManager.SESSION_UID, currentAccount));
+                            TiebaStatic.log(new ak("c11850").ac(SapiAccountManager.SESSION_UID, currentAccount));
                             break;
                         case 2:
                         case 3:
                         case 4:
-                            TiebaStatic.log(new ak("c11851").ad(SapiAccountManager.SESSION_UID, currentAccount));
+                            TiebaStatic.log(new ak("c11851").ac(SapiAccountManager.SESSION_UID, currentAccount));
                             break;
                         case 5:
-                            TiebaStatic.log(new ak("c11852").ad(SapiAccountManager.SESSION_UID, currentAccount));
+                            TiebaStatic.log(new ak("c11852").ac(SapiAccountManager.SESSION_UID, currentAccount));
                             break;
                         case 7:
                             if (alaUserInfoData.ala_id != 0) {
-                                TiebaStatic.log(new ak("c11855").ad(SapiAccountManager.SESSION_UID, currentAccount).f("click_uid", alaUserInfoData.ala_id).r("live_status", alaUserInfoData.live_status));
+                                TiebaStatic.log(new ak("c11855").ac(SapiAccountManager.SESSION_UID, currentAccount).f("click_uid", alaUserInfoData.ala_id).r("live_status", alaUserInfoData.live_status));
                             }
-                            if (aVar.QI && !StringUtils.isNull(alaUserInfoData.sex)) {
-                                BdToast.b(view.getContext(), String.format(view.getContext().getString(d.l.person_privacy_toast), alaUserInfoData.sex), d.g.icon_toast_game_error).tq();
+                            if (aVar.Qw && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                BdToast.b(view.getContext(), String.format(view.getContext().getString(d.l.person_privacy_toast), alaUserInfoData.sex), d.g.icon_toast_game_error).tj();
                                 return;
                             }
                             break;
@@ -78,12 +78,12 @@ public class c {
         }
     };
 
-    public static TextView aw(Context context) {
+    public static TextView av(Context context) {
         if (context == null || MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
             return null;
         }
         TextView textView = (TextView) LayoutInflater.from(context).inflate(d.j.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(QL);
+        textView.setOnClickListener(Qz);
         return textView;
     }
 }

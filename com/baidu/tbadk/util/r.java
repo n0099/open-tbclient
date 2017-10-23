@@ -5,18 +5,18 @@ import com.baidu.adp.lib.util.StringUtils;
 public class r {
     private static String mThreadId;
 
-    public static void gO(String str) {
+    public static void gN(String str) {
         mThreadId = str;
     }
 
-    public static String GU() {
+    public static String GO() {
         if (StringUtils.isNull(mThreadId)) {
             return null;
         }
         return mThreadId;
     }
 
-    public static void GV() {
+    public static void GP() {
         if (mThreadId != null) {
             mThreadId = null;
         }

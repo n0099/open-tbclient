@@ -64,17 +64,17 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bh bhVar = new bh();
                             bhVar.setUserMap(this.userMap);
                             bhVar.a(list2.get(i3));
-                            bhVar.bY(3);
-                            bhVar.sd();
+                            bhVar.bX(3);
+                            bhVar.rW();
                             if (bhVar.getThreadType() == 33) {
                                 av avVar = new av();
                                 avVar.a(bhVar, 0);
                                 if (true == TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                                     this.threadList.add(avVar);
                                 }
-                            } else if (!TextUtils.isEmpty(bhVar.sq())) {
+                            } else if (!TextUtils.isEmpty(bhVar.sj())) {
                                 af afVar = new af();
-                                afVar.cx(bhVar.sq());
+                                afVar.cw(bhVar.sj());
                                 this.threadList.add(afVar);
                             } else {
                                 this.threadList.add(bhVar);

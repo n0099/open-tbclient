@@ -34,16 +34,16 @@ import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 public class PersonPolymericActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonPolymericActivityConfig.class, PersonPolymericActivity.class);
-        Nw();
-        aWr();
-        aGA();
-        aWs();
-        aWt();
-        aWu();
-        agF();
+        Nq();
+        aWm();
+        aGv();
+        aWn();
+        aWo();
+        aWp();
+        agA();
     }
 
-    private static void Nw() {
+    private static void Nq() {
         com.baidu.tieba.tbadkCore.a.a.a(309408, PersonPolymericSocketResMsg.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, com.baidu.tieba.tbadkCore.a.a.ay("c/u/user/personal", 309408));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -55,13 +55,13 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aWr() {
+    private static void aWm() {
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
-    private static void aGA() {
-        av.vH().a(new av.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic.1
+    private static void aGv() {
+        av.vA().a(new av.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic.1
             @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -69,10 +69,10 @@ public class PersonPolymericActivityStatic {
                 }
                 String str = strArr[0];
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_personalCenter=1")) {
-                    String at = x.at(str, "userid=");
-                    x.at(str, "un=");
+                    String as = x.as(str, "userid=");
+                    x.as(str, "un=");
                     long c = b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
-                    long c2 = b.c(at, 0L);
+                    long c2 = b.c(as, 0L);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(c2, c2 == c, false)));
                     return 1;
                 }
@@ -81,7 +81,7 @@ public class PersonPolymericActivityStatic {
         });
     }
 
-    private static void aWs() {
+    private static void aWn() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_USER_PICS, TbConfig.SET_USER_PICS);
         tbHttpMessageTask.setResponsedClass(SetUserPicsResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -90,7 +90,7 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public static void aWt() {
+    public static void aWo() {
         com.baidu.tieba.tbadkCore.a.a.a(303002, UserPostPageSocketResponsedMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.ay("c/u/feed/userpost", 303002));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -101,26 +101,26 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aWu() {
+    private static void aWp() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SET_PRIVATE_CMD, TbConfig.SERVER_ADDRESS + TbConfig.SET_PRIVATE);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void agF() {
-        com.baidu.tbadk.ala.b.nz().a(7, new d() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic.2
+    private static void agA() {
+        com.baidu.tbadk.ala.b.nr().a(7, new d() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic.2
             @Override // com.baidu.tbadk.ala.d
-            public View ax(Context context) {
-                TextView aw = c.aw(context);
-                if (aw != null) {
+            public View aw(Context context) {
+                TextView av = c.av(context);
+                if (av != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    aj.i(aw, d.e.cp_link_tip_a);
+                    aj.i(av, d.e.cp_link_tip_a);
                     layoutParams.setMargins(l.f(context, d.f.ds8), 0, l.f(context, d.f.ds8), 0);
                     layoutParams.gravity = 16;
-                    aw.setLayoutParams(layoutParams);
+                    av.setLayoutParams(layoutParams);
                 }
-                return aw;
+                return av;
             }
         });
     }

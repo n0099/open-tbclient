@@ -30,7 +30,7 @@ public class r extends k<com.baidu.tieba.pb.data.a, s> implements View.OnClickLi
         if (sVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (sVar.mSkinType != skinType) {
-                com.baidu.tbadk.n.a.a(this.eDC.getPageContext(), sVar.getView());
+                com.baidu.tbadk.n.a.a(this.eDo.getPageContext(), sVar.getView());
             }
             sVar.mSkinType = skinType;
         }
@@ -43,17 +43,17 @@ public class r extends k<com.baidu.tieba.pb.data.a, s> implements View.OnClickLi
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, s sVar) {
         super.onFillViewHolder(i, view, viewGroup, aVar, sVar);
         a(sVar);
-        sVar.eFq.setOnClickListener(this);
-        sVar.eFp.setOnClickListener(this);
-        sVar.eFq.setTag(aVar);
-        sVar.eFp.setTag(aVar);
+        sVar.eFc.setOnClickListener(this);
+        sVar.eFb.setOnClickListener(this);
+        sVar.eFc.setTag(aVar);
+        sVar.eFb.setTag(aVar);
         if (aVar != null) {
-            sVar.cBI.c(aVar.getPortrait(), 28, false);
-            sVar.bHn.setText(aVar.getUserName());
-            sVar.dou.setText(aVar.aMO());
-            sVar.cPU.setText(aVar.getText());
-            sVar.eFp.c(aVar.getPicUrl(), 10, false);
-            sVar.eFq.setText(aVar.aMP());
+            sVar.cBw.c(aVar.getPortrait(), 28, false);
+            sVar.bHb.setText(aVar.getUserName());
+            sVar.doh.setText(aVar.aMJ());
+            sVar.cPI.setText(aVar.getText());
+            sVar.eFb.c(aVar.getPicUrl(), 10, false);
+            sVar.eFc.setText(aVar.aMK());
         }
         return view;
     }
@@ -62,10 +62,10 @@ public class r extends k<com.baidu.tieba.pb.data.a, s> implements View.OnClickLi
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && ax.aU(this.mContext)) {
-            String aMQ = ((com.baidu.tieba.pb.data.a) view.getTag()).aMQ();
-            if (!StringUtils.isNull(aMQ)) {
-                av.vH().c(this.eDC.getPageContext(), new String[]{aMQ});
+        if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && ax.aT(this.mContext)) {
+            String aML = ((com.baidu.tieba.pb.data.a) view.getTag()).aML();
+            if (!StringUtils.isNull(aML)) {
+                av.vA().c(this.eDo.getPageContext(), new String[]{aML});
             }
         }
     }

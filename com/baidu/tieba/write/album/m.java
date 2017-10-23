@@ -14,7 +14,7 @@ public class m {
         this.type = i;
     }
 
-    public ImageFileInfo bzM() {
+    public ImageFileInfo bzG() {
         return this.imageFileInfo;
     }
 

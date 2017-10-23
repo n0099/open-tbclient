@@ -1447,7 +1447,7 @@ public final class b {
     /* loaded from: classes2.dex */
     public static final class i extends com.google.protobuf.micro.e {
         private boolean a;
-        private com.google.protobuf.micro.a b = com.google.protobuf.micro.a.gZc;
+        private com.google.protobuf.micro.a b = com.google.protobuf.micro.a.gYN;
         private int c = -1;
 
         public static i b(byte[] bArr) {
@@ -1492,7 +1492,7 @@ public final class b {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.bFz());
+                        a(bVar.bFt());
                         break;
                     default:
                         if (!a(bVar, a)) {
@@ -1518,7 +1518,7 @@ public final class b {
     public static final class j extends com.google.protobuf.micro.e {
         private boolean a;
         private boolean c;
-        private com.google.protobuf.micro.a b = com.google.protobuf.micro.a.gZc;
+        private com.google.protobuf.micro.a b = com.google.protobuf.micro.a.gYN;
         private C0159b d = null;
         private int e = -1;
 
@@ -1579,7 +1579,7 @@ public final class b {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.bFz());
+                        a(bVar.bFt());
                         break;
                     case 18:
                         C0159b c0159b = new C0159b();

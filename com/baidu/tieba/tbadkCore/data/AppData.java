@@ -103,7 +103,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo ng;
+        ICardInfo nf;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -155,8 +155,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (com.baidu.adp.lib.b.d.eV().af("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (ng = com.baidu.tieba.lego.card.b.ng(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = ng.getViewItem(0, 1);
+                    if (com.baidu.adp.lib.b.d.eV().af("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (nf = com.baidu.tieba.lego.card.b.nf(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = nf.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -171,7 +171,7 @@ public class AppData extends OrmObject {
         }
     }
 
-    public int pt() {
+    public int pm() {
         if (this.goods == null) {
             return 25;
         }
@@ -188,19 +188,19 @@ public class AppData extends OrmObject {
             if (this.legoCard == null || !this.goods.c(this.legoCard)) {
                 return 32;
             }
-            if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.h.oT().oZ() && !this.legoCard.isNoPicAd()) {
+            if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.h.oM().oS() && !this.legoCard.isNoPicAd()) {
                 return 34;
             }
             if (this.legoCard.getCardType() == 12) {
                 return 12;
             }
-            if (!bh.Ys.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
+            if (!bh.Yg.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
                 return 31;
             }
             if (this.url_type == 3) {
-                return !pu() ? 26 : 0;
+                return !pn() ? 26 : 0;
             } else if (this.url_type == 1) {
-                return !pv() ? 27 : 0;
+                return !po() ? 27 : 0;
             } else {
                 return 21;
             }
@@ -208,11 +208,11 @@ public class AppData extends OrmObject {
         return 0;
     }
 
-    public boolean pu() {
+    public boolean pn() {
         return (this.goods == null || this.goods.goods_style != 1001) && this.url_type == 3 && !StringUtils.isNull(this.apk_name) && !StringUtils.isNull(this.apk_url);
     }
 
-    public boolean pv() {
+    public boolean po() {
         if (this.goods == null || this.goods.goods_style != 1001) {
             if (this.goods == null || this.goods.goods_style != -1001) {
                 if (this.url_type == 1) {

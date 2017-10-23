@@ -8,22 +8,22 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener {
-    private ImageView gBq;
-    private ImageView gBr;
-    private ImageView gBs;
-    private ImageView gBt;
-    private a gBu;
-    private View gBv;
+    private ImageView gBb;
+    private ImageView gBc;
+    private ImageView gBd;
+    private ImageView gBe;
+    private a gBf;
+    private View gBg;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bxv();
+        void bxn();
 
-        void bxw();
+        void bxo();
 
-        void bxx();
+        void bxp();
 
-        void bxy();
+        void bxq();
     }
 
     public VideoEffectButtonLayout(Context context) {
@@ -43,40 +43,40 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     private void initView() {
         inflate(getContext(), d.j.layout_video_effect_button, this);
-        this.gBq = (ImageView) findViewById(d.h.img_countdown);
-        this.gBr = (ImageView) findViewById(d.h.img_sticker);
-        this.gBs = (ImageView) findViewById(d.h.img_beauty);
-        this.gBt = (ImageView) findViewById(d.h.img_filter);
-        this.gBq.setOnClickListener(this);
-        this.gBr.setOnClickListener(this);
-        this.gBs.setOnClickListener(this);
-        this.gBt.setOnClickListener(this);
+        this.gBb = (ImageView) findViewById(d.h.img_countdown);
+        this.gBc = (ImageView) findViewById(d.h.img_sticker);
+        this.gBd = (ImageView) findViewById(d.h.img_beauty);
+        this.gBe = (ImageView) findViewById(d.h.img_filter);
+        this.gBb.setOnClickListener(this);
+        this.gBc.setOnClickListener(this);
+        this.gBd.setOnClickListener(this);
+        this.gBe.setOnClickListener(this);
     }
 
     public void reset() {
-        this.gBv = null;
+        this.gBg = null;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gBu != null) {
+        if (this.gBf != null) {
             int id = view.getId();
-            if (this.gBv == null || this.gBv.getId() != view.getId() || id != d.h.img_countdown) {
-                this.gBv = view;
+            if (this.gBg == null || this.gBg.getId() != view.getId() || id != d.h.img_countdown) {
+                this.gBg = view;
                 if (id == d.h.img_countdown) {
-                    this.gBu.bxv();
+                    this.gBf.bxn();
                 } else if (id == d.h.img_sticker) {
-                    this.gBu.bxw();
+                    this.gBf.bxo();
                 } else if (id == d.h.img_beauty) {
-                    this.gBu.bxx();
+                    this.gBf.bxp();
                 } else if (id == d.h.img_filter) {
-                    this.gBu.bxy();
+                    this.gBf.bxq();
                 }
             }
         }
     }
 
     public void setListener(a aVar) {
-        this.gBu = aVar;
+        this.gBf = aVar;
     }
 }

@@ -8,14 +8,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends e<com.baidu.tbadk.data.d, com.baidu.tbadk.i.b> {
-    private View.OnClickListener aPe;
-    private com.baidu.tbadk.i.b bav;
-    private TbPageContext mG;
+    private View.OnClickListener aOR;
+    private com.baidu.tbadk.i.b bah;
+    private TbPageContext mH;
     private BdUniqueId mId;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.mG = tbPageContext;
+        this.mH = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,12 +23,12 @@ public class d extends e<com.baidu.tbadk.data.d, com.baidu.tbadk.i.b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: f */
     public com.baidu.tbadk.i.b onCreateViewHolder(ViewGroup viewGroup) {
-        this.bav = new com.baidu.tbadk.i.b(LayoutInflater.from(this.mContext).inflate(d.j.entrance_story_pics_layout, viewGroup, false), this.mG);
-        if (this.mId != null && this.bav.aEN != null) {
-            this.bav.aEN.i(this.mId);
-            this.bav.aEN.setItemOnclickListener(this.aPe);
+        this.bah = new com.baidu.tbadk.i.b(LayoutInflater.from(this.mContext).inflate(d.j.entrance_story_pics_layout, viewGroup, false), this.mH);
+        if (this.mId != null && this.bah.aEA != null) {
+            this.bah.aEA.i(this.mId);
+            this.bah.aEA.setItemOnclickListener(this.aOR);
         }
-        return this.bav;
+        return this.bah;
     }
 
     public void j(BdUniqueId bdUniqueId) {
@@ -41,13 +41,13 @@ public class d extends e<com.baidu.tbadk.data.d, com.baidu.tbadk.i.b> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.d dVar, com.baidu.tbadk.i.b bVar) {
         if (dVar != null && bVar != null) {
-            bVar.DW();
+            bVar.DQ();
             bVar.a(dVar);
         }
         return view;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.aPe = onClickListener;
+        this.aOR = onClickListener;
     }
 }

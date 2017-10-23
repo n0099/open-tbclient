@@ -1,11 +1,11 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    String beh();
+    String bec();
 
     j getMediaProgressObserver();
 
-    String ht(String str);
+    String hs(String str);
 
     void onCompletion();
 

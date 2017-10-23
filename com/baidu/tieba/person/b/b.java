@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends j.a {
-    private f aEL;
-    private View.OnClickListener aPe;
-    public ImageView eZH;
-    public TextView eZI;
+    private f aEy;
+    private View.OnClickListener aOR;
+    public ImageView eZt;
+    public TextView eZu;
     private int mSkinType;
     public View rootView;
 
@@ -21,36 +21,36 @@ public class b extends j.a {
         super(view);
         this.mSkinType = 3;
         this.rootView = view.findViewById(d.h.add_pic_root);
-        this.eZH = (ImageView) view.findViewById(d.h.add_image_view);
-        this.eZI = (TextView) view.findViewById(d.h.tip_left_count_view);
+        this.eZt = (ImageView) view.findViewById(d.h.add_image_view);
+        this.eZu = (TextView) view.findViewById(d.h.tip_left_count_view);
     }
 
     public void c(f fVar) {
         if (fVar instanceof com.baidu.tieba.person.data.c) {
-            this.aEL = fVar;
+            this.aEy = fVar;
             com.baidu.tieba.person.data.c cVar = (com.baidu.tieba.person.data.c) fVar;
-            aj.c(this.eZH, d.g.icon_mine_pic_add);
-            if (cVar.aVj() > 0) {
-                this.eZI.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.have_left_some_picture_upload), Integer.valueOf(cVar.aVj())));
+            aj.c(this.eZt, d.g.icon_mine_pic_add);
+            if (cVar.aVe() > 0) {
+                this.eZu.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.have_left_some_picture_upload), Integer.valueOf(cVar.aVe())));
             }
-            getView().setOnClickListener(this.aPe);
+            getView().setOnClickListener(this.aOR);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            aj.c(this.eZI, d.e.cp_cont_e, 1);
+            aj.c(this.eZu, d.e.cp_cont_e, 1);
             aj.k(getView(), d.e.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
 
-    public f wT() {
-        return this.aEL;
+    public f wM() {
+        return this.aEy;
     }
 
     public void p(View.OnClickListener onClickListener) {
-        this.aPe = onClickListener;
+        this.aOR = onClickListener;
     }
 }

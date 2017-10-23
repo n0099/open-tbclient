@@ -13,8 +13,8 @@ import com.baidu.tieba.card.m;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class k extends j {
-    private TextView bKl;
-    private ThreadLinkView bMg;
+    private TextView bJZ;
+    private ThreadLinkView bLU;
 
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -28,9 +28,9 @@ public class k extends j {
     @Override // com.baidu.tieba.frs.entelechy.view.j
     protected void aa(View view) {
         if (view != null) {
-            this.bMg = (ThreadLinkView) view.findViewById(d.h.link_thread_root);
-            this.bMg.setTag(getTag());
-            this.bKl = (TextView) view.findViewById(d.h.card_home_page_normal_thread_title);
+            this.bLU = (ThreadLinkView) view.findViewById(d.h.link_thread_root);
+            this.bLU.setTag(getTag());
+            this.bJZ = (TextView) view.findViewById(d.h.card_home_page_normal_thread_title);
         }
     }
 
@@ -40,57 +40,57 @@ public class k extends j {
     public void a(bh bhVar) {
         if (bhVar != null) {
             super.a(bhVar);
-            if ((StringUtils.isNull(bhVar.getTitle()) && (bhVar.rt() == null || bhVar.rt().size() == 0)) || bhVar.rK() == 1) {
+            if ((StringUtils.isNull(bhVar.getTitle()) && (bhVar.rm() == null || bhVar.rm().size() == 0)) || bhVar.rD() == 1) {
                 bhVar.e(false, true);
-                if (bhVar.rV() == null || StringUtils.isNull(bhVar.rV().toString())) {
-                    this.bKl.setVisibility(8);
+                if (bhVar.rO() == null || StringUtils.isNull(bhVar.rO().toString())) {
+                    this.bJZ.setVisibility(8);
                 } else {
-                    this.bKl.setVisibility(0);
-                    this.bKl.setText(bhVar.rV());
+                    this.bJZ.setVisibility(0);
+                    this.bJZ.setText(bhVar.rO());
                 }
             } else {
-                this.bKl.setVisibility(0);
-                bhVar.Yw = 0;
-                bhVar.e(false, bhVar.ss());
-                SpannableStringBuilder rV = bhVar.rV();
-                this.bKl.setOnTouchListener(new com.baidu.tieba.view.k(rV));
-                this.bKl.setText(rV);
-                m.a(this.bKl, bhVar.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
+                this.bJZ.setVisibility(0);
+                bhVar.Yk = 0;
+                bhVar.e(false, bhVar.sl());
+                SpannableStringBuilder rO = bhVar.rO();
+                this.bJZ.setOnTouchListener(new com.baidu.tieba.view.k(rO));
+                this.bJZ.setText(rO);
+                m.a(this.bJZ, bhVar.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
             }
-            this.bMg.setData(this.ajg);
+            this.bLU.setData(this.aiU);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.j, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.bMg.onChangeSkinType();
+        this.bLU.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.entelechy.view.j
-    public void Xw() {
-        super.Xw();
-        m.a(this.bKl, this.ajg.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
-        this.bMg.em(this.ajg.getId());
+    public void Xs() {
+        super.Xs();
+        m.a(this.bJZ, this.aiU.getId(), d.e.cp_cont_b, d.e.cp_cont_d);
+        this.bLU.el(this.aiU.getId());
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.j
-    public void eW(boolean z) {
-        super.eW(z);
-        if (this.cyj != null) {
-            this.cyj.setVisibility(0);
+    public void eV(boolean z) {
+        super.eV(z);
+        if (this.cxX != null) {
+            this.cxX.setVisibility(0);
         }
-        if (this.aWX != null) {
-            this.aWX.setVisibility(8);
+        if (this.aWK != null) {
+            this.aWK.setVisibility(8);
         }
-        if (this.bnj != null) {
-            this.bnj.setVisibility(8);
+        if (this.bmV != null) {
+            this.bmV.setVisibility(8);
         }
-        if (this.bMg != null && (this.bMg.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bMg.getLayoutParams();
+        if (this.bLU != null && (this.bLU.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bLU.getLayoutParams();
             layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(d.f.ds40);
-            this.bMg.setLayoutParams(layoutParams);
+            this.bLU.setLayoutParams(layoutParams);
         }
     }
 }

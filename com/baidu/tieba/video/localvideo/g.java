@@ -12,51 +12,51 @@ import java.io.File;
 /* loaded from: classes2.dex */
 public class g {
     private static final String TAG = g.class.getSimpleName();
-    private File gxA;
-    private f gxB;
-    private IVideoConvertService gxw;
-    private String gxx;
-    private String gxy;
-    private File gxz;
+    private IVideoConvertService gxi;
+    private String gxj;
+    private String gxk;
+    private File gxl;
+    private File gxm;
+    private f gxn;
     private Context mContext;
-    private int gxD = -3;
-    private boolean gxE = false;
-    private boolean gxF = false;
-    private int gxG = 1;
-    private ServiceConnection gbz = new ServiceConnection() { // from class: com.baidu.tieba.video.localvideo.g.1
+    private int gxp = -3;
+    private boolean gxq = false;
+    private boolean gxr = false;
+    private int gxs = 1;
+    private ServiceConnection gbl = new ServiceConnection() { // from class: com.baidu.tieba.video.localvideo.g.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            g.this.gxw = IVideoConvertService.Stub.asInterface(iBinder);
-            if (g.this.gxF) {
-                g.this.bwz();
+            g.this.gxi = IVideoConvertService.Stub.asInterface(iBinder);
+            if (g.this.gxr) {
+                g.this.bwr();
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            if (g.this.gxF) {
-                if (!g.this.gxE && g.this.gxD == -3 && g.this.gxB != null) {
-                    g.this.gxB.onConvertFailed();
+            if (g.this.gxr) {
+                if (!g.this.gxq && g.this.gxp == -3 && g.this.gxn != null) {
+                    g.this.gxn.onConvertFailed();
                 }
-                g.this.gxF = false;
+                g.this.gxr = false;
             }
-            g.this.gxw = null;
+            g.this.gxi = null;
         }
     };
-    private a gxC = new a();
+    private a gxo = new a();
 
     public g(Context context) {
         this.mContext = context;
     }
 
     public void setConvertType(int i) {
-        this.gxG = i;
+        this.gxs = i;
     }
 
     public void destroy() {
-        this.gxE = true;
+        this.gxq = true;
         abortConvert();
-        boH();
+        boA();
     }
 
     private void startService() {
@@ -65,57 +65,57 @@ public class g {
         }
     }
 
-    private void Kz() {
+    private void Kt() {
         if (this.mContext != null) {
-            this.mContext.bindService(new Intent("com.baidu.tieba.video.convert.VideoConvertService"), this.gbz, 1);
+            this.mContext.bindService(new Intent("com.baidu.tieba.video.convert.VideoConvertService"), this.gbl, 1);
         }
     }
 
-    private void boH() {
-        if (this.gxw != null && this.mContext != null) {
-            this.mContext.unbindService(this.gbz);
+    private void boA() {
+        if (this.gxi != null && this.mContext != null) {
+            this.mContext.unbindService(this.gbl);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwz() {
+    public void bwr() {
         int i = -1;
         try {
-            this.gxw.setIVideoConvertListener(this.gxC);
-            this.gxw.setConvertType(this.gxG);
-            i = this.gxw.doConvert(this.gxx, this.gxy);
+            this.gxi.setIVideoConvertListener(this.gxo);
+            this.gxi.setConvertType(this.gxs);
+            i = this.gxi.doConvert(this.gxj, this.gxk);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        if (this.gxB != null) {
+        if (this.gxn != null) {
             if (i == 0) {
-                this.gxB.bvQ();
+                this.gxn.bvI();
             } else {
-                this.gxB.uw(i);
+                this.gxn.uv(i);
             }
         }
     }
 
-    public void cl(String str, String str2) {
-        this.gxF = true;
-        this.gxE = false;
-        this.gxD = -3;
-        this.gxx = str;
-        this.gxy = str2;
-        this.gxz = new File(this.gxx);
-        this.gxA = new File(this.gxy);
-        if (this.gxw == null) {
+    public void ck(String str, String str2) {
+        this.gxr = true;
+        this.gxq = false;
+        this.gxp = -3;
+        this.gxj = str;
+        this.gxk = str2;
+        this.gxl = new File(this.gxj);
+        this.gxm = new File(this.gxk);
+        if (this.gxi == null) {
             startService();
-            Kz();
+            Kt();
             return;
         }
-        bwz();
+        bwr();
     }
 
     public boolean isConvertRunning() {
         try {
-            if (this.gxw != null) {
-                if (this.gxw.isConvertRunning()) {
+            if (this.gxi != null) {
+                if (this.gxi.isConvertRunning()) {
                     return true;
                 }
             }
@@ -126,9 +126,9 @@ public class g {
     }
 
     public void abortConvert() {
-        if (this.gxw != null) {
+        if (this.gxi != null) {
             try {
-                this.gxw.abortConvert();
+                this.gxi.abortConvert();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -143,38 +143,38 @@ public class g {
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertSuccess() throws RemoteException {
-            g.this.gxD = 1;
-            if (g.this.gxB != null) {
-                g.this.gxB.onConvertSuccess();
+            g.this.gxp = 1;
+            if (g.this.gxn != null) {
+                g.this.gxn.onConvertSuccess();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertFailed() throws RemoteException {
-            if (g.this.gxB != null) {
-                g.this.gxB.onConvertFailed();
+            if (g.this.gxn != null) {
+                g.this.gxn.onConvertFailed();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertProgress(int i) throws RemoteException {
-            if (g.this.gxB != null) {
-                g.this.gxB.onConvertProgress(i);
+            if (g.this.gxn != null) {
+                g.this.gxn.onConvertProgress(i);
             }
-            if ((g.this.gxz != null && !g.this.gxz.exists()) || (g.this.gxA != null && !g.this.gxA.exists())) {
+            if ((g.this.gxl != null && !g.this.gxl.exists()) || (g.this.gxm != null && !g.this.gxm.exists())) {
                 g.this.abortConvert();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertAborted() throws RemoteException {
-            if (g.this.gxB != null) {
-                g.this.gxB.onConvertAborted();
+            if (g.this.gxn != null) {
+                g.this.gxn.onConvertAborted();
             }
         }
     }
 
     public void a(f fVar) {
-        this.gxB = fVar;
+        this.gxn = fVar;
     }
 }

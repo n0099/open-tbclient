@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
-    private BdUniqueId sx;
-    private BdAsyncTaskParallelType sy;
-    private int sz;
+    private int sA;
+    private BdUniqueId sy;
+    private BdAsyncTaskParallelType sz;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -19,40 +19,40 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.sx = null;
-        this.sy = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.sz = 1;
+        this.sy = null;
+        this.sz = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.sA = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.sy = bdAsyncTaskParallelType;
-        this.sx = bdUniqueId;
+        this.sz = bdAsyncTaskParallelType;
+        this.sy = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.sx = null;
-        this.sy = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.sz = 1;
+        this.sy = null;
+        this.sz = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.sA = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.sy = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-        this.sz = i;
-        this.sx = bdUniqueId;
+        this.sz = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.sA = i;
+        this.sy = bdUniqueId;
     }
 
     public int eq() {
-        return this.sz;
+        return this.sA;
     }
 
     public int getTag() {
-        if (this.sx == null) {
+        if (this.sy == null) {
             return 0;
         }
-        return this.sx.getId();
+        return this.sy.getId();
     }
 
     public BdAsyncTaskParallelType er() {
-        return this.sy;
+        return this.sz;
     }
 }

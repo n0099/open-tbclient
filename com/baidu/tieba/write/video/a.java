@@ -23,58 +23,58 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.video.CustomVideoView;
 /* loaded from: classes2.dex */
 public class a {
-    public static int gJL = 31;
-    private static int gJM = -100;
-    private View bKr;
-    private ImageView egH;
-    private WriteVideoActivity gJN;
-    private TextView gJO;
-    private EditText gJP;
-    private TextView gJQ;
-    private WriteLocationView gJR;
-    private TextView gJS;
-    private CustomVideoView gxd;
-    private ImageView gxg;
-    private int gxn;
+    public static int gJw = 31;
+    private static int gJx = -100;
+    private View bKf;
+    private ImageView egt;
+    private EditText gJA;
+    private TextView gJB;
+    private WriteLocationView gJC;
+    private TextView gJD;
+    private WriteVideoActivity gJy;
+    private TextView gJz;
+    private CustomVideoView gwP;
+    private ImageView gwS;
+    private int gwZ;
     private NavigationBar mNavigationBar;
 
     public a(WriteVideoActivity writeVideoActivity) {
-        this.gJN = writeVideoActivity;
-        this.gJN.setContentView(d.j.write_video_activity);
-        bAg();
+        this.gJy = writeVideoActivity;
+        this.gJy.setContentView(d.j.write_video_activity);
+        bAa();
         initView();
     }
 
-    private void bAg() {
-        this.bKr = this.gJN.findViewById(d.h.layout_root);
-        this.mNavigationBar = (NavigationBar) this.gJN.findViewById(d.h.navigation_bar);
-        this.gJP = (EditText) this.gJN.findViewById(d.h.edit_content);
-        this.gJS = (TextView) this.gJN.findViewById(d.h.text_content_size);
-        this.gJQ = (TextView) this.gJN.findViewById(d.h.select_forum_btn);
-        this.gxg = (ImageView) this.gJN.findViewById(d.h.video_cover);
-        this.gJR = (WriteLocationView) this.gJN.findViewById(d.h.location);
-        this.gxd = (CustomVideoView) this.gJN.findViewById(d.h.preview_videoview);
-        this.gJQ.setOnClickListener(this.gJN);
-        this.gxd.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.write.video.a.1
+    private void bAa() {
+        this.bKf = this.gJy.findViewById(d.h.layout_root);
+        this.mNavigationBar = (NavigationBar) this.gJy.findViewById(d.h.navigation_bar);
+        this.gJA = (EditText) this.gJy.findViewById(d.h.edit_content);
+        this.gJD = (TextView) this.gJy.findViewById(d.h.text_content_size);
+        this.gJB = (TextView) this.gJy.findViewById(d.h.select_forum_btn);
+        this.gwS = (ImageView) this.gJy.findViewById(d.h.video_cover);
+        this.gJC = (WriteLocationView) this.gJy.findViewById(d.h.location);
+        this.gwP = (CustomVideoView) this.gJy.findViewById(d.h.preview_videoview);
+        this.gJB.setOnClickListener(this.gJy);
+        this.gwP.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.write.video.a.1
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
-                if (a.this.gxd.getWidth() != a.this.gxg.getWidth() || a.this.gxd.getHeight() != a.this.gxg.getHeight()) {
-                    ViewGroup.LayoutParams layoutParams = a.this.gxg.getLayoutParams();
-                    layoutParams.width = a.this.gxd.getWidth();
-                    layoutParams.height = a.this.gxd.getHeight();
-                    a.this.gxg.setLayoutParams(layoutParams);
+                if (a.this.gwP.getWidth() != a.this.gwS.getWidth() || a.this.gwP.getHeight() != a.this.gwS.getHeight()) {
+                    ViewGroup.LayoutParams layoutParams = a.this.gwS.getLayoutParams();
+                    layoutParams.width = a.this.gwP.getWidth();
+                    layoutParams.height = a.this.gwP.getHeight();
+                    a.this.gwS.setLayoutParams(layoutParams);
                 }
-                a.this.gxg.setVisibility(0);
+                a.this.gwS.setVisibility(0);
                 new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.write.video.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.gxd.start();
-                        a.this.gxg.setVisibility(8);
+                        a.this.gwP.start();
+                        a.this.gwS.setVisibility(8);
                     }
                 }, 500L);
             }
         });
-        this.gxd.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.write.video.a.2
+        this.gwP.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.write.video.a.2
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
                 a.this.ca(mediaPlayer.getVideoWidth(), mediaPlayer.getVideoHeight());
@@ -88,13 +88,13 @@ public class a {
         int i4 = 0;
         if (i2 <= 0) {
             i3 = 0;
-        } else if (i / i2 > l.ad(this.gJN) / l.f(this.gJN, d.f.ds440)) {
-            i3 = l.ad(this.gJN);
+        } else if (i / i2 > l.ad(this.gJy) / l.f(this.gJy, d.f.ds440)) {
+            i3 = l.ad(this.gJy);
             if (i > 0) {
                 i4 = (int) ((i3 / i) * i2);
             }
         } else {
-            int f = l.f(this.gJN, d.f.ds440);
+            int f = l.f(this.gJy, d.f.ds440);
             if (i2 > 0) {
                 i3 = (int) ((f / i2) * i);
                 i4 = f;
@@ -103,39 +103,39 @@ public class a {
                 i4 = f;
             }
         }
-        this.gxd.setVideoHeight(i4);
-        this.gxd.setVideoWidth(i3);
-        this.gxd.invalidate();
+        this.gwP.setVideoHeight(i4);
+        this.gwP.setVideoWidth(i3);
+        this.gwP.invalidate();
     }
 
     private void initView() {
-        this.egH = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.j.nav_close_layout, this.gJN);
-        this.mNavigationBar.setCenterTextTitle(this.gJN.getPageContext().getString(d.l.post_video_title));
-        this.gJO = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.j.nav_text_send_layout, this.gJN);
-        this.gJO.setText(d.l.send_post);
-        this.gJP.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.tieba.write.video.a.3
+        this.egt = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.j.nav_close_layout, this.gJy);
+        this.mNavigationBar.setCenterTextTitle(this.gJy.getPageContext().getString(d.l.post_video_title));
+        this.gJz = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.j.nav_text_send_layout, this.gJy);
+        this.gJz.setText(d.l.send_post);
+        this.gJA.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.tieba.write.video.a.3
             @Override // android.view.View.OnKeyListener
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 return keyEvent != null && keyEvent.getKeyCode() == 66;
             }
         });
-        this.gJP.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.video.a.4
+        this.gJA.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.video.a.4
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                long bAh = a.gJL - a.this.bAh();
-                if (bAh >= 0) {
-                    aj.i(a.this.gJS, d.e.cp_cont_e);
+                long bAb = a.gJw - a.this.bAb();
+                if (bAb >= 0) {
+                    aj.i(a.this.gJD, d.e.cp_cont_e);
                 } else {
-                    aj.i(a.this.gJS, d.e.cp_cont_h);
+                    aj.i(a.this.gJD, d.e.cp_cont_h);
                 }
-                if (bAh <= a.gJM) {
-                    a.this.gJS.setText(am.vr());
+                if (bAb <= a.gJx) {
+                    a.this.gJD.setText(am.vk());
                 } else {
-                    a.this.gJS.setText(String.valueOf(bAh));
+                    a.this.gJD.setText(String.valueOf(bAb));
                 }
             }
 
@@ -145,37 +145,37 @@ public class a {
         });
     }
 
-    public void ti(String str) {
+    public void th(String str) {
         int i;
         int i2 = 0;
-        Bitmap rc = rc(str);
-        if (rc != null && rc.getHeight() != 0) {
-            if (rc.getHeight() <= 0) {
+        Bitmap rb = rb(str);
+        if (rb != null && rb.getHeight() != 0) {
+            if (rb.getHeight() <= 0) {
                 i = 0;
-            } else if (rc.getWidth() / rc.getHeight() > l.ad(this.gJN) / l.f(this.gJN, d.f.ds440)) {
-                i = l.ad(this.gJN);
-                if (rc.getWidth() > 0) {
-                    i2 = (int) ((i / rc.getWidth()) * rc.getHeight());
+            } else if (rb.getWidth() / rb.getHeight() > l.ad(this.gJy) / l.f(this.gJy, d.f.ds440)) {
+                i = l.ad(this.gJy);
+                if (rb.getWidth() > 0) {
+                    i2 = (int) ((i / rb.getWidth()) * rb.getHeight());
                 }
             } else {
-                int f = l.f(this.gJN, d.f.ds440);
-                if (rc.getWidth() > 0) {
-                    i = (int) ((f / rc.getHeight()) * rc.getWidth());
+                int f = l.f(this.gJy, d.f.ds440);
+                if (rb.getWidth() > 0) {
+                    i = (int) ((f / rb.getHeight()) * rb.getWidth());
                     i2 = f;
                 } else {
                     i = 0;
                     i2 = f;
                 }
             }
-            ViewGroup.LayoutParams layoutParams = this.gxg.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.gwS.getLayoutParams();
             layoutParams.height = i2;
             layoutParams.width = i;
-            this.gxg.setLayoutParams(layoutParams);
-            this.gxg.setImageBitmap(rc);
+            this.gwS.setLayoutParams(layoutParams);
+            this.gwS.setImageBitmap(rb);
         }
     }
 
-    private Bitmap rc(String str) {
+    private Bitmap rb(String str) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = TbConfig.BitmapConfig;
@@ -191,29 +191,29 @@ public class a {
     }
 
     public void onChangeSkinType(int i) {
-        this.gJN.getLayoutMode().ai(i == 1);
-        this.gJN.getLayoutMode().t(this.bKr);
-        this.mNavigationBar.onChangeSkinType(this.gJN.getPageContext(), i);
-        aj.c(this.egH, d.g.icon_return_bg_s);
-        aj.c(this.gJO, d.e.cp_link_tip_a, 1);
-        aj.j(this.gJR, d.g.corner_bg);
-        if (this.gJR != null) {
-            this.gJR.wB();
+        this.gJy.getLayoutMode().ah(i == 1);
+        this.gJy.getLayoutMode().t(this.bKf);
+        this.mNavigationBar.onChangeSkinType(this.gJy.getPageContext(), i);
+        aj.c(this.egt, d.g.icon_return_bg_s);
+        aj.c(this.gJz, d.e.cp_link_tip_a, 1);
+        aj.j(this.gJC, d.g.corner_bg);
+        if (this.gJC != null) {
+            this.gJC.wu();
         }
     }
 
     public String getContent() {
-        if (this.gJP.getText() == null) {
+        if (this.gJA.getText() == null) {
             return null;
         }
-        return this.gJP.getText().toString();
+        return this.gJA.getText().toString();
     }
 
-    public long bAh() {
-        if (this.gJP.getText() == null || this.gJP.getText().toString() == null) {
+    public long bAb() {
+        if (this.gJA.getText() == null || this.gJA.getText().toString() == null) {
             return 0L;
         }
-        return g(this.gJP.getText().toString().trim());
+        return g(this.gJA.getText().toString().trim());
     }
 
     public static long g(CharSequence charSequence) {
@@ -229,28 +229,28 @@ public class a {
         return Math.round(d);
     }
 
-    public WriteLocationView bAi() {
-        return this.gJR;
+    public WriteLocationView bAc() {
+        return this.gJC;
     }
 
-    public View bAj() {
-        return this.gJO;
+    public View bAd() {
+        return this.gJz;
     }
 
     public View getBackButton() {
-        return this.egH;
+        return this.egt;
     }
 
-    public View bAk() {
-        return this.gJP;
+    public View bAe() {
+        return this.gJA;
     }
 
-    public void tj(String str) {
-        this.gJP.setText(str);
+    public void ti(String str) {
+        this.gJA.setText(str);
     }
 
-    public TextView bAl() {
-        return this.gJQ;
+    public TextView bAf() {
+        return this.gJB;
     }
 
     public void a(VideoInfo videoInfo) {
@@ -258,44 +258,44 @@ public class a {
             String videoPath = videoInfo.getVideoPath();
             String thumbPath = videoInfo.getThumbPath();
             if (!StringUtils.isNull(thumbPath)) {
-                ti(thumbPath);
-                this.gxg.setVisibility(0);
+                th(thumbPath);
+                this.gwS.setVisibility(0);
                 new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.write.video.a.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.gxg.setVisibility(8);
+                        a.this.gwS.setVisibility(8);
                     }
                 }, 500L);
             } else {
-                this.gxg.setVisibility(8);
+                this.gwS.setVisibility(8);
             }
             if (!StringUtils.isNull(videoPath)) {
-                this.gxd.setVideoPath(videoPath);
-                this.gxd.start();
+                this.gwP.setVideoPath(videoPath);
+                this.gwP.start();
             }
         }
     }
 
-    public void bwt() {
-        if (this.gxd != null) {
-            this.gxd.resume();
-            this.gxd.seekTo(this.gxn);
-            this.gxd.start();
+    public void bwl() {
+        if (this.gwP != null) {
+            this.gwP.resume();
+            this.gwP.seekTo(this.gwZ);
+            this.gwP.start();
         }
     }
 
-    public void aiq() {
-        this.gxn = this.gxd.getCurrentPosition();
-        if (this.gxd != null) {
-            this.gxd.stopPlayback();
+    public void ail() {
+        this.gwZ = this.gwP.getCurrentPosition();
+        if (this.gwP != null) {
+            this.gwP.stopPlayback();
         }
     }
 
-    public void tk(String str) {
+    public void tj(String str) {
         if (StringUtils.isNull(str)) {
-            this.gJQ.setText(d.l.select_forum);
+            this.gJB.setText(d.l.select_forum);
         } else {
-            this.gJQ.setText(str);
+            this.gJB.setText(str);
         }
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.VideoCacheClient;
 import android.os.Environment;
 /* loaded from: classes2.dex */
 public class c {
-    public static final String aXT = Environment.getExternalStorageDirectory() + "/tieba";
-    public static final String aXU = aXT + "/.tieba_video_cache";
-    public static final String aXV = aXU + "/v2";
-    public static final String aXW = aXV + "/";
-    public static final String aXX = aXV + "/files";
-    public static final String aXY = aXX + "/";
-    public static final String aXZ = aXW + "server_port";
+    public static final String aXG = Environment.getExternalStorageDirectory() + "/tieba";
+    public static final String aXH = aXG + "/.tieba_video_cache";
+    public static final String aXI = aXH + "/v2";
+    public static final String aXJ = aXI + "/";
+    public static final String aXK = aXI + "/files";
+    public static final String aXL = aXK + "/";
+    public static final String aXM = aXJ + "server_port";
 }

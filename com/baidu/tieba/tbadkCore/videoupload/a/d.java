@@ -15,26 +15,26 @@ import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d implements b {
-    private long gjD;
-    private String gjE;
-    private final int gjF;
-    private int gjG;
-    private e gjH;
-    private boolean gjI;
-    private com.baidu.tieba.tbadkCore.videoupload.a.a.a gjJ;
+    private long gjp;
+    private String gjq;
+    private final int gjr;
+    private int gjs;
+    private e gjt;
+    private boolean gju;
+    private com.baidu.tieba.tbadkCore.videoupload.a.a.a gjv;
     private String mFileName;
 
     public d(String str, int i) {
         this.mFileName = str;
-        this.gjF = i;
+        this.gjr = i;
         File file = new File(str);
         if (file.exists()) {
-            this.gjD = file.length();
-            this.gjE = s.e(k.r(file));
-            if (this.gjD % this.gjF == 0) {
-                this.gjG = (int) (this.gjD / this.gjF);
+            this.gjp = file.length();
+            this.gjq = s.e(k.r(file));
+            if (this.gjp % this.gjr == 0) {
+                this.gjs = (int) (this.gjp / this.gjr);
             } else {
-                this.gjG = ((int) (this.gjD / this.gjF)) + 1;
+                this.gjs = ((int) (this.gjp / this.gjr)) + 1;
             }
         }
     }
@@ -42,39 +42,39 @@ public class d implements b {
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public VideoFinishResult az(String str, int i) {
         a a;
-        if (StringUtils.isNull(str) || this.gjD <= 0 || StringUtils.isNull(this.gjE) || i <= 0 || this.gjI) {
+        if (StringUtils.isNull(str) || this.gjp <= 0 || StringUtils.isNull(this.gjq) || i <= 0 || this.gju) {
             return null;
         }
-        tN(10);
-        a a2 = a(this.gjG, i, false, null);
-        if (a2 == null || this.gjI) {
+        tM(10);
+        a a2 = a(this.gjs, i, false, null);
+        if (a2 == null || this.gju) {
             return null;
         }
-        if (a2.gjz != 0) {
+        if (a2.gjl != 0) {
             VideoFinishResult videoFinishResult = new VideoFinishResult();
-            videoFinishResult.setErrorNo(a2.gjz);
+            videoFinishResult.setErrorNo(a2.gjl);
             videoFinishResult.setUserMessage(a2.mErrorMessage);
             return videoFinishResult;
         }
-        tN(30);
-        if (!StringUtils.isNull(a2.aXr)) {
+        tM(30);
+        if (!StringUtils.isNull(a2.aXe)) {
             VideoFinishResult videoFinishResult2 = new VideoFinishResult();
-            videoFinishResult2.setVideoMd5(this.gjE);
-            videoFinishResult2.setVideoUrl(a2.aXr);
+            videoFinishResult2.setVideoMd5(this.gjq);
+            videoFinishResult2.setVideoUrl(a2.aXe);
             return videoFinishResult2;
-        } else if (this.gjI) {
+        } else if (this.gju) {
             return null;
         } else {
-            ArrayList<Integer> arrayList = a2.gjx;
+            ArrayList<Integer> arrayList = a2.gjj;
             if (v.u(arrayList)) {
                 arrayList = new ArrayList<>();
-                for (int i2 = 0; i2 < this.gjG; i2++) {
+                for (int i2 = 0; i2 < this.gjs; i2++) {
                     arrayList.add(Integer.valueOf(i2 + 1));
                 }
             }
-            String str2 = a2.gjy;
+            String str2 = a2.gjk;
             com.baidu.tieba.tbadkCore.videoupload.a.a.d b = b(arrayList, str2, i);
-            if (b == null || this.gjI) {
+            if (b == null || this.gju) {
                 return null;
             }
             if (b.errorNo != 0) {
@@ -83,64 +83,64 @@ public class d implements b {
                 videoFinishResult3.setUserMessage(b.errorMessage);
                 return videoFinishResult3;
             }
-            tN(85);
+            tM(85);
             if (!StringUtils.isNull(b.videoUrl)) {
                 VideoFinishResult videoFinishResult4 = new VideoFinishResult();
                 videoFinishResult4.setVideoUrl(b.videoUrl);
-                videoFinishResult4.setVideoMd5(this.gjE);
+                videoFinishResult4.setVideoMd5(this.gjq);
                 return videoFinishResult4;
-            } else if (this.gjI || (a = a(this.gjG, i, true, str2)) == null) {
+            } else if (this.gju || (a = a(this.gjs, i, true, str2)) == null) {
                 return null;
             } else {
                 VideoFinishResult videoFinishResult5 = new VideoFinishResult();
-                if (a.gjz == 0) {
-                    videoFinishResult5.setVideoUrl(a.aXr);
-                    videoFinishResult5.setVideoMd5(this.gjE);
+                if (a.gjl == 0) {
+                    videoFinishResult5.setVideoUrl(a.aXe);
+                    videoFinishResult5.setVideoMd5(this.gjq);
                 } else {
-                    videoFinishResult5.setErrorNo(a.gjz);
+                    videoFinishResult5.setErrorNo(a.gjl);
                     videoFinishResult5.setUserMessage(a.mErrorMessage);
-                    TiebaStatic.log(new ak("c12024").ad(LegoListActivityConfig.PARAMS, a.mErrorMessage));
+                    TiebaStatic.log(new ak("c12024").ac(LegoListActivityConfig.PARAMS, a.mErrorMessage));
                 }
-                tN(100);
+                tM(100);
                 return videoFinishResult5;
             }
         }
     }
 
-    private void tN(int i) {
-        if (this.gjH != null) {
-            this.gjH.ad(i / 100.0f);
+    private void tM(int i) {
+        if (this.gjt != null) {
+            this.gjt.ad(i / 100.0f);
         }
     }
 
     private a a(int i, long j, boolean z, String str) {
         x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_VIDEO_STATUS);
         xVar.n("chunk_sum", String.valueOf(i));
-        xVar.n("video_size", String.valueOf(this.gjD));
-        xVar.n("chunk_size", String.valueOf(this.gjF));
+        xVar.n("video_size", String.valueOf(this.gjp));
+        xVar.n("chunk_size", String.valueOf(this.gjr));
         xVar.n("is_merge", String.valueOf(z ? 1 : 0));
-        xVar.n("video_md5", this.gjE);
+        xVar.n("video_md5", this.gjq);
         xVar.n("video_len", String.valueOf(j));
         xVar.n("tbs", TbadkCoreApplication.getInst().getTbs());
         if (!StringUtils.isNull(str)) {
             xVar.n("upload_id", str);
         }
-        String up = xVar.up();
-        if (xVar.uN().vK().isRequestSuccess()) {
-            if (StringUtils.isNull(up)) {
+        String ui = xVar.ui();
+        if (xVar.uG().vD().isRequestSuccess()) {
+            if (StringUtils.isNull(ui)) {
                 return null;
             }
             a aVar = new a();
-            aVar.parseJson(up);
+            aVar.parseJson(ui);
             return aVar;
         }
         a aVar2 = new a();
-        if (xVar.uN().vK().uQ()) {
-            aVar2.gjz = xVar.uN().vK().ahO;
+        if (xVar.uG().vD().uJ()) {
+            aVar2.gjl = xVar.uG().vD().ahC;
         } else {
-            aVar2.gjz = xVar.uN().vK().vo;
+            aVar2.gjl = xVar.uG().vD().vp;
         }
-        aVar2.mErrorMessage = xVar.uN().vK().mErrorString;
+        aVar2.mErrorMessage = xVar.uG().vD().mErrorString;
         return aVar2;
     }
 
@@ -149,26 +149,26 @@ public class d implements b {
             return null;
         }
         if (arrayList.size() > 3) {
-            this.gjJ = new com.baidu.tieba.tbadkCore.videoupload.a.a.b(this.mFileName, this.gjF, this.gjG, this.gjD, this.gjE);
+            this.gjv = new com.baidu.tieba.tbadkCore.videoupload.a.a.b(this.mFileName, this.gjr, this.gjs, this.gjp, this.gjq);
         } else {
-            this.gjJ = new com.baidu.tieba.tbadkCore.videoupload.a.a.c(this.mFileName, this.gjF, this.gjG, this.gjD, this.gjE);
+            this.gjv = new com.baidu.tieba.tbadkCore.videoupload.a.a.c(this.mFileName, this.gjr, this.gjs, this.gjp, this.gjq);
         }
-        this.gjJ.a(this.gjH);
-        com.baidu.tieba.tbadkCore.videoupload.a.a.d b = this.gjJ.b(arrayList, str, i);
-        this.gjJ = null;
+        this.gjv.a(this.gjt);
+        com.baidu.tieba.tbadkCore.videoupload.a.a.d b = this.gjv.b(arrayList, str, i);
+        this.gjv = null;
         return b;
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public void cancel() {
-        this.gjI = true;
-        if (this.gjJ != null) {
-            this.gjJ.cancel();
+        this.gju = true;
+        if (this.gjv != null) {
+            this.gjv.cancel();
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public void a(e eVar) {
-        this.gjH = eVar;
+        this.gjt = eVar;
     }
 }

@@ -6,7 +6,6 @@ public class c {
     public String mCuid;
     public String mNetType;
     public String mUid;
-    public String wj;
     public String wk;
     public String wl;
     public String wn;
@@ -17,4 +16,5 @@ public class c {
     public String ws;
     public String wt;
     public String wu;
+    public String wv;
 }

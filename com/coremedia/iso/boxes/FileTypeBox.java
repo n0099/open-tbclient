@@ -91,7 +91,7 @@ public class FileTypeBox extends AbstractBox {
     }
 
     public void setMinorVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.wM(i)));
         this.minorVersion = i;
     }
 

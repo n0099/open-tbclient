@@ -23,10 +23,10 @@ public class WriteHelperStatic {
                     intent.setFlags(268435456);
                     intent.setClass(TbadkCoreApplication.getInst().getContext(), NewVcodeActivity.class);
                     bn bnVar = (bn) customResponsedMessage.getData();
-                    intent.putExtra("model", bnVar.aat);
+                    intent.putExtra("model", bnVar.aah);
                     intent.putExtra("is_ad", false);
-                    if (bnVar.aau != null) {
-                        intent.putExtra("page_type", com.baidu.adp.lib.g.b.g(bnVar.aau.xZ(), 0));
+                    if (bnVar.aai != null) {
+                        intent.putExtra("page_type", com.baidu.adp.lib.g.b.g(bnVar.aai.xS(), 0));
                     }
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }
@@ -40,7 +40,7 @@ public class WriteHelperStatic {
                     Intent intent = new Intent();
                     intent.setFlags(268435456);
                     intent.setClass(TbadkCoreApplication.getInst().getContext(), VcodeActivity.class);
-                    intent.putExtra("model", ((bn) customResponsedMessage.getData()).aat);
+                    intent.putExtra("model", ((bn) customResponsedMessage.getData()).aah);
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }
             }
@@ -54,8 +54,8 @@ public class WriteHelperStatic {
                     intent.setFlags(268435456);
                     intent.setClass(TbadkCoreApplication.getInst().getContext(), AccountAccessActivity.class);
                     bn bnVar = (bn) customResponsedMessage.getData();
-                    intent.putExtra(AccountAccessActivityConfig.KEY_WRITE_DATA, bnVar.aat);
-                    intent.putExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE, bnVar.aav);
+                    intent.putExtra(AccountAccessActivityConfig.KEY_WRITE_DATA, bnVar.aah);
+                    intent.putExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE, bnVar.aaj);
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }
             }

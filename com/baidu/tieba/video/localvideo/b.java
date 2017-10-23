@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes2.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long gwT = 3600000;
+    private static long gwF = 3600000;
     private Context context;
-    private a gxa;
+    private a gwM;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat gwV = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat gwU = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat gwH = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat gwG = new SimpleDateFormat("HH:mm:ss");
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -26,24 +26,24 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(d.f.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.gwV.setTimeZone(timeZone);
-        this.gwU.setTimeZone(timeZone);
+        this.gwH.setTimeZone(timeZone);
+        this.gwG.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.gxa = aVar;
+        this.gwM = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
+    /* renamed from: c */
     public List<d> doInBackground(Void... voidArr) {
-        List<d> ca = e.ca(this.context);
-        e.d("/sdcard", ca, false);
-        e.d("/sdcard/DCIM", ca, true);
-        e.dC(ca);
-        return ca;
+        List<d> bZ = e.bZ(this.context);
+        e.d("/sdcard", bZ, false);
+        e.d("/sdcard/DCIM", bZ, true);
+        e.dC(bZ);
+        return bZ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,8 +51,8 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(List<d> list) {
         super.onPostExecute((b) list);
-        if (this.gxa != null) {
-            this.gxa.dA(list);
+        if (this.gwM != null) {
+            this.gwM.dA(list);
         }
     }
 }

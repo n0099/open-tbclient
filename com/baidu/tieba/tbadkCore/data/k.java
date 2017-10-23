@@ -24,13 +24,13 @@ public class k {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern ggD = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern ggp = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String ggB = null;
-    private SpannableStringBuilder ggC = null;
-    private boolean ggA = false;
+    private String ggn = null;
+    private SpannableStringBuilder ggo = null;
+    private boolean ggm = false;
 
     public static boolean bT(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
@@ -48,23 +48,23 @@ public class k {
         return this.text;
     }
 
-    public String brh() {
+    public String bra() {
         return this.c;
     }
 
-    public SpannableStringBuilder bri() {
-        return this.ggC;
+    public SpannableStringBuilder brb() {
+        return this.ggo;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.ggC == null) {
-            this.ggC = new SpannableStringBuilder();
+        if (this.ggo == null) {
+            this.ggo = new SpannableStringBuilder();
         }
-        this.ggC.append((CharSequence) spannableString);
-        return this.ggC;
+        this.ggo.append((CharSequence) spannableString);
+        return this.ggo;
     }
 
-    public SpannableString bV(Context context) {
+    public SpannableString bU(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -81,23 +81,23 @@ public class k {
                         if (matcher.find()) {
                             try {
                                 String group = matcher.group();
-                                gH(group.substring(group.lastIndexOf("/") + 1));
+                                gG(group.substring(group.lastIndexOf("/") + 1));
                                 return;
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = k.ggD.matcher(k.this.link);
+                        Matcher matcher2 = k.ggp.matcher(k.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();
-                                gH(group2.substring(group2.lastIndexOf("=") + 1));
+                                gG(group2.substring(group2.lastIndexOf("=") + 1));
                                 return;
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
                         }
-                        gG(k.this.link);
+                        gF(k.this.link);
                     }
                 }, 0, this.text.length() - 1, 33);
                 return spannableString;
@@ -144,7 +144,7 @@ public class k {
                 spannableString4.setSpan(new com.baidu.tbadk.util.i(context) { // from class: com.baidu.tieba.tbadkCore.data.k.1
                     @Override // com.baidu.tbadk.util.i, android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        gG(k.this.text);
+                        gF(k.this.text);
                     }
                 }, string.length(), str.length() - 1, 33);
                 return spannableString4;
@@ -162,7 +162,7 @@ public class k {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.ggB = jSONObject.optString("cdn_src", null);
+                    this.ggn = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         if (split.length > 1) {
@@ -177,7 +177,7 @@ public class k {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.ggA = true;
+                        this.ggm = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");
@@ -187,7 +187,7 @@ public class k {
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.DY().fz(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.DS().fy(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

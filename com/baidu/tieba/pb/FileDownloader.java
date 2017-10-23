@@ -85,7 +85,7 @@ public class FileDownloader extends Service {
             } else {
                 fileOfUrl = getFileOfUrl(stringExtra);
             }
-            if (k.de(fileOfUrl) != null) {
+            if (k.dd(fileOfUrl) != null) {
                 this.handler.sendMessageDelayed(this.handler.obtainMessage(1, fileOfUrl), 100L);
             } else if (this.mDowndingTask == null) {
                 this.mDowndingTask = new a(stringExtra, fileOfUrl);
@@ -125,15 +125,15 @@ public class FileDownloader extends Service {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            File dh;
+            File dg;
             Boolean bool = false;
             while (!this.mCanceled) {
                 try {
                     this.mNetWork = new x(this.mUrl);
                     bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
-                    if (bool.booleanValue() || this.mNetWork.uR() == -2) {
+                    if (bool.booleanValue() || this.mNetWork.uK() == -2) {
                         break;
-                    } else if (!this.mNetWork.uN().vK().fp()) {
+                    } else if (!this.mNetWork.uG().vD().fp()) {
                         try {
                             Thread.sleep(10000L);
                         } catch (Exception e) {
@@ -143,10 +143,10 @@ public class FileDownloader extends Service {
                 }
             }
             if (bool.booleanValue()) {
-                k.dp(this.mFile);
-                File de = k.de(this.mFile + ".tmp");
-                if (de != null && (dh = k.dh(this.mFile)) != null) {
-                    if (!de.renameTo(dh)) {
+                k.m9do(this.mFile);
+                File dd = k.dd(this.mFile + ".tmp");
+                if (dd != null && (dg = k.dg(this.mFile)) != null) {
+                    if (!dd.renameTo(dg)) {
                     }
                 }
             }

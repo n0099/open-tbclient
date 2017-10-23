@@ -4,24 +4,24 @@ import android.content.Context;
 import com.baidu.tieba.b.a.b;
 /* loaded from: classes.dex */
 public class b extends a {
-    public int aoZ;
-    private boolean bHR;
-    private float bHS;
+    public int aoN;
+    private boolean bHF;
+    private float bHG;
 
     public b(Context context) {
         super(context);
-        this.aoZ = 3;
-        this.bHR = false;
-        this.bHS = -8.0f;
-        J(this.bHS);
+        this.aoN = 3;
+        this.bHF = false;
+        this.bHG = -8.0f;
+        J(this.bHG);
     }
 
-    public void WN() {
-        vT();
+    public void WJ() {
+        vM();
         a(new b.a() { // from class: com.baidu.tieba.b.b.b.1
             @Override // com.baidu.tieba.b.a.b.a, com.baidu.tieba.b.a.a
             public void e(float f, float f2, float f3, int i) {
-                b.this.WL();
+                b.this.WH();
             }
 
             @Override // com.baidu.tieba.b.a.b.a, com.baidu.tieba.b.a.a
@@ -31,42 +31,42 @@ public class b extends a {
         });
     }
 
-    public void WO() {
-        vT();
+    public void WK() {
+        vM();
         a(new b.c() { // from class: com.baidu.tieba.b.b.b.2
             @Override // com.baidu.tieba.b.a.b.c, com.baidu.tieba.b.a.a
             public boolean c(float f, float f2, float f3, int i) {
-                return b.this.bHR && f % 360.0f == 0.0f;
+                return b.this.bHF && f % 360.0f == 0.0f;
             }
 
             @Override // com.baidu.tieba.b.a.b.c, com.baidu.tieba.b.a.a
             public void e(float f, float f2, float f3, int i) {
-                b.this.WL();
+                b.this.WH();
             }
         });
         a(new b.a() { // from class: com.baidu.tieba.b.b.b.3
             @Override // com.baidu.tieba.b.a.b.a, com.baidu.tieba.b.a.a
             public void e(float f, float f2, float f3, int i) {
-                b.this.WL();
-                b.this.WM();
+                b.this.WH();
+                b.this.WI();
             }
         });
         a(new b.C0074b() { // from class: com.baidu.tieba.b.b.b.4
             @Override // com.baidu.tieba.b.a.b.C0074b, com.baidu.tieba.b.a.a
             public void e(float f, float f2, float f3, int i) {
-                b.this.WL();
-                b.this.WM();
+                b.this.WH();
+                b.this.WI();
             }
         });
     }
 
-    public void WP() {
-        this.bHR = true;
+    public void WL() {
+        this.bHF = true;
     }
 
     @Override // com.baidu.tieba.b.b.a
-    public void vT() {
-        super.vT();
-        this.bHR = false;
+    public void vM() {
+        super.vM();
+        this.bHF = false;
     }
 }

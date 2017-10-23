@@ -70,7 +70,7 @@ public class AlbumBox extends AbstractFullBox {
     }
 
     public void setTrackNumber(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wM(i)));
         this.trackNumber = i;
     }
 

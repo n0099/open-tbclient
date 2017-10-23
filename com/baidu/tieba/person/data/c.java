@@ -3,15 +3,15 @@ package com.baidu.tieba.person.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId eZs = BdUniqueId.gen();
-    private int eZt = 0;
+    public static final BdUniqueId eZe = BdUniqueId.gen();
+    private int eZf = 0;
 
-    public int aVj() {
-        return this.eZt;
+    public int aVe() {
+        return this.eZf;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return eZs;
+        return eZe;
     }
 }

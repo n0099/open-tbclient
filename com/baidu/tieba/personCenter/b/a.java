@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.d faa;
-    private com.baidu.tieba.personCenter.a.a fab;
-    private com.baidu.tieba.personCenter.a.b fac;
-    private com.baidu.tieba.personCenter.a.c fad;
+    private com.baidu.tieba.personCenter.a.d eZM;
+    private com.baidu.tieba.personCenter.a.a eZN;
+    private com.baidu.tieba.personCenter.a.b eZO;
+    private com.baidu.tieba.personCenter.a.c eZP;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -22,14 +22,14 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.faa = new com.baidu.tieba.personCenter.a.d(tbPageContext, f.faG);
-        this.fab = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.c.a.faq);
-        this.fac = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.c.b.far);
-        this.fad = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.faF);
-        this.mAdapters.add(this.faa);
-        this.mAdapters.add(this.fab);
-        this.mAdapters.add(this.fac);
-        this.mAdapters.add(this.fad);
+        this.eZM = new com.baidu.tieba.personCenter.a.d(tbPageContext, f.fas);
+        this.eZN = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.c.a.fac);
+        this.eZO = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.c.b.fad);
+        this.eZP = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.far);
+        this.mAdapters.add(this.eZM);
+        this.mAdapters.add(this.eZN);
+        this.mAdapters.add(this.eZO);
+        this.mAdapters.add(this.eZP);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -39,11 +39,11 @@ public class a {
         }
     }
 
-    public void aVm() {
-        this.fab.aVm();
+    public void aVh() {
+        this.eZN.aVh();
     }
 
-    public void aVn() {
-        this.fab.destroy();
+    public void aVi() {
+        this.eZN.destroy();
     }
 }

@@ -10,15 +10,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    private final ArrayList<MetaData> gIx = new ArrayList<>();
-    private HashMap<String, String> gIy = null;
+    private final ArrayList<MetaData> gIi = new ArrayList<>();
+    private HashMap<String, String> gIj = null;
 
-    public void b(JSONObject jSONObject, boolean z) {
+    public void c(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.gIy == null) {
-                        this.gIy = new HashMap<>();
+                    if (this.gIj == null) {
+                        this.gIj = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -31,9 +31,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.gIx.add(metaData);
+                        this.gIi.add(metaData);
                         if (z) {
-                            this.gIy.put(metaData.getName_show(), metaData.getPortrait());
+                            this.gIj.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -41,19 +41,19 @@ public class b {
         }
     }
 
-    public void td(String str) {
+    public void tc(String str) {
         try {
-            b(new JSONObject(str), true);
+            c(new JSONObject(str), true);
         } catch (Exception e) {
             BdLog.detailException(e);
         }
     }
 
-    public ArrayList<MetaData> bzP() {
-        return this.gIx;
+    public ArrayList<MetaData> bzJ() {
+        return this.gIi;
     }
 
-    public HashMap<String, String> bzQ() {
-        return this.gIy;
+    public HashMap<String, String> bzK() {
+        return this.gIj;
     }
 }

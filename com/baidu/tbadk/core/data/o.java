@@ -5,31 +5,31 @@ import java.util.ArrayList;
 import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes.dex */
 public class o {
-    private ArrayList<String> Vo = new ArrayList<>();
-    private int Vp;
+    private ArrayList<String> Vc = new ArrayList<>();
+    private int Vd;
 
-    public ArrayList<String> pE() {
-        return this.Vo;
+    public ArrayList<String> px() {
+        return this.Vc;
     }
 
-    public int pF() {
-        return this.Vp;
+    public int py() {
+        return this.Vd;
     }
 
     public boolean a(ColorEgg colorEgg) {
-        this.Vp = 0;
+        this.Vd = 0;
         if (colorEgg == null || colorEgg.holiday_words == null || colorEgg.holiday_words.size() <= 0) {
             return false;
         }
         for (String str : colorEgg.holiday_words) {
             if (!StringUtils.isNull(str)) {
-                this.Vo.add(str);
+                this.Vc.add(str);
             }
         }
-        if (this.Vo.size() <= 0) {
+        if (this.Vc.size() <= 0) {
             return false;
         }
-        this.Vp = colorEgg.style_flag.intValue();
+        this.Vd = colorEgg.style_flag.intValue();
         return true;
     }
 }

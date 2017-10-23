@@ -495,7 +495,7 @@ public class TbConfig {
     private static int PB_LIST_ITEM_MAX_NUM = 300;
     private static int IMG_CHUNK_UPLOAD_ENABLE = 1;
     public static boolean KUANG_TEST_MODE = false;
-    public static long DEFALT_USE_TIME_INTERVAL = 30;
+    public static long DEFALT_USE_TIME_INTERVAL = 1;
     private static String POSITION_PAGER_NAME = "贴吧客户端反馈";
     private static String POSITION_PAGER_ID = "2631903";
     private static String VERSION = "";
@@ -688,7 +688,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.DZ().ff(i);
+            c.DT().fe(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

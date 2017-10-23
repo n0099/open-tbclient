@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private static int euG = 3;
+    private static int eus = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -54,7 +54,7 @@ public class b extends BaseAdapter {
             }
         }
         if (aVar != null) {
-            aVar.wB();
+            aVar.wu();
             aVar.b(this.mDataList.get(i));
         }
         return view;
@@ -62,41 +62,41 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public TextView bKm;
-        public CheckBox euH;
-        public BarImageView euI;
-        private Drawable euJ;
-        private Drawable gIX;
+        public TextView bKa;
+        public CheckBox eut;
+        public BarImageView euu;
+        private Drawable euv;
+        private Drawable gII;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.bKm = (TextView) view.findViewById(d.h.transmit_forum_name);
-                this.euH = (CheckBox) view.findViewById(d.h.transmit_check_box);
-                this.euI = (BarImageView) view.findViewById(d.h.forum_avatar);
+                this.bKa = (TextView) view.findViewById(d.h.transmit_forum_name);
+                this.eut = (CheckBox) view.findViewById(d.h.transmit_check_box);
+                this.euu = (BarImageView) view.findViewById(d.h.forum_avatar);
             }
         }
 
         public void b(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.bKm.setText(transmitForumData.forumName);
-                this.euH.setChecked(transmitForumData.checked);
-                this.euI.c(transmitForumData.avatar, 10, false);
-                if (transmitForumData.aaq) {
-                    this.euH.setButtonDrawable(this.gIX);
+                this.bKa.setText(transmitForumData.forumName);
+                this.eut.setChecked(transmitForumData.checked);
+                this.euu.c(transmitForumData.avatar, 10, false);
+                if (transmitForumData.aae) {
+                    this.eut.setButtonDrawable(this.gII);
                 } else {
-                    this.euH.setButtonDrawable(this.euJ);
+                    this.eut.setButtonDrawable(this.euv);
                 }
             }
         }
 
-        public void wB() {
-            if (b.euG != this.mSkinType) {
-                aj.i(this.bKm, d.e.cp_cont_b);
-                this.gIX = aj.getDrawable(d.g.icon_list_confirm_d);
-                this.euJ = aj.getDrawable(d.g.transmit_check_box);
+        public void wu() {
+            if (b.eus != this.mSkinType) {
+                aj.i(this.bKa, d.e.cp_cont_b);
+                this.gII = aj.getDrawable(d.g.icon_list_confirm_d);
+                this.euv = aj.getDrawable(d.g.transmit_check_box);
             }
-            this.mSkinType = b.euG;
+            this.mSkinType = b.eus;
         }
     }
 
@@ -106,10 +106,10 @@ public class b extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void oQ(int i) {
-        if (euG != i) {
+    public void oP(int i) {
+        if (eus != i) {
             notifyDataSetChanged();
         }
-        euG = i;
+        eus = i;
     }
 }

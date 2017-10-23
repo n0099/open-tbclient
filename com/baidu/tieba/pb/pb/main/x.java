@@ -1,23 +1,23 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes.dex */
 public class x {
-    public String eHC;
-    public boolean eHD;
-    public boolean eHE;
-    public boolean eHo = false;
-    public boolean eHp = false;
-    public boolean eHq = false;
-    public boolean ezs = false;
-    public boolean eHr = false;
-    public boolean eHs = false;
-    public boolean eHt = false;
-    public boolean eHu = false;
-    public boolean eHv = false;
-    public boolean eHw = false;
-    public boolean eHx = false;
-    public boolean eHy = false;
-    public boolean eHz = false;
-    public boolean eHA = false;
-    public boolean eHB = false;
+    public String eHo;
+    public boolean eHp;
+    public boolean eHq;
+    public boolean eHa = false;
+    public boolean eHb = false;
+    public boolean eHc = false;
+    public boolean eze = false;
+    public boolean eHd = false;
+    public boolean eHe = false;
+    public boolean eHf = false;
+    public boolean eHg = false;
+    public boolean eHh = false;
+    public boolean eHi = false;
+    public boolean eHj = false;
+    public boolean eHk = false;
+    public boolean eHl = false;
+    public boolean eHm = false;
+    public boolean eHn = false;
     public boolean isHostOnly = false;
 }

@@ -8,43 +8,43 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    private static volatile l fWA;
-    private final Map<Long, UserStoryData> fWy = new HashMap();
-    private MetaData fWz;
+    private static volatile l fWm;
+    private final Map<Long, UserStoryData> fWk = new HashMap();
+    private MetaData fWl;
 
     private l() {
     }
 
-    public static l bmY() {
-        if (fWA == null) {
+    public static l bmR() {
+        if (fWm == null) {
             synchronized (l.class) {
-                if (fWA == null) {
-                    fWA = new l();
+                if (fWm == null) {
+                    fWm = new l();
                 }
             }
         }
-        return fWA;
+        return fWm;
     }
 
     public void a(long j, UserStoryData userStoryData) {
-        this.fWy.put(Long.valueOf(j), userStoryData);
+        this.fWk.put(Long.valueOf(j), userStoryData);
     }
 
     public void d(MetaData metaData) {
-        this.fWz = metaData;
+        this.fWl = metaData;
     }
 
-    public MetaData bmZ() {
-        return this.fWz;
+    public MetaData bmS() {
+        return this.fWl;
     }
 
-    public UserStoryData cE(long j) {
-        return this.fWy.get(Long.valueOf(j));
+    public UserStoryData cF(long j) {
+        return this.fWk.get(Long.valueOf(j));
     }
 
     public void clear() {
-        this.fWy.clear();
-        this.fWz = null;
+        this.fWk.clear();
+        this.fWl = null;
     }
 
     public boolean a(d dVar, List<MetaData> list, int i, long j, long j2, f fVar) {
@@ -69,15 +69,15 @@ public class l {
         return true;
     }
 
-    public int bna() {
+    public int bmT() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), 0);
     }
 
-    public void bnb() {
-        tb(0);
+    public void bmU() {
+        ta(0);
     }
 
-    public void tb(int i) {
+    public void ta(int i) {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), i);
     }
 }

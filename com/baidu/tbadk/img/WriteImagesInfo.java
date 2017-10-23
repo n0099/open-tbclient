@@ -156,7 +156,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     imageFileInfo.parseJson(optJSONArray.optJSONObject(i));
-                    imageFileInfo.setIsLong(com.baidu.tbadk.core.util.k.dl(imageFileInfo.getFilePath()));
+                    imageFileInfo.setIsLong(com.baidu.tbadk.core.util.k.dk(imageFileInfo.getFilePath()));
                     this.chosedFiles.add(imageFileInfo);
                 }
             }
@@ -191,7 +191,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
             for (int size = chosedFiles.size() - 1; size >= 0; size--) {
                 ImageFileInfo imageFileInfo = chosedFiles.get(size);
                 if (!imageFileInfo.isHasAddPostQualityAction()) {
-                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.K(an.vs().vy(), an.vs().vy()));
+                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.K(an.vl().vr(), an.vl().vr()));
                     imageFileInfo.setHasAddPostQualityAction(true);
                 }
             }

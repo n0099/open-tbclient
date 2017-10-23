@@ -20,10 +20,10 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ax {
-    private static int ahB = -1;
-    private static int ahC = -1;
-    private static boolean ahD = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> ahE = new com.baidu.adp.lib.e.a<>(500);
+    private static int ahp = -1;
+    private static int ahq = -1;
+    private static boolean ahr = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> ahs = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -31,29 +31,29 @@ public class ax {
         boolean w(View view);
     }
 
-    public static void aR(Context context) {
+    public static void aQ(Context context) {
         mAppContext = context;
-        ahD = true;
+        ahr = true;
     }
 
-    private static void vI() {
+    private static void vB() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            ahC = mAppContext.getResources().getColor(d.e.common_color_10097);
-            ahB = mAppContext.getResources().getColor(d.e.common_color_10004);
+            ahq = mAppContext.getResources().getColor(d.e.common_color_10097);
+            ahp = mAppContext.getResources().getColor(d.e.common_color_10004);
         }
     }
 
-    private static int cZ(int i) {
-        return aF(i == 1);
+    private static int cY(int i) {
+        return aE(i == 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int aF(boolean z) {
-        if (ahD) {
-            ahD = false;
-            vI();
+    public static int aE(boolean z) {
+        if (ahr) {
+            ahr = false;
+            vB();
         }
-        return z ? ahB : ahC;
+        return z ? ahp : ahq;
     }
 
     public static void y(View view) {
@@ -64,16 +64,16 @@ public class ax {
 
     public static void z(View view) {
         if (view != null) {
-            ahE.remove(Integer.valueOf(System.identityHashCode(view)));
+            ahs.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void a(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = ahE.get(Integer.valueOf(identityHashCode));
+        Integer num = ahs.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             b(viewGroup, i);
-            ahE.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            ahs.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -125,25 +125,25 @@ public class ax {
                         return false;
                     } else if ("skin_more_up".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(ax.aF(z));
+                            ((RadioButton) view).setTextColor(ax.aE(z));
                         }
                         aj.j(view, d.g.more_up);
                         return false;
                     } else if ("skin_more_middle".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(ax.aF(z));
+                            ((RadioButton) view).setTextColor(ax.aE(z));
                         }
                         aj.j(view, d.g.more_middle);
                         return false;
                     } else if ("skin_more_down".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(ax.aF(z));
+                            ((RadioButton) view).setTextColor(ax.aE(z));
                         }
                         aj.j(view, d.g.more_down);
                         return false;
                     } else if ("skin_more_all".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(ax.aF(z));
+                            ((RadioButton) view).setTextColor(ax.aE(z));
                         }
                         aj.j(view, d.g.more_all);
                         return false;
@@ -172,17 +172,17 @@ public class ax {
         }
     }
 
-    public static void aS(Context context) {
+    public static void aR(Context context) {
         if (context != null) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RegisterActivityConfig(context, 3, true)));
         }
     }
 
-    public static void aT(Context context) {
+    public static void aS(Context context) {
         if (context != null) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            if (com.baidu.tbadk.coreExtra.a.a.aqb != null && com.baidu.tbadk.coreExtra.a.a.aqb == Domain.DOMAIN_QA) {
+            if (com.baidu.tbadk.coreExtra.a.a.apP != null && com.baidu.tbadk.coreExtra.a.a.apP == Domain.DOMAIN_QA) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new QALoginActivityConfig(context, true)));
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, 3, true)));
@@ -190,10 +190,10 @@ public class ax {
         }
     }
 
-    public static boolean aU(Context context) {
+    public static boolean aT(Context context) {
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (!isLogin) {
-            aT(context);
+            aS(context);
         }
         return isLogin;
     }
@@ -210,13 +210,13 @@ public class ax {
 
     public static void b(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(cZ(i));
+            textView.setTextColor(cY(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(cZ(i));
+            checkBox.setTextColor(cY(i));
         }
     }
 

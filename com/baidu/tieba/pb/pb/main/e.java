@@ -15,31 +15,31 @@ public class e extends com.baidu.tbadk.core.dialog.a {
 
     /* loaded from: classes.dex */
     public static class a extends b {
-        public String eBj = null;
-        public String eBk = null;
-        public String cPb = null;
+        public String eAV = null;
+        public String eAW = null;
+        public String cOP = null;
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        public String eBl = null;
-        public String eBm = null;
-        public a.b eBn = null;
-        public a.b eBo = null;
+        public String eAX = null;
+        public String eAY = null;
+        public a.b eAZ = null;
+        public a.b eBa = null;
         public com.baidu.adp.base.e<?> mPageContext;
     }
 
     /* loaded from: classes.dex */
     public static class c extends b {
-        public String eBp = null;
-        public String eBq = null;
+        public String eBb = null;
+        public String eBc = null;
     }
 
     /* loaded from: classes.dex */
     public static class d extends b {
-        public CharSequence eBr = null;
-        public CharSequence eBs = null;
-        public CharSequence eBt = null;
+        public CharSequence eBd = null;
+        public CharSequence eBe = null;
+        public CharSequence eBf = null;
     }
 
     public e(Activity activity) {
@@ -50,16 +50,16 @@ public class e extends com.baidu.tbadk.core.dialog.a {
         if (cVar != null) {
             View inflate = LayoutInflater.from(this.mActivity).inflate(d.j.pb_dlg_txt, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(d.h.tip_top);
-            textView.setText(cVar.eBp);
+            textView.setText(cVar.eBb);
             com.baidu.tbadk.core.util.aj.c(textView, d.e.cp_cont_b, 1);
             TextView textView2 = (TextView) inflate.findViewById(d.h.tip_bottom);
-            textView2.setText(cVar.eBq);
+            textView2.setText(cVar.eBc);
             com.baidu.tbadk.core.util.aj.c(textView2, d.e.cp_cont_b, 1);
             v(inflate);
-            a(cVar.eBm, cVar.eBo);
-            b(cVar.eBl, cVar.eBn);
-            as(false);
-            b(cVar.mPageContext).ti();
+            a(cVar.eAY, cVar.eBa);
+            b(cVar.eAX, cVar.eAZ);
+            ar(false);
+            b(cVar.mPageContext).tb();
         }
     }
 
@@ -68,10 +68,10 @@ public class e extends com.baidu.tbadk.core.dialog.a {
             int skinType = isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0;
             View inflate = LayoutInflater.from(this.mActivity).inflate(d.j.lottery_dialog, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(d.h.lottery_title);
-            textView.setText(aVar.eBj);
+            textView.setText(aVar.eAV);
             com.baidu.tbadk.core.util.aj.c(textView, d.e.cp_cont_b, 1);
             TextView textView2 = (TextView) inflate.findViewById(d.h.lottery_des);
-            textView2.setText(aVar.eBk);
+            textView2.setText(aVar.eAW);
             com.baidu.tbadk.core.util.aj.c(textView2, d.e.cp_cont_b, 1);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(d.h.lottery_image_bg);
             int f = com.baidu.adp.lib.util.l.f(this.mActivity, d.f.ds170);
@@ -85,15 +85,15 @@ public class e extends com.baidu.tbadk.core.dialog.a {
             layoutParams2.width = (int) (f2 * 1.2272727272727273d);
             layoutParams2.height = f2;
             tbImageView2.setLayoutParams(layoutParams2);
-            tbImageView2.c(aVar.cPb, 10, false);
+            tbImageView2.c(aVar.cOP, 10, false);
             v(inflate);
-            a(aVar.eBm, aVar.eBo);
-            b(aVar.eBl, aVar.eBn);
-            as(false);
-            cf(1);
+            a(aVar.eAY, aVar.eBa);
+            b(aVar.eAX, aVar.eAZ);
+            ar(false);
+            ce(1);
             b(aVar.mPageContext);
-            com.baidu.tbadk.core.util.aj.d(tj(), d.g.dialog_push_bg, skinType);
-            ti();
+            com.baidu.tbadk.core.util.aj.d(tc(), d.g.dialog_push_bg, skinType);
+            tb();
         }
     }
 
@@ -101,19 +101,19 @@ public class e extends com.baidu.tbadk.core.dialog.a {
         if (dVar != null) {
             View inflate = LayoutInflater.from(this.mActivity).inflate(d.j.pb_three_row_text_dlg, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(d.h.first_row);
-            textView.setText(dVar.eBr);
+            textView.setText(dVar.eBd);
             com.baidu.tbadk.core.util.aj.c(textView, d.e.cp_cont_b, 1);
             TextView textView2 = (TextView) inflate.findViewById(d.h.second_row);
-            textView2.setText(dVar.eBs);
+            textView2.setText(dVar.eBe);
             com.baidu.tbadk.core.util.aj.c(textView2, d.e.cp_cont_b, 1);
             TextView textView3 = (TextView) inflate.findViewById(d.h.third_row);
-            textView3.setText(dVar.eBt);
+            textView3.setText(dVar.eBf);
             com.baidu.tbadk.core.util.aj.c(textView3, d.e.cp_cont_b, 1);
             v(inflate);
-            a(dVar.eBm, dVar.eBo);
-            b(dVar.eBl, dVar.eBn);
-            as(false);
-            b(dVar.mPageContext).ti();
+            a(dVar.eAY, dVar.eBa);
+            b(dVar.eAX, dVar.eAZ);
+            ar(false);
+            b(dVar.mPageContext).tb();
         }
     }
 }

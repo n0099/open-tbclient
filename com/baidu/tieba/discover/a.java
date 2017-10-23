@@ -20,30 +20,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseFragment implements ai {
-    private b bZv;
-    private boolean bZw;
+    private b bZj;
+    private boolean bZk;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean blC = true;
+    private boolean blo = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_HTML_LOADED) { // from class: com.baidu.tieba.discover.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.bZv != null && a.this.bZv.Pc() != null && a.this.bZv.Pc().getUrl() != null) {
-                if (a.this.bZv.Pc().getUrl().contains((String) customResponsedMessage.getData())) {
-                    a.this.bZv.NZ();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.bZj != null && a.this.bZj.OW() != null && a.this.bZj.OW().getUrl() != null) {
+                if (a.this.bZj.OW().getUrl().contains((String) customResponsedMessage.getData())) {
+                    a.this.bZj.NT();
                 }
             }
         }
     };
-    private CustomMessageListener bZx = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
+    private CustomMessageListener bZl = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    a.this.NJ();
+                    a.this.ND();
                 } else {
-                    a.this.NK();
+                    a.this.NE();
                 }
             }
         }
@@ -51,33 +51,34 @@ public class a extends BaseFragment implements ai {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.bZv = new b();
-        return this.bZv.a(layoutInflater, viewGroup);
+        this.bZj = new b();
+        return this.bZj.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.bZv.j(getPageContext());
+        this.bZj.j(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.bZx);
-        x.a(this.bZv.Pc(), getUniqueId());
+        registerListener(this.bZl);
+        x.a(this.bZj.OW(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.blC || StringUtils.isNull(this.bZv.Pc().getUrl())) {
+        if (this.blo || StringUtils.isNull(this.bZj.OW().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.bZv.loadUrl(ig(this.mUrl));
+                this.bZj.loadUrl(m12if(this.mUrl));
             } else {
-                this.bZv.loadUrl(this.mUrl);
+                this.bZj.loadUrl(this.mUrl);
             }
-            this.blC = false;
+            this.blo = false;
         }
     }
 
-    private String ig(String str) {
+    /* renamed from: if  reason: not valid java name */
+    private String m12if(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -97,8 +98,8 @@ public class a extends BaseFragment implements ai {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.bZv != null) {
-            this.bZv.onDestroy();
+        if (this.bZj != null) {
+            this.bZj.onDestroy();
         }
     }
 
@@ -124,32 +125,32 @@ public class a extends BaseFragment implements ai {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.blC) {
+        if (!this.blo) {
             if (i == 1) {
-                this.bZv.loadUrl(ig(this.mUrl));
+                this.bZj.loadUrl(m12if(this.mUrl));
             } else {
-                this.bZv.loadUrl(this.mUrl);
+                this.bZj.loadUrl(this.mUrl);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void NI() {
+    public void NC() {
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void NJ() {
-        if (this.bZv != null && !this.bZw) {
-            this.bZw = true;
-            this.bZv.abI();
+    public void ND() {
+        if (this.bZj != null && !this.bZk) {
+            this.bZk = true;
+            this.bZj.abE();
         }
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void NK() {
-        if (this.bZv != null && this.bZw) {
-            this.bZw = false;
-            this.bZv.abJ();
+    public void NE() {
+        if (this.bZj != null && this.bZk) {
+            this.bZk = false;
+            this.bZj.abF();
         }
     }
 
@@ -166,7 +167,7 @@ public class a extends BaseFragment implements ai {
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void wB() {
+    public void wu() {
     }
 
     @Override // com.baidu.tieba.frs.ai

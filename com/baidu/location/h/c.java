@@ -6,7 +6,7 @@ import android.telephony.TelephonyManager;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c {
-    private static c OB = null;
+    private static c Os = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -21,11 +21,11 @@ public class c {
         }
     }
 
-    public static c nh() {
-        if (OB == null) {
-            OB = new c();
+    public static c nb() {
+        if (Os == null) {
+            Os = new c();
         }
-        return OB;
+        return Os;
     }
 
     public String a(boolean z) {
@@ -81,10 +81,10 @@ public class c {
             stringBuffer.append("&laip=");
             stringBuffer.append(b);
         }
-        float mi = com.baidu.location.a.f.mh().mi();
-        if (mi != 0.0f) {
+        float mc = com.baidu.location.a.f.mb().mc();
+        if (mc != 0.0f) {
             stringBuffer.append("&altv=");
-            stringBuffer.append(String.format(Locale.US, "%.2f", Float.valueOf(mi)));
+            stringBuffer.append(String.format(Locale.US, "%.2f", Float.valueOf(mc)));
         }
         stringBuffer.append("&resid=");
         stringBuffer.append("12");

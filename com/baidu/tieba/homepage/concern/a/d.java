@@ -14,7 +14,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     Context mContext;
 
     public d(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.cWp);
+        super(context, com.baidu.tieba.homepage.concern.b.a.cWd);
         this.mContext = context;
     }
 
@@ -31,10 +31,10 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        if (aVar.aje != null) {
-            aVar2.akL.setText(aVar.aje);
+        if (aVar.aiS != null) {
+            aVar2.akz.setText(aVar.aiS);
         }
-        switch (aVar.cWq) {
+        switch (aVar.cWe) {
             case 2:
                 aVar2.aM(TbadkCoreApplication.getInst().getSkinType(), d.g.emotion_dashen);
                 break;
@@ -47,31 +47,31 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes.dex */
     public class a extends j.a {
-        public TextView akL;
-        private int aoZ;
-        public View cVZ;
-        public ViewGroup cWa;
-        public ImageView cWb;
-        public View cWc;
+        public TextView akz;
+        private int aoN;
+        public View cVN;
+        public ViewGroup cVO;
+        public ImageView cVP;
+        public View cVQ;
 
         public a(View view) {
             super(view);
-            this.aoZ = 3;
-            this.cVZ = view.findViewById(d.h.concern_emotion_tip_top_line);
-            this.cWa = (ViewGroup) view.findViewById(d.h.ll_concern_emotion_tip);
-            this.cWb = (ImageView) view.findViewById(d.h.iv_concern_emotion_tip_pic);
-            this.akL = (TextView) view.findViewById(d.h.tv_concern_emotion_tip);
-            this.cWc = view.findViewById(d.h.concern_emotion_tip_bottom_line);
+            this.aoN = 3;
+            this.cVN = view.findViewById(d.h.concern_emotion_tip_top_line);
+            this.cVO = (ViewGroup) view.findViewById(d.h.ll_concern_emotion_tip);
+            this.cVP = (ImageView) view.findViewById(d.h.iv_concern_emotion_tip_pic);
+            this.akz = (TextView) view.findViewById(d.h.tv_concern_emotion_tip);
+            this.cVQ = view.findViewById(d.h.concern_emotion_tip_bottom_line);
         }
 
         protected void aM(int i, int i2) {
-            if (this.aoZ != i) {
-                aj.k(this.cVZ, d.e.cp_bg_line_c);
-                aj.c(this.cWb, i2);
-                aj.i(this.akL, d.e.cp_cont_b);
-                aj.k(this.cWc, d.e.cp_bg_line_c);
+            if (this.aoN != i) {
+                aj.k(this.cVN, d.e.cp_bg_line_c);
+                aj.c(this.cVP, i2);
+                aj.i(this.akz, d.e.cp_cont_b);
+                aj.k(this.cVQ, d.e.cp_bg_line_c);
             }
-            this.aoZ = i;
+            this.aoN = i;
         }
     }
 }

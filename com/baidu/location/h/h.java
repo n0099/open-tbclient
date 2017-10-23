@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 /* loaded from: classes.dex */
 public final class h {
-    private static volatile h OI = null;
-    public static String a = nk().b() + "/baidu/tempdata";
+    private static volatile h Oz = null;
+    public static String a = ne().b() + "/baidu/tempdata";
     private final List<g> b = new ArrayList();
     private Context d;
 
@@ -141,18 +141,18 @@ public final class h {
         return this.b;
     }
 
-    public static h nk() {
-        if (OI == null) {
+    public static h ne() {
+        if (Oz == null) {
             synchronized (h.class) {
-                if (OI == null) {
-                    OI = new h(com.baidu.location.f.getServiceContext());
+                if (Oz == null) {
+                    Oz = new h(com.baidu.location.f.getServiceContext());
                 }
             }
         }
-        return OI;
+        return Oz;
     }
 
-    private List<g> nl() {
+    private List<g> nf() {
         boolean z;
         try {
             StorageManager storageManager = (StorageManager) this.d.getSystemService("storage");
@@ -213,7 +213,7 @@ public final class h {
     }
 
     public List<g> c() {
-        List<g> nl = Build.VERSION.SDK_INT >= 14 ? nl() : null;
-        return (nl == null || nl.size() <= 0) ? e() : nl;
+        List<g> nf = Build.VERSION.SDK_INT >= 14 ? nf() : null;
+        return (nf == null || nf.size() <= 0) ? e() : nf;
     }
 }

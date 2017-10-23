@@ -19,20 +19,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h xU = null;
+    private static h xV = null;
 
     public static h gT() {
         h hVar;
-        if (xU == null) {
+        if (xV == null) {
             synchronized (h.class) {
-                if (xU == null) {
-                    xU = new h();
+                if (xV == null) {
+                    xV = new h();
                 }
-                hVar = xU;
+                hVar = xV;
             }
             return hVar;
         }
-        return xU;
+        return xV;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -289,24 +289,24 @@ public class h {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Object, Object, Object> {
-        String xV;
         String xW;
-        StringBuilder xX;
-        i xY;
-        boolean xZ = false;
+        String xX;
+        StringBuilder xY;
+        i xZ;
+        boolean ya = false;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
-            this.xV = str;
-            this.xW = str2;
-            this.xX = sb;
-            this.xY = iVar;
+            this.xW = str;
+            this.xX = str2;
+            this.xY = sb;
+            this.xZ = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object... objArr) {
-            this.xZ = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.xV, this.xX);
-            if (!this.xZ) {
-                h.this.a(this.xW, "".getBytes(), this.xX);
+            this.ya = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.xW, this.xY);
+            if (!this.ya) {
+                h.this.a(this.xX, "".getBytes(), this.xY);
                 return null;
             }
             return null;
@@ -315,11 +315,11 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.xX.length() > 0) {
-                BdStatisticsManager.getInstance().error("so", "load_" + this.xV + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.xX.toString(), new Object[0]);
+            if (this.xY.length() > 0) {
+                BdStatisticsManager.getInstance().error("so", "load_" + this.xW + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.xY.toString(), new Object[0]);
             }
-            if (this.xY != null) {
-                this.xY.p(this.xZ);
+            if (this.xZ != null) {
+                this.xZ.p(this.ya);
             }
         }
     }

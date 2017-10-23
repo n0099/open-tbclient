@@ -12,27 +12,27 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.enterForum.b.g;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tbadk.mvc.f.a<g, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter ccl;
-    private View ceL;
-    private TextView ceM;
-    private ImageView ceN;
-    private View ceO;
-    private RelativeLayout.LayoutParams ceP;
+    private ViewEventCenter cbZ;
+    private TextView ceA;
+    private ImageView ceB;
+    private View ceC;
+    private RelativeLayout.LayoutParams ceD;
+    private View cez;
     private int padding;
 
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.padding = 0;
-        this.ceL = view.findViewById(d.h.container_edit_forum);
-        this.ccl = viewEventCenter;
-        this.ceM = (TextView) view.findViewById(d.h.forum_name_view);
-        this.ceN = (ImageView) view.findViewById(d.h.delete_forum_view);
-        this.ceO = view.findViewById(d.h.divider_left_name);
-        this.ceN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.e.1
+        this.cez = view.findViewById(d.h.container_edit_forum);
+        this.cbZ = viewEventCenter;
+        this.ceA = (TextView) view.findViewById(d.h.forum_name_view);
+        this.ceB = (ImageView) view.findViewById(d.h.delete_forum_view);
+        this.ceC = view.findViewById(d.h.divider_left_name);
+        this.ceB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (e.this.ccl != null) {
-                    e.this.ccl.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(4, e.this.getData(), null, null));
+                if (e.this.cbZ != null) {
+                    e.this.cbZ.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(4, e.this.getData(), null, null));
                 }
             }
         });
@@ -46,27 +46,27 @@ public class e extends com.baidu.tbadk.mvc.f.a<g, com.baidu.tbadk.mvc.d.b> {
         super.D(gVar);
         if (gVar != null) {
             if (gVar.getType() == 1) {
-                aj.c(this.ceM, d.e.cp_cont_d, 1);
-                this.ceM.setText(d.l.default_personalized_name);
-                aj.j(this.ceL, d.e.cp_bg_line_d);
-                this.ceN.setVisibility(8);
+                aj.c(this.ceA, d.e.cp_cont_d, 1);
+                this.ceA.setText(d.l.default_personalized_name);
+                aj.j(this.cez, d.e.cp_bg_line_d);
+                this.ceB.setVisibility(8);
             } else {
-                aj.c(this.ceM, d.e.cp_cont_b, 1);
-                this.ceM.setText(gVar.getName());
-                this.ceN.setVisibility(0);
-                aj.j(this.ceL, d.g.forum_item_bg);
+                aj.c(this.ceA, d.e.cp_cont_b, 1);
+                this.ceA.setText(gVar.getName());
+                this.ceB.setVisibility(0);
+                aj.j(this.cez, d.g.forum_item_bg);
             }
-            this.ceP = (RelativeLayout.LayoutParams) this.ceN.getLayoutParams();
+            this.ceD = (RelativeLayout.LayoutParams) this.ceB.getLayoutParams();
             if (this.position % 2 == 0) {
-                this.ceO.setVisibility(8);
-                this.ceP.leftMargin = 0;
+                this.ceC.setVisibility(8);
+                this.ceD.leftMargin = 0;
             } else {
-                this.ceO.setVisibility(0);
-                this.ceP.leftMargin = this.padding;
-                this.ceP.rightMargin = this.padding;
+                this.ceC.setVisibility(0);
+                this.ceD.leftMargin = this.padding;
+                this.ceD.rightMargin = this.padding;
             }
-            if (this.ceN.getVisibility() == 0) {
-                this.ceN.setLayoutParams(this.ceP);
+            if (this.ceB.getVisibility() == 0) {
+                this.ceB.setLayoutParams(this.ceD);
             }
         }
     }
@@ -74,7 +74,7 @@ public class e extends com.baidu.tbadk.mvc.f.a<g, com.baidu.tbadk.mvc.d.b> {
     @Override // com.baidu.tieba.tbadkCore.l
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.n.a.a(tbPageContext, getRootView());
-        aj.j(this.ceL, d.g.forum_item_bg);
+        aj.j(this.cez, d.g.forum_item_bg);
         return true;
     }
 }

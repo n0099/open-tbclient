@@ -9,12 +9,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.c, com.baidu.tbadk.i.a> {
-    private View.OnClickListener bat;
-    private TbPageContext mG;
+    private View.OnClickListener baf;
+    private TbPageContext mH;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.c.ayZ, bdUniqueId);
-        this.mG = tbPageContext;
+        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.c.ayN, bdUniqueId);
+        this.mH = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.c, c
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: e */
     public com.baidu.tbadk.i.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tbadk.i.a(LayoutInflater.from(this.mG.getPageActivity()).inflate(d.j.entrance_pic_add_item, (ViewGroup) null));
+        return new com.baidu.tbadk.i.a(LayoutInflater.from(this.mH.getPageActivity()).inflate(d.j.entrance_pic_add_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.c, c
         if (aVar == null || cVar == null) {
             return null;
         }
-        aVar.aEK.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.c.1
+        aVar.aEx.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.c.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
@@ -46,12 +46,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.c, c
                 return view2.onTouchEvent(motionEvent);
             }
         });
-        aVar.setOnClick(this.bat);
+        aVar.setOnClick(this.baf);
         aVar.c(cVar);
         return aVar.getView();
     }
 
     public void setOnClick(View.OnClickListener onClickListener) {
-        this.bat = onClickListener;
+        this.baf = onClickListener;
     }
 }

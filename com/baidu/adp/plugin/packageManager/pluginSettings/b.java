@@ -21,55 +21,55 @@ import plugin.writeSettings.ReqData;
 import plugin.writeSettings.WriteSettingsReqIdl;
 /* loaded from: classes.dex */
 public class b {
-    private static b En;
-    private a Eo;
-    private boolean Eq;
-    private e Er;
-    private static final BdUniqueId Em = BdUniqueId.gen();
-    public static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, Em);
-    private PluginSettings Ep = new PluginSettings();
+    private static b Eo;
+    private a Ep;
+    private boolean Er;
+    private e Es;
+    private static final BdUniqueId En = BdUniqueId.gen();
+    public static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, En);
+    private PluginSettings Eq = new PluginSettings();
     private final int BUFFER_SIZE = 1024;
 
     public static b jT() {
-        if (En == null) {
+        if (Eo == null) {
             synchronized (b.class) {
-                if (En == null) {
-                    En = new b();
+                if (Eo == null) {
+                    Eo = new b();
                 }
             }
         }
-        return En;
+        return Eo;
     }
 
     private b() {
     }
 
     public PluginSettings jU() {
-        return this.Ep;
+        return this.Eq;
     }
 
     public void a(e eVar) {
         boolean z;
         PluginSettings pluginSettings;
-        if (!this.Eq) {
-            this.Er = eVar;
+        if (!this.Er) {
+            this.Es = eVar;
             try {
                 z = new File(jW()).exists();
             } catch (Exception e) {
                 z = true;
             }
-            this.Eq = true;
+            this.Er = true;
             PluginSettings jV = jV();
-            this.Eq = false;
+            this.Er = false;
             if (jV != null) {
-                this.Ep = jV;
+                this.Eq = jV;
                 pluginSettings = jV;
             } else {
-                this.Eq = true;
+                this.Er = true;
                 PluginSettings jV2 = jV();
-                this.Eq = false;
+                this.Er = false;
                 if (jV2 != null) {
-                    this.Ep = jV2;
+                    this.Eq = jV2;
                     pluginSettings = jV2;
                 } else {
                     if (z) {
@@ -79,9 +79,9 @@ public class b {
                     pluginSettings = jV2;
                 }
             }
-            if (this.Er != null) {
-                this.Er.a(pluginSettings);
-                this.Er = null;
+            if (this.Es != null) {
+                this.Es.a(pluginSettings);
+                this.Es = null;
             }
         }
     }
@@ -225,46 +225,46 @@ public class b {
 
     public void save(PluginSettings pluginSettings, d dVar) {
         if (pluginSettings != null) {
-            this.Ep = pluginSettings;
-            if (this.Eq && this.Er != null) {
-                this.Er.a(this.Ep);
-                this.Er = null;
-                this.Eq = false;
+            this.Eq = pluginSettings;
+            if (this.Er && this.Es != null) {
+                this.Es.a(this.Eq);
+                this.Es = null;
+                this.Er = false;
             }
-            if (this.Eo != null) {
-                this.Eo.cancel();
-                this.Eo = null;
+            if (this.Ep != null) {
+                this.Ep.cancel();
+                this.Ep = null;
             }
             if (TextUtils.isEmpty(pluginSettings.getContainerVersion())) {
                 pluginSettings.setContainerSetting("");
             }
-            this.Eo = new a(pluginSettings, dVar);
-            this.Eo.setParallel(sBdAsyncTaskParallel);
-            this.Eo.execute(new String[0]);
+            this.Ep = new a(pluginSettings, dVar);
+            this.Ep.setParallel(sBdAsyncTaskParallel);
+            this.Ep.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
-        private PluginSettings Es;
-        private d Et;
+        private PluginSettings Et;
+        private d Eu;
 
         public a(PluginSettings pluginSettings, d dVar) {
-            this.Es = pluginSettings;
-            this.Et = dVar;
+            this.Et = pluginSettings;
+            this.Eu = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.Es == null || this.Es.getPlugins() == null) {
+            if (this.Et == null || this.Et.getPlugins() == null) {
                 return false;
             }
             ReqData.Builder builder = new ReqData.Builder();
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry<String, PluginSetting> entry : this.Es.getPlugins().entrySet()) {
+            for (Map.Entry<String, PluginSetting> entry : this.Et.getPlugins().entrySet()) {
                 PluginSetting value = entry.getValue();
                 if (value != null) {
                     Plugin_setting.Builder builder2 = new Plugin_setting.Builder();
@@ -306,8 +306,8 @@ public class b {
                 }
             }
             builder.plugin_settings_list = arrayList;
-            builder.container_version = this.Es.getContainerVersion();
-            builder.forbidden_feature = this.Es.getForbiddenFeatures();
+            builder.container_version = this.Et.getContainerVersion();
+            builder.forbidden_feature = this.Et.getForbiddenFeatures();
             WriteSettingsReqIdl.Builder builder3 = new WriteSettingsReqIdl.Builder();
             try {
                 builder3.data = builder.build(false);
@@ -324,11 +324,11 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            if (this.Et != null) {
+            if (this.Eu != null) {
                 if (bool != null && bool.booleanValue()) {
-                    this.Et.ka();
+                    this.Eu.ka();
                 } else {
-                    this.Et.kb();
+                    this.Eu.kb();
                 }
             }
         }
@@ -336,8 +336,8 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            if (this.Et != null) {
-                this.Et.kb();
+            if (this.Eu != null) {
+                this.Eu.kb();
             }
         }
     }

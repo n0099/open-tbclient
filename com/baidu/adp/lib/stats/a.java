@@ -13,18 +13,18 @@ public class a {
     private long mStartTime;
     public String mType;
     public long sequenceID;
-    boolean wg;
-    private ArrayList<BasicNameValuePair> wh;
-    private StringBuilder wi;
+    boolean wh;
+    private ArrayList<BasicNameValuePair> wi;
+    private StringBuilder wj;
 
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.wg = false;
+        this.wh = false;
         this.mType = null;
-        this.wi = new StringBuilder(100);
+        this.wj = new StringBuilder(100);
         this.mType = str;
-        this.wg = false;
+        this.wh = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -32,27 +32,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.wg = false;
+        this.wh = false;
         this.mType = null;
-        this.wi = new StringBuilder(100);
+        this.wj = new StringBuilder(100);
     }
 
-    public void b(Object obj, Object obj2) {
+    public void c(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.wh == null) {
-                this.wh = new ArrayList<>();
+            if (this.wi == null) {
+                this.wi = new ArrayList<>();
             }
-            this.wh.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.wi.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.wi.length() > 0) {
-            sb.append((CharSequence) this.wi);
+        if (this.wj.length() > 0) {
+            sb.append((CharSequence) this.wj);
         }
-        if (this.wh != null) {
-            Iterator<BasicNameValuePair> it = this.wh.iterator();
+        if (this.wi != null) {
+            Iterator<BasicNameValuePair> it = this.wi.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -77,7 +77,7 @@ public class a {
         if (objArr != null) {
             for (int i = 0; i < objArr.length / 2; i++) {
                 if ((i * 2) + 1 < objArr.length) {
-                    b(objArr[i * 2], objArr[(i * 2) + 1]);
+                    c(objArr[i * 2], objArr[(i * 2) + 1]);
                 }
             }
         }
@@ -88,16 +88,16 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.wi.length() > 0) {
-                this.wi.append('&');
+            if (this.wj.length() > 0) {
+                this.wj.append('&');
             }
-            this.wi.append(str);
-            this.wi.append("=");
+            this.wj.append(str);
+            this.wj.append("=");
             try {
-                this.wi.append(URLEncoder.encode(am(str2), "utf-8"));
+                this.wj.append(URLEncoder.encode(am(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.wi.append(am(str2));
+                this.wj.append(am(str2));
             }
         }
     }

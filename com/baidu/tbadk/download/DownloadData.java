@@ -22,9 +22,9 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_NOVEL = 15;
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
     private static final long serialVersionUID = 1402749061179345930L;
-    private transient d aAc;
     private String action;
     private String app_icon;
+    private transient d azQ;
     private String check;
     private String description;
     private DownloadStaticsData downloadStaticsData;
@@ -97,7 +97,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aAc = null;
+        this.azQ = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -113,7 +113,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aAc = null;
+        this.azQ = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -130,7 +130,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aAc = null;
+        this.azQ = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -148,7 +148,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aAc = null;
+        this.azQ = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -157,7 +157,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.aAc = dVar;
+        this.azQ = dVar;
         this.status = 5;
     }
 
@@ -258,11 +258,11 @@ public class DownloadData implements Serializable, Cloneable {
     }
 
     public d getCallback() {
-        return this.aAc;
+        return this.azQ;
     }
 
     public void setCallback(d dVar) {
-        this.aAc = dVar;
+        this.azQ = dVar;
     }
 
     public String getStatusMsg() {

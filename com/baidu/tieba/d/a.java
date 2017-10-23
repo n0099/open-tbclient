@@ -11,45 +11,45 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a {
-    private int bTA;
-    private int bTB;
-    private int bTC;
-    private int bTD;
-    private boolean bTv;
-    private String bTw;
-    private View.OnClickListener bat;
+    private boolean bTj;
+    private String bTk;
+    private int bTo;
+    private int bTp;
+    private int bTq;
+    private int bTr;
+    private View.OnClickListener baf;
     private View ju;
-    private TbPageContext mG;
+    private TbPageContext mH;
     private String mMessage;
     private Handler mHandler = null;
-    private c bTu = null;
-    private int bTx = d.g.pic_sign_tip;
-    private int bTy = 0;
-    private int bTz = 1;
-    private int bxm = 1000;
-    private int bxl = 3000;
-    private int aVG = 5;
+    private c bTi = null;
+    private int bTl = d.g.pic_sign_tip;
+    private int bTm = 0;
+    private int bTn = 1;
+    private int bxa = 1000;
+    private int bwZ = 3000;
+    private int aVt = 5;
     private int mYOffset = 0;
-    private Runnable bTE = new Runnable() { // from class: com.baidu.tieba.d.a.1
+    private Runnable bTs = new Runnable() { // from class: com.baidu.tieba.d.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.bTu == null && !StringUtils.isNull(a.this.mMessage)) {
+            if (a.this.bTi == null && !StringUtils.isNull(a.this.mMessage)) {
                 com.baidu.adp.lib.guide.d dVar = new com.baidu.adp.lib.guide.d();
                 dVar.o(a.this.ju).ad(0).A(true).B(true);
                 dVar.a(new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.d.a.1.1
                     @Override // com.baidu.adp.lib.guide.b
                     public View a(LayoutInflater layoutInflater) {
-                        TextView textView = new TextView(a.this.mG.getPageActivity());
+                        TextView textView = new TextView(a.this.mH.getPageActivity());
                         textView.setText(a.this.mMessage);
                         textView.setGravity(17);
                         aj.i(textView, d.e.cp_cont_i);
-                        textView.setTextSize(0, a.this.mG.getResources().getDimensionPixelSize(d.f.fontsize28));
-                        textView.setHeight(a.this.mG.getResources().getDimensionPixelSize(d.f.ds76));
-                        textView.setPadding(a.this.bTA, a.this.bTB, a.this.bTC, a.this.bTD);
+                        textView.setTextSize(0, a.this.mH.getResources().getDimensionPixelSize(d.f.fontsize28));
+                        textView.setHeight(a.this.mH.getResources().getDimensionPixelSize(d.f.ds76));
+                        textView.setPadding(a.this.bTo, a.this.bTp, a.this.bTq, a.this.bTr);
                         textView.setSingleLine(true);
-                        aj.j(textView, a.this.bTx);
-                        if (a.this.bat != null) {
-                            textView.setOnClickListener(a.this.bat);
+                        aj.j(textView, a.this.bTl);
+                        if (a.this.baf != null) {
+                            textView.setOnClickListener(a.this.baf);
                         }
                         return textView;
                     }
@@ -66,7 +66,7 @@ public class a {
 
                     @Override // com.baidu.adp.lib.guide.b
                     public int getXOffset() {
-                        return a.this.aVG;
+                        return a.this.aVt;
                     }
 
                     @Override // com.baidu.adp.lib.guide.b
@@ -74,120 +74,120 @@ public class a {
                         return a.this.mYOffset;
                     }
                 });
-                a.this.bTu = dVar.eY();
-                a.this.bTu.y(false);
-                a.this.bTu.j(a.this.mG.getPageActivity());
-                a.this.bTv = true;
-                a.this.Zy();
-                a.this.mHandler.postDelayed(a.this.bTF, a.this.bxl);
+                a.this.bTi = dVar.eY();
+                a.this.bTi.y(false);
+                a.this.bTi.j(a.this.mH.getPageActivity());
+                a.this.bTj = true;
+                a.this.Zu();
+                a.this.mHandler.postDelayed(a.this.bTt, a.this.bwZ);
             }
         }
     };
-    private Runnable bTF = new Runnable() { // from class: com.baidu.tieba.d.a.2
+    private Runnable bTt = new Runnable() { // from class: com.baidu.tieba.d.a.2
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.bTu != null) {
-                a.this.bTu.dismiss();
+            if (a.this.bTi != null) {
+                a.this.bTi.dismiss();
             }
         }
     };
 
     public a(TbPageContext tbPageContext, View view) {
-        this.bTA = 0;
-        this.bTB = 0;
-        this.bTC = 0;
-        this.bTD = 0;
-        this.mG = tbPageContext;
+        this.bTo = 0;
+        this.bTp = 0;
+        this.bTq = 0;
+        this.bTr = 0;
+        this.mH = tbPageContext;
         this.ju = view;
-        this.bTA = this.mG.getResources().getDimensionPixelSize(d.f.ds24);
-        this.bTB = this.mG.getResources().getDimensionPixelSize(d.f.ds24);
-        this.bTC = this.mG.getResources().getDimensionPixelSize(d.f.ds24);
-        this.bTD = this.mG.getResources().getDimensionPixelSize(d.f.ds10);
+        this.bTo = this.mH.getResources().getDimensionPixelSize(d.f.ds24);
+        this.bTp = this.mH.getResources().getDimensionPixelSize(d.f.ds24);
+        this.bTq = this.mH.getResources().getDimensionPixelSize(d.f.ds24);
+        this.bTr = this.mH.getResources().getDimensionPixelSize(d.f.ds10);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zy() {
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(this.bTw, this.bTy + 1);
+    public void Zu() {
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(this.bTk, this.bTm + 1);
     }
 
-    public void aM(String str, String str2) {
+    public void aL(String str, String str2) {
         g(str, str2, false);
     }
 
     public void g(String str, String str2, boolean z) {
-        if (!this.bTv && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.ju != null && this.ju.getVisibility() == 0) {
+        if (!this.bTj && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.ju != null && this.ju.getVisibility() == 0) {
             this.mMessage = str;
-            this.bTw = str2;
-            this.bTy = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
-            if (this.bTy < this.bTz) {
+            this.bTk = str2;
+            this.bTm = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
+            if (this.bTm < this.bTn) {
                 if (z) {
-                    Zy();
-                    this.bTv = true;
+                    Zu();
+                    this.bTj = true;
                 }
                 if (this.mHandler == null) {
                     this.mHandler = new Handler();
                 }
-                this.mHandler.postDelayed(this.bTE, this.bxm);
+                this.mHandler.postDelayed(this.bTs, this.bxa);
             }
         }
     }
 
-    public void jz(String str) {
+    public void jy(String str) {
         if (!StringUtils.isNull(str)) {
             this.mMessage = str;
             if (this.mHandler == null) {
                 this.mHandler = new Handler();
             }
-            this.mHandler.postDelayed(this.bTE, this.bxm);
+            this.mHandler.postDelayed(this.bTs, this.bxa);
         }
     }
 
-    public void Zz() {
-        if (this.bTu != null) {
-            this.bTu.dismiss();
-            this.bTu = null;
+    public void Zv() {
+        if (this.bTi != null) {
+            this.bTi.dismiss();
+            this.bTi = null;
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.bTE);
-            this.mHandler.removeCallbacks(this.bTF);
+            this.mHandler.removeCallbacks(this.bTs);
+            this.mHandler.removeCallbacks(this.bTt);
+        }
+    }
+
+    public void id(int i) {
+        if (i > 0) {
+            this.bTl = i;
         }
     }
 
     public void ie(int i) {
         if (i > 0) {
-            this.bTx = i;
+            this.bwZ = i;
         }
     }
 
     /* renamed from: if  reason: not valid java name */
     public void m11if(int i) {
         if (i > 0) {
-            this.bxl = i;
+            this.bTn = i;
         }
     }
 
     public void ig(int i) {
-        if (i > 0) {
-            this.bTz = i;
-        }
+        this.aVt = i;
     }
 
     public void ih(int i) {
-        this.aVG = i;
-    }
-
-    public void ii(int i) {
         this.mYOffset = i;
     }
 
     public void l(int i, int i2, int i3, int i4) {
-        this.bTA = i;
-        this.bTB = i2;
-        this.bTC = i3;
-        this.bTD = i4;
+        this.bTo = i;
+        this.bTp = i2;
+        this.bTq = i3;
+        this.bTr = i4;
     }
 
     public void i(View.OnClickListener onClickListener) {
-        this.bat = onClickListener;
+        this.baf = onClickListener;
     }
 }

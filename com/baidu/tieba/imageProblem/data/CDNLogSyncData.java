@@ -9,59 +9,59 @@ import com.baidu.tbadk.core.util.s;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CDNLogSyncData {
-    private boolean Vi;
-    private int Vj;
-    private int Vk;
-    private int Vl = 25;
-    private int Vm = 25;
-    private int Vn = 10;
+    private boolean UW;
+    private int UX;
+    private int UY;
+    private int UZ = 25;
+    private int Va = 25;
+    private int Vb = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.Vl;
+        return this.UZ;
     }
 
     public void setSuccRank(int i) {
-        this.Vl = i;
+        this.UZ = i;
     }
 
     public int getErrRank() {
-        return this.Vm;
+        return this.Va;
     }
 
     public void setErrRank(int i) {
-        this.Vm = i;
+        this.Va = i;
     }
 
     public int getSlowRank() {
-        return this.Vn;
+        return this.Vb;
     }
 
     public void setSlowRank(int i) {
-        this.Vn = i;
+        this.Vb = i;
     }
 
     public boolean ismSwitch() {
-        return this.Vi;
+        return this.UW;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.Vi != z) {
+        if (this.UW != z) {
             a fK = s.fK();
             fK.p("act", "fallback");
             fK.p("result", z ? "1" : "0");
             fK.p("type", "switch");
             BdStatisticsManager.getInstance().debug("img", fK);
         }
-        this.Vi = z;
+        this.UW = z;
     }
 
     public int getSlowNumber() {
-        return this.Vj;
+        return this.UX;
     }
 
     public void setSlowNumber(int i) {
-        this.Vj = i;
+        this.UX = i;
     }
 
     public int getTime() {
@@ -73,11 +73,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.Vk;
+        return this.UY;
     }
 
     public void setErrNumber(int i) {
-        this.Vk = i;
+        this.UY = i;
     }
 
     public void parseJson(String str) {
@@ -86,7 +86,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.Vi = false;
+            this.UW = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -95,30 +95,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.Vi = true;
+                    this.UW = true;
                 } else {
-                    this.Vi = false;
+                    this.UW = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.Vk = optJSONObject.optInt("num");
+                    this.UY = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.Vj = optJSONObject2.optInt("num");
+                    this.UX = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.Vl = optJSONObject3.optInt("succ");
-                    this.Vm = optJSONObject3.optInt("err");
-                    this.Vn = optJSONObject3.optInt("slow");
+                    this.UZ = optJSONObject3.optInt("succ");
+                    this.Va = optJSONObject3.optInt("err");
+                    this.Vb = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.Vj <= 0 || this.Vk <= 0) {
-                    this.Vi = false;
+                if (this.time <= 0 || this.UX <= 0 || this.UY <= 0) {
+                    this.UW = false;
                 }
             } catch (Exception e) {
-                this.Vi = false;
+                this.UW = false;
                 BdLog.e(e.getMessage());
             }
         }

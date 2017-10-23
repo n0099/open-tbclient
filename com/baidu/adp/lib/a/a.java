@@ -13,33 +13,33 @@ import java.net.UnknownHostException;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class a {
-    private static a ts = null;
-    private final String tt = "c.tieba.baidu.com";
-    private long tu;
+    private static a tt = null;
+    private final String tu = "c.tieba.baidu.com";
 
     /* renamed from: tv  reason: collision with root package name */
-    private String f0tv;
-    private long tw;
+    private long f0tv;
+    private String tw;
+    private long tz;
 
     public static final a eL() {
-        if (ts == null) {
+        if (tt == null) {
             synchronized (a.class) {
-                if (ts == null) {
-                    ts = new a();
+                if (tt == null) {
+                    tt = new a();
                 }
             }
         }
-        return ts;
+        return tt;
     }
 
     private a() {
-        this.tu = 0L;
-        this.f0tv = null;
-        this.tw = 0L;
+        this.f0tv = 0L;
+        this.tw = null;
+        this.tz = 0L;
         SharedPreferences config = getConfig();
-        this.tu = config.getLong(ab("c.tieba.baidu.com"), 0L);
-        this.f0tv = config.getString(ac("c.tieba.baidu.com"), null);
-        this.tw = config.getLong(ad("c.tieba.baidu.com"), 0L);
+        this.f0tv = config.getLong(ab("c.tieba.baidu.com"), 0L);
+        this.tw = config.getString(ac("c.tieba.baidu.com"), null);
+        this.tz = config.getLong(ad("c.tieba.baidu.com"), 0L);
     }
 
     public void b(String str, String str2, boolean z, boolean z2) {
@@ -56,9 +56,9 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.tu;
-                    long j2 = this.tw;
-                    String str3 = this.f0tv;
+                    long j = this.f0tv;
+                    long j2 = this.tz;
+                    String str3 = this.tw;
                     if (currentTimeMillis - j > 43200000) {
                         a(host, host2, z, "12hour", z2);
                         return;
@@ -76,7 +76,7 @@ public class a {
                         if (!TextUtils.equals(host2, str3) || str3 == null) {
                             a(host, host2, z, "ipchange", z2);
                         } else {
-                            this.tw = System.currentTimeMillis();
+                            this.tz = System.currentTimeMillis();
                         }
                     }
                 }
@@ -108,9 +108,9 @@ public class a {
                 EditorHelper.putLong(config, ab(str), currentTimeMillis);
                 EditorHelper.putString(config, ac(str), str2);
                 EditorHelper.putLong(config, ad(str), currentTimeMillis2);
-                this.tu = currentTimeMillis;
-                this.tw = currentTimeMillis2;
-                this.f0tv = str2;
+                this.f0tv = currentTimeMillis;
+                this.tz = currentTimeMillis2;
+                this.tw = str2;
             }
         }
     }

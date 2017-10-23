@@ -23,11 +23,11 @@ public class AddExperiencedModel extends BdBaseModel {
     public static String USELESS_FORUM_ID = "24981790";
     public static String WEIXIN_FRIEND = "weixin_friend";
     public static String WEIXIN_TIMELINE = "weixin_timeline";
-    private HttpMessageListener eSC;
+    private HttpMessageListener eSo;
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.eSC = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED) { // from class: com.baidu.tieba.pb.share.AddExperiencedModel.1
+        this.eSo = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED) { // from class: com.baidu.tieba.pb.share.AddExperiencedModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -36,33 +36,33 @@ public class AddExperiencedModel extends BdBaseModel {
                 }
             }
         };
-        DP();
-        registerListener(this.eSC);
+        DJ();
+        registerListener(this.eSo);
     }
 
-    private void DP() {
+    private void DJ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_EXPERIENCED, TbConfig.SERVER_ADDRESS + TbConfig.URL_ADD_EXPERIENCED);
         tbHttpMessageTask.setResponsedClass(AddExperiencedResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bJ(String str, String str2) {
+    public void bI(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
         sendMessage(httpMessage);
     }
 
-    public static boolean pp(String str) {
+    public static boolean po(String str) {
         return b.c(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean pq(String str) {
+    public static boolean pp(String str) {
         String str2;
         boolean z;
-        l<String> O = a.te().O("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
-        if (O != null) {
-            String str3 = O.get(str);
+        l<String> N = a.sX().N("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
+        if (N != null) {
+            String str3 = N.get(str);
             String currentDay = UtilHelper.getCurrentDay();
             if (!StringUtils.isNull(str3)) {
                 String[] split = str3.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -90,7 +90,7 @@ public class AddExperiencedModel extends BdBaseModel {
                 str2 = currentDay + Constants.ACCEPT_TIME_SEPARATOR_SP + "1";
                 z = true;
             }
-            O.e(str, str2);
+            N.e(str, str2);
             return z;
         }
         return false;

@@ -129,7 +129,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     }
 
     public void setDefaultSampleInfoSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wM(i)));
         if (!$assertionsDisabled && i > 255) {
             throw new AssertionError();
         }
@@ -152,7 +152,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     }
 
     public void setSampleCount(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.wM(i)));
         this.sampleCount = i;
     }
 

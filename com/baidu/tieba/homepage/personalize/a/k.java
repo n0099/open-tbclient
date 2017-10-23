@@ -11,24 +11,24 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class k extends BaseAdapter {
-    private com.baidu.tieba.homepage.personalize.data.f cZI;
+    private com.baidu.tieba.homepage.personalize.data.f cZv;
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cZI == null || this.cZI.daw == null) {
+        if (this.cZv == null || this.cZv.dai == null) {
             return 0;
         }
-        return this.cZI.daw.size();
+        return this.cZv.dai.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lh */
+    /* renamed from: lg */
     public com.baidu.tieba.homepage.personalize.data.g getItem(int i) {
-        if (this.cZI == null || this.cZI.daw == null) {
+        if (this.cZv == null || this.cZv.dai == null) {
             return null;
         }
-        return this.cZI.daw.get(i);
+        return this.cZv.dai.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,11 +66,11 @@ public class k extends BaseAdapter {
     }
 
     public void a(com.baidu.tieba.homepage.personalize.data.f fVar) {
-        this.cZI = fVar;
+        this.cZv = fVar;
         notifyDataSetChanged();
     }
 
-    public com.baidu.tieba.homepage.personalize.data.f apK() {
-        return this.cZI;
+    public com.baidu.tieba.homepage.personalize.data.f apF() {
+        return this.cZv;
     }
 }

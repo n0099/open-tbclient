@@ -15,35 +15,35 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
-    private BaseActivity boM;
-    private PbModel eBQ;
+    private BaseActivity boA;
+    private PbModel eBC;
 
     public t(PbModel pbModel, BaseActivity baseActivity) {
-        this.eBQ = pbModel;
-        this.boM = baseActivity;
+        this.eBC = pbModel;
+        this.boA = baseActivity;
     }
 
-    private void kV(String str) {
+    private void kU(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
-        Map<String, String> dT = av.dT(str);
-        if (dT != null) {
+        Map<String, String> dS = av.dS(str);
+        if (dS != null) {
             com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak("c10320");
-            akVar.ad("obj_locate", dT.get("obj_locate"));
+            akVar.ac("obj_locate", dS.get("obj_locate"));
             akVar.r("obj_type", 1);
-            akVar.ad("tid", dT.get("tid"));
-            akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dT.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
-            akVar.ad("obj_param2", dT.get("obj_param2"));
+            akVar.ac("tid", dS.get("tid"));
+            akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dS.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
+            akVar.ac("obj_param2", dS.get("obj_param2"));
             akVar.r("obj_to", 3);
-            akVar.ad("obj_id", dT.get("bdid"));
-            if (!com.baidu.tbadk.core.util.am.isEmpty(dT.get("ext_log"))) {
+            akVar.ac("obj_id", dS.get("bdid"));
+            if (!com.baidu.tbadk.core.util.am.isEmpty(dS.get("ext_log"))) {
                 try {
-                    JSONObject jSONObject = new JSONObject(dT.get("ext_log"));
+                    JSONObject jSONObject = new JSONObject(dS.get("ext_log"));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        akVar.ad(next, jSONObject.getString(next));
+                        akVar.ac(next, jSONObject.getString(next));
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -69,13 +69,13 @@ public class t {
         Matcher matcher = Pattern.compile(".*fr=(.*)&tid=([\\\\d]+).*").matcher(decode);
         if (matcher.find()) {
             if ("mpush".equals(matcher.group(1))) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11895").ad("tid", matcher.group(2)));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11895").ac("tid", matcher.group(2)));
             } else {
-                kV(decode);
+                kU(decode);
             }
             return matcher.group(2);
         }
-        kV(decode);
+        kU(decode);
         int indexOf = decode.indexOf("tid=");
         if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
             return null;

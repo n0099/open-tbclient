@@ -10,31 +10,31 @@ import android.widget.TextView;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
 public interface d {
-    int Ji();
+    int Jc();
 
-    com.baidu.adp.lib.e.b<ImageView> Jj();
+    com.baidu.adp.lib.e.b<ImageView> Jd();
 
-    com.baidu.adp.lib.e.b<TextView> Jk();
+    com.baidu.adp.lib.e.b<TextView> Je();
 
-    com.baidu.adp.lib.e.b<GifView> Jl();
+    com.baidu.adp.lib.e.b<GifView> Jf();
 
-    com.baidu.adp.lib.e.b<View> Jm();
+    com.baidu.adp.lib.e.b<View> Jg();
 
-    com.baidu.adp.lib.e.b<LinearLayout> Jn();
+    com.baidu.adp.lib.e.b<LinearLayout> Jh();
 
-    com.baidu.adp.lib.e.b<RelativeLayout> Jo();
+    com.baidu.adp.lib.e.b<RelativeLayout> Ji();
+
+    void U(Context context, String str);
+
+    void V(Context context, String str);
+
+    void W(Context context, String str);
+
+    void X(Context context, String str);
+
+    void Y(Context context, String str);
 
     void Z(Context context, String str);
-
-    void aa(Context context, String str);
-
-    void ab(Context context, String str);
-
-    void ac(Context context, String str);
-
-    void ad(Context context, String str);
-
-    void ae(Context context, String str);
 
     void g(Context context, String str, String str2);
 

@@ -14,19 +14,19 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
-    private Drawable aOh;
-    private int aiY;
-    private int aiZ;
-    protected int akc;
-    private Paint fWp;
-    private float fWq;
-    private float fWr;
-    private float fWs;
-    private RectF fWt;
-    private int fWu;
-    private Paint fWv;
-    private m fWw;
-    private PaintFlagsDrawFilter fWx;
+    private Drawable aNU;
+    private int aiM;
+    private int aiN;
+    protected int ajQ;
+    private Paint fWb;
+    private float fWc;
+    private float fWd;
+    private float fWe;
+    private RectF fWf;
+    private int fWg;
+    private Paint fWh;
+    private m fWi;
+    private PaintFlagsDrawFilter fWj;
     private Bitmap mBmp;
     private int mColor;
     private int mHeight;
@@ -43,9 +43,9 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
 
     public StoryHeaderOutView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.akc = 0;
-        this.aiY = d.g.transparent_bg;
-        this.aiZ = d.e.cp_bg_line_d;
+        this.ajQ = 0;
+        this.aiM = d.g.transparent_bg;
+        this.aiN = d.e.cp_bg_line_d;
         init();
     }
 
@@ -53,32 +53,32 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultBgResource(this.aiZ);
-        setDefaultResource(this.aiY);
+        setDefaultBgResource(this.aiN);
+        setDefaultResource(this.aiM);
         setDefaultErrorResource(d.g.icon_default_avatar100);
         this.mPaint = new Paint();
         this.mPaint.setStyle(Paint.Style.STROKE);
         this.mPaint.setStrokeWidth(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst(), d.f.ds3));
-        this.fWv = new Paint();
-        this.fWv.setStyle(Paint.Style.STROKE);
-        this.fWv.setStrokeWidth(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst(), d.f.ds1));
-        this.fWp = new Paint();
-        this.fWp.setStyle(Paint.Style.STROKE);
-        this.fWp.setStrokeWidth(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst(), d.f.ds3));
+        this.fWh = new Paint();
+        this.fWh.setStyle(Paint.Style.STROKE);
+        this.fWh.setStrokeWidth(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst(), d.f.ds1));
+        this.fWb = new Paint();
+        this.fWb.setStyle(Paint.Style.STROKE);
+        this.fWb.setStrokeWidth(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst(), d.f.ds3));
         setMaskColor(0);
-        this.fWu = com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst(), d.f.ds2);
-        this.fWw = new m(this);
-        this.aOh = aj.getDrawable(d.g.transparent_bg);
+        this.fWg = com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst(), d.f.ds2);
+        this.fWi = new m(this);
+        this.aNU = aj.getDrawable(d.g.transparent_bg);
         this.mBmp = BitmapHelper.getCashBitmap(d.g.btn_story_loading);
-        this.fWx = new PaintFlagsDrawFilter(0, 3);
+        this.fWj = new PaintFlagsDrawFilter(0, 3);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void wd() {
-        if (!this.aNK) {
-            this.aNK = true;
-        } else if (this.aNP != null && this.aNP.aJd) {
-            this.aNP.FV();
+    public void vW() {
+        if (!this.aNx) {
+            this.aNx = true;
+        } else if (this.aNC != null && this.aNC.aIQ) {
+            this.aNC.FP();
         }
     }
 
@@ -86,34 +86,34 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (canvas != null) {
-            canvas.setDrawFilter(this.fWx);
-            if (this.akc == 0) {
+            canvas.setDrawFilter(this.fWj);
+            if (this.ajQ == 0) {
                 this.mPaint.setColor(aj.getColor(d.e.cp_link_tip_g));
-                canvas.drawCircle(this.fWq, this.fWr, this.fWq - this.fWu, this.mPaint);
-                this.aOh.draw(canvas);
-            } else if (this.akc == 2) {
-                this.fWp.setColor(aj.getColor(d.e.cp_link_tip_g));
-                canvas.drawArc(this.fWt, 0.0f, this.fWs, false, this.fWp);
-                this.aOh.draw(canvas);
-            } else if (this.akc == 1) {
-                canvas.drawBitmap(this.mBmp, 0.0f, 0.0f, this.fWp);
-                if (this.fWw != null && !this.fWw.isRunning()) {
-                    this.fWw.bD(this);
+                canvas.drawCircle(this.fWc, this.fWd, this.fWc - this.fWg, this.mPaint);
+                this.aNU.draw(canvas);
+            } else if (this.ajQ == 2) {
+                this.fWb.setColor(aj.getColor(d.e.cp_link_tip_g));
+                canvas.drawArc(this.fWf, 0.0f, this.fWe, false, this.fWb);
+                this.aNU.draw(canvas);
+            } else if (this.ajQ == 1) {
+                canvas.drawBitmap(this.mBmp, 0.0f, 0.0f, this.fWb);
+                if (this.fWi != null && !this.fWi.isRunning()) {
+                    this.fWi.bD(this);
                 }
-            } else if (this.akc == 3) {
-                this.fWv.setColor(aj.getColor(d.e.cp_cont_e));
-                canvas.drawCircle(this.fWq, this.fWr, this.fWq - this.fWu, this.fWv);
-                this.aOh.draw(canvas);
-            } else if (this.akc == 4) {
+            } else if (this.ajQ == 3) {
+                this.fWh.setColor(aj.getColor(d.e.cp_cont_e));
+                canvas.drawCircle(this.fWc, this.fWd, this.fWc - this.fWg, this.fWh);
+                this.aNU.draw(canvas);
+            } else if (this.ajQ == 4) {
                 this.mPaint.setColor(aj.getColor(d.e.cp_cont_h));
-                canvas.drawCircle(this.fWq, this.fWr, this.fWq - this.fWu, this.mPaint);
-                this.aOh.draw(canvas);
+                canvas.drawCircle(this.fWc, this.fWd, this.fWc - this.fWg, this.mPaint);
+                this.aNU.draw(canvas);
             }
         }
     }
 
     public void setMaskColor(int i) {
-        this.akc = i;
+        this.ajQ = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -122,16 +122,16 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
         super.onSizeChanged(i, i2, i3, i4);
         this.mWidth = i;
         this.mHeight = i2;
-        this.fWq = this.mWidth / 2.0f;
-        this.fWr = this.mHeight / 2.0f;
-        this.fWt = new RectF(this.fWu + 0, this.fWu + 0, this.mWidth - this.fWu, this.mHeight - this.fWu);
+        this.fWc = this.mWidth / 2.0f;
+        this.fWd = this.mHeight / 2.0f;
+        this.fWf = new RectF(this.fWg + 0, this.fWg + 0, this.mWidth - this.fWg, this.mHeight - this.fWg);
     }
 
     @Override // com.baidu.tieba.story.b
-    public void bmU() {
-        if (this.fWw != null) {
+    public void bmN() {
+        if (this.fWi != null) {
             setMaskColor(2);
-            this.fWw.bnd();
+            this.fWi.bmW();
         }
     }
 
@@ -142,32 +142,32 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
     }
 
     @Override // com.baidu.tieba.story.b
-    public void bmV() {
+    public void bmO() {
         setMaskColor(0);
         postInvalidate();
     }
 
     @Override // com.baidu.tieba.story.b
-    public void bmT() {
+    public void bmM() {
     }
 
     public void setValueFloat(float f) {
-        this.fWs = f;
+        this.fWe = f;
     }
 
     public void setColor(int i) {
         this.mColor = i;
     }
 
-    public void bmX() {
-        if (this.fWw != null) {
-            this.fWw.bmX();
+    public void bmQ() {
+        if (this.fWi != null) {
+            this.fWi.bmQ();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.akc == 1) {
-            this.mBmp = aj.cR(d.g.btn_story_loading);
+        if (this.ajQ == 1) {
+            this.mBmp = aj.cQ(d.g.btn_story_loading);
             invalidate();
         }
     }

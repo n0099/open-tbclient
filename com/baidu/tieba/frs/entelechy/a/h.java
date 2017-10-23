@@ -18,14 +18,14 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> implements v, com.baidu.tieba.frs.f.c {
-    private x cwG;
+    private x cwu;
     private String mForumName;
 
-    public static void bg(long j) {
-        if (j > 0 && cGc != null && !TextUtils.isEmpty(cGc.cFU)) {
+    public static void bh(long j) {
+        if (j > 0 && cFQ != null && !TextUtils.isEmpty(cFQ.cFI)) {
             ak akVar = new ak("c11958");
             akVar.f("tid", j);
-            akVar.ad("fid", cGc.cFU);
+            akVar.ac("fid", cFQ.cFI);
             TiebaStatic.log(akVar);
         }
     }
@@ -33,22 +33,22 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cwG = new x<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
+        this.cwu = new x<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, CardHListViewData cardHListViewData, Object obj) {
-                if (h.this.mG != null) {
+                if (h.this.mH != null) {
                     if (view.getId() == d.h.hlistview_item_layout_root) {
                         if (obj instanceof CardHListViewNormalItemData) {
                             CardHListViewNormalItemData cardHListViewNormalItemData = (CardHListViewNormalItemData) obj;
-                            PbActivityConfig createNormalCfg = new PbActivityConfig(h.this.mG.getPageActivity()).createNormalCfg(String.valueOf(cardHListViewNormalItemData.threadId), null, null);
+                            PbActivityConfig createNormalCfg = new PbActivityConfig(h.this.mH.getPageActivity()).createNormalCfg(String.valueOf(cardHListViewNormalItemData.threadId), null, null);
                             createNormalCfg.setForumId(String.valueOf(cardHListViewNormalItemData.forumId));
                             createNormalCfg.setStartFrom(1);
-                            h.this.mG.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
-                            h.bg(cardHListViewNormalItemData.threadId);
+                            h.this.mH.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
+                            h.bh(cardHListViewNormalItemData.threadId);
                         }
                     } else if (view.getId() == d.h.fourm_name && (obj instanceof CardHListViewNormalItemData)) {
-                        h.this.mG.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(h.this.mContext).createNormalCfg(String.valueOf(((CardHListViewNormalItemData) obj).forumName), "tb_frslist")));
+                        h.this.mH.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(h.this.mContext).createNormalCfg(String.valueOf(((CardHListViewNormalItemData) obj).forumName), "tb_frslist")));
                     }
                 }
             }
@@ -60,7 +60,7 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: B */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a(new com.baidu.tieba.card.h(this.mG));
+        return new com.baidu.tieba.card.a.a(new com.baidu.tieba.card.h(this.mH));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,11 +68,11 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
     @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardHListViewData cardHListViewData, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.Yr() == null) {
+        if (aVar == null || aVar.Yn() == null) {
             return null;
         }
-        aVar.Yr().a((com.baidu.tieba.card.a) cardHListViewData);
-        aVar.Yr().b(this.cwG);
+        aVar.Yn().a((com.baidu.tieba.card.a) cardHListViewData);
+        aVar.Yn().b(this.cwu);
         return aVar.getView();
     }
 

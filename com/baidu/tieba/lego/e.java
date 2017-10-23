@@ -7,7 +7,7 @@ public interface e {
 
     e ai(String str, int i);
 
-    e bt(String str, String str2);
+    e bs(String str, String str2);
 
     e q(String str, long j);
 }

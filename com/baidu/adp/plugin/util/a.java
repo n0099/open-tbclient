@@ -22,7 +22,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0012a {
-        public boolean EM;
+        public boolean EN;
         public String mErrMsg;
     }
 
@@ -52,15 +52,15 @@ public class a {
                 PathClassLoader pathClassLoader = (PathClassLoader) classLoader;
                 DexClassLoader dexClassLoader = (DexClassLoader) classLoader2;
                 dexClassLoader.loadClass(str);
-                a(pathClassLoader, PathClassLoader.class, "mPaths", d(a(pathClassLoader, PathClassLoader.class, "mPaths"), a(dexClassLoader, DexClassLoader.class, "mRawDexPath")));
+                a(pathClassLoader, PathClassLoader.class, "mPaths", e(a(pathClassLoader, PathClassLoader.class, "mPaths"), a(dexClassLoader, DexClassLoader.class, "mRawDexPath")));
                 if (z) {
-                    a(pathClassLoader, PathClassLoader.class, "mDexs", c(a(pathClassLoader, PathClassLoader.class, "mDexs"), a(dexClassLoader, DexClassLoader.class, "mDexs")));
-                    a(pathClassLoader, PathClassLoader.class, "mFiles", c(a(pathClassLoader, PathClassLoader.class, "mFiles"), a(dexClassLoader, DexClassLoader.class, "mFiles")));
-                    a(pathClassLoader, PathClassLoader.class, "mZips", c(a(pathClassLoader, PathClassLoader.class, "mZips"), a(dexClassLoader, DexClassLoader.class, "mZips")));
+                    a(pathClassLoader, PathClassLoader.class, "mDexs", d(a(pathClassLoader, PathClassLoader.class, "mDexs"), a(dexClassLoader, DexClassLoader.class, "mDexs")));
+                    a(pathClassLoader, PathClassLoader.class, "mFiles", d(a(pathClassLoader, PathClassLoader.class, "mFiles"), a(dexClassLoader, DexClassLoader.class, "mFiles")));
+                    a(pathClassLoader, PathClassLoader.class, "mZips", d(a(pathClassLoader, PathClassLoader.class, "mZips"), a(dexClassLoader, DexClassLoader.class, "mZips")));
                 } else {
-                    a(pathClassLoader, PathClassLoader.class, "mDexs", c(a(dexClassLoader, DexClassLoader.class, "mDexs"), a(pathClassLoader, PathClassLoader.class, "mDexs")));
-                    a(pathClassLoader, PathClassLoader.class, "mFiles", c(a(dexClassLoader, DexClassLoader.class, "mFiles"), a(pathClassLoader, PathClassLoader.class, "mFiles")));
-                    a(pathClassLoader, PathClassLoader.class, "mZips", c(a(dexClassLoader, DexClassLoader.class, "mZips"), a(pathClassLoader, PathClassLoader.class, "mZips")));
+                    a(pathClassLoader, PathClassLoader.class, "mDexs", d(a(dexClassLoader, DexClassLoader.class, "mDexs"), a(pathClassLoader, PathClassLoader.class, "mDexs")));
+                    a(pathClassLoader, PathClassLoader.class, "mFiles", d(a(dexClassLoader, DexClassLoader.class, "mFiles"), a(pathClassLoader, PathClassLoader.class, "mFiles")));
+                    a(pathClassLoader, PathClassLoader.class, "mZips", d(a(dexClassLoader, DexClassLoader.class, "mZips"), a(pathClassLoader, PathClassLoader.class, "mZips")));
                 }
                 try {
                     ArrayList arrayList = (ArrayList) a(pathClassLoader, PathClassLoader.class, "libraryPathElements");
@@ -77,7 +77,7 @@ public class a {
                         }
                     });
                 } catch (Exception e) {
-                    a(pathClassLoader, PathClassLoader.class, "mLibPaths", c(a(pathClassLoader, PathClassLoader.class, "mLibPaths"), a(dexClassLoader, DexClassLoader.class, "mLibPaths")));
+                    a(pathClassLoader, PathClassLoader.class, "mLibPaths", d(a(pathClassLoader, PathClassLoader.class, "mLibPaths"), a(dexClassLoader, DexClassLoader.class, "mLibPaths")));
                 }
                 c0012a = null;
             } catch (IllegalAccessException e2) {
@@ -122,15 +122,15 @@ public class a {
                 Method declaredMethod = v.getClass().getDeclaredMethod("addDexPath", String.class, File.class);
                 declaredMethod.setAccessible(true);
                 declaredMethod.invoke(v, str2, null);
-                Object c = c(x(v), x(v2));
-                if (c instanceof File[]) {
-                    Arrays.sort((File[]) c, kg());
-                    list = c;
+                Object d = d(x(v), x(v2));
+                if (d instanceof File[]) {
+                    Arrays.sort((File[]) d, kg());
+                    list = d;
                 } else {
-                    boolean z2 = c instanceof List;
-                    list = c;
+                    boolean z2 = d instanceof List;
+                    list = d;
                     if (z2) {
-                        List list4 = (List) c;
+                        List list4 = (List) d;
                         Collections.sort(list4, kg());
                         list = list4;
                     }
@@ -142,16 +142,16 @@ public class a {
                 declaredMethod2.setAccessible(true);
                 a(v, v.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(v.getClass(), arrayList));
             } else if (Build.VERSION.SDK_INT >= 23) {
-                a(v, v.getClass(), "dexElements", z ? c(w(v), w(v2)) : c(w(v2), w(v)));
-                Object c2 = c(x(v), x(v2));
-                if (c2 instanceof File[]) {
-                    Arrays.sort((File[]) c2, kg());
-                    list3 = c2;
+                a(v, v.getClass(), "dexElements", z ? d(w(v), w(v2)) : d(w(v2), w(v)));
+                Object d2 = d(x(v), x(v2));
+                if (d2 instanceof File[]) {
+                    Arrays.sort((File[]) d2, kg());
+                    list3 = d2;
                 } else {
-                    boolean z3 = c2 instanceof List;
-                    list3 = c2;
+                    boolean z3 = d2 instanceof List;
+                    list3 = d2;
                     if (z3) {
-                        List list5 = (List) c2;
+                        List list5 = (List) d2;
                         Collections.sort(list5, kg());
                         list3 = list5;
                     }
@@ -163,16 +163,16 @@ public class a {
                 declaredMethod3.setAccessible(true);
                 a(v, v.getClass(), "nativeLibraryPathElements", declaredMethod3.invoke(v.getClass(), arrayList2, null, new ArrayList()));
             } else {
-                a(v, v.getClass(), "dexElements", z ? c(w(v), w(v2)) : c(w(v2), w(v)));
-                Object c3 = c(x(v), x(v2));
-                if (c3 instanceof File[]) {
-                    Arrays.sort((File[]) c3, kg());
-                    list2 = c3;
+                a(v, v.getClass(), "dexElements", z ? d(w(v), w(v2)) : d(w(v2), w(v)));
+                Object d3 = d(x(v), x(v2));
+                if (d3 instanceof File[]) {
+                    Arrays.sort((File[]) d3, kg());
+                    list2 = d3;
                 } else {
-                    boolean z4 = c3 instanceof List;
-                    list2 = c3;
+                    boolean z4 = d3 instanceof List;
+                    list2 = d3;
                     if (z4) {
-                        List list6 = (List) c3;
+                        List list6 = (List) d3;
                         Collections.sort(list6, kg());
                         list2 = list6;
                     }
@@ -228,7 +228,7 @@ public class a {
         return declaredField.get(obj);
     }
 
-    private static Object c(Object obj, Object obj2) {
+    private static Object d(Object obj, Object obj2) {
         if (obj == null) {
             return obj2;
         }
@@ -260,7 +260,7 @@ public class a {
         return obj;
     }
 
-    private static Object d(Object obj, Object obj2) {
+    private static Object e(Object obj, Object obj2) {
         Class<?> componentType = obj.getClass().getComponentType();
         int length = Array.getLength(obj);
         int i = length + 1;
@@ -277,7 +277,7 @@ public class a {
 
     private static C0012a a(boolean z, Throwable th) {
         C0012a c0012a = new C0012a();
-        c0012a.EM = z;
+        c0012a.EN = z;
         c0012a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0012a;
     }

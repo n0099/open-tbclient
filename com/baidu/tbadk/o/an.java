@@ -1,7 +1,7 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class an {
-    public static void Gx() {
+    public static void Gr() {
         com.baidu.adp.lib.b.d.eV().f(t.class);
         com.baidu.adp.lib.b.d.eV().f(a.class);
         com.baidu.adp.lib.b.d.eV().f(b.class);

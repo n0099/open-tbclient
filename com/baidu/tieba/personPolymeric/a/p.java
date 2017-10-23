@@ -7,29 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p {
-    private com.baidu.tieba.person.a.a eZm;
-    private f feY;
-    private m feZ;
-    private g ffa;
+    private com.baidu.tieba.person.a.a eYY;
+    private f feK;
+    private m feL;
+    private g feM;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
 
     public p(TbPageContext tbPageContext, HTypeListView hTypeListView) {
-        this.feY = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.p.fhm);
-        this.feZ = new m(tbPageContext);
-        this.ffa = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.fhd);
-        this.eZm = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.eYX);
-        this.mAdapters.add(this.feY);
-        this.mAdapters.add(this.feZ);
-        this.mAdapters.add(this.ffa);
-        this.mAdapters.add(this.eZm);
+        this.feK = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.p.fgY);
+        this.feL = new m(tbPageContext);
+        this.feM = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.fgP);
+        this.eYY = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.eYJ);
+        this.mAdapters.add(this.feK);
+        this.mAdapters.add(this.feL);
+        this.mAdapters.add(this.feM);
+        this.mAdapters.add(this.eYY);
         hTypeListView.addAdapters(this.mAdapters);
     }
 
     public void K(View.OnClickListener onClickListener) {
-        this.feY.setOnClickListener(onClickListener);
+        this.feK.setOnClickListener(onClickListener);
     }
 
     public void L(View.OnClickListener onClickListener) {
-        this.ffa.setOnClickListener(onClickListener);
+        this.feM.setOnClickListener(onClickListener);
     }
 }

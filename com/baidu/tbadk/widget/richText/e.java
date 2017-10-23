@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
-    private String aRT;
-    private int aRU;
-    private String aRV;
-    private int aRW;
-    private int aRX;
+    private String aRG;
+    private int aRH;
+    private String aRI;
+    private int aRJ;
+    private int aRK;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class e {
     public void b(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.aRT = pbContent.src;
+            this.aRG = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aRU = pbContent.e_type.intValue();
-            this.aRV = pbContent.text;
+            this.aRH = pbContent.e_type.intValue();
+            this.aRI = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aRW = pbContent.count.intValue();
-            this.aRX = pbContent.origin_size.intValue();
+            this.aRJ = pbContent.count.intValue();
+            this.aRK = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class e {
     }
 
     public String getThumbUrl() {
-        return this.aRT;
+        return this.aRG;
     }
 
     public int getWidth() {
@@ -44,23 +44,23 @@ public class e {
         return this.height;
     }
 
-    public String Jp() {
-        return this.aRV;
+    public String Jj() {
+        return this.aRI;
     }
 
-    public boolean Jq() {
-        return this.aRU == 15;
+    public boolean Jk() {
+        return this.aRH == 15;
     }
 
     public boolean isAvaliable() {
         return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
     }
 
-    public int Jr() {
-        return this.aRW;
+    public int Jl() {
+        return this.aRJ;
     }
 
-    public void fS(int i) {
-        this.aRW = i;
+    public void fR(int i) {
+        this.aRJ = i;
     }
 }

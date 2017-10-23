@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId ayZ = BdUniqueId.gen();
+    public static final BdUniqueId ayN = BdUniqueId.gen();
 
     public String getName() {
         return TbadkCoreApplication.getInst().getString(d.l.post_story);
@@ -13,6 +13,6 @@ public class c implements com.baidu.adp.widget.ListView.f {
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return ayZ;
+        return ayN;
     }
 }

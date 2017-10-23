@@ -3,15 +3,15 @@ package com.baidu.tieba.pb.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class j implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId ezb = BdUniqueId.gen();
-    public static final BdUniqueId ezc = BdUniqueId.gen();
-    public long ezd;
+    public static final BdUniqueId eyN = BdUniqueId.gen();
+    public static final BdUniqueId eyO = BdUniqueId.gen();
+    public long eyP;
     public BdUniqueId mType;
-    public boolean aEG = true;
-    public boolean eze = false;
+    public boolean aEt = true;
+    public boolean eyQ = false;
 
     public j(BdUniqueId bdUniqueId) {
-        this.mType = ezc;
+        this.mType = eyO;
         this.mType = bdUniqueId;
     }
 

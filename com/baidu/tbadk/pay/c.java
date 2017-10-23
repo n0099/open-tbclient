@@ -14,27 +14,27 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static c aIk = null;
+    private static c aHX = null;
 
     private c() {
     }
 
-    public static synchronized c FD() {
+    public static synchronized c Fx() {
         c cVar;
         synchronized (c.class) {
-            if (aIk == null) {
-                aIk = new c();
+            if (aHX == null) {
+                aHX = new c();
             }
-            cVar = aIk;
+            cVar = aHX;
         }
         return cVar;
     }
 
-    public boolean FE() {
-        return TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && FF();
+    public boolean Fy() {
+        return TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Fz();
     }
 
-    public boolean FF() {
+    public boolean Fz() {
         try {
             Class.forName("com.baidu.wallet.api.BaiduWallet");
             return true;
@@ -46,14 +46,14 @@ public class c {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            av.vH().c(tbPageContext, new String[]{str});
+            av.vA().c(tbPageContext, new String[]{str});
         }
     }
 
     public void a(PayConfig payConfig, Context context) {
         if (payConfig == null || context == null) {
             showToast(d.l.plugin_pay_error);
-        } else if (!FE()) {
+        } else if (!Fy()) {
             showToast(d.l.plugin_pay_wallet_not_found);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PayWalletActivityConfig(context, payConfig)));

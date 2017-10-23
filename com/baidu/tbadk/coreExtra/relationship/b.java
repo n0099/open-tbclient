@@ -14,7 +14,7 @@ public class b {
         this.hide = i;
     }
 
-    public String As() {
+    public String Am() {
         return this.distance;
     }
 
@@ -22,7 +22,7 @@ public class b {
         return this.time;
     }
 
-    public int At() {
+    public int An() {
         return this.hide;
     }
 }

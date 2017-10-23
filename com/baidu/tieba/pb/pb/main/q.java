@@ -8,76 +8,76 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
 /* loaded from: classes.dex */
 public class q {
-    private RelativeLayout ccT;
-    private com.baidu.tbadk.editortools.pb.e eFm;
-    private PbFakeFloorModel eFn;
-    private String eFo;
-    private TbPageContext mG;
+    private RelativeLayout ccH;
+    private com.baidu.tbadk.editortools.pb.e eEY;
+    private PbFakeFloorModel eEZ;
+    private String eFa;
+    private TbPageContext mH;
 
     public q(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
-        this.mG = tbPageContext;
-        this.ccT = relativeLayout;
-        this.eFn = pbFakeFloorModel;
+        this.mH = tbPageContext;
+        this.ccH = relativeLayout;
+        this.eEZ = pbFakeFloorModel;
     }
 
-    public void aPq() {
-        if (this.eFm != null) {
-            this.eFm.Dx();
-            if (StringUtils.isNull(this.eFo)) {
-                this.eFm.onDestory();
+    public void aPl() {
+        if (this.eEY != null) {
+            this.eEY.Dr();
+            if (StringUtils.isNull(this.eFa)) {
+                this.eEY.onDestory();
             }
         }
     }
 
-    private void aPr() {
-        if (this.ccT != null && this.eFm == null) {
-            this.eFm = (com.baidu.tbadk.editortools.pb.e) new com.baidu.tbadk.editortools.pb.f().aX(this.mG.getPageActivity());
-            this.eFm.a(this.mG);
-            this.eFm.b(this.eFn);
-            this.eFm.Cz().bC(true);
-            this.eFm.e(this.mG);
-            aPs();
+    private void aPm() {
+        if (this.ccH != null && this.eEY == null) {
+            this.eEY = (com.baidu.tbadk.editortools.pb.e) new com.baidu.tbadk.editortools.pb.f().aW(this.mH.getPageActivity());
+            this.eEY.a(this.mH);
+            this.eEY.b(this.eEZ);
+            this.eEY.Ct().bB(true);
+            this.eEY.e(this.mH);
+            aPn();
         }
     }
 
-    public void bG(String str, String str2) {
-        this.eFo = str2;
-        if (this.eFm == null) {
-            aPr();
+    public void bF(String str, String str2) {
+        this.eFa = str2;
+        if (this.eEY == null) {
+            aPm();
         } else {
-            this.eFm.b(this.eFn);
-            if (StringUtils.isNull(this.eFo)) {
-                this.eFm.e(this.mG);
+            this.eEY.b(this.eEZ);
+            if (StringUtils.isNull(this.eFa)) {
+                this.eEY.e(this.mH);
             }
         }
-        this.eFm.setReplyId(str);
-        this.eFm.fX(str2);
+        this.eEY.setReplyId(str);
+        this.eEY.fW(str2);
     }
 
-    private void aPs() {
-        if (this.ccT != null && this.eFm != null && this.eFm.Cz() != null) {
+    private void aPn() {
+        if (this.ccH != null && this.eEY != null && this.eEY.Ct() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.ccT.addView(this.eFm.Cz(), layoutParams);
+            this.ccH.addView(this.eEY.Ct(), layoutParams);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.eFm != null) {
-            this.eFm.onActivityResult(i, i2, intent);
+        if (this.eEY != null) {
+            this.eEY.onActivityResult(i, i2, intent);
         }
     }
 
     public void onStop() {
-        if (this.eFm != null) {
-            this.eFm.onStop();
+        if (this.eEY != null) {
+            this.eEY.onStop();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eFm != null && this.eFm.Cz() != null) {
-            this.eFm.Cz().onChangeSkinType(i);
+        if (this.eEY != null && this.eEY.Ct() != null) {
+            this.eEY.Ct().onChangeSkinType(i);
         }
     }
 }

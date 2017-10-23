@@ -3,8 +3,8 @@ package com.baidu.tbadk.b;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 public class a {
-    private String QM;
-    private ImageFileInfo QN;
+    private String QA;
+    private ImageFileInfo QB;
     private String albumId;
     private String name;
 
@@ -12,7 +12,7 @@ public class a {
         return this.albumId;
     }
 
-    public void bW(String str) {
+    public void bV(String str) {
         this.albumId = str;
     }
 
@@ -24,19 +24,19 @@ public class a {
         this.name = str;
     }
 
-    public String nA() {
-        return this.QM;
+    public String ns() {
+        return this.QA;
     }
 
-    public void bX(String str) {
-        this.QM = str;
+    public void bW(String str) {
+        this.QA = str;
     }
 
-    public ImageFileInfo nB() {
-        return this.QN;
+    public ImageFileInfo nt() {
+        return this.QB;
     }
 
     public void a(ImageFileInfo imageFileInfo) {
-        this.QN = imageFileInfo;
+        this.QB = imageFileInfo;
     }
 }

@@ -314,7 +314,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void setStatusWaiting(VoiceData.VoiceModel voiceModel) {
         unRegistSensorHandler();
         voiceModel.voice_status = 1;
-        h.zh = 2;
+        h.zi = 2;
         setVolumeControlStream();
         b playView = getPlayView();
         if (playView != null) {
@@ -386,14 +386,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     }
                 };
             }
-            Object eo = com.baidu.tbadk.core.voice.a.eo(voiceModel.getId());
-            if (eo == null) {
+            Object en = com.baidu.tbadk.core.voice.a.en(voiceModel.getId());
+            if (en == null) {
                 if (this.context != null && (this.context.getOrignalPage() instanceof com.baidu.adp.base.h)) {
                     bdUniqueId = ((com.baidu.adp.base.h) this.context.getOrignalPage()).getUniqueId();
                 }
-                eo = com.baidu.adp.lib.f.c.fJ().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
+                en = com.baidu.adp.lib.f.c.fJ().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
             }
-            if (voiceModel.isLocal && eo == null) {
+            if (voiceModel.isLocal && en == null) {
                 if (this.mPlayCall == null) {
                     this.mPlayCall = new d();
                 }
@@ -404,8 +404,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     jVar.h("from", voiceModel.from);
                 }
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "VoiceManager.setDownloading() error : record file not exists", jVar.toString());
-            } else if (eo != null) {
-                setPlaying(voiceModel, (String) eo);
+            } else if (en != null) {
+                setPlaying(voiceModel, (String) en);
             } else {
                 voiceModel.voice_status = 2;
                 b playView = getPlayView();
@@ -446,7 +446,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public void startPlay(b bVar) {
-        if (bVar != null && !ab.aP(this.context.getPageActivity()) && !ab.aM(null)) {
+        if (bVar != null && !ab.aO(this.context.getPageActivity()) && !ab.aL(null)) {
             if (this.mHandle != null) {
                 this.mHandle.removeCallbacks(this.stopVoiceAndRePlayRunnable);
             }
@@ -579,9 +579,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             firstOpenSpeaker();
             if (this.audioManager != null) {
                 if (this.audioManager.isSpeakerphoneOn()) {
-                    h.zh = 3;
+                    h.zi = 3;
                 } else {
-                    h.zh = 0;
+                    h.zi = 0;
                 }
             }
             setVolumeControlStream();
@@ -685,7 +685,11 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         this.mPhoneSpeaker = isSpeakerphoneOn();
         if (bUseMedaiPlayer) {
             MediaService.initBroadcastReceivers(tbPageContext.getPageActivity(), this.mVoicePlayerReceiver);
-            MediaService.startMy(tbPageContext.getPageActivity(), null);
+            try {
+                MediaService.startMy(tbPageContext.getPageActivity(), null);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         checkHeadsetPlug();
     }
@@ -807,7 +811,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public void openSpeaker() {
-        if (this.audioManager != null && h.zg != 2) {
+        if (this.audioManager != null && h.zh != 2) {
             if (TbadkCoreApplication.getInst().isHeadsetModeOn() || TbadkCoreApplication.getInst().getIsPhoneCalling()) {
                 setSpeakerphone(false);
                 this.bSpeakerphoneOn = false;
@@ -816,7 +820,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             try {
                 saveInitVoiceStatus();
                 setSpeakerphone(true);
-                h.zh = 3;
+                h.zi = 3;
                 stopVoiceAndRePlay();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -830,7 +834,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             saveInitVoiceStatus();
             try {
                 setSpeakerphone(false);
-                h.zh = 0;
+                h.zi = 0;
                 stopVoiceAndRePlay();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -843,7 +847,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void setVolumeControlStream() {
         try {
             if (this.context != null && this.context.getPageActivity() != null) {
-                this.context.getPageActivity().setVolumeControlStream(h.zh);
+                this.context.getPageActivity().setVolumeControlStream(h.zi);
             }
         } catch (Exception e) {
             TiebaStatic.voiceError(TbErrInfo.ERR_VOI_VOLUME, "setVolumeControlStream exception: " + e.getMessage(), "");
@@ -885,7 +889,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             try {
                 if (bInitSpeakerphoneOn != null && bInitMode != null && bInitVolume != null) {
                     setSpeakerphone(bInitSpeakerphoneOn.booleanValue());
-                    h.zh = 3;
+                    h.zi = 3;
                     bInitSpeakerphoneOn = null;
                     bInitMode = null;
                     bInitVolume = null;
@@ -995,7 +999,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         private a() {
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1359=4, 1360=4] */
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1366=4, 1367=4] */
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         /* JADX WARN: Removed duplicated region for block: B:48:0x00b0 A[EXC_TOP_SPLITTER, SYNTHETIC] */

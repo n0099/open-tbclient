@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class e {
-    public SharedPreferences.Editor Qe;
+    public SharedPreferences.Editor PS;
     public SharedPreferences a;
 
     public e(Context context) {
         try {
             this.a = context.getSharedPreferences("leroadcfg", 4);
-            this.Qe = this.a.edit();
+            this.PS = this.a.edit();
         } catch (Throwable th) {
             th.getMessage();
             b.b();
@@ -27,9 +27,9 @@ public final class e {
         String str2 = str;
         b.a();
         try {
-            this.Qe.putString("lsl", Base64.encodeToString(F.getInstance().ae(str.getBytes(), Base64.decode("MzAyMTIxMDJkaWN1ZGlhYg==", 0)), 0));
-            this.Qe.putLong("lslt", j);
-            this.Qe.commit();
+            this.PS.putString("lsl", Base64.encodeToString(F.getInstance().ae(str.getBytes(), Base64.decode("MzAyMTIxMDJkaWN1ZGlhYg==", 0)), 0));
+            this.PS.putLong("lslt", j);
+            this.PS.commit();
         } catch (Throwable th) {
             com.baidu.sofire.b.d.a(th);
         }
@@ -63,9 +63,9 @@ public final class e {
         return arrayList;
     }
 
-    public final void c(int... iArr) {
+    public final void e(int... iArr) {
         if (iArr == null || iArr.length == 0) {
-            this.Qe.putString("hcpk", "");
+            this.PS.putString("hcpk", "");
         } else {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < iArr.length; i++) {
@@ -74,9 +74,9 @@ public final class e {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 }
             }
-            this.Qe.putString("hcpk", sb.toString());
+            this.PS.putString("hcpk", sb.toString());
         }
-        this.Qe.commit();
+        this.PS.commit();
     }
 
     public final List<Integer> c() {
@@ -98,7 +98,7 @@ public final class e {
 
     public final void a(List<Integer> list) {
         if (list == null || list.size() == 0) {
-            this.Qe.putString("glspk", "");
+            this.PS.putString("glspk", "");
         } else {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < list.size(); i++) {
@@ -107,17 +107,17 @@ public final class e {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 }
             }
-            this.Qe.putString("glspk", sb.toString());
+            this.PS.putString("glspk", sb.toString());
         }
-        this.Qe.commit();
+        this.PS.commit();
     }
 
     public final void a(long j) {
         String str;
         try {
             if (j == 0) {
-                this.Qe.putString("pdcgts", "");
-                this.Qe.commit();
+                this.PS.putString("pdcgts", "");
+                this.PS.commit();
                 return;
             }
             String string = this.a.getString("pdcgts", "");
@@ -130,8 +130,8 @@ public final class e {
             }
             String str2 = str;
             b.a();
-            this.Qe.putString("pdcgts", str);
-            this.Qe.commit();
+            this.PS.putString("pdcgts", str);
+            this.PS.commit();
         } catch (Throwable th) {
             com.baidu.sofire.b.d.a(th);
         }
@@ -148,8 +148,8 @@ public final class e {
                 break;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.Qe.putInt(str + i2, i3);
-            this.Qe.commit();
+            this.PS.putInt(str + i2, i3);
+            this.PS.commit();
         }
     }
 

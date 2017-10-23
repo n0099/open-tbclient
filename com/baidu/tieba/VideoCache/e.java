@@ -8,40 +8,40 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e aXI;
-    private c aXK;
-    private HashMap<String, c> aXJ = new HashMap<>();
-    private List<c> aXL = new ArrayList();
+    private static e aXv;
+    private c aXx;
+    private HashMap<String, c> aXw = new HashMap<>();
+    private List<c> aXy = new ArrayList();
 
     private e() {
     }
 
-    public static e KV() {
-        if (aXI == null) {
+    public static e KP() {
+        if (aXv == null) {
             synchronized (e.class) {
-                if (aXI == null) {
-                    aXI = new e();
+                if (aXv == null) {
+                    aXv = new e();
                 }
             }
         }
-        return aXI;
+        return aXv;
     }
 
     public synchronized void n(c cVar) {
-        j.aw(TAG, "addPlayingCacheFile " + cVar);
-        c cVar2 = this.aXJ.get(cVar.getVideoUrl());
+        j.av(TAG, "addPlayingCacheFile " + cVar);
+        c cVar2 = this.aXw.get(cVar.getVideoUrl());
         if (cVar2 != null) {
-            j.aw(TAG, "got pre same CacheFile ****************************************************************");
+            j.av(TAG, "got pre same CacheFile ****************************************************************");
             cVar2.close();
         }
-        this.aXJ.put(cVar.getVideoUrl(), cVar);
+        this.aXw.put(cVar.getVideoUrl(), cVar);
     }
 
     public synchronized void o(c cVar) {
         if (cVar != null) {
-            j.aw(TAG, "removePlayingCacheFile: " + cVar);
+            j.av(TAG, "removePlayingCacheFile: " + cVar);
             cVar.close();
-            this.aXJ.remove(cVar.getVideoUrl());
+            this.aXw.remove(cVar.getVideoUrl());
         }
     }
 
@@ -49,7 +49,7 @@ public class e {
         boolean z;
         if (cVar != null) {
             if (cVar.getVideoUrl() != null) {
-                Iterator<Map.Entry<String, c>> it = this.aXJ.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = this.aXw.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -69,18 +69,18 @@ public class e {
         return z;
     }
 
-    public synchronized boolean hg(String str) {
+    public synchronized boolean hf(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
-                Iterator<Map.Entry<String, c>> it = this.aXJ.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = this.aXw.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
                     Map.Entry<String, c> next = it.next();
-                    if (next != null && (next.getKey() instanceof String) && str.equals(m.hr(next.getKey()))) {
+                    if (next != null && (next.getKey() instanceof String) && str.equals(m.hq(next.getKey()))) {
                         z = true;
                         break;
                     }
@@ -92,32 +92,32 @@ public class e {
     }
 
     public void q(c cVar) {
-        this.aXK = cVar;
+        this.aXx = cVar;
     }
 
-    public c KW() {
-        return this.aXK;
+    public c KQ() {
+        return this.aXx;
     }
 
     public synchronized void r(c cVar) {
-        this.aXL.add(cVar);
+        this.aXy.add(cVar);
     }
 
     public synchronized void s(c cVar) {
-        this.aXL.remove(cVar);
+        this.aXy.remove(cVar);
     }
 
-    public synchronized void hh(String str) {
+    public synchronized void hg(String str) {
         if (str != null) {
             if (!str.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
-                for (c cVar : this.aXL) {
+                for (c cVar : this.aXy) {
                     if (cVar != null && str.equals(cVar.getVideoUrl())) {
                         cVar.close();
                         arrayList.add(cVar);
                     }
                 }
-                this.aXL.removeAll(arrayList);
+                this.aXy.removeAll(arrayList);
             }
         }
     }
@@ -126,7 +126,7 @@ public class e {
         boolean z;
         if (cVar != null) {
             if (cVar.getVideoUrl() != null) {
-                Iterator<c> it = this.aXL.iterator();
+                Iterator<c> it = this.aXy.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -144,18 +144,18 @@ public class e {
         return z;
     }
 
-    public synchronized boolean hi(String str) {
+    public synchronized boolean hh(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
-                Iterator<c> it = this.aXL.iterator();
+                Iterator<c> it = this.aXy.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
                     c next = it.next();
-                    if (next != null && str.equals(m.hr(next.getVideoUrl()))) {
+                    if (next != null && str.equals(m.hq(next.getVideoUrl()))) {
                         z = true;
                         break;
                     }
@@ -168,15 +168,15 @@ public class e {
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0035, code lost:
         r0.close();
-        r3.aXJ.remove(r4);
-        com.baidu.tieba.VideoCache.j.aw(com.baidu.tieba.VideoCache.e.TAG, "CacheFile close: " + r4);
+        r3.aXw.remove(r4);
+        com.baidu.tieba.VideoCache.j.av(com.baidu.tieba.VideoCache.e.TAG, "CacheFile close: " + r4);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void hj(String str) {
+    public synchronized void hi(String str) {
         if (str != null) {
-            Iterator<Map.Entry<String, c>> it = this.aXJ.entrySet().iterator();
+            Iterator<Map.Entry<String, c>> it = this.aXw.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

@@ -285,7 +285,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setPreviewTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.wM(i)));
         this.previewTime = i;
     }
 
@@ -295,7 +295,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setPreviewDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_20, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_20, this, this, org.aspectj.a.a.a.wM(i)));
         this.previewDuration = i;
     }
 
@@ -305,7 +305,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setPosterTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_22, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_22, this, this, org.aspectj.a.a.a.wM(i)));
         this.posterTime = i;
     }
 
@@ -315,7 +315,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setSelectionTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_24, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_24, this, this, org.aspectj.a.a.a.wM(i)));
         this.selectionTime = i;
     }
 
@@ -325,7 +325,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setSelectionDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.wM(i)));
         this.selectionDuration = i;
     }
 
@@ -335,7 +335,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setCurrentTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.wM(i)));
         this.currentTime = i;
     }
 }

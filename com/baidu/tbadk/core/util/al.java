@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class al {
-    private static al agO;
+    private static al agC;
 
-    public static synchronized al vm() {
+    public static synchronized al vf() {
         al alVar;
         synchronized (al.class) {
-            if (agO == null) {
-                agO = new al();
+            if (agC == null) {
+                agC = new al();
             }
-            alVar = agO;
+            alVar = agC;
         }
         return alVar;
     }
 
-    public String dI(String str) {
+    public String dH(String str) {
         if (str == null) {
             return null;
         }
@@ -30,35 +30,35 @@ public class al {
         return "image/" + (j % 20);
     }
 
-    public Bitmap dJ(String str) {
+    public Bitmap dI(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return k.Y(dI(str), str);
+        return k.X(dH(str), str);
     }
 
-    public boolean dK(String str) {
+    public boolean dJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return k.X(dI(str), str);
+        return k.W(dH(str), str);
     }
 
-    public int dL(String str) {
+    public int dK(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) k.W(dI(str), str);
+        return (int) k.V(dH(str), str);
     }
 
-    public boolean aa(String str, String str2) {
-        String str3 = k.xS + "/" + TbConfig.getTempDirName() + "/";
-        if (!k.db(str3)) {
-            k.ds(str3);
+    public boolean Z(String str, String str2) {
+        String str3 = k.xT + "/" + TbConfig.getTempDirName() + "/";
+        if (!k.da(str3)) {
+            k.dr(str3);
         }
-        String str4 = str3 + dI(str2);
-        if (!k.db(str4)) {
-            k.ds(str4);
+        String str4 = str3 + dH(str2);
+        if (!k.da(str4)) {
+            k.dr(str4);
         }
         String str5 = str4 + "/" + str2;
         if (str.equals(str5)) {
@@ -69,7 +69,7 @@ public class al {
 
     public void i(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            k.d(dI(str), str, bArr);
+            k.d(dH(str), str, bArr);
         }
     }
 
@@ -86,13 +86,13 @@ public class al {
         }
     }
 
-    public void vn() {
-        w(new File(k.xS + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
-        w(new File(k.xS + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
+    public void vg() {
+        w(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
+        w(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void vo() {
-        x(new File(k.xS + "/" + TbConfig.getTempDirName() + "/" + k.cD(3)));
+    public void vh() {
+        x(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + k.cC(3)));
     }
 
     private void x(File file) {

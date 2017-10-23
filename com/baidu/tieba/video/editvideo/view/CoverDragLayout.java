@@ -10,10 +10,10 @@ import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public class CoverDragLayout extends FrameLayout {
-    private float cfl;
-    private float eOn;
-    private float eOo;
-    private long eOp;
+    private float ceZ;
+    private float eNZ;
+    private float eOa;
+    private long eOb;
     private ViewDragHelper mDragHelper;
 
     public CoverDragLayout(Context context) {
@@ -26,7 +26,7 @@ public class CoverDragLayout extends FrameLayout {
 
     public CoverDragLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cfl = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.ceZ = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     public void a(final b bVar, final View view) {
@@ -35,7 +35,7 @@ public class CoverDragLayout extends FrameLayout {
             public boolean tryCaptureView(View view2, int i) {
                 boolean z = view2 == view;
                 if (!z) {
-                    bVar.beV();
+                    bVar.beQ();
                 }
                 return z;
             }
@@ -49,10 +49,10 @@ public class CoverDragLayout extends FrameLayout {
             public void onViewCaptured(View view2, int i) {
                 super.onViewCaptured(view2, i);
                 if (view2 == view) {
-                    CoverDragLayout.this.eOp = System.currentTimeMillis();
-                    CoverDragLayout.this.eOn = view2.getX();
-                    CoverDragLayout.this.eOo = view2.getY();
-                    bVar.beV();
+                    CoverDragLayout.this.eOb = System.currentTimeMillis();
+                    CoverDragLayout.this.eNZ = view2.getX();
+                    CoverDragLayout.this.eOa = view2.getY();
+                    bVar.beQ();
                 }
             }
 
@@ -62,10 +62,10 @@ public class CoverDragLayout extends FrameLayout {
                 if (view2 == view) {
                     float x = view2.getX();
                     float y = view2.getY();
-                    float abs = Math.abs(x - CoverDragLayout.this.eOn);
-                    float abs2 = Math.abs(y - CoverDragLayout.this.eOo);
-                    if (abs < CoverDragLayout.this.cfl && abs2 < CoverDragLayout.this.cfl && System.currentTimeMillis() - CoverDragLayout.this.eOp < 300) {
-                        bVar.bwj();
+                    float abs = Math.abs(x - CoverDragLayout.this.eNZ);
+                    float abs2 = Math.abs(y - CoverDragLayout.this.eOa);
+                    if (abs < CoverDragLayout.this.ceZ && abs2 < CoverDragLayout.this.ceZ && System.currentTimeMillis() - CoverDragLayout.this.eOb < 300) {
+                        bVar.bwb();
                     }
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                     layoutParams.setMargins(0, view2.getTop(), 0, 0);

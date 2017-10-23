@@ -9,7 +9,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class GameCenterDownloadProvider extends ContentProvider {
-    private boolean aKT = false;
+    private boolean aKG = false;
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -18,55 +18,55 @@ public class GameCenterDownloadProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        Gq();
-        if (a.Gs() != null) {
-            return a.Gs().query(uri, strArr, str, strArr2, str2);
+        Gk();
+        if (a.Gm() != null) {
+            return a.Gm().query(uri, strArr, str, strArr2, str2);
         }
         return null;
     }
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        Gq();
-        if (a.Gs() != null) {
-            return a.Gs().getType(uri);
+        Gk();
+        if (a.Gm() != null) {
+            return a.Gm().getType(uri);
         }
         return null;
     }
 
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
-        Gq();
-        if (a.Gs() != null) {
-            return a.Gs().insert(uri, contentValues);
+        Gk();
+        if (a.Gm() != null) {
+            return a.Gm().insert(uri, contentValues);
         }
         return null;
     }
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
-        Gq();
-        if (a.Gs() != null) {
-            return a.Gs().delete(uri, str, strArr);
+        Gk();
+        if (a.Gm() != null) {
+            return a.Gm().delete(uri, str, strArr);
         }
         return 0;
     }
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        Gq();
-        if (a.Gs() != null) {
-            return a.Gs().update(uri, contentValues, str, strArr);
+        Gk();
+        if (a.Gm() != null) {
+            return a.Gm().update(uri, contentValues, str, strArr);
         }
         return 0;
     }
 
-    private void Gq() {
-        if (!this.aKT) {
+    private void Gk() {
+        if (!this.aKG) {
             MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_PROXY_GAME_DOWNLOAD_PROVIDER_READY, this), (Class) null);
-            if (a.Gs() != null) {
-                a.Gs().onCreate();
-                this.aKT = true;
+            if (a.Gm() != null) {
+                a.Gm().onCreate();
+                this.aKG = true;
             }
         }
     }

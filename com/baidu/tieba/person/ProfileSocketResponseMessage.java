@@ -189,17 +189,17 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        l<String> O;
+        l<String> N;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (O = com.baidu.tbadk.core.c.a.te().O("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<g.a> list = this.ucCardData.eZh;
+        if (this.ucCardData != null && (N = com.baidu.tbadk.core.c.a.sX().N("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<g.a> list = this.ucCardData.eYT;
             if (v.t(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (g.a aVar : list) {
-                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(O.get(aVar.title), 0L)) {
-                        aVar.eZi = true;
+                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(N.get(aVar.title), 0L)) {
+                        aVar.eYU = true;
                     } else {
-                        aVar.eZi = false;
+                        aVar.eYU = false;
                     }
                 }
             }
@@ -209,9 +209,9 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> N = com.baidu.tbadk.core.c.a.te().N("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        l<byte[]> M = com.baidu.tbadk.core.c.a.sX().M("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            N.e(PROFILE_CACHE_KEY, bArr);
+            M.e(PROFILE_CACHE_KEY, bArr);
         }
     }
 

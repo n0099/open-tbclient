@@ -12,14 +12,14 @@ import tbclient.Timgs;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class h {
-    private VideoInfo UE;
-    public String ggp;
-    public boolean ggq;
-    private int ggr;
-    private ArrayList<g> ggs;
-    private ArrayList<j> ggt;
-    private i ggu;
-    private int ggv;
+    private VideoInfo Ur;
+    public String ggb;
+    public boolean ggc;
+    private int ggd;
+    private ArrayList<g> gge;
+    private ArrayList<j> ggf;
+    private i ggg;
+    private int ggh;
     public String position;
     private String tagName;
     public long templateId;
@@ -29,28 +29,28 @@ public class h {
             try {
                 this.position = tPointPost.position;
                 this.templateId = tPointPost.template_id.longValue();
-                this.ggq = tPointPost.is_tuiguang.intValue() != 0;
-                this.ggr = tPointPost.template_type.intValue();
+                this.ggc = tPointPost.is_tuiguang.intValue() != 0;
+                this.ggd = tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.ggs = new ArrayList<>();
+                    this.gge = new ArrayList<>();
                     for (int i = 0; i != list.size(); i++) {
-                        this.ggs.add(new g(list.get(i)));
+                        this.gge.add(new g(list.get(i)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.ggt = new ArrayList<>();
+                    this.ggf = new ArrayList<>();
                     for (int i2 = 0; i2 != list2.size(); i2++) {
-                        this.ggt.add(new j(list2.get(i2)));
+                        this.ggf.add(new j(list2.get(i2)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
-                    this.ggu = new i(tPointPost.detail_info);
+                    this.ggg = new i(tPointPost.detail_info);
                 }
-                this.ggp = tPointPost.monitor_id;
-                this.ggv = tPointPost.hidden_day.intValue();
-                this.UE = tPointPost.t_video;
+                this.ggb = tPointPost.monitor_id;
+                this.ggh = tPointPost.hidden_day.intValue();
+                this.Ur = tPointPost.t_video;
                 this.tagName = tPointPost.tag_name;
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -64,27 +64,27 @@ public class h {
             try {
                 this.position = jSONObject.optString("position");
                 this.templateId = jSONObject.optLong("template_id");
-                this.ggq = jSONObject.optInt("is_tuiguang") != 0;
-                this.ggr = jSONObject.optInt("template_type");
+                this.ggc = jSONObject.optInt("is_tuiguang") != 0;
+                this.ggd = jSONObject.optInt("template_type");
                 JSONArray optJSONArray = jSONObject.optJSONArray("act_btn");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.ggs = new ArrayList<>();
+                    this.gge = new ArrayList<>();
                     for (int i = 0; i != optJSONArray.length(); i++) {
-                        this.ggs.add(new g(optJSONArray.getJSONObject(i)));
+                        this.gge.add(new g(optJSONArray.getJSONObject(i)));
                     }
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("t_imgs");
                 if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                    this.ggt = new ArrayList<>();
+                    this.ggf = new ArrayList<>();
                     for (int i2 = 0; i2 != optJSONArray2.length(); i2++) {
-                        this.ggt.add(new j(optJSONArray2.getJSONObject(i2)));
+                        this.ggf.add(new j(optJSONArray2.getJSONObject(i2)));
                     }
                 }
-                this.ggu = new i(jSONObject.getJSONObject("detail_info"));
-                this.ggp = jSONObject.optString("monitor_id");
-                this.ggv = jSONObject.optInt("hidden_day");
+                this.ggg = new i(jSONObject.getJSONObject("detail_info"));
+                this.ggb = jSONObject.optString("monitor_id");
+                this.ggh = jSONObject.optInt("hidden_day");
                 this.tagName = jSONObject.optString("tag_name");
-                if (this.ggr == 3 && (jSONObject2 = jSONObject.getJSONObject("t_video")) != null) {
+                if (this.ggd == 3 && (jSONObject2 = jSONObject.getJSONObject("t_video")) != null) {
                     VideoInfo.Builder builder = new VideoInfo.Builder();
                     builder.video_md5 = jSONObject2.optString("video_md5");
                     builder.video_url = jSONObject2.optString("video_url");
@@ -96,7 +96,7 @@ public class h {
                     builder.thumbnail_height = Integer.valueOf(jSONObject2.optInt("thumbnail_height"));
                     builder.video_length = Integer.valueOf(jSONObject2.optInt("video_length"));
                     builder.play_count = Integer.valueOf(jSONObject2.optInt("play_count"));
-                    this.UE = builder.build(false);
+                    this.Ur = builder.build(false);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -104,32 +104,32 @@ public class h {
         }
     }
 
-    public j bqZ() {
-        return (j) v.c(this.ggt, 0);
+    public j bqS() {
+        return (j) v.c(this.ggf, 0);
     }
 
     public long getTemplateId() {
         return this.templateId;
     }
 
-    public ArrayList<g> bra() {
-        return this.ggs;
+    public ArrayList<g> bqT() {
+        return this.gge;
     }
 
-    public ArrayList<j> brb() {
-        return this.ggt;
+    public ArrayList<j> bqU() {
+        return this.ggf;
     }
 
-    public i brc() {
-        return this.ggu;
+    public i bqV() {
+        return this.ggg;
     }
 
-    public int brd() {
-        return this.ggr;
+    public int bqW() {
+        return this.ggd;
     }
 
-    public String bre() {
-        return this.ggp;
+    public String bqX() {
+        return this.ggb;
     }
 
     public String getTagName() {

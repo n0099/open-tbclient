@@ -6,32 +6,32 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes.dex */
 public class b {
-    public final View aLh;
-    private View.OnClickListener aPe = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.b.1
+    public final View aKU;
+    private View.OnClickListener aOR = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == b.this.aLh && b.this.eDC != null) {
-                b.this.eDC.finish();
+            if (view == b.this.aKU && b.this.eDo != null) {
+                b.this.eDo.finish();
             }
         }
     };
-    public final TextView abf;
-    private PbActivity eDC;
-    public final View ePI;
+    public final TextView aaS;
+    private PbActivity eDo;
+    public final View ePu;
 
     public b(PbActivity pbActivity) {
-        this.eDC = pbActivity;
-        this.aLh = this.eDC.findViewById(d.h.manga_navigation_bar_back);
-        this.abf = (TextView) this.eDC.findViewById(d.h.manga_navigation_bar_title);
-        this.ePI = this.eDC.findViewById(d.h.manga_browser_navigation_bar);
-        this.aLh.setOnClickListener(this.aPe);
+        this.eDo = pbActivity;
+        this.aKU = this.eDo.findViewById(d.h.manga_navigation_bar_back);
+        this.aaS = (TextView) this.eDo.findViewById(d.h.manga_navigation_bar_title);
+        this.ePu = this.eDo.findViewById(d.h.manga_browser_navigation_bar);
+        this.aKU.setOnClickListener(this.aOR);
     }
 
     public void setTitle(String str) {
-        this.abf.setText(str);
+        this.aaS.setText(str);
     }
 
     public void show() {
-        this.ePI.setVisibility(0);
+        this.ePu.setVisibility(0);
     }
 }

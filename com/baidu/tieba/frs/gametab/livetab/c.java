@@ -9,10 +9,10 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.ae;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tbadk.mainTab.b {
-    private b cEq = new b();
+    private b cEe = new b();
 
     public c() {
-        EA().aGv = this.cEq;
+        Eu().aGi = this.cEe;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -21,42 +21,42 @@ public class c extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Ez() {
+    public com.baidu.tbadk.mainTab.c Et() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 2;
-        cVar.aGw = d.l.ala_live;
-        cVar.aGD = com.baidu.tbadk.mainTab.c.aGB;
+        cVar.aGj = d.l.ala_live;
+        cVar.aGq = com.baidu.tbadk.mainTab.c.aGo;
         return cVar;
     }
 
     public void a(ae aeVar) {
-        if (aeVar != null && aeVar.jl(2)) {
+        if (aeVar != null && aeVar.jk(2)) {
             aeVar.b(this);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public e aZ(Context context) {
-        this.aGm = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
-        this.aGm.setTextSize(2.0f);
-        return this.aGm;
+    public e aY(Context context) {
+        this.aFZ = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
+        this.aFZ.setTextSize(2.0f);
+        return this.aFZ;
     }
 
     public void setForumId(String str) {
-        if (this.cEq != null) {
-            this.cEq.setForumId(str);
+        if (this.cEe != null) {
+            this.cEe.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.cEq != null) {
-            this.cEq.setForumName(str);
+        if (this.cEe != null) {
+            this.cEe.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.cEq != null) {
-            this.cEq.setForumGameLabel(str);
+        if (this.cEe != null) {
+            this.cEe.setForumGameLabel(str);
         }
     }
 }

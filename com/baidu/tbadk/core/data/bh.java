@@ -56,40 +56,40 @@ import tbclient.Voice;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.f, com.baidu.tbadk.core.util.ae {
-    public TwZhiBoUser WM;
-    public List<TwAnchorProfitItem> WN;
-    private SpannableStringBuilder YF;
-    public int YJ;
-    private int YK;
-    private int YM;
-    private String YP;
-    private int YQ;
-    private String YR;
-    private int YT;
-    private VideoInfo YV;
-    private bm YW;
-    private c YX;
-    private boolean ZE;
-    private boolean ZF;
-    public String ZH;
-    public String ZI;
-    public String ZJ;
-    public long ZK;
-    public String ZM;
-    private List<ReportInfo> ZP;
-    private p ZV;
-    private boolean ZW;
-    private int ZY;
-    private n Ze;
-    private LiveCoverStatus Zk;
-    private long Zl;
-    private SkinInfo Zw;
-    private boolean Zy;
-    private String Zz;
-    private long aaa;
-    private ah aab;
-    public d aad;
-    private MediaData aae;
+    public TwZhiBoUser WA;
+    public List<TwAnchorProfitItem> WB;
+    private int YA;
+    private String YD;
+    private int YE;
+    private String YF;
+    private int YH;
+    private VideoInfo YJ;
+    private bm YK;
+    private c YL;
+    private n YS;
+    private LiveCoverStatus YY;
+    private long YZ;
+    private SpannableStringBuilder Yt;
+    public int Yx;
+    private int Yy;
+    public String ZA;
+    private List<ReportInfo> ZD;
+    private p ZJ;
+    private boolean ZK;
+    private int ZM;
+    private long ZO;
+    private ah ZP;
+    public d ZR;
+    private MediaData ZS;
+    private SkinInfo Zk;
+    private boolean Zm;
+    private String Zn;
+    private boolean Zs;
+    private boolean Zt;
+    public String Zv;
+    public String Zw;
+    public String Zx;
+    public long Zy;
     private String address;
     private String authorId;
     private boolean isLinkThread;
@@ -99,182 +99,182 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
     private int post_num;
     private int threadType;
     private HashMap<String, MetaData> userMap;
+    public static final BdUniqueId XV = BdUniqueId.gen();
+    public static final BdUniqueId XW = BdUniqueId.gen();
+    public static final BdUniqueId XX = BdUniqueId.gen();
+    public static final BdUniqueId XY = BdUniqueId.gen();
+    public static final BdUniqueId XZ = BdUniqueId.gen();
+    public static final BdUniqueId Ya = BdUniqueId.gen();
+    public static final BdUniqueId Yb = BdUniqueId.gen();
+    public static final BdUniqueId Yc = BdUniqueId.gen();
+    public static final BdUniqueId Yd = BdUniqueId.gen();
+    public static AtomicBoolean Ye = new AtomicBoolean(false);
+    public static AtomicBoolean Yf = new AtomicBoolean(false);
+    public static AtomicBoolean Yg = new AtomicBoolean(false);
     public static final BdUniqueId Yh = BdUniqueId.gen();
     public static final BdUniqueId Yi = BdUniqueId.gen();
     public static final BdUniqueId Yj = BdUniqueId.gen();
-    public static final BdUniqueId Yk = BdUniqueId.gen();
-    public static final BdUniqueId Yl = BdUniqueId.gen();
-    public static final BdUniqueId Ym = BdUniqueId.gen();
-    public static final BdUniqueId Yn = BdUniqueId.gen();
-    public static final BdUniqueId Yo = BdUniqueId.gen();
-    public static final BdUniqueId Yp = BdUniqueId.gen();
-    public static AtomicBoolean Yq = new AtomicBoolean(false);
-    public static AtomicBoolean Yr = new AtomicBoolean(false);
-    public static AtomicBoolean Ys = new AtomicBoolean(false);
-    public static final BdUniqueId Yt = BdUniqueId.gen();
-    public static final BdUniqueId Yu = BdUniqueId.gen();
-    public static final BdUniqueId Yv = BdUniqueId.gen();
-    private static HashMap<Point, Integer> Zf = new HashMap<>();
-    private static HashMap<Integer, Integer> Zg = new HashMap<>();
-    public static final BdUniqueId Zr = BdUniqueId.gen();
-    public static final BdUniqueId Zs = BdUniqueId.gen();
-    public static final BdUniqueId Zx = BdUniqueId.gen();
-    private static HashMap<Point, Integer> ZQ = new HashMap<>();
-    private static SparseArray<m.a> ZR = new SparseArray<>(3);
-    public int Yw = 1;
-    private String YL = null;
-    private int Vp = 0;
-    public int YY = 0;
-    private String YZ = "";
-    private String Zh = "";
-    public boolean ZL = true;
-    public boolean ZS = false;
-    public boolean ZT = false;
-    private int ZU = -1;
-    private SparseArray<String> Xg = null;
-    public boolean aac = false;
+    private static HashMap<Point, Integer> YT = new HashMap<>();
+    private static HashMap<Integer, Integer> YU = new HashMap<>();
+    public static final BdUniqueId Zf = BdUniqueId.gen();
+    public static final BdUniqueId Zg = BdUniqueId.gen();
+    public static final BdUniqueId Zl = BdUniqueId.gen();
+    private static HashMap<Point, Integer> ZE = new HashMap<>();
+    private static SparseArray<m.a> ZF = new SparseArray<>(3);
+    public int Yk = 1;
+    private String Yz = null;
+    private int Vd = 0;
+    public int YM = 0;
+    private String YN = "";
+    private String YV = "";
+    public boolean Zz = true;
+    public boolean ZG = false;
+    public boolean ZH = false;
+    private int ZI = -1;
+    private SparseArray<String> WU = null;
+    public boolean ZQ = false;
     private String id = null;
-    private String Xf = null;
+    private String WT = null;
     private long fid = 0;
     private String title = null;
     private int is_god = 0;
     private int reply_num = 0;
-    private int Yx = 0;
+    private int Yl = 0;
     private int view_num = 0;
     private String last_time = null;
-    private long Yy = 0;
-    private int Yz = 0;
-    private int YA = 0;
-    private int YB = 0;
-    private bk YC = new bk();
+    private long Ym = 0;
+    private int Yn = 0;
+    private int Yo = 0;
+    private int Yp = 0;
+    private bk Yq = new bk();
     private MetaData author = new MetaData();
     private String forum_name = null;
-    ArrayList<MediaData> YH = new ArrayList<>();
-    ArrayList<VoiceData.VoiceModel> YI = new ArrayList<>();
-    private int YD = 0;
-    private int YE = 0;
+    ArrayList<MediaData> Yv = new ArrayList<>();
+    ArrayList<VoiceData.VoiceModel> Yw = new ArrayList<>();
+    private int Yr = 0;
+    private int Ys = 0;
     private String ad_url = null;
-    private String YG = null;
+    private String Yu = null;
     private String from = null;
     private int isMarked = 0;
-    private PraiseData YN = new PraiseData();
-    private AnchorInfoData YO = new AnchorInfoData();
+    private PraiseData YB = new PraiseData();
+    private AnchorInfoData YC = new AnchorInfoData();
     private long time = 0;
-    private int YS = 0;
-    private ArrayList<a> Zb = new ArrayList<>();
-    private bq Zc = null;
-    private e Zd = null;
-    private int Zi = 0;
-    private ArrayList<com.baidu.tbadk.coreExtra.view.e> YU = new ArrayList<>();
+    private int YG = 0;
+    private ArrayList<a> YP = new ArrayList<>();
+    private bq YQ = null;
+    private e YR = null;
+    private int YW = 0;
+    private ArrayList<com.baidu.tbadk.coreExtra.view.e> YI = new ArrayList<>();
     private boolean isHeadLive = false;
-    private String Zj = null;
-    private int Za = 0;
-    private PollInfo Zm = null;
-    private boolean Zn = false;
-    private boolean Zo = false;
-    private int Zp = 0;
-    private boolean Zq = false;
+    private String YX = null;
+    private int YO = 0;
+    private PollInfo Za = null;
+    private boolean Zb = false;
+    private boolean Zc = false;
+    private int Zd = 0;
+    private boolean Ze = false;
     private int anchorLevel = 0;
-    public int ZA = 0;
-    public k ZB = new k();
-    private List<PbContent> ZC = new ArrayList();
-    private List<PbContent> ZD = new ArrayList();
+    public int Zo = 0;
+    public k Zp = new k();
+    private List<PbContent> Zq = new ArrayList();
+    private List<PbContent> Zr = new ArrayList();
     private String category_name = null;
-    private bf Zt = new bf();
-    private ArrayList<com.baidu.tbadk.data.a> Zu = new ArrayList<>();
-    private PushStatusData Zv = new PushStatusData();
-    public boolean ZN = false;
-    public int ZO = -1;
-    private int ZX = 0;
-    private PostData ZZ = new PostData();
-    private int ZG = 0;
+    private bf Zh = new bf();
+    private ArrayList<com.baidu.tbadk.data.a> Zi = new ArrayList<>();
+    private PushStatusData Zj = new PushStatusData();
+    public boolean ZB = false;
+    public int ZC = -1;
+    private int ZL = 0;
+    private PostData ZN = new PostData();
+    private int Zu = 0;
 
     static {
-        Zf.put(new Point(1, 1), Integer.valueOf(d.g.label_frs_lottery_ing));
-        Zf.put(new Point(1, 2), Integer.valueOf(d.g.label_frs_lottery_over));
-        Zf.put(new Point(1, 3), Integer.valueOf(d.g.label_frs_lottery_off));
-        Zf.put(new Point(1, 4), Integer.valueOf(d.g.label_frs_lottery_d));
-        Zf.put(new Point(2, 1), Integer.valueOf(d.g.label_frs_activity_shaiing));
-        Zf.put(new Point(2, 2), Integer.valueOf(d.g.label_frs_activity_shai_over));
-        Zf.put(new Point(2, 3), Integer.valueOf(d.g.label_frs_activity_shai_off));
-        Zf.put(new Point(2, 4), Integer.valueOf(d.g.label_frs_activity_shai_d));
-        ZQ.put(new Point(1, 1), Integer.valueOf(d.l.lottery_status_ing));
-        ZQ.put(new Point(1, 2), Integer.valueOf(d.l.lottery_status_over));
-        ZQ.put(new Point(1, 3), Integer.valueOf(d.l.lottery_status_off));
-        ZQ.put(new Point(1, 4), Integer.valueOf(d.l.lottery_status_not_start));
-        ZQ.put(new Point(2, 1), Integer.valueOf(d.l.share_picture_status_ing));
-        ZQ.put(new Point(2, 2), Integer.valueOf(d.l.share_picture_status_over));
-        ZQ.put(new Point(2, 3), Integer.valueOf(d.l.share_picture_status_off));
-        ZQ.put(new Point(2, 4), Integer.valueOf(d.l.share_picture_status_not_start));
-        Zg.put(1, Integer.valueOf(d.g.label_interview_no));
-        Zg.put(2, Integer.valueOf(d.g.label_interview_live));
-        Zg.put(3, Integer.valueOf(d.g.label_interview_off));
-        ZR.put(1, new m.a(d.l.interview_live_status_not_start, d.e.cp_other_b, d.g.pic_dot_title_red));
-        ZR.put(2, new m.a(d.l.interview_live_status_ing, d.e.cp_other_c, d.g.pic_dot_title_green));
-        ZR.put(3, new m.a(d.l.interview_live_status_over, d.e.cp_other_d, d.g.pic_dot_title_blue));
+        YT.put(new Point(1, 1), Integer.valueOf(d.g.label_frs_lottery_ing));
+        YT.put(new Point(1, 2), Integer.valueOf(d.g.label_frs_lottery_over));
+        YT.put(new Point(1, 3), Integer.valueOf(d.g.label_frs_lottery_off));
+        YT.put(new Point(1, 4), Integer.valueOf(d.g.label_frs_lottery_d));
+        YT.put(new Point(2, 1), Integer.valueOf(d.g.label_frs_activity_shaiing));
+        YT.put(new Point(2, 2), Integer.valueOf(d.g.label_frs_activity_shai_over));
+        YT.put(new Point(2, 3), Integer.valueOf(d.g.label_frs_activity_shai_off));
+        YT.put(new Point(2, 4), Integer.valueOf(d.g.label_frs_activity_shai_d));
+        ZE.put(new Point(1, 1), Integer.valueOf(d.l.lottery_status_ing));
+        ZE.put(new Point(1, 2), Integer.valueOf(d.l.lottery_status_over));
+        ZE.put(new Point(1, 3), Integer.valueOf(d.l.lottery_status_off));
+        ZE.put(new Point(1, 4), Integer.valueOf(d.l.lottery_status_not_start));
+        ZE.put(new Point(2, 1), Integer.valueOf(d.l.share_picture_status_ing));
+        ZE.put(new Point(2, 2), Integer.valueOf(d.l.share_picture_status_over));
+        ZE.put(new Point(2, 3), Integer.valueOf(d.l.share_picture_status_off));
+        ZE.put(new Point(2, 4), Integer.valueOf(d.l.share_picture_status_not_start));
+        YU.put(1, Integer.valueOf(d.g.label_interview_no));
+        YU.put(2, Integer.valueOf(d.g.label_interview_live));
+        YU.put(3, Integer.valueOf(d.g.label_interview_off));
+        ZF.put(1, new m.a(d.l.interview_live_status_not_start, d.e.cp_other_b, d.g.pic_dot_title_red));
+        ZF.put(2, new m.a(d.l.interview_live_status_ing, d.e.cp_other_c, d.g.pic_dot_title_green));
+        ZF.put(3, new m.a(d.l.interview_live_status_over, d.e.cp_other_d, d.g.pic_dot_title_blue));
     }
 
     public bh() {
-        this.YK = 0;
-        this.YT = 0;
-        this.Zl = 0L;
+        this.Yy = 0;
+        this.YH = 0;
+        this.YZ = 0L;
         this.post_num = 0;
         this.post_num = 0;
-        this.Zl = 0L;
-        this.YT = 0;
-        this.YK = 0;
+        this.YZ = 0L;
+        this.YH = 0;
+        this.Yy = 0;
     }
 
-    public boolean rb() {
-        return this.YK == 1;
+    public boolean qU() {
+        return this.Yy == 1;
     }
 
-    public bf rc() {
-        return this.Zt;
+    public bf qV() {
+        return this.Zh;
     }
 
     public int getAnchorLevel() {
         return this.anchorLevel;
     }
 
-    public void bP(int i) {
+    public void bO(int i) {
         this.anchorLevel = i;
     }
 
-    public int rd() {
-        return this.YT;
+    public int qW() {
+        return this.YH;
     }
 
-    public boolean re() {
-        return this.Zq;
+    public boolean qX() {
+        return this.Ze;
     }
 
-    public int rf() {
-        return this.ZG;
+    public int qY() {
+        return this.Zu;
+    }
+
+    public void bP(int i) {
+        this.Zu = i;
+    }
+
+    public boolean qZ() {
+        return this.Zb;
+    }
+
+    public boolean ra() {
+        return this.Zc;
     }
 
     public void bQ(int i) {
-        this.ZG = i;
+        this.Zd = i;
     }
 
-    public boolean rg() {
-        return this.Zn;
+    public int rb() {
+        return this.Zd;
     }
 
-    public boolean rh() {
-        return this.Zo;
-    }
-
-    public void bR(int i) {
-        this.Zp = i;
-    }
-
-    public int ri() {
-        return this.Zp;
-    }
-
-    public PollInfo rj() {
-        return this.Zm;
+    public PollInfo rc() {
+        return this.Za;
     }
 
     public HashMap<String, MetaData> getUserMap() {
@@ -289,23 +289,23 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.mCreateTime;
     }
 
-    public String rk() {
-        return this.YP;
+    public String rd() {
+        return this.YD;
     }
 
-    public PraiseData rl() {
-        return this.YN;
+    public PraiseData re() {
+        return this.YB;
     }
 
     public void a(PraiseData praiseData) {
-        this.YN = praiseData;
+        this.YB = praiseData;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public String rm() {
+    public String rf() {
         return this.mFromType;
     }
 
@@ -317,12 +317,12 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.id;
     }
 
-    public void cy(String str) {
-        this.Xf = str;
+    public void cx(String str) {
+        this.WT = str;
     }
 
     public String getTid() {
-        return (StringUtils.isNull(this.Xf) || "0".equals(this.Xf)) ? this.id : this.Xf;
+        return (StringUtils.isNull(this.WT) || "0".equals(this.WT)) ? this.id : this.WT;
     }
 
     public void setFid(long j) {
@@ -345,78 +345,78 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.title;
     }
 
-    public void bS(int i) {
+    public void bR(int i) {
         this.reply_num = i;
     }
 
-    public int rn() {
+    public int rg() {
         return this.reply_num;
     }
 
-    public int ro() {
+    public int rh() {
         return this.view_num;
     }
 
-    public void bT(int i) {
+    public void bS(int i) {
         this.view_num = i;
     }
 
-    public long rp() {
-        return this.Yy;
+    public long ri() {
+        return this.Ym;
     }
 
-    public void l(long j) {
-        this.Yy = j;
+    public void m(long j) {
+        this.Ym = j;
     }
 
-    public int rq() {
-        return this.Yz;
+    public int rj() {
+        return this.Yn;
+    }
+
+    public void bT(int i) {
+        this.Yn = i;
+    }
+
+    public int rk() {
+        return this.Yo;
     }
 
     public void bU(int i) {
-        this.Yz = i;
+        this.Yo = i;
     }
 
-    public int rr() {
-        return this.YA;
+    public int rl() {
+        return this.Yp;
     }
 
-    public void bV(int i) {
-        this.YA = i;
+    public List<PbContent> rm() {
+        return this.Zq;
     }
 
-    public int rs() {
-        return this.YB;
-    }
-
-    public List<PbContent> rt() {
-        return this.ZC;
-    }
-
-    public bk ru() {
-        return this.YC;
+    public bk rn() {
+        return this.Yq;
     }
 
     public MetaData getAuthor() {
         return this.author;
     }
 
-    public UserTbVipInfoData rv() {
+    public UserTbVipInfoData ro() {
         if (this.author == null) {
             return null;
         }
         return this.author.getUserTbVipInfoData();
     }
 
-    public boolean rw() {
+    public boolean rp() {
         return this.is_god != 0;
     }
 
-    public boolean rx() {
+    public boolean rq() {
         return this.is_god == 1;
     }
 
-    public boolean ry() {
+    public boolean rr() {
         return (this.author == null || this.author.getGodUserData() == null || this.author.getGodUserData().getType() != 2) ? false : true;
     }
 
@@ -424,7 +424,7 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.isLinkThread;
     }
 
-    public boolean rz() {
+    public boolean rs() {
         return (this.author == null || this.author.getGodUserData() == null || this.author.getGodUserData().getType() != 3) ? false : true;
     }
 
@@ -432,53 +432,53 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         this.author = metaData;
     }
 
-    public String rA() {
+    public String rt() {
         return this.forum_name;
     }
 
-    public void cC(String str) {
+    public void cB(String str) {
         this.forum_name = str;
     }
 
-    public int rB() {
-        return this.YE;
+    public int ru() {
+        return this.Ys;
     }
 
-    public String rC() {
+    public String rv() {
         return this.ad_url;
     }
 
-    public String rD() {
-        return this.YG;
+    public String rw() {
+        return this.Yu;
     }
 
-    public void cD(String str) {
-        this.YG = str;
+    public void cC(String str) {
+        this.Yu = str;
     }
 
     public String g(String str, boolean z) {
         String str2;
         int size;
         if (z) {
-            if (this.ZD == null || this.ZD.size() == 0) {
+            if (this.Zr == null || this.Zr.size() == 0) {
                 str2 = str;
             } else {
-                int size2 = this.ZD.size();
+                int size2 = this.Zr.size();
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < size2; i++) {
-                    PbContent pbContent = this.ZD.get(i);
+                    PbContent pbContent = this.Zr.get(i);
                     if (pbContent != null) {
                         sb.append(pbContent.text);
                     }
                 }
                 str2 = sb.toString();
             }
-        } else if (this.ZC == null || (size = this.ZC.size()) == 0) {
+        } else if (this.Zq == null || (size = this.Zq.size()) == 0) {
             str2 = str;
         } else {
             StringBuilder sb2 = new StringBuilder();
             for (int i2 = 0; i2 < size; i2++) {
-                PbContent pbContent2 = this.ZC.get(i2);
+                PbContent pbContent2 = this.Zq.get(i2);
                 if (pbContent2 != null) {
                     sb2.append(pbContent2.text);
                 }
@@ -488,15 +488,15 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return str2 != null ? str2 : "";
     }
 
-    public SpannableString cE(String str) {
+    public SpannableString cD(String str) {
         int size;
         int i;
         SpannableString spannableString = new SpannableString(g(str, true));
-        if (this.ZD != null && (size = this.ZD.size()) > 0) {
+        if (this.Zr != null && (size = this.Zr.size()) > 0) {
             int i2 = 0;
             int i3 = 0;
             while (i2 < size) {
-                final PbContent pbContent = this.ZD.get(i2);
+                final PbContent pbContent = this.Zr.get(i2);
                 if (pbContent == null) {
                     i = i3;
                 } else if (TextUtils.isEmpty(pbContent.text)) {
@@ -508,7 +508,7 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                         spannableString.setSpan(new com.baidu.tbadk.widget.richText.b(2, pbContent.link) { // from class: com.baidu.tbadk.core.data.bh.1
                             @Override // com.baidu.tbadk.widget.richText.b, android.text.style.ClickableSpan
                             public void onClick(View view) {
-                                bh.this.cH(pbContent.link);
+                                bh.this.cG(pbContent.link);
                             }
                         }, i3, pbContent.text.length() + i3, 33);
                     }
@@ -529,36 +529,36 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         this.isMarked = i;
     }
 
-    public String rE() {
-        return this.YL;
+    public String rx() {
+        return this.Yz;
     }
 
-    public void cF(String str) {
-        this.YL = str;
+    public void cE(String str) {
+        this.Yz = str;
     }
 
-    public ArrayList<MediaData> rF() {
-        return this.YH;
+    public ArrayList<MediaData> ry() {
+        return this.Yv;
     }
 
-    public ArrayList<a> rG() {
-        return this.Zb;
+    public ArrayList<a> rz() {
+        return this.YP;
     }
 
     public void h(ArrayList<a> arrayList) {
-        this.Zb = arrayList;
+        this.YP = arrayList;
     }
 
-    public bq rH() {
-        return this.Zc;
+    public bq rA() {
+        return this.YQ;
     }
 
-    public e rI() {
-        return this.Zd;
+    public e rB() {
+        return this.YR;
     }
 
-    public ArrayList<VoiceData.VoiceModel> rJ() {
-        return this.YI;
+    public ArrayList<VoiceData.VoiceModel> rC() {
+        return this.Yw;
     }
 
     public int getThreadType() {
@@ -569,8 +569,8 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         this.threadType = i;
     }
 
-    public int rK() {
-        return this.YQ;
+    public int rD() {
+        return this.YE;
     }
 
     public String getAddress() {
@@ -581,65 +581,65 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         this.address = str;
     }
 
-    public String rL() {
-        return this.YZ;
+    public String rE() {
+        return this.YN;
     }
 
-    public VideoInfo rM() {
-        return this.YV;
+    public VideoInfo rF() {
+        return this.YJ;
     }
 
     public void a(c cVar) {
-        this.YX = cVar;
+        this.YL = cVar;
     }
 
-    public c rN() {
-        return this.YX;
+    public c rG() {
+        return this.YL;
     }
 
     public String getPhotoLiveCover() {
-        return this.Zh;
+        return this.YV;
     }
 
     public void setPhotoLiveCover(String str) {
-        this.Zh = str;
+        this.YV = str;
     }
 
-    public ArrayList<com.baidu.tbadk.coreExtra.view.e> rO() {
-        return this.YU;
+    public ArrayList<com.baidu.tbadk.coreExtra.view.e> rH() {
+        return this.YI;
     }
 
     public void setExpressionDatas(ArrayList<com.baidu.tbadk.coreExtra.view.e> arrayList) {
-        this.YU.clear();
-        this.YU.addAll(arrayList);
+        this.YI.clear();
+        this.YI.addAll(arrayList);
     }
 
     public String getNotice() {
+        return this.YX;
+    }
+
+    public PushStatusData rI() {
         return this.Zj;
     }
 
-    public PushStatusData rP() {
-        return this.Zv;
+    public SkinInfo rJ() {
+        return this.Zk;
     }
 
-    public SkinInfo rQ() {
-        return this.Zw;
+    public long rK() {
+        return this.Zy;
     }
 
-    public long rR() {
-        return this.ZK;
+    public boolean rL() {
+        return this.Zz;
     }
 
-    public boolean rS() {
-        return this.ZL;
+    public String rM() {
+        return this.ZA;
     }
 
-    public String rT() {
-        return this.ZM;
-    }
-
-    public p rU() {
-        return this.ZV;
+    public p rN() {
+        return this.ZJ;
     }
 
     public void a(ThreadInfo threadInfo) {
@@ -648,57 +648,57 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
             try {
                 if (threadInfo.location != null) {
                     this.latitude = threadInfo.location.lat;
-                    this.YR = threadInfo.location.lng;
+                    this.YF = threadInfo.location.lng;
                     this.address = threadInfo.location.name;
                 }
-                this.YK = threadInfo.is_tbread_dispatch.intValue();
+                this.Yy = threadInfo.is_tbread_dispatch.intValue();
                 this.id = threadInfo.id + "";
-                this.Xf = threadInfo.tid + "";
+                this.WT = threadInfo.tid + "";
                 this.fid = threadInfo.fid.longValue();
                 this.title = threadInfo.title;
                 this.is_god = threadInfo.is_god.intValue();
                 this.mCreateTime = threadInfo.create_time.intValue() * 1000;
                 this.reply_num = threadInfo.reply_num.intValue();
-                this.Yx = threadInfo.repost_num.intValue();
+                this.Yl = threadInfo.repost_num.intValue();
                 this.view_num = threadInfo.view_num.intValue();
                 this.last_time = threadInfo.last_time;
-                this.Yy = threadInfo.last_time_int.intValue();
-                this.Yz = threadInfo.is_top.intValue();
-                this.YA = threadInfo.is_good.intValue();
-                this.YB = threadInfo.is_livepost.intValue();
-                this.YC.a(threadInfo.topic);
+                this.Ym = threadInfo.last_time_int.intValue();
+                this.Yn = threadInfo.is_top.intValue();
+                this.Yo = threadInfo.is_good.intValue();
+                this.Yp = threadInfo.is_livepost.intValue();
+                this.Yq.a(threadInfo.topic);
                 this.author.parserProtobuf(threadInfo.author);
                 this.authorId = threadInfo.author_id.toString();
                 this.forum_name = threadInfo.fname;
-                this.YD = threadInfo.has_commented.intValue();
-                this.YE = threadInfo.show_commented.intValue();
+                this.Yr = threadInfo.has_commented.intValue();
+                this.Ys = threadInfo.show_commented.intValue();
                 this.ad_url = threadInfo.click_url;
-                this.YV = threadInfo.video_info;
-                this.YX = new c();
-                this.YX.a(threadInfo.ala_info);
+                this.YJ = threadInfo.video_info;
+                this.YL = new c();
+                this.YL.a(threadInfo.ala_info);
                 this.from = threadInfo.from;
                 this.isMarked = threadInfo.collect_status.intValue();
-                this.YL = threadInfo.collect_mark_pid;
-                this.YM = threadInfo.is_voice_thread.intValue();
+                this.Yz = threadInfo.collect_mark_pid;
+                this.YA = threadInfo.is_voice_thread.intValue();
                 this.threadType = threadInfo.thread_type.intValue();
-                this.YP = threadInfo.first_post_id + "";
-                this.YZ = threadInfo.post_id + "";
+                this.YD = threadInfo.first_post_id + "";
+                this.YN = threadInfo.post_id + "";
                 this.time = threadInfo.time.intValue() * 1000;
-                this.YQ = threadInfo.is_ntitle.intValue();
-                this.YS = threadInfo.is_activity.intValue();
-                this.ZX = threadInfo.agree_num.intValue();
+                this.YE = threadInfo.is_ntitle.intValue();
+                this.YG = threadInfo.is_activity.intValue();
+                this.ZL = threadInfo.agree_num.intValue();
                 if (threadInfo.agree != null) {
-                    this.ZY = threadInfo.agree.has_agree.intValue();
+                    this.ZM = threadInfo.agree.has_agree.intValue();
                 }
-                this.aaa = threadInfo.share_num.longValue();
+                this.ZO = threadInfo.share_num.longValue();
                 this.category_name = threadInfo.category_name;
-                this.YT = threadInfo.operator_flag.intValue();
+                this.YH = threadInfo.operator_flag.intValue();
                 if (threadInfo.is_operate_thread != null) {
-                    this.ZE = threadInfo.is_operate_thread.intValue() == 1;
+                    this.Zs = threadInfo.is_operate_thread.intValue() == 1;
                 }
-                this.ZC = threadInfo.rich_title;
-                this.ZD = threadInfo.rich_abstract;
-                this.YJ = threadInfo.is_godthread_recommend.intValue();
+                this.Zq = threadInfo.rich_title;
+                this.Zr = threadInfo.rich_abstract;
+                this.Yx = threadInfo.is_godthread_recommend.intValue();
                 if ((this.author == null || this.author.getUserId() == null || this.author.getUserId().equals("0")) && this.authorId != null && !this.authorId.equals("0") && this.userMap != null && (metaData = this.userMap.get(this.authorId)) != null) {
                     this.author = metaData;
                 }
@@ -711,21 +711,21 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                         }
                     }
                 }
-                this.YG = sb.toString();
+                this.Yu = sb.toString();
                 List<Media> list2 = threadInfo.media;
                 if (list2 != null) {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
                         MediaData mediaData = new MediaData();
                         mediaData.parserProtobuf(list2.get(i2));
-                        this.YH.add(mediaData);
+                        this.Yv.add(mediaData);
                     }
                 }
                 if (threadInfo.video_info != null && !StringUtils.isNull(threadInfo.video_info.video_url)) {
-                    this.YV = threadInfo.video_info;
+                    this.YJ = threadInfo.video_info;
                 }
                 if (threadInfo.video_channel_info != null && threadInfo.video_channel_info.channel_id.longValue() > 0) {
-                    this.YW = new bm();
-                    this.YW.a(threadInfo.video_channel_info);
+                    this.YK = new bm();
+                    this.YK.a(threadInfo.video_channel_info);
                 }
                 List<Voice> list3 = threadInfo.voice_info;
                 if (list3 != null) {
@@ -736,7 +736,7 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                         voiceModel.from = "frs_voice_play";
                         voiceModel.voiceId = voice.voice_md5;
                         voiceModel.duration = voice.during_time.intValue() / 1000;
-                        this.YI.add(voiceModel);
+                        this.Yw.add(voiceModel);
                     }
                 }
                 List<ActInfo> list4 = threadInfo.act_info;
@@ -745,34 +745,34 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                     for (int i4 = 0; i4 < size2; i4++) {
                         a aVar = new a();
                         aVar.a(list4.get(i4));
-                        this.Zb.add(aVar);
+                        this.YP.add(aVar);
                     }
                 }
                 if (threadInfo.yule_post_activity != null) {
-                    this.Zc = new bq();
-                    this.Zc.a(threadInfo.yule_post_activity);
+                    this.YQ = new bq();
+                    this.YQ.a(threadInfo.yule_post_activity);
                 }
                 if (threadInfo.app_code != null) {
-                    this.Zd = new e();
-                    this.Zd.a(threadInfo.app_code);
+                    this.YR = new e();
+                    this.YR.a(threadInfo.app_code);
                 }
                 if (threadInfo.cartoon_info != null) {
-                    this.Ze = new n();
-                    this.Ze.a(threadInfo.cartoon_info);
+                    this.YS = new n();
+                    this.YS.a(threadInfo.cartoon_info);
                 }
-                this.YN.setUserMap(this.userMap);
-                this.YN.parserProtobuf(threadInfo.zan);
-                this.YO.parserProtobuf(threadInfo.anchor_info);
+                this.YB.setUserMap(this.userMap);
+                this.YB.parserProtobuf(threadInfo.zan);
+                this.YC.parserProtobuf(threadInfo.anchor_info);
                 if (!com.baidu.adp.lib.util.k.isEmpty(this.title)) {
-                    this.YN.setTitle(this.title);
+                    this.YB.setTitle(this.title);
                 } else {
-                    this.YN.setTitle(this.YG);
+                    this.YB.setTitle(this.Yu);
                 }
-                this.Zh = threadInfo.livecover_src;
-                this.Zi = threadInfo.storecount.intValue();
+                this.YV = threadInfo.livecover_src;
+                this.YW = threadInfo.storecount.intValue();
                 this.post_num = threadInfo.post_num.intValue();
-                this.Za = threadInfo.post_num.intValue();
-                this.Zl = threadInfo.freq_num.longValue();
+                this.YO = threadInfo.post_num.intValue();
+                this.YZ = threadInfo.freq_num.longValue();
                 ZhiBoInfoTW zhiBoInfoTW = threadInfo.twzhibo_info;
                 if (zhiBoInfoTW != null) {
                     if (zhiBoInfoTW.labelInfo != null) {
@@ -780,62 +780,62 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                         for (int i5 = 0; i5 < size3; i5++) {
                             if (zhiBoInfoTW.labelInfo.get(i5) != null) {
                                 com.baidu.tbadk.coreExtra.view.e eVar = new com.baidu.tbadk.coreExtra.view.e();
-                                eVar.ev(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
+                                eVar.eu(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
                                 eVar.setLabelId(zhiBoInfoTW.labelInfo.get(i5).labelId);
                                 eVar.setLabelName(zhiBoInfoTW.labelInfo.get(i5).labelContent);
-                                this.YU.add(eVar);
+                                this.YI.add(eVar);
                             }
                         }
                     }
                     NoticeInfo noticeInfo = zhiBoInfoTW.notice_info;
                     if (noticeInfo != null) {
-                        this.Zj = noticeInfo.notice;
+                        this.YX = noticeInfo.notice;
                     }
-                    this.Zp = zhiBoInfoTW.copythread_remind.intValue();
-                    this.Zn = zhiBoInfoTW.is_copytwzhibo.intValue() > 0;
-                    this.Zo = zhiBoInfoTW.is_copytwzhibo.intValue() == 3;
-                    if (StringUtils.isNull(this.Zh)) {
-                        this.Zh = zhiBoInfoTW.livecover_src;
+                    this.Zd = zhiBoInfoTW.copythread_remind.intValue();
+                    this.Zb = zhiBoInfoTW.is_copytwzhibo.intValue() > 0;
+                    this.Zc = zhiBoInfoTW.is_copytwzhibo.intValue() == 3;
+                    if (StringUtils.isNull(this.YV)) {
+                        this.YV = zhiBoInfoTW.livecover_src;
                     }
                     if (zhiBoInfoTW.user != null) {
-                        this.WM = zhiBoInfoTW.user.tw_anchor_info;
-                        this.WN = zhiBoInfoTW.user.profit_list;
+                        this.WA = zhiBoInfoTW.user.tw_anchor_info;
+                        this.WB = zhiBoInfoTW.user.profit_list;
                     }
                 }
                 if (threadInfo.twzhibo_info != null) {
                     this.isHeadLive = threadInfo.twzhibo_info.is_headline.intValue() == 1;
-                    this.Zk = threadInfo.twzhibo_info.livecover_status;
-                    this.Zl = threadInfo.twzhibo_info.freq_num.intValue();
+                    this.YY = threadInfo.twzhibo_info.livecover_status;
+                    this.YZ = threadInfo.twzhibo_info.freq_num.intValue();
                     if (threadInfo.twzhibo_info.user != null && threadInfo.twzhibo_info.user.tw_anchor_info != null) {
                         this.anchorLevel = threadInfo.twzhibo_info.user.tw_anchor_info.anchor_level.intValue();
                     }
                 }
-                this.Zm = threadInfo.poll_info;
-                this.Zq = threadInfo.is_copythread.intValue() == 1;
+                this.Za = threadInfo.poll_info;
+                this.Ze = threadInfo.is_copythread.intValue() == 1;
                 if (threadInfo.task_info != null) {
-                    this.Zt.a(threadInfo.task_info);
+                    this.Zh.a(threadInfo.task_info);
                 }
                 if (threadInfo.ext_tails != null) {
                     for (int i6 = 0; i6 != threadInfo.ext_tails.size(); i6++) {
                         com.baidu.tbadk.data.a aVar2 = new com.baidu.tbadk.data.a();
                         aVar2.a(threadInfo.ext_tails.get(i6));
-                        this.Zu.add(aVar2);
+                        this.Zi.add(aVar2);
                     }
                 }
-                this.Zv.parserProtobuf(threadInfo.push_status);
-                this.Zz = threadInfo.lego_card;
-                this.Zw = threadInfo.skin_info;
-                this.ZA = threadInfo.is_book_chapter.intValue();
-                this.ZB.a(threadInfo.book_chapter);
-                this.ZH = threadInfo.recom_source;
-                this.ZM = threadInfo.recom_reason;
-                this.ZI = threadInfo.recom_weight;
-                this.ZJ = threadInfo.ab_tag;
-                this.ZK = threadInfo.last_read_pid.longValue();
-                this.ZL = threadInfo.cheak_repeat.intValue() == 1;
-                this.ZP = threadInfo.report_info;
+                this.Zj.parserProtobuf(threadInfo.push_status);
+                this.Zn = threadInfo.lego_card;
+                this.Zk = threadInfo.skin_info;
+                this.Zo = threadInfo.is_book_chapter.intValue();
+                this.Zp.a(threadInfo.book_chapter);
+                this.Zv = threadInfo.recom_source;
+                this.ZA = threadInfo.recom_reason;
+                this.Zw = threadInfo.recom_weight;
+                this.Zx = threadInfo.ab_tag;
+                this.Zy = threadInfo.last_read_pid.longValue();
+                this.Zz = threadInfo.cheak_repeat.intValue() == 1;
+                this.ZD = threadInfo.report_info;
                 if (threadInfo.top_agree_post != null) {
-                    this.ZZ.a(threadInfo.top_agree_post, TbadkCoreApplication.getInst().getApplicationContext());
+                    this.ZN.a(threadInfo.top_agree_post, TbadkCoreApplication.getInst().getApplicationContext());
                 }
                 List<DislikeInfo> list5 = threadInfo.dislike_info;
                 if (com.baidu.tbadk.core.util.v.t(list5) > 0) {
@@ -845,28 +845,28 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                             sparseArray.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.dislike_reason);
                         }
                     }
-                    this.Xg = sparseArray;
+                    this.WU = sparseArray;
                 }
                 if (!com.baidu.tbadk.core.util.v.u(threadInfo.declare_list)) {
-                    this.ZV = new p();
-                    this.ZV.a(threadInfo);
+                    this.ZJ = new p();
+                    this.ZJ.a(threadInfo);
                 }
-                this.ZW = threadInfo.is_multiforum_thread.intValue() == 1;
+                this.ZK = threadInfo.is_multiforum_thread.intValue() == 1;
                 this.isLinkThread = threadInfo.is_link_thread.intValue() == 1;
                 if (this.isLinkThread && threadInfo.link_info != null) {
-                    this.aab = new ah();
-                    this.aab.a(threadInfo.link_info);
+                    this.ZP = new ah();
+                    this.ZP.a(threadInfo.link_info);
                 }
-                this.aac = threadInfo.is_partial_visible.intValue() == 1;
+                this.ZQ = threadInfo.is_partial_visible.intValue() == 1;
                 if (threadInfo.activity_info != null) {
-                    this.aad = new d();
-                    this.aad.a(threadInfo.activity_info);
+                    this.ZR = new d();
+                    this.ZR.a(threadInfo.activity_info);
                 }
                 if (threadInfo.pic_info != null) {
-                    this.aae = new MediaData();
-                    this.aae.parserProtobuf(threadInfo.pic_info);
+                    this.ZS = new MediaData();
+                    this.ZS.parserProtobuf(threadInfo.pic_info);
                 }
-                this.ZG = threadInfo.is_called.intValue();
+                this.Zu = threadInfo.is_called.intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -878,38 +878,38 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         if (jSONObject != null) {
             try {
                 this.id = jSONObject.optString("id");
-                this.Xf = jSONObject.optString("tid");
+                this.WT = jSONObject.optString("tid");
                 this.title = jSONObject.optString(VrPlayerActivityConfig.TITLE);
                 this.is_god = jSONObject.optInt("is_god");
                 this.mCreateTime = jSONObject.optLong("create_time", 0L) * 1000;
                 this.reply_num = jSONObject.optInt("reply_num", 0);
-                this.Yx = jSONObject.optInt("repost_num", 0);
+                this.Yl = jSONObject.optInt("repost_num", 0);
                 this.view_num = jSONObject.optInt("view_num", 0);
                 this.last_time = jSONObject.optString("last_time");
-                this.Yy = jSONObject.optLong("last_time_int", 0L);
-                this.Yz = jSONObject.optInt("is_top", 0);
-                this.YA = jSONObject.optInt("is_good", 0);
-                this.YB = jSONObject.optInt("is_livepost", 0);
-                this.YC.parserJson(jSONObject.optJSONObject("topic"));
+                this.Ym = jSONObject.optLong("last_time_int", 0L);
+                this.Yn = jSONObject.optInt("is_top", 0);
+                this.Yo = jSONObject.optInt("is_good", 0);
+                this.Yp = jSONObject.optInt("is_livepost", 0);
+                this.Yq.parserJson(jSONObject.optJSONObject("topic"));
                 this.authorId = jSONObject.optString("author_id");
                 this.author.parserJson(jSONObject.optJSONObject("author"));
                 this.forum_name = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
-                this.YD = jSONObject.optInt("has_commented", 0);
-                this.YE = jSONObject.optInt("show_commented", 0);
+                this.Yr = jSONObject.optInt("has_commented", 0);
+                this.Ys = jSONObject.optInt("show_commented", 0);
                 this.ad_url = jSONObject.optString("click_url");
                 this.from = jSONObject.optString("from");
                 this.isMarked = jSONObject.optInt("collect_status");
-                this.YL = jSONObject.optString("collect_mark_pid");
-                this.YM = jSONObject.optInt("is_voice_thread");
+                this.Yz = jSONObject.optString("collect_mark_pid");
+                this.YA = jSONObject.optInt("is_voice_thread");
                 this.threadType = jSONObject.optInt("thread_type");
-                this.YP = jSONObject.optString("first_post_id", "0");
-                this.YZ = jSONObject.optString("post_id", "0");
+                this.YD = jSONObject.optString("first_post_id", "0");
+                this.YN = jSONObject.optString("post_id", "0");
                 this.time = jSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L) * 1000;
-                this.YQ = jSONObject.optInt("is_ntitle");
+                this.YE = jSONObject.optInt("is_ntitle");
                 this.category_name = jSONObject.optString(MangaCategoryActivityConfig.CATEGORY_NAME);
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("top_agree_post");
                 if (optJSONObject2 != null) {
-                    this.Zt.parserJson(optJSONObject2);
+                    this.Zh.parserJson(optJSONObject2);
                 }
                 if (this.author == null || this.author.getUserId() == null) {
                     this.author = this.userMap.get(this.authorId);
@@ -918,8 +918,8 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                 if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("ala_info")) != null) {
                     this.address = optJSONObject.optString("location");
                 }
-                this.YX = new c();
-                this.YX.parserJson(jSONObject.optJSONObject("ala_info"));
+                this.YL = new c();
+                this.YL.parserJson(jSONObject.optJSONObject("ala_info"));
                 StringBuilder sb = new StringBuilder();
                 JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
                 if (optJSONArray != null) {
@@ -930,13 +930,13 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                         }
                     }
                 }
-                this.YG = sb.toString();
+                this.Yu = sb.toString();
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("media");
                 if (optJSONArray2 != null) {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         MediaData mediaData = new MediaData();
                         mediaData.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.YH.add(mediaData);
+                        this.Yv.add(mediaData);
                     }
                 }
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
@@ -948,7 +948,7 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                         voiceModel.from = "frs_voice_play";
                         voiceModel.voiceId = jSONObject3.optString("voice_md5");
                         voiceModel.duration = jSONObject3.optInt("during_time") / 1000;
-                        this.YI.add(voiceModel);
+                        this.Yw.add(voiceModel);
                     }
                 }
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("act_info");
@@ -956,75 +956,75 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                     for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
                         a aVar = new a();
                         aVar.parserJson(optJSONArray4.getJSONObject(i4));
-                        this.Zb.add(aVar);
+                        this.YP.add(aVar);
                     }
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("yule_post_activity");
                 if (optJSONObject4 != null) {
-                    this.Zc = new bq();
-                    this.Zc.parserJson(optJSONObject4);
+                    this.YQ = new bq();
+                    this.YQ.parserJson(optJSONObject4);
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("app_code");
                 if (optJSONObject5 != null) {
-                    this.Zd = new e();
-                    this.Zd.parserJson(optJSONObject5);
+                    this.YR = new e();
+                    this.YR.parserJson(optJSONObject5);
                 }
                 JSONObject optJSONObject6 = jSONObject.optJSONObject("cartoon_info");
                 if (optJSONObject6 != null) {
-                    this.Ze = new n();
-                    this.Ze.parserJson(optJSONObject6);
+                    this.YS = new n();
+                    this.YS.parserJson(optJSONObject6);
                 }
-                this.YN.setUserMap(this.userMap);
-                this.YN.parserJson(jSONObject.optJSONObject(FeedData.TYPE_ZAN));
-                this.YO.parserJson(jSONObject.optJSONObject("anchor_info"));
+                this.YB.setUserMap(this.userMap);
+                this.YB.parserJson(jSONObject.optJSONObject(FeedData.TYPE_ZAN));
+                this.YC.parserJson(jSONObject.optJSONObject("anchor_info"));
                 if (!com.baidu.adp.lib.util.k.isEmpty(this.title)) {
-                    this.YN.setTitle(this.title);
+                    this.YB.setTitle(this.title);
                 } else {
-                    this.YN.setTitle(this.YG);
+                    this.YB.setTitle(this.Yu);
                 }
                 JSONObject optJSONObject7 = jSONObject.optJSONObject("task_info");
                 if (optJSONObject7 != null) {
-                    this.Zt.parserJson(optJSONObject7);
+                    this.Zh.parserJson(optJSONObject7);
                 }
                 JSONArray optJSONArray5 = jSONObject.optJSONArray("ext_tails");
                 if (optJSONArray5 != null) {
                     for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
                         com.baidu.tbadk.data.a aVar2 = new com.baidu.tbadk.data.a();
                         aVar2.parserJson(optJSONArray5.getJSONObject(i5));
-                        this.Zu.add(aVar2);
+                        this.Zi.add(aVar2);
                     }
                 }
-                this.ZA = jSONObject.optInt("is_book_chapter", 0);
-                this.ZB.parserJson(jSONObject.optJSONObject("book_chapter"));
-                this.ZH = jSONObject.optString("recom_source");
-                this.ZM = jSONObject.optString("recom_reason");
-                this.ZI = jSONObject.optString("recom_weight");
-                this.ZK = jSONObject.optLong("last_read_pid");
-                this.ZL = jSONObject.optInt("cheak_repeat") == 1;
+                this.Zo = jSONObject.optInt("is_book_chapter", 0);
+                this.Zp.parserJson(jSONObject.optJSONObject("book_chapter"));
+                this.Zv = jSONObject.optString("recom_source");
+                this.ZA = jSONObject.optString("recom_reason");
+                this.Zw = jSONObject.optString("recom_weight");
+                this.Zy = jSONObject.optLong("last_read_pid");
+                this.Zz = jSONObject.optInt("cheak_repeat") == 1;
                 JSONObject optJSONObject8 = jSONObject.optJSONObject("video_channel_info");
                 if (optJSONObject8 != null) {
-                    this.YW = new bm();
-                    this.YW.d(optJSONObject8);
+                    this.YK = new bm();
+                    this.YK.f(optJSONObject8);
                 }
-                this.ZW = jSONObject.optInt("is_multiforum_thread") == 1;
+                this.ZK = jSONObject.optInt("is_multiforum_thread") == 1;
                 this.isLinkThread = jSONObject.optBoolean("is_link_thread");
                 JSONObject optJSONObject9 = jSONObject.optJSONObject("link_info");
                 if (this.isLinkThread && optJSONObject9 != null) {
-                    this.aab = new ah();
-                    this.aab.parserJson(optJSONObject9);
+                    this.ZP = new ah();
+                    this.ZP.parserJson(optJSONObject9);
                 }
-                this.aac = jSONObject.optInt("is_partial_visible") == 1;
+                this.ZQ = jSONObject.optInt("is_partial_visible") == 1;
                 JSONObject optJSONObject10 = jSONObject.optJSONObject("activity_info");
                 if (optJSONObject10 != null) {
-                    this.aad = new d();
-                    this.aad.parserJson(optJSONObject10);
+                    this.ZR = new d();
+                    this.ZR.parserJson(optJSONObject10);
                 }
                 JSONObject optJSONObject11 = jSONObject.optJSONObject("pic_info");
                 if (optJSONObject11 != null) {
-                    this.aae = new MediaData();
-                    this.aae.parserJson(optJSONObject11);
+                    this.ZS = new MediaData();
+                    this.ZS.parserJson(optJSONObject11);
                 }
-                this.ZG = jSONObject.optInt("is_called", 0);
+                this.Zu = jSONObject.optInt("is_called", 0);
                 JSONObject optJSONObject12 = jSONObject.optJSONObject(WriteVideoActivityConfig.VIDEO_INFO);
                 if (optJSONObject12 != null) {
                     VideoInfo.Builder builder = new VideoInfo.Builder();
@@ -1038,7 +1038,7 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                     builder.video_length = new Integer(optJSONObject12.optInt("video_size", 0));
                     builder.thumbnail_url = optJSONObject12.optString("thumbnail_url");
                     builder.play_count = new Integer(optJSONObject12.optInt("play_count", 0));
-                    this.YV = builder.build(true);
+                    this.YJ = builder.build(true);
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -1046,23 +1046,23 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         }
     }
 
-    public SpannableStringBuilder rV() {
-        return this.YF;
+    public SpannableStringBuilder rO() {
+        return this.Yt;
     }
 
-    public boolean rW() {
-        return rq() != 0;
+    public boolean rP() {
+        return rj() != 0;
     }
 
-    public int rX() {
-        if (this.Zt != null) {
-            long qV = this.Zt.qV();
-            long qW = this.Zt.qW();
+    public int rQ() {
+        if (this.Zh != null) {
+            long qO = this.Zh.qO();
+            long qP = this.Zh.qP();
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (currentTimeMillis < qV) {
+            if (currentTimeMillis < qO) {
                 return 1;
             }
-            if (currentTimeMillis > qW) {
+            if (currentTimeMillis > qP) {
                 return 3;
             }
             return 2;
@@ -1070,40 +1070,40 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return -1;
     }
 
-    public int rY() {
-        if (sa() && this.Zb.size() >= 1) {
-            a aVar = this.Zb.get(0);
+    public int rR() {
+        if (rT() && this.YP.size() >= 1) {
+            a aVar = this.YP.get(0);
             int status = aVar.getStatus();
             if (status == 3) {
                 return status;
             }
-            int pl = aVar.pl();
-            int pm = aVar.pm();
+            int pe = aVar.pe();
+            int pf = aVar.pf();
             int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
-            if (currentTimeMillis < pl) {
+            if (currentTimeMillis < pe) {
                 return 4;
             }
-            return currentTimeMillis > pm ? 2 : 1;
+            return currentTimeMillis > pf ? 2 : 1;
         }
         return -1;
     }
 
-    public int rZ() {
-        if (!sa() || this.Zb.size() < 1 || this.Zb.get(0) == null) {
+    public int rS() {
+        if (!rT() || this.YP.size() < 1 || this.YP.get(0) == null) {
             return -1;
         }
-        return this.Zb.get(0).pk();
+        return this.YP.get(0).pd();
     }
 
-    public boolean sa() {
-        return this.YS == 1;
+    public boolean rT() {
+        return this.YG == 1;
     }
 
-    public String sb() {
-        return (!sa() || this.Zb.size() < 1 || this.Zb.get(0) == null) ? "" : this.Zb.get(0).getUrl();
+    public String rU() {
+        return (!rT() || this.YP.size() < 1 || this.YP.get(0) == null) ? "" : this.YP.get(0).getUrl();
     }
 
-    private com.baidu.adp.widget.b cG(String str) {
+    private com.baidu.adp.widget.b cF(String str) {
         com.baidu.adp.widget.b bVar;
         if (str == null) {
             return null;
@@ -1139,57 +1139,57 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         ArrayList arrayList = new ArrayList();
         com.baidu.adp.widget.b bVar = null;
         if (!z2) {
-            if (getThreadType() == 42 && sc()) {
+            if (getThreadType() == 42 && rV()) {
                 arrayList.add(Integer.valueOf(d.g.icon_convene));
             }
-            if (rq() == 1) {
+            if (rj() == 1) {
                 arrayList.add(Integer.valueOf(d.g.icon_top));
-            } else if (rq() == 2) {
+            } else if (rj() == 2) {
                 arrayList.add(Integer.valueOf(d.g.icon_notice));
             }
-            if (rs() == 1 || this.YC.sV() != 0) {
-                if (rc() != null && getThreadType() == 41) {
-                    if (rX() == 2) {
+            if (rl() == 1 || this.Yq.sO() != 0) {
+                if (qV() != null && getThreadType() == 41) {
+                    if (rQ() == 2) {
                         arrayList.add(Integer.valueOf(d.g.label_interview));
                     }
                 } else {
                     arrayList.add(Integer.valueOf(d.g.icon_zhibo));
                 }
             }
-            if (z && sn()) {
-                Integer num = Zg.get(Integer.valueOf(rX()));
+            if (z && sg()) {
+                Integer num = YU.get(Integer.valueOf(rQ()));
                 if (num != null) {
                     arrayList.add(num);
                 }
             }
-            if (rr() == 1 && !rW() && Yl != getType() && Yp != getType()) {
+            if (rk() == 1 && !rP() && XZ != getType() && Yd != getType()) {
                 arrayList.add(Integer.valueOf(d.g.icon_elite));
             }
-            if (getType() == Yt || getType() == Yu) {
+            if (getType() == Yh || getType() == Yi) {
                 arrayList.add(Integer.valueOf(d.g.icon_vote_blue));
             }
-            if (this.YO != null && this.YO.getGroup_id() != 0) {
+            if (this.YC != null && this.YC.getGroup_id() != 0) {
                 arrayList.add(Integer.valueOf(d.g.icon_live_on));
             }
-            if (rB() == 1) {
+            if (ru() == 1) {
                 arrayList.add(Integer.valueOf(d.g.frs_post_ding));
             }
-            if (!z && rZ() == 2) {
+            if (!z && rS() == 2) {
                 arrayList.add(Integer.valueOf(d.g.label_frs_activity_shai));
             } else {
-                Integer num2 = Zf.get(new Point(rZ(), rY()));
+                Integer num2 = YT.get(new Point(rS(), rR()));
                 if (num2 != null) {
                     arrayList.add(num2);
                 }
             }
-            if (rH() != null) {
+            if (rA() != null) {
                 arrayList.add(Integer.valueOf(d.g.tag_act));
             }
-            if (rI() != null) {
+            if (rB() != null) {
                 arrayList.add(Integer.valueOf(d.g.icon_tag_giftsend));
             }
             if (!com.baidu.adp.lib.util.k.isEmpty(this.category_name)) {
-                bVar = cG(this.category_name);
+                bVar = cF(this.category_name);
             }
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
@@ -1211,13 +1211,13 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                 if (i4 >= arrayList.size()) {
                     break;
                 }
-                Bitmap cR = com.baidu.tbadk.core.util.aj.cR(((Integer) arrayList.get(i4)).intValue());
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(cR);
-                if (cR != null) {
-                    bitmapDrawable.setBounds(0, 0, cR.getWidth(), cR.getHeight());
+                Bitmap cQ = com.baidu.tbadk.core.util.aj.cQ(((Integer) arrayList.get(i4)).intValue());
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(cQ);
+                if (cQ != null) {
+                    bitmapDrawable.setBounds(0, 0, cQ.getWidth(), cQ.getHeight());
                 }
                 com.baidu.tbadk.core.view.i iVar = new com.baidu.tbadk.core.view.i(bitmapDrawable);
-                iVar.setOffset(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApplicationContext(), this.Yw));
+                iVar.setOffset(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApplicationContext(), this.Yk));
                 spannableString.setSpan(iVar, i3, i3 + 1, 33);
                 i3 += 2;
                 i2 = i4 + 1;
@@ -1229,18 +1229,18 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         }
         SpannableString a = a(new SpannableString(g + " "));
         if (a != null) {
-            SpannableStringBuilder c = !z && rq() == 1 ? null : c(a.toString(), null);
+            SpannableStringBuilder c = !z && rj() == 1 ? null : c(a.toString(), null);
             if (c == null) {
                 spannableStringBuilder.append((CharSequence) a);
             } else {
                 spannableStringBuilder.append((CharSequence) c);
             }
         }
-        this.YF = spannableStringBuilder;
+        this.Yt = spannableStringBuilder;
     }
 
     private SpannableStringBuilder c(String str, ArrayList<m.a> arrayList) {
-        if (si() || !rw() || com.baidu.adp.lib.util.k.isEmpty(str)) {
+        if (sb() || !rp() || com.baidu.adp.lib.util.k.isEmpty(str)) {
             return null;
         }
         if (arrayList == null || arrayList.size() <= 0) {
@@ -1250,7 +1250,7 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return com.baidu.tieba.card.m.a((Context) TbadkCoreApplication.getInst(), str, arrayList, true);
     }
 
-    private boolean sc() {
+    private boolean rV() {
         return com.baidu.adp.lib.b.d.eV().af("isConveneThreadOpen") == 1;
     }
 
@@ -1271,7 +1271,7 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         } else {
             spannableStringBuilder = new SpannableStringBuilder(a);
         }
-        this.YF = spannableStringBuilder;
+        this.Yt = spannableStringBuilder;
     }
 
     private SpannableStringBuilder a(String str, SpannableString spannableString, boolean z, boolean z2, boolean z3, boolean z4) {
@@ -1284,12 +1284,12 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
             if (a2 == null) {
                 a2 = new SpannableStringBuilder();
             }
-            if (this.YQ == 1) {
-                this.YF = a2;
+            if (this.YE == 1) {
+                this.Yt = a2;
                 return a2;
             }
-        } else if (this.YQ == 1) {
-            this.YF = new SpannableStringBuilder();
+        } else if (this.YE == 1) {
+            this.Yt = new SpannableStringBuilder();
             return a2;
         }
         if (spannableString != null) {
@@ -1308,12 +1308,12 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         if (spannableString == null) {
             return new SpannableString("");
         }
-        if (this.ZC != null && this.ZC.size() > 0) {
-            int size = this.ZC.size();
+        if (this.Zq != null && this.Zq.size() > 0) {
+            int size = this.Zq.size();
             int i2 = 0;
             int i3 = 0;
             while (i2 < size) {
-                final PbContent pbContent = this.ZC.get(i2);
+                final PbContent pbContent = this.Zq.get(i2);
                 if (pbContent == null) {
                     i = i3;
                 } else if (TextUtils.isEmpty(pbContent.text)) {
@@ -1323,7 +1323,7 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                         spannableString.setSpan(new com.baidu.tbadk.widget.richText.b(2, pbContent.link) { // from class: com.baidu.tbadk.core.data.bh.2
                             @Override // com.baidu.tbadk.widget.richText.b, android.text.style.ClickableSpan
                             public void onClick(View view) {
-                                bh.this.cH(pbContent.link);
+                                bh.this.cG(pbContent.link);
                             }
                         }, i3, pbContent.text.length() + i3, 33);
                     }
@@ -1340,37 +1340,37 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cH(String str) {
+    public void cG(String str) {
         if (!TextUtils.isEmpty(str)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_START_HOT_TOPIC_ACTIVITY, str));
         }
     }
 
-    public void sd() {
+    public void rW() {
         d(false, false);
     }
 
-    public void se() {
+    public void rX() {
         d(true, false);
     }
 
-    public void sf() {
+    public void rY() {
         d(false, true);
     }
 
-    public AnchorInfoData sg() {
-        return this.YO;
+    public AnchorInfoData rZ() {
+        return this.YC;
     }
 
     public boolean isPhotoLiveThread() {
         return this.threadType == 33;
     }
 
-    public boolean sh() {
+    public boolean sa() {
         return this.threadType == 36;
     }
 
-    public boolean si() {
+    public boolean sb() {
         return this.threadType == 40 || this.threadType == 50;
     }
 
@@ -1382,46 +1382,46 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         this.post_num = i;
     }
 
-    public int sj() {
-        return this.Za;
+    public int sc() {
+        return this.YO;
     }
 
-    public void bW(int i) {
-        this.Za = i;
+    public void bV(int i) {
+        this.YO = i;
     }
 
-    public long sk() {
-        return this.Zl;
+    public long sd() {
+        return this.YZ;
     }
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        ArrayList<MediaData> rF = rF();
-        if (rF == null || rW()) {
+        ArrayList<MediaData> ry = ry();
+        if (ry == null || rP()) {
             return null;
         }
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= rF.size() || i2 >= 3) {
+            if (i2 >= ry.size() || i2 >= 3) {
                 break;
             }
-            if (rF.get(i2) != null && rF.get(i2).getType() == 3) {
+            if (ry.get(i2) != null && ry.get(i2).getType() == 3) {
                 PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-                if (!StringUtils.isNull(rF.get(i2).getThumbnails_url())) {
-                    preLoadImageInfo.imgUrl = rF.get(i2).getThumbnails_url();
+                if (!StringUtils.isNull(ry.get(i2).getThumbnails_url())) {
+                    preLoadImageInfo.imgUrl = ry.get(i2).getThumbnails_url();
                 } else {
-                    preLoadImageInfo.imgUrl = rF.get(i2).getPicUrl();
+                    preLoadImageInfo.imgUrl = ry.get(i2).getPicUrl();
                 }
                 preLoadImageInfo.procType = 13;
                 arrayList.add(preLoadImageInfo);
             }
             i = i2 + 1;
         }
-        if (this.YV != null && !StringUtils.isNull(this.YV.thumbnail_url)) {
+        if (this.YJ != null && !StringUtils.isNull(this.YJ.thumbnail_url)) {
             PreLoadImageInfo preLoadImageInfo2 = new PreLoadImageInfo();
-            preLoadImageInfo2.imgUrl = this.YV.thumbnail_url;
+            preLoadImageInfo2.imgUrl = this.YJ.thumbnail_url;
             preLoadImageInfo2.procType = 13;
             arrayList.add(preLoadImageInfo2);
         }
@@ -1434,53 +1434,53 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return arrayList;
     }
 
-    public boolean sl() {
+    public boolean se() {
         String userId;
         return this.author == null || (userId = this.author.getUserId()) == null || userId.equals("0");
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        int rq = rq();
-        if (this.YX != null && this.threadType == 60) {
-            return Yo;
+        int rj = rj();
+        if (this.YL != null && this.threadType == 60) {
+            return Yc;
         }
-        if (this.YX != null && this.threadType == 49) {
-            return Ym;
+        if (this.YL != null && this.threadType == 49) {
+            return Ya;
         }
         if (this.threadType == 51) {
-            return Yn;
+            return Yb;
         }
-        if (rq == 2 || rq == 1) {
+        if (rj == 2 || rj == 1) {
+            return XV;
+        }
+        if (this.YJ != null && so()) {
+            return Yj;
+        }
+        if (this.YJ != null) {
+            if (rr()) {
+                return Yd;
+            }
+            return XZ;
+        } else if (rc() != null && getThreadType() == 36 && rc().type.intValue() == 2) {
             return Yh;
-        }
-        if (this.YV != null && sv()) {
-            return Yv;
-        }
-        if (this.YV != null) {
-            if (ry()) {
-                return Yp;
-            }
-            return Yl;
-        } else if (rj() != null && getThreadType() == 36 && rj().type.intValue() == 2) {
-            return Yt;
         } else {
-            if (rj() != null && getThreadType() == 36 && rj().type.intValue() == 1) {
-                return Yu;
-            }
-            if (rc() != null && getThreadType() == 41 && rs() == 1 && rX() == 2) {
-                return Yq.get() ? Zs : Yi;
-            } else if (sa() && rZ() == 1) {
-                return Yq.get() ? Zx : Yi;
-            } else if (sa() && rZ() == 2) {
-                return Yq.get() ? Zr : Yi;
-            } else if (isLinkThread()) {
-                return Yj;
-            } else {
-                if (ry()) {
-                    return Yk;
-                }
+            if (rc() != null && getThreadType() == 36 && rc().type.intValue() == 1) {
                 return Yi;
+            }
+            if (qV() != null && getThreadType() == 41 && rl() == 1 && rQ() == 2) {
+                return Ye.get() ? Zg : XW;
+            } else if (rT() && rS() == 1) {
+                return Ye.get() ? Zl : XW;
+            } else if (rT() && rS() == 2) {
+                return Ye.get() ? Zf : XW;
+            } else if (isLinkThread()) {
+                return XX;
+            } else {
+                if (rr()) {
+                    return XY;
+                }
+                return XW;
             }
         }
     }
@@ -1489,31 +1489,31 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return this.isHeadLive;
     }
 
-    public LiveCoverStatus sm() {
-        return this.Zk;
+    public LiveCoverStatus sf() {
+        return this.YY;
     }
 
-    public List<TwAnchorProfitItem> pZ() {
-        return this.WN;
+    public List<TwAnchorProfitItem> pS() {
+        return this.WB;
     }
 
     public void i(ArrayList<o> arrayList) {
-        if (this.YQ == 1) {
-            this.Vp = 0;
+        if (this.YE == 1) {
+            this.Vd = 0;
         } else if (arrayList == null || arrayList.size() <= 0) {
-            this.Vp = 0;
+            this.Vd = 0;
         } else {
-            this.Vp = 0;
+            this.Vd = 0;
             Iterator<o> it = arrayList.iterator();
             while (it.hasNext()) {
                 o next = it.next();
-                if (next != null && next.pE() != null && !StringUtils.isNull(this.title)) {
-                    Iterator<String> it2 = next.pE().iterator();
+                if (next != null && next.px() != null && !StringUtils.isNull(this.title)) {
+                    Iterator<String> it2 = next.px().iterator();
                     while (true) {
                         if (it2.hasNext()) {
                             String next2 = it2.next();
                             if (!StringUtils.isNull(next2) && this.title.contains(next2)) {
-                                this.Vp = next.pF();
+                                this.Vd = next.py();
                                 break;
                             }
                         }
@@ -1523,170 +1523,170 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         }
     }
 
-    public boolean sn() {
+    public boolean sg() {
         return this.threadType == 41;
     }
 
-    public boolean so() {
+    public boolean sh() {
         return this.threadType == 48;
     }
 
-    public boolean sp() {
-        return this.Zy;
+    public boolean si() {
+        return this.Zm;
+    }
+
+    public void an(boolean z) {
+        this.Zm = z;
+    }
+
+    public String sj() {
+        return this.Zn;
+    }
+
+    public n sk() {
+        return this.YS;
+    }
+
+    public boolean sl() {
+        return rl() == 1 || rk() == 1 || rj() == 1 || rT() || this.Zo == 1 || rr() || rB() != null || rA() != null || !com.baidu.adp.lib.util.k.isEmpty(getCategory()) || sh() || rq();
+    }
+
+    public void sm() {
+        if (this.YM == 0) {
+            this.YM = 1;
+        }
+    }
+
+    public boolean sn() {
+        return this.Zs;
     }
 
     public void ao(boolean z) {
-        this.Zy = z;
+        this.ZB = z;
     }
 
-    public String sq() {
-        return this.Zz;
+    public boolean so() {
+        return this.ZB;
     }
 
-    public n sr() {
-        return this.Ze;
+    public void bW(int i) {
+        this.ZC = i + 1;
     }
 
-    public boolean ss() {
-        return rs() == 1 || rr() == 1 || rq() == 1 || sa() || this.ZA == 1 || ry() || rI() != null || rH() != null || !com.baidu.adp.lib.util.k.isEmpty(getCategory()) || so() || rx();
+    public int sp() {
+        return this.ZC;
     }
 
-    public void st() {
-        if (this.YY == 0) {
-            this.YY = 1;
-        }
+    public List<ReportInfo> sq() {
+        return this.ZD;
     }
 
-    public boolean su() {
-        return this.ZE;
+    public boolean sr() {
+        return this.Zt;
     }
 
     public void ap(boolean z) {
-        this.ZN = z;
+        this.Zt = z;
     }
 
-    public boolean sv() {
-        return this.ZN;
-    }
-
-    public void bX(int i) {
-        this.ZO = i + 1;
-    }
-
-    public int sw() {
-        return this.ZO;
-    }
-
-    public List<ReportInfo> sx() {
-        return this.ZP;
-    }
-
-    public boolean sy() {
-        return this.ZF;
-    }
-
-    public void aq(boolean z) {
-        this.ZF = z;
-    }
-
-    public bm sz() {
-        return this.YW;
+    public bm ss() {
+        return this.YK;
     }
 
     public void a(bm bmVar) {
-        this.YW = bmVar;
+        this.YK = bmVar;
     }
 
-    public void bY(int i) {
-        if (this.YW != null) {
-            this.YW.mCurrentPage = i;
+    public void bX(int i) {
+        if (this.YK != null) {
+            this.YK.mCurrentPage = i;
         }
     }
 
-    public boolean sA() {
+    public boolean st() {
         return getThreadType() == 49;
     }
 
-    public boolean sB() {
+    public boolean su() {
         return getThreadType() == 40;
     }
 
-    public boolean sC() {
+    public boolean sv() {
         return getThreadType() == 50;
     }
 
-    public boolean sD() {
+    public boolean sw() {
         return getThreadType() == 60;
     }
 
-    public boolean sE() {
-        return getThreadType() == 40 && sz() != null && sz().channelId > 0;
+    public boolean sx() {
+        return getThreadType() == 40 && ss() != null && ss().channelId > 0;
     }
 
-    public int sF() {
-        return this.ZU;
+    public int sy() {
+        return this.ZI;
     }
 
     public void setSmartFrsPosition(int i) {
-        this.ZU = i;
+        this.ZI = i;
     }
 
-    public SparseArray<String> qm() {
-        return this.Xg;
+    public SparseArray<String> qf() {
+        return this.WU;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(SparseArray<String> sparseArray) {
-        this.Xg = sparseArray;
+        this.WU = sparseArray;
     }
 
-    public String sG() {
-        return this.ZH;
+    public String sz() {
+        return this.Zv;
     }
 
-    public boolean sH() {
-        return this.ZW;
+    public boolean sA() {
+        return this.ZK;
     }
 
-    public int sI() {
-        return this.ZX;
+    public int sB() {
+        return this.ZL;
     }
 
-    public int sJ() {
-        return this.ZY;
+    public int sC() {
+        return this.ZM;
+    }
+
+    public void bY(int i) {
+        this.ZM = i;
     }
 
     public void bZ(int i) {
-        this.ZY = i;
+        this.ZL = i;
     }
 
-    public void ca(int i) {
-        this.ZX = i;
+    public long sD() {
+        return this.ZO;
     }
 
-    public long sK() {
-        return this.aaa;
+    public void n(long j) {
+        this.ZO = j;
     }
 
-    public void m(long j) {
-        this.aaa = j;
+    public PostData sE() {
+        return this.ZN;
     }
 
-    public PostData sL() {
-        return this.ZZ;
-    }
-
-    public ah sM() {
-        return this.aab;
+    public ah sF() {
+        return this.ZP;
     }
 
     public SpannableStringBuilder c(boolean z, boolean z2, boolean z3) {
         String g;
         SpannableString a;
         SpannableStringBuilder spannableStringBuilder;
-        if (this.YQ == 1) {
-            g = g(this.YG, false);
-            a = cE(this.YG);
+        if (this.YE == 1) {
+            g = g(this.Yu, false);
+            a = cD(this.Yu);
         } else {
             g = g(this.title, false);
             a = a(new SpannableString(g + " "));
@@ -1696,7 +1696,7 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         } else {
             spannableStringBuilder = new SpannableStringBuilder(a);
         }
-        this.YF = spannableStringBuilder;
+        this.Yt = spannableStringBuilder;
         return spannableStringBuilder;
     }
 
@@ -1705,108 +1705,108 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
     }
 
     public SpannableStringBuilder g(boolean z, boolean z2) {
-        SpannableString cE;
+        SpannableString cD;
         if (!StringUtils.isNull(this.title)) {
-            cE = a(new SpannableString(g(this.title, false) + " "));
+            cD = a(new SpannableString(g(this.title, false) + " "));
         } else {
-            g(this.YG, false);
-            cE = cE(this.YG);
+            g(this.Yu, false);
+            cD = cD(this.Yu);
         }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(cE);
-        this.YF = spannableStringBuilder;
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(cD);
+        this.Yt = spannableStringBuilder;
         return spannableStringBuilder;
     }
 
     private ArrayList<m.a> a(boolean z, boolean z2, boolean z3, boolean z4) {
         ArrayList<m.a> arrayList = new ArrayList<>();
-        boolean rw = rw();
+        boolean rp = rp();
         if (z2) {
             if (z) {
-                if (rw && !si()) {
+                if (rp && !sb()) {
                     arrayList.add(new m.a(d.l.god_title));
                 }
-                if (rs() == 1 || getThreadType() == 33 || (ru() != null && ru().sV() != 0)) {
-                    if (rc() != null && sn()) {
-                        if (rX() == 2) {
+                if (rl() == 1 || getThreadType() == 33 || (rn() != null && rn().sO() != 0)) {
+                    if (qV() != null && sg()) {
+                        if (rQ() == 2) {
                             arrayList.add(new m.a(d.l.interview_live));
                         }
-                    } else if (!rw) {
+                    } else if (!rp) {
                         arrayList.add(new m.a(d.l.photo_live_tips));
                     }
                 }
-                if (rq() == 1) {
+                if (rj() == 1) {
                     arrayList.add(new m.a(d.l.top));
                 }
-                if (rr() == 1) {
+                if (rk() == 1) {
                     arrayList.add(new m.a(d.l.good));
                 }
-                if (sn()) {
-                    arrayList.add(ZR.get(rX()));
+                if (sg()) {
+                    arrayList.add(ZF.get(rQ()));
                 }
-                if (sa()) {
-                    Integer num = ZQ.get(new Point(rZ(), rY()));
+                if (rT()) {
+                    Integer num = ZE.get(new Point(rS(), rR()));
                     if (num != null) {
                         arrayList.add(new m.a(num.intValue(), d.e.cp_other_b, d.g.pic_dot_title_red));
                     } else {
                         arrayList.add(new m.a(d.l.card_promotion_text));
                     }
                 }
-                if (so()) {
+                if (sh()) {
                     arrayList.add(new m.a(d.l.evaluation));
                 }
-                if (rH() != null) {
+                if (rA() != null) {
                     arrayList.add(new m.a(d.l.card_promotion_text, d.e.cp_other_b, d.g.pic_dot_title_red));
                 }
                 if (!com.baidu.tbadk.core.util.am.isEmpty(getCategory())) {
                     arrayList.add(new m.a(getCategory()));
                 }
             } else {
-                if (rw && rq() != 1 && !si()) {
+                if (rp && rj() != 1 && !sb()) {
                     arrayList.add(new m.a(d.l.god_title));
                 }
-                if ((rs() == 1 || getThreadType() == 33) && !sn() && !rw) {
+                if ((rl() == 1 || getThreadType() == 33) && !sg() && !rp) {
                     arrayList.add(new m.a(d.l.photo_live_tips));
                 }
-                if (rr() == 1) {
+                if (rk() == 1) {
                     arrayList.add(new m.a(d.l.good));
                 }
-                if (rq() == 1) {
+                if (rj() == 1) {
                     arrayList.add(new m.a(d.l.top));
                 }
-                if (sn() && rc() != null && rX() == 2) {
+                if (sg() && qV() != null && rQ() == 2) {
                     arrayList.add(new m.a(d.l.interview_live));
                 }
-                if (sa()) {
-                    Integer num2 = ZQ.get(new Point(rZ(), rY()));
+                if (rT()) {
+                    Integer num2 = ZE.get(new Point(rS(), rR()));
                     if (num2 != null) {
                         arrayList.add(new m.a(num2.intValue(), d.e.cp_other_b, d.g.pic_dot_title_red));
                     } else {
                         arrayList.add(new m.a(d.l.card_promotion_text));
                     }
                 }
-                if (this.ZA == 1) {
+                if (this.Zo == 1) {
                     arrayList.add(new m.a(d.l.card_tbread_text));
                 }
-                if (rI() != null) {
+                if (rB() != null) {
                     arrayList.add(new m.a(d.l.send_app_code_gift, d.e.cp_other_b, d.g.pic_dot_title_red));
                 }
-                if (rH() != null) {
+                if (rA() != null) {
                     arrayList.add(new m.a(d.l.card_promotion_text, d.e.cp_other_b, d.g.pic_dot_title_red));
                 }
-                if (so()) {
+                if (sh()) {
                     arrayList.add(new m.a(d.l.evaluation));
                 }
                 if (!com.baidu.tbadk.core.util.am.isEmpty(getCategory())) {
                     arrayList.add(new m.a(getCategory()));
                 }
-                if (z3 && sA()) {
+                if (z3 && st()) {
                     arrayList.add(new m.a(d.l.ala_live));
                 }
-                if (sE()) {
+                if (sx()) {
                     arrayList.add(new m.a(d.l.frs_channel_tip));
-                } else if (z3 && sC()) {
+                } else if (z3 && sv()) {
                     arrayList.add(new m.a(d.l.live_record));
-                } else if (sB()) {
+                } else if (su()) {
                     arrayList.add(new m.a(d.l.frs_video_title_prefix));
                 }
                 if (z4) {
@@ -1817,7 +1817,7 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
         return arrayList;
     }
 
-    public MediaData sN() {
-        return this.aae;
+    public MediaData sG() {
+        return this.ZS;
     }
 }

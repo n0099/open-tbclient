@@ -23,39 +23,39 @@ public class a {
 
     public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
         if (j > 0) {
-            ak ad = new ak("ad_tpoint").ad("obj_id", String.valueOf(j)).ad("obj_name", str);
+            ak ac = new ak("ad_tpoint").ac("obj_id", String.valueOf(j)).ac("obj_name", str);
             if (str3 != null) {
-                ad = ad.ad("page", str3);
+                ac = ac.ac("page", str3);
             }
             if (str4 != null) {
-                ad = ad.ad("loc_param", str4);
+                ac = ac.ac("loc_param", str4);
             }
             if (str5 != null) {
-                ad = ad.ad("action_type", str5);
+                ac = ac.ac("action_type", str5);
             }
             if (str6 != null) {
-                ad = ad.ad("task", str6);
+                ac = ac.ac("task", str6);
             }
             if (str7 != null) {
-                ad = ad.ad("obj_param", str7);
+                ac = ac.ac("obj_param", str7);
             }
             if (str8 != null) {
-                ad = ad.ad(LegoListActivityConfig.PARAMS, str8);
+                ac = ac.ac(LegoListActivityConfig.PARAMS, str8);
             }
             if (str9 != null) {
-                ad = ad.ad("fid", str9);
+                ac = ac.ac("fid", str9);
             }
             if (str10 != null) {
-                ad = ad.ad(ImageViewerConfig.FORUM_NAME, str10);
+                ac = ac.ac(ImageViewerConfig.FORUM_NAME, str10);
             }
             if (str11 != null) {
-                ad = ad.ad("tid", str11);
+                ac = ac.ac("tid", str11);
             }
-            ak ad2 = ad.ad("line", "PT").ad("locate", "c0114").r("obj_cpid", 0).r("obj_good_id", 0).ad("obj_throw_type", "BY_POST").ad("client_type", "MOBILE_APP").ad("user_timestamp", String.valueOf(System.currentTimeMillis())).ad("os", "android").ad("os_version", Build.VERSION.RELEASE).ad("log_ver", "1.1");
+            ak ac2 = ac.ac("line", "PT").ac("locate", "c0114").r("obj_cpid", 0).r("obj_good_id", 0).ac("obj_throw_type", "BY_POST").ac("client_type", "MOBILE_APP").ac("user_timestamp", String.valueOf(System.currentTimeMillis())).ac("os", "android").ac("os_version", Build.VERSION.RELEASE).ac("log_ver", "1.1");
             if (str2 != null) {
-                ad2 = ad2.ad("link", str2);
+                ac2 = ac2.ac("link", str2);
             }
-            TiebaStatic.log(ad2);
+            TiebaStatic.log(ac2);
         }
     }
 }

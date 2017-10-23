@@ -576,7 +576,7 @@ public class NavigationBar extends RelativeLayout {
     public void onChangeSkinType(com.baidu.adp.base.e<?> eVar, int i) {
         BitmapDrawable bitmapDrawable;
         if (this.isAutoNight) {
-            bitmapDrawable = new BitmapDrawable(aj.cS(d.g.s_navbar_bg));
+            bitmapDrawable = new BitmapDrawable(aj.cR(d.g.s_navbar_bg));
         } else {
             bitmapDrawable = new BitmapDrawable(aj.v(d.g.s_navbar_bg, i));
         }
@@ -593,7 +593,7 @@ public class NavigationBar extends RelativeLayout {
         }
         initPadding();
         if (eVar instanceof TbPageContext) {
-            ((TbPageContext) eVar).getLayoutMode().ai(i == 1);
+            ((TbPageContext) eVar).getLayoutMode().ah(i == 1);
             ((TbPageContext) eVar).getLayoutMode().t(this);
         }
     }

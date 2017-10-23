@@ -3,28 +3,28 @@ package com.baidu.tieba.person.data;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f {
-    private ArrayList<com.baidu.adp.widget.ListView.f> abP;
-    private int eZE = 0;
-    private boolean eZF = true;
-    public int eZG = 0;
+    private ArrayList<com.baidu.adp.widget.ListView.f> abD;
+    private int eZq = 0;
+    private boolean eZr = true;
+    public int eZs = 0;
 
     public void ak(ArrayList<com.baidu.adp.widget.ListView.f> arrayList) {
-        this.abP = arrayList;
+        this.abD = arrayList;
     }
 
-    public void qe(int i) {
-        this.eZE = i;
+    public void qd(int i) {
+        this.eZq = i;
     }
 
-    public boolean aVk() {
-        return this.eZF;
+    public boolean aVf() {
+        return this.eZr;
     }
 
-    public void kc(boolean z) {
-        this.eZF = z;
+    public void kb(boolean z) {
+        this.eZr = z;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.f> aVl() {
-        return this.abP;
+    public ArrayList<com.baidu.adp.widget.ListView.f> aVg() {
+        return this.abD;
     }
 }

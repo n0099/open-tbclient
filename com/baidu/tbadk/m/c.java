@@ -16,13 +16,13 @@ public class c extends com.baidu.adp.framework.a.c {
     public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
         if ((httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001536) && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
             HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
-            ReloginManager tX = ReloginManager.tX();
+            ReloginManager tQ = ReloginManager.tQ();
             if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
                 if (httpMessage.removeParam("reloin_key") == null) {
                     httpMessage.addParam("reloin_key", "reloin_value");
-                    tX.a((HttpMessage) httpResponsedMessage.getOrginalMessage());
+                    tQ.a((HttpMessage) httpResponsedMessage.getOrginalMessage());
                 } else {
-                    tX.f(null);
+                    tQ.f(null);
                 }
                 return null;
             }

@@ -5,75 +5,75 @@ import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class n extends c {
-    public static final BdUniqueId bNL = BdUniqueId.gen();
-    public static final BdUniqueId bNM = BdUniqueId.gen();
-    public static String bNN = "";
-    public static String bNO = "";
-    public static String bNP = "";
-    public static String bNQ = "";
-    public static String bNR = "";
-    public static String bNS = "";
-    public static String bNT = "";
-    public bh bes;
-    public boolean bNG = false;
-    public boolean bNU = true;
+    public bh bee;
+    public static final BdUniqueId bNz = BdUniqueId.gen();
+    public static final BdUniqueId bNA = BdUniqueId.gen();
+    public static String bNB = "";
+    public static String bNC = "";
+    public static String bND = "";
+    public static String bNE = "";
+    public static String bNF = "";
+    public static String bNG = "";
+    public static String bNH = "";
+    public boolean bNu = false;
+    public boolean bNI = true;
     public int sourceType = 0;
 
     public n(bh bhVar) {
-        this.bes = bhVar;
+        this.bee = bhVar;
     }
 
     public static boolean A(bh bhVar) {
-        return (bhVar == null || bhVar.rM() == null) ? false : true;
+        return (bhVar == null || bhVar.rF() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        if (this.bes == null) {
-            return bNL;
+        if (this.bee == null) {
+            return bNz;
         }
-        if (this.bes.ry() || this.bes.rz()) {
-            return bNM;
+        if (this.bee.rr() || this.bee.rs()) {
+            return bNA;
         }
-        return bNL;
+        return bNz;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bh Nj() {
-        return this.bes;
+    public bh Nd() {
+        return this.bee;
     }
 
-    public ak ju(String str) {
+    public ak jt(String str) {
         ak akVar = new ak(str);
-        if (this.bes != null) {
-            akVar.f("fid", this.bes.getFid());
-            akVar.ad("tid", this.bes.getTid());
+        if (this.bee != null) {
+            akVar.f("fid", this.bee.getFid());
+            akVar.ac("tid", this.bee.getTid());
             akVar.r("obj_type", 2);
-            if (this.bes.getAuthor() != null) {
-                akVar.ad("obj_id", this.bes.getAuthor().getUserId());
+            if (this.bee.getAuthor() != null) {
+                akVar.ac("obj_id", this.bee.getAuthor().getUserId());
             }
         }
         return akVar;
     }
 
-    public ak Yd() {
-        ak u = u(bNQ, true);
-        if (u != null && Nj() != null) {
-            bh Nj = Nj();
-            u.r("obj_name", Nj.sL() != null && (Nj.sL().aCd() != null || Nj.sL().IL() != null) ? 1 : 0);
+    public ak XZ() {
+        ak u = u(bNE, true);
+        if (u != null && Nd() != null) {
+            bh Nd = Nd();
+            u.r("obj_name", Nd.sE() != null && (Nd.sE().aBY() != null || Nd.sE().IF() != null) ? 1 : 0);
         }
         return u;
     }
 
     public ak B(bh bhVar) {
-        return (bhVar.sz() == null || bhVar.sz().channelId <= 0) ? u(bNR, true) : u(bNS, true);
+        return (bhVar.ss() == null || bhVar.ss().channelId <= 0) ? u(bNF, true) : u(bNG, true);
     }
 
-    public ak Yf() {
-        return u(bNO, true);
+    public ak Yb() {
+        return u(bNC, true);
     }
 
     public ak C(bh bhVar) {
-        return (bhVar.sz() == null || bhVar.sz().channelId <= 0) ? u(bNN, true) : u(bNT, true);
+        return (bhVar.ss() == null || bhVar.ss().channelId <= 0) ? u(bNB, true) : u(bNH, true);
     }
 }

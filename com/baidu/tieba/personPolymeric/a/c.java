@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.w;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.d, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.c>> {
-    private w bJj;
-    private TbPageContext<?> mG;
+    private w bIX;
+    private TbPageContext<?> mH;
 
     public c(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.d.fgV);
-        this.mG = tbPageContext;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.d.fgH);
+        this.mH = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: B */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.c> onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.c(this.mG));
+        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.c(this.mH));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,9 +28,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.c> aVar) {
-        aVar.Yr().a(this.bJj);
-        aVar.Yr().d(this.mG, TbadkCoreApplication.getInst().getSkinType());
-        aVar.Yr().a(dVar);
+        aVar.Yn().a(this.bIX);
+        aVar.Yn().d(this.mH, TbadkCoreApplication.getInst().getSkinType());
+        aVar.Yn().a(dVar);
         return aVar.getView();
     }
 }

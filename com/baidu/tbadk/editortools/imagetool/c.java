@@ -14,7 +14,7 @@ import com.baidu.tieba.tbadkCore.imgView.e;
 /* loaded from: classes.dex */
 public class c {
     @SuppressLint({"ResourceAsColor"})
-    public static s k(Context context, int i) {
+    public static s j(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
         MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(d.j.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();

@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes2.dex */
 public class c implements d.a {
-    private final CloudMusicModel gur;
-    private final d.b gus;
+    private final CloudMusicModel gud;
+    private final d.b gue;
 
     public c(CloudMusicModel cloudMusicModel, d.b bVar) {
-        this.gur = cloudMusicModel;
-        this.gus = bVar;
+        this.gud = cloudMusicModel;
+        this.gue = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
-    public void bvx() {
-        this.gus.mY(true);
-        this.gur.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.c.1
+    public void bvp() {
+        this.gue.mX(true);
+        this.gud.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void Y(CloudMusicData cloudMusicData) {
-                c.this.gus.mY(false);
+                c.this.gue.mX(false);
                 if (cloudMusicData != null) {
-                    c.this.gus.mZ(false);
+                    c.this.gue.mY(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        c.this.gus.mZ(true);
+                        c.this.gue.mY(true);
                         return;
                     } else {
-                        c.this.gus.a(cloudMusicData);
+                        c.this.gue.a(cloudMusicData);
                         return;
                     }
                 }
-                c.this.gus.mZ(true);
+                c.this.gue.mY(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
-    public void aiD() {
-        this.gur.cancelLoadData();
+    public void aiy() {
+        this.gud.cancelLoadData();
     }
 }

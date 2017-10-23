@@ -5,34 +5,34 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class e {
-    private static e aLH = new e();
-    private b aLI;
-    private a aLJ;
+    private static e aLu = new e();
+    private b aLv;
+    private a aLw;
 
     /* loaded from: classes.dex */
     public interface a {
-        void am(boolean z);
+        void al(boolean z);
     }
 
     private e() {
     }
 
-    public static e GE() {
-        return aLH;
+    public static e Gy() {
+        return aLu;
     }
 
     public void a(a aVar) {
-        this.aLJ = aVar;
-        if (this.aLI != null) {
-            this.aLI.cancel();
+        this.aLw = aVar;
+        if (this.aLv != null) {
+            this.aLv.cancel();
         }
-        this.aLI = new b();
-        this.aLI.setPriority(4);
-        this.aLI.execute(new String[0]);
+        this.aLv = new b();
+        this.aLv.setPriority(4);
+        this.aLv.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean GF() {
+    public boolean Gz() {
         int i;
         long j = 0;
         byte[] aD = com.baidu.adp.lib.util.f.aD("crash_hour_record.log");
@@ -68,15 +68,15 @@ public class e {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(e.this.GF());
+            return Boolean.valueOf(e.this.Gz());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (e.this.aLJ != null && bool != null) {
-                e.this.aLJ.am(bool.booleanValue());
+            if (e.this.aLw != null && bool != null) {
+                e.this.aLw.al(bool.booleanValue());
             }
         }
     }

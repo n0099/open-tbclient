@@ -10,92 +10,92 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private final int aOH;
-    private final RectF aOL;
-    private final int aOM;
-    private final int aON;
-    private a aOQ;
-    private final Rect aOR;
-    private final RectF aOJ = new RectF();
-    private final Rect aOK = new Rect();
-    private float aOO = 1.0f;
-    private final List<a> aOP = new ArrayList();
+    private final int aOA;
+    private a aOD;
+    private final Rect aOE;
+    private final int aOu;
+    private final RectF aOy;
+    private final int aOz;
+    private final RectF aOw = new RectF();
+    private final Rect aOx = new Rect();
+    private float aOB = 1.0f;
+    private final List<a> aOC = new ArrayList();
     private final Matrix mMatrix = new Matrix();
 
     public b(int i, int i2, int[] iArr) {
-        this.aON = i2;
-        this.aOM = i;
-        this.aOL = new RectF(0.0f, 0.0f, i, i2);
-        this.aOR = new Rect(0, 0, iArr[0], iArr[1]);
-        this.aOH = i / 2;
+        this.aOA = i2;
+        this.aOz = i;
+        this.aOy = new RectF(0.0f, 0.0f, i, i2);
+        this.aOE = new Rect(0, 0, iArr[0], iArr[1]);
+        this.aOu = i / 2;
     }
 
     public int getBlockSize() {
-        return this.aOH;
+        return this.aOu;
     }
 
-    public Rect HL() {
-        return this.aOR;
+    public Rect HF() {
+        return this.aOE;
     }
 
     public Rect a(a aVar) {
         if (aVar == null) {
             return null;
         }
-        return aVar.HJ();
+        return aVar.HD();
     }
 
-    public Point[] HM() {
-        HO();
-        int HK = HK();
-        int i = (this.aOK.top / HK) / this.aOH;
-        int i2 = (this.aOK.left / HK) / this.aOH;
+    public Point[] HG() {
+        HI();
+        int HE = HE();
+        int i = (this.aOx.top / HE) / this.aOu;
+        int i2 = (this.aOx.left / HE) / this.aOu;
         Point point = new Point();
         point.y = i;
         point.x = i2;
         Point point2 = new Point();
-        point2.y = (((this.aOK.bottom / HK) / this.aOH) * HK) + 1;
-        point2.x = (HK * ((this.aOK.right / HK) / this.aOH)) + 1;
+        point2.y = (((this.aOx.bottom / HE) / this.aOu) * HE) + 1;
+        point2.x = (HE * ((this.aOx.right / HE) / this.aOu)) + 1;
         return new Point[]{point, point2};
     }
 
-    public a HN() {
-        return new a(this.aOH);
+    public a HH() {
+        return new a(this.aOu);
     }
 
-    public Rect HO() {
-        this.mMatrix.mapRect(this.aOJ, this.aOL);
-        a(this.aOK, this.aOJ);
-        return this.aOK;
+    public Rect HI() {
+        this.mMatrix.mapRect(this.aOw, this.aOy);
+        a(this.aOx, this.aOw);
+        return this.aOx;
     }
 
     private void a(Rect rect, RectF rectF) {
         rect.set(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
     }
 
-    public int HP() {
-        return this.aOM;
-    }
-
-    public int HQ() {
-        return this.aON;
-    }
-
-    public List<a> HR() {
-        return this.aOP;
-    }
-
-    public void G(float f) {
-        this.aOO = f;
-    }
-
-    public float HS() {
-        return this.aOO;
+    public int HJ() {
+        return this.aOz;
     }
 
     public int HK() {
+        return this.aOA;
+    }
+
+    public List<a> HL() {
+        return this.aOC;
+    }
+
+    public void G(float f) {
+        this.aOB = f;
+    }
+
+    public float HM() {
+        return this.aOB;
+    }
+
+    public int HE() {
         int i = 1;
-        while (i < Math.round(this.aOO)) {
+        while (i < Math.round(this.aOB)) {
             i *= 2;
         }
         return i;
@@ -103,13 +103,13 @@ public class b {
 
     public void i(Bitmap bitmap) {
         if (bitmap != null) {
-            this.aOQ = new a(bitmap);
-            this.aOQ.j(0, 0, this.aOM, this.aON);
+            this.aOD = new a(bitmap);
+            this.aOD.j(0, 0, this.aOz, this.aOA);
         }
     }
 
-    public a HT() {
-        return this.aOQ;
+    public a HN() {
+        return this.aOD;
     }
 
     public void e(float f, float f2) {
@@ -125,16 +125,16 @@ public class b {
     }
 
     public boolean q(int i, int i2, int i3) {
-        if (i3 == HK()) {
-            return r(i, i2, i3).intersect(this.aOK);
+        if (i3 == HE()) {
+            return r(i, i2, i3).intersect(this.aOx);
         }
         return false;
     }
 
     public Rect r(int i, int i2, int i3) {
-        int i4 = this.aOH * i3 * i2;
-        int i5 = this.aOH * i3 * i;
-        return new Rect(i4, i5, (this.aOH * i3) + i4, (this.aOH * i3) + i5);
+        int i4 = this.aOu * i3 * i2;
+        int i5 = this.aOu * i3 * i;
+        return new Rect(i4, i5, (this.aOu * i3) + i4, (this.aOu * i3) + i5);
     }
 
     public void e(Rect rect) {
@@ -144,11 +144,11 @@ public class b {
         if (rect.top < 0) {
             rect.top = 0;
         }
-        if (rect.right > this.aOR.right) {
-            rect.right = this.aOR.right;
+        if (rect.right > this.aOE.right) {
+            rect.right = this.aOE.right;
         }
-        if (rect.bottom > this.aOR.bottom) {
-            rect.bottom = this.aOR.bottom;
+        if (rect.bottom > this.aOE.bottom) {
+            rect.bottom = this.aOE.bottom;
         }
     }
 }

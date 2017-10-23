@@ -375,7 +375,7 @@ public class BdStatisticsManager {
         aVar.p(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis()));
         if (objArr != null && objArr.length > 0) {
             aVar.c(objArr);
-            aVar.b("mi", 0);
+            aVar.c("mi", 0);
         }
         addLog("stat", null, -1L, null, aVar, new Object[0]);
     }

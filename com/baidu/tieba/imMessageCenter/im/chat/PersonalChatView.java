@@ -19,51 +19,51 @@ import com.baidu.tieba.im.chat.TalkableActivity;
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
 /* loaded from: classes2.dex */
 public class PersonalChatView extends CommonPersonalMsglistView {
-    private PersonalChatActivity dGB;
-    private LinearLayout dGC;
-    private LinearLayout dGD;
-    private TextView dGE;
-    private TextView dGF;
-    private TextView dGG;
-    private Button dGH;
-    private View.OnClickListener dGI;
-    private TextView dmi;
+    private PersonalChatActivity dGn;
+    private LinearLayout dGo;
+    private LinearLayout dGp;
+    private TextView dGq;
+    private TextView dGr;
+    private TextView dGs;
+    private Button dGt;
+    private View.OnClickListener dGu;
+    private TextView dlV;
 
     public PersonalChatView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
-        this.dGI = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatView.1
+        this.dGu = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PersonalChatView.this.dGB.showToast(d.l.add_friend_cannot_send);
+                PersonalChatView.this.dGn.showToast(d.l.add_friend_cannot_send);
             }
         };
-        if (!this.dGB.azH() && this.mTool != null) {
-            b(this.mTool.eN(6));
-            b(this.mTool.eN(2));
+        if (!this.dGn.azC() && this.mTool != null) {
+            b(this.mTool.eM(6));
+            b(this.mTool.eM(2));
         }
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     protected void initHeader(TalkableActivity talkableActivity, boolean z) {
         super.initPersonalHeader(talkableActivity, z);
-        this.dGB = (PersonalChatActivity) talkableActivity;
+        this.dGn = (PersonalChatActivity) talkableActivity;
         String string = talkableActivity.getPageContext().getString(d.l.more);
         if (string != null) {
             this.mBtnGroupInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.j.personal_info_btn, talkableActivity);
-            this.dmi = (TextView) this.mBtnGroupInfo.findViewById(d.h.group_info_btn_txt);
-            this.dmi.setText(string);
+            this.dlV = (TextView) this.mBtnGroupInfo.findViewById(d.h.group_info_btn_txt);
+            this.dlV.setText(string);
         }
-        if (!this.dGB.azH()) {
+        if (!this.dGn.azC()) {
             this.mBtnGroupInfo.setVisibility(8);
-            this.dGC = (LinearLayout) ((ViewStub) talkableActivity.findViewById(d.h.stranger_person_add_friend_stub)).inflate();
-            this.dGD = (LinearLayout) this.dGC.findViewById(d.h.add_friend_tip_full);
-            this.dGE = (TextView) this.dGC.findViewById(d.h.add_friend_tip_title);
-            this.dGF = (TextView) this.dGC.findViewById(d.h.add_friend_tip_content);
-            this.dGG = (TextView) this.dGC.findViewById(d.h.add_friend_tip_center);
-            this.dGH = (Button) this.dGC.findViewById(d.h.add_friend_tip_button);
-            this.dGH.setOnClickListener(talkableActivity);
+            this.dGo = (LinearLayout) ((ViewStub) talkableActivity.findViewById(d.h.stranger_person_add_friend_stub)).inflate();
+            this.dGp = (LinearLayout) this.dGo.findViewById(d.h.add_friend_tip_full);
+            this.dGq = (TextView) this.dGo.findViewById(d.h.add_friend_tip_title);
+            this.dGr = (TextView) this.dGo.findViewById(d.h.add_friend_tip_content);
+            this.dGs = (TextView) this.dGo.findViewById(d.h.add_friend_tip_center);
+            this.dGt = (Button) this.dGo.findViewById(d.h.add_friend_tip_button);
+            this.dGt.setOnClickListener(talkableActivity);
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
-                this.dGC.setVisibility(8);
+                this.dGo.setVisibility(8);
                 return;
             }
             return;
@@ -74,30 +74,30 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dmi != null) {
-            aj.c(this.dmi, d.e.cp_cont_b, 1);
+        if (this.dlV != null) {
+            aj.c(this.dlV, d.e.cp_cont_b, 1);
         }
     }
 
     private void b(l lVar) {
         if (lVar != null && lVar != null && (lVar instanceof View)) {
-            ((View) lVar).setOnClickListener(this.dGI);
+            ((View) lVar).setOnClickListener(this.dGu);
         }
     }
 
-    private void azJ() {
+    private void azE() {
         if (this.mTool != null) {
-            this.mTool.CH();
+            this.mTool.CB();
         }
     }
 
     public void a(PersonalMsglistModel.CardStatus cardStatus, boolean z, String... strArr) {
         switch (cardStatus) {
             case APPLY:
-                azK();
+                azF();
                 return;
             case WAIT:
-                gL(z);
+                gK(z);
                 return;
             case AGREE:
                 String str = "";
@@ -107,23 +107,23 @@ public class PersonalChatView extends CommonPersonalMsglistView {
                 h(z, str);
                 return;
             case PASS:
-                gM(z);
+                gL(z);
                 return;
             default:
                 return;
         }
     }
 
-    private void azK() {
-        this.dGD.setVisibility(0);
-        this.dGG.setVisibility(8);
-        this.dGE.setText(d.l.add_friend_title);
-        this.dGF.setText(d.l.add_friend_content);
-        this.dGH.setText(d.l.add_friend_button);
+    private void azF() {
+        this.dGp.setVisibility(0);
+        this.dGs.setVisibility(8);
+        this.dGq.setText(d.l.add_friend_title);
+        this.dGr.setText(d.l.add_friend_content);
+        this.dGt.setText(d.l.add_friend_button);
     }
 
-    private void gL(boolean z) {
-        if (this.dGB.azF().aAw() == PersonalMsglistModel.CardStatus.WAIT && z) {
+    private void gK(boolean z) {
+        if (this.dGn.azA().aAr() == PersonalMsglistModel.CardStatus.WAIT && z) {
             final TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 1, 1.0f, 1, 0.0f);
             translateAnimation.setDuration(400L);
             translateAnimation.setFillAfter(true);
@@ -141,10 +141,10 @@ public class PersonalChatView extends CommonPersonalMsglistView {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    PersonalChatView.this.dGG.startAnimation(translateAnimation);
+                    PersonalChatView.this.dGs.startAnimation(translateAnimation);
                 }
             });
-            this.dGG.startAnimation(translateAnimation2);
+            this.dGs.startAnimation(translateAnimation2);
             return;
         }
         if (z) {
@@ -165,23 +165,23 @@ public class PersonalChatView extends CommonPersonalMsglistView {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    PersonalChatView.this.dGG.setVisibility(0);
-                    PersonalChatView.this.dGG.setAnimation(translateAnimation3);
+                    PersonalChatView.this.dGs.setVisibility(0);
+                    PersonalChatView.this.dGs.setAnimation(translateAnimation3);
                 }
             });
-            this.dGD.setVisibility(8);
-            this.dGD.startAnimation(translateAnimation4);
+            this.dGp.setVisibility(8);
+            this.dGp.startAnimation(translateAnimation4);
         } else {
-            this.dGD.setVisibility(8);
-            this.dGG.setVisibility(0);
+            this.dGp.setVisibility(8);
+            this.dGs.setVisibility(0);
         }
-        this.dGG.setText(d.l.add_friend_wait);
-        this.dGH.setText(d.l.add_friend_button);
+        this.dGs.setText(d.l.add_friend_wait);
+        this.dGt.setText(d.l.add_friend_button);
     }
 
     private void h(boolean z, final String str) {
-        final String userName = this.dGB.azF().getUser().getUserName();
-        this.dGG.setVisibility(8);
+        final String userName = this.dGn.azA().getUser().getUserName();
+        this.dGs.setVisibility(8);
         if (z) {
             final TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 1.0f, 1, 0.0f);
             translateAnimation.setDuration(400L);
@@ -200,24 +200,24 @@ public class PersonalChatView extends CommonPersonalMsglistView {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    PersonalChatView.this.dGD.clearAnimation();
-                    PersonalChatView.this.dGE.setText(PersonalChatView.this.dGB.getResources().getString(d.l.add_friend_agree_title, userName));
-                    PersonalChatView.this.dGF.setText(str);
-                    PersonalChatView.this.dGD.setAnimation(translateAnimation);
+                    PersonalChatView.this.dGp.clearAnimation();
+                    PersonalChatView.this.dGq.setText(PersonalChatView.this.dGn.getResources().getString(d.l.add_friend_agree_title, userName));
+                    PersonalChatView.this.dGr.setText(str);
+                    PersonalChatView.this.dGp.setAnimation(translateAnimation);
                 }
             });
-            this.dGD.setVisibility(0);
-            this.dGD.startAnimation(translateAnimation2);
+            this.dGp.setVisibility(0);
+            this.dGp.startAnimation(translateAnimation2);
         } else {
-            this.dGD.setVisibility(0);
-            this.dGE.setText(this.dGB.getResources().getString(d.l.add_friend_agree_title, userName));
-            this.dGF.setText(str);
+            this.dGp.setVisibility(0);
+            this.dGq.setText(this.dGn.getResources().getString(d.l.add_friend_agree_title, userName));
+            this.dGr.setText(str);
         }
-        this.dGH.setText(d.l.add_friend_agree_button);
+        this.dGt.setText(d.l.add_friend_agree_button);
     }
 
-    private void gM(boolean z) {
-        azJ();
+    private void gL(boolean z) {
+        azE();
         if (z) {
             TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 0.0f, 2, -1.0f);
             translateAnimation.setDuration(500L);
@@ -233,17 +233,17 @@ public class PersonalChatView extends CommonPersonalMsglistView {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    PersonalChatView.this.dGC.setVisibility(8);
+                    PersonalChatView.this.dGo.setVisibility(8);
                 }
             });
-            this.dGC.startAnimation(translateAnimation);
+            this.dGo.startAnimation(translateAnimation);
             return;
         }
-        this.dGC.setVisibility(8);
+        this.dGo.setVisibility(8);
     }
 
-    public Button azL() {
-        return this.dGH;
+    public Button azG() {
+        return this.dGt;
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView

@@ -13,17 +13,17 @@ import com.baidu.tieba.video.record.VideoEffectLayout;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c extends BaseAdapter implements View.OnClickListener {
-    private String gyQ;
-    private VideoEffectLayout.a gyR;
+    private String gyC;
+    private VideoEffectLayout.a gyD;
     private List<d> mList;
 
     public void d(List<d> list, String str) {
         this.mList = list;
-        this.gyQ = str;
+        this.gyC = str;
     }
 
     public void setListener(VideoEffectLayout.a aVar) {
-        this.gyR = aVar;
+        this.gyD = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -54,22 +54,22 @@ public class c extends BaseAdapter implements View.OnClickListener {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(d.j.list_item_effect, (ViewGroup) null);
-            aVar.gyS = (BdRoundedImageView) view.findViewById(d.h.iv_effect);
-            aVar.gku = (TextView) view.findViewById(d.h.tv_name);
-            aj.i(aVar.gku, d.e.cp_cont_j);
+            aVar.gyE = (BdRoundedImageView) view.findViewById(d.h.iv_effect);
+            aVar.gkg = (TextView) view.findViewById(d.h.tv_name);
+            aj.i(aVar.gkg, d.e.cp_cont_j);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         if (this.mList != null && i >= 0 && i <= this.mList.size() - 1 && (dVar = this.mList.get(i)) != null) {
-            aVar.gyS.setImageResource(dVar.bwV());
-            aVar.gyS.setTag(dVar);
-            aVar.gyS.setOnClickListener(this);
-            aVar.gku.setText(dVar.getName());
-            if (!TextUtils.isEmpty(dVar.getName()) && dVar.getName().equals(this.gyQ)) {
-                aVar.gyS.setBackgroundResource(d.g.bg_effect_item);
+            aVar.gyE.setImageResource(dVar.bwN());
+            aVar.gyE.setTag(dVar);
+            aVar.gyE.setOnClickListener(this);
+            aVar.gkg.setText(dVar.getName());
+            if (!TextUtils.isEmpty(dVar.getName()) && dVar.getName().equals(this.gyC)) {
+                aVar.gyE.setBackgroundResource(d.g.bg_effect_item);
             } else {
-                aVar.gyS.setBackgroundResource(0);
+                aVar.gyE.setBackgroundResource(0);
             }
         }
         return view;
@@ -79,18 +79,18 @@ public class c extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == d.h.iv_effect && (view.getTag() instanceof d)) {
             d dVar = (d) view.getTag();
-            this.gyQ = dVar.getName();
+            this.gyC = dVar.getName();
             notifyDataSetChanged();
-            if (this.gyR != null) {
-                this.gyR.a(dVar);
+            if (this.gyD != null) {
+                this.gyD.a(dVar);
             }
         }
     }
 
     /* loaded from: classes2.dex */
     class a {
-        TextView gku;
-        BdRoundedImageView gyS;
+        TextView gkg;
+        BdRoundedImageView gyE;
 
         a() {
         }

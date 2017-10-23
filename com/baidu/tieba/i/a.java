@@ -24,13 +24,13 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public final class a {
-    private static final String acu = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> epO = new HashSet();
-    private static final boolean epP = oj(System.getProperty("java.vm.version"));
+    private static final String aci = "code_cache" + File.separator + "secondary-dexes";
+    private static final Set<String> epA = new HashSet();
+    private static final boolean epB = oi(System.getProperty("java.vm.version"));
 
-    public static void bI(Context context) {
+    public static void bH(Context context) {
         Log.i("MultiDex", "install");
-        if (epP) {
+        if (epB) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -38,11 +38,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = epO;
-                    synchronized (epO) {
+                    Set<String> set = epA;
+                    synchronized (epA) {
                         String str = applicationInfo.sourceDir;
-                        if (!epO.contains(str)) {
-                            epO.add(str);
+                        if (!epA.contains(str)) {
+                            epA.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }
@@ -52,8 +52,8 @@ public final class a {
                                     Log.e("MultiDex", "Context class loader is null. Must be running in test mode. Skip patching.");
                                     return;
                                 }
-                                bJ(context);
-                                File file = new File(applicationInfo.dataDir, acu);
+                                bI(context);
+                                File file = new File(applicationInfo.dataDir, aci);
                                 List<File> a = com.baidu.tieba.i.b.a(context, applicationInfo, file, false);
                                 if (cl(a)) {
                                     a(classLoader, file, a);
@@ -93,7 +93,7 @@ public final class a {
         }
     }
 
-    static boolean oj(String str) {
+    static boolean oi(String str) {
         boolean z = false;
         if (str != null) {
             Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);
@@ -176,7 +176,7 @@ public final class a {
         g.set(obj, objArr3);
     }
 
-    private static void bJ(Context context) throws Exception {
+    private static void bI(Context context) throws Exception {
         File file = new File(context.getFilesDir(), "secondary-dexes");
         if (file.isDirectory()) {
             Log.i("MultiDex", "Clearing old secondary dex dir (" + file.getPath() + ").");

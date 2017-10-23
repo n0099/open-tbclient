@@ -8,24 +8,24 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class x {
-    private int We;
-    private String Wf;
-    private String Wg;
-    private int Wh;
-    private String Wi;
-    public String Wj;
-    public float Wk;
-    public boolean Wl = true;
+    private int VS;
+    private String VT;
+    private String VU;
+    private int VV;
+    private String VW;
+    public String VX;
+    public float VY;
+    public boolean VZ = true;
     private String mTagName;
     private int mType;
     private String mValue;
 
-    public int pT() {
-        return this.We;
+    public int pM() {
+        return this.VS;
     }
 
-    public String pU() {
-        return this.Wf;
+    public String pN() {
+        return this.VT;
     }
 
     public String getValue() {
@@ -36,23 +36,23 @@ public class x {
         return this.mType;
     }
 
-    public String pV() {
-        return this.Wi;
+    public String pO() {
+        return this.VW;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.We = jSONObject.optInt("bannerType");
-                this.Wf = jSONObject.optString("bannerUrl");
+                this.VS = jSONObject.optInt("bannerType");
+                this.VT = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString("value");
                 this.mType = jSONObject.optInt("type");
-                this.Wg = jSONObject.optString("desc");
-                this.Wh = jSONObject.optInt("template_id");
-                this.Wi = jSONObject.optString("obj_id");
+                this.VU = jSONObject.optString("desc");
+                this.VV = jSONObject.optInt("template_id");
+                this.VW = jSONObject.optString("obj_id");
                 this.mTagName = jSONObject.optString("tag_name");
-                this.Wj = jSONObject.optString("tag_name_url");
-                cw(jSONObject.optString("tag_name_wh"));
+                this.VX = jSONObject.optString("tag_name_url");
+                cv(jSONObject.optString("tag_name_wh"));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -61,20 +61,20 @@ public class x {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.We = banner.banner_type.intValue();
-            this.Wf = banner.banner_url;
+            this.VS = banner.banner_type.intValue();
+            this.VT = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
-            this.Wg = banner.desc;
-            this.Wh = banner.template_id.intValue();
-            this.Wi = banner.obj_id;
+            this.VU = banner.desc;
+            this.VV = banner.template_id.intValue();
+            this.VW = banner.obj_id;
             this.mTagName = banner.tag_name;
-            this.Wj = banner.tag_name_url;
-            cw(banner.tag_name_wh);
+            this.VX = banner.tag_name_url;
+            cv(banner.tag_name_wh);
         }
     }
 
-    private void cw(String str) {
+    private void cv(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -82,7 +82,7 @@ public class x {
                     int g = com.baidu.adp.lib.g.b.g(split[0], 1);
                     int g2 = com.baidu.adp.lib.g.b.g(split[1], 1);
                     if (g2 != 0) {
-                        this.Wk = g / g2;
+                        this.VY = g / g2;
                     }
                 }
             } catch (Exception e) {
@@ -95,6 +95,6 @@ public class x {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.We == 1 || this.We == 4 || this.We == 2 || this.We == 3 : this.mType == 2 && !StringUtils.isNull(this.Wg);
+        return this.mType == 1 ? this.VS == 1 || this.VS == 4 || this.VS == 2 || this.VS == 3 : this.mType == 2 && !StringUtils.isNull(this.VU);
     }
 }

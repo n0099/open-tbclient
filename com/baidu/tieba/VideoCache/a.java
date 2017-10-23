@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<d> aXo = new ArrayList();
-    private long aXp = 0;
+    private List<d> aXb = new ArrayList();
+    private long aXc = 0;
 
-    public List<d> KM() {
-        return this.aXo;
+    public List<d> KG() {
+        return this.aXb;
     }
 
-    public long KN() {
-        return this.aXp;
+    public long KH() {
+        return this.aXc;
     }
 
     public void a(d dVar) {
-        if (this.aXo != null) {
-            this.aXo.add(dVar);
+        if (this.aXb != null) {
+            this.aXb.add(dVar);
             if (dVar != null) {
-                this.aXp += dVar.KU();
+                this.aXc += dVar.KO();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.aXo != null) {
-            this.aXo.remove(dVar);
+        if (this.aXb != null) {
+            this.aXb.remove(dVar);
             if (dVar != null) {
-                this.aXp -= dVar.KU();
+                this.aXc -= dVar.KO();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.aXo != null) {
-            d dVar = this.aXo.get(i);
+        if (this.aXb != null) {
+            d dVar = this.aXb.get(i);
             if (dVar != null) {
-                this.aXp -= dVar.KU();
+                this.aXc -= dVar.KO();
             }
-            this.aXo.remove(i);
+            this.aXb.remove(i);
         }
     }
 
-    public int KO() {
-        if (this.aXo != null) {
-            return this.aXo.size();
+    public int KI() {
+        if (this.aXb != null) {
+            return this.aXb.size();
         }
         return 0;
     }
 
-    public d gd(int i) {
-        if (this.aXo != null) {
-            return this.aXo.get(i);
+    public d gc(int i) {
+        if (this.aXb != null) {
+            return this.aXb.get(i);
         }
         return null;
     }

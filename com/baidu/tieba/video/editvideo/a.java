@@ -3,19 +3,19 @@ package com.baidu.tieba.video.editvideo;
 import android.graphics.Bitmap;
 /* loaded from: classes2.dex */
 public interface a {
-    void aSg();
+    void aSb();
 
-    void bvK();
+    void bvC();
 
-    void bvN();
+    void bvF();
 
-    void bvP();
+    void bvH();
 
     void finishPage();
 
-    void pc(String str);
+    void pb(String str);
 
     void r(Bitmap bitmap);
 
-    void sz(String str);
+    void sy(String str);
 }

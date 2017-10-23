@@ -8,13 +8,13 @@ import tbclient.LabelInfo;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class av extends bh {
-    public static final BdUniqueId XF = BdUniqueId.gen();
-    private List<PhotoLiveCardData> XG;
-    private int XH = 0;
+    public static final BdUniqueId Xt = BdUniqueId.gen();
+    private List<PhotoLiveCardData> Xu;
+    private int Xv = 0;
     private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
 
     public void q(List<PhotoLiveCardData> list) {
-        this.XG = list;
+        this.Xu = list;
     }
 
     public void a(bh bhVar, int i) {
@@ -22,26 +22,26 @@ public class av extends bh {
             setAuthor(bhVar.getAuthor());
             setTitle(bhVar.getTitle());
             setPhotoLiveCover(bhVar.getPhotoLiveCover());
-            cC(bhVar.rA());
-            cy(bhVar.getTid());
-            l(bhVar.rp());
+            cB(bhVar.rt());
+            cx(bhVar.getTid());
+            m(bhVar.ri());
             setAddress(bhVar.getAddress());
             setId(bhVar.getId());
             setThreadType(bhVar.getThreadType());
-            a(bhVar.rl());
-            bS(bhVar.rn());
+            a(bhVar.re());
+            bR(bhVar.rg());
             setPost_num(bhVar.getPost_num());
-            cD(bhVar.rD());
-            cy(bhVar.getTid());
-            setExpressionDatas(bhVar.rO());
-            setShowExpressionViewIndexList(bhVar.rO());
+            cC(bhVar.rw());
+            cx(bhVar.getTid());
+            setExpressionDatas(bhVar.rH());
+            setShowExpressionViewIndexList(bhVar.rH());
             setId(bhVar.getId());
-            a(bhVar.qm());
-            this.ZK = bhVar.rR();
-            this.ZL = bhVar.rS();
-            this.ZM = bhVar.rT();
+            a(bhVar.qf());
+            this.Zy = bhVar.rK();
+            this.Zz = bhVar.rL();
+            this.ZA = bhVar.rM();
             if (getShowStyle() < 0) {
-                this.XH = getRandom(3, i);
+                this.Xv = getRandom(3, i);
             }
         }
     }
@@ -57,21 +57,21 @@ public class av extends bh {
                 metaData.setFansNum(zhiBoInfoTW.user.fans_num.intValue());
                 setAuthor(metaData);
             }
-            cD(zhiBoInfoTW.content);
+            cC(zhiBoInfoTW.content);
             setFid(zhiBoInfoTW.forum_id.longValue());
             setExpressionDatas(r(zhiBoInfoTW.labelInfo));
-            bS(zhiBoInfoTW.reply_num.intValue());
-            cC(zhiBoInfoTW.forum_name);
+            bR(zhiBoInfoTW.reply_num.intValue());
+            cB(zhiBoInfoTW.forum_name);
             setPhotoLiveCover(zhiBoInfoTW.livecover_src);
-            l(zhiBoInfoTW.last_modified_time.longValue());
+            m(zhiBoInfoTW.last_modified_time.longValue());
             setPost_num(zhiBoInfoTW.post_num.intValue());
             setTitle(zhiBoInfoTW.title);
             setShowExpressionViewIndexList(r(zhiBoInfoTW.labelInfo));
-            this.XH = getRandom(3, i);
-            cy(String.valueOf(zhiBoInfoTW.thread_id));
+            this.Xv = getRandom(3, i);
+            cx(String.valueOf(zhiBoInfoTW.thread_id));
             setId(String.valueOf(zhiBoInfoTW.thread_id));
             setThreadType(33);
-            cC(zhiBoInfoTW.forum_name);
+            cB(zhiBoInfoTW.forum_name);
         }
     }
 
@@ -85,7 +85,7 @@ public class av extends bh {
             LabelInfo labelInfo = list.get(i);
             if (labelInfo != null) {
                 com.baidu.tbadk.coreExtra.view.e eVar = new com.baidu.tbadk.coreExtra.view.e();
-                eVar.ev(labelInfo.labelHot.intValue());
+                eVar.eu(labelInfo.labelHot.intValue());
                 eVar.setLabelId(labelInfo.labelId);
                 eVar.setLabelName(labelInfo.labelContent);
                 arrayList.add(eVar);
@@ -140,11 +140,11 @@ public class av extends bh {
     }
 
     public int getShowStyle() {
-        return this.XH;
+        return this.Xv;
     }
 
     @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return XF;
+        return Xt;
     }
 }

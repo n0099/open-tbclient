@@ -36,29 +36,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
-    private BdListView HN;
-    private TextView abf;
-    private View aod;
-    private View dLB;
-    private TextView euK;
-    private View euM;
-    private b gIR;
-    private LinearLayout gIT;
-    private ImageView gIU;
-    private TextView gIV;
+    private BdListView HO;
+    private TextView aaS;
+    private View anR;
+    private View dLn;
+    private TextView euw;
+    private View euy;
+    private b gIC;
+    private LinearLayout gIE;
+    private ImageView gIF;
+    private TextView gIG;
     private NavigationBar mNavigationBar;
     private View mRootView;
     private List<TransmitForumData> mDataList = new ArrayList();
-    private List<TransmitForumData> gIS = new ArrayList();
+    private List<TransmitForumData> gID = new ArrayList();
     private int mFrom = 0;
     private long mLiveId = -1;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.transmit.SelectForumActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null) {
-                if (view.getId() != SelectForumActivity.this.euK.getId()) {
-                    if (view.getId() != SelectForumActivity.this.dLB.getId()) {
-                        if (view.getId() == SelectForumActivity.this.gIU.getId() || view.getId() == SelectForumActivity.this.gIV.getId()) {
+                if (view.getId() != SelectForumActivity.this.euw.getId()) {
+                    if (view.getId() != SelectForumActivity.this.dLn.getId()) {
+                        if (view.getId() == SelectForumActivity.this.gIF.getId() || view.getId() == SelectForumActivity.this.gIG.getId()) {
                             ForumSearchActivityConfig forumSearchActivityConfig = new ForumSearchActivityConfig(SelectForumActivity.this.getPageContext().getPageActivity());
                             if (SelectForumActivity.this.mFrom == 1) {
                                 forumSearchActivityConfig.setFrom(1);
@@ -97,14 +97,14 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             TransmitForumData transmitForumData = (TransmitForumData) SelectForumActivity.this.mDataList.get(i);
-            if (transmitForumData != null && transmitForumData.aaq) {
+            if (transmitForumData != null && transmitForumData.aae) {
                 SelectForumActivity.this.showToast(d.l.cur_forum_can_not_cancel);
                 return;
             }
             CheckBox checkBox = (CheckBox) view.findViewById(d.h.transmit_check_box);
             boolean isChecked = checkBox.isChecked();
-            boolean bzX = SelectForumActivity.this.bzX();
-            if (!isChecked && bzX) {
+            boolean bzR = SelectForumActivity.this.bzR();
+            if (!isChecked && bzR) {
                 SelectForumActivity.this.showToast(d.l.transmit_max_commit);
                 return;
             }
@@ -112,7 +112,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             if (transmitForumData != null) {
                 transmitForumData.checked = checkBox.isChecked();
             }
-            SelectForumActivity.this.aLY();
+            SelectForumActivity.this.aLT();
             SelectForumActivity.this.a(transmitForumData);
         }
     };
@@ -125,28 +125,28 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         initData();
         this.mRootView = findViewById(d.h.root_view);
         this.mNavigationBar = (NavigationBar) findViewById(d.h.view_navigation_bar);
-        this.dLB = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        if (this.dLB.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dLB.getLayoutParams();
+        this.dLn = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        if (this.dLn.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dLn.getLayoutParams();
             layoutParams.leftMargin = l.f(getActivity(), d.f.ds10);
-            this.dLB.setLayoutParams(layoutParams);
+            this.dLn.setLayoutParams(layoutParams);
         }
         if (this.mFrom == 1) {
-            this.abf = this.mNavigationBar.setCenterTextTitle(getResources().getString(d.l.select_share_forum_bar));
+            this.aaS = this.mNavigationBar.setCenterTextTitle(getResources().getString(d.l.select_share_forum_bar));
         } else {
-            this.abf = this.mNavigationBar.setCenterTextTitle(getResources().getString(d.l.transmit_title));
+            this.aaS = this.mNavigationBar.setCenterTextTitle(getResources().getString(d.l.transmit_title));
         }
-        this.dLB.setOnClickListener(this.mOnClickListener);
-        this.gIT = (LinearLayout) findViewById(d.h.layout_search_result);
-        this.gIU = (ImageView) findViewById(d.h.icon_search);
-        this.gIU.setOnClickListener(this.mOnClickListener);
-        this.gIV = (TextView) findViewById(d.h.textview_search);
-        this.gIV.setOnClickListener(this.mOnClickListener);
-        this.aod = findViewById(d.h.view_divider);
-        this.euK = (TextView) findViewById(d.h.transmit_confirm);
-        this.euK.setOnClickListener(this.mOnClickListener);
-        this.euM = findViewById(d.h.layout_confirm);
-        this.HN = (BdListView) findViewById(d.h.trasmit_grid_view);
+        this.dLn.setOnClickListener(this.mOnClickListener);
+        this.gIE = (LinearLayout) findViewById(d.h.layout_search_result);
+        this.gIF = (ImageView) findViewById(d.h.icon_search);
+        this.gIF.setOnClickListener(this.mOnClickListener);
+        this.gIG = (TextView) findViewById(d.h.textview_search);
+        this.gIG.setOnClickListener(this.mOnClickListener);
+        this.anR = findViewById(d.h.view_divider);
+        this.euw = (TextView) findViewById(d.h.transmit_confirm);
+        this.euw.setOnClickListener(this.mOnClickListener);
+        this.euy = findViewById(d.h.layout_confirm);
+        this.HO = (BdListView) findViewById(d.h.trasmit_grid_view);
         if (getIntent() != null) {
             ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
             if (v.t(parcelableArrayListExtra) > 0) {
@@ -156,12 +156,12 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         for (TransmitForumData transmitForumData : this.mDataList) {
             a(transmitForumData);
         }
-        this.HN.setOnItemClickListener(this.mOnItemClickListener);
-        this.HN.addFooterView(LayoutInflater.from(getActivity()).inflate(d.j.select_forum_footer, (ViewGroup) null));
-        this.gIR = new b(getActivity());
-        this.HN.setAdapter((ListAdapter) this.gIR);
-        this.gIR.Z(this.mDataList);
-        aLY();
+        this.HO.setOnItemClickListener(this.mOnItemClickListener);
+        this.HO.addFooterView(LayoutInflater.from(getActivity()).inflate(d.j.select_forum_footer, (ViewGroup) null));
+        this.gIC = new b(getActivity());
+        this.HO.setAdapter((ListAdapter) this.gIC);
+        this.gIC.Z(this.mDataList);
+        aLT();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -182,11 +182,11 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         if (transmitForumData != null) {
             int i = 0;
             while (true) {
-                if (i >= this.gIS.size()) {
+                if (i >= this.gID.size()) {
                     i = -1;
                     break;
                 }
-                TransmitForumData transmitForumData2 = this.gIS.get(i);
+                TransmitForumData transmitForumData2 = this.gID.get(i);
                 if (transmitForumData2 != null && transmitForumData.forumId == transmitForumData2.forumId) {
                     break;
                 }
@@ -194,31 +194,31 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             }
             if (transmitForumData.checked) {
                 if (i == -1) {
-                    this.gIU.setVisibility(8);
+                    this.gIF.setVisibility(8);
                     BarImageView barImageView = new BarImageView(getActivity());
                     int dimensionPixelSize = getResources().getDimensionPixelSize(d.f.ds80);
                     int dimensionPixelSize2 = getResources().getDimensionPixelSize(d.f.ds24);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
                     layoutParams.rightMargin = dimensionPixelSize2;
                     layoutParams.gravity = 16;
-                    this.gIT.addView(barImageView, this.gIS.size(), layoutParams);
+                    this.gIE.addView(barImageView, this.gID.size(), layoutParams);
                     barImageView.c(transmitForumData.avatar, 10, false);
-                    this.gIS.add(transmitForumData);
-                    this.gIV.setText(d.l.search);
+                    this.gID.add(transmitForumData);
+                    this.gIG.setText(d.l.search);
                     return;
                 }
                 return;
             }
-            if (i >= 0 && i < this.gIS.size() && i < this.gIT.getChildCount()) {
-                this.gIS.remove(i);
-                this.gIT.removeViewAt(i);
+            if (i >= 0 && i < this.gID.size() && i < this.gIE.getChildCount()) {
+                this.gID.remove(i);
+                this.gIE.removeViewAt(i);
             }
-            if (this.gIS.size() == 0) {
-                this.gIU.setVisibility(0);
+            if (this.gID.size() == 0) {
+                this.gIF.setVisibility(0);
                 if (this.mFrom == 1) {
-                    this.gIV.setText(d.l.search_forum_you_want_to_share);
+                    this.gIG.setText(d.l.search_forum_you_want_to_share);
                 } else {
-                    this.gIV.setText(d.l.search_forum_you_want);
+                    this.gIG.setText(d.l.search_forum_you_want);
                 }
             }
         }
@@ -247,7 +247,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                     }
                     i4 = i3 + 1;
                 }
-                if (bzX()) {
+                if (bzR()) {
                     showToast(d.l.transmit_max_commit);
                     if (i3 != -1) {
                         this.mDataList.add(0, this.mDataList.remove(i3));
@@ -265,25 +265,25 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                         transmitForumData = transmitForumData3;
                     }
                     a(transmitForumData);
-                    aLY();
+                    aLT();
                 }
-                this.gIR.Z(this.mDataList);
-                this.HN.setSelection(0);
+                this.gIC.Z(this.mDataList);
+                this.HO.setSelection(0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bzX() {
-        return v.t(bAa()) >= 3;
+    public boolean bzR() {
+        return v.t(bzU()) >= 3;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aLY() {
-        this.euK.setText(getResources().getString(d.l.transmit_confirm, Integer.valueOf(v.t(bAa())), 3));
+    public void aLT() {
+        this.euw.setText(getResources().getString(d.l.transmit_confirm, Integer.valueOf(v.t(bzU())), 3));
     }
 
-    public ArrayList<TransmitForumData> bAa() {
+    public ArrayList<TransmitForumData> bzU() {
         ArrayList<TransmitForumData> arrayList = new ArrayList<>();
         for (TransmitForumData transmitForumData : this.mDataList) {
             if (transmitForumData instanceof TransmitForumData) {
@@ -301,15 +301,15 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        aj.i(this.abf, d.e.cp_cont_b);
-        aj.i(this.gIV, d.e.cp_cont_d);
-        aj.c(this.gIU, d.g.icon_input_search_n);
-        aj.j(this.euK, d.g.btn_all_blue);
-        aj.c(this.euK, d.e.cp_cont_g, 1);
+        aj.i(this.aaS, d.e.cp_cont_b);
+        aj.i(this.gIG, d.e.cp_cont_d);
+        aj.c(this.gIF, d.g.icon_input_search_n);
+        aj.j(this.euw, d.g.btn_all_blue);
+        aj.c(this.euw, d.e.cp_cont_g, 1);
         aj.k(this.mRootView, d.e.cp_bg_line_d);
-        aj.k(this.aod, d.e.cp_bg_line_c);
-        this.gIR.oQ(i);
-        this.HN.setSelector(aj.getDrawable(d.g.selector_select_forum_item));
-        aj.k(this.euM, d.e.cp_bg_line_d_alpha95);
+        aj.k(this.anR, d.e.cp_bg_line_c);
+        this.gIC.oP(i);
+        this.HO.setSelector(aj.getDrawable(d.g.selector_select_forum_item));
+        aj.k(this.euy, d.e.cp_bg_line_d_alpha95);
     }
 }

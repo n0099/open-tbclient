@@ -8,11 +8,11 @@ import com.baidu.tieba.personCenter.c.f;
 import com.baidu.tieba.personCenter.view.e;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.widget.ListView.a<f, com.baidu.tieba.card.a.a<e>> {
-    private TbPageContext<?> mG;
+    private TbPageContext<?> mH;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.mG = tbPageContext;
+        this.mH = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class d extends com.baidu.adp.widget.ListView.a<f, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: B */
     public com.baidu.tieba.card.a.a<e> onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new e(this.mG));
+        return new com.baidu.tieba.card.a.a<>(new e(this.mH));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public class d extends com.baidu.adp.widget.ListView.a<f, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, f fVar, com.baidu.tieba.card.a.a<e> aVar) {
-        aVar.Yr().a(fVar);
+        aVar.Yn().a(fVar);
         return aVar.getView();
     }
 }

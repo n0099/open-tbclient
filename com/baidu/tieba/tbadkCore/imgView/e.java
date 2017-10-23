@@ -3,13 +3,13 @@ package com.baidu.tieba.tbadkCore.imgView;
 import android.graphics.Rect;
 /* loaded from: classes.dex */
 public interface e {
-    void brS();
+    void brL();
 
-    void brT();
+    void brM();
 
-    void brU();
+    void brN();
 
-    void brV();
+    void brO();
 
     void i(Rect rect);
 }

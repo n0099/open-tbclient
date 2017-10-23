@@ -12,14 +12,14 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean BY;
-        public String arD;
-        public BlockPopInfoData arE;
+        public boolean BZ;
+        public BlockPopInfoData ars;
         public String errorString;
         public boolean isAttention;
+        public String showMsg;
         public String toUid;
         public boolean isGod = false;
-        public boolean arC = false;
+        public boolean arr = false;
 
         public void k(String str, boolean z) {
             boolean z2 = true;
@@ -30,18 +30,18 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                         if (!z || optJSONObject.optInt("is_toast", 0) != 1) {
                             z2 = false;
                         }
-                        this.arC = z2;
-                        this.arD = optJSONObject.optString("toast_text");
+                        this.arr = z2;
+                        this.showMsg = optJSONObject.optString("toast_text");
                         String optString = optJSONObject.optString("block_content");
                         String optString2 = optJSONObject.optString("block_dealurl");
                         String optString3 = optJSONObject.optString("block_confirm");
                         String optString4 = optJSONObject.optString("block_cancel");
                         if (!am.isEmpty(optString) && !am.isEmpty(optString2) && !am.isEmpty(optString3) && !am.isEmpty(optString4)) {
-                            this.arE = new BlockPopInfoData();
-                            this.arE.block_info = optString;
-                            this.arE.ahead_url = optString2;
-                            this.arE.ahead_info = optString3;
-                            this.arE.ok_info = optString4;
+                            this.ars = new BlockPopInfoData();
+                            this.ars.block_info = optString;
+                            this.ars.ahead_url = optString2;
+                            this.ars.ahead_info = optString3;
+                            this.ars.ok_info = optString4;
                         }
                     }
                 } catch (Exception e) {
@@ -59,7 +59,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().BY;
+        return getData().BZ;
     }
 
     public boolean isAttention() {

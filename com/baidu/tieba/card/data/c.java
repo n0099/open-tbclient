@@ -13,61 +13,61 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements ae {
-    public String Xf;
-    private String bNj;
-    private int bNk;
-    private String bNl;
-    private String bNm;
-    private String bNo;
+    public String WT;
+    private String bMX;
+    private int bMY;
+    private String bMZ;
+    private String bNa;
+    private String bNc;
     private String mSource;
-    public int bNn = 0;
-    public SparseArray<String> Xg = null;
+    public int bNb = 0;
+    public SparseArray<String> WU = null;
 
     public void setWeight(String str) {
-        this.bNj = str;
+        this.bMX = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void hR(int i) {
-        this.bNk = i;
+    public void hQ(int i) {
+        this.bMY = i;
     }
 
-    public void jq(String str) {
-        this.bNl = str;
+    public void jp(String str) {
+        this.bMZ = str;
     }
 
-    public int XU() {
-        return this.bNk;
+    public int XQ() {
+        return this.bMY;
     }
 
-    public String XV() {
-        return this.mSource + "#" + this.bNk + "#" + this.bNl;
+    public String XR() {
+        return this.mSource + "#" + this.bMY + "#" + this.bMZ;
     }
 
     public String getWeight() {
-        return this.bNj;
+        return this.bMX;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String XW() {
-        return this.bNl;
+    public String XS() {
+        return this.bMZ;
     }
 
-    public String XX() {
-        return this.bNm;
+    public String XT() {
+        return this.bNa;
     }
 
-    public void jr(String str) {
-        this.bNm = str;
+    public void jq(String str) {
+        this.bNa = str;
     }
 
-    public bh Nj() {
+    public bh Nd() {
         return null;
     }
 
@@ -76,61 +76,61 @@ public abstract class c extends b implements ae {
     }
 
     public void setExtra(String str) {
-        this.bNo = str;
+        this.bNc = str;
     }
 
     public String getExtra() {
-        return this.bNo;
+        return this.bNc;
     }
 
-    public ak js(String str) {
+    public ak jr(String str) {
         return u(str, false);
     }
 
     public ak u(String str, boolean z) {
-        bh Nj = Nj();
-        if (Nj == null) {
+        bh Nd = Nd();
+        if (Nd == null) {
             return null;
         }
-        ak ad = new ak(str).ad("fid", String.valueOf(Nj.getFid())).ad("tid", String.valueOf(Nj.getTid())).ad("obj_id", getExtra()).ad("obj_param1", getWeight()).r("obj_param2", 1).ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", XU()).ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ad("obj_param3", com.baidu.tieba.card.m.XG());
+        ak ac = new ak(str).ac("fid", String.valueOf(Nd.getFid())).ac("tid", String.valueOf(Nd.getTid())).ac("obj_id", getExtra()).ac("obj_param1", getWeight()).r("obj_param2", 1).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", XQ()).ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.m.XC());
         if (!z) {
-            ad.r("obj_type", XY());
+            ac.r("obj_type", XU());
         } else {
-            ad.ad("ab_tag", XW());
+            ac.ac("ab_tag", XS());
         }
-        if (Nj.sL() != null && Nj.sL().aCd() != null && Nj.sL().aCd().ID() != null && Nj.sL().aCd().ID().size() > 0) {
-            ad.r("obj_to", Nj.sL().ght ? 2 : 1);
+        if (Nd.sE() != null && Nd.sE().aBY() != null && Nd.sE().aBY().Ix() != null && Nd.sE().aBY().Ix().size() > 0) {
+            ac.r("obj_to", Nd.sE().ghf ? 2 : 1);
         }
-        return ad;
+        return ac;
     }
 
     public ak J(String str, int i) {
-        bh Nj = Nj();
-        if (Nj == null) {
+        bh Nd = Nd();
+        if (Nd == null) {
             return null;
         }
-        ak ad = new ak(str).ad("fid", String.valueOf(Nj.getFid())).ad("tid", String.valueOf(Nj.getTid())).r("obj_id", z(Nj)).r("obj_param2", 1).ad("obj_param1", getWeight()).ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", XU()).ad("obj_name", XW()).ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ad("obj_param3", com.baidu.tieba.card.m.XG());
+        ak ac = new ak(str).ac("fid", String.valueOf(Nd.getFid())).ac("tid", String.valueOf(Nd.getTid())).r("obj_id", z(Nd)).r("obj_param2", 1).ac("obj_param1", getWeight()).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", XQ()).ac("obj_name", XS()).ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.m.XC());
         if (i == 0) {
-            ad.r("obj_type", XY());
+            ac.r("obj_type", XU());
         } else {
-            ad.r("obj_type", i);
+            ac.r("obj_type", i);
         }
-        ad.ad("obj_id", getExtra());
-        return ad;
+        ac.ac("obj_id", getExtra());
+        return ac;
     }
 
-    private int XY() {
+    private int XU() {
         int i;
         int i2 = 0;
-        bh Nj = Nj();
-        if (Nj == null) {
+        bh Nd = Nd();
+        if (Nd == null) {
             return 0;
         }
-        ArrayList<MediaData> rF = Nj.rF();
-        if (rF == null) {
+        ArrayList<MediaData> ry = Nd.ry();
+        if (ry == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = rF.iterator();
+            Iterator<MediaData> it = ry.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -148,17 +148,17 @@ public abstract class c extends b implements ae {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        bh Nj = Nj();
-        if (Nj != null) {
-            return Nj.getImages();
+        bh Nd = Nd();
+        if (Nd != null) {
+            return Nd.getImages();
         }
         return null;
     }
 
     private int z(bh bhVar) {
-        if (bhVar.sz() == null || bhVar.sz().channelId <= 0) {
+        if (bhVar.ss() == null || bhVar.ss().channelId <= 0) {
             return 0;
         }
-        return (int) bhVar.sz().channelId;
+        return (int) bhVar.ss().channelId;
     }
 }

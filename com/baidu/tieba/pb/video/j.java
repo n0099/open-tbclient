@@ -17,7 +17,7 @@ public class j extends com.baidu.tieba.pb.pb.main.k<k, o> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bj */
     public o onCreateViewHolder(ViewGroup viewGroup) {
-        return new o(this.eDC.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_recommend_video_item_layout, viewGroup, false));
+        return new o(this.eDo.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_recommend_video_item_layout, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

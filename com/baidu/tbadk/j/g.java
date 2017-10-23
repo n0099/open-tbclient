@@ -11,98 +11,98 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends a {
-    protected TbImageView aGf;
-    protected TextView aGg;
-    protected TextView aGh;
-    protected TextView aGi;
+    protected TbImageView aFS;
+    protected TextView aFT;
+    protected TextView aFU;
+    protected TextView aFV;
 
-    public TextView Eu() {
-        return this.aGh;
+    public TextView Eo() {
+        return this.aFU;
     }
 
-    public TextView Ev() {
-        return this.aGi;
+    public TextView Ep() {
+        return this.aFV;
     }
 
     public g(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(d.j.net_refresh_view_layout, (ViewGroup) null));
-        this.aGf = (TbImageView) this.aFX.findViewById(d.h.net_refresh_image);
-        this.aGg = (TextView) this.aFX.findViewById(d.h.net_refresh_desc);
-        this.aGh = (TextView) this.aFX.findViewById(d.h.net_refresh_title);
-        this.aGi = (TextView) this.aFX.findViewById(d.h.net_refresh_button);
-        this.aGi.setOnClickListener(onClickListener);
-        this.aFX.setOnClickListener(null);
+        this.aFS = (TbImageView) this.aFK.findViewById(d.h.net_refresh_image);
+        this.aFT = (TextView) this.aFK.findViewById(d.h.net_refresh_desc);
+        this.aFU = (TextView) this.aFK.findViewById(d.h.net_refresh_title);
+        this.aFV = (TextView) this.aFK.findViewById(d.h.net_refresh_button);
+        this.aFV.setOnClickListener(onClickListener);
+        this.aFK.setOnClickListener(null);
     }
 
-    public void gr(String str) {
+    public void gq(String str) {
         if (str == null) {
-            this.aGg.setVisibility(8);
+            this.aFT.setVisibility(8);
             return;
         }
-        this.aGg.setVisibility(0);
-        this.aGg.setText(str);
+        this.aFT.setVisibility(0);
+        this.aFT.setText(str);
     }
 
     public void setTitle(String str) {
         if (str != null) {
-            this.aGh.setText(str);
+            this.aFU.setText(str);
         }
     }
 
     public void setButtonText(String str) {
         if (str != null) {
-            this.aGi.setText(str);
+            this.aFV.setText(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.j.a
-    public void Eo() {
-        super.Eo();
+    public void Ei() {
+        super.Ei();
         onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.j.a
-    public void Ep() {
-        super.Ep();
-        this.aGf.setImageResource(0);
+    public void Ej() {
+        super.Ej();
+        this.aFS.setImageResource(0);
     }
 
-    public void fk(int i) {
-        ViewGroup.LayoutParams layoutParams = this.aGf.getLayoutParams();
+    public void fj(int i) {
+        ViewGroup.LayoutParams layoutParams = this.aFS.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.aGf.setLayoutParams(marginLayoutParams);
+            this.aFS.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void Ew() {
-        this.aGi.setVisibility(0);
-        this.aGh.setVisibility(0);
-        aj.c(this.aGg, d.e.cp_cont_d, 1);
+    public void Eq() {
+        this.aFV.setVisibility(0);
+        this.aFU.setVisibility(0);
+        aj.c(this.aFT, d.e.cp_cont_d, 1);
     }
 
-    public void Ex() {
-        this.aGi.setVisibility(8);
-        this.aGh.setVisibility(8);
-        aj.c(this.aGg, d.e.cp_cont_b, 1);
+    public void Er() {
+        this.aFV.setVisibility(8);
+        this.aFU.setVisibility(8);
+        aj.c(this.aFT, d.e.cp_cont_b, 1);
     }
 
     public void onChangeSkinType() {
-        if (En()) {
+        if (Eh()) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            aj.c(this.aGf, d.g.net_refresh_emotion);
-            aj.b(this.aGg, d.e.cp_cont_d, 1, skinType);
-            aj.b(this.aGh, d.e.cp_cont_b, 1, skinType);
-            aj.b(this.aGi, d.e.cp_cont_g, 1, skinType);
-            aj.d(this.aGi, d.g.btn_appdownload, skinType);
-            aj.k(this.aFX, d.e.cp_bg_line_d);
+            aj.c(this.aFS, d.g.net_refresh_emotion);
+            aj.b(this.aFT, d.e.cp_cont_d, 1, skinType);
+            aj.b(this.aFU, d.e.cp_cont_b, 1, skinType);
+            aj.b(this.aFV, d.e.cp_cont_g, 1, skinType);
+            aj.d(this.aFV, d.g.btn_appdownload, skinType);
+            aj.k(this.aFK, d.e.cp_bg_line_d);
         }
     }
 
-    public View Et() {
-        return this.aFX;
+    public View En() {
+        return this.aFK;
     }
 }

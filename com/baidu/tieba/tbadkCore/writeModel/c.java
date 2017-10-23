@@ -47,10 +47,10 @@ public class c {
                 xVar.n("lat", String.valueOf(D.getLatitude()));
                 xVar.n("lng", String.valueOf(D.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bsd().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.brW().getLocationData();
             if (locationData != null) {
-                xVar.n("name", locationData.brZ());
-                xVar.n("sn", locationData.bsb());
+                xVar.n("name", locationData.brS());
+                xVar.n("sn", locationData.brU());
             }
         }
     }

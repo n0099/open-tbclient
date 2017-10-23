@@ -20,129 +20,129 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class x {
-    private com.baidu.tbadk.core.util.a.a afG = null;
-    private q afH = null;
-    private x afI = null;
-    private aa.a afJ = null;
-    private int afK = 0;
+    private com.baidu.tbadk.core.util.a.a afu = null;
+    private q afv = null;
+    private x afw = null;
+    private aa.a afx = null;
+    private int afy = 0;
 
-    private void uM() {
-        this.afG = new com.baidu.tbadk.core.util.a.a();
-        this.afH = z.uX().a(this.afG);
-        this.afI = null;
-        this.afG.vJ().vM().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+    private void uF() {
+        this.afu = new com.baidu.tbadk.core.util.a.a();
+        this.afv = z.uQ().a(this.afu);
+        this.afw = null;
+        this.afu.vC().vF().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
         com.baidu.adp.lib.network.a.a.aj(TbadkCoreApplication.getInst().getCuid());
     }
 
-    public com.baidu.tbadk.core.util.a.a uN() {
-        return this.afG;
+    public com.baidu.tbadk.core.util.a.a uG() {
+        return this.afu;
     }
 
     public x() {
-        uM();
+        uF();
     }
 
     public x(String str) {
-        uM();
-        this.afG.vJ().vM().mUrl = str;
+        uF();
+        this.afu.vC().vF().mUrl = str;
     }
 
     public void setUrl(String str) {
-        this.afG.vJ().vM().mUrl = str;
+        this.afu.vC().vF().mUrl = str;
     }
 
     public void k(ArrayList<BasicNameValuePair> arrayList) {
-        this.afH.k(arrayList);
+        this.afv.k(arrayList);
     }
 
     public void n(String str, String str2) {
-        this.afH.n(str, str2);
+        this.afv.n(str, str2);
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.afH.a(basicNameValuePair);
+        this.afv.a(basicNameValuePair);
     }
 
     public void d(String str, byte[] bArr) {
-        this.afH.d(str, bArr);
+        this.afv.d(str, bArr);
     }
 
-    private void uO() {
+    private void uH() {
         String currentBduss = TbadkCoreApplication.getCurrentBduss();
         BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", currentBduss);
         BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TbadkCoreApplication.getInst().getTbs());
         if (currentBduss != null) {
-            ArrayList<BasicNameValuePair> uo = this.afH.uo();
-            int size = uo.size();
+            ArrayList<BasicNameValuePair> uh = this.afv.uh();
+            int size = uh.size();
             for (int i = 0; i < size; i++) {
-                BasicNameValuePair basicNameValuePair3 = uo.get(i);
+                BasicNameValuePair basicNameValuePair3 = uh.get(i);
                 if (basicNameValuePair3.getName().equals("BDUSS")) {
-                    uo.set(i, basicNameValuePair);
+                    uh.set(i, basicNameValuePair);
                 } else if (basicNameValuePair3.getName().equals("tbs")) {
-                    uo.set(i, basicNameValuePair2);
+                    uh.set(i, basicNameValuePair2);
                 }
             }
         }
     }
 
-    private void uP() {
-        if (this.afJ == null) {
-            this.afJ = aa.uY();
+    private void uI() {
+        if (this.afx == null) {
+            this.afx = aa.uR();
         }
-        if (this.afJ != null) {
-            this.afH.n("stTime", String.valueOf(this.afJ.mTime));
-            this.afH.n("stSize", String.valueOf(this.afJ.aga));
-            this.afH.n("stTimesNum", String.valueOf(this.afJ.agb));
-            this.afH.n("stMode", String.valueOf(this.afJ.mMode));
-            this.afH.n("stMethod", String.valueOf(this.afJ.afZ));
+        if (this.afx != null) {
+            this.afv.n("stTime", String.valueOf(this.afx.mTime));
+            this.afv.n("stSize", String.valueOf(this.afx.afO));
+            this.afv.n("stTimesNum", String.valueOf(this.afx.afP));
+            this.afv.n("stMode", String.valueOf(this.afx.mMode));
+            this.afv.n("stMethod", String.valueOf(this.afx.afN));
         }
-        this.afK = aa.cI(0);
-        if (this.afK == 0 && this.afJ != null) {
-            this.afK = this.afJ.agb;
+        this.afy = aa.cH(0);
+        if (this.afy == 0 && this.afx != null) {
+            this.afy = this.afx.afP;
         }
-        this.afH.n("stErrorNums", String.valueOf(this.afK));
+        this.afv.n("stErrorNums", String.valueOf(this.afy));
     }
 
-    public boolean uQ() {
-        return this.afG.vK().uQ();
+    public boolean uJ() {
+        return this.afu.vD().uJ();
     }
 
-    public int uR() {
-        return this.afG.vK().ahO;
+    public int uK() {
+        return this.afu.vD().ahC;
     }
 
-    public int uS() {
-        return this.afG.vK().vo;
+    public int uL() {
+        return this.afu.vD().vp;
     }
 
-    public String uT() {
-        return this.afG.vK().ahP;
+    public String uM() {
+        return this.afu.vD().ahD;
     }
 
     public String getErrorString() {
-        return this.afG.vK().mErrorString;
+        return this.afu.vD().mErrorString;
     }
 
     public void fo() {
-        if (this.afH != null) {
-            this.afH.fo();
+        if (this.afv != null) {
+            this.afv.fo();
         }
-        if (this.afI != null) {
-            this.afI.fo();
+        if (this.afw != null) {
+            this.afw.fo();
         }
     }
 
     public void fs() {
-        if (this.afH != null) {
-            this.afH.fs();
+        if (this.afv != null) {
+            this.afv.fs();
         }
-        if (this.afI != null) {
-            this.afI.fs();
+        if (this.afw != null) {
+            this.afw.fs();
         }
     }
 
     private com.baidu.tbadk.core.data.ai e(String str, String str2, boolean z) {
-        String up;
+        String ui;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
@@ -150,30 +150,30 @@ public class x {
             TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
-            if (this.afI == null) {
-                this.afI = new x(sb.toString());
+            if (this.afw == null) {
+                this.afw = new x(sb.toString());
             } else {
-                this.afI.fo();
+                this.afw.fo();
             }
-            this.afI.uN().vJ().mIsNeedAddCommenParam = false;
-            this.afI.uN().vJ().mIsUseCurrentBDUSS = false;
-            this.afI.uN().vJ().ahL = false;
-            this.afI.n("un", str);
-            this.afI.n("passwd", str2);
-            this.afI.n("isphone", "0");
-            this.afI.n("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
-            this.afI.n("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-            this.afI.uN().vJ().vM().aim = true;
-            up = this.afI.up();
+            this.afw.uG().vC().mIsNeedAddCommenParam = false;
+            this.afw.uG().vC().mIsUseCurrentBDUSS = false;
+            this.afw.uG().vC().ahz = false;
+            this.afw.n("un", str);
+            this.afw.n("passwd", str2);
+            this.afw.n("isphone", "0");
+            this.afw.n("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
+            this.afw.n("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
+            this.afw.uG().vC().vF().aia = true;
+            ui = this.afw.ui();
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        if (this.afI.uN().vK().isRequestSuccess() && up != null) {
+        if (this.afw.uG().vD().isRequestSuccess() && ui != null) {
             com.baidu.tbadk.core.data.ai aiVar = new com.baidu.tbadk.core.data.ai();
-            aiVar.parserJson(up);
+            aiVar.parserJson(ui);
             String userId = aiVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
-                this.afG.vK().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(d.l.neterror);
+                this.afu.vD().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(d.l.neterror);
                 return null;
             }
             AccountData accountData = new AccountData();
@@ -187,16 +187,16 @@ public class x {
             accountData.setBDUSS(aiVar.getUser().getBDUSS());
             accountData.setPortrait(aiVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (aiVar.qh() != null) {
-                accountData.setTbs(aiVar.qh().getTbs());
+            if (aiVar.qa() != null) {
+                accountData.setTbs(aiVar.qa().getTbs());
             }
             com.baidu.tbadk.core.a.b.b(accountData);
             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
             return aiVar;
         }
-        if (this.afI.uQ()) {
-            switch (this.afI.uR()) {
+        if (this.afw.uJ()) {
+            switch (this.afw.uK()) {
                 case 1:
                 case 2:
                 case 5:
@@ -215,18 +215,18 @@ public class x {
         return null;
     }
 
-    public byte[] uq() {
-        if (!this.afG.vJ().mIsFromCDN) {
-            this.afG.vJ().b(this.afH);
+    public byte[] uj() {
+        if (!this.afu.vC().mIsFromCDN) {
+            this.afu.vC().b(this.afv);
         }
-        return this.afH.uq();
+        return this.afv.uj();
     }
 
-    private void uU() {
+    private void uN() {
         StringBuffer stringBuffer = new StringBuffer(1024);
-        ArrayList<BasicNameValuePair> uo = this.afH.uo();
-        for (int i = 0; uo != null && i < uo.size(); i++) {
-            BasicNameValuePair basicNameValuePair = uo.get(i);
+        ArrayList<BasicNameValuePair> uh = this.afv.uh();
+        for (int i = 0; uh != null && i < uh.size(); i++) {
+            BasicNameValuePair basicNameValuePair = uh.get(i);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
@@ -235,147 +235,147 @@ public class x {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        this.afH.n(SapiUtils.KEY_QR_LOGIN_SIGN, com.baidu.adp.lib.util.s.aS(stringBuffer.toString()));
+        this.afv.n(SapiUtils.KEY_QR_LOGIN_SIGN, com.baidu.adp.lib.util.s.aS(stringBuffer.toString()));
+    }
+
+    private String cE(int i) {
+        String ul;
+        com.baidu.tbadk.coreExtra.a.c xg;
+        switch (i) {
+            case 1:
+                if (uG().vC().mIsNeedAddCommenParam) {
+                    this.afu.vC().b(this.afv);
+                }
+                uI();
+                ul = this.afv.uk();
+                break;
+            case 2:
+                if (uG().vC().mIsUseCurrentBDUSS) {
+                    uG().vC().a(this.afv);
+                }
+                if (uG().vC().mIsNeedAddCommenParam) {
+                    this.afu.vC().b(this.afv);
+                }
+                uI();
+                ul = this.afv.ui();
+                break;
+            case 3:
+                if (uG().vC().mIsUseCurrentBDUSS) {
+                    uG().vC().a(this.afv);
+                }
+                if (uG().vC().mIsNeedAddCommenParam) {
+                    this.afu.vC().b(this.afv);
+                }
+                uN();
+                ul = this.afv.ul();
+                break;
+            default:
+                return null;
+        }
+        if (!this.afu.vD().uJ()) {
+            aa.a(this.afx);
+            aa.cI(this.afy);
+            return ul;
+        } else if (!this.afu.vD().isRequestSuccess()) {
+            if (this.afu.vD().ahC == 1 && this.afu.vC().ahz) {
+                String str = this.afu.vD().mErrorString;
+                this.afu.vD().mErrorString = "";
+                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+                if (currentAccountObj == null) {
+                    currentAccountObj = com.baidu.tbadk.core.a.b.oY();
+                }
+                if (currentAccountObj == null || TextUtils.isEmpty(currentAccountObj.getAccount())) {
+                    uO();
+                    return null;
+                }
+                com.baidu.tbadk.core.a.b.cp(currentAccountObj.getAccount());
+                if (ReloginManager.tQ().tU()) {
+                    AccountData tT = ReloginManager.tQ().tT();
+                    if (tT == null) {
+                        ReloginManager.tQ().f(tT);
+                        return null;
+                    }
+                    return cF(i);
+                }
+                com.baidu.tbadk.core.data.ai e = e(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
+                if (!TextUtils.isEmpty(currentAccountObj.getID()) && (xg = com.baidu.tbadk.coreExtra.a.a.xg()) != null) {
+                    xg.h(currentAccountObj);
+                }
+                if (e == null) {
+                    if (this.afw != null) {
+                        this.afu.vD().mErrorString = this.afw.getErrorString();
+                        return null;
+                    }
+                    this.afu.vD().mErrorString = str;
+                    return ul;
+                }
+                ul = cF(i);
+            }
+            com.baidu.tieba.h.a.a(this);
+            return ul;
+        } else {
+            return ul;
+        }
     }
 
     private String cF(int i) {
-        String us;
-        com.baidu.tbadk.coreExtra.a.c xn;
+        String ul;
+        uH();
         switch (i) {
             case 1:
-                if (uN().vJ().mIsNeedAddCommenParam) {
-                    this.afG.vJ().b(this.afH);
-                }
-                uP();
-                us = this.afH.ur();
+                ul = this.afv.uk();
                 break;
             case 2:
-                if (uN().vJ().mIsUseCurrentBDUSS) {
-                    uN().vJ().a(this.afH);
-                }
-                if (uN().vJ().mIsNeedAddCommenParam) {
-                    this.afG.vJ().b(this.afH);
-                }
-                uP();
-                us = this.afH.up();
+                ul = this.afv.ui();
                 break;
             case 3:
-                if (uN().vJ().mIsUseCurrentBDUSS) {
-                    uN().vJ().a(this.afH);
-                }
-                if (uN().vJ().mIsNeedAddCommenParam) {
-                    this.afG.vJ().b(this.afH);
-                }
-                uU();
-                us = this.afH.us();
+                ul = this.afv.ul();
                 break;
             default:
                 return null;
         }
-        if (!this.afG.vK().uQ()) {
-            aa.a(this.afJ);
-            aa.cJ(this.afK);
-            return us;
-        } else if (!this.afG.vK().isRequestSuccess()) {
-            if (this.afG.vK().ahO == 1 && this.afG.vJ().ahL) {
-                String str = this.afG.vK().mErrorString;
-                this.afG.vK().mErrorString = "";
-                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                if (currentAccountObj == null) {
-                    currentAccountObj = com.baidu.tbadk.core.a.b.pf();
-                }
-                if (currentAccountObj == null || TextUtils.isEmpty(currentAccountObj.getAccount())) {
-                    uV();
-                    return null;
-                }
-                com.baidu.tbadk.core.a.b.cq(currentAccountObj.getAccount());
-                if (ReloginManager.tX().ub()) {
-                    AccountData ua = ReloginManager.tX().ua();
-                    if (ua == null) {
-                        ReloginManager.tX().f(ua);
-                        return null;
-                    }
-                    return cG(i);
-                }
-                com.baidu.tbadk.core.data.ai e = e(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
-                if (!TextUtils.isEmpty(currentAccountObj.getID()) && (xn = com.baidu.tbadk.coreExtra.a.a.xn()) != null) {
-                    xn.h(currentAccountObj);
-                }
-                if (e == null) {
-                    if (this.afI != null) {
-                        this.afG.vK().mErrorString = this.afI.getErrorString();
-                        return null;
-                    }
-                    this.afG.vK().mErrorString = str;
-                    return us;
-                }
-                us = cG(i);
-            }
-            com.baidu.tieba.h.a.a(this);
-            return us;
-        } else {
-            return us;
-        }
-    }
-
-    private String cG(int i) {
-        String us;
-        uO();
-        switch (i) {
-            case 1:
-                us = this.afH.ur();
-                break;
-            case 2:
-                us = this.afH.up();
-                break;
-            case 3:
-                us = this.afH.us();
-                break;
-            default:
-                return null;
-        }
-        if (this.afG.vK().uQ()) {
-            switch (this.afG.vK().ahO) {
+        if (this.afu.vD().uJ()) {
+            switch (this.afu.vD().ahC) {
                 case 1:
                 case 2:
                 case 5:
-                    uV();
-                    this.afG.vK().mErrorString = "";
+                    uO();
+                    this.afu.vD().mErrorString = "";
                     return null;
                 case 3:
                 case 4:
                 default:
-                    return us;
+                    return ul;
             }
         }
-        return us;
+        return ul;
     }
 
-    private void uV() {
+    private void uO() {
         Handler handler = TbadkCoreApplication.getInst().handler;
         handler.sendMessage(handler.obtainMessage(1));
     }
 
-    public String up() {
-        return cF(2);
+    public String ui() {
+        return cE(2);
     }
 
-    public String ur() {
-        return cF(1);
+    public String uk() {
+        return cE(1);
     }
 
-    public String us() {
-        return cF(3);
+    public String ul() {
+        return cE(3);
     }
 
-    public String dD(String str) throws IOException {
+    public String dC(String str) throws IOException {
         byte[] bArr;
         try {
-            InputStream dn = k.dn(str);
+            InputStream dm = k.dm(str);
             byte[] bArr2 = new byte[5120];
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(5120);
             while (true) {
-                int read = dn.read(bArr2);
+                int read = dm.read(bArr2);
                 if (read == -1) {
                     break;
                 }
@@ -389,7 +389,7 @@ public class x {
             return null;
         }
         d("pic", bArr);
-        return us();
+        return ul();
     }
 
     public boolean a(String str, Handler handler, int i) {
@@ -401,7 +401,7 @@ public class x {
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        uN().vJ().a(this.afH);
-        return this.afH.a(str, handler, i, i2, i3, z);
+        uG().vC().a(this.afv);
+        return this.afv.a(str, handler, i, i2, i3, z);
     }
 }

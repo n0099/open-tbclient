@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a evk = null;
-    private final a.InterfaceC0044a evl = new a.InterfaceC0044a() { // from class: com.baidu.tieba.passaccount.a.a.1
+    private static a euW = null;
+    private final a.InterfaceC0044a euX = new a.InterfaceC0044a() { // from class: com.baidu.tieba.passaccount.a.a.1
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
-        public void cp(String str) {
+        public void co(String str) {
         }
 
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
@@ -23,15 +23,15 @@ public class a extends com.baidu.tbadk.core.a.a {
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
         public void c(final String str, int i, String str2) {
             if (i == 1) {
-                ReloginManager.tX().f(null);
+                ReloginManager.tQ().f(null);
             }
             BdAsyncTask<Void, Void, AccountData> bdAsyncTask = new BdAsyncTask<Void, Void, AccountData>() { // from class: com.baidu.tieba.passaccount.a.a.1.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                /* renamed from: e */
+                /* renamed from: f */
                 public AccountData doInBackground(Void... voidArr) {
-                    return com.baidu.tbadk.core.a.b.cr(str);
+                    return com.baidu.tbadk.core.a.b.cq(str);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 public void onPostExecute(AccountData accountData) {
                     super.onPostExecute(accountData);
                     if (accountData != null && !TextUtils.isEmpty(accountData.getAccount())) {
-                        com.baidu.tbadk.core.a.b.cq(accountData.getAccount());
+                        com.baidu.tbadk.core.a.b.cp(accountData.getAccount());
                     }
                 }
             };
@@ -53,15 +53,15 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a aMg() {
-        if (evk == null) {
-            evk = new a();
+    public static a aMb() {
+        if (euW == null) {
+            euW = new a();
         }
-        return evk;
+        return euW;
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public a.b co(String str) {
+    public a.b cn(String str) {
         a.b bVar;
         Exception e;
         if (str != null) {
@@ -70,9 +70,9 @@ public class a extends com.baidu.tbadk.core.a.a {
                 if (split != null && split.length >= 1) {
                     bVar = new a.b();
                     try {
-                        bVar.ws = split[0];
+                        bVar.wt = split[0];
                         if (split.length >= 2) {
-                            bVar.Tg = split[1];
+                            bVar.SU = split[1];
                             return bVar;
                         }
                         return bVar;
@@ -91,11 +91,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public void pc() {
+    public void oV() {
         AccountData currentAccountObj;
-        a.b co;
-        if (j.hh() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (co = co(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), co.ws, co.Tg, currentAccountObj.getStoken(), this.evl);
+        a.b cn;
+        if (j.hh() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (cn = cn(currentAccountObj.getBDUSS())) != null) {
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), cn.wt, cn.SU, currentAccountObj.getStoken(), this.euX);
         }
     }
 

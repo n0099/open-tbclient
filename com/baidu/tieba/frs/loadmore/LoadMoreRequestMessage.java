@@ -76,11 +76,11 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.st_type = Integer.valueOf(this.st_type);
         builder.scr_h = Integer.valueOf(af);
         builder.scr_w = Integer.valueOf(ad);
-        builder.q_type = Integer.valueOf(an.vs().vu() ? 2 : 1);
+        builder.q_type = Integer.valueOf(an.vl().vn() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
         m.bindCommonParamsToProtobufData(builder, true, false, true);
-        builder.app_pos = a.bgy().bgB();
+        builder.app_pos = a.bgt().bgw();
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.refresh_count = Integer.valueOf(this.refreshCount);

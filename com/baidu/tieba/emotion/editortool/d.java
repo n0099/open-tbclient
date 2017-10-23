@@ -3,35 +3,35 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class d {
-    private EmotionGroupType cbT;
-    private int cbU;
-    private int cbV;
-    private int cbW;
-    private int cbX;
-    private com.baidu.tbadk.editortools.emotiontool.c cbY;
-    private int cbZ;
-    private int cca;
+    private EmotionGroupType cbH;
+    private int cbI;
+    private int cbJ;
+    private int cbK;
+    private int cbL;
+    private com.baidu.tbadk.editortools.emotiontool.c cbM;
+    private int cbN;
+    private int cbO;
     private int column;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.cbY = cVar;
+        this.cbM = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c acn() {
-        return this.cbY;
+    public com.baidu.tbadk.editortools.emotiontool.c acj() {
+        return this.cbM;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.cbT = emotionGroupType;
+        this.cbH = emotionGroupType;
     }
 
-    public EmotionGroupType aco() {
-        return this.cbT;
+    public EmotionGroupType ack() {
+        return this.cbH;
     }
 
-    public void fc(int i) {
+    public void fb(int i) {
         this.row = i;
     }
 
@@ -39,48 +39,48 @@ public class d {
         return this.row;
     }
 
-    public void fb(int i) {
+    public void fa(int i) {
         this.column = i;
     }
 
-    public int acp() {
+    public int acl() {
         return this.column;
     }
 
-    public void ir(int i) {
-        this.cca = i;
+    public void iq(int i) {
+        this.cbO = i;
     }
 
-    public int acq() {
-        return this.cca;
+    public int acm() {
+        return this.cbO;
+    }
+
+    public void ir(int i) {
+        this.cbN = i;
+    }
+
+    public int acn() {
+        return this.cbN;
     }
 
     public void is(int i) {
-        this.cbZ = i;
+        this.cbI = i;
     }
 
-    public int acr() {
-        return this.cbZ;
+    public int aco() {
+        return this.cbI;
     }
 
     public void it(int i) {
-        this.cbU = i;
+        this.cbK = i;
     }
 
-    public int acs() {
-        return this.cbU;
-    }
-
-    public void iu(int i) {
-        this.cbW = i;
-    }
-
-    public int act() {
-        return this.cbW;
+    public int acp() {
+        return this.cbK;
     }
 
     public void setEndIndex(int i) {
-        this.cbX = i;
+        this.cbL = i;
     }
 
     public void setIndex(int i) {
@@ -91,11 +91,11 @@ public class d {
         return this.index;
     }
 
-    public void iv(int i) {
-        this.cbV = i;
+    public void iu(int i) {
+        this.cbJ = i;
     }
 
-    public int acu() {
-        return this.cbV;
+    public int acq() {
+        return this.cbJ;
     }
 }

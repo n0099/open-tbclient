@@ -10,38 +10,38 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class as {
-    private TranslateAnimation ctO;
-    private View ctL = null;
-    private int ctM = 2000;
-    private Runnable ctP = new Runnable() { // from class: com.baidu.tieba.frs.as.1
+    private TranslateAnimation ctC;
+    private View ctz = null;
+    private int ctA = 2000;
+    private Runnable ctD = new Runnable() { // from class: com.baidu.tieba.frs.as.1
         @Override // java.lang.Runnable
         public void run() {
             as.this.hideTip();
         }
     };
-    private ValueAnimator ctN = new ValueAnimator();
+    private ValueAnimator ctB = new ValueAnimator();
 
     public as() {
-        this.ctN.setFloatValues(1.0f, 0.0f);
-        this.ctN.setDuration(400L);
-        this.ctN.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.as.2
+        this.ctB.setFloatValues(1.0f, 0.0f);
+        this.ctB.setDuration(400L);
+        this.ctB.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.as.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (as.this.ctL != null && valueAnimator != null) {
-                    as.this.ctL.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (as.this.ctz != null && valueAnimator != null) {
+                    as.this.ctz.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.ctN.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.as.3
+        this.ctB.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.as.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (as.this.ctL != null) {
-                    as.this.ain();
-                    as.this.ctL.setAlpha(1.0f);
+                if (as.this.ctz != null) {
+                    as.this.aii();
+                    as.this.ctz.setAlpha(1.0f);
                 }
             }
 
@@ -53,16 +53,16 @@ public class as {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.ctO = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds56), 0.0f);
-        this.ctO.setDuration(400L);
-        this.ctO.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.as.4
+        this.ctC = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds56), 0.0f);
+        this.ctC.setDuration(400L);
+        this.ctC.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.as.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                com.baidu.adp.lib.g.e.fP().postDelayed(as.this.ctP, as.this.ctM);
+                com.baidu.adp.lib.g.e.fP().postDelayed(as.this.ctD, as.this.ctA);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -73,38 +73,38 @@ public class as {
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
-            this.ctL = view;
-            ain();
-            viewGroup.addView(this.ctL, layoutParams);
-            this.ctL.setVisibility(0);
-            this.ctM = i;
-            com.baidu.adp.lib.g.e.fP().removeCallbacks(this.ctP);
-            com.baidu.adp.lib.g.e.fP().postDelayed(this.ctP, this.ctM);
+            this.ctz = view;
+            aii();
+            viewGroup.addView(this.ctz, layoutParams);
+            this.ctz.setVisibility(0);
+            this.ctA = i;
+            com.baidu.adp.lib.g.e.fP().removeCallbacks(this.ctD);
+            com.baidu.adp.lib.g.e.fP().postDelayed(this.ctD, this.ctA);
         }
     }
 
     public void hideTip() {
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.ctP);
-        if (this.ctL != null && this.ctL.getParent() != null && this.ctL.getVisibility() == 0 && !this.ctN.isRunning()) {
-            this.ctN.start();
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.ctD);
+        if (this.ctz != null && this.ctz.getParent() != null && this.ctz.getVisibility() == 0 && !this.ctB.isRunning()) {
+            this.ctB.start();
         }
     }
 
-    public void ain() {
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.ctP);
-        if (this.ctL != null) {
-            if (this.ctN != null && this.ctN.isRunning()) {
-                this.ctN.cancel();
+    public void aii() {
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.ctD);
+        if (this.ctz != null) {
+            if (this.ctB != null && this.ctB.isRunning()) {
+                this.ctB.cancel();
             }
-            this.ctL.clearAnimation();
-            if (this.ctL.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.ctL.getParent()).removeView(this.ctL);
+            this.ctz.clearAnimation();
+            if (this.ctz.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.ctz.getParent()).removeView(this.ctz);
             }
-            this.ctL.setVisibility(8);
+            this.ctz.setVisibility(8);
         }
     }
 
     public void onDestroy() {
-        ain();
+        aii();
     }
 }

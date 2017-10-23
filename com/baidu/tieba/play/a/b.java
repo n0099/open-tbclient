@@ -13,75 +13,75 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b fyj = null;
-    private com.baidu.tieba.play.a.a fyi;
-    private InterfaceC0118b fyk = null;
-    private int fyl = 0;
+    private static b fxV = null;
+    private com.baidu.tieba.play.a.a fxU;
+    private InterfaceC0118b fxW = null;
+    private int fxX = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0118b {
-        void bQ(String str, String str2);
+        void bP(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b beG() {
-        if (fyj == null) {
+    public static b beB() {
+        if (fxV == null) {
             synchronized (b.class) {
-                if (fyj == null) {
-                    fyj = new b();
+                if (fxV == null) {
+                    fxV = new b();
                 }
             }
         }
-        return fyj;
+        return fxV;
     }
 
     public void a(InterfaceC0118b interfaceC0118b) {
-        this.fyk = interfaceC0118b;
+        this.fxW = interfaceC0118b;
     }
 
-    public boolean qp(String str) {
+    public boolean qo(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (qq(str) && this.fyi.beF().size() > this.fyl) {
-            if (this.fyk != null) {
-                InterfaceC0118b interfaceC0118b = this.fyk;
-                List<String> beF = this.fyi.beF();
-                int i = this.fyl;
-                this.fyl = i + 1;
-                interfaceC0118b.bQ(beF.get(i), str);
+        if (qp(str) && this.fxU.beA().size() > this.fxX) {
+            if (this.fxW != null) {
+                InterfaceC0118b interfaceC0118b = this.fxW;
+                List<String> beA = this.fxU.beA();
+                int i = this.fxX;
+                this.fxX = i + 1;
+                interfaceC0118b.bP(beA.get(i), str);
             }
             return true;
-        } else if (this.fyi != null && this.fyi.beF() != null && this.fyi.beF().size() <= this.fyl) {
-            this.fyl = 0;
-            this.fyi = null;
+        } else if (this.fxU != null && this.fxU.beA() != null && this.fxU.beA().size() <= this.fxX) {
+            this.fxX = 0;
+            this.fxU = null;
             return false;
         } else {
-            this.fyl = 0;
-            this.fyi = null;
+            this.fxX = 0;
+            this.fxU = null;
             a aVar = new a();
-            aVar.hb(str);
+            aVar.ha(str);
             aVar.execute(new Void[0]);
             return true;
         }
     }
 
-    private boolean qq(String str) {
-        return (this.fyi == null || TextUtils.isEmpty(str) || !str.equals(this.fyi.getHost()) || v.u(this.fyi.beF()) || this.fyi.cx(System.currentTimeMillis()) || this.fyi.beF().size() <= this.fyl) ? false : true;
+    private boolean qp(String str) {
+        return (this.fxU == null || TextUtils.isEmpty(str) || !str.equals(this.fxU.getHost()) || v.u(this.fxU.beA()) || this.fxU.cy(System.currentTimeMillis()) || this.fxU.beA().size() <= this.fxX) ? false : true;
     }
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Void, com.baidu.tieba.play.a.a, Void> {
-        private String zX = null;
+        private String zY = null;
 
         public a() {
         }
 
-        public void hb(String str) {
-            this.zX = str;
+        public void ha(String str) {
+            this.zY = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,7 +102,7 @@ public class b {
             HttpsURLConnection httpsURLConnection2 = null;
             StringBuffer stringBuffer = new StringBuffer();
             try {
-                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL("https://180.76.76.112/v2/0011/?dn=" + this.zX).openConnection();
+                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL("https://180.76.76.112/v2/0011/?dn=" + this.zY).openConnection();
                 try {
                     httpsURLConnection3.setDoOutput(true);
                     httpsURLConnection3.setDoInput(true);
@@ -188,7 +188,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.qo(stringBuffer.toString()));
+                            publishProgress(aVar.qn(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
@@ -258,15 +258,15 @@ public class b {
         /* renamed from: a */
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
-            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.zX)) {
-                b.this.fyi = aVarArr[0];
-                if (!v.u(aVarArr[0].beF()) && b.this.fyk != null) {
-                    b.this.fyk.bQ(aVarArr[0].beF().get(0), aVarArr[0].getHost());
+            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.zY)) {
+                b.this.fxU = aVarArr[0];
+                if (!v.u(aVarArr[0].beA()) && b.this.fxW != null) {
+                    b.this.fxW.bP(aVarArr[0].beA().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.fyk != null) {
-                b.this.fyk.bQ(null, null);
+            if (b.this.fxW != null) {
+                b.this.fxW.bP(null, null);
             }
         }
 

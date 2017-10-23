@@ -16,81 +16,81 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class a extends LinearLayout {
-    View aYL;
-    private EditText dEK;
-    TextView fID;
-    View fIE;
-    View fIF;
-    TextView fIG;
-    TextView fIH;
-    TextView fII;
-    private e fIJ;
-    private TextView fIK;
-    private RelativeLayout fIL;
+    private EditText dEw;
+    TextView fIp;
+    View fIq;
+    View fIr;
+    TextView fIs;
+    TextView fIt;
+    TextView fIu;
+    private e fIv;
+    private TextView fIw;
+    private RelativeLayout fIx;
+    View mLine;
 
     public a(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(d.j.screenlock_show_item_header, (ViewGroup) this, true);
-        this.fID = (TextView) findViewById(d.h.friend_name_show1);
-        this.fIE = findViewById(d.h.friend_name_layout);
-        this.fIF = findViewById(d.h.msg_content_layout);
-        this.fIG = (TextView) findViewById(d.h.last_msg_time_show1);
-        this.fIH = (TextView) findViewById(d.h.one_msg_content_show1);
-        this.fII = (TextView) findViewById(d.h.unread_msg_count_show1);
-        this.aYL = findViewById(d.h.line);
+        this.fIp = (TextView) findViewById(d.h.friend_name_show1);
+        this.fIq = findViewById(d.h.friend_name_layout);
+        this.fIr = findViewById(d.h.msg_content_layout);
+        this.fIs = (TextView) findViewById(d.h.last_msg_time_show1);
+        this.fIt = (TextView) findViewById(d.h.one_msg_content_show1);
+        this.fIu = (TextView) findViewById(d.h.unread_msg_count_show1);
+        this.mLine = findViewById(d.h.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(d.g.screen_notify_item_background);
         setOrientation(1);
-        this.fIL = (RelativeLayout) findViewById(d.h.screenlock_input_layout);
-        this.fIK = (TextView) findViewById(d.h.screenlock_send_button);
-        this.dEK = (EditText) findViewById(d.h.screenlock_edit_view);
-        this.fIL.setVisibility(8);
+        this.fIx = (RelativeLayout) findViewById(d.h.screenlock_input_layout);
+        this.fIw = (TextView) findViewById(d.h.screenlock_send_button);
+        this.dEw = (EditText) findViewById(d.h.screenlock_edit_view);
+        this.fIx.setVisibility(8);
     }
 
     public void f(e eVar) {
-        this.fIJ = eVar;
-        this.fID.setText(eVar.groupName);
-        this.fIG.setText(cz(eVar.lastTime));
-        this.fIH.setText(eVar.content);
-        this.fII.setText(sp(eVar.fIz));
+        this.fIv = eVar;
+        this.fIp.setText(eVar.groupName);
+        this.fIs.setText(cA(eVar.lastTime));
+        this.fIt.setText(eVar.content);
+        this.fIu.setText(so(eVar.fIl));
     }
 
-    public void lK(boolean z) {
+    public void lJ(boolean z) {
         if (z) {
-            this.fIL.setVisibility(0);
-            this.aYL.setVisibility(8);
+            this.fIx.setVisibility(0);
+            this.mLine.setVisibility(8);
             return;
         }
-        this.fIL.setVisibility(8);
-        this.aYL.setVisibility(0);
+        this.fIx.setVisibility(8);
+        this.mLine.setVisibility(0);
     }
 
-    public String cz(long j) {
+    public String cA(long j) {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
-    public String sp(int i) {
+    public String so(int i) {
         return i < 100 ? "" + i : "99+";
     }
 
     public String getInputMsg() {
-        if (this.dEK != null) {
-            return k.a(this.dEK.getText(), null);
+        if (this.dEw != null) {
+            return k.a(this.dEw.getText(), null);
         }
         return null;
     }
 
     public View getEditText() {
-        return this.dEK;
+        return this.dEw;
     }
 
     public e getData() {
-        return this.fIJ;
+        return this.fIv;
     }
 
     public void a(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.fIK.setOnClickListener(onClickListener);
-        this.fIE.setOnClickListener(onClickListener2);
-        this.fIF.setOnClickListener(onClickListener2);
+        this.fIw.setOnClickListener(onClickListener);
+        this.fIq.setOnClickListener(onClickListener2);
+        this.fIr.setOnClickListener(onClickListener2);
     }
 }

@@ -5,10 +5,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class aq {
-    private TbPageContext mG;
+    private TbPageContext mH;
 
     public aq(TbPageContext tbPageContext) {
-        this.mG = tbPageContext;
+        this.mH = tbPageContext;
     }
 
     public void i(String str, byte[] bArr) {
@@ -32,14 +32,14 @@ public class aq {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            switch (com.baidu.tbadk.core.util.k.a(this.mUrl, this.mData, aq.this.mG.getPageActivity())) {
+            switch (com.baidu.tbadk.core.util.k.a(this.mUrl, this.mData, aq.this.mH.getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.k.uh();
+                    return com.baidu.tbadk.core.util.k.ua();
                 case -1:
                 default:
-                    return aq.this.mG.getString(d.l.save_fail);
+                    return aq.this.mH.getString(d.l.save_fail);
                 case 0:
-                    return aq.this.mG.getString(d.l.save_image_to_album);
+                    return aq.this.mH.getString(d.l.save_image_to_album);
             }
         }
 
@@ -48,7 +48,7 @@ public class aq {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            aq.this.mG.showToast(str);
+            aq.this.mH.showToast(str);
         }
 
         /* JADX INFO: Access modifiers changed from: protected */

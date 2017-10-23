@@ -57,7 +57,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode4 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean E(JSONObject jSONObject) {
+    public boolean G(JSONObject jSONObject) {
         try {
             String string = jSONObject.getString("forum_name");
             String string2 = jSONObject.getString("thread_id");
@@ -88,7 +88,7 @@ public class a implements f {
         }
     }
 
-    public JSONObject Xk() {
+    public JSONObject Xg() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
@@ -143,7 +143,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String aLn() {
+    public String aLi() {
         return this.threadName;
     }
 
@@ -159,7 +159,7 @@ public class a implements f {
         this.threadId = str;
     }
 
-    public void oo(String str) {
+    public void om(String str) {
         this.threadName = str;
     }
 
@@ -167,27 +167,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String CU() {
+    public String CO() {
         return this.postID;
     }
 
-    public void op(String str) {
+    public void oo(String str) {
         this.postID = str;
     }
 
-    public boolean aLo() {
+    public boolean aLj() {
         return this.isHostOnly;
     }
 
-    public void im(boolean z) {
+    public void il(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean aLp() {
+    public boolean aLk() {
         return this.isSquence;
     }
 
-    public void in(boolean z) {
+    public void im(boolean z) {
         this.isSquence = z;
     }
 
@@ -197,15 +197,15 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String EF() {
-        return Xk().toString();
+    public String Ez() {
+        return Xg().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean gu(String str) {
+    public boolean gt(String str) {
         if (str != null) {
             try {
-                return E(new JSONObject(str));
+                return G(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

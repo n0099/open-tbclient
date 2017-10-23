@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public interface ai {
-    void NI();
+    void NC();
 
-    void NJ();
+    void ND();
 
-    void NK();
+    void NE();
 
     void setHeaderViewHeight(int i);
 
@@ -15,5 +15,5 @@ public interface ai {
 
     void showFloatingView();
 
-    void wB();
+    void wu();
 }

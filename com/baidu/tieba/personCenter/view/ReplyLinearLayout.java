@@ -22,9 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams fbA;
-    private View.OnClickListener cnp;
-    private List<TextView> fbz;
+    private static ViewGroup.LayoutParams fbm;
+    private View.OnClickListener cnc;
+    private List<TextView> fbl;
     private boolean mIsHost;
 
     public ReplyLinearLayout(Context context) {
@@ -33,7 +33,7 @@ public class ReplyLinearLayout extends LinearLayout {
 
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cnp = new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.ReplyLinearLayout.1
+        this.cnc = new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.ReplyLinearLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 boolean z;
@@ -44,7 +44,7 @@ public class ReplyLinearLayout extends LinearLayout {
                     if (strArr.length < 6 || strArr[5] == null || com.baidu.adp.lib.g.b.g(strArr[5], 0) != 33) {
                         z = false;
                     } else if ("0".equals(strArr[3])) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, strArr[1]).pj()));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, strArr[1]).pc()));
                         z = true;
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(context2).createPhotoLiveCommentActivityConfig(strArr[1], strArr[2], false)));
@@ -60,24 +60,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.fbz = new ArrayList();
+        this.fbl = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (fbA == null) {
-            fbA = new LinearLayout.LayoutParams(-1, -2);
+        if (fbm == null) {
+            fbm = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.fbz.size();
+        int size2 = size - this.fbl.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.fbz.add(textView);
+            this.fbl.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.fbz.size(); i3++) {
-            TextView textView2 = this.fbz.get(i3);
+        for (int i3 = 0; i3 < this.fbl.size(); i3++) {
+            TextView textView2 = this.fbl.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -93,12 +93,12 @@ public class ReplyLinearLayout extends LinearLayout {
                     textView2.setText(charSequenceArr[4]);
                 }
                 textView2.setTag(charSequenceArr);
-                textView2.setOnClickListener(this.cnp);
+                textView2.setOnClickListener(this.cnc);
                 p(textView2, i3);
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(fbA);
+                    textView2.setLayoutParams(fbm);
                     aj.c(textView2, d.e.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
@@ -106,11 +106,11 @@ public class ReplyLinearLayout extends LinearLayout {
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(fbA);
+                    textView2.setLayoutParams(fbm);
                     aj.c(textView2, d.e.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(fbA);
+                    textView2.setLayoutParams(fbm);
                     aj.c(textView2, d.e.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);

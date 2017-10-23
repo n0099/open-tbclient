@@ -3,47 +3,47 @@ package com.baidu.tbadk.core.data;
 import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes.dex */
 public class s {
-    private String VD;
-    private String VE;
-    private String VF;
-    private String VG;
-    private String VH;
-    private String VI;
-    private String VJ;
-    private long VK;
-    private long VL;
-    private long VM;
-    private long VN;
-    private long VO;
-    private long VP;
-    private int Vh;
+    private int UV;
+    private long VA;
+    private long VB;
+    private long VC;
+    private long VD;
+    private String Vr;
+    private String Vs;
+    private String Vt;
+    private String Vu;
+    private String Vv;
+    private String Vw;
+    private String Vx;
+    private long Vy;
+    private long Vz;
     private String author;
 
-    public String pL() {
-        return this.VD;
+    public String pE() {
+        return this.Vr;
     }
 
-    public int pM() {
-        return this.Vh;
+    public int pF() {
+        return this.UV;
     }
 
     public void a(ForumBookInfo forumBookInfo) {
         if (forumBookInfo != null) {
-            this.VD = forumBookInfo.book_id;
-            this.Vh = forumBookInfo.book_type.intValue();
-            this.VE = forumBookInfo.book_title;
-            this.VF = forumBookInfo.book_cover;
+            this.Vr = forumBookInfo.book_id;
+            this.UV = forumBookInfo.book_type.intValue();
+            this.Vs = forumBookInfo.book_title;
+            this.Vt = forumBookInfo.book_cover;
             this.author = forumBookInfo.author;
-            this.VG = forumBookInfo.forum_pic;
-            this.VH = forumBookInfo.show_chapter_id;
-            this.VI = forumBookInfo.show_chapter_no;
-            this.VJ = forumBookInfo.show_chapter_title;
-            this.VK = forumBookInfo.history_page_id.longValue();
-            this.VL = forumBookInfo.history_paragraph_id.longValue();
-            this.VM = forumBookInfo.history_word_id.longValue();
-            this.VN = forumBookInfo.history_percent.longValue();
-            this.VO = forumBookInfo.show_page_id.longValue();
-            this.VP = forumBookInfo.show_paragraph_id.longValue();
+            this.Vu = forumBookInfo.forum_pic;
+            this.Vv = forumBookInfo.show_chapter_id;
+            this.Vw = forumBookInfo.show_chapter_no;
+            this.Vx = forumBookInfo.show_chapter_title;
+            this.Vy = forumBookInfo.history_page_id.longValue();
+            this.Vz = forumBookInfo.history_paragraph_id.longValue();
+            this.VA = forumBookInfo.history_word_id.longValue();
+            this.VB = forumBookInfo.history_percent.longValue();
+            this.VC = forumBookInfo.show_page_id.longValue();
+            this.VD = forumBookInfo.show_paragraph_id.longValue();
         }
     }
 }

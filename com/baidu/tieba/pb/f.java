@@ -8,18 +8,18 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
 public class f {
-    private static String ewt = TbadkCoreApplication.getInst().getContext().getString(d.l.ueg_host_msg);
+    private static String ewf = TbadkCoreApplication.getInst().getContext().getString(d.l.ueg_host_msg);
 
-    public static void oC(String str) {
+    public static void oB(String str) {
         if (!am.isEmpty(str)) {
-            ewt = str;
+            ewf = str;
         }
     }
 
     public static boolean T(bh bhVar) {
         if (TbadkCoreApplication.isLogin()) {
-            if (bhVar != null && bhVar.aac) {
-                BdToast.a(TbadkCoreApplication.getInst().getContext(), ewt).tq();
+            if (bhVar != null && bhVar.ZQ) {
+                BdToast.a(TbadkCoreApplication.getInst().getContext(), ewf).tj();
                 return true;
             }
             return false;
@@ -29,8 +29,8 @@ public class f {
 
     public static boolean c(PostData postData) {
         if (TbadkCoreApplication.isLogin()) {
-            if (postData != null && postData.ghx) {
-                BdToast.a(TbadkCoreApplication.getInst().getContext(), ewt).tq();
+            if (postData != null && postData.ghj) {
+                BdToast.a(TbadkCoreApplication.getInst().getContext(), ewf).tj();
                 return true;
             }
             return false;
@@ -38,9 +38,9 @@ public class f {
         return true;
     }
 
-    public static boolean iw(boolean z) {
+    public static boolean iv(boolean z) {
         if (z) {
-            BdToast.a(TbadkCoreApplication.getInst().getContext(), ewt).tq();
+            BdToast.a(TbadkCoreApplication.getInst().getContext(), ewf).tj();
             return true;
         }
         return false;

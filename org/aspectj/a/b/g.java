@@ -2,12 +2,12 @@ package org.aspectj.a.b;
 /* loaded from: classes2.dex */
 class g implements org.aspectj.lang.reflect.d {
     String fileName;
-    Class hoc;
+    Class hnM;
     int line;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(Class cls, String str, int i) {
-        this.hoc = cls;
+        this.hnM = cls;
         this.fileName = str;
         this.line = i;
     }
@@ -16,11 +16,11 @@ class g implements org.aspectj.lang.reflect.d {
         return this.fileName;
     }
 
-    public int bLJ() {
+    public int bLB() {
         return this.line;
     }
 
     public String toString() {
-        return new StringBuffer().append(getFileName()).append(":").append(bLJ()).toString();
+        return new StringBuffer().append(getFileName()).append(":").append(bLB()).toString();
     }
 }

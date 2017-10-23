@@ -22,18 +22,18 @@ public class FH {
                 @Override // java.lang.Runnable
                 public final void run() {
                     try {
-                        new e(context).c(iArr);
-                        c aq = c.aq(context);
+                        new e(context).e(iArr);
+                        c ap = c.ap(context);
                         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                             String[] e = d.e(context);
                             if (e != null && e.length == 2 && !TextUtils.isEmpty(e[0]) && !TextUtils.isEmpty(e[1])) {
-                                aq.a(e[0], e[1]);
+                                ap.a(e[0], e[1]);
                             }
                         } else {
-                            aq.a(str, str2);
+                            ap.a(str, str2);
                         }
                         c.a(1);
-                        aq.b();
+                        ap.b();
                     } catch (Throwable th) {
                         d.a(th);
                     }
@@ -53,8 +53,8 @@ public class FH {
     }
 
     public static Pair<Integer, Object> callSync(int i, String str, Class<?>[] clsArr, Object... objArr) {
-        c nq = c.nq();
-        return nq == null ? new Pair<>(3, null) : nq.a(i, str, clsArr, objArr);
+        c nj = c.nj();
+        return nj == null ? new Pair<>(3, null) : nj.a(i, str, clsArr, objArr);
     }
 
     public static boolean call(int i, String str, Callback callback) {
@@ -67,24 +67,24 @@ public class FH {
 
     public static boolean call(int i, String str, Callback callback, Class<?>[] clsArr, Object... objArr) {
         try {
-            c nq = c.nq();
-            if (nq == null) {
+            c nj = c.nj();
+            if (nj == null) {
                 for (int i2 = 0; i2 < 20; i2++) {
                     try {
                         Thread.sleep(50L);
                     } catch (InterruptedException e) {
                         d.a(e);
                     }
-                    nq = c.nq();
-                    if (nq != null) {
+                    nj = c.nj();
+                    if (nj != null) {
                         break;
                     }
                 }
-                if (nq == null) {
+                if (nj == null) {
                     return false;
                 }
             }
-            nq.a(i, str, callback, clsArr, objArr);
+            nj.a(i, str, callback, clsArr, objArr);
             return true;
         } catch (Throwable th) {
             d.a(th);
@@ -93,10 +93,10 @@ public class FH {
     }
 
     public static boolean isInitSuc(int i) {
-        ApkInfo aX;
-        com.baidu.sofire.core.e nr;
-        a aVar = a.PJ;
-        return (aVar == null || (aX = aVar.aX(i)) == null || aX.initStatus != 1 || (nr = com.baidu.sofire.core.e.nr()) == null || nr.bT(aX.packageName) == null) ? false : true;
+        ApkInfo aW;
+        com.baidu.sofire.core.e nk;
+        a aVar = a.Pw;
+        return (aVar == null || (aW = aVar.aW(i)) == null || aW.initStatus != 1 || (nk = com.baidu.sofire.core.e.nk()) == null || nk.bS(aW.packageName) == null) ? false : true;
     }
 
     public static Object getPInfo(int i, int i2) {
@@ -106,11 +106,11 @@ public class FH {
                     return "";
                 }
                 try {
-                    com.baidu.sofire.core.e nr = com.baidu.sofire.core.e.nr();
-                    if (nr == null) {
+                    com.baidu.sofire.core.e nk = com.baidu.sofire.core.e.nk();
+                    if (nk == null) {
                         return "";
                     }
-                    List<ApkInfo> b = nr.b();
+                    List<ApkInfo> b = nk.b();
                     if (b == null || b.size() <= 0) {
                         return "";
                     }

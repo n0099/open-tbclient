@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class b {
-    private static ArrayList<b> ddk = new ArrayList<>(5);
-    public int ddo;
-    public int ddp;
-    int ddq;
+    private static ArrayList<b> dcX = new ArrayList<>(5);
+    public int ddb;
+    public int ddc;
+    int ddd;
     public int type;
 
-    private void Kw() {
-        this.ddo = 0;
-        this.ddp = 0;
-        this.ddq = 0;
+    private void Kq() {
+        this.ddb = 0;
+        this.ddc = 0;
+        this.ddd = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aqs() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.ddo, this.ddp) : ExpandableListView.getPackedPositionForGroup(this.ddo);
+    public long aqn() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.ddb, this.ddc) : ExpandableListView.getPackedPositionForGroup(this.ddb);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b lx(int i) {
+    public static b lw(int i) {
         return p(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b p(int i, int i2, int i3, int i4) {
-        b aqt = aqt();
-        aqt.type = i;
-        aqt.ddo = i2;
-        aqt.ddp = i3;
-        aqt.ddq = i4;
-        return aqt;
+        b aqo = aqo();
+        aqo.type = i;
+        aqo.ddb = i2;
+        aqo.ddc = i3;
+        aqo.ddd = i4;
+        return aqo;
     }
 
-    private static b aqt() {
+    private static b aqo() {
         b bVar;
-        synchronized (ddk) {
-            if (ddk.size() > 0) {
-                bVar = ddk.remove(0);
-                bVar.Kw();
+        synchronized (dcX) {
+            if (dcX.size() > 0) {
+                bVar = dcX.remove(0);
+                bVar.Kq();
             } else {
                 bVar = new b();
             }
@@ -54,9 +54,9 @@ class b {
     }
 
     public void recycle() {
-        synchronized (ddk) {
-            if (ddk.size() < 5) {
-                ddk.add(this);
+        synchronized (dcX) {
+            if (dcX.size() < 5) {
+                dcX.add(this);
             }
         }
     }

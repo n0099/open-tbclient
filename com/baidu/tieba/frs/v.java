@@ -11,13 +11,13 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class v extends d<w, x> {
-    private final LinkedList<com.baidu.tbadk.j.f> cth;
-    private final LinkedList<RelativeLayout> cti;
+    private final LinkedList<com.baidu.tbadk.j.f> csV;
+    private final LinkedList<RelativeLayout> csW;
 
     public v(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cth = new LinkedList<>();
-        this.cti = new LinkedList<>();
+        this.csV = new LinkedList<>();
+        this.csW = new LinkedList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,10 +30,10 @@ public class v extends d<w, x> {
         relativeLayout.setGravity(17);
         com.baidu.tbadk.j.f fVar = new com.baidu.tbadk.j.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(d.f.ds140));
         fVar.P(relativeLayout);
-        this.cth.add(fVar);
-        this.cti.add(relativeLayout);
+        this.csV.add(fVar);
+        this.csW.add(relativeLayout);
         x xVar = new x(relativeLayout);
-        xVar.ctk = fVar;
+        xVar.csY = fVar;
         return xVar;
     }
 
@@ -42,8 +42,8 @@ public class v extends d<w, x> {
     @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, w wVar, x xVar) {
-        if (xVar != null && xVar.ctk != null) {
-            xVar.ctk.onChangeSkinType();
+        if (xVar != null && xVar.csY != null) {
+            xVar.csY.onChangeSkinType();
         }
         return view;
     }
@@ -51,18 +51,18 @@ public class v extends d<w, x> {
     @Override // com.baidu.tieba.frs.d
     public void release() {
         super.release();
-        if (this.cth.size() != 0 && this.cti.size() == this.cth.size()) {
+        if (this.csV.size() != 0 && this.csW.size() == this.csV.size()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.cth.size()) {
+                if (i2 >= this.csV.size()) {
                     break;
                 }
-                this.cth.get(i2).O(this.cti.get(i2));
+                this.csV.get(i2).O(this.csW.get(i2));
                 i = i2 + 1;
             }
         }
-        this.cth.clear();
-        this.cti.clear();
+        this.csV.clear();
+        this.csW.clear();
     }
 }

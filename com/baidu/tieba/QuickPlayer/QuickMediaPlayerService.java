@@ -41,7 +41,6 @@ public class QuickMediaPlayerService extends Service implements a {
             synchronized (QuickMediaPlayerService.class) {
                 for (IMediaPlayer iMediaPlayer : this.mPlayerList) {
                     if (iMediaPlayer != null) {
-                        iMediaPlayer.reset();
                         iMediaPlayer.release();
                     }
                 }

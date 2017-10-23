@@ -5,5 +5,5 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
 public class a extends JobService {
-    private static final ExecutorService PG = Executors.newCachedThreadPool();
+    private static final ExecutorService Pt = Executors.newCachedThreadPool();
 }

@@ -9,24 +9,24 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private a fex;
+    private a fej;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.j.person_new_fragment_view);
-        this.fex = new a();
+        this.fej = new a();
         Bundle bundle2 = new Bundle();
         bundle2.putBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE, true);
-        this.fex.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().add(d.h.fragment_container, this.fex).commit();
+        this.fej.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().add(d.h.fragment_container, this.fej).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.fex != null) {
-            this.fex.onChangeSkinType(i);
+        if (this.fej != null) {
+            this.fej.onChangeSkinType(i);
         }
     }
 
@@ -39,15 +39,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.fex != null) {
-            this.fex.onActivityResult(i, i2, intent);
+        if (this.fej != null) {
+            this.fej.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.fex != null) {
-            return this.fex.getVoiceManager();
+        if (this.fej != null) {
+            return this.fej.getVoiceManager();
         }
         return null;
     }
