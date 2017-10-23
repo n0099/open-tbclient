@@ -38,9 +38,9 @@ public final class k {
             jSONObject.put("pk", packageName);
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 64);
             if (packageInfo != null) {
-                PublicKey bR = c.bR(packageInfo.applicationInfo.sourceDir);
-                if (bR != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) {
-                    publicKey = bR;
+                PublicKey bQ = c.bQ(packageInfo.applicationInfo.sourceDir);
+                if (bQ != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) {
+                    publicKey = bQ;
                 } else {
                     publicKey = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                 }
@@ -102,16 +102,16 @@ public final class k {
                         String str7 = packageInfo.applicationInfo.sourceDir;
                         String str8 = "181:" + str7;
                         com.baidu.sofire.b.a();
-                        PublicKey bR = c.bR(str7);
-                        String str9 = "183:" + (bR == null);
+                        PublicKey bQ = c.bQ(str7);
+                        String str9 = "183:" + (bQ == null);
                         com.baidu.sofire.b.a();
-                        if (bR == null && packageInfo.signatures != null && packageInfo.signatures.length > 0 && packageInfo.signatures[0] != null) {
-                            bR = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
+                        if (bQ == null && packageInfo.signatures != null && packageInfo.signatures.length > 0 && packageInfo.signatures[0] != null) {
+                            bQ = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                         }
-                        String str10 = "194:" + (bR == null);
+                        String str10 = "194:" + (bQ == null);
                         com.baidu.sofire.b.a();
-                        if (bR != null) {
-                            byte[] encoded = bR.getEncoded();
+                        if (bQ != null) {
+                            byte[] encoded = bQ.getEncoded();
                             String str11 = "197:" + (encoded == null);
                             com.baidu.sofire.b.a();
                             if (encoded != null) {

@@ -61,7 +61,7 @@ public final class Util {
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
-    public static final boolean k(long j) {
+    public static final boolean l(long j) {
         long kj = kj();
         if (j <= 0) {
             return kj <= 0 || kj >= 31457280;

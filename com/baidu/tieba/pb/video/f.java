@@ -13,8 +13,8 @@ public class f extends com.baidu.tbadk.core.view.userLike.c {
     @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (this.aoN != null) {
-            TiebaStatic.log(new ak("c11924").ad("obj_id", this.aoN.getUserId()));
+        if (this.aoB != null) {
+            TiebaStatic.log(new ak("c11924").ac("obj_id", this.aoB.getUserId()));
         }
     }
 }

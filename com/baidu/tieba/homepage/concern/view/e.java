@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends d {
-    private ThreadLinkView bMg;
+    private ThreadLinkView bLU;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -17,8 +17,8 @@ public class e extends d {
     @Override // com.baidu.tieba.homepage.concern.view.d
     protected void aa(View view) {
         if (view != null) {
-            this.bMg = (ThreadLinkView) view.findViewById(d.h.card_recommend_god_link_therad);
-            this.bMg.setTag(getTag());
+            this.bLU = (ThreadLinkView) view.findViewById(d.h.card_recommend_god_link_therad);
+            this.bLU.setTag(getTag());
         }
     }
 
@@ -31,22 +31,22 @@ public class e extends d {
     protected void Q(bh bhVar) {
         if (bhVar != null && !StringUtils.isNull(bhVar.getTid())) {
             if (getView() != null) {
-                getView().setOnClickListener(this.cWQ);
+                getView().setOnClickListener(this.cWE);
             }
-            this.bMg.setData(bhVar);
+            this.bLU.setData(bhVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.concern.view.d
-    public void Xw() {
-        super.Xw();
-        this.bMg.em(this.bit.getId());
+    public void Xs() {
+        super.Xs();
+        this.bLU.el(this.bie.getId());
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.bMg.onChangeSkinType();
+        this.bLU.onChangeSkinType();
     }
 }

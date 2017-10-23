@@ -10,33 +10,33 @@ import tbclient.ForumRecommend.DataRes;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class b {
-    private boolean BY;
-    private boolean aFs;
-    private List<com.baidu.tieba.enterForum.multiConcern.b> ccv;
-    private int ccw;
-    private int ccx;
-    private String ccy;
-    private f ccz;
+    private boolean BZ;
+    private boolean aFf;
+    private List<com.baidu.tieba.enterForum.multiConcern.b> ccj;
+    private int cck;
+    private int ccl;
+    private String ccm;
+    private f ccn;
     private int isLogin;
     private int isMem;
     private int time = 0;
-    private h cct = new h();
-    private k ccu = new k();
+    private h cch = new h();
+    private k cci = new k();
 
-    public void ed(boolean z) {
-        this.aFs = z;
+    public void ec(boolean z) {
+        this.aFf = z;
     }
 
     public b() {
-        this.BY = true;
-        this.BY = false;
+        this.BZ = true;
+        this.BZ = false;
     }
 
     public void setTime(int i) {
         this.time = i;
     }
 
-    public void ix(int i) {
+    public void iw(int i) {
         this.isLogin = i;
     }
 
@@ -44,20 +44,20 @@ public class b {
         this.isMem = i;
     }
 
+    public void ix(int i) {
+        this.cck = i;
+    }
+
     public void iy(int i) {
-        this.ccw = i;
+        this.ccl = i;
     }
 
-    public void iz(int i) {
-        this.ccx = i;
-    }
-
-    public void jL(String str) {
-        this.ccy = str;
+    public void jK(String str) {
+        this.ccm = str;
     }
 
     public f getHotSearchInfoData() {
-        return this.ccz;
+        return this.ccn;
     }
 
     public void a(DataRes dataRes) {
@@ -70,28 +70,28 @@ public class b {
         int i;
         if (dataRes != null) {
             try {
-                iy(dataRes.msign_valid.intValue());
-                iz(dataRes.msign_level.intValue());
-                ix(dataRes.is_login.intValue());
-                jL(dataRes.msign_text);
+                ix(dataRes.msign_valid.intValue());
+                iy(dataRes.msign_level.intValue());
+                iw(dataRes.is_login.intValue());
+                jK(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.cct.setLevel(this.ccx);
+                this.cch.setLevel(this.ccl);
                 if (dataRes.like_forum != null) {
-                    this.cct.an(dataRes.like_forum);
+                    this.cch.an(dataRes.like_forum);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.ccu.ao(dataRes.recommend_forum_info);
+                    this.cci.ao(dataRes.recommend_forum_info);
                 }
                 if (dataRes.hot_search != null) {
-                    this.ccz = new f();
-                    this.ccz.a(dataRes.hot_search);
+                    this.ccn = new f();
+                    this.ccn.a(dataRes.hot_search);
                 }
                 if (!v.u(dataRes.tag_recommend_forum)) {
-                    if (this.ccv == null) {
-                        this.ccv = new ArrayList();
+                    if (this.ccj == null) {
+                        this.ccj = new ArrayList();
                     } else {
-                        this.ccv.clear();
+                        this.ccj.clear();
                     }
                     int i2 = 0;
                     for (RecommendForumInfo recommendForumInfo : dataRes.tag_recommend_forum) {
@@ -106,7 +106,7 @@ public class b {
                                 bVar.followNum = recommendForumInfo.member_count.intValue();
                                 bVar.threadNum = recommendForumInfo.thread_count.intValue();
                                 bVar.isSelected = true;
-                                this.ccv.add(bVar);
+                                this.ccj.add(bVar);
                                 i = i2 + 1;
                             }
                             i2 = i;
@@ -116,46 +116,46 @@ public class b {
                     }
                     return;
                 }
-                this.ccv = null;
+                this.ccj = null;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public h acC() {
-        return this.cct;
+    public h acy() {
+        return this.cch;
     }
 
     public void a(h hVar) {
-        this.cct = hVar;
+        this.cch = hVar;
     }
 
     public void a(k kVar) {
-        this.ccu = kVar;
+        this.cci = kVar;
     }
 
-    public List<com.baidu.tieba.enterForum.multiConcern.b> acD() {
-        return this.ccv;
+    public List<com.baidu.tieba.enterForum.multiConcern.b> acz() {
+        return this.ccj;
     }
 
     public void am(List<com.baidu.tieba.enterForum.multiConcern.b> list) {
-        this.ccv = list;
+        this.ccj = list;
     }
 
-    public void ay(boolean z) {
-        this.BY = z;
+    public void ax(boolean z) {
+        this.BZ = z;
     }
 
     public boolean isSuccess() {
-        return this.BY;
+        return this.BZ;
     }
 
-    public boolean acE() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.b.ayU.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.ayU.longValue();
+    public boolean acA() {
+        return System.currentTimeMillis() / com.baidu.tbadk.data.b.ayI.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.ayI.longValue();
     }
 
     public void a(f fVar) {
-        this.ccz = fVar;
+        this.ccn = fVar;
     }
 }

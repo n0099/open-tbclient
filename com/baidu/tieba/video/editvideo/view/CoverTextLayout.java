@@ -9,13 +9,13 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class CoverTextLayout extends LinearLayout {
-    private TextView gvY;
-    private TextView gvZ;
-    private TextView gwa;
-    private TextView gwb;
-    private int gwc;
-    private a gwd;
-    private View.OnClickListener gwe;
+    private TextView gvK;
+    private TextView gvL;
+    private TextView gvM;
+    private TextView gvN;
+    private int gvO;
+    private a gvP;
+    private View.OnClickListener gvQ;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -32,12 +32,12 @@ public class CoverTextLayout extends LinearLayout {
 
     public CoverTextLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gwe = new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverTextLayout.1
+        this.gvQ = new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.CoverTextLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (CoverTextLayout.this.gwd != null && view != null && (view.getTag() instanceof Integer)) {
-                    CoverTextLayout.this.gwd.bI(view);
-                    CoverTextLayout.this.gwc = ((Integer) view.getTag()).intValue();
+                if (CoverTextLayout.this.gvP != null && view != null && (view.getTag() instanceof Integer)) {
+                    CoverTextLayout.this.gvP.bI(view);
+                    CoverTextLayout.this.gvO = ((Integer) view.getTag()).intValue();
                 }
             }
         };
@@ -46,23 +46,23 @@ public class CoverTextLayout extends LinearLayout {
     }
 
     private void init() {
-        this.gvY = (TextView) findViewById(d.h.cover_text_no);
-        this.gvZ = (TextView) findViewById(d.h.cover_text_blue);
-        this.gwa = (TextView) findViewById(d.h.cover_text_black);
-        this.gwb = (TextView) findViewById(d.h.cover_text_transparent);
+        this.gvK = (TextView) findViewById(d.h.cover_text_no);
+        this.gvL = (TextView) findViewById(d.h.cover_text_blue);
+        this.gvM = (TextView) findViewById(d.h.cover_text_black);
+        this.gvN = (TextView) findViewById(d.h.cover_text_transparent);
         for (int i = 0; i < getChildCount(); i++) {
             View childAt = getChildAt(i);
             childAt.setTag(Integer.valueOf(i));
-            childAt.setOnClickListener(this.gwe);
+            childAt.setOnClickListener(this.gvQ);
         }
-        this.gwc = 0;
+        this.gvO = 0;
     }
 
     public int getCurrentTextIndex() {
-        return this.gwc;
+        return this.gvO;
     }
 
     public void setOnTextClickCallback(a aVar) {
-        this.gwd = aVar;
+        this.gvP = aVar;
     }
 }

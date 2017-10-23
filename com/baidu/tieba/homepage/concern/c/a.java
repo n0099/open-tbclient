@@ -16,9 +16,9 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    private d cWC = new d();
-    private final c cWB = new c();
-    private final int bgF = b.getInstance().getInt("home_page_max_thread_count", 300);
+    private d cWq = new d();
+    private final c cWp = new c();
+    private final int bgq = b.getInstance().getInt("home_page_max_thread_count", 300);
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -41,7 +41,7 @@ public class a {
                 if (n.A(bhVar)) {
                     n nVar = new n(bhVar);
                     if (nVar != null) {
-                        nVar.Xf = bhVar.getTid();
+                        nVar.WT = bhVar.getTid();
                     }
                     if (nVar != null && nVar.isValid()) {
                         linkedList.add(nVar);
@@ -49,8 +49,8 @@ public class a {
                 } else if (k.A(bhVar)) {
                     k kVar = new k(bhVar);
                     if (kVar != null) {
-                        kVar.Xf = bhVar.getTid();
-                        kVar.jr(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+                        kVar.WT = bhVar.getTid();
+                        kVar.jq(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                     }
                     if (kVar != null && kVar.isValid()) {
                         linkedList.add(kVar);
@@ -59,7 +59,7 @@ public class a {
                     l lVar = new l();
                     if (lVar != null) {
                         lVar.threadData = bhVar;
-                        lVar.jr(lVar.threadData.isLinkThread() ? "4" : "1");
+                        lVar.jq(lVar.threadData.isLinkThread() ? "4" : "1");
                         lVar.isLinkThread = false;
                     }
                     if (lVar.threadData != null && lVar.isValid() && !StringUtils.isNull(lVar.threadData.getId()) && !"0".equals(lVar.threadData.getTid())) {
@@ -68,8 +68,8 @@ public class a {
                 }
             }
         }
-        this.cWB.aUB = linkedList;
-        return this.cWB;
+        this.cWp.aUo = linkedList;
+        return this.cWp;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -96,7 +96,7 @@ public class a {
                     }
                 }
             }
-            this.cWB.daE = v.t(list) - t;
+            this.cWp.dap = v.t(list) - t;
         }
     }
 

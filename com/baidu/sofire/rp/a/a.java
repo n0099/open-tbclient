@@ -7,21 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    public SharedPreferences Qg;
-    public SharedPreferences.Editor Qh;
-    private SharedPreferences.Editor Qi;
-    public SharedPreferences.Editor Qj;
+    public SharedPreferences PU;
+    public SharedPreferences.Editor PV;
+    private SharedPreferences.Editor PW;
+    public SharedPreferences.Editor PX;
     public SharedPreferences a;
     public SharedPreferences b;
 
     public a(Context context) {
         try {
             this.a = context.getSharedPreferences("re_po_rt", 0);
-            this.Qh = this.a.edit();
+            this.PV = this.a.edit();
             this.b = context.getSharedPreferences("leroadcfg", 0);
-            this.Qi = this.b.edit();
-            this.Qg = context.getSharedPreferences("leroadcfg", 0);
-            this.Qj = this.Qg.edit();
+            this.PW = this.b.edit();
+            this.PU = context.getSharedPreferences("leroadcfg", 0);
+            this.PX = this.PU.edit();
         } catch (Throwable th) {
             com.baidu.sofire.rp.f.b.a();
         }
@@ -29,13 +29,13 @@ public final class a {
 
     public final void a(b bVar) {
         if (bVar != null) {
-            this.Qh.putString("re_con", this.a.getString("re_con", "") + "||" + b.b(bVar));
-            this.Qh.commit();
+            this.PV.putString("re_con", this.a.getString("re_con", "") + "||" + b.b(bVar));
+            this.PV.commit();
         }
     }
 
     public final List<b> a() {
-        b bV;
+        b bU;
         String string = this.a.getString("re_con", "");
         if (TextUtils.isEmpty(string)) {
             return null;
@@ -43,8 +43,8 @@ public final class a {
         ArrayList arrayList = new ArrayList();
         String[] split = string.split("\\|\\|");
         for (String str : split) {
-            if (!TextUtils.isEmpty(str) && (bV = b.bV(str)) != null) {
-                arrayList.add(bV);
+            if (!TextUtils.isEmpty(str) && (bU = b.bU(str)) != null) {
+                arrayList.add(bU);
             }
         }
         return arrayList;

@@ -13,43 +13,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b fGe;
-    private CustomMessageListener fGg = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b fFQ;
+    private CustomMessageListener fFS = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.hh() && b.this.fGf != null) {
-                b.this.fGf.bgF();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.hh() && b.this.fFR != null) {
+                b.this.fFR.bgA();
             }
         }
     };
-    private c fGf = new f();
+    private c fFR = new f();
 
-    public static b bgD() {
-        if (fGe == null) {
+    public static b bgy() {
+        if (fFQ == null) {
             synchronized (b.class) {
-                if (fGe == null) {
-                    fGe = new b();
+                if (fFQ == null) {
+                    fFQ = new b();
                 }
             }
         }
-        return fGe;
+        return fFQ;
     }
 
-    private boolean bgE() {
+    private boolean bgz() {
         return com.baidu.adp.lib.b.d.eV().af("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.fGg);
+        MessageManager.getInstance().registerListener(this.fFS);
     }
 
     public void a(a aVar) {
-        if (bgE() && aVar != null && this.fGf != null) {
+        if (bgz() && aVar != null && this.fFR != null) {
             if (j.hh()) {
-                this.fGf.b(aVar);
+                this.fFR.b(aVar);
             } else {
-                this.fGf.c(aVar);
+                this.fFR.c(aVar);
             }
         }
     }

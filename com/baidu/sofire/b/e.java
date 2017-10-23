@@ -20,8 +20,8 @@ public final class e {
                 c = "0";
             }
             String str = b + "|" + new StringBuffer(c).reverse().toString();
-            eVar.Qe.putString("xyus", str);
-            eVar.Qe.commit();
+            eVar.PS.putString("xyus", str);
+            eVar.PS.commit();
             return str;
         }
         return string;

@@ -19,16 +19,16 @@ import com.baidu.tieba.tbadkCore.i;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class b {
-    public static int cFV;
-    private static b cFY;
-    private a cFW;
-    private HashSet<String> cFX;
-    private CustomMessageListener SV = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.frs.f.b.1
+    public static int cFJ;
+    private static b cFM;
+    private a cFK;
+    private HashSet<String> cFL;
+    private CustomMessageListener SH = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.frs.f.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && b.this.cFX != null) {
-                b.this.cFX.clear();
+            if (customResponsedMessage != null && b.this.cFL != null) {
+                b.this.cFL.clear();
             }
         }
     };
@@ -39,7 +39,7 @@ public class b {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.cGb = false;
+                        aVar.cFP = false;
                         aVar.isRunning = false;
                         aVar.count = 0;
                         return;
@@ -54,57 +54,57 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public long cGa;
-        public boolean cGb;
+        public long cFO;
+        public boolean cFP;
         public int count;
         public boolean isRunning;
 
         private a() {
             this.isRunning = false;
             this.count = 0;
-            this.cGb = false;
+            this.cFP = false;
         }
     }
 
     public b() {
-        cFV = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
-        MessageManager.getInstance().registerListener(this.SV);
+        cFJ = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
+        MessageManager.getInstance().registerListener(this.SH);
     }
 
-    public static b aly() {
-        if (cFY == null) {
+    public static b alt() {
+        if (cFM == null) {
             synchronized (u.class) {
-                if (cFY == null) {
-                    cFY = new b();
+                if (cFM == null) {
+                    cFM = new b();
                 }
             }
         }
-        return cFY;
+        return cFM;
     }
 
-    private boolean alz() {
-        if (this.cFW == null) {
-            this.cFW = new a();
+    private boolean alu() {
+        if (this.cFK == null) {
+            this.cFK = new a();
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.cFW.cGb) {
+        if (this.cFK.cFP) {
             return true;
         }
-        if (this.cFW.isRunning) {
-            this.cFW.count++;
-            if (currentTimeMillis - this.cFW.cGa < 120000) {
-                if (this.cFW.count >= cFV) {
-                    this.cFW.cGb = true;
-                    a(this.cFW);
+        if (this.cFK.isRunning) {
+            this.cFK.count++;
+            if (currentTimeMillis - this.cFK.cFO < 120000) {
+                if (this.cFK.count >= cFJ) {
+                    this.cFK.cFP = true;
+                    a(this.cFK);
                     return true;
                 }
             } else {
-                this.cFW.isRunning = false;
-                this.cFW.count = 0;
+                this.cFK.isRunning = false;
+                this.cFK.count = 0;
             }
         } else {
-            this.cFW.isRunning = true;
-            this.cFW.cGa = currentTimeMillis;
+            this.cFK.isRunning = true;
+            this.cFK.cFO = currentTimeMillis;
         }
         return false;
     }
@@ -118,106 +118,106 @@ public class b {
     }
 
     public void L(bh bhVar) {
-        if (bhVar != null && bhVar.sp()) {
+        if (bhVar != null && bhVar.si()) {
             ak akVar = new ak("c11717");
             akVar.f("fid", bhVar.getFid());
-            akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bhVar.ZH);
-            akVar.ad("obj_param2", bhVar.ZI);
-            akVar.ad("obj_param1", bhVar.ZM);
+            akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bhVar.Zv);
+            akVar.ac("obj_param2", bhVar.Zw);
+            akVar.ac("obj_param1", bhVar.ZA);
             akVar.r("obj_locate", 1);
-            akVar.ad("tid", bhVar.getTid());
-            u.XR().a(akVar);
+            akVar.ac("tid", bhVar.getTid());
+            u.XN().a(akVar);
         }
     }
 
     public void a(com.baidu.tieba.frs.f.a aVar, bh bhVar) {
-        if (aVar != null && aVar.cFS && bhVar != null && bhVar.getTid() != null) {
-            if (this.cFX == null) {
-                this.cFX = new HashSet<>();
+        if (aVar != null && aVar.cFG && bhVar != null && bhVar.getTid() != null) {
+            if (this.cFL == null) {
+                this.cFL = new HashSet<>();
             }
-            if (!this.cFX.contains(bhVar.getTid()) && !alz()) {
-                this.cFX.add(bhVar.getTid());
+            if (!this.cFL.contains(bhVar.getTid()) && !alu()) {
+                this.cFL.add(bhVar.getTid());
                 ak akVar = new ak("c11439");
-                akVar.ad("fid", aVar.cFU);
-                akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bhVar.ZH);
-                akVar.ad("obj_param2", bhVar.ZI);
-                akVar.ad("obj_param1", bhVar.ZJ);
-                akVar.r("obj_locate", aVar.cFT);
-                akVar.ad("tid", bhVar.getTid());
-                akVar.ad("obj_param3", bhVar.ZM);
+                akVar.ac("fid", aVar.cFI);
+                akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bhVar.Zv);
+                akVar.ac("obj_param2", bhVar.Zw);
+                akVar.ac("obj_param1", bhVar.Zx);
+                akVar.r("obj_locate", aVar.cFH);
+                akVar.ac("tid", bhVar.getTid());
+                akVar.ac("obj_param3", bhVar.ZA);
                 akVar.r("obj_id", z(bhVar));
-                akVar.ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                akVar.ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
                 akVar.f("exposure_time", System.currentTimeMillis());
-                boolean z = (bhVar.sL() == null || (bhVar.sL().aCd() == null && bhVar.sL().IL() == null)) ? false : true;
-                if (z && bhVar.sL().aCd() != null && bhVar.sL().aCd().ID() != null && bhVar.sL().aCd().ID().size() > 0) {
-                    akVar.r("obj_name", bhVar.sL().ght ? 3 : 2);
+                boolean z = (bhVar.sE() == null || (bhVar.sE().aBY() == null && bhVar.sE().IF() == null)) ? false : true;
+                if (z && bhVar.sE().aBY() != null && bhVar.sE().aBY().Ix() != null && bhVar.sE().aBY().Ix().size() > 0) {
+                    akVar.r("obj_name", bhVar.sE().ghf ? 3 : 2);
                 } else {
                     akVar.r("obj_name", z ? 1 : 0);
                 }
-                u.XR().a(akVar);
-                if (bhVar.si()) {
+                u.XN().a(akVar);
+                if (bhVar.sb()) {
                     ak akVar2 = new ak("c12099");
-                    akVar2.ad("fid", aVar.cFU);
-                    akVar2.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bhVar.ZH);
-                    akVar2.ad("obj_param2", bhVar.ZI);
-                    akVar2.ad("obj_param1", bhVar.ZJ);
-                    akVar2.r("obj_locate", aVar.cFT);
-                    akVar2.ad("tid", bhVar.getTid());
-                    akVar2.ad("obj_param3", bhVar.ZM);
+                    akVar2.ac("fid", aVar.cFI);
+                    akVar2.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bhVar.Zv);
+                    akVar2.ac("obj_param2", bhVar.Zw);
+                    akVar2.ac("obj_param1", bhVar.Zx);
+                    akVar2.r("obj_locate", aVar.cFH);
+                    akVar2.ac("tid", bhVar.getTid());
+                    akVar2.ac("obj_param3", bhVar.ZA);
                     akVar2.r("obj_id", z(bhVar));
-                    akVar2.ad(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-                    u.XR().a(akVar2);
+                    akVar2.ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                    u.XN().a(akVar2);
                 }
             }
         }
     }
 
     public void a(com.baidu.tieba.frs.f.a aVar, bh bhVar, int i) {
-        if (aVar != null && aVar.cFS && bhVar != null && bhVar.getTid() != null) {
-            u.XR().dC(true);
+        if (aVar != null && aVar.cFG && bhVar != null && bhVar.getTid() != null) {
+            u.XN().dB(true);
             ak akVar = new ak("c11438");
-            akVar.ad("fid", aVar.cFU);
-            akVar.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bhVar.ZH);
-            akVar.ad("obj_param2", bhVar.ZI);
-            akVar.ad("obj_param1", bhVar.ZJ);
-            akVar.r("obj_locate", aVar.cFT);
-            akVar.ad("tid", bhVar.getTid());
+            akVar.ac("fid", aVar.cFI);
+            akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bhVar.Zv);
+            akVar.ac("obj_param2", bhVar.Zw);
+            akVar.ac("obj_param1", bhVar.Zx);
+            akVar.r("obj_locate", aVar.cFH);
+            akVar.ac("tid", bhVar.getTid());
             akVar.r("obj_type", i);
-            akVar.ad("obj_param3", bhVar.ZM);
+            akVar.ac("obj_param3", bhVar.ZA);
             akVar.r("obj_id", z(bhVar));
-            akVar.ad("obj_to", M(bhVar));
+            akVar.ac("obj_to", M(bhVar));
             TiebaStatic.log(akVar);
-            if (bhVar.si()) {
+            if (bhVar.sb()) {
                 ak akVar2 = new ak("c12098");
-                akVar2.ad("fid", aVar.cFU);
-                akVar2.ad(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bhVar.ZH);
-                akVar2.ad("obj_param2", bhVar.ZI);
-                akVar2.ad("obj_param1", bhVar.ZJ);
-                akVar2.r("obj_locate", aVar.cFT);
-                akVar2.ad("tid", bhVar.getTid());
+                akVar2.ac("fid", aVar.cFI);
+                akVar2.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bhVar.Zv);
+                akVar2.ac("obj_param2", bhVar.Zw);
+                akVar2.ac("obj_param1", bhVar.Zx);
+                akVar2.r("obj_locate", aVar.cFH);
+                akVar2.ac("tid", bhVar.getTid());
                 akVar2.r("obj_type", i);
-                akVar2.ad("obj_param3", bhVar.ZM);
+                akVar2.ac("obj_param3", bhVar.ZA);
                 akVar2.r("obj_id", z(bhVar));
-                akVar2.ad("obj_to", M(bhVar));
+                akVar2.ac("obj_to", M(bhVar));
                 TiebaStatic.log(akVar2);
             }
         }
     }
 
     public static void a(i iVar, int i, int i2) {
-        if (iVar != null && iVar.aMZ() != null && iVar.gek == 1) {
-            TiebaStatic.log(new ak("c11440").ad("fid", iVar.aMZ().getId()).r("obj_locate", i).r("obj_type", i2));
+        if (iVar != null && iVar.aMU() != null && iVar.gdW == 1) {
+            TiebaStatic.log(new ak("c11440").ac("fid", iVar.aMU().getId()).r("obj_locate", i).r("obj_type", i2));
         }
     }
 
     private int z(bh bhVar) {
-        if (bhVar.sz() == null || bhVar.sz().channelId <= 0) {
+        if (bhVar.ss() == null || bhVar.ss().channelId <= 0) {
             return 0;
         }
-        return (int) bhVar.sz().channelId;
+        return (int) bhVar.ss().channelId;
     }
 
     private String M(bh bhVar) {
-        return bhVar.ZN ? String.valueOf(bhVar.sw()) : String.valueOf(4);
+        return bhVar.ZB ? String.valueOf(bhVar.sp()) : String.valueOf(4);
     }
 }

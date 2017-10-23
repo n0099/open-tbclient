@@ -5,58 +5,58 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class c implements org.aspectj.lang.b {
     Object[] args;
-    Object hnP;
-    Object hnQ;
-    a.InterfaceC0164a hnR;
+    Object hnA;
+    a.InterfaceC0164a hnB;
+    Object hnz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a implements a.InterfaceC0164a {
-        String hnS;
-        org.aspectj.lang.c hnT;
-        org.aspectj.lang.reflect.d hnU;
+        String hnC;
+        org.aspectj.lang.c hnD;
+        org.aspectj.lang.reflect.d hnE;
 
         public a(String str, org.aspectj.lang.c cVar, org.aspectj.lang.reflect.d dVar) {
-            this.hnS = str;
-            this.hnT = cVar;
-            this.hnU = dVar;
+            this.hnC = str;
+            this.hnD = cVar;
+            this.hnE = dVar;
         }
 
-        public String bLC() {
-            return this.hnS;
+        public String bLu() {
+            return this.hnC;
         }
 
-        public org.aspectj.lang.c bLD() {
-            return this.hnT;
+        public org.aspectj.lang.c bLv() {
+            return this.hnD;
         }
 
         String a(h hVar) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(hVar.vw(bLC()));
+            stringBuffer.append(hVar.vv(bLu()));
             stringBuffer.append("(");
-            stringBuffer.append(((f) bLD()).a(hVar));
+            stringBuffer.append(((f) bLv()).a(hVar));
             stringBuffer.append(")");
             return stringBuffer.toString();
         }
 
         public final String toString() {
-            return a(h.hon);
+            return a(h.hnX);
         }
     }
 
     public c(a.InterfaceC0164a interfaceC0164a, Object obj, Object obj2, Object[] objArr) {
-        this.hnR = interfaceC0164a;
-        this.hnP = obj;
-        this.hnQ = obj2;
+        this.hnB = interfaceC0164a;
+        this.hnz = obj;
+        this.hnA = obj2;
         this.args = objArr;
     }
 
     @Override // org.aspectj.lang.a
     public Object getTarget() {
-        return this.hnQ;
+        return this.hnA;
     }
 
     public final String toString() {
-        return this.hnR.toString();
+        return this.hnB.toString();
     }
 }

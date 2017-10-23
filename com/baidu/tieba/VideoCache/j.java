@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbConfig;
 public class j {
     private static long mStartTime = 0;
 
-    public static void aw(String str, String str2) {
+    public static void av(String str, String str2) {
         if (System.currentTimeMillis() - mStartTime > TbConfig.NOTIFY_SOUND_INTERVAL) {
             mStartTime = System.currentTimeMillis();
         }

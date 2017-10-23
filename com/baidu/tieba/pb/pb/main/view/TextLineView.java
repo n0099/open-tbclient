@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TextLineView extends TextView {
-    private int dkZ;
-    private int eQo;
-    private int eQp;
-    private int eQq;
-    private int eQr;
-    private int eQs;
+    private int dkM;
+    private int eQa;
+    private int eQb;
+    private int eQc;
+    private int eQd;
+    private int eQe;
     private int mBottomLineColor;
     private Paint mPaint;
 
@@ -28,38 +28,38 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.n.TextLineView);
-        this.dkZ = obtainStyledAttributes.getDimensionPixelSize(d.n.TextLineView_bottom_line_height, 0);
-        this.eQo = obtainStyledAttributes.getDimensionPixelSize(d.n.TextLineView_bottom_line_top_margin, 0);
-        this.eQp = obtainStyledAttributes.getDimensionPixelSize(d.n.TextLineView_bottom_line_bottom_margin, 0);
+        this.dkM = obtainStyledAttributes.getDimensionPixelSize(d.n.TextLineView_bottom_line_height, 0);
+        this.eQa = obtainStyledAttributes.getDimensionPixelSize(d.n.TextLineView_bottom_line_top_margin, 0);
+        this.eQb = obtainStyledAttributes.getDimensionPixelSize(d.n.TextLineView_bottom_line_bottom_margin, 0);
         this.mBottomLineColor = obtainStyledAttributes.getColor(d.n.TextLineView_bottom_line_color, aj.getColor(d.e.cp_cont_f));
-        this.eQr = obtainStyledAttributes.getColor(d.n.TextLineView_text_selected_color, aj.getColor(d.e.cp_cont_b));
-        this.eQq = obtainStyledAttributes.getColor(d.n.TextLineView_text_unselected_color, aj.getColor(d.e.cp_cont_j));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.eQo + this.dkZ + this.eQp);
-        setTextColor(this.eQr);
-        this.eQs = l.f(context, d.f.ds56);
+        this.eQd = obtainStyledAttributes.getColor(d.n.TextLineView_text_selected_color, aj.getColor(d.e.cp_cont_b));
+        this.eQc = obtainStyledAttributes.getColor(d.n.TextLineView_text_unselected_color, aj.getColor(d.e.cp_cont_j));
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.eQa + this.dkM + this.eQb);
+        setTextColor(this.eQd);
+        this.eQe = l.f(context, d.f.ds56);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        aST();
-        int measuredWidth = (getMeasuredWidth() - this.eQs) / 2;
-        canvas.drawRoundRect(new RectF(measuredWidth + 0, (getMeasuredHeight() - this.eQp) - this.dkZ, getMeasuredWidth() - measuredWidth, getMeasuredHeight() - this.eQp), l.f(getContext(), d.f.ds4), l.f(getContext(), d.f.ds4), this.mPaint);
+        aSO();
+        int measuredWidth = (getMeasuredWidth() - this.eQe) / 2;
+        canvas.drawRoundRect(new RectF(measuredWidth + 0, (getMeasuredHeight() - this.eQb) - this.dkM, getMeasuredWidth() - measuredWidth, getMeasuredHeight() - this.eQb), l.f(getContext(), d.f.ds4), l.f(getContext(), d.f.ds4), this.mPaint);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            setTextColor(this.eQr);
+            setTextColor(this.eQd);
         } else {
-            setTextColor(this.eQq);
+            setTextColor(this.eQc);
         }
         invalidate();
     }
 
-    private void aST() {
+    private void aSO() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
@@ -73,14 +73,14 @@ public class TextLineView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        this.eQr = aj.getColor(d.e.cp_cont_b);
-        this.eQq = aj.getColor(d.e.cp_cont_j);
+        this.eQd = aj.getColor(d.e.cp_cont_b);
+        this.eQc = aj.getColor(d.e.cp_cont_j);
         if (isSelected()) {
-            setTextColor(this.eQr);
+            setTextColor(this.eQd);
         } else {
-            setTextColor(this.eQq);
+            setTextColor(this.eQc);
         }
-        aST();
+        aSO();
         invalidate();
     }
 }

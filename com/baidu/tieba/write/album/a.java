@@ -5,53 +5,53 @@ import android.view.View;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
-    private String gGK;
-    private String gGL;
-    private AlbumActivity gGM;
-    private Fragment[] gGN;
-    private String[] gGO;
-    private l gGP;
-    private b gGQ;
+    private l gGA;
+    private b gGB;
+    private String gGv;
+    private String gGw;
+    private AlbumActivity gGx;
+    private Fragment[] gGy;
+    private String[] gGz;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.gGK = "tag_image";
-        this.gGL = "tag_b_image";
-        this.gGM = albumActivity;
+        this.gGv = "tag_image";
+        this.gGw = "tag_b_image";
+        this.gGx = albumActivity;
     }
 
-    public void aLX() {
-        this.gGN = new Fragment[2];
-        this.gGO = new String[2];
-        this.gGP = new l();
-        this.gGN[0] = this.gGP;
-        this.gGO[0] = this.gGK;
-        this.gGQ = new b();
-        this.gGN[1] = this.gGQ;
-        this.gGO[1] = this.gGL;
+    public void aLS() {
+        this.gGy = new Fragment[2];
+        this.gGz = new String[2];
+        this.gGA = new l();
+        this.gGy[0] = this.gGA;
+        this.gGz[0] = this.gGv;
+        this.gGB = new b();
+        this.gGy[1] = this.gGB;
+        this.gGz[1] = this.gGw;
     }
 
-    public Fragment uN(int i) {
+    public Fragment uM(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.gGN[i];
+        return this.gGy[i];
     }
 
-    public String uO(int i) {
+    public String uN(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.gGO[i];
+        return this.gGz[i];
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.gGN.length) {
-                if (this.gGN[i3] != null && (this.gGN[i3] instanceof l)) {
-                    ((l) this.gGN[i3]).onChangeSkinType(i);
+            if (i3 < this.gGy.length) {
+                if (this.gGy[i3] != null && (this.gGy[i3] instanceof l)) {
+                    ((l) this.gGy[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -60,66 +60,66 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView bzm() {
-        if (this.gGP == null) {
+    public TbCameraView bzg() {
+        if (this.gGA == null) {
             return null;
         }
-        return this.gGP.bzm();
+        return this.gGA.bzg();
     }
 
-    public View bzn() {
-        if (this.gGP == null) {
+    public View bzh() {
+        if (this.gGA == null) {
             return null;
         }
-        return this.gGP.biW();
+        return this.gGA.biR();
     }
 
-    public View bzo() {
-        if (this.gGP == null) {
+    public View bzi() {
+        if (this.gGA == null) {
             return null;
         }
-        return this.gGP.bzJ();
+        return this.gGA.bzD();
     }
 
-    public View bzp() {
-        if (this.gGQ == null) {
+    public View bzj() {
+        if (this.gGB == null) {
             return null;
         }
-        return this.gGQ.biW();
+        return this.gGB.biR();
     }
 
-    public View bzq() {
-        if (this.gGQ == null) {
+    public View bzk() {
+        if (this.gGB == null) {
             return null;
         }
-        return this.gGQ.bzx();
+        return this.gGB.bzr();
     }
 
-    public View bzr() {
-        if (this.gGQ == null) {
+    public View bzl() {
+        if (this.gGB == null) {
             return null;
         }
-        return this.gGQ.bzr();
+        return this.gGB.bzl();
     }
 
-    public View bzs() {
-        if (this.gGP == null) {
+    public View bzm() {
+        if (this.gGA == null) {
             return null;
         }
-        return this.gGP.bzr();
+        return this.gGA.bzl();
     }
 
     public void onDestroy() {
-        if (this.gGM.aLU() != null) {
-            this.gGM.aLU().Ek();
+        if (this.gGx.aLP() != null) {
+            this.gGx.aLP().Ee();
         }
     }
 
-    public b bzt() {
-        return this.gGQ;
+    public b bzn() {
+        return this.gGB;
     }
 
-    public l bzu() {
-        return this.gGP;
+    public l bzo() {
+        return this.gGA;
     }
 }

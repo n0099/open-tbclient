@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private TranslateAnimation ePK;
-    private ObjectAnimator ePL;
+    private TranslateAnimation ePw;
+    private ObjectAnimator ePx;
 
     public PbNavbarUserConcernView(Context context) {
         super(context);
@@ -29,7 +29,7 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void aP(boolean z) {
+    public void aO(boolean z) {
         clearAnimation();
         if (z) {
             setVisibility(8);
@@ -40,7 +40,7 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void dG(int i) {
+    public void dF(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -58,11 +58,11 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
             setVisibility(0);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         } else if (z) {
-            if (this.ePK == null) {
-                this.ePK = new TranslateAnimation(0.0f, getMeasuredWidth(), 0.0f, 0.0f);
-                this.ePK.setDuration(300L);
-                this.ePK.setFillAfter(true);
-                this.ePK.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
+            if (this.ePw == null) {
+                this.ePw = new TranslateAnimation(0.0f, getMeasuredWidth(), 0.0f, 0.0f);
+                this.ePw.setDuration(300L);
+                this.ePw.setFillAfter(true);
+                this.ePw.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
@@ -77,15 +77,15 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
                     }
                 });
             }
-            startAnimation(this.ePK);
+            startAnimation(this.ePw);
         } else {
-            if (this.ePL == null) {
-                this.ePL = ObjectAnimator.ofFloat(this, "translationX", 0.0f, 30.0f);
-                this.ePL.setDuration(200L);
-                this.ePL.setRepeatCount(1);
-                this.ePL.setRepeatMode(2);
+            if (this.ePx == null) {
+                this.ePx = ObjectAnimator.ofFloat(this, "translationX", 0.0f, 30.0f);
+                this.ePx.setDuration(200L);
+                this.ePx.setRepeatCount(1);
+                this.ePx.setRepeatMode(2);
             }
-            this.ePL.start();
+            this.ePx.start();
         }
     }
 

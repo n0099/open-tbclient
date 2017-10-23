@@ -7,24 +7,24 @@ import com.baidu.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class g extends DiskFileOperate {
-    protected a aeE;
+    protected a aes;
     protected Bitmap mBitmap;
-    protected BitmapFactory.Options rt;
+    protected BitmapFactory.Options ru;
 
     public g(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.rt = null;
-        this.aeE = null;
-        this.aeE = new a();
+        this.ru = null;
+        this.aes = null;
+        this.aes = new a();
     }
 
     public boolean isGif() {
-        return this.aeE.rx;
+        return this.aes.ry;
     }
 
     public void w(boolean z) {
-        this.aeE.rx = z;
+        this.aes.ry = z;
     }
 
     public Bitmap getBitmap() {
@@ -44,7 +44,7 @@ public class g extends DiskFileOperate {
         if (this.mData == null) {
             return null;
         }
-        return this.aeE.toByteArray();
+        return this.aes.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -52,18 +52,18 @@ public class g extends DiskFileOperate {
         if (bArr == null) {
             return false;
         }
-        if (this.rt == null) {
-            this.rt = new BitmapFactory.Options();
-            this.rt.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (this.ru == null) {
+            this.ru = new BitmapFactory.Options();
+            this.ru.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean i = this.aeE.i(bArr);
-        if (this.aeE.ry == 0 || this.aeE.ry >= System.currentTimeMillis()) {
+        boolean i = this.aes.i(bArr);
+        if (this.aes.rz == 0 || this.aes.rz >= System.currentTimeMillis()) {
             int headerSize = a.getHeaderSize();
             if (!i) {
                 headerSize = 0;
             }
             try {
-                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.rt);
+                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.ru);
             } catch (Error e) {
                 BdLog.e(e.getMessage());
             }
@@ -75,9 +75,9 @@ public class g extends DiskFileOperate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte rv = Byte.MIN_VALUE;
-        boolean rx = false;
-        long ry = 0;
+        private static byte rw = Byte.MIN_VALUE;
+        boolean ry = false;
+        long rz = 0;
 
         a() {
         }
@@ -89,8 +89,8 @@ public class g extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
             allocate.putInt(1786600510);
-            allocate.put(this.rx ? (byte) (0 | rv) : (byte) 0);
-            allocate.putLong(this.ry);
+            allocate.put(this.ry ? (byte) (0 | rw) : (byte) 0);
+            allocate.putLong(this.rz);
             allocate.flip();
             return allocate.array();
         }
@@ -101,10 +101,10 @@ public class g extends DiskFileOperate {
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
             if (wrap.getInt() == 1786600510) {
-                if ((wrap.get() & rv) != 0) {
-                    this.rx = true;
+                if ((wrap.get() & rw) != 0) {
+                    this.ry = true;
                 }
-                this.ry = wrap.getLong();
+                this.rz = wrap.getLong();
                 return true;
             }
             return false;

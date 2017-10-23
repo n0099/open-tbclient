@@ -23,15 +23,15 @@ import java.util.LinkedList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class y implements q {
-    private static int afL = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
-    private final com.baidu.tbadk.core.util.a.a afG;
-    private com.baidu.adp.lib.network.a.a afM = new com.baidu.adp.lib.network.a.a();
+    private static int afz = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
+    private com.baidu.adp.lib.network.a.a afA = new com.baidu.adp.lib.network.a.a();
+    private final com.baidu.tbadk.core.util.a.a afu;
     private Context mContext;
 
     public y(com.baidu.tbadk.core.util.a.a aVar) {
-        uM();
+        uF();
         this.mContext = TbadkCoreApplication.getInst().getApp();
-        this.afG = aVar;
+        this.afu = aVar;
         com.baidu.adp.lib.network.a.a.setUserAgent("bdtb for Android " + TbConfig.getVersion());
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
@@ -50,20 +50,20 @@ public class y implements q {
         }
     }
 
-    private void uM() {
+    private void uF() {
         this.mContext = null;
     }
 
     @Override // com.baidu.tbadk.core.util.q
     public void fs() {
-        if (this.afM != null) {
-            this.afM.fs();
+        if (this.afA != null) {
+            this.afA.fs();
         }
     }
 
     @Override // com.baidu.tbadk.core.util.q
     public void fo() {
-        this.afM.cancel();
+        this.afA.cancel();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:119:0x05d1  */
@@ -73,7 +73,7 @@ public class y implements q {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public byte[] uq() {
+    public byte[] uj() {
         com.baidu.adp.lib.network.http.g gVar;
         BdHttpCancelException bdHttpCancelException;
         com.baidu.adp.lib.network.http.g gVar2;
@@ -84,29 +84,29 @@ public class y implements q {
         boolean z = true;
         com.baidu.adp.lib.network.a.a.setUid(TbadkCoreApplication.getCurrentAccount());
         try {
-            if (this.afG.vJ().vM().aik != null && this.afG.vJ().vM().aik.size() > 0 && !this.afG.vJ().mIsFromCDN) {
+            if (this.afu.vC().vF().ahY != null && this.afu.vC().vF().ahY.size() > 0 && !this.afu.vC().mIsFromCDN) {
                 StringBuilder sb = new StringBuilder(30);
-                sb.append(this.afG.vJ().vM().mUrl);
-                if (this.afG.vJ().vM().mUrl.indexOf("?") < 0) {
+                sb.append(this.afu.vC().vF().mUrl);
+                if (this.afu.vC().vF().mUrl.indexOf("?") < 0) {
                     sb.append("?");
-                } else if (!this.afG.vJ().vM().mUrl.endsWith("?") && !this.afG.vJ().vM().mUrl.endsWith("&")) {
+                } else if (!this.afu.vC().vF().mUrl.endsWith("?") && !this.afu.vC().vF().mUrl.endsWith("&")) {
                     sb.append("&");
                 }
-                for (int i = 0; i < this.afG.vJ().vM().aik.size(); i++) {
+                for (int i = 0; i < this.afu.vC().vF().ahY.size(); i++) {
                     if (i != 0) {
                         sb.append("&");
                     }
-                    sb.append(this.afG.vJ().vM().aik.get(i).getName());
+                    sb.append(this.afu.vC().vF().ahY.get(i).getName());
                     sb.append("=");
-                    sb.append(am.aN(this.afG.vJ().vM().aik.get(i).getValue()));
+                    sb.append(am.aN(this.afu.vC().vF().ahY.get(i).getValue()));
                 }
                 str = sb.toString();
             } else {
-                str = this.afG.vJ().vM().mUrl;
+                str = this.afu.vC().vF().mUrl;
             }
             if (TbConfig.getDebugSwitch()) {
             }
-            if ((!this.afG.vJ().vM().aim || this.afG.vJ().vM().mIsBDImage) && !this.afG.vJ().mIsFromCDN) {
+            if ((!this.afu.vC().vF().aia || this.afu.vC().vF().mIsBDImage) && !this.afu.vC().mIsFromCDN) {
                 z = false;
             }
         } catch (BdHttpCancelException e) {
@@ -125,12 +125,12 @@ public class y implements q {
             e = e5;
             gVar = null;
         }
-        if (this.afM.isCanceled()) {
+        if (this.afA.isCanceled()) {
             throw new BdHttpCancelException();
         }
         long j = new Date().getTime();
-        this.afM.a(str, z, 5, 100, -1, -1, uW());
-        com.baidu.adp.lib.network.http.e fG = this.afM.fG();
+        this.afA.a(str, z, 5, 100, -1, -1, uP());
+        com.baidu.adp.lib.network.http.e fG = this.afA.fG();
         if (fG == null) {
             return null;
         }
@@ -138,53 +138,53 @@ public class y implements q {
         if (fG != null) {
             try {
                 if (fG.fA() != null && (size = fG.fA().size()) > 0) {
-                    this.afG.vL().ahQ = fG.fA().get(size - 1);
+                    this.afu.vE().ahE = fG.fA().get(size - 1);
                 }
             } catch (BdHttpCancelException e6) {
                 gVar2 = gVar;
                 bdHttpCancelException = e6;
-                this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                this.afG.vK().ahP = String.valueOf(this.afG.vK().vo) + "|retryCount:" + (this.afG.vL().ahQ == null ? -1 : this.afG.vL().ahQ.uU) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
-                this.afG.vK().vo = -14;
+                this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror);
+                this.afu.vD().ahD = String.valueOf(this.afu.vD().vp) + "|retryCount:" + (this.afu.vE().ahE == null ? -1 : this.afu.vE().ahE.uV) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
+                this.afu.vD().vp = -14;
                 gVar = gVar2;
                 if (gVar == null) {
                 }
                 return bArr;
             } catch (OutOfMemoryError e7) {
                 e = e7;
-                this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.memoryerror);
-                this.afG.vK().ahP = String.valueOf(this.afG.vK().vo) + "|retryCount:" + (this.afG.vL().ahQ != null ? this.afG.vL().ahQ.uU : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.afG.vK().vo = -15;
+                this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.memoryerror);
+                this.afu.vD().ahD = String.valueOf(this.afu.vD().vp) + "|retryCount:" + (this.afu.vE().ahE != null ? this.afu.vE().ahE.uV : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.afu.vD().vp = -15;
                 BdLog.e(e.getMessage());
-                TiebaStatic.net(this.afG);
+                TiebaStatic.net(this.afu);
                 if (gVar == null) {
                 }
                 return bArr;
             } catch (SocketException e8) {
                 e = e8;
-                this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                this.afG.vK().ahP = String.valueOf(this.afG.vK().vo) + "|retryCount:" + (this.afG.vL().ahQ != null ? this.afG.vL().ahQ.uU : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.afG.vK().vo = -12;
-                TiebaStatic.net(this.afG);
+                this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror);
+                this.afu.vD().ahD = String.valueOf(this.afu.vD().vp) + "|retryCount:" + (this.afu.vE().ahE != null ? this.afu.vE().ahE.uV : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.afu.vD().vp = -12;
+                TiebaStatic.net(this.afu);
                 if (gVar == null) {
                 }
                 return bArr;
             } catch (SocketTimeoutException e9) {
                 e = e9;
-                this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                this.afG.vK().ahP = String.valueOf(this.afG.vK().vo) + "|retryCount:" + (this.afG.vL().ahQ != null ? this.afG.vL().ahQ.uU : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.afG.vK().vo = -13;
-                TiebaStatic.net(this.afG);
+                this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror);
+                this.afu.vD().ahD = String.valueOf(this.afu.vD().vp) + "|retryCount:" + (this.afu.vE().ahE != null ? this.afu.vE().ahE.uV : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.afu.vD().vp = -13;
+                TiebaStatic.net(this.afu);
                 if (gVar == null) {
                 }
                 return bArr;
             } catch (Exception e10) {
                 e = e10;
-                this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror) + " detailException:" + e.getMessage();
-                this.afG.vK().ahP = String.valueOf(this.afG.vK().vo) + "|retryCount:" + (this.afG.vL().ahQ != null ? this.afG.vL().ahQ.uU : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.afG.vK().vo = -10;
+                this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror) + " detailException:" + e.getMessage();
+                this.afu.vD().ahD = String.valueOf(this.afu.vD().vp) + "|retryCount:" + (this.afu.vE().ahE != null ? this.afu.vE().ahE.uV : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.afu.vD().vp = -10;
                 BdLog.e(e.getMessage());
-                TiebaStatic.net(this.afG);
+                TiebaStatic.net(this.afu);
                 if (gVar == null) {
                 }
                 return bArr;
@@ -193,33 +193,33 @@ public class y implements q {
         if (gVar == null) {
             return null;
         }
-        this.afG.vK().vo = gVar.responseCode;
-        if (this.afG.vK().vo != 200) {
-            this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-            if (this.afG.vL().ahQ != null && !TextUtils.isEmpty(this.afG.vL().ahQ.uX)) {
-                this.afG.vK().ahP = this.afG.vL().ahQ.uX;
+        this.afu.vD().vp = gVar.responseCode;
+        if (this.afu.vD().vp != 200) {
+            this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror);
+            if (this.afu.vE().ahE != null && !TextUtils.isEmpty(this.afu.vE().ahE.uY)) {
+                this.afu.vD().ahD = this.afu.vE().ahE.uY;
             } else {
-                this.afG.vK().ahP = String.valueOf(this.afG.vK().vo) + "|retryCount:" + (this.afG.vL().ahQ == null ? -1 : this.afG.vL().ahQ.uU);
+                this.afu.vD().ahD = String.valueOf(this.afu.vD().vp) + "|retryCount:" + (this.afu.vE().ahE == null ? -1 : this.afu.vE().ahE.uV);
             }
-            TiebaStatic.net(this.afG);
+            TiebaStatic.net(this.afu);
             return null;
         }
         if (TbadkCoreApplication.getInst().isMainProcess(true) && (str2 = gVar.contentLength) != null) {
             try {
                 int parseInt = Integer.parseInt(str2);
-                if (parseInt > afL) {
-                    this.afG.vK().vo = -11;
-                    TiebaStatic.net(this.afG);
+                if (parseInt > afz) {
+                    this.afu.vD().vp = -11;
+                    TiebaStatic.net(this.afu);
                     bArr = null;
                 } else {
                     int i2 = parseInt * 10;
                     if (i2 > 0) {
                         if (BdLog.isDebugMode()) {
                         }
-                        if (!com.baidu.tbadk.imageManager.c.DZ().fi(i2)) {
-                            BdLog.d("Image download cacelled. out of memory. url:[" + this.afG.vJ().vM().mUrl + "], size:" + i2);
-                            this.afG.vK().vo = -16;
-                            TiebaStatic.net(this.afG);
+                        if (!com.baidu.tbadk.imageManager.c.DT().fh(i2)) {
+                            BdLog.d("Image download cacelled. out of memory. url:[" + this.afu.vC().vF().mUrl + "], size:" + i2);
+                            this.afu.vD().vp = -16;
+                            TiebaStatic.net(this.afu);
                             bArr = null;
                         }
                     }
@@ -230,48 +230,48 @@ public class y implements q {
         }
         aa.a aVar = new aa.a();
         aVar.mMode = getMode(com.baidu.adp.lib.util.j.hn());
-        aVar.aga = this.afG.vL().ahQ.uS;
+        aVar.afO = this.afu.vE().ahE.uT;
         aVar.mTime = new Date().getTime() - j;
-        aVar.agb = this.afG.vL().ahQ.uU;
-        aVar.afZ = 2;
+        aVar.afP = this.afu.vE().ahE.uV;
+        aVar.afN = 2;
         aa.a(aVar);
-        aa.afY.set(this.afG.vL().ahQ.uU);
-        TiebaStatic.net(this.afG);
-        bArr = gVar == null ? gVar.vq : null;
+        aa.afM.set(this.afu.vE().ahE.uV);
+        TiebaStatic.net(this.afu);
+        bArr = gVar == null ? gVar.vr : null;
         return bArr;
     }
 
-    public void dE(String str) {
-        this.afG.vK().ahO = -1;
+    public void dD(String str) {
+        this.afu.vD().ahC = -1;
         if (str != null) {
             try {
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(str);
-                this.afG.vK().ahO = errorData.getError_code();
-                if (this.afG.vK().ahO == -1) {
-                    this.afG.vK().mErrorString = this.mContext.getString(d.l.error_unkown_try_again);
-                } else if (this.afG.vK().ahO != 0) {
-                    this.afG.vK().mErrorString = errorData.getError_msg();
+                this.afu.vD().ahC = errorData.getError_code();
+                if (this.afu.vD().ahC == -1) {
+                    this.afu.vD().mErrorString = this.mContext.getString(d.l.error_unkown_try_again);
+                } else if (this.afu.vD().ahC != 0) {
+                    this.afu.vD().mErrorString = errorData.getError_msg();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                this.afG.vK().mErrorString = this.mContext.getString(d.l.error_unkown_try_again);
+                this.afu.vD().mErrorString = this.mContext.getString(d.l.error_unkown_try_again);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.util.q
-    public String ur() {
+    public String uk() {
         String str;
         OutOfMemoryError e;
         Exception e2;
-        byte[] uq = uq();
-        if (uq == null || this.afG.vK().vo != 200) {
+        byte[] uj = uj();
+        if (uj == null || this.afu.vD().vp != 200) {
             return null;
         }
         try {
-            this.afG.vJ().vM().aio = TextUtils.isEmpty(this.afG.vJ().vM().aio) ? "UTF-8" : this.afG.vJ().vM().aio;
-            str = new String(uq, 0, uq.length, this.afG.vJ().vM().aio);
+            this.afu.vC().vF().aic = TextUtils.isEmpty(this.afu.vC().vF().aic) ? "UTF-8" : this.afu.vC().vF().aic;
+            str = new String(uj, 0, uj.length, this.afu.vC().vF().aic);
         } catch (Exception e3) {
             str = null;
             e2 = e3;
@@ -280,7 +280,7 @@ public class y implements q {
             e = e4;
         }
         try {
-            dE(str);
+            dD(str);
             return str;
         } catch (Exception e5) {
             e2 = e5;
@@ -294,7 +294,7 @@ public class y implements q {
     }
 
     @Override // com.baidu.tbadk.core.util.q
-    public String up() {
+    public String ui() {
         Throwable th;
         String str;
         Exception e;
@@ -308,10 +308,10 @@ public class y implements q {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (this.afG.vJ().vM().aik == null || i2 >= this.afG.vJ().vM().aik.size()) {
+            if (this.afu.vC().vF().ahY == null || i2 >= this.afu.vC().vF().ahY.size()) {
                 break;
             }
-            BasicNameValuePair basicNameValuePair = this.afG.vJ().vM().aik.get(i2);
+            BasicNameValuePair basicNameValuePair = this.afu.vC().vF().ahY.get(i2);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
@@ -321,96 +321,96 @@ public class y implements q {
             }
             i = i2 + 1;
         }
-        if (this.afG.vJ().vM().mIsBaiduServer) {
+        if (this.afu.vC().vF().mIsBaiduServer) {
             sb.append("tiebaclient!!!");
             n(SapiUtils.KEY_QR_LOGIN_SIGN, com.baidu.adp.lib.util.s.aS(sb.toString()));
         }
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.afM.isCanceled()) {
+            if (this.afA.isCanceled()) {
                 return null;
             }
-            if (this.afM.a(this.afG.vJ().vM().mUrl, this.afG.vJ().vM().aik, this.afG.vJ().vM().aim, 5, -1, uW()) == null) {
+            if (this.afA.a(this.afu.vC().vF().mUrl, this.afu.vC().vF().ahY, this.afu.vC().vF().aia, 5, -1, uP()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.adp.lib.network.http.e fG = this.afM.fG();
+            com.baidu.adp.lib.network.http.e fG = this.afA.fG();
             if (fG == null) {
                 return null;
             }
             com.baidu.adp.lib.network.http.g fz = fG.fz();
             if (fG != null && fG.fA() != null && (size = fG.fA().size()) > 0) {
-                this.afG.vL().ahQ = fG.fA().get(size - 1);
+                this.afu.vE().ahE = fG.fA().get(size - 1);
             }
-            this.afG.vK().vo = fz.responseCode;
-            this.afG.vK().mHeader = fz.vp;
-            if (this.afG.vK().vo != 200) {
-                if (this.afG.vL().ahQ != null && !TextUtils.isEmpty(this.afG.vL().ahQ.uX)) {
-                    this.afG.vK().ahP = this.afG.vL().ahQ.uX;
+            this.afu.vD().vp = fz.responseCode;
+            this.afu.vD().mHeader = fz.vq;
+            if (this.afu.vD().vp != 200) {
+                if (this.afu.vE().ahE != null && !TextUtils.isEmpty(this.afu.vE().ahE.uY)) {
+                    this.afu.vD().ahD = this.afu.vE().ahE.uY;
                 } else {
-                    this.afG.vK().ahP = String.valueOf(this.afG.vK().vo) + "|retryCount:" + (this.afG.vL().ahQ == null ? -1 : this.afG.vL().ahQ.uU);
+                    this.afu.vD().ahD = String.valueOf(this.afu.vD().vp) + "|retryCount:" + (this.afu.vE().ahE == null ? -1 : this.afu.vE().ahE.uV);
                 }
-                TiebaStatic.net(this.afG);
+                TiebaStatic.net(this.afu);
                 return null;
-            } else if (this.afM.isCanceled()) {
+            } else if (this.afA.isCanceled()) {
                 return null;
             } else {
-                str = new String(fz.vq, "utf-8");
+                str = new String(fz.vr, "utf-8");
                 try {
-                    if (this.afG.vJ().vM().mIsBaiduServer && this.afG.vJ().vM().ain) {
-                        dE(str);
+                    if (this.afu.vC().vF().mIsBaiduServer && this.afu.vC().vF().aib) {
+                        dD(str);
                     }
                     aa.a aVar = new aa.a();
                     aVar.mMode = getMode(com.baidu.adp.lib.util.j.hn());
-                    aVar.aga = this.afG.vL().ahQ.uS;
-                    aVar.mTime = this.afG.vL().ahQ.uV;
-                    aVar.agb = this.afG.vL().ahQ.uU;
-                    aVar.afZ = 1;
+                    aVar.afO = this.afu.vE().ahE.uT;
+                    aVar.mTime = this.afu.vE().ahE.uW;
+                    aVar.afP = this.afu.vE().ahE.uV;
+                    aVar.afN = 1;
                     aa.a(aVar);
-                    aa.afY.set(this.afG.vL().ahQ.uU);
-                    TiebaStatic.net(this.afG);
+                    aa.afM.set(this.afu.vE().ahE.uV);
+                    TiebaStatic.net(this.afu);
                     return str;
                 } catch (BdHttpCancelException e5) {
                     bdHttpCancelException = e5;
                     str2 = str;
-                    this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                    this.afG.vK().ahP = String.valueOf(this.afG.vK().vo) + "|retryCount:" + (this.afG.vL().ahQ == null ? -1 : this.afG.vL().ahQ.uU) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
-                    this.afG.vK().vo = -14;
+                    this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror);
+                    this.afu.vD().ahD = String.valueOf(this.afu.vD().vp) + "|retryCount:" + (this.afu.vE().ahE == null ? -1 : this.afu.vE().ahE.uV) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
+                    this.afu.vD().vp = -14;
                     return str2;
                 } catch (OutOfMemoryError e6) {
                     e4 = e6;
-                    this.afG.vK().vo = -15;
-                    this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.memoryerror);
+                    this.afu.vD().vp = -15;
+                    this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.memoryerror);
                     BdLog.e(e4.getMessage());
-                    TiebaStatic.net(this.afG);
+                    TiebaStatic.net(this.afu);
                     return str;
                 } catch (SocketException e7) {
                     e3 = e7;
-                    this.afG.vK().vo = -12;
-                    this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror);
+                    this.afu.vD().vp = -12;
+                    this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror);
                     BdLog.e(e3.getMessage());
-                    TiebaStatic.net(this.afG);
+                    TiebaStatic.net(this.afu);
                     return str;
                 } catch (SocketTimeoutException e8) {
                     e2 = e8;
-                    this.afG.vK().vo = -13;
-                    this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror);
+                    this.afu.vD().vp = -13;
+                    this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror);
                     BdLog.e(e2.getMessage());
-                    TiebaStatic.net(this.afG);
+                    TiebaStatic.net(this.afu);
                     return str;
                 } catch (Exception e9) {
                     e = e9;
-                    this.afG.vK().vo = -10;
-                    this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror) + " detailException:" + e.getMessage();
+                    this.afu.vD().vp = -10;
+                    this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror) + " detailException:" + e.getMessage();
                     BdLog.e(e.getMessage());
-                    TiebaStatic.net(this.afG);
+                    TiebaStatic.net(this.afu);
                     return str;
                 } catch (Throwable th2) {
                     th = th2;
-                    this.afG.vK().vo = -10;
-                    this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror);
+                    this.afu.vD().vp = -10;
+                    this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror);
                     BdLog.e(th.getMessage());
-                    TiebaStatic.net(this.afG);
+                    TiebaStatic.net(this.afu);
                     return str;
                 }
             }
@@ -436,7 +436,7 @@ public class y implements q {
     }
 
     @Override // com.baidu.tbadk.core.util.q
-    public String us() {
+    public String ul() {
         Exception e;
         String str;
         OutOfMemoryError e2;
@@ -444,14 +444,14 @@ public class y implements q {
         String str2;
         com.baidu.adp.lib.network.http.d dVar;
         try {
-            if (this.afM.isCanceled()) {
+            if (this.afA.isCanceled()) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.adp.lib.network.http.g a = this.afM.a(this.afG.vJ().vM().mUrl, this.afG.vJ().vM().aim, this.afG.vJ().vM().aik, this.afG.vJ().vM().ail, 5, -1, uW());
-            this.afG.vK().vo = a.responseCode;
-            this.afG.vK().mHeader = a.vp;
-            if (this.afG.vK().vo != 200) {
-                com.baidu.adp.lib.network.http.e fG = this.afM.fG();
+            com.baidu.adp.lib.network.http.g a = this.afA.a(this.afu.vC().vF().mUrl, this.afu.vC().vF().aia, this.afu.vC().vF().ahY, this.afu.vC().vF().ahZ, 5, -1, uP());
+            this.afu.vD().vp = a.responseCode;
+            this.afu.vD().mHeader = a.vq;
+            if (this.afu.vD().vp != 200) {
+                com.baidu.adp.lib.network.http.e fG = this.afA.fG();
                 int i = 0;
                 if (fG != null && fG.fA() != null) {
                     i = fG.fA().size();
@@ -459,52 +459,52 @@ public class y implements q {
                 if (i <= 0 || (dVar = fG.fA().get(i - 1)) == null) {
                     str2 = "";
                 } else {
-                    str2 = dVar.uX;
+                    str2 = dVar.uY;
                 }
                 if (!TextUtils.isEmpty(str2)) {
-                    this.afG.vK().ahP = str2;
+                    this.afu.vD().ahD = str2;
                 } else {
-                    this.afG.vK().ahP = String.valueOf(this.afG.vK().vo) + "|retryCount:" + (this.afG.vL().ahQ == null ? -1 : this.afG.vL().ahQ.uU);
+                    this.afu.vD().ahD = String.valueOf(this.afu.vD().vp) + "|retryCount:" + (this.afu.vE().ahE == null ? -1 : this.afu.vE().ahE.uV);
                 }
-                TiebaStatic.net(this.afG);
+                TiebaStatic.net(this.afu);
                 return null;
-            } else if (this.afM.isCanceled()) {
+            } else if (this.afA.isCanceled()) {
                 throw new BdHttpCancelException();
             } else {
-                str = new String(a.vq, "UTF-8");
+                str = new String(a.vr, "UTF-8");
                 try {
-                    dE(str);
-                    TiebaStatic.net(this.afG);
+                    dD(str);
+                    TiebaStatic.net(this.afu);
                     return str;
                 } catch (BdHttpCancelException e4) {
                     e3 = e4;
-                    this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                    this.afG.vK().ahP = String.valueOf(this.afG.vK().vo) + "|retryCount:" + (this.afG.vL().ahQ == null ? -1 : this.afG.vL().ahQ.uU) + "|" + e3.getClass() + "|" + e3.getMessage();
-                    this.afG.vK().vo = -14;
+                    this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror);
+                    this.afu.vD().ahD = String.valueOf(this.afu.vD().vp) + "|retryCount:" + (this.afu.vE().ahE == null ? -1 : this.afu.vE().ahE.uV) + "|" + e3.getClass() + "|" + e3.getMessage();
+                    this.afu.vD().vp = -14;
                     return str;
                 } catch (SocketException e5) {
-                    this.afG.vK().vo = -12;
-                    this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                    TiebaStatic.net(this.afG);
+                    this.afu.vD().vp = -12;
+                    this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror);
+                    TiebaStatic.net(this.afu);
                     return str;
                 } catch (SocketTimeoutException e6) {
-                    this.afG.vK().vo = -13;
-                    this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror);
-                    TiebaStatic.net(this.afG);
+                    this.afu.vD().vp = -13;
+                    this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror);
+                    TiebaStatic.net(this.afu);
                     return str;
                 } catch (Exception e7) {
                     e = e7;
-                    this.afG.vK().vo = -10;
-                    this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror) + " detailException:" + e.getMessage();
+                    this.afu.vD().vp = -10;
+                    this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror) + " detailException:" + e.getMessage();
                     BdLog.e(e.getMessage());
-                    TiebaStatic.net(this.afG);
+                    TiebaStatic.net(this.afu);
                     return str;
                 } catch (OutOfMemoryError e8) {
                     e2 = e8;
-                    this.afG.vK().vo = -15;
-                    this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.memoryerror);
+                    this.afu.vD().vp = -15;
+                    this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.memoryerror);
                     BdLog.e(e2.getMessage());
-                    TiebaStatic.net(this.afG);
+                    TiebaStatic.net(this.afu);
                     return str;
                 }
             }
@@ -528,53 +528,53 @@ public class y implements q {
     @Override // com.baidu.tbadk.core.util.q
     public boolean a(String str, final Handler handler, final int i, int i2, int i3, boolean z) {
         try {
-            if (this.afM.isCanceled()) {
+            if (this.afA.isCanceled()) {
                 return false;
             }
-            return this.afM.a(this.afG.vJ().vM().mUrl, (z ? new File(str) : k.dj(str)).getAbsolutePath(), false, i2, i3, -1, -1, uW(), new com.baidu.adp.lib.network.http.h() { // from class: com.baidu.tbadk.core.util.y.1
-                int afN = 0;
-                int afO = 0;
-                int afP = 0;
+            return this.afA.a(this.afu.vC().vF().mUrl, (z ? new File(str) : k.di(str)).getAbsolutePath(), false, i2, i3, -1, -1, uP(), new com.baidu.adp.lib.network.http.h() { // from class: com.baidu.tbadk.core.util.y.1
+                int afB = 0;
+                int afC = 0;
+                int afD = 0;
 
                 @Override // com.baidu.adp.lib.network.http.h
                 public void m(int i4, int i5) {
                     if (i5 > 0) {
-                        this.afN = i5 / 50;
+                        this.afB = i5 / 50;
                     }
-                    this.afO += i4 - this.afP;
-                    this.afP = i4;
+                    this.afC += i4 - this.afD;
+                    this.afD = i4;
                     if (handler != null) {
-                        if (this.afO > this.afN || i4 == i5) {
-                            this.afO = 0;
+                        if (this.afC > this.afB || i4 == i5) {
+                            this.afC = 0;
                             handler.sendMessage(handler.obtainMessage(i, i4, i5));
                         }
                     }
                 }
             }, true);
         } catch (Exception e) {
-            this.afG.vK().vo = -10;
-            this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.neterror) + " detailException:" + e.getMessage();
+            this.afu.vD().vp = -10;
+            this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.neterror) + " detailException:" + e.getMessage();
             BdLog.e(e.getMessage());
             return false;
         } catch (OutOfMemoryError e2) {
-            this.afG.vK().vo = -15;
-            this.afG.vK().mErrorString = this.mContext.getResources().getString(d.l.memoryerror);
+            this.afu.vD().vp = -15;
+            this.afu.vD().mErrorString = this.mContext.getResources().getString(d.l.memoryerror);
             BdLog.e(e2.getMessage());
             return false;
         } finally {
-            TiebaStatic.net(this.afG);
+            TiebaStatic.net(this.afu);
         }
     }
 
     @Override // com.baidu.tbadk.core.util.q
-    public ArrayList<BasicNameValuePair> uo() {
-        return this.afG.vJ().vM().aik;
+    public ArrayList<BasicNameValuePair> uh() {
+        return this.afu.vC().vF().ahY;
     }
 
     @Override // com.baidu.tbadk.core.util.q
     public void k(ArrayList<BasicNameValuePair> arrayList) {
-        if (this.afG.vJ().vM().aik != null) {
-            this.afG.vJ().vM().aik.clear();
+        if (this.afu.vC().vF().ahY != null) {
+            this.afu.vC().vF().ahY.clear();
         }
         int i = 0;
         while (true) {
@@ -595,33 +595,33 @@ public class y implements q {
 
     @Override // com.baidu.tbadk.core.util.q
     public void d(String str, byte[] bArr) {
-        if (this.afG.vJ().vM().ail == null) {
-            this.afG.vJ().vM().ail = new HashMap<>();
+        if (this.afu.vC().vF().ahZ == null) {
+            this.afu.vC().vF().ahZ = new HashMap<>();
         }
-        this.afG.vJ().vM().ail.put(str, bArr);
+        this.afu.vC().vF().ahZ.put(str, bArr);
     }
 
     @Override // com.baidu.tbadk.core.util.q
     public void a(BasicNameValuePair basicNameValuePair) {
         if (basicNameValuePair != null && basicNameValuePair.getName() != null) {
-            if (this.afG.vJ().vM().aik == null) {
-                this.afG.vJ().vM().aik = new ArrayList<>();
+            if (this.afu.vC().vF().ahY == null) {
+                this.afu.vC().vF().ahY = new ArrayList<>();
             }
-            int b = b(this.afG.vJ().vM().aik, basicNameValuePair.getName());
-            int size = this.afG.vJ().vM().aik.size();
-            if (b >= 0 && b < size) {
-                if (basicNameValuePair.getName().equals(this.afG.vJ().vM().aik.get(b).getName())) {
-                    this.afG.vJ().vM().aik.set(b, basicNameValuePair);
+            int c = c(this.afu.vC().vF().ahY, basicNameValuePair.getName());
+            int size = this.afu.vC().vF().ahY.size();
+            if (c >= 0 && c < size) {
+                if (basicNameValuePair.getName().equals(this.afu.vC().vF().ahY.get(c).getName())) {
+                    this.afu.vC().vF().ahY.set(c, basicNameValuePair);
                 } else {
-                    this.afG.vJ().vM().aik.add(b, basicNameValuePair);
+                    this.afu.vC().vF().ahY.add(c, basicNameValuePair);
                 }
-            } else if (b == size) {
-                this.afG.vJ().vM().aik.add(b, basicNameValuePair);
+            } else if (c == size) {
+                this.afu.vC().vF().ahY.add(c, basicNameValuePair);
             }
         }
     }
 
-    private int b(ArrayList<BasicNameValuePair> arrayList, String str) {
+    private int c(ArrayList<BasicNameValuePair> arrayList, String str) {
         int i = 0;
         if (arrayList == null || str == null) {
             return -1;
@@ -646,14 +646,14 @@ public class y implements q {
         return i >= size ? size : i2;
     }
 
-    private LinkedList<BasicNameValuePair> uW() {
-        if (this.afG != null) {
+    private LinkedList<BasicNameValuePair> uP() {
+        if (this.afu != null) {
             LinkedList<BasicNameValuePair> linkedList = new LinkedList<>();
-            if (!TextUtils.isEmpty(this.afG.vJ().vM().aip)) {
-                linkedList.add(new BasicNameValuePair("sid", this.afG.vJ().vM().aip));
+            if (!TextUtils.isEmpty(this.afu.vC().vF().aid)) {
+                linkedList.add(new BasicNameValuePair("sid", this.afu.vC().vF().aid));
             }
-            if (!TextUtils.isEmpty(this.afG.vJ().vM().mNetType)) {
-                linkedList.add(new BasicNameValuePair("net", this.afG.vJ().vM().mNetType));
+            if (!TextUtils.isEmpty(this.afu.vC().vF().mNetType)) {
+                linkedList.add(new BasicNameValuePair("net", this.afu.vC().vF().mNetType));
                 return linkedList;
             }
             return linkedList;

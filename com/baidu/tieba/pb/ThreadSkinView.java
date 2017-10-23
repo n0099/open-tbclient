@@ -16,8 +16,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo ewr;
-    private a.C0126a ews;
+    private SkinInfo ewd;
+    private a.C0126a ewe;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -45,16 +45,16 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.ewr != skinInfo && c0126a != null) {
-            this.ews = c0126a;
-            this.ews.dH("action_type");
-            this.ews.ce("obj_id", skinInfo.obj_id);
-            this.ews.ce("obj_url", skinInfo.url);
-            this.ews.ce("obj_name", skinInfo.monitor_id);
-            this.ews.ce("action_type", "VIEW_TRUE");
-            this.ews.save();
+        if (this.ewd != skinInfo && c0126a != null) {
+            this.ewe = c0126a;
+            this.ewe.dG("action_type");
+            this.ewe.cd("obj_id", skinInfo.obj_id);
+            this.ewe.cd("obj_url", skinInfo.url);
+            this.ewe.cd("obj_name", skinInfo.monitor_id);
+            this.ewe.cd("action_type", "VIEW_TRUE");
+            this.ewe.save();
         }
-        this.ewr = skinInfo;
+        this.ewd = skinInfo;
         int ad = l.ad(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = ad;
@@ -81,13 +81,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ewr != null && !StringUtils.isNull(this.ewr.url)) {
-            if (this.ews != null) {
-                this.ews.dH("action_type");
-                this.ews.ce("action_type", "CLICK");
-                this.ews.save();
+        if (this.ewd != null && !StringUtils.isNull(this.ewd.url)) {
+            if (this.ewe != null) {
+                this.ewe.dG("action_type");
+                this.ewe.cd("action_type", "CLICK");
+                this.ewe.save();
             }
-            av.vH().c(this.mTbPageContext, new String[]{this.ewr.url});
+            av.vA().c(this.mTbPageContext, new String[]{this.ewd.url});
         }
     }
 }

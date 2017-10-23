@@ -8,51 +8,51 @@ import com.baidu.tbadk.core.util.av;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ar {
-    private static ar eLV = null;
+    private static ar eLH = null;
 
-    public static ar aRY() {
-        if (eLV == null) {
+    public static ar aRT() {
+        if (eLH == null) {
             synchronized (ar.class) {
-                if (eLV == null) {
-                    eLV = new ar();
+                if (eLH == null) {
+                    eLH = new ar();
                 }
             }
         }
-        return eLV;
+        return eLH;
     }
 
     public void f(TbPageContext tbPageContext, String str) {
         if (tbPageContext != null && !TextUtils.isEmpty(str)) {
             if (str.contains("is_native_app=1")) {
             }
-            if (pa(str)) {
+            if (oZ(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (pb(str)) {
-                av.vH().a(tbPageContext, new String[]{str}, true);
+            } else if (pa(str)) {
+                av.vA().a(tbPageContext, new String[]{str}, true);
             } else {
-                av.vH().c(tbPageContext, new String[]{str});
+                av.vA().c(tbPageContext, new String[]{str});
             }
         }
     }
 
-    public static boolean oZ(String str) {
+    public static boolean oY(String str) {
         return str != null && str.contains("bookcover:");
     }
 
-    private boolean pa(String str) {
-        Map<String, String> dT;
-        if (!TextUtils.isEmpty(str) && (dT = av.dT(av.dU(str))) != null) {
-            String str2 = dT.get("url");
+    private boolean oZ(String str) {
+        Map<String, String> dS;
+        if (!TextUtils.isEmpty(str) && (dS = av.dS(av.dT(str))) != null) {
+            String str2 = dS.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return pa(com.baidu.adp.lib.util.k.aO(str2));
+                return oZ(com.baidu.adp.lib.util.k.aO(str2));
             }
-            String str3 = dT.get("tbgametype");
+            String str3 = dS.get("tbgametype");
             return !TextUtils.isEmpty(str3) && str3.equals("1");
         }
         return false;
     }
 
-    private boolean pb(String str) {
+    private boolean pa(String str) {
         return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

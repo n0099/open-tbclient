@@ -5,7 +5,7 @@ import com.baidu.sofire.rp.f.b;
 import com.baidu.sofire.rp.f.c;
 /* loaded from: classes.dex */
 public class Report {
-    private static Report Qf;
+    private static Report PT;
     private Context b;
 
     private Report(Context context) {
@@ -15,10 +15,10 @@ public class Report {
     public static synchronized Report getInstance(Context context) {
         Report report;
         synchronized (Report.class) {
-            if (Qf == null) {
-                Qf = new Report(context);
+            if (PT == null) {
+                PT = new Report(context);
             }
-            report = Qf;
+            report = PT;
         }
         return report;
     }
@@ -42,7 +42,7 @@ public class Report {
 
     public void r(boolean z) {
         try {
-            c.av(this.b).a();
+            c.au(this.b).a();
         } catch (Throwable th) {
             b.a();
         }
@@ -66,7 +66,7 @@ public class Report {
 
     public void n() {
         try {
-            c.av(this.b).e();
+            c.au(this.b).e();
         } catch (Throwable th) {
             b.a();
         }
@@ -74,7 +74,7 @@ public class Report {
 
     public void fr() {
         try {
-            c.av(this.b).f();
+            c.au(this.b).f();
         } catch (Throwable th) {
             b.a();
         }

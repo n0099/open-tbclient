@@ -31,13 +31,13 @@ public class EnterForumModel extends BdBaseModel {
     public static final int TYPE_DB = 0;
     public static final int TYPE_DEFAULT = -1;
     public static final int TYPE_NET = 1;
-    private long cdA;
-    private long cdB;
-    private long cdC;
-    private long cdD;
-    private com.baidu.tieba.enterForum.b.b cdx;
-    private b cdy;
-    private com.baidu.tieba.tbadkCore.d.b cdz;
+    private com.baidu.tieba.enterForum.b.b cdl;
+    private b cdm;
+    private com.baidu.tieba.tbadkCore.d.b cdn;
+    private long cdo;
+    private long cdp;
+    private long cdq;
+    private long cdr;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -47,9 +47,9 @@ public class EnterForumModel extends BdBaseModel {
     /* loaded from: classes.dex */
     public class a {
         public String error = "";
-        public boolean cdF = false;
+        public boolean cdt = false;
         public int type = -1;
-        public com.baidu.tieba.enterForum.b.b cdG = null;
+        public com.baidu.tieba.enterForum.b.b cdu = null;
 
         public a() {
         }
@@ -57,13 +57,13 @@ public class EnterForumModel extends BdBaseModel {
 
     public EnterForumModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.cdx = null;
-        this.cdy = null;
-        this.cdz = null;
-        this.cdA = 0L;
-        this.cdB = 0L;
-        this.cdC = 0L;
-        this.cdD = 0L;
+        this.cdl = null;
+        this.cdm = null;
+        this.cdn = null;
+        this.cdo = 0L;
+        this.cdp = 0L;
+        this.cdq = 0L;
+        this.cdr = 0L;
         setUniqueId(BdUniqueId.gen());
     }
 
@@ -72,32 +72,32 @@ public class EnterForumModel extends BdBaseModel {
         return this.unique_id;
     }
 
-    public long ade() {
-        return this.cdD;
+    public long ada() {
+        return this.cdr;
     }
 
-    public long adf() {
-        return this.cdB;
+    public long adb() {
+        return this.cdp;
     }
 
-    public long adg() {
-        return this.cdC;
+    public long adc() {
+        return this.cdq;
     }
 
-    public long adh() {
-        return this.cdA;
+    public long add() {
+        return this.cdo;
     }
 
-    public com.baidu.tieba.enterForum.b.b adi() {
-        return this.cdx;
+    public com.baidu.tieba.enterForum.b.b ade() {
+        return this.cdl;
     }
 
     public void c(com.baidu.tieba.enterForum.b.b bVar) {
-        this.cdx = bVar;
+        this.cdl = bVar;
     }
 
     public void a(b bVar) {
-        this.cdy = bVar;
+        this.cdm = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -108,59 +108,59 @@ public class EnterForumModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         cancelMessage();
-        adj();
+        adf();
         return true;
     }
 
-    private void adj() {
-        if (this.cdz != null) {
-            this.cdz.destory();
-            this.cdz = null;
+    private void adf() {
+        if (this.cdn != null) {
+            this.cdn.destory();
+            this.cdn = null;
         }
     }
 
-    public boolean ei(boolean z) {
+    public boolean eh(boolean z) {
         cancelLoadData();
         forumRecommendRequestMessage forumrecommendrequestmessage = new forumRecommendRequestMessage();
         forumrecommendrequestmessage.set_like_forum(Integer.valueOf(z ? 1 : 0));
         forumrecommendrequestmessage.set_topic(0);
         forumrecommendrequestmessage.set_recommend(1);
-        this.cdA = System.currentTimeMillis();
-        if (this.cdz == null) {
-            this.cdz = new com.baidu.tieba.tbadkCore.d.b("forumrecommendStat");
+        this.cdo = System.currentTimeMillis();
+        if (this.cdn == null) {
+            this.cdn = new com.baidu.tieba.tbadkCore.d.b("forumrecommendStat");
         }
         sendMessage(forumrecommendrequestmessage);
         return true;
     }
 
-    public boolean ej(boolean z) {
-        adk();
+    public boolean ei(boolean z) {
+        adg();
         return true;
     }
 
     public void a(boolean z, int i, String str, boolean z2, int i2, long j, long j2) {
         a aVar = new a();
         boolean z3 = !z;
-        if (this.cdz != null) {
-            this.cdz.a(z2, z3, i, str, i2, j, j2);
-            this.cdz = null;
+        if (this.cdn != null) {
+            this.cdn.a(z2, z3, i, str, i2, j, j2);
+            this.cdn = null;
         }
-        this.cdx.ed(false);
-        if (z || !this.cdx.isSuccess()) {
+        this.cdl.ec(false);
+        if (z || !this.cdl.isSuccess()) {
             if (str != null && str.length() > 0) {
                 setErrorString(str);
                 aVar.error = str;
             }
             aVar.type = 1;
-            aVar.cdF = false;
-            aVar.cdG = this.cdx;
-            this.cdy.a(aVar);
+            aVar.cdt = false;
+            aVar.cdu = this.cdl;
+            this.cdm.a(aVar);
             return;
         }
         aVar.type = 1;
-        aVar.cdF = true;
-        aVar.cdG = this.cdx;
-        this.cdy.a(aVar);
+        aVar.cdt = true;
+        aVar.cdu = this.cdl;
+        this.cdm.a(aVar);
     }
 
     public void a(forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage) {
@@ -189,7 +189,7 @@ public class EnterForumModel extends BdBaseModel {
 
     public void a(ResponsedMessage<?> responsedMessage, boolean z, int i, String str, boolean z2, int i2, long j, long j2) {
         if (z) {
-            this.cdx = null;
+            this.cdl = null;
         }
         if (responsedMessage != null) {
             if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
@@ -204,26 +204,26 @@ public class EnterForumModel extends BdBaseModel {
     public void b(forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage) {
         if (forumrecommendhttpresponsemessage != null) {
             try {
-                this.cdx = new com.baidu.tieba.enterForum.b.b();
-                this.cdx.setTime(forumrecommendhttpresponsemessage.GetTime().intValue());
-                this.cdx.iy(forumrecommendhttpresponsemessage.GetMsignValid().intValue());
-                this.cdx.jL(forumrecommendhttpresponsemessage.GetMsignText());
-                this.cdx.iz(forumrecommendhttpresponsemessage.GetMsignLevel().intValue());
-                this.cdx.setIsMem(forumrecommendhttpresponsemessage.GetIsMem().intValue());
-                this.cdx.ix(forumrecommendhttpresponsemessage.GetIsLogin().intValue());
-                this.cdx.ed(false);
+                this.cdl = new com.baidu.tieba.enterForum.b.b();
+                this.cdl.setTime(forumrecommendhttpresponsemessage.GetTime().intValue());
+                this.cdl.ix(forumrecommendhttpresponsemessage.GetMsignValid().intValue());
+                this.cdl.jK(forumrecommendhttpresponsemessage.GetMsignText());
+                this.cdl.iy(forumrecommendhttpresponsemessage.GetMsignLevel().intValue());
+                this.cdl.setIsMem(forumrecommendhttpresponsemessage.GetIsMem().intValue());
+                this.cdl.iw(forumrecommendhttpresponsemessage.GetIsLogin().intValue());
+                this.cdl.ec(false);
                 h hVar = new h();
                 hVar.setLevel(forumrecommendhttpresponsemessage.GetMsignLevel().intValue());
                 hVar.an(forumrecommendhttpresponsemessage.GetLikeForum());
-                this.cdx.a(hVar);
+                this.cdl.a(hVar);
                 k kVar = new k();
                 kVar.ao(forumrecommendhttpresponsemessage.GetRecommendForumInfoList());
-                this.cdx.a(kVar);
-                this.cdx.am(aq(forumrecommendhttpresponsemessage.getRecommendConcernForums()));
-                this.cdx.ay(true);
-                this.cdx.a(forumrecommendhttpresponsemessage.getHotSearchInfoData());
+                this.cdl.a(kVar);
+                this.cdl.am(aq(forumrecommendhttpresponsemessage.getRecommendConcernForums()));
+                this.cdl.ax(true);
+                this.cdl.a(forumrecommendhttpresponsemessage.getHotSearchInfoData());
             } catch (Exception e) {
-                this.cdx.ay(false);
+                this.cdl.ax(false);
                 BdLog.e(e.getMessage());
             }
         }
@@ -264,54 +264,54 @@ public class EnterForumModel extends BdBaseModel {
     public void b(forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage) {
         if (forumrecommendsocketresponsemessage != null) {
             try {
-                this.cdx = new com.baidu.tieba.enterForum.b.b();
-                this.cdx.setTime(forumrecommendsocketresponsemessage.GetTime().intValue());
-                this.cdx.iy(forumrecommendsocketresponsemessage.GetMsignValid().intValue());
-                this.cdx.jL(forumrecommendsocketresponsemessage.GetMsignText());
-                this.cdx.iz(forumrecommendsocketresponsemessage.GetMsignLevel().intValue());
-                this.cdx.setIsMem(forumrecommendsocketresponsemessage.GetIsMem().intValue());
-                this.cdx.ix(forumrecommendsocketresponsemessage.GetIsLogin().intValue());
-                this.cdx.ed(false);
+                this.cdl = new com.baidu.tieba.enterForum.b.b();
+                this.cdl.setTime(forumrecommendsocketresponsemessage.GetTime().intValue());
+                this.cdl.ix(forumrecommendsocketresponsemessage.GetMsignValid().intValue());
+                this.cdl.jK(forumrecommendsocketresponsemessage.GetMsignText());
+                this.cdl.iy(forumrecommendsocketresponsemessage.GetMsignLevel().intValue());
+                this.cdl.setIsMem(forumrecommendsocketresponsemessage.GetIsMem().intValue());
+                this.cdl.iw(forumrecommendsocketresponsemessage.GetIsLogin().intValue());
+                this.cdl.ec(false);
                 h hVar = new h();
                 hVar.setLevel(forumrecommendsocketresponsemessage.GetMsignLevel().intValue());
                 hVar.an(forumrecommendsocketresponsemessage.GetLikeForum());
-                this.cdx.a(hVar);
+                this.cdl.a(hVar);
                 k kVar = new k();
                 kVar.ao(forumrecommendsocketresponsemessage.GetRecommendForumInfoList());
-                this.cdx.a(kVar);
-                this.cdx.am(aq(forumrecommendsocketresponsemessage.getRecommendConcernForums()));
-                this.cdx.ay(true);
-                this.cdx.a(forumrecommendsocketresponsemessage.getHotSearchInfoData());
+                this.cdl.a(kVar);
+                this.cdl.am(aq(forumrecommendsocketresponsemessage.getRecommendConcernForums()));
+                this.cdl.ax(true);
+                this.cdl.a(forumrecommendsocketresponsemessage.getHotSearchInfoData());
             } catch (Exception e) {
-                this.cdx.ay(false);
+                this.cdl.ax(false);
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private void adk() {
+    private void adg() {
         new BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b>() { // from class: com.baidu.tieba.enterForum.model.EnterForumModel.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: d */
+            /* renamed from: e */
             public com.baidu.tieba.enterForum.b.b doInBackground(Void... voidArr) {
-                l<byte[]> N = com.baidu.tbadk.core.c.a.te().N("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
+                l<byte[]> M = com.baidu.tbadk.core.c.a.sX().M("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
                 com.baidu.tieba.enterForum.b.b bVar = new com.baidu.tieba.enterForum.b.b();
-                byte[] bArr = N.get(EnterForumModel.FORUMRECOMMEND_CACHE_KEY);
+                byte[] bArr = M.get(EnterForumModel.FORUMRECOMMEND_CACHE_KEY);
                 if (bArr != null) {
-                    bVar.ay(true);
+                    bVar.ax(true);
                     try {
                         ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
                         if (forumRecommendResIdl.data != null) {
                             bVar.a(forumRecommendResIdl.data);
-                            bVar.ed(true);
+                            bVar.ec(true);
                         }
                     } catch (Exception e) {
-                        bVar.ay(false);
+                        bVar.ax(false);
                     }
-                    if (bVar.isSuccess() && !bVar.acE()) {
-                        bVar.acC().acJ();
+                    if (bVar.isSuccess() && !bVar.acA()) {
+                        bVar.acy().acF();
                     }
                 }
                 return bVar;
@@ -326,13 +326,13 @@ public class EnterForumModel extends BdBaseModel {
                 a aVar = new a();
                 aVar.type = 0;
                 if (bVar != null && bVar.isSuccess()) {
-                    aVar.cdF = true;
-                    aVar.cdG = bVar;
+                    aVar.cdt = true;
+                    aVar.cdu = bVar;
                 } else {
-                    aVar.cdF = false;
-                    aVar.cdG = bVar;
+                    aVar.cdt = false;
+                    aVar.cdu = bVar;
                 }
-                EnterForumModel.this.cdy.a(aVar);
+                EnterForumModel.this.cdm.a(aVar);
             }
         }.execute(new Void[0]);
     }

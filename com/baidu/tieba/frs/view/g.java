@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.view.userLike.PbFirstFloorUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends LinearLayout {
-    private TextView anF;
-    private ClickableHeaderImageView cKB;
-    private PbFirstFloorUserLikeButton cKC;
-    private TextView cKD;
+    private TextView ant;
+    private ClickableHeaderImageView cKp;
+    private PbFirstFloorUserLikeButton cKq;
+    private TextView cKr;
     private boolean isGod;
     private int mSkinType;
 
@@ -31,17 +31,17 @@ public class g extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.j.frs_user_recommend_item, (ViewGroup) this, true);
-        this.cKB = (ClickableHeaderImageView) findViewById(d.h.user_recommend_head);
-        this.cKB.setAutoChangeStyle(true);
-        this.cKB.setDefaultResource(17170445);
-        this.cKB.setDefaultErrorResource(d.g.icon_default_avatar100);
-        this.cKB.setDefaultBgResource(d.e.cp_bg_line_e);
-        this.cKB.setIsRound(true);
-        this.cKB.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.cKC = (PbFirstFloorUserLikeButton) findViewById(d.h.user_recommend_like_btn);
-        this.cKC.setGravity(17);
-        this.anF = (TextView) findViewById(d.h.user_recommend_username);
-        this.cKD = (TextView) findViewById(d.h.user_recommend_fans_num);
+        this.cKp = (ClickableHeaderImageView) findViewById(d.h.user_recommend_head);
+        this.cKp.setAutoChangeStyle(true);
+        this.cKp.setDefaultResource(17170445);
+        this.cKp.setDefaultErrorResource(d.g.icon_default_avatar100);
+        this.cKp.setDefaultBgResource(d.e.cp_bg_line_e);
+        this.cKp.setIsRound(true);
+        this.cKp.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.cKq = (PbFirstFloorUserLikeButton) findViewById(d.h.user_recommend_like_btn);
+        this.cKq.setGravity(17);
+        this.ant = (TextView) findViewById(d.h.user_recommend_username);
+        this.cKr = (TextView) findViewById(d.h.user_recommend_fans_num);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -49,7 +49,7 @@ public class g extends LinearLayout {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.cKB.onClick(g.this.cKB);
+                g.this.cKp.onClick(g.this.cKp);
             }
         });
     }
@@ -58,9 +58,9 @@ public class g extends LinearLayout {
         if (this.isGod != z) {
             this.isGod = z;
             if (z) {
-                this.anF.setTextColor(aj.getColor(this.mSkinType, d.e.cp_cont_r));
+                this.ant.setTextColor(aj.getColor(this.mSkinType, d.e.cp_cont_r));
             } else {
-                this.anF.setTextColor(aj.getColor(this.mSkinType, d.e.cp_cont_b));
+                this.ant.setTextColor(aj.getColor(this.mSkinType, d.e.cp_cont_b));
             }
         }
     }
@@ -68,30 +68,30 @@ public class g extends LinearLayout {
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.cKD.setTextColor(aj.getColor(i, d.e.cp_cont_d));
+            this.cKr.setTextColor(aj.getColor(i, d.e.cp_cont_d));
             if (this.isGod) {
-                this.anF.setTextColor(aj.getColor(i, d.e.cp_cont_r));
+                this.ant.setTextColor(aj.getColor(i, d.e.cp_cont_r));
             } else {
-                this.anF.setTextColor(aj.getColor(i, d.e.cp_cont_b));
+                this.ant.setTextColor(aj.getColor(i, d.e.cp_cont_b));
             }
             setBackgroundColor(aj.getColor(i, d.e.cp_bg_line_d));
-            this.cKC.onChangeSkinType(i);
+            this.cKq.onChangeSkinType(i);
         }
     }
 
     public ClickableHeaderImageView getHeaderView() {
-        return this.cKB;
+        return this.cKp;
     }
 
     public CommonUserLikeButton getLikeBtn() {
-        return this.cKC;
+        return this.cKq;
     }
 
     public TextView getUsername() {
-        return this.anF;
+        return this.ant;
     }
 
     public TextView getFansNum() {
-        return this.cKD;
+        return this.cKr;
     }
 }

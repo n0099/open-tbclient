@@ -14,7 +14,7 @@ public final class g {
 
     public static String a(Context context, String str, String str2) {
         char c;
-        ApkInfo bT;
+        ApkInfo bS;
         String[] split;
         try {
             if (str.contains(a[0])) {
@@ -24,8 +24,8 @@ public final class g {
             }
             switch (c) {
                 case 1:
-                    String str3 = str + "\r\n{libpath=" + bT.libPath + "}";
-                    for (String str4 : com.baidu.sofire.core.e.nr().bT(str2).libPath.split(":")) {
+                    String str3 = str + "\r\n{libpath=" + bS.libPath + "}";
+                    for (String str4 : com.baidu.sofire.core.e.nk().bS(str2).libPath.split(":")) {
                         if (str4.startsWith("/data/data/")) {
                             File file = new File(str4);
                             if (!file.exists()) {

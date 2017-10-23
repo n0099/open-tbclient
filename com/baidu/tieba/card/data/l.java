@@ -7,30 +7,30 @@ import com.baidu.tbadk.core.util.v;
 /* loaded from: classes.dex */
 public class l extends c {
     public bh threadData;
-    public static String bNt = "";
-    public static String bNu = "";
-    public static String bNv = "";
-    public static String bNw = "";
-    public static String bNx = "";
-    public static String bNy = "";
-    public static String bNz = "";
-    public static String bNA = "";
-    public static String bNB = "";
-    public static String bNC = "";
-    public static String bND = "";
+    public static String bNh = "";
+    public static String bNi = "";
+    public static String bNj = "";
+    public static String bNk = "";
+    public static String bNl = "";
+    public static String bNm = "";
+    public static String bNn = "";
+    public static String bNo = "";
+    public static String bNp = "";
+    public static String bNq = "";
+    public static String bNr = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId bNE = BdUniqueId.gen();
-    public static final BdUniqueId Yj = BdUniqueId.gen();
-    public boolean bNF = false;
+    public static final BdUniqueId bNs = BdUniqueId.gen();
+    public static final BdUniqueId XX = BdUniqueId.gen();
+    public boolean bNt = false;
     public boolean isLinkThread = false;
-    public boolean bNG = false;
-    public boolean aCa = true;
+    public boolean bNu = false;
+    public boolean aBN = true;
 
     public static boolean A(bh bhVar) {
         if (bhVar == null) {
             return false;
         }
-        return bhVar.getType() == bh.Yi || bhVar.getType() == bh.Yk || bhVar.getType() == bh.Yj;
+        return bhVar.getType() == bh.XW || bhVar.getType() == bh.XY || bhVar.getType() == bh.XX;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
@@ -38,136 +38,136 @@ public class l extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.bNF) {
-            return bNE;
+        if (this.bNt) {
+            return bNs;
         }
         if (this.isLinkThread) {
-            return Yj;
+            return XX;
         }
         return TYPE;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bh Nj() {
+    public bh Nd() {
         return this.threadData;
     }
 
-    public boolean Yc() {
-        return (this.threadData == null || v.t(this.threadData.rJ()) == 0) ? false : true;
+    public boolean XY() {
+        return (this.threadData == null || v.t(this.threadData.rC()) == 0) ? false : true;
     }
 
-    public ak Yd() {
-        if (Yc()) {
-            ak js = js(bNy);
-            if (js != null && Nj() != null) {
-                bh Nj = Nj();
-                js.r("obj_name", Nj.sL() != null && (Nj.sL().aCd() != null || Nj.sL().IL() != null) ? 1 : 0);
+    public ak XZ() {
+        if (XY()) {
+            ak jr = jr(bNm);
+            if (jr != null && Nd() != null) {
+                bh Nd = Nd();
+                jr.r("obj_name", Nd.sE() != null && (Nd.sE().aBY() != null || Nd.sE().IF() != null) ? 1 : 0);
             }
-            return js;
+            return jr;
         }
-        ak js2 = js(bNt);
-        if (js2 != null) {
-            js2.ad("ab_tag", XW()).ad("ab_action", "show");
-            if (Nj() != null) {
-                bh Nj2 = Nj();
-                boolean z = (Nj2.sL() == null || (Nj2.sL().aCd() == null && Nj2.sL().IL() == null)) ? false : true;
-                js2.r("obj_name", z ? 1 : 0);
-                if (z && Nj2.sL().aCd() != null && Nj2.sL().aCd().ID() != null && Nj2.sL().aCd().ID().size() > 0) {
-                    js2.r("obj_to", Nj2.sL().ght ? 2 : 1);
+        ak jr2 = jr(bNh);
+        if (jr2 != null) {
+            jr2.ac("ab_tag", XS()).ac("ab_action", "show");
+            if (Nd() != null) {
+                bh Nd2 = Nd();
+                boolean z = (Nd2.sE() == null || (Nd2.sE().aBY() == null && Nd2.sE().IF() == null)) ? false : true;
+                jr2.r("obj_name", z ? 1 : 0);
+                if (z && Nd2.sE().aBY() != null && Nd2.sE().aBY().Ix() != null && Nd2.sE().aBY().Ix().size() > 0) {
+                    jr2.r("obj_to", Nd2.sE().ghf ? 2 : 1);
                 }
             }
         }
-        return js2;
+        return jr2;
     }
 
-    public ak ju(String str) {
+    public ak jt(String str) {
         ak akVar = new ak(str);
         if (akVar != null && this.threadData != null) {
             akVar.f("fid", this.threadData.getFid());
-            akVar.ad("tid", this.threadData.getTid());
+            akVar.ac("tid", this.threadData.getTid());
             akVar.r("obj_type", this.threadData.isLinkThread() ? 4 : 1);
-            akVar.ad("obj_id", this.threadData.getAuthor().getUserId());
+            akVar.ac("obj_id", this.threadData.getAuthor().getUserId());
         }
         return akVar;
     }
 
-    public ak jv(String str) {
-        ak js = js(str);
-        if (js != null) {
-            js.ad("ab_tag", XW()).ad("ab_action", "show");
-            if (Nj() != null) {
-                bh Nj = Nj();
-                boolean z = (Nj.sL() == null || (Nj.sL().aCd() == null && Nj.sL().IL() == null)) ? false : true;
-                js.r("obj_name", z ? 1 : 0);
-                if (z && Nj.sL().aCd() != null && Nj.sL().aCd().ID() != null && Nj.sL().aCd().ID().size() > 0) {
-                    js.r("obj_to", Nj.sL().ght ? 2 : 1);
+    public ak ju(String str) {
+        ak jr = jr(str);
+        if (jr != null) {
+            jr.ac("ab_tag", XS()).ac("ab_action", "show");
+            if (Nd() != null) {
+                bh Nd = Nd();
+                boolean z = (Nd.sE() == null || (Nd.sE().aBY() == null && Nd.sE().IF() == null)) ? false : true;
+                jr.r("obj_name", z ? 1 : 0);
+                if (z && Nd.sE().aBY() != null && Nd.sE().aBY().Ix() != null && Nd.sE().aBY().Ix().size() > 0) {
+                    jr.r("obj_to", Nd.sE().ghf ? 2 : 1);
                 }
             }
         }
-        return js;
+        return jr;
     }
 
-    public ak jw(String str) {
-        ak js = js(str);
-        if (js != null) {
-            js.ad("ab_tag", XW()).ad("ab_action", "click");
+    public ak jv(String str) {
+        ak jr = jr(str);
+        if (jr != null) {
+            jr.ac("ab_tag", XS()).ac("ab_action", "click");
         }
-        return js;
+        return jr;
     }
 
-    public ak Ye() {
-        if (Yc()) {
-            return js(bNz);
+    public ak Ya() {
+        if (XY()) {
+            return jr(bNn);
         }
-        ak js = js(bNu);
-        if (js != null) {
-            js.ad("ab_tag", XW()).ad("ab_action", "click");
-            return js;
+        ak jr = jr(bNi);
+        if (jr != null) {
+            jr.ac("ab_tag", XS()).ac("ab_action", "click");
+            return jr;
         }
-        return js;
+        return jr;
     }
 
-    public ak Yf() {
-        if (Yc()) {
-            return js(bNA);
+    public ak Yb() {
+        if (XY()) {
+            return jr(bNo);
         }
-        ak J = J(bNv, 0);
+        ak J = J(bNj, 0);
         if (J != null) {
-            J.ad("ab_tag", XW()).ad("ab_action", "click");
+            J.ac("ab_tag", XS()).ac("ab_action", "click");
             return J;
         }
         return J;
     }
 
-    public ak Yg() {
-        if (Yc()) {
-            return js(bNB);
+    public ak Yc() {
+        if (XY()) {
+            return jr(bNp);
         }
-        ak js = js(bNw);
-        if (js != null) {
-            js.ad("ab_tag", XW()).ad("ab_action", "click");
-            return js;
+        ak jr = jr(bNk);
+        if (jr != null) {
+            jr.ac("ab_tag", XS()).ac("ab_action", "click");
+            return jr;
         }
-        return js;
+        return jr;
     }
 
-    public ak Yh() {
-        if (Yc()) {
-            return js(bNC);
+    public ak Yd() {
+        if (XY()) {
+            return jr(bNq);
         }
-        ak js = js(bNx);
-        if (js != null) {
-            js.ad("ab_tag", XW()).ad("ab_action", "click");
-            return js;
+        ak jr = jr(bNl);
+        if (jr != null) {
+            jr.ac("ab_tag", XS()).ac("ab_action", "click");
+            return jr;
         }
-        return js;
+        return jr;
     }
 
-    public ak Yi() {
-        return js(bND);
+    public ak Ye() {
+        return jr(bNr);
     }
 
-    public ak jx(String str) {
-        return js(str);
+    public ak jw(String str) {
+        return jr(str);
     }
 }

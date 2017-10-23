@@ -17,5 +17,5 @@ public interface b {
 
     void ar(View view);
 
-    boolean jq(int i);
+    boolean jp(int i);
 }

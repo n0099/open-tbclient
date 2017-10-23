@@ -19,7 +19,7 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aI */
     public e.a<MsgReplyCardView> onCreateViewHolder(ViewGroup viewGroup) {
-        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.mG);
+        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.mH);
         return new a(msgReplyCardView.cf(), msgReplyCardView);
     }
 
@@ -29,12 +29,12 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgReplyCardView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgReplyCardView asZ = aVar.asZ();
-        asZ.a(this.mG, chatMessage, viewGroup);
-        asZ.a(this.dmR);
-        asZ.setPosition(i);
-        this.mG.getLayoutMode().ai(false);
-        this.mG.getLayoutMode().t(view);
+        MsgReplyCardView asU = aVar.asU();
+        asU.a(this.mH, chatMessage, viewGroup);
+        asU.a(this.dmE);
+        asU.setPosition(i);
+        this.mH.getLayoutMode().ah(false);
+        this.mH.getLayoutMode().t(view);
         return view;
     }
 

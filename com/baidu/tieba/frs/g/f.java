@@ -15,7 +15,7 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
     public static boolean a(com.baidu.tieba.frs.f fVar, String str, String str2, boolean z) {
-        if (z && fVar != null && !TextUtils.isEmpty(str) && fVar.isAdded() && i.aj(TbadkCoreApplication.getInst().getApplicationContext(), fVar.getActivity().getClass().getName())) {
+        if (z && fVar != null && !TextUtils.isEmpty(str) && fVar.isAdded() && i.ae(TbadkCoreApplication.getInst().getApplicationContext(), fVar.getActivity().getClass().getName())) {
             Intent intent = new Intent();
             intent.putExtra("class", 2);
             intent.putExtra(ImageViewerConfig.FORUM_NAME, str);
@@ -28,15 +28,15 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(com.baidu.tieba.frs.f fVar, String str) {
-        Intent ai;
-        if (!TextUtils.isEmpty(str) && fVar != null && fVar.agR() != null && (ai = i.ai(fVar.getPageContext().getPageActivity(), str)) != null) {
+        Intent ad;
+        if (!TextUtils.isEmpty(str) && fVar != null && fVar.agM() != null && (ad = i.ad(fVar.getPageContext().getPageActivity(), str)) != null) {
             Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
             intent.putExtra("duplicate", false);
             intent.putExtra("android.intent.extra.shortcut.NAME", str + fVar.getPageContext().getString(d.l.forum));
-            intent.putExtra("android.intent.extra.shortcut.INTENT", ai);
-            BarImageView ama = fVar.agR().ama();
-            if (ama != null && ama.getBdImage() != null && ama.getBdImage().kN() != null) {
-                Bitmap kN = ama.getBdImage().kN();
+            intent.putExtra("android.intent.extra.shortcut.INTENT", ad);
+            BarImageView alV = fVar.agM().alV();
+            if (alV != null && alV.getBdImage() != null && alV.getBdImage().kN() != null) {
+                Bitmap kN = alV.getBdImage().kN();
                 Float valueOf = Float.valueOf(fVar.getResources().getDisplayMetrics().density);
                 intent.putExtra("android.intent.extra.shortcut.ICON", com.baidu.adp.lib.util.d.gP().a(com.baidu.adp.lib.util.d.gP().resizeBitmap(kN, valueOf.intValue() * 48), valueOf.intValue() * 6));
             } else {
@@ -48,25 +48,25 @@ public class f {
 
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final WeakReference<com.baidu.tieba.frs.f> cHs;
+        private final WeakReference<com.baidu.tieba.frs.f> cHg;
         private final String name;
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            com.baidu.tieba.frs.f fVar = this.cHs.get();
+            com.baidu.tieba.frs.f fVar = this.cHg.get();
             if (fVar == null || fVar.getPageContext() == null) {
                 return false;
             }
-            return Boolean.valueOf(i.ak(fVar.getPageContext().getPageActivity(), this.name));
+            return Boolean.valueOf(i.af(fVar.getPageContext().getPageActivity(), this.name));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            com.baidu.tieba.frs.f fVar = this.cHs.get();
+            com.baidu.tieba.frs.f fVar = this.cHg.get();
             if (fVar != null) {
                 if (!bool.booleanValue()) {
                     f.a(fVar, this.name);

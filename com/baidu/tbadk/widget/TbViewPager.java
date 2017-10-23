@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbConfig;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private int HU;
-    private float aOk;
-    private boolean aoV;
+    private int HV;
+    private float aNX;
+    private boolean aoJ;
     private int mTouchSlop;
 
     /* loaded from: classes.dex */
@@ -25,12 +25,12 @@ public class TbViewPager extends ViewPager {
 
         @Override // android.widget.Scroller
         public void startScroll(int i, int i2, int i3, int i4, int i5) {
-            super.startScroll(i, i2, i3, i4, TbViewPager.this.HU);
+            super.startScroll(i, i2, i3, i4, TbViewPager.this.HV);
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i, int i2, int i3, int i4) {
-            super.startScroll(i, i2, i3, i4, TbViewPager.this.HU);
+            super.startScroll(i, i2, i3, i4, TbViewPager.this.HV);
         }
 
         public void b(ViewPager viewPager) {
@@ -45,25 +45,25 @@ public class TbViewPager extends ViewPager {
     }
 
     public void setViewPagerScroll(int i) {
-        this.HU = i;
+        this.HV = i;
         new a(getContext()).b(this);
     }
 
     public int getScrollingDuration() {
-        return this.HU;
+        return this.HV;
     }
 
     public TbViewPager(Context context) {
         super(context);
-        this.aoV = false;
-        this.HU = TbConfig.POST_IMAGE_SMALL;
+        this.aoJ = false;
+        this.HV = TbConfig.POST_IMAGE_SMALL;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aoV = false;
-        this.HU = TbConfig.POST_IMAGE_SMALL;
+        this.aoJ = false;
+        this.HV = TbConfig.POST_IMAGE_SMALL;
         init();
     }
 
@@ -73,7 +73,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.aoV = z;
+        this.aoJ = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -82,7 +82,7 @@ public class TbViewPager extends ViewPager {
         if (k(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.aoV) {
+        if (motionEvent.getPointerCount() > 1 && this.aoJ) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -109,30 +109,30 @@ public class TbViewPager extends ViewPager {
             case 0:
             case 5:
             case 6:
-                aR(true);
-                this.aOk = motionEvent.getX();
+                aQ(true);
+                this.aNX = motionEvent.getX();
                 break;
             case 1:
             case 3:
-                aR(false);
-                this.aOk = 0.0f;
+                aQ(false);
+                this.aNX = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.aOk;
+                float x = motionEvent.getX() - this.aNX;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
-                        aR(false);
+                        aQ(false);
                         break;
                     } else {
-                        aR(true);
+                        aQ(true);
                         break;
                     }
                 } else if (getCurrentItem() == getAdapter().getCount() - 1) {
                     if (x <= (-this.mTouchSlop)) {
-                        aR(false);
+                        aQ(false);
                         break;
                     } else {
-                        aR(true);
+                        aQ(true);
                         break;
                     }
                 }
@@ -153,7 +153,7 @@ public class TbViewPager extends ViewPager {
         return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
     }
 
-    private void aR(boolean z) {
+    private void aQ(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }

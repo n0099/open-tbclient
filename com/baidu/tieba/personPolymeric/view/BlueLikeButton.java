@@ -11,26 +11,26 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean fhE;
+    private boolean fhq;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.fhE = false;
+        this.fhq = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fhE = false;
+        this.fhq = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fhE = false;
+        this.fhq = false;
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void aP(boolean z) {
-        this.fhE = z;
+    public void aO(boolean z) {
+        this.fhq = z;
         if (z) {
             setText(d.l.followed);
             setBackgroundDrawable(aj.getDrawable(d.g.selector_like_button_gray_bg));
@@ -46,16 +46,16 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void i(boolean z, boolean z2) {
-        aP(z);
+        aO(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void dG(int i) {
+    public void dF(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void I(View view) {
-        TiebaStatic.log(new ak("c12503").ad("obj_locate", "4"));
+        TiebaStatic.log(new ak("c12503").ac("obj_locate", "4"));
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -65,7 +65,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
 
     public void onChangeSkinType(int i) {
         aj.c(this, d.e.cp_cont_i, 1);
-        if (this.fhE) {
+        if (this.fhq) {
             setBackgroundDrawable(aj.getDrawable(d.g.selector_like_button_gray_bg));
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             return;

@@ -17,7 +17,7 @@ public class Receiver extends BroadcastReceiver {
                 String action = intent.getAction();
                 if (!TextUtils.isEmpty(action)) {
                     if (action.equals("android.intent.action.BOOT_COMPLETED")) {
-                        c.av(context).a();
+                        c.au(context).a();
                     } else if (action.equals("com.b.r.p")) {
                         if (intent != null) {
                             a aVar = new a(context);
@@ -31,7 +31,7 @@ public class Receiver extends BroadcastReceiver {
                                 str = " 2" + Integer.toString(i);
                             }
                             com.baidu.sofire.rp.f.a.a(context, i * 3600000);
-                            c.av(context).c();
+                            c.au(context).c();
                         }
                     } else if (action.equals("android.intent.action.SCREEN_OFF")) {
                         com.baidu.sofire.rp.e.a.a = 2;

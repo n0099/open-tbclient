@@ -223,9 +223,9 @@ public final class b {
             jSONObject2.put("0", System.currentTimeMillis());
             jSONObject2.put("1", "0");
             jSONObject2.put("2", "0");
-            String[] au = au(context);
-            if (au != null && au.length == 2) {
-                jSONObject2.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, au[0]);
+            String[] at = at(context);
+            if (at != null && at.length == 2) {
+                jSONObject2.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, at[0]);
             } else {
                 jSONObject2.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, "");
             }
@@ -254,9 +254,9 @@ public final class b {
             jSONObject.put("0", System.currentTimeMillis());
             jSONObject.put("1", "0");
             jSONObject.put("2", "0");
-            String[] au = au(context);
-            if (au != null && au.length == 2) {
-                jSONObject.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, au[0]);
+            String[] at = at(context);
+            if (at != null && at.length == 2) {
+                jSONObject.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, at[0]);
             } else {
                 jSONObject.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, "");
             }
@@ -295,9 +295,9 @@ public final class b {
             jSONObject.put("0", System.currentTimeMillis());
             jSONObject.put("1", "0");
             jSONObject.put("2", "0");
-            String[] au = au(context);
-            if (au != null && au.length == 2) {
-                jSONObject.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, au[0]);
+            String[] at = at(context);
+            if (at != null && at.length == 2) {
+                jSONObject.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, at[0]);
             } else {
                 jSONObject.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, "");
             }
@@ -334,9 +334,9 @@ public final class b {
             jSONObject2.put("0", System.currentTimeMillis());
             jSONObject2.put("1", "0");
             jSONObject2.put("2", "0");
-            String[] au = au(context);
-            if (au != null && au.length == 2) {
-                jSONObject2.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, au[0]);
+            String[] at = at(context);
+            if (at != null && at.length == 2) {
+                jSONObject2.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, at[0]);
             } else {
                 jSONObject2.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, "");
             }
@@ -452,8 +452,8 @@ public final class b {
     public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
         int indexOf;
         com.baidu.sofire.rp.a.b bVar;
-        c.av(context).a();
-        c.av(context).d();
+        c.au(context).a();
+        c.au(context).d();
         com.baidu.sofire.rp.a.b bVar2 = new com.baidu.sofire.rp.a.b();
         bVar2.a = str;
         bVar2.b = str2;
@@ -469,17 +469,17 @@ public final class b {
                 aVar.a(bVar2);
             } else {
                 if (a2 != null && (indexOf = a2.indexOf(bVar2)) != -1 && (bVar = a2.get(indexOf)) != null) {
-                    aVar.Qh.putString("re_con", aVar.a.getString("re_con", "").replace(com.baidu.sofire.rp.a.b.b(bVar), com.baidu.sofire.rp.a.b.b(bVar2)));
-                    aVar.Qh.commit();
+                    aVar.PV.putString("re_con", aVar.a.getString("re_con", "").replace(com.baidu.sofire.rp.a.b.b(bVar), com.baidu.sofire.rp.a.b.b(bVar2)));
+                    aVar.PV.commit();
                 }
-                c.av(context).b();
+                c.au(context).b();
                 return;
             }
             if (!aVar.a.getBoolean("re_net_ins_" + bVar2.e, false)) {
-                c.av(context).a(bVar2);
+                c.au(context).a(bVar2);
             }
-            c.av(context).b();
-            c.av(context).c();
+            c.au(context).b();
+            c.au(context).c();
         }
     }
 
@@ -540,7 +540,7 @@ public final class b {
             aVar2.f = i4;
             aVar2.h = i2;
             aVar2.i = i3;
-            c.av(context).b(aVar2);
+            c.au(context).b(aVar2);
         } catch (Exception e8) {
         }
     }
@@ -589,8 +589,8 @@ public final class b {
                         }
                     }
                     if (!TextUtils.isEmpty(str2)) {
-                        aVar.Qh.putString("al_da" + str2, optJSONObject.optString(str2));
-                        aVar.Qh.commit();
+                        aVar.PV.putString("al_da" + str2, optJSONObject.optString(str2));
+                        aVar.PV.commit();
                     }
                 }
             } catch (Exception e) {
@@ -606,8 +606,8 @@ public final class b {
                         }
                     }
                     if (!TextUtils.isEmpty(str3)) {
-                        aVar.Qh.putString("in_da" + str3, optJSONObject2.optString(str3));
-                        aVar.Qh.commit();
+                        aVar.PV.putString("in_da" + str3, optJSONObject2.optString(str3));
+                        aVar.PV.commit();
                     }
                 }
             } catch (Exception e2) {
@@ -615,8 +615,8 @@ public final class b {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("2");
                 if (optJSONArray != null) {
-                    aVar.Qh.putString("li_pk_s", optJSONArray.toString());
-                    aVar.Qh.commit();
+                    aVar.PV.putString("li_pk_s", optJSONArray.toString());
+                    aVar.PV.commit();
                 }
             } catch (Exception e3) {
             }
@@ -632,7 +632,7 @@ public final class b {
         return new StringBuilder().append(i).append(i2).append(calendar.get(5)).toString();
     }
 
-    public static String[] au(Context context) {
+    public static String[] at(Context context) {
         if (TextUtils.isEmpty(a) || TextUtils.isEmpty(b)) {
             String string = new com.baidu.sofire.rp.a.a(context).b.getString("svi", "");
             if (!TextUtils.isEmpty(string)) {

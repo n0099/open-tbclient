@@ -9,14 +9,14 @@ public class c extends j implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String EF() {
+    public String Ez() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean gu(String str) {
+    public boolean gt(String str) {
         try {
-            i(new JSONObject(str));
+            k(new JSONObject(str));
             return true;
         } catch (Throwable th) {
             th.printStackTrace();

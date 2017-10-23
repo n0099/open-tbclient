@@ -190,7 +190,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setPcmSampleDepth(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.wM(i)));
         this.pcmSampleDepth = i;
     }
 
@@ -200,7 +200,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setFrameDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.wM(i)));
         this.frameDuration = i;
     }
 
@@ -210,7 +210,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setStreamConstruction(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.wM(i)));
         this.streamConstruction = i;
     }
 
@@ -220,7 +220,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setCoreLFEPresent(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.wM(i)));
         this.coreLFEPresent = i;
     }
 
@@ -230,7 +230,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setCoreLayout(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.wM(i)));
         this.coreLayout = i;
     }
 
@@ -240,7 +240,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setCoreSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.wM(i)));
         this.coreSize = i;
     }
 
@@ -250,7 +250,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setStereoDownmix(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.wM(i)));
         this.stereoDownmix = i;
     }
 
@@ -260,7 +260,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setRepresentationType(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_21, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_21, this, this, org.aspectj.a.a.a.wM(i)));
         this.representationType = i;
     }
 
@@ -270,7 +270,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setChannelLayout(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.wM(i)));
         this.channelLayout = i;
     }
 
@@ -280,7 +280,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setMultiAssetFlag(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_25, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_25, this, this, org.aspectj.a.a.a.wM(i)));
         this.multiAssetFlag = i;
     }
 
@@ -290,7 +290,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setLBRDurationMod(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.wM(i)));
         this.LBRDurationMod = i;
     }
 
@@ -300,7 +300,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.wM(i)));
         this.reserved = i;
     }
 
@@ -310,7 +310,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setReservedBoxPresent(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_31, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_31, this, this, org.aspectj.a.a.a.wM(i)));
         this.reservedBoxPresent = i;
     }
 }

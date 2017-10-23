@@ -3,12 +3,12 @@ package com.baidu.adp.lib.f;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class d {
-    private static int vS = 0;
     private static int vT = 0;
     private static int vU = 0;
     private static int vV = 0;
     private static int vW = 0;
     private static int vX = 0;
+    private static int vY = 0;
     private static Object syncLock = new Object();
 
     public static com.baidu.adp.lib.stats.a fK() {
@@ -19,14 +19,14 @@ public class d {
         if (aVar != null || aVar2 != null) {
             synchronized (syncLock) {
                 if (aVar != null) {
-                    vU = (int) (vU + aVar.fU());
+                    vV = (int) (vV + aVar.fU());
                 }
                 if (aVar2 != null) {
-                    vT = (int) (vT + aVar2.fU());
+                    vU = (int) (vU + aVar2.fU());
                 }
-                int i = vS + 1;
-                vS = i;
-                if (i + vV > 100) {
+                int i = vT + 1;
+                vT = i;
+                if (i + vW > 100) {
                     fL();
                 }
             }
@@ -37,14 +37,14 @@ public class d {
         if (aVar != null || aVar2 != null) {
             synchronized (syncLock) {
                 if (aVar != null) {
-                    vX = (int) (vX + aVar.fU());
+                    vY = (int) (vY + aVar.fU());
                 }
                 if (aVar2 != null) {
-                    vW = (int) (vW + aVar2.fU());
+                    vX = (int) (vX + aVar2.fU());
                 }
-                int i = vV + 1;
-                vV = i;
-                if (i + vS > 100) {
+                int i = vW + 1;
+                vW = i;
+                if (i + vT > 100) {
                     fL();
                 }
             }
@@ -52,23 +52,23 @@ public class d {
     }
 
     public static void fL() {
-        if (vS + vV > 10) {
+        if (vT + vW > 10) {
             com.baidu.adp.lib.stats.a fK = fK();
             fK.p("act", "allStat");
-            fK.p("diskTaskCostTime", String.valueOf(vU));
-            fK.p("diskCostTime", String.valueOf(vT));
-            fK.p("diskNum", String.valueOf(vS));
-            fK.p("netTaskCostTime", String.valueOf(vX));
-            fK.p("netCostTime", String.valueOf(vW));
-            fK.p("netNum", String.valueOf(vV));
+            fK.p("diskTaskCostTime", String.valueOf(vV));
+            fK.p("diskCostTime", String.valueOf(vU));
+            fK.p("diskNum", String.valueOf(vT));
+            fK.p("netTaskCostTime", String.valueOf(vY));
+            fK.p("netCostTime", String.valueOf(vX));
+            fK.p("netNum", String.valueOf(vW));
             fK.p("isWifi", "1");
             BdStatisticsManager.getInstance().debug("img", fK);
+            vU = 0;
             vT = 0;
-            vS = 0;
+            vX = 0;
             vW = 0;
             vV = 0;
-            vU = 0;
-            vX = 0;
+            vY = 0;
         }
     }
 }

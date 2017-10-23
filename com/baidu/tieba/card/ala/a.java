@@ -22,81 +22,81 @@ import com.baidu.tieba.play.j;
 import com.baidu.tieba.play.n;
 /* loaded from: classes.dex */
 public class a implements f {
-    private n bKD;
-    private j bKQ;
-    private c bNg;
-    private String bNh;
-    private bh bit;
-    private AlaVideoContainer bnh;
+    private j bKE;
+    private n bKr;
+    private c bMU;
+    private String bMV;
+    private bh bie;
+    private AlaVideoContainer bmT;
     private String mForumName;
-    private boolean bKO = false;
-    private j.a bLa = new j.a() { // from class: com.baidu.tieba.card.ala.a.1
+    private boolean bKC = false;
+    private j.a bKO = new j.a() { // from class: com.baidu.tieba.card.ala.a.1
         @Override // com.baidu.tieba.play.j.a
-        public void XF() {
-            a.this.Xz();
+        public void XB() {
+            a.this.Xv();
         }
     };
 
     public a(AlaVideoContainer alaVideoContainer) {
-        this.bnh = alaVideoContainer;
-        if (this.bnh != null) {
-            this.bKQ = new j();
-            this.bKQ.setPlayer(this.bnh.getVideoView());
-            this.bKQ.a(this.bLa);
-            if (this.bnh.getVideoView() != null) {
-                this.bKD = new n(this.bnh.getVideoView().getContext());
-                this.bnh.getVideoView().setBusiness(this.bKD);
+        this.bmT = alaVideoContainer;
+        if (this.bmT != null) {
+            this.bKE = new j();
+            this.bKE.setPlayer(this.bmT.getVideoView());
+            this.bKE.a(this.bKO);
+            if (this.bmT.getVideoView() != null) {
+                this.bKr = new n(this.bmT.getVideoView().getContext());
+                this.bmT.getVideoView().setBusiness(this.bKr);
             }
         }
     }
 
     public void a(bh bhVar, String str, String str2, boolean z) {
-        this.bNh = str2;
+        this.bMV = str2;
         this.mForumName = str;
         if (bhVar != null) {
-            this.bit = bhVar;
-            if (this.bnh != null && this.bit.rN() != null) {
-                this.bNg = this.bit.rN();
-                this.bnh.setVideoThumbnail(this.bNg.cover);
-                if (this.bKD != null && this.bKD.bes() != null) {
-                    this.bKD.bes().b(this.bNg);
+            this.bie = bhVar;
+            if (this.bmT != null && this.bie.rG() != null) {
+                this.bMU = this.bie.rG();
+                this.bmT.setVideoThumbnail(this.bMU.cover);
+                if (this.bKr != null && this.bKr.ben() != null) {
+                    this.bKr.ben().b(this.bMU);
                 }
                 if (z) {
-                    this.bnh.setTitle(this.bit.getTitle());
+                    this.bmT.setTitle(this.bie.getTitle());
                 } else {
-                    this.bnh.setTitle("");
+                    this.bmT.setTitle("");
                 }
-                this.bnh.setPlayCount(String.format(this.bnh.getVideoView().getContext().getResources().getString(d.l.ala_audience_count_prefix), am.z(this.bit.rN().audience_count)));
+                this.bmT.setPlayCount(String.format(this.bmT.getVideoView().getContext().getResources().getString(d.l.ala_audience_count_prefix), am.A(this.bie.rG().audience_count)));
             }
         }
     }
 
-    public void bo(Context context) {
-        if (context != null && this.bit != null && this.bNg != null) {
+    public void bn(Context context) {
+        if (context != null && this.bie != null && this.bMU != null) {
             if (!com.baidu.adp.lib.util.j.hh()) {
                 l.showToast(context, d.l.no_network_guide);
                 return;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             String str = AlaLiveRoomActivityConfig.FROM_TYPE_FRS_PLAY;
-            if (this.bit.rm() != null) {
-                str = this.bit.rm();
+            if (this.bie.rf() != null) {
+                str = this.bie.rf();
             }
             if (str.equals(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY)) {
-                if (this.bit.rA().equals(this.mForumName)) {
-                    TiebaStatic.log(new ak("c11843").ad(SapiAccountManager.SESSION_UID, currentAccount).f("fid", this.bit.getFid()));
+                if (this.bie.rt().equals(this.mForumName)) {
+                    TiebaStatic.log(new ak("c11843").ac(SapiAccountManager.SESSION_UID, currentAccount).f("fid", this.bie.getFid()));
                 } else {
-                    TiebaStatic.log(new ak("c11845").ad(SapiAccountManager.SESSION_UID, currentAccount).f("fid", this.bit.getFid()));
+                    TiebaStatic.log(new ak("c11845").ac(SapiAccountManager.SESSION_UID, currentAccount).f("fid", this.bie.getFid()));
                 }
             }
             boolean z = false;
-            if (TbadkCoreApplication.getCurrentAccountInfo() != null && this.bit.getAuthor() != null) {
-                z = TextUtils.equals(this.bit.getAuthor().getUserId(), TbadkCoreApplication.getCurrentAccount());
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && this.bie.getAuthor() != null) {
+                z = TextUtils.equals(this.bie.getAuthor().getUserId(), TbadkCoreApplication.getCurrentAccount());
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(this.bNg);
-            if (this.bNg.UJ != null) {
-                alaLiveInfoCoreData.setUserName(this.bNg.UJ.user_name);
+            alaLiveInfoCoreData.fillWithInfoData(this.bMU);
+            if (this.bMU.Uw != null) {
+                alaLiveInfoCoreData.setUserName(this.bMU.Uw.user_name);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, str, "", z, this.mForumName)));
         }
@@ -104,7 +104,7 @@ public class a implements f {
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        return this.bKO;
+        return this.bKC;
     }
 
     @Override // com.baidu.tieba.play.f
@@ -118,49 +118,49 @@ public class a implements f {
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.bnh != null && this.bnh.getVideoView() != null) {
-            this.bnh.getVideoView().stopPlayback();
-            this.bnh.XS();
-            if (this.bKQ != null) {
-                this.bKQ.stop();
+        if (this.bmT != null && this.bmT.getVideoView() != null) {
+            this.bmT.getVideoView().stopPlayback();
+            this.bmT.XO();
+            if (this.bKE != null) {
+                this.bKE.stop();
             }
         }
-        this.bKO = false;
+        this.bKC = false;
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.bnh != null) {
-            return this.bnh.getView();
+        if (this.bmT != null) {
+            return this.bmT.getView();
         }
         return null;
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.bit == null || this.bit.rM() == null) {
+        if (this.bie == null || this.bie.rF() == null) {
             return null;
         }
-        return this.bit.rM().video_url;
+        return this.bie.rF().video_url;
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.bnh == null || this.bnh.getVideoView() == null) {
+        if (this.bmT == null || this.bmT.getVideoView() == null) {
             return 0;
         }
-        return this.bnh.getVideoView().getCurrentPosition();
+        return this.bmT.getVideoView().getCurrentPosition();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xz() {
-        if (this.bit == null || this.bit.rM() == null) {
+    public void Xv() {
+        if (this.bie == null || this.bie.rF() == null) {
         }
     }
 
-    public void XT() {
-        if (this.bnh != null) {
-            this.bnh.XT();
+    public void XP() {
+        if (this.bmT != null) {
+            this.bmT.XP();
         }
     }
 }

@@ -15,60 +15,60 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends LinearLayout {
-    private LinearLayout aLj;
-    private EditText cKh;
-    private HeadImageView cKi;
-    private TextView cKj;
-    private TextView cKk;
-    private ShareFromFrsMsgData cKl;
+    private LinearLayout aKW;
+    private EditText cJV;
+    private HeadImageView cJW;
+    private TextView cJX;
+    private TextView cJY;
+    private ShareFromFrsMsgData cJZ;
     private Context context;
     private TextView name;
 
     public EditText getChatMsgView() {
-        return this.cKh;
+        return this.cJV;
     }
 
     public void I(String str, boolean z) {
-        if (this.cKi != null) {
-            this.cKi.c(str, 15, false);
+        if (this.cJW != null) {
+            this.cJW.c(str, 15, false);
         }
     }
 
     public d(Context context) {
         super(context);
         this.context = context;
-        bs(context);
+        br(context);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.cKi.setPageId(bdUniqueId);
+        this.cJW.setPageId(bdUniqueId);
     }
 
-    private void bs(Context context) {
+    private void br(Context context) {
         LayoutInflater.from(context).inflate(d.j.frs_share_card_view, this);
         setOrientation(1);
-        this.aLj = (LinearLayout) findViewById(d.h.share_content);
+        this.aKW = (LinearLayout) findViewById(d.h.share_content);
         this.name = (TextView) findViewById(d.h.frs_card_name);
-        this.cKh = (EditText) findViewById(d.h.chat_msg);
-        this.cKi = (HeadImageView) findViewById(d.h.frs_card_img);
-        this.cKk = (TextView) findViewById(d.h.frs_card_member_num);
-        this.cKj = (TextView) findViewById(d.h.frs_card_post_num);
+        this.cJV = (EditText) findViewById(d.h.chat_msg);
+        this.cJW = (HeadImageView) findViewById(d.h.frs_card_img);
+        this.cJY = (TextView) findViewById(d.h.frs_card_member_num);
+        this.cJX = (TextView) findViewById(d.h.frs_card_post_num);
         aj.c(this.name, d.e.cp_cont_b, 1);
-        aj.c(this.cKh, d.e.cp_cont_b, 2);
-        this.cKh.setHintTextColor(aj.getColor(d.e.cp_cont_e));
-        this.cKh.setPadding(context.getResources().getDimensionPixelSize(d.f.ds20), 0, 0, 0);
-        amn();
+        aj.c(this.cJV, d.e.cp_cont_b, 2);
+        this.cJV.setHintTextColor(aj.getColor(d.e.cp_cont_e));
+        this.cJV.setPadding(context.getResources().getDimensionPixelSize(d.f.ds20), 0, 0, 0);
+        ami();
     }
 
-    public void amn() {
-        this.aLj.setFocusable(true);
-        this.aLj.setFocusableInTouchMode(true);
-        this.aLj.requestFocus();
+    public void ami() {
+        this.aKW.setFocusable(true);
+        this.aKW.setFocusableInTouchMode(true);
+        this.aKW.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.cKh != null) {
-            return k.a(this.cKh.getText(), null);
+        if (this.cJV != null) {
+            return k.a(this.cJV.getText(), null);
         }
         return null;
     }
@@ -81,19 +81,19 @@ public class d extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.cKl = shareFromFrsMsgData;
-        wn();
+        this.cJZ = shareFromFrsMsgData;
+        wg();
     }
 
-    private void wn() {
-        this.name.setText(dS(this.cKl.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.cKl.getImageUrl());
-        this.cKi.c(this.cKl.getImageUrl(), 15, false);
-        this.cKk.setText(am.x(this.cKl.getMemberNum()));
-        this.cKj.setText(am.x(this.cKl.getPostNum()));
+    private void wg() {
+        this.name.setText(dR(this.cJZ.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.cJZ.getImageUrl());
+        this.cJW.c(this.cJZ.getImageUrl(), 15, false);
+        this.cJY.setText(am.y(this.cJZ.getMemberNum()));
+        this.cJX.setText(am.y(this.cJZ.getPostNum()));
     }
 
-    private String dS(String str) {
+    private String dR(String str) {
         return am.j(str, 18) + this.context.getString(d.l.forum);
     }
 }

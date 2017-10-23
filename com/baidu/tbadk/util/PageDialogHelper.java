@@ -47,7 +47,7 @@ public class PageDialogHelper {
         return z;
     }
 
-    public static void u(Activity activity) {
+    public static void v(Activity activity) {
         WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         attributes.x = 0;

@@ -27,43 +27,43 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ThreadLiveAndRecordUserInfoLayout extends LinearLayout {
-    public TbImageView anH;
-    private View.OnClickListener anJ;
-    private boolean anf;
-    private View.OnClickListener anr;
-    private View.OnClickListener bgk;
-    public ClickableHeaderImageView bin;
-    public ViewStub bio;
-    public TextView bip;
-    public TextView biq;
-    public TextView bir;
-    public TextView bis;
-    private bh bit;
-    private View.OnClickListener biu;
+    private boolean amT;
+    private View.OnClickListener anf;
+    public TbImageView anv;
+    private View.OnClickListener anx;
+    private View.OnClickListener bfW;
+    public ClickableHeaderImageView bhX;
+    public ViewStub bhY;
+    public TextView bhZ;
+    public TextView bia;
+    public TextView bib;
+    public TextView bic;
+    private bh bie;
+    private View.OnClickListener bif;
     private Context mContext;
     private View rootView;
 
     public ThreadLiveAndRecordUserInfoLayout(Context context) {
         super(context);
-        this.bgk = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.ThreadLiveAndRecordUserInfoLayout.1
+        this.bfW = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.ThreadLiveAndRecordUserInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadLiveAndRecordUserInfoLayout.this.bit != null && ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor() != null && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor().getName_show()) && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor().getUserId())) {
-                    long c = com.baidu.adp.lib.g.b.c(ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor().getUserId(), 0L);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(ThreadLiveAndRecordUserInfoLayout.this.mContext).createNormalConfig(c, c == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L), ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor().isBigV())));
-                    if (ThreadLiveAndRecordUserInfoLayout.this.anJ != null) {
-                        ThreadLiveAndRecordUserInfoLayout.this.anJ.onClick(view);
+                if (ThreadLiveAndRecordUserInfoLayout.this.bie != null && ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor() != null && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor().getName_show()) && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor().getUserId())) {
+                    long c = com.baidu.adp.lib.g.b.c(ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor().getUserId(), 0L);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(ThreadLiveAndRecordUserInfoLayout.this.mContext).createNormalConfig(c, c == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L), ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor().isBigV())));
+                    if (ThreadLiveAndRecordUserInfoLayout.this.anx != null) {
+                        ThreadLiveAndRecordUserInfoLayout.this.anx.onClick(view);
                     }
                 }
             }
         };
-        this.biu = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.ThreadLiveAndRecordUserInfoLayout.2
+        this.bif = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.ThreadLiveAndRecordUserInfoLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadLiveAndRecordUserInfoLayout.this.bit != null && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bit.rA())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ThreadLiveAndRecordUserInfoLayout.this.mContext).createJumpLiveTabCfg(ThreadLiveAndRecordUserInfoLayout.this.bit.rA(), FrsActivityConfig.FRS_FROM_RECOMMEND, true)));
-                    if (ThreadLiveAndRecordUserInfoLayout.this.anr != null) {
-                        ThreadLiveAndRecordUserInfoLayout.this.anr.onClick(view);
+                if (ThreadLiveAndRecordUserInfoLayout.this.bie != null && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bie.rt())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ThreadLiveAndRecordUserInfoLayout.this.mContext).createJumpLiveTabCfg(ThreadLiveAndRecordUserInfoLayout.this.bie.rt(), FrsActivityConfig.FRS_FROM_RECOMMEND, true)));
+                    if (ThreadLiveAndRecordUserInfoLayout.this.anf != null) {
+                        ThreadLiveAndRecordUserInfoLayout.this.anf.onClick(view);
                     }
                 }
             }
@@ -73,25 +73,25 @@ public class ThreadLiveAndRecordUserInfoLayout extends LinearLayout {
 
     public ThreadLiveAndRecordUserInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bgk = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.ThreadLiveAndRecordUserInfoLayout.1
+        this.bfW = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.ThreadLiveAndRecordUserInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadLiveAndRecordUserInfoLayout.this.bit != null && ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor() != null && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor().getName_show()) && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor().getUserId())) {
-                    long c = com.baidu.adp.lib.g.b.c(ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor().getUserId(), 0L);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(ThreadLiveAndRecordUserInfoLayout.this.mContext).createNormalConfig(c, c == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L), ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor().isBigV())));
-                    if (ThreadLiveAndRecordUserInfoLayout.this.anJ != null) {
-                        ThreadLiveAndRecordUserInfoLayout.this.anJ.onClick(view);
+                if (ThreadLiveAndRecordUserInfoLayout.this.bie != null && ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor() != null && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor().getName_show()) && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor().getUserId())) {
+                    long c = com.baidu.adp.lib.g.b.c(ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor().getUserId(), 0L);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(ThreadLiveAndRecordUserInfoLayout.this.mContext).createNormalConfig(c, c == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L), ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor().isBigV())));
+                    if (ThreadLiveAndRecordUserInfoLayout.this.anx != null) {
+                        ThreadLiveAndRecordUserInfoLayout.this.anx.onClick(view);
                     }
                 }
             }
         };
-        this.biu = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.ThreadLiveAndRecordUserInfoLayout.2
+        this.bif = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.ThreadLiveAndRecordUserInfoLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadLiveAndRecordUserInfoLayout.this.bit != null && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bit.rA())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ThreadLiveAndRecordUserInfoLayout.this.mContext).createJumpLiveTabCfg(ThreadLiveAndRecordUserInfoLayout.this.bit.rA(), FrsActivityConfig.FRS_FROM_RECOMMEND, true)));
-                    if (ThreadLiveAndRecordUserInfoLayout.this.anr != null) {
-                        ThreadLiveAndRecordUserInfoLayout.this.anr.onClick(view);
+                if (ThreadLiveAndRecordUserInfoLayout.this.bie != null && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bie.rt())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ThreadLiveAndRecordUserInfoLayout.this.mContext).createJumpLiveTabCfg(ThreadLiveAndRecordUserInfoLayout.this.bie.rt(), FrsActivityConfig.FRS_FROM_RECOMMEND, true)));
+                    if (ThreadLiveAndRecordUserInfoLayout.this.anf != null) {
+                        ThreadLiveAndRecordUserInfoLayout.this.anf.onClick(view);
                     }
                 }
             }
@@ -101,25 +101,25 @@ public class ThreadLiveAndRecordUserInfoLayout extends LinearLayout {
 
     public ThreadLiveAndRecordUserInfoLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bgk = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.ThreadLiveAndRecordUserInfoLayout.1
+        this.bfW = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.ThreadLiveAndRecordUserInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadLiveAndRecordUserInfoLayout.this.bit != null && ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor() != null && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor().getName_show()) && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor().getUserId())) {
-                    long c = com.baidu.adp.lib.g.b.c(ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor().getUserId(), 0L);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(ThreadLiveAndRecordUserInfoLayout.this.mContext).createNormalConfig(c, c == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L), ThreadLiveAndRecordUserInfoLayout.this.bit.getAuthor().isBigV())));
-                    if (ThreadLiveAndRecordUserInfoLayout.this.anJ != null) {
-                        ThreadLiveAndRecordUserInfoLayout.this.anJ.onClick(view);
+                if (ThreadLiveAndRecordUserInfoLayout.this.bie != null && ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor() != null && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor().getName_show()) && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor().getUserId())) {
+                    long c = com.baidu.adp.lib.g.b.c(ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor().getUserId(), 0L);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(ThreadLiveAndRecordUserInfoLayout.this.mContext).createNormalConfig(c, c == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L), ThreadLiveAndRecordUserInfoLayout.this.bie.getAuthor().isBigV())));
+                    if (ThreadLiveAndRecordUserInfoLayout.this.anx != null) {
+                        ThreadLiveAndRecordUserInfoLayout.this.anx.onClick(view);
                     }
                 }
             }
         };
-        this.biu = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.ThreadLiveAndRecordUserInfoLayout.2
+        this.bif = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.ThreadLiveAndRecordUserInfoLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadLiveAndRecordUserInfoLayout.this.bit != null && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bit.rA())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ThreadLiveAndRecordUserInfoLayout.this.mContext).createJumpLiveTabCfg(ThreadLiveAndRecordUserInfoLayout.this.bit.rA(), FrsActivityConfig.FRS_FROM_RECOMMEND, true)));
-                    if (ThreadLiveAndRecordUserInfoLayout.this.anr != null) {
-                        ThreadLiveAndRecordUserInfoLayout.this.anr.onClick(view);
+                if (ThreadLiveAndRecordUserInfoLayout.this.bie != null && !StringUtils.isNull(ThreadLiveAndRecordUserInfoLayout.this.bie.rt())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ThreadLiveAndRecordUserInfoLayout.this.mContext).createJumpLiveTabCfg(ThreadLiveAndRecordUserInfoLayout.this.bie.rt(), FrsActivityConfig.FRS_FROM_RECOMMEND, true)));
+                    if (ThreadLiveAndRecordUserInfoLayout.this.anf != null) {
+                        ThreadLiveAndRecordUserInfoLayout.this.anf.onClick(view);
                     }
                 }
             }
@@ -130,82 +130,82 @@ public class ThreadLiveAndRecordUserInfoLayout extends LinearLayout {
     private void init(Context context) {
         this.mContext = context;
         this.rootView = LayoutInflater.from(context).inflate(d.j.card_ala_live_user_layout, (ViewGroup) this, true);
-        this.bin = (ClickableHeaderImageView) this.rootView.findViewById(d.h.imgAlaUserCover);
-        this.bio = (ViewStub) this.rootView.findViewById(d.h.vsHeadImageMask);
-        this.bip = (TextView) this.rootView.findViewById(d.h.tvAlaUserName);
-        this.biq = (TextView) this.rootView.findViewById(d.h.tvBarName);
-        this.bis = (TextView) this.rootView.findViewById(d.h.tvCommentLabel);
-        this.bir = (TextView) this.rootView.findViewById(d.h.tvCommentNum);
-        this.bin.setDefaultResource(17170445);
-        this.bin.setDefaultErrorResource(d.g.icon_default_avatar100);
-        this.bin.setDefaultBgResource(d.e.cp_bg_line_e);
-        this.bin.setRadius(l.f(this.mContext, d.f.ds70));
+        this.bhX = (ClickableHeaderImageView) this.rootView.findViewById(d.h.imgAlaUserCover);
+        this.bhY = (ViewStub) this.rootView.findViewById(d.h.vsHeadImageMask);
+        this.bhZ = (TextView) this.rootView.findViewById(d.h.tvAlaUserName);
+        this.bia = (TextView) this.rootView.findViewById(d.h.tvBarName);
+        this.bic = (TextView) this.rootView.findViewById(d.h.tvCommentLabel);
+        this.bib = (TextView) this.rootView.findViewById(d.h.tvCommentNum);
+        this.bhX.setDefaultResource(17170445);
+        this.bhX.setDefaultErrorResource(d.g.icon_default_avatar100);
+        this.bhX.setDefaultBgResource(d.e.cp_bg_line_e);
+        this.bhX.setRadius(l.f(this.mContext, d.f.ds70));
     }
 
     public void w(bh bhVar) {
         if (bhVar != null) {
-            this.bit = bhVar;
-            if (!StringUtils.isNull(bhVar.rA())) {
-                this.biq.setVisibility(0);
-                String string = getContext().getString(d.l.chosen_pb_original_bar, UtilHelper.getFixedBarText(bhVar.rA(), 5, true));
-                this.biq.setText(string);
-                this.biq.setContentDescription(string);
-                this.biq.setOnClickListener(this.biu);
-                this.biq.setClickable(this.anf);
+            this.bie = bhVar;
+            if (!StringUtils.isNull(bhVar.rt())) {
+                this.bia.setVisibility(0);
+                String string = getContext().getString(d.l.chosen_pb_original_bar, UtilHelper.getFixedBarText(bhVar.rt(), 5, true));
+                this.bia.setText(string);
+                this.bia.setContentDescription(string);
+                this.bia.setOnClickListener(this.bif);
+                this.bia.setClickable(this.amT);
             } else {
-                this.biq.setVisibility(8);
+                this.bia.setVisibility(8);
             }
-            this.bin.setVisibility(0);
-            this.bin.setData(this.bit);
-            this.bin.setAfterClickListener(this.anJ);
-            UserTbVipInfoData rv = this.bit.rv();
-            if (rv != null && rv.getvipV_url() != null && this.bio != null) {
-                if (this.anH == null) {
-                    this.bio.inflate();
-                    this.anH = (TbImageView) this.rootView.findViewById(d.h.user_head_mask);
+            this.bhX.setVisibility(0);
+            this.bhX.setData(this.bie);
+            this.bhX.setAfterClickListener(this.anx);
+            UserTbVipInfoData ro = this.bie.ro();
+            if (ro != null && ro.getvipV_url() != null && this.bhY != null) {
+                if (this.anv == null) {
+                    this.bhY.inflate();
+                    this.anv = (TbImageView) this.rootView.findViewById(d.h.user_head_mask);
                 }
-                this.anH.c(rv.getvipV_url(), 10, false);
-                this.bin.setIsBigV(true);
+                this.anv.c(ro.getvipV_url(), 10, false);
+                this.bhX.setIsBigV(true);
             }
-            this.bip.setVisibility(0);
-            this.bip.setOnClickListener(this.bgk);
-            if (this.bit.getAuthor() != null) {
-                this.bip.setText(this.bit.getAuthor().getName_show());
+            this.bhZ.setVisibility(0);
+            this.bhZ.setOnClickListener(this.bfW);
+            if (this.bie.getAuthor() != null) {
+                this.bhZ.setText(this.bie.getAuthor().getName_show());
             }
-            if (this.bit.getThreadType() == 49) {
-                this.bir.setText(am.t(this.bit.rN().audience_count));
-                this.bir.setMaxEms(9);
-                this.bis.setText(d.l.recommend_ala_live_comment_label);
-                aj.i(this.bir, d.e.cp_other_e);
-            } else if (this.bit.getThreadType() == 50) {
-                this.bir.setText(am.t(this.bit.rM().play_count.intValue()));
-                this.bis.setText(d.l.recommend_ala_record_comment_label);
-                aj.i(this.bir, d.e.cp_cont_c);
+            if (this.bie.getThreadType() == 49) {
+                this.bib.setText(am.u(this.bie.rG().audience_count));
+                this.bib.setMaxEms(9);
+                this.bic.setText(d.l.recommend_ala_live_comment_label);
+                aj.i(this.bib, d.e.cp_other_e);
+            } else if (this.bie.getThreadType() == 50) {
+                this.bib.setText(am.u(this.bie.rF().play_count.intValue()));
+                this.bic.setText(d.l.recommend_ala_record_comment_label);
+                aj.i(this.bib, d.e.cp_cont_c);
             }
         }
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.anr = onClickListener;
+        this.anf = onClickListener;
     }
 
     public void setBarNameClickEnabled(boolean z) {
-        this.anf = z;
+        this.amT = z;
     }
 
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
-        this.anJ = onClickListener;
+        this.anx = onClickListener;
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
-        aj.i(this.biq, d.e.cp_cont_c);
+        aj.i(this.bia, d.e.cp_cont_c);
         aj.j(this.rootView, d.e.cp_bg_line_d);
-        aj.i(this.bip, d.e.cp_cont_f);
-        if (this.bit != null && this.bit.getThreadType() == 49) {
-            aj.i(this.bir, d.e.cp_other_e);
-        } else if (this.bit != null && this.bit.getThreadType() == 50) {
-            aj.i(this.bir, d.e.cp_cont_c);
+        aj.i(this.bhZ, d.e.cp_cont_f);
+        if (this.bie != null && this.bie.getThreadType() == 49) {
+            aj.i(this.bib, d.e.cp_other_e);
+        } else if (this.bie != null && this.bie.getThreadType() == 50) {
+            aj.i(this.bib, d.e.cp_cont_c);
         }
-        aj.i(this.bis, d.e.cp_cont_c);
+        aj.i(this.bic, d.e.cp_cont_c);
     }
 }

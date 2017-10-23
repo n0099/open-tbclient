@@ -103,7 +103,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorR(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wM(i)));
         this.opColorR = i;
     }
 
@@ -113,7 +113,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorG(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wM(i)));
         this.opColorG = i;
     }
 
@@ -123,7 +123,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorB(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.wM(i)));
         this.opColorB = i;
     }
 

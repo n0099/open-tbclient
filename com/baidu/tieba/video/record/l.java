@@ -14,37 +14,37 @@ import java.io.File;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class l extends SurfaceView implements SurfaceHolder.Callback, g {
-    private boolean gBM;
-    private boolean gBN;
-    private MediaRecorder gcV;
-    private h gyY;
-    private int gzh;
-    private int gzi;
+    private boolean gBx;
+    private boolean gBy;
+    private MediaRecorder gcH;
+    private h gyK;
+    private int gyT;
+    private int gyU;
     private SurfaceHolder mSurfaceHolder;
 
     public l(Context context, h hVar) {
         super(context);
-        this.gzh = 720;
-        this.gzi = TbConfig.HEAD_IMG_SIZE;
-        this.gyY = hVar;
+        this.gyT = 720;
+        this.gyU = TbConfig.HEAD_IMG_SIZE;
+        this.gyK = hVar;
         getHolder().addCallback(this);
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         this.mSurfaceHolder = surfaceHolder;
-        bxa();
-        this.gBN = true;
+        bwS();
+        this.gBy = true;
     }
 
-    private void bxa() {
-        Handler mainHandler = this.gyY.getMainHandler();
+    private void bwS() {
+        Handler mainHandler = this.gyK.getMainHandler();
         mainHandler.sendMessage(mainHandler.obtainMessage(1));
     }
 
     public void onResume() {
-        if (this.gBN) {
-            bxa();
+        if (this.gBy) {
+            bwS();
         }
     }
 
@@ -58,8 +58,8 @@ public class l extends SurfaceView implements SurfaceHolder.Callback, g {
 
     @Override // com.baidu.tieba.video.record.g
     public void d(Camera camera) {
-        if (!this.gBM && camera != null) {
-            this.gBM = true;
+        if (!this.gBx && camera != null) {
+            this.gBx = true;
             try {
                 camera.setPreviewDisplay(this.mSurfaceHolder);
             } catch (IOException e) {
@@ -72,15 +72,15 @@ public class l extends SurfaceView implements SurfaceHolder.Callback, g {
     @Override // com.baidu.tieba.video.record.g
     public void e(Camera camera) {
         if (camera != null) {
-            this.gcV = new MediaRecorder();
-            this.gcV.reset();
+            this.gcH = new MediaRecorder();
+            this.gcH.reset();
             try {
                 camera.unlock();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            this.gcV.setCamera(camera);
-            this.gcV.setOnErrorListener(new MediaRecorder.OnErrorListener() { // from class: com.baidu.tieba.video.record.l.1
+            this.gcH.setCamera(camera);
+            this.gcH.setOnErrorListener(new MediaRecorder.OnErrorListener() { // from class: com.baidu.tieba.video.record.l.1
                 @Override // android.media.MediaRecorder.OnErrorListener
                 public void onError(MediaRecorder mediaRecorder, int i, int i2) {
                     if (mediaRecorder != null) {
@@ -95,31 +95,31 @@ public class l extends SurfaceView implements SurfaceHolder.Callback, g {
                 }
             });
             if (this.mSurfaceHolder != null) {
-                this.gcV.setPreviewDisplay(this.mSurfaceHolder.getSurface());
+                this.gcH.setPreviewDisplay(this.mSurfaceHolder.getSurface());
             }
-            this.gcV.setVideoSource(1);
-            this.gcV.setAudioSource(1);
-            this.gcV.setOutputFormat(2);
-            this.gcV.setVideoEncoder(2);
-            this.gcV.setAudioEncoder(3);
-            this.gcV.setAudioSamplingRate(48000);
-            this.gcV.setAudioChannels(1);
-            this.gcV.setVideoEncodingBitRate(AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
-            this.gcV.setVideoFrameRate(20);
-            if (this.gyY.gzA) {
-                this.gcV.setOrientationHint(SubsamplingScaleImageView.ORIENTATION_270);
+            this.gcH.setVideoSource(1);
+            this.gcH.setAudioSource(1);
+            this.gcH.setOutputFormat(2);
+            this.gcH.setVideoEncoder(2);
+            this.gcH.setAudioEncoder(3);
+            this.gcH.setAudioSamplingRate(48000);
+            this.gcH.setAudioChannels(1);
+            this.gcH.setVideoEncodingBitRate(AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
+            this.gcH.setVideoFrameRate(20);
+            if (this.gyK.gzl) {
+                this.gcH.setOrientationHint(SubsamplingScaleImageView.ORIENTATION_270);
             } else {
-                this.gcV.setOrientationHint(90);
+                this.gcH.setOrientationHint(90);
             }
-            this.gcV.setVideoSize(1280, 720);
-            File file = new File(com.baidu.tieba.video.b.gtV);
-            if (!com.baidu.tbadk.core.util.k.db(file.getAbsolutePath())) {
+            this.gcH.setVideoSize(1280, 720);
+            File file = new File(com.baidu.tieba.video.b.gtH);
+            if (!com.baidu.tbadk.core.util.k.da(file.getAbsolutePath())) {
                 file.mkdirs();
             }
-            this.gcV.setOutputFile(this.gyY.bxc());
+            this.gcH.setOutputFile(this.gyK.bwU());
             try {
-                this.gcV.prepare();
-                this.gcV.start();
+                this.gcH.prepare();
+                this.gcH.start();
             } catch (Throwable th2) {
                 th2.printStackTrace();
             }
@@ -128,10 +128,10 @@ public class l extends SurfaceView implements SurfaceHolder.Callback, g {
 
     @Override // com.baidu.tieba.video.record.g
     public void f(Camera camera) {
-        if (this.gcV != null) {
+        if (this.gcH != null) {
             try {
-                this.gcV.stop();
-                this.gcV.release();
+                this.gcH.stop();
+                this.gcH.release();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -140,8 +140,8 @@ public class l extends SurfaceView implements SurfaceHolder.Callback, g {
 
     @Override // com.baidu.tieba.video.record.g
     public void g(Camera camera) {
-        if (this.gBM) {
-            this.gBM = false;
+        if (this.gBx) {
+            this.gBx = false;
         }
     }
 
@@ -151,6 +151,6 @@ public class l extends SurfaceView implements SurfaceHolder.Callback, g {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.gyY.a(motionEvent, getParent());
+        return this.gyK.a(motionEvent, getParent());
     }
 }

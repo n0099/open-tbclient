@@ -24,21 +24,21 @@ import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes.dex */
 public class SubPbLayout extends ViewGroup {
-    private float aSm;
-    private int bgZ;
-    private int cWi;
-    private d eAd;
-    private int eEv;
-    private View.OnClickListener eRQ;
-    private View.OnLongClickListener eRR;
-    private View.OnTouchListener eRS;
-    private int eRT;
-    private int eRU;
-    private PostData eRV;
-    private final Queue<a> eRW;
-    private TextView eRX;
-    private ViewGroup.MarginLayoutParams eRY;
-    private CustomMessageListener eRZ;
+    private float aRZ;
+    private int bgL;
+    private int cVW;
+    private int eEh;
+    private View.OnClickListener eRC;
+    private View.OnLongClickListener eRD;
+    private View.OnTouchListener eRE;
+    private int eRF;
+    private int eRG;
+    private PostData eRH;
+    private final Queue<a> eRI;
+    private TextView eRJ;
+    private ViewGroup.MarginLayoutParams eRK;
+    private CustomMessageListener eRL;
+    private d ezP;
     private View mEmptyView;
     private View mRootView;
 
@@ -59,108 +59,108 @@ public class SubPbLayout extends ViewGroup {
 
     public SubPbLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eEv = 0;
-        this.cWi = 0;
-        this.bgZ = 0;
-        this.eRT = 0;
-        this.eRU = 0;
+        this.eEh = 0;
+        this.cVW = 0;
+        this.bgL = 0;
+        this.eRF = 0;
+        this.eRG = 0;
         this.mRootView = null;
-        this.aSm = TbConfig.getContentSizeOfLzl();
-        this.eRW = new LinkedList();
-        this.eRY = new ViewGroup.MarginLayoutParams(-1, -2);
-        this.eRZ = new CustomMessageListener(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD) { // from class: com.baidu.tieba.pb.pb.sub.SubPbLayout.1
+        this.aRZ = TbConfig.getContentSizeOfLzl();
+        this.eRI = new LinkedList();
+        this.eRK = new ViewGroup.MarginLayoutParams(-1, -2);
+        this.eRL = new CustomMessageListener(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD) { // from class: com.baidu.tieba.pb.pb.sub.SubPbLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 float contentSizeOfLzl = TbConfig.getContentSizeOfLzl();
-                if (contentSizeOfLzl != SubPbLayout.this.aSm) {
-                    SubPbLayout.this.aSm = contentSizeOfLzl;
-                    SubPbLayout.this.eRX.setTextSize(0, contentSizeOfLzl);
+                if (contentSizeOfLzl != SubPbLayout.this.aRZ) {
+                    SubPbLayout.this.aRZ = contentSizeOfLzl;
+                    SubPbLayout.this.eRJ.setTextSize(0, contentSizeOfLzl);
                 }
             }
         };
-        this.eEv = l.f(context, d.f.ds8);
-        this.cWi = l.f(context, d.f.ds20);
-        this.bgZ = l.f(context, d.f.ds16);
-        this.eRT = l.f(context, d.f.ds12);
+        this.eEh = l.f(context, d.f.ds8);
+        this.cVW = l.f(context, d.f.ds20);
+        this.bgL = l.f(context, d.f.ds16);
+        this.eRF = l.f(context, d.f.ds12);
         this.mEmptyView = new View(context);
-        addView(this.mEmptyView, -1, this.eRT);
-        this.eRX = new TextView(context);
-        this.eRX.setPadding(0, 0, 0, this.bgZ);
-        this.eRX.setId(d.h.pb_floor_reply_more);
-        this.eRX.setTextSize(0, this.aSm);
-        aj.i(this.eRX, d.e.cp_link_tip_c);
-        addView(this.eRX, -1, -2);
+        addView(this.mEmptyView, -1, this.eRF);
+        this.eRJ = new TextView(context);
+        this.eRJ.setPadding(0, 0, 0, this.bgL);
+        this.eRJ.setId(d.h.pb_floor_reply_more);
+        this.eRJ.setTextSize(0, this.aRZ);
+        aj.i(this.eRJ, d.e.cp_link_tip_c);
+        addView(this.eRJ, -1, -2);
         com.baidu.adp.base.e<?> Y = i.Y(getContext());
         if (Y != null) {
-            Y.registerListener(this.eRZ);
+            Y.registerListener(this.eRL);
         }
     }
 
     public void setChildOnClickListener(View.OnClickListener onClickListener) {
-        this.eRQ = onClickListener;
+        this.eRC = onClickListener;
     }
 
     public void setChildOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.eRR = onLongClickListener;
+        this.eRD = onLongClickListener;
     }
 
     public void setChildOnTouchListener(View.OnTouchListener onTouchListener) {
-        this.eRS = onTouchListener;
+        this.eRE = onTouchListener;
     }
 
     public void setSubPbAdapter(d dVar) {
-        this.eAd = dVar;
+        this.ezP = dVar;
     }
 
     public void a(PostData postData, View view) {
-        this.eRV = postData;
+        this.eRH = postData;
         requestLayout();
         this.mRootView = view;
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        ArrayList<PostData> bru;
+        ArrayList<PostData> brn;
         int i3;
         SparseArray sparseArray;
-        if (this.eAd == null || this.eRV == null || this.eRV.bru() == null) {
+        if (this.ezP == null || this.eRH == null || this.eRH.brn() == null) {
             setMeasuredDimension(0, 0);
             return;
         }
         int size = View.MeasureSpec.getSize(i);
         int i4 = 0;
-        if (this.eRV.brs()) {
-            bru = this.eRV.brq();
+        if (this.eRH.brl()) {
+            brn = this.eRH.brj();
         } else {
-            bru = this.eRV.bru();
+            brn = this.eRH.brn();
         }
-        int t = v.t(bru);
-        this.eRU = t;
-        if (!this.eRV.brs()) {
+        int t = v.t(brn);
+        this.eRG = t;
+        if (!this.eRH.brl()) {
             if (t <= 2) {
-                this.eRU = t;
+                this.eRG = t;
             } else {
-                this.eRU = 2;
+                this.eRG = 2;
             }
         }
         int i5 = 0;
         while (true) {
             int i6 = i5;
             i3 = i4;
-            if (i6 >= this.eRU) {
+            if (i6 >= this.eRG) {
                 break;
             }
             View childAt = getChildAt(i6);
-            if (childAt == null || childAt.equals(this.eRX) || childAt.equals(this.mEmptyView)) {
-                childAt = this.eAd.ld();
-                childAt.setPadding(0, 0, 0, this.eEv);
-                this.eRW.offer(new a(i6, childAt));
+            if (childAt == null || childAt.equals(this.eRJ) || childAt.equals(this.mEmptyView)) {
+                childAt = this.ezP.ld();
+                childAt.setPadding(0, 0, 0, this.eEh);
+                this.eRI.offer(new a(i6, childAt));
             }
             View view = childAt;
-            view.setOnClickListener(this.eRQ);
-            view.setOnLongClickListener(this.eRR);
-            view.setOnTouchListener(this.eRS);
+            view.setOnClickListener(this.eRC);
+            view.setOnLongClickListener(this.eRD);
+            view.setOnTouchListener(this.eRE);
             view.setClickable(true);
             SparseArray sparseArray2 = (SparseArray) view.getTag();
             if (sparseArray2 == null) {
@@ -170,42 +170,42 @@ public class SubPbLayout extends ViewGroup {
             } else {
                 sparseArray = sparseArray2;
             }
-            if (sparseArray.get(d.h.tag_load_sub_data) != this.eRV) {
-                sparseArray.put(d.h.tag_load_sub_data, this.eRV);
+            if (sparseArray.get(d.h.tag_load_sub_data) != this.eRH) {
+                sparseArray.put(d.h.tag_load_sub_data, this.eRH);
             }
             sparseArray.put(d.h.tag_load_sub_view, this.mRootView);
             sparseArray.put(d.h.tag_is_subpb, true);
-            if (bru.get(i6) != null && bru.get(i6).getAuthor() != null) {
-                sparseArray.put(d.h.tag_photo_username, bru.get(i6).getAuthor().getUserName());
-                sparseArray.put(d.h.tag_photo_userid, bru.get(i6).getAuthor().getUserId());
-                sparseArray.put(d.h.tag_clip_board, bru.get(i6));
+            if (brn.get(i6) != null && brn.get(i6).getAuthor() != null) {
+                sparseArray.put(d.h.tag_photo_username, brn.get(i6).getAuthor().getUserName());
+                sparseArray.put(d.h.tag_photo_userid, brn.get(i6).getAuthor().getUserId());
+                sparseArray.put(d.h.tag_clip_board, brn.get(i6));
             }
-            this.eAd.a((d.b) sparseArray.get(d.h.tag_holder), bru.get(i6), this.eRV.brB() > bru.size() || bru.size() - i6 > 1, i6 == 0, false);
+            this.ezP.a((d.b) sparseArray.get(d.h.tag_holder), brn.get(i6), this.eRH.bru() > brn.size() || brn.size() - i6 > 1, i6 == 0, false);
             view.measure(((size - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             i4 = i3 + view.getMeasuredHeight();
             i5 = i6 + 1;
         }
-        if (bru != null && bru.size() > 0 && this.eRV.brB() > this.eRU) {
-            this.eRX.setText(String.format(TbadkCoreApplication.getInst().getApp().getString(d.l.sub_pb_load_more), Integer.valueOf(this.eRV.brB() - this.eRU)));
-            this.eRX.setOnClickListener(this.eRQ);
-            SparseArray sparseArray4 = (SparseArray) this.eRX.getTag();
+        if (brn != null && brn.size() > 0 && this.eRH.bru() > this.eRG) {
+            this.eRJ.setText(String.format(TbadkCoreApplication.getInst().getApp().getString(d.l.sub_pb_load_more), Integer.valueOf(this.eRH.bru() - this.eRG)));
+            this.eRJ.setOnClickListener(this.eRC);
+            SparseArray sparseArray4 = (SparseArray) this.eRJ.getTag();
             if (sparseArray4 == null) {
                 sparseArray4 = new SparseArray();
-                this.eRX.setTag(sparseArray4);
+                this.eRJ.setTag(sparseArray4);
             }
-            sparseArray4.put(d.h.tag_load_sub_data, this.eRV);
+            sparseArray4.put(d.h.tag_load_sub_data, this.eRH);
             sparseArray4.put(d.h.tag_load_sub_view, this.mRootView);
-            this.eRX.setVisibility(0);
-            this.eRX.measure(((size - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
+            this.eRJ.setVisibility(0);
+            this.eRJ.measure(((size - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             this.mEmptyView.setVisibility(8);
         } else {
-            this.eRX.setVisibility(8);
+            this.eRJ.setVisibility(8);
             this.mEmptyView.setVisibility(0);
-            this.mEmptyView.measure(((size - getPaddingLeft()) - getPaddingRight()) + 1073741824, this.eRT + 1073741824);
+            this.mEmptyView.measure(((size - getPaddingLeft()) - getPaddingRight()) + 1073741824, this.eRF + 1073741824);
         }
         int paddingBottom = getPaddingBottom() + getPaddingTop() + i3;
-        if (this.eRX.getVisibility() == 0) {
-            paddingBottom += this.eRX.getMeasuredHeight();
+        if (this.eRJ.getVisibility() == 0) {
+            paddingBottom += this.eRJ.getMeasuredHeight();
         }
         if (this.mEmptyView.getVisibility() == 0) {
             paddingBottom += this.mEmptyView.getMeasuredHeight();
@@ -216,17 +216,17 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5;
-        if (this.eRV != null && this.eRV.bru() != null) {
-            int size = this.eRW.size();
+        if (this.eRH != null && this.eRH.brn() != null) {
+            int size = this.eRI.size();
             for (int i6 = 0; i6 < size; i6++) {
-                a poll = this.eRW.poll();
+                a poll = this.eRI.poll();
                 if (poll.view.getParent() == null) {
-                    addViewInLayout(poll.view, poll.position, this.eRY, true);
+                    addViewInLayout(poll.view, poll.position, this.eRK, true);
                 }
             }
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            int i7 = this.eRU;
+            int i7 = this.eRG;
             int i8 = 0;
             int i9 = paddingTop;
             while (i8 < i7) {
@@ -253,10 +253,10 @@ public class SubPbLayout extends ViewGroup {
                 this.mEmptyView.layout(marginLayoutParams2.leftMargin + paddingLeft, i11, marginLayoutParams2.leftMargin + paddingLeft + this.mEmptyView.getMeasuredWidth(), this.mEmptyView.getMeasuredHeight() + i11);
                 i9 = i11 + marginLayoutParams2.bottomMargin;
             }
-            if (this.eRX.getVisibility() == 0) {
-                ViewGroup.MarginLayoutParams marginLayoutParams3 = (ViewGroup.MarginLayoutParams) this.eRX.getLayoutParams();
+            if (this.eRJ.getVisibility() == 0) {
+                ViewGroup.MarginLayoutParams marginLayoutParams3 = (ViewGroup.MarginLayoutParams) this.eRJ.getLayoutParams();
                 int i12 = i9 + marginLayoutParams3.topMargin;
-                this.eRX.layout(marginLayoutParams3.leftMargin + paddingLeft, i12, marginLayoutParams3.leftMargin + paddingLeft + this.eRX.getMeasuredWidth(), this.eRX.getMeasuredHeight() + i12);
+                this.eRJ.layout(marginLayoutParams3.leftMargin + paddingLeft, i12, marginLayoutParams3.leftMargin + paddingLeft + this.eRJ.getMeasuredWidth(), this.eRJ.getMeasuredHeight() + i12);
             }
         }
     }
@@ -264,8 +264,8 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
-        if (this.eRV != null && this.eRV.bru() != null) {
-            int i = this.eRU;
+        if (this.eRH != null && this.eRH.brn() != null) {
+            int i = this.eRG;
             for (int i2 = 0; i2 < i; i2++) {
                 if (i < getChildCount()) {
                     drawChild(canvas, getChildAt(i2), drawingTime);
@@ -274,8 +274,8 @@ public class SubPbLayout extends ViewGroup {
             if (this.mEmptyView.getVisibility() == 0) {
                 drawChild(canvas, this.mEmptyView, drawingTime);
             }
-            if (this.eRX.getVisibility() == 0) {
-                drawChild(canvas, this.eRX, drawingTime);
+            if (this.eRJ.getVisibility() == 0) {
+                drawChild(canvas, this.eRJ, drawingTime);
             }
         }
     }
@@ -288,7 +288,7 @@ public class SubPbLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: aTD */
+    /* renamed from: aTy */
     public ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
         return new ViewGroup.MarginLayoutParams(-2, -2);
     }

@@ -268,9 +268,9 @@ public class PbActivityConfig extends IntentConfig {
         if (bhVar != null) {
             Intent intent = getIntent();
             intent.putExtra("thread_id", bhVar.getTid());
-            intent.putExtra("is_good", bhVar.rr());
-            intent.putExtra("is_top", bhVar.rq());
-            intent.putExtra(KEY_THREAD_TIME, bhVar.rp());
+            intent.putExtra("is_good", bhVar.rk());
+            intent.putExtra("is_top", bhVar.rj());
+            intent.putExtra(KEY_THREAD_TIME, bhVar.ri());
             intent.putExtra("st_type", str2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
@@ -280,7 +280,7 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bhVar.rl() == null ? 0L : bhVar.rl().getNum()));
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bhVar.re() == null ? 0L : bhVar.re().getNum()));
             if (bhVar.getAuthor() != null && bhVar.getAuthor().getGodUserData().getId() != null) {
                 intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, bhVar.getAuthor().getFansNum());
                 intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, bhVar.getAuthor().getGodUserData().getIsLike());

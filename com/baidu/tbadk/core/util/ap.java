@@ -4,10 +4,10 @@ public class ap {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static int ahj = 1;
-        public static int ahk = 2;
-        public static int ahl = 3;
-        public static int ahm = 4;
-        public static int ahn = 5;
+        public static int agX = 1;
+        public static int agY = 2;
+        public static int agZ = 3;
+        public static int aha = 4;
+        public static int ahb = 5;
     }
 }

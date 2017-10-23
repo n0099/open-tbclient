@@ -14,24 +14,24 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a uu = null;
-    public long us = 10000;
-    public long ut = 0;
-    private long uv = ReportUserInfoModel.TIME_INTERVAL;
-    private boolean uw = false;
+    private static a uv = null;
+    public long ut = 10000;
+    public long uu = 0;
+    private long uw = ReportUserInfoModel.TIME_INTERVAL;
     private boolean ux = false;
     private boolean uy = false;
+    private boolean uz = false;
     private int errorCode = 4;
-    private Address uz = null;
-    private ArrayList<SoftReference<InterfaceC0004a>> uA = null;
-    private ArrayList<com.baidu.adp.lib.d.b> uB = new ArrayList<>();
+    private Address uA = null;
+    private ArrayList<SoftReference<InterfaceC0004a>> uB = null;
+    private ArrayList<com.baidu.adp.lib.d.b> uC = new ArrayList<>();
     private Handler handler = null;
-    private b uC = new b() { // from class: com.baidu.adp.lib.d.a.1
+    private b uD = new b() { // from class: com.baidu.adp.lib.d.a.1
         @Override // com.baidu.adp.lib.d.a.b
         public void a(int i, String str, Address address, long j, boolean z) {
-            a.this.ut = j;
-            a.this.uz = address;
-            a.this.uw = z;
+            a.this.uu = j;
+            a.this.uA = address;
+            a.this.ux = z;
             a.this.errorCode = i;
             a.this.ff();
             switch (i) {
@@ -79,22 +79,22 @@ public class a {
     }
 
     public static a fc() {
-        if (uu == null) {
+        if (uv == null) {
             synchronized (a.class) {
-                if (uu == null) {
-                    uu = new a();
+                if (uv == null) {
+                    uv = new a();
                 }
             }
         }
-        return uu;
+        return uv;
     }
 
     public void a(com.baidu.adp.lib.d.b bVar) {
         if (bVar != null) {
-            synchronized (this.uB) {
-                if (!this.uB.contains(bVar)) {
-                    bVar.a(this.uC);
-                    this.uB.add(bVar);
+            synchronized (this.uC) {
+                if (!this.uC.contains(bVar)) {
+                    bVar.a(this.uD);
+                    this.uC.add(bVar);
                 }
             }
         }
@@ -102,15 +102,15 @@ public class a {
 
     public void b(com.baidu.adp.lib.d.b bVar) {
         if (bVar != null) {
-            synchronized (this.uB) {
+            synchronized (this.uC) {
                 bVar.destroy();
-                this.uB.remove(bVar);
+                this.uC.remove(bVar);
             }
         }
     }
 
     public void initial() {
-        this.uA = new ArrayList<>();
+        this.uB = new ArrayList<>();
         fd();
     }
 
@@ -149,7 +149,7 @@ public class a {
     }
 
     public long fe() {
-        return this.us;
+        return this.ut;
     }
 
     public Address D(boolean z) {
@@ -157,17 +157,17 @@ public class a {
     }
 
     public Address b(boolean z, boolean z2) {
-        if (System.currentTimeMillis() - this.ut > this.uv) {
-            this.uz = null;
+        if (System.currentTimeMillis() - this.uu > this.uw) {
+            this.uA = null;
         }
-        if (this.uz != null && !z && ((z2 && this.uw) || !z2)) {
-            return this.uz;
+        if (this.uA != null && !z && ((z2 && this.ux) || !z2)) {
+            return this.uA;
         }
-        this.uz = null;
-        if (!this.uy) {
+        this.uA = null;
+        if (!this.uz) {
             E(z2);
             return null;
-        } else if (this.uy && z2 && !this.ux) {
+        } else if (this.uz && z2 && !this.uy) {
             ff();
             E(z2);
             return null;
@@ -183,24 +183,24 @@ public class a {
     public Address a(boolean z, boolean z2, InterfaceC0004a interfaceC0004a) {
         boolean z3;
         InterfaceC0004a interfaceC0004a2;
-        if (System.currentTimeMillis() - this.ut > this.uv) {
-            this.uz = null;
+        if (System.currentTimeMillis() - this.uu > this.uw) {
+            this.uA = null;
         }
-        if (this.uz != null && !z && ((z2 && this.uw) || !z2)) {
+        if (this.uA != null && !z && ((z2 && this.ux) || !z2)) {
             if (interfaceC0004a != null) {
-                interfaceC0004a.b(0, "", this.uz);
+                interfaceC0004a.b(0, "", this.uA);
             }
-            return this.uz;
+            return this.uA;
         }
         if (interfaceC0004a != null) {
-            synchronized (this.uA) {
+            synchronized (this.uB) {
                 int i = 0;
                 while (true) {
-                    if (i >= this.uA.size()) {
+                    if (i >= this.uB.size()) {
                         z3 = false;
                         break;
                     }
-                    SoftReference<InterfaceC0004a> softReference = this.uA.get(i);
+                    SoftReference<InterfaceC0004a> softReference = this.uB.get(i);
                     if (softReference == null || (interfaceC0004a2 = softReference.get()) == null || !interfaceC0004a2.equals(interfaceC0004a)) {
                         i++;
                     } else {
@@ -209,16 +209,16 @@ public class a {
                     }
                 }
                 if (!z3) {
-                    if (this.uA.size() >= 100) {
-                        this.uA.remove(0);
+                    if (this.uB.size() >= 100) {
+                        this.uB.remove(0);
                     }
-                    this.uA.add(new SoftReference<>(interfaceC0004a));
+                    this.uB.add(new SoftReference<>(interfaceC0004a));
                 }
             }
-            if (!this.uy) {
+            if (!this.uz) {
                 E(z2);
                 return null;
-            } else if (this.uy && z2 && !this.ux) {
+            } else if (this.uz && z2 && !this.uy) {
                 ff();
                 E(z2);
                 return null;
@@ -229,15 +229,15 @@ public class a {
 
     public void a(InterfaceC0004a interfaceC0004a) {
         InterfaceC0004a interfaceC0004a2;
-        synchronized (this.uA) {
+        synchronized (this.uB) {
             int i = 0;
             while (true) {
-                if (i < this.uA.size()) {
-                    SoftReference<InterfaceC0004a> softReference = this.uA.get(i);
+                if (i < this.uB.size()) {
+                    SoftReference<InterfaceC0004a> softReference = this.uB.get(i);
                     if (softReference == null || (interfaceC0004a2 = softReference.get()) == null || !interfaceC0004a2.equals(interfaceC0004a)) {
                         i++;
                     } else {
-                        this.uA.remove(softReference);
+                        this.uB.remove(softReference);
                         break;
                     }
                 } else {
@@ -252,8 +252,8 @@ public class a {
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
         }
-        this.uy = false;
-        Iterator<com.baidu.adp.lib.d.b> it = this.uB.iterator();
+        this.uz = false;
+        Iterator<com.baidu.adp.lib.d.b> it = this.uC.iterator();
         while (it.hasNext()) {
             com.baidu.adp.lib.d.b next = it.next();
             if (next != null) {
@@ -271,14 +271,14 @@ public class a {
             this.handler.removeMessages(0);
         }
         this.errorCode = 4;
-        this.ux = z;
-        this.uy = true;
-        if (this.uB == null || this.uB.isEmpty()) {
+        this.uy = z;
+        this.uz = true;
+        if (this.uC == null || this.uC.isEmpty()) {
             this.errorCode = 6;
             this.handler.sendMessage(this.handler.obtainMessage(0));
             return;
         }
-        Iterator<com.baidu.adp.lib.d.b> it = this.uB.iterator();
+        Iterator<com.baidu.adp.lib.d.b> it = this.uC.iterator();
         while (it.hasNext()) {
             com.baidu.adp.lib.d.b next = it.next();
             if (next != null) {
@@ -289,7 +289,7 @@ public class a {
                 }
             }
         }
-        this.handler.sendMessageDelayed(this.handler.obtainMessage(0), this.us);
+        this.handler.sendMessageDelayed(this.handler.obtainMessage(0), this.ut);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -299,18 +299,18 @@ public class a {
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
         }
-        if (this.uA != null) {
-            synchronized (this.uA) {
+        if (this.uB != null) {
+            synchronized (this.uB) {
                 while (true) {
                     int i3 = i2;
-                    if (i3 < this.uA.size()) {
-                        SoftReference<InterfaceC0004a> softReference = this.uA.get(i3);
+                    if (i3 < this.uB.size()) {
+                        SoftReference<InterfaceC0004a> softReference = this.uB.get(i3);
                         if (softReference != null && (interfaceC0004a = softReference.get()) != null) {
                             interfaceC0004a.b(i, str, address);
                         }
                         i2 = i3 + 1;
                     } else {
-                        this.uA.clear();
+                        this.uB.clear();
                     }
                 }
             }

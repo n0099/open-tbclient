@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<f> apc;
-    private List<f> apd;
-    private boolean ape;
-    private boolean apf;
-    private int aph;
-    private int apg = 2;
-    private int api = 1;
+    private List<f> aoQ;
+    private List<f> aoR;
+    private boolean aoS;
+    private boolean aoT;
+    private int aoV;
+    private int aoU = 2;
+    private int aoW = 1;
 
     public d(List<f> list, boolean z, int i) {
-        this.aph = 2;
-        this.apc = list;
-        this.apf = z;
-        this.aph = i;
+        this.aoV = 2;
+        this.aoQ = list;
+        this.aoT = z;
+        this.aoV = i;
         v(list);
     }
 
     public void v(List<f> list) {
-        if (list != null && list.size() >= this.apg && list.size() <= this.aph) {
-            this.ape = true;
-        } else if (list.size() > this.aph && this.apf) {
-            this.ape = true;
+        if (list != null && list.size() >= this.aoU && list.size() <= this.aoV) {
+            this.aoS = true;
+        } else if (list.size() > this.aoV && this.aoT) {
+            this.aoS = true;
         } else {
-            this.ape = false;
+            this.aoS = false;
         }
-        this.apd = wV();
+        this.aoR = wO();
     }
 
-    private List<f> wV() {
+    private List<f> wO() {
         ArrayList arrayList = new ArrayList();
-        if (this.apc != null) {
-            if (this.ape) {
-                if (this.apc.size() > this.aph && this.apc.size() >= this.api) {
-                    arrayList.addAll(this.apc.subList(0, this.aph));
-                    arrayList.addAll(0, this.apc.subList(this.aph - this.api, this.aph));
-                    arrayList.addAll(this.apc.subList(0, this.api));
+        if (this.aoQ != null) {
+            if (this.aoS) {
+                if (this.aoQ.size() > this.aoV && this.aoQ.size() >= this.aoW) {
+                    arrayList.addAll(this.aoQ.subList(0, this.aoV));
+                    arrayList.addAll(0, this.aoQ.subList(this.aoV - this.aoW, this.aoV));
+                    arrayList.addAll(this.aoQ.subList(0, this.aoW));
                 } else {
-                    arrayList.addAll(this.apc);
-                    arrayList.addAll(0, this.apc.subList(this.apc.size() - this.api, this.apc.size()));
-                    arrayList.addAll(this.apc.subList(0, this.api));
+                    arrayList.addAll(this.aoQ);
+                    arrayList.addAll(0, this.aoQ.subList(this.aoQ.size() - this.aoW, this.aoQ.size()));
+                    arrayList.addAll(this.aoQ.subList(0, this.aoW));
                 }
-            } else if (this.apc != null && this.apc.size() > 0 && this.apc.size() >= this.api) {
-                arrayList.addAll(this.apc.subList(0, this.api));
+            } else if (this.aoQ != null && this.aoQ.size() > 0 && this.aoQ.size() >= this.aoW) {
+                arrayList.addAll(this.aoQ.subList(0, this.aoW));
             }
         }
         return arrayList;
     }
 
-    public int dJ(int i) {
-        if (this.ape) {
-            int size = this.apd.size();
+    public int dI(int i) {
+        if (this.aoS) {
+            int size = this.aoR.size();
             if (i == 0) {
-                return (size - 1) - this.api;
+                return (size - 1) - this.aoW;
             }
-            if (i == size - this.api) {
-                return this.api;
+            if (i == size - this.aoW) {
+                return this.aoW;
             }
             return i;
         }
         return i;
     }
 
-    public int dK(int i) {
-        if (this.ape) {
-            return i - this.api;
+    public int dJ(int i) {
+        if (this.aoS) {
+            return i - this.aoW;
         }
         return i;
     }
 
-    public int wW() {
-        if (this.apc == null) {
+    public int wP() {
+        if (this.aoQ == null) {
             return 0;
         }
-        return this.apc.size();
+        return this.aoQ.size();
     }
 
-    public int wX() {
-        if (this.ape) {
-            return this.api;
+    public int wQ() {
+        if (this.aoS) {
+            return this.aoW;
         }
         return 0;
     }
 
+    public void dK(int i) {
+        this.aoV = i;
+        v(this.aoQ);
+    }
+
     public void dL(int i) {
-        this.aph = i;
-        v(this.apc);
+        this.aoU = i;
+        v(this.aoQ);
+    }
+
+    public List<f> wR() {
+        return this.aoR;
     }
 
     public void dM(int i) {
-        this.apg = i;
-        v(this.apc);
-    }
-
-    public List<f> wY() {
-        return this.apd;
-    }
-
-    public void dN(int i) {
-        this.api = i;
-        v(this.apc);
+        this.aoW = i;
+        v(this.aoQ);
     }
 }

@@ -12,13 +12,13 @@ import android.widget.LinearLayout;
 public class FragmentTabRootView extends LinearLayout {
     private Matrix mMatrix;
     private Paint mPaint;
-    private Rect rs;
+    private Rect rt;
 
     public FragmentTabRootView(Context context) {
         super(context);
         this.mMatrix = new Matrix();
         this.mPaint = new Paint(6);
-        this.rs = new Rect();
+        this.rt = new Rect();
         init();
     }
 
@@ -26,7 +26,7 @@ public class FragmentTabRootView extends LinearLayout {
         super(context, attributeSet);
         this.mMatrix = new Matrix();
         this.mPaint = new Paint(6);
-        this.rs = new Rect();
+        this.rt = new Rect();
         init();
     }
 
@@ -42,7 +42,7 @@ public class FragmentTabRootView extends LinearLayout {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.rs.set(0, 0, i, i2);
+        this.rt.set(0, 0, i, i2);
     }
 
     public void a(float f, float f2, float f3, float f4, float f5, float f6, int i) {
@@ -58,7 +58,7 @@ public class FragmentTabRootView extends LinearLayout {
         canvas.save();
         canvas.concat(this.mMatrix);
         super.draw(canvas);
-        canvas.drawRect(this.rs, this.mPaint);
+        canvas.drawRect(this.rt, this.mPaint);
         canvas.restore();
     }
 }

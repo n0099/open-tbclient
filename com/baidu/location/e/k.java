@@ -14,14 +14,14 @@ import org.json.JSONObject;
 public final class k {
     private static final String d = String.format(Locale.US, "DELETE FROM LOG WHERE timestamp NOT IN (SELECT timestamp FROM LOG ORDER BY timestamp DESC LIMIT %d);", 3000);
     private static final String e = String.format(Locale.US, "SELECT * FROM LOG ORDER BY timestamp DESC LIMIT %d;", 3);
-    private final SQLiteDatabase NK;
+    private final SQLiteDatabase b;
     private String a = null;
-    private final a NS = new a(this);
+    private final a NH = new a(this);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends com.baidu.location.h.f {
-        private k NT;
+        private k NI;
         private int b;
         private long c;
         private String d = null;
@@ -29,7 +29,7 @@ public final class k {
         private boolean f = false;
 
         a(k kVar) {
-            this.NT = kVar;
+            this.NI = kVar;
             this.k = new HashMap();
             this.b = 0;
             this.c = -1L;
@@ -40,7 +40,7 @@ public final class k {
             if (this.e) {
                 return;
             }
-            this.d = this.NT.b();
+            this.d = this.NI.b();
             if (this.c != -1 && this.c + 86400000 <= System.currentTimeMillis()) {
                 this.b = 0;
                 this.c = -1L;
@@ -83,12 +83,12 @@ public final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(SQLiteDatabase sQLiteDatabase) {
-        this.NK = sQLiteDatabase;
-        if (this.NK == null || !this.NK.isOpen()) {
+        this.b = sQLiteDatabase;
+        if (this.b == null || !this.b.isOpen()) {
             return;
         }
         try {
-            this.NK.execSQL("CREATE TABLE IF NOT EXISTS LOG(timestamp LONG PRIMARY KEY, log VARCHAR(4000))");
+            this.b.execSQL("CREATE TABLE IF NOT EXISTS LOG(timestamp LONG PRIMARY KEY, log VARCHAR(4000))");
         } catch (Exception e2) {
         }
     }
@@ -99,7 +99,7 @@ public final class k {
             String format = String.format("DELETE FROM LOG WHERE timestamp in (%s);", this.a);
             try {
                 if (this.a.length() > 0) {
-                    this.NK.execSQL(format);
+                    this.b.execSQL(format);
                 }
             } catch (Exception e2) {
             }
@@ -115,7 +115,7 @@ public final class k {
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {
-            cursor = this.NK.rawQuery(e, null);
+            cursor = this.b.rawQuery(e, null);
             if (cursor != null) {
                 try {
                     if (cursor.getCount() > 0) {
@@ -172,14 +172,14 @@ public final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.NS.b();
+        this.NH.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str) {
         try {
-            this.NK.execSQL(String.format(Locale.US, "INSERT OR IGNORE INTO LOG VALUES (%d,\"%s\");", Long.valueOf(System.currentTimeMillis()), Jni.encodeOfflineLocationUpdateRequest(str)));
-            this.NK.execSQL(d);
+            this.b.execSQL(String.format(Locale.US, "INSERT OR IGNORE INTO LOG VALUES (%d,\"%s\");", Long.valueOf(System.currentTimeMillis()), Jni.encodeOfflineLocationUpdateRequest(str)));
+            this.b.execSQL(d);
         } catch (Exception e2) {
         }
     }

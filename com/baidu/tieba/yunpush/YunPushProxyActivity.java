@@ -31,10 +31,10 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     if (!jSONObject.isNull("jump_scheme")) {
                         str2 = jSONObject.getString("jump_scheme");
                     }
-                    TiebaStatic.log(new ak("c11703").r("obj_type", 2).ad(InterviewLiveActivityConfig.KEY_TASK_ID, str).ad("obj_to", str2));
+                    TiebaStatic.log(new ak("c11703").r("obj_type", 2).ac(InterviewLiveActivityConfig.KEY_TASK_ID, str).ac("obj_to", str2));
                     if (!TextUtils.isEmpty(str2)) {
                         if (str2.startsWith("http") || str2.startsWith("https")) {
-                            av.vH().c(getPageContext(), new String[]{str2});
+                            av.vA().c(getPageContext(), new String[]{str2});
                         } else {
                             Intent parseUri = Intent.parseUri(str2, 1);
                             parseUri.setFlags(276824064);

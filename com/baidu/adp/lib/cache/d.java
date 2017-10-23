@@ -4,8 +4,8 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class d<T> implements k<T> {
-    protected final boolean sK;
-    protected final e sL;
+    protected final boolean sL;
+    protected final e sM;
 
     public abstract g<T> Q(String str);
 
@@ -16,12 +16,12 @@ public abstract class d<T> implements k<T> {
     public abstract void c(g<T> gVar);
 
     public d(e eVar, boolean z) {
-        this.sL = eVar;
-        this.sK = z;
+        this.sM = eVar;
+        this.sL = z;
     }
 
     protected String h(String str, String str2) {
-        if (this.sK) {
+        if (this.sL) {
             return str + "@" + str2;
         }
         return str2;
@@ -34,14 +34,14 @@ public abstract class d<T> implements k<T> {
             if (BdLog.isDebugMode()) {
             }
             return null;
-        } else if (Q.sS < System.currentTimeMillis()) {
+        } else if (Q.sT < System.currentTimeMillis()) {
             S(h);
             if (BdLog.isDebugMode()) {
             }
             return null;
         } else {
-            if (this.sL.ex()) {
-                Q.sR = System.currentTimeMillis();
+            if (this.sM.ex()) {
+                Q.sS = System.currentTimeMillis();
                 c(Q);
             }
             if (BdLog.isDebugMode()) {
@@ -68,20 +68,20 @@ public abstract class d<T> implements k<T> {
         l.b<T> bVar = new l.b<>();
         bVar.key = str2;
         bVar.value = j.value;
-        bVar.sS = j.sS;
-        bVar.ti = j.sQ;
+        bVar.sT = j.sT;
+        bVar.tj = j.sR;
         return bVar;
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public void a(String str, String str2, T t, long j) {
         g<T> gVar = new g<>();
-        gVar.sO = h(str, str2);
-        gVar.sP = str;
-        gVar.sS = j;
+        gVar.sP = h(str, str2);
+        gVar.sQ = str;
+        gVar.sT = j;
         gVar.value = t;
+        gVar.sS = System.currentTimeMillis();
         gVar.sR = System.currentTimeMillis();
-        gVar.sQ = System.currentTimeMillis();
         c(gVar);
     }
 
@@ -92,6 +92,6 @@ public abstract class d<T> implements k<T> {
 
     @Override // com.baidu.adp.lib.cache.k
     public e ew() {
-        return this.sL;
+        return this.sM;
     }
 }

@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class m extends c {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private ak bNH;
-    private ak bNI;
-    private ak bNJ;
-    private ak bNK;
-    public bh bes;
+    private ak bNv;
+    private ak bNw;
+    private ak bNx;
+    private ak bNy;
+    public bh bee;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
@@ -19,7 +19,7 @@ public class m extends c {
     }
 
     public m(bh bhVar) {
-        this.bes = bhVar;
+        this.bee = bhVar;
     }
 
     public static boolean A(bh bhVar) {
@@ -27,43 +27,43 @@ public class m extends c {
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bh Nj() {
-        return this.bes;
+    public bh Nd() {
+        return this.bee;
     }
 
-    public int Yj() {
-        return (this.bes == null || StringUtils.isNull(this.bes.getPhotoLiveCover())) ? 0 : 1;
+    public int Yf() {
+        return (this.bee == null || StringUtils.isNull(this.bee.getPhotoLiveCover())) ? 0 : 1;
     }
 
     public void b(ak akVar) {
-        this.bNH = akVar;
+        this.bNv = akVar;
     }
 
     public void c(ak akVar) {
-        this.bNI = akVar;
+        this.bNw = akVar;
     }
 
     public void d(ak akVar) {
-        this.bNJ = akVar;
+        this.bNx = akVar;
     }
 
     public void e(ak akVar) {
-        this.bNK = akVar;
+        this.bNy = akVar;
     }
 
-    public ak Yk() {
-        return this.bNH != null ? this.bNH.ad("obj_param3", com.baidu.tieba.card.m.XG()) : this.bNH;
+    public ak Yg() {
+        return this.bNv != null ? this.bNv.ac("obj_param3", com.baidu.tieba.card.m.XC()) : this.bNv;
     }
 
-    public ak Yl() {
-        return this.bNI != null ? this.bNI.ad("obj_param3", com.baidu.tieba.card.m.XG()) : this.bNI;
+    public ak Yh() {
+        return this.bNw != null ? this.bNw.ac("obj_param3", com.baidu.tieba.card.m.XC()) : this.bNw;
     }
 
-    public ak Ym() {
-        return this.bNK != null ? this.bNK.ad("obj_param3", com.baidu.tieba.card.m.XG()) : this.bNK;
+    public ak Yi() {
+        return this.bNy != null ? this.bNy.ac("obj_param3", com.baidu.tieba.card.m.XC()) : this.bNy;
     }
 
-    public ak Yn() {
-        return this.bNJ != null ? this.bNJ.ad("obj_param3", com.baidu.tieba.card.m.XG()) : this.bNJ;
+    public ak Yj() {
+        return this.bNx != null ? this.bNx.ac("obj_param3", com.baidu.tieba.card.m.XC()) : this.bNx;
     }
 }

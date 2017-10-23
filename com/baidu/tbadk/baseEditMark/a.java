@@ -17,17 +17,17 @@ public abstract class a {
 
     public abstract void a(InterfaceC0042a interfaceC0042a);
 
-    public abstract void ad(boolean z);
+    public abstract void ac(boolean z);
 
-    public abstract String nF();
+    public abstract void nA();
 
-    public abstract boolean nG();
+    public abstract void nB();
 
-    public abstract void nH();
+    public abstract MarkData nC();
 
-    public abstract void nI();
+    public abstract String ny();
 
-    public abstract MarkData nJ();
+    public abstract boolean nz();
 
     public static a a(BaseActivity baseActivity) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MARK_MANAGER, a.class, baseActivity);

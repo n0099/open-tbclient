@@ -40,8 +40,8 @@ public class MainSharedPrefProvider extends ContentProvider {
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putString(lastPathSegment, asString);
                 edit.commit();
-                if (cV(lastPathSegment)) {
-                    V(lastPathSegment, asString);
+                if (cU(lastPathSegment)) {
+                    U(lastPathSegment, asString);
                     return null;
                 }
                 return null;
@@ -59,8 +59,8 @@ public class MainSharedPrefProvider extends ContentProvider {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.remove(lastPathSegment);
             edit.commit();
-            if (cV(lastPathSegment)) {
-                V(lastPathSegment, null);
+            if (cU(lastPathSegment)) {
+                U(lastPathSegment, null);
                 return 0;
             }
             return 0;
@@ -73,7 +73,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         return 0;
     }
 
-    private void V(String str, String str2) {
+    private void U(String str, String str2) {
         Intent intent = new Intent();
         intent.setAction(TbConfig.getBroadcastActionChangeSharedPref());
         intent.putExtra("intent_key", str);
@@ -81,13 +81,13 @@ public class MainSharedPrefProvider extends ContentProvider {
         TbadkCoreApplication.getInst().getApp().sendBroadcast(intent);
     }
 
-    private boolean cV(String str) {
+    private boolean cU(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        int length = a.adM.length;
+        int length = a.adA.length;
         for (int i = 0; i < length; i++) {
-            if (a.adM[i].equals(str)) {
+            if (a.adA[i].equals(str)) {
                 return true;
             }
         }

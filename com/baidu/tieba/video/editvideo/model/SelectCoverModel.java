@@ -23,58 +23,58 @@ import java.io.FileOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SelectCoverModel extends BdBaseModel {
-    private final HttpMessageListener eNd;
-    private com.baidu.tieba.video.editvideo.a gvy;
-    private a gvz;
+    private final HttpMessageListener eMP;
+    private com.baidu.tieba.video.editvideo.a gvk;
+    private a gvl;
 
     public SelectCoverModel(TbPageContext tbPageContext, com.baidu.tieba.video.editvideo.a aVar) {
         super(tbPageContext);
-        this.eNd = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_TEXT_UEG) { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.1
+        this.eMP = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_TEXT_UEG) { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003356 && (httpResponsedMessage instanceof VideoCheckUegResponseMessage)) {
                     String status = ((VideoCheckUegResponseMessage) httpResponsedMessage).getStatus();
                     if (VideoCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                        SelectCoverModel.this.gvy.aSg();
+                        SelectCoverModel.this.gvk.aSb();
                     } else if (VideoCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                         String msg = ((VideoCheckUegResponseMessage) httpResponsedMessage).getMsg();
                         if (TextUtils.isEmpty(msg)) {
                             msg = TbadkCoreApplication.getInst().getResources().getString(d.l.video_ueg_fail);
                         }
-                        SelectCoverModel.this.gvy.pc(msg);
+                        SelectCoverModel.this.gvk.pb(msg);
                     } else {
                         String errorString = httpResponsedMessage.getErrorString();
                         if (TextUtils.isEmpty(errorString)) {
                             errorString = TbadkCoreApplication.getInst().getResources().getString(d.l.video_fail);
                         }
-                        SelectCoverModel.this.gvy.pc(errorString);
+                        SelectCoverModel.this.gvk.pb(errorString);
                     }
                 }
             }
         };
-        this.gvy = aVar;
-        DP();
-        this.eNd.setTag(getUniqueId());
-        this.eNd.setSelfListener(true);
-        registerListener(this.eNd);
+        this.gvk = aVar;
+        DJ();
+        this.eMP.setTag(getUniqueId());
+        this.eMP.setSelfListener(true);
+        registerListener(this.eMP);
     }
 
-    private void DP() {
+    private void DJ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_TEXT_UEG, TbConfig.SERVER_ADDRESS + "c/f/video/next");
         tbHttpMessageTask.setResponsedClass(VideoCheckUegResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void pg(String str) {
+    public void pf(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
         httpMessage.addParam("text", str);
         sendMessage(httpMessage);
     }
 
     public void aA(String str, int i) {
-        this.gvz = new a(str, i);
-        this.gvz.execute(new Void[0]);
+        this.gvl = new a(str, i);
+        this.gvl.execute(new Void[0]);
     }
 
     public void b(final Bitmap bitmap, final String str) {
@@ -83,7 +83,7 @@ public class SelectCoverModel extends BdBaseModel {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                /* renamed from: f */
+                /* renamed from: g */
                 public String doInBackground(Void[] voidArr) {
                     File c = SelectCoverModel.this.c(bitmap, str);
                     bitmap.recycle();
@@ -95,7 +95,7 @@ public class SelectCoverModel extends BdBaseModel {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass2) str2);
-                    SelectCoverModel.this.gvy.sz(str2);
+                    SelectCoverModel.this.gvk.sy(str2);
                 }
             }.execute(new Void[0]);
         }
@@ -136,7 +136,7 @@ public class SelectCoverModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            SelectCoverModel.this.gvy.r(bitmap);
+            SelectCoverModel.this.gvk.r(bitmap);
         }
     }
 
@@ -251,10 +251,10 @@ public class SelectCoverModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.eNd);
+        MessageManager.getInstance().unRegisterListener(this.eMP);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
-        if (this.gvz != null) {
-            this.gvz.cancel();
+        if (this.gvl != null) {
+            this.gvl.cancel();
             return false;
         }
         return false;

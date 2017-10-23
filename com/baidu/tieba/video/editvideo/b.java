@@ -6,5 +6,5 @@ import java.util.List;
 public interface b {
     void dz(List<MusicData> list);
 
-    void sA(String str);
+    void sz(String str);
 }

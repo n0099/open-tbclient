@@ -16,14 +16,14 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener als;
+    private View.OnClickListener alf;
     private BaseActivity mContext;
     private List<AccountData> mData = null;
-    private boolean aYG = false;
+    private boolean aYt = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mContext = baseActivity;
-        this.als = onClickListener;
+        this.alf = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -78,39 +78,39 @@ public class a extends BaseAdapter {
                 } else if (getItemViewType(i) == 0) {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.j.account_item, (ViewGroup) null);
                     c0071a = new C0071a();
-                    c0071a.aYH = (TextView) view5.findViewById(d.h.account);
-                    c0071a.aYJ = (ImageView) view5.findViewById(d.h.active);
-                    c0071a.aYK = (Button) view5.findViewById(d.h.delete);
-                    c0071a.aYL = view5.findViewById(d.h.account_item_line_layout);
-                    c0071a.aYK.setOnClickListener(this.als);
+                    c0071a.aYu = (TextView) view5.findViewById(d.h.account);
+                    c0071a.aYw = (ImageView) view5.findViewById(d.h.active);
+                    c0071a.aYx = (Button) view5.findViewById(d.h.delete);
+                    c0071a.mLine = view5.findViewById(d.h.account_item_line_layout);
+                    c0071a.aYx.setOnClickListener(this.alf);
                     view5.setTag(c0071a);
                 } else {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.j.account_add_item, (ViewGroup) null);
                     c0071a = new C0071a();
-                    c0071a.aYI = (TextView) view5.findViewById(d.h.add_text);
+                    c0071a.aYv = (TextView) view5.findViewById(d.h.add_text);
                     view5.setTag(c0071a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0071a.aYJ.setVisibility(8);
-                    c0071a.aYK.setVisibility(8);
-                    c0071a.aYK.setTag(accountData);
+                    c0071a.aYw.setVisibility(8);
+                    c0071a.aYx.setVisibility(8);
+                    c0071a.aYx.setTag(accountData);
                     if (accountData != null) {
-                        c0071a.aYH.setText(accountData.getAccountNameShow());
+                        c0071a.aYu.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0071a.aYJ.setVisibility(0);
+                            c0071a.aYw.setVisibility(0);
                         }
-                        if (this.aYG) {
-                            c0071a.aYK.setVisibility(0);
+                        if (this.aYt) {
+                            c0071a.aYx.setVisibility(0);
                         }
                     }
                     if (i == getCount() - 2) {
-                        c0071a.aYL.setVisibility(8);
+                        c0071a.mLine.setVisibility(8);
                     } else {
-                        c0071a.aYL.setVisibility(0);
+                        c0071a.mLine.setVisibility(0);
                     }
                 }
-                this.mContext.getLayoutMode().ai(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
                 this.mContext.getLayoutMode().t(view5);
                 return view5;
             } catch (Exception e) {
@@ -118,20 +118,20 @@ public class a extends BaseAdapter {
                 view3 = view;
                 try {
                     BdLog.detailException(exc);
-                    this.mContext.getLayoutMode().ai(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
                     this.mContext.getLayoutMode().t(view3);
                     return view3;
                 } catch (Throwable th) {
                     view4 = view3;
                     th = th;
-                    this.mContext.getLayoutMode().ai(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
                     this.mContext.getLayoutMode().t(view4);
                     throw th;
                 }
             } catch (Throwable th2) {
                 th = th2;
                 view4 = view;
-                this.mContext.getLayoutMode().ai(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
                 this.mContext.getLayoutMode().t(view4);
                 throw th;
             }
@@ -139,23 +139,23 @@ public class a extends BaseAdapter {
             view3 = view2;
             exc = e2;
             BdLog.detailException(exc);
-            this.mContext.getLayoutMode().ai(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
             this.mContext.getLayoutMode().t(view3);
             return view3;
         } catch (Throwable th3) {
             th = th3;
-            this.mContext.getLayoutMode().ai(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
             this.mContext.getLayoutMode().t(view4);
             throw th;
         }
     }
 
     public void setEditState(boolean z) {
-        this.aYG = z;
+        this.aYt = z;
     }
 
-    public boolean Lv() {
-        return this.aYG;
+    public boolean Lp() {
+        return this.aYt;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -174,11 +174,11 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private class C0071a {
-        TextView aYH;
-        TextView aYI;
-        ImageView aYJ;
-        Button aYK;
-        View aYL;
+        TextView aYu;
+        TextView aYv;
+        ImageView aYw;
+        Button aYx;
+        View mLine;
 
         private C0071a() {
         }

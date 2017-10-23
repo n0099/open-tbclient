@@ -17,17 +17,17 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes.dex */
 public class c extends SurfaceView implements SurfaceHolder.Callback {
-    private static final j bIP = new j();
-    private final WeakReference<c> bHV;
-    private m bHX;
-    private i bIQ;
-    private e bIR;
-    private f bIS;
-    private g bIT;
-    private k bIU;
-    private int bIc;
-    private int bId;
-    private boolean bIe;
+    private static final j bID = new j();
+    private final WeakReference<c> bHJ;
+    private m bHL;
+    private int bHQ;
+    private int bHR;
+    private boolean bHS;
+    private i bIE;
+    private e bIF;
+    private f bIG;
+    private g bIH;
+    private k bII;
     private boolean mDetached;
 
     /* loaded from: classes.dex */
@@ -65,8 +65,8 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
 
     protected void finalize() throws Throwable {
         try {
-            if (this.bIQ != null) {
-                this.bIQ.Xd();
+            if (this.bIE != null) {
+                this.bIE.WZ();
             }
         } finally {
             super.finalize();
@@ -74,54 +74,54 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void setGLWrapper(k kVar) {
-        this.bIU = kVar;
+        this.bII = kVar;
     }
 
     public void setDebugFlags(int i2) {
-        this.bIc = i2;
+        this.bHQ = i2;
     }
 
     public int getDebugFlags() {
-        return this.bIc;
+        return this.bHQ;
     }
 
     public void setPreserveEGLContextOnPause(boolean z) {
-        this.bIe = z;
+        this.bHS = z;
     }
 
     public boolean getPreserveEGLContextOnPause() {
-        return this.bIe;
+        return this.bHS;
     }
 
     public void setRenderer(m mVar) {
-        WQ();
-        if (this.bIR == null) {
-            this.bIR = new n(true);
+        WM();
+        if (this.bIF == null) {
+            this.bIF = new n(true);
         }
-        if (this.bIS == null) {
-            this.bIS = new C0077c();
+        if (this.bIG == null) {
+            this.bIG = new C0077c();
         }
-        if (this.bIT == null) {
-            this.bIT = new d();
+        if (this.bIH == null) {
+            this.bIH = new d();
         }
-        this.bHX = mVar;
-        this.bIQ = new i(this.bHV);
-        this.bIQ.start();
+        this.bHL = mVar;
+        this.bIE = new i(this.bHJ);
+        this.bIE.start();
     }
 
     public void setEGLContextFactory(f fVar) {
-        WQ();
-        this.bIS = fVar;
+        WM();
+        this.bIG = fVar;
     }
 
     public void setEGLWindowSurfaceFactory(g gVar) {
-        WQ();
-        this.bIT = gVar;
+        WM();
+        this.bIH = gVar;
     }
 
     public void setEGLConfigChooser(e eVar) {
-        WQ();
-        this.bIR = eVar;
+        WM();
+        this.bIF = eVar;
     }
 
     public void setEGLConfigChooser(boolean z) {
@@ -129,51 +129,51 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void setEGLContextClientVersion(int i2) {
-        WQ();
-        this.bId = i2;
+        WM();
+        this.bHR = i2;
     }
 
     public void setRenderMode(int i2) {
-        this.bIQ.setRenderMode(i2);
+        this.bIE.setRenderMode(i2);
     }
 
     public int getRenderMode() {
-        return this.bIQ.getRenderMode();
+        return this.bIE.getRenderMode();
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        this.bIQ.Xc();
+        this.bIE.WY();
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        this.bIQ.surfaceDestroyed();
+        this.bIE.surfaceDestroyed();
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
-        this.bIQ.ag(i3, i4);
+        this.bIE.ag(i3, i4);
     }
 
     @Override // android.view.SurfaceView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.mDetached && this.bHX != null) {
-            int renderMode = this.bIQ != null ? this.bIQ.getRenderMode() : 1;
-            this.bIQ = new i(this.bHV);
+        if (this.mDetached && this.bHL != null) {
+            int renderMode = this.bIE != null ? this.bIE.getRenderMode() : 1;
+            this.bIE = new i(this.bHJ);
             if (renderMode != 1) {
-                this.bIQ.setRenderMode(renderMode);
+                this.bIE.setRenderMode(renderMode);
             }
-            this.bIQ.start();
+            this.bIE.start();
         }
         this.mDetached = false;
     }
 
     @Override // android.view.SurfaceView, android.view.View
     protected void onDetachedFromWindow() {
-        if (this.bIQ != null) {
-            this.bIQ.Xd();
+        if (this.bIE != null) {
+            this.bIE.WZ();
         }
         this.mDetached = true;
         super.onDetachedFromWindow();
@@ -190,9 +190,9 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
 
         @Override // com.baidu.tieba.b.d.c.f
         public EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
-            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, c.this.bId, 12344};
+            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, c.this.bHR, 12344};
             EGLContext eGLContext = EGL10.EGL_NO_CONTEXT;
-            if (c.this.bId == 0) {
+            if (c.this.bHR == 0) {
                 iArr = null;
             }
             return egl10.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
@@ -230,18 +230,18 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
 
     /* loaded from: classes.dex */
     private abstract class a implements e {
-        protected int[] bIf;
+        protected int[] bHT;
 
         abstract EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr);
 
         public a(int[] iArr) {
-            this.bIf = f(iArr);
+            this.bHT = h(iArr);
         }
 
         @Override // com.baidu.tieba.b.d.c.e
         public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
             int[] iArr = new int[1];
-            if (!egl10.eglChooseConfig(eGLDisplay, this.bIf, null, 0, iArr)) {
+            if (!egl10.eglChooseConfig(eGLDisplay, this.bHT, null, 0, iArr)) {
                 throw new IllegalArgumentException("eglChooseConfig failed");
             }
             int i = iArr[0];
@@ -249,7 +249,7 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                 throw new IllegalArgumentException("No configs match configSpec");
             }
             EGLConfig[] eGLConfigArr = new EGLConfig[i];
-            if (!egl10.eglChooseConfig(eGLDisplay, this.bIf, eGLConfigArr, i, iArr)) {
+            if (!egl10.eglChooseConfig(eGLDisplay, this.bHT, eGLConfigArr, i, iArr)) {
                 throw new IllegalArgumentException("eglChooseConfig#2 failed");
             }
             EGLConfig chooseConfig = chooseConfig(egl10, eGLDisplay, eGLConfigArr);
@@ -259,8 +259,8 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             return chooseConfig;
         }
 
-        private int[] f(int[] iArr) {
-            if (c.this.bId == 2) {
+        private int[] h(int[] iArr) {
+            if (c.this.bHR == 2) {
                 int length = iArr.length;
                 int[] iArr2 = new int[length + 2];
                 System.arraycopy(iArr, 0, iArr2, 0, length - 1);
@@ -330,85 +330,85 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class h {
-        private WeakReference<c> bIW;
-        EGL10 bIi;
-        EGLDisplay bIj;
-        EGLSurface bIk;
-        EGLConfig bIl;
-        EGLContext bIm;
+        EGL10 bHW;
+        EGLDisplay bHX;
+        EGLSurface bHY;
+        EGLConfig bHZ;
+        private WeakReference<c> bIK;
+        EGLContext bIa;
 
         public h(WeakReference<c> weakReference) {
-            this.bIW = weakReference;
+            this.bIK = weakReference;
         }
 
         public void start() {
-            this.bIi = (EGL10) EGLContext.getEGL();
-            this.bIj = this.bIi.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
-            if (this.bIj == EGL10.EGL_NO_DISPLAY) {
+            this.bHW = (EGL10) EGLContext.getEGL();
+            this.bHX = this.bHW.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
+            if (this.bHX == EGL10.EGL_NO_DISPLAY) {
                 throw new RuntimeException("eglGetDisplay failed");
             }
-            if (!this.bIi.eglInitialize(this.bIj, new int[2])) {
+            if (!this.bHW.eglInitialize(this.bHX, new int[2])) {
                 throw new RuntimeException("eglInitialize failed");
             }
-            c cVar = this.bIW.get();
+            c cVar = this.bIK.get();
             if (cVar != null) {
-                this.bIl = cVar.bIR.chooseConfig(this.bIi, this.bIj);
-                this.bIm = cVar.bIS.createContext(this.bIi, this.bIj, this.bIl);
+                this.bHZ = cVar.bIF.chooseConfig(this.bHW, this.bHX);
+                this.bIa = cVar.bIG.createContext(this.bHW, this.bHX, this.bHZ);
             } else {
-                this.bIl = null;
-                this.bIm = null;
+                this.bHZ = null;
+                this.bIa = null;
             }
-            if (this.bIm == null || this.bIm == EGL10.EGL_NO_CONTEXT) {
-                this.bIm = null;
-                jg("createContext");
+            if (this.bIa == null || this.bIa == EGL10.EGL_NO_CONTEXT) {
+                this.bIa = null;
+                jf("createContext");
             }
-            this.bIk = null;
+            this.bHY = null;
         }
 
-        public boolean WS() {
-            if (this.bIi == null) {
+        public boolean WO() {
+            if (this.bHW == null) {
                 throw new RuntimeException("egl not initialized");
             }
-            if (this.bIj == null) {
+            if (this.bHX == null) {
                 throw new RuntimeException("eglDisplay not initialized");
             }
-            if (this.bIl == null) {
+            if (this.bHZ == null) {
                 throw new RuntimeException("mEglConfig not initialized");
             }
-            WW();
-            c cVar = this.bIW.get();
+            WS();
+            c cVar = this.bIK.get();
             if (cVar != null) {
-                this.bIk = cVar.bIT.createWindowSurface(this.bIi, this.bIj, this.bIl, cVar.getHolder());
+                this.bHY = cVar.bIH.createWindowSurface(this.bHW, this.bHX, this.bHZ, cVar.getHolder());
             } else {
-                this.bIk = null;
+                this.bHY = null;
             }
-            if (this.bIk == null || this.bIk == EGL10.EGL_NO_SURFACE) {
-                if (this.bIi.eglGetError() == 12299) {
+            if (this.bHY == null || this.bHY == EGL10.EGL_NO_SURFACE) {
+                if (this.bHW.eglGetError() == 12299) {
                     Log.e("EglHelper", "createWindowSurface returned EGL_BAD_NATIVE_WINDOW.");
                 }
                 return false;
-            } else if (!this.bIi.eglMakeCurrent(this.bIj, this.bIk, this.bIk, this.bIm)) {
-                f("EGLHelper", "eglMakeCurrent", this.bIi.eglGetError());
+            } else if (!this.bHW.eglMakeCurrent(this.bHX, this.bHY, this.bHY, this.bIa)) {
+                f("EGLHelper", "eglMakeCurrent", this.bHW.eglGetError());
                 return false;
             } else {
                 return true;
             }
         }
 
-        GL WT() {
+        GL WP() {
             l lVar;
-            GL gl = this.bIm.getGL();
-            c cVar = this.bIW.get();
+            GL gl = this.bIa.getGL();
+            c cVar = this.bIK.get();
             if (cVar != null) {
-                if (cVar.bIU != null) {
-                    gl = cVar.bIU.wrap(gl);
+                if (cVar.bII != null) {
+                    gl = cVar.bII.wrap(gl);
                 }
-                if ((cVar.bIc & 3) != 0) {
+                if ((cVar.bHQ & 3) != 0) {
                     int i = 0;
-                    if ((cVar.bIc & 1) != 0) {
+                    if ((cVar.bHQ & 1) != 0) {
                         i = 1;
                     }
-                    if ((cVar.bIc & 2) == 0) {
+                    if ((cVar.bHQ & 2) == 0) {
                         lVar = null;
                     } else {
                         lVar = new l();
@@ -420,44 +420,44 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             return gl;
         }
 
-        public int WU() {
-            if (this.bIi.eglSwapBuffers(this.bIj, this.bIk)) {
+        public int WQ() {
+            if (this.bHW.eglSwapBuffers(this.bHX, this.bHY)) {
                 return 12288;
             }
-            return this.bIi.eglGetError();
+            return this.bHW.eglGetError();
         }
 
-        public void WV() {
-            WW();
+        public void WR() {
+            WS();
         }
 
-        private void WW() {
-            if (this.bIk != null && this.bIk != EGL10.EGL_NO_SURFACE) {
-                this.bIi.eglMakeCurrent(this.bIj, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
-                c cVar = this.bIW.get();
+        private void WS() {
+            if (this.bHY != null && this.bHY != EGL10.EGL_NO_SURFACE) {
+                this.bHW.eglMakeCurrent(this.bHX, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
+                c cVar = this.bIK.get();
                 if (cVar != null) {
-                    cVar.bIT.destroySurface(this.bIi, this.bIj, this.bIk);
+                    cVar.bIH.destroySurface(this.bHW, this.bHX, this.bHY);
                 }
-                this.bIk = null;
+                this.bHY = null;
             }
         }
 
         public void finish() {
-            if (this.bIm != null) {
-                c cVar = this.bIW.get();
+            if (this.bIa != null) {
+                c cVar = this.bIK.get();
                 if (cVar != null) {
-                    cVar.bIS.destroyContext(this.bIi, this.bIj, this.bIm);
+                    cVar.bIG.destroyContext(this.bHW, this.bHX, this.bIa);
                 }
-                this.bIm = null;
+                this.bIa = null;
             }
-            if (this.bIj != null) {
-                this.bIi.eglTerminate(this.bIj);
-                this.bIj = null;
+            if (this.bHX != null) {
+                this.bHW.eglTerminate(this.bHX);
+                this.bHX = null;
             }
         }
 
-        private void jg(String str) {
-            G(str, this.bIi.eglGetError());
+        private void jf(String str) {
+            G(str, this.bHW.eglGetError());
         }
 
         public static void G(String str, int i) {
@@ -469,36 +469,36 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         }
 
         public static String H(String str, int i) {
-            return str + " failed: " + com.baidu.tieba.b.d.b.hN(i);
+            return str + " failed: " + com.baidu.tieba.b.d.b.hM(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class i extends Thread {
-        private boolean bIA;
-        private WeakReference<c> bIW;
-        private h bIX;
-        private boolean bIn;
+        private WeakReference<c> bIK;
+        private h bIL;
+        private boolean bIb;
+        private boolean bIc;
+        private boolean bId;
+        private boolean bIe;
+        private boolean bIf;
+        private boolean bIg;
+        private boolean bIh;
+        private boolean bIi;
+        private boolean bIj;
+        private boolean bIk;
+        private boolean bIl;
         private boolean bIo;
-        private boolean bIp;
-        private boolean bIq;
-        private boolean bIr;
-        private boolean bIs;
-        private boolean bIt;
-        private boolean bIu;
-        private boolean bIv;
-        private boolean bIw;
-        private boolean bIx;
-        private ArrayList<Runnable> bIB = new ArrayList<>();
-        private boolean bIC = true;
+        private ArrayList<Runnable> bIp = new ArrayList<>();
+        private boolean bIq = true;
         private int mWidth = 0;
         private int mHeight = 0;
-        private boolean bIz = true;
-        private int bIy = 1;
+        private boolean bIn = true;
+        private int bIm = 1;
 
         i(WeakReference<c> weakReference) {
-            this.bIW = weakReference;
+            this.bIK = weakReference;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -506,36 +506,36 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             setName("GLThread " + getId());
             try {
                 try {
-                    WZ();
-                    c.bIP.a(this);
+                    WV();
+                    c.bID.a(this);
                 } catch (Exception e) {
-                    af.vb().aC(false);
-                    c.bIP.a(this);
+                    af.uU().aB(false);
+                    c.bID.a(this);
                 }
             } catch (Throwable th) {
-                c.bIP.a(this);
+                c.bID.a(this);
                 throw th;
             }
         }
 
-        private void WX() {
-            if (this.bIv) {
-                this.bIv = false;
-                this.bIX.WV();
+        private void WT() {
+            if (this.bIj) {
+                this.bIj = false;
+                this.bIL.WR();
             }
         }
 
-        private void WY() {
-            if (this.bIu) {
-                this.bIX.finish();
-                this.bIu = false;
-                c.bIP.c(this);
+        private void WU() {
+            if (this.bIi) {
+                this.bIL.finish();
+                this.bIi = false;
+                c.bID.c(this);
             }
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1399=4] */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        private void WZ() throws InterruptedException {
+        private void WV() throws InterruptedException {
             boolean z;
             int i;
             Runnable remove;
@@ -556,9 +556,9 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             boolean z14;
             int i3;
             int i4;
-            this.bIX = new h(this.bIW);
-            this.bIu = false;
-            this.bIv = false;
+            this.bIL = new h(this.bIK);
+            this.bIi = false;
+            this.bIj = false;
             boolean z15 = false;
             GL10 gl102 = null;
             int i5 = 0;
@@ -573,91 +573,91 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             boolean z22 = false;
             while (true) {
                 try {
-                    synchronized (c.bIP) {
-                        while (!this.bIn) {
-                            if (this.bIB.isEmpty()) {
-                                if (this.bIq != this.bIp) {
-                                    boolean z23 = this.bIp;
-                                    this.bIq = this.bIp;
-                                    c.bIP.notifyAll();
+                    synchronized (c.bID) {
+                        while (!this.bIb) {
+                            if (this.bIp.isEmpty()) {
+                                if (this.bIe != this.bId) {
+                                    boolean z23 = this.bId;
+                                    this.bIe = this.bId;
+                                    c.bID.notifyAll();
                                     z9 = z23;
                                 } else {
                                     z9 = false;
                                 }
-                                if (this.bIx) {
-                                    WX();
-                                    WY();
-                                    this.bIx = false;
+                                if (this.bIl) {
+                                    WT();
+                                    WU();
+                                    this.bIl = false;
                                     z16 = true;
                                 }
                                 if (z19) {
-                                    WX();
-                                    WY();
+                                    WT();
+                                    WU();
                                     z19 = false;
                                 }
-                                if (z9 && this.bIv) {
-                                    WX();
+                                if (z9 && this.bIj) {
+                                    WT();
                                 }
-                                if (z9 && this.bIu) {
-                                    c cVar = this.bIW.get();
-                                    if (!(cVar == null ? false : cVar.bIe) || c.bIP.Xf()) {
-                                        WY();
+                                if (z9 && this.bIi) {
+                                    c cVar = this.bIK.get();
+                                    if (!(cVar == null ? false : cVar.bHS) || c.bID.Xb()) {
+                                        WU();
                                     }
                                 }
-                                if (z9 && c.bIP.Xg()) {
-                                    this.bIX.finish();
+                                if (z9 && c.bID.Xc()) {
+                                    this.bIL.finish();
                                 }
-                                if (!this.bIr && !this.bIt) {
-                                    if (this.bIv) {
-                                        WX();
+                                if (!this.bIf && !this.bIh) {
+                                    if (this.bIj) {
+                                        WT();
                                     }
-                                    this.bIt = true;
-                                    this.bIs = false;
-                                    c.bIP.notifyAll();
+                                    this.bIh = true;
+                                    this.bIg = false;
+                                    c.bID.notifyAll();
                                 }
-                                if (this.bIr && this.bIt) {
-                                    this.bIt = false;
-                                    c.bIP.notifyAll();
+                                if (this.bIf && this.bIh) {
+                                    this.bIh = false;
+                                    c.bID.notifyAll();
                                 }
                                 if (z22) {
                                     z17 = false;
                                     z22 = false;
-                                    this.bIA = true;
-                                    c.bIP.notifyAll();
+                                    this.bIo = true;
+                                    c.bID.notifyAll();
                                 }
-                                if (Xb()) {
-                                    if (!this.bIu) {
+                                if (WX()) {
+                                    if (!this.bIi) {
                                         if (z16) {
                                             z16 = false;
-                                        } else if (c.bIP.b(this)) {
+                                        } else if (c.bID.b(this)) {
                                             try {
-                                                this.bIX.start();
-                                                this.bIu = true;
+                                                this.bIL.start();
+                                                this.bIi = true;
                                                 z15 = true;
-                                                c.bIP.notifyAll();
+                                                c.bID.notifyAll();
                                             } catch (RuntimeException e) {
-                                                c.bIP.c(this);
+                                                c.bID.c(this);
                                                 throw e;
                                             }
                                         }
                                     }
-                                    if (!this.bIu || this.bIv) {
+                                    if (!this.bIi || this.bIj) {
                                         z10 = z18;
                                         z11 = z20;
                                     } else {
-                                        this.bIv = true;
+                                        this.bIj = true;
                                         z21 = true;
                                         z10 = true;
                                         z11 = true;
                                     }
-                                    if (this.bIv) {
-                                        if (this.bIC) {
+                                    if (this.bIj) {
+                                        if (this.bIq) {
                                             z14 = true;
                                             i4 = this.mWidth;
                                             i3 = this.mHeight;
                                             z13 = true;
                                             z12 = true;
-                                            this.bIC = false;
+                                            this.bIq = false;
                                         } else {
                                             z12 = z21;
                                             int i7 = i6;
@@ -666,8 +666,8 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                                             i3 = i5;
                                             i4 = i7;
                                         }
-                                        this.bIz = false;
-                                        c.bIP.notifyAll();
+                                        this.bIn = false;
+                                        c.bID.notifyAll();
                                         z3 = z11;
                                         z6 = z13;
                                         remove = runnable;
@@ -684,11 +684,11 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                                         z18 = z10;
                                     }
                                 }
-                                c.bIP.wait();
+                                c.bID.wait();
                             } else {
                                 z = z22;
                                 i = i6;
-                                remove = this.bIB.remove(0);
+                                remove = this.bIp.remove(0);
                                 z2 = z21;
                                 z3 = z20;
                                 z4 = z19;
@@ -698,9 +698,9 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                                 i2 = i5;
                             }
                         }
-                        synchronized (c.bIP) {
-                            WX();
-                            WY();
+                        synchronized (c.bID) {
+                            WT();
+                            WU();
                         }
                         return;
                     }
@@ -720,17 +720,17 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                     } else {
                         if (!z2) {
                             z8 = z2;
-                        } else if (this.bIX.WS()) {
-                            synchronized (c.bIP) {
-                                this.bIw = true;
-                                c.bIP.notifyAll();
+                        } else if (this.bIL.WO()) {
+                            synchronized (c.bID) {
+                                this.bIk = true;
+                                c.bID.notifyAll();
                             }
                             z8 = false;
                         } else {
-                            synchronized (c.bIP) {
-                                this.bIw = true;
-                                this.bIs = true;
-                                c.bIP.notifyAll();
+                            synchronized (c.bID) {
+                                this.bIk = true;
+                                this.bIg = true;
+                                c.bID.notifyAll();
                             }
                             i5 = i2;
                             z16 = z7;
@@ -745,43 +745,43 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                             z22 = z25;
                         }
                         if (z3) {
-                            GL10 gl103 = (GL10) this.bIX.WT();
-                            c.bIP.b(gl103);
+                            GL10 gl103 = (GL10) this.bIL.WP();
+                            c.bID.b(gl103);
                             z3 = false;
                             gl10 = gl103;
                         } else {
                             gl10 = gl102;
                         }
                         if (z15) {
-                            c cVar2 = this.bIW.get();
+                            c cVar2 = this.bIK.get();
                             if (cVar2 != null) {
-                                cVar2.bHX.onSurfaceCreated(gl10, this.bIX.bIl);
+                                cVar2.bHL.onSurfaceCreated(gl10, this.bIL.bHZ);
                             }
                             z15 = false;
                         }
                         if (z5) {
-                            c cVar3 = this.bIW.get();
+                            c cVar3 = this.bIK.get();
                             if (cVar3 != null) {
-                                cVar3.bHX.onSurfaceChanged(gl10, i, i2);
+                                cVar3.bHL.onSurfaceChanged(gl10, i, i2);
                             }
                             z5 = false;
                         }
-                        c cVar4 = this.bIW.get();
+                        c cVar4 = this.bIK.get();
                         if (cVar4 != null) {
-                            cVar4.bHX.onDrawFrame(gl10);
+                            cVar4.bHL.onDrawFrame(gl10);
                         }
-                        int WU = this.bIX.WU();
-                        switch (WU) {
+                        int WQ = this.bIL.WQ();
+                        switch (WQ) {
                             case 12288:
                                 break;
                             case 12302:
                                 z4 = true;
                                 break;
                             default:
-                                h.f("GLThread", "eglSwapBuffers", WU);
-                                synchronized (c.bIP) {
-                                    this.bIs = true;
-                                    c.bIP.notifyAll();
+                                h.f("GLThread", "eglSwapBuffers", WQ);
+                                synchronized (c.bID) {
+                                    this.bIg = true;
+                                    c.bID.notifyAll();
                                     break;
                                 }
                         }
@@ -800,28 +800,28 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
                         z16 = z27;
                     }
                 } catch (Throwable th) {
-                    synchronized (c.bIP) {
-                        WX();
-                        WY();
+                    synchronized (c.bID) {
+                        WT();
+                        WU();
                         throw th;
                     }
                 }
             }
         }
 
-        public boolean Xa() {
-            return this.bIu && this.bIv && Xb();
+        public boolean WW() {
+            return this.bIi && this.bIj && WX();
         }
 
-        private boolean Xb() {
-            return !this.bIq && this.bIr && !this.bIs && this.mWidth > 0 && this.mHeight > 0 && (this.bIz || this.bIy == 1);
+        private boolean WX() {
+            return !this.bIe && this.bIf && !this.bIg && this.mWidth > 0 && this.mHeight > 0 && (this.bIn || this.bIm == 1);
         }
 
         public void setRenderMode(int i) {
             if (i >= 0 && i <= 1) {
-                synchronized (c.bIP) {
-                    this.bIy = i;
-                    c.bIP.notifyAll();
+                synchronized (c.bID) {
+                    this.bIm = i;
+                    c.bID.notifyAll();
                 }
                 return;
             }
@@ -830,20 +830,20 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
 
         public int getRenderMode() {
             int i;
-            synchronized (c.bIP) {
-                i = this.bIy;
+            synchronized (c.bID) {
+                i = this.bIm;
             }
             return i;
         }
 
-        public void Xc() {
-            synchronized (c.bIP) {
-                this.bIr = true;
-                this.bIw = false;
-                c.bIP.notifyAll();
-                while (this.bIt && !this.bIw && !this.bIo) {
+        public void WY() {
+            synchronized (c.bID) {
+                this.bIf = true;
+                this.bIk = false;
+                c.bID.notifyAll();
+                while (this.bIh && !this.bIk && !this.bIc) {
                     try {
-                        c.bIP.wait();
+                        c.bID.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -852,12 +852,12 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         }
 
         public void surfaceDestroyed() {
-            synchronized (c.bIP) {
-                this.bIr = false;
-                c.bIP.notifyAll();
-                while (!this.bIt && !this.bIo) {
+            synchronized (c.bID) {
+                this.bIf = false;
+                c.bID.notifyAll();
+                while (!this.bIh && !this.bIc) {
                     try {
-                        c.bIP.wait();
+                        c.bID.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -866,30 +866,16 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         }
 
         public void ag(int i, int i2) {
-            synchronized (c.bIP) {
+            synchronized (c.bID) {
                 this.mWidth = i;
                 this.mHeight = i2;
-                this.bIC = true;
-                this.bIz = true;
-                this.bIA = false;
-                c.bIP.notifyAll();
-                while (!this.bIo && !this.bIq && !this.bIA && Xa()) {
-                    try {
-                        c.bIP.wait();
-                    } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
-                    }
-                }
-            }
-        }
-
-        public void Xd() {
-            synchronized (c.bIP) {
+                this.bIq = true;
                 this.bIn = true;
-                c.bIP.notifyAll();
-                while (!this.bIo) {
+                this.bIo = false;
+                c.bID.notifyAll();
+                while (!this.bIc && !this.bIe && !this.bIo && WW()) {
                     try {
-                        c.bIP.wait();
+                        c.bID.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -897,9 +883,23 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
             }
         }
 
-        public void Xe() {
-            this.bIx = true;
-            c.bIP.notifyAll();
+        public void WZ() {
+            synchronized (c.bID) {
+                this.bIb = true;
+                c.bID.notifyAll();
+                while (!this.bIc) {
+                    try {
+                        c.bID.wait();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+            }
+        }
+
+        public void Xa() {
+            this.bIl = true;
+            c.bID.notifyAll();
         }
     }
 
@@ -941,8 +941,8 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
         }
     }
 
-    private void WQ() {
-        if (this.bIQ != null) {
+    private void WM() {
+        if (this.bIE != null) {
             throw new IllegalStateException("setRenderer has already been called for this instance.");
         }
     }
@@ -951,75 +951,75 @@ public class c extends SurfaceView implements SurfaceHolder.Callback {
     /* loaded from: classes.dex */
     public static class j {
         private static String TAG = "GLThreadManager";
-        private boolean bIE;
-        private int bIF;
-        private boolean bIG;
-        private boolean bIH;
-        private boolean bII;
-        private i bIY;
+        private i bIM;
+        private boolean bIs;
+        private int bIt;
+        private boolean bIu;
+        private boolean bIv;
+        private boolean bIw;
 
         private j() {
         }
 
         public synchronized void a(i iVar) {
-            iVar.bIo = true;
-            if (this.bIY == iVar) {
-                this.bIY = null;
+            iVar.bIc = true;
+            if (this.bIM == iVar) {
+                this.bIM = null;
             }
             notifyAll();
         }
 
         public boolean b(i iVar) {
-            if (this.bIY == iVar || this.bIY == null) {
-                this.bIY = iVar;
+            if (this.bIM == iVar || this.bIM == null) {
+                this.bIM = iVar;
                 notifyAll();
                 return true;
             }
-            Xh();
-            if (this.bIH) {
+            Xd();
+            if (this.bIv) {
                 return true;
             }
-            if (this.bIY != null) {
-                this.bIY.Xe();
+            if (this.bIM != null) {
+                this.bIM.Xa();
             }
             return false;
         }
 
         public void c(i iVar) {
-            if (this.bIY == iVar) {
-                this.bIY = null;
+            if (this.bIM == iVar) {
+                this.bIM = null;
             }
             notifyAll();
         }
 
-        public synchronized boolean Xf() {
-            return this.bII;
+        public synchronized boolean Xb() {
+            return this.bIw;
         }
 
-        public synchronized boolean Xg() {
-            Xh();
-            return !this.bIH;
+        public synchronized boolean Xc() {
+            Xd();
+            return !this.bIv;
         }
 
         public synchronized void b(GL10 gl10) {
             synchronized (this) {
-                if (!this.bIG) {
-                    Xh();
+                if (!this.bIu) {
+                    Xd();
                     String glGetString = gl10.glGetString(7937);
-                    if (this.bIF < 131072) {
-                        this.bIH = !glGetString.startsWith("Q3Dimension MSM7500 ");
+                    if (this.bIt < 131072) {
+                        this.bIv = !glGetString.startsWith("Q3Dimension MSM7500 ");
                         notifyAll();
                     }
-                    this.bII = this.bIH ? false : true;
-                    this.bIG = true;
+                    this.bIw = this.bIv ? false : true;
+                    this.bIu = true;
                 }
             }
         }
 
-        private void Xh() {
-            if (!this.bIE) {
-                this.bIH = true;
-                this.bIE = true;
+        private void Xd() {
+            if (!this.bIs) {
+                this.bIv = true;
+                this.bIs = true;
             }
         }
     }

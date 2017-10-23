@@ -4,31 +4,31 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View aFX;
-    private boolean aFY;
+    protected View aFK;
+    private boolean aFL;
 
     public a(View view) {
-        this.aFX = view;
+        this.aFK = view;
     }
 
-    public boolean En() {
-        return this.aFY;
+    public boolean Eh() {
+        return this.aFL;
     }
 
     public void c(View view, boolean z) {
-        if (view != null && this.aFX != null && this.aFX.getParent() == null) {
-            this.aFY = true;
-            d.Q(view).a(view, this.aFX, z);
-            Eo();
+        if (view != null && this.aFK != null && this.aFK.getParent() == null) {
+            this.aFL = true;
+            d.Q(view).a(view, this.aFK, z);
+            Ei();
         }
     }
 
     public void O(View view) {
-        if (view != null && this.aFX != null && this.aFX.getParent() != null && (view instanceof ViewGroup)) {
+        if (view != null && this.aFK != null && this.aFK.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                Ep();
-                ((ViewGroup) view).removeView(this.aFX);
-                this.aFY = false;
+                Ej();
+                ((ViewGroup) view).removeView(this.aFK);
+                this.aFL = false;
             } catch (Exception e) {
             }
         }
@@ -39,10 +39,10 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Eo() {
+    public void Ei() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ep() {
+    public void Ej() {
     }
 }

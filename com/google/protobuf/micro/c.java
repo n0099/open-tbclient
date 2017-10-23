@@ -9,7 +9,7 @@ public final class c {
     private final byte[] a;
     private final int b;
     private int c;
-    private final OutputStream gZd;
+    private final OutputStream gYO;
 
     /* loaded from: classes2.dex */
     public static class a extends IOException {
@@ -19,21 +19,21 @@ public final class c {
     }
 
     private c(OutputStream outputStream, byte[] bArr) {
-        this.gZd = outputStream;
+        this.gYO = outputStream;
         this.a = bArr;
         this.c = 0;
         this.b = bArr.length;
     }
 
     private c(byte[] bArr, int i, int i2) {
-        this.gZd = null;
+        this.gYO = null;
         this.a = bArr;
         this.c = i;
         this.b = i + i2;
     }
 
     public static int H(int i, boolean z) {
-        return vX(i) + nP(z);
+        return vW(i) + nO(z);
     }
 
     public static c a(OutputStream outputStream, int i) {
@@ -41,26 +41,26 @@ public final class c {
     }
 
     public static int ag(int i, String str) {
-        return vX(i) + b(str);
+        return vW(i) + b(str);
     }
 
     public static int b(int i, com.google.protobuf.micro.a aVar) {
-        return vX(i) + c(aVar);
+        return vW(i) + c(aVar);
     }
 
     public static int b(int i, e eVar) {
-        return vX(i) + b(eVar);
+        return vW(i) + b(eVar);
     }
 
     public static int b(e eVar) {
         int b = eVar.b();
-        return b + vY(b);
+        return b + vX(b);
     }
 
     public static int b(String str) {
         try {
             byte[] bytes = str.getBytes("UTF-8");
-            return bytes.length + vY(bytes.length);
+            return bytes.length + vX(bytes.length);
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("UTF-8 not supported.");
         }
@@ -68,41 +68,41 @@ public final class c {
 
     public static int c(int i) {
         if (i >= 0) {
-            return vY(i);
+            return vX(i);
         }
         return 10;
     }
 
     public static int c(int i, int i2) {
-        return vX(i) + c(i2);
+        return vW(i) + c(i2);
     }
 
     public static int c(com.google.protobuf.micro.a aVar) {
-        return vY(aVar.a()) + aVar.a();
+        return vX(aVar.a()) + aVar.a();
     }
 
     public static int cg(int i, int i2) {
-        return vX(i) + d(i2);
+        return vW(i) + d(i2);
     }
 
     public static int d(int i) {
-        return vY(i);
+        return vX(i);
     }
 
     private void d() {
-        if (this.gZd == null) {
+        if (this.gYO == null) {
             throw new a();
         }
-        this.gZd.write(this.a, 0, this.c);
+        this.gYO.write(this.a, 0, this.c);
         this.c = 0;
-    }
-
-    public static int dn(long j) {
-        return dq(j);
     }
 
     /* renamed from: do  reason: not valid java name */
     public static int m14do(long j) {
+        return dq(j);
+    }
+
+    public static int dp(long j) {
         return dq(j);
     }
 
@@ -143,22 +143,22 @@ public final class c {
     }
 
     public static int n(int i, long j) {
-        return vX(i) + dn(j);
+        return vW(i) + m14do(j);
     }
 
-    public static int nP(boolean z) {
+    public static int nO(boolean z) {
         return 1;
     }
 
     public static int o(int i, long j) {
-        return vX(i) + m14do(j);
+        return vW(i) + dp(j);
+    }
+
+    public static int vW(int i) {
+        return vX(f.a(i, 0));
     }
 
     public static int vX(int i) {
-        return vY(f.a(i, 0));
-    }
-
-    public static int vY(int i) {
         if ((i & (-128)) == 0) {
             return 1;
         }
@@ -172,7 +172,7 @@ public final class c {
     }
 
     public void a() {
-        if (this.gZd != null) {
+        if (this.gYO != null) {
             d();
         }
     }
@@ -191,7 +191,7 @@ public final class c {
         if (i >= 0) {
             g(i);
         } else {
-            dp(i);
+            e(i);
         }
     }
 
@@ -221,7 +221,7 @@ public final class c {
     }
 
     public void a(long j) {
-        dp(j);
+        e(j);
     }
 
     public void a(e eVar) {
@@ -244,7 +244,7 @@ public final class c {
     }
 
     public int b() {
-        if (this.gZd == null) {
+        if (this.gYO == null) {
             return this.b - this.c;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
@@ -265,7 +265,7 @@ public final class c {
     }
 
     public void b(long j) {
-        dp(j);
+        e(j);
     }
 
     public void b(com.google.protobuf.micro.a aVar) {
@@ -287,7 +287,7 @@ public final class c {
         this.c = this.b;
         d();
         if (i5 > this.b) {
-            this.gZd.write(bArr, i4, i5);
+            this.gYO.write(bArr, i4, i5);
             return;
         }
         System.arraycopy(bArr, i4, this.a, 0, i5);
@@ -300,20 +300,20 @@ public final class c {
         }
     }
 
-    public void dp(long j) {
-        while (((-128) & j) != 0) {
-            e((((int) j) & TransportMediator.KEYCODE_MEDIA_PAUSE) | 128);
-            j >>>= 7;
-        }
-        e((int) j);
-    }
-
     public void e(int i) {
         a((byte) i);
     }
 
     public void e(int i, int i2) {
         g(f.a(i, i2));
+    }
+
+    public void e(long j) {
+        while (((-128) & j) != 0) {
+            e((((int) j) & TransportMediator.KEYCODE_MEDIA_PAUSE) | 128);
+            j >>>= 7;
+        }
+        e((int) j);
     }
 
     public void g(int i) {

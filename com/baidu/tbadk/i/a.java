@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.view.HeadImageViewGroup;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends j.a {
-    public HeadImageViewGroup aEK;
-    private f aEL;
+    public HeadImageViewGroup aEx;
+    private f aEy;
     public TextView mName;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
@@ -21,19 +21,19 @@ public class a extends j.a {
         this.mSkinType = 3;
         View findViewById = view.findViewById(d.h.add_pic_root);
         this.mName = (TextView) findViewById.findViewById(d.h.name_tv);
-        this.aEK = (HeadImageViewGroup) findViewById.findViewById(d.h.img);
+        this.aEx = (HeadImageViewGroup) findViewById.findViewById(d.h.img);
     }
 
     public void c(f fVar) {
         if (fVar instanceof com.baidu.tbadk.data.c) {
-            this.aEL = fVar;
-            this.aEK.getInnerImg().setIsRound(true);
-            this.aEK.getInnerImg().setVisibility(0);
-            this.aEK.getInnerImg().setTag(null);
-            this.aEK.getInnerImg().setImageResource(d.g.btn_story_release);
-            this.aEK.setOuterColor(d.e.cp_link_tip_g);
+            this.aEy = fVar;
+            this.aEx.getInnerImg().setIsRound(true);
+            this.aEx.getInnerImg().setVisibility(0);
+            this.aEx.getInnerImg().setTag(null);
+            this.aEx.getInnerImg().setImageResource(d.g.btn_story_release);
+            this.aEx.setOuterColor(d.e.cp_link_tip_g);
             this.mName.setText(((com.baidu.tbadk.data.c) fVar).getName());
-            this.aEK.setOnClickListener(this.mOnClickListener);
+            this.aEx.setOnClickListener(this.mOnClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -41,7 +41,7 @@ public class a extends j.a {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             aj.c(this.mName, d.e.cp_cont_f, 1);
-            this.aEK.onChangeSkinType(i);
+            this.aEx.onChangeSkinType(i);
             this.mSkinType = i;
         }
     }

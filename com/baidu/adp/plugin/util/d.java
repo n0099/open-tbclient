@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static final HashMap<Class<?>, Class<?>> EN = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> EO = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class d {
     }
 
     static {
-        EN.put(Boolean.class, Boolean.TYPE);
-        EN.put(Byte.class, Byte.TYPE);
-        EN.put(Character.class, Character.TYPE);
-        EN.put(Short.class, Short.TYPE);
-        EN.put(Integer.class, Integer.TYPE);
-        EN.put(Float.class, Float.TYPE);
-        EN.put(Long.class, Long.TYPE);
-        EN.put(Double.class, Double.TYPE);
-        EN.put(Boolean.TYPE, Boolean.TYPE);
-        EN.put(Byte.TYPE, Byte.TYPE);
-        EN.put(Character.TYPE, Character.TYPE);
-        EN.put(Short.TYPE, Short.TYPE);
-        EN.put(Integer.TYPE, Integer.TYPE);
-        EN.put(Float.TYPE, Float.TYPE);
-        EN.put(Long.TYPE, Long.TYPE);
-        EN.put(Double.TYPE, Double.TYPE);
+        EO.put(Boolean.class, Boolean.TYPE);
+        EO.put(Byte.class, Byte.TYPE);
+        EO.put(Character.class, Character.TYPE);
+        EO.put(Short.class, Short.TYPE);
+        EO.put(Integer.class, Integer.TYPE);
+        EO.put(Float.class, Float.TYPE);
+        EO.put(Long.class, Long.TYPE);
+        EO.put(Double.class, Double.TYPE);
+        EO.put(Boolean.TYPE, Boolean.TYPE);
+        EO.put(Byte.TYPE, Byte.TYPE);
+        EO.put(Character.TYPE, Character.TYPE);
+        EO.put(Short.TYPE, Short.TYPE);
+        EO.put(Integer.TYPE, Integer.TYPE);
+        EO.put(Float.TYPE, Float.TYPE);
+        EO.put(Long.TYPE, Long.TYPE);
+        EO.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -84,7 +84,7 @@ public class d {
                 if (clsArr[i].isAssignableFrom(clsArr2[i])) {
                     return true;
                 }
-                if (EN.containsKey(clsArr[i]) && EN.get(clsArr[i]).equals(EN.get(clsArr2[i]))) {
+                if (EO.containsKey(clsArr[i]) && EO.get(clsArr[i]).equals(EO.get(clsArr2[i]))) {
                     return true;
                 }
             }
@@ -92,7 +92,7 @@ public class d {
         }
     }
 
-    public static Object c(Object obj, Object obj2) {
+    public static Object d(Object obj, Object obj2) {
         if (obj == null) {
             return obj2;
         }

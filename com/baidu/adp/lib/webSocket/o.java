@@ -14,22 +14,22 @@ import java.util.Random;
 import org.apache.http.NameValuePair;
 /* loaded from: classes.dex */
 public class o extends Handler {
-    private static long AR = 0;
-    private final Random AP;
-    private final a AQ;
-    private final Handler Av;
+    private static long AS = 0;
+    private final Random AQ;
+    private final a AR;
+    private final Handler Aw;
     private final Looper mLooper;
-    private final e.a zH;
-    private final l zP;
+    private final e.a zI;
+    private final l zQ;
 
     public o(Looper looper, Handler handler, e.a aVar, l lVar) {
         super(looper);
-        this.AP = new Random();
+        this.AQ = new Random();
         this.mLooper = looper;
-        this.Av = handler;
-        this.zH = aVar;
-        this.zP = lVar;
-        this.AQ = new a(lVar.il() + 14, AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
+        this.Aw = handler;
+        this.zI = aVar;
+        this.zQ = lVar;
+        this.AR = new a(lVar.il() + 14, AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
     }
 
     public boolean t(Object obj) {
@@ -39,66 +39,66 @@ public class o extends Handler {
     }
 
     private void s(Object obj) {
-        Message obtainMessage = this.Av.obtainMessage();
+        Message obtainMessage = this.Aw.obtainMessage();
         obtainMessage.obj = obj;
-        this.Av.sendMessage(obtainMessage);
+        this.Aw.sendMessage(obtainMessage);
     }
 
     private String iw() {
         byte[] bArr = new byte[16];
-        this.AP.nextBytes(bArr);
+        this.AQ.nextBytes(bArr);
         return com.baidu.adp.lib.util.c.encodeBytes(bArr);
     }
 
     private void a(k.b bVar) throws IOException {
         String str;
-        if (bVar.zY != null) {
-            str = bVar.mPath + "?" + bVar.zY;
+        if (bVar.zZ != null) {
+            str = bVar.mPath + "?" + bVar.zZ;
         } else {
             str = bVar.mPath;
         }
-        this.AQ.write("GET " + str + " HTTP/1.1");
-        this.AQ.hO();
-        this.AQ.write("Host: " + bVar.zX);
-        this.AQ.hO();
-        this.AQ.write("Upgrade: WebSocket");
-        this.AQ.hO();
-        this.AQ.write("Connection: Upgrade");
-        this.AQ.hO();
-        this.AQ.write("Sec-WebSocket-Key: " + iw());
-        this.AQ.hO();
-        if (this.zP != null && this.zP.ir() != null && this.zP.ir().length() > 0) {
-            this.AQ.write("Sec-WebSocket-Extensions: " + this.zP.ir());
-            this.AQ.hO();
+        this.AR.write("GET " + str + " HTTP/1.1");
+        this.AR.hO();
+        this.AR.write("Host: " + bVar.zY);
+        this.AR.hO();
+        this.AR.write("Upgrade: WebSocket");
+        this.AR.hO();
+        this.AR.write("Connection: Upgrade");
+        this.AR.hO();
+        this.AR.write("Sec-WebSocket-Key: " + iw());
+        this.AR.hO();
+        if (this.zQ != null && this.zQ.ir() != null && this.zQ.ir().length() > 0) {
+            this.AR.write("Sec-WebSocket-Extensions: " + this.zQ.ir());
+            this.AR.hO();
         }
-        if (bVar.zZ != null && !bVar.zZ.equals("")) {
-            this.AQ.write("Origin: " + bVar.zZ);
-            this.AQ.hO();
+        if (bVar.Aa != null && !bVar.Aa.equals("")) {
+            this.AR.write("Origin: " + bVar.Aa);
+            this.AR.hO();
         }
-        if (bVar.Aa != null && bVar.Aa.length > 0) {
-            this.AQ.write("Sec-WebSocket-Protocol: ");
-            for (int i = 0; i < bVar.Aa.length; i++) {
-                this.AQ.write(bVar.Aa[i]);
-                this.AQ.write(", ");
+        if (bVar.Ab != null && bVar.Ab.length > 0) {
+            this.AR.write("Sec-WebSocket-Protocol: ");
+            for (int i = 0; i < bVar.Ab.length; i++) {
+                this.AR.write(bVar.Ab[i]);
+                this.AR.write(", ");
             }
-            this.AQ.hO();
+            this.AR.hO();
         }
-        this.AQ.write("Sec-WebSocket-Version: 13");
-        this.AQ.hO();
-        if (bVar.Ab != null) {
-            for (NameValuePair nameValuePair : bVar.Ab) {
-                this.AQ.write(nameValuePair.getName() + ":" + nameValuePair.getValue());
-                this.AQ.hO();
+        this.AR.write("Sec-WebSocket-Version: 13");
+        this.AR.hO();
+        if (bVar.Ac != null) {
+            for (NameValuePair nameValuePair : bVar.Ac) {
+                this.AR.write(nameValuePair.getName() + ":" + nameValuePair.getValue());
+                this.AR.hO();
             }
         }
-        this.AQ.hO();
+        this.AR.hO();
     }
 
     private void a(k.c cVar) throws IOException, WebSocketException {
         byte[] bArr;
         if (cVar.mCode > 0) {
-            if (cVar.Ac != null && !cVar.Ac.equals("")) {
-                byte[] bytes = cVar.Ac.getBytes("UTF-8");
+            if (cVar.Ae != null && !cVar.Ae.equals("")) {
+                byte[] bytes = cVar.Ae.getBytes("UTF-8");
                 byte[] bArr2 = new byte[bytes.length + 2];
                 for (int i = 0; i < bytes.length; i++) {
                     bArr2[i + 2] = bytes[i];
@@ -119,25 +119,25 @@ public class o extends Handler {
     }
 
     private void a(k.j jVar) throws IOException, WebSocketException {
-        if (jVar.zW != null && jVar.zW.length > 125) {
+        if (jVar.zX != null && jVar.zX.length > 125) {
             throw new WebSocketException("ping payload exceeds 125 octets");
         }
-        a(9, true, jVar.zW);
+        a(9, true, jVar.zX);
     }
 
     private void a(k.C0008k c0008k) throws IOException, WebSocketException {
-        if (c0008k.zW != null && c0008k.zW.length > 125) {
+        if (c0008k.zX != null && c0008k.zX.length > 125) {
             throw new WebSocketException("pong payload exceeds 125 octets");
         }
-        a(10, true, c0008k.zW);
+        a(10, true, c0008k.zX);
     }
 
     private boolean a(k.i iVar) throws IOException, WebSocketException {
-        byte[] hP = iVar.Ah.hP();
+        byte[] hP = iVar.Ai.hP();
         if (hP == null) {
             return false;
         }
-        if (hP.length > this.zP.im()) {
+        if (hP.length > this.zQ.im()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(2, true, hP);
@@ -145,25 +145,25 @@ public class o extends Handler {
     }
 
     private void c(k.a aVar) throws IOException, WebSocketException {
-        if (aVar.zW.length > this.zP.im()) {
+        if (aVar.zX.length > this.zQ.im()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
-        a(2, true, aVar.zW);
+        a(2, true, aVar.zX);
     }
 
     private void a(k.s sVar) throws IOException, WebSocketException {
-        byte[] bytes = sVar.Am.getBytes("UTF-8");
-        if (bytes.length > this.zP.im()) {
+        byte[] bytes = sVar.An.getBytes("UTF-8");
+        if (bytes.length > this.zQ.im()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(1, true, bytes);
     }
 
     private void a(k.m mVar) throws IOException, WebSocketException {
-        if (mVar.zW.length > this.zP.im()) {
+        if (mVar.zX.length > this.zQ.im()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
-        a(1, true, mVar.zW);
+        a(1, true, mVar.zX);
     }
 
     protected void a(int i, boolean z, byte[] bArr) throws IOException {
@@ -179,31 +179,31 @@ public class o extends Handler {
         if (z) {
             b = (byte) (-128);
         }
-        this.AQ.write((byte) (b | ((byte) i)));
+        this.AR.write((byte) (b | ((byte) i)));
         byte b2 = 0;
-        if (this.zP.iq()) {
+        if (this.zQ.iq()) {
             b2 = Byte.MIN_VALUE;
         }
         long j = i3;
         if (j <= 125) {
-            this.AQ.write((byte) (b2 | ((byte) j)));
+            this.AR.write((byte) (b2 | ((byte) j)));
         } else if (j <= 65535) {
-            this.AQ.write((byte) (b2 | 126));
-            this.AQ.write(new byte[]{(byte) ((j >> 8) & 255), (byte) (255 & j)});
+            this.AR.write((byte) (b2 | 126));
+            this.AR.write(new byte[]{(byte) ((j >> 8) & 255), (byte) (255 & j)});
         } else {
-            this.AQ.write((byte) (b2 | Byte.MAX_VALUE));
-            this.AQ.write(new byte[]{(byte) ((j >> 56) & 255), (byte) ((j >> 48) & 255), (byte) ((j >> 40) & 255), (byte) ((j >> 32) & 255), (byte) ((j >> 24) & 255), (byte) ((j >> 16) & 255), (byte) ((j >> 8) & 255), (byte) (255 & j)});
+            this.AR.write((byte) (b2 | Byte.MAX_VALUE));
+            this.AR.write(new byte[]{(byte) ((j >> 56) & 255), (byte) ((j >> 48) & 255), (byte) ((j >> 40) & 255), (byte) ((j >> 32) & 255), (byte) ((j >> 24) & 255), (byte) ((j >> 16) & 255), (byte) ((j >> 8) & 255), (byte) (255 & j)});
         }
-        if (this.zP.iq()) {
-            this.AQ.write(0);
-            this.AQ.write(0);
-            this.AQ.write(0);
-            this.AQ.write(0);
+        if (this.zQ.iq()) {
+            this.AR.write(0);
+            this.AR.write(0);
+            this.AR.write(0);
+            this.AR.write(0);
         }
         if (j > 0) {
-            if (this.zP.iq()) {
+            if (this.zQ.iq()) {
             }
-            this.AQ.write(bArr, i2, i3);
+            this.AR.write(bArr, i2, i3);
         }
     }
 
@@ -213,26 +213,26 @@ public class o extends Handler {
             if (message.obj != null) {
                 c cVar = null;
                 if (message.obj instanceof k.i) {
-                    cVar = ((k.i) message.obj).Ah;
+                    cVar = ((k.i) message.obj).Ai;
                 }
-                this.AQ.clear();
+                this.AR.clear();
                 if (!u(message.obj)) {
                     s(new k.n(cVar));
                     return;
                 }
-                this.AQ.flip();
+                this.AR.flip();
                 if (cVar != null) {
                     s(new k.r(cVar));
                 }
-                while (this.AQ.remaining() > 0) {
-                    if (this.zH == null) {
+                while (this.AR.remaining() > 0) {
+                    if (this.zI == null) {
                         s(new k.d(new SocketException("write socket = null")));
                         return;
                     }
-                    int write = this.zH.write(this.AQ.hN());
+                    int write = this.zI.write(this.AR.hN());
                     if (write > 0) {
                         synchronized (o.class) {
-                            AR += write;
+                            AS += write;
                         }
                     }
                 }
@@ -256,7 +256,7 @@ public class o extends Handler {
         } catch (Exception e) {
         }
         try {
-            this.zH.close();
+            this.zI.close();
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -296,14 +296,14 @@ public class o extends Handler {
 
     public void ia() {
         synchronized (o.class) {
-            AR = 0L;
+            AS = 0L;
         }
     }
 
     public long getUpFlowSize() {
         long j;
         synchronized (o.class) {
-            j = AR;
+            j = AS;
         }
         return j;
     }

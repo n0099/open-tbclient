@@ -6,11 +6,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    public static final Pattern ceW = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
-    public static final Pattern ceX = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern ceK = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern ceL = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
-    public static String jM(String str) {
-        String replaceAll = str.replaceAll(d.aFe, "meme,");
+    public static String jL(String str) {
+        String replaceAll = str.replaceAll(d.aER, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
         int i = 0;

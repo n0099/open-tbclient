@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e {
-    protected volatile int gjp;
-    protected volatile HashMap<Long, Integer> gjq = new HashMap<>();
-    private volatile int gjo = 0;
+    protected volatile int gjb;
+    protected volatile HashMap<Long, Integer> gjc = new HashMap<>();
+    private volatile int gja = 0;
 
     public e(int i) {
-        this.gjp = i;
+        this.gjb = i;
     }
 
-    public void rY(String str) {
+    public void rX(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.gjq.size() >= this.gjp) {
-                    baX();
+                if (this.gjc.size() >= this.gjb) {
+                    baS();
                 }
-                this.gjo++;
-                this.gjq.put(valueOf, Integer.valueOf(this.gjo));
+                this.gja++;
+                this.gjc.put(valueOf, Integer.valueOf(this.gja));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void baX() {
+    public void baS() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.gjq.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.gjc.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,19 +47,19 @@ public class e {
                 l2 = l;
             }
             if (l2 != null) {
-                this.gjq.remove(l2);
+                this.gjc.remove(l2);
             } else {
-                this.gjq.clear();
+                this.gjc.clear();
             }
         }
     }
 
-    public boolean rZ(String str) {
+    public boolean rY(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.gjq.get(valueOf) != null;
+                z = this.gjc.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -68,18 +68,18 @@ public class e {
         }
     }
 
-    public boolean sa(String str) {
+    public boolean rZ(String str) {
         try {
-            return this.gjq.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.gjc.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void bss() {
+    public void bsl() {
         synchronized (this) {
-            this.gjq.clear();
+            this.gjc.clear();
         }
     }
 }

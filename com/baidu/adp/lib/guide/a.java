@@ -10,10 +10,10 @@ class a {
     public static View a(LayoutInflater layoutInflater, b bVar) {
         View a = bVar.a(layoutInflater);
         e.a aVar = new e.a(-2, -2);
-        aVar.uq = bVar.getXOffset();
-        aVar.ur = bVar.getYOffset();
-        aVar.uo = bVar.eW();
-        aVar.up = bVar.eX();
+        aVar.ur = bVar.getXOffset();
+        aVar.us = bVar.getYOffset();
+        aVar.up = bVar.eW();
+        aVar.uq = bVar.eX();
         a.setLayoutParams(aVar);
         return a;
     }

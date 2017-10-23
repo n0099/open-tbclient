@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e implements Filterable, WrapperListAdapter {
-    static final ArrayList<HListView.b> dea = new ArrayList<>();
-    boolean HK;
+    static final ArrayList<HListView.b> ddN = new ArrayList<>();
+    boolean HL;
     private final ListAdapter mAdapter;
     ArrayList<HListView.b> mFooterViewInfos;
     ArrayList<HListView.b> mHeaderViewInfos;
@@ -23,16 +23,16 @@ public class e implements Filterable, WrapperListAdapter {
         this.mAdapter = listAdapter;
         this.mIsFilterable = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.mHeaderViewInfos = dea;
+            this.mHeaderViewInfos = ddN;
         } else {
             this.mHeaderViewInfos = arrayList;
         }
         if (arrayList2 == null) {
-            this.mFooterViewInfos = dea;
+            this.mFooterViewInfos = ddN;
         } else {
             this.mFooterViewInfos = arrayList2;
         }
-        this.HK = e(this.mHeaderViewInfos) && e(this.mFooterViewInfos);
+        this.HL = e(this.mHeaderViewInfos) && e(this.mFooterViewInfos);
     }
 
     public int getHeadersCount() {
@@ -68,7 +68,7 @@ public class e implements Filterable, WrapperListAdapter {
     @Override // android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.HK && this.mAdapter.areAllItemsEnabled();
+            return this.HL && this.mAdapter.areAllItemsEnabled();
         }
         return true;
     }

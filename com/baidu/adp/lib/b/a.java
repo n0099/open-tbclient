@@ -4,16 +4,16 @@ import com.baidu.adp.lib.b.b;
 /* loaded from: classes.dex */
 public abstract class a {
     protected String mName;
-    protected int tA = 0;
-    protected int tB = 1;
-    protected int tC = 10;
-    protected b.a tD = new b.a() { // from class: com.baidu.adp.lib.b.a.1
+    protected String[] tA;
+    protected int tB = 0;
+    protected int tC = 1;
+    protected int tD = 10;
+    protected b.a tE = new b.a() { // from class: com.baidu.adp.lib.b.a.1
         @Override // com.baidu.adp.lib.b.b.a
         public void a(String str, int i, boolean z) {
             a.this.X(i);
         }
     };
-    protected String[] tz;
 
     protected abstract void X(int i);
 
@@ -32,8 +32,8 @@ public abstract class a {
     }
 
     protected void eR() {
-        b bVar = new b(this.mName, this.tA, this.tD);
-        bVar.a(this.tC, this.tz, this.tB);
+        b bVar = new b(this.mName, this.tB, this.tE);
+        bVar.a(this.tD, this.tA, this.tC);
         bVar.g(eQ());
         d.eV().a(bVar);
     }
@@ -45,9 +45,9 @@ public abstract class a {
 
     protected void initData() {
         this.mName = getName();
-        this.tz = eM();
-        this.tA = eN();
-        this.tB = eO();
-        this.tC = eP();
+        this.tA = eM();
+        this.tB = eN();
+        this.tC = eO();
+        this.tD = eP();
     }
 }

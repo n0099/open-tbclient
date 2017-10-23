@@ -4,41 +4,41 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public class d extends b implements r {
-    public String azf = "";
+    public String ayT = "";
     public int mPn = 0;
     public String mPageType = "";
-    public AdvertAppInfo bNp = null;
+    public AdvertAppInfo bNd = null;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        if (this.bNp != null && this.bNp.getType() == AdvertAppInfo.TL) {
-            return AdvertAppInfo.TV;
+        if (this.bNd != null && this.bNd.getType() == AdvertAppInfo.Tz) {
+            return AdvertAppInfo.TI;
         }
-        if (this.bNp != null && this.bNp.legoCard != null) {
-            return AdvertAppInfo.TY;
+        if (this.bNd != null && this.bNd.legoCard != null) {
+            return AdvertAppInfo.TL;
         }
         return null;
     }
 
     @Override // com.baidu.tieba.card.data.r
     public int getPosition() {
-        return com.baidu.adp.lib.g.b.g(this.bNp != null ? this.bNp.adPosition : "-1", -1);
+        return com.baidu.adp.lib.g.b.g(this.bNd != null ? this.bNd.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean XZ() {
+    public boolean XV() {
         return false;
+    }
+
+    @Override // com.baidu.tieba.card.data.r
+    public void dC(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.r
     public void dD(boolean z) {
     }
 
-    @Override // com.baidu.tieba.card.data.r
-    public void dE(boolean z) {
-    }
-
-    public AdvertAppInfo Ya() {
-        return this.bNp;
+    public AdvertAppInfo XW() {
+        return this.bNd;
     }
 }

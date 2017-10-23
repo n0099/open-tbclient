@@ -7,25 +7,25 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private int aQi;
-    private int aQj;
-    private double aQk;
+    private int aPV;
+    private int aPW;
+    private double aPX;
 
     public f() {
-        this.aQi = 3;
-        this.aQj = this.aQi;
+        this.aPV = 3;
+        this.aPW = this.aPV;
     }
 
     public f(int i) {
-        this.aQi = 3;
-        this.aQj = this.aQi;
+        this.aPV = 3;
+        this.aPW = this.aPV;
         if (i > 0) {
-            this.aQj = i;
+            this.aPW = i;
         }
     }
 
     @Override // com.baidu.tbadk.widget.layout.c
-    public int fG(int i) {
+    public int fF(int i) {
         return 1;
     }
 
@@ -41,13 +41,13 @@ public class f implements c {
         }
         int t = v.t(list);
         if (t >= 2) {
-            bVar.setImageMaxChildCount(this.aQi);
+            bVar.setImageMaxChildCount(this.aPV);
         } else {
             bVar.setImageMaxChildCount(-1);
         }
-        int i3 = t - this.aQj;
+        int i3 = t - this.aPW;
         if (i3 > 0) {
-            i2 = this.aQj + i;
+            i2 = this.aPW + i;
             List<MediaData> a = v.a(list, i, i2);
             bVar.setExtraCenterText(TbadkCoreApplication.getInst().getString(d.l.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)}));
             bVar.a(a, i, true);
@@ -56,22 +56,22 @@ public class f implements c {
             bVar.setExtraCenterText(null);
             i2 = t;
         }
-        bVar.setSingleImageRatio(fK(t));
+        bVar.setSingleImageRatio(fJ(t));
         return i2;
     }
 
-    private double fK(int i) {
+    private double fJ(int i) {
         TbadkCoreApplication.getInst();
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.aQk > 0.0d) {
-            return this.aQk;
+        if (this.aPX > 0.0d) {
+            return this.aPX;
         }
         return 0.6666666666666666d;
     }
 
     public void e(double d) {
-        this.aQk = d;
+        this.aPX = d;
     }
 }

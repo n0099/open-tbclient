@@ -7,14 +7,14 @@ import java.io.File;
 public class m {
     private static final String TAG = m.class.getSimpleName();
 
-    public static long hp(String str) {
+    public static long ho(String str) {
         long j;
         long j2 = 0;
-        long hq = hq(str);
+        long hp = hp(str);
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
-            File file = new File(i.aXY + str);
+            File file = new File(i.aXL + str);
             if (file == null || !file.exists() || !file.isDirectory()) {
                 return 0L;
             }
@@ -25,15 +25,15 @@ public class m {
                 j2 = file3.length();
             }
         }
-        return j + j2 + hq;
+        return j + j2 + hp;
     }
 
-    public static long hq(String str) {
+    public static long hp(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(i.aXY + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(i.aXL + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -43,7 +43,7 @@ public class m {
         return j;
     }
 
-    public static long Lf() {
+    public static long KZ() {
         if ("mounted".equals(Environment.getExternalStorageState())) {
             StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();
@@ -82,7 +82,7 @@ public class m {
         }
     }
 
-    public static String hr(String str) {
+    public static String hq(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }

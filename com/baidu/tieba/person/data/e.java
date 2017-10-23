@@ -10,21 +10,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId eZB = BdUniqueId.gen();
-    private List<com.baidu.tieba.personCenter.c.d> eZC;
-    public String eZD;
-    private List<g.a> eZh;
+    public static final BdUniqueId eZn = BdUniqueId.gen();
+    private List<g.a> eYT;
+    private List<com.baidu.tieba.personCenter.c.d> eZo;
+    public String eZp;
 
     public void cz(List<g.a> list) {
-        if (this.eZh == null) {
-            this.eZh = new ArrayList();
+        if (this.eYT == null) {
+            this.eYT = new ArrayList();
         } else {
-            this.eZh.clear();
+            this.eYT.clear();
         }
-        if (this.eZC == null) {
-            this.eZC = new ArrayList();
+        if (this.eZo == null) {
+            this.eZo = new ArrayList();
         } else {
-            this.eZC.clear();
+            this.eZo.clear();
         }
         cA(list);
     }
@@ -37,14 +37,14 @@ public class e implements com.baidu.adp.widget.ListView.f {
                         com.baidu.tieba.personCenter.c.d dVar = new com.baidu.tieba.personCenter.c.d();
                         dVar.iconId = d.g.icon_mine_buy;
                         dVar.title = TbadkCoreApplication.getInst().getString(d.l.consumption_records);
-                        dVar.faB = new com.baidu.tieba.personCenter.d.a();
-                        dVar.faB.ceU = 13;
-                        dVar.faB.ceV = new Bundle();
-                        dVar.faB.ceV.putString("type_center_consume_url", aVar.eZg);
-                        this.eZD = aVar.eZg;
-                        this.eZC.add(dVar);
+                        dVar.fan = new com.baidu.tieba.personCenter.d.a();
+                        dVar.fan.ceI = 13;
+                        dVar.fan.ceJ = new Bundle();
+                        dVar.fan.ceJ.putString("type_center_consume_url", aVar.eYS);
+                        this.eZp = aVar.eYS;
+                        this.eZo.add(dVar);
                     } else if (aVar.title.equals(TbadkCoreApplication.getInst().getResources().getString(d.l.person_wallet_money)) || aVar.title.equals(TbadkCoreApplication.getInst().getResources().getString(d.l.person_wallet_bankCard)) || aVar.title.equals(TbadkCoreApplication.getInst().getResources().getString(d.l.person_wallet_card_coupons)) || aVar.title.equals(TbadkCoreApplication.getInst().getResources().getString(d.l.get_tdou))) {
-                        this.eZh.add(aVar);
+                        this.eYT.add(aVar);
                     }
                 }
             }
@@ -53,6 +53,6 @@ public class e implements com.baidu.adp.widget.ListView.f {
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return eZB;
+        return eZn;
     }
 }

@@ -54,17 +54,17 @@ public class f extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vW() {
+    public boolean vP() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vX() {
+    public boolean vQ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int vY() {
+    public int vR() {
         return this.procType;
     }
 }

@@ -9,34 +9,34 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.k;
 /* loaded from: classes.dex */
 public class ImageModel extends BdBaseModel {
-    private a aCv;
+    private a aCi;
     private String filename;
 
     public ImageModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.aCv = null;
+        this.aCi = null;
         this.filename = null;
     }
 
-    public boolean fK(String str) {
+    public boolean fJ(String str) {
         this.filename = str;
         return LoadData();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        if (this.aCv != null) {
-            this.aCv.cancel();
+        if (this.aCi != null) {
+            this.aCi.cancel();
         }
-        this.aCv = new a(this.filename);
-        this.aCv.execute(new Object[0]);
+        this.aCi = new a(this.filename);
+        this.aCi.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.aCv != null) {
-            this.aCv.cancel();
+        if (this.aCi != null) {
+            this.aCi.cancel();
             return true;
         }
         return true;
@@ -58,14 +58,14 @@ public class ImageModel extends BdBaseModel {
         /* renamed from: i */
         public Bitmap doInBackground(Object... objArr) {
             if (this.filename != null && !this.filename.equals(TbConfig.IMAGE_RESIZED_FILE)) {
-                k.ab("photos/" + this.filename, TbConfig.IMAGE_RESIZED_FILE);
+                k.aa("photos/" + this.filename, TbConfig.IMAGE_RESIZED_FILE);
             }
-            return BitmapHelper.getRoundedCornerBitmap(BitmapHelper.getSquareBitmap(k.Y(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
+            return BitmapHelper.getRoundedCornerBitmap(BitmapHelper.getSquareBitmap(k.X(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            ImageModel.this.aCv = null;
+            ImageModel.this.aCi = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.f(null);
             }
@@ -83,7 +83,7 @@ public class ImageModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            ImageModel.this.aCv = null;
+            ImageModel.this.aCi = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.f(bitmap);
             }

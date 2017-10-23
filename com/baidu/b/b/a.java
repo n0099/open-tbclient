@@ -4,18 +4,18 @@ import android.content.Context;
 import android.os.Process;
 /* loaded from: classes.dex */
 public class a {
-    public static int Q(Context context, String str) {
+    public static int L(Context context, String str) {
         if (str == null) {
             throw new IllegalArgumentException("permission is null");
         }
         return context.checkPermission(str, Process.myPid(), Process.myUid());
     }
 
-    public static boolean R(Context context, String str) {
-        return Q(context, str) == 0;
+    public static boolean M(Context context, String str) {
+        return L(context, str) == 0;
     }
 
-    public static boolean S(Context context, String str) {
-        return Q(context, str) == -1;
+    public static boolean N(Context context, String str) {
+        return L(context, str) == -1;
     }
 }

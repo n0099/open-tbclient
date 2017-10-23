@@ -47,9 +47,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     private c pageSocketListener;
     public final ArrayList<f> postList;
     public final ArrayList<f> threadList;
-    private static int feu = 0;
-    private static int fhC = 1;
-    private static String fev = "";
+    private static int feg = 0;
+    private static int fho = 1;
+    private static String feh = "";
 
     /* loaded from: classes.dex */
     public interface a {
@@ -172,32 +172,32 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        fhC = 1;
+        fho = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(fev)) {
-                feu = 1;
-                fev = str;
+            if (z || !str.equals(feh)) {
+                feg = 1;
+                feh = str;
             } else {
-                feu++;
+                feg++;
             }
         } else {
-            if (z || !str.equals(fev)) {
-                fhC = 1;
-                fev = str;
+            if (z || !str.equals(feh)) {
+                fho = 1;
+                feh = str;
             }
-            fhC++;
+            fho++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(fev);
+        userPostPageRequestMessage.setUid(feh);
         if (z3) {
-            userPostPageRequestMessage.setPn(feu);
+            userPostPageRequestMessage.setPn(feg);
         } else {
-            userPostPageRequestMessage.setPn(fhC);
+            userPostPageRequestMessage.setPn(fho);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -207,7 +207,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         int ad = l.ad(TbadkCoreApplication.getInst().getApp());
         int af = l.af(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = an.vs().vu() ? 2 : 1;
+        int i2 = an.vl().vn() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(ad);
         userPostPageRequestMessage.set_scr_h(af);
         userPostPageRequestMessage.set_scr_dip(f);
@@ -238,7 +238,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 this.mLastChooseStyle = random;
                 cardPersonDynamicThreadData.parseProtobuf(postInfoList, random);
                 postInfoList2.parseProtobuf(postInfoList, random);
-                if (cardPersonDynamicThreadData.bOe != 33) {
+                if (cardPersonDynamicThreadData.bNS != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 } else if (true == TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {

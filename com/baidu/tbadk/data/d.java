@@ -8,20 +8,20 @@ import tbclient.BannerUserStory;
 import tbclient.UserStory;
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId aza = BdUniqueId.gen();
-    private List<com.baidu.adp.widget.ListView.f> azb;
+    public static final BdUniqueId ayO = BdUniqueId.gen();
+    private List<com.baidu.adp.widget.ListView.f> ayP;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return aza;
+        return ayO;
     }
 
-    public List<com.baidu.adp.widget.ListView.f> BR() {
-        return this.azb;
+    public List<com.baidu.adp.widget.ListView.f> BL() {
+        return this.ayP;
     }
 
     public void w(List<com.baidu.adp.widget.ListView.f> list) {
-        this.azb = list;
+        this.ayP = list;
     }
 
     public void a(BannerUserStory bannerUserStory, long j) {
@@ -38,7 +38,7 @@ public class d implements com.baidu.adp.widget.ListView.f {
             if (userStory != null && userStory != null) {
                 e eVar = new e();
                 eVar.a(userStory);
-                eVar.azf = String.valueOf(j);
+                eVar.ayT = String.valueOf(j);
                 arrayList.add(eVar);
             }
         }

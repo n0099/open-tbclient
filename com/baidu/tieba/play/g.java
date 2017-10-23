@@ -43,7 +43,7 @@ public interface g {
         void a(g gVar);
     }
 
-    void GR();
+    void GL();
 
     void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, int i);
 

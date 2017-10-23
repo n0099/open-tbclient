@@ -16,9 +16,9 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class a {
-    public static a PJ;
-    private C0037a PH;
-    public SQLiteDatabase PI;
+    public static a Pw;
+    private C0037a Pu;
+    public SQLiteDatabase Pv;
     int a = 4;
     String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,a TEXT)";
     private Context f;
@@ -26,23 +26,23 @@ public final class a {
     private a(Context context) {
         b.a();
         this.f = context.getApplicationContext();
-        this.PH = new C0037a(context.getApplicationContext());
+        this.Pu = new C0037a(context.getApplicationContext());
         try {
-            this.PI = this.PH.getWritableDatabase();
+            this.Pv = this.Pu.getWritableDatabase();
         } catch (Throwable th) {
             d.a(th);
         }
     }
 
-    public static synchronized a ao(Context context) {
+    public static synchronized a an(Context context) {
         a aVar;
         synchronized (a.class) {
-            String str = "i=" + PJ;
+            String str = "i=" + Pw;
             b.a();
-            if (PJ == null) {
-                PJ = new a(context);
+            if (Pw == null) {
+                Pw = new a(context);
             }
-            aVar = PJ;
+            aVar = Pw;
         }
         return aVar;
     }
@@ -109,10 +109,10 @@ public final class a {
             }
             try {
                 if (b(apkInfo.key)) {
-                    j = this.PI.update("pgn", contentValues, "k=" + apkInfo.key, null);
+                    j = this.Pv.update("pgn", contentValues, "k=" + apkInfo.key, null);
                 } else {
                     contentValues.put("k", Integer.valueOf(apkInfo.key));
-                    j = this.PI.insert("pgn", null, contentValues);
+                    j = this.Pv.insert("pgn", null, contentValues);
                 }
             } catch (Throwable th) {
             }
@@ -124,7 +124,7 @@ public final class a {
         Cursor cursor;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.PI.query("pgn", null, null, null, null, null, null);
+            cursor = this.Pv.query("pgn", null, null, null, null, null, null);
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -174,11 +174,11 @@ public final class a {
         return arrayList;
     }
 
-    public final Map<Integer, String> nn() {
+    public final Map<Integer, String> nh() {
         Cursor cursor;
         HashMap hashMap = new HashMap();
         try {
-            cursor = this.PI.query("pgn", null, "n=1", null, null, null, null);
+            cursor = this.Pv.query("pgn", null, "n=1", null, null, null, null);
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -218,11 +218,11 @@ public final class a {
         return hashMap;
     }
 
-    public final Map<Integer, String> no() {
+    public final Map<Integer, String> c() {
         Cursor cursor;
         HashMap hashMap = new HashMap();
         try {
-            cursor = this.PI.query("pgn", null, "n=1", null, null, null, null);
+            cursor = this.Pv.query("pgn", null, "n=1", null, null, null, null);
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -270,11 +270,11 @@ public final class a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    public final com.baidu.sofire.core.ApkInfo aX(int r11) {
+    public final com.baidu.sofire.core.ApkInfo aW(int r11) {
         /*
             r10 = this;
             r8 = 0
-            android.database.sqlite.SQLiteDatabase r0 = r10.PI     // Catch: java.lang.Throwable -> L1a7
+            android.database.sqlite.SQLiteDatabase r0 = r10.Pv     // Catch: java.lang.Throwable -> L1a7
             java.lang.String r1 = "pgn"
             r2 = 0
             java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L1a7
@@ -489,7 +489,7 @@ public final class a {
             r0 = r8
             goto L196
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.a.a.aX(int):com.baidu.sofire.core.ApkInfo");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.a.a.aW(int):com.baidu.sofire.core.ApkInfo");
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0034 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -501,7 +501,7 @@ public final class a {
         Cursor cursor;
         boolean z;
         try {
-            cursor = this.PI.query("pgn", new String[]{"p"}, "k=" + i, null, null, null, null);
+            cursor = this.Pv.query("pgn", new String[]{"p"}, "k=" + i, null, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.getCount() > 0) {
@@ -568,7 +568,7 @@ public final class a {
         Cursor cursor;
         int i2;
         try {
-            cursor = this.PI.query("pgn", new String[]{"n"}, "k=" + i, null, null, null, null);
+            cursor = this.Pv.query("pgn", new String[]{"n"}, "k=" + i, null, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {
@@ -631,7 +631,7 @@ public final class a {
         b.a();
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.PI.delete("pgn", "p=?", new String[]{str});
+                this.Pv.delete("pgn", "p=?", new String[]{str});
             } catch (Throwable th) {
                 d.a(th);
             }
@@ -646,12 +646,12 @@ public final class a {
             }
         }
         try {
-            e nr = e.nr();
+            e nk = e.nk();
             for (ApkInfo apkInfo2 : arrayList) {
-                if (nr != null) {
-                    nr.b(apkInfo2.packageName);
+                if (nk != null) {
+                    nk.b(apkInfo2.packageName);
                 }
-                String str = apkInfo2.packageName + this.PI.delete("pgn", "k=" + apkInfo2.key, null);
+                String str = apkInfo2.packageName + this.Pv.delete("pgn", "k=" + apkInfo2.key, null);
                 b.a();
                 d.b(this.f.getFilesDir().getCanonicalPath() + "/." + apkInfo2.key);
                 if (this.f != null) {
@@ -663,11 +663,11 @@ public final class a {
         }
     }
 
-    public final boolean aY(int i) {
+    public final boolean aX(int i) {
         Cursor cursor;
         boolean z = false;
         try {
-            Cursor cursor2 = this.PI.query("pgn", new String[]{"u"}, "k=" + i, null, null, null, null);
+            Cursor cursor2 = this.Pv.query("pgn", new String[]{"u"}, "k=" + i, null, null, null, null);
             if (cursor2 != null) {
                 try {
                     if (cursor2.moveToFirst()) {
@@ -708,11 +708,11 @@ public final class a {
         return z;
     }
 
-    public final boolean aZ(int i) {
+    public final boolean aY(int i) {
         Cursor cursor;
         boolean z = false;
         try {
-            Cursor cursor2 = this.PI.query("pgn", new String[]{"s"}, "k=" + i, null, null, null, null);
+            Cursor cursor2 = this.Pv.query("pgn", new String[]{"s"}, "k=" + i, null, null, null, null);
             if (cursor2 != null) {
                 try {
                     if (cursor2.moveToFirst()) {
@@ -757,7 +757,7 @@ public final class a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("u", Integer.valueOf(i2));
-            return this.PI.update("pgn", contentValues, "k=" + i, null);
+            return this.Pv.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
             return 0;
         }
@@ -767,7 +767,7 @@ public final class a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("n", (Integer) (-1));
-            this.PI.update("pgn", contentValues, "k=" + i, null);
+            this.Pv.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -787,7 +787,7 @@ public final class a {
             r10 = 0
             r8 = 0
             r9 = 1
-            android.database.sqlite.SQLiteDatabase r0 = r11.PI     // Catch: java.lang.Throwable -> L84
+            android.database.sqlite.SQLiteDatabase r0 = r11.Pv     // Catch: java.lang.Throwable -> L84
             java.lang.String r1 = "pgn"
             r2 = 3
             java.lang.String[] r2 = new java.lang.String[r2]     // Catch: java.lang.Throwable -> L84
@@ -908,7 +908,7 @@ public final class a {
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 int)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0028: INVOKE  (r0v4 int A[REMOVE]) = 
-      (wrap: android.database.sqlite.SQLiteDatabase : 0x0012: IGET  (r0v3 android.database.sqlite.SQLiteDatabase A[REMOVE]) = (r4v0 'this' com.baidu.sofire.a.a A[IMMUTABLE_TYPE, THIS]) com.baidu.sofire.a.a.PI android.database.sqlite.SQLiteDatabase)
+      (wrap: android.database.sqlite.SQLiteDatabase : 0x0012: IGET  (r0v3 android.database.sqlite.SQLiteDatabase A[REMOVE]) = (r4v0 'this' com.baidu.sofire.a.a A[IMMUTABLE_TYPE, THIS]) com.baidu.sofire.a.a.Pv android.database.sqlite.SQLiteDatabase)
       ("pgn")
       (wrap: java.lang.String : ?: STR_CONCAT  ("k="), (r5v0 int))
       (null java.lang.String[])
@@ -918,7 +918,7 @@ public final class a {
         b.a();
         if (i > 0) {
             try {
-                new StringBuilder().append(this.PI.delete("pgn", "k=" + i, null)).toString();
+                new StringBuilder().append(this.Pv.delete("pgn", "k=" + i, null)).toString();
                 b.a();
             } catch (Throwable th) {
                 d.a(th);
@@ -930,7 +930,7 @@ public final class a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("pr", Integer.valueOf(i2));
-            this.PI.update("pgn", contentValues, "k=" + i, null);
+            this.Pv.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -944,7 +944,7 @@ public final class a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    public final com.baidu.sofire.core.ApkInfo bQ(java.lang.String r12) {
+    public final com.baidu.sofire.core.ApkInfo bP(java.lang.String r12) {
         /*
             r11 = this;
             r9 = 0
@@ -955,7 +955,7 @@ public final class a {
         L9:
             return r0
         La:
-            android.database.sqlite.SQLiteDatabase r0 = r11.PI     // Catch: java.lang.Throwable -> L1b4
+            android.database.sqlite.SQLiteDatabase r0 = r11.Pv     // Catch: java.lang.Throwable -> L1b4
             java.lang.String r1 = "pgn"
             r2 = 0
             java.lang.String r3 = "p=?"
@@ -1169,6 +1169,6 @@ public final class a {
             r0 = r8
             goto L1a1
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.a.a.bQ(java.lang.String):com.baidu.sofire.core.ApkInfo");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.a.a.bP(java.lang.String):com.baidu.sofire.core.ApkInfo");
     }
 }

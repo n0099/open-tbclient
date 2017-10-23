@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.i> {
-    private ImageView bbl;
-    private TextView cWj;
-    private String feG;
+    private ImageView baX;
+    private TextView cVX;
+    private String fes;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -21,16 +21,16 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
     private void init(View view) {
         this.mRootView = view.findViewById(d.h.card_null_polymeric_rootview);
-        this.bbl = (ImageView) view.findViewById(d.h.card_null_polymeric_icon);
-        this.cWj = (TextView) view.findViewById(d.h.card_null_polymeric_txt);
+        this.baX = (ImageView) view.findViewById(d.h.card_null_polymeric_icon);
+        this.cVX = (TextView) view.findViewById(d.h.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             aj.j(this.mRootView, d.e.cp_bg_line_d);
-            aj.c(this.bbl, d.g.emotion07);
-            aj.c(this.cWj, d.e.cp_cont_c, 1);
+            aj.c(this.baX, d.g.emotion07);
+            aj.c(this.cVX, d.e.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.feG)) {
-            TextView textView = this.cWj;
+        if (StringUtils.isNull(this.fes)) {
+            TextView textView = this.cVX;
             String string2 = this.mContext.getString(d.l.person_polymeric_null_data);
             Object[] objArr = new Object[1];
             if (iVar.isHost) {
@@ -66,11 +66,11 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.cWj.setText(this.feG);
+        this.cVX.setText(this.fes);
     }
 
     public void setTip(String str) {
-        this.feG = str;
+        this.fes = str;
     }
 
     @Override // android.view.View.OnClickListener

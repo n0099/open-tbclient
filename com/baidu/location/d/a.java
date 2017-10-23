@@ -19,20 +19,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private LocationClient MY;
-    private AlarmManager Na;
-    private C0026a Nb;
+    private LocationClient MP;
+    private AlarmManager MR;
+    private C0026a MS;
     private Context f;
     private boolean n;
     private ArrayList<BDNotifyListener> a = null;
     private float b = Float.MAX_VALUE;
-    private BDLocation MX = null;
+    private BDLocation MO = null;
     private long d = 0;
     private int g = 0;
     private long h = 0;
     private boolean i = false;
-    private PendingIntent MZ = null;
-    private b Nc = new b();
+    private PendingIntent MQ = null;
+    private b MT = new b();
 
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -45,7 +45,7 @@ public class a {
             if (a.this.a == null || a.this.a.isEmpty()) {
                 return;
             }
-            a.this.MY.requestNotifyLocation();
+            a.this.MP.requestNotifyLocation();
         }
     }
 
@@ -64,29 +64,29 @@ public class a {
     }
 
     public a(Context context, LocationClient locationClient) {
-        this.MY = null;
+        this.MP = null;
         this.f = null;
-        this.Na = null;
-        this.Nb = null;
+        this.MR = null;
+        this.MS = null;
         this.n = false;
         this.f = context;
-        this.MY = locationClient;
-        this.MY.registerNotifyLocationListener(this.Nc);
-        this.Na = (AlarmManager) this.f.getSystemService("alarm");
-        this.Nb = new C0026a();
+        this.MP = locationClient;
+        this.MP.registerNotifyLocationListener(this.MT);
+        this.MR = (AlarmManager) this.f.getSystemService("alarm");
+        this.MS = new C0026a();
         this.n = false;
     }
 
     private void a(long j) {
         try {
-            if (this.MZ != null) {
-                this.Na.cancel(this.MZ);
+            if (this.MQ != null) {
+                this.MR.cancel(this.MQ);
             }
-            this.MZ = PendingIntent.getBroadcast(this.f, 0, new Intent("android.com.baidu.location.TIMER.NOTIFY"), 134217728);
-            if (this.MZ == null) {
+            this.MQ = PendingIntent.getBroadcast(this.f, 0, new Intent("android.com.baidu.location.TIMER.NOTIFY"), 134217728);
+            if (this.MQ == null) {
                 return;
             }
-            this.Na.set(0, System.currentTimeMillis() + j, this.MZ);
+            this.MR.set(0, System.currentTimeMillis() + j, this.MQ);
         } catch (Exception e) {
         }
     }
@@ -98,7 +98,7 @@ public class a {
             a(120000L);
         } else if (System.currentTimeMillis() - this.d < TbConfig.NOTIFY_SOUND_INTERVAL || this.a == null) {
         } else {
-            this.MX = bDLocation;
+            this.MO = bDLocation;
             this.d = System.currentTimeMillis();
             float[] fArr = new float[1];
             float f2 = Float.MAX_VALUE;
@@ -188,7 +188,7 @@ public class a {
         bDNotifyListener.isAdded = true;
         bDNotifyListener.mNotifyCache = this;
         if (!this.n) {
-            this.f.registerReceiver(this.Nb, new IntentFilter("android.com.baidu.location.TIMER.NOTIFY"));
+            this.f.registerReceiver(this.MS, new IntentFilter("android.com.baidu.location.TIMER.NOTIFY"));
             this.n = true;
         }
         if (bDNotifyListener.mCoorType != null) {
@@ -197,19 +197,19 @@ public class a {
                 bDNotifyListener.mLongitudeC = coorEncrypt[0];
                 bDNotifyListener.mLatitudeC = coorEncrypt[1];
             }
-            if (this.MX == null || System.currentTimeMillis() - this.d > 30000) {
-                this.MY.requestNotifyLocation();
+            if (this.MO == null || System.currentTimeMillis() - this.d > 30000) {
+                this.MP.requestNotifyLocation();
             } else {
                 float[] fArr = new float[1];
-                Location.distanceBetween(this.MX.getLatitude(), this.MX.getLongitude(), bDNotifyListener.mLatitudeC, bDNotifyListener.mLongitudeC, fArr);
-                float radius = (fArr[0] - bDNotifyListener.mRadius) - this.MX.getRadius();
+                Location.distanceBetween(this.MO.getLatitude(), this.MO.getLongitude(), bDNotifyListener.mLatitudeC, bDNotifyListener.mLongitudeC, fArr);
+                float radius = (fArr[0] - bDNotifyListener.mRadius) - this.MO.getRadius();
                 if (radius > 0.0f) {
                     if (radius < this.b) {
                         this.b = radius;
                     }
                 } else if (bDNotifyListener.Notified < 3) {
                     bDNotifyListener.Notified++;
-                    bDNotifyListener.onNotify(this.MX, fArr[0]);
+                    bDNotifyListener.onNotify(this.MO, fArr[0]);
                     if (bDNotifyListener.Notified < 3) {
                         this.i = true;
                     }
@@ -221,13 +221,13 @@ public class a {
     }
 
     public void a() {
-        if (this.MZ != null) {
-            this.Na.cancel(this.MZ);
+        if (this.MQ != null) {
+            this.MR.cancel(this.MQ);
         }
-        this.MX = null;
+        this.MO = null;
         this.d = 0L;
         if (this.n) {
-            this.f.unregisterReceiver(this.Nb);
+            this.f.unregisterReceiver(this.MS);
         }
         this.n = false;
     }
@@ -241,19 +241,19 @@ public class a {
             bDNotifyListener.mLongitudeC = coorEncrypt[0];
             bDNotifyListener.mLatitudeC = coorEncrypt[1];
         }
-        if (this.MX == null || System.currentTimeMillis() - this.d > ReportUserInfoModel.TIME_INTERVAL) {
-            this.MY.requestNotifyLocation();
+        if (this.MO == null || System.currentTimeMillis() - this.d > ReportUserInfoModel.TIME_INTERVAL) {
+            this.MP.requestNotifyLocation();
         } else {
             float[] fArr = new float[1];
-            Location.distanceBetween(this.MX.getLatitude(), this.MX.getLongitude(), bDNotifyListener.mLatitudeC, bDNotifyListener.mLongitudeC, fArr);
-            float radius = (fArr[0] - bDNotifyListener.mRadius) - this.MX.getRadius();
+            Location.distanceBetween(this.MO.getLatitude(), this.MO.getLongitude(), bDNotifyListener.mLatitudeC, bDNotifyListener.mLongitudeC, fArr);
+            float radius = (fArr[0] - bDNotifyListener.mRadius) - this.MO.getRadius();
             if (radius > 0.0f) {
                 if (radius < this.b) {
                     this.b = radius;
                 }
             } else if (bDNotifyListener.Notified < 3) {
                 bDNotifyListener.Notified++;
-                bDNotifyListener.onNotify(this.MX, fArr[0]);
+                bDNotifyListener.onNotify(this.MO, fArr[0]);
                 if (bDNotifyListener.Notified < 3) {
                     this.i = true;
                 }
@@ -269,8 +269,8 @@ public class a {
         if (this.a.contains(bDNotifyListener)) {
             this.a.remove(bDNotifyListener);
         }
-        if (this.a.size() == 0 && this.MZ != null) {
-            this.Na.cancel(this.MZ);
+        if (this.a.size() == 0 && this.MQ != null) {
+            this.MR.cancel(this.MQ);
         }
         return 1;
     }

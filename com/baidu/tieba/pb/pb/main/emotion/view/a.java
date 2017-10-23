@@ -12,12 +12,12 @@ import android.view.View;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends View {
-    private Paint AU;
-    private int BB;
-    private float GL;
-    private int eOk;
-    private boolean eOl;
-    private Bitmap eOm;
+    private Paint AV;
+    private int BC;
+    private float GM;
+    private int eNW;
+    private boolean eNX;
+    private Bitmap eNY;
     private Paint mPaint;
     private int mRadius;
 
@@ -32,27 +32,27 @@ public class a extends View {
     public a(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, d.n.ChooseColorView);
-        this.eOk = obtainStyledAttributes.getColor(d.n.ChooseColorView_chooseColor, ViewCompat.MEASURED_STATE_MASK);
-        this.BB = obtainStyledAttributes.getColor(d.n.ChooseColorView_chooseBorderColor, -1);
-        this.GL = obtainStyledAttributes.getDimension(d.n.ChooseColorView_chooseBorderWidth, getResources().getDimensionPixelSize(d.f.ds4));
+        this.eNW = obtainStyledAttributes.getColor(d.n.ChooseColorView_chooseColor, ViewCompat.MEASURED_STATE_MASK);
+        this.BC = obtainStyledAttributes.getColor(d.n.ChooseColorView_chooseBorderColor, -1);
+        this.GM = obtainStyledAttributes.getDimension(d.n.ChooseColorView_chooseBorderWidth, getResources().getDimensionPixelSize(d.f.ds4));
         init();
     }
 
     private void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.eOk);
-        this.AU = new Paint();
-        this.AU.setColor(this.BB);
-        this.AU.setAntiAlias(true);
-        this.AU.setStyle(Paint.Style.STROKE);
-        this.AU.setStrokeWidth(this.GL);
-        this.eOm = BitmapFactory.decodeResource(getResources(), d.g.icon_select_n);
+        this.mPaint.setColor(this.eNW);
+        this.AV = new Paint();
+        this.AV.setColor(this.BC);
+        this.AV.setAntiAlias(true);
+        this.AV.setStyle(Paint.Style.STROKE);
+        this.AV.setStrokeWidth(this.GM);
+        this.eNY = BitmapFactory.decodeResource(getResources(), d.g.icon_select_n);
     }
 
     public void setChooseColor(int i) {
-        this.eOk = i;
-        this.mPaint.setColor(this.eOk);
+        this.eNW = i;
+        this.mPaint.setColor(this.eNW);
     }
 
     public void setRadius(int i) {
@@ -60,11 +60,11 @@ public class a extends View {
     }
 
     public int getChooseColor() {
-        return this.eOk;
+        return this.eNW;
     }
 
     public void setIsChooseView(boolean z) {
-        this.eOl = z;
+        this.eNX = z;
         invalidate();
     }
 
@@ -72,9 +72,9 @@ public class a extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mPaint);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.AU);
-        if (this.eOl) {
-            canvas.drawBitmap(this.eOm, getWidth() - this.eOm.getWidth(), 0.0f, (Paint) null);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.AV);
+        if (this.eNX) {
+            canvas.drawBitmap(this.eNY, getWidth() - this.eNY.getWidth(), 0.0f, (Paint) null);
         }
     }
 }

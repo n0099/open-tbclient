@@ -17,16 +17,16 @@ import java.io.RandomAccessFile;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private a aFI;
-    private Object aFJ;
-    private e aFK;
+    private a aFv;
+    private Object aFw;
+    private e aFx;
     private int bigHeight;
     private int bigWidth;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int aFH = 512000;
+    private int aFu = 512000;
     private String groupId = "1";
     private x mNetwork = null;
 
@@ -47,10 +47,10 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.aFI = aVar;
-        this.aFJ = obj;
+        this.aFv = aVar;
+        this.aFw = obj;
         if (aVar != null) {
-            this.aFH = 10240;
+            this.aFu = 10240;
         }
     }
 
@@ -108,10 +108,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.aFK == null) {
-            this.aFK = new e();
+        if (this.aFx == null) {
+            this.aFx = new e();
         }
-        return e(this.aFK.c(imageFileInfo, z), z, z2);
+        return e(this.aFx.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -204,8 +204,8 @@ public class f {
                         }
                     }
                 } else {
-                    String str2 = e2 + this.aFH;
-                    long j2 = length % ((long) this.aFH) == 0 ? length / this.aFH : (length / this.aFH) + 1;
+                    String str2 = e2 + this.aFu;
+                    long j2 = length % ((long) this.aFu) == 0 ? length / this.aFu : (length / this.aFu) + 1;
                     sb.append("|chunkNo=");
                     sb.append(j2);
                     randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -239,14 +239,14 @@ public class f {
                                             bArr = null;
                                         } else {
                                             if (i < j2) {
-                                                i4 = this.aFH;
+                                                i4 = this.aFu;
                                             } else if (i == j2) {
-                                                i4 = (int) (length - (this.aFH * (j2 - 1)));
+                                                i4 = (int) (length - (this.aFu * (j2 - 1)));
                                             }
                                             if (bArr2 == null || bArr2.length != i4) {
                                                 bArr2 = new byte[i4];
                                             }
-                                            randomAccessFile2.seek(this.aFH * (i - 1));
+                                            randomAccessFile2.seek(this.aFu * (i - 1));
                                             randomAccessFile2.read(bArr2, 0, i4);
                                             bArr = bArr2;
                                         }
@@ -277,22 +277,22 @@ public class f {
                                             this.mNetwork.n("saveOrigin", "0");
                                         }
                                         if (z2) {
-                                            int oX = h.oT().oX();
-                                            if (oX != 0) {
-                                                this.mNetwork.n("pic_water_type", String.valueOf(oX));
+                                            int oQ = h.oM().oQ();
+                                            if (oQ != 0) {
+                                                this.mNetwork.n("pic_water_type", String.valueOf(oQ));
                                             }
                                             String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-                                            if (!StringUtils.isNull(currentAccountName) && oX == 1) {
+                                            if (!StringUtils.isNull(currentAccountName) && oQ == 1) {
                                                 this.mNetwork.n("user_name", currentAccountName);
                                             }
-                                            String oY = h.oT().oY();
-                                            if (!StringUtils.isNull(oY) && oX == 2) {
-                                                this.mNetwork.n("forum_name", oY);
+                                            String oR = h.oM().oR();
+                                            if (!StringUtils.isNull(oR) && oQ == 2) {
+                                                this.mNetwork.n("forum_name", oR);
                                             }
                                         }
-                                        String us = this.mNetwork.us();
-                                        imageUploadResult3 = ImageUploadResult.parser(us);
-                                        if (us == null || imageUploadResult3 == null) {
+                                        String ul = this.mNetwork.ul();
+                                        imageUploadResult3 = ImageUploadResult.parser(ul);
+                                        if (ul == null || imageUploadResult3 == null) {
                                             break;
                                         }
                                         try {
@@ -302,9 +302,9 @@ public class f {
                                             if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                 int i5 = i + 1;
                                                 long j4 = j3 + i4;
-                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.aFH) : j4;
-                                                if (this.aFI != null) {
-                                                    this.aFI.a(str, this.aFJ, j5, length);
+                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.aFu) : j4;
+                                                if (this.aFv != null) {
+                                                    this.aFv.a(str, this.aFw, j5, length);
                                                 }
                                                 i2 = i5;
                                                 j = j4;

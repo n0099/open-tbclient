@@ -14,7 +14,7 @@ import java.net.URL;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class x {
-    public static String at(String str, String str2) {
+    public static String as(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -32,7 +32,7 @@ public class x {
         return "";
     }
 
-    public static String au(String str, String str2) {
+    public static String at(String str, String str2) {
         String[] split;
         String str3 = "";
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
@@ -65,7 +65,7 @@ public class x {
         return str3;
     }
 
-    public static Bundle gR(String str) {
+    public static Bundle gQ(String str) {
         URL url;
         String query;
         String[] split;
@@ -95,17 +95,17 @@ public class x {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aMh;
+        public String aLU;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aMh = "";
+            this.aLU = "";
             this.BDUSS = str;
-            this.aMh = str2;
+            this.aLU = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aMh != null ? this.aMh.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aLU != null ? this.aLU.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -121,7 +121,7 @@ public class x {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aMh == null ? aVar.aMh == null : this.aMh.equals(aVar.aMh);
+                return this.aLU == null ? aVar.aLU == null : this.aLU.equals(aVar.aLU);
             }
             return false;
         }

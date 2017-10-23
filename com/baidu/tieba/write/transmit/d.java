@@ -30,18 +30,18 @@ import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.adp.widget.ListView.a<e, a> {
-    private com.baidu.tieba.likedForum.a bqL;
-    private ArrayList<HotTopicBussinessData> bqM;
-    private a.InterfaceC0106a bqO;
-    private List<TransmitForumData> gFu;
-    private h gJj;
+    private ArrayList<HotTopicBussinessData> bqA;
+    private a.InterfaceC0106a bqC;
+    private com.baidu.tieba.likedForum.a bqz;
+    private List<TransmitForumData> gFf;
+    private h gIU;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cT(long j) {
-        if (this.gFu == null) {
+    public boolean cU(long j) {
+        if (this.gFf == null) {
             return false;
         }
-        for (TransmitForumData transmitForumData : this.gFu) {
+        for (TransmitForumData transmitForumData : this.gFf) {
             if (transmitForumData != null && transmitForumData.forumId == j) {
                 return true;
             }
@@ -50,39 +50,39 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byL() {
-        HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.mContext, 25005, this.bqM);
+    public void byF() {
+        HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.mContext, 25005, this.bqA);
         hotTopicChangeActivityConfig.setUseOriginList(true);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotTopicChangeActivityConfig));
     }
 
-    public HotTopicBussinessData uW(int i) {
-        if (v.u(this.bqM)) {
+    public HotTopicBussinessData uV(int i) {
+        if (v.u(this.bqA)) {
             return null;
         }
-        return this.bqM.remove(i);
+        return this.bqA.remove(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
         super(context, bdUniqueId, bdUniqueId2);
-        this.gJj = new h() { // from class: com.baidu.tieba.write.transmit.d.1
+        this.gIU = new h() { // from class: com.baidu.tieba.write.transmit.d.1
             @Override // com.baidu.adp.widget.ListView.h
             public void a(View view, f fVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
                 if (!j.hh()) {
                     l.showToast(d.this.mContext, d.l.neterror);
                 }
                 TiebaStatic.log(new ak("c12053"));
-                if (!v.u(d.this.bqM)) {
-                    d.this.byL();
+                if (!v.u(d.this.bqA)) {
+                    d.this.byF();
                     return;
                 }
-                d.this.bqL = new com.baidu.tieba.likedForum.a(d.this.mPageId);
-                d.this.bqL.a(d.this.bqO);
-                d.this.bqL.EZ();
+                d.this.bqz = new com.baidu.tieba.likedForum.a(d.this.mPageId);
+                d.this.bqz.a(d.this.bqC);
+                d.this.bqz.ET();
             }
         };
-        this.bqO = new a.InterfaceC0106a() { // from class: com.baidu.tieba.write.transmit.d.2
+        this.bqC = new a.InterfaceC0106a() { // from class: com.baidu.tieba.write.transmit.d.2
             @Override // com.baidu.tieba.likedForum.a.InterfaceC0106a
             public void a(boolean z, int i, String str, List<ForumInfo> list2) {
                 ArrayList arrayList = new ArrayList();
@@ -95,20 +95,20 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                             break;
                         }
                         ForumInfo forumInfo = list2.get(i3);
-                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !d.this.cT(forumInfo.forum_id.longValue())) {
+                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !d.this.cU(forumInfo.forum_id.longValue())) {
                             arrayList.add(new HotTopicBussinessData(forumInfo.forum_id.longValue(), forumInfo.forum_name, forumInfo.avatar, null, forumInfo.thread_count.longValue(), 0L, 0L, false, null, 0));
                         }
                         i2 = i3 + 1;
                     }
-                    if (d.this.bqM == null) {
-                        d.this.bqM = arrayList;
-                        d.this.byL();
+                    if (d.this.bqA == null) {
+                        d.this.bqA = arrayList;
+                        d.this.byF();
                     }
                 }
             }
         };
-        setOnAdapterItemClickListener(this.gJj);
-        this.gFu = list;
+        setOnAdapterItemClickListener(this.gIU);
+        this.gFf = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -124,26 +124,26 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, a aVar) {
-        aj.i(aVar.gJl, d.e.cp_link_tip_a);
-        aj.c(aVar.clE, d.g.icon_post_add_ba_n);
+        aj.i(aVar.gIW, d.e.cp_link_tip_a);
+        aj.c(aVar.clr, d.g.icon_post_add_ba_n);
         return view;
     }
 
     /* loaded from: classes2.dex */
     public static class a extends j.a {
-        public ImageView clE;
-        public TextView gJl;
+        public ImageView clr;
+        public TextView gIW;
 
         public a(View view) {
             super(view);
-            this.gJl = (TextView) view.findViewById(d.h.select_by_self);
-            this.clE = (ImageView) view.findViewById(d.h.add_icon);
+            this.gIW = (TextView) view.findViewById(d.h.select_by_self);
+            this.clr = (ImageView) view.findViewById(d.h.add_icon);
         }
     }
 
     public void destroy() {
-        if (this.bqL != null) {
-            this.bqL.destroy();
+        if (this.bqz != null) {
+            this.bqz.destroy();
         }
     }
 }

@@ -26,7 +26,7 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String M(String str, String str2) {
+    public static String L(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith("https://")) {
             str = "http://".concat(str);
@@ -39,7 +39,7 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void T(Context context, String str) {
+    public static void O(Context context, String str) {
         b(context, true, str);
     }
 
@@ -60,7 +60,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        nY();
+        nR();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -76,7 +76,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
-        nY();
+        nR();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -91,11 +91,11 @@ public class a {
         }
     }
 
-    public static void U(Context context, String str) {
-        T(context, str);
+    public static void P(Context context, String str) {
+        O(context, str);
     }
 
-    public static void V(Context context, String str) {
+    public static void Q(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -133,7 +133,7 @@ public class a {
         return (am.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void ay(Context context) {
+    public static void ax(Context context) {
         CookieManager cookieManager;
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
@@ -144,7 +144,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.pb().co(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.oU().cn(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String d = com.baidu.tbadk.core.a.e.d(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(d)) {
@@ -172,7 +172,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void nY() {
+    private static void nR() {
         new ag("open_webview", true).start();
     }
 }

@@ -27,18 +27,18 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class l {
     static int yA;
-    private static String yD;
-    private static float yy;
-    static int yz;
-    static boolean yx = false;
-    private static Toast yB = null;
-    private static a yC = null;
+    static int yB;
+    private static String yE;
+    private static float yz;
+    static boolean yy = false;
+    private static Toast yC = null;
+    private static a yD = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
         public void run() {
-            if (l.yB != null) {
-                l.yB.cancel();
+            if (l.yC != null) {
+                l.yC.cancel();
             }
         }
     };
@@ -56,74 +56,74 @@ public class l {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            yz = displayMetrics.heightPixels;
-            yA = displayMetrics.widthPixels;
-        } else {
-            yz = displayMetrics.widthPixels;
             yA = displayMetrics.heightPixels;
+            yB = displayMetrics.widthPixels;
+        } else {
+            yA = displayMetrics.widthPixels;
+            yB = displayMetrics.heightPixels;
         }
-        yy = displayMetrics.density;
-        yx = true;
+        yz = displayMetrics.density;
+        yy = true;
     }
 
     public static int ad(Context context) {
-        if (!yx) {
-            ae(context);
-        }
-        return yz;
-    }
-
-    public static int af(Context context) {
-        if (!yx) {
+        if (!yy) {
             ae(context);
         }
         return yA;
     }
 
-    public static int dip2px(Context context, float f) {
-        if (!yx) {
+    public static int af(Context context) {
+        if (!yy) {
             ae(context);
         }
-        return (int) ((yy * f) + 0.5f);
+        return yB;
+    }
+
+    public static int dip2px(Context context, float f) {
+        if (!yy) {
+            ae(context);
+        }
+        return (int) ((yz * f) + 0.5f);
     }
 
     public static float ag(Context context) {
-        if (!yx) {
+        if (!yy) {
             ae(context);
         }
-        return yy;
+        return yz;
     }
 
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (yB == null) {
-                if (yC == null || yC.hE() == null) {
-                    yB = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (yC == null) {
+                if (yD == null || yD.hE() == null) {
+                    yC = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    yB = new Toast(BdBaseApplication.getInst().getApp());
-                    yB.setDuration(0);
-                    yC.aR(str);
-                    yB.setView(yC.hE());
+                    yC = new Toast(BdBaseApplication.getInst().getApp());
+                    yC.setDuration(0);
+                    yD.aR(str);
+                    yC.setView(yD.hE());
                 }
-                yB.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+                yC.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (!str.equals(yD)) {
-                    if (yC == null || yC.hE() == null) {
-                        yB.setText(str);
+                if (!str.equals(yE)) {
+                    if (yD == null || yD.hE() == null) {
+                        yC.setText(str);
                     } else {
-                        yC.aR(str);
+                        yD.aR(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
                 if (BdBaseApplication.getInst().getApp().getResources().getConfiguration().orientation == 2) {
                     dip2px = 0;
                 }
-                yB.setGravity(17, 0, dip2px);
+                yC.setGravity(17, 0, dip2px);
             }
-            yD = str;
+            yE = str;
             mHandler.postDelayed(mRunnable, i);
-            yB.show();
+            yC.show();
         }
     }
 
@@ -476,10 +476,10 @@ public class l {
     }
 
     public static a hC() {
-        return yC;
+        return yD;
     }
 
     public static void a(a aVar) {
-        yC = aVar;
+        yD = aVar;
     }
 }

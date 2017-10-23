@@ -27,9 +27,9 @@ public class h {
     }
 
     public static void a(com.baidu.tbadk.data.j jVar, BdUniqueId bdUniqueId) {
-        if (jVar != null && !StringUtils.isNull(jVar.Cb()) && v.u(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+        if (jVar != null && !StringUtils.isNull(jVar.BV()) && v.u(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", jVar.Cb());
+            httpMessage.addParam("pic_url", jVar.BV());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -37,13 +37,13 @@ public class h {
 
     public static void a(com.baidu.tbadk.data.j jVar, List<com.baidu.adp.widget.ListView.f> list) {
         com.baidu.tbadk.data.j jVar2;
-        if (jVar != null && !v.u(list) && !StringUtils.isNull(jVar.Cb())) {
+        if (jVar != null && !v.u(list) && !StringUtils.isNull(jVar.BV())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.f fVar = list.get(i);
-                if ((fVar instanceof com.baidu.tbadk.data.j) && (jVar2 = (com.baidu.tbadk.data.j) fVar) != jVar && !jVar2.Cc()) {
-                    jSONArray.put(jVar2.Cb());
+                if ((fVar instanceof com.baidu.tbadk.data.j) && (jVar2 = (com.baidu.tbadk.data.j) fVar) != jVar && !jVar2.BW()) {
+                    jSONArray.put(jVar2.BV());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
@@ -68,8 +68,8 @@ public class h {
                 com.baidu.adp.widget.ListView.f fVar = list.get(i);
                 if (fVar instanceof com.baidu.tbadk.data.j) {
                     com.baidu.tbadk.data.j jVar = (com.baidu.tbadk.data.j) fVar;
-                    if (!jVar.Cc()) {
-                        jSONArray.put(jVar.Cb());
+                    if (!jVar.BW()) {
+                        jSONArray.put(jVar.BV());
                     }
                 }
             }

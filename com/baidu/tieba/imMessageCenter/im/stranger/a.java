@@ -13,15 +13,15 @@ public class a {
     /* renamed from: com.baidu.tieba.imMessageCenter.im.stranger.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0103a {
-        public String atF;
-        public String dIB;
-        public String dIY;
-        public int dIZ;
-        public String dJa;
-        public String dJb;
-        public int dJc;
-        public String dJd;
-        public String dJe;
+        public String att;
+        public String dIK;
+        public int dIL;
+        public String dIM;
+        public String dIN;
+        public int dIO;
+        public String dIP;
+        public String dIQ;
+        public String dIn;
         public String postId;
         public String threadId;
         public int threadType;
@@ -29,7 +29,7 @@ public class a {
         public int type;
     }
 
-    public static C0103a mR(String str) {
+    public static C0103a mQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -38,10 +38,10 @@ public class a {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0103a.dJa = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
-                c0103a.dIB = optJSONObject.optString("content");
-                c0103a.dJd = optJSONObject.optString("quote_content");
-                c0103a.atF = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
+                c0103a.dIM = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
+                c0103a.dIn = optJSONObject.optString("content");
+                c0103a.dIP = optJSONObject.optString("quote_content");
+                c0103a.att = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
                 c0103a.threadId = optJSONObject.optString("thread_id");
                 c0103a.postId = optJSONObject.optString("post_id");
                 c0103a.type = optJSONObject.optInt("type");
@@ -49,14 +49,14 @@ public class a {
                 c0103a.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    c0103a.dJb = optJSONObject2.optString("id");
-                    c0103a.dJe = optJSONObject2.optString(IntentConfig.PORTRAIT);
-                    c0103a.dJc = optJSONObject2.optInt("gender");
+                    c0103a.dIN = optJSONObject2.optString("id");
+                    c0103a.dIQ = optJSONObject2.optString(IntentConfig.PORTRAIT);
+                    c0103a.dIO = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    c0103a.dIY = optJSONObject3.optString("id");
-                    c0103a.dIZ = optJSONObject3.optInt("gender");
+                    c0103a.dIK = optJSONObject3.optString("id");
+                    c0103a.dIL = optJSONObject3.optInt("gender");
                 }
             }
             return c0103a;

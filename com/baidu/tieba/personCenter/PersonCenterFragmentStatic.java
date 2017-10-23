@@ -10,12 +10,12 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 /* loaded from: classes.dex */
 public class PersonCenterFragmentStatic {
     static {
-        Nw();
-        com.baidu.tieba.j.a.bgO();
+        Nq();
+        com.baidu.tieba.j.a.bgJ();
         TbadkCoreApplication.getInst().RegisterIntent(PersonMoreActivityConfig.class, PersonCenterMoreActivity.class);
     }
 
-    private static void Nw() {
+    private static void Nq() {
         com.baidu.tieba.tbadkCore.a.a.a(303012, ProfileSocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.ay("c/u/user/profile", 303012));
         tbHttpMessageTask.setIsNeedLogin(false);

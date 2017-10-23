@@ -30,40 +30,40 @@ import java.lang.reflect.InvocationTargetException;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class aj {
-    private static String SE;
-    private static int SF;
-    private static String agJ;
-    private static Resources agK;
-    private static Resources agL;
-    private static String agM;
-    private static AssetManager agN;
+    private static String Ss;
+    private static int St;
+    private static String agA;
+    private static AssetManager agB;
+    private static String agx;
+    private static Resources agy;
+    private static Resources agz;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_NIGHTRES_PLUGIN_CHANGE) { // from class: com.baidu.tbadk.core.util.aj.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                Resources unused = aj.agK = null;
+                Resources unused = aj.agy = null;
             }
         });
-        agJ = "skinType not support";
-        SE = null;
-        SF = 0;
+        agx = "skinType not support";
+        Ss = null;
+        St = 0;
     }
 
-    public static void dG(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+    public static void dF(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
         if (!StringUtils.isNull(str)) {
             try {
                 Resources resources = TbadkCoreApplication.getInst().getResources();
                 if (resources != null) {
-                    agN = (AssetManager) AssetManager.class.newInstance();
-                    File de = k.de(str);
-                    if (de == null || !de.exists()) {
+                    agB = (AssetManager) AssetManager.class.newInstance();
+                    File dd = k.dd(str);
+                    if (dd == null || !dd.exists()) {
                         com.baidu.adp.lib.util.l.showToast(BdBaseApplication.getInst().getApp(), d.l.theme_skin_apk_error);
                     } else {
-                        agN.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(agN, de.getAbsolutePath());
-                        agL = new Resources(agN, resources.getDisplayMetrics(), resources.getConfiguration());
-                        agM = k.df(str);
+                        agB.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(agB, dd.getAbsolutePath());
+                        agz = new Resources(agB, resources.getDisplayMetrics(), resources.getConfiguration());
+                        agA = k.de(str);
                     }
                 }
             } catch (Throwable th) {
@@ -167,39 +167,39 @@ public class aj {
         }
     }
 
-    public static int cO(int i) {
+    public static int cN(int i) {
         if (i == 1) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(d.e.common_color_10004);
         }
-        throw new IllegalArgumentException(agJ);
+        throw new IllegalArgumentException(agx);
     }
 
-    public static int cP(int i) {
+    public static int cO(int i) {
         Application app = BdBaseApplication.getInst().getApp();
         return i == 1 ? app.getResources().getColor(d.e.common_color_10150) : app.getResources().getColor(d.e.common_color_10163);
     }
 
     public static int a(Resources resources, int i) {
         String str;
-        if (agK == null) {
-            agK = resources;
+        if (agy == null) {
+            agy = resources;
         }
         try {
             str = resources.getResourceName(i);
         } catch (Exception e) {
             str = null;
         }
-        if (TextUtils.isEmpty(str) || str.indexOf(":") <= 0 || agK == null) {
+        if (TextUtils.isEmpty(str) || str.indexOf(":") <= 0 || agy == null) {
             return 0;
         }
-        if (SF == 0) {
-            SE = BdBaseApplication.getInst().getPackageName();
-            SF = SE.length();
+        if (St == 0) {
+            Ss = BdBaseApplication.getInst().getPackageName();
+            St = Ss.length();
         }
-        if (str.length() > SF && str.charAt(SF) != ':' && str.startsWith(SE)) {
-            str = SE + str.substring(str.indexOf(":"));
+        if (str.length() > St && str.charAt(St) != ':' && str.startsWith(Ss)) {
+            str = Ss + str.substring(str.indexOf(":"));
         }
-        return agK.getIdentifier(str + "_1", null, null);
+        return agy.getIdentifier(str + "_1", null, null);
     }
 
     public static void a(ImageView imageView, int i, int i2) {
@@ -262,10 +262,10 @@ public class aj {
 
     private static int b(Resources resources, int i) {
         String str;
-        if (agL == null) {
-            agL = resources;
+        if (agz == null) {
+            agz = resources;
         }
-        if (agL == null) {
+        if (agz == null) {
             return 0;
         }
         try {
@@ -280,7 +280,7 @@ public class aj {
         if (StringUtils.isNull(substring) || !substring.startsWith("/s_")) {
             return 0;
         }
-        return agL.getIdentifier(agM + str.substring(str.indexOf(":")), null, null);
+        return agz.getIdentifier(agA + str.substring(str.indexOf(":")), null, null);
     }
 
     public static void i(View view, int i) {
@@ -302,8 +302,8 @@ public class aj {
         if (b == 0) {
             resources2 = resources;
             b = i;
-        } else if (agL != null) {
-            resources2 = agL;
+        } else if (agz != null) {
+            resources2 = agz;
         } else {
             resources2 = resources;
             b = i;
@@ -330,8 +330,8 @@ public class aj {
         if (b == 0) {
             resources2 = resources;
             b = i;
-        } else if (agL != null) {
-            resources2 = agL;
+        } else if (agz != null) {
+            resources2 = agz;
         } else {
             resources2 = resources;
             b = i;
@@ -356,8 +356,8 @@ public class aj {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (agL != null) {
-                resources2 = agL;
+            } else if (agz != null) {
+                resources2 = agz;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -367,8 +367,8 @@ public class aj {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (agK != null) {
-                resources2 = agK;
+            } else if (agy != null) {
+                resources2 = agy;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -404,8 +404,8 @@ public class aj {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (agL != null) {
-                resources2 = agL;
+            } else if (agz != null) {
+                resources2 = agz;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -415,8 +415,8 @@ public class aj {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (agK != null) {
-                resources2 = agK;
+            } else if (agy != null) {
+                resources2 = agy;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -436,7 +436,7 @@ public class aj {
         return b(TbadkCoreApplication.getInst().getSkinType(), resources, i);
     }
 
-    public static ColorStateList cQ(int i) {
+    public static ColorStateList cP(int i) {
         return b(TbadkCoreApplication.getInst().getSkinType(), (Resources) null, i);
     }
 
@@ -452,8 +452,8 @@ public class aj {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (agL != null) {
-                resources2 = agL;
+            } else if (agz != null) {
+                resources2 = agz;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -463,8 +463,8 @@ public class aj {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (agK != null) {
-                resources2 = agK;
+            } else if (agy != null) {
+                resources2 = agy;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -518,13 +518,13 @@ public class aj {
             int a = a(resources, i);
             if (a == 0) {
                 a = i;
-            } else if (agK != null) {
-                Resources resources2 = agK;
+            } else if (agy != null) {
+                Resources resources2 = agy;
             } else {
                 a = i;
             }
             try {
-                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(agK, a, i, options);
+                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(agy, a, i, options);
                 if (nightCashBitmap == null) {
                     return BitmapHelper.getCashBitmap(i, options);
                 }
@@ -538,7 +538,7 @@ public class aj {
                 return BitmapHelper.getCashBitmap(i, options);
             }
             try {
-                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(agL, b, i, options);
+                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(agz, b, i, options);
                 if (themeCashBitmap == null) {
                     return BitmapHelper.getCashBitmap(i, options);
                 }
@@ -551,11 +551,11 @@ public class aj {
         }
     }
 
-    public static Bitmap cR(int i) {
+    public static Bitmap cQ(int i) {
         return a((Resources) null, i, new BitmapFactory.Options());
     }
 
-    public static Bitmap cS(int i) {
+    public static Bitmap cR(int i) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 2;
         return a((Resources) null, i, options);
@@ -567,7 +567,7 @@ public class aj {
         return a((Resources) null, i, options, i2);
     }
 
-    public static Bitmap cT(int i) {
+    public static Bitmap cS(int i) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.RGB_565;
         return a((Resources) null, i, options);

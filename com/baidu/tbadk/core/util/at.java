@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class at {
-    private static String ahp;
-    private static String ahq;
-    private static final HashMap<String, String> ahr = new HashMap<>();
+    private static String ahd;
+    private static String ahe;
+    private static final HashMap<String, String> ahf = new HashMap<>();
 
-    public static void dR(String str) {
-        ahq = str;
+    public static void dQ(String str) {
+        ahe = str;
         if (TextUtils.isEmpty(str)) {
-            ahp = str;
+            ahd = str;
             return;
         }
         int lastIndexOf = str.lastIndexOf(".");
@@ -19,21 +19,21 @@ public class at {
             str = str.substring(lastIndexOf + 1, str.length());
         }
         String str2 = "";
-        if (ahr != null) {
-            str2 = ahr.get(str);
+        if (ahf != null) {
+            str2 = ahf.get(str);
         }
         if (str2 == null) {
-            str2 = dS(str);
-            if (ahr != null) {
-                ahr.put(str, str2);
+            str2 = dR(str);
+            if (ahf != null) {
+                ahf.put(str, str2);
             }
         }
         if (str2 != null) {
-            ahp = str2 + System.currentTimeMillis();
+            ahd = str2 + System.currentTimeMillis();
         }
     }
 
-    private static String dS(String str) {
+    private static String dR(String str) {
         if (!TextUtils.isEmpty(str)) {
             int length = str.length();
             if ((str.toLowerCase().endsWith("activity") || str.toLowerCase().endsWith("fragment")) && length - 8 >= 0) {
@@ -44,11 +44,11 @@ public class at {
         return str;
     }
 
-    public static String vD() {
-        return ahp;
+    public static String vw() {
+        return ahd;
     }
 
-    public static String vE() {
-        return ahq;
+    public static String vx() {
+        return ahe;
     }
 }

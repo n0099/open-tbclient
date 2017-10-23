@@ -44,13 +44,13 @@ public class LaunchStatic {
         initRegisterIntent();
         initRegisterTask();
         initRegisterListeners();
-        oS();
-        an.Gx();
+        oL();
+        an.Gr();
         com.baidu.tieba.tbadkCore.location.b.init();
-        com.baidu.tieba.im.widget.c.azA();
+        com.baidu.tieba.im.widget.c.azv();
         com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.axY();
-        com.baidu.tieba.im.db.h.avh();
+        ImMemoryCacheRegister.axT();
+        com.baidu.tieba.im.db.h.avc();
         com.baidu.tbadk.browser.d.init();
         g.init();
         com.baidu.tieba.wallet.d.init();
@@ -88,7 +88,7 @@ public class LaunchStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        com.baidu.tbadk.getUserInfo.b.DO().DP();
+        com.baidu.tbadk.getUserInfo.b.DI().DJ();
         com.baidu.tieba.tbadkCore.a.a.c(303039, ClientConfigSocketResponse.class, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.ay(TbConfig.GET_PAY_CONFIG, 303039));
         tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
@@ -122,7 +122,7 @@ public class LaunchStatic {
                     if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001325 && customResponsedMessage.getData() != null) {
                         if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                             TbadkCoreApplication.getInst().setIsKuangLogin(true);
-                            com.baidu.tbadk.kuang.a.bP(true);
+                            com.baidu.tbadk.kuang.a.bO(true);
                             return;
                         }
                         TbadkCoreApplication.getInst().setIsKuangLogin(false);
@@ -133,7 +133,7 @@ public class LaunchStatic {
         }
     }
 
-    private static void oS() {
+    private static void oL() {
         com.baidu.adp.lib.f.c.fJ().a(10, new p(true, 10));
         com.baidu.adp.lib.f.c.fJ().a(11, new p(false, 10));
         com.baidu.adp.lib.f.c.fJ().a(12, new n(false, false, false, 12));

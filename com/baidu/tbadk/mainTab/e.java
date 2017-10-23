@@ -9,30 +9,30 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class e extends FrameLayout {
-    protected boolean aGM;
+    protected boolean aGz;
 
     public e(Context context) {
         super(context);
-        this.aGM = false;
+        this.aGz = false;
     }
 
     public e(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aGM = false;
+        this.aGz = false;
     }
 
     public e(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aGM = false;
+        this.aGz = false;
     }
 
-    public void dE(int i) {
+    public void dD(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void bQ(boolean z) {
+    public void bP(boolean z) {
     }
 
     public View getContentTv() {
@@ -45,7 +45,7 @@ public abstract class e extends FrameLayout {
     public void a(String str, a aVar) {
     }
 
-    public a gt(String str) {
+    public a gr(String str) {
         return null;
     }
 
@@ -77,25 +77,25 @@ public abstract class e extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.aGM = z;
+        this.aGz = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aGO;
-        public e aGQ;
-        public int uq;
+        public int aGB;
+        public e aGD;
+        public int ur;
         public View view;
-        public boolean aGN = true;
-        public int aGP = d.e.common_color_10225;
+        public boolean aGA = true;
+        public int aGC = d.e.common_color_10225;
 
-        public void dE(int i) {
-            if (this.aGO != 0) {
-                aj.j(this.view, this.aGO);
+        public void dD(int i) {
+            if (this.aGB != 0) {
+                aj.j(this.view, this.aGB);
             }
             if (this.view instanceof TextView) {
-                if (this.aGP != 0) {
-                    aj.c((TextView) this.view, this.aGP, 1);
+                if (this.aGC != 0) {
+                    aj.c((TextView) this.view, this.aGC, 1);
                 }
                 int b = b((TextView) this.view);
                 if (b > 0 && b < 10) {

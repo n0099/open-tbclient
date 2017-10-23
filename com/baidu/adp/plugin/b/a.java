@@ -14,31 +14,31 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a Dh = null;
-    private HashMap<String, Integer> Dg = new HashMap<>();
+    private static volatile a Di = null;
+    private HashMap<String, Integer> Dh = new HashMap<>();
 
     public static synchronized a ji() {
         a aVar;
         synchronized (a.class) {
-            if (Dh == null) {
+            if (Di == null) {
                 synchronized (a.class) {
-                    if (Dh == null) {
-                        Dh = new a();
+                    if (Di == null) {
+                        Di = new a();
                     }
                 }
             }
-            aVar = Dh;
+            aVar = Di;
         }
         return aVar;
     }
 
     public void be(String str) {
         if (str != null) {
-            Integer num = this.Dg.get(str);
+            Integer num = this.Dh.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.Dg.put(str, Integer.valueOf(num.intValue() + 1));
+            this.Dh.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
@@ -132,7 +132,7 @@ public class a {
     }
 
     public void jj() {
-        if (this.Dg.size() != 0) {
+        if (this.Dh.size() != 0) {
             com.baidu.adp.lib.stats.a fK = fK();
             c(fK);
             BdStatisticsManager.getInstance().debug("pluginproxy", fK);
@@ -171,10 +171,10 @@ public class a {
 
     private void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
-            for (Map.Entry<String, Integer> entry : this.Dg.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.Dh.entrySet()) {
                 aVar.p(entry.getKey() + "_count", String.valueOf(entry.getValue()));
             }
-            this.Dg.clear();
+            this.Dh.clear();
         }
     }
 

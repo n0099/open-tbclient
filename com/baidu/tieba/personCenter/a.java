@@ -15,20 +15,20 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.personCenter.b.b;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private b eZU;
+    private b eZG;
     private long userId;
     private boolean isSelf = true;
     @Deprecated
     private boolean isBigV = false;
-    private boolean eZT = false;
-    private long eBF = 0;
+    private boolean eZF = false;
+    private long eBr = 0;
 
     @Override // android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.mIsLogin = TbadkCoreApplication.isLogin();
         if (getArguments() != null) {
-            this.eZT = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
+            this.eZF = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
         }
     }
 
@@ -36,14 +36,14 @@ public class a extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         y(bundle);
         View inflate = layoutInflater.inflate(d.j.fragment_my_tab_layout, (ViewGroup) null);
-        this.eZU = new b(inflate, getPageContext(), getUniqueId());
-        this.eZU.initView();
+        this.eZG = new b(inflate, getPageContext(), getUniqueId());
+        this.eZG.initView();
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
     public String getCurrentPageKey() {
-        if (this.eZT) {
+        if (this.eZF) {
             return null;
         }
         return "a011";
@@ -53,33 +53,33 @@ public class a extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.eZU.refreshView();
-            this.eZU.aVo();
+            this.eZG.refreshView();
+            this.eZG.aVj();
         } else {
-            this.eZU.aVp();
+            this.eZG.aVk();
         }
         if (isAdded()) {
-            com.baidu.tieba.j.a.bgO().bgU();
+            com.baidu.tieba.j.a.bgJ().bgP();
         }
-        com.baidu.tieba.j.a.bgO().lI(isPrimary());
+        com.baidu.tieba.j.a.bgJ().lH(isPrimary());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
         if (!this.isSelf && this.isBigV) {
-            this.eBF = System.currentTimeMillis();
+            this.eBr = System.currentTimeMillis();
         } else {
-            this.eBF = -1L;
+            this.eBr = -1L;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.eBF > 0) {
-            TiebaStatic.log(new ak("c12263").ad("obj_duration", String.valueOf((System.currentTimeMillis() - this.eBF) / 1000)).r("obj_type", 2));
-            this.eBF = 0L;
+        if (this.eBr > 0) {
+            TiebaStatic.log(new ak("c12263").ac("obj_duration", String.valueOf((System.currentTimeMillis() - this.eBr) / 1000)).r("obj_type", 2));
+            this.eBr = 0L;
         }
     }
 
@@ -99,8 +99,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.eZU != null) {
-            this.eZU.onDestroy();
+        if (this.eZG != null) {
+            this.eZG.onDestroy();
         }
     }
 
@@ -117,8 +117,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eZU != null) {
-            this.eZU.onChangeSkinType(i);
+        if (this.eZG != null) {
+            this.eZG.onChangeSkinType(i);
         }
     }
 }

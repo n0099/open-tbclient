@@ -158,6 +158,6 @@ public class VoteDataInfo implements f, Serializable {
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return PostData.ggK;
+        return PostData.ggw;
     }
 }

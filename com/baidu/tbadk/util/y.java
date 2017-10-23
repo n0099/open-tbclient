@@ -86,7 +86,7 @@ public class y {
                 if (bArr == null) {
                     byte[] bArr2 = (byte[]) com.baidu.adp.lib.OrmObject.a.a.b(cls, "toByteArray", new Object[0]).invoke(b(cls, new HashSet()), new Object[0]);
                     wire.parseFrom(bArr2, cls);
-                    a(file, bArr2);
+                    b(file, bArr2);
                 }
             } catch (Throwable th) {
                 BdLog.detailException(th);
@@ -185,7 +185,7 @@ public class y {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [200=5] */
-    private static final boolean a(File file, byte[] bArr) {
+    private static final boolean b(File file, byte[] bArr) {
         if (file == null || bArr == null) {
             return false;
         }

@@ -14,11 +14,11 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends ImageView {
-    private int aDA;
-    private int aDz;
-    private long aVw;
-    d aVx;
-    private View.OnClickListener aVy;
+    private int aDm;
+    private int aDn;
+    private long aVj;
+    d aVk;
+    private View.OnClickListener aVl;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -33,16 +33,16 @@ public class c extends ImageView {
     public c(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.aVw = 0L;
-        this.aVy = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
+        this.aVj = 0L;
+        this.aVl = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.Kt();
+                c.this.Kn();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - c.this.aVw > 500) {
-                    c.this.Ks();
+                if (currentTimeMillis - c.this.aVj > 500) {
+                    c.this.Km();
                 }
-                c.this.aVw = currentTimeMillis;
+                c.this.aVj = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -50,52 +50,52 @@ public class c extends ImageView {
     }
 
     private void g(TbPageContext tbPageContext) {
-        this.aVx = new d(tbPageContext, this);
-        setOnClickListener(this.aVy);
+        this.aVk = new d(tbPageContext, this);
+        setOnClickListener(this.aVl);
         aj.c(this, d.g.icon_home_feedback_selector);
-        this.aDz = l.f(this.mContext, d.f.ds60);
-        this.aDA = l.f(this.mContext, d.f.ds4);
+        this.aDm = l.f(this.mContext, d.f.ds60);
+        this.aDn = l.f(this.mContext, d.f.ds4);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.aVx.setUniqueId(bdUniqueId);
+        this.aVk.setUniqueId(bdUniqueId);
     }
 
-    public void Kr() {
+    public void Kl() {
         int f = l.f(this.mContext, d.f.ds48);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.height = f;
         layoutParams.gravity = 48;
         setLayoutParams(layoutParams);
-        setPadding(this.aDz, 0, this.aDA, 0);
+        setPadding(this.aDm, 0, this.aDn, 0);
     }
 
     public void setLeftPadding(int i) {
-        this.aDz = i;
-        setPadding(i, 0, this.aDA, 0);
+        this.aDm = i;
+        setPadding(i, 0, this.aDn, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ks() {
-        this.aVx.Ks();
+    public void Km() {
+        this.aVk.Km();
     }
 
-    public void Kt() {
-        this.aVx.Kt();
+    public void Kn() {
+        this.aVk.Kn();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.aVx.onDetachedFromWindow();
+        this.aVk.onDetachedFromWindow();
     }
 
     public void setData(al alVar) {
-        this.aVx.setData(alVar);
+        this.aVk.setData(alVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.aVx.setFirstRowSingleColumn(z);
+        this.aVk.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
@@ -103,10 +103,10 @@ public class c extends ImageView {
     }
 
     public void setEventCallback(a aVar) {
-        this.aVx.setEventCallback(aVar);
+        this.aVk.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.aVx.setDefaultReasonArray(strArr);
+        this.aVk.setDefaultReasonArray(strArr);
     }
 }

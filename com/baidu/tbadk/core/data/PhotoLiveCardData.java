@@ -132,15 +132,15 @@ public class PhotoLiveCardData implements Serializable {
 
     @Deprecated
     public String buildRefreshTime() {
-        return com.baidu.tbadk.core.util.am.q(this.lastModifiedTime * 1000) + " " + TbadkCoreApplication.getInst().getString(d.l.update_floor_num, new Object[]{com.baidu.tbadk.core.util.am.x(this.postNum)});
+        return com.baidu.tbadk.core.util.am.r(this.lastModifiedTime * 1000) + " " + TbadkCoreApplication.getInst().getString(d.l.update_floor_num, new Object[]{com.baidu.tbadk.core.util.am.y(this.postNum)});
     }
 
     public String buildRefreshTimeWithPostNum() {
-        return com.baidu.tbadk.core.util.am.q(this.lastModifiedTime * 1000) + " " + TbadkCoreApplication.getInst().getString(d.l.update_floor_num, new Object[]{com.baidu.tbadk.core.util.am.x(this.postNum)});
+        return com.baidu.tbadk.core.util.am.r(this.lastModifiedTime * 1000) + " " + TbadkCoreApplication.getInst().getString(d.l.update_floor_num, new Object[]{com.baidu.tbadk.core.util.am.y(this.postNum)});
     }
 
     public String buildRefreshTimeWithoutPostNum() {
-        return TbadkCoreApplication.getInst().getString(d.l.photo_live_thread_expression_time, new Object[]{com.baidu.tbadk.core.util.am.q(this.lastModifiedTime * 1000)});
+        return TbadkCoreApplication.getInst().getString(d.l.photo_live_thread_expression_time, new Object[]{com.baidu.tbadk.core.util.am.r(this.lastModifiedTime * 1000)});
     }
 
     public void setPhotoLiveCover(String str) {
@@ -196,10 +196,10 @@ public class PhotoLiveCardData implements Serializable {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("livespace" + ((Object) charSequence));
-        Bitmap cR = com.baidu.tbadk.core.util.aj.cR(d.g.icon_zhibo);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cR);
-        int height = cR.getHeight();
-        bitmapDrawable.setBounds(0, 0, cR.getWidth(), height);
+        Bitmap cQ = com.baidu.tbadk.core.util.aj.cQ(d.g.icon_zhibo);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cQ);
+        int height = cQ.getHeight();
+        bitmapDrawable.setBounds(0, 0, cQ.getWidth(), height);
         spannableStringBuilder.setSpan(new com.baidu.adp.widget.b(bitmapDrawable, 1), 0, "live".length(), 33);
         ColorDrawable colorDrawable = new ColorDrawable();
         colorDrawable.setBounds(0, 0, 10, height);
@@ -289,7 +289,7 @@ public class PhotoLiveCardData implements Serializable {
                 for (int i = 0; i < size; i++) {
                     if (zhiBoInfoTW.labelInfo.get(i) != null) {
                         com.baidu.tbadk.coreExtra.view.e eVar = new com.baidu.tbadk.coreExtra.view.e();
-                        eVar.ev(zhiBoInfoTW.labelInfo.get(i).labelHot.intValue());
+                        eVar.eu(zhiBoInfoTW.labelInfo.get(i).labelHot.intValue());
                         eVar.setLabelId(zhiBoInfoTW.labelInfo.get(i).labelId);
                         eVar.setLabelName(zhiBoInfoTW.labelInfo.get(i).labelContent);
                         this.expressionList.add(eVar);

@@ -20,9 +20,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    private static final Pattern aKM = Pattern.compile("#.+?#", 2);
+    private static final Pattern aKz = Pattern.compile("#.+?#", 2);
 
-    public static boolean cc(boolean z) {
+    public static boolean cb(boolean z) {
         boolean appResponseToIntentClass;
         if (PluginPackageManager.jv().bi("com.baidu.tieba.pluginHotTopic")) {
             if (z) {
@@ -35,7 +35,7 @@ public class a {
         return false;
     }
 
-    public static boolean Gp() {
+    public static boolean Gj() {
         return PluginPackageManager.jv().bo("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -47,7 +47,7 @@ public class a {
                 return true;
             }
             return true;
-        } else if (!cc(z2)) {
+        } else if (!cb(z2)) {
             String string2 = tbPageContext.getResources().getString(d.l.plugin_hottopic_install_tips);
             String string3 = tbPageContext.getResources().getString(d.l.plugin_go_install);
             if (z) {
@@ -55,7 +55,7 @@ public class a {
                 return true;
             }
             return true;
-        } else if (Gp()) {
+        } else if (Gj()) {
             String string4 = tbPageContext.getResources().getString(d.l.plugin_hottopic_not_active);
             String string5 = tbPageContext.getResources().getString(d.l.setup);
             if (z) {
@@ -76,7 +76,7 @@ public class a {
         final Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.cM(str);
+            aVar.cL(str);
             if (TextUtils.isEmpty(str2)) {
                 aVar.b(d.l.know, new a.b() { // from class: com.baidu.tbadk.plugins.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -99,15 +99,15 @@ public class a {
                     }
                 });
             }
-            aVar.b(tbPageContext).ti();
+            aVar.b(tbPageContext).tb();
         }
     }
 
-    public static SpannableString gz(String str) {
+    public static SpannableString gy(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = aKM.matcher(str);
+        Matcher matcher = aKz.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             spannableString.setSpan(new b(18, "") { // from class: com.baidu.tbadk.plugins.a.4

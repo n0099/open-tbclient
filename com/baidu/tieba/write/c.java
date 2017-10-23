@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends LinearLayout {
-    private TextView bvH;
-    private ImageView gGi;
-    private View gGj;
+    private TextView bvv;
+    private ImageView gFT;
+    private View gFU;
     private Context mContext;
 
     public c(Context context) {
@@ -32,34 +32,34 @@ public class c extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(d.j.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.bvH = (TextView) findViewById(d.h.prefix_text);
-        this.gGi = (ImageView) findViewById(d.h.prefix_checked);
-        this.gGj = findViewById(d.h.prefix_item_divider);
-        this.bvH.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        aj.j(this.bvH, d.e.cp_bg_line_d);
-        this.gGi.setBackgroundDrawable(aj.getDrawable(d.g.icon_set_list_ok_s));
-        aj.j(this.gGj, d.e.cp_bg_line_c);
+        this.bvv = (TextView) findViewById(d.h.prefix_text);
+        this.gFT = (ImageView) findViewById(d.h.prefix_checked);
+        this.gFU = findViewById(d.h.prefix_item_divider);
+        this.bvv.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        aj.j(this.bvv, d.e.cp_bg_line_d);
+        this.gFT.setBackgroundDrawable(aj.getDrawable(d.g.icon_set_list_ok_s));
+        aj.j(this.gFU, d.e.cp_bg_line_c);
     }
 
     public void setPrefixText(String str) {
-        this.bvH.setText(str);
+        this.bvv.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.bvH.setTextColor(i);
+        this.bvv.setTextColor(i);
     }
 
-    public void no(boolean z) {
+    public void nn(boolean z) {
         if (z) {
-            this.gGi.setVisibility(0);
+            this.gFT.setVisibility(0);
         } else {
-            this.gGi.setVisibility(8);
+            this.gFT.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.gGj.getLayoutParams()).setMargins(l.f(this.mContext, d.f.ds30), 0, l.f(this.mContext, d.f.ds30), 0);
+            ((LinearLayout.LayoutParams) this.gFU.getLayoutParams()).setMargins(l.f(this.mContext, d.f.ds30), 0, l.f(this.mContext, d.f.ds30), 0);
         }
     }
 }

@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends ClickableSpan {
-    private String aRQ;
-    private int aRR;
+    private String aRD;
+    private int aRE;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -44,8 +44,8 @@ public class b extends ClickableSpan {
         this.mType = i;
     }
 
-    public void fO(int i) {
-        this.aRR = i;
+    public void fN(int i) {
+        this.aRE = i;
     }
 
     public void setColor(int i) {
@@ -56,12 +56,12 @@ public class b extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void fP(int i) {
+    public void fO(int i) {
         this.urlType = i;
     }
 
-    public void gW(String str) {
-        this.aRQ = str;
+    public void gV(String str) {
+        this.aRD = str;
     }
 
     public String getLink() {
@@ -78,13 +78,13 @@ public class b extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.aRR == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.aRE == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = aj.getColor(d.e.cp_bg_line_c);
             } else {
                 textPaint.bgColor = aj.getColor(d.e.cp_bg_line_z);
             }
-        } else if (this.aRR == 2) {
+        } else if (this.aRE == 2) {
             textPaint.bgColor = aj.getColor(d.e.transparent);
         }
     }
@@ -93,7 +93,7 @@ public class b extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aRQ));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aRD));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -114,28 +114,28 @@ public class b extends ClickableSpan {
             Activity pageActivity = tbPageContext.getPageActivity();
             switch (i) {
                 case 2:
-                    dVar.aa(pageActivity, str);
+                    dVar.V(pageActivity, str);
                     return;
                 case 16:
-                    dVar.Z(pageActivity, str);
+                    dVar.U(pageActivity, str);
                     return;
                 case 18:
-                    dVar.aa(pageActivity, str);
+                    dVar.V(pageActivity, str);
                     return;
                 case 32:
-                    dVar.ab(pageActivity, str);
+                    dVar.W(pageActivity, str);
                     return;
                 case 64:
-                    dVar.ac(pageActivity, str);
+                    dVar.X(pageActivity, str);
                     return;
                 case 128:
-                    dVar.ad(pageActivity, str);
+                    dVar.Y(pageActivity, str);
                     return;
                 case 256:
                     dVar.g(pageActivity, str, str2);
                     return;
                 case 1024:
-                    dVar.ae(pageActivity, str);
+                    dVar.Z(pageActivity, str);
                     return;
                 default:
                     return;

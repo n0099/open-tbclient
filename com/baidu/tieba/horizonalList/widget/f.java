@@ -4,8 +4,8 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.j;
 /* loaded from: classes.dex */
 public abstract class f extends j.a {
-    public View.OnClickListener auo;
-    public int deb;
+    public View.OnClickListener auc;
+    public int ddO;
 
     public abstract void a(d dVar);
 
@@ -18,6 +18,6 @@ public abstract class f extends j.a {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.auo = onClickListener;
+        this.auc = onClickListener;
     }
 }

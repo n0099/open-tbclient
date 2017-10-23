@@ -15,12 +15,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class av {
-    private static av ahs = new av() { // from class: com.baidu.tbadk.core.util.av.1
+    private static av ahg = new av() { // from class: com.baidu.tbadk.core.util.av.1
     };
-    private static final Pattern ahw = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final List<a> aht;
-    private final ConcurrentHashMap<String, b> ahu;
-    private c ahv;
+    private static final Pattern ahk = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private final List<a> ahh;
+    private final ConcurrentHashMap<String, b> ahi;
+    private c ahj;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -42,14 +42,14 @@ public class av {
     }
 
     private av() {
-        this.aht = new LinkedList();
-        this.ahu = new ConcurrentHashMap<>();
-        this.ahv = null;
+        this.ahh = new LinkedList();
+        this.ahi = new ConcurrentHashMap<>();
+        this.ahj = null;
     }
 
-    public static SpannableString W(Context context, String str) {
+    public static SpannableString R(Context context, String str) {
         int start;
-        Matcher matcher = ahw.matcher(str);
+        Matcher matcher = ahk.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -63,8 +63,8 @@ public class av {
         return spannableString;
     }
 
-    public static av vH() {
-        return ahs;
+    public static av vA() {
+        return ahg;
     }
 
     public void a(final a aVar) {
@@ -82,13 +82,13 @@ public class av {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a aVar) {
-        if (!this.aht.contains(aVar)) {
-            this.aht.add(aVar);
+        if (!this.ahh.contains(aVar)) {
+            this.ahh.add(aVar);
         }
     }
 
     public void a(c cVar) {
-        this.ahv = cVar;
+        this.ahj = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -101,12 +101,12 @@ public class av {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.ahu.get(dX(str));
+        b bVar = this.ahi.get(dW(str));
         if (bVar != null) {
-            bVar.a(tbPageContext, dW(dV(str)));
+            bVar.a(tbPageContext, dV(dU(str)));
             return 0;
         }
-        for (a aVar : this.aht) {
+        for (a aVar : this.ahh) {
             if (aVar != null && (a2 = aVar.a(tbPageContext, strArr)) != 3) {
                 return a2;
             }
@@ -121,12 +121,12 @@ public class av {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.ahu.get(dX(str2));
+        b bVar = this.ahi.get(dW(str2));
         if (bVar != null) {
-            bVar.a(tbPageContext, dW(dV(str2)));
+            bVar.a(tbPageContext, dV(dU(str2)));
             return true;
         }
-        Iterator<a> it = this.aht.iterator();
+        Iterator<a> it = this.ahh.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z3 = false;
@@ -138,7 +138,7 @@ public class av {
                 break;
             }
         }
-        if (!z3 && this.ahv != null) {
+        if (!z3 && this.ahj != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -149,7 +149,7 @@ public class av {
         return z4;
     }
 
-    public static Map<String, String> dT(String str) {
+    public static Map<String, String> dS(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -167,7 +167,7 @@ public class av {
         return null;
     }
 
-    public static String dU(String str) {
+    public static String dT(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -175,7 +175,7 @@ public class av {
         return split[1];
     }
 
-    public static String dV(String str) {
+    public static String dU(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -193,7 +193,7 @@ public class av {
         }
     }
 
-    private Map<String, String> dW(String str) {
+    private Map<String, String> dV(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -217,7 +217,7 @@ public class av {
         return hashMap;
     }
 
-    private String dX(String str) {
+    private String dW(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -239,21 +239,21 @@ public class av {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (ahw.matcher(str2).find()) {
-            this.ahv.a(tbPageContext, str, str2, z, dVar, z2);
+        if (ahk.matcher(str2).find()) {
+            this.ahj.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str) && bVar != null) {
-            String dX = dX(str);
-            if (!StringUtils.isNull(dX)) {
-                this.ahu.put(dX, bVar);
+            String dW = dW(str);
+            if (!StringUtils.isNull(dW)) {
+                this.ahi.put(dW, bVar);
             }
         }
     }
 
-    public boolean dY(String str) {
-        return ahw.matcher(str).find();
+    public boolean dX(String str) {
+        return ahk.matcher(str).find();
     }
 }

@@ -13,11 +13,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     protected abstract boolean p(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.d
-    public void asV() {
-        asx();
+    public void asQ() {
+        ass();
     }
 
-    public void asx() {
+    public void ass() {
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -29,22 +29,22 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(d.e.common_color_10022, false);
-        if (this.dnT != null) {
-            this.dnT.setImageUploadUIProgressCallback(this.dnZ);
+        if (this.dnG != null) {
+            this.dnG.setImageUploadUIProgressCallback(this.dnM);
         }
-        atb();
+        asW();
         if (a((d) this)) {
             loadDraft();
-            asv();
-            j.dnR = com.baidu.tbadk.util.h.GG();
+            asq();
+            j.dnE = com.baidu.tbadk.util.h.GA();
         }
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.dnT != null) {
-            this.dnT.onDestroy();
+        if (this.dnG != null) {
+            this.dnG.onDestroy();
         }
         setIntent(intent);
         if (!p(null)) {
@@ -53,7 +53,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(d.e.common_color_10022, false);
-        atb();
+        asW();
         if (a((d) this)) {
             loadDraft();
         }
@@ -62,8 +62,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dnS != null) {
-            this.dnS.onChangeSkinType(i);
+        if (this.dnF != null) {
+            this.dnF.onChangeSkinType(i);
         }
     }
 
@@ -71,37 +71,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.dnS != null) {
-            this.dnS.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            ass();
+        if (this.dnF != null) {
+            this.dnF.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            asn();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ass() {
+    public void asn() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.dnS.showReceiver();
+            this.dnF.showReceiver();
         } else {
-            this.dnS.closeReceiver();
+            this.dnF.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.dnT.loadDraft();
+        return this.dnG.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        asw();
+        asr();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void asv() {
+    public void asq() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void asw() {
+    public void asr() {
     }
 }

@@ -1,18 +1,18 @@
 package com.baidu.adp.lib.stats.a;
 /* loaded from: classes.dex */
 public class a {
-    private static a wW = null;
+    private static a wX = null;
     private long clientLogID = 0;
 
     public static a gy() {
-        if (wW == null) {
+        if (wX == null) {
             synchronized (a.class) {
-                if (wW == null) {
-                    wW = new a();
+                if (wX == null) {
+                    wX = new a();
                 }
             }
         }
-        return wW;
+        return wX;
     }
 
     public synchronized long getClientLogId() {

@@ -14,12 +14,12 @@ import com.baidu.tieba.card.u;
 import com.baidu.tieba.card.x;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private x<c> bmJ;
-    private final TbPageContext<?> mG;
+    private x<c> bmv;
+    private final TbPageContext<?> mH;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bmJ = new x<c>() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+        this.bmv = new x<c>() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, c cVar) {
@@ -27,7 +27,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
             }
         };
-        this.mG = tbPageContext;
+        this.mH = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,8 +35,8 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ax */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.homepage.personalize.b.a aVar = new com.baidu.tieba.homepage.personalize.b.a(this.mG);
-        aVar.b(this.bmJ);
+        com.baidu.tieba.homepage.personalize.b.a aVar = new com.baidu.tieba.homepage.personalize.b.a(this.mH);
+        aVar.b(this.bmv);
         return new a(aVar);
     }
 
@@ -45,18 +45,18 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        u.XR().a(new ak("c11272"));
-        aVar.daO.a(cVar);
+        u.XN().a(new ak("c11272"));
+        aVar.daB.a(cVar);
         return aVar.getView();
     }
 
     /* loaded from: classes.dex */
     public class a extends j.a {
-        public com.baidu.tieba.homepage.personalize.b.a daO;
+        public com.baidu.tieba.homepage.personalize.b.a daB;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.daO = aVar;
+            this.daB = aVar;
         }
     }
 }

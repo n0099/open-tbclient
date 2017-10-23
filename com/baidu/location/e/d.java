@@ -15,13 +15,13 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes.dex */
 public final class d {
-    private static volatile d Nh;
+    private static volatile d MY;
     private static Context c;
-    private final File Ni;
-    private final k Nj;
-    private final e Nk;
-    private final m Nl;
-    private final h Nm;
+    private final File MZ;
+    private final k Na;
+    private final e Nb;
+    private final m Nc;
+    private final h Nd;
     static final String b = "com.baidu.lbs.offlinelocationprovider";
     static final String a = "http://loc.map.baidu.com/offline_loc";
 
@@ -59,38 +59,38 @@ public final class d {
         } catch (Exception e2) {
             file = null;
         }
-        this.Ni = file;
-        this.Nk = new e(this);
-        this.Nj = new k(this.Nk.mK());
-        this.Nm = new h(this, this.Nk.mK());
-        this.Nl = new m(this, this.Nk.mK(), this.Nm.n());
+        this.MZ = file;
+        this.Nb = new e(this);
+        this.Na = new k(this.Nb.mE());
+        this.Nd = new h(this, this.Nb.mE());
+        this.Nc = new m(this, this.Nb.mE(), this.Nd.n());
     }
 
     public static void a(Context context) {
         if (c == null) {
             c = context;
-            com.baidu.location.h.c.nh().a(c);
+            com.baidu.location.h.c.nb().a(c);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final Uri bN(String str) {
+    public static final Uri bM(String str) {
         return Uri.parse(String.format("content://%s/", str));
     }
 
-    public static d mE() {
-        if (Nh == null) {
+    public static d my() {
+        if (MY == null) {
             synchronized (d.class) {
-                if (Nh == null) {
+                if (MY == null) {
                     if (c == null) {
                         a(com.baidu.location.f.getServiceContext());
                     }
-                    Nh = new d();
+                    MY = new d();
                 }
             }
         }
-        Nh.q();
-        return Nh;
+        MY.q();
+        return MY;
     }
 
     private BDLocation n(String[] strArr) {
@@ -111,7 +111,7 @@ public final class d {
                 newSingleThreadExecutor.shutdown();
                 return null;
             } catch (TimeoutException e3) {
-                com.baidu.location.c.f.mA().a("offlineLocation Timeout Exception!");
+                com.baidu.location.c.f.mu().a("offlineLocation Timeout Exception!");
                 futureTask.cancel(true);
                 newSingleThreadExecutor.shutdown();
                 return null;
@@ -123,7 +123,7 @@ public final class d {
     }
 
     private void q() {
-        this.Nm.g();
+        this.Nd.g();
     }
 
     private boolean r() {
@@ -131,9 +131,9 @@ public final class d {
         String packageName = c.getPackageName();
         ProviderInfo resolveContentProvider = c.getPackageManager().resolveContentProvider(b, 0);
         if (resolveContentProvider == null) {
-            String[] mP = this.Nm.mP();
+            String[] mJ = this.Nd.mJ();
             providerInfo = resolveContentProvider;
-            for (int i = 0; i < mP.length && (providerInfo = c.getPackageManager().resolveContentProvider(mP[i], 0)) == null; i++) {
+            for (int i = 0; i < mJ.length && (providerInfo = c.getPackageManager().resolveContentProvider(mJ[i], 0)) == null; i++) {
             }
         } else {
             providerInfo = resolveContentProvider;
@@ -145,10 +145,10 @@ public final class d {
         String d;
         int i;
         if (bVar == b.IS_MIX_MODE) {
-            i = this.Nm.a();
-            d = com.baidu.location.h.c.nh().d() + "&mixMode=1";
+            i = this.Nd.a();
+            d = com.baidu.location.h.c.nb().d() + "&mixMode=1";
         } else {
-            d = com.baidu.location.h.c.nh().d();
+            d = com.baidu.location.h.c.nb().d();
             i = 0;
         }
         String[] a2 = j.a(aVar, iVar, bDLocation, d, (aVar2 == a.NEED_TO_LOG).booleanValue(), i);
@@ -158,62 +158,62 @@ public final class d {
         return bDLocation2;
     }
 
-    public long bO(String str) {
-        return this.Nm.bO(str);
+    public long bN(String str) {
+        return this.Nd.bN(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public File c() {
-        return this.Ni;
+        return this.MZ;
     }
 
     public boolean d() {
-        return this.Nm.h();
+        return this.Nd.h();
     }
 
     public boolean e() {
-        return this.Nm.i();
+        return this.Nd.i();
     }
 
     public boolean f() {
-        return this.Nm.j();
+        return this.Nd.j();
     }
 
     public boolean g() {
-        return this.Nm.k();
+        return this.Nd.k();
     }
 
     public boolean h() {
-        return this.Nm.m();
+        return this.Nd.m();
     }
 
     public void i() {
-        this.Nj.a();
+        this.Na.a();
     }
 
     public void m() {
         if (r()) {
-            this.Nk.b();
+            this.Nb.b();
         }
     }
 
-    public Context mF() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k mA() {
+        return this.Na;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m mB() {
+        return this.Nc;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h mC() {
+        return this.Nd;
+    }
+
+    public Context mz() {
         return c;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k mG() {
-        return this.Nj;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m mH() {
-        return this.Nl;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h mI() {
-        return this.Nm;
     }
 
     public void n() {
@@ -238,19 +238,19 @@ public final class d {
             }
         }
         if (cVar == c.NETWORK_UNKNOWN) {
-            return this.Nm.mL();
+            return this.Nd.mF();
         }
         if (cVar == c.NETWORK_WIFI) {
-            return this.Nm.c();
+            return this.Nd.c();
         }
         if (cVar == c.NETWORK_2G) {
-            return this.Nm.mM();
+            return this.Nd.mG();
         }
         if (cVar == c.NETWORK_3G) {
-            return this.Nm.mN();
+            return this.Nd.mH();
         }
         if (cVar == c.NETWORK_4G) {
-            return this.Nm.mO();
+            return this.Nd.mI();
         }
         return 0.0d;
     }

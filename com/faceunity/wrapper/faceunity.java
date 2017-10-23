@@ -1,9 +1,9 @@
 package com.faceunity.wrapper;
 /* loaded from: classes.dex */
 public class faceunity {
-    private static boolean gYp = false;
-    static int[] gYq = new int[2];
-    static int[] gYr = new int[1];
+    private static boolean gYa = false;
+    static int[] gYb = new int[2];
+    static int[] gYc = new int[1];
 
     public static native int fuCreateItemFromPackage(byte[] bArr);
 

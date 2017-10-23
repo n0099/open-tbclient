@@ -389,6 +389,7 @@ public class CmdConfigCustom {
     public static final int CMD_ONE_PUSH_MSG = 2001101;
     public static final int CMD_ON_CLOUD_MUSIC_PLAY = 2921307;
     public static final int CMD_ON_DUI_SEND_SUCCESS_OR_CANCEL = 2921306;
+    public static final int CMD_OPEN_WALLET_ICASH = 2001446;
     public static final int CMD_OPTION_TO_NOVEL_READER = 2001417;
     public static final int CMD_PACKAGE_ADDED = 2002501;
     public static final int CMD_PACKAGE_REMOVED = 2002502;
@@ -713,6 +714,7 @@ public class CmdConfigCustom {
     public static final int MESSAGE_LIST_YY_CMD = 2012126;
     public static final int METHOD_ACCOUNT_CHANGE = 2005016;
     public static final int METHOD_ACCOUNT_CHANGE_FOR_IM = 2005018;
+    public static final int METHOD_ACCOUNT_CHANGE_STICKY = 2005019;
     public static final int METHOD_IM_MESSAGE_CACHE_INITED = 2005014;
     public static final int METHOD_INVOKE_ACCOUNT_CHANGE = 2005006;
     public static final int METHOD_INVOKE_CLEAR_CHAT_NOTIFY_MESSAGE = 2005001;

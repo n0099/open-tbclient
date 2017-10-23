@@ -6,80 +6,80 @@ import android.net.Uri;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class w implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection afA;
-    private String afB;
-    private String[] afC;
-    private String[] afD;
-    private boolean afE;
-    private a afF;
+    private MediaScannerConnection afo;
+    private String afp;
+    private String[] afq;
+    private String[] afr;
+    private boolean afs;
+    private a aft;
     private int length;
     private Context mContext;
     private String mPath;
 
     /* loaded from: classes.dex */
     public interface a {
-        void uL();
+        void uE();
     }
 
     public w(Context context) {
         this.mContext = context;
-        this.afA = new MediaScannerConnection(this.mContext, this);
+        this.afo = new MediaScannerConnection(this.mContext, this);
     }
 
-    public void dC(String str) {
+    public void dB(String str) {
         this.mPath = str;
         String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
-        this.afB = "image/jpeg";
+        this.afp = "image/jpeg";
         if (substring.equals(".gif")) {
-            this.afB = "image/gif";
+            this.afp = "image/gif";
         }
-        this.afA.connect();
+        this.afo.connect();
     }
 
     public void scanFile(String str, String str2) {
         this.mPath = str;
-        this.afB = str2;
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.afB)) {
-            this.afA.connect();
+        this.afp = str2;
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.afp)) {
+            this.afo.connect();
             return;
         }
         this.mPath = null;
-        this.afB = null;
+        this.afp = null;
     }
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
     public void onMediaScannerConnected() {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.afB)) {
-            this.afA.scanFile(this.mPath, this.afB);
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.afp)) {
+            this.afo.scanFile(this.mPath, this.afp);
         }
-        if (this.afC != null && this.afD != null && this.afC.length == this.afD.length) {
-            int length = this.afC.length;
+        if (this.afq != null && this.afr != null && this.afq.length == this.afr.length) {
+            int length = this.afq.length;
             for (int i = 0; i < length; i++) {
-                this.afA.scanFile(this.afC[i], this.afD[i]);
+                this.afo.scanFile(this.afq[i], this.afr[i]);
             }
         }
     }
 
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
     public void onScanCompleted(String str, Uri uri) {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.afB) && str.equals(this.mPath)) {
-            this.afA.disconnect();
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.afp) && str.equals(this.mPath)) {
+            this.afo.disconnect();
             this.mPath = null;
-            this.afB = null;
-            this.afE = true;
-        } else if (this.afC != null && this.afD != null && this.afC.length == this.afD.length) {
+            this.afp = null;
+            this.afs = true;
+        } else if (this.afq != null && this.afr != null && this.afq.length == this.afr.length) {
             this.length--;
             if (this.length == 0) {
-                this.afA.disconnect();
-                this.afC = null;
-                this.afD = null;
-                this.afE = true;
+                this.afo.disconnect();
+                this.afq = null;
+                this.afr = null;
+                this.afs = true;
             } else {
-                this.afE = false;
+                this.afs = false;
             }
         }
-        if (this.afE && this.afF != null) {
-            this.afF.uL();
+        if (this.afs && this.aft != null) {
+            this.aft.uE();
         }
     }
 }

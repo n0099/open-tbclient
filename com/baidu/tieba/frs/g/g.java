@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.g;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 /* loaded from: classes.dex */
 public class g {
-    public static int kb(int i) {
+    public static int ka(int i) {
         switch (i) {
             case 2:
             case 5:

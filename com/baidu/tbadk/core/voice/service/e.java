@@ -5,24 +5,24 @@ import com.baidu.adp.lib.voice.h;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class e extends MediaPlayer implements c {
-    private static Object apU = new Object();
-    private static e apV = null;
-    private boolean apW = false;
-    private boolean apX = true;
+    private static Object apI = new Object();
+    private static e apJ = null;
+    private boolean apK = false;
+    private boolean apL = true;
     private int errorNo = -1;
 
     private e() {
     }
 
-    public static e xm() {
-        if (apV == null) {
-            synchronized (apU) {
-                if (apV == null) {
-                    apV = new e();
+    public static e xf() {
+        if (apJ == null) {
+            synchronized (apI) {
+                if (apJ == null) {
+                    apJ = new e();
                 }
             }
         }
-        return apV;
+        return apJ;
     }
 
     public void setStreamType(int i) {
@@ -30,14 +30,14 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public boolean eu(String str) {
+    public boolean et(String str) {
         this.errorNo = -1;
-        if (!this.apW) {
-            this.apX = true;
+        if (!this.apK) {
+            this.apL = true;
             reset();
             try {
                 setDataSource(str);
-                setStreamType(h.zh);
+                setStreamType(h.zi);
                 try {
                     prepare();
                 } catch (IOException e) {
@@ -59,35 +59,35 @@ public class e extends MediaPlayer implements c {
                 return false;
             }
         }
-        this.apW = true;
+        this.apK = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void xi() {
+    public void xb() {
         start();
-        this.apX = false;
+        this.apL = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void xe() {
-        if (!this.apX) {
+    public void wX() {
+        if (!this.apL) {
             stop();
-            this.apX = true;
-            this.apW = false;
+            this.apL = true;
+            this.apK = false;
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void xj() {
+    public void xc() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void xk() {
+    public void xd() {
         reset();
-        this.apW = false;
-        this.apX = true;
+        this.apK = false;
+        this.apL = true;
         this.errorNo = -1;
     }
 
@@ -97,16 +97,16 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public boolean xl() {
-        return this.apW;
+    public boolean xe() {
+        return this.apK;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void dP(int i) {
-        dR(i);
+    public void dO(int i) {
+        dQ(i);
     }
 
-    public void dR(int i) {
+    public void dQ(int i) {
         try {
             seekTo(i);
         } catch (Exception e) {

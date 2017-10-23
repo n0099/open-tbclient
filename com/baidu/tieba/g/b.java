@@ -10,46 +10,46 @@ import tbclient.Esport;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class b implements f {
-    public static final BdUniqueId cPd = BdUniqueId.gen();
-    private int bNk;
-    private List<a> cPe;
-    private String cPf;
-    private String cPg;
+    public static final BdUniqueId cOR = BdUniqueId.gen();
+    private int bMY;
+    private List<a> cOS;
+    private String cOT;
+    private String cOU;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.bNk = esport.floor_no.intValue();
+            this.bMY = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.cPf = esport._static.img;
-                this.cPg = esport._static.url;
+                this.cOT = esport._static.img;
+                this.cOU = esport._static.url;
             }
-            this.cPe = new ArrayList();
-            if (!StringUtils.isNull(this.cPf)) {
+            this.cOS = new ArrayList();
+            if (!StringUtils.isNull(this.cOT)) {
                 a aVar = new a();
-                aVar.ld(this.cPf);
-                aVar.le(this.cPg);
-                this.cPe.add(aVar);
+                aVar.lc(this.cOT);
+                aVar.ld(this.cOU);
+                this.cOS.add(aVar);
             }
             if (!v.u(esport.billboard)) {
                 for (EsportRank esportRank : esport.billboard) {
                     a aVar2 = new a();
                     aVar2.a(esportRank);
-                    this.cPe.add(aVar2);
+                    this.cOS.add(aVar2);
                 }
             }
         }
     }
 
-    public int any() {
-        return this.bNk;
+    public int ant() {
+        return this.bMY;
     }
 
-    public List<a> anz() {
-        return this.cPe;
+    public List<a> anu() {
+        return this.cOS;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return cPd;
+        return cOR;
     }
 }

@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.util.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b acC = new a();
-    private static final b acD = new c();
-    private static final boolean acE;
+    private static final b acq = new a();
+    private static final b acr = new c();
+    private static final boolean acs;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -39,9 +39,9 @@ public class e {
         @Override // com.baidu.tbadk.core.hybrid.e.b
         public void j(String str, String str2, String str3) {
             ak akVar = new ak("c10729");
-            akVar.ad("obj_param1", str);
-            akVar.ad("obj_param2", str2);
-            akVar.ad("obj_param3", str3);
+            akVar.ac("obj_param1", str);
+            akVar.ac("obj_param2", str2);
+            akVar.ac("obj_param3", str3);
             if (BdBaseApplication.getInst() != null) {
                 TiebaStatic.log(akVar);
             }
@@ -49,23 +49,23 @@ public class e {
     }
 
     public static void j(String str, String str2, String str3) {
-        if (acE) {
-            acC.j(str, str2, str3);
+        if (acs) {
+            acq.j(str, str2, str3);
         }
-        acD.j(str, str2, str3);
+        acr.j(str, str2, str3);
     }
 
-    public static void cP(String str) {
-        if (acE) {
-            acC.j(null, null, str);
+    public static void cO(String str) {
+        if (acs) {
+            acq.j(null, null, str);
         }
     }
 
     public static void k(String str, String str2, String str3) {
-        cP(str3);
+        cO(str3);
     }
 
     static {
-        acE = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        acs = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

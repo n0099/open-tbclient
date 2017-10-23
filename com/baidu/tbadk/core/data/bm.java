@@ -4,7 +4,7 @@ import org.json.JSONObject;
 import tbclient.VideoChannelInfo;
 /* loaded from: classes.dex */
 public class bm {
-    public int aas;
+    public int aag;
     public String channelAvatar;
     public long channelId;
     public String channelName;
@@ -18,7 +18,7 @@ public class bm {
         }
     }
 
-    public void d(JSONObject jSONObject) {
+    public void f(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.channelId = jSONObject.optLong("channel_id", 0L);

@@ -76,7 +76,7 @@ public class ao {
         return null;
     }
 
-    public static String dQ(String str) {
+    public static String dP(String str) {
         return com.baidu.adp.lib.util.s.aS(str);
     }
 }

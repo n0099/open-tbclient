@@ -3,17 +3,17 @@ package com.baidu.adp.b.a;
 import android.graphics.Matrix;
 /* loaded from: classes.dex */
 public class e {
-    public int BA;
+    public boolean BA;
     public int BB;
-    public boolean BC;
+    public int BC;
     public boolean BD;
-    public Matrix BG;
-    public int BH;
-    public boolean By;
+    public boolean BE;
+    public Matrix BH;
+    public int BI;
     public boolean Bz;
     public float mRadius;
-    public boolean BE = false;
-    public boolean BF = true;
+    public boolean BF = false;
+    public boolean BG = true;
     public float mAlpha = 1.0f;
-    public boolean BI = false;
+    public boolean BJ = false;
 }

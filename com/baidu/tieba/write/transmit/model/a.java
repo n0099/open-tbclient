@@ -8,36 +8,36 @@ import java.util.List;
 import tbclient.SimpleForum;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.adp.framework.listener.a dfH = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450) { // from class: com.baidu.tieba.write.transmit.model.a.1
+    private List<SimpleForum> dZW;
+    private com.baidu.adp.framework.listener.a dfu = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450) { // from class: com.baidu.tieba.write.transmit.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof GetRepostForumHttpResMessage) || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
                     if (responsedMessage.hasError()) {
-                        if (a.this.gFw != null) {
-                            a.this.gFw.byP();
+                        if (a.this.gFh != null) {
+                            a.this.gFh.byJ();
                             return;
                         }
                         return;
                     }
                     if (responsedMessage instanceof GetRepostForumHttpResMessage) {
-                        a.this.eak = ((GetRepostForumHttpResMessage) responsedMessage).getForumList();
+                        a.this.dZW = ((GetRepostForumHttpResMessage) responsedMessage).getForumList();
                         a.this.recommendExt = ((GetRepostForumHttpResMessage) responsedMessage).getRecommendExtension();
                     }
                     if (responsedMessage instanceof GetRepostForumSocketResMessage) {
-                        a.this.eak = ((GetRepostForumSocketResMessage) responsedMessage).getForumList();
+                        a.this.dZW = ((GetRepostForumSocketResMessage) responsedMessage).getForumList();
                         a.this.recommendExt = ((GetRepostForumSocketResMessage) responsedMessage).getRecommendExtension();
                     }
-                    if (a.this.gFw != null) {
-                        a.this.gFw.A(a.this.eak);
+                    if (a.this.gFh != null) {
+                        a.this.gFh.A(a.this.dZW);
                     }
                 }
             }
         }
     };
-    private List<SimpleForum> eak;
     private String forumId;
-    private InterfaceC0139a gFw;
+    private InterfaceC0139a gFh;
     private BdUniqueId mBdUniqueId;
     private String recommendExt;
     private String threadContent;
@@ -48,16 +48,16 @@ public class a {
     public interface InterfaceC0139a {
         void A(List<SimpleForum> list);
 
-        void byP();
+        void byJ();
     }
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.dfH.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.dfH);
+        this.dfu.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.dfu);
     }
 
-    public void Qj() {
+    public void Qf() {
         GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
         getRepostForumReqMessage.setThreadTitle(this.threadTitle);
         getRepostForumReqMessage.setThreadContent(this.threadContent);
@@ -66,7 +66,7 @@ public class a {
         MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
     }
 
-    public void aiD() {
+    public void aiy() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, this.mBdUniqueId);
         MessageManager.getInstance().removeMessage(309450, this.mBdUniqueId);
     }
@@ -88,10 +88,10 @@ public class a {
     }
 
     public void a(InterfaceC0139a interfaceC0139a) {
-        this.gFw = interfaceC0139a;
+        this.gFh = interfaceC0139a;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.dfH);
+        MessageManager.getInstance().unRegisterListener(this.dfu);
     }
 }

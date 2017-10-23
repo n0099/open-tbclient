@@ -13,25 +13,25 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.e.a;
 /* loaded from: classes.dex */
 public class a {
-    private boolean cDW;
-    private com.baidu.tieba.e.b ctE;
+    private boolean cDK;
+    private com.baidu.tieba.e.b ctr;
     private Context mContext;
     private BdUniqueId mPageId;
-    private boolean aLX = false;
-    private a.InterfaceC0081a caG = new a.InterfaceC0081a() { // from class: com.baidu.tieba.frs.gametab.a.1
-        final int bCg = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
+    private boolean aLK = false;
+    private a.InterfaceC0081a cau = new a.InterfaceC0081a() { // from class: com.baidu.tieba.frs.gametab.a.1
+        final int bBU = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
 
         @Override // com.baidu.tieba.e.a.InterfaceC0081a
         public void ao(int i, int i2) {
             if (Q(i2)) {
-                a.this.eK(false);
+                a.this.eJ(false);
             }
         }
 
         @Override // com.baidu.tieba.e.a.InterfaceC0081a
         public void ap(int i, int i2) {
             if (Q(i2)) {
-                a.this.eK(true);
+                a.this.eJ(true);
             }
         }
 
@@ -47,24 +47,24 @@ public class a {
     public a(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.cDW = z;
-        if (this.cDW) {
-            this.ctE = new com.baidu.tieba.e.b(context);
-            this.ctE.a(this.caG);
+        this.cDK = z;
+        if (this.cDK) {
+            this.ctr = new com.baidu.tieba.e.b(context);
+            this.ctr.a(this.cau);
         }
     }
 
     public void d(View view, MotionEvent motionEvent) {
-        if (this.cDW && this.ctE != null) {
-            this.ctE.onTouchEvent(motionEvent);
+        if (this.cDK && this.ctr != null) {
+            this.ctr.onTouchEvent(motionEvent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eK(boolean z) {
-        this.aLX = z;
-        if (this.cDW) {
-            n(!this.aLX, true);
+    public void eJ(boolean z) {
+        this.aLK = z;
+        if (this.cDK) {
+            n(!this.aLK, true);
         }
     }
 

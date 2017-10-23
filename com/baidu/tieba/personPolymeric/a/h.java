@@ -7,12 +7,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.i, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.g>> {
-    private String feG;
-    private TbPageContext<?> mG;
+    private String fes;
+    private TbPageContext<?> mH;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.i.fhe, bdUniqueId);
-        this.mG = tbPageContext;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.i.fgQ, bdUniqueId);
+        this.mH = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: B */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.g> onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.g(this.mG));
+        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.g(this.mH));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,9 +28,9 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.i iVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.g> aVar) {
-        aVar.Yr().setTip(this.feG);
-        aVar.Yr().a(iVar);
-        aVar.Yr().d(this.mG, TbadkCoreApplication.getInst().getSkinType());
+        aVar.Yn().setTip(this.fes);
+        aVar.Yn().a(iVar);
+        aVar.Yn().d(this.mH, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

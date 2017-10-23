@@ -1,8 +1,8 @@
 package com.baidu.tieba.video.record;
 /* loaded from: classes2.dex */
 public class d<T> {
-    private T gyU;
-    private int gyV;
+    private T gyG;
+    private int gyH;
     private String mName;
     private int mType;
 
@@ -14,20 +14,20 @@ public class d<T> {
         this.mName = str;
     }
 
-    public int bwV() {
-        return this.gyV;
+    public int bwN() {
+        return this.gyH;
     }
 
-    public void uC(int i) {
-        this.gyV = i;
+    public void uB(int i) {
+        this.gyH = i;
     }
 
     public T getValue() {
-        return this.gyU;
+        return this.gyG;
     }
 
     public void setValue(T t) {
-        this.gyU = t;
+        this.gyG = t;
     }
 
     public int getType() {

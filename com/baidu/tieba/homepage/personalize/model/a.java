@@ -17,13 +17,13 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
-    private int daC = 0;
-    private com.baidu.tieba.homepage.personalize.b.d cWC = new com.baidu.tieba.homepage.personalize.b.d();
-    private final c cWB = new c();
-    private final int bgF = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
+    private int dan = 0;
+    private com.baidu.tieba.homepage.personalize.b.d cWq = new com.baidu.tieba.homepage.personalize.b.d();
+    private final c cWp = new c();
+    private final int bgq = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
-    public int apM() {
-        return this.bgF;
+    public int apH() {
+        return this.bgq;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -39,16 +39,16 @@ public class a {
         d.e(builder);
         d.e(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.bgF);
+        a(builder, i, this.bgq);
         d.f(builder);
         List<r> d = d.d(builder);
         bv(d);
         List<f> k = k(builder.thread_list, d);
-        this.cWC.bx(k);
+        this.cWq.bx(k);
         a(k, builder);
         b.a(builder, k);
-        this.cWB.aUB = k;
-        return this.cWB;
+        this.cWp.aUo = k;
+        return this.cWp;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -66,7 +66,7 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.daC);
+        d.a(z, builder, builder2, i, this.dan);
     }
 
     private void a(boolean z, List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
@@ -98,7 +98,7 @@ public class a {
                 int t2 = v.t(list2) - 1;
                 i2 = 0;
                 while (t2 >= 0) {
-                    this.cWC.a(z, t2, list, list2);
+                    this.cWq.a(z, t2, list, list2);
                     ThreadInfo threadInfo3 = (ThreadInfo) v.c(list2, t2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
                         if (!hashSet2.contains(threadInfo3.lego_card)) {
@@ -120,8 +120,8 @@ public class a {
                 }
             }
             int t3 = v.t(list);
-            this.cWB.daE = (t3 - t) - i2;
-            this.daC = t3 - t;
+            this.cWp.dap = (t3 - t) - i2;
+            this.dan = t3 - t;
         }
     }
 
@@ -153,15 +153,15 @@ public class a {
             if (threadInfo != null) {
                 bh bhVar = new bh();
                 bhVar.a(threadInfo);
-                bhVar.bY(1);
-                if (!TextUtils.isEmpty(bhVar.sq())) {
+                bhVar.bX(1);
+                if (!TextUtils.isEmpty(bhVar.sj())) {
                     af afVar = new af();
-                    afVar.cx(bhVar.sq());
+                    afVar.cw(bhVar.sj());
                     linkedList.add(afVar);
                 } else {
                     com.baidu.tieba.card.data.c S = d.S(bhVar);
                     if (S != null) {
-                        S.Xf = bhVar.getTid();
+                        S.WT = bhVar.getTid();
                     }
                     if (S != null && S.isValid()) {
                         linkedList.add(S);

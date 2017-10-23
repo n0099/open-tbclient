@@ -16,14 +16,14 @@ public class d extends h {
     @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
     public View ld() {
         View ld = super.ld();
-        this.amo.setVisibility(4);
+        this.amc.setVisibility(4);
         return ld;
     }
 
     @Override // com.baidu.tbadk.core.view.h, com.baidu.tbadk.core.view.g
-    public void dz(int i) {
-        super.dz(i);
-        aj.k(this.amn, d.e.cp_bg_line_d);
+    public void dy(int i) {
+        super.dy(i);
+        aj.k(this.amb, d.e.cp_bg_line_d);
     }
 
     @Override // com.baidu.tbadk.core.view.h, com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c

@@ -9,16 +9,16 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.ByteArrayInputStream;
 /* loaded from: classes.dex */
 public class b extends c {
-    private Rect rs;
+    private Rect rt;
 
     public Rect getRect() {
-        return this.rs;
+        return this.rt;
     }
 
     public b(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
-        this.rs = null;
-        this.rs = new Rect();
+        this.rt = null;
+        this.rt = new Rect();
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0081 */
@@ -39,12 +39,12 @@ public class b extends c {
     */
     public boolean h(byte[] bArr) {
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.ru.i(bArr)) {
-            long j = this.ru.ry;
+        if (bArr != null && this.rv.i(bArr)) {
+            long j = this.rv.rz;
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             long j2 = j;
             if (i != 0) {
-                long j3 = this.ru.ry;
+                long j3 = this.rv.rz;
                 int i2 = (j3 > System.currentTimeMillis() ? 1 : (j3 == System.currentTimeMillis() ? 0 : -1));
                 j2 = j3;
                 if (i2 < 0) {
@@ -52,13 +52,13 @@ public class b extends c {
                 }
             }
             ByteArrayInputStream byteArrayInputStream2 = j2;
-            if (this.rt == null) {
-                this.rt = new BitmapFactory.Options();
-                this.rt.inDither = false;
+            if (this.ru == null) {
+                this.ru = new BitmapFactory.Options();
+                this.ru.inDither = false;
                 int i3 = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                this.rt.inScreenDensity = i3;
-                this.rt.inTargetDensity = i3;
-                ?? r2 = this.rt;
+                this.ru.inScreenDensity = i3;
+                this.ru.inTargetDensity = i3;
+                ?? r2 = this.ru;
                 ((BitmapFactory.Options) r2).inDensity = i3;
                 byteArrayInputStream2 = r2;
             }
@@ -67,7 +67,7 @@ public class b extends c {
                 try {
                     byteArrayInputStream = new ByteArrayInputStream(bArr, headerSize, bArr.length - headerSize);
                     try {
-                        this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.rs, this.rt);
+                        this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.rt, this.ru);
                         com.baidu.adp.lib.g.a.d(byteArrayInputStream);
                         byteArrayInputStream2 = byteArrayInputStream;
                     } catch (Error e) {

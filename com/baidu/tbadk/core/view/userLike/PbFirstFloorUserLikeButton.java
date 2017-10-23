@@ -29,16 +29,16 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
-    public void aP(boolean z) {
-        this.aoJ = z;
+    public void aO(boolean z) {
+        this.aox = z;
         setVisibility(0);
         if (z) {
             setClickable(false);
-            setText(this.aoH);
+            setText(this.aov);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.aoI);
+            setText(this.aow);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds8), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -46,7 +46,7 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.aoJ) {
+        if (this.aox) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             aj.i(this, d.e.cp_cont_e);
             setBackgroundDrawable(null);

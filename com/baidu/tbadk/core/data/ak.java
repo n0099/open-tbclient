@@ -3,21 +3,21 @@ package com.baidu.tbadk.core.data;
 import tbclient.LotteryTheme;
 /* loaded from: classes.dex */
 public class ak {
-    private String Xd;
-    private String Xe;
+    private String WR;
+    private String WS;
 
-    public String qk() {
-        return this.Xd;
+    public String qd() {
+        return this.WR;
     }
 
-    public String ql() {
-        return this.Xe;
+    public String qe() {
+        return this.WS;
     }
 
     public void a(LotteryTheme lotteryTheme) {
         if (lotteryTheme != null) {
-            this.Xd = lotteryTheme.bgcolor;
-            this.Xe = lotteryTheme.bgimage;
+            this.WR = lotteryTheme.bgcolor;
+            this.WS = lotteryTheme.bgimage;
         }
     }
 }

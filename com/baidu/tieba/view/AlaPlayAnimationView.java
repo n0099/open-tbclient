@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator gBX;
+    private ObjectAnimator gBI;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
@@ -19,30 +19,30 @@ public class AlaPlayAnimationView extends ImageView {
     }
 
     private void init() {
-        this.gBX = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.gBX.setRepeatMode(1);
-        this.gBX.setRepeatCount(-1);
-        this.gBX.setDuration(700L);
+        this.gBI = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.gBI.setRepeatMode(1);
+        this.gBI.setRepeatCount(-1);
+        this.gBI.setDuration(700L);
         setVisibility(8);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bxS();
+        bxK();
     }
 
-    public void XT() {
-        if (this.gBX != null) {
+    public void XP() {
+        if (this.gBI != null) {
             setVisibility(0);
-            this.gBX.start();
+            this.gBI.start();
         }
     }
 
-    public void bxS() {
-        if (this.gBX != null) {
-            this.gBX.setRepeatCount(-1);
-            this.gBX.cancel();
+    public void bxK() {
+        if (this.gBI != null) {
+            this.gBI.setRepeatCount(-1);
+            this.gBI.cancel();
             clearAnimation();
         }
         setVisibility(8);

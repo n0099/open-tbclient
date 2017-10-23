@@ -66,17 +66,17 @@ public class MyService extends Service {
                         MyService.a(MyService.this, MyService.this.getClassLoader(), intent);
                         MyService.a(MyService.this);
                     } else {
-                        com.baidu.sofire.core.e nr = com.baidu.sofire.core.e.nr();
-                        if (nr == null) {
+                        com.baidu.sofire.core.e nk = com.baidu.sofire.core.e.nk();
+                        if (nk == null) {
                             MyService.a(MyService.this);
                         } else {
-                            ApkInfo bT = nr.bT(stringExtra);
-                            String str2 = "i=" + bT;
+                            ApkInfo bS = nk.bS(stringExtra);
+                            String str2 = "i=" + bS;
                             b.a();
-                            if (bT == null) {
+                            if (bS == null) {
                                 MyService.a(MyService.this);
                             } else {
-                                MyService.a(MyService.this, bT.classLoader, intent);
+                                MyService.a(MyService.this, bS.classLoader, intent);
                                 MyService.a(MyService.this);
                             }
                         }

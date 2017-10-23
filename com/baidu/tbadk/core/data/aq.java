@@ -9,12 +9,12 @@ import tbclient.PbPresent;
 import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class aq {
-    private int Xn;
-    private ArrayList<a> Xo;
+    private int Xb;
+    private ArrayList<a> Xc;
 
     /* loaded from: classes.dex */
     public static class a {
-        public String Wy;
+        public String Wm;
         public int giftId;
         public String giftName;
         public int num;
@@ -23,10 +23,10 @@ public class aq {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Xn = jSONObject.optInt(IntentConfig.TOTAL, 0);
+                this.Xb = jSONObject.optInt(IntentConfig.TOTAL, 0);
                 JSONArray jSONArray = jSONObject.getJSONArray(IntentConfig.LIST);
                 if (jSONArray != null && jSONArray.length() > 0) {
-                    this.Xo = new ArrayList<>();
+                    this.Xc = new ArrayList<>();
                     int length = jSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i);
@@ -34,9 +34,9 @@ public class aq {
                             a aVar = new a();
                             aVar.giftId = jSONObject2.optInt("gift_id", 0);
                             aVar.giftName = jSONObject2.optString("gift_name");
-                            aVar.Wy = jSONObject2.optString("thumbnail_url");
+                            aVar.Wm = jSONObject2.optString("thumbnail_url");
                             aVar.num = jSONObject2.optInt("num", 0);
-                            this.Xo.add(aVar);
+                            this.Xc.add(aVar);
                         }
                     }
                 }
@@ -48,36 +48,36 @@ public class aq {
 
     public void a(PbPresent pbPresent) {
         if (pbPresent != null) {
-            this.Xn = pbPresent.total.intValue();
+            this.Xb = pbPresent.total.intValue();
             if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.Xo = new ArrayList<>();
+                this.Xc = new ArrayList<>();
                 for (PbPresentList pbPresentList : pbPresent.list) {
                     if (pbPresentList != null) {
                         a aVar = new a();
                         aVar.giftId = pbPresentList.gift_id.intValue();
                         aVar.giftName = pbPresentList.gift_name;
-                        aVar.Wy = pbPresentList.thumbnail_url;
+                        aVar.Wm = pbPresentList.thumbnail_url;
                         aVar.num = pbPresentList.num.intValue();
-                        this.Xo.add(aVar);
+                        this.Xc.add(aVar);
                     }
                 }
             }
         }
     }
 
-    public int qv() {
-        return this.Xn;
+    public int qo() {
+        return this.Xb;
     }
 
-    public void bO(int i) {
-        this.Xn = i;
+    public void bN(int i) {
+        this.Xb = i;
     }
 
-    public ArrayList<a> qw() {
-        return this.Xo;
+    public ArrayList<a> qp() {
+        return this.Xc;
     }
 
     public void g(ArrayList<a> arrayList) {
-        this.Xo = arrayList;
+        this.Xc = arrayList;
     }
 }

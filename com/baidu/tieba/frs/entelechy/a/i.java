@@ -13,33 +13,33 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.widget.ListView.a<bh, a<com.baidu.tieba.frs.entelechy.view.d>> implements v, com.baidu.tieba.frs.f.c {
-    public static int cwI = 5;
-    public static int cwJ = 10;
-    public static int cwK = 15;
-    private x<bh> bmJ;
+    public static int cww = 5;
+    public static int cwx = 10;
+    public static int cwy = 15;
+    private x<bh> bmv;
     private String forumName;
-    private TbPageContext<?> mG;
+    private TbPageContext<?> mH;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(bh bhVar, String str) {
         if (bhVar != null) {
-            int sw = bhVar.sw();
+            int sp = bhVar.sp();
             ak akVar = new ak(str);
-            akVar.ad("obj_locate", jr(sw));
-            akVar.ad("tid", bhVar.getTid());
+            akVar.ac("obj_locate", jq(sp));
+            akVar.ac("tid", bhVar.getTid());
             akVar.r("obj_type", 2);
             TiebaStatic.log(akVar);
         }
     }
 
-    private String jr(int i) {
-        if (i == cwI) {
+    private String jq(int i) {
+        if (i == cww) {
             return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
         }
-        if (i == cwJ) {
+        if (i == cwx) {
             return "10";
         }
-        if (i != cwK) {
+        if (i != cwy) {
             return "";
         }
         return "11";
@@ -48,7 +48,7 @@ public class i extends com.baidu.adp.widget.ListView.a<bh, a<com.baidu.tieba.frs
     /* JADX INFO: Access modifiers changed from: protected */
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
-        this.bmJ = new x<bh>() { // from class: com.baidu.tieba.frs.entelechy.a.i.1
+        this.bmv = new x<bh>() { // from class: com.baidu.tieba.frs.entelechy.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, bh bhVar) {
@@ -60,12 +60,12 @@ public class i extends com.baidu.adp.widget.ListView.a<bh, a<com.baidu.tieba.frs
                     } else if (view.getId() == d.h.image_user || view.getId() == d.h.pendant_image_user) {
                         i.this.b(bhVar, "c10241");
                     } else if (view.getId() == d.h.card_divider_tv) {
-                        com.baidu.tieba.frs.g.h.a(com.baidu.tieba.frs.f.c.cGc, bhVar.rT());
+                        com.baidu.tieba.frs.g.h.a(com.baidu.tieba.frs.f.c.cFQ, bhVar.rM());
                     }
                 }
             }
         };
-        this.mG = tbPageContext;
+        this.mH = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -73,7 +73,7 @@ public class i extends com.baidu.adp.widget.ListView.a<bh, a<com.baidu.tieba.frs
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: S */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.entelechy.view.d dVar = new com.baidu.tieba.frs.entelechy.view.d(this.mG, this.mPageId);
+        com.baidu.tieba.frs.entelechy.view.d dVar = new com.baidu.tieba.frs.entelechy.view.d(this.mH, this.mPageId);
         dVar.k(this.mPageId);
         dVar.setForumName(this.forumName);
         return new a(dVar);
@@ -83,14 +83,14 @@ public class i extends com.baidu.adp.widget.ListView.a<bh, a<com.baidu.tieba.frs
         com.baidu.tieba.play.x xVar = null;
         if (bhVar != null) {
             xVar = new com.baidu.tieba.play.x();
-            xVar.mLocate = jr(bhVar.sw());
-            xVar.azf = cGc.cFU;
-            xVar.cyX = bhVar.getTid();
-            xVar.fye = bhVar.ZJ;
-            if (bhVar.rM() != null) {
-                xVar.fyf = bhVar.rM().video_md5;
+            xVar.mLocate = jq(bhVar.sp());
+            xVar.ayT = cFQ.cFI;
+            xVar.cyL = bhVar.getTid();
+            xVar.fxQ = bhVar.Zx;
+            if (bhVar.rF() != null) {
+                xVar.fxR = bhVar.rF().video_md5;
             }
-            bhVar.st();
+            bhVar.sm();
         }
         return xVar;
     }
@@ -100,12 +100,12 @@ public class i extends com.baidu.adp.widget.ListView.a<bh, a<com.baidu.tieba.frs
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bh bhVar, a aVar) {
-        if (aVar == null || aVar.Yr() == null) {
+        if (aVar == null || aVar.Yn() == null) {
             return null;
         }
-        aVar.Yr().setVideoStatsData(D(bhVar));
-        aVar.Yr().a(bhVar);
-        aVar.Yr().b(this.bmJ);
+        aVar.Yn().setVideoStatsData(D(bhVar));
+        aVar.Yn().a(bhVar);
+        aVar.Yn().b(this.bmv);
         return aVar.getView();
     }
 

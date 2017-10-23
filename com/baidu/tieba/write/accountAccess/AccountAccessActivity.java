@@ -14,33 +14,33 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes2.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
-    private NewWriteModel aCB;
-    private b gGn;
-    private a gGo;
-    private AccessState gGp;
+    private NewWriteModel aCo;
+    private b gFY;
+    private a gFZ;
+    private AccessState gGa;
     private WriteData mWriteData;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gGn = new b(this);
+        this.gFY = new b(this);
         Intent intent = getIntent();
         if (intent != null) {
-            this.gGp = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
+            this.gGa = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
             this.mWriteData = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
-            if (this.mWriteData == null || this.gGp == null) {
+            if (this.mWriteData == null || this.gGa == null) {
                 finish();
                 return;
             }
-            this.aCB = new NewWriteModel(this);
-            this.aCB.setWriteData(this.mWriteData);
+            this.aCo = new NewWriteModel(this);
+            this.aCo.setWriteData(this.mWriteData);
             if (this.mWriteData.getWriteImagesInfo() != null) {
-                this.aCB.mG(this.mWriteData.getWriteImagesInfo().size() > 0);
+                this.aCo.mF(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
-            this.gGo = new a(this.gGn, this.aCB);
-            this.gGn.c(this.gGo);
-            this.gGo.start(byY());
+            this.gFZ = new a(this.gFY, this.aCo);
+            this.gFY.c(this.gFZ);
+            this.gFZ.start(byS());
         }
     }
 
@@ -59,19 +59,19 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public void onDestroy() {
         if (this.mWriteData != null && this.mWriteData.getIsStory() == 1) {
             bn bnVar = new bn();
-            bnVar.aat = this.mWriteData;
-            bnVar.aaw = this.gGo.bzb();
+            bnVar.aah = this.mWriteData;
+            bnVar.aak = this.gFZ.byV();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_VCODE_CHECK_INFO, bnVar));
         }
         super.onDestroy();
-        this.gGn.onDestory();
+        this.gFY.onDestory();
     }
 
-    public String byY() {
-        if (this.gGp == null || this.gGp.getUserInfo() == null) {
+    public String byS() {
+        if (this.gGa == null || this.gGa.getUserInfo() == null) {
             return null;
         }
-        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.gGp.getToken(), this.gGp.getType(), this.gGp.getUserInfo().strMobile, this.gGp.getUserInfo().strEmail);
+        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.gGa.getToken(), this.gGa.getType(), this.gGa.getUserInfo().strMobile, this.gGa.getUserInfo().strEmail);
     }
 
     @Override // android.app.Activity

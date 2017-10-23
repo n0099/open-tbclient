@@ -81,7 +81,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setMaxSamplePerFrame(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wM(i)));
         this.maxSamplePerFrame = i;
     }
 
@@ -91,7 +91,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setUnknown1(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wM(i)));
         this.unknown1 = i;
     }
 
@@ -101,7 +101,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setSampleSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wM(i)));
         this.sampleSize = i;
     }
 
@@ -111,7 +111,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setHistoryMult(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.wM(i)));
         this.historyMult = i;
     }
 
@@ -121,7 +121,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setInitialHistory(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.wM(i)));
         this.initialHistory = i;
     }
 
@@ -131,7 +131,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setKModifier(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.wM(i)));
         this.kModifier = i;
     }
 
@@ -141,7 +141,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setChannels(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.wM(i)));
         this.channels = i;
     }
 
@@ -151,7 +151,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setUnknown2(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.wM(i)));
         this.unknown2 = i;
     }
 
@@ -161,7 +161,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setMaxCodedFrameSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.wM(i)));
         this.maxCodedFrameSize = i;
     }
 
@@ -171,7 +171,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setBitRate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.wM(i)));
         this.bitRate = i;
     }
 
@@ -181,7 +181,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setSampleRate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_21, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_21, this, this, org.aspectj.a.a.a.wM(i)));
         this.sampleRate = i;
     }
 

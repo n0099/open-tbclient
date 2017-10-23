@@ -11,7 +11,7 @@ public class d {
                 public void p(boolean z2) {
                     super.p(z2);
                     if (z2) {
-                        aVar.h(dV().length());
+                        aVar.i(dV().length());
                         if (z || aVar.gm() > 102400) {
                             d.c(aVar, false, false, false);
                         }
@@ -37,7 +37,7 @@ public class d {
                 public void p(boolean z4) {
                     super.p(z4);
                     if (z4) {
-                        aVar.h(0L);
+                        aVar.i(0L);
                         com.baidu.adp.lib.stats.upload.b.gF().a(aVar, z, z2, z3);
                     } else if (aVar.gm() >= 307200 && aVar.gq() != "stat") {
                         d.a(BdStatisticsManager.getInstance().getWriteDir(), aVar.gl(), aVar);
@@ -60,7 +60,7 @@ public class d {
                 public void p(boolean z) {
                     super.p(z);
                     if (z) {
-                        aVar.h(dV().length());
+                        aVar.i(dV().length());
                     }
                 }
             };

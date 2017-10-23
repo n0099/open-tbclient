@@ -70,7 +70,7 @@ public class SchemeTypeBox extends AbstractFullBox {
     }
 
     public void setSchemeVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.wN(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.wM(i)));
         this.schemeVersion = i;
     }
 

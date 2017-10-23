@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.tab;
 /* loaded from: classes.dex */
 public interface c {
-    void alC();
+    void alx();
 
     void la();
 

@@ -15,14 +15,14 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private ViewGroup bqn = null;
-    private HotTopicChangeFourmActivity gIN;
+    private ViewGroup bqb = null;
+    private HotTopicChangeFourmActivity gIy;
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.gIN = hotTopicChangeFourmActivity;
-        this.mContext = this.gIN.getPageContext().getContext();
+        this.gIy = hotTopicChangeFourmActivity;
+        this.mContext = this.gIy.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -39,7 +39,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uV */
+    /* renamed from: uU */
     public HotTopicBussinessData getItem(int i) {
         if (this.mData != null && i < this.mData.size()) {
             return this.mData.get(i);
@@ -47,7 +47,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private String tf(String str) {
+    private String te(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -65,8 +65,8 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         C0138a c0138a;
-        if (this.bqn == null) {
-            this.bqn = viewGroup;
+        if (this.bqb == null) {
+            this.bqb = viewGroup;
         }
         HotTopicBussinessData item = getItem(i);
         if (item != null) {
@@ -83,29 +83,29 @@ public class a extends BaseAdapter {
     private C0138a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         C0138a c0138a;
         if (obj == null) {
-            c0138a = bzW();
+            c0138a = bzQ();
         } else {
             c0138a = (C0138a) obj;
         }
-        c0138a.gIP.setText(tf(hotTopicBussinessData.mForumName));
-        c0138a.gIO.c(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0138a.gIA.setText(te(hotTopicBussinessData.mForumName));
+        c0138a.gIz.c(hotTopicBussinessData.mForumAvatar, 10, false);
         aj.j(c0138a.mRootView, d.g.select_forum_item_bg);
-        aj.i(c0138a.gIP, d.e.cp_cont_b);
-        aj.k(c0138a.cym, d.e.cp_bg_line_e);
+        aj.i(c0138a.gIA, d.e.cp_cont_b);
+        aj.k(c0138a.cya, d.e.cp_bg_line_e);
         return c0138a;
     }
 
-    private C0138a bzW() {
+    private C0138a bzQ() {
         C0138a c0138a = new C0138a();
         c0138a.mRootView = LayoutInflater.from(this.mContext).inflate(d.j.hot_topic_change_item, (ViewGroup) null);
         aj.j(c0138a.mRootView, d.g.select_forum_item_bg);
-        aj.i(c0138a.gIP, d.e.cp_cont_b);
-        c0138a.gIP = (TextView) c0138a.mRootView.findViewById(d.h.fourm_tv);
-        c0138a.cym = c0138a.mRootView.findViewById(d.h.line_view);
-        c0138a.gIO = (TbImageView) c0138a.mRootView.findViewById(d.h.icon_img);
-        c0138a.gIO.setDefaultBgResource(d.e.cp_bg_line_e);
-        c0138a.gIO.setDefaultResource(d.g.transparent_bg);
-        c0138a.gIO.setDefaultErrorResource(d.g.icon_default_ba_120);
+        aj.i(c0138a.gIA, d.e.cp_cont_b);
+        c0138a.gIA = (TextView) c0138a.mRootView.findViewById(d.h.fourm_tv);
+        c0138a.cya = c0138a.mRootView.findViewById(d.h.line_view);
+        c0138a.gIz = (TbImageView) c0138a.mRootView.findViewById(d.h.icon_img);
+        c0138a.gIz.setDefaultBgResource(d.e.cp_bg_line_e);
+        c0138a.gIz.setDefaultResource(d.g.transparent_bg);
+        c0138a.gIz.setDefaultErrorResource(d.g.icon_default_ba_120);
         c0138a.mRootView.setTag(c0138a);
         return c0138a;
     }
@@ -114,9 +114,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public class C0138a {
-        public View cym;
-        public TbImageView gIO;
-        public TextView gIP;
+        public View cya;
+        public TextView gIA;
+        public TbImageView gIz;
         public View mRootView;
 
         private C0138a() {

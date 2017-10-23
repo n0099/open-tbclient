@@ -15,15 +15,15 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends FrameLayout {
-    private TbImageView aTA;
-    private TextView aTB;
-    private TextView aTC;
-    private TextView aTD;
-    private ImageView aTE;
-    private a aTF;
-    private View.OnClickListener aTG;
-    private ProgressBar aTl;
-    private com.baidu.tbadk.widget.vote.a aTz;
+    private ProgressBar aSY;
+    private com.baidu.tbadk.widget.vote.a aTm;
+    private TbImageView aTn;
+    private TextView aTo;
+    private TextView aTp;
+    private TextView aTq;
+    private ImageView aTr;
+    private a aTs;
+    private View.OnClickListener aTt;
     private boolean isSelected;
     private int position;
 
@@ -40,12 +40,12 @@ public class d extends FrameLayout {
     public d(Context context) {
         super(context);
         this.isSelected = false;
-        this.aTG = new View.OnClickListener() { // from class: com.baidu.tbadk.widget.vote.d.1
+        this.aTt = new View.OnClickListener() { // from class: com.baidu.tbadk.widget.vote.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 d.this.setSelected(!d.this.isSelected);
-                if (d.this.aTF != null) {
-                    d.this.aTF.b(d.this.aTz, d.this.position, d.this.isSelected);
+                if (d.this.aTs != null) {
+                    d.this.aTs.b(d.this.aTm, d.this.position, d.this.isSelected);
                 }
             }
         };
@@ -54,16 +54,16 @@ public class d extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.j.vote_selected_pic_item, this);
-        this.aTA = (TbImageView) findViewById(d.h.vote_photo_image);
-        this.aTl = (ProgressBar) findViewById(d.h.vote_photo_progress);
-        this.aTB = (TextView) findViewById(d.h.vote_photo_number);
-        this.aTC = (TextView) findViewById(d.h.vote_photo_percent);
-        this.aTD = (TextView) findViewById(d.h.vote_photo_name);
-        this.aTE = (ImageView) findViewById(d.h.vote_photo_check_image);
-        this.aTA.setDrawBorder(true);
-        this.aTA.setBorderColor(aj.getColor(d.e.common_color_10043));
-        this.aTA.setBorderWidth(getResources().getDimensionPixelSize(d.f.ds1));
-        setOnClickListener(this.aTG);
+        this.aTn = (TbImageView) findViewById(d.h.vote_photo_image);
+        this.aSY = (ProgressBar) findViewById(d.h.vote_photo_progress);
+        this.aTo = (TextView) findViewById(d.h.vote_photo_number);
+        this.aTp = (TextView) findViewById(d.h.vote_photo_percent);
+        this.aTq = (TextView) findViewById(d.h.vote_photo_name);
+        this.aTr = (ImageView) findViewById(d.h.vote_photo_check_image);
+        this.aTn.setDrawBorder(true);
+        this.aTn.setBorderColor(aj.getColor(d.e.common_color_10043));
+        this.aTn.setBorderWidth(getResources().getDimensionPixelSize(d.f.ds1));
+        setOnClickListener(this.aTt);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -71,108 +71,108 @@ public class d extends FrameLayout {
     public void setSelected(boolean z) {
         this.isSelected = z;
         if (z) {
-            aj.c(this.aTE, d.g.chx_pic_add_s);
+            aj.c(this.aTr, d.g.chx_pic_add_s);
         } else {
-            aj.c(this.aTE, d.g.chx_pic_add_n);
+            aj.c(this.aTr, d.g.chx_pic_add_n);
         }
     }
 
     public void setOnItemCheckChangeListener(a aVar) {
-        this.aTF = aVar;
+        this.aTs = aVar;
     }
 
     public void a(com.baidu.tbadk.widget.vote.a aVar, int i, int i2, boolean z, boolean z2) {
         if (aVar != null) {
             this.isSelected = z;
-            this.aTz = aVar;
+            this.aTm = aVar;
             this.position = i;
-            if (StringUtils.isNull(aVar.Cd())) {
-                this.aTD.setVisibility(4);
-                this.aTD.setText((CharSequence) null);
+            if (StringUtils.isNull(aVar.BX())) {
+                this.aTq.setVisibility(4);
+                this.aTq.setText((CharSequence) null);
             } else {
-                this.aTD.setVisibility(0);
-                this.aTD.setText(UtilHelper.getFixedText(aVar.Cd(), 10, false));
+                this.aTq.setVisibility(0);
+                this.aTq.setText(UtilHelper.getFixedText(aVar.BX(), 10, false));
             }
             if (i2 == 2) {
                 setOnClickListener(null);
                 b(aVar);
             } else if (i2 == 1 || i2 == 3) {
-                setOnClickListener(this.aTG);
-                ci(z);
+                setOnClickListener(this.aTt);
+                ch(z);
             }
-            this.aTA.c(aVar.Ci(), 17, false);
+            this.aTn.c(aVar.Cc(), 17, false);
         }
     }
 
     public void setNameVisibility(int i) {
-        this.aTD.setVisibility(i);
+        this.aTq.setVisibility(i);
     }
 
-    private void ci(boolean z) {
+    private void ch(boolean z) {
         setProgressGroupVisible(false);
-        this.aTE.setVisibility(0);
+        this.aTr.setVisibility(0);
         if (z) {
-            aj.c(this.aTE, d.g.chx_pic_add_s);
+            aj.c(this.aTr, d.g.chx_pic_add_s);
         } else {
-            aj.c(this.aTE, d.g.chx_pic_add_n);
+            aj.c(this.aTr, d.g.chx_pic_add_n);
         }
     }
 
     private void b(com.baidu.tbadk.widget.vote.a aVar) {
         setProgressGroupVisible(true);
-        this.aTE.setVisibility(8);
+        this.aTr.setVisibility(8);
         if (aVar != null) {
-            if (StringUtils.isNull(aVar.Ce())) {
-                this.aTB.setVisibility(8);
-                this.aTB.setText((CharSequence) null);
+            if (StringUtils.isNull(aVar.BY())) {
+                this.aTo.setVisibility(8);
+                this.aTo.setText((CharSequence) null);
             } else {
-                this.aTB.setVisibility(0);
-                this.aTB.setText(aVar.Ce());
+                this.aTo.setVisibility(0);
+                this.aTo.setText(aVar.BY());
             }
-            if (StringUtils.isNull(aVar.Cf())) {
-                this.aTC.setVisibility(8);
-                this.aTC.setText((CharSequence) null);
+            if (StringUtils.isNull(aVar.BZ())) {
+                this.aTp.setVisibility(8);
+                this.aTp.setText((CharSequence) null);
                 return;
             }
-            this.aTC.setVisibility(0);
-            this.aTC.setText(aVar.Cf());
+            this.aTp.setVisibility(0);
+            this.aTp.setText(aVar.BZ());
         }
     }
 
     private void setProgressGroupVisible(boolean z) {
         if (z) {
-            this.aTB.setVisibility(0);
-            this.aTC.setVisibility(0);
-            this.aTl.setVisibility(0);
+            this.aTo.setVisibility(0);
+            this.aTp.setVisibility(0);
+            this.aSY.setVisibility(0);
             return;
         }
-        this.aTB.setVisibility(8);
-        this.aTC.setVisibility(8);
-        this.aTl.setVisibility(8);
+        this.aTo.setVisibility(8);
+        this.aTp.setVisibility(8);
+        this.aSY.setVisibility(8);
     }
 
     public void setProgress(float f) {
-        if (f >= 0.0f && this.aTz != null) {
-            int Ch = (int) (this.aTz.Ch() * f);
+        if (f >= 0.0f && this.aTm != null) {
+            int Cb = (int) (this.aTm.Cb() * f);
             if (this.isSelected) {
-                this.aTl.setProgress(Ch);
-                this.aTl.setSecondaryProgress(0);
+                this.aSY.setProgress(Cb);
+                this.aSY.setSecondaryProgress(0);
                 return;
             }
-            this.aTl.setProgress(0);
-            this.aTl.setSecondaryProgress(Ch);
+            this.aSY.setProgress(0);
+            this.aSY.setSecondaryProgress(Cb);
         }
     }
 
     public void onChangeSkinType(int i) {
-        aj.b(this.aTD, d.e.cp_cont_b, 1, i);
-        aj.b(this.aTB, d.e.cp_cont_g, 1, i);
-        aj.b(this.aTC, d.e.cp_cont_g, 1, i);
-        this.aTl.setProgressDrawable(aj.u(i, d.g.vote_photo_progress_drawable));
+        aj.b(this.aTq, d.e.cp_cont_b, 1, i);
+        aj.b(this.aTo, d.e.cp_cont_g, 1, i);
+        aj.b(this.aTp, d.e.cp_cont_g, 1, i);
+        this.aSY.setProgressDrawable(aj.u(i, d.g.vote_photo_progress_drawable));
         if (this.isSelected) {
-            aj.c(this.aTE, d.g.chx_pic_add_s);
+            aj.c(this.aTr, d.g.chx_pic_add_s);
         } else {
-            aj.c(this.aTE, d.g.chx_pic_add_n);
+            aj.c(this.aTr, d.g.chx_pic_add_n);
         }
     }
 }

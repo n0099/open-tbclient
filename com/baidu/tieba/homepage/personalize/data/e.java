@@ -9,15 +9,15 @@ import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tieba.card.data.h implements r {
-    private CardGod dau;
+    private CardGod dag;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.dau = cardGod;
-            this.mGroupTitle = this.dau.card_title;
-            if (!v.u(this.dau.gods)) {
+            this.dag = cardGod;
+            this.mGroupTitle = this.dag.card_title;
+            if (!v.u(this.dag.gods)) {
                 int i = 0;
-                for (User user : this.dau.gods) {
+                for (User user : this.dag.gods) {
                     if (i != 10) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(user);
@@ -35,30 +35,30 @@ public class e extends com.baidu.tieba.card.data.h implements r {
         }
     }
 
-    public boolean Mo() {
+    public boolean Mi() {
         return v.t(getDataList()) > 2;
     }
 
     @Override // com.baidu.tieba.card.data.r
     public int getPosition() {
-        if (this.dau == null || this.dau.position == null) {
+        if (this.dag == null || this.dag.position == null) {
             return 0;
         }
-        return this.dau.position.intValue();
+        return this.dag.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean XZ() {
+    public boolean XV() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dD(boolean z) {
+    public void dC(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dE(boolean z) {
+    public void dD(boolean z) {
         this.showBottomDivider = z;
     }
 }

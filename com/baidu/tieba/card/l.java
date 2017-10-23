@@ -17,45 +17,45 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class l extends n {
-    private bh ajg;
-    private View.OnClickListener bLe;
-    private View.OnClickListener bLf;
-    public TextView bLh;
-    public EntelechyUserLikeButton bLi;
-    private com.baidu.tieba.card.data.l bLj;
-    private CommonUserLikeButton.a bLk;
-    private TbPageContext mG;
+    private bh aiU;
+    private View.OnClickListener bKS;
+    private View.OnClickListener bKT;
+    public TextView bKV;
+    public EntelechyUserLikeButton bKW;
+    private com.baidu.tieba.card.data.l bKX;
+    private CommonUserLikeButton.a bKY;
+    private TbPageContext mH;
     private int mSkinType;
 
     public l(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.bLk = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.card.l.1
+        this.bKY = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.card.l.1
             @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
-            public void dH(int i) {
-                l.this.hP(i);
+            public void dG(int i) {
+                l.this.hO(i);
             }
         };
-        this.bLe = new View.OnClickListener() { // from class: com.baidu.tieba.card.l.2
+        this.bKS = new View.OnClickListener() { // from class: com.baidu.tieba.card.l.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (l.this.ajg != null && l.this.ajg.getAuthor() != null && !StringUtils.isNull(l.this.ajg.getAuthor().getName_show()) && !StringUtils.isNull(l.this.ajg.getAuthor().getUserId()) && l.this.ajg.rA() != null) {
-                    if (l.this.Xr() != null) {
-                        l.this.Xr().a(view, l.this.bLj);
+                if (l.this.aiU != null && l.this.aiU.getAuthor() != null && !StringUtils.isNull(l.this.aiU.getAuthor().getName_show()) && !StringUtils.isNull(l.this.aiU.getAuthor().getUserId()) && l.this.aiU.rt() != null) {
+                    if (l.this.Xn() != null) {
+                        l.this.Xn().a(view, l.this.bKX);
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(l.this.mG.getPageActivity(), l.this.ajg.getAuthor().getUserId(), l.this.ajg.getAuthor().getName_show(), l.this.ajg.rA(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(l.this.mH.getPageActivity(), l.this.aiU.getAuthor().getUserId(), l.this.aiU.getAuthor().getName_show(), l.this.aiU.rt(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
-        this.bLf = new View.OnClickListener() { // from class: com.baidu.tieba.card.l.3
+        this.bKT = new View.OnClickListener() { // from class: com.baidu.tieba.card.l.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (l.this.Xr() != null) {
-                    l.this.Xr().a(view, l.this.bLj);
+                if (l.this.Xn() != null) {
+                    l.this.Xn().a(view, l.this.bKX);
                 }
             }
         };
-        this.mG = tbPageContext;
+        this.mH = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,8 +63,8 @@ public class l extends n {
     public void a(com.baidu.tieba.card.data.l lVar) {
         super.a(lVar);
         if (lVar != null && lVar.threadData != null) {
-            this.bLj = lVar;
-            this.ajg = lVar.threadData;
+            this.bKX = lVar;
+            this.aiU = lVar.threadData;
         }
     }
 
@@ -80,9 +80,9 @@ public class l extends n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hP(int i) {
-        if (this.bLh != null) {
-            this.bLh.setText(String.format(this.mG.getResources().getString(d.l.fans_default_name_god_user), am.t(i)));
+    public void hO(int i) {
+        if (this.bKV != null) {
+            this.bKV.setText(String.format(this.mH.getResources().getString(d.l.fans_default_name_god_user), am.u(i)));
         }
     }
 }

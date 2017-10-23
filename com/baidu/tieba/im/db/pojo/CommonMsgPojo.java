@@ -90,9 +90,9 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.dDJ);
+                this.gid = String.valueOf(a.dDv);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(a.dDK);
+                this.gid = String.valueOf(a.dDw);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());

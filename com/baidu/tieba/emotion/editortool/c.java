@@ -8,26 +8,26 @@ import com.baidu.tieba.d;
 public class c extends r {
     public c(Context context, int i, boolean z) {
         super(context, TbadkCoreApplication.getInst().getString(d.l.editor_express), 5, i);
-        this.aBt = d.g.pbeditor_face_button;
+        this.aBh = d.g.pbeditor_face_button;
         b bVar = new b(context);
         bVar.setShowBigEmotion(z);
-        this.aAH = bVar;
-        this.aBx = true;
-        this.aBw = 6;
-        this.aBy = new int[]{1, 34, 35};
+        this.aAv = bVar;
+        this.aBl = true;
+        this.aBk = 6;
+        this.aBm = new int[]{1, 34, 35};
     }
 
     public c(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(d.l.editor_express), 5, i);
-        this.aBt = d.g.pbeditor_face_button;
-        this.aAH = new b(context);
-        this.aBx = true;
-        this.aBw = 6;
-        this.aBy = new int[]{1, 34, 35};
+        this.aBh = d.g.pbeditor_face_button;
+        this.aAv = new b(context);
+        this.aBl = true;
+        this.aBk = 6;
+        this.aBm = new int[]{1, 34, 35};
     }
 
     @Override // com.baidu.tbadk.editortools.r
-    public void bF(boolean z) {
-        ((b) this.aAH).setShowUserCollect(z);
+    public void bE(boolean z) {
+        ((b) this.aAv).setShowUserCollect(z);
     }
 }

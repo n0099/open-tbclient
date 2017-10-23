@@ -47,12 +47,12 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 /* loaded from: classes.dex */
 public class d {
-    private static boolean CZ = false;
     private static boolean Da = false;
     private static boolean Db = false;
     private static boolean Dc = false;
     private static boolean Dd = false;
-    private static Signature[] De = null;
+    private static boolean De = false;
+    private static Signature[] Df = null;
 
     public static void onHandleIntent(Intent intent) {
         PluginSetting pluginSetting;
@@ -65,7 +65,7 @@ public class d {
             com.baidu.adp.plugin.b.a.ji().f("plugin_install", "intent_action_null", null);
             return;
         }
-        CZ = intent.getBooleanExtra("is_debug_plugin", false);
+        Da = intent.getBooleanExtra("is_debug_plugin", false);
         if (action.equals(PluginInstallerService.ACTION_INSTALL)) {
             String stringExtra = intent.getStringExtra("install_src_file");
             String stringExtra2 = intent.getStringExtra("package_name");
@@ -104,7 +104,7 @@ public class d {
         InputStream inputStream = null;
         try {
             inputStream = BdBaseApplication.getInst().getAssets().open(substring);
-            if (!Util.k(inputStream.available())) {
+            if (!Util.l(inputStream.available())) {
                 b(str, str2, "rom_size", String.valueOf(Util.kj()));
             } else {
                 a(inputStream, str, str2, pluginSetting);
@@ -169,7 +169,7 @@ public class d {
             th = th;
         }
         try {
-            if (Util.k(fileInputStream.available())) {
+            if (Util.l(fileInputStream.available())) {
                 a(fileInputStream, str, str2, pluginSetting);
                 com.baidu.adp.lib.g.a.d(fileInputStream);
             } else {
@@ -388,7 +388,7 @@ public class d {
             str5 = packageArchiveInfo.versionName;
             i = packageArchiveInfo.versionCode;
         }
-        if (!BdBaseApplication.getInst().isDebugMode() && !CZ && (d = d(str6, file.getAbsolutePath(), pluginSetting)) != null) {
+        if (!BdBaseApplication.getInst().isDebugMode() && !Da && (d = d(str6, file.getAbsolutePath(), pluginSetting)) != null) {
             try {
                 file.delete();
             } catch (Exception e10) {
@@ -976,10 +976,10 @@ public class d {
 
     public static boolean jg() {
         String str;
-        if (Db) {
-            return Da;
+        if (Dc) {
+            return Db;
         }
-        Db = true;
+        Dc = true;
         String lowerCase = Build.CPU_ABI.toLowerCase();
         if (Build.VERSION.SDK_INT <= 7) {
             str = "none";
@@ -994,11 +994,11 @@ public class d {
             }
         }
         if (lowerCase.contains("armeabi-v7a") || str.contains("armeabi-v7a") || jh()) {
-            Da = true;
+            Db = true;
         } else if (lowerCase.contains("armeabi") || str.contains("armeabi")) {
-            Da = true;
+            Db = true;
         }
-        return Da;
+        return Db;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1070=4] */
@@ -1008,10 +1008,10 @@ public class d {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         InputStreamReader inputStreamReader2 = null;
-        if (Dd) {
-            return Dc;
+        if (De) {
+            return Dd;
         }
-        Dd = true;
+        De = true;
         try {
             fileInputStream = new FileInputStream("/proc/cpuinfo");
             try {
@@ -1054,7 +1054,7 @@ public class d {
                                 }
                             }
                         }
-                        Dc = ((Integer) objArr[1]).intValue() == 7;
+                        Dd = ((Integer) objArr[1]).intValue() == 7;
                         n.b((Reader) bufferedReader);
                         n.b((Reader) inputStreamReader);
                         n.d(fileInputStream);
@@ -1067,7 +1067,7 @@ public class d {
                             n.b((Reader) bufferedReader);
                             n.b((Reader) inputStreamReader2);
                             n.d(fileInputStream2);
-                            return Dc;
+                            return Dd;
                         } catch (Throwable th) {
                             th = th;
                             fileInputStream = fileInputStream2;
@@ -1112,7 +1112,7 @@ public class d {
             inputStreamReader = null;
             fileInputStream = null;
         }
-        return Dc;
+        return Dd;
     }
 
     private static void a(String str, String str2, File file) {
@@ -1150,9 +1150,9 @@ public class d {
         Signature[] signatureArr;
         Signature[] bF;
         File file;
-        if (De == null) {
+        if (Df == null) {
             try {
-                De = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
+                Df = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
             } catch (Throwable th) {
                 com.baidu.adp.plugin.b.a.ji().c("plugin_install", "getmainsign_frompm_fail", str, th.getMessage());
             }
@@ -1179,11 +1179,11 @@ public class d {
         if (bF == null) {
             return "get_newsignatures_null_" + str2;
         }
-        Signature[] signatureArr2 = De;
+        Signature[] signatureArr2 = Df;
         if (signatureArr2 == null && (file = new File(BdBaseApplication.getInst().getPackageCodePath())) != null && file.exists()) {
             try {
                 signatureArr2 = e.bF(file.getAbsolutePath());
-                De = signatureArr2;
+                Df = signatureArr2;
             } catch (IOException e3) {
                 return e3.getMessage();
             } catch (CertificateEncodingException e4) {
