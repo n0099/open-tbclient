@@ -21,107 +21,107 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PbFloorAgreeView extends FrameLayout {
-    private ImageView amA;
-    private ScaleAnimation anl;
-    private TextView ePp;
-    private TextView ePq;
-    private boolean ePr;
+    private ImageView amV;
+    private ScaleAnimation anG;
+    private TextView eYh;
+    private TextView eYi;
+    private boolean eYj;
 
     public PbFloorAgreeView(Context context) {
         super(context);
-        this.ePr = false;
+        this.eYj = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ePr = false;
+        this.eYj = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ePr = false;
+        this.eYj = false;
         init();
     }
 
     public void init() {
         Context context = getContext();
         LinearLayout linearLayout = new LinearLayout(getContext());
-        this.ePp = new TextView(getContext());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.f(context, d.f.ds48));
-        layoutParams.topMargin = l.f(context, d.f.ds12);
-        this.ePp.setLayoutParams(layoutParams);
-        this.ePp.setTextSize(0, l.f(context, d.f.fontsize26));
-        this.ePp.setGravity(17);
-        aj.i(this.ePp, d.e.cp_cont_j);
-        linearLayout.addView(this.ePp);
-        this.amA = new ImageView(context);
-        aj.c(this.amA, d.g.icon_floor_praise_n);
-        this.amA.setPadding(l.f(context, d.f.ds6), l.f(context, d.f.ds12), l.f(context, d.f.ds18), 0);
-        linearLayout.addView(this.amA);
+        this.eYh = new TextView(getContext());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.f(context, d.e.ds48));
+        layoutParams.topMargin = l.f(context, d.e.ds12);
+        this.eYh.setLayoutParams(layoutParams);
+        this.eYh.setTextSize(0, l.f(context, d.e.fontsize26));
+        this.eYh.setGravity(17);
+        aj.i(this.eYh, d.C0080d.cp_cont_j);
+        linearLayout.addView(this.eYh);
+        this.amV = new ImageView(context);
+        aj.c(this.amV, d.f.icon_floor_praise_n);
+        this.amV.setPadding(l.f(context, d.e.ds6), l.f(context, d.e.ds12), l.f(context, d.e.ds18), 0);
+        linearLayout.addView(this.amV);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams2.gravity = 5;
         addView(linearLayout, layoutParams2);
-        this.ePq = new TextView(getContext());
-        this.ePq.setTextSize(0, l.f(getContext(), d.f.fontsize24));
-        addView(this.ePq);
-        this.ePq.setVisibility(8);
+        this.eYi = new TextView(getContext());
+        this.eYi.setTextSize(0, l.f(getContext(), d.e.fontsize24));
+        addView(this.eYi);
+        this.eYi.setVisibility(8);
     }
 
     public void a(boolean z, long j, boolean z2) {
-        if (this.ePr != z) {
-            this.ePr = z;
+        if (this.eYj != z) {
+            this.eYj = z;
             onChangeSkinType();
         }
-        this.ePp.setText(am.w(j));
+        this.eYh.setText(am.w(j));
         if (z2) {
-            this.amA.startAnimation(getScaleAnimation());
+            this.amV.startAnimation(getScaleAnimation());
         }
     }
 
     private Animation getScaleAnimation() {
-        if (this.anl == null) {
-            this.anl = new ScaleAnimation(1.4f, 1.0f, 1.4f, 1.0f, 1, 0.5f, 1, 1.0f);
-            this.anl.setDuration(200L);
+        if (this.anG == null) {
+            this.anG = new ScaleAnimation(1.4f, 1.0f, 1.4f, 1.0f, 1, 0.5f, 1, 1.0f);
+            this.anG.setDuration(200L);
         }
-        return this.anl;
+        return this.anG;
     }
 
     public void onChangeSkinType() {
-        if (this.ePr) {
-            aj.c(this.amA, d.g.icon_floor_praised);
-            aj.i(this.ePp, d.e.cp_cont_h);
+        if (this.eYj) {
+            aj.c(this.amV, d.f.icon_floor_praised);
+            aj.i(this.eYh, d.C0080d.cp_cont_h);
             return;
         }
-        aj.c(this.amA, d.g.icon_floor_praise_n);
-        aj.i(this.ePp, d.e.cp_cont_j);
+        aj.c(this.amV, d.f.icon_floor_praise_n);
+        aj.i(this.eYh, d.C0080d.cp_cont_j);
     }
 
-    public void pF(int i) {
-        if (this.amA != null && getVisibility() == 0) {
+    public void pZ(int i) {
+        if (this.amV != null && getVisibility() == 0) {
             if (getParent() != null) {
                 ((ViewGroup) getParent()).setClipChildren(false);
             }
-            if (this.ePq.getAnimation() != null) {
-                this.ePq.getAnimation().cancel();
+            if (this.eYi.getAnimation() != null) {
+                this.eYi.getAnimation().cancel();
             }
             String valueOf = String.valueOf(i);
-            String format = String.format(getResources().getString(d.l.pb_add_score), valueOf);
+            String format = String.format(getResources().getString(d.j.pb_add_score), valueOf);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(format);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.e.cp_cont_f)), 0, 2, 33);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.e.cp_cont_h)), 2, valueOf.length() + 3, 33);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.e.cp_cont_f)), valueOf.length() + 3, format.length(), 33);
-            this.ePq.setText(spannableStringBuilder);
-            this.ePq.setVisibility(0);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.C0080d.cp_cont_f)), 0, 2, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.C0080d.cp_cont_h)), 2, valueOf.length() + 3, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.C0080d.cp_cont_f)), valueOf.length() + 3, format.length(), 33);
+            this.eYi.setText(spannableStringBuilder);
+            this.eYi.setVisibility(0);
             AnimationSet animationSet = new AnimationSet(true);
             animationSet.addAnimation(new AlphaAnimation(0.0f, 1.0f));
             animationSet.addAnimation(new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 1, 0.5f, 1, 0.5f));
-            animationSet.addAnimation(new TranslateAnimation(0.0f, l.f(getContext(), d.f.ds20), 0.0f, -l.f(getContext(), d.f.ds20)));
+            animationSet.addAnimation(new TranslateAnimation(0.0f, l.f(getContext(), d.e.ds20), 0.0f, -l.f(getContext(), d.e.ds20)));
             animationSet.setDuration(300L);
             animationSet.setInterpolator(new OvershootInterpolator());
             animationSet.setFillAfter(true);
-            this.ePq.startAnimation(animationSet);
+            this.eYi.startAnimation(animationSet);
             final AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
             alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbFloorAgreeView.1
                 @Override // android.view.animation.Animation.AnimationListener
@@ -130,7 +130,7 @@ public class PbFloorAgreeView extends FrameLayout {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    PbFloorAgreeView.this.ePq.setVisibility(8);
+                    PbFloorAgreeView.this.eYi.setVisibility(8);
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -141,7 +141,7 @@ public class PbFloorAgreeView extends FrameLayout {
             postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.PbFloorAgreeView.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    PbFloorAgreeView.this.ePq.startAnimation(alphaAnimation);
+                    PbFloorAgreeView.this.eYi.startAnimation(alphaAnimation);
                 }
             }, 1800L);
         }

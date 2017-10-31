@@ -13,43 +13,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b fFQ;
-    private CustomMessageListener fFS = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b fOF;
+    private CustomMessageListener fOH = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.hh() && b.this.fFR != null) {
-                b.this.fFR.bgA();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.hh() && b.this.fOG != null) {
+                b.this.fOG.bjM();
             }
         }
     };
-    private c fFR = new f();
+    private c fOG = new f();
 
-    public static b bgy() {
-        if (fFQ == null) {
+    public static b bjK() {
+        if (fOF == null) {
             synchronized (b.class) {
-                if (fFQ == null) {
-                    fFQ = new b();
+                if (fOF == null) {
+                    fOF = new b();
                 }
             }
         }
-        return fFQ;
+        return fOF;
     }
 
-    private boolean bgz() {
+    private boolean bjL() {
         return com.baidu.adp.lib.b.d.eV().af("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.fFS);
+        MessageManager.getInstance().registerListener(this.fOH);
     }
 
     public void a(a aVar) {
-        if (bgz() && aVar != null && this.fFR != null) {
+        if (bjL() && aVar != null && this.fOG != null) {
             if (j.hh()) {
-                this.fFR.b(aVar);
+                this.fOG.b(aVar);
             } else {
-                this.fFR.c(aVar);
+                this.fOG.c(aVar);
             }
         }
     }

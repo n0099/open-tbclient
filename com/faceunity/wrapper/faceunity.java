@@ -1,9 +1,9 @@
 package com.faceunity.wrapper;
 /* loaded from: classes.dex */
 public class faceunity {
-    private static boolean gYa = false;
-    static int[] gYb = new int[2];
-    static int[] gYc = new int[1];
+    private static boolean hik = false;
+    static int[] hil = new int[2];
+    static int[] him = new int[1];
 
     public static native int fuCreateItemFromPackage(byte[] bArr);
 
@@ -18,8 +18,6 @@ public class faceunity {
     public static native void fuOnCameraChange();
 
     public static native void fuOnDeviceLost();
-
-    public static native int fuRenderToNV21Image(byte[] bArr, int i, int i2, int i3, int[] iArr, int i4);
 
     public static native int fuSetMaxFaces(int i);
 

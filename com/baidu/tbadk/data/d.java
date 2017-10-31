@@ -1,47 +1,27 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.util.v;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.BannerUserStory;
-import tbclient.UserStory;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
-public class d implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId ayO = BdUniqueId.gen();
-    private List<com.baidu.adp.widget.ListView.f> ayP;
+public class d extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId azs = BdUniqueId.gen();
+    public static int azw = 1;
+    public AlaLiveInfoCoreData azt;
+    public boolean azu = false;
+    public long azv = 0;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return ayO;
+        return azs;
     }
 
-    public List<com.baidu.adp.widget.ListView.f> BL() {
-        return this.ayP;
-    }
-
-    public void w(List<com.baidu.adp.widget.ListView.f> list) {
-        this.ayP = list;
-    }
-
-    public void a(BannerUserStory bannerUserStory, long j) {
-        List<com.baidu.adp.widget.ListView.f> arrayList = new ArrayList<>();
-        arrayList.add(new c());
-        if (bannerUserStory == null || v.u(bannerUserStory.user_story)) {
-            w(arrayList);
-            return;
-        }
-        List<UserStory> list = bannerUserStory.user_story;
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            UserStory userStory = list.get(i);
-            if (userStory != null && userStory != null) {
-                e eVar = new e();
-                eVar.a(userStory);
-                eVar.ayT = String.valueOf(j);
-                arrayList.add(eVar);
+    public void b(AlaLiveInfo alaLiveInfo) {
+        if (alaLiveInfo != null) {
+            if (this.azt == null) {
+                this.azt = new AlaLiveInfoCoreData();
             }
+            this.azt.parserProtoBuf(alaLiveInfo);
         }
-        w(arrayList);
     }
 }

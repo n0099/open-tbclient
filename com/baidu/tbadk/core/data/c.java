@@ -6,8 +6,8 @@ import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
 public class c {
-    public AlaUserInfoData Uw;
-    public AlaShareInfoData Ux;
+    public AlaUserInfoData UQ;
+    public AlaShareInfoData UR;
     public String appId;
     public int audience_count;
     public String cover;
@@ -27,6 +27,7 @@ public class c {
     public String rtmp_url;
     public int screen_direction;
     public String session_id;
+    public long thread_id;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -42,8 +43,8 @@ public class c {
                 this.media_id = jSONObject.optString("media_id");
                 this.media_subtitle = jSONObject.optString("media_subtitle");
                 this.description = jSONObject.optString("description");
-                this.Uw = (AlaUserInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("user_info"), AlaUserInfoData.class);
-                this.Ux = (AlaShareInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("share_info"), AlaShareInfoData.class);
+                this.UQ = (AlaUserInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("user_info"), AlaUserInfoData.class);
+                this.UR = (AlaShareInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("share_info"), AlaShareInfoData.class);
                 this.live_status = jSONObject.optInt("live_status");
                 this.duration = jSONObject.optInt("duration");
                 this.audience_count = jSONObject.optInt("audience_count");
@@ -52,6 +53,7 @@ public class c {
                 this.label_name = jSONObject.optString("label_name");
                 this.distance = jSONObject.optDouble("distance");
                 this.appId = jSONObject.optString("third_app_id");
+                this.thread_id = jSONObject.optLong("thread_id");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -72,10 +74,10 @@ public class c {
                 this.media_id = alaLiveInfo.media_id;
                 this.media_subtitle = alaLiveInfo.media_subtitle;
                 this.description = alaLiveInfo.description;
-                this.Uw = new AlaUserInfoData();
-                this.Uw.a(alaLiveInfo.user_info);
-                this.Ux = new AlaShareInfoData();
-                this.Ux.a(alaLiveInfo.share_info);
+                this.UQ = new AlaUserInfoData();
+                this.UQ.a(alaLiveInfo.user_info);
+                this.UR = new AlaShareInfoData();
+                this.UR.a(alaLiveInfo.share_info);
                 this.live_status = alaLiveInfo.live_status.intValue();
                 this.duration = alaLiveInfo.duration.intValue();
                 this.audience_count = alaLiveInfo.audience_count.intValue();
@@ -84,6 +86,7 @@ public class c {
                 this.label_name = alaLiveInfo.label_name;
                 this.distance = alaLiveInfo.distance.longValue();
                 this.appId = alaLiveInfo.third_app_id;
+                this.thread_id = alaLiveInfo.thread_id.longValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

@@ -3,26 +3,26 @@ package com.baidu.tieba.video.editvideo.scale;
 import android.graphics.Matrix;
 /* loaded from: classes2.dex */
 public class a {
-    private b gvx;
-    private b gvy;
+    private b gEB;
+    private b gEC;
 
     public a(b bVar, b bVar2) {
-        this.gvx = bVar;
-        this.gvy = bVar2;
+        this.gEB = bVar;
+        this.gEC = bVar2;
     }
 
     public Matrix a(ScalableType scalableType) {
         switch (scalableType) {
             case NONE:
-                return MI();
+                return MS();
             case FIT_XY:
-                return MB();
+                return ML();
             case FIT_CENTER:
-                return MD();
+                return MN();
             case FIT_START:
-                return MC();
+                return MM();
             case FIT_END:
-                return ME();
+                return MO();
             case LEFT_TOP:
                 return b(PivotPoint.LEFT_TOP);
             case LEFT_CENTER:
@@ -60,11 +60,11 @@ public class a {
             case RIGHT_BOTTOM_CROP:
                 return c(PivotPoint.RIGHT_BOTTOM);
             case START_INSIDE:
-                return MF();
+                return MP();
             case CENTER_INSIDE:
-                return MG();
+                return MQ();
             case END_INSIDE:
-                return MH();
+                return MR();
             default:
                 return null;
         }
@@ -81,73 +81,73 @@ public class a {
             case LEFT_TOP:
                 return f(f, f2, 0.0f, 0.0f);
             case LEFT_CENTER:
-                return f(f, f2, 0.0f, this.gvx.getHeight() / 2.0f);
+                return f(f, f2, 0.0f, this.gEB.getHeight() / 2.0f);
             case LEFT_BOTTOM:
-                return f(f, f2, 0.0f, this.gvx.getHeight());
+                return f(f, f2, 0.0f, this.gEB.getHeight());
             case CENTER_TOP:
-                return f(f, f2, this.gvx.getWidth() / 2.0f, 0.0f);
+                return f(f, f2, this.gEB.getWidth() / 2.0f, 0.0f);
             case CENTER:
-                return f(f, f2, this.gvx.getWidth() / 2.0f, this.gvx.getHeight() / 2.0f);
+                return f(f, f2, this.gEB.getWidth() / 2.0f, this.gEB.getHeight() / 2.0f);
             case CENTER_BOTTOM:
-                return f(f, f2, this.gvx.getWidth() / 2.0f, this.gvx.getHeight());
+                return f(f, f2, this.gEB.getWidth() / 2.0f, this.gEB.getHeight());
             case RIGHT_TOP:
-                return f(f, f2, this.gvx.getWidth(), 0.0f);
+                return f(f, f2, this.gEB.getWidth(), 0.0f);
             case RIGHT_CENTER:
-                return f(f, f2, this.gvx.getWidth(), this.gvx.getHeight() / 2.0f);
+                return f(f, f2, this.gEB.getWidth(), this.gEB.getHeight() / 2.0f);
             case RIGHT_BOTTOM:
-                return f(f, f2, this.gvx.getWidth(), this.gvx.getHeight());
+                return f(f, f2, this.gEB.getWidth(), this.gEB.getHeight());
             default:
                 return null;
         }
     }
 
-    private Matrix MI() {
-        return a(this.gvy.getWidth() / this.gvx.getWidth(), this.gvy.getHeight() / this.gvx.getHeight(), PivotPoint.LEFT_TOP);
+    private Matrix MS() {
+        return a(this.gEC.getWidth() / this.gEB.getWidth(), this.gEC.getHeight() / this.gEB.getHeight(), PivotPoint.LEFT_TOP);
     }
 
     private Matrix a(PivotPoint pivotPoint) {
-        float width = this.gvx.getWidth() / this.gvy.getWidth();
-        float height = this.gvx.getHeight() / this.gvy.getHeight();
+        float width = this.gEB.getWidth() / this.gEC.getWidth();
+        float height = this.gEB.getHeight() / this.gEC.getHeight();
         float min = Math.min(width, height);
         return a(min / width, min / height, pivotPoint);
     }
 
-    private Matrix MB() {
+    private Matrix ML() {
         return a(1.0f, 1.0f, PivotPoint.LEFT_TOP);
     }
 
-    private Matrix MC() {
+    private Matrix MM() {
         return a(PivotPoint.LEFT_TOP);
     }
 
-    private Matrix MD() {
+    private Matrix MN() {
         return a(PivotPoint.CENTER);
     }
 
-    private Matrix ME() {
+    private Matrix MO() {
         return a(PivotPoint.RIGHT_BOTTOM);
     }
 
     private Matrix b(PivotPoint pivotPoint) {
-        return a(this.gvy.getWidth() / this.gvx.getWidth(), this.gvy.getHeight() / this.gvx.getHeight(), pivotPoint);
+        return a(this.gEC.getWidth() / this.gEB.getWidth(), this.gEC.getHeight() / this.gEB.getHeight(), pivotPoint);
     }
 
     private Matrix c(PivotPoint pivotPoint) {
-        float width = this.gvx.getWidth() / this.gvy.getWidth();
-        float height = this.gvx.getHeight() / this.gvy.getHeight();
+        float width = this.gEB.getWidth() / this.gEC.getWidth();
+        float height = this.gEB.getHeight() / this.gEC.getHeight();
         float max = Math.max(width, height);
         return a(max / width, max / height, pivotPoint);
     }
 
-    private Matrix MF() {
-        return (this.gvy.getHeight() > this.gvx.getWidth() || this.gvy.getHeight() > this.gvx.getHeight()) ? MC() : b(PivotPoint.LEFT_TOP);
+    private Matrix MP() {
+        return (this.gEC.getHeight() > this.gEB.getWidth() || this.gEC.getHeight() > this.gEB.getHeight()) ? MM() : b(PivotPoint.LEFT_TOP);
     }
 
-    private Matrix MG() {
-        return (this.gvy.getHeight() > this.gvx.getWidth() || this.gvy.getHeight() > this.gvx.getHeight()) ? MD() : b(PivotPoint.CENTER);
+    private Matrix MQ() {
+        return (this.gEC.getHeight() > this.gEB.getWidth() || this.gEC.getHeight() > this.gEB.getHeight()) ? MN() : b(PivotPoint.CENTER);
     }
 
-    private Matrix MH() {
-        return (this.gvy.getHeight() > this.gvx.getWidth() || this.gvy.getHeight() > this.gvx.getHeight()) ? ME() : b(PivotPoint.RIGHT_BOTTOM);
+    private Matrix MR() {
+        return (this.gEC.getHeight() > this.gEB.getWidth() || this.gEC.getHeight() > this.gEB.getHeight()) ? MO() : b(PivotPoint.RIGHT_BOTTOM);
     }
 }

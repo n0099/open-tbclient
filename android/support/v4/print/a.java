@@ -11,11 +11,11 @@ import java.io.FileNotFoundException;
 /* loaded from: classes.dex */
 class a {
     final Context mContext;
-    BitmapFactory.Options jK = null;
+    BitmapFactory.Options jL = null;
     private final Object mLock = new Object();
     int mScaleMode = 2;
     int jJ = 2;
-    int mOrientation = 1;
+    int jK = 1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
@@ -35,11 +35,11 @@ class a {
     }
 
     public void setOrientation(int i) {
-        this.mOrientation = i;
+        this.jK = i;
     }
 
     public int getOrientation() {
-        return this.mOrientation;
+        return this.jK;
     }
 
     public int getColorMode() {
@@ -67,9 +67,9 @@ class a {
         PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
         PrintAttributes.Builder builder = new PrintAttributes.Builder();
         builder.setColorMode(this.jJ);
-        if (this.mOrientation == 1) {
+        if (this.jK == 1) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE);
-        } else if (this.mOrientation == 2) {
+        } else if (this.jK == 2) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_PORTRAIT);
         }
         printManager.print(str, printDocumentAdapter, builder.build());

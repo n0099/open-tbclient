@@ -14,7 +14,7 @@ public class LiveRoomClosedQueryMessage extends CustomMessage<List<Object>> {
         super(CmdConfigCustom.CMD_LIVE_VIDEO_CLOSED_QUERY);
         this.mOriginData = new ArrayList();
         this.mIds = new ArrayList();
-        if (!v.u(list2) && !v.u(list)) {
+        if (!v.v(list2) && !v.v(list)) {
             this.mOriginData.addAll(list2);
             this.mIds.addAll(list);
         }

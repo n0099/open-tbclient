@@ -42,7 +42,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
             setError(threadListResIdl.error.errorno.intValue());
             setErrorString(threadListResIdl.error.usermsg);
             if (getError() == 0 && threadListResIdl.data != null) {
-                if (v.t(threadListResIdl.data.user_list) > 0) {
+                if (v.u(threadListResIdl.data.user_list) > 0) {
                     this.userMap = new HashMap<>();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
@@ -56,7 +56,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         }
                     }
                 }
-                if (v.t(threadListResIdl.data.thread_list) > 0) {
+                if (v.u(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
@@ -65,16 +65,16 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bhVar.setUserMap(this.userMap);
                             bhVar.a(list2.get(i3));
                             bhVar.bX(3);
-                            bhVar.rW();
+                            bhVar.sc();
                             if (bhVar.getThreadType() == 33) {
                                 av avVar = new av();
                                 avVar.a(bhVar, 0);
                                 if (true == TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                                     this.threadList.add(avVar);
                                 }
-                            } else if (!TextUtils.isEmpty(bhVar.sj())) {
+                            } else if (!TextUtils.isEmpty(bhVar.sq())) {
                                 af afVar = new af();
-                                afVar.cw(bhVar.sj());
+                                afVar.cC(bhVar.sq());
                                 this.threadList.add(afVar);
                             } else {
                                 this.threadList.add(bhVar);

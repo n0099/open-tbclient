@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.util.x;
+import com.baidu.tbadk.util.z;
 import com.baidu.tieba.personPolymeric.PersonPolymericActivity;
 import com.baidu.tieba.usermute.response.UserMuteCheckHttpResponsedMessage;
 import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
@@ -33,8 +33,8 @@ public class PersonInfoActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        Nq();
-        av.vA().a(new av.a() { // from class: com.baidu.tieba.person.PersonInfoActivityStatic.2
+        ND();
+        av.vI().a(new av.a() { // from class: com.baidu.tieba.person.PersonInfoActivityStatic.2
             @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -42,7 +42,7 @@ public class PersonInfoActivityStatic {
                 }
                 String str = strArr[0];
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_personalCenter=1")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), x.as(str, "userid="), x.as(str, "un="))));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), z.ar(str, "userid="), z.ar(str, "un="))));
                     return 1;
                 }
                 return 3;
@@ -50,7 +50,7 @@ public class PersonInfoActivityStatic {
         });
     }
 
-    private static void Nq() {
+    private static void ND() {
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
@@ -59,9 +59,6 @@ public class PersonInfoActivityStatic {
     public static void a(PersonInfoActivityConfig personInfoActivityConfig) {
         Context context = personInfoActivityConfig.getContext();
         String stringExtra = personInfoActivityConfig.getIntent().getStringExtra("user_id");
-        personInfoActivityConfig.getIntent().getStringExtra("user_name");
-        personInfoActivityConfig.getIntent().getStringExtra("from");
-        personInfoActivityConfig.getIntent().getStringExtra("st_type");
         if (stringExtra != null && stringExtra.length() > 0 && !stringExtra.equals("0") && !stringExtra.startsWith(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
             Intent intent = personInfoActivityConfig.getIntent();
             intent.setClass(context, PersonPolymericActivity.class);

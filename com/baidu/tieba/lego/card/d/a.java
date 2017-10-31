@@ -17,7 +17,7 @@ public class a {
         }
     }
 
-    public static boolean nA(int i) {
+    public static boolean nR(int i) {
         if (i == Integer.MAX_VALUE) {
             return true;
         }

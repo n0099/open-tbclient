@@ -50,7 +50,7 @@ public class l {
         View hE();
     }
 
-    public static void ae(Context context) {
+    public static void ad(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
@@ -66,30 +66,30 @@ public class l {
         yy = true;
     }
 
-    public static int ad(Context context) {
+    public static int ac(Context context) {
         if (!yy) {
-            ae(context);
+            ad(context);
         }
         return yA;
     }
 
-    public static int af(Context context) {
+    public static int ae(Context context) {
         if (!yy) {
-            ae(context);
+            ad(context);
         }
         return yB;
     }
 
     public static int dip2px(Context context, float f) {
         if (!yy) {
-            ae(context);
+            ad(context);
         }
         return (int) ((yz * f) + 0.5f);
     }
 
-    public static float ag(Context context) {
+    public static float af(Context context) {
         if (!yy) {
-            ae(context);
+            ad(context);
         }
         return yz;
     }
@@ -197,7 +197,7 @@ public class l {
         return i;
     }
 
-    public static int[] ah(Context context) {
+    public static int[] ag(Context context) {
         int[] iArr = new int[2];
         if (context == null) {
             return iArr;

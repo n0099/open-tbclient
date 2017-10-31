@@ -1,19 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.webkit.WebView;
-import java.util.concurrent.atomic.AtomicReference;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public interface c {
-    public static final AtomicReference<a> eAT = new AtomicReference<>(null);
-
-    /* loaded from: classes.dex */
-    public interface a {
-        c a(PbActivity pbActivity);
+public class c extends b {
+    public c(com.baidu.tbadk.widget.richText.a aVar) {
+        super(aVar);
+        setLineSpacing(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds8), 1.0f);
+        Q(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds40), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds40));
+        fQ(0);
+        fR(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds34));
+        fS(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds34));
+        R(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds16), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds34));
+        fT(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds0));
     }
-
-    void O(int i, String str);
-
-    WebView aNU();
-
-    void aNV();
 }

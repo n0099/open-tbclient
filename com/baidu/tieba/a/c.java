@@ -4,54 +4,165 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaFrsStoryLiveGatherActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
+import java.util.List;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.c, com.baidu.tbadk.i.a> {
-    private View.OnClickListener baf;
-    private TbPageContext mH;
+public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.e, com.baidu.tbadk.j.c> {
+    private int baA;
+    private String baB;
+    private TbPageContext<?> mPageContext;
 
-    public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.c.ayN, bdUniqueId);
-        this.mH = tbPageContext;
+    static /* synthetic */ int b(c cVar) {
+        int i = cVar.baA;
+        cVar.baA = i + 1;
+        return i;
+    }
+
+    public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.e.azx, bdUniqueId);
+        this.baA = 0;
+        this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: e */
-    public com.baidu.tbadk.i.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tbadk.i.a(LayoutInflater.from(this.mH.getPageActivity()).inflate(d.j.entrance_pic_add_item, (ViewGroup) null));
+    /* renamed from: f */
+    public com.baidu.tbadk.j.c onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tbadk.j.c(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.entrance_frs_story_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.c cVar, com.baidu.tbadk.i.a aVar) {
-        if (aVar == null || cVar == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.e eVar, com.baidu.tbadk.j.c cVar) {
+        if (cVar == null || eVar == null) {
             return null;
         }
-        aVar.aEx.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.c.1
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view2, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == 0) {
-                    view2.setScaleX(0.8f);
-                    view2.setScaleY(0.8f);
-                } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-                    view2.setScaleX(1.0f);
-                    view2.setScaleY(1.0f);
-                }
-                return view2.onTouchEvent(motionEvent);
-            }
-        });
-        aVar.setOnClick(this.baf);
-        aVar.c(cVar);
-        return aVar.getView();
+        a(cVar, (com.baidu.tbadk.data.e) getItem(i));
+        return view;
     }
 
-    public void setOnClick(View.OnClickListener onClickListener) {
-        this.baf = onClickListener;
+    private void a(com.baidu.tbadk.j.c cVar, final com.baidu.tbadk.data.e eVar) {
+        if (cVar != null && eVar != null && !v.v(eVar.getList())) {
+            final List<AlaLiveInfoCoreData> list = eVar.getList();
+            cVar.mName.setText(this.mPageContext.getString(d.j.frs_game_gather_title));
+            final HeadImageView frontImg = cVar.aFi.getFrontImg();
+            final HeadImageView backImg = cVar.aFi.getBackImg();
+            cVar.aFi.setLiveIngImgVisible(true);
+            cVar.aFi.setOuterColor(d.C0080d.cp_link_tip_g);
+            if (list.size() == 1) {
+                AlaLiveInfoCoreData alaLiveInfoCoreData = list.get(0);
+                if (alaLiveInfoCoreData != null && alaLiveInfoCoreData.userInfo != null && !StringUtils.isNull(alaLiveInfoCoreData.userInfo.portrait)) {
+                    frontImg.startLoad(alaLiveInfoCoreData.userInfo.portrait, 25, false);
+                }
+                ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 1.4f, 1.0f, 1.4f, 1, 0.33f, 1, 0.33f);
+                scaleAnimation.setDuration(3000L);
+                scaleAnimation.setRepeatCount(-1);
+                scaleAnimation.setRepeatMode(2);
+                backImg.setVisibility(8);
+                frontImg.setIsRound(true);
+                frontImg.startAnimation(scaleAnimation);
+            } else {
+                frontImg.setIsRound(true);
+                backImg.setIsRound(true);
+                final AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+                alphaAnimation.setDuration(300L);
+                alphaAnimation.setFillAfter(true);
+                final ScaleAnimation scaleAnimation2 = new ScaleAnimation(1.0f, 1.4f, 1.0f, 1.4f, 1, 0.33f, 1, 0.33f);
+                scaleAnimation2.setDuration(3000L);
+                scaleAnimation2.setFillAfter(true);
+                scaleAnimation2.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.a.c.1
+                    @Override // android.view.animation.Animation.AnimationListener
+                    public void onAnimationStart(Animation animation) {
+                        if (c.this.baA >= list.size()) {
+                            c.this.baA = 0;
+                        }
+                        AlaLiveInfoCoreData alaLiveInfoCoreData2 = (AlaLiveInfoCoreData) list.get(c.b(c.this));
+                        if (alaLiveInfoCoreData2 != null && alaLiveInfoCoreData2.userInfo != null && !StringUtils.isNull(alaLiveInfoCoreData2.userInfo.portrait)) {
+                            c.this.baB = alaLiveInfoCoreData2.userInfo.portrait;
+                            backImg.startLoad(c.this.baB, 25, false);
+                        }
+                    }
+
+                    @Override // android.view.animation.Animation.AnimationListener
+                    public void onAnimationEnd(Animation animation) {
+                        frontImg.startAnimation(alphaAnimation);
+                    }
+
+                    @Override // android.view.animation.Animation.AnimationListener
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+                });
+                alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.a.c.2
+                    @Override // android.view.animation.Animation.AnimationListener
+                    public void onAnimationStart(Animation animation) {
+                    }
+
+                    @Override // android.view.animation.Animation.AnimationListener
+                    public void onAnimationEnd(Animation animation) {
+                        if (!StringUtils.isNull(c.this.baB)) {
+                            frontImg.setScaleX(1.0f);
+                            frontImg.setScaleY(1.0f);
+                            frontImg.startLoad(c.this.baB, 25, false);
+                            frontImg.setAlpha(1);
+                            frontImg.startAnimation(scaleAnimation2);
+                        }
+                    }
+
+                    @Override // android.view.animation.Animation.AnimationListener
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+                });
+                this.baA = 0;
+                int i = this.baA;
+                this.baA = i + 1;
+                AlaLiveInfoCoreData alaLiveInfoCoreData2 = list.get(i);
+                if (alaLiveInfoCoreData2 != null && alaLiveInfoCoreData2.userInfo != null && !StringUtils.isNull(alaLiveInfoCoreData2.userInfo.portrait)) {
+                    frontImg.startLoad(alaLiveInfoCoreData2.userInfo.portrait, 25, false);
+                }
+                frontImg.startAnimation(scaleAnimation2);
+            }
+            cVar.aFi.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.c.3
+                @Override // android.view.View.OnTouchListener
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    if (motionEvent.getAction() == 0) {
+                        view.setScaleX(0.8f);
+                        view.setScaleY(0.8f);
+                    } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
+                        view.setScaleX(1.0f);
+                        view.setScaleY(1.0f);
+                    }
+                    return view.onTouchEvent(motionEvent);
+                }
+            });
+            cVar.aFi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.c.4
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    if (eVar != null && !StringUtils.isNull(eVar.getFid())) {
+                        TiebaStatic.log(new ak("c12548"));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaFrsStoryLiveGatherActivityConfig(c.this.mPageContext.getPageActivity(), eVar.getFid(), eVar.getForumName())));
+                    }
+                }
+            });
+            cVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 }

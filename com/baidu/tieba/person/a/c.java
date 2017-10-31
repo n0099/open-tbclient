@@ -5,11 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.data.j;
+import com.baidu.tbadk.data.l;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.person.b.c> {
-    private View.OnClickListener baf;
+public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.person.b.c> {
+    private View.OnClickListener baM;
     private TbPageContext mTbPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -20,25 +20,25 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.person
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: br */
+    /* renamed from: bE */
     public com.baidu.tieba.person.b.c onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.c(LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(d.j.user_pic_nomal_item, (ViewGroup) null));
+        return new com.baidu.tieba.person.b.c(LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(d.h.user_pic_nomal_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, com.baidu.tieba.person.b.c cVar) {
-        if (cVar == null || jVar == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, l lVar, com.baidu.tieba.person.b.c cVar) {
+        if (cVar == null || lVar == null) {
             return null;
         }
-        cVar.p(this.baf);
-        cVar.c(jVar);
+        cVar.q(this.baM);
+        cVar.c(lVar);
         return cVar.getView();
     }
 
-    public void p(View.OnClickListener onClickListener) {
-        this.baf = onClickListener;
+    public void q(View.OnClickListener onClickListener) {
+        this.baM = onClickListener;
     }
 }

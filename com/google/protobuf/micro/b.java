@@ -152,17 +152,17 @@ public final class b {
         }
     }
 
-    public a bFt() {
+    public a bIR() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return a.I(vV(j));
+            return a.J(ws(j));
         }
         a j2 = a.j(this.a, this.d, j);
         this.d = j + this.d;
         return j2;
     }
 
-    public byte bFu() {
+    public byte bIS() {
         if (this.d == this.b) {
             a(true);
         }
@@ -236,7 +236,7 @@ public final class b {
     public String g() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return new String(vV(j), "UTF-8");
+            return new String(ws(j), "UTF-8");
         }
         String str = new String(this.a, this.d, j, "UTF-8");
         this.d = j + this.d;
@@ -248,31 +248,31 @@ public final class b {
     }
 
     public int j() {
-        byte bFu = bFu();
-        if (bFu >= 0) {
-            return bFu;
+        byte bIS = bIS();
+        if (bIS >= 0) {
+            return bIS;
         }
-        int i = bFu & Byte.MAX_VALUE;
-        byte bFu2 = bFu();
-        if (bFu2 >= 0) {
-            return i | (bFu2 << 7);
+        int i = bIS & Byte.MAX_VALUE;
+        byte bIS2 = bIS();
+        if (bIS2 >= 0) {
+            return i | (bIS2 << 7);
         }
-        int i2 = i | ((bFu2 & Byte.MAX_VALUE) << 7);
-        byte bFu3 = bFu();
-        if (bFu3 >= 0) {
-            return i2 | (bFu3 << 14);
+        int i2 = i | ((bIS2 & Byte.MAX_VALUE) << 7);
+        byte bIS3 = bIS();
+        if (bIS3 >= 0) {
+            return i2 | (bIS3 << 14);
         }
-        int i3 = i2 | ((bFu3 & Byte.MAX_VALUE) << 14);
-        byte bFu4 = bFu();
-        if (bFu4 >= 0) {
-            return i3 | (bFu4 << 21);
+        int i3 = i2 | ((bIS3 & Byte.MAX_VALUE) << 14);
+        byte bIS4 = bIS();
+        if (bIS4 >= 0) {
+            return i3 | (bIS4 << 21);
         }
-        int i4 = i3 | ((bFu4 & Byte.MAX_VALUE) << 21);
-        byte bFu5 = bFu();
-        int i5 = i4 | (bFu5 << 28);
-        if (bFu5 < 0) {
+        int i4 = i3 | ((bIS4 & Byte.MAX_VALUE) << 21);
+        byte bIS5 = bIS();
+        int i5 = i4 | (bIS5 << 28);
+        if (bIS5 < 0) {
             for (int i6 = 0; i6 < 5; i6++) {
-                if (bFu() >= 0) {
+                if (bIS() >= 0) {
                     return i5;
                 }
             }
@@ -284,9 +284,9 @@ public final class b {
     public long k() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
-            byte bFu = bFu();
-            j |= (bFu & Byte.MAX_VALUE) << i;
-            if ((bFu & 128) == 0) {
+            byte bIS = bIS();
+            j |= (bIS & Byte.MAX_VALUE) << i;
+            if ((bIS & 128) == 0) {
                 return j;
             }
         }
@@ -294,20 +294,20 @@ public final class b {
     }
 
     public int l() {
-        return (bFu() & 255) | ((bFu() & 255) << 8) | ((bFu() & 255) << 16) | ((bFu() & 255) << 24);
+        return (bIS() & 255) | ((bIS() & 255) << 8) | ((bIS() & 255) << 16) | ((bIS() & 255) << 24);
     }
 
     public long m() {
-        byte bFu = bFu();
-        byte bFu2 = bFu();
-        return ((bFu2 & 255) << 8) | (bFu & 255) | ((bFu() & 255) << 16) | ((bFu() & 255) << 24) | ((bFu() & 255) << 32) | ((bFu() & 255) << 40) | ((bFu() & 255) << 48) | ((bFu() & 255) << 56);
+        byte bIS = bIS();
+        byte bIS2 = bIS();
+        return ((bIS2 & 255) << 8) | (bIS & 255) | ((bIS() & 255) << 16) | ((bIS() & 255) << 24) | ((bIS() & 255) << 32) | ((bIS() & 255) << 40) | ((bIS() & 255) << 48) | ((bIS() & 255) << 56);
     }
 
     public boolean n() {
         return this.d == this.b && !a(false);
     }
 
-    public byte[] vV(int i) {
+    public byte[] ws(int i) {
         if (i < 0) {
             throw d.b();
         }

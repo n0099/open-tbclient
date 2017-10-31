@@ -5,25 +5,28 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
+import com.baidu.tieba.video.record.i;
 /* loaded from: classes2.dex */
-public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener {
-    private ImageView gBb;
-    private ImageView gBc;
-    private ImageView gBd;
-    private ImageView gBe;
-    private a gBf;
-    private View gBg;
+public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, i.a {
+    private ImageView gKO;
+    private ImageView gKP;
+    private ImageView gKQ;
+    private ImageView gKR;
+    private a gKS;
+    private View gKT;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bxn();
+        void bAH();
 
-        void bxo();
+        void bAI();
 
-        void bxp();
+        void bAJ();
 
-        void bxq();
+        void bAK();
     }
 
     public VideoEffectButtonLayout(Context context) {
@@ -42,41 +45,54 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     }
 
     private void initView() {
-        inflate(getContext(), d.j.layout_video_effect_button, this);
-        this.gBb = (ImageView) findViewById(d.h.img_countdown);
-        this.gBc = (ImageView) findViewById(d.h.img_sticker);
-        this.gBd = (ImageView) findViewById(d.h.img_beauty);
-        this.gBe = (ImageView) findViewById(d.h.img_filter);
-        this.gBb.setOnClickListener(this);
-        this.gBc.setOnClickListener(this);
-        this.gBd.setOnClickListener(this);
-        this.gBe.setOnClickListener(this);
+        inflate(getContext(), d.h.layout_video_effect_button, this);
+        this.gKO = (ImageView) findViewById(d.g.img_music);
+        this.gKP = (ImageView) findViewById(d.g.img_sticker);
+        this.gKQ = (ImageView) findViewById(d.g.img_beauty);
+        this.gKR = (ImageView) findViewById(d.g.img_filter);
+        this.gKO.setOnClickListener(this);
+        this.gKP.setOnClickListener(this);
+        this.gKQ.setOnClickListener(this);
+        this.gKR.setOnClickListener(this);
     }
 
     public void reset() {
-        this.gBg = null;
+        this.gKT = null;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gBf != null) {
+        if (this.gKS != null) {
             int id = view.getId();
-            if (this.gBg == null || this.gBg.getId() != view.getId() || id != d.h.img_countdown) {
-                this.gBg = view;
-                if (id == d.h.img_countdown) {
-                    this.gBf.bxn();
-                } else if (id == d.h.img_sticker) {
-                    this.gBf.bxo();
-                } else if (id == d.h.img_beauty) {
-                    this.gBf.bxp();
-                } else if (id == d.h.img_filter) {
-                    this.gBf.bxq();
-                }
+            this.gKT = view;
+            ak akVar = new ak("c12495");
+            if (id == d.g.img_music) {
+                this.gKS.bAH();
+                akVar.r("obj_type", 6);
+            } else if (id == d.g.img_sticker) {
+                this.gKS.bAI();
+                akVar.r("obj_type", 4);
+            } else if (id == d.g.img_beauty) {
+                this.gKS.bAJ();
+                akVar.r("obj_type", 3);
+            } else if (id == d.g.img_filter) {
+                this.gKS.bAK();
+                akVar.r("obj_type", 2);
             }
+            TiebaStatic.log(akVar);
         }
     }
 
     public void setListener(a aVar) {
-        this.gBf = aVar;
+        this.gKS = aVar;
+    }
+
+    @Override // com.baidu.tieba.video.record.i.a
+    public void uV(int i) {
+        if (i == 1) {
+            this.gKO.setImageResource(d.f.icon_video_music);
+        } else {
+            this.gKO.setImageResource(d.f.icon_video_music_disable);
+        }
     }
 }

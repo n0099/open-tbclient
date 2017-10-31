@@ -8,20 +8,20 @@ public class q extends a {
     }
 
     @Override // com.baidu.tieba.personPolymeric.c.a
-    public void aWR() {
-        this.fgp.clear();
-        if (this.fgn != null) {
-            this.fgp.add(this.fgn);
-        } else if (this.fgm != null) {
-            this.fgp.add(this.fgm);
+    public void aZW() {
+        this.foN.clear();
+        if (this.foL != null) {
+            this.foN.add(this.foL);
+        } else if (this.foK != null) {
+            this.foN.add(this.foK);
         } else if (this.mCardNullPolymericData != null) {
-            this.fgp.add(this.mCardNullPolymericData);
+            this.foN.add(this.mCardNullPolymericData);
         }
-        if (!v.u(this.fgr)) {
-            this.fgp.addAll(this.fgr);
+        if (!v.v(this.foP)) {
+            this.foN.addAll(this.foP);
         }
-        if (!v.u(this.fgo)) {
-            this.fgp.addAll(this.fgo);
+        if (!v.v(this.foM)) {
+            this.foN.addAll(this.foM);
         }
     }
 }

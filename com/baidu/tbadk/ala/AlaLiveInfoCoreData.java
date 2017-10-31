@@ -7,110 +7,22 @@ import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
 public class AlaLiveInfoCoreData extends i implements Serializable {
     private static final long serialVersionUID = 5768965545624138312L;
-    private long audienceCount;
-    private long groupID;
-    private String hslUrl;
-    private String liveCover;
-    private long liveID;
-    private String liveTitle;
-    private int liveType;
-    private String rtmpUrl;
-    private int screenDirection;
-    private String sessionID;
-    private long userID;
-    private String userName;
-
-    public void setLiveID(long j) {
-        this.liveID = j;
-    }
-
-    public void setUserID(long j) {
-        this.userID = j;
-    }
-
-    public void setUserName(String str) {
-        this.userName = str;
-    }
-
-    public void setGroupID(long j) {
-        this.groupID = j;
-    }
-
-    public void setSessionID(String str) {
-        this.sessionID = str;
-    }
-
-    public void setLiveTitle(String str) {
-        this.liveTitle = str;
-    }
-
-    public void setLiveCover(String str) {
-        this.liveCover = str;
-    }
-
-    public void setLiveType(int i) {
-        this.liveType = i;
-    }
-
-    public void setRtmpUrl(String str) {
-        this.rtmpUrl = str;
-    }
-
-    public void setHslUrl(String str) {
-        this.hslUrl = str;
-    }
-
-    public void setScreenDirection(int i) {
-        this.screenDirection = i;
-    }
-
-    public long getLiveID() {
-        return this.liveID;
-    }
-
-    public long getUserID() {
-        return this.userID;
-    }
-
-    public String getUserName() {
-        return this.userName;
-    }
-
-    public long getGroupID() {
-        return this.groupID;
-    }
-
-    public String getSessionID() {
-        return this.sessionID;
-    }
-
-    public String getLiveTitle() {
-        return this.liveTitle;
-    }
-
-    public String getLiveCover() {
-        return this.liveCover;
-    }
-
-    public String getRtmpUrl() {
-        return this.rtmpUrl;
-    }
-
-    public String getHslUrl() {
-        return this.hslUrl;
-    }
-
-    public long getAudienceCount() {
-        return this.audienceCount;
-    }
-
-    public int getLiveType() {
-        return this.liveType;
-    }
-
-    public int getScreenDirection() {
-        return this.screenDirection;
-    }
+    public long audienceCount;
+    public long groupID;
+    public String hslUrl;
+    public String liveCover;
+    public long liveID;
+    public int liveStatus;
+    public String liveTitle;
+    public int liveType;
+    public String mediaPic;
+    public String rtmpUrl;
+    public int screenDirection;
+    public String sessionID;
+    public long threadId;
+    public long userID;
+    public AlaLiveUserInfoData userInfo;
+    public String userName;
 
     @Override // com.baidu.tbadk.core.data.i
     public void parserJson(JSONObject jSONObject) {
@@ -122,6 +34,10 @@ public class AlaLiveInfoCoreData extends i implements Serializable {
             if (alaLiveInfo.user_info != null) {
                 this.userID = alaLiveInfo.user_info.ala_id.longValue();
                 this.userName = alaLiveInfo.user_info.user_name;
+                if (this.userInfo == null) {
+                    this.userInfo = new AlaLiveUserInfoData();
+                }
+                this.userInfo.parserProtoBuf(alaLiveInfo.user_info);
             }
             this.groupID = alaLiveInfo.group_id.longValue();
             this.sessionID = alaLiveInfo.session_id;
@@ -132,14 +48,23 @@ public class AlaLiveInfoCoreData extends i implements Serializable {
             this.audienceCount = alaLiveInfo.audience_count.intValue();
             this.liveType = alaLiveInfo.live_type.intValue();
             this.screenDirection = alaLiveInfo.screen_direction.intValue();
+            this.liveStatus = alaLiveInfo.live_status.intValue();
+            this.mediaPic = alaLiveInfo.media_pic;
+            this.threadId = alaLiveInfo.thread_id.longValue();
         }
     }
 
     public void fillWithInfoData(com.baidu.tbadk.core.data.c cVar) {
         if (cVar != null) {
             this.liveID = cVar.live_id;
-            if (cVar.Uw != null) {
-                this.userName = cVar.Uw.user_name;
+            if (cVar.UQ != null) {
+                this.userName = cVar.UQ.user_name;
+            }
+            if (cVar.UQ != null) {
+                if (this.userInfo == null) {
+                    this.userInfo = new AlaLiveUserInfoData();
+                }
+                this.userInfo.convertFromAlaUserInfoData(cVar.UQ);
             }
             this.groupID = cVar.group_id;
             this.sessionID = cVar.session_id;
@@ -150,6 +75,9 @@ public class AlaLiveInfoCoreData extends i implements Serializable {
             this.audienceCount = cVar.audience_count;
             this.liveType = cVar.live_type;
             this.screenDirection = cVar.screen_direction;
+            this.liveStatus = cVar.live_status;
+            this.mediaPic = cVar.media_pic;
+            this.threadId = cVar.thread_id;
         }
     }
 }

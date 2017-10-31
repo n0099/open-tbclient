@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
-import com.baidu.tbadk.TbConfig;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class ViewDragHelper {
@@ -254,7 +253,7 @@ public class ViewDragHelper {
         } else {
             abs = (int) (((Math.abs(i) / i3) + 1.0f) * 256.0f);
         }
-        return Math.min(abs, (int) TbConfig.POST_IMAGE_SMALL);
+        return Math.min(abs, 600);
     }
 
     private int clampMag(int i, int i2, int i3) {

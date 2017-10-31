@@ -28,6 +28,8 @@ public interface c {
 
     AlaLiveInfoCoreData getLiveInfo();
 
+    List<AlaLiveInfoCoreData> getLiveReplayInfo();
+
     int getMaskType();
 
     NicknameInfo getNicknameInfo();

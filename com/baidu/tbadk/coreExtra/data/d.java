@@ -4,14 +4,14 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
     private String appId = "";
-    private String aql = "";
+    private String appName = "";
     private String packageName = "";
-    private boolean aqm = false;
+    private boolean aqG = false;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.appId = jSONObject.optString("app_id", "");
-            this.aql = jSONObject.optString("app_name", "");
+            this.appName = jSONObject.optString("app_name", "");
             this.packageName = jSONObject.optString("package_name", "");
         }
     }
@@ -24,11 +24,11 @@ public class d {
         return this.packageName;
     }
 
-    public boolean xz() {
-        return this.aqm;
+    public boolean xG() {
+        return this.aqG;
     }
 
-    public void aR(boolean z) {
-        this.aqm = z;
+    public void aP(boolean z) {
+        this.aqG = z;
     }
 }

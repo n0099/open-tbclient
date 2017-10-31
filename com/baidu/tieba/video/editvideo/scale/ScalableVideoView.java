@@ -14,8 +14,8 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
-    protected MediaPlayer aWg;
-    protected ScalableType gvw;
+    protected MediaPlayer aZK;
+    protected ScalableType gEA;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -28,19 +28,23 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.gvw = ScalableType.NONE;
-        if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.n.videoScaleStyle, 0, 0)) != null) {
-            int i2 = obtainStyledAttributes.getInt(d.n.videoScaleStyle_videoScalableType, ScalableType.NONE.ordinal());
+        this.gEA = ScalableType.NONE;
+        if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.videoScaleStyle, 0, 0)) != null) {
+            int i2 = obtainStyledAttributes.getInt(d.l.videoScaleStyle_videoScalableType, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.gvw = ScalableType.values()[i2];
+            this.gEA = ScalableType.values()[i2];
         }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        Surface surface = new Surface(surfaceTexture);
-        if (this.aWg != null) {
-            this.aWg.setSurface(surface);
+        try {
+            Surface surface = new Surface(surfaceTexture);
+            if (this.aZK != null) {
+                this.aZK.setSurface(surface);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -57,22 +61,33 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
     }
 
-    @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-        X(i, i2);
+    @Override // android.view.View
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (this.aZK != null) {
+            if (isPlaying()) {
+                stop();
+            }
+            release();
+        }
     }
 
-    private void X(int i, int i2) {
+    @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
+    public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
+        W(i, i2);
+    }
+
+    private void W(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.gvw)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.gEA)) != null) {
             setTransform(a);
         }
     }
 
-    private void MA() {
-        if (this.aWg == null) {
-            this.aWg = new MediaPlayer();
-            this.aWg.setOnVideoSizeChangedListener(this);
+    private void MK() {
+        if (this.aZK == null) {
+            this.aZK = new MediaPlayer();
+            this.aZK.setOnVideoSizeChangedListener(this);
             setSurfaceTextureListener(this);
             return;
         }
@@ -93,113 +108,126 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        MA();
-        this.aWg.setDataSource(str);
+        MK();
+        this.aZK.setDataSource(str);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
-        MA();
-        this.aWg.setDataSource(fileDescriptor, j, j2);
+        MK();
+        this.aZK.setDataSource(fileDescriptor, j, j2);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
-        MA();
-        this.aWg.setDataSource(fileDescriptor);
+        MK();
+        this.aZK.setDataSource(fileDescriptor);
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.gvw = scalableType;
-        X(getVideoWidth(), getVideoHeight());
+        this.gEA = scalableType;
+        W(getVideoWidth(), getVideoHeight());
     }
 
     public void c(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
-        if (this.aWg != null) {
-            this.aWg.setOnPreparedListener(onPreparedListener);
-            this.aWg.prepare();
+        if (this.aZK != null) {
+            this.aZK.setOnPreparedListener(onPreparedListener);
+            this.aZK.prepare();
         }
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        if (this.aWg != null) {
-            this.aWg.setOnErrorListener(onErrorListener);
+        if (this.aZK != null) {
+            this.aZK.setOnErrorListener(onErrorListener);
         }
     }
 
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        if (this.aWg != null) {
-            this.aWg.setOnCompletionListener(onCompletionListener);
+        if (this.aZK != null) {
+            this.aZK.setOnCompletionListener(onCompletionListener);
         }
     }
 
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        if (this.aWg != null) {
-            this.aWg.setOnInfoListener(onInfoListener);
+        if (this.aZK != null) {
+            this.aZK.setOnInfoListener(onInfoListener);
         }
     }
 
     public int getCurrentPosition() {
-        if (this.aWg == null) {
+        if (this.aZK == null) {
             return 0;
         }
-        return this.aWg.getCurrentPosition();
+        return this.aZK.getCurrentPosition();
     }
 
     public int getDuration() {
-        if (this.aWg == null) {
+        if (this.aZK == null) {
             return 0;
         }
-        return this.aWg.getDuration();
+        return this.aZK.getDuration();
     }
 
     public int getVideoHeight() {
-        if (this.aWg == null) {
+        if (this.aZK == null) {
             return 0;
         }
-        return this.aWg.getVideoHeight();
+        return this.aZK.getVideoHeight();
     }
 
     public int getVideoWidth() {
-        if (this.aWg == null) {
+        if (this.aZK == null) {
             return 0;
         }
-        return this.aWg.getVideoWidth();
+        return this.aZK.getVideoWidth();
+    }
+
+    public boolean isPlaying() {
+        if (this.aZK == null) {
+            return false;
+        }
+        return this.aZK.isPlaying();
     }
 
     public void pause() {
-        if (this.aWg != null) {
-            this.aWg.pause();
+        if (this.aZK != null) {
+            this.aZK.pause();
         }
     }
 
     public void seekTo(int i) {
-        if (this.aWg != null) {
-            this.aWg.seekTo(i);
+        if (this.aZK != null) {
+            this.aZK.seekTo(i);
         }
     }
 
     public void setLooping(boolean z) {
-        if (this.aWg != null) {
-            this.aWg.setLooping(z);
+        if (this.aZK != null) {
+            this.aZK.setLooping(z);
         }
     }
 
     public void start() {
-        if (this.aWg != null) {
-            this.aWg.start();
+        if (this.aZK != null) {
+            this.aZK.start();
+        }
+    }
+
+    public void stop() {
+        if (this.aZK != null) {
+            this.aZK.stop();
         }
     }
 
     public void reset() {
-        if (this.aWg != null) {
-            this.aWg.reset();
+        if (this.aZK != null) {
+            this.aZK.reset();
         }
     }
 
     public void release() {
         reset();
-        if (this.aWg != null) {
-            this.aWg.release();
-            this.aWg = null;
+        if (this.aZK != null) {
+            this.aZK.release();
+            this.aZK = null;
         }
     }
 }

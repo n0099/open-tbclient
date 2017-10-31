@@ -6,7 +6,6 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class ChannelHomeActivityConfig extends IntentConfig {
     public static final String CHANNEL_ID = "channel_id";
     public static final int FROM_FRS = 3;
-    public static final int FROM_HOME = 1;
     public static final int FROM_OTHER = 0;
     public static final int FROM_PB = 2;
     public static final int FROM_PERSON = 4;

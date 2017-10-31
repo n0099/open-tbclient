@@ -19,7 +19,7 @@ public abstract class d {
         return 0;
     }
 
-    public a mN() {
+    public a mG() {
         return null;
     }
 }

@@ -21,14 +21,14 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c Et() {
+    public c EF() {
         c cVar = new c();
-        cVar.aGi = new a();
+        cVar.aGS = new a();
         cVar.type = 1;
-        cVar.aGj = d.l.home;
-        cVar.aGk = d.g.s_tabbar_icon_two_bg;
-        cVar.aGq = c.aGp;
-        cVar.aGm = d.g.tabbar_enterforum_anim;
+        cVar.aGT = d.j.enter_forum;
+        cVar.aGU = d.f.s_tabbar_icon_two_bg;
+        cVar.aHa = c.aGZ;
+        cVar.aGW = d.f.tabbar_enterforum_anim;
         return cVar;
     }
 
@@ -37,12 +37,12 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c Eu;
+                c EG;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
                     ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
-                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Eu = enterForumDelegateStatic.Eu()) != null) {
-                        Eu.aGi.setArguments(new Bundle());
+                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (EG = enterForumDelegateStatic.EG()) != null) {
+                        EG.aGS.setArguments(new Bundle());
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public e aY(Context context) {
-        this.aFZ = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.j.maintab_bottom_indicator, (ViewGroup) null);
-        return this.aFZ;
+        this.aGJ = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.h.maintab_bottom_indicator, (ViewGroup) null);
+        return this.aGJ;
     }
 }

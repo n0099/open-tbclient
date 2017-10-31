@@ -1,6 +1,7 @@
 package com.baidu.android.pushservice.h;
 
 import android.content.Context;
+import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -37,7 +38,7 @@ public final class o {
         HashMap hashMap = new HashMap();
         HashMap hashMap2 = new HashMap();
         ArrayList<f> arrayList2 = new ArrayList();
-        List<e> a3 = com.baidu.android.pushservice.d.a.a(this.b, j, j2, 1500);
+        List<e> a3 = com.baidu.android.pushservice.d.a.a(this.b, j, j2, TbConfig.POST_IMAGE_SMALL);
         if (a3 == null) {
             return null;
         }

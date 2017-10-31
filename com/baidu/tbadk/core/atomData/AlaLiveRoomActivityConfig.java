@@ -12,11 +12,16 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_FRS_LIVE_AUTO_PLAY = "frs_live_auto_play";
     public static final String FROM_TYPE_FRS_LIVE_PLAY = "frs_live_play";
     public static final String FROM_TYPE_FRS_PLAY = "frs_play";
+    public static final String FROM_TYPE_FRS_SHARE_LIVE = "frs_share_live";
     public static final String FROM_TYPE_HOME_CONCERN_TAB = "home_concern_tab";
     public static final String FROM_TYPE_HOME_LIVE_AUTO_PLAY = "home_live_auto_play";
     public static final String FROM_TYPE_HOME_LIVE_PLAY = "home_live_play";
     public static final String FROM_TYPE_HOME_REC_AUTO_PLAY = "home_rec_auto_play";
     public static final String FROM_TYPE_HOME_REC_PLAY = "home_rec_play";
+    public static final String FROM_TYPE_LIVE_BOTTOM_PANEL_FANS = "live_bottom_panel_fans";
+    public static final String FROM_TYPE_LIVE_BOTTOM_PANEL_FOLLOWED = "live_bottom_panel_followed";
+    public static final String FROM_TYPE_LIVE_FRS_FOLLOWED_LIVE_TIP = "frs_followed_live_tip";
+    public static final String FROM_TYPE_LIVE_FRS_HOT_LIVE_TIP = "frs_hot_live_tip";
     public static final String FROM_TYPE_LIVE_ROOM_RANK_LIST = "live_room_rank_list";
     public static final String FROM_TYPE_OUTSIDE = "safari_play";
     public static final String FROM_TYPE_PB_AUTO_PLAY = "pb_auto_play";
@@ -24,6 +29,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_PERSON_ATTENTION = "person_attention";
     public static final String FROM_TYPE_PERSON_AUTO_PLAY = "person_auto_play";
     public static final String FROM_TYPE_PERSON_PLAY = "person_play";
+    public static final String FROM_TYPE_SCAN_HISTORY = "scan_history";
     public static final String FROM_TYPE_SEARCH = "search";
     public static final String FROM_TYPE_SHARE_PLAY = "share_play";
     public static final String FROM_TYPE_SQUARE_DYNAMIC = "square_dynamic";
@@ -37,17 +43,13 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_VIDEO_PLAY = "video_play";
     public static final String LIVE_ENTRY_LIVE_URL = "live_entry_live_url";
     public static final String LIVE_ENTRY_NAME = "live_entry_name";
-    public static final String LIVE_FORUM_ID = "live_forum_id";
+    public static final String LIVE_FORBID_VERTICAL_CHANGE_LIVEROOM = "live_forbid_vertical_change_liveroom";
     public static final String LIVE_FORUM_NAME = "live_forum_name";
     public static final String LIVE_FROM_FORUM_ID = "live_from_forum_id";
     public static final String LIVE_FROM_TYPE = "live_from_type";
-    public static final String LIVE_ID = "live_id";
     public static final String LIVE_INFO = "live_info_core";
     public static final String LIVE_INFO_LIST = "live_info_core_list";
-    public static final String LIVE_IS_CREATE_LIVE_ROOM = "create_live_room";
-    public static final String LIVE_IS_FROM_GAME_FORUM = "live_is_open_from_game_forum";
     public static final String LIVE_IS_HOST = "live_is_host";
-    public static final String LIVE_IS_REOPEN_FROM_CRASH = "live_is_reopen_from_crash";
     public static final String USER_ID = "user_id";
     public static final String USER_NAME = "user_name";
 
@@ -55,25 +57,21 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra("user_id", str2);
         getIntent().putExtra(LIVE_IS_HOST, z);
-        getIntent().putExtra(LIVE_INFO, alaLiveInfoCoreData);
+        getIntent().putExtra("live_info_core", alaLiveInfoCoreData);
         getIntent().putExtra(LIVE_FROM_TYPE, str);
         getIntent().putExtra("live_forum_name", str3);
     }
 
-    public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, AlaLiveInfoListCoreData alaLiveInfoListCoreData, String str, String str2, boolean z) {
-        super(context);
-        getIntent().putExtra("user_id", str2);
-        getIntent().putExtra(LIVE_IS_HOST, z);
-        getIntent().putExtra(LIVE_INFO, alaLiveInfoCoreData);
-        getIntent().putExtra(LIVE_FROM_TYPE, str);
-        getIntent().putExtra(LIVE_INFO_LIST, alaLiveInfoListCoreData);
+    public AlaLiveRoomActivityConfig setIsForbidVerticalChangeLiveRoom(boolean z) {
+        getIntent().putExtra(LIVE_FORBID_VERTICAL_CHANGE_LIVEROOM, z);
+        return this;
     }
 
     public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, AlaLiveInfoListCoreData alaLiveInfoListCoreData, String str, String str2, boolean z, String str3, String str4) {
         super(context);
         getIntent().putExtra("user_id", str2);
         getIntent().putExtra(LIVE_IS_HOST, z);
-        getIntent().putExtra(LIVE_INFO, alaLiveInfoCoreData);
+        getIntent().putExtra("live_info_core", alaLiveInfoCoreData);
         getIntent().putExtra(LIVE_FROM_TYPE, str);
         getIntent().putExtra(LIVE_INFO_LIST, alaLiveInfoListCoreData);
         getIntent().putExtra(LIVE_ENTRY_NAME, str3);
@@ -85,14 +83,5 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         getIntent().putExtra(LIVE_ENTRY_LIVE_URL, str);
         getIntent().putExtra("user_name", str2);
         getIntent().putExtra(LIVE_FROM_TYPE, str3);
-    }
-
-    public AlaLiveRoomActivityConfig(Context context, String str, String str2, String str3, boolean z, boolean z2) {
-        super(context);
-        getIntent().putExtra("live_forum_name", str);
-        getIntent().putExtra("live_forum_id", str2);
-        getIntent().putExtra(LIVE_IS_CREATE_LIVE_ROOM, true);
-        getIntent().putExtra("user_id", str3);
-        getIntent().putExtra(LIVE_IS_FROM_GAME_FORUM, z2);
     }
 }

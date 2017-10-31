@@ -8,45 +8,45 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a cYc;
-    public BdUniqueId aPk;
-    public int cYa = -1;
-    public boolean cYb = false;
-    private CustomMessageListener aoH = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.framework.a.a.1
+    private static a dgu;
+    public BdUniqueId aPq;
+    public int dgs = -1;
+    public boolean dgt = false;
+    private CustomMessageListener mAttentionListener = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.framework.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.isSucc() && !updateAttentionMessage.isAttention() && updateAttentionMessage.isGod()) {
-                    a.this.cYb = true;
+                    a.this.dgt = true;
                 }
             }
         }
     };
 
-    public static synchronized a apm() {
+    public static synchronized a arL() {
         a aVar;
         synchronized (a.class) {
-            if (cYc == null) {
-                cYc = new a();
+            if (dgu == null) {
+                dgu = new a();
             }
-            aVar = cYc;
+            aVar = dgu;
         }
         return aVar;
     }
 
     public void onDestory() {
-        if (this.aPk != null) {
-            MessageManager.getInstance().unRegisterListener(this.aPk);
+        if (this.aPq != null) {
+            MessageManager.getInstance().unRegisterListener(this.aPq);
         }
     }
 
     public void n(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.aPk = bdUniqueId;
-            this.aoH.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.aoH);
+            this.aPq = bdUniqueId;
+            this.mAttentionListener.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.mAttentionListener);
         }
     }
 }

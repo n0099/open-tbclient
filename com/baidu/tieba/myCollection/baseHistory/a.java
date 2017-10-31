@@ -19,13 +19,23 @@ public class a implements f {
     private boolean isSquence = false;
     private int threadType = 0;
     private boolean isManga = false;
+    private String liveId = "";
+    private String userName = "";
+    private String description = "";
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof a)) {
             return false;
         }
         a aVar = (a) obj;
-        return (this.threadId == null || aVar.threadId == null || !this.threadId.equals(aVar.threadId)) ? false : true;
+        if (this.threadType == 49) {
+            if (this.liveId != null && aVar.liveId != null && this.liveId.equals(aVar.liveId)) {
+                return true;
+            }
+        } else if (this.threadId != null && aVar.threadId != null && this.threadId.equals(aVar.threadId)) {
+            return true;
+        }
+        return false;
     }
 
     public int hashCode() {
@@ -33,6 +43,8 @@ public class a implements f {
         int hashCode2;
         int hashCode3;
         int hashCode4;
+        int hashCode5;
+        int hashCode6;
         if (TextUtils.isEmpty(this.threadId)) {
             hashCode = 120;
         } else {
@@ -54,10 +66,20 @@ public class a implements f {
         } else {
             hashCode4 = (i * 7) + this.postID.hashCode();
         }
-        return (((this.isHostOnly ? 1 : 0) + (hashCode4 * 7)) * 7) + (this.isSquence ? 1 : 0);
+        if (TextUtils.isEmpty(this.liveId)) {
+            hashCode5 = (hashCode4 * 7) + 1;
+        } else {
+            hashCode5 = (hashCode4 * 7) + this.liveId.hashCode();
+        }
+        if (TextUtils.isEmpty(this.description)) {
+            hashCode6 = (hashCode5 * 7) + 1;
+        } else {
+            hashCode6 = (hashCode5 * 7) + this.description.hashCode();
+        }
+        return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean G(JSONObject jSONObject) {
+    public boolean H(JSONObject jSONObject) {
         try {
             String string = jSONObject.getString("forum_name");
             String string2 = jSONObject.getString("thread_id");
@@ -82,13 +104,16 @@ public class a implements f {
                 this.time = j;
             }
             this.threadType = jSONObject.optInt("thread_type");
+            this.liveId = jSONObject.optString("live_id", "");
+            this.userName = jSONObject.optString("user_name", "");
+            this.description = jSONObject.optString("live_description", "");
             return true;
         } catch (JSONException e) {
             return false;
         }
     }
 
-    public JSONObject Xg() {
+    public JSONObject Zq() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
@@ -102,6 +127,9 @@ public class a implements f {
             jSONObject.put("is_manga", this.isManga);
             jSONObject.put("cartoon_id", this.cartoonId);
             jSONObject.put(MangaBrowserActivityConfig.CHAPTER_ID, this.chapterId);
+            jSONObject.put("live_id", this.liveId);
+            jSONObject.put("user_name", this.userName);
+            jSONObject.put("live_description", this.description);
         } catch (JSONException e) {
         }
         return jSONObject;
@@ -143,7 +171,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String aLi() {
+    public String aOa() {
         return this.threadName;
     }
 
@@ -159,7 +187,7 @@ public class a implements f {
         this.threadId = str;
     }
 
-    public void om(String str) {
+    public void oT(String str) {
         this.threadName = str;
     }
 
@@ -167,45 +195,69 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String CO() {
+    public String Dc() {
         return this.postID;
     }
 
-    public void oo(String str) {
+    public void oU(String str) {
         this.postID = str;
     }
 
-    public boolean aLj() {
+    public boolean aOb() {
         return this.isHostOnly;
     }
 
-    public void il(boolean z) {
+    public void ih(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean aLk() {
+    public boolean aOc() {
         return this.isSquence;
     }
 
-    public void im(boolean z) {
+    public void ii(boolean z) {
         this.isSquence = z;
+    }
+
+    public String getLiveId() {
+        return this.liveId;
+    }
+
+    public void oV(String str) {
+        this.liveId = str;
+    }
+
+    public String getUserName() {
+        return this.userName;
+    }
+
+    public void setUserName(String str) {
+        this.userName = str;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String str) {
+        this.description = str;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
-        return this.threadId;
+        return this.threadType == 49 ? this.liveId + "_ala" : this.threadId;
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String Ez() {
-        return Xg().toString();
+    public String EL() {
+        return Zq().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean gt(String str) {
+    public boolean gA(String str) {
         if (str != null) {
             try {
-                return G(new JSONObject(str));
+                return H(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

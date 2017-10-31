@@ -5,8 +5,8 @@ import java.util.Locale;
 /* loaded from: classes.dex */
 public class TextUtilsCompat {
     public static final Locale ROOT = new Locale("", "");
-    private static String ko = "Arab";
-    private static String kp = "Hebr";
+    private static String kp = "Arab";
+    private static String kq = "Hebr";
 
     public static String htmlEncode(String str) {
         StringBuilder sb = new StringBuilder();
@@ -16,13 +16,13 @@ public class TextUtilsCompat {
                 case '\"':
                     sb.append("&quot;");
                     break;
-                case d.n.View_saveEnabled /* 38 */:
+                case d.l.View_saveEnabled /* 38 */:
                     sb.append("&amp;");
                     break;
-                case d.n.View_filterTouchesWhenObscured /* 39 */:
+                case d.l.View_filterTouchesWhenObscured /* 39 */:
                     sb.append("&#39;");
                     break;
-                case d.n.View_verticalScrollbarPosition /* 60 */:
+                case d.l.View_verticalScrollbarPosition /* 60 */:
                     sb.append("&lt;");
                     break;
                 case '>':
@@ -42,7 +42,7 @@ public class TextUtilsCompat {
             if (script == null) {
                 return c(locale);
             }
-            if (script.equalsIgnoreCase(ko) || script.equalsIgnoreCase(kp)) {
+            if (script.equalsIgnoreCase(kp) || script.equalsIgnoreCase(kq)) {
                 return 1;
             }
         }

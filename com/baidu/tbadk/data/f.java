@@ -1,95 +1,111 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.HashMap;
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.v;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.AlaLiveInfo;
+import tbclient.BannerUserStory;
+import tbclient.UserStory;
 /* loaded from: classes.dex */
-public class f {
-    private static f ayZ;
-    public final String ayV = "2g";
-    public final String ayW = "3g";
-    public final String ayX = "4g";
-    public final String ayY = "wifi";
-    public HashMap<String, String> aza = new HashMap<>();
-    public HashMap<String, String> azb = new HashMap<>();
-    public HashMap<String, String> azc = new HashMap<>();
-    public String azd;
+public class f implements com.baidu.adp.widget.ListView.f {
+    public static final BdUniqueId azy = BdUniqueId.gen();
+    private List<com.baidu.adp.widget.ListView.f> azA;
+    private List<com.baidu.adp.widget.ListView.f> azz;
+    private List<com.baidu.adp.widget.ListView.f> mList;
 
-    public static synchronized f BM() {
-        f fVar;
-        synchronized (f.class) {
-            if (ayZ == null) {
-                ayZ = new f();
-            }
-            fVar = ayZ;
-        }
-        return fVar;
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return azy;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("2g");
-                    String optString2 = optJSONObject.optString("3g");
-                    String optString3 = optJSONObject.optString("4g");
-                    String optString4 = optJSONObject.optString("wifi");
-                    if (optString != null) {
-                        this.aza.put("2g", optString);
-                    }
-                    if (optString2 != null) {
-                        this.aza.put("3g", optString2);
-                    }
-                    if (optString3 != null) {
-                        this.aza.put("4g", optString3);
-                    }
-                    if (optString4 != null) {
-                        this.aza.put("wifi", optString4);
-                    }
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
-                if (optJSONObject2 != null) {
-                    String optString5 = optJSONObject2.optString("2g");
-                    String optString6 = optJSONObject2.optString("3g");
-                    String optString7 = optJSONObject2.optString("4g");
-                    String optString8 = optJSONObject2.optString("wifi");
-                    if (optString5 != null) {
-                        this.azb.put("2g", optString5);
-                    }
-                    if (optString6 != null) {
-                        this.azb.put("3g", optString6);
-                    }
-                    if (optString7 != null) {
-                        this.azb.put("4g", optString7);
-                    }
-                    if (optString8 != null) {
-                        this.azb.put("wifi", optString8);
-                    }
-                }
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
-                if (optJSONObject3 != null) {
-                    String optString9 = optJSONObject3.optString("2g");
-                    String optString10 = optJSONObject3.optString("3g");
-                    String optString11 = optJSONObject3.optString("4g");
-                    String optString12 = optJSONObject3.optString("wifi");
-                    if (optString9 != null) {
-                        this.azc.put("2g", optString9);
-                    }
-                    if (optString10 != null) {
-                        this.azc.put("3g", optString10);
-                    }
-                    if (optString11 != null) {
-                        this.azc.put("4g", optString11);
-                    }
-                    if (optString12 != null) {
-                        this.azc.put("wifi", optString12);
-                    }
-                }
-                this.azd = jSONObject.optString("is_on");
-            } catch (Exception e) {
-                BdLog.detailException(e);
+    public List<com.baidu.adp.widget.ListView.f> getList() {
+        return this.mList;
+    }
+
+    public void a(BannerUserStory bannerUserStory, long j, long j2, String str, boolean z) {
+        if (bannerUserStory != null && !v.v(bannerUserStory.user_story)) {
+            if (this.azz == null) {
+                this.azz = new ArrayList();
+            } else {
+                this.azz.clear();
             }
+            List<UserStory> list = bannerUserStory.user_story;
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                UserStory userStory = list.get(i);
+                if (userStory != null && userStory != null) {
+                    g gVar = new g();
+                    gVar.a(userStory);
+                    gVar.azE = String.valueOf(j);
+                    this.azz.add(gVar);
+                }
+            }
+            List<AlaLiveInfo> list2 = bannerUserStory.ala_live_list;
+            if (!v.v(list2)) {
+                if (this.azA == null) {
+                    this.azA = new ArrayList();
+                } else {
+                    this.azA.clear();
+                }
+                if (z) {
+                    e eVar = new e();
+                    eVar.x(list2);
+                    eVar.setFid(String.valueOf(j2));
+                    eVar.setForumName(str);
+                    this.azA.add(eVar);
+                    TiebaStatic.log(new ak("c12547"));
+                } else {
+                    for (int i2 = 0; i2 < list2.size(); i2++) {
+                        AlaLiveInfo alaLiveInfo = list2.get(i2);
+                        if (alaLiveInfo != null && alaLiveInfo != null) {
+                            if (alaLiveInfo.user_info != null) {
+                                TiebaStatic.log(new ak("c12545").ac("obj_param1", alaLiveInfo.user_info.user_name));
+                            }
+                            d dVar = new d();
+                            dVar.b(alaLiveInfo);
+                            this.azA.add(dVar);
+                        }
+                    }
+                }
+            }
+            Ca();
+        }
+    }
+
+    private void Ca() {
+        if (this.mList == null) {
+            this.mList = new ArrayList();
+        }
+        this.mList.add(new c());
+        long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
+        d.azw = 1;
+        if (!v.v(this.azz)) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.azz);
+            for (com.baidu.adp.widget.ListView.f fVar : this.azz) {
+                if (fVar instanceof g) {
+                    g gVar = (g) fVar;
+                    if (gVar.user_id == 963275198 || gVar.user_id == currentAccountId) {
+                        this.mList.add(gVar);
+                        arrayList.remove(gVar);
+                    }
+                }
+            }
+            if (!v.v(this.azA)) {
+                if (this.azA.get(0) instanceof d) {
+                    d.azw = this.mList.size();
+                }
+                this.mList.addAll(this.azA);
+            }
+            if (!v.v(this.azz)) {
+                this.mList.addAll(arrayList);
+            }
+        } else if (!v.v(this.azA)) {
+            this.mList.addAll(this.azA);
         }
     }
 }

@@ -1,12 +1,13 @@
 package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.FrsPage.PostPrefix;
 /* loaded from: classes.dex */
-public class PostPrefixData implements Serializable {
+public class PostPrefixData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 6807267689393049879L;
     private String implicitTitle;
     private ArrayList<String> prefixs = new ArrayList<>();

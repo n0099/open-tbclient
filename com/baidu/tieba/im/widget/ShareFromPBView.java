@@ -10,10 +10,10 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private TextView aSZ;
-    private TextView avY;
-    private HeadImageView cJW;
-    private ShareFromPBMsgData dFy;
+    private TextView aTd;
+    private TextView awv;
+    private HeadImageView cTi;
+    private ShareFromPBMsgData dNm;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -26,33 +26,33 @@ public final class ShareFromPBView extends LinearLayout {
     }
 
     private void initUI() {
-        LayoutInflater.from(getContext()).inflate(d.j.share_from_pb_view, this);
+        LayoutInflater.from(getContext()).inflate(d.h.share_from_pb_view, this);
         setOrientation(1);
-        this.avY = (TextView) findViewById(d.h.chat_title);
-        this.cJW = (HeadImageView) findViewById(d.h.chat_group_img);
-        this.aSZ = (TextView) findViewById(d.h.chat_group_desc);
+        this.awv = (TextView) findViewById(d.g.chat_title);
+        this.cTi = (HeadImageView) findViewById(d.g.chat_group_img);
+        this.aTd = (TextView) findViewById(d.g.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.avY.setTextColor(getContext().getResources().getColor(d.e.cp_cont_b));
-            this.aSZ.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
+            this.awv.setTextColor(getContext().getResources().getColor(d.C0080d.cp_cont_b));
+            this.aTd.setTextColor(getContext().getResources().getColor(d.C0080d.cp_cont_f));
             return;
         }
-        this.avY.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
-        this.aSZ.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
+        this.awv.setTextColor(getContext().getResources().getColor(d.C0080d.cp_cont_g));
+        this.aTd.setTextColor(getContext().getResources().getColor(d.C0080d.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.dFy = shareFromPBMsgData;
-        wg();
+        this.dNm = shareFromPBMsgData;
+        wn();
     }
 
-    private void wg() {
-        this.avY.setText(this.dFy.getTitle());
-        this.cJW.setDefaultResource(d.g.icon_default_ba_120);
-        this.cJW.setAutoChangeStyle(false);
-        this.cJW.c(this.dFy.getImageUrl(), 10, false);
-        this.aSZ.setText(this.dFy.getContent());
+    private void wn() {
+        this.awv.setText(this.dNm.getTitle());
+        this.cTi.setDefaultResource(d.f.icon_default_ba_120);
+        this.cTi.setAutoChangeStyle(false);
+        this.cTi.startLoad(this.dNm.getImageUrl(), 10, false);
+        this.aTd.setText(this.dNm.getContent());
     }
 }

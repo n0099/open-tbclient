@@ -1,31 +1,34 @@
 package com.baidu.tbadk.data;
 
-import tbclient.Pendant;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.Lbs;
 /* loaded from: classes.dex */
 public class i {
-    private long azq;
-    private String imgUrl;
+    private String lat;
+    private String lng;
+    private String name = null;
 
-    public long BU() {
-        return this.azq;
+    public String getLat() {
+        return this.lat;
     }
 
-    public void Q(long j) {
-        this.azq = j;
+    public String getLng() {
+        return this.lng;
     }
 
-    public String pL() {
-        return this.imgUrl;
+    public String getName() {
+        return this.name;
     }
 
-    public void cz(String str) {
-        this.imgUrl = str;
-    }
-
-    public void a(Pendant pendant) {
-        if (pendant != null) {
-            this.azq = pendant.props_id.longValue();
-            this.imgUrl = pendant.img_url;
+    public void a(Lbs lbs) {
+        if (lbs != null) {
+            try {
+                this.name = lbs.name;
+                this.lat = lbs.lat;
+                this.lng = lbs.lng;
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
         }
     }
 }

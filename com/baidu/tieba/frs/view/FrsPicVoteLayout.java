@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.lib.util.l;
 /* loaded from: classes.dex */
 public class FrsPicVoteLayout extends ViewGroup {
-    private int cJJ;
+    private int cSV;
     private int mChildCount;
     private int mItemHeight;
     private int mItemSize;
@@ -16,7 +16,7 @@ public class FrsPicVoteLayout extends ViewGroup {
     public FrsPicVoteLayout(Context context) {
         super(context);
         this.mItemSize = 0;
-        this.cJJ = 110;
+        this.cSV = 110;
         this.mItemHeight = 0;
         this.mPadding = 3;
         this.mChildCount = 3;
@@ -26,7 +26,7 @@ public class FrsPicVoteLayout extends ViewGroup {
     public FrsPicVoteLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mItemSize = 0;
-        this.cJJ = 110;
+        this.cSV = 110;
         this.mItemHeight = 0;
         this.mPadding = 3;
         this.mChildCount = 3;
@@ -35,7 +35,7 @@ public class FrsPicVoteLayout extends ViewGroup {
 
     private void init(Context context) {
         this.mPadding = l.dip2px(context, this.mPadding);
-        this.mItemSize = l.dip2px(context, this.cJJ);
+        this.mItemSize = l.dip2px(context, this.cSV);
     }
 
     @Override // android.view.View
@@ -43,7 +43,7 @@ public class FrsPicVoteLayout extends ViewGroup {
         int size = View.MeasureSpec.getSize(i);
         int i3 = (this.mItemSize * this.mChildCount) + (this.mPadding * (this.mChildCount - 1));
         if (this.mItemSize == 0) {
-            this.mItemSize = this.cJJ;
+            this.mItemSize = this.cSV;
         } else if (i3 > size) {
             this.mItemSize = (size - (this.mPadding * (this.mChildCount - 1))) / this.mChildCount;
         } else {

@@ -23,7 +23,7 @@ public class WriteUrlModel extends NewWriteModel {
         }
     }
 
-    public void n(String str, String str2, String str3, String str4) {
+    public void o(String str, String str2, String str3, String str4) {
         WriteData writeData = getWriteData();
         if (writeData != null) {
             cancelLoadData();

@@ -1,8 +1,9 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class HotTopicBussinessData implements Serializable {
+public class HotTopicBussinessData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 1827556427330154557L;
     public long mFollowNum;
     public String mForumAbstract;

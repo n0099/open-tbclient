@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b implements c {
-    private static b eva;
+    private static b eDj;
 
     private b() {
     }
 
-    public static synchronized b aMc() {
+    public static synchronized b aOU() {
         b bVar;
         synchronized (b.class) {
-            if (eva == null) {
-                eva = new b();
+            if (eDj == null) {
+                eDj = new b();
             }
-            bVar = eva;
+            bVar = eDj;
         }
         return bVar;
     }
@@ -41,7 +41,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void xi() {
+    public void xp() {
         try {
             SapiAccountManager.getInstance().logout();
         } catch (Exception e) {
@@ -69,11 +69,11 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public AccountData tT() {
+    public AccountData ua() {
         SapiAccount session;
         AccountData f;
         SapiAccount.ReloginCredentials reloginCredentials = SapiAccountManager.getInstance().getSession().getReloginCredentials();
-        if (reloginCredentials == null || SapiAccountManager.getInstance().getAccountService().blockingRelogin(reloginCredentials) != 0 || (session = SapiAccountManager.getInstance().getSession()) == null || com.baidu.tbadk.core.a.a.oU() == null || (f = com.baidu.tbadk.core.a.a.oU().f(session.username, session.bduss, "", null)) == null) {
+        if (reloginCredentials == null || SapiAccountManager.getInstance().getAccountService().blockingRelogin(reloginCredentials) != 0 || (session = SapiAccountManager.getInstance().getSession()) == null || com.baidu.tbadk.core.a.a.pa() == null || (f = com.baidu.tbadk.core.a.a.pa().f(session.username, session.bduss, "", null)) == null) {
             return null;
         }
         com.baidu.tbadk.core.a.b.b(f);
@@ -87,7 +87,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public List<AccountData> xj() {
+    public List<AccountData> xq() {
         ArrayList arrayList = new ArrayList();
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();

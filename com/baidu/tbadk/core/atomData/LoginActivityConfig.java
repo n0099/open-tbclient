@@ -6,15 +6,11 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class LoginActivityConfig extends IntentConfig {
     public static final String ACCOUNT = "account";
-    public static final String FROM_SHARE_SDK = "from_share_sdk";
     public static final String HAS_EXIT_DIALOG = "has_exit_dialog";
     public static final String INFO = "info";
     public static final String JUMP_AFTER_DESTROY = "jump_after_destroy";
     public static final int JUMP_TO_MAINTAB = 1;
     public static final String LOGIN_TYPE = "login_type";
-    public static final String TYPE_LOGIN = "type_login";
-    public static final int TYPE_LOGIN_MOBILE = 1;
-    public static final int TYPE_LOGIN_NORMAL = 0;
     public static final String USER_INFO_CHANGED = "user_info_changed";
 
     public LoginActivityConfig(Context context, int i, String str, int i2) {

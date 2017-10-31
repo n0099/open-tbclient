@@ -138,7 +138,7 @@ public class BdSocketLinkService extends BdBaseService {
         try {
             return h.hU().hV();
         } catch (Throwable th) {
-            connCallback.e(-1001, "open error");
+            connCallback.e(LINK_ERROR_CODE_CONNECT, "open error");
             BdLog.e(th.getMessage());
             return false;
         }

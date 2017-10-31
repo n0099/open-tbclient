@@ -7,8 +7,8 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends r {
     public a(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(d.l.editor_gift_tab), 22, i);
-        this.aBh = d.g.btn_pb_add_gift;
-        this.aBm = new int[]{36};
+        super(context, TbadkCoreApplication.getInst().getString(d.j.editor_gift_tab), 22, i);
+        this.aBQ = d.f.btn_pb_add_gift;
+        this.aBV = new int[]{36};
     }
 }

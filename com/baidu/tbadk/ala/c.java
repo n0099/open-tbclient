@@ -21,24 +21,24 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener Qz = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener QO = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
                 if (!j.hh()) {
-                    l.showToast(view.getContext(), d.l.no_network_guide);
+                    l.showToast(view.getContext(), d.j.no_network_guide);
                     return;
                 }
                 a aVar = (a) view.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.Qv;
+                AlaUserInfoData alaUserInfoData = aVar.QK;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
-                        alaLiveInfoCoreData.setLiveID(alaUserInfoData.anchor_live);
+                        alaLiveInfoCoreData.liveID = alaUserInfoData.anchor_live;
                     } else if (alaUserInfoData.enter_live != 0) {
-                        alaLiveInfoCoreData.setLiveID(alaUserInfoData.enter_live);
+                        alaLiveInfoCoreData.liveID = alaUserInfoData.enter_live;
                     } else if (alaUserInfoData.live_id != 0) {
-                        alaLiveInfoCoreData.setLiveID(alaUserInfoData.live_id);
+                        alaLiveInfoCoreData.liveID = alaUserInfoData.live_id;
                     } else {
                         return;
                     }
@@ -60,8 +60,9 @@ public class c {
                             if (alaUserInfoData.ala_id != 0) {
                                 TiebaStatic.log(new ak("c11855").ac(SapiAccountManager.SESSION_UID, currentAccount).f("click_uid", alaUserInfoData.ala_id).r("live_status", alaUserInfoData.live_status));
                             }
-                            if (aVar.Qw && !StringUtils.isNull(alaUserInfoData.sex)) {
-                                BdToast.b(view.getContext(), String.format(view.getContext().getString(d.l.person_privacy_toast), alaUserInfoData.sex), d.g.icon_toast_game_error).tj();
+                            TiebaStatic.log(new ak("c12542"));
+                            if (aVar.QL && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                BdToast.b(view.getContext(), String.format(view.getContext().getString(d.j.person_privacy_toast), alaUserInfoData.sex), d.f.icon_toast_game_error).tq();
                                 return;
                             }
                             break;
@@ -72,7 +73,7 @@ public class c {
                     } else if (aVar.type == 7) {
                         str = AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, new AlaLiveRoomActivityConfig(view.getContext(), alaLiveInfoCoreData, str, (String) null, false, "")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, new AlaLiveRoomActivityConfig(view.getContext(), alaLiveInfoCoreData, str, null, false, "")));
                 }
             }
         }
@@ -82,8 +83,8 @@ public class c {
         if (context == null || MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
             return null;
         }
-        TextView textView = (TextView) LayoutInflater.from(context).inflate(d.j.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(Qz);
+        TextView textView = (TextView) LayoutInflater.from(context).inflate(d.h.ala_tail_view_layout, (ViewGroup) null);
+        textView.setOnClickListener(QO);
         return textView;
     }
 }

@@ -8,78 +8,111 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.d;
+import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SelectCoverModel extends BdBaseModel {
-    private final HttpMessageListener eMP;
-    private com.baidu.tieba.video.editvideo.a gvk;
-    private a gvl;
+    private final HttpMessageListener eVJ;
+    private com.baidu.tieba.video.editvideo.a gEn;
+    private a gEo;
+    private final HttpMessageListener gEp;
+    private TbPageContext mPageContext;
 
     public SelectCoverModel(TbPageContext tbPageContext, com.baidu.tieba.video.editvideo.a aVar) {
         super(tbPageContext);
-        this.eMP = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_TEXT_UEG) { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.1
+        this.eVJ = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_TEXT_UEG) { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003356 && (httpResponsedMessage instanceof VideoCheckUegResponseMessage)) {
                     String status = ((VideoCheckUegResponseMessage) httpResponsedMessage).getStatus();
                     if (VideoCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                        SelectCoverModel.this.gvk.aSb();
+                        SelectCoverModel.this.gEn.aVp();
                     } else if (VideoCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                         String msg = ((VideoCheckUegResponseMessage) httpResponsedMessage).getMsg();
                         if (TextUtils.isEmpty(msg)) {
-                            msg = TbadkCoreApplication.getInst().getResources().getString(d.l.video_ueg_fail);
+                            msg = TbadkCoreApplication.getInst().getResources().getString(d.j.video_ueg_fail);
                         }
-                        SelectCoverModel.this.gvk.pb(msg);
+                        SelectCoverModel.this.gEn.pG(msg);
                     } else {
                         String errorString = httpResponsedMessage.getErrorString();
                         if (TextUtils.isEmpty(errorString)) {
-                            errorString = TbadkCoreApplication.getInst().getResources().getString(d.l.video_fail);
+                            errorString = TbadkCoreApplication.getInst().getResources().getString(d.j.video_fail);
                         }
-                        SelectCoverModel.this.gvk.pb(errorString);
+                        SelectCoverModel.this.gEn.pG(errorString);
                     }
                 }
             }
         };
-        this.gvk = aVar;
-        DJ();
-        this.eMP.setTag(getUniqueId());
-        this.eMP.setSelfListener(true);
-        registerListener(this.eMP);
+        this.gEp = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_COVER_PENDANT) { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003377 && (httpResponsedMessage instanceof VideoPendantResponseMessage) && ((VideoPendantResponseMessage) httpResponsedMessage).pendantDatas != null) {
+                    SelectCoverModel.this.gEn.dB(((VideoPendantResponseMessage) httpResponsedMessage).pendantDatas);
+                }
+            }
+        };
+        this.mPageContext = tbPageContext;
+        this.gEn = aVar;
+        DY();
+        this.eVJ.setTag(getUniqueId());
+        this.eVJ.setSelfListener(true);
+        registerListener(this.eVJ);
+        this.gEp.setTag(getUniqueId());
+        this.gEp.setSelfListener(true);
+        registerListener(this.gEp);
     }
 
-    private void DJ() {
+    private void DY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_TEXT_UEG, TbConfig.SERVER_ADDRESS + "c/f/video/next");
         tbHttpMessageTask.setResponsedClass(VideoCheckUegResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_COVER_PENDANT, TbConfig.SERVER_ADDRESS + "c/f/video/pendant");
+        tbHttpMessageTask2.setResponsedClass(VideoPendantResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public void pf(String str) {
+    public void byV() {
+        if (!j.hh()) {
+            this.mPageContext.showToast(d.j.no_network);
+        } else {
+            sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_COVER_PENDANT));
+        }
+    }
+
+    public void pK(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
         httpMessage.addParam("text", str);
         sendMessage(httpMessage);
     }
 
-    public void aA(String str, int i) {
-        this.gvl = new a(str, i);
-        this.gvl.execute(new Void[0]);
+    public void aG(String str, int i) {
+        this.gEo = new a(str, i);
+        this.gEo.execute(new Void[0]);
     }
 
     public void b(final Bitmap bitmap, final String str) {
         if (bitmap != null && !TextUtils.isEmpty(str)) {
-            new BdAsyncTask<Void, Integer, String>() { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.2
+            new BdAsyncTask<Void, Integer, String>() { // from class: com.baidu.tieba.video.editvideo.model.SelectCoverModel.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -94,8 +127,8 @@ public class SelectCoverModel extends BdBaseModel {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str2) {
-                    super.onPostExecute((AnonymousClass2) str2);
-                    SelectCoverModel.this.gvk.sy(str2);
+                    super.onPostExecute((AnonymousClass3) str2);
+                    SelectCoverModel.this.gEn.tg(str2);
                 }
             }.execute(new Void[0]);
         }
@@ -136,7 +169,7 @@ public class SelectCoverModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            SelectCoverModel.this.gvk.r(bitmap);
+            SelectCoverModel.this.gEn.r(bitmap);
         }
     }
 
@@ -211,6 +244,45 @@ public class SelectCoverModel extends BdBaseModel {
     }
 
     /* loaded from: classes2.dex */
+    public static class VideoPendantResponseMessage extends JsonHttpResponsedMessage {
+        public List<PendantData> pendantDatas;
+
+        public VideoPendantResponseMessage(int i) {
+            super(i);
+        }
+
+        @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
+        public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+            int statusCode = getStatusCode();
+            int error = getError();
+            if (statusCode == 200 && error == 0 && jSONObject != null) {
+                String optString = jSONObject.optString("data");
+                if (!TextUtils.isEmpty(optString)) {
+                    String optString2 = new JSONObject(optString).optString(IntentConfig.LIST);
+                    if (!TextUtils.isEmpty(optString2)) {
+                        JSONArray jSONArray = new JSONArray(optString2);
+                        this.pendantDatas = new ArrayList();
+                        int i2 = 0;
+                        while (true) {
+                            int i3 = i2;
+                            if (i3 < jSONArray.length()) {
+                                PendantData pendantData = (PendantData) OrmObject.objectWithJsonStr(jSONArray.optString(i3), PendantData.class);
+                                if (pendantData != null) {
+                                    pendantData.byP();
+                                    this.pendantDatas.add(pendantData);
+                                }
+                                i2 = i3 + 1;
+                            } else {
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public static class VideoCheckUegResponseMessage extends JsonHttpResponsedMessage {
         private String msg;
         private String status;
@@ -251,10 +323,10 @@ public class SelectCoverModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.eMP);
+        MessageManager.getInstance().unRegisterListener(this.eVJ);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
-        if (this.gvl != null) {
-            this.gvl.cancel();
+        if (this.gEo != null) {
+            this.gEo.cancel();
             return false;
         }
         return false;

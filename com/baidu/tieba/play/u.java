@@ -6,9 +6,9 @@ import tbclient.VideoDesc;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class u {
-    private long cuI;
+    private long cCo;
     private int duration;
-    private String fxJ;
+    private String fGA;
     private String videoMd5;
     private String videoUrl;
 
@@ -18,7 +18,7 @@ public class u {
             String str2 = videoInfo.video_url;
             videoInfo.video_width.toString();
             videoInfo.video_height.toString();
-            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.v.u(videoInfo.video_desc)) {
+            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.v.v(videoInfo.video_desc)) {
                 VideoDesc videoDesc = null;
                 Iterator<VideoDesc> it = videoInfo.video_desc.iterator();
                 while (true) {
@@ -43,17 +43,17 @@ public class u {
                     String str3 = videoDesc.video_width;
                     String str4 = videoDesc.video_height;
                     this.videoUrl = str;
-                    this.cuI = videoInfo.video_length.intValue();
+                    this.cCo = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.fxJ = videoInfo.video_width + "x" + videoInfo.video_height;
+                    this.fGA = videoInfo.video_width + "x" + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
             str = str2;
             this.videoUrl = str;
-            this.cuI = videoInfo.video_length.intValue();
+            this.cCo = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.fxJ = videoInfo.video_width + "x" + videoInfo.video_height;
+            this.fGA = videoInfo.video_width + "x" + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -68,15 +68,15 @@ public class u {
         }
     }
 
-    public long bew() {
-        return this.cuI;
+    public long bhI() {
+        return this.cCo;
     }
 
     public int getDuration() {
         return this.duration;
     }
 
-    public String bex() {
-        return this.fxJ;
+    public String bhJ() {
+        return this.fGA;
     }
 }

@@ -11,6 +11,6 @@ public class i extends Thread {
         xVar.n("st_type", TbConfig.ST_TYPE_ENTER_FORE);
         xVar.n("os_version", Build.VERSION.RELEASE);
         xVar.n("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-        xVar.ui();
+        xVar.up();
     }
 }

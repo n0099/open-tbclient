@@ -25,34 +25,34 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void init() {
         super.init();
-        setTextSize(0, l.f(getContext(), d.f.ds26));
-        setCompoundDrawablePadding(l.f(getContext(), d.f.ds6));
+        setTextSize(0, l.f(getContext(), d.e.ds26));
+        setCompoundDrawablePadding(l.f(getContext(), d.e.ds6));
         setGravity(5);
         setGravity(16);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
-    public void aO(boolean z) {
-        this.aox = z;
+    public void aM(boolean z) {
+        this.aoT = z;
         if (z) {
             setClickable(false);
-            setText(this.aov);
+            setText(this.aoR);
         } else {
             setClickable(true);
-            setText(this.aow);
+            setText(this.aoS);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.aox) {
+        if (this.aoT) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            aj.i(this, d.e.cp_cont_d);
+            aj.i(this, d.C0080d.cp_cont_d);
             setBackgroundDrawable(null);
             return;
         }
-        setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.g.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-        aj.i(this, d.e.btn_forum_focus_color);
+        setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+        aj.i(this, d.C0080d.btn_forum_focus_color);
     }
 }

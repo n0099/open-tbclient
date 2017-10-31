@@ -1,11 +1,11 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface d {
-    boolean eq(String str);
+    boolean ex(String str);
 
     boolean isRecording();
 
-    boolean wW();
+    boolean xd();
 
-    void wX();
+    void xe();
 }

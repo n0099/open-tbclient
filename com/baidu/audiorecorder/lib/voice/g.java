@@ -32,66 +32,66 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.voice.VoiceButton;
 /* loaded from: classes2.dex */
 public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.lib.voice.f, VoiceManager.b, s {
+    private int IL;
+    private long IM;
+    private int JA;
+    private int JB;
+    private int JC;
+    private int JD;
+    private int JE;
+    private int JF;
     private int JG;
-    private i JH;
-    private final int[] JL;
-    private int JM;
-    private int JN;
-    private final int JO;
-    private final int JP;
-    private final int JQ;
-    private final int JR;
-    private final int JS;
-    private int JT;
-    private int JU;
-    private int JV;
-    private int JW;
-    private int JX;
-    private int JY;
-    private int JZ;
+    private final BitmapDrawable JH;
+    private final Paint JI;
+    private final Rect JJ;
+    private final RectF JK;
+    private TextView JL;
+    private TextView JM;
+    private TextView JN;
+    private TextView JO;
+    private VoiceButton JP;
+    private ImageView JQ;
+    private TextView JR;
+    private float JS;
+    private float JT;
+    private f JU;
+    private com.baidu.tbadk.core.dialog.a JV;
+    private long JW;
+    private long JX;
+    private final int[] JY;
+    private final a JZ;
+    private int Ja;
+    private i Jb;
+    private final int[] Jf;
+    private int Jg;
+    private int Jh;
+    private final int Ji;
+    private final int Jj;
+    private final int Jk;
+    private final int Jl;
+    private final int Jm;
+    private int Jn;
+    private int Jo;
+    private int Jp;
+    private int Jq;
+    private int Jr;
     private int Js;
-    private long Jt;
-    private f KA;
-    private com.baidu.tbadk.core.dialog.a KB;
-    private long KC;
-    private long KD;
-    private final int[] KE;
-    private final a KF;
-    private SweepGradient KG;
-    private int KH;
-    private int Ka;
-    private Paint Kb;
-    private Paint Kc;
-    private Paint Kd;
-    private Paint Ke;
-    private int Kf;
-    private int Kg;
-    private int Kh;
-    private int Ki;
-    private int Kj;
-    private int Kk;
-    private int Kl;
-    private int Km;
-    private final BitmapDrawable Kn;
-    private final Paint Ko;
-    private final Rect Kp;
-    private final RectF Kq;
-    private TextView Kr;
-    private TextView Ks;
-    private TextView Kt;
-    private TextView Ku;
-    private VoiceButton Kv;
-    private ImageView Kw;
-    private TextView Kx;
-    private float Ky;
-    private float Kz;
+    private int Jt;
+    private int Ju;
+    private Paint Jv;
+    private Paint Jw;
+    private Paint Jx;
+    private Paint Jy;
+    private int Jz;
+    private SweepGradient Ka;
+    private int Kb;
     private int centerX;
     private int centerY;
     VoiceData.VoiceModel mModel;
 
     static /* synthetic */ int e(g gVar) {
-        int i = gVar.JU;
-        gVar.JU = i + 1;
+        int i = gVar.Jo;
+        gVar.Jo = i + 1;
         return i;
     }
 
@@ -104,24 +104,24 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
-                if (g.this.Kz >= 360.0f) {
-                    g.this.Kz = 360.0f;
-                    g.this.JU = 0;
+                if (g.this.JT >= 360.0f) {
+                    g.this.JT = 360.0f;
+                    g.this.Jo = 0;
                 } else {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    g.this.KC = uptimeMillis;
-                    g.this.KD = uptimeMillis + 200;
-                    g.this.Kz += (((float) (uptimeMillis - g.this.KC)) / 1000.0f) * g.this.Ky;
-                    sendEmptyMessageAtTime(1, g.this.KD);
+                    g.this.JW = uptimeMillis;
+                    g.this.JX = uptimeMillis + 200;
+                    g.this.JT += (((float) (uptimeMillis - g.this.JW)) / 1000.0f) * g.this.JS;
+                    sendEmptyMessageAtTime(1, g.this.JX);
                     g.e(g.this);
                 }
-                g.this.JT = g.this.JU % 6;
+                g.this.Jn = g.this.Jo % 6;
                 g.this.invalidate();
             }
         }
     }
 
-    public static g ai(Context context) {
+    public static g ah(Context context) {
         return new g(context);
     }
 
@@ -131,68 +131,68 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
 
     public g(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Jt = 0L;
-        this.JL = new int[4];
-        this.JT = 0;
-        this.JU = 0;
+        this.IM = 0L;
+        this.Jf = new int[4];
+        this.Jn = 0;
+        this.Jo = 0;
         this.centerX = 0;
         this.centerY = 0;
-        this.JV = 0;
-        this.JW = 0;
-        this.JX = 0;
-        this.JY = 0;
-        this.JZ = 0;
-        this.Ka = 0;
-        this.Kf = -1724676609;
-        this.Kg = 1546880511;
-        this.Kh = 674465279;
-        this.Ki = 255034879;
-        this.Kj = -1725669966;
-        this.Kk = 1545887154;
-        this.Kl = 673471922;
-        this.Km = 254041522;
-        this.Ko = new Paint(1);
-        this.Kp = new Rect();
-        this.Kq = new RectF();
-        this.JG = 0;
-        this.KE = new int[2];
-        this.KF = new a();
+        this.Jp = 0;
+        this.Jq = 0;
+        this.Jr = 0;
         this.Js = 0;
-        this.KH = 0;
-        this.JL[0] = context.getResources().getDimensionPixelSize(d.f.ds24);
-        this.JL[1] = context.getResources().getDimensionPixelSize(d.f.ds8);
-        this.JL[2] = context.getResources().getDimensionPixelSize(d.f.ds22);
-        this.JL[3] = context.getResources().getDimensionPixelSize(d.f.ds36);
-        this.JV = context.getResources().getDimensionPixelSize(d.f.ds134);
-        this.JW = this.JV + context.getResources().getDimensionPixelSize(d.f.ds14);
-        this.JX = this.JW + context.getResources().getDimensionPixelSize(d.f.ds16);
-        this.JY = this.JX + context.getResources().getDimensionPixelSize(d.f.ds18);
+        this.Jt = 0;
+        this.Ju = 0;
+        this.Jz = -1724676609;
+        this.JA = 1546880511;
+        this.JB = 674465279;
+        this.JC = 255034879;
+        this.JD = -1725669966;
+        this.JE = 1545887154;
+        this.JF = 673471922;
+        this.JG = 254041522;
+        this.JI = new Paint(1);
+        this.JJ = new Rect();
+        this.JK = new RectF();
+        this.Ja = 0;
+        this.JY = new int[2];
+        this.JZ = new a();
+        this.IL = 0;
+        this.Kb = 0;
+        this.Jf[0] = context.getResources().getDimensionPixelSize(d.e.ds24);
+        this.Jf[1] = context.getResources().getDimensionPixelSize(d.e.ds8);
+        this.Jf[2] = context.getResources().getDimensionPixelSize(d.e.ds22);
+        this.Jf[3] = context.getResources().getDimensionPixelSize(d.e.ds36);
+        this.Jp = context.getResources().getDimensionPixelSize(d.e.ds134);
+        this.Jq = this.Jp + context.getResources().getDimensionPixelSize(d.e.ds14);
+        this.Jr = this.Jq + context.getResources().getDimensionPixelSize(d.e.ds16);
+        this.Js = this.Jr + context.getResources().getDimensionPixelSize(d.e.ds18);
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         if (displayMetrics.heightPixels == 960 && displayMetrics.widthPixels == 540 && displayMetrics.densityDpi == 240) {
-            this.JZ = (int) TypedValue.applyDimension(1, 31.0f, displayMetrics);
-            this.Ka = (int) TypedValue.applyDimension(1, 93.0f, displayMetrics);
+            this.Jt = (int) TypedValue.applyDimension(1, 31.0f, displayMetrics);
+            this.Ju = (int) TypedValue.applyDimension(1, 93.0f, displayMetrics);
         } else {
-            this.JZ = context.getResources().getDimensionPixelSize(d.f.ds70);
-            this.Ka = context.getResources().getDimensionPixelSize(d.f.ds210);
+            this.Jt = context.getResources().getDimensionPixelSize(d.e.ds70);
+            this.Ju = context.getResources().getDimensionPixelSize(d.e.ds210);
         }
-        this.JM = context.getResources().getDimensionPixelSize(d.f.ds26);
-        this.JN = context.getResources().getDimensionPixelSize(d.f.ds10);
-        this.JO = context.getResources().getDimensionPixelSize(d.f.ds14);
-        this.JP = context.getResources().getDimensionPixelSize(d.f.ds4);
-        this.JQ = context.getResources().getDimensionPixelSize(d.f.ds4);
-        this.JR = context.getResources().getDimensionPixelSize(d.f.ds12);
-        this.JS = context.getResources().getDimensionPixelSize(d.f.ds2);
-        this.Ko.setStyle(Paint.Style.STROKE);
-        this.Ko.setStrokeWidth(this.JR);
-        this.Kn = (BitmapDrawable) getResources().getDrawable(d.g.dot_play_schedule);
+        this.Jg = context.getResources().getDimensionPixelSize(d.e.ds26);
+        this.Jh = context.getResources().getDimensionPixelSize(d.e.ds10);
+        this.Ji = context.getResources().getDimensionPixelSize(d.e.ds14);
+        this.Jj = context.getResources().getDimensionPixelSize(d.e.ds4);
+        this.Jk = context.getResources().getDimensionPixelSize(d.e.ds4);
+        this.Jl = context.getResources().getDimensionPixelSize(d.e.ds12);
+        this.Jm = context.getResources().getDimensionPixelSize(d.e.ds2);
+        this.JI.setStyle(Paint.Style.STROKE);
+        this.JI.setStrokeWidth(this.Jl);
+        this.JH = (BitmapDrawable) getResources().getDrawable(d.f.dot_play_schedule);
         init(context);
     }
 
     public void init(Context context) {
-        aj(context);
-        lU();
-        this.KE[0] = aj.getColor(d.e.common_color_10151);
-        this.KE[1] = aj.getColor(d.e.common_color_10152);
+        ai(context);
+        lO();
+        this.JY[0] = aj.getColor(d.C0080d.common_color_10151);
+        this.JY[1] = aj.getColor(d.C0080d.common_color_10152);
         VoiceManager voiceManager = getVoiceManager();
         if (voiceManager != null) {
             voiceManager.setAllowChangeVoiceMode(false);
@@ -211,68 +211,68 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
             }
         }
         setMeasuredDimension(i3, i4);
-        this.JM = ((i4 - getContext().getResources().getDimensionPixelSize(d.f.ds460)) / 2) + getContext().getResources().getDimensionPixelSize(d.f.ds6);
+        this.Jg = ((i4 - getContext().getResources().getDimensionPixelSize(d.e.ds460)) / 2) + getContext().getResources().getDimensionPixelSize(d.e.ds6);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5 = i3 - i;
-        int measuredWidth = this.Kv.getMeasuredWidth();
-        int measuredHeight = this.Kv.getMeasuredHeight();
-        int measuredWidth2 = this.Ks.getMeasuredWidth();
-        this.Ks.layout((i5 - measuredWidth2) >> 1, this.JM + i2, (measuredWidth2 + i5) >> 1, this.Ks.getMeasuredHeight() + this.JM + i2);
-        int bottom = this.Ks.getBottom();
-        this.Kv.layout((i5 - measuredWidth) >> 1, bottom, (i5 + measuredWidth) >> 1, bottom + measuredHeight);
+        int measuredWidth = this.JP.getMeasuredWidth();
+        int measuredHeight = this.JP.getMeasuredHeight();
+        int measuredWidth2 = this.JM.getMeasuredWidth();
+        this.JM.layout((i5 - measuredWidth2) >> 1, this.Jg + i2, (measuredWidth2 + i5) >> 1, this.JM.getMeasuredHeight() + this.Jg + i2);
+        int bottom = this.JM.getBottom();
+        this.JP.layout((i5 - measuredWidth) >> 1, bottom, (i5 + measuredWidth) >> 1, bottom + measuredHeight);
         int i6 = (i5 - measuredWidth) >> 1;
         this.centerX = (measuredWidth / 2) + i6;
         this.centerY = bottom + (measuredHeight / 2);
-        int measuredWidth3 = this.Ku.getMeasuredWidth();
-        int measuredHeight2 = this.Ku.getMeasuredHeight();
-        int top = this.Kv.getTop();
-        this.Ku.layout((i5 - measuredWidth3) >> 1, top - measuredHeight2, (measuredWidth3 + i5) >> 1, top);
-        int measuredWidth4 = this.Kr.getMeasuredWidth();
-        int measuredHeight3 = this.Kr.getMeasuredHeight();
-        int right = this.Kv.getRight() - this.JN;
-        int bottom2 = this.Kv.getBottom() - this.JO;
-        this.Kr.layout(this.JZ + i6, this.Ka + bottom, measuredWidth4 + i6 + this.JZ, measuredHeight3 + this.Ka + bottom);
-        int measuredWidth5 = this.Kw.getMeasuredWidth();
-        this.Kw.layout((i5 - measuredWidth5) >> 1, bottom, (measuredWidth5 + i5) >> 1, this.Kw.getMeasuredHeight() + bottom);
-        int measuredWidth6 = this.Kx.getMeasuredWidth();
-        this.Kx.layout((i5 - measuredWidth6) >> 1, (this.Kr.getTop() - this.Kx.getMeasuredHeight()) - this.JP, (measuredWidth6 + i5) >> 1, (this.Kr.getTop() + i2) - this.JP);
-        this.Kv.getLeft();
-        this.Kv.getRight();
-        int measuredWidth7 = this.Kt.getMeasuredWidth();
-        int measuredHeight4 = this.Kt.getMeasuredHeight();
-        int bottom3 = this.Kv.getBottom();
-        this.Kt.layout((i5 - measuredWidth7) >> 1, this.JL[3] + bottom3, (measuredWidth7 + i5) >> 1, measuredHeight4 + bottom3 + this.JL[3]);
-        this.Kp.set((i5 - this.Kn.getIntrinsicWidth()) >> 1, this.Kw.getTop() - this.JQ, (i5 + this.Kn.getIntrinsicHeight()) >> 1, (this.Kw.getTop() + this.Kn.getIntrinsicHeight()) - this.JQ);
-        this.Kn.setBounds(this.Kp);
-        this.Kq.set(this.Kw.getLeft() + (this.JR >> 1) + this.JS, this.Kw.getTop() + (this.JR >> 1) + this.JS, (this.Kw.getRight() - (this.JR >> 1)) - this.JS, (this.Kw.getBottom() - (this.JR >> 1)) - this.JS);
-        if (this.KG == null) {
-            this.KG = new SweepGradient(this.Kq.centerX(), this.Kq.centerY(), this.KE, new float[]{0.0f, 0.7f});
+        int measuredWidth3 = this.JO.getMeasuredWidth();
+        int measuredHeight2 = this.JO.getMeasuredHeight();
+        int top = this.JP.getTop();
+        this.JO.layout((i5 - measuredWidth3) >> 1, top - measuredHeight2, (measuredWidth3 + i5) >> 1, top);
+        int measuredWidth4 = this.JL.getMeasuredWidth();
+        int measuredHeight3 = this.JL.getMeasuredHeight();
+        int right = this.JP.getRight() - this.Jh;
+        int bottom2 = this.JP.getBottom() - this.Ji;
+        this.JL.layout(this.Jt + i6, this.Ju + bottom, measuredWidth4 + i6 + this.Jt, measuredHeight3 + this.Ju + bottom);
+        int measuredWidth5 = this.JQ.getMeasuredWidth();
+        this.JQ.layout((i5 - measuredWidth5) >> 1, bottom, (measuredWidth5 + i5) >> 1, this.JQ.getMeasuredHeight() + bottom);
+        int measuredWidth6 = this.JR.getMeasuredWidth();
+        this.JR.layout((i5 - measuredWidth6) >> 1, (this.JL.getTop() - this.JR.getMeasuredHeight()) - this.Jj, (measuredWidth6 + i5) >> 1, (this.JL.getTop() + i2) - this.Jj);
+        this.JP.getLeft();
+        this.JP.getRight();
+        int measuredWidth7 = this.JN.getMeasuredWidth();
+        int measuredHeight4 = this.JN.getMeasuredHeight();
+        int bottom3 = this.JP.getBottom();
+        this.JN.layout((i5 - measuredWidth7) >> 1, this.Jf[3] + bottom3, (measuredWidth7 + i5) >> 1, measuredHeight4 + bottom3 + this.Jf[3]);
+        this.JJ.set((i5 - this.JH.getIntrinsicWidth()) >> 1, this.JQ.getTop() - this.Jk, (i5 + this.JH.getIntrinsicHeight()) >> 1, (this.JQ.getTop() + this.JH.getIntrinsicHeight()) - this.Jk);
+        this.JH.setBounds(this.JJ);
+        this.JK.set(this.JQ.getLeft() + (this.Jl >> 1) + this.Jm, this.JQ.getTop() + (this.Jl >> 1) + this.Jm, (this.JQ.getRight() - (this.Jl >> 1)) - this.Jm, (this.JQ.getBottom() - (this.Jl >> 1)) - this.Jm);
+        if (this.Ka == null) {
+            this.Ka = new SweepGradient(this.JK.centerX(), this.JK.centerY(), this.JY, new float[]{0.0f, 0.7f});
             Matrix matrix = new Matrix();
-            this.KG.getLocalMatrix(matrix);
-            matrix.postRotate(-90.0f, this.Kq.centerX(), this.Kq.centerY());
-            this.KG.setLocalMatrix(matrix);
-            this.Ko.setShader(this.KG);
+            this.Ka.getLocalMatrix(matrix);
+            matrix.postRotate(-90.0f, this.JK.centerX(), this.JK.centerY());
+            this.Ka.setLocalMatrix(matrix);
+            this.JI.setShader(this.Ka);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        f(canvas);
+        e(canvas);
         super.dispatchDraw(canvas);
     }
 
-    private void lO() {
+    private void lI() {
         final com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
-        if (this.KB == null) {
-            this.KB = new com.baidu.tbadk.core.dialog.a(com.baidu.adp.base.i.Y(getContext()).getPageActivity());
-            this.KB.cL(getContext().getString(d.l.voice_restart_tip)).a(getContext().getString(d.l.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.g.2
+        if (this.JV == null) {
+            this.JV = new com.baidu.tbadk.core.dialog.a(com.baidu.adp.base.i.Y(getContext()).getPageActivity());
+            this.JV.cS(getContext().getString(d.j.voice_restart_tip)).a(getContext().getString(d.j.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.g.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    g.this.lQ();
+                    g.this.lK();
                     if (g.this.getVoiceManager() != null && g.this.mModel != null) {
                         if (recorderManager != null) {
                             recorderManager.bJ(g.this.mModel.voiceId);
@@ -280,7 +280,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
                         g.this.mModel = null;
                     }
                 }
-            }).b(getContext().getString(d.l.cancel), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.g.1
+            }).b(getContext().getString(d.j.cancel), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.g.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
@@ -288,7 +288,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
             }).b(com.baidu.adp.base.i.Y(getContext()));
         }
         try {
-            this.KB.tb();
+            this.JV.th();
         } catch (Exception e) {
             if (getVoiceManager() != null && this.mModel != null) {
                 if (recorderManager != null) {
@@ -299,66 +299,66 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
         }
     }
 
-    private void aj(Context context) {
-        LayoutInflater.from(context).inflate(d.j.record_voice_area, (ViewGroup) this, true);
+    private void ai(Context context) {
+        LayoutInflater.from(context).inflate(d.h.record_voice_area, (ViewGroup) this, true);
         setClickable(true);
-        this.Ks = (TextView) findViewById(d.h.tip_error);
-        aj.c(this.Ks, d.e.cp_cont_i, 1);
-        this.Kt = (TextView) findViewById(d.h.tip_operator);
-        this.Ku = (TextView) findViewById(d.h.tip_time_out);
-        this.Kv = (VoiceButton) findViewById(d.h.voice_bnt);
-        this.Kr = (TextView) findViewById(d.h.restart);
-        this.Kw = (ImageView) findViewById(d.h.play_img);
-        this.Kx = (TextView) findViewById(d.h.play_time);
-        this.Kx.setClickable(false);
-        this.Kr.setOnClickListener(this);
-        this.Kw.setOnClickListener(this);
-        this.Kv.setRecorderView(this);
-        lQ();
+        this.JM = (TextView) findViewById(d.g.tip_error);
+        aj.c(this.JM, d.C0080d.cp_cont_i, 1);
+        this.JN = (TextView) findViewById(d.g.tip_operator);
+        this.JO = (TextView) findViewById(d.g.tip_time_out);
+        this.JP = (VoiceButton) findViewById(d.g.voice_bnt);
+        this.JL = (TextView) findViewById(d.g.restart);
+        this.JQ = (ImageView) findViewById(d.g.play_img);
+        this.JR = (TextView) findViewById(d.g.play_time);
+        this.JR.setClickable(false);
+        this.JL.setOnClickListener(this);
+        this.JQ.setOnClickListener(this);
+        this.JP.setRecorderView(this);
+        lK();
     }
 
-    private void lP() {
-        this.Kv.setVisibility(4);
-        this.Kx.setVisibility(0);
-        this.Kr.setVisibility(0);
-        aj.c(this.Kx, d.e.cp_cont_f, 1);
-        aj.c(this.Kr, d.e.cp_cont_f, 1);
-        aj.j(this.Kr, d.g.but_posts_record_again_selector);
-        this.Kw.setVisibility(0);
+    private void lJ() {
+        this.JP.setVisibility(4);
+        this.JR.setVisibility(0);
+        this.JL.setVisibility(0);
+        aj.c(this.JR, d.C0080d.cp_cont_f, 1);
+        aj.c(this.JL, d.C0080d.cp_cont_f, 1);
+        aj.j(this.JL, d.f.but_posts_record_again_selector);
+        this.JQ.setVisibility(0);
         if (this.mModel != null) {
-            this.Kx.setText(VoiceManager.formatVoiceTime(this.mModel.duration));
-            this.Kw.setContentDescription(String.format(getContext().getString(d.l.listen_time), Integer.valueOf(this.mModel.duration)));
-            aj.c(this.Kw, d.g.but_posts_record_play_selector);
+            this.JR.setText(VoiceManager.formatVoiceTime(this.mModel.duration));
+            this.JQ.setContentDescription(String.format(getContext().getString(d.j.listen_time), Integer.valueOf(this.mModel.duration)));
+            aj.c(this.JQ, d.f.but_posts_record_play_selector);
         }
-        aj.c(this.Kt, d.e.cp_cont_c, 1);
-        this.Kt.setText(getContext().getString(d.l.voice_play_tip));
+        aj.c(this.JN, d.C0080d.cp_cont_c, 1);
+        this.JN.setText(getContext().getString(d.j.voice_play_tip));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lQ() {
-        aj.c(this.Kv, d.g.but_posts_record_zero_selector);
-        this.Kv.setVisibility(0);
-        this.JT = 0;
-        this.Kw.setVisibility(4);
-        this.Kx.setVisibility(4);
-        this.Kr.setVisibility(4);
-        this.Ku.setVisibility(4);
-        aj.c(this.Kt, d.e.cp_cont_c, 1);
-        this.Kt.setText(getContext().getString(d.l.voice_record_press_to_record));
+    public void lK() {
+        aj.c(this.JP, d.f.but_posts_record_zero_selector);
+        this.JP.setVisibility(0);
+        this.Jn = 0;
+        this.JQ.setVisibility(4);
+        this.JR.setVisibility(4);
+        this.JL.setVisibility(4);
+        this.JO.setVisibility(4);
+        aj.c(this.JN, d.C0080d.cp_cont_c, 1);
+        this.JN.setText(getContext().getString(d.j.voice_record_press_to_record));
     }
 
     public void reset() {
-        lQ();
+        lK();
         this.mModel = null;
-        this.JT = 0;
+        this.Jn = 0;
     }
 
     public void a(VoiceData.VoiceModel voiceModel) {
         this.mModel = voiceModel;
-        this.Ks.setText("");
-        this.Ks.setVisibility(4);
-        this.JT = 0;
-        lP();
+        this.JM.setText("");
+        this.JM.setVisibility(4);
+        this.Jn = 0;
+        lJ();
         b(new com.baidu.tbadk.editortools.a(10, -1, voiceModel));
         b(new com.baidu.tbadk.editortools.a(2, 6, " "));
     }
@@ -366,8 +366,8 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
     @Override // com.baidu.adp.lib.voice.f
     public void onStartedRecorder(boolean z) {
         if (z) {
-            lQ();
-            this.Kt.setText(getContext().getString(d.l.voice_record_release_to_stop));
+            lK();
+            this.JN.setText(getContext().getString(d.j.voice_record_release_to_stop));
         }
     }
 
@@ -381,25 +381,25 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void b(VoiceData.VoiceModel voiceModel) {
-        if (this.Kw != null && this.Kx != null) {
+        if (this.JQ != null && this.JR != null) {
             switch (voiceModel.voice_status.intValue()) {
                 case 1:
-                    aj.c(this.Kx, d.e.cp_cont_f, 1);
-                    this.Kx.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
-                    aj.c(this.Kw, d.g.but_posts_record_play_selector);
-                    this.Kw.setContentDescription(String.format(getContext().getString(d.l.listen_time), Integer.valueOf(voiceModel.duration)));
-                    this.Kt.setText(getContext().getString(d.l.voice_play_tip));
-                    lS();
+                    aj.c(this.JR, d.C0080d.cp_cont_f, 1);
+                    this.JR.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
+                    aj.c(this.JQ, d.f.but_posts_record_play_selector);
+                    this.JQ.setContentDescription(String.format(getContext().getString(d.j.listen_time), Integer.valueOf(voiceModel.duration)));
+                    this.JN.setText(getContext().getString(d.j.voice_play_tip));
+                    lM();
                     return;
                 case 2:
                 default:
                     return;
                 case 3:
-                    aj.c(this.Kx, d.e.cp_cont_f, 1);
-                    aj.c(this.Kw, d.g.but_posts_record_stop_selector);
-                    this.Kw.setContentDescription(getContext().getString(d.l.pause_load));
-                    this.Kt.setText(getContext().getString(d.l.voice_stop_tip));
-                    lR();
+                    aj.c(this.JR, d.C0080d.cp_cont_f, 1);
+                    aj.c(this.JQ, d.f.but_posts_record_stop_selector);
+                    this.JQ.setContentDescription(getContext().getString(d.j.pause_load));
+                    this.JN.setText(getContext().getString(d.j.voice_stop_tip));
+                    lL();
                     return;
             }
         }
@@ -407,57 +407,57 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
 
     @Override // com.baidu.adp.lib.voice.f
     public void onShowErr(int i, String str) {
-        aj.c(this.Ku, d.e.cp_cont_i, 1);
-        aj.c(this.Ks, d.e.cp_cont_i, 1);
-        aj.c(this.Kt, d.e.cp_cont_c, 1);
+        aj.c(this.JO, d.C0080d.cp_cont_i, 1);
+        aj.c(this.JM, d.C0080d.cp_cont_i, 1);
+        aj.c(this.JN, d.C0080d.cp_cont_c, 1);
         if (!StringUtils.isNull(str)) {
             if (i == 3) {
-                this.Ku.setVisibility(0);
-                this.Ku.setText(str);
+                this.JO.setVisibility(0);
+                this.JO.setText(str);
                 postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.g.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (g.this.Ku != null) {
-                            g.this.Ku.setVisibility(4);
-                            g.this.Ku.setText("");
+                        if (g.this.JO != null) {
+                            g.this.JO.setVisibility(4);
+                            g.this.JO.setText("");
                         }
                     }
                 }, 2000L);
             } else if (i == 2) {
-                this.Ks.setVisibility(0);
-                this.Ks.setText(str);
-                this.Kt.setText(d.l.voice_record_press_to_record);
+                this.JM.setVisibility(0);
+                this.JM.setText(str);
+                this.JN.setText(d.j.voice_record_press_to_record);
                 postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.g.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (g.this.Ks != null) {
-                            g.this.Ks.setVisibility(4);
-                            g.this.Ks.setText("");
+                        if (g.this.JM != null) {
+                            g.this.JM.setVisibility(4);
+                            g.this.JM.setText("");
                         }
                     }
                 }, 2000L);
             } else if (i == 5) {
-                this.Ks.setVisibility(0);
-                this.Ks.setText(str);
+                this.JM.setVisibility(0);
+                this.JM.setText(str);
                 postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.g.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (g.this.Ks != null) {
-                            g.this.Ks.setVisibility(4);
-                            g.this.Ks.setText("");
+                        if (g.this.JM != null) {
+                            g.this.JM.setVisibility(4);
+                            g.this.JM.setText("");
                         }
                     }
                 }, 2000L);
             } else {
-                lQ();
-                this.Ks.setVisibility(0);
-                this.Ks.setText(str);
+                lK();
+                this.JM.setVisibility(0);
+                this.JM.setText(str);
                 postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.g.6
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (g.this.Ks != null) {
-                            g.this.Ks.setVisibility(4);
-                            g.this.Ks.setText("");
+                        if (g.this.JM != null) {
+                            g.this.JM.setVisibility(4);
+                            g.this.JM.setText("");
                         }
                     }
                 }, 2000L);
@@ -467,7 +467,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
 
     @Override // com.baidu.adp.lib.voice.f
     public void onSendVoice(String str, int i) {
-        this.Ks.setVisibility(4);
+        this.JM.setVisibility(4);
         VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
         voiceModel.duration = i;
         voiceModel.isLocal = true;
@@ -485,65 +485,65 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
 
     @Override // com.baidu.adp.lib.voice.f
     public void onShowRecordTime(int i) {
-        aj.c(this.Ks, d.e.cp_cont_i, 1);
-        this.Ks.setVisibility(0);
-        this.Ks.setText(VoiceManager.formatVoiceTime(i));
+        aj.c(this.JM, d.C0080d.cp_cont_i, 1);
+        this.JM.setVisibility(0);
+        this.JM.setText(VoiceManager.formatVoiceTime(i));
     }
 
     @Override // com.baidu.adp.lib.voice.f
     public void onShowRecording(int i) {
-        this.Js = Math.max(i, this.Js);
+        this.IL = Math.max(i, this.IL);
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (uptimeMillis - this.Jt > 200) {
-            this.Js = 0;
-            this.Jt = uptimeMillis;
+        if (uptimeMillis - this.IM > 200) {
+            this.IL = 0;
+            this.IM = uptimeMillis;
         }
-        if (this.Js < 10) {
-            this.JT = 1;
+        if (this.IL < 10) {
+            this.Jn = 1;
             invalidate();
-        } else if (this.Js < 20) {
-            this.JT = 2;
+        } else if (this.IL < 20) {
+            this.Jn = 2;
             invalidate();
-        } else if (this.Js < 30) {
-            this.JT = 3;
+        } else if (this.IL < 30) {
+            this.Jn = 3;
             invalidate();
-        } else if (this.Js < 40) {
-            this.JT = 4;
+        } else if (this.IL < 40) {
+            this.Jn = 4;
             invalidate();
         } else {
-            this.JT = 5;
+            this.Jn = 5;
             invalidate();
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
-    public void aS(int i) {
-        if (this.mModel != null && this.Kx != null) {
+    public void aR(int i) {
+        if (this.mModel != null && this.JR != null) {
             int i2 = i / 1000;
-            if (this.KH != i2) {
-                this.Kx.setText(VoiceManager.formatVoiceTime(this.mModel.duration - i2));
+            if (this.Kb != i2) {
+                this.JR.setText(VoiceManager.formatVoiceTime(this.mModel.duration - i2));
             }
-            this.KH = i2;
+            this.Kb = i2;
         }
     }
 
-    private void lR() {
+    private void lL() {
         if (this.mModel != null) {
-            this.JT = 0;
-            this.Ky = 360.0f / (this.mModel.duration2 > 0 ? this.mModel.duration2 / 1000.0f : this.mModel.duration);
-            this.KC = SystemClock.uptimeMillis();
-            this.KD = this.KC + 200;
-            this.KF.sendEmptyMessageAtTime(1, this.KD);
+            this.Jn = 0;
+            this.JS = 360.0f / (this.mModel.duration2 > 0 ? this.mModel.duration2 / 1000.0f : this.mModel.duration);
+            this.JW = SystemClock.uptimeMillis();
+            this.JX = this.JW + 200;
+            this.JZ.sendEmptyMessageAtTime(1, this.JX);
             invalidate();
         }
     }
 
-    private void lS() {
-        this.JT = 0;
-        this.JU = 0;
-        this.Ky = 0.0f;
-        this.Kz = 0.0f;
-        this.KF.removeMessages(1);
+    private void lM() {
+        this.Jn = 0;
+        this.Jo = 0;
+        this.JS = 0.0f;
+        this.JT = 0.0f;
+        this.JZ.removeMessages(1);
         ((ViewGroup) getParent()).invalidate();
     }
 
@@ -568,10 +568,10 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
         VoiceManager voiceManager;
         if (view != null && (voiceManager = getVoiceManager()) != null) {
             int id = view.getId();
-            if (id == d.h.restart) {
+            if (id == d.g.restart) {
                 voiceManager.stopPlay();
-                lO();
-            } else if (id == d.h.play_img && this.mModel != null) {
+                lI();
+            } else if (id == d.g.play_img && this.mModel != null) {
                 if (this.mModel.voice_status.intValue() == 3) {
                     voiceManager.stopPlay();
                 } else if (this.mModel.voice_status.intValue() == 1) {
@@ -608,7 +608,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
     }
 
     public void setCallback(f fVar) {
-        this.KA = fVar;
+        this.JU = fVar;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -617,54 +617,54 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
-    public void lT() {
+    public void lN() {
     }
 
-    public void lU() {
-        this.Kb = new Paint();
-        this.Kb.setAntiAlias(true);
-        this.Kb.setStyle(Paint.Style.STROKE);
-        this.Kb.setStrokeWidth(2.0f);
-        this.Kc = new Paint();
-        this.Kc.setAntiAlias(true);
-        this.Kc.setStyle(Paint.Style.STROKE);
-        this.Kc.setStrokeWidth(2.0f);
-        this.Kd = new Paint();
-        this.Kd.setAntiAlias(true);
-        this.Kd.setStyle(Paint.Style.STROKE);
-        this.Kd.setStrokeWidth(2.0f);
-        this.Ke = new Paint();
-        this.Ke.setAntiAlias(true);
-        this.Ke.setStyle(Paint.Style.STROKE);
-        this.Ke.setStrokeWidth(2.0f);
+    public void lO() {
+        this.Jv = new Paint();
+        this.Jv.setAntiAlias(true);
+        this.Jv.setStyle(Paint.Style.STROKE);
+        this.Jv.setStrokeWidth(2.0f);
+        this.Jw = new Paint();
+        this.Jw.setAntiAlias(true);
+        this.Jw.setStyle(Paint.Style.STROKE);
+        this.Jw.setStrokeWidth(2.0f);
+        this.Jx = new Paint();
+        this.Jx.setAntiAlias(true);
+        this.Jx.setStyle(Paint.Style.STROKE);
+        this.Jx.setStrokeWidth(2.0f);
+        this.Jy = new Paint();
+        this.Jy.setAntiAlias(true);
+        this.Jy.setStyle(Paint.Style.STROKE);
+        this.Jy.setStrokeWidth(2.0f);
     }
 
-    public void f(Canvas canvas) {
+    public void e(Canvas canvas) {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.Kb.setColor(this.Kj);
-            this.Kc.setColor(this.Kk);
-            this.Kd.setColor(this.Kl);
-            this.Ke.setColor(this.Km);
+            this.Jv.setColor(this.JD);
+            this.Jw.setColor(this.JE);
+            this.Jx.setColor(this.JF);
+            this.Jy.setColor(this.JG);
         } else {
-            this.Kb.setColor(this.Kf);
-            this.Kc.setColor(this.Kg);
-            this.Kd.setColor(this.Kh);
-            this.Ke.setColor(this.Ki);
+            this.Jv.setColor(this.Jz);
+            this.Jw.setColor(this.JA);
+            this.Jx.setColor(this.JB);
+            this.Jy.setColor(this.JC);
         }
-        if (this.JT == 2) {
-            canvas.drawCircle(this.centerX, this.centerY, this.JV, this.Kb);
-        } else if (this.JT == 3) {
-            canvas.drawCircle(this.centerX, this.centerY, this.JV, this.Kb);
-            canvas.drawCircle(this.centerX, this.centerY, this.JW, this.Kc);
-        } else if (this.JT == 4) {
-            canvas.drawCircle(this.centerX, this.centerY, this.JV, this.Kb);
-            canvas.drawCircle(this.centerX, this.centerY, this.JW, this.Kc);
-            canvas.drawCircle(this.centerX, this.centerY, this.JX, this.Kd);
-        } else if (this.JT == 5) {
-            canvas.drawCircle(this.centerX, this.centerY, this.JV, this.Kb);
-            canvas.drawCircle(this.centerX, this.centerY, this.JW, this.Kc);
-            canvas.drawCircle(this.centerX, this.centerY, this.JX, this.Kd);
-            canvas.drawCircle(this.centerX, this.centerY, this.JY, this.Ke);
+        if (this.Jn == 2) {
+            canvas.drawCircle(this.centerX, this.centerY, this.Jp, this.Jv);
+        } else if (this.Jn == 3) {
+            canvas.drawCircle(this.centerX, this.centerY, this.Jp, this.Jv);
+            canvas.drawCircle(this.centerX, this.centerY, this.Jq, this.Jw);
+        } else if (this.Jn == 4) {
+            canvas.drawCircle(this.centerX, this.centerY, this.Jp, this.Jv);
+            canvas.drawCircle(this.centerX, this.centerY, this.Jq, this.Jw);
+            canvas.drawCircle(this.centerX, this.centerY, this.Jr, this.Jx);
+        } else if (this.Jn == 5) {
+            canvas.drawCircle(this.centerX, this.centerY, this.Jp, this.Jv);
+            canvas.drawCircle(this.centerX, this.centerY, this.Jq, this.Jw);
+            canvas.drawCircle(this.centerX, this.centerY, this.Jr, this.Jx);
+            canvas.drawCircle(this.centerX, this.centerY, this.Js, this.Jy);
         }
     }
 
@@ -677,13 +677,13 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
     }
 
     @Override // com.baidu.tbadk.editortools.s
-    public void lM() {
+    public void lG() {
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public int getToolId() {
-        return this.JG;
+        return this.Ja;
     }
 
     @Override // com.baidu.tbadk.editortools.s
@@ -697,19 +697,19 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
 
     @Override // com.baidu.tbadk.editortools.s
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.JH != null) {
-            this.JH.b(aVar);
+        if (this.Jb != null) {
+            this.Jb.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setEditorTools(i iVar) {
-        this.JH = iVar;
+        this.Jb = iVar;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setToolId(int i) {
-        this.JG = i;
+        this.Ja = i;
     }
 
     @Override // com.baidu.tbadk.editortools.s

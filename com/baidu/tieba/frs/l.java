@@ -6,10 +6,10 @@ import com.baidu.adp.widget.ListView.j;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class l extends j.a {
-    public TextView csd;
+    public TextView czA;
 
     public l(View view) {
         super(view);
-        this.csd = (TextView) view.findViewById(d.h.no_data_tips);
+        this.czA = (TextView) view.findViewById(d.g.no_data_tips);
     }
 }

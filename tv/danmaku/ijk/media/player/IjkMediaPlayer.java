@@ -18,7 +18,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.play.b.a;
+import com.baidu.tieba.play.c.a;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -802,7 +802,8 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         return;
                     }
                 case IjkMediaPlayer.MEDIA_ERROR_LOG /* 400 */:
-                    a.bI(message.arg1, message.arg2);
+                    a.bK(message.arg1, message.arg2);
+                    ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2);
                     return;
                 case IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND /* 10001 */:
                     ijkMediaPlayer.mVideoSarNum = message.arg1;

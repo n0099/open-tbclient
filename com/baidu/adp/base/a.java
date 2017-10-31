@@ -1,11 +1,13 @@
 package com.baidu.adp.base;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
     private static ArrayList<SoftReference<Activity>> mJ;
@@ -142,26 +144,50 @@ public final class a {
     }
 
     public String ce() {
-        Activity activity;
+        ActivityManager activityManager;
+        List<ActivityManager.RunningTaskInfo> runningTasks;
         String str;
+        Activity activity;
+        String str2;
         if (mJ == null || mJ.size() == 0) {
+            try {
+                if (BdBaseApplication.getInst() != null && (activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService("activity")) != null && (runningTasks = activityManager.getRunningTasks(1)) != null && runningTasks.size() > 0) {
+                    StringBuilder sb = new StringBuilder();
+                    for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
+                        if (runningTaskInfo != null) {
+                            String str3 = runningTaskInfo.topActivity != null ? "top:" + runningTaskInfo.topActivity.getClassName() : "";
+                            if (runningTaskInfo.baseActivity != null) {
+                                str3 = str3 + "&base:" + runningTaskInfo.baseActivity.getClassName();
+                            }
+                            str = str3 + "&numbers:" + runningTaskInfo.numActivities;
+                        } else {
+                            str = "";
+                        }
+                        if (!StringUtils.isNull(str)) {
+                            sb.append(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                        }
+                    }
+                    return sb.toString();
+                }
+            } catch (Exception e) {
+            }
             return "";
         }
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
         Iterator<SoftReference<Activity>> it = mJ.iterator();
         while (it.hasNext()) {
             SoftReference<Activity> next = it.next();
             if (next != null && (activity = next.get()) != null) {
                 if (activity == null || activity.getClass() == null) {
-                    str = "";
+                    str2 = "";
                 } else {
-                    str = activity.getClass().getSimpleName();
+                    str2 = activity.getClass().getSimpleName();
                 }
-                if (!StringUtils.isNull(str)) {
-                    sb.append(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                if (!StringUtils.isNull(str2)) {
+                    sb2.append(str2 + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 }
             }
         }
-        return sb.toString();
+        return sb2.toString();
     }
 }

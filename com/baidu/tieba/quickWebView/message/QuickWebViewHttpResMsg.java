@@ -52,10 +52,10 @@ public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
                     sb.append('\\');
                     sb.append(charAt);
                     break;
-                case d.n.View_filterTouchesWhenObscured /* 39 */:
+                case d.l.View_filterTouchesWhenObscured /* 39 */:
                     sb.append("\\'");
                     break;
-                case d.n.View_contentDescription /* 47 */:
+                case d.l.View_contentDescription /* 47 */:
                     sb.append('\\');
                     sb.append(charAt);
                     break;

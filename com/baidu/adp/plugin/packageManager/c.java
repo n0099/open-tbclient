@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c DA;
-    private a DB;
-    private ArrayList<String> Dp = new ArrayList<>();
+    private static volatile c Dl;
+    private ArrayList<String> Da = new ArrayList<>();
+    private a Dm;
 
-    public static c jt() {
-        if (DA == null) {
+    public static c jq() {
+        if (Dl == null) {
             synchronized (c.class) {
-                if (DA == null) {
-                    DA = new c();
+                if (Dl == null) {
+                    Dl = new c();
                 }
             }
         }
-        return DA;
+        return Dl;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.Dp.iterator();
+            Iterator<String> it = this.Da.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,17 +45,17 @@ public class c {
                 }
             }
             if (!z) {
-                this.Dp.add(pluginSetting.packageName);
+                this.Da.add(pluginSetting.packageName);
             }
-            jp();
+            jm();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jp() {
-        if (this.Dp.size() > 0 && this.DB == null) {
-            this.DB = new a(this.Dp.get(0));
-            this.DB.execute(new String[0]);
+    public void jm() {
+        if (this.Da.size() > 0 && this.Dm == null) {
+            this.Dm = new a(this.Da.get(0));
+            this.Dm.execute(new String[0]);
         }
     }
 
@@ -83,36 +83,36 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.DB = null;
-            if (c.this.Dp.size() > 0) {
-                Iterator it = c.this.Dp.iterator();
+            c.this.Dm = null;
+            if (c.this.Da.size() > 0) {
+                Iterator it = c.this.Da.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.Dp.remove(str);
+                        c.this.Da.remove(str);
                         break;
                     }
                 }
             }
-            c.this.jp();
+            c.this.jm();
         }
 
         private void bh(String str) {
             File[] listFiles;
-            File ki = Util.ki();
+            File kf = Util.kf();
             String bH = Util.bH(str);
-            if (ki != null && ki.exists() && (listFiles = ki.listFiles()) != null) {
+            if (kf != null && kf.exists() && (listFiles = kf.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
                     if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bH)) {
                         try {
                             f.j(listFiles[i]);
-                            com.baidu.adp.plugin.b.a.ji().c("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
+                            com.baidu.adp.plugin.b.a.jf().c("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
                         } catch (Throwable th) {
-                            com.baidu.adp.plugin.b.a.ji().d("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
+                            com.baidu.adp.plugin.b.a.jf().d("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
                         }
                     }
                 }

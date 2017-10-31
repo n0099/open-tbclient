@@ -9,20 +9,20 @@ import com.baidu.tbadk.core.data.p;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<p, d> {
-    public boolean amP;
+    public boolean ank;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.amP = false;
+        this.ank = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aX */
+    /* renamed from: bm */
     public d onCreateViewHolder(ViewGroup viewGroup) {
-        d dVar = new d(LayoutInflater.from(this.mContext).inflate(d.j.pb_declare_area, (ViewGroup) null), this.mContext);
-        dVar.amP = this.amP;
+        d dVar = new d(LayoutInflater.from(this.mContext).inflate(d.h.pb_declare_area, (ViewGroup) null), this.mContext);
+        dVar.ank = this.ank;
         return dVar;
     }
 

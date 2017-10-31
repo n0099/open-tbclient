@@ -6,35 +6,35 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class ITrafficStatsNativeManager extends OrmObject {
-    private static volatile ITrafficStatsNativeManager EY = null;
-    private static ArrayList<a> EZ = new ArrayList<>();
+    private static volatile ITrafficStatsNativeManager EJ = null;
+    private static ArrayList<a> EK = new ArrayList<>();
 
     public abstract void a(String str, long j, long j2, String str2);
 
-    public static ITrafficStatsNativeManager kk() {
-        if (EY == null) {
+    public static ITrafficStatsNativeManager kh() {
+        if (EJ == null) {
             BdLog.e("trafficStatsManaer");
-            EY = new ITrafficStatsNativeManager() { // from class: com.baidu.adp.trafficStats.ITrafficStatsNativeManager.1
+            EJ = new ITrafficStatsNativeManager() { // from class: com.baidu.adp.trafficStats.ITrafficStatsNativeManager.1
                 @Override // com.baidu.adp.trafficStats.ITrafficStatsNativeManager
                 public void a(String str, long j, long j2, String str2) {
-                    if (ITrafficStatsNativeManager.EZ.size() < 30) {
-                        ITrafficStatsNativeManager.EZ.add(new a(str, j, j2, str2));
+                    if (ITrafficStatsNativeManager.EK.size() < 30) {
+                        ITrafficStatsNativeManager.EK.add(new a(str, j, j2, str2));
                     }
                 }
             };
         }
-        return EY;
+        return EJ;
     }
 
     public static void a(ITrafficStatsNativeManager iTrafficStatsNativeManager) {
-        EY = iTrafficStatsNativeManager;
-        if (EY != null) {
-            Iterator<a> it = EZ.iterator();
+        EJ = iTrafficStatsNativeManager;
+        if (EJ != null) {
+            Iterator<a> it = EK.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                EY.a(next.contentType, next.Fa, next.Fb, next.url);
+                EJ.a(next.contentType, next.EL, next.EM, next.url);
             }
-            EZ.clear();
+            EK.clear();
         }
     }
 
@@ -44,15 +44,15 @@ public abstract class ITrafficStatsNativeManager extends OrmObject {
 
     /* loaded from: classes.dex */
     class a {
-        public long Fa;
-        public long Fb;
+        public long EL;
+        public long EM;
         public String contentType;
         public String url;
 
         public a(String str, long j, long j2, String str2) {
             this.contentType = str;
-            this.Fa = j;
-            this.Fb = j2;
+            this.EL = j;
+            this.EM = j2;
             this.url = str2;
         }
     }

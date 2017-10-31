@@ -1,52 +1,31 @@
 package com.baidu.tbadk.i;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.f;
-import com.baidu.adp.widget.ListView.j;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.view.HeadImageViewGroup;
-import com.baidu.tieba.d;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class a extends j.a {
-    public HeadImageViewGroup aEx;
-    private f aEy;
-    public TextView mName;
-    private View.OnClickListener mOnClickListener;
-    private int mSkinType;
+public class a implements b {
+    private b aFf;
 
-    public a(View view) {
-        super(view);
-        this.mSkinType = 3;
-        View findViewById = view.findViewById(d.h.add_pic_root);
-        this.mName = (TextView) findViewById.findViewById(d.h.name_tv);
-        this.aEx = (HeadImageViewGroup) findViewById.findViewById(d.h.img);
-    }
-
-    public void c(f fVar) {
-        if (fVar instanceof com.baidu.tbadk.data.c) {
-            this.aEy = fVar;
-            this.aEx.getInnerImg().setIsRound(true);
-            this.aEx.getInnerImg().setVisibility(0);
-            this.aEx.getInnerImg().setTag(null);
-            this.aEx.getInnerImg().setImageResource(d.g.btn_story_release);
-            this.aEx.setOuterColor(d.e.cp_link_tip_g);
-            this.mName.setText(((com.baidu.tbadk.data.c) fVar).getName());
-            this.aEx.setOnClickListener(this.mOnClickListener);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    public a(TbPageContext<?> tbPageContext) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOD_RECOMMEND_CONTROLLER, b.class, tbPageContext);
+        if (runTask != null && runTask.getData() != null) {
+            this.aFf = (b) runTask.getData();
         }
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            aj.c(this.mName, d.e.cp_cont_f, 1);
-            this.aEx.onChangeSkinType(i);
-            this.mSkinType = i;
+    @Override // com.baidu.tbadk.i.b
+    public void gf(String str) {
+        if (this.aFf != null) {
+            this.aFf.gf(str);
         }
     }
 
-    public void setOnClick(View.OnClickListener onClickListener) {
-        this.mOnClickListener = onClickListener;
+    @Override // com.baidu.tbadk.i.b
+    public void destory() {
+        if (this.aFf != null) {
+            this.aFf.destory();
+        }
     }
 }

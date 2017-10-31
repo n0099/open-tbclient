@@ -1,44 +1,99 @@
 package com.baidu.tbadk.core.dialog;
+
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tieba.d;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class f {
-    private boolean checked;
-    private String desc;
-    private String tag;
-    private String tip;
+public class f extends BaseAdapter {
+    private TbPageContext<?> abI;
+    private ArrayList<g> acc = new ArrayList<>();
 
-    public f() {
+    public f(TbPageContext<?> tbPageContext) {
+        this.abI = tbPageContext;
     }
 
-    public f(String str, String str2, boolean z) {
-        this.tip = str;
-        this.desc = str2;
-        this.checked = z;
+    public void setData(ArrayList<g> arrayList) {
+        this.acc = arrayList;
+        notifyDataSetChanged();
     }
 
-    public f(String str, String str2, boolean z, String str3) {
-        this.tip = str;
-        this.desc = str2;
-        this.checked = z;
-        this.tag = str3;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return this.acc.size();
     }
 
-    public String tk() {
-        return this.tip;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return this.acc.get(i);
     }
 
-    public String getDesc() {
-        return this.desc;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
     }
 
-    public boolean isChecked() {
-        return this.checked;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        g gVar = this.acc.get(i);
+        if (gVar == null) {
+            return null;
+        }
+        if (view == null) {
+            view = LayoutInflater.from(this.abI.getPageActivity()).inflate(d.h.dialog_rich_bdlist_item, viewGroup, false);
+            a aVar2 = new a();
+            aVar2.acd = (TextView) view.findViewById(d.g.text_tip);
+            aVar2.ace = (TextView) view.findViewById(d.g.text_desc);
+            aVar2.acf = (CheckBox) view.findViewById(d.g.checked_icon);
+            aVar2.divider = view.findViewById(d.g.line);
+            aVar = aVar2;
+        } else {
+            aVar = (a) view.getTag();
+        }
+        aVar.acd.setText(gVar.tr());
+        if (StringUtils.isNull(gVar.getDesc())) {
+            aVar.ace.setVisibility(8);
+        } else {
+            aVar.ace.setText(gVar.getDesc());
+            aVar.ace.setVisibility(0);
+        }
+        aVar.acf.setChecked(gVar.isChecked());
+        aVar.acf.setButtonDrawable(gVar.isChecked() ? aj.getDrawable(d.f.icon_set_list_ok_s) : new ColorDrawable(d.C0080d.common_color_10022));
+        if (ct(i)) {
+            aVar.divider.setVisibility(8);
+            aj.j(view, d.f.dialog_single_button_bg_selector);
+        } else {
+            aVar.divider.setVisibility(0);
+            aj.j(view, d.f.dialg_alert_btn_bg);
+        }
+        view.setTag(aVar);
+        this.abI.getLayoutMode().ag(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.abI.getLayoutMode().t(view);
+        return view;
     }
 
-    public void setChecked(boolean z) {
-        this.checked = z;
+    private boolean ct(int i) {
+        return this.acc != null && i == this.acc.size() + (-1);
     }
 
-    public String getTag() {
-        return this.tag;
+    /* loaded from: classes.dex */
+    private class a {
+        TextView acd;
+        TextView ace;
+        CheckBox acf;
+        View divider;
+
+        private a() {
+        }
     }
 }

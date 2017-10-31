@@ -13,27 +13,27 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a EG;
-    private final LinkedHashMap<String, PluginStatus> EH = new LinkedHashMap<>(10);
+    private static a Er;
+    private final LinkedHashMap<String, PluginStatus> Es = new LinkedHashMap<>(10);
 
     private a() {
     }
 
-    public static a ke() {
-        if (EG == null) {
+    public static a kb() {
+        if (Er == null) {
             synchronized (a.class) {
-                if (EG == null) {
-                    EG = new a();
+                if (Er == null) {
+                    Er = new a();
                 }
             }
         }
-        return EG;
+        return Er;
     }
 
     public void bD(String str) {
-        PluginStatus bE = ke().bE(str);
+        PluginStatus bE = kb().bE(str);
         if (bE != null) {
-            bE.ED = PluginPackageManager.PluginStatus.NROMAL;
+            bE.Eo = PluginPackageManager.PluginStatus.NROMAL;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, bE));
     }
@@ -80,11 +80,11 @@ public class a {
         if (bE == null) {
             bE = new PluginStatus();
         }
-        bE.ED = PluginPackageManager.PluginStatus.ERROR;
+        bE.Eo = PluginPackageManager.PluginStatus.ERROR;
         bE.errorMsg = string;
-        bE.EE = string2;
+        bE.Ep = string2;
         bE.errorCode = i;
-        bE.EF = false;
+        bE.Eq = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, bE));
     }
 
@@ -93,20 +93,20 @@ public class a {
         if (bE == null) {
             bE = new PluginStatus();
         }
-        bE.ED = PluginPackageManager.PluginStatus.ERROR;
+        bE.Eo = PluginPackageManager.PluginStatus.ERROR;
         bE.errorCode = 100;
         bE.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-        bE.EE = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+        bE.Ep = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bE));
     }
 
-    public List<PluginStatus> kf() {
+    public List<PluginStatus> kc() {
         ArrayList arrayList;
         PluginStatus value;
-        synchronized (this.EH) {
-            arrayList = new ArrayList(this.EH.size());
-            for (Map.Entry<String, PluginStatus> entry : this.EH.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null && value.ED == PluginPackageManager.PluginStatus.ERROR) {
+        synchronized (this.Es) {
+            arrayList = new ArrayList(this.Es.size());
+            for (Map.Entry<String, PluginStatus> entry : this.Es.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null && value.Eo == PluginPackageManager.PluginStatus.ERROR) {
                     arrayList.add(value);
                 }
             }
@@ -119,12 +119,12 @@ public class a {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.EH) {
-            pluginStatus = this.EH.get(str);
+        synchronized (this.Es) {
+            pluginStatus = this.Es.get(str);
             if (pluginStatus == null) {
                 pluginStatus = new PluginStatus();
-                pluginStatus.Ca = str;
-                this.EH.put(str, pluginStatus);
+                pluginStatus.BK = str;
+                this.Es.put(str, pluginStatus);
             }
         }
         return pluginStatus;

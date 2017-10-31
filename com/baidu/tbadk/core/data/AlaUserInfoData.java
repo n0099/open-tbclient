@@ -17,10 +17,12 @@ public class AlaUserInfoData extends OrmObject {
     public String great_anchor_desc_role;
     public String great_anchor_icon;
     public int is_official;
+    public double lat;
     public long level_exp;
     public int level_id;
     public long live_id;
     public int live_status;
+    public double lng;
     public String location;
     public String portrait;
     public String sex;
@@ -50,6 +52,8 @@ public class AlaUserInfoData extends OrmObject {
                 this.great_anchor_icon = jSONObject.optString("great_anchor_icon");
                 this.great_anchor_desc_grade = jSONObject.optString("great_anchor_desc_grade");
                 this.great_anchor_desc_role = jSONObject.optString("great_anchor_desc_role");
+                this.lng = jSONObject.optDouble("lng");
+                this.lat = jSONObject.optDouble("lat");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -78,6 +82,8 @@ public class AlaUserInfoData extends OrmObject {
                 this.great_anchor_icon = alaUserInfo.great_anchor_icon;
                 this.great_anchor_desc_grade = alaUserInfo.great_anchor_desc_grade;
                 this.great_anchor_desc_role = alaUserInfo.great_anchor_desc_role;
+                this.lng = alaUserInfo.lng.doubleValue();
+                this.lat = alaUserInfo.lat.doubleValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

@@ -43,13 +43,13 @@ public enum SocialType {
                 return TENCENT_WEIBO;
             case 15:
                 return QQ;
-            case d.n.View_duplicateParentState /* 42 */:
+            case d.l.View_duplicateParentState /* 42 */:
                 return WEIXIN;
             case 45:
                 return HUAWEI;
-            case d.n.View_hapticFeedbackEnabled /* 46 */:
+            case d.l.View_hapticFeedbackEnabled /* 46 */:
                 return WANDA_FEIFAN;
-            case d.n.View_contentDescription /* 47 */:
+            case d.l.View_contentDescription /* 47 */:
                 return IQIYI;
             case 49:
                 return XIAOMI;

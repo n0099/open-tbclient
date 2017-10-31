@@ -12,44 +12,44 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.entelechy.view.k;
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.widget.ListView.a<bh, com.baidu.tieba.card.a.a<k>> implements v, com.baidu.tieba.frs.f.c {
-    private x<bh> bms;
-    private k cwA;
-    private boolean cwB;
+public class j extends com.baidu.adp.widget.ListView.a<bh, com.baidu.tieba.card.a.a<k>> implements v, com.baidu.tieba.frs.e.c {
+    private x<bh> bob;
+    private k cEh;
+    private boolean cEi;
     private String mForumName;
-    private TbPageContext<?> mH;
+    private TbPageContext<?> mPageContext;
 
     public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cwB = false;
-        this.bms = new x<bh>() { // from class: com.baidu.tieba.frs.entelechy.a.j.1
+        this.cEi = false;
+        this.bob = new x<bh>() { // from class: com.baidu.tieba.frs.entelechy.a.j.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, bh bhVar) {
                 if (view != null && bhVar != null) {
-                    if (view.getId() == d.h.card_home_page_normal_thread_user_name || (view instanceof HeadImageView) || (view instanceof HeadPendantView)) {
-                        com.baidu.tieba.frs.f.b.alt().a(com.baidu.tieba.frs.f.c.cFQ, bhVar, 2);
+                    if (view.getId() == d.g.card_home_page_normal_thread_user_name || (view instanceof HeadImageView) || (view instanceof HeadPendantView)) {
+                        com.baidu.tieba.frs.e.b.aoe().a(com.baidu.tieba.frs.e.c.cPd, bhVar, 2);
                     } else {
-                        com.baidu.tieba.frs.f.b.alt().a(com.baidu.tieba.frs.f.c.cFQ, bhVar, 7);
+                        com.baidu.tieba.frs.e.b.aoe().a(com.baidu.tieba.frs.e.c.cPd, bhVar, 7);
                     }
                 }
             }
         };
-        this.mH = tbPageContext;
+        this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: B */
+    /* renamed from: S */
     public com.baidu.tieba.card.a.a<k> onCreateViewHolder(ViewGroup viewGroup) {
-        this.cwA = new k(this.mH, this.mPageId);
-        if (this.cwB) {
-            this.cwA.eV(true);
+        this.cEh = new k(this.mPageContext, this.mPageId);
+        if (this.cEi) {
+            this.cEh.eQ(true);
         }
-        this.cwA.k(this.mPageId);
-        return new com.baidu.tieba.card.a.a<>(this.cwA);
+        this.cEh.k(this.mPageId);
+        return new com.baidu.tieba.card.a.a<>(this.cEh);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,15 +57,15 @@ public class j extends com.baidu.adp.widget.ListView.a<bh, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bh bhVar, com.baidu.tieba.card.a.a<k> aVar) {
-        if (aVar == null || aVar.Yn() == null) {
+        if (aVar == null || aVar.aax() == null) {
             return null;
         }
-        aVar.Yn().a(bhVar);
-        aVar.Yn().setForumName(this.mForumName);
-        aVar.Yn().b(this.bms);
-        com.baidu.tieba.frs.f.b.alt().a(cFQ, bhVar);
+        aVar.aax().a(bhVar);
+        aVar.aax().setForumName(this.mForumName);
+        aVar.aax().b(this.bob);
+        com.baidu.tieba.frs.e.b.aoe().a(cPd, bhVar);
         if (bhVar != null) {
-            bhVar.sm();
+            bhVar.st();
         }
         return aVar.getView();
     }
@@ -75,7 +75,7 @@ public class j extends com.baidu.adp.widget.ListView.a<bh, com.baidu.tieba.card.
         this.mForumName = str;
     }
 
-    public void eS(boolean z) {
-        this.cwB = z;
+    public void eN(boolean z) {
+        this.cEi = z;
     }
 }

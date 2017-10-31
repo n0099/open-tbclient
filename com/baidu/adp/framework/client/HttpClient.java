@@ -236,26 +236,26 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                         newInstance.decodeInBackGround(this.nG.getCmd(), this.nI.fz().vr);
                         long currentTimeMillis2 = System.currentTimeMillis();
                         newInstance.performanceData.qh = j8;
-                        newInstance.performanceData.qs = j32;
-                        newInstance.performanceData.qr = fx2;
+                        newInstance.performanceData.qt = j32;
+                        newInstance.performanceData.qs = fx2;
                         newInstance.performanceData.qi = j22;
                         newInstance.performanceData.qj = j42;
-                        newInstance.performanceData.qk = j52;
-                        newInstance.performanceData.ql = j62;
-                        newInstance.performanceData.qm = j72;
-                        newInstance.performanceData.qn = currentTimeMillis2 - fw2;
+                        newInstance.performanceData.ql = j52;
+                        newInstance.performanceData.qm = j62;
+                        newInstance.performanceData.qn = j72;
+                        newInstance.performanceData.qo = currentTimeMillis2 - fw2;
                         newInstance.setCostTime(currentTimeMillis2 - currentTimeMillis);
                         newInstance.beforeDispatchInBackGround(this.nG.getCmd(), this.nI.fz().vr);
                     } catch (Exception e6) {
-                        newInstance.setError(TbErrInfo.ERR_IMG_URL_IS_NULL);
+                        newInstance.setError(-1003);
                         newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.error_unkown_try_again));
                         BdLog.detailException(e6);
                     }
                 }
                 if (this.nG.getExtra() instanceof NetMessage) {
                     NetMessage netMessage = (NetMessage) this.nG.getExtra();
-                    newInstance.performanceData.qp = netMessage.getSocketErrNo();
-                    newInstance.performanceData.qq = netMessage.getSocketCostTime();
+                    newInstance.performanceData.qq = netMessage.getSocketErrNo();
+                    newInstance.performanceData.qr = netMessage.getSocketCostTime();
                 }
             }
             newInstance.logStatInBackground(this.nG.getCmd(), this.nI);

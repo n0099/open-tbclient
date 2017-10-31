@@ -4,6 +4,7 @@ import android.graphics.PointF;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ImageViewState implements Serializable {
+    private static final long serialVersionUID = 7824752745943015695L;
     private float centerX;
     private float centerY;
     private int orientation;

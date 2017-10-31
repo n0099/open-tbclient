@@ -8,30 +8,30 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes2.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long gwF = 3600000;
+    private static long gGj = 3600000;
     private Context context;
-    private a gwM;
+    private a gGq;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat gwH = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat gwG = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat gGl = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat gGk = new SimpleDateFormat("HH:mm:ss");
 
     /* loaded from: classes2.dex */
     public interface a {
-        void dA(List<d> list);
+        void dC(List<d> list);
     }
 
     public b(Context context) {
         this.context = context;
-        this.maxHeight = context.getResources().getDimensionPixelSize(d.f.ds220);
+        this.maxHeight = context.getResources().getDimensionPixelSize(d.e.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.gwH.setTimeZone(timeZone);
-        this.gwG.setTimeZone(timeZone);
+        this.gGl.setTimeZone(timeZone);
+        this.gGk.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.gwM = aVar;
+        this.gGq = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,17 +42,18 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         List<d> bZ = e.bZ(this.context);
         e.d("/sdcard", bZ, false);
         e.d("/sdcard/DCIM", bZ, true);
-        e.dC(bZ);
+        e.dE(bZ);
         return bZ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: l */
     public void onPostExecute(List<d> list) {
-        super.onPostExecute((b) list);
-        if (this.gwM != null) {
-            this.gwM.dA(list);
+        super.onPostExecute(list);
+        if (this.gGq != null) {
+            this.gGq.dC(list);
         }
     }
 }

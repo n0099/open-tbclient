@@ -2,8 +2,11 @@ package protobuf.CommitPersonalMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
+import protobuf.BlockInfo;
 /* loaded from: classes.dex */
 public final class DataRes extends Message {
+    @ProtoField(tag = 6)
+    public final BlockInfo blockInfo;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer groupId;
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
@@ -45,21 +48,23 @@ public final class DataRes extends Message {
             }
             if (builder.toUserType == null) {
                 this.toUserType = DEFAULT_TOUSERTYPE;
-                return;
             } else {
                 this.toUserType = builder.toUserType;
-                return;
             }
+            this.blockInfo = builder.blockInfo;
+            return;
         }
         this.msgId = builder.msgId;
         this.groupId = builder.groupId;
         this.recordId = builder.recordId;
         this.toUid = builder.toUid;
         this.toUserType = builder.toUserType;
+        this.blockInfo = builder.blockInfo;
     }
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<DataRes> {
+        public BlockInfo blockInfo;
         public Integer groupId;
         public Long msgId;
         public Long recordId;
@@ -77,6 +82,7 @@ public final class DataRes extends Message {
                 this.recordId = dataRes.recordId;
                 this.toUid = dataRes.toUid;
                 this.toUserType = dataRes.toUserType;
+                this.blockInfo = dataRes.blockInfo;
             }
         }
 

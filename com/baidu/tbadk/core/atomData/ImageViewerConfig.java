@@ -2,13 +2,16 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class ImageViewerConfig extends IntentConfig {
     public static final String ASSIST_URLS = "assist_urls";
@@ -23,6 +26,7 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String HAS_NEXT = "hasnext";
     public static final String IMAGE_DATA_LIST = "image_data_list";
     public static final String INDEX = "index";
+    public static final String IS_CAN_DRAG = "is_can_drag";
     public static final String IS_DATA_VALID = "is_data_valid";
     public static final String IS_PV = "is_pv";
     public static final String IS_SHOW_AD = "is_show_ad";
@@ -68,7 +72,7 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(PV_TYPE, "pb");
             intent.putExtra(PARAM_IS_CDN, z);
             intent.putExtra(FORUM_NAME, str);
-            intent.putExtra("fid", str2);
+            intent.putExtra(FORUM_ID, str2);
             intent.putExtra("tid", str3);
             intent.putExtra(LAST_ID, str4);
             intent.putExtra(REVERSE_MODE, z2);
@@ -117,5 +121,32 @@ public class ImageViewerConfig extends IntentConfig {
     public ImageViewerConfig setFixCountInTitle(int i) {
         getIntent().putExtra(FIXED_COUNT_IN_TITLE, i);
         return this;
+    }
+
+    public ImageViewerConfig setIsCanDrag(boolean z) {
+        getIntent().putExtra(IS_CAN_DRAG, z);
+        return this;
+    }
+
+    public ImageViewerConfig setSrcRectInScreen(Rect rect) {
+        if (rect == null) {
+            return null;
+        }
+        int i = 0;
+        if (!UtilHelper.canUseStyleImmersiveSticky()) {
+            i = UtilHelper.getStatusBarHeight();
+        }
+        JSONArray jSONArray = new JSONArray();
+        try {
+            jSONArray.put(rect.left);
+            jSONArray.put(rect.top - i);
+            jSONArray.put(rect.right);
+            jSONArray.put(rect.bottom - i);
+            getIntent().putExtra(IntentConfig.SOURCE_RECT_IN_SCREEN, jSONArray.toString());
+            return this;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

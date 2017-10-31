@@ -11,18 +11,18 @@ import com.baidu.tieba.d;
 public class a extends r {
     public a(Context context) {
         super(context, (String) null, 6);
-        this.name = TbadkCoreApplication.getInst().getResources().getString(d.l.switch_to_voice);
-        this.aBh = d.g.btn_pb_voice;
-        this.aBl = true;
-        this.aBk = 5;
-        this.aAv = new SendVoiceView(context);
+        this.name = TbadkCoreApplication.getInst().getResources().getString(d.j.switch_to_voice);
+        this.aBQ = d.f.btn_pb_voice;
+        this.aBU = true;
+        this.aBT = 5;
+        this.aBf = new SendVoiceView(context);
         p.a aVar = new p.a(0, -2);
-        aVar.leftMargin = context.getResources().getDimensionPixelSize(d.f.ds10);
-        aVar.rightMargin = context.getResources().getDimensionPixelSize(d.f.ds10);
-        aVar.topMargin = context.getResources().getDimensionPixelSize(d.f.ds22);
-        aVar.bottomMargin = context.getResources().getDimensionPixelSize(d.f.ds20);
+        aVar.leftMargin = context.getResources().getDimensionPixelSize(d.e.ds10);
+        aVar.rightMargin = context.getResources().getDimensionPixelSize(d.e.ds10);
+        aVar.topMargin = context.getResources().getDimensionPixelSize(d.e.ds22);
+        aVar.bottomMargin = context.getResources().getDimensionPixelSize(d.e.ds20);
         aVar.weight = 1.0f;
-        ((View) this.aAv).setLayoutParams(aVar);
-        this.aBm = new int[0];
+        ((View) this.aBf).setLayoutParams(aVar);
+        this.aBV = new int[0];
     }
 }

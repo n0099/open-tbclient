@@ -11,15 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j extends BaseAdapter {
-    private SparseArray<com.baidu.adp.widget.ListView.a<f, a>> Ia;
+    private SparseArray<com.baidu.adp.widget.ListView.a<f, a>> Hu;
     @SuppressLint({"UseSparseArrays"})
-    private SparseArray<Integer> Ib = new SparseArray<>();
-    private List<f> Ic = new ArrayList();
+    private SparseArray<Integer> Hv = new SparseArray<>();
+    private List<f> Hw = new ArrayList();
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Ic != null) {
-            return this.Ic.size();
+        if (this.Hw != null) {
+            return this.Hw.size();
         }
         return 0;
     }
@@ -27,10 +27,10 @@ public class j extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     public f getItem(int i) {
-        if (this.Ic != null) {
-            int size = this.Ic.size();
+        if (this.Hw != null) {
+            int size = this.Hw.size();
             if (i >= 0 && i < size) {
-                return this.Ic.get(i);
+                return this.Hw.get(i);
             }
         }
         return null;
@@ -45,9 +45,9 @@ public class j extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.adp.widget.ListView.a<f, a> aVar;
         View view2 = null;
-        if (this.Ia != null && this.Ic != null) {
+        if (this.Hu != null && this.Hw != null) {
             int count = getCount();
-            if (i >= 0 && i < count && (aVar = this.Ia.get(getItemViewType(i))) != null) {
+            if (i >= 0 && i < count && (aVar = this.Hu.get(getItemViewType(i))) != null) {
                 f item = getItem(i);
                 if (item != null && (item instanceof f)) {
                     view2 = aVar.getView(i, view, viewGroup, item);
@@ -66,7 +66,7 @@ public class j extends BaseAdapter {
         f item;
         BdUniqueId type;
         Integer num;
-        if (this.Ia == null || this.Ia.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.Ib.get(type.getId())) == null) {
+        if (this.Hu == null || this.Hu.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.Hv.get(type.getId())) == null) {
             return -1;
         }
         return num.intValue();
@@ -74,50 +74,50 @@ public class j extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        if (this.Ia != null) {
-            return this.Ia.size();
+        if (this.Hu != null) {
+            return this.Hu.size();
         }
         return 0;
     }
 
     public void addAdapter(com.baidu.adp.widget.ListView.a<f, a> aVar) {
         if (aVar != null && aVar.getType() != null) {
-            if (this.Ia == null) {
-                this.Ia = new SparseArray<>();
+            if (this.Hu == null) {
+                this.Hu = new SparseArray<>();
             }
             if (aVar.getType() != null) {
                 aVar.setAdapter(this);
                 int id = aVar.getType().getId();
-                int size = this.Ia.size();
-                this.Ia.put(size, aVar);
-                this.Ib.put(id, Integer.valueOf(size));
+                int size = this.Hu.size();
+                this.Hu.put(size, aVar);
+                this.Hv.put(id, Integer.valueOf(size));
             }
         }
     }
 
     public void setData(List<? extends f> list) {
-        if (this.Ic == null) {
-            this.Ic = new ArrayList();
+        if (this.Hw == null) {
+            this.Hw = new ArrayList();
         } else {
-            this.Ic.clear();
+            this.Hw.clear();
         }
-        this.Ic.addAll(list);
+        this.Hw.addAll(list);
         notifyDataSetChanged();
     }
 
     public List<f> getData() {
-        return this.Ic;
+        return this.Hw;
     }
 
     public void a(ViewGroup viewGroup, View view, int i, long j) {
         com.baidu.adp.widget.ListView.a<f, a> aVar;
-        if (this.Ia != null) {
+        if (this.Hu != null) {
             f item = getItem(i);
             int itemViewType = getItemViewType(i);
             if (itemViewType < 0) {
                 aVar = null;
             } else {
-                aVar = this.Ia.valueAt(itemViewType);
+                aVar = this.Hu.valueAt(itemViewType);
             }
             if (aVar != null && aVar.getOnAdapterItemClickListener() != null) {
                 aVar.getOnAdapterItemClickListener().a(view, item, aVar.getType(), viewGroup, i, j);
@@ -127,7 +127,7 @@ public class j extends BaseAdapter {
 
     public boolean b(ViewGroup viewGroup, View view, int i, long j) {
         com.baidu.adp.widget.ListView.a<f, a> aVar;
-        if (this.Ia == null) {
+        if (this.Hu == null) {
             return false;
         }
         f item = getItem(i);
@@ -135,7 +135,7 @@ public class j extends BaseAdapter {
         if (itemViewType < 0) {
             aVar = null;
         } else {
-            aVar = this.Ia.valueAt(itemViewType);
+            aVar = this.Hu.valueAt(itemViewType);
         }
         if (aVar == null || aVar.getOnAdapterItemLongClickListener() == null) {
             return false;
@@ -145,19 +145,19 @@ public class j extends BaseAdapter {
 
     public int s(int i, int i2) {
         int i3;
-        if (this.Ic == null || this.Ic.size() == 0) {
+        if (this.Hw == null || this.Hw.size() == 0) {
             return -1;
         }
-        int size = this.Ic.size();
+        int size = this.Hw.size();
         int i4 = 0;
         int i5 = -1;
         while (i4 < size) {
-            if (this.Ic.get(i4) == null) {
+            if (this.Hw.get(i4) == null) {
                 i3 = i5;
-            } else if (this.Ic.get(i4).getType() == null) {
+            } else if (this.Hw.get(i4).getType() == null) {
                 i3 = i5;
             } else {
-                i3 = i2 == this.Ic.get(i4).getType().getId() ? i5 + 1 : i5;
+                i3 = i2 == this.Hw.get(i4).getType().getId() ? i5 + 1 : i5;
                 if (i4 == i) {
                     return i3;
                 }

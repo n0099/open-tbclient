@@ -3,6 +3,7 @@ package com.baidu.adp.lib.stats;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -54,7 +55,7 @@ public class e {
         b bVar2 = new b();
         bVar2.aq(3000);
         bVar2.ar(120000);
-        bVar2.as(1500);
+        bVar2.as(TbConfig.POST_IMAGE_SMALL);
         this.wx.put("file", bVar2);
         this.wx.put("db", bVar2);
         this.wx.put("img", bVar2);
@@ -63,7 +64,7 @@ public class e {
         b bVar3 = new b();
         bVar3.aq(3000);
         bVar3.ar(120000);
-        bVar3.as(1500);
+        bVar3.as(TbConfig.POST_IMAGE_SMALL);
         this.wx.put("dbg", bVar3);
     }
 

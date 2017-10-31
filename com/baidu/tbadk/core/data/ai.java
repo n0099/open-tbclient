@@ -6,23 +6,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-    private ArrayList<String> WO;
-    private int smsCodeTime = 0;
-    private UserData WM = new UserData();
-    private AntiData WN = new AntiData();
+    private ArrayList<String> Xf;
+    private int Xg = 0;
+    private UserData Xd = new UserData();
+    private AntiData Xe = new AntiData();
 
     public ai() {
-        this.WO = null;
-        this.WO = new ArrayList<>();
-        setSmsCodeTime(0);
+        this.Xf = null;
+        this.Xf = new ArrayList<>();
+        bE(0);
     }
 
     public UserData getUser() {
-        return this.WM;
+        return this.Xd;
     }
 
-    public AntiData qa() {
-        return this.WN;
+    public AntiData qf() {
+        return this.Xe;
     }
 
     public void parserJson(String str) {
@@ -35,21 +35,21 @@ public class ai {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.WM.parserJson(jSONObject.optJSONObject("user"));
-            this.WN.parserJson(jSONObject.optJSONObject("anti"));
+            this.Xd.parserJson(jSONObject.optJSONObject("user"));
+            this.Xe.parserJson(jSONObject.optJSONObject("anti"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.WO.add(optJSONArray.optString(i, null));
+                    this.Xf.add(optJSONArray.optString(i, null));
                 }
             }
-            setSmsCodeTime(jSONObject.optInt("retrytime"));
+            bE(jSONObject.optInt("retrytime"));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void setSmsCodeTime(int i) {
-        this.smsCodeTime = i;
+    public void bE(int i) {
+        this.Xg = i;
     }
 }

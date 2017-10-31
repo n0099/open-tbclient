@@ -12,16 +12,16 @@ public class PluginStatus extends OrmObject {
     public static final int STATUS_INSTALL_UNKNOWN = 1;
     public static final int STATUS_LOAD_UNKNOWN = 100;
     public static final int STATUS_SUCCESS = 0;
-    String Ca;
-    PluginPackageManager.PluginStatus ED;
-    String EE;
-    boolean EF;
+    String BK;
+    PluginPackageManager.PluginStatus Eo;
+    String Ep;
+    boolean Eq;
     int errorCode;
     String errorMsg;
     int priority;
 
-    public String kc() {
-        return this.Ca;
+    public String jZ() {
+        return this.BK;
     }
 
     public int getPriority() {
@@ -36,7 +36,7 @@ public class PluginStatus extends OrmObject {
         return this.errorMsg;
     }
 
-    public String kd() {
-        return this.EE;
+    public String ka() {
+        return this.Ep;
     }
 }

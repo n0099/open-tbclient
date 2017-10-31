@@ -42,7 +42,7 @@ public class PageDialogHelper {
             activity.setTheme(16973835);
             activity.requestWindowFeature(1);
         } else {
-            activity.setTheme(d.m.swipeback_activity_style);
+            activity.setTheme(d.k.swipeback_activity_style);
         }
         return z;
     }

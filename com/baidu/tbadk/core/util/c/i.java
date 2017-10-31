@@ -1,65 +1,70 @@
 package com.baidu.tbadk.core.util.c;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import java.util.LinkedList;
+import java.util.Queue;
 /* loaded from: classes.dex */
-public class i extends a {
-    private int procType;
+public class i {
+    private static i aiY = null;
+    private Queue<a> aiZ = new LinkedList();
+    private BdAsyncTaskParallel aja = null;
+    private BdAsyncTaskParallel ajb = null;
+    private float ajc = 0.0f;
 
-    public i(int i) {
-        this.procType = i;
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a {
+        public long ajd;
+        public int downloadSize;
+
+        private a() {
+            this.downloadSize = 0;
+            this.ajd = 0L;
+        }
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int getWidth() {
-        return 0;
+    public static i wb() {
+        if (aiY == null) {
+            aiY = new i();
+        }
+        return aiY;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int getHeight() {
-        return 0;
+    public synchronized void c(int i, long j) {
+        a aVar = new a();
+        aVar.downloadSize = i;
+        aVar.ajd = j;
+        this.aiZ.offer(aVar);
+        if (this.aiZ.size() > 5) {
+            this.aiZ.poll();
+        }
+        if (wc()) {
+            int i2 = 0;
+            for (a aVar2 : this.aiZ) {
+                i2 = j > 0 ? (int) ((aVar2.downloadSize / aVar2.ajd) + i2) : i2;
+            }
+            this.ajc = i2 / 5;
+        }
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean isFromCDN() {
-        return false;
+    public boolean wc() {
+        return this.aiZ.size() == 5;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vP() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vQ() {
-        return false;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
-    /* renamed from: c */
-    public com.baidu.adp.widget.ImageView.a b(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a gh = com.baidu.tbadk.imageManager.c.DT().gh(str);
-        if (gh == null || gh.kN() == null) {
+    public BdAsyncTaskParallel fN() {
+        if (!com.baidu.adp.lib.util.j.hk()) {
             return null;
         }
-        return gh;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
-    /* renamed from: b */
-    public com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        Bitmap decodeFile;
-        if (StringUtils.isNull(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
-            return null;
+        if (wc() && this.ajc < 20.0f) {
+            if (this.aja == null) {
+                this.aja = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+            }
+            return this.aja;
         }
-        return new com.baidu.adp.widget.ImageView.a(decodeFile, false);
-    }
-
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int vR() {
-        return this.procType;
+        if (this.ajb == null) {
+            this.ajb = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
+        }
+        return this.ajb;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.tieba.video.editvideo.data.MusicData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public interface b {
-    void dz(List<MusicData> list);
+    void setMusicData(List<MusicData> list);
 
-    void sz(String str);
+    void th(String str);
 }

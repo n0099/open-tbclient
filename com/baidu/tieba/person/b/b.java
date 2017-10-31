@@ -10,47 +10,47 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends j.a {
-    private f aEy;
-    private View.OnClickListener aOR;
-    public ImageView eZt;
-    public TextView eZu;
+    private f aFh;
+    public ImageView fhI;
+    public TextView fhJ;
+    private View.OnClickListener mClickListener;
     private int mSkinType;
     public View rootView;
 
     public b(View view) {
         super(view);
         this.mSkinType = 3;
-        this.rootView = view.findViewById(d.h.add_pic_root);
-        this.eZt = (ImageView) view.findViewById(d.h.add_image_view);
-        this.eZu = (TextView) view.findViewById(d.h.tip_left_count_view);
+        this.rootView = view.findViewById(d.g.add_pic_root);
+        this.fhI = (ImageView) view.findViewById(d.g.add_image_view);
+        this.fhJ = (TextView) view.findViewById(d.g.tip_left_count_view);
     }
 
     public void c(f fVar) {
         if (fVar instanceof com.baidu.tieba.person.data.c) {
-            this.aEy = fVar;
+            this.aFh = fVar;
             com.baidu.tieba.person.data.c cVar = (com.baidu.tieba.person.data.c) fVar;
-            aj.c(this.eZt, d.g.icon_mine_pic_add);
-            if (cVar.aVe() > 0) {
-                this.eZu.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.have_left_some_picture_upload), Integer.valueOf(cVar.aVe())));
+            aj.c(this.fhI, d.f.icon_mine_pic_add);
+            if (cVar.aYh() > 0) {
+                this.fhJ.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.have_left_some_picture_upload), Integer.valueOf(cVar.aYh())));
             }
-            getView().setOnClickListener(this.aOR);
+            getView().setOnClickListener(this.mClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            aj.c(this.eZu, d.e.cp_cont_e, 1);
-            aj.k(getView(), d.e.cp_bg_line_e);
+            aj.c(this.fhJ, d.C0080d.cp_cont_e, 1);
+            aj.k(getView(), d.C0080d.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
 
-    public f wM() {
-        return this.aEy;
+    public f wT() {
+        return this.aFh;
     }
 
-    public void p(View.OnClickListener onClickListener) {
-        this.aOR = onClickListener;
+    public void q(View.OnClickListener onClickListener) {
+        this.mClickListener = onClickListener;
     }
 }

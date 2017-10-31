@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.d;
-import com.baidu.tieba.tbadkCore.s;
+import com.baidu.tieba.tbadkCore.t;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class g {
@@ -51,7 +51,7 @@ public class g {
     }
 
     public static boolean a(Context context, CombineDownload combineDownload) {
-        return (combineDownload == null || s.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
+        return (combineDownload == null || t.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
     }
 
     public static void a(Context context, VersionData versionData) {
@@ -72,7 +72,7 @@ public class g {
         bundle.putInt("versioncode", versionData.getNewVersionCode());
         bundle.putLong("patch_size", com.baidu.adp.lib.g.b.c(versionData.getPatchSize(), 0L));
         bundle.putString("patch_url", versionData.getPatch());
-        bundle.putString("sname", context.getString(d.l.app_name));
+        bundle.putString("sname", context.getString(d.j.app_name));
         bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
         bundle.putString("downurl", versionData.getUrl());
         bundle.putString("versionname", versionData.getNewVersion());
@@ -80,7 +80,7 @@ public class g {
         bundle.putString("updatetime", am.d(new Date(System.currentTimeMillis())));
         bundle.putString("size", versionData.getSize());
         bundle.putString("signmd5", str);
-        bundle.putString("tj", str + context.getString(d.l.app_name));
+        bundle.putString("tj", str + context.getString(d.j.app_name));
         intent.putExtra("extra_client_downloadinfo", bundle);
         context.startActivity(intent);
     }

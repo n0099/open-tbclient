@@ -14,26 +14,26 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private a aXd = new a();
+    private a aXt = new a();
 
     public b() {
-        KJ();
+        KS();
     }
 
-    private void KJ() {
+    private void KS() {
         File[] listFiles;
-        File file = new File(i.aXK);
+        File file = new File(i.aYa);
         if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
                     d dVar = new d();
-                    dVar.he(file2.getName());
-                    dVar.aq(hb(file2.getAbsolutePath()));
-                    dVar.ar(m.ho(file2.getName()));
-                    this.aXd.a(dVar);
+                    dVar.hm(file2.getName());
+                    dVar.aq(hj(file2.getAbsolutePath()));
+                    dVar.ar(m.hw(file2.getName()));
+                    this.aXt.a(dVar);
                 }
             }
-            Collections.sort(this.aXd.KG(), new AccessTimeComparator());
+            Collections.sort(this.aXt.KP(), new AccessTimeComparator());
         }
     }
 
@@ -42,7 +42,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long hb(String str) {
+    private long hj(String str) {
         DataInputStream dataInputStream;
         FileInputStream fileInputStream;
         long j = 0;
@@ -139,61 +139,61 @@ public class b {
         return j;
     }
 
-    public void hc(String str) {
+    public void hk(String str) {
         d dVar;
-        String hq = m.hq(str);
-        if (hq != null && !hq.isEmpty()) {
-            hd(hq);
-            if (this.aXd != null) {
+        String hy = m.hy(str);
+        if (hy != null && !hy.isEmpty()) {
+            hl(hy);
+            if (this.aXt != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = 0;
                 while (true) {
-                    if (i >= this.aXd.KI()) {
+                    if (i >= this.aXt.KR()) {
                         dVar = null;
                         break;
                     }
-                    d gc = this.aXd.gc((this.aXd.KI() - 1) - i);
-                    if (gc != null && gc.getFileName() != null && gc.getFileName().equals(hq)) {
-                        dVar = gc;
+                    d gl = this.aXt.gl((this.aXt.KR() - 1) - i);
+                    if (gl != null && gl.getFileName() != null && gl.getFileName().equals(hy)) {
+                        dVar = gl;
                         break;
                     }
                     i++;
                 }
                 if (dVar != null) {
-                    this.aXd.b(dVar);
+                    this.aXt.b(dVar);
                 } else {
                     dVar = new d();
-                    dVar.he(hq);
+                    dVar.hm(hy);
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
-                g(hq, currentTimeMillis2);
+                g(hy, currentTimeMillis2);
                 dVar.aq(currentTimeMillis2);
-                dVar.ar(m.ho(hq));
-                this.aXd.a(dVar);
-                j.av(TAG, "total cache size: " + ((this.aXd.KH() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M list size " + this.aXd.KI());
-                if (this.aXd.KH() > 629145600) {
-                    while (this.aXd.KH() > 524288000 && this.aXd.KI() > 2 && KK()) {
+                dVar.ar(m.hw(hy));
+                this.aXt.a(dVar);
+                j.au(TAG, "total cache size: " + ((this.aXt.KQ() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M list size " + this.aXt.KR());
+                if (this.aXt.KQ() > 629145600) {
+                    while (this.aXt.KQ() > 524288000 && this.aXt.KR() > 2 && KT()) {
                     }
-                    KM();
+                    KV();
                 }
-                if (m.KZ() < 314572800) {
-                    while (m.KZ() < 419430400 && this.aXd.KI() > 2 && KK()) {
+                if (m.Li() < 314572800) {
+                    while (m.Li() < 419430400 && this.aXt.KR() > 2 && KT()) {
                     }
-                    KM();
+                    KV();
                 }
-                j.av(TAG, "adjust coast time " + (System.currentTimeMillis() - currentTimeMillis));
+                j.au(TAG, "adjust coast time " + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
 
-    private boolean KK() {
-        d gc = this.aXd.gc(0);
-        if (gc == null || !(e.KP().hf(gc.getFileName()) || e.KP().hh(gc.getFileName()))) {
-            this.aXd.remove(0);
-            if (gc != null) {
-                File file = new File(i.aXL + gc.getFileName());
-                j.av(TAG, "delete file " + file.getName());
-                m.A(file);
+    private boolean KT() {
+        d gl = this.aXt.gl(0);
+        if (gl == null || !(e.KY().hn(gl.getFileName()) || e.KY().hp(gl.getFileName()))) {
+            this.aXt.remove(0);
+            if (gl != null) {
+                File file = new File(i.aYb + gl.getFileName());
+                j.au(TAG, "delete file " + file.getName());
+                m.z(file);
             }
             return true;
         }
@@ -201,7 +201,7 @@ public class b {
     }
 
     private void g(String str, long j) {
-        File file = new File(i.aXL + str);
+        File file = new File(i.aYb + str);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -217,43 +217,43 @@ public class b {
         }
     }
 
-    public void KL() {
-        if (this.aXd != null) {
+    public void KU() {
+        if (this.aXt != null) {
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.aXd.KI() - 2; i++) {
-                d gc = this.aXd.gc(i);
-                if (gc != null) {
-                    if (currentTimeMillis - gc.KN() < 86400000) {
+            for (int i = 0; i < this.aXt.KR() - 2; i++) {
+                d gl = this.aXt.gl(i);
+                if (gl != null) {
+                    if (currentTimeMillis - gl.KW() < 86400000) {
                         break;
                     }
-                    arrayList.add(gc);
+                    arrayList.add(gl);
                 }
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 d dVar = (d) arrayList.get(i2);
-                if (dVar == null || (!e.KP().hf(dVar.getFileName()) && !e.KP().hh(dVar.getFileName()))) {
-                    this.aXd.b(dVar);
+                if (dVar == null || (!e.KY().hn(dVar.getFileName()) && !e.KY().hp(dVar.getFileName()))) {
+                    this.aXt.b(dVar);
                     if (dVar != null) {
-                        File file = new File(i.aXL + dVar.getFileName());
-                        j.av(TAG, "delete expired file " + dVar.getFileName());
-                        m.A(file);
+                        File file = new File(i.aYb + dVar.getFileName());
+                        j.au(TAG, "delete expired file " + dVar.getFileName());
+                        m.z(file);
                     }
                 }
             }
-            KM();
+            KV();
         }
     }
 
-    private void hd(String str) {
+    private void hl(String str) {
         File[] listFiles;
         if (str != null) {
             try {
                 if (!str.isEmpty()) {
-                    File file = new File(i.aXL + str + "/completed");
-                    File file2 = new File(i.aXL + str + "/segments");
+                    File file = new File(i.aYb + str + "/completed");
+                    File file2 = new File(i.aYb + str + "/segments");
                     if (file.exists()) {
-                        j.av(TAG, "delete segments");
+                        j.au(TAG, "delete segments");
                         if (file2 != null && file2.exists() && file2.listFiles() != null) {
                             for (File file3 : file2.listFiles()) {
                                 if (file3 != null && file3.exists()) {
@@ -271,23 +271,23 @@ public class b {
     }
 
     public void clearCache() {
-        if (this.aXd != null) {
-            while (this.aXd.KI() > 0 && KK()) {
+        if (this.aXt != null) {
+            while (this.aXt.KR() > 0 && KT()) {
             }
-            KM();
+            KV();
         }
     }
 
-    private void KM() {
+    private void KV() {
         File[] listFiles;
-        File file = new File(i.aXK);
+        File file = new File(i.aYa);
         if (file.exists() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
                     if (!file2.isDirectory()) {
-                        m.A(file2);
+                        m.z(file2);
                     } else if (!new File(file2.getAbsolutePath() + "/accesstime").exists()) {
-                        m.A(file2);
+                        m.z(file2);
                     }
                 }
             }

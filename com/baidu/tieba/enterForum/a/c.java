@@ -1,9 +1,9 @@
 package com.baidu.tieba.enterForum.a;
 /* loaded from: classes.dex */
 public interface c {
-    void YR();
+    void abb();
 
-    void ar(int i, int i2);
+    void as(int i, int i2);
 
-    void iv(int i);
+    void iO(int i);
 }

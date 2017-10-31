@@ -10,12 +10,12 @@ public class b {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aV(int i);
+        void aU(int i);
     }
 
     public static void a(Activity activity, String[] strArr, int i) {
         if (activity instanceof a) {
-            ((a) activity).aV(i);
+            ((a) activity).aU(i);
         }
         activity.requestPermissions(strArr, i);
     }

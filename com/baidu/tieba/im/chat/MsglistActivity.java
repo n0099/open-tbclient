@@ -10,50 +10,50 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
 
     protected abstract void initView();
 
-    protected abstract boolean p(Bundle bundle);
+    protected abstract boolean o(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.d
-    public void asQ() {
-        ass();
+    public void avl() {
+        auN();
     }
 
-    public void ass() {
+    public void auN() {
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!p(bundle)) {
+        if (!o(bundle)) {
             finish();
             return;
         }
         initView();
-        adjustResizeForSoftInput(d.e.common_color_10022, false);
-        if (this.dnG != null) {
-            this.dnG.setImageUploadUIProgressCallback(this.dnM);
+        adjustResizeForSoftInput(d.C0080d.common_color_10022, false);
+        if (this.dvw != null) {
+            this.dvw.setImageUploadUIProgressCallback(this.dvC);
         }
-        asW();
+        avr();
         if (a((d) this)) {
             loadDraft();
-            asq();
-            j.dnE = com.baidu.tbadk.util.h.GA();
+            auL();
+            j.dvu = com.baidu.tbadk.util.i.GM();
         }
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.dnG != null) {
-            this.dnG.onDestroy();
+        if (this.dvw != null) {
+            this.dvw.onDestroy();
         }
         setIntent(intent);
-        if (!p(null)) {
+        if (!o(null)) {
             finish();
             return;
         }
         initView();
-        adjustResizeForSoftInput(d.e.common_color_10022, false);
-        asW();
+        adjustResizeForSoftInput(d.C0080d.common_color_10022, false);
+        avr();
         if (a((d) this)) {
             loadDraft();
         }
@@ -62,8 +62,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dnF != null) {
-            this.dnF.onChangeSkinType(i);
+        if (this.dvv != null) {
+            this.dvv.onChangeSkinType(i);
         }
     }
 
@@ -71,37 +71,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.dnF != null) {
-            this.dnF.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            asn();
+        if (this.dvv != null) {
+            this.dvv.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            auI();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void asn() {
+    public void auI() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.dnF.showReceiver();
+            this.dvv.showReceiver();
         } else {
-            this.dnF.closeReceiver();
+            this.dvv.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.dnG.loadDraft();
+        return this.dvw.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        asr();
+        auM();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void asq() {
+    public void auL() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void asr() {
+    public void auM() {
     }
 }

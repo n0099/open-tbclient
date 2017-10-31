@@ -2,7 +2,7 @@ package com.baidu.tieba.bigv;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.m;
+import com.baidu.tbadk.util.o;
 import tbclient.GetVUserInfo.DataReq;
 import tbclient.GetVUserInfo.GetVUserInfoReqIdl;
 /* loaded from: classes.dex */
@@ -27,7 +27,7 @@ public class BigVCheckRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.user_id = Long.valueOf(this.mUserId);
             if (z) {
-                m.bindCommonParamsToProtobufData(builder, true);
+                o.bindCommonParamsToProtobufData(builder, true);
             }
             GetVUserInfoReqIdl.Builder builder2 = new GetVUserInfoReqIdl.Builder();
             builder2.data = builder.build(false);

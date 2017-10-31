@@ -17,9 +17,9 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bp */
+    /* renamed from: bC */
     public com.baidu.tieba.person.b.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.a(LayoutInflater.from(this.mContext).inflate(d.j.item_person_center_list_interval, viewGroup, false));
+        return new com.baidu.tieba.person.b.a(LayoutInflater.from(this.mContext).inflate(d.h.item_person_center_list_interval, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,19 +29,19 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.d dVar, com.baidu.tieba.person.b.a aVar) {
         if (dVar != null && aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.aoN != skinType) {
-                aVar.aoN = skinType;
-                aj.j(aVar.bJX, dVar.aGl);
+            if (aVar.api != skinType) {
+                aVar.api = skinType;
+                aj.j(aVar.bRD, dVar.aGV);
             }
-            ViewGroup.LayoutParams layoutParams = aVar.bJX.getLayoutParams();
-            if (dVar.eVG > 0) {
-                layoutParams.height = dVar.eVG;
+            ViewGroup.LayoutParams layoutParams = aVar.bRD.getLayoutParams();
+            if (dVar.fdU > 0) {
+                layoutParams.height = dVar.fdU;
             }
-            if (dVar.eVF > 0) {
-                layoutParams.width = dVar.eVF;
+            if (dVar.fdT > 0) {
+                layoutParams.width = dVar.fdT;
             }
-            aVar.bJX.setLayoutParams(layoutParams);
-            aVar.bJX.setOnClickListener(null);
+            aVar.bRD.setLayoutParams(layoutParams);
+            aVar.bRD.setOnClickListener(null);
         }
         return view;
     }

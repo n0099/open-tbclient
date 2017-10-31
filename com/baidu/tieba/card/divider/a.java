@@ -5,21 +5,21 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.widget.ListView.a<b, com.baidu.tieba.card.a.a<c>> {
-    private c bOo;
-    private TbPageContext<?> mH;
+    private c bVT;
+    private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity(), b.TYPE);
-        this.mH = tbPageContext;
+        this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: B */
+    /* renamed from: S */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.bOo = new c(this.mH);
-        return new com.baidu.tieba.card.a.a(this.bOo);
+        this.bVT = new c(this.mPageContext);
+        return new com.baidu.tieba.card.a.a(this.bVT);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,10 +27,10 @@ public class a extends com.baidu.adp.widget.ListView.a<b, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.Yn() == null) {
+        if (aVar == null || aVar.aax() == null) {
             return null;
         }
-        aVar.Yn().a((com.baidu.tieba.card.a) bVar);
+        aVar.aax().a((com.baidu.tieba.card.a) bVar);
         return aVar.getView();
     }
 }

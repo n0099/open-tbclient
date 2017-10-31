@@ -1,68 +1,85 @@
 package com.baidu.tieba.view;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.view.MotionEvent;
-import android.view.View;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class k implements View.OnTouchListener {
-    private final Spannable gCO;
-    private com.baidu.tbadk.widget.richText.b gCP = null;
+public final class k extends LinearLayout {
+    private LinearLayout aLG;
+    private TextView aTd;
+    private TextView awv;
+    private EditText cTh;
+    private ShareFromPBMsgData dNm;
+    private TbImageView drG;
 
-    public k(Spannable spannable) {
-        this.gCO = spannable;
+    public EditText getChatMsgView() {
+        return this.cTh;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        int action = motionEvent.getAction();
-        if (view instanceof TextView) {
-            TextView textView = (TextView) view;
-            if (action == 3 && this.gCP != null) {
-                this.gCP.setColor(TbadkCoreApplication.getInst().getResources().getColor(d.e.transparent));
-                view.invalidate();
-                this.gCP = null;
-                return false;
-            }
-            if (action == 1 || action == 0) {
-                int x = (int) motionEvent.getX();
-                int y = (int) motionEvent.getY();
-                Layout layout = textView.getLayout();
-                if (layout == null) {
-                    return false;
-                }
-                int totalPaddingLeft = x - textView.getTotalPaddingLeft();
-                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), totalPaddingLeft + textView.getScrollX());
-                if (this.gCO == null) {
-                    return false;
-                }
-                com.baidu.tbadk.widget.richText.b[] bVarArr = (com.baidu.tbadk.widget.richText.b[]) this.gCO.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.b.class);
-                if (bVarArr != null && bVarArr.length != 0 && bVarArr[0] != null) {
-                    if (action == 1) {
-                        bVarArr[0].setColor(TbadkCoreApplication.getInst().getResources().getColor(d.e.transparent));
-                        bVarArr[0].onClick(textView);
-                        view.invalidate();
-                    } else {
-                        this.gCP = bVarArr[0];
-                        if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                            bVarArr[0].setColor(aj.getColor(d.e.cp_bg_line_c));
-                        } else {
-                            bVarArr[0].setColor(aj.getColor(d.e.cp_bg_line_z));
-                        }
-                        Selection.setSelection(this.gCO, this.gCO.getSpanStart(bVarArr[0]), this.gCO.getSpanEnd(bVarArr[0]));
-                        view.invalidate();
-                    }
-                    return true;
-                }
-                Selection.removeSelection(this.gCO);
-            }
-            return false;
+    public void G(String str, boolean z) {
+        if (this.drG != null) {
+            this.drG.startLoad(str, z ? 17 : 18, false);
         }
-        return false;
+    }
+
+    public k(Context context) {
+        super(context);
+        br(context);
+    }
+
+    private void br(Context context) {
+        LayoutInflater.from(context).inflate(d.h.thread_to_group_share_view, this);
+        setOrientation(1);
+        this.aLG = (LinearLayout) findViewById(d.g.share_content);
+        this.awv = (TextView) findViewById(d.g.share_title_view);
+        this.cTh = (EditText) findViewById(d.g.chat_msg);
+        this.drG = (TbImageView) findViewById(d.g.chat_group_img);
+        this.aTd = (TextView) findViewById(d.g.chat_group_desc);
+        aj.c(this.awv, d.C0080d.cp_cont_b, 1);
+        aj.c(this.cTh, d.C0080d.cp_cont_b, 2);
+        aj.c(this.aTd, d.C0080d.cp_cont_f, 1);
+        this.cTh.setHintTextColor(aj.getColor(d.C0080d.cp_cont_e));
+        this.cTh.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
+        aoT();
+    }
+
+    public void aoT() {
+        this.aLG.setFocusable(true);
+        this.aLG.setFocusableInTouchMode(true);
+        this.aLG.requestFocus();
+    }
+
+    public String getLeaveMsg() {
+        if (this.cTh != null) {
+            return com.baidu.adp.lib.util.k.a(this.cTh.getText(), null);
+        }
+        return null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.widget.LinearLayout, android.view.ViewGroup
+    public LinearLayout.LayoutParams generateDefaultLayoutParams() {
+        return new LinearLayout.LayoutParams(-1, -2);
+    }
+
+    public void setData(ShareFromPBMsgData shareFromPBMsgData) {
+        this.dNm = shareFromPBMsgData;
+        wn();
+    }
+
+    private void wn() {
+        this.awv.setText(this.dNm.getTitle());
+        BdLog.e("mData.getImageUrl()的图片URL" + this.dNm.getImageUrl());
+        this.drG.setTag(this.dNm.getImageUrl());
+        BdLog.e("mData.getContent()的Content" + this.dNm.getContent());
+        this.aTd.setText(this.dNm.getContent());
     }
 }

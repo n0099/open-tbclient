@@ -9,9 +9,9 @@ public interface i {
 
     void be(Context context);
 
-    String hs(String str);
+    String hA(String str);
 
-    String ht(String str);
+    String hB(String str);
 
-    void hu(String str);
+    void hC(String str);
 }

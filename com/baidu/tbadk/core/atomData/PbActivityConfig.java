@@ -38,6 +38,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_IS_FROM_MY_GOD = "is_from_my_god_config";
     public static final String KEY_IS_FROM_THREAD_CONFIG = "is_from_thread_config";
     public static final String KEY_IS_GOOD = "is_good";
+    public static final String KEY_IS_INTERVIEW_LIVE = "KEY_IS_INTERVIEW_LIVE";
     public static final String KEY_IS_PB_KEY_NEED_POSTID = "is_pb_key_need_post_id";
     public static final String KEY_IS_PV = "is_pv";
     public static final String KEY_IS_SUB_PB = "is_sub_pb";
@@ -76,7 +77,6 @@ public class PbActivityConfig extends IntentConfig {
     public static final String VALUE_FROM_FRS = "FrsActivity";
     public static final String VALUE_FROM_HOT_TOPIC = "HotTopicActivity";
     public static final String VALUE_FROM_MAINTAB = "MainTabActivity";
-    public static final boolean isBottomHaveShared = true;
     private String key_video_source_value;
     private final Context mContext;
 
@@ -174,7 +174,7 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("from", str4);
             intent.putExtra(QUERY_WORD, str5);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            if (!(this.mContext instanceof Activity) || "from_baidu_searchbox".equals(str4)) {
+            if (!(this.mContext instanceof Activity) || FROM_BAIDU_SEARCHBOX.equals(str4)) {
                 intent.addFlags(268435456);
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
@@ -199,7 +199,7 @@ public class PbActivityConfig extends IntentConfig {
                 intent.putExtra(KEY_MSG_OP_STAT, str5);
             }
             if (str6 != null) {
-                intent.putExtra("op_type", str6);
+                intent.putExtra(KEY_MSG_OP_TYPE, str6);
             }
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
@@ -268,9 +268,9 @@ public class PbActivityConfig extends IntentConfig {
         if (bhVar != null) {
             Intent intent = getIntent();
             intent.putExtra("thread_id", bhVar.getTid());
-            intent.putExtra("is_good", bhVar.rk());
-            intent.putExtra("is_top", bhVar.rj());
-            intent.putExtra(KEY_THREAD_TIME, bhVar.ri());
+            intent.putExtra("is_good", bhVar.rp());
+            intent.putExtra("is_top", bhVar.ro());
+            intent.putExtra(KEY_THREAD_TIME, bhVar.rn());
             intent.putExtra("st_type", str2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
@@ -280,10 +280,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bhVar.re() == null ? 0L : bhVar.re().getNum()));
-            if (bhVar.getAuthor() != null && bhVar.getAuthor().getGodUserData().getId() != null) {
-                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, bhVar.getAuthor().getFansNum());
-                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, bhVar.getAuthor().getGodUserData().getIsLike());
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bhVar.ri() == null ? 0L : bhVar.ri().getNum()));
+            if (bhVar.rt() != null && bhVar.rt().getGodUserData().getId() != null) {
+                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, bhVar.rt().getFansNum());
+                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, bhVar.rt().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();

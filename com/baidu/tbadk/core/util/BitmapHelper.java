@@ -595,19 +595,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream dm = k.dm(str);
-                BitmapFactory.decodeStream(dm, null, options);
+                InputStream dt = k.dt(str);
+                BitmapFactory.decodeStream(dt, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.n.d(dm);
+                com.baidu.adp.lib.util.n.d(dt);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream dm2 = k.dm(str);
-                        decodeStream = BitmapFactory.decodeStream(dm2, null, options);
-                        com.baidu.adp.lib.util.n.d(dm2);
+                        InputStream dt2 = k.dt(str);
+                        decodeStream = BitmapFactory.decodeStream(dt2, null, options);
+                        com.baidu.adp.lib.util.n.d(dt2);
                     }
                 }
             }
@@ -627,19 +627,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream r = k.r(new File(str));
-                BitmapFactory.decodeStream(r, null, options);
+                InputStream q = k.q(new File(str));
+                BitmapFactory.decodeStream(q, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.n.d(r);
+                com.baidu.adp.lib.util.n.d(q);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream r2 = k.r(new File(str));
-                        decodeStream = BitmapFactory.decodeStream(r2, null, options);
-                        com.baidu.adp.lib.util.n.d(r2);
+                        InputStream q2 = k.q(new File(str));
+                        decodeStream = BitmapFactory.decodeStream(q2, null, options);
+                        com.baidu.adp.lib.util.n.d(q2);
                     }
                 }
             }
@@ -1137,41 +1137,41 @@ public class BitmapHelper {
     public static int getGradeResourceIdInEnterForum(int i) {
         switch (i) {
             case 1:
-                return d.g.icon_level_01;
+                return d.f.icon_level_01;
             case 2:
-                return d.g.icon_level_02;
+                return d.f.icon_level_02;
             case 3:
-                return d.g.icon_level_03;
+                return d.f.icon_level_03;
             case 4:
-                return d.g.icon_level_04;
+                return d.f.icon_level_04;
             case 5:
-                return d.g.icon_level_05;
+                return d.f.icon_level_05;
             case 6:
-                return d.g.icon_level_06;
+                return d.f.icon_level_06;
             case 7:
-                return d.g.icon_level_07;
+                return d.f.icon_level_07;
             case 8:
-                return d.g.icon_level_08;
+                return d.f.icon_level_08;
             case 9:
-                return d.g.icon_level_09;
+                return d.f.icon_level_09;
             case 10:
-                return d.g.icon_level_10;
+                return d.f.icon_level_10;
             case 11:
-                return d.g.icon_level_11;
+                return d.f.icon_level_11;
             case 12:
-                return d.g.icon_level_12;
+                return d.f.icon_level_12;
             case 13:
-                return d.g.icon_level_13;
+                return d.f.icon_level_13;
             case 14:
-                return d.g.icon_level_14;
+                return d.f.icon_level_14;
             case 15:
-                return d.g.icon_level_15;
+                return d.f.icon_level_15;
             case 16:
-                return d.g.icon_level_16;
+                return d.f.icon_level_16;
             case 17:
-                return d.g.icon_level_17;
+                return d.f.icon_level_17;
             case 18:
-                return d.g.icon_level_18;
+                return d.f.icon_level_18;
             default:
                 return 0;
         }

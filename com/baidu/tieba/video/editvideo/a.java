@@ -1,21 +1,25 @@
 package com.baidu.tieba.video.editvideo;
 
 import android.graphics.Bitmap;
+import com.baidu.tieba.video.editvideo.data.PendantData;
+import java.util.List;
 /* loaded from: classes2.dex */
 public interface a {
-    void aSb();
+    void aVp();
 
-    void bvC();
+    void byH();
 
-    void bvF();
+    void byK();
 
-    void bvH();
+    void byM();
+
+    void dB(List<PendantData> list);
 
     void finishPage();
 
-    void pb(String str);
+    void pG(String str);
 
     void r(Bitmap bitmap);
 
-    void sy(String str);
+    void tg(String str);
 }

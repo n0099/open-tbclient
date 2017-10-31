@@ -14,11 +14,11 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends ImageView {
-    private int aDm;
-    private int aDn;
-    private long aVj;
-    d aVk;
-    private View.OnClickListener aVl;
+    private int aDX;
+    private int aDY;
+    private long aVt;
+    d aVu;
+    private View.OnClickListener aVv;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -33,16 +33,16 @@ public class c extends ImageView {
     public c(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.aVj = 0L;
-        this.aVl = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
+        this.aVt = 0L;
+        this.aVv = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.Kn();
+                c.this.Kw();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - c.this.aVj > 500) {
-                    c.this.Km();
+                if (currentTimeMillis - c.this.aVt > 500) {
+                    c.this.Kv();
                 }
-                c.this.aVj = currentTimeMillis;
+                c.this.aVt = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -50,63 +50,63 @@ public class c extends ImageView {
     }
 
     private void g(TbPageContext tbPageContext) {
-        this.aVk = new d(tbPageContext, this);
-        setOnClickListener(this.aVl);
-        aj.c(this, d.g.icon_home_feedback_selector);
-        this.aDm = l.f(this.mContext, d.f.ds60);
-        this.aDn = l.f(this.mContext, d.f.ds4);
+        this.aVu = new d(tbPageContext, this);
+        setOnClickListener(this.aVv);
+        aj.c(this, d.f.icon_home_feedback_selector);
+        this.aDX = l.f(this.mContext, d.e.ds60);
+        this.aDY = l.f(this.mContext, d.e.ds4);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.aVk.setUniqueId(bdUniqueId);
+        this.aVu.setUniqueId(bdUniqueId);
     }
 
-    public void Kl() {
-        int f = l.f(this.mContext, d.f.ds48);
+    public void Ku() {
+        int f = l.f(this.mContext, d.e.ds48);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.height = f;
         layoutParams.gravity = 48;
         setLayoutParams(layoutParams);
-        setPadding(this.aDm, 0, this.aDn, 0);
+        setPadding(this.aDX, 0, this.aDY, 0);
     }
 
     public void setLeftPadding(int i) {
-        this.aDm = i;
-        setPadding(i, 0, this.aDn, 0);
+        this.aDX = i;
+        setPadding(i, 0, this.aDY, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Km() {
-        this.aVk.Km();
+    public void Kv() {
+        this.aVu.Kv();
     }
 
-    public void Kn() {
-        this.aVk.Kn();
+    public void Kw() {
+        this.aVu.Kw();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.aVk.onDetachedFromWindow();
+        this.aVu.onDetachedFromWindow();
     }
 
     public void setData(al alVar) {
-        this.aVk.setData(alVar);
+        this.aVu.setData(alVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.aVk.setFirstRowSingleColumn(z);
+        this.aVu.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
-        aj.c(this, d.g.icon_home_feedback_selector);
+        aj.c(this, d.f.icon_home_feedback_selector);
     }
 
     public void setEventCallback(a aVar) {
-        this.aVk.setEventCallback(aVar);
+        this.aVu.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.aVk.setDefaultReasonArray(strArr);
+        this.aVu.setDefaultReasonArray(strArr);
     }
 }

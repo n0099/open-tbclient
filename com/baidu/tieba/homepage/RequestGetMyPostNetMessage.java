@@ -6,8 +6,6 @@ import tbclient.GetMyPost.DataReq;
 import tbclient.GetMyPost.GetMyPostReqIdl;
 /* loaded from: classes.dex */
 public class RequestGetMyPostNetMessage extends NetMessage {
-    public static final int FROM_PERSON_CENTER = 1;
-    public static final int FROM_PERSON_CHAT = 2;
     private long mForumId;
     private long mPostId;
     private int mQType;

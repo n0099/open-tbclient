@@ -16,9 +16,9 @@ public class e {
         }
     };
     private static Toast yC;
-    private boolean aeq;
+    private boolean aeL;
 
-    public static e tY() {
+    public static e uf() {
         return new e();
     }
 
@@ -26,7 +26,7 @@ public class e {
     }
 
     public void c(String str, int i, int i2) {
-        if (!this.aeq && str != null) {
+        if (!this.aeL && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
@@ -48,6 +48,10 @@ public class e {
         }
     }
 
+    public void showToast(String str) {
+        showToast(str, 2000);
+    }
+
     public void showToast(int i) {
         showToast(i, 2000);
     }
@@ -60,17 +64,17 @@ public class e {
         showToast(BdBaseApplication.getInst().getApp().getResources().getString(i), i2);
     }
 
-    public void m(int i, int i2, int i3) {
+    public void l(int i, int i2, int i3) {
         c(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
     }
 
     public void onPause() {
-        this.aeq = true;
+        this.aeL = true;
         cancel();
     }
 
     public void onResume() {
-        this.aeq = false;
+        this.aeL = false;
     }
 
     public static void cancel() {

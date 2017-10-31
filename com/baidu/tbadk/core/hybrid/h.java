@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private a acv = null;
+    private a acT = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final h acH = new h();
+        private static final h adg = new h();
     }
 
-    public static h tz() {
-        return c.acH;
+    public static h tG() {
+        return c.adg;
     }
 
     public void a(int i, k kVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.acv = new a(i, kVar);
-                this.acv.tB();
+                this.acT = new a(i, kVar);
+                this.acT.tI();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        private final List<Long> acF = new ArrayList(240);
-        private final List<Integer> acG = new ArrayList(15);
-        protected a acv;
+        protected a acT;
+        private final List<Long> ade = new ArrayList(240);
+        private final List<Integer> adf = new ArrayList(15);
 
         public b(a aVar) {
-            this.acv = aVar;
+            this.acT = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,15 +63,15 @@ public class h {
         }
 
         private void o(long j) {
-            this.acF.add(Long.valueOf(j));
-            this.acv.tB();
+            this.ade.add(Long.valueOf(j));
+            this.acT.tI();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.acv = null;
-            this.acF.clear();
-            this.acG.clear();
+            this.acT = null;
+            this.ade.clear();
+            this.adf.clear();
         }
     }
 
@@ -79,41 +79,41 @@ public class h {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Object acA;
-        private final Method acB;
-        private final b acC;
-        private final k acD;
-        private final Class<?> acw;
-        private final Object acx;
-        private final Class<?> acy;
-        private final Method acz;
+        private final Class<?> acU;
+        private final Object acV;
+        private final Class<?> acW;
+        private final Method acX;
+        private final Object acY;
+        private final Method acZ;
+        private final b ada;
+        private final k adb;
         private int index;
 
         private a(int i, k kVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.acy = Class.forName("android.view.Choreographer");
-            this.acw = Class.forName("android.view.Choreographer$FrameCallback");
-            this.acC = new b(this);
-            this.acx = Proxy.newProxyInstance(this.acw.getClassLoader(), new Class[]{this.acw}, this.acC);
-            this.acz = this.acy.getMethod("getInstance", new Class[0]);
-            this.acA = this.acz.invoke(null, new Object[0]);
-            this.acB = this.acy.getMethod("postFrameCallback", this.acw);
+            this.acW = Class.forName("android.view.Choreographer");
+            this.acU = Class.forName("android.view.Choreographer$FrameCallback");
+            this.ada = new b(this);
+            this.acV = Proxy.newProxyInstance(this.acU.getClassLoader(), new Class[]{this.acU}, this.ada);
+            this.acX = this.acW.getMethod("getInstance", new Class[0]);
+            this.acY = this.acX.invoke(null, new Object[0]);
+            this.acZ = this.acW.getMethod("postFrameCallback", this.acU);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.acD = kVar;
+            this.adb = kVar;
         }
 
-        private void tA() throws InvocationTargetException, IllegalAccessException {
-            this.acB.invoke(this.acA, this.acx);
+        private void tH() throws InvocationTargetException, IllegalAccessException {
+            this.acZ.invoke(this.acY, this.acV);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void tB() {
+        public void tI() {
             if (this.index >= this.MAX_FRAME_COUNT) {
                 com.baidu.adp.lib.g.e.fP().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.h.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.acD.n(a.this.tD());
-                        a.this.acC.destroy();
+                        a.this.adb.o(a.this.tK());
+                        a.this.ada.destroy();
                         a.this.destroy();
                     }
                 });
@@ -121,31 +121,31 @@ public class h {
             }
             this.index++;
             try {
-                tA();
+                tH();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> tC() {
-            return this.acC.acF;
+        private List<Long> tJ() {
+            return this.ada.ade;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.acC.destroy();
+            this.ada.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> tD() {
+        public List<Long> tK() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> tC = tC();
-            int size = tC.size();
+            List<Long> tJ = tJ();
+            int size = tJ.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(tC.get(i2 + 1).longValue() - tC.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(tJ.get(i2 + 1).longValue() - tJ.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

@@ -47,9 +47,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     private c pageSocketListener;
     public final ArrayList<f> postList;
     public final ArrayList<f> threadList;
-    private static int feg = 0;
-    private static int fho = 1;
-    private static String feh = "";
+    private static int fmw = 0;
+    private static int fpN = 1;
+    private static String fmx = "";
 
     /* loaded from: classes.dex */
     public interface a {
@@ -172,44 +172,44 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        fho = 1;
+        fpN = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(feh)) {
-                feg = 1;
-                feh = str;
+            if (z || !str.equals(fmx)) {
+                fmw = 1;
+                fmx = str;
             } else {
-                feg++;
+                fmw++;
             }
         } else {
-            if (z || !str.equals(feh)) {
-                fho = 1;
-                feh = str;
+            if (z || !str.equals(fmx)) {
+                fpN = 1;
+                fmx = str;
             }
-            fho++;
+            fpN++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(feh);
+        userPostPageRequestMessage.setUid(fmx);
         if (z3) {
-            userPostPageRequestMessage.setPn(feg);
+            userPostPageRequestMessage.setPn(fmw);
         } else {
-            userPostPageRequestMessage.setPn(fho);
+            userPostPageRequestMessage.setPn(fpN);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
         userPostPageRequestMessage.setHost(this.mIsHost);
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
-        int ad = l.ad(TbadkCoreApplication.getInst().getApp());
-        int af = l.af(TbadkCoreApplication.getInst().getApp());
+        int ac = l.ac(TbadkCoreApplication.getInst().getApp());
+        int ae = l.ae(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = an.vl().vn() ? 2 : 1;
-        userPostPageRequestMessage.set_scr_w(ad);
-        userPostPageRequestMessage.set_scr_h(af);
+        int i2 = an.vs().vu() ? 2 : 1;
+        userPostPageRequestMessage.set_scr_w(ac);
+        userPostPageRequestMessage.set_scr_h(ae);
         userPostPageRequestMessage.set_scr_dip(f);
         userPostPageRequestMessage.set_q_type(i2);
         userPostPageRequestMessage.setmCallbackWeakReference(new WeakReference<>(aVar));
@@ -226,7 +226,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             } else {
                 z = true;
             }
-            if (v.u(dataRes.post_list) && z) {
+            if (v.v(dataRes.post_list) && z) {
                 this.mCardNullPolymericData = new i();
                 this.postList.add(this.mCardNullPolymericData);
                 return;
@@ -238,7 +238,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 this.mLastChooseStyle = random;
                 cardPersonDynamicThreadData.parseProtobuf(postInfoList, random);
                 postInfoList2.parseProtobuf(postInfoList, random);
-                if (cardPersonDynamicThreadData.bNS != 33) {
+                if (cardPersonDynamicThreadData.bVw != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 } else if (true == TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
@@ -447,7 +447,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 if (labelInfoArr[i] != null) {
                     int random = getRandom(3, -1);
                     if (random == i2 || random == i3) {
-                        random = k(length, i2, i3);
+                        random = j(length, i2, i3);
                     }
                     if (i == 0) {
                         i2 = random;
@@ -463,7 +463,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    private static int k(int i, int i2, int i3) {
+    private static int j(int i, int i2, int i3) {
         for (int i4 = 0; i4 < i && i4 < 3; i4++) {
             if (i4 != i2 && i4 != i3) {
                 return i4;

@@ -18,8 +18,8 @@ public class d {
     }
 
     public static void d(final Context context, SapiWebView sapiWebView) {
-        View inflate = LayoutInflater.from(context).inflate(d.j.layout_sapi_network_unavailable, (ViewGroup) null);
-        inflate.findViewById(d.h.btn_network_settings).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.a.d.1
+        View inflate = LayoutInflater.from(context).inflate(d.h.layout_sapi_network_unavailable, (ViewGroup) null);
+        inflate.findViewById(d.g.btn_network_settings).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.a.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent("android.settings.SETTINGS");
@@ -31,8 +31,8 @@ public class d {
     }
 
     public static void e(Context context, final SapiWebView sapiWebView) {
-        final View inflate = LayoutInflater.from(context).inflate(d.j.layout_sapi_loading_timeout, (ViewGroup) null);
-        inflate.findViewById(d.h.btn_retry).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.a.d.2
+        final View inflate = LayoutInflater.from(context).inflate(d.h.layout_sapi_loading_timeout, (ViewGroup) null);
+        inflate.findViewById(d.g.btn_retry).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.a.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SapiWebView.this.post(new Runnable() { // from class: com.baidu.tbadk.core.a.d.2.1
@@ -48,7 +48,7 @@ public class d {
     }
 
     public static void f(Context context, SapiWebView sapiWebView) {
-        int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.f.ds8);
+        int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds8);
         ProgressBar progressBar = new ProgressBar(context, null, 16842872);
         progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, dimensionPixelSize, 0, 0));
         sapiWebView.setProgressBar(progressBar);

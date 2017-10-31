@@ -1,9 +1,18 @@
 package com.baidu.tieba.view;
 
-import android.widget.AbsListView;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
 /* loaded from: classes.dex */
-public interface i {
-    void onScroll(AbsListView absListView, int i, int i2, int i3);
+public abstract class i extends ClickableSpan {
+    private boolean gMs;
 
-    void onScrollStateChanged(AbsListView absListView, int i);
+    public abstract void a(TextPaint textPaint, boolean z);
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        super.updateDrawState(textPaint);
+        a(textPaint, this.gMs);
+        textPaint.setUnderlineText(false);
+        textPaint.clearShadowLayer();
+    }
 }

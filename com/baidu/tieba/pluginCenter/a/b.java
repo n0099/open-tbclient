@@ -7,24 +7,24 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<String, com.baidu.tbadk.mvc.d.b> {
-    private TextView cPI;
+    private TextView text;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.cPI = (TextView) view.findViewById(d.h.text);
+        this.text = (TextView) view.findViewById(d.g.text);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
-    /* renamed from: qr */
+    /* renamed from: qY */
     public void D(String str) {
         super.D(str);
-        this.cPI.setText(str);
+        this.text.setText(str);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.l
+    @Override // com.baidu.tieba.tbadkCore.m
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.n.a.a(tbPageContext, getRootView());
+        com.baidu.tbadk.o.a.a(tbPageContext, getRootView());
         return true;
     }
 }

@@ -8,7 +8,7 @@ public final class c {
     private static Map<String, d> a = new HashMap();
 
     public static void a(File file, File file2) {
-        if (file != null && com.baidu.sofire.b.d.n(file) && file2 != null && com.baidu.sofire.b.d.n(file2)) {
+        if (file != null && com.baidu.sofire.b.d.a(file) && file2 != null && com.baidu.sofire.b.d.a(file2)) {
             String str = "f=" + file + ", b=" + file2;
             b.a();
             if (!a.containsKey(file.getAbsolutePath())) {

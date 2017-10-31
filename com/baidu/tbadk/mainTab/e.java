@@ -9,30 +9,30 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class e extends FrameLayout {
-    protected boolean aGz;
+    protected boolean aHj;
 
     public e(Context context) {
         super(context);
-        this.aGz = false;
+        this.aHj = false;
     }
 
     public e(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aGz = false;
+        this.aHj = false;
     }
 
     public e(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aGz = false;
+        this.aHj = false;
     }
 
-    public void dD(int i) {
+    public void dE(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void bP(boolean z) {
+    public void bK(boolean z) {
     }
 
     public View getContentTv() {
@@ -45,7 +45,7 @@ public abstract class e extends FrameLayout {
     public void a(String str, a aVar) {
     }
 
-    public a gr(String str) {
+    public a gz(String str) {
         return null;
     }
 
@@ -77,33 +77,33 @@ public abstract class e extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.aGz = z;
+        this.aHj = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aGB;
-        public e aGD;
+        public int aHl;
+        public e aHn;
         public int ur;
         public View view;
-        public boolean aGA = true;
-        public int aGC = d.e.common_color_10225;
+        public boolean aHk = true;
+        public int aHm = d.C0080d.common_color_10225;
 
-        public void dD(int i) {
-            if (this.aGB != 0) {
-                aj.j(this.view, this.aGB);
+        public void dE(int i) {
+            if (this.aHl != 0) {
+                aj.j(this.view, this.aHl);
             }
             if (this.view instanceof TextView) {
-                if (this.aGC != 0) {
-                    aj.c((TextView) this.view, this.aGC, 1);
+                if (this.aHm != 0) {
+                    aj.c((TextView) this.view, this.aHm, 1);
                 }
                 int b = b((TextView) this.view);
                 if (b > 0 && b < 10) {
-                    aj.j((TextView) this.view, d.g.icon_news_head_prompt_one);
+                    aj.j((TextView) this.view, d.f.icon_news_head_prompt_one);
                 } else if (b >= 10 && b < 100) {
-                    aj.j((TextView) this.view, d.g.icon_news_head_prompt_two);
+                    aj.j((TextView) this.view, d.f.icon_news_head_prompt_two);
                 } else if (b >= 100) {
-                    aj.j((TextView) this.view, d.g.icon_news_head_prompt_more);
+                    aj.j((TextView) this.view, d.f.icon_news_head_prompt_more);
                 }
             }
         }

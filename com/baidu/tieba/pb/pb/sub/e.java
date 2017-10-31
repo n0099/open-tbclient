@@ -10,23 +10,23 @@ public class e extends PbListView {
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.context = tbPageContext;
-        getView().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(d.f.ds16), 0, tbPageContext.getResources().getDimensionPixelSize(d.f.ds74));
-        wi();
-        wk();
-        wl();
-        setTextSize(d.f.ds30);
+        getView().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(d.e.ds16), 0, tbPageContext.getResources().getDimensionPixelSize(d.e.ds74));
+        wp();
+        wr();
+        ws();
+        setTextSize(d.e.ds30);
     }
 
     @Override // com.baidu.tbadk.core.view.PbListView
-    public void wn() {
-        super.wn();
-        setText(this.context.getResources().getString(d.l.list_no_more));
+    public void wu() {
+        super.wu();
+        setText(this.context.getResources().getString(d.j.list_no_more));
         getView().setVisibility(0);
     }
 
-    public void aeI() {
-        super.wn();
-        setText(this.context.getResources().getString(d.l.load_more));
+    public void agP() {
+        super.wu();
+        setText(this.context.getResources().getString(d.j.load_more));
         getView().setVisibility(0);
     }
 }

@@ -16,51 +16,51 @@ import java.util.List;
 import tbclient.T;
 /* loaded from: classes.dex */
 public class GetSugMatchWordsModel extends BdBaseModel {
-    private static List<String> dte = new ArrayList();
-    private a eMV;
-    private final HttpMessageListener eMW;
+    private static List<String> dAT = new ArrayList();
+    private a eVP;
+    private final HttpMessageListener eVQ;
 
     /* loaded from: classes.dex */
     public interface a {
-        void A(List<String> list);
+        void B(List<String> list);
 
         void onFail(int i, String str);
     }
 
     public GetSugMatchWordsModel(e<T> eVar) {
         super(eVar);
-        this.eMW = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
+        this.eVQ = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.eMV != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.eVP != null) {
                     GetSugMatchWordsResponseMessage getSugMatchWordsResponseMessage = (GetSugMatchWordsResponseMessage) httpResponsedMessage;
-                    if (!v.u(getSugMatchWordsResponseMessage.getData())) {
-                        GetSugMatchWordsModel.this.eMV.A(getSugMatchWordsResponseMessage.getData());
-                        GetSugMatchWordsModel.dte.clear();
-                        GetSugMatchWordsModel.dte.addAll(getSugMatchWordsResponseMessage.getData());
+                    if (!v.v(getSugMatchWordsResponseMessage.getData())) {
+                        GetSugMatchWordsModel.this.eVP.B(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.dAT.clear();
+                        GetSugMatchWordsModel.dAT.addAll(getSugMatchWordsResponseMessage.getData());
                         return;
                     }
-                    GetSugMatchWordsModel.this.eMV.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
+                    GetSugMatchWordsModel.this.eVP.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
                 }
             }
         };
-        DJ();
-        this.eMW.setSelfListener(true);
-        registerListener(this.eMW);
+        DY();
+        this.eVQ.setSelfListener(true);
+        registerListener(this.eVQ);
     }
 
-    private void DJ() {
+    private void DY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS, TbConfig.SERVER_ADDRESS + "c/e/meme/getSugKeyWords");
         tbHttpMessageTask.setResponsedClass(GetSugMatchWordsResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void b(a aVar) {
-        this.eMV = aVar;
-        if (this.eMV != null) {
-            if (!v.u(dte)) {
-                this.eMV.A(dte);
+        this.eVP = aVar;
+        if (this.eVP != null) {
+            if (!v.v(dAT)) {
+                this.eVP.B(dAT);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS));
             }
@@ -74,7 +74,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.eMW);
+        MessageManager.getInstance().unRegisterListener(this.eVQ);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS);
         return true;
     }

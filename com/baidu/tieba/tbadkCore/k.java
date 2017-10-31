@@ -1,11 +1,23 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.tieba.tbadkCore.d;
+import tbclient.FrsPage.GconAccount;
 /* loaded from: classes.dex */
-public interface k {
-    void a(int i, boolean z, d.a aVar);
+public class k {
+    private boolean gnU;
+    private String menu_name;
 
-    void b(g gVar);
+    public boolean btD() {
+        return this.gnU;
+    }
 
-    void ja(int i);
+    public String btE() {
+        return this.menu_name;
+    }
+
+    public void a(GconAccount gconAccount) {
+        if (gconAccount != null) {
+            this.gnU = gconAccount.has_account.intValue() == 1;
+            this.menu_name = gconAccount.menu_name;
+        }
+    }
 }

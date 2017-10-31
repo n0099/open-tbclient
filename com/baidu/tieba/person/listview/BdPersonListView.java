@@ -14,21 +14,21 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BdPersonListView extends BdTypeListView {
-    private final int HA;
-    private final int HB;
-    private View Hs;
-    private float Hu;
-    private float Hv;
-    private boolean Hx;
-    private float Hy;
-    private float Hz;
-    private b eZA;
-    private b eZB;
-    public a eZC;
-    private boolean eZD;
-    private boolean eZE;
-    private final Scroller eZy;
-    private View eZz;
+    private View GN;
+    private float GP;
+    private float GQ;
+    private boolean GS;
+    private float GT;
+    private float GU;
+    private final int GV;
+    private final int GW;
+    private final Scroller fhN;
+    private View fhO;
+    private b fhP;
+    private b fhQ;
+    public a fhR;
+    private boolean fhS;
+    private boolean fhT;
     private final Context mContext;
     private final Scroller mScroller;
     public static int ExpandListView_expandDistance = 1;
@@ -36,99 +36,95 @@ public class BdPersonListView extends BdTypeListView {
 
     /* loaded from: classes.dex */
     public interface a {
-        void lb();
+        void kV();
 
-        void lc();
+        void kW();
 
-        void w(float f);
+        void v(float f);
     }
 
     public BdPersonListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Hx = false;
-        this.eZD = true;
-        this.eZE = false;
+        this.GS = false;
+        this.fhS = true;
+        this.fhT = false;
         this.mContext = context;
         this.mScroller = new Scroller(this.mContext);
-        this.eZy = new Scroller(this.mContext);
-        this.HA = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.n.ExpandListView);
-        this.HB = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
+        this.fhN = new Scroller(this.mContext);
+        this.GV = ViewConfiguration.get(context).getScaledTouchSlop();
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.ExpandListView);
+        this.GW = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
         obtainStyledAttributes.recycle();
     }
 
     public void setExpandView(View view) {
-        this.Hs = view;
+        this.GN = view;
     }
 
     public void setOuterExpandView(View view) {
-        this.eZz = view;
-    }
-
-    public void setIsNeedExpand(boolean z) {
-        this.eZD = z;
+        this.fhO = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.Hs == null || !this.eZD) {
+        if (this.GN == null || !this.fhS) {
             return super.dispatchTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction();
         if (this.mScroller.isFinished()) {
-            this.Hv = motionEvent.getY();
+            this.GQ = motionEvent.getY();
             switch (action) {
                 case 0:
-                    int height = this.Hs.getHeight();
-                    this.Hu = this.Hv;
-                    this.Hy = this.Hz;
-                    this.eZA = new b(0, height, 0, this.HB + height);
-                    int height2 = this.eZz.getHeight();
-                    this.eZB = new b(0, height2, 0, this.HB + height2);
+                    int height = this.GN.getHeight();
+                    this.GP = this.GQ;
+                    this.GT = this.GU;
+                    this.fhP = new b(0, height, 0, this.GW + height);
+                    int height2 = this.fhO.getHeight();
+                    this.fhQ = new b(0, height2, 0, this.GW + height2);
                     break;
                 case 1:
                 case 3:
-                    if (this.Hx) {
-                        kZ();
-                        if (this.eZE) {
+                    if (this.GS) {
+                        kT();
+                        if (this.fhT) {
                             return true;
                         }
                     } else {
-                        this.eZC.lb();
+                        this.fhR.kV();
                         break;
                     }
                     break;
                 case 2:
-                    float f = this.Hz - this.Hy;
-                    float f2 = this.Hv - this.Hu;
-                    this.Hy = this.Hz;
-                    if (this.Hs.getParent() == this && this.eZA != null && this.Hs.isShown() && this.Hs.getTop() >= 0 && Math.abs(f2) >= this.HA && Math.abs(f) < this.HA) {
-                        int x = this.eZA.x(this.Hv - this.Hu);
-                        if (x > this.eZA.HF && x <= this.eZA.HH) {
-                            this.Hx = true;
-                            this.Hs.setLayoutParams(new AbsListView.LayoutParams(this.Hs.getWidth(), x));
-                            if (this.eZz != null) {
-                                int x2 = this.eZB.x(this.Hv - this.Hu);
-                                ViewGroup.LayoutParams layoutParams = this.eZz.getLayoutParams();
+                    float f = this.GU - this.GT;
+                    float f2 = this.GQ - this.GP;
+                    this.GT = this.GU;
+                    if (this.GN.getParent() == this && this.fhP != null && this.GN.isShown() && this.GN.getTop() >= 0 && Math.abs(f2) >= this.GV && Math.abs(f) < this.GV) {
+                        int w = this.fhP.w(this.GQ - this.GP);
+                        if (w > this.fhP.Ha && w <= this.fhP.Hc) {
+                            this.GS = true;
+                            this.GN.setLayoutParams(new AbsListView.LayoutParams(this.GN.getWidth(), w));
+                            if (this.fhO != null) {
+                                int w2 = this.fhQ.w(this.GQ - this.GP);
+                                ViewGroup.LayoutParams layoutParams = this.fhO.getLayoutParams();
                                 if (layoutParams != null) {
-                                    layoutParams.height = x2;
-                                    this.eZz.setLayoutParams(layoutParams);
+                                    layoutParams.height = w2;
+                                    this.fhO.setLayoutParams(layoutParams);
                                 }
                             }
-                            v(x - this.eZA.HF);
+                            u(w - this.fhP.Ha);
                             break;
-                        } else if (x <= this.eZA.HF) {
-                            this.Hx = false;
+                        } else if (w <= this.fhP.Ha) {
+                            this.GS = false;
                             break;
-                        } else if (x > this.eZA.HH) {
-                            this.Hx = true;
+                        } else if (w > this.fhP.Hc) {
+                            this.GS = true;
                             break;
                         } else {
-                            this.Hx = false;
+                            this.GS = false;
                             break;
                         }
                     } else {
-                        this.Hx = false;
+                        this.GS = false;
                         break;
                     }
                     break;
@@ -140,7 +136,7 @@ public class BdPersonListView extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.Hx) {
+        if (this.GS) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -148,73 +144,73 @@ public class BdPersonListView extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.Hx) {
+        if (this.GS) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    private void kZ() {
-        if (this.eZA != null) {
-            if (this.Hs.getHeight() >= this.eZA.HH - (this.HB / 2)) {
-                la();
+    private void kT() {
+        if (this.fhP != null) {
+            if (this.GN.getHeight() >= this.fhP.Hc - (this.GW / 2)) {
+                kU();
             } else {
-                this.eZC.lb();
+                this.fhR.kV();
             }
-            this.mScroller.startScroll(0, this.Hs.getHeight(), 0, this.eZA.HF - this.Hs.getHeight(), 200);
-            this.eZy.startScroll(0, this.eZz.getHeight(), 0, this.eZB.HF - this.eZz.getHeight(), 200);
+            this.mScroller.startScroll(0, this.GN.getHeight(), 0, this.fhP.Ha - this.GN.getHeight(), 200);
+            this.fhN.startScroll(0, this.fhO.getHeight(), 0, this.fhQ.Ha - this.fhO.getHeight(), 200);
             invalidate();
-            this.Hx = false;
+            this.GS = false;
         }
     }
 
-    public void la() {
-        if (this.eZC != null) {
-            this.eZC.lc();
+    public void kU() {
+        if (this.fhR != null) {
+            this.fhR.kW();
         }
     }
 
     public void setPersonListRefreshListener(a aVar) {
-        this.eZC = aVar;
+        this.fhR = aVar;
     }
 
     @Override // android.view.View
     public void computeScroll() {
         ViewGroup.LayoutParams layoutParams;
         if (this.mScroller.computeScrollOffset()) {
-            this.Hs.setLayoutParams(new AbsListView.LayoutParams(this.Hs.getWidth(), this.mScroller.getCurrY()));
+            this.GN.setLayoutParams(new AbsListView.LayoutParams(this.GN.getWidth(), this.mScroller.getCurrY()));
         } else {
             super.computeScroll();
         }
-        if (this.eZy.computeScrollOffset()) {
-            int currY = this.eZy.getCurrY();
-            if (this.eZz != null && (layoutParams = this.eZz.getLayoutParams()) != null) {
+        if (this.fhN.computeScrollOffset()) {
+            int currY = this.fhN.getCurrY();
+            if (this.fhO != null && (layoutParams = this.fhO.getLayoutParams()) != null) {
                 layoutParams.height = currY;
-                this.eZz.setLayoutParams(layoutParams);
+                this.fhO.setLayoutParams(layoutParams);
             }
         }
     }
 
-    private void v(float f) {
-        this.eZC.w(360.0f - ((f * 360.0f) / this.HB));
+    private void u(float f) {
+        this.fhR.v(360.0f - ((f * 360.0f) / this.GW));
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        public int HE;
-        public int HF;
-        public int HG;
-        public int HH;
+        public int GZ;
+        public int Ha;
+        public int Hb;
+        public int Hc;
 
         public b(int i, int i2, int i3, int i4) {
-            this.HE = i;
-            this.HF = i2;
-            this.HG = i3;
-            this.HH = i4;
+            this.GZ = i;
+            this.Ha = i2;
+            this.Hb = i3;
+            this.Hc = i4;
         }
 
-        public int x(float f) {
-            return (int) (this.HF + (f / 2.5f));
+        public int w(float f) {
+            return (int) (this.Ha + (f / 2.5f));
         }
     }
 }

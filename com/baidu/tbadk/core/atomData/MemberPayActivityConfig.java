@@ -34,8 +34,6 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final int FROM_THEME_LIST_PAGE = 9;
     public static final String MEMBER_TYPE = "member_type";
     public static final String PAY_TYPE = "pay_type";
-    public static final int SCENE_FROM_BECOME_VIP_BUTTON = 2;
-    public static final int SCENE_FROM_MEMBER_CENTER_RECOMMEND = 1;
     public static final int SCENE_FROM_MEMBER_DEFAULT_COMMON = 0;
     public static final int SCENE_FROM_MEMBER_YEAR_COMMON = 9;
     public static final String SCENE_ID = "scene_id";

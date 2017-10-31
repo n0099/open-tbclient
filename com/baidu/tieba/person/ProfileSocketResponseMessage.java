@@ -7,7 +7,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.person.g;
 import com.squareup.wire.Wire;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.AlaLiveInfo;
 import tbclient.Anti;
 import tbclient.DealWindow;
 import tbclient.DynamicInfo;
@@ -37,6 +39,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     private Highlist highlist;
     private boolean isSelf;
     private AlaLiveInfoCoreData liveInfoData;
+    private List<AlaLiveInfoCoreData> liveReplayData;
     private int maskType;
     private ModuleInfo moduleInfo;
     private NicknameInfo nicknameInfo;
@@ -181,6 +184,14 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                 this.liveInfoData = new AlaLiveInfoCoreData();
                 this.liveInfoData.parserProtoBuf(profileResIdl.data.ala_live_info);
             }
+            if (!v.v(profileResIdl.data.ala_live_record)) {
+                this.liveReplayData = new ArrayList();
+                for (AlaLiveInfo alaLiveInfo : profileResIdl.data.ala_live_record) {
+                    AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+                    alaLiveInfoCoreData.parserProtoBuf(alaLiveInfo);
+                    this.liveReplayData.add(alaLiveInfoCoreData);
+                }
+            }
             this.userAgreeInfo = profileResIdl.data.user_agree_info;
             this.nicknameInfo = profileResIdl.data.nickname_info;
         }
@@ -191,15 +202,15 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         l<String> N;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (N = com.baidu.tbadk.core.c.a.sX().N("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<g.a> list = this.ucCardData.eYT;
-            if (v.t(list) > 4) {
+        if (this.ucCardData != null && (N = com.baidu.tbadk.core.c.a.td().N("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<g.a> list = this.ucCardData.fhk;
+            if (v.u(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (g.a aVar : list) {
                     if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(N.get(aVar.title), 0L)) {
-                        aVar.eYU = true;
+                        aVar.fhl = true;
                     } else {
-                        aVar.eYU = false;
+                        aVar.fhl = false;
                     }
                 }
             }
@@ -209,7 +220,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> M = com.baidu.tbadk.core.c.a.sX().M("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        l<byte[]> M = com.baidu.tbadk.core.c.a.td().M("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             M.e(PROFILE_CACHE_KEY, bArr);
         }
@@ -222,6 +233,11 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     @Override // com.baidu.tieba.person.c
     public AlaLiveInfoCoreData getLiveInfo() {
         return this.liveInfoData;
+    }
+
+    @Override // com.baidu.tieba.person.c
+    public List<AlaLiveInfoCoreData> getLiveReplayInfo() {
+        return this.liveReplayData;
     }
 
     @Override // com.baidu.tieba.person.c

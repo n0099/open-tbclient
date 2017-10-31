@@ -1,128 +1,70 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.d;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.view.MotionEvent;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class c implements f {
-    private ImageView gCq;
-    private ImageView gCr;
-    private NavigationBar mNavigationBar;
-    private UserData mUserData;
+public class c extends LinkMovementMethod {
+    private static c gLZ;
+    private com.baidu.tbadk.widget.richText.c gLW;
+    private int gLX;
+    private int gLY;
 
-    @Override // com.baidu.tieba.view.f
-    public void a(Context context, NavigationBar navigationBar) {
-        this.mNavigationBar = navigationBar;
-        this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
-        this.gCr = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.j.view_topbar_icon, (View.OnClickListener) null);
-        if (this.gCr.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gCr.getLayoutParams();
-            layoutParams.rightMargin = context.getResources().getDimensionPixelSize(d.f.ds4);
-            this.gCr.setLayoutParams(layoutParams);
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        com.baidu.tbadk.widget.richText.c a = a(textView, spannable, motionEvent);
+        if (a == null && motionEvent.getAction() == 0) {
+            return super.onTouchEvent(textView, spannable, motionEvent);
         }
-        this.gCq = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.j.view_topbar_icon, (View.OnClickListener) null);
-        if (this.gCq.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gCq.getLayoutParams();
-            layoutParams2.rightMargin = context.getResources().getDimensionPixelSize(d.f.ds14);
-            this.gCq.setLayoutParams(layoutParams2);
+        if (a != null) {
+            this.gLW = a;
         }
-        if (TbadkCoreApplication.isLogin()) {
-            this.gCq.setVisibility(0);
-            return;
-        }
-        this.gCq.setVisibility(8);
-        if (this.gCr.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.gCr.getLayoutParams();
-            layoutParams3.rightMargin = context.getResources().getDimensionPixelSize(d.f.ds14);
-            this.gCr.setLayoutParams(layoutParams3);
-        }
-    }
-
-    @Override // com.baidu.tieba.view.f
-    public void setOnViewResponseListener(final g gVar) {
-        if (this.gCq != null) {
-            this.gCq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.c.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (com.baidu.adp.lib.util.j.hh()) {
-                        TiebaStatic.log(new ak("c12503").ac("obj_locate", "2"));
-                        com.baidu.tieba.personPolymeric.event.a aVar = new com.baidu.tieba.personPolymeric.event.a();
-                        aVar.ceI = 9;
-                        gVar.a(view, aVar);
-                    }
-                }
-            });
-        }
-        if (this.gCr != null) {
-            this.gCr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.c.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    TiebaStatic.log(new ak("c12503").ac("obj_locate", "1"));
-                    com.baidu.tieba.personPolymeric.event.a aVar = new com.baidu.tieba.personPolymeric.event.a();
-                    aVar.ceI = 42;
-                    aVar.ceJ = new Bundle();
-                    aVar.ceJ.putSerializable(UserData.TYPE_USER, c.this.mUserData);
-                    gVar.a(view, aVar);
-                }
-            });
-        }
-    }
-
-    @Override // com.baidu.tieba.view.f
-    public void bxP() {
-    }
-
-    @Override // com.baidu.tieba.view.f
-    public void y(int i, boolean z) {
-    }
-
-    @Override // com.baidu.tieba.view.f
-    public void c(float f, boolean z) {
-        float f2;
-        if (this.gCq != null) {
-            if (z) {
-                aj.c(this.gCq, d.g.selector_topbar_more_black);
-                aj.c(this.gCr, d.g.selector_topbar_chat_black);
-            } else {
-                aj.c(this.gCq, d.g.selector_topbar_more_white);
-                aj.c(this.gCr, d.g.selector_topbar_chat_white);
+        if (motionEvent.getAction() == 0) {
+            this.gLX = (int) motionEvent.getX();
+            this.gLY = (int) motionEvent.getY();
+            if (this.gLW != null) {
+                this.gLW.fW(1);
+                Selection.setSelection(spannable, spannable.getSpanStart(this.gLW), spannable.getSpanEnd(this.gLW));
             }
-            if (f < 0.5f) {
-                f2 = 1.0f - (f * 2.0f);
-            } else {
-                f2 = (f * 2.0f) - 1.0f;
+            textView.invalidate();
+        } else if (motionEvent.getAction() == 2) {
+            if (this.gLW != null && (Math.abs(this.gLX - motionEvent.getX()) > 20.0f || Math.abs(this.gLY - motionEvent.getY()) > 20.0f)) {
+                this.gLW.fW(2);
+                textView.invalidate();
+                Selection.removeSelection(spannable);
             }
-            if (f2 >= 0.0f && f2 <= 1.0f) {
-                this.gCq.setAlpha(f2);
-                this.gCr.setAlpha(f2);
-            }
+        } else if ((motionEvent.getAction() == 1 || motionEvent.getAction() == 3) && this.gLW != null) {
+            this.gLW.fW(2);
+            textView.invalidate();
+            Selection.removeSelection(spannable);
         }
+        return super.onTouchEvent(textView, spannable, motionEvent);
     }
 
-    @Override // com.baidu.tieba.view.f
-    public void onChangeSkinType(int i) {
-        if (this.gCq != null) {
-            if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                aj.c(this.gCq, d.g.selector_topbar_more_white);
-                aj.c(this.gCr, d.g.selector_topbar_chat_white);
-                return;
-            }
-            aj.c(this.gCq, d.g.selector_topbar_more_black);
-            aj.c(this.gCr, d.g.selector_topbar_chat_black);
+    public static c bBh() {
+        if (gLZ == null) {
+            gLZ = new c();
         }
+        return gLZ;
     }
 
-    @Override // com.baidu.tieba.view.f
-    public void e(UserData userData) {
-        this.mUserData = userData;
+    private com.baidu.tbadk.widget.richText.c a(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        if (motionEvent == null || motionEvent.getAction() == 3) {
+            return this.gLW;
+        }
+        int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+        int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+        int scrollX = x + textView.getScrollX();
+        int scrollY = y + textView.getScrollY();
+        Layout layout = textView.getLayout();
+        int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+        com.baidu.tbadk.widget.richText.c[] cVarArr = (com.baidu.tbadk.widget.richText.c[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.c.class);
+        if (cVarArr == null || cVarArr.length <= 0 || cVarArr[0] == null) {
+            return null;
+        }
+        return cVarArr[0];
     }
 }

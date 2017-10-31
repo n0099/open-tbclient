@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.i> {
-    private ImageView baX;
-    private TextView cVX;
-    private String fes;
+    private ImageView bbD;
+    private TextView dem;
+    private String fmI;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -20,24 +20,24 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     }
 
     private void init(View view) {
-        this.mRootView = view.findViewById(d.h.card_null_polymeric_rootview);
-        this.baX = (ImageView) view.findViewById(d.h.card_null_polymeric_icon);
-        this.cVX = (TextView) view.findViewById(d.h.card_null_polymeric_txt);
+        this.mRootView = view.findViewById(d.g.card_null_polymeric_rootview);
+        this.bbD = (ImageView) view.findViewById(d.g.card_null_polymeric_icon);
+        this.dem = (TextView) view.findViewById(d.g.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            aj.j(this.mRootView, d.e.cp_bg_line_d);
-            aj.c(this.baX, d.g.emotion07);
-            aj.c(this.cVX, d.e.cp_cont_c, 1);
+            aj.j(this.mRootView, d.C0080d.cp_bg_line_d);
+            aj.c(this.bbD, d.f.emotion07);
+            aj.c(this.dem, d.C0080d.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.j.card_null_polymeric_view;
+        return d.h.card_null_polymeric_view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,26 +51,26 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.fes)) {
-            TextView textView = this.cVX;
-            String string2 = this.mContext.getString(d.l.person_polymeric_null_data);
+        if (StringUtils.isNull(this.fmI)) {
+            TextView textView = this.dem;
+            String string2 = this.mContext.getString(d.j.person_polymeric_null_data);
             Object[] objArr = new Object[1];
             if (iVar.isHost) {
-                string = this.mContext.getString(d.l.you);
+                string = this.mContext.getString(d.j.you);
             } else if (iVar.sex == 2) {
-                string = this.mContext.getString(d.l.she);
+                string = this.mContext.getString(d.j.she);
             } else {
-                string = this.mContext.getString(d.l.he);
+                string = this.mContext.getString(d.j.he);
             }
             objArr[0] = string;
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.cVX.setText(this.fes);
+        this.dem.setText(this.fmI);
     }
 
     public void setTip(String str) {
-        this.fes = str;
+        this.fmI = str;
     }
 
     @Override // android.view.View.OnClickListener

@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a apT = null;
-    private boolean apS;
-    private int apU;
+    private static volatile a aqo = null;
+    private boolean aqn;
+    private int aqp;
 
     private a() {
-        this.apS = false;
-        this.apU = 0;
+        this.aqn = false;
+        this.aqp = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.v(true);
@@ -20,10 +20,10 @@ public class a {
             if (dVar.dI()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.apU = Integer.parseInt(content);
+                    this.aqp = Integer.parseInt(content);
                 }
-                if (this.apU == 1 || this.apU == 2) {
-                    this.apS = true;
+                if (this.aqp == 1 || this.aqp == 2) {
+                    this.aqn = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a xk() {
-        if (apT == null) {
+    public static a xr() {
+        if (aqo == null) {
             synchronized (a.class) {
-                if (apT == null) {
-                    apT = new a();
+                if (aqo == null) {
+                    aqo = new a();
                 }
             }
         }
-        return apT;
+        return aqo;
     }
 
-    public boolean xl() {
-        return this.apS;
+    public boolean xs() {
+        return this.aqn;
     }
 
-    public int xm() {
-        return this.apU;
+    public int xt() {
+        return this.aqp;
     }
 
-    public String xn() {
-        return this.apS ? "pub_env=" + this.apU + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String xu() {
+        return this.aqn ? "pub_env=" + this.aqp + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

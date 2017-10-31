@@ -1,5 +1,6 @@
 package com.davemorrissey.labs.subscaleview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -75,6 +76,7 @@ public class SubsamplingScaleImageView extends View {
     private boolean isPanning;
     private boolean isQuickScaling;
     private boolean isZooming;
+    private IScrollDistanceCallBack mIScrollDistanceCallBack;
     private Float mInitScale;
     private Matrix matrix;
     private float maxScale;
@@ -82,6 +84,7 @@ public class SubsamplingScaleImageView extends View {
     private float minScale;
     private int minimumScaleType;
     private int minimumTileDpi;
+    private float norScale;
     private OnImageEventListener onImageEventListener;
     private View.OnLongClickListener onLongClickListener;
     private int orientation;
@@ -175,23 +178,23 @@ public class SubsamplingScaleImageView extends View {
         });
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.SubsamplingScaleImageView);
-            if (obtainStyledAttributes.hasValue(R.styleable.SubsamplingScaleImageView_assetName) && (string = obtainStyledAttributes.getString(R.styleable.SubsamplingScaleImageView_assetName)) != null && string.length() > 0) {
+            if (obtainStyledAttributes.hasValue(1) && (string = obtainStyledAttributes.getString(1)) != null && string.length() > 0) {
                 setImage(ImageSource.asset(string).tilingEnabled());
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.SubsamplingScaleImageView_src) && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.SubsamplingScaleImageView_src, 0)) > 0) {
+            if (obtainStyledAttributes.hasValue(0) && (resourceId = obtainStyledAttributes.getResourceId(0, 0)) > 0) {
                 setImage(ImageSource.resource(resourceId).tilingEnabled());
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.SubsamplingScaleImageView_panEnabled)) {
-                setPanEnabled(obtainStyledAttributes.getBoolean(R.styleable.SubsamplingScaleImageView_panEnabled, true));
+            if (obtainStyledAttributes.hasValue(2)) {
+                setPanEnabled(obtainStyledAttributes.getBoolean(2, true));
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.SubsamplingScaleImageView_zoomEnabled)) {
-                setZoomEnabled(obtainStyledAttributes.getBoolean(R.styleable.SubsamplingScaleImageView_zoomEnabled, true));
+            if (obtainStyledAttributes.hasValue(3)) {
+                setZoomEnabled(obtainStyledAttributes.getBoolean(3, true));
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.SubsamplingScaleImageView_quickScaleEnabled)) {
-                setQuickScaleEnabled(obtainStyledAttributes.getBoolean(R.styleable.SubsamplingScaleImageView_quickScaleEnabled, true));
+            if (obtainStyledAttributes.hasValue(4)) {
+                setQuickScaleEnabled(obtainStyledAttributes.getBoolean(4, true));
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.SubsamplingScaleImageView_tileBackgroundColor)) {
-                setTileBackgroundColor(obtainStyledAttributes.getColor(R.styleable.SubsamplingScaleImageView_tileBackgroundColor, Color.argb(0, 0, 0, 0)));
+            if (obtainStyledAttributes.hasValue(5)) {
+                setTileBackgroundColor(obtainStyledAttributes.getColor(5, Color.argb(0, 0, 0, 0)));
             }
             obtainStyledAttributes.recycle();
         }
@@ -214,6 +217,18 @@ public class SubsamplingScaleImageView extends View {
 
     public final void setImage(ImageSource imageSource) {
         setImage(imageSource, null, null);
+    }
+
+    public boolean isCanDrag() {
+        return this.scale == this.norScale;
+    }
+
+    public boolean isViewTop() {
+        return this.vTranslate.y == 0.0f;
+    }
+
+    public void setIScrollDistanceCallBack(IScrollDistanceCallBack iScrollDistanceCallBack) {
+        this.mIScrollDistanceCallBack = iScrollDistanceCallBack;
     }
 
     public final void setImage(ImageSource imageSource, ImageViewState imageViewState) {
@@ -334,51 +349,54 @@ public class SubsamplingScaleImageView extends View {
             this.tileMap = null;
         }
         this.imageSource = null;
-        setGestureDetector(getContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setGestureDetector(final Context context) {
-        this.detector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() { // from class: com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.2
-            @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                Log.e("SubsamplingScaleImageView", "onFling:panEnabled:" + SubsamplingScaleImageView.this.panEnabled + " readySent:" + SubsamplingScaleImageView.this.readySent + " vTranslate:" + SubsamplingScaleImageView.this.vTranslate.toString() + " isZooming:" + SubsamplingScaleImageView.this.isZooming);
-                if (!SubsamplingScaleImageView.this.panEnabled || !SubsamplingScaleImageView.this.readySent || SubsamplingScaleImageView.this.vTranslate == null || motionEvent == null || motionEvent2 == null || ((Math.abs(motionEvent.getX() - motionEvent2.getX()) <= 50.0f && Math.abs(motionEvent.getY() - motionEvent2.getY()) <= 50.0f) || ((Math.abs(f) <= 500.0f && Math.abs(f2) <= 500.0f) || SubsamplingScaleImageView.this.isZooming))) {
-                    return super.onFling(motionEvent, motionEvent2, f, f2);
-                }
-                PointF pointF = new PointF(SubsamplingScaleImageView.this.vTranslate.x + (f * 0.25f), SubsamplingScaleImageView.this.vTranslate.y + (0.25f * f2));
-                new AnimationBuilder(SubsamplingScaleImageView.this, new PointF(((SubsamplingScaleImageView.this.getWidth() / 2) - pointF.x) / SubsamplingScaleImageView.this.scale, ((SubsamplingScaleImageView.this.getHeight() / 2) - pointF.y) / SubsamplingScaleImageView.this.scale), (AnimationBuilder) null).withEasing(1).withPanLimited(false).start();
-                return true;
-            }
-
-            @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
-            public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-                SubsamplingScaleImageView.this.performClick();
-                return true;
-            }
-
-            @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
-            public boolean onDoubleTap(MotionEvent motionEvent) {
-                if (SubsamplingScaleImageView.this.zoomEnabled && SubsamplingScaleImageView.this.readySent && SubsamplingScaleImageView.this.vTranslate != null) {
-                    SubsamplingScaleImageView.this.setGestureDetector(context);
-                    if (SubsamplingScaleImageView.this.quickScaleEnabled) {
-                        SubsamplingScaleImageView.this.vCenterStart = new PointF(motionEvent.getX(), motionEvent.getY());
-                        SubsamplingScaleImageView.this.vTranslateStart = new PointF(SubsamplingScaleImageView.this.vTranslate.x, SubsamplingScaleImageView.this.vTranslate.y);
-                        SubsamplingScaleImageView.this.scaleStart = SubsamplingScaleImageView.this.scale;
-                        SubsamplingScaleImageView.this.isQuickScaling = true;
-                        SubsamplingScaleImageView.this.isZooming = true;
-                        SubsamplingScaleImageView.this.quickScaleCenter = SubsamplingScaleImageView.this.viewToSourceCoord(SubsamplingScaleImageView.this.vCenterStart);
-                        SubsamplingScaleImageView.this.quickScaleLastDistance = -1.0f;
-                        SubsamplingScaleImageView.this.quickScaleLastPoint = new PointF(SubsamplingScaleImageView.this.quickScaleCenter.x, SubsamplingScaleImageView.this.quickScaleCenter.y);
-                        SubsamplingScaleImageView.this.quickScaleMoved = false;
-                        return false;
+        if (context != null) {
+            this.detector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() { // from class: com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.2
+                @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+                public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+                    if (SubsamplingScaleImageView.this.mIScrollDistanceCallBack != null) {
+                        SubsamplingScaleImageView.this.mIScrollDistanceCallBack.onMove(motionEvent, motionEvent2, SubsamplingScaleImageView.this.vTranslate, f, f2);
                     }
-                    SubsamplingScaleImageView.this.doubleTapZoom(SubsamplingScaleImageView.this.viewToSourceCoord(new PointF(motionEvent.getX(), motionEvent.getY())), new PointF(motionEvent.getX(), motionEvent.getY()));
+                    if (!SubsamplingScaleImageView.this.panEnabled || !SubsamplingScaleImageView.this.readySent || SubsamplingScaleImageView.this.vTranslate == null || motionEvent == null || motionEvent2 == null || ((Math.abs(motionEvent.getX() - motionEvent2.getX()) <= 50.0f && Math.abs(motionEvent.getY() - motionEvent2.getY()) <= 50.0f) || ((Math.abs(f) <= 500.0f && Math.abs(f2) <= 500.0f) || SubsamplingScaleImageView.this.isZooming))) {
+                        return super.onFling(motionEvent, motionEvent2, f, f2);
+                    }
+                    PointF pointF = new PointF(SubsamplingScaleImageView.this.vTranslate.x + (f * 0.25f), SubsamplingScaleImageView.this.vTranslate.y + (f2 * 0.25f));
+                    new AnimationBuilder(SubsamplingScaleImageView.this, new PointF(((SubsamplingScaleImageView.this.getWidth() / 2) - pointF.x) / SubsamplingScaleImageView.this.scale, ((SubsamplingScaleImageView.this.getHeight() / 2) - pointF.y) / SubsamplingScaleImageView.this.scale), (AnimationBuilder) null).withEasing(1).withPanLimited(false).start();
                     return true;
                 }
-                return super.onDoubleTapEvent(motionEvent);
-            }
-        });
+
+                @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+                public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
+                    SubsamplingScaleImageView.this.performClick();
+                    return true;
+                }
+
+                @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+                public boolean onDoubleTap(MotionEvent motionEvent) {
+                    if (SubsamplingScaleImageView.this.zoomEnabled && SubsamplingScaleImageView.this.readySent && SubsamplingScaleImageView.this.vTranslate != null) {
+                        SubsamplingScaleImageView.this.setGestureDetector(context);
+                        if (SubsamplingScaleImageView.this.quickScaleEnabled) {
+                            SubsamplingScaleImageView.this.vCenterStart = new PointF(motionEvent.getX(), motionEvent.getY());
+                            SubsamplingScaleImageView.this.vTranslateStart = new PointF(SubsamplingScaleImageView.this.vTranslate.x, SubsamplingScaleImageView.this.vTranslate.y);
+                            SubsamplingScaleImageView.this.scaleStart = SubsamplingScaleImageView.this.scale;
+                            SubsamplingScaleImageView.this.isQuickScaling = true;
+                            SubsamplingScaleImageView.this.isZooming = true;
+                            SubsamplingScaleImageView.this.quickScaleCenter = SubsamplingScaleImageView.this.viewToSourceCoord(SubsamplingScaleImageView.this.vCenterStart);
+                            SubsamplingScaleImageView.this.quickScaleLastDistance = -1.0f;
+                            SubsamplingScaleImageView.this.quickScaleLastPoint = new PointF(SubsamplingScaleImageView.this.quickScaleCenter.x, SubsamplingScaleImageView.this.quickScaleCenter.y);
+                            SubsamplingScaleImageView.this.quickScaleMoved = false;
+                            return false;
+                        }
+                        SubsamplingScaleImageView.this.doubleTapZoom(SubsamplingScaleImageView.this.viewToSourceCoord(new PointF(motionEvent.getX(), motionEvent.getY())), new PointF(motionEvent.getX(), motionEvent.getY()));
+                        return true;
+                    }
+                    return super.onDoubleTapEvent(motionEvent);
+                }
+            });
+        }
     }
 
     @Override // android.view.View
@@ -430,7 +448,6 @@ public class SubsamplingScaleImageView extends View {
         }
         this.anim = null;
         if (this.vTranslate != null) {
-            Log.e("SubsamplingScaleImageView", "isQuickScaling:" + this.isQuickScaling + " " + motionEvent.getAction());
             if (!this.isQuickScaling && (this.detector == null || this.detector.onTouchEvent(motionEvent))) {
                 if (motionEvent.getAction() == 1) {
                     Log.e("SubsamplingScaleImageView", "action1:detector.onTouchEvent:" + this.detector.onTouchEvent(motionEvent));
@@ -923,6 +940,9 @@ public class SubsamplingScaleImageView extends View {
         if (getWidth() != 0 && getHeight() != 0 && this.sWidth > 0 && this.sHeight > 0) {
             if (this.sPendingCenter != null && this.pendingScale != null) {
                 this.scale = this.pendingScale.floatValue();
+                if (this.scale != this.norScale) {
+                    this.norScale = this.scale;
+                }
                 if (this.vTranslate == null) {
                     this.vTranslate = new PointF();
                 }
@@ -1018,6 +1038,9 @@ public class SubsamplingScaleImageView extends View {
         this.satTemp.vTranslate.set(this.vTranslate);
         fitToBounds(z, this.satTemp);
         this.scale = this.satTemp.scale;
+        if (this.norScale == 0.0f) {
+            this.norScale = this.scale;
+        }
         this.vTranslate.set(this.satTemp.vTranslate);
         if (z2) {
             this.vTranslate.set(vTranslateForSCenter(sWidth() / 2, sHeight() / 2, this.scale));
@@ -1493,6 +1516,7 @@ public class SubsamplingScaleImageView extends View {
         return this.orientation == -1 ? this.sOrientation : this.orientation;
     }
 
+    @SuppressLint({"FloatMath"})
     private float distance(float f, float f2, float f3, float f4) {
         float f5 = f - f2;
         float f6 = f3 - f4;

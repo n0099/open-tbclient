@@ -7,7 +7,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class ab extends k<y, aa> {
+public class ab extends m<com.baidu.tieba.pb.data.i, com.baidu.tieba.pb.pb.a.e> {
     /* JADX INFO: Access modifiers changed from: protected */
     public ab(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -16,21 +16,20 @@ public class ab extends k<y, aa> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: be */
-    public aa onCreateViewHolder(ViewGroup viewGroup) {
-        return new aa(this.eDo.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_page_news, viewGroup, false));
+    /* renamed from: bs */
+    public com.baidu.tieba.pb.pb.a.e onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tieba.pb.pb.a.e(LayoutInflater.from(this.mContext).inflate(d.h.pb_no_data_item_layout, viewGroup, false), this.mContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, y yVar, aa aaVar) {
-        super.onFillViewHolder(i, view, viewGroup, yVar, aaVar);
-        if (yVar != null) {
-            aaVar.a(yVar);
-            aaVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        }
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.i iVar, com.baidu.tieba.pb.pb.a.e eVar) {
+        super.onFillViewHolder(i, view, viewGroup, iVar, eVar);
+        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
+        this.eMh.getLayoutMode().ag(this.mSkinType == 1);
+        this.eMh.getLayoutMode().t(view);
         return view;
     }
 }

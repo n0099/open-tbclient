@@ -11,22 +11,22 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class o {
-    private com.baidu.tieba.person.a.a eYY;
-    private h feA;
-    private j feB;
-    private e feC;
-    private l feD;
-    private d feE;
-    private com.baidu.tieba.person.a.d feF;
-    private q feG;
-    private k feH;
-    private com.baidu.tieba.personPolymeric.b.b feI;
-    private BdPersonListView feJ;
-    private n fev;
-    private b few;
-    private i fex;
-    private a fey;
-    private c fez;
+    private com.baidu.tieba.person.a.a fhp;
+    private n fmL;
+    private b fmM;
+    private i fmN;
+    private a fmO;
+    private c fmP;
+    private h fmQ;
+    private j fmR;
+    private e fmS;
+    private l fmT;
+    private d fmU;
+    private com.baidu.tieba.person.a.d fmV;
+    private q fmW;
+    private k fmX;
+    private com.baidu.tieba.personPolymeric.b.b fmY;
+    private BdPersonListView fmZ;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdUniqueId mBdUniqueId;
 
@@ -36,72 +36,72 @@ public class o {
     }
 
     private void a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
-        this.feJ = bdPersonListView;
-        this.fev = new n(tbPageContext);
-        this.few = new b(tbPageContext);
-        this.fex = new i(tbPageContext);
-        this.fey = new a(tbPageContext);
-        this.fez = new c(tbPageContext);
-        this.feA = new h(tbPageContext, tbPageContext.getUniqueId());
-        this.feB = new j(tbPageContext);
-        this.feC = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.fgL);
-        this.feD = new l(tbPageContext);
-        this.feE = new d(tbPageContext);
-        this.feF = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.eYZ);
-        this.eYY = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.eYJ);
-        this.feG = new q(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-        this.feH = new k(tbPageContext, com.baidu.tieba.personPolymeric.c.k.fgU);
-        this.feI = new com.baidu.tieba.personPolymeric.b.j(tbPageContext, this, this.mBdUniqueId);
-        this.feH.a(this.feI);
-        this.mAdapters.add(this.feH);
-        this.mAdapters.add(this.fev);
-        this.mAdapters.add(this.few);
-        this.mAdapters.add(this.fex);
-        this.mAdapters.add(this.fey);
-        this.mAdapters.add(this.fez);
-        this.mAdapters.add(this.feA);
-        this.mAdapters.add(this.feB);
-        this.mAdapters.add(this.feC);
-        this.mAdapters.add(this.feD);
-        this.mAdapters.add(this.feE);
-        this.mAdapters.add(this.feF);
-        this.mAdapters.add(this.eYY);
-        this.mAdapters.add(this.feG);
+        this.fmZ = bdPersonListView;
+        this.fmL = new n(tbPageContext);
+        this.fmM = new b(tbPageContext);
+        this.fmN = new i(tbPageContext);
+        this.fmO = new a(tbPageContext);
+        this.fmP = new c(tbPageContext);
+        this.fmQ = new h(tbPageContext, tbPageContext.getUniqueId());
+        this.fmR = new j(tbPageContext);
+        this.fmS = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.fpj);
+        this.fmT = new l(tbPageContext);
+        this.fmU = new d(tbPageContext);
+        this.fmV = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.fhq);
+        this.fhp = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.fgZ);
+        this.fmW = new q(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
+        this.fmX = new k(tbPageContext, com.baidu.tieba.personPolymeric.c.k.fpt);
+        this.fmY = new com.baidu.tieba.personPolymeric.b.j(tbPageContext, this, this.mBdUniqueId);
+        this.fmX.a(this.fmY);
+        this.mAdapters.add(this.fmX);
+        this.mAdapters.add(this.fmL);
+        this.mAdapters.add(this.fmM);
+        this.mAdapters.add(this.fmN);
+        this.mAdapters.add(this.fmO);
+        this.mAdapters.add(this.fmP);
+        this.mAdapters.add(this.fmQ);
+        this.mAdapters.add(this.fmR);
+        this.mAdapters.add(this.fmS);
+        this.mAdapters.add(this.fmT);
+        this.mAdapters.add(this.fmU);
+        this.mAdapters.add(this.fmV);
+        this.mAdapters.add(this.fhp);
+        this.mAdapters.add(this.fmW);
         bdPersonListView.addAdapters(this.mAdapters);
     }
 
-    public void J(View.OnClickListener onClickListener) {
-        if (this.feF != null) {
-            this.feF.H(onClickListener);
+    public void K(View.OnClickListener onClickListener) {
+        if (this.fmV != null) {
+            this.fmV.I(onClickListener);
         }
     }
 
     public void setIsHost(boolean z) {
-        this.feG.setIsHost(z);
-        this.fex.setIsHost(z);
+        this.fmW.setIsHost(z);
+        this.fmN.setIsHost(z);
     }
 
-    public void ql(int i) {
-        this.feI.setData(i);
+    public void qB(int i) {
+        this.fmY.setData(i);
     }
 
-    public void cD(List<com.baidu.tieba.person.data.f> list) {
-        this.feI.cD(list);
+    public void cE(List<com.baidu.tieba.person.data.f> list) {
+        this.fmY.cE(list);
     }
 
     public void c(List<com.baidu.tieba.person.data.f> list, int i, boolean z) {
-        ArrayList<com.baidu.adp.widget.ListView.f> aVg;
+        ArrayList<com.baidu.adp.widget.ListView.f> aYj;
         com.baidu.adp.widget.ListView.f fVar;
         if (list != null) {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (list.get(i2) != null && (aVg = list.get(i2).aVg()) != null) {
-                    if (v.u(aVg)) {
+                if (list.get(i2) != null && (aYj = list.get(i2).aYj()) != null) {
+                    if (v.v(aYj)) {
                         com.baidu.tieba.personPolymeric.c.i iVar = new com.baidu.tieba.personPolymeric.c.i();
                         iVar.isHost = true;
-                        aVg.add(iVar);
+                        aYj.add(iVar);
                     } else if (z) {
-                        Iterator<com.baidu.adp.widget.ListView.f> it = aVg.iterator();
+                        Iterator<com.baidu.adp.widget.ListView.f> it = aYj.iterator();
                         while (true) {
                             if (!it.hasNext()) {
                                 fVar = null;
@@ -113,13 +113,13 @@ public class o {
                             }
                         }
                         if (fVar != null) {
-                            aVg.remove(fVar);
+                            aYj.remove(fVar);
                         }
                     }
                 }
             }
-            if (list.get(i) != null && list.get(i).aVg() != null) {
-                this.feJ.setData(list.get(i).aVg());
+            if (list.get(i) != null && list.get(i).aYj() != null) {
+                this.fmZ.setData(list.get(i).aYj());
             }
         }
     }

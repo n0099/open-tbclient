@@ -7,9 +7,6 @@ public class PersonInfoActivityConfig extends IntentConfig {
     public static final String FANS_NUM = "fans_num";
     public static final int REQUSET_CHANGE = 101;
     public static final String TAG_DATA = "data";
-    public static boolean IS_SUPPORT_EDIT = true;
-    public static boolean IS_HAVE_MYMARK = false;
-    public static boolean IS_HAVE_ADDRESSLIST = false;
 
     public PersonInfoActivityConfig(Context context, String str, String str2) {
         super(context);

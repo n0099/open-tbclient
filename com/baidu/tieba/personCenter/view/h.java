@@ -20,16 +20,10 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class h extends RelativeLayout implements View.OnClickListener {
-    private TextView abE;
-    private ImageView fbj;
-    private a fbk;
+    private TextView acd;
+    private ImageView fjA;
     private Context mContext;
     private View mRootView;
-
-    /* loaded from: classes.dex */
-    public interface a {
-        void aVo();
-    }
 
     public h(Context context) {
         super(context);
@@ -38,18 +32,18 @@ public class h extends RelativeLayout implements View.OnClickListener {
 
     private void init(Context context) {
         this.mContext = context;
-        this.mRootView = LayoutInflater.from(context).inflate(d.j.person_privacy_tip_view, this);
-        this.abE = (TextView) findViewById(d.h.tip_view);
-        this.fbj = (ImageView) findViewById(d.h.close_view);
-        this.fbj.setOnClickListener(this);
+        this.mRootView = LayoutInflater.from(context).inflate(d.h.person_privacy_tip_view, this);
+        this.acd = (TextView) findViewById(d.g.tip_view);
+        this.fjA = (ImageView) findViewById(d.g.close_view);
+        this.fjA.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
     }
 
-    public void a(FrameLayout frameLayout, int i) {
+    public void show(FrameLayout frameLayout, int i) {
         if (frameLayout != null) {
             TiebaStatic.log(new ak("c12520"));
             frameLayout.removeView(this);
-            frameLayout.addView(this, new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds60)));
+            frameLayout.addView(this, new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds60)));
             onChangeSkinType(i);
         }
     }
@@ -59,16 +53,13 @@ public class h extends RelativeLayout implements View.OnClickListener {
         if (viewGroup != null) {
             viewGroup.removeView(this);
         }
-        if (this.fbk != null) {
-            this.fbk.aVo();
-        }
     }
 
     public void onChangeSkinType(int i) {
-        aj.d(this, d.e.cp_link_tip_a_alpha80, i);
-        aj.b(this.abE, d.e.cp_cont_g, 1, i);
-        aj.c(this.fbj, d.g.icon_home_card_close_white);
-        this.abE.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aj.getDrawable(d.g.icon_arrow_more_white), (Drawable) null);
+        aj.d(this, d.C0080d.cp_link_tip_a_alpha80, i);
+        aj.b(this.acd, d.C0080d.cp_cont_g, 1, i);
+        aj.c(this.fjA, d.f.icon_home_card_close_white);
+        this.acd.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aj.getDrawable(d.f.icon_arrow_more_white), (Drawable) null);
     }
 
     @Override // android.view.View.OnClickListener
@@ -76,7 +67,7 @@ public class h extends RelativeLayout implements View.OnClickListener {
         if (view == this.mRootView) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ThreadPrivacyIntermediateActivityConfig(this.mContext)));
             TiebaStatic.log(new ak("c12521").r("obj_locate", 1));
-        } else if (view == this.fbj) {
+        } else if (view == this.fjA) {
             hide();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("clicked_blue_tip", true);
             TiebaStatic.log(new ak("c12521").r("obj_locate", 2));

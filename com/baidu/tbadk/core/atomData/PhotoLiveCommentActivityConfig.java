@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
 public class PhotoLiveCommentActivityConfig extends SubPbActivityConfig {
-    public static final String FROM_LIVE_COMMENT = "from_live_comment";
     public static final int FROM_NONE_PHOTO_LIVE = -100;
     public static final int FROM_PHOTO_LIVE = 100;
     public static final int FROM_PHOTO_LIVE_COMMENT_CONTENT = 101;

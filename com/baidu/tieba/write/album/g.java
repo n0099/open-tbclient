@@ -11,13 +11,13 @@ public class g {
         try {
             if (!com.baidu.tbadk.core.util.k.dG()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(com.baidu.tbadk.core.util.k.ua());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(com.baidu.tbadk.core.util.k.uh());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(com.baidu.tbadk.core.util.k.ua());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(com.baidu.tbadk.core.util.k.uh());
                 }
             } else {
                 String str2 = com.baidu.tbadk.core.util.k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
-                if (com.baidu.tbadk.core.util.k.da(str2)) {
+                if (com.baidu.tbadk.core.util.k.dh(str2)) {
                     String str3 = str2 + "/" + str;
                     if (tbCameraView != null) {
                         tbCameraView.setStorePath(str3);

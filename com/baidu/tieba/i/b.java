@@ -25,7 +25,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method epC;
+    private static Method exO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
@@ -39,7 +39,7 @@ final class b {
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().aKx();
+                    ((c.a) context).getSplash().aNp();
                 }
                 c = c(file2, file);
                 b(context, D(file2), E, c.size() + 1);
@@ -47,7 +47,7 @@ final class b {
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().aKx();
+                ((c.a) context).getSplash().aNp();
             }
             c = c(file2, file);
             b(context, D(file2), E, c.size() + 1);
@@ -98,7 +98,7 @@ final class b {
 
     private static List<File> c(File file, File file2) throws IOException {
         String str = file.getName() + ".classes";
-        e(file2, str);
+        f(file2, str);
         ArrayList arrayList = new ArrayList();
         ZipFile zipFile = new ZipFile(file);
         try {
@@ -155,7 +155,7 @@ final class b {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
     }
 
-    private static void e(File file, final String str) throws IOException {
+    private static void f(File file, final String str) throws IOException {
         F(file.getParentFile());
         F(file);
         File[] listFiles = file.listFiles(new FileFilter() { // from class: com.baidu.tieba.i.b.1
@@ -242,9 +242,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (epC != null) {
+        if (exO != null) {
             try {
-                epC.invoke(editor, new Object[0]);
+                exO.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -255,9 +255,9 @@ final class b {
 
     static {
         try {
-            epC = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            exO = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException e) {
-            epC = null;
+            exO = null;
         }
     }
 }

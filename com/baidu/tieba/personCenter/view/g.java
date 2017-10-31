@@ -9,34 +9,32 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private com.baidu.tieba.personCenter.b.d fbh;
-    TbPageContext mH;
+    private com.baidu.tieba.personCenter.b.d fjy;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
-    private View mRootView;
+    TbPageContext mPageContext;
 
     public g(TbPageContext tbPageContext) {
-        this.mH = tbPageContext;
+        this.mPageContext = tbPageContext;
     }
 
-    public void X(View view) {
-        this.mRootView = view;
-        this.mNavigationBar = (NavigationBar) view.findViewById(d.h.person_more_navigation_bar);
-        aiw();
-        this.mListView = (BdTypeListView) view.findViewById(d.h.person_more_listview);
-        this.fbh = new com.baidu.tieba.personCenter.b.d(this.mH, this.mListView);
+    public void Z(View view) {
+        this.mNavigationBar = (NavigationBar) view.findViewById(d.g.person_more_navigation_bar);
+        akI();
+        this.mListView = (BdTypeListView) view.findViewById(d.g.person_more_listview);
+        this.fjy = new com.baidu.tieba.personCenter.b.d(this.mPageContext, this.mListView);
     }
 
-    private void aiw() {
-        this.mNavigationBar.setCenterTextTitle(this.mH.getString(d.l.more));
+    private void akI() {
+        this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(d.j.more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.mH.getPageActivity().finish();
+                g.this.mPageContext.getPageActivity().finish();
             }
         });
-        this.mNavigationBar.onChangeSkinType(this.mH, TbadkCoreApplication.getInst().getSkinType());
+        this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setData(List<com.baidu.adp.widget.ListView.f> list) {

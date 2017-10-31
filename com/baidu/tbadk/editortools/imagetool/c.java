@@ -16,7 +16,7 @@ public class c {
     @SuppressLint({"ResourceAsColor"})
     public static s j(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
-        MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(d.j.editor_tool_container_image, (ViewGroup) null);
+        MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(d.h.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();
         if (multiImgToolView == null || multiImgToolView.getDragLayer() == null || multiImgToolView.getDragHorizonScrollView() == null || multiImgToolView.getMutiImageTips() == null) {
             return null;
@@ -33,18 +33,18 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        aj.c(multiImgToolView.getMutiImageTips(), d.e.cp_cont_c, 1);
+        aj.c(multiImgToolView.getMutiImageTips(), d.C0080d.cp_cont_c, 1);
         return multiImgToolView;
     }
 
     private static View a(Context context, final s sVar) {
         ImageView imageView = new ImageView(context);
-        aj.c(imageView, d.g.btn_add_photo_selector);
+        aj.c(imageView, d.f.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
-        imageView.setContentDescription(context.getString(d.l.add));
+        imageView.setContentDescription(context.getString(d.j.add));
         int dip2px = l.dip2px(context, 3.0f);
-        imageView.setPadding(dip2px, l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(d.f.ds30) + dip2px, context.getResources().getDimensionPixelSize(d.f.ds32) + dip2px, dip2px);
+        imageView.setPadding(dip2px, l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(d.e.ds30) + dip2px, context.getResources().getDimensionPixelSize(d.e.ds32) + dip2px, dip2px);
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

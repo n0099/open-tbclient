@@ -10,15 +10,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    private final ArrayList<MetaData> gIi = new ArrayList<>();
-    private HashMap<String, String> gIj = null;
+    private final ArrayList<MetaData> gSg = new ArrayList<>();
+    private HashMap<String, String> gSh = null;
 
-    public void c(JSONObject jSONObject, boolean z) {
+    public void d(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.gIj == null) {
-                        this.gIj = new HashMap<>();
+                    if (this.gSh == null) {
+                        this.gSh = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -31,9 +31,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.gIi.add(metaData);
+                        this.gSg.add(metaData);
                         if (z) {
-                            this.gIj.put(metaData.getName_show(), metaData.getPortrait());
+                            this.gSh.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -41,19 +41,19 @@ public class b {
         }
     }
 
-    public void tc(String str) {
+    public void tP(String str) {
         try {
-            c(new JSONObject(str), true);
+            d(new JSONObject(str), true);
         } catch (Exception e) {
             BdLog.detailException(e);
         }
     }
 
-    public ArrayList<MetaData> bzJ() {
-        return this.gIi;
+    public ArrayList<MetaData> bDh() {
+        return this.gSg;
     }
 
-    public HashMap<String, String> bzK() {
-        return this.gIj;
+    public HashMap<String, String> bDi() {
+        return this.gSh;
     }
 }

@@ -16,8 +16,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo ewd;
-    private a.C0126a ewe;
+    private SkinInfo eEn;
+    private a.C0126a eEo;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -45,19 +45,19 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.ewd != skinInfo && c0126a != null) {
-            this.ewe = c0126a;
-            this.ewe.dG("action_type");
-            this.ewe.cd("obj_id", skinInfo.obj_id);
-            this.ewe.cd("obj_url", skinInfo.url);
-            this.ewe.cd("obj_name", skinInfo.monitor_id);
-            this.ewe.cd("action_type", "VIEW_TRUE");
-            this.ewe.save();
+        if (this.eEn != skinInfo && c0126a != null) {
+            this.eEo = c0126a;
+            this.eEo.dM("action_type");
+            this.eEo.ca("obj_id", skinInfo.obj_id);
+            this.eEo.ca("obj_url", skinInfo.url);
+            this.eEo.ca("obj_name", skinInfo.monitor_id);
+            this.eEo.ca("action_type", "VIEW_TRUE");
+            this.eEo.save();
         }
-        this.ewd = skinInfo;
-        int ad = l.ad(tbPageContext.getPageActivity());
+        this.eEn = skinInfo;
+        int ac = l.ac(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        layoutParams.width = ad;
+        layoutParams.width = ac;
         if (!StringUtils.isNull(skinInfo.skin_size)) {
             String[] split = skinInfo.skin_size.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length > 1) {
@@ -66,14 +66,14 @@ public class ThreadSkinView extends TbImageView {
                 if (g > 0 && g2 > 0) {
                     layoutParams.height = (int) ((g2 / g) * layoutParams.width);
                 } else {
-                    layoutParams.height = (int) tbPageContext.getResources().getDimension(d.f.ds80);
+                    layoutParams.height = (int) tbPageContext.getResources().getDimension(d.e.ds80);
                 }
             }
         } else {
-            layoutParams.height = (int) tbPageContext.getResources().getDimension(d.f.ds80);
+            layoutParams.height = (int) tbPageContext.getResources().getDimension(d.e.ds80);
         }
         setLayoutParams(layoutParams);
-        c(skinInfo.skin, 10, false);
+        startLoad(skinInfo.skin, 10, false);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_CROP);
         setVisibility(0);
@@ -81,13 +81,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ewd != null && !StringUtils.isNull(this.ewd.url)) {
-            if (this.ewe != null) {
-                this.ewe.dG("action_type");
-                this.ewe.cd("action_type", "CLICK");
-                this.ewe.save();
+        if (this.eEn != null && !StringUtils.isNull(this.eEn.url)) {
+            if (this.eEo != null) {
+                this.eEo.dM("action_type");
+                this.eEo.ca("action_type", "CLICK");
+                this.eEo.save();
             }
-            av.vA().c(this.mTbPageContext, new String[]{this.ewd.url});
+            av.vI().c(this.mTbPageContext, new String[]{this.eEn.url});
         }
     }
 }

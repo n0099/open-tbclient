@@ -13,25 +13,25 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
-    private static int aRL;
-    private static int cVU;
-    private static int cVV;
-    private static int cVW;
+    private static int DS20;
+    private static int bhz;
+    private static int dek;
+    private static int del;
 
     public f(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.cWc);
-        cVV = l.f(context, d.f.ds37);
-        cVU = l.f(context, d.f.ds90);
-        cVW = l.f(context, d.f.ds20);
-        aRL = l.f(context, d.f.ds32);
+        super(context, com.baidu.tieba.homepage.concern.b.a.der);
+        del = l.f(context, d.e.ds37);
+        dek = l.f(context, d.e.ds90);
+        DS20 = l.f(context, d.e.ds20);
+        bhz = l.f(context, d.e.ds32);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ar */
+    /* renamed from: aI */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        View inflate = View.inflate(viewGroup.getContext(), d.j.concern_tip_layout, null);
+        View inflate = View.inflate(viewGroup.getContext(), d.h.concern_tip_layout, null);
         a aVar = new a(inflate);
         inflate.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
         return aVar;
@@ -42,18 +42,18 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        aVar2.cVX.setText(aVar.aiS);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.cVX.getLayoutParams();
-        layoutParams.topMargin = aRL;
-        layoutParams.bottomMargin = aRL;
-        if (aVar.cWf) {
-            layoutParams.bottomMargin = cVU;
-            aVar2.cVN.setVisibility(0);
-        } else if (aVar.cWg) {
-            layoutParams.topMargin = cVW;
+        aVar2.dem.setText(aVar.ajo);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.dem.getLayoutParams();
+        layoutParams.topMargin = bhz;
+        layoutParams.bottomMargin = bhz;
+        if (aVar.dev) {
+            layoutParams.bottomMargin = dek;
+            aVar2.cEJ.setVisibility(0);
+        } else if (aVar.dew) {
+            layoutParams.topMargin = DS20;
         } else {
-            layoutParams.bottomMargin = cVV;
-            aVar2.cVN.setVisibility(8);
+            layoutParams.bottomMargin = del;
+            aVar2.cEJ.setVisibility(8);
         }
         aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar2.getView();
@@ -61,22 +61,22 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes.dex */
     public class a extends j.a {
-        private int aoN;
-        public View cVN;
-        public TextView cVX;
+        private int api;
+        public View cEJ;
+        public TextView dem;
 
         public a(View view) {
             super(view);
-            this.aoN = 3;
-            this.cVX = (TextView) view.findViewById(d.h.concern_tip_txt);
-            this.cVN = view.findViewById(d.h.concern_tip_top_line);
+            this.api = 3;
+            this.dem = (TextView) view.findViewById(d.g.concern_tip_txt);
+            this.cEJ = view.findViewById(d.g.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.aoN != i) {
-                aj.k(getView(), d.e.cp_bg_line_e);
-                aj.i(this.cVX, d.e.cp_cont_j);
-                aj.j(this.cVN, d.e.cp_bg_line_e);
+            if (this.api != i) {
+                aj.k(getView(), d.C0080d.cp_bg_line_e);
+                aj.i(this.dem, d.C0080d.cp_cont_j);
+                aj.j(this.cEJ, d.C0080d.cp_bg_line_e);
             }
         }
     }

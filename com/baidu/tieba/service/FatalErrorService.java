@@ -144,7 +144,7 @@ public class FatalErrorService extends BdBaseService {
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
                                         this.mNetwork.n(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.mNetwork.ul();
+                                    this.mNetwork.us();
                                     if (byteArrayOutputStream2 != null) {
                                         byteArrayOutputStream2.close();
                                         byteArrayOutputStream3 = null;
@@ -180,7 +180,7 @@ public class FatalErrorService extends BdBaseService {
                                         fileInputStream2 = fileInputStream;
                                     }
                                     try {
-                                        if (this.mNetwork.uG().vD().isRequestSuccess()) {
+                                        if (this.mNetwork.uN().vL().isRequestSuccess()) {
                                             if (z2) {
                                                 J(file);
                                             }
@@ -386,16 +386,16 @@ public class FatalErrorService extends BdBaseService {
             File[] listFiles;
             boolean z = true;
             try {
-                a(k.dd(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
-                a(k.dd(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                bhh();
+                a(k.dk(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
+                a(k.dk(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
+                bku();
                 if (!TbConfig.getVersion().equals(b.getInstance().getString("native_crash_dump_version", ""))) {
                     b.getInstance().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
                 }
-                File dd = k.dd(TbConfig.FATAL_ERROR_NATIVE_DIR);
-                if (dd != null) {
-                    for (File file : dd.listFiles()) {
+                File dk = k.dk(TbConfig.FATAL_ERROR_NATIVE_DIR);
+                if (dk != null) {
+                    for (File file : dk.listFiles()) {
                         if (file.length() >= IjkMediaMeta.AV_CH_SIDE_RIGHT && z) {
                             K(file);
                             a(file, TbConfig.ERROR_UPLOAD_SERVER, FatalErrorService.ERROR_TYPE_NATIVE_C, true, true);
@@ -412,11 +412,11 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void bhh() {
-            File dd = k.dd(TbConfig.FATAL_ERROR_ALERT_FILE);
-            if (dd != null) {
+        private void bku() {
+            File dk = k.dk(TbConfig.FATAL_ERROR_ALERT_FILE);
+            if (dk != null) {
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(dd)));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(dk)));
                     StringBuffer stringBuffer = new StringBuffer();
                     while (true) {
                         String readLine = bufferedReader.readLine();
@@ -426,7 +426,7 @@ public class FatalErrorService extends BdBaseService {
                             String stringBuffer2 = stringBuffer.toString();
                             BdLog.i("sendLogForAlert log = " + stringBuffer2);
                             BdStatisticsManager.getInstance().alert("alert_crash", stringBuffer2);
-                            dd.delete();
+                            dk.delete();
                             return;
                         }
                     }
@@ -449,7 +449,7 @@ public class FatalErrorService extends BdBaseService {
                         fileWriter = new FileWriter(file, true);
                         try {
                             fileWriter.append("\n##TIEBA_NATIVE##\n");
-                            a(fileWriter, am.vi(), null);
+                            a(fileWriter, am.vp(), null);
                             a(fileWriter, "version", TbConfig.getVersion());
                             a(fileWriter, "model", Build.MODEL);
                             a(fileWriter, "android_version", Build.VERSION.RELEASE);

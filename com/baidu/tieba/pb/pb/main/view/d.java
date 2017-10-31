@@ -10,57 +10,57 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.widget.richText.e;
+import com.baidu.tbadk.widget.richText.f;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d {
-    public TextView ePW;
-    private TbPageContext mH;
+    public TextView eYL;
+    private TbPageContext mPageContext;
     private int mSkinType = 3;
-    private int ePX = 0;
-    private CustomMessageListener ePY = new CustomMessageListener(CmdConfigCustom.CMD_PB_VIDEO_PALY_ADD_COUNT) { // from class: com.baidu.tieba.pb.pb.main.view.d.1
+    private int eYM = 0;
+    private CustomMessageListener eYN = new CustomMessageListener(CmdConfigCustom.CMD_PB_VIDEO_PALY_ADD_COUNT) { // from class: com.baidu.tieba.pb.pb.main.view.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
-                e eVar = (e) customResponsedMessage.getData();
-                d.this.c(eVar);
-                d.this.d(eVar);
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof f)) {
+                f fVar = (f) customResponsedMessage.getData();
+                d.this.c(fVar);
+                d.this.d(fVar);
             }
         }
     };
 
     public d(TbPageContext tbPageContext, View view) {
-        this.mH = tbPageContext;
-        this.ePW = (TextView) view.findViewById(d.h.pb_list_video_item_play_count);
+        this.mPageContext = tbPageContext;
+        this.eYL = (TextView) view.findViewById(d.g.pb_list_video_item_play_count);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        tbPageContext.registerListener(this.ePY);
+        tbPageContext.registerListener(this.eYN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(e eVar) {
-        if (eVar != null) {
-            this.ePX++;
-            eVar.fR(this.ePX);
+    public void c(f fVar) {
+        if (fVar != null) {
+            this.eYM++;
+            fVar.ga(this.eYM);
         }
     }
 
-    public void d(e eVar) {
-        if (this.ePW != null && eVar != null) {
-            if (eVar.Jl() < this.ePX) {
-                eVar.fR(this.ePX);
+    public void d(f fVar) {
+        if (this.eYL != null && fVar != null) {
+            if (fVar.Jw() < this.eYM) {
+                fVar.ga(this.eYM);
             } else {
-                this.ePX = eVar.Jl();
+                this.eYM = fVar.Jw();
             }
-            this.ePW.setText(am.u(this.ePX));
+            this.eYL.setText(am.u(this.eYM));
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.ePW.setCompoundDrawablesWithIntrinsicBounds(d.g.icon_pb_video_num_gray, 0, 0, 0);
-            this.ePW.setCompoundDrawablePadding(l.f(this.mH.getPageActivity(), d.f.ds12));
-            aj.c(this.ePW, d.e.cp_cont_c, 1);
+            this.eYL.setCompoundDrawablesWithIntrinsicBounds(d.f.icon_pb_video_num_gray, 0, 0, 0);
+            this.eYL.setCompoundDrawablePadding(l.f(this.mPageContext.getPageActivity(), d.e.ds12));
+            aj.c(this.eYL, d.C0080d.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }

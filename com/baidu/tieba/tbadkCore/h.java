@@ -5,69 +5,69 @@ import tbclient.FrsPage.Size;
 import tbclient.FrsPage.StarInfo;
 /* loaded from: classes.dex */
 public class h {
-    private int geP = 0;
-    private int ayD = 0;
-    private String geQ = null;
-    private String geR = null;
-    private int geS = 0;
-    private int geT = 0;
-    private int geU = 0;
-    private int geV = 0;
-    private int geW = 0;
-    private int geX = 0;
-    private long geY = 0;
-    private long geZ = 0;
-    private boolean gfa = false;
-    private long gfb = 0;
-    private String gfc = null;
+    private int gnD = 0;
+    private int azn = 0;
+    private String gnE = null;
+    private String gnF = null;
+    private int gnG = 0;
+    private int gnH = 0;
+    private int gnI = 0;
+    private int gnJ = 0;
+    private int gnK = 0;
+    private int gnL = 0;
+    private long gnM = 0;
+    private long gnN = 0;
+    private boolean gnO = false;
+    private long gnP = 0;
+    private String gnQ = null;
 
-    public int bqb() {
-        return this.geP;
+    public int btg() {
+        return this.gnD;
     }
 
-    public boolean bqc() {
-        return this.gfa;
+    public boolean bth() {
+        return this.gnO;
     }
 
-    public long bqd() {
-        return this.gfb;
+    public long bti() {
+        return this.gnP;
     }
 
-    public String bqe() {
-        return this.gfc;
+    public String btj() {
+        return this.gnQ;
     }
 
     public void a(StarInfo starInfo) {
         if (starInfo != null) {
-            this.geP = starInfo.has_frs_star.intValue();
-            if (this.geP == 1) {
-                this.geQ = starInfo.top;
-                this.geR = starInfo.head;
+            this.gnD = starInfo.has_frs_star.intValue();
+            if (this.gnD == 1) {
+                this.gnE = starInfo.top;
+                this.gnF = starInfo.head;
                 Fans fans = starInfo.fans;
                 if (fans != null) {
-                    this.geS = fans.is_get.intValue();
-                    this.geT = fans.num.intValue();
-                    this.ayD = fans.open.intValue();
-                    this.geY = fans.left_time.intValue();
+                    this.gnG = fans.is_get.intValue();
+                    this.gnH = fans.num.intValue();
+                    this.azn = fans.open.intValue();
+                    this.gnM = fans.left_time.intValue();
                 }
-                this.geZ = this.geY;
+                this.gnN = this.gnM;
                 Size size = starInfo.top_size;
                 if (size != null) {
-                    this.geU = size.width.intValue();
-                    this.geV = size.height.intValue();
+                    this.gnI = size.width.intValue();
+                    this.gnJ = size.height.intValue();
                 }
                 Size size2 = starInfo.head_size;
                 if (size2 != null) {
-                    this.geW = size2.width.intValue();
-                    this.geX = size2.height.intValue();
+                    this.gnK = size2.width.intValue();
+                    this.gnL = size2.height.intValue();
                 }
             }
-            this.gfa = starInfo.trade != null;
-            if (this.gfa) {
+            this.gnO = starInfo.trade != null;
+            if (this.gnO) {
                 if (starInfo.trade.time != null) {
-                    this.gfb = starInfo.trade.time.intValue();
+                    this.gnP = starInfo.trade.time.intValue();
                 }
-                this.gfc = starInfo.trade.url;
+                this.gnQ = starInfo.trade.url;
             }
         }
     }

@@ -10,8 +10,8 @@ import com.baidu.tbadk.editortools.r;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends r {
-    private static final int[] aBR = {4, 17, 24, 3, 9, 6, 44};
-    private InputView aBS;
+    private static final int[] aCA = {4, 17, 24, 3, 9, 6, 44};
+    private InputView aCB;
 
     public a(Context context, boolean z) {
         super(context, (String) null, 3);
@@ -21,46 +21,46 @@ public class a extends r {
     public a(Context context, boolean z, boolean z2) {
         super(context, (String) null, 3);
         init(context, z);
-        if (this.aBS != null) {
-            this.aBS.setNeedFaceMaxCount(z2);
+        if (this.aCB != null) {
+            this.aCB.setNeedFaceMaxCount(z2);
         }
     }
 
     private void init(Context context, boolean z) {
-        this.aBl = false;
-        this.aBk = 2;
-        this.aBm = aBR;
-        this.aBS = new InputView(context, z);
-        this.aAv = this.aBS;
+        this.aBU = false;
+        this.aBT = 2;
+        this.aBV = aCA;
+        this.aCB = new InputView(context, z);
+        this.aBf = this.aCB;
         p.a aVar = new p.a(0, -1);
-        aVar.topMargin = context.getResources().getDimensionPixelSize(d.f.ds14);
-        aVar.bottomMargin = context.getResources().getDimensionPixelSize(d.f.ds14);
-        aVar.leftMargin = context.getResources().getDimensionPixelSize(d.f.ds30);
-        aVar.rightMargin = context.getResources().getDimensionPixelSize(d.f.ds12);
+        aVar.topMargin = context.getResources().getDimensionPixelSize(d.e.ds14);
+        aVar.bottomMargin = context.getResources().getDimensionPixelSize(d.e.ds14);
+        aVar.leftMargin = context.getResources().getDimensionPixelSize(d.e.ds30);
+        aVar.rightMargin = context.getResources().getDimensionPixelSize(d.e.ds12);
         aVar.weight = 1.0f;
         aVar.gravity = 80;
-        ((View) this.aAv).setLayoutParams(aVar);
+        ((View) this.aBf).setLayoutParams(aVar);
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        ((InputView) this.aAv).setIsOnlyLocalEmotion(z);
+        ((InputView) this.aBf).setIsOnlyLocalEmotion(z);
     }
 
     public void a(TextWatcher textWatcher) {
-        ((InputView) this.aAv).addTextChangedListener(textWatcher);
+        ((InputView) this.aBf).addTextChangedListener(textWatcher);
     }
 
     public void b(TextWatcher textWatcher) {
-        ((InputView) this.aAv).removeTextChangedListener(textWatcher);
+        ((InputView) this.aBf).removeTextChangedListener(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.aAv != null && !StringUtils.isNull(str)) {
-            ((EditText) this.aAv).setHint(str);
+        if (this.aBf != null && !StringUtils.isNull(str)) {
+            ((EditText) this.aBf).setHint(str);
         }
     }
 
-    public EditText CM() {
-        return this.aBS;
+    public EditText Da() {
+        return this.aCB;
     }
 }

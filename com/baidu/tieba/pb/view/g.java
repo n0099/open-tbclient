@@ -24,22 +24,22 @@ public class g {
             Resources resources = TbadkCoreApplication.getInst().getResources();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
             if (z2 && z3) {
-                layoutParams.setMargins((int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds8), (int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds18));
+                layoutParams.setMargins((int) resources.getDimension(d.e.ds32), (int) resources.getDimension(d.e.ds8), (int) resources.getDimension(d.e.ds32), (int) resources.getDimension(d.e.ds18));
             } else if (z) {
-                layoutParams.setMargins(0, (int) resources.getDimension(d.f.ds8), 0, 0);
+                layoutParams.setMargins(0, (int) resources.getDimension(d.e.ds8), 0, 0);
             } else if (!z2) {
-                layoutParams.setMargins((int) resources.getDimension(d.f.ds120), (int) resources.getDimension(d.f.ds8), (int) resources.getDimension(d.f.ds34), (int) resources.getDimension(d.f.ds14));
+                layoutParams.setMargins((int) resources.getDimension(d.e.ds120), (int) resources.getDimension(d.e.ds8), (int) resources.getDimension(d.e.ds34), (int) resources.getDimension(d.e.ds14));
             } else {
-                layoutParams.setMargins((int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds8), (int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds14));
+                layoutParams.setMargins((int) resources.getDimension(d.e.ds32), (int) resources.getDimension(d.e.ds8), (int) resources.getDimension(d.e.ds32), (int) resources.getDimension(d.e.ds14));
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) "icon");
             spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
-            Drawable drawable = aj.getDrawable(d.g.icon_pb_tail);
-            int f = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
+            Drawable drawable = aj.getDrawable(d.f.icon_pb_tail);
+            int f = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds32);
             drawable.setBounds(0, 0, f, f);
             com.baidu.tbadk.widget.e eVar = new com.baidu.tbadk.widget.e(drawable);
-            eVar.fB(l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds4));
+            eVar.fC(l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds4));
             spannableStringBuilder.setSpan(eVar, 0, 4, 33);
             textView.setLayoutParams(layoutParams);
             textView.setText(spannableStringBuilder);

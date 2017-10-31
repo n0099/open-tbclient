@@ -8,20 +8,20 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class u extends j.a {
-    public int aoN;
-    public FrameLayout csT;
-    public PhotoLiveCardView csU;
-    public TbImageView csi;
+    public int api;
+    public FrameLayout cAq;
+    public PhotoLiveCardView cAr;
+    public TbImageView czF;
 
     public u(View view, int i) {
         super(view);
-        this.aoN = 3;
-        this.csT = (FrameLayout) view.findViewById(d.h.live_card_layout);
-        this.csi = (TbImageView) view.findViewById(d.h.frs_single_livecard_theme_card);
-        this.csU = (PhotoLiveCardView) view.findViewById(d.h.item_live_card);
-        this.csU.setAllowGreyState(true);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.csU.getLayoutParams();
+        this.api = 3;
+        this.cAq = (FrameLayout) view.findViewById(d.g.live_card_layout);
+        this.czF = (TbImageView) view.findViewById(d.g.frs_single_livecard_theme_card);
+        this.cAr = (PhotoLiveCardView) view.findViewById(d.g.item_live_card);
+        this.cAr.setAllowGreyState(true);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.cAr.getLayoutParams();
         layoutParams.topMargin = i;
-        this.csU.setLayoutParams(layoutParams);
+        this.cAr.setLayoutParams(layoutParams);
     }
 }

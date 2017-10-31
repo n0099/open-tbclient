@@ -1,58 +1,76 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import android.graphics.drawable.Drawable;
+import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.adp.widget.ListView.j.a;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
-public class m {
-    private BaseActivity boA;
-    private PbModel eBC;
-    private a eCJ = null;
-    protected final HttpMessageListener eEE = new HttpMessageListener(CmdConfigHttp.CMD_APPLY_COPY_THREAD) { // from class: com.baidu.tieba.pb.pb.main.m.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
-                if (httpResponsedMessage.getStatusCode() != 200) {
-                    m.this.eCJ.i(-1, null, null);
-                    return;
-                }
-                ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
-                String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
-                int errorCode = applyCopyThreadResponseMessage.getErrorCode();
-                String tid = applyCopyThreadResponseMessage.getTid();
-                if (errorCode == 0) {
-                    errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
-                }
-                m.this.eCJ.i(errorCode, errorMessage, tid);
-            }
+public abstract class m<T, V extends j.a> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected PbActivity eMh;
+    private SparseArray<SoftReference<Drawable>> eNn;
+    private SparseArray<Integer> eNo;
+    protected boolean mIsFromCDN;
+    protected ListView mListView;
+    protected int mSkinType;
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public m(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity == null ? null : pbActivity.getPageContext().getPageActivity(), bdUniqueId);
+        this.mSkinType = 3;
+        this.mIsFromCDN = false;
+        this.eNn = new SparseArray<>();
+        this.eNo = new SparseArray<>();
+        ap(pbActivity);
+    }
+
+    public void ap(PbActivity pbActivity) {
+        if (pbActivity != null) {
+            this.eMh = pbActivity;
+            this.mContext = pbActivity.getActivity();
         }
-    };
-
-    /* loaded from: classes.dex */
-    public interface a {
-        void i(int i, String str, String str2);
     }
 
-    public m(PbModel pbModel, BaseActivity baseActivity) {
-        this.eBC = pbModel;
-        this.boA = baseActivity;
-        this.boA.registerListener(this.eEE);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
+        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
+        this.mListView = (ListView) viewGroup;
+        return null;
     }
 
-    public void a(a aVar) {
-        this.eCJ = aVar;
+    public void setFromCDN(boolean z) {
+        this.mIsFromCDN = z;
     }
 
-    public void ph(int i) {
-        if (this.eBC != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-            httpMessage.addParam("thread_id", this.eBC.getThreadID());
-            httpMessage.addParam("status", String.valueOf(i));
-            MessageManager.getInstance().sendMessage(httpMessage);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public int getDimensionPixelSize(int i) {
+        Integer num = this.eNo.get(i);
+        if (num != null) {
+            return num.intValue();
         }
+        int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
+        this.eNo.put(i, Integer.valueOf(dimensionPixelSize));
+        return dimensionPixelSize;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public Drawable getDrawable(int i) {
+        Drawable drawable;
+        SoftReference<Drawable> softReference = this.eNn.get(i);
+        if (softReference == null) {
+            drawable = null;
+        } else {
+            drawable = softReference.get();
+        }
+        if (drawable == null && (drawable = com.baidu.tbadk.core.util.aj.getDrawable(i)) != null) {
+            this.eNn.put(i, new SoftReference<>(drawable));
+        }
+        return drawable;
     }
 }

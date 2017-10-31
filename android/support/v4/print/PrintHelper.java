@@ -41,13 +41,13 @@ public final class PrintHelper {
     /* loaded from: classes.dex */
     private static final class b implements c {
         int jJ;
-        int mOrientation;
+        int jK;
         int mScaleMode;
 
         private b() {
             this.mScaleMode = 2;
             this.jJ = 2;
-            this.mOrientation = 1;
+            this.jK = 1;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
@@ -67,12 +67,12 @@ public final class PrintHelper {
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setOrientation(int i) {
-            this.mOrientation = i;
+            this.jK = i;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getOrientation() {
-            return this.mOrientation;
+            return this.jK;
         }
 
         @Override // android.support.v4.print.PrintHelper.c

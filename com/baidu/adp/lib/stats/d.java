@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class d {
-    public static String ab(Context context) {
+    public static String getNetType(Context context) {
         if (context == null) {
             return null;
         }

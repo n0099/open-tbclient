@@ -28,6 +28,11 @@ public interface IMediaPlayer {
     }
 
     /* loaded from: classes.dex */
+    public interface OnHandleOppoErrorListener {
+        void handleOppoError(String str);
+    }
+
+    /* loaded from: classes.dex */
     public interface OnInfoListener {
         boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i2);
     }
@@ -45,6 +50,11 @@ public interface IMediaPlayer {
     /* loaded from: classes.dex */
     public interface OnSeekCompleteListener {
         void onSeekComplete(IMediaPlayer iMediaPlayer);
+    }
+
+    /* loaded from: classes.dex */
+    public interface OnSubErrorInfoListener {
+        void onSubError(int i, int i2);
     }
 
     /* loaded from: classes.dex */
@@ -71,6 +81,8 @@ public interface IMediaPlayer {
     int getVideoSarNum();
 
     int getVideoWidth();
+
+    void handleOppoError(String str);
 
     boolean isLooping();
 
@@ -118,6 +130,8 @@ public interface IMediaPlayer {
 
     void setOnErrorListener(OnErrorListener onErrorListener);
 
+    void setOnHandleOppoErrorListener(OnHandleOppoErrorListener onHandleOppoErrorListener);
+
     void setOnInfoListener(OnInfoListener onInfoListener);
 
     void setOnMediaReleaseFinishedListener(OnMediaReleaseFinishedListener onMediaReleaseFinishedListener);
@@ -125,6 +139,8 @@ public interface IMediaPlayer {
     void setOnPreparedListener(OnPreparedListener onPreparedListener);
 
     void setOnSeekCompleteListener(OnSeekCompleteListener onSeekCompleteListener);
+
+    void setOnSubErrorListener(OnSubErrorInfoListener onSubErrorInfoListener);
 
     void setOnVideoSizeChangedListener(OnVideoSizeChangedListener onVideoSizeChangedListener);
 

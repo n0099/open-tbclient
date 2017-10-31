@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private int aqP;
+    private int arg;
     private String link;
     private String title;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.aqP = jSONObject.optInt("offline");
+            this.arg = jSONObject.optInt("offline");
             this.title = jSONObject.optString(VrPlayerActivityConfig.TITLE);
             this.link = jSONObject.optString("link");
             if (!TextUtils.isEmpty(this.link)) {

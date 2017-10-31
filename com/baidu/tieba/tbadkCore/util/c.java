@@ -5,19 +5,19 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c extends e {
-    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> giY;
+    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> grJ;
 
     public c(int i) {
         super(i);
-        this.giY = new HashMap<>();
+        this.grJ = new HashMap<>();
     }
 
     public void a(String str, com.baidu.tieba.myCollection.baseHistory.a aVar) {
-        rX(str);
+        sF(str);
         try {
             Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.c(str, -1L));
             synchronized (this) {
-                this.giY.put(valueOf, aVar);
+                this.grJ.put(valueOf, aVar);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -25,13 +25,13 @@ public class c extends e {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.e
-    public void baS() {
+    public void bea() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.gjc.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.grN.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -44,11 +44,11 @@ public class c extends e {
                 l2 = l;
             }
             if (l2 != null) {
-                this.gjc.remove(l2);
-                this.giY.remove(l2);
+                this.grN.remove(l2);
+                this.grJ.remove(l2);
             } else {
-                this.gjc.clear();
-                this.giY.clear();
+                this.grN.clear();
+                this.grJ.clear();
             }
         }
     }

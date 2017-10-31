@@ -22,10 +22,10 @@ public abstract class a {
     private RectF Ba = new RectF();
     private RectF Bb = new RectF();
     private RectF Bc = new RectF();
-    protected e Bd = new e();
-    private float[] Be = new float[9];
-    private PointF Bf = new PointF();
-    protected RectF Bg = new RectF();
+    protected e mArgs = new e();
+    private float[] Bd = new float[9];
+    private PointF Be = new PointF();
+    protected RectF Bf = new RectF();
 
     public abstract void a(Canvas canvas, ImageView imageView);
 
@@ -107,15 +107,15 @@ public abstract class a {
         canvas.clipRect(scrollX + paddingLeft, scrollY + paddingTop, ((scrollX + imageView.getRight()) - imageView.getLeft()) - paddingRight, ((scrollY + imageView.getBottom()) - imageView.getTop()) - paddingBottom);
         canvas.translate(paddingLeft, paddingTop);
         int save2 = canvas.save();
-        if (this.Bd.BH != null) {
-            canvas.concat(this.Bd.BH);
+        if (this.mArgs.Br != null) {
+            canvas.concat(this.mArgs.Br);
         }
-        if (dVar.By != null && dVar.By.kU()) {
-            if ((dVar.By.kN().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.By.kN().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.AX != null) {
+        if (dVar.Bi != null && dVar.Bi.kR()) {
+            if ((dVar.Bi.kK().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.Bi.kK().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.AX != null) {
                 canvas.concat(this.AX);
             }
             this.Bc.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            dVar.By.a(canvas, this.Bc);
+            dVar.Bi.a(canvas, this.Bc);
         } else {
             b(canvas, dVar, imageView);
         }
@@ -144,7 +144,7 @@ public abstract class a {
     }
 
     public void a(e eVar) {
-        this.Bd = eVar;
+        this.mArgs = eVar;
     }
 
     public Matrix ix() {
@@ -160,14 +160,14 @@ public abstract class a {
     }
 
     private void iz() {
-        this.mPaint.setAlpha((int) (255.0f * this.Bd.mAlpha));
-        if (this.Bd.BD) {
+        this.mPaint.setAlpha((int) (255.0f * this.mArgs.mAlpha));
+        if (this.mArgs.Bn) {
             this.mPaint.setColorFilter(AU);
         } else {
             this.mPaint.setColorFilter(null);
         }
-        this.AV.setColor(this.Bd.BC);
-        this.AV.setStrokeWidth(this.Bd.BB);
+        this.AV.setColor(this.mArgs.Bm);
+        this.AV.setStrokeWidth(this.mArgs.Bl);
     }
 
     private static Matrix.ScaleToFit a(ImageView.ScaleType scaleType) {
@@ -186,8 +186,8 @@ public abstract class a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PointF a(float f, float f2, Matrix matrix) {
-        matrix.getValues(this.Be);
-        this.Bf.set((int) ((this.Be[0] * f) + (this.Be[1] * f2) + this.Be[2]), (int) ((this.Be[3] * f) + (this.Be[4] * f2) + this.Be[5]));
-        return this.Bf;
+        matrix.getValues(this.Bd);
+        this.Be.set((int) ((this.Bd[0] * f) + (this.Bd[1] * f2) + this.Bd[2]), (int) ((this.Bd[3] * f) + (this.Bd[4] * f2) + this.Bd[5]));
+        return this.Be;
     }
 }

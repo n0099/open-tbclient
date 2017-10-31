@@ -33,7 +33,6 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.d;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -550,7 +549,7 @@ public class ViewPager extends ViewGroup {
         } else {
             abs = (int) (((Math.abs(i4) / ((clientWidth * this.mAdapter.getPageWidth(this.mCurItem)) + this.mPageMargin)) + 1.0f) * 100.0f);
         }
-        this.mScroller.startScroll(scrollX, scrollY, i4, i5, Math.min(abs, (int) TbConfig.POST_IMAGE_SMALL));
+        this.mScroller.startScroll(scrollX, scrollY, i4, i5, Math.min(abs, 600));
         ViewCompat.postInvalidateOnAnimation(this);
     }
 
@@ -1202,7 +1201,7 @@ public class ViewPager extends ViewGroup {
                             i8 = paddingTop;
                             i9 = i16;
                             break;
-                        case d.n.View_onClick /* 48 */:
+                        case d.l.View_onClick /* 48 */:
                             int measuredHeight2 = childAt.getMeasuredHeight() + paddingTop;
                             int i17 = paddingTop;
                             i9 = paddingBottom;

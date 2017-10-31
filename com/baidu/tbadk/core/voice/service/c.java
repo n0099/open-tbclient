@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface c {
-    void dO(int i);
+    void dP(int i);
 
-    boolean et(String str);
+    boolean eA(String str);
 
     int getErrorNo();
 
@@ -11,13 +11,13 @@ public interface c {
 
     boolean isPlaying();
 
-    void wX();
+    void xe();
 
-    void xb();
+    void xi();
 
-    void xc();
+    void xj();
 
-    void xd();
+    void xk();
 
-    boolean xe();
+    boolean xl();
 }

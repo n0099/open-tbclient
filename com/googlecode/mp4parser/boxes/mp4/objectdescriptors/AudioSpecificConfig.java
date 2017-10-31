@@ -190,16 +190,16 @@ public class AudioSpecificConfig extends BaseDescriptor {
                 throw new UnsupportedOperationException("can't parse MPEG_1_2_SpecificConfig yet");
             case 35:
                 throw new UnsupportedOperationException("can't parse DSTSpecificConfig yet");
-            case d.n.View_clickable /* 36 */:
+            case d.l.View_clickable /* 36 */:
                 this.fillBits = bitReaderBuffer.readBits(5);
                 throw new UnsupportedOperationException("can't parse ALSSpecificConfig yet");
-            case d.n.View_longClickable /* 37 */:
-            case d.n.View_saveEnabled /* 38 */:
+            case d.l.View_longClickable /* 37 */:
+            case d.l.View_saveEnabled /* 38 */:
                 throw new UnsupportedOperationException("can't parse SLSSpecificConfig yet");
-            case d.n.View_filterTouchesWhenObscured /* 39 */:
+            case d.l.View_filterTouchesWhenObscured /* 39 */:
                 throw new UnsupportedOperationException("can't parse ELDSpecificConfig yet");
-            case d.n.View_drawingCacheQuality /* 40 */:
-            case d.n.View_keepScreenOn /* 41 */:
+            case d.l.View_drawingCacheQuality /* 40 */:
+            case d.l.View_keepScreenOn /* 41 */:
                 throw new UnsupportedOperationException("can't parse SymbolicMusicSpecificConfig yet");
         }
         switch (this.audioObjectType) {
@@ -213,7 +213,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
             case 25:
             case 26:
             case 27:
-            case d.n.View_filterTouchesWhenObscured /* 39 */:
+            case d.l.View_filterTouchesWhenObscured /* 39 */:
                 this.epConfig = bitReaderBuffer.readBits(2);
                 if (this.epConfig == 2 || this.epConfig == 3) {
                     throw new UnsupportedOperationException("can't parse ErrorProtectionSpecificConfig yet");

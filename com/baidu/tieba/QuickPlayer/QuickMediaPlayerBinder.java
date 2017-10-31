@@ -116,7 +116,31 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             }
         }
     };
-    private IMediaPlayer.OnSeekCompleteListener mOnSeekCompleteListener = new IMediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.6
+    private IMediaPlayer.OnSubErrorInfoListener mOnSubErrorInfoListener = new IMediaPlayer.OnSubErrorInfoListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.6
+        @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnSubErrorInfoListener
+        public void onSubError(int i, int i2) {
+            try {
+                if (QuickMediaPlayerBinder.this.mQuickMediaPlayerListener != null) {
+                    QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onSubError(i, i2);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+    private IMediaPlayer.OnHandleOppoErrorListener mOnHandleOppoErrorListener = new IMediaPlayer.OnHandleOppoErrorListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.7
+        @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnHandleOppoErrorListener
+        public void handleOppoError(String str) {
+            try {
+                if (QuickMediaPlayerBinder.this.mQuickMediaPlayerListener != null) {
+                    QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onHandleOppoError(str);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+    private IMediaPlayer.OnSeekCompleteListener mOnSeekCompleteListener = new IMediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.8
         @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnSeekCompleteListener
         public void onSeekComplete(IMediaPlayer iMediaPlayer) {
             try {
@@ -163,6 +187,8 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mMediaPlayer.setOnInfoListener(this.mOnInfoListener);
             this.mMediaPlayer.setOnSeekCompleteListener(this.mOnSeekCompleteListener);
             this.mMediaPlayer.setOnMediaReleaseFinishedListener(this.mOnMediaReleaseFinishedListener);
+            this.mMediaPlayer.setOnSubErrorListener(this.mOnSubErrorInfoListener);
+            this.mMediaPlayer.setOnHandleOppoErrorListener(this.mOnHandleOppoErrorListener);
             if (!TextUtils.isEmpty(str)) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("Host", str);

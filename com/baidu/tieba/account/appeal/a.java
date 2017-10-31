@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a {
-    private static final String aYT = TbConfig.SERVER_ADDRESS + "c/c/bawu/appeal";
+    private static final String aZj = TbConfig.SERVER_ADDRESS + "c/c/bawu/appeal";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -25,18 +25,18 @@ public class a {
     /* renamed from: com.baidu.tieba.account.appeal.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private static class C0072a extends BdAsyncTask<String, Object, AppealData> {
-        private String aYU;
-        private String aYV;
-        private String aYW;
-        private String aYX;
-        private WeakReference<b> aYY;
+        private String aZk;
+        private String aZl;
+        private String aZm;
+        private String aZn;
+        private WeakReference<b> aZo;
 
         public C0072a(String str, String str2, String str3, String str4, b bVar) {
-            this.aYU = str;
-            this.aYV = str2;
-            this.aYW = str3;
-            this.aYX = str4;
-            this.aYY = new WeakReference<>(bVar);
+            this.aZk = str;
+            this.aZl = str2;
+            this.aZm = str3;
+            this.aZn = str4;
+            this.aZo = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -45,15 +45,15 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: q */
         public AppealData doInBackground(String... strArr) {
-            x xVar = new x(a.aYT);
-            xVar.n("forum_id", this.aYU);
-            xVar.n("user_id", this.aYV);
-            xVar.n("user_name", this.aYW);
-            xVar.n("content", this.aYX);
-            String ui = xVar.ui();
-            if (xVar.uG().vD().isRequestSuccess()) {
+            x xVar = new x(a.aZj);
+            xVar.n("forum_id", this.aZk);
+            xVar.n("user_id", this.aZl);
+            xVar.n("user_name", this.aZm);
+            xVar.n("content", this.aZn);
+            String up = xVar.up();
+            if (xVar.uN().vL().isRequestSuccess()) {
                 try {
-                    return (AppealData) OrmObject.objectWithJsonStr(ui, AppealData.class);
+                    return (AppealData) OrmObject.objectWithJsonStr(up, AppealData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     AppealData appealData = new AppealData();
@@ -62,7 +62,7 @@ public class a {
                 }
             }
             AppealData appealData2 = new AppealData();
-            appealData2.errNo = xVar.uK();
+            appealData2.errNo = xVar.uR();
             appealData2.errMsg = xVar.getErrorString();
             return appealData2;
         }
@@ -73,7 +73,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(AppealData appealData) {
             super.onPostExecute(appealData);
-            b bVar = this.aYY.get();
+            b bVar = this.aZo.get();
             if (bVar != null) {
                 if (appealData.errNo == 0 && am.isEmpty(appealData.errMsg)) {
                     bVar.a(appealData);

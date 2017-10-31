@@ -1,74 +1,24 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class t {
-    private static final BdUniqueId aLN = BdUniqueId.gen();
-    private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, aLN);
+    private static String mThreadId;
 
-    public static <T> void a(s<T> sVar, g<T> gVar) {
-        if (sVar != null) {
-            a aVar = new a(sVar, gVar);
-            aVar.setParallel(sBdAsyncTaskParallel);
-            aVar.setTag(aLN);
-            aVar.setPriority(4);
-            aVar.execute(new String[0]);
-        }
+    public static void gU(String str) {
+        mThreadId = str;
     }
 
-    public static <T> void b(s<T> sVar, g<T> gVar) {
-        if (sVar != null) {
-            a aVar = new a(sVar, gVar);
-            aVar.setParallel(TiebaIMConfig.getParallel());
-            aVar.setTag(aLN);
-            aVar.setPriority(4);
-            aVar.execute(new String[0]);
+    public static String Ha() {
+        if (StringUtils.isNull(mThreadId)) {
+            return null;
         }
+        return mThreadId;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class a<T> extends BdAsyncTask<String, Object, T> {
-        private s<T> aLO;
-        private g<T> aLP;
-
-        public a(s<T> sVar, g<T> gVar) {
-            this.aLO = null;
-            this.aLP = null;
-            this.aLO = sVar;
-            this.aLP = gVar;
+    public static void Hb() {
+        if (mThreadId != null) {
+            mThreadId = null;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: h */
-        public T doInBackground(String... strArr) {
-            try {
-                if (this.aLO == null) {
-                    return null;
-                }
-                return this.aLO.doInBackground();
-            } catch (Throwable th) {
-                BdLog.detailException(th);
-                return null;
-            }
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(T t) {
-            if (this.aLP != null) {
-                this.aLP.onReturnDataInUI(t);
-            }
-        }
-    }
-
-    public static void GQ() {
-        BdAsyncTask.removeAllTask(aLN);
     }
 }

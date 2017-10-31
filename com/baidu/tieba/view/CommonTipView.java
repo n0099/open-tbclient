@@ -13,23 +13,23 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
-    private int HV;
-    private TranslateAnimation ctC;
-    private Runnable ctD;
-    private Animation gCe;
-    private a gCf;
+    private a gLU;
+    private int mDuration;
+    private Runnable mHideTipRunnable;
+    private TranslateAnimation mTipInAnimation;
+    private Animation mTipOutAnimation;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aVo();
+        void onTipCompleted();
     }
 
     public CommonTipView(Context context) {
         super(context);
-        this.HV = 4000;
-        this.gCe = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
-        this.ctC = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds56), 0.0f);
-        this.ctD = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
+        this.mDuration = 4000;
+        this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
+        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds56), 0.0f);
+        this.mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
             @Override // java.lang.Runnable
             public void run() {
                 CommonTipView.this.hideTip();
@@ -39,9 +39,9 @@ public class CommonTipView extends TextView {
     }
 
     private void init() {
-        setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds24));
+        setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds24));
         setGravity(17);
-        this.gCe.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.2
+        this.mTipOutAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -53,8 +53,8 @@ public class CommonTipView extends TextView {
                 if (viewGroup != null) {
                     viewGroup.removeView(CommonTipView.this);
                 }
-                if (CommonTipView.this.gCf != null) {
-                    CommonTipView.this.gCf.aVo();
+                if (CommonTipView.this.gLU != null) {
+                    CommonTipView.this.gLU.onTipCompleted();
                 }
             }
 
@@ -62,15 +62,15 @@ public class CommonTipView extends TextView {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.ctC.setDuration(400L);
-        this.ctC.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.3
+        this.mTipInAnimation.setDuration(400L);
+        this.mTipInAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.3
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                CommonTipView.this.postDelayed(CommonTipView.this.ctD, CommonTipView.this.HV);
+                CommonTipView.this.postDelayed(CommonTipView.this.mHideTipRunnable, CommonTipView.this.mDuration);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -81,44 +81,44 @@ public class CommonTipView extends TextView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideTip() {
-        removeCallbacks(this.ctD);
+        removeCallbacks(this.mHideTipRunnable);
         if (this != null && getParent() != null) {
-            startAnimation(this.gCe);
+            startAnimation(this.mTipOutAnimation);
         }
     }
 
-    public void a(LinearLayout linearLayout, int i) {
+    public void show(LinearLayout linearLayout, int i) {
         if (linearLayout != null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds56));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds56));
             layoutParams.gravity = 48;
             linearLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.ctC);
+            startAnimation(this.mTipInAnimation);
         }
     }
 
-    public void a(FrameLayout frameLayout, int i) {
+    public void show(FrameLayout frameLayout, int i) {
         if (frameLayout != null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds56));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds56));
             layoutParams.setMargins(0, 0, 0, 0);
             frameLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.ctC);
+            startAnimation(this.mTipInAnimation);
         }
     }
 
     public void setTipDuration(int i) {
         if (i > 0) {
-            this.HV = i;
+            this.mDuration = i;
         }
     }
 
     public void onChangeSkinType(int i) {
-        aj.d(this, d.e.common_color_10260, i);
-        aj.b(this, d.e.cp_cont_g, 1, i);
+        aj.d(this, d.C0080d.common_color_10260, i);
+        aj.b(this, d.C0080d.cp_cont_g, 1, i);
     }
 
     public void onDestroy() {
-        removeCallbacks(this.ctD);
+        removeCallbacks(this.mHideTipRunnable);
     }
 }

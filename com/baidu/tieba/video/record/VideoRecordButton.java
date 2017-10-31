@@ -13,12 +13,12 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class VideoRecordButton extends FrameLayout {
-    private View gBB;
-    private View gBC;
-    private View gBD;
-    private TextView gBE;
-    private AnimatorSet gBF;
-    private AnimatorSet gBG;
+    private View gLr;
+    private View gLs;
+    private View gLt;
+    private TextView gLu;
+    private AnimatorSet gLv;
+    private AnimatorSet gLw;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,79 +36,79 @@ public class VideoRecordButton extends FrameLayout {
     }
 
     private void initView() {
-        inflate(getContext(), d.j.layout_record_button, this);
-        this.gBB = findViewById(d.h.record_layer1);
-        this.gBC = findViewById(d.h.record_layer2);
-        this.gBD = findViewById(d.h.record_layer3);
-        this.gBE = (TextView) findViewById(d.h.tv_tip);
+        inflate(getContext(), d.h.layout_record_button, this);
+        this.gLr = findViewById(d.g.record_layer1);
+        this.gLs = findViewById(d.g.record_layer2);
+        this.gLt = findViewById(d.g.record_layer3);
+        this.gLu = (TextView) findViewById(d.g.tv_tip);
     }
 
     public View getLayer1() {
-        return this.gBB;
+        return this.gLr;
     }
 
     public View getLayer2() {
-        return this.gBC;
+        return this.gLs;
     }
 
     public TextView getTvTip() {
-        return this.gBE;
+        return this.gLu;
     }
 
-    public void bxA() {
-        if (this.gBG != null && this.gBG.isRunning()) {
-            this.gBG.cancel();
+    public void bAS() {
+        if (this.gLw != null && this.gLw.isRunning()) {
+            this.gLw.cancel();
         }
-        if (this.gBF == null) {
-            this.gBF = new AnimatorSet();
+        if (this.gLv == null) {
+            this.gLv = new AnimatorSet();
             AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ObjectAnimator.ofFloat(this.gBB, "scaleX", this.gBB.getScaleX(), 1.05f), ObjectAnimator.ofFloat(this.gBB, "scaleY", this.gBB.getScaleY(), 1.05f), ObjectAnimator.ofFloat(this.gBC, "scaleX", this.gBC.getScaleX(), 1.05f), ObjectAnimator.ofFloat(this.gBC, "scaleY", this.gBC.getScaleY(), 1.05f));
+            animatorSet.playTogether(ObjectAnimator.ofFloat(this.gLr, "scaleX", this.gLr.getScaleX(), 1.05f), ObjectAnimator.ofFloat(this.gLr, "scaleY", this.gLr.getScaleY(), 1.05f), ObjectAnimator.ofFloat(this.gLs, "scaleX", this.gLs.getScaleX(), 1.05f), ObjectAnimator.ofFloat(this.gLs, "scaleY", this.gLs.getScaleY(), 1.05f));
             animatorSet.setDuration(300L);
             AnimatorSet animatorSet2 = new AnimatorSet();
-            animatorSet2.playTogether(ObjectAnimator.ofFloat(this.gBB, "scaleX", 1.05f, 0.78f), ObjectAnimator.ofFloat(this.gBB, "scaleY", 1.05f, 0.78f), ObjectAnimator.ofFloat(this.gBC, "scaleX", 1.05f, 0.78f), ObjectAnimator.ofFloat(this.gBC, "scaleY", 1.05f, 0.78f));
+            animatorSet2.playTogether(ObjectAnimator.ofFloat(this.gLr, "scaleX", 1.05f, 0.78f), ObjectAnimator.ofFloat(this.gLr, "scaleY", 1.05f, 0.78f), ObjectAnimator.ofFloat(this.gLs, "scaleX", 1.05f, 0.78f), ObjectAnimator.ofFloat(this.gLs, "scaleY", 1.05f, 0.78f));
             animatorSet2.setDuration(800L);
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.gBD, PropertyValuesHolder.ofFloat("scaleX", 0.78f, 1.14f), PropertyValuesHolder.ofFloat("scaleY", 0.78f, 1.14f));
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.gLt, PropertyValuesHolder.ofFloat("scaleX", 0.78f, 1.14f), PropertyValuesHolder.ofFloat("scaleY", 0.78f, 1.14f));
             ofPropertyValuesHolder.setRepeatCount(-1);
             ofPropertyValuesHolder.setRepeatMode(2);
             ofPropertyValuesHolder.setDuration(1000L);
-            ofPropertyValuesHolder.addListener(new m() { // from class: com.baidu.tieba.video.record.VideoRecordButton.1
-                @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
+            ofPropertyValuesHolder.addListener(new n() { // from class: com.baidu.tieba.video.record.VideoRecordButton.1
+                @Override // com.baidu.tieba.video.record.n, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    VideoRecordButton.this.gBD.setVisibility(0);
+                    VideoRecordButton.this.gLt.setVisibility(0);
                 }
             });
-            this.gBF.addListener(new m() { // from class: com.baidu.tieba.video.record.VideoRecordButton.2
-                @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
+            this.gLv.addListener(new n() { // from class: com.baidu.tieba.video.record.VideoRecordButton.2
+                @Override // com.baidu.tieba.video.record.n, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    VideoRecordButton.this.gBD.setVisibility(8);
+                    VideoRecordButton.this.gLt.setVisibility(8);
                 }
             });
-            this.gBF.playSequentially(animatorSet, animatorSet2, ofPropertyValuesHolder);
+            this.gLv.playSequentially(animatorSet, animatorSet2, ofPropertyValuesHolder);
         }
-        this.gBF.start();
-        this.gBE.setVisibility(8);
+        this.gLv.start();
+        this.gLu.setVisibility(8);
     }
 
-    public void bxB() {
-        if (this.gBF != null && this.gBF.isRunning()) {
-            this.gBF.cancel();
+    public void bAT() {
+        if (this.gLv != null && this.gLv.isRunning()) {
+            this.gLv.cancel();
         }
-        this.gBD.setVisibility(8);
-        if (this.gBG == null) {
-            this.gBG = new AnimatorSet();
-            this.gBG.playTogether(ObjectAnimator.ofFloat(this.gBC, "scaleX", 0.78f, 1.0f), ObjectAnimator.ofFloat(this.gBC, "scaleY", 0.78f, 1.0f), ObjectAnimator.ofFloat(this.gBB, "scaleX", 0.78f, 1.0f), ObjectAnimator.ofFloat(this.gBB, "scaleY", 0.78f, 1.0f));
-            this.gBG.setDuration(400L);
-            this.gBG.setInterpolator(new DecelerateInterpolator());
-            this.gBG.addListener(new m() { // from class: com.baidu.tieba.video.record.VideoRecordButton.3
-                @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
+        this.gLt.setVisibility(8);
+        if (this.gLw == null) {
+            this.gLw = new AnimatorSet();
+            this.gLw.playTogether(ObjectAnimator.ofFloat(this.gLs, "scaleX", 0.78f, 1.0f), ObjectAnimator.ofFloat(this.gLs, "scaleY", 0.78f, 1.0f), ObjectAnimator.ofFloat(this.gLr, "scaleX", 0.78f, 1.0f), ObjectAnimator.ofFloat(this.gLr, "scaleY", 0.78f, 1.0f));
+            this.gLw.setDuration(400L);
+            this.gLw.setInterpolator(new DecelerateInterpolator());
+            this.gLw.addListener(new n() { // from class: com.baidu.tieba.video.record.VideoRecordButton.3
+                @Override // com.baidu.tieba.video.record.n, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (!this.gBA) {
-                        VideoRecordButton.this.gBE.setVisibility(0);
-                        VideoRecordButton.this.gBE.setText(VideoRecordButton.this.getResources().getText(d.l.video_record_button_press));
+                    if (!this.gLq) {
+                        VideoRecordButton.this.gLu.setVisibility(0);
+                        VideoRecordButton.this.gLu.setText(VideoRecordButton.this.getResources().getText(d.j.video_record_button_press));
                     }
                 }
             });
         }
-        this.gBG.start();
+        this.gLw.start();
     }
 }
