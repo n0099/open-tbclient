@@ -15,7 +15,6 @@ public class PbPageRequestMessage extends NetMessage {
     private Integer banner;
     private String cacheKey;
     private Context context;
-    private Integer floor_rn;
     private Long forumId;
     private Integer fromSmartFrs;
     private boolean isFromMark;
@@ -38,21 +37,18 @@ public class PbPageRequestMessage extends NetMessage {
     private int opStat;
     private String opType;
     private String opUrl;
-    private Integer pb_rn;
     private long pid;
     private Integer pn;
     private Integer q_type;
     private Integer r;
     private int refreshCount;
     private Integer rn;
-    private Integer s_model;
     private double scr_dip;
     private Integer scr_h;
     private Integer scr_w;
     private String st_type;
     private Integer thread_type;
     private int updateType;
-    private Integer weipost;
     private Integer with_floor;
 
     public PbPageRequestMessage() {
@@ -67,16 +63,8 @@ public class PbPageRequestMessage extends NetMessage {
         this.fromSmartFrs = 0;
     }
 
-    public int getRefreshCount() {
-        return this.refreshCount;
-    }
-
     public void setRefreshCount(int i) {
         this.refreshCount = i;
-    }
-
-    public int getLoadCount() {
-        return this.loadCount;
     }
 
     public void setLoadCount(int i) {
@@ -89,14 +77,6 @@ public class PbPageRequestMessage extends NetMessage {
 
     public void setContext(Context context) {
         this.context = context;
-    }
-
-    public Integer get_pb_rn() {
-        return this.pb_rn;
-    }
-
-    public void set_pb_rn(Integer num) {
-        this.pb_rn = num;
     }
 
     public Integer get_mark() {
@@ -171,22 +151,6 @@ public class PbPageRequestMessage extends NetMessage {
         this.with_floor = num;
     }
 
-    public Integer get_floor_rn() {
-        return this.floor_rn;
-    }
-
-    public void set_floor_rn(Integer num) {
-        this.floor_rn = num;
-    }
-
-    public Integer get_weipost() {
-        return this.weipost;
-    }
-
-    public void set_weipost(Integer num) {
-        this.weipost = num;
-    }
-
     public Integer get_message_id() {
         return this.message_id;
     }
@@ -195,44 +159,20 @@ public class PbPageRequestMessage extends NetMessage {
         this.message_id = num;
     }
 
-    public String getOpType() {
-        return this.opType;
-    }
-
     public void setOpType(String str) {
         this.opType = str;
-    }
-
-    public String getOpUrl() {
-        return this.opUrl;
     }
 
     public void setOpUrl(String str) {
         this.opUrl = str;
     }
 
-    public int getOpStat() {
-        return this.opStat;
-    }
-
     public void setOpStat(int i) {
         this.opStat = i;
     }
 
-    public long getOpMessageID() {
-        return this.opMessageID;
-    }
-
     public void setOpMessageID(long j) {
         this.opMessageID = j;
-    }
-
-    public Integer get_s_model() {
-        return this.s_model;
-    }
-
-    public void set_s_model(Integer num) {
-        this.s_model = num;
     }
 
     public Integer get_rn() {
@@ -371,16 +311,8 @@ public class PbPageRequestMessage extends NetMessage {
         this.objParam1 = str;
     }
 
-    public void setObjSource(String str) {
-        this.obj_source = str;
-    }
-
     public void setFromSmartFrs(int i) {
         this.fromSmartFrs = Integer.valueOf(i);
-    }
-
-    public int getFromSmartFrs() {
-        return this.fromSmartFrs.intValue();
     }
 
     public void setForumId(String str) {
@@ -395,7 +327,7 @@ public class PbPageRequestMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.pb_rn = get_pb_rn();
+            builder.pb_rn = 0;
             builder.mark = get_mark();
             builder.back = get_back();
             builder.kz = Long.valueOf(get_kz());
@@ -403,10 +335,10 @@ public class PbPageRequestMessage extends NetMessage {
             builder.r = get_r();
             builder.pid = Long.valueOf(get_pid());
             builder.with_floor = get_with_floor();
-            builder.floor_rn = get_floor_rn();
-            builder.weipost = get_weipost();
+            builder.floor_rn = 0;
+            builder.weipost = 0;
             builder.message_id = get_message_id();
-            builder.s_model = get_s_model();
+            builder.s_model = 0;
             builder.rn = get_rn();
             builder.scr_w = get_scr_w();
             builder.scr_h = get_scr_h();
@@ -433,14 +365,14 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.d.a.bgt().bgw();
+            builder.app_pos = com.baidu.tieba.recapp.e.a.bjF().bjI();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.refresh_count = Integer.valueOf(this.refreshCount);
             builder2.load_count = Integer.valueOf(this.loadCount);
             builder.ad_param = builder2.build(false);
-            com.baidu.tbadk.util.m.bindCommonParamsToProtobufData(builder, true, false, true);
+            com.baidu.tbadk.util.o.bindCommonParamsToProtobufData(builder, true, false, true);
             PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);

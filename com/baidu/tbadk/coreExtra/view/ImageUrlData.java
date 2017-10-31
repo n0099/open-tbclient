@@ -2,7 +2,9 @@ package com.baidu.tbadk.coreExtra.view;
 
 import android.graphics.Rect;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
 import java.io.Serializable;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class ImageUrlData extends OrmObject implements Serializable, Comparable<ImageUrlData> {
     public static final int IMAGE_TYPE_CHUDIAN = 1;
@@ -10,7 +12,8 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
     public String id;
     public String imageUrl;
     public boolean isBlockedPic;
-    public Rect mSourceImageRectInScreen;
+    private String mSourceImageRectInScreenStr;
+    public byte[] mThumbBytes;
     public String originalUrl;
     public int urlType;
     public boolean mIsShowOrigonButton = true;
@@ -30,5 +33,25 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
     @Override // java.lang.Comparable
     public int compareTo(ImageUrlData imageUrlData) {
         return (int) (this.overAllIndex - imageUrlData.overAllIndex);
+    }
+
+    public Rect getSourceImageRectInScreen() {
+        if (!StringUtils.isNull(this.mSourceImageRectInScreenStr)) {
+            try {
+                JSONArray jSONArray = new JSONArray(this.mSourceImageRectInScreenStr);
+                if (jSONArray.length() == 4) {
+                    return new Rect(((Integer) jSONArray.get(0)).intValue(), ((Integer) jSONArray.get(1)).intValue(), ((Integer) jSONArray.get(2)).intValue(), ((Integer) jSONArray.get(3)).intValue());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public void setSourceImageRectInScreen(String str) {
+        if (str != null) {
+            this.mSourceImageRectInScreenStr = str;
+        }
     }
 }

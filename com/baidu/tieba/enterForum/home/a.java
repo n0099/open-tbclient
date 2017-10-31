@@ -27,51 +27,52 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.enterForum.model.d;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private b ccE;
-    private NoNetworkView ccF;
-    private PluginErrorTipView ccG;
-    private RelativeLayout ccH;
-    private ImageView ccI;
-    private ObservedChangeLinearLayout ccJ;
-    final CustomMessageListener ccK = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tieba.enterForum.home.a.3
+    private b cka;
+    private NoNetworkView ckb;
+    private PluginErrorTipView ckc;
+    private RelativeLayout ckd;
+    private ImageView cke;
+    private ObservedChangeLinearLayout ckf;
+    final CustomMessageListener ckg = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tieba.enterForum.home.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && d.adk()) {
-                d.adl();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && d.afr()) {
+                d.afs();
             }
         }
     };
     private NavigationBar mNavigationBar;
 
-    public ObservedChangeLinearLayout acI() {
-        return this.ccJ;
+    public ObservedChangeLinearLayout aeQ() {
+        return this.ckf;
     }
 
-    private void al(View view) {
-        this.ccH = (RelativeLayout) view.findViewById(d.h.enter_root_layout);
-        am(view);
-        this.ccF = (NoNetworkView) view.findViewById(d.h.view_no_network);
-        this.ccG = (PluginErrorTipView) view.findViewById(d.h.view_plugin_error_tip);
-        this.ccJ = (ObservedChangeLinearLayout) view.findViewById(d.h.tab_layout);
-        this.ccE = new b(this);
-        this.ccF.a(new NoNetworkView.a() { // from class: com.baidu.tieba.enterForum.home.a.1
+    private void ao(View view) {
+        this.ckd = (RelativeLayout) view.findViewById(d.g.enter_root_layout);
+        ap(view);
+        this.ckb = (NoNetworkView) view.findViewById(d.g.view_no_network);
+        this.ckc = (PluginErrorTipView) view.findViewById(d.g.view_plugin_error_tip);
+        this.ckf = (ObservedChangeLinearLayout) view.findViewById(d.g.tab_layout);
+        this.cka = new b(this);
+        this.ckb.a(new NoNetworkView.a() { // from class: com.baidu.tieba.enterForum.home.a.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-            public void aL(boolean z) {
-                a.this.ccE.ee(z);
+            public void aJ(boolean z) {
+                a.this.cka.ec(z);
             }
         });
-        this.ccH.addView(this.ccE.getView(), 0);
+        this.ckd.addView(this.cka.getView(), 0);
     }
 
-    private void am(View view) {
-        this.mNavigationBar = (NavigationBar) view.findViewById(d.h.enter_forum_navigation_bar);
-        aj.k(this.mNavigationBar, d.e.cp_bg_line_d);
-        this.mNavigationBar.setCenterTextTitle(getResources().getString(d.l.enter_forum));
-        this.ccI = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.j.widget_nb_item_signall, new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.a.2
+    private void ap(View view) {
+        this.mNavigationBar = (NavigationBar) view.findViewById(d.g.enter_forum_navigation_bar);
+        aj.k(this.mNavigationBar, d.C0080d.cp_bg_line_d);
+        this.mNavigationBar.setCenterTextTitle(getResources().getString(d.j.enter_forum));
+        this.mNavigationBar.showBottomLine();
+        this.cke = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_nb_item_signall, new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (!a.this.acK()) {
+                if (!a.this.aeS()) {
                     if (!TbadkCoreApplication.isLogin()) {
                         ax.aS(a.this.getPageContext().getPageActivity());
                     } else if (TbadkCoreApplication.getInst().appResponseToIntentClass(SignAllForumActivityConfig.class)) {
@@ -80,39 +81,39 @@ public class a extends BaseFragment {
                 }
             }
         });
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(0, 0, l.f(getPageContext().getPageActivity(), d.f.ds28), 0);
-        this.ccI.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cke.getLayoutParams();
+        layoutParams.setMargins(0, 0, l.f(getPageContext().getPageActivity(), d.e.ds34), 0);
+        this.cke.setLayoutParams(layoutParams);
     }
 
-    public void acJ() {
-        acL();
-        if (this.ccE != null) {
-            this.ccE.Qf();
-            if (this.ccE.acU()) {
-                this.ccE.acT();
+    public void aeR() {
+        aeT();
+        if (this.cka != null) {
+            this.cka.Rx();
+            if (this.cka.afc()) {
+                this.cka.afb();
             }
         }
     }
 
-    public boolean acK() {
-        if (this.ccE != null) {
-            return this.ccE.acU();
+    public boolean aeS() {
+        if (this.cka != null) {
+            return this.cka.afc();
         }
         return false;
     }
 
-    private void acL() {
-        if (this.ccE != null) {
-            this.ccE.eg(true);
+    private void aeT() {
+        if (this.cka != null) {
+            this.cka.ee(true);
         }
     }
 
-    public void acM() {
-        if (!acK()) {
-            aj.a(this.ccI, d.g.icon_sign_bg_s, d.g.icon_sign_bg);
+    public void aeU() {
+        if (!aeS()) {
+            aj.a(this.cke, d.f.icon_sign_bg_s, d.f.icon_sign_bg);
         } else {
-            aj.a(this.ccI, d.g.icon_sign_s, d.g.icon_sign_s);
+            aj.a(this.cke, d.f.icon_topbar_sign_s, d.f.icon_topbar_sign_s);
         }
     }
 
@@ -120,9 +121,9 @@ public class a extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            acJ();
-            if (this.ccE != null) {
-                refreshImage(this.ccE.getView());
+            aeR();
+            if (this.cka != null) {
+                refreshImage(this.cka.getView());
             }
         }
     }
@@ -131,27 +132,27 @@ public class a extends BaseFragment {
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        aj.k(this.ccH, d.e.cp_bg_line_d);
-        if (this.ccE != null) {
-            this.ccE.onChangeSkinType(i);
+        aj.k(this.ckd, d.C0080d.cp_bg_line_d);
+        if (this.cka != null) {
+            this.cka.onChangeSkinType(i);
         }
-        if (this.ccF != null) {
-            this.ccF.onChangeSkinType(getPageContext(), i);
+        if (this.ckb != null) {
+            this.ckb.onChangeSkinType(getPageContext(), i);
         }
-        if (this.ccG != null) {
-            this.ccG.onChangeSkinType(getPageContext(), i);
+        if (this.ckc != null) {
+            this.ckc.onChangeSkinType(getPageContext(), i);
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-            aj.k(this.mNavigationBar, d.e.cp_bg_line_d);
+            aj.k(this.mNavigationBar, d.C0080d.cp_bg_line_d);
         }
-        acM();
+        aeU();
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(d.j.fragment_enter_forum, viewGroup, false);
-        al(inflate);
+        View inflate = layoutInflater.inflate(d.h.fragment_enter_forum, viewGroup, false);
+        ao(inflate);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return inflate;
     }
@@ -159,14 +160,14 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ccK.setPriority(101);
-        registerListener(this.ccK);
+        this.ckg.setPriority(101);
+        registerListener(this.ckg);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.ccE != null) {
-            this.ccE.onDestroy();
+        if (this.cka != null) {
+            this.cka.onDestroy();
         }
         super.onDestroy();
     }
@@ -174,21 +175,21 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.ccE != null) {
-            this.ccE.onPause();
+        if (this.cka != null) {
+            this.cka.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.ccF != null && this.ccF.getVisibility() == 0 && j.hh()) {
-            this.ccF.aK(false);
+        if (this.ckb != null && this.ckb.getVisibility() == 0 && j.hh()) {
+            this.ckb.aI(false);
         }
     }
 
-    public RelativeLayout acN() {
-        return this.ccH;
+    public RelativeLayout aeV() {
+        return this.ckd;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a

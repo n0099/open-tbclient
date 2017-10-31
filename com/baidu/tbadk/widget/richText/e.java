@@ -1,66 +1,42 @@
 package com.baidu.tbadk.widget.richText;
 
-import com.baidu.adp.lib.util.StringUtils;
-import tbclient.PbContent;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-public class e {
-    private String aRG;
-    private int aRH;
-    private String aRI;
-    private int aRJ;
-    private int aRK;
-    private int duration;
-    private int height;
-    private String videoUrl;
-    private int width;
+public interface e {
+    int Jn();
 
-    public void b(PbContent pbContent) {
-        if (pbContent != null) {
-            this.videoUrl = pbContent.link;
-            this.aRG = pbContent.src;
-            this.width = pbContent.width.intValue();
-            this.height = pbContent.height.intValue();
-            this.aRH = pbContent.e_type.intValue();
-            this.aRI = pbContent.text;
-            this.duration = pbContent.during_time.intValue();
-            this.aRJ = pbContent.count.intValue();
-            this.aRK = pbContent.origin_size.intValue();
-        }
-    }
+    com.baidu.adp.lib.e.b<ImageView> Jo();
 
-    public String getVideoUrl() {
-        return this.videoUrl;
-    }
+    com.baidu.adp.lib.e.b<TextView> Jp();
 
-    public String getThumbUrl() {
-        return this.aRG;
-    }
+    com.baidu.adp.lib.e.b<GifView> Jq();
 
-    public int getWidth() {
-        return this.width;
-    }
+    com.baidu.adp.lib.e.b<View> Jr();
 
-    public int getHeight() {
-        return this.height;
-    }
+    com.baidu.adp.lib.e.b<LinearLayout> Js();
 
-    public String Jj() {
-        return this.aRI;
-    }
+    com.baidu.adp.lib.e.b<RelativeLayout> Jt();
 
-    public boolean Jk() {
-        return this.aRH == 15;
-    }
+    void U(Context context, String str);
 
-    public boolean isAvaliable() {
-        return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
-    }
+    void V(Context context, String str);
 
-    public int Jl() {
-        return this.aRJ;
-    }
+    void W(Context context, String str);
 
-    public void fR(int i) {
-        this.aRJ = i;
-    }
+    void X(Context context, String str);
+
+    void Y(Context context, String str);
+
+    void Z(Context context, String str);
+
+    void g(Context context, String str, String str2);
+
+    ListView getListView();
 }

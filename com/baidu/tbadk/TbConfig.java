@@ -191,6 +191,7 @@ public class TbConfig {
     public static final String GET_USER_INFO = "c/u/user/getuserinfo";
     public static final String GET_USER_LOCATION = "c/u/user/getuserlocation";
     public static final String GET_USER_ORDER = "c/e/consume/getUserOrder";
+    public static final String GET_VIDEO_ACTIVITY = "c/f/video/getActList";
     public static final String GIFT_COMMONLIST = "c/e/gift/commonlist";
     public static final String GIFT_PLACE_ORDER = "c/c/encourage/present/placeOrder";
     public static final String GOD_RECOMMEND = "c/r/god/followRecommend";
@@ -228,7 +229,6 @@ public class TbConfig {
     public static final String LOG_TOGETHER = "c/s/logtogether";
     public static final String LOG_UPLOAD_URL = "c/s/newlog";
     public static final int MAINTAB_NO_INTEREST = 1;
-    public static final String MAIN_PACKAGE_NAME = "com.baidu.tieba";
     public static final String MANAGE_ADDRESS = "http://tieba.baidu.com/mo/q/bawuindex";
     public static final String MARK_ADDSTORE = "c/c/post/addstore";
     public static final String MARK_DELSTORE = "c/c/post/rmstore";
@@ -327,9 +327,10 @@ public class TbConfig {
     public static final String PLUGIN_NET_CONFIGS_MIS = "c/s/pluginsmisconf";
     public static final int POST_IMAGE_BIG = 2000;
     public static final int POST_IMAGE_DISPLAY = 100;
+    public static final int POST_IMAGE_HIGHT_LIMIT = 18000;
     public static final int POST_IMAGE_MIDDLE = 1800;
     public static final int POST_IMAGE_QUALITY = 85;
-    public static final int POST_IMAGE_SMALL = 600;
+    public static final int POST_IMAGE_SMALL = 1500;
     public static final String POST_SEARCH_URL = "c/s/searchpost";
     public static final String POST_THREAD_ADDRESS = "c/c/thread/add";
     public static final String POST_THREAD_FOR_SHARE_ADDRESS = "c/c/thread/sdkshare";
@@ -363,6 +364,7 @@ public class TbConfig {
     public static final String SET_PRIVATE = "c/c/friend/setprivate";
     public static final String SET_USER_BOOK_HISTORY = "c/c/encourage/tbread/setUserBookHistory";
     public static final String SET_USER_PRIVATE_FORUM = "c/c/user/setUserPrivateForum";
+    public static final String SHARE_HUB_DIR_NAME = "share_hub";
     public static final String SIGN_ADDRESS = "c/c/forum/sign";
     public static final String SKIN_DETAIL_PAGE = "c/e/theme/getSkin";
     public static final String SQUARE_SEARCH_PAGE = "https://tieba.baidu.com/n/apage-runtime/page/205?keyword=";
@@ -450,6 +452,8 @@ public class TbConfig {
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
     public static final String URL_UEG_SERVICE_CENTER = "http://tieba.baidu.com/n/apage-runtime/page/ueg_service_center";
     public static final String URL_UPLOAD_VIDEO = "c/c/video/uploadVideoData";
+    public static final String URL_USER_REPORT = "c/c/user/complaint";
+    public static final String URL_VIDEO_MONITOR_REPORT = "ala/sys/vlog";
     public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
     public static final String USER_MUTE_CHECK = "c/u/user/userMuteCheck";
     public static final String USER_MUTE_DEL = "c/c/user/userMuteDel";
@@ -492,12 +496,10 @@ public class TbConfig {
     public static String LOGIN_FULL_ADDRESS = SERVER_ADDRESS + "c/s/login";
     public static String SERVER_ADDRESS_WEB_VIEW = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
     public static int ALPHA_80 = 80;
-    private static int PB_LIST_ITEM_MAX_NUM = 300;
-    private static int IMG_CHUNK_UPLOAD_ENABLE = 1;
-    public static boolean KUANG_TEST_MODE = false;
     public static long DEFALT_USE_TIME_INTERVAL = 1;
     private static String POSITION_PAGER_NAME = "贴吧客户端反馈";
     private static String POSITION_PAGER_ID = "2631903";
+    public static final String FRS_LIVE_TIP_ADDRESS = SERVER_ADDRESS + "ala/live/getLiveRemindInFrs";
     private static String VERSION = "";
     private static String SUB_VERSION = "";
     private static String LEGO_LIB_VERSION = "1.0.0";
@@ -527,14 +529,14 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds44);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds40);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds36);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds34);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds30);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.f.ds28);
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds44);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds40);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds36);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds32);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds34);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds32);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds30);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds28);
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
@@ -552,33 +554,11 @@ public class TbConfig {
         public static final String TPL = "tb";
     }
 
-    public static int getPbListItemMaxNum() {
-        return PB_LIST_ITEM_MAX_NUM;
-    }
-
-    public static void setPbListItemMaxNum(int i) {
-        PB_LIST_ITEM_MAX_NUM = i;
-    }
-
-    public static void setPbListNum(int i) {
-        if (i >= 60 && i <= 1000) {
-            PB_LIST_ITEM_MAX_NUM = i;
-        }
-    }
-
     public static void setFeedBack(String str, String str2) {
         if (str != null && str.length() > 0 && str2 != null && str2.length() > 0) {
             setPositionPagerName(str);
             setPositionPagerId(str2);
         }
-    }
-
-    public static void setImgChunkUploadEnable(int i) {
-        IMG_CHUNK_UPLOAD_ENABLE = i;
-    }
-
-    public static int getImgChunkUploadEnable() {
-        return IMG_CHUNK_UPLOAD_ENABLE;
     }
 
     public static final String getBroadcastActionPageAdded() {
@@ -674,8 +654,8 @@ public class TbConfig {
 
     public static void initBigImageMaxUsedMemory(Context context) {
         BIG_IMAGE_MAX_USED_MEMORY = initPbImageSize(context) * 13;
-        if (BIG_IMAGE_MAX_USED_MEMORY < UtilHelper.getBitmapMaxMemory(context) * 0.28d) {
-            BIG_IMAGE_MAX_USED_MEMORY = (int) (UtilHelper.getBitmapMaxMemory(context) * 0.28d);
+        if (BIG_IMAGE_MAX_USED_MEMORY < UtilHelper.getBitmapMaxMemory(context) * 0.35d) {
+            BIG_IMAGE_MAX_USED_MEMORY = (int) (UtilHelper.getBitmapMaxMemory(context) * 0.35d);
         }
     }
 
@@ -688,7 +668,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.DT().fe(i);
+            c.Eg().ff(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -822,7 +802,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(l.ad(context) * l.af(context));
+            int sqrt = (int) Math.sqrt(l.ac(context) * l.ae(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

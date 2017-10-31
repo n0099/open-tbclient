@@ -12,32 +12,32 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class d<T, V extends j.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int cpK;
-    protected static final int cpL;
-    protected static final int cpM;
-    protected com.baidu.tieba.tbadkCore.i cpN;
-    protected b cpO;
-    protected int cpP;
-    protected c cpQ;
-    private boolean cpR;
-    private boolean cpS;
-    protected TbPageContext<?> mH;
+    protected static final int cxe;
+    protected static final int cxf;
+    protected static final int cxg;
+    protected com.baidu.tieba.tbadkCore.j cxh;
+    protected b cxi;
+    protected int cxj;
+    protected c cxk;
+    private boolean cxl;
+    private boolean cxm;
     protected boolean mIsFromCDN;
     protected ListView mListView;
+    protected TbPageContext<?> mPageContext;
     protected int mSkinType;
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        cpK = resources.getDimensionPixelSize(d.f.ds8);
-        cpL = resources.getDimensionPixelSize(d.f.ds16);
-        cpM = resources.getDimensionPixelSize(d.f.ds1);
+        cxe = resources.getDimensionPixelSize(d.e.ds8);
+        cxf = resources.getDimensionPixelSize(d.e.ds16);
+        cxg = resources.getDimensionPixelSize(d.e.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.cpS = false;
+        this.cxm = false;
         a(tbPageContext, bdUniqueId2);
     }
 
@@ -45,27 +45,27 @@ public abstract class d<T, V extends j.a> extends com.baidu.adp.widget.ListView.
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.cpS = false;
+        this.cxm = false;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
 
     public void a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         if (tbPageContext != null) {
             this.mContext = tbPageContext.getPageActivity();
-            this.mH = tbPageContext;
+            this.mPageContext = tbPageContext;
             this.mPageId = bdUniqueId;
         }
     }
 
     public void release() {
         this.mContext = null;
-        this.mH = null;
-        this.cpO = null;
+        this.mPageContext = null;
+        this.cxi = null;
         this.mAdapterItemClickListener = null;
         this.mAdapterItemLongClickListener = null;
-        if (this.cpQ != null) {
-            this.cpQ.destory();
-            this.cpQ = null;
+        if (this.cxk != null) {
+            this.cxk.destory();
+            this.cxk = null;
         }
     }
 
@@ -81,35 +81,31 @@ public abstract class d<T, V extends j.a> extends com.baidu.adp.widget.ListView.
         this.mIsFromCDN = z;
     }
 
-    public void a(com.baidu.tieba.tbadkCore.i iVar) {
-        this.cpN = iVar;
+    public void a(com.baidu.tieba.tbadkCore.j jVar) {
+        this.cxh = jVar;
     }
 
     public void a(b bVar) {
-        this.cpO = bVar;
+        this.cxi = bVar;
     }
 
-    public void iW(int i) {
-        this.cpP = i;
+    public void jm(int i) {
+        this.cxj = i;
     }
 
     public void a(c cVar) {
-        this.cpQ = cVar;
+        this.cxk = cVar;
     }
 
-    public void cI(boolean z) {
-        this.cpR = z;
+    public void cD(boolean z) {
+        this.cxl = z;
     }
 
-    public boolean agD() {
-        return this.cpR;
+    public boolean aiK() {
+        return this.cxl;
     }
 
-    public void ev(boolean z) {
-        this.cpS = z;
-    }
-
-    protected boolean agE() {
-        return this.cpS;
+    protected boolean aiL() {
+        return this.cxm;
     }
 }

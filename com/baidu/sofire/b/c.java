@@ -29,7 +29,7 @@ public final class c {
         }
     }
 
-    public static PublicKey bQ(String str) {
+    public static PublicKey bV(String str) {
         boolean z;
         if (TextUtils.isEmpty(str)) {
             return null;

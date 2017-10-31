@@ -8,8 +8,6 @@ import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes.dex */
 public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     public static final String CATEGORY_ID_KEY = "categoryid";
-    public static final int FRS_LOAD_TYPE_MORE = 4;
-    public static final int FRS_LOAD_TYPE_REFRESH = 3;
     public static final int FRS_SMARTLOAD_TYPE_BY_REFRESH = 1;
     public static final int FRS_SMART_LOAD_TYPE_BY_MORE = 2;
     public static final int FRS_SORT_TYPE_BY_LIKE_USER = 2;
@@ -25,8 +23,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int cid;
     private int ctime;
     private int dataSize;
-    private String gdU;
-    private String gdV;
+    private String gmG;
+    private String gmH;
     private int isGood;
     private String kw;
     private String lastId;
@@ -45,7 +43,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private String stType;
     private int updateType;
     private int withGroup;
-    private String ane = "";
+    private String anz = "";
     private int mSortType = -1;
     private int mLoadType = 1;
 
@@ -57,7 +55,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.mSortType = i;
     }
 
-    public int OT() {
+    public int OY() {
         return this.mSortType;
     }
 
@@ -154,7 +152,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void setYuelaouLocate(String str) {
-        this.ane = str;
+        this.anz = str;
     }
 
     public void setLastId(String str) {
@@ -181,21 +179,21 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void rB(String str) {
-        this.gdU = str;
+    public void sj(String str) {
+        this.gmG = str;
     }
 
     public void setObjSource(String str) {
-        this.gdV = str;
+        this.gmH = str;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> EA() {
+    public HashMap<String, Object> EM() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object bQ(boolean z) {
+    public Object bL(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
@@ -215,30 +213,30 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.ane;
+        builder.yuelaou_locate = this.anz;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.bgt().bgw();
+        builder.app_pos = com.baidu.tieba.recapp.e.a.bjF().bjI();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.gdU;
-        builder.obj_source = this.gdV;
+        builder.obj_locate = this.gmG;
+        builder.obj_source = this.gmH;
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder.ad_param = builder2.build(false);
-        com.baidu.tbadk.util.m.bindCommonParamsToProtobufData(builder, true, false, true);
+        com.baidu.tbadk.util.o.bindCommonParamsToProtobufData(builder, true, false, true);
         FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
         builder3.data = builder.build(false);
         return builder3.build(false);
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Ex() {
+    public String EJ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Ey() {
+    public boolean EK() {
         return false;
     }
 

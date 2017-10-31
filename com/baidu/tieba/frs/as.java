@@ -10,38 +10,38 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class as {
-    private TranslateAnimation ctC;
-    private View ctz = null;
-    private int ctA = 2000;
-    private Runnable ctD = new Runnable() { // from class: com.baidu.tieba.frs.as.1
+    private TranslateAnimation mTipInAnimation;
+    private View cAU = null;
+    private int cAV = 2000;
+    private Runnable mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.frs.as.1
         @Override // java.lang.Runnable
         public void run() {
             as.this.hideTip();
         }
     };
-    private ValueAnimator ctB = new ValueAnimator();
+    private ValueAnimator cAW = new ValueAnimator();
 
     public as() {
-        this.ctB.setFloatValues(1.0f, 0.0f);
-        this.ctB.setDuration(400L);
-        this.ctB.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.as.2
+        this.cAW.setFloatValues(1.0f, 0.0f);
+        this.cAW.setDuration(400L);
+        this.cAW.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.as.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (as.this.ctz != null && valueAnimator != null) {
-                    as.this.ctz.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (as.this.cAU != null && valueAnimator != null) {
+                    as.this.cAU.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.ctB.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.as.3
+        this.cAW.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.as.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (as.this.ctz != null) {
-                    as.this.aii();
-                    as.this.ctz.setAlpha(1.0f);
+                if (as.this.cAU != null) {
+                    as.this.akq();
+                    as.this.cAU.setAlpha(1.0f);
                 }
             }
 
@@ -53,16 +53,16 @@ public class as {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.ctC = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds56), 0.0f);
-        this.ctC.setDuration(400L);
-        this.ctC.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.as.4
+        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds56), 0.0f);
+        this.mTipInAnimation.setDuration(400L);
+        this.mTipInAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.as.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                com.baidu.adp.lib.g.e.fP().postDelayed(as.this.ctD, as.this.ctA);
+                com.baidu.adp.lib.g.e.fP().postDelayed(as.this.mHideTipRunnable, as.this.cAV);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -73,38 +73,47 @@ public class as {
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
-            this.ctz = view;
-            aii();
-            viewGroup.addView(this.ctz, layoutParams);
-            this.ctz.setVisibility(0);
-            this.ctA = i;
-            com.baidu.adp.lib.g.e.fP().removeCallbacks(this.ctD);
-            com.baidu.adp.lib.g.e.fP().postDelayed(this.ctD, this.ctA);
+            this.cAU = view;
+            akq();
+            viewGroup.addView(this.cAU, layoutParams);
+            this.cAU.setVisibility(0);
+            this.cAV = i;
+            com.baidu.adp.lib.g.e.fP().removeCallbacks(this.mHideTipRunnable);
+            com.baidu.adp.lib.g.e.fP().postDelayed(this.mHideTipRunnable, this.cAV);
+        }
+    }
+
+    public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
+        if (viewGroup != null && view != null) {
+            this.cAU = view;
+            akq();
+            viewGroup.addView(this.cAU, layoutParams);
+            this.cAU.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.ctD);
-        if (this.ctz != null && this.ctz.getParent() != null && this.ctz.getVisibility() == 0 && !this.ctB.isRunning()) {
-            this.ctB.start();
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.mHideTipRunnable);
+        if (this.cAU != null && this.cAU.getParent() != null && this.cAU.getVisibility() == 0 && !this.cAW.isRunning()) {
+            this.cAW.start();
         }
     }
 
-    public void aii() {
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.ctD);
-        if (this.ctz != null) {
-            if (this.ctB != null && this.ctB.isRunning()) {
-                this.ctB.cancel();
+    public void akq() {
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.mHideTipRunnable);
+        if (this.cAU != null) {
+            if (this.cAW != null && this.cAW.isRunning()) {
+                this.cAW.cancel();
             }
-            this.ctz.clearAnimation();
-            if (this.ctz.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.ctz.getParent()).removeView(this.ctz);
+            this.cAU.clearAnimation();
+            if (this.cAU.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.cAU.getParent()).removeView(this.cAU);
             }
-            this.ctz.setVisibility(8);
+            this.cAU.setVisibility(8);
         }
     }
 
     public void onDestroy() {
-        aii();
+        akq();
     }
 }

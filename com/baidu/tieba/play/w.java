@@ -8,33 +8,33 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class w {
-    private static w fxK = null;
-    private HashMap<String, a> fxL = new HashMap<>();
+    private static w fGB = null;
+    private HashMap<String, a> fGC = new HashMap<>();
 
     private w() {
     }
 
-    public static w bey() {
-        if (fxK == null) {
+    public static w bhK() {
+        if (fGB == null) {
             synchronized (w.class) {
-                if (fxK == null) {
-                    fxK = new w();
+                if (fGB == null) {
+                    fGB = new w();
                 }
             }
         }
-        return fxK;
+        return fGB;
     }
 
-    public void ao(String str, int i) {
-        a aVar = this.fxL.get(str);
+    public void au(String str, int i) {
+        a aVar = this.fGC.get(str);
         if (aVar == null) {
-            this.fxL.put(str, new a(i, System.currentTimeMillis()));
+            this.fGC.put(str, new a(i, System.currentTimeMillis()));
         } else {
             aVar.lastUpdateTime = System.currentTimeMillis();
             aVar.position = i;
         }
-        if (this.fxL.size() > 20) {
-            ArrayList arrayList = new ArrayList(this.fxL.entrySet());
+        if (this.fGC.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.fGC.entrySet());
             Collections.sort(arrayList, new Comparator<Map.Entry<String, a>>() { // from class: com.baidu.tieba.play.w.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -47,7 +47,7 @@ public class w {
             while (true) {
                 int i3 = i2;
                 if (i3 < 10) {
-                    this.fxL.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    this.fGC.remove(((Map.Entry) arrayList.get(i3)).getKey());
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -58,12 +58,12 @@ public class w {
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.fxL.remove(str);
+            this.fGC.remove(str);
         }
     }
 
-    public int qm(String str) {
-        a aVar = this.fxL.get(str);
+    public int qT(String str) {
+        a aVar = this.fGC.get(str);
         if (aVar != null) {
             return aVar.position;
         }

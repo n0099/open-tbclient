@@ -1,72 +1,71 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.d;
+import com.baidu.tieba.pb.ThreadSkinView;
+import com.baidu.tieba.pb.view.PbGiftListView;
 /* loaded from: classes.dex */
-public class r extends k<com.baidu.tieba.pb.data.a, s> implements View.OnClickListener {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public r(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
-    }
+public class r extends j.a {
+    public TbImageView anQ;
+    public TextView clT;
+    public TbImageView czS;
+    public View deP;
+    public TextView eIJ;
+    public TextView eIL;
+    public TextView eIM;
+    public TextView eIN;
+    public TextView eIO;
+    public LinearLayout eIP;
+    public View eIe;
+    public View eIf;
+    public TbRichTextView eIo;
+    public PbGiftListView eIr;
+    public LinearLayout eMX;
+    public ThreadSkinView eNA;
+    public TextView eNB;
+    public View eNC;
+    public BaseWebView eND;
+    public TbImageView eNz;
+    public int mSkinType;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bc */
-    public s onCreateViewHolder(ViewGroup viewGroup) {
-        s sVar = new s(LayoutInflater.from(this.mContext).inflate(d.j.god_card_list_item, (ViewGroup) null));
-        a(sVar);
-        return sVar;
-    }
-
-    private void a(s sVar) {
-        if (sVar != null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (sVar.mSkinType != skinType) {
-                com.baidu.tbadk.n.a.a(this.eDo.getPageContext(), sVar.getView());
-            }
-            sVar.mSkinType = skinType;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, s sVar) {
-        super.onFillViewHolder(i, view, viewGroup, aVar, sVar);
-        a(sVar);
-        sVar.eFc.setOnClickListener(this);
-        sVar.eFb.setOnClickListener(this);
-        sVar.eFc.setTag(aVar);
-        sVar.eFb.setTag(aVar);
-        if (aVar != null) {
-            sVar.cBw.c(aVar.getPortrait(), 28, false);
-            sVar.bHb.setText(aVar.getUserName());
-            sVar.doh.setText(aVar.aMJ());
-            sVar.cPI.setText(aVar.getText());
-            sVar.eFb.c(aVar.getPicUrl(), 10, false);
-            sVar.eFc.setText(aVar.aMK());
-        }
-        return view;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && ax.aT(this.mContext)) {
-            String aML = ((com.baidu.tieba.pb.data.a) view.getTag()).aML();
-            if (!StringUtils.isNull(aML)) {
-                av.vA().c(this.eDo.getPageContext(), new String[]{aML});
-            }
-        }
+    public r(TbPageContext tbPageContext, View view, boolean z, int i) {
+        super(view);
+        this.mSkinType = 3;
+        this.eIP = (LinearLayout) view.findViewById(d.g.belong_ba);
+        this.eNB = (TextView) view.findViewById(d.g.belong_bar_direction);
+        this.eIL = (TextView) view.findViewById(d.g.belong_ba_btn1);
+        this.eIM = (TextView) view.findViewById(d.g.belong_ba_btn2);
+        this.eIN = (TextView) view.findViewById(d.g.belong_ba_btn3);
+        this.eIO = (TextView) view.findViewById(d.g.belong_ba_btn4);
+        this.clT = (TextView) view.findViewById(d.g.view_forum_name_first_floor);
+        this.eIo = (TbRichTextView) view.findViewById(d.g.richText);
+        this.eIr = (PbGiftListView) view.findViewById(d.g.gift_list_view);
+        this.eIe = view;
+        this.eIf = view.findViewById(d.g.new_pb_list_item_blank_top);
+        this.eIo.setLayoutStrategy(new c(this.eIo.getLayoutStrategy()));
+        this.czS = (TbImageView) view.findViewById(d.g.game_activity_banner);
+        this.eNz = (TbImageView) view.findViewById(d.g.game_activity_banner);
+        int min = Math.min(((((com.baidu.adp.lib.util.l.ac(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.eIo.getPaddingLeft()) - this.eIo.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds60)), i);
+        this.eIo.getLayoutStrategy().fN(min);
+        this.eIo.getLayoutStrategy().fO((int) (min * 1.618f));
+        this.eIo.setTextSize(TbConfig.getContentSize());
+        this.eIo.m(z, false);
+        this.eIo.setVoiceViewRes(d.h.voice_play_btn_new);
+        this.deP = view.findViewById(d.g.divider_bottom_first_floor);
+        this.anQ = (TbImageView) view.findViewById(d.g.user_head_mask);
+        this.eNA = (ThreadSkinView) view.findViewById(d.g.pb_item_thread_skin);
+        this.eMX = (LinearLayout) view.findViewById(d.g.pb_list_content);
+        this.eIJ = (TextView) view.findViewById(d.g.pb_item_tail_content);
+        this.eNC = view.findViewById(d.g.link_thread_divider);
+        this.eND = (BaseWebView) view.findViewById(d.g.link_thread_webview);
     }
 }

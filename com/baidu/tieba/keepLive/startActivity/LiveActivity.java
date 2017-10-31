@@ -17,7 +17,7 @@ public class LiveActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.j.activity_live);
+        setContentView(d.h.activity_live);
         Window window = getWindow();
         window.setGravity(8388659);
         WindowManager.LayoutParams attributes = window.getAttributes();

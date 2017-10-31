@@ -11,6 +11,8 @@ public interface IQuickMediaPlayerListener extends IInterface {
 
     void onError(int i, int i2, int i3) throws RemoteException;
 
+    void onHandleOppoError(String str) throws RemoteException;
+
     void onInfo(int i, int i2) throws RemoteException;
 
     void onPrepared() throws RemoteException;
@@ -19,15 +21,19 @@ public interface IQuickMediaPlayerListener extends IInterface {
 
     void onSeekComplete() throws RemoteException;
 
+    void onSubError(int i, int i2) throws RemoteException;
+
     /* loaded from: classes.dex */
     public static abstract class Stub extends Binder implements IQuickMediaPlayerListener {
         private static final String DESCRIPTOR = "com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener";
         static final int TRANSACTION_onCompletion = 2;
         static final int TRANSACTION_onError = 3;
+        static final int TRANSACTION_onHandleOppoError = 8;
         static final int TRANSACTION_onInfo = 4;
         static final int TRANSACTION_onPrepared = 1;
         static final int TRANSACTION_onReleaseFinished = 5;
         static final int TRANSACTION_onSeekComplete = 6;
+        static final int TRANSACTION_onSubError = 7;
 
         public Stub() {
             attachInterface(this, DESCRIPTOR);
@@ -80,6 +86,16 @@ public interface IQuickMediaPlayerListener extends IInterface {
                 case 6:
                     parcel.enforceInterface(DESCRIPTOR);
                     onSeekComplete();
+                    parcel2.writeNoException();
+                    return true;
+                case 7:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onSubError(parcel.readInt(), parcel.readInt());
+                    parcel2.writeNoException();
+                    return true;
+                case 8:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onHandleOppoError(parcel.readString());
                     parcel2.writeNoException();
                     return true;
                 case 1598968902:
@@ -185,6 +201,37 @@ public interface IQuickMediaPlayerListener extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     this.mRemote.transact(6, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener
+            public void onSubError(int i, int i2) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
+                    this.mRemote.transact(7, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener
+            public void onHandleOppoError(String str) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeString(str);
+                    this.mRemote.transact(8, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

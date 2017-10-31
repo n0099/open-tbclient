@@ -17,7 +17,7 @@ public class m extends j implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Ew() {
+    public byte[] EI() {
         return null;
     }
 

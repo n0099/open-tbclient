@@ -15,7 +15,6 @@ public class LegoListActivityConfig extends IntentConfig {
     public static final String ITEM_ID = "item_id";
     public static final String NEXT_PAGE = "next_page";
     public static final String PAGE_ID = "page_id";
-    public static final int PAGE_LIST = 2;
     public static final int PAGE_TAB = 1;
     public static final String PAGE_TYPE = "page_type";
     public static final String PARAMS = "params";
@@ -57,7 +56,7 @@ public class LegoListActivityConfig extends IntentConfig {
         if (!TextUtils.isEmpty(str3)) {
             intent.putExtra(NEXT_PAGE, str3);
         }
-        intent.putExtra("source", str4);
+        intent.putExtra(IS_FROM, str4);
         return this;
     }
 }

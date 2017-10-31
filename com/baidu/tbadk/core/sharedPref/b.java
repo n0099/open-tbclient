@@ -27,12 +27,12 @@ public class b {
 
     protected b() {
         mProcessMap = new HashMap<>();
-        mProcessMap.put(a.adq, TbConfig.SETTINGFILE);
-        mProcessMap.put(a.adr, "remote_settings");
-        mProcessMap.put(a.ads, "bdservice_settings");
-        mProcessMap.put(a.adt, a.adw);
-        mProcessMap.put(a.adu, a.adx);
-        mProcessMap.put(a.adv, a.ady);
+        mProcessMap.put(a.adO, TbConfig.SETTINGFILE);
+        mProcessMap.put(a.adP, "remote_settings");
+        mProcessMap.put(a.adQ, "bdservice_settings");
+        mProcessMap.put(a.adR, a.adU);
+        mProcessMap.put(a.adS, a.adV);
+        mProcessMap.put(a.adT, a.adW);
         mContentResolver = TbadkCoreApplication.getInst().getContentResolver();
     }
 
@@ -206,9 +206,9 @@ public class b {
         if (str == null || str.length() == 0 || !IS_CHECK_COMMON_SHAREDPRE) {
             return false;
         }
-        int length = a.adz.length;
+        int length = a.adX.length;
         for (int i = 0; i < length; i++) {
-            if (str.equals(a.adz[i])) {
+            if (str.equals(a.adX[i])) {
                 return true;
             }
         }
@@ -291,7 +291,7 @@ public class b {
                 }
             }
         }
-        return a.adq;
+        return a.adO;
     }
 
     public void migrateToNewVersion() {
@@ -322,7 +322,7 @@ public class b {
     protected String getContentPrefix() {
         if (this.cachedPrefix == null) {
             String packageName = TbadkCoreApplication.getInst().getContext().getPackageName();
-            if (TbConfig.MAIN_PACKAGE_NAME.equals(packageName)) {
+            if ("com.baidu.tieba".equals(packageName)) {
                 this.cachedPrefix = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
             } else {
                 this.cachedPrefix = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";

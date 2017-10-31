@@ -37,12 +37,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class InputView extends EditText implements s {
-    private int JG;
-    private i JH;
-    private boolean aBT;
-    private boolean aBU;
-    private boolean aBV;
-    private int aBW;
+    private int Ja;
+    private i Jb;
+    private boolean aCC;
+    private boolean aCD;
+    private boolean aCE;
+    private int aCF;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -52,22 +52,22 @@ public class InputView extends EditText implements s {
 
     public InputView(Context context, boolean z) {
         super(context);
-        this.JG = 0;
-        this.aBT = false;
-        this.aBU = true;
-        this.aBV = true;
-        this.aBW = -1;
-        setMinHeight(context.getResources().getDimensionPixelSize(d.f.ds64));
+        this.Ja = 0;
+        this.aCC = false;
+        this.aCD = true;
+        this.aCE = true;
+        this.aCF = -1;
+        setMinHeight(context.getResources().getDimensionPixelSize(d.e.ds64));
         setMaxLines(4);
         if (z) {
-            setHint(context.getString(d.l.say_your_point));
+            setHint(context.getString(d.j.say_your_point));
         }
-        setTextSize(0, getResources().getDimensionPixelSize(d.f.ds32));
-        setTextColor(getResources().getColor(d.e.cp_cont_f));
-        setHintTextColor(getResources().getColor(d.e.cp_cont_e));
-        setBackgroundResource(d.e.common_color_10022);
-        setCursorColor(d.g.edittext_cursor);
-        int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.f.ds4);
+        setTextSize(0, getResources().getDimensionPixelSize(d.e.ds32));
+        setTextColor(getResources().getColor(d.C0080d.cp_cont_f));
+        setHintTextColor(getResources().getColor(d.C0080d.cp_cont_e));
+        setBackgroundResource(d.C0080d.common_color_10022);
+        setCursorColor(d.f.edittext_cursor);
+        int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds4);
         setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
         addTextChangedListener(new TextWatcher() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.1
@@ -77,11 +77,11 @@ public class InputView extends EditText implements s {
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (!InputView.this.aBV) {
-                    InputView.this.aBV = true;
-                    if (InputView.this.aBW != -1) {
-                        InputView.this.setSelection(InputView.this.aBW);
-                        InputView.this.aBW = -1;
+                if (!InputView.this.aCE) {
+                    InputView.this.aCE = true;
+                    if (InputView.this.aCF != -1) {
+                        InputView.this.setSelection(InputView.this.aCF);
+                        InputView.this.aCF = -1;
                     }
                 }
             }
@@ -112,7 +112,7 @@ public class InputView extends EditText implements s {
                 case 3:
                     if (getSelectionStart() > 0) {
                         String substring = getText().toString().substring(0, getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.ceL.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.cmf.matcher(substring);
                         if (matcher.find()) {
                             getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                             return;
@@ -147,16 +147,16 @@ public class InputView extends EditText implements s {
                     return;
                 case 17:
                     if (aVar.data != null && (aVar.data instanceof ArrayList)) {
-                        o((ArrayList) aVar.data);
+                        p((ArrayList) aVar.data);
                         return;
                     }
                     return;
                 case 24:
                     d(aVar);
                     return;
-                case d.n.View_minWidth /* 44 */:
+                case d.l.View_minWidth /* 44 */:
                     if (aVar.data != null && (aVar.data instanceof String)) {
-                        fG((String) aVar.data);
+                        fN((String) aVar.data);
                         return;
                     }
                     return;
@@ -169,7 +169,7 @@ public class InputView extends EditText implements s {
     private void d(com.baidu.tbadk.editortools.a aVar) {
         if (aVar != null && aVar.data != null && (aVar.data instanceof l)) {
             l lVar = (l) aVar.data;
-            if (lVar.xK() == EmotionGroupType.NET_SUG) {
+            if (lVar.xR() == EmotionGroupType.NET_SUG) {
                 a(lVar);
             } else {
                 b(lVar);
@@ -180,21 +180,21 @@ public class InputView extends EditText implements s {
     private void a(final l lVar) {
         if (lVar != null && !TextUtils.isEmpty(lVar.getName()) && !TextUtils.isEmpty(lVar.getUrl())) {
             String obj = getText().toString();
-            if (this.aBU && fH(obj) >= 10 && getContext() != null) {
-                e.tY().showToast(d.l.too_many_face);
+            if (this.aCD && fO(obj) >= 10 && getContext() != null) {
+                e.uf().showToast(d.j.too_many_face);
                 return;
             }
-            c.fJ().a(lVar.getUrl(), 10, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.4
+            c.fJ().a(lVar.getUrl(), 10, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.4
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
-                public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
+                public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
                     if (aVar != null) {
                         int selectionStart = InputView.this.getSelectionStart();
                         if (selectionStart < 0) {
                             selectionStart = 0;
                         }
-                        InputView.this.a(InputView.this, new SpannableStringBuilder(lVar.getName()), selectionStart, aVar, lVar.xK());
+                        InputView.this.a(InputView.this, new SpannableStringBuilder(lVar.getName()), selectionStart, aVar, lVar.xR());
                     }
                 }
             }, 0, 0, BdUniqueId.gen(), new Object[0]);
@@ -202,29 +202,29 @@ public class InputView extends EditText implements s {
     }
 
     private void b(l lVar) {
-        if ((!this.aBT || lVar.xK() == EmotionGroupType.LOCAL) && lVar.getName() != null) {
+        if ((!this.aCC || lVar.xR() == EmotionGroupType.LOCAL) && lVar.getName() != null) {
             String obj = getText().toString();
-            if (this.aBU && fH(obj) >= 10 && getContext() != null) {
-                e.tY().showToast(d.l.too_many_face);
+            if (this.aCD && fO(obj) >= 10 && getContext() != null) {
+                e.uf().showToast(d.j.too_many_face);
                 return;
             }
             String name = lVar.getName();
-            final EmotionGroupType xK = lVar.xK();
-            if (xK == EmotionGroupType.LOCAL || xK == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
+            final EmotionGroupType xR = lVar.xR();
+            if (xR == EmotionGroupType.LOCAL || xR == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
                 if (name != null) {
                     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
-                    c.fJ().a(name, 20, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.5
+                    c.fJ().a(name, 20, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.5
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
-                        public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
+                        public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
                             super.onLoaded((AnonymousClass5) aVar, str, i);
                             if (aVar != null) {
                                 int selectionStart = InputView.this.getSelectionStart();
                                 if (selectionStart < 0) {
                                     selectionStart = 0;
                                 }
-                                InputView.this.a(InputView.this, spannableStringBuilder, selectionStart, aVar, xK);
+                                InputView.this.a(InputView.this, spannableStringBuilder, selectionStart, aVar, xR);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, name, false, null);
@@ -237,18 +237,18 @@ public class InputView extends EditText implements s {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(InputView inputView, SpannableStringBuilder spannableStringBuilder, int i, com.baidu.adp.widget.ImageView.a aVar, EmotionGroupType emotionGroupType) {
-        Bitmap kN = aVar.kN();
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(kN);
-        int width = kN.getWidth();
+    public void a(InputView inputView, SpannableStringBuilder spannableStringBuilder, int i, com.baidu.adp.widget.a.a aVar, EmotionGroupType emotionGroupType) {
+        Bitmap kK = aVar.kK();
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(kK);
+        int width = kK.getWidth();
         if (emotionGroupType == EmotionGroupType.LOCAL) {
             int i2 = (int) (width * 0.5d);
             bitmapDrawable.setBounds(0, 0, i2, i2);
         } else if (emotionGroupType == EmotionGroupType.USER_COLLECT || spannableStringBuilder.toString().startsWith("#(")) {
-            int dimensionPixelSize = getResources().getDimensionPixelSize(d.f.ds80);
-            int width2 = (int) (kN.getWidth() * ((dimensionPixelSize * 1.0d) / kN.getHeight()));
+            int dimensionPixelSize = getResources().getDimensionPixelSize(d.e.ds80);
+            int width2 = (int) (kK.getWidth() * ((dimensionPixelSize * 1.0d) / kK.getHeight()));
             if (width2 > getMeasuredWidth()) {
-                width2 = (int) (kN.getWidth() * 0.5d);
+                width2 = (int) (kK.getWidth() * 0.5d);
             }
             bitmapDrawable.setBounds(0, 0, width2, dimensionPixelSize);
         }
@@ -260,7 +260,7 @@ public class InputView extends EditText implements s {
     private void a(String str, final a aVar) {
         CustomResponsedMessage runTask;
         final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        final int[] iArr = {fH(str)};
+        final int[] iArr = {fO(str)};
         if (iArr[0] <= 0) {
             if (aVar != null) {
                 aVar.b(spannableStringBuilder);
@@ -268,22 +268,22 @@ public class InputView extends EditText implements s {
             }
             return;
         }
-        Matcher matcher = com.baidu.tieba.face.a.ceK.matcher(spannableStringBuilder);
+        Matcher matcher = com.baidu.tieba.face.a.cme.matcher(spannableStringBuilder);
         while (matcher.find()) {
             String group = matcher.group();
             final int start = matcher.start();
             final int end = matcher.end();
             if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_LOCAL) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                c.fJ().a(group, 20, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.6
+                c.fJ().a(group, 20, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.6
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.f.b
-                    public void onLoaded(com.baidu.adp.widget.ImageView.a aVar2, String str2, int i) {
-                        Bitmap kN;
+                    public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str2, int i) {
+                        Bitmap kK;
                         super.onLoaded((AnonymousClass6) aVar2, str2, i);
                         if (aVar2 != null) {
-                            BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.kN());
-                            int width = (int) (0.5d * kN.getWidth());
+                            BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.kK());
+                            int width = (int) (0.5d * kK.getWidth());
                             bitmapDrawable.setBounds(0, 0, width, width);
                             bitmapDrawable.setGravity(119);
                             spannableStringBuilder.setSpan(new com.baidu.adp.widget.b(bitmapDrawable, 1), start, end, 33);
@@ -314,19 +314,19 @@ public class InputView extends EditText implements s {
             if (split != null && split.length == 5) {
                 final int start2 = matcher2.start();
                 final int end2 = matcher2.end();
-                c.fJ().a(group2, 20, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.7
+                c.fJ().a(group2, 20, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.7
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.f.b
-                    public void onLoaded(com.baidu.adp.widget.ImageView.a aVar2, String str2, int i) {
-                        Bitmap kN;
+                    public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str2, int i) {
+                        Bitmap kK;
                         super.onLoaded((AnonymousClass7) aVar2, str2, i);
                         if (aVar2 != null) {
-                            BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.kN());
-                            int dimensionPixelSize = InputView.this.getResources().getDimensionPixelSize(d.f.ds80);
-                            int width = (int) (kN.getWidth() * ((dimensionPixelSize * 1.0d) / kN.getHeight()));
-                            if (width > com.baidu.adp.lib.util.l.ad(InputView.this.getContext()) * 0.6d) {
-                                width = (int) (kN.getWidth() * 0.5d);
+                            BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.kK());
+                            int dimensionPixelSize = InputView.this.getResources().getDimensionPixelSize(d.e.ds80);
+                            int width = (int) (kK.getWidth() * ((dimensionPixelSize * 1.0d) / kK.getHeight()));
+                            if (width > com.baidu.adp.lib.util.l.ac(InputView.this.getContext()) * 0.6d) {
+                                width = (int) (kK.getWidth() * 0.5d);
                             }
                             bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                             bitmapDrawable.setGravity(119);
@@ -357,19 +357,19 @@ public class InputView extends EditText implements s {
             if (split2 != null && split2.length == 6) {
                 final int start3 = matcher3.start();
                 final int end3 = matcher3.end();
-                b<com.baidu.adp.widget.ImageView.a> bVar = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.8
+                b<com.baidu.adp.widget.a.a> bVar = new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.8
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.f.b
-                    public void onLoaded(com.baidu.adp.widget.ImageView.a aVar2, String str2, int i) {
-                        Bitmap kN;
+                    public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str2, int i) {
+                        Bitmap kK;
                         super.onLoaded((AnonymousClass8) aVar2, str2, i);
                         if (aVar2 != null) {
-                            BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.kN());
-                            int dimensionPixelSize = InputView.this.getResources().getDimensionPixelSize(d.f.ds80);
-                            int width = (int) (kN.getWidth() * ((dimensionPixelSize * 1.0d) / kN.getHeight()));
-                            if (width > com.baidu.adp.lib.util.l.ad(InputView.this.getContext()) * 0.6d) {
-                                width = (int) (kN.getWidth() * 0.5d);
+                            BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.kK());
+                            int dimensionPixelSize = InputView.this.getResources().getDimensionPixelSize(d.e.ds80);
+                            int width = (int) (kK.getWidth() * ((dimensionPixelSize * 1.0d) / kK.getHeight()));
+                            if (width > com.baidu.adp.lib.util.l.ac(InputView.this.getContext()) * 0.6d) {
+                                width = (int) (kK.getWidth() * 0.5d);
                             }
                             bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                             bitmapDrawable.setGravity(119);
@@ -399,7 +399,7 @@ public class InputView extends EditText implements s {
         }
     }
 
-    private void o(ArrayList<String> arrayList) {
+    private void p(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             StringBuilder sb = new StringBuilder();
             int i = 0;
@@ -419,20 +419,20 @@ public class InputView extends EditText implements s {
         }
     }
 
-    private void fG(String str) {
+    private void fN(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
     }
 
-    private static int fH(String str) {
+    private static int fO(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = com.baidu.tieba.face.a.ceK.matcher(str);
+        Matcher matcher = com.baidu.tieba.face.a.cme.matcher(str);
         while (true) {
             i = i2;
             if (!matcher.find()) {
@@ -462,29 +462,29 @@ public class InputView extends EditText implements s {
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        this.aBT = z;
+        this.aCC = z;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setEditorTools(i iVar) {
-        this.JH = iVar;
+        this.Jb = iVar;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.JH != null) {
-            this.JH.b(aVar);
+        if (this.Jb != null) {
+            this.Jb.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setToolId(int i) {
-        this.JG = i;
+        this.Ja = i;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public int getToolId() {
-        return this.JG;
+        return this.Ja;
     }
 
     @Override // com.baidu.tbadk.editortools.s
@@ -502,7 +502,7 @@ public class InputView extends EditText implements s {
     }
 
     @Override // com.baidu.tbadk.editortools.s
-    public void lM() {
+    public void lG() {
         setVisibility(0);
     }
 
@@ -513,17 +513,17 @@ public class InputView extends EditText implements s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
-        aj.b(this, d.e.cp_cont_b, 2, i);
+        aj.b(this, d.C0080d.cp_cont_b, 2, i);
         if (i == 0) {
-            setCursorColor(d.g.edittext_cursor);
-            setHintTextColor(getContext().getResources().getColor(d.e.cp_cont_e));
+            setCursorColor(d.f.edittext_cursor);
+            setHintTextColor(getContext().getResources().getColor(d.C0080d.cp_cont_e));
             return;
         }
-        setCursorColor(d.g.edittext_cursor_1);
-        setHintTextColor(aj.getColor(i, d.e.cp_cont_e));
+        setCursorColor(d.f.edittext_cursor_1);
+        setHintTextColor(aj.getColor(i, d.C0080d.cp_cont_e));
     }
 
     public void setNeedFaceMaxCount(boolean z) {
-        this.aBU = z;
+        this.aCD = z;
     }
 }

@@ -13,11 +13,9 @@ import tbclient.PollOption;
 /* loaded from: classes.dex */
 public class VoteDataInfo implements f, Serializable {
     private static final long serialVersionUID = -4157201445004088848L;
-    private int mEndtime;
     private int mIsMulti;
     private int mIsPolled;
     private List<com.baidu.tbadk.widget.vote.a> mOptions;
-    private int mOptionsCount;
     private String mPolledValue;
     private int mStatus;
     private String mTips;
@@ -45,28 +43,12 @@ public class VoteDataInfo implements f, Serializable {
         this.mTotalNum = j;
     }
 
-    public int getOptionsCount() {
-        return this.mOptionsCount;
-    }
-
-    public void setOptionsCount(int i) {
-        this.mOptionsCount = i;
-    }
-
     public int getIsPolled() {
         return this.mIsPolled;
     }
 
     public void setIsPolled(int i) {
         this.mIsPolled = i;
-    }
-
-    public String getPolledValue() {
-        return this.mPolledValue;
-    }
-
-    public void setPolledValue(String str) {
-        this.mPolledValue = str;
     }
 
     public String getTips() {
@@ -79,10 +61,6 @@ public class VoteDataInfo implements f, Serializable {
 
     public int getIsMulti() {
         return this.mIsMulti;
-    }
-
-    public int getEndtime() {
-        return this.mEndtime;
     }
 
     public List<com.baidu.tbadk.widget.vote.a> getOptions() {
@@ -107,11 +85,9 @@ public class VoteDataInfo implements f, Serializable {
             this.mType = pollInfo.type.intValue();
             this.mIsMulti = pollInfo.is_multi.intValue();
             this.mTotalNum = pollInfo.total_num.longValue();
-            this.mOptionsCount = pollInfo.options_count.intValue();
             this.mIsPolled = pollInfo.is_polled.intValue();
             this.mPolledValue = pollInfo.polled_value;
             this.mTips = pollInfo.tips;
-            this.mEndtime = pollInfo.end_time.intValue();
             this.mStatus = pollInfo.status.intValue();
             this.mOptions = new ArrayList();
             if (TextUtils.isEmpty(this.mPolledValue)) {
@@ -158,6 +134,6 @@ public class VoteDataInfo implements f, Serializable {
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return PostData.ggw;
+        return PostData.gpm;
     }
 }

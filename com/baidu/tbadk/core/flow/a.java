@@ -18,58 +18,58 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
-    private View.OnClickListener abM;
-    private b abP;
+    private View.OnClickListener ack;
+    private b acn;
     private Context context;
-    private ArrayList<TbImageView> abK = new ArrayList<>();
-    private ArrayList<T> abL = new ArrayList<>();
-    private ArrayList<TbImageView> abN = new ArrayList<>();
-    private ArrayList<RelativeLayout> abO = new ArrayList<>();
+    private ArrayList<TbImageView> aci = new ArrayList<>();
+    private ArrayList<T> acj = new ArrayList<>();
+    private ArrayList<TbImageView> acl = new ArrayList<>();
+    private ArrayList<RelativeLayout> acm = new ArrayList<>();
 
     public a(Context context) {
         this.context = context;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.abM = onClickListener;
+        this.ack = onClickListener;
     }
 
-    public T ct(int i) {
-        if (this.abL == null || this.abL.isEmpty() || i < 0 || i >= this.abL.size()) {
+    public T cu(int i) {
+        if (this.acj == null || this.acj.isEmpty() || i < 0 || i >= this.acj.size()) {
             return null;
         }
-        return this.abL.get(i);
+        return this.acj.get(i);
     }
 
     public void a(List<T> list, b bVar) {
         TbImageView tbImageView;
         TbImageView tbImageView2;
         if (list != null && !list.isEmpty()) {
-            this.abP = bVar;
-            this.abL.clear();
-            this.abL.addAll(list);
-            j(this.abL);
-            int size = this.abK.size();
-            int size2 = this.abL.size();
+            this.acn = bVar;
+            this.acj.clear();
+            this.acj.addAll(list);
+            k(this.acj);
+            int size = this.aci.size();
+            int size2 = this.acj.size();
             for (int i = 0; i < size2; i++) {
                 if (i >= size) {
                     TbImageView ay = bVar.ay(this.context);
-                    this.abK.add(ay);
+                    this.aci.add(ay);
                     tbImageView = bVar.ay(this.context);
-                    this.abN.add(tbImageView);
-                    this.abO.add(new RelativeLayout(this.context));
+                    this.acl.add(tbImageView);
+                    this.acm.add(new RelativeLayout(this.context));
                     tbImageView2 = ay;
                 } else {
-                    tbImageView = this.abN.get(i);
-                    this.abO.get(i);
-                    tbImageView2 = this.abK.get(i);
+                    tbImageView = this.acl.get(i);
+                    this.acm.get(i);
+                    tbImageView2 = this.aci.get(i);
                 }
-                if (this.abL.get(i) != null && tbImageView2 != null) {
-                    tbImageView2.c(this.abL.get(i).getPicUrl(), 10, false);
-                    tbImageView2.setOnClickListener(this.abM);
-                    if ((this.abL.get(i) instanceof t) && !((t) this.abL.get(i)).pK()) {
-                        t tVar = (t) this.abL.get(i);
-                        s.b(tVar.pH(), tbImageView, tVar.pI(), l.f(this.context, d.f.ds24));
+                if (this.acj.get(i) != null && tbImageView2 != null) {
+                    tbImageView2.startLoad(this.acj.get(i).getPicUrl(), 10, false);
+                    tbImageView2.setOnClickListener(this.ack);
+                    if ((this.acj.get(i) instanceof t) && !((t) this.acj.get(i)).pP()) {
+                        t tVar = (t) this.acj.get(i);
+                        s.b(tVar.pM(), tbImageView, tVar.pN(), l.f(this.context, d.e.ds24));
                     }
                 }
             }
@@ -77,7 +77,7 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
         }
     }
 
-    private void j(ArrayList<T> arrayList) {
+    private void k(ArrayList<T> arrayList) {
         int size;
         if (arrayList != null && (size = arrayList.size()) > 1) {
             arrayList.add(0, arrayList.get(size - 1));
@@ -87,35 +87,35 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.abK != null && this.abK.size() > 0) {
-            return this.abK.size();
+        if (this.aci != null && this.aci.size() > 0) {
+            return this.aci.size();
         }
         return 0;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.abK == null) {
+        if (this.aci == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        ImageView imageView = (ImageView) v.c(this.abK, i);
+        ImageView imageView = (ImageView) v.c(this.aci, i);
         if (imageView == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        if ((v.c(this.abL, i) instanceof t) && !((t) v.c(this.abL, i)).pK()) {
-            RelativeLayout relativeLayout = (RelativeLayout) v.c(this.abO, i);
-            TbImageView tbImageView = (TbImageView) v.c(this.abN, i);
+        if ((v.c(this.acj, i) instanceof t) && !((t) v.c(this.acj, i)).pP()) {
+            RelativeLayout relativeLayout = (RelativeLayout) v.c(this.acm, i);
+            TbImageView tbImageView = (TbImageView) v.c(this.acl, i);
             relativeLayout.removeView(tbImageView);
             if (imageView.getParent() != null) {
                 ((ViewGroup) imageView.getParent()).removeView(imageView);
             }
             relativeLayout.addView(imageView, new RelativeLayout.LayoutParams(-1, -1));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            if (this.abP.to() == null) {
+            if (this.acn.tv() == null) {
                 layoutParams.addRule(12);
                 layoutParams.addRule(9);
             } else {
-                layoutParams.setMargins(0, l.f(this.context, d.f.ds220) - l.f(this.context, d.f.ds24), 0, 0);
+                layoutParams.setMargins(0, l.f(this.context, d.e.ds220) - l.f(this.context, d.e.ds24), 0, 0);
             }
             relativeLayout.addView(tbImageView, layoutParams);
             if (relativeLayout.getParent() == null) {
@@ -141,8 +141,8 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
     }
 
     public void onChangeSkinType() {
-        if (this.abK != null && this.abK.size() > 0) {
-            Iterator<TbImageView> it = this.abK.iterator();
+        if (this.aci != null && this.aci.size() > 0) {
+            Iterator<TbImageView> it = this.aci.iterator();
             while (it.hasNext()) {
                 it.next().invalidate();
             }

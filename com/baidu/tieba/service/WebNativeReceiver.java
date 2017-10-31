@@ -6,7 +6,6 @@ import android.content.Intent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
-import com.baidu.tbadk.core.atomData.PayTBeanActivityConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -46,7 +45,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra("class", 15);
                 intent2.putExtra("pay_type", intent.getStringExtra("pay_type"));
                 intent2.putExtra("props_id", intent.getStringExtra("props_id"));
-                intent2.putExtra(PayTBeanActivityConfig.QUAN_NUM, intent.getStringExtra(PayTBeanActivityConfig.QUAN_NUM));
+                intent2.putExtra("quan_num", intent.getStringExtra("quan_num"));
                 intent2.putExtra("is_left", intent.getStringExtra("is_left"));
                 intent2.putExtra("props_mon", intent.getStringExtra("props_mon"));
             } else if (stringExtra.equals("livegroup")) {

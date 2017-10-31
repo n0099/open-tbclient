@@ -10,7 +10,6 @@ import com.baidu.adp.lib.g.f;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.atomData.PayTBeanActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.am;
@@ -44,7 +43,7 @@ public class TbJsBridge {
         dVar.content = str2;
         dVar.linkUrl = str4;
         if (!am.isEmpty(str3)) {
-            dVar.atv = Uri.parse(str3);
+            dVar.atR = Uri.parse(str3);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), dVar, true)));
     }
@@ -55,7 +54,7 @@ public class TbJsBridge {
         intent.putExtra("class", 15);
         intent.putExtra("pay_type", str);
         intent.putExtra("props_id", str2);
-        intent.putExtra(PayTBeanActivityConfig.QUAN_NUM, str3);
+        intent.putExtra("quan_num", str3);
         intent.putExtra("is_left", str4);
         intent.putExtra("props_mon", str5);
         f.f(this.mTbPageContext.getPageActivity(), intent);

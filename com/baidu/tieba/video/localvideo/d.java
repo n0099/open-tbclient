@@ -3,19 +3,19 @@ package com.baidu.tieba.video.localvideo;
 import android.graphics.Bitmap;
 /* loaded from: classes2.dex */
 public class d {
-    private String cuO;
+    private String cCu;
     private long duration;
-    private long gdk;
-    private String gxe;
-    private Bitmap gxf;
-    private boolean gxg = false;
+    private String gGK;
+    private Bitmap gGL;
+    private boolean gGM = false;
+    private long glW;
     private String mimeType;
     private int videoHeight;
     private String videoPath;
     private int videoWidth;
 
-    public void sF(String str) {
-        this.cuO = str;
+    public void tr(String str) {
+        this.cCu = str;
     }
 
     public String getVideoPath() {
@@ -58,31 +58,31 @@ public class d {
         this.videoHeight = i;
     }
 
-    public void sG(String str) {
-        this.gxe = str;
+    public void ts(String str) {
+        this.gGK = str;
     }
 
     public long getLastModified() {
-        return this.gdk;
+        return this.glW;
     }
 
-    public void cL(long j) {
-        this.gdk = j;
+    public void cM(long j) {
+        this.glW = j;
     }
 
-    public synchronized Bitmap bwp() {
-        return this.gxf;
+    public synchronized Bitmap bzC() {
+        return this.gGL;
     }
 
     public void s(Bitmap bitmap) {
-        this.gxf = bitmap;
+        this.gGL = bitmap;
     }
 
-    public void nd(boolean z) {
-        this.gxg = z;
+    public void mY(boolean z) {
+        this.gGM = z;
     }
 
-    public boolean bwq() {
-        return this.gxg;
+    public boolean bzD() {
+        return this.gGM;
     }
 }

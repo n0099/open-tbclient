@@ -11,23 +11,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class FeedBackModel extends BdBaseModel<WriteActivity> {
-    private a gLj;
-    private ArrayList<bh> gLk;
-    private WriteActivity gLl;
+    private a gVj;
+    private ArrayList<bh> gVk;
+    private WriteActivity gVl;
     private int mErrCode;
 
     public FeedBackModel(WriteActivity writeActivity) {
         super(writeActivity.getPageContext());
-        this.gLj = null;
-        this.gLk = null;
+        this.gVj = null;
+        this.gVk = null;
         this.mErrCode = 0;
-        this.gLl = writeActivity;
-        this.gLk = new ArrayList<>();
+        this.gVl = writeActivity;
+        this.gVk = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<bh> bAP() {
-        return this.gLk;
+    public ArrayList<bh> bEm() {
+        return this.gVk;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,11 +36,11 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void to(String str) {
-        if (this.gLj == null) {
-            this.gLj = new a();
-            this.gLj.setPriority(3);
-            this.gLj.execute(str);
+    public void ub(String str) {
+        if (this.gVj == null) {
+            this.gVj = new a();
+            this.gVj.setPriority(3);
+            this.gVj.execute(str);
         }
     }
 
@@ -54,17 +54,17 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: C */
+        /* renamed from: H */
         public FeedBackModel doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
             this.mNetWork = new x(TbConfig.SERVER_ADDRESS + "c/f/frs/toplist");
             this.mNetWork.n("kw", obj);
-            String ui = this.mNetWork.ui();
-            if (!this.mNetWork.uG().vD().isRequestSuccess()) {
+            String up = this.mNetWork.up();
+            if (!this.mNetWork.uN().vL().isRequestSuccess()) {
                 return null;
             }
-            FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.gLl);
-            feedBackModel.parserJson(ui);
+            FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.gVl);
+            feedBackModel.parserJson(up);
             return feedBackModel;
         }
 
@@ -74,14 +74,14 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
             super.onPostExecute(feedBackModel);
-            FeedBackModel.this.gLj = null;
+            FeedBackModel.this.gVj = null;
             FeedBackModel.this.mLoadDataCallBack.f(feedBackModel);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            FeedBackModel.this.gLj = null;
+            FeedBackModel.this.gVj = null;
             if (this.mNetWork != null) {
                 this.mNetWork.fo();
             }
@@ -107,7 +107,7 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
                         if (jSONObject2 != null) {
                             bh bhVar = new bh();
                             bhVar.parserJson(jSONObject2);
-                            this.gLk.add(bhVar);
+                            this.gVk.add(bhVar);
                         }
                     }
                 }
@@ -124,8 +124,8 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.gLj != null) {
-            this.gLj.cancel();
+        if (this.gVj != null) {
+            this.gVj.cancel();
             return true;
         }
         return true;

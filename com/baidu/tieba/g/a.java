@@ -3,60 +3,60 @@ package com.baidu.tieba.g;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String cOL;
-    private String cOM;
-    private String cON;
-    private String cOO;
-    private String cOP;
-    private String cOQ;
+    private String cXW;
+    private String cXX;
+    private String cXY;
+    private String cXZ;
+    private String cYa;
+    private String cYb;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.cOL = String.valueOf(esportRank.rank);
-            this.cOM = esportRank.text;
-            this.cOQ = esportRank.url;
+            this.cXW = String.valueOf(esportRank.rank);
+            this.cXX = esportRank.text;
+            this.cYb = esportRank.url;
             if (esportRank.user != null) {
-                this.cON = esportRank.user.steam_name;
-                this.cOO = esportRank.user.steam_portrait;
+                this.cXY = esportRank.user.steam_name;
+                this.cXZ = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String anm() {
+    public String apX() {
         return this.mTitle;
     }
 
-    public String ann() {
-        return this.cOL;
+    public String apY() {
+        return this.cXW;
     }
 
-    public String ano() {
-        return this.cOM;
+    public String apZ() {
+        return this.cXX;
     }
 
-    public String anp() {
-        return this.cON;
+    public String aqa() {
+        return this.cXY;
     }
 
-    public String anq() {
-        return this.cOO;
+    public String aqb() {
+        return this.cXZ;
     }
 
-    public String anr() {
-        return this.cOP;
+    public String aqc() {
+        return this.cYa;
     }
 
-    public void lc(String str) {
-        this.cOP = str;
+    public void lD(String str) {
+        this.cYa = str;
     }
 
-    public String ans() {
-        return this.cOQ;
+    public String aqd() {
+        return this.cYb;
     }
 
-    public void ld(String str) {
-        this.cOQ = str;
+    public void lE(String str) {
+        this.cYb = str;
     }
 }

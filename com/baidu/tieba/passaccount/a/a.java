@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a euW = null;
-    private final a.InterfaceC0044a euX = new a.InterfaceC0044a() { // from class: com.baidu.tieba.passaccount.a.a.1
+    private static a eDf = null;
+    private final a.InterfaceC0044a eDg = new a.InterfaceC0044a() { // from class: com.baidu.tieba.passaccount.a.a.1
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
-        public void co(String str) {
+        public void cu(String str) {
         }
 
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
@@ -23,7 +23,7 @@ public class a extends com.baidu.tbadk.core.a.a {
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
         public void c(final String str, int i, String str2) {
             if (i == 1) {
-                ReloginManager.tQ().f(null);
+                ReloginManager.tX().f(null);
             }
             BdAsyncTask<Void, Void, AccountData> bdAsyncTask = new BdAsyncTask<Void, Void, AccountData>() { // from class: com.baidu.tieba.passaccount.a.a.1.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 /* renamed from: f */
                 public AccountData doInBackground(Void... voidArr) {
-                    return com.baidu.tbadk.core.a.b.cq(str);
+                    return com.baidu.tbadk.core.a.b.cw(str);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 public void onPostExecute(AccountData accountData) {
                     super.onPostExecute(accountData);
                     if (accountData != null && !TextUtils.isEmpty(accountData.getAccount())) {
-                        com.baidu.tbadk.core.a.b.cp(accountData.getAccount());
+                        com.baidu.tbadk.core.a.b.cv(accountData.getAccount());
                     }
                 }
             };
@@ -53,15 +53,15 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a aMb() {
-        if (euW == null) {
-            euW = new a();
+    public static a aOT() {
+        if (eDf == null) {
+            eDf = new a();
         }
-        return euW;
+        return eDf;
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public a.b cn(String str) {
+    public a.b ct(String str) {
         a.b bVar;
         Exception e;
         if (str != null) {
@@ -72,7 +72,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                     try {
                         bVar.wt = split[0];
                         if (split.length >= 2) {
-                            bVar.SU = split[1];
+                            bVar.Tn = split[1];
                             return bVar;
                         }
                         return bVar;
@@ -91,11 +91,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public void oV() {
+    public void pb() {
         AccountData currentAccountObj;
-        a.b cn;
-        if (j.hh() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (cn = cn(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), cn.wt, cn.SU, currentAccountObj.getStoken(), this.euX);
+        a.b ct;
+        if (j.hh() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (ct = ct(currentAccountObj.getBDUSS())) != null) {
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ct.wt, ct.Tn, currentAccountObj.getStoken(), this.eDg);
         }
     }
 
@@ -106,6 +106,6 @@ public class a extends com.baidu.tbadk.core.a.a {
 
     @Override // com.baidu.tbadk.core.a.a
     public AccountData f(String str, String str2, String str3, String str4) {
-        return com.baidu.tieba.model.b.H(str, str2, str3);
+        return com.baidu.tieba.model.b.E(str, str2, str3);
     }
 }

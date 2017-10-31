@@ -23,10 +23,6 @@ public class HideChudianPostResponseMessage extends JsonHttpResponsedMessage {
         return this.errorCode;
     }
 
-    public String getErrorMessage() {
-        return this.errorMessage;
-    }
-
     public HideChudianPostResponseMessage(int i) {
         super(i);
         this.errorCode = -1;

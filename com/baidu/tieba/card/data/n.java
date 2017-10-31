@@ -1,79 +1,80 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class n extends c {
-    public bh bee;
-    public static final BdUniqueId bNz = BdUniqueId.gen();
-    public static final BdUniqueId bNA = BdUniqueId.gen();
-    public static String bNB = "";
-    public static String bNC = "";
-    public static String bND = "";
-    public static String bNE = "";
-    public static String bNF = "";
-    public static String bNG = "";
-    public static String bNH = "";
-    public boolean bNu = false;
-    public boolean bNI = true;
+    public static final BdUniqueId bVd = BdUniqueId.gen();
+    public static final BdUniqueId bVe = BdUniqueId.gen();
+    public static String bVf = "";
+    public static String bVg = "";
+    public static String bVh = "";
+    public static String bVi = "";
+    public static String bVj = "";
+    public static String bVk = "";
+    public static String bVl = "";
+    public bh beV;
+    public boolean bUY = false;
+    public boolean bVm = true;
     public int sourceType = 0;
 
     public n(bh bhVar) {
-        this.bee = bhVar;
+        this.beV = bhVar;
     }
 
     public static boolean A(bh bhVar) {
-        return (bhVar == null || bhVar.rF() == null) ? false : true;
+        return (bhVar == null || bhVar.rL() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        if (this.bee == null) {
-            return bNz;
+        if (this.beV == null) {
+            return bVd;
         }
-        if (this.bee.rr() || this.bee.rs()) {
-            return bNA;
+        if (this.beV.rx() || this.beV.ry()) {
+            return bVe;
         }
-        return bNz;
+        return bVd;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bh Nd() {
-        return this.bee;
+    public bh Np() {
+        return this.beV;
     }
 
-    public ak jt(String str) {
+    public ak jR(String str) {
         ak akVar = new ak(str);
-        if (this.bee != null) {
-            akVar.f("fid", this.bee.getFid());
-            akVar.ac("tid", this.bee.getTid());
+        if (this.beV != null) {
+            akVar.f(ImageViewerConfig.FORUM_ID, this.beV.getFid());
+            akVar.ac("tid", this.beV.getTid());
             akVar.r("obj_type", 2);
-            if (this.bee.getAuthor() != null) {
-                akVar.ac("obj_id", this.bee.getAuthor().getUserId());
+            if (this.beV.rt() != null) {
+                akVar.ac("obj_id", this.beV.rt().getUserId());
             }
         }
         return akVar;
     }
 
-    public ak XZ() {
-        ak u = u(bNE, true);
-        if (u != null && Nd() != null) {
-            bh Nd = Nd();
-            u.r("obj_name", Nd.sE() != null && (Nd.sE().aBY() != null || Nd.sE().IF() != null) ? 1 : 0);
+    public ak aaj() {
+        ak s = s(bVi, true);
+        if (s != null && Np() != null) {
+            bh Np = Np();
+            s.r("obj_name", Np.sL() != null && (Np.sL().aEt() != null || Np.sL().IQ() != null) ? 1 : 0);
         }
-        return u;
+        return s;
     }
 
     public ak B(bh bhVar) {
-        return (bhVar.ss() == null || bhVar.ss().channelId <= 0) ? u(bNF, true) : u(bNG, true);
+        return (bhVar.sz() == null || bhVar.sz().channelId <= 0) ? s(bVj, true) : s(bVk, true);
     }
 
-    public ak Yb() {
-        return u(bNC, true);
+    public ak aal() {
+        return s(bVg, true);
     }
 
     public ak C(bh bhVar) {
-        return (bhVar.ss() == null || bhVar.ss().channelId <= 0) ? u(bNB, true) : u(bNH, true);
+        return (bhVar.sz() == null || bhVar.sz().channelId <= 0) ? s(bVf, true) : s(bVl, true);
     }
 }

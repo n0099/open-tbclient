@@ -10,8 +10,9 @@ import tbclient.PbTopAgreePost;
 import tbclient.Post;
 /* loaded from: classes.dex */
 public class n {
-    public List<PostData> ezg = new ArrayList();
-    public List<Long> ezh = new ArrayList();
+    public String forum_top_list;
+    public final List<PostData> eHj = new ArrayList();
+    public final List<Long> eHk = new ArrayList();
     private int count = 0;
 
     public int getCount() {
@@ -26,20 +27,21 @@ public class n {
         if (pbTopAgreePost.post_list != null && pbTopAgreePost.post_list.size() > 0) {
             for (Post post : pbTopAgreePost.post_list) {
                 PostData postData = new PostData();
-                postData.ghg = SapiSafeFacade.SAPIWEBVIEW_BACK;
+                postData.gpR = SapiSafeFacade.SAPIWEBVIEW_BACK;
                 postData.a(post, context);
-                this.ezg.add(postData);
+                this.eHj.add(postData);
             }
         }
-        if (!v.u(this.ezg)) {
-            this.ezg.get(0).ghh = true;
-            setCount(this.ezg.size());
+        if (!v.v(this.eHj)) {
+            this.eHj.get(0).gpS = true;
+            setCount(this.eHj.size());
         }
         List<Long> list = pbTopAgreePost.post_id_list;
         if (list != null && list.size() > 0) {
             for (Long l : pbTopAgreePost.post_id_list) {
-                this.ezh.add(l);
+                this.eHk.add(l);
             }
         }
+        this.forum_top_list = pbTopAgreePost.forum_top_list;
     }
 }

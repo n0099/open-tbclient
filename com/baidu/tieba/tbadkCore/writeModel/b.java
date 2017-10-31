@@ -2,19 +2,21 @@ package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tieba.pb.CustomDialogData;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b {
     final AntiData antiData;
     private String colorMsg;
     final int errorCode;
     private String errorString;
-    private String gjW;
-    private String gjX;
+    private String gsH;
+    private String gsI;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private String preMsg;
     private String threadId = null;
     private String postId = null;
+    private ArrayList<String> sensitiveWords = null;
 
     public b(int i, String str, AntiData antiData) {
         this.errorCode = i;
@@ -26,15 +28,15 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean bsw() {
+    public boolean bvA() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean bsx() {
+    public boolean bvB() {
         return this.errorCode == 1990055;
     }
 
-    public boolean bsy() {
+    public boolean bvC() {
         return this.errorCode == 227001;
     }
 
@@ -50,7 +52,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData aCg() {
+    public AntiData aEB() {
         return this.antiData;
     }
 
@@ -94,20 +96,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String bsz() {
-        return this.gjW;
+    public String bvD() {
+        return this.gsH;
     }
 
-    public void sd(String str) {
-        this.gjW = str;
+    public void sL(String str) {
+        this.gsH = str;
     }
 
-    public String bsA() {
-        return this.gjX;
+    public String bvE() {
+        return this.gsI;
     }
 
-    public void se(String str) {
-        this.gjX = str;
+    public void sM(String str) {
+        this.gsI = str;
     }
 
     public CustomDialogData getActivityDialog() {
@@ -116,5 +118,17 @@ public class b {
 
     public void setActivityDialog(CustomDialogData customDialogData) {
         this.mActDialogData = customDialogData;
+    }
+
+    public boolean isSensitiveError() {
+        return this.errorCode == 220015;
+    }
+
+    public void setSensitiveWords(ArrayList<String> arrayList) {
+        this.sensitiveWords = arrayList;
+    }
+
+    public ArrayList<String> getSensitiveWords() {
+        return this.sensitiveWords;
     }
 }

@@ -5,8 +5,8 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a ezn;
-    private View ezo;
+    private a eHq;
+    private View eHr;
     private GestureDetector mGestureDetector = new GestureDetector(this);
 
     /* loaded from: classes.dex */
@@ -19,12 +19,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.ezn = aVar;
+        this.eHq = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.ezo = view;
+        this.eHr = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -61,29 +61,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.ezn != null) {
-            return this.ezn.a(this.ezo, motionEvent);
+        if (this.eHq != null) {
+            return this.eHq.a(this.eHr, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.ezn != null) {
-            return this.ezn.b(this.ezo, motionEvent);
+        if (this.eHq != null) {
+            return this.eHq.b(this.eHr, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.ezn != null) {
-            return this.ezn.c(this.ezo, motionEvent);
+        if (this.eHq != null) {
+            return this.eHq.c(this.eHr, motionEvent);
         }
         return false;
     }
 
-    public void bb(View view) {
-        this.ezo = view;
+    public void bf(View view) {
+        this.eHr = view;
     }
 }

@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class h {
-    public static void cZ(String str) {
+    public static void dg(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -46,7 +46,7 @@ public class h {
         }
     }
 
-    public static void tZ() {
+    public static void ug() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.h.1
             @Override // java.lang.Runnable
             public void run() {

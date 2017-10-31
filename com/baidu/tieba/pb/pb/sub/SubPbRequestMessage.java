@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.sub;
 import android.content.Context;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.m;
+import com.baidu.tbadk.util.o;
 import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
 /* loaded from: classes.dex */
@@ -19,10 +19,6 @@ public class SubPbRequestMessage extends NetMessage {
     private long spid;
     private String stType;
     private boolean treatDelPage;
-
-    public SubPbRequestMessage(Context context, long j, long j2, long j3, int i, int i2, int i3, double d, String str) {
-        this(context, j, j2, j3, i, i2, i3, d, str, 0);
-    }
 
     public SubPbRequestMessage(Context context, long j, long j2, long j3, int i, int i2, int i3, double d, String str, int i4) {
         super(CmdConfigHttp.SubPb_HTTP_CMD, 302002);
@@ -51,7 +47,7 @@ public class SubPbRequestMessage extends NetMessage {
         builder.st_type = this.stType;
         builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
         if (z) {
-            m.bindCommonParamsToProtobufData(builder, true);
+            o.bindCommonParamsToProtobufData(builder, true);
         }
         PbFloorReqIdl.Builder builder2 = new PbFloorReqIdl.Builder();
         builder2.data = builder.build(false);

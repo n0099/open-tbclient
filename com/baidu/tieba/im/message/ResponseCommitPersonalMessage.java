@@ -1,6 +1,8 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tieba.im.util.d;
 import com.squareup.wire.Wire;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
@@ -38,16 +40,22 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         CommitPersonalMsgResIdl commitPersonalMsgResIdl = (CommitPersonalMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, CommitPersonalMsgResIdl.class);
         setError(commitPersonalMsgResIdl.error.errorno.intValue());
         setErrorString(commitPersonalMsgResIdl.error.usermsg);
-        if (getError() == 0) {
-            if (commitPersonalMsgResIdl.data == null) {
-                BdStatisticsManager.getInstance().error("im", 0L, (String) null, "comment", "personalchat_resdatanull");
-            }
-            long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
-            setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-            setMsgId(d.bO(longValue));
-            setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
-            setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
-            setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));
+        if (commitPersonalMsgResIdl.data == null) {
+            BdStatisticsManager.getInstance().error("im", 0L, (String) null, "comment", "personalchat_resdatanull");
+        }
+        long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
+        setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
+        setMsgId(d.bP(longValue));
+        setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
+        setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
+        setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));
+        if (commitPersonalMsgResIdl.data.blockInfo != null && !StringUtils.isNull(commitPersonalMsgResIdl.data.blockInfo.blockErrmsg)) {
+            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+            blockPopInfoData.block_info = commitPersonalMsgResIdl.data.blockInfo.blockErrmsg;
+            blockPopInfoData.ahead_info = commitPersonalMsgResIdl.data.blockInfo.blockConfirm;
+            blockPopInfoData.ahead_url = commitPersonalMsgResIdl.data.blockInfo.blockDealurl;
+            blockPopInfoData.ok_info = commitPersonalMsgResIdl.data.blockInfo.blockCancel;
+            setBlockPopInfoData(blockPopInfoData);
         }
     }
 }

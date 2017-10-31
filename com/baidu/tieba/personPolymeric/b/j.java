@@ -18,15 +18,14 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.d;
 import com.baidu.tieba.personPolymeric.a.o;
-import com.baidu.tieba.personPolymeric.c.k;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j implements b {
-    private o ffX;
+    private o fok;
     private BdUniqueId mId;
     private List<com.baidu.tieba.person.data.f> mList;
     private TbPageContext mTbPageContext;
-    private int eZs = 0;
+    private int fol = 0;
     private int mStatus = 0;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.SET_PRIVATE_CMD) { // from class: com.baidu.tieba.personPolymeric.b.j.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -40,8 +39,8 @@ public class j implements b {
                     }
                     return;
                 }
-                if (j.this.aWP() && j.this.mTbPageContext != null) {
-                    j.this.mTbPageContext.showToast(d.l.privacy_setting_toast);
+                if (j.this.aZT() && j.this.mTbPageContext != null) {
+                    j.this.mTbPageContext.showToast(d.j.privacy_setting_toast);
                 }
                 j.this.mStatus = 1;
             }
@@ -50,7 +49,7 @@ public class j implements b {
 
     public j(TbPageContext tbPageContext, o oVar, BdUniqueId bdUniqueId) {
         this.mTbPageContext = tbPageContext;
-        this.ffX = oVar;
+        this.fok = oVar;
         this.mId = bdUniqueId;
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_PRIVACY_STATUS) { // from class: com.baidu.tieba.personPolymeric.b.j.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -64,12 +63,12 @@ public class j implements b {
                         default:
                             return;
                         case 1:
-                            j.this.aWP();
+                            j.this.aZT();
                             return;
                         case 2:
                         case 3:
                         case 4:
-                            j.this.aWQ();
+                            j.this.aZU();
                             return;
                     }
                 }
@@ -82,10 +81,10 @@ public class j implements b {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.b
-    public void aWt() {
+    public void aZw() {
         if (!com.baidu.adp.lib.util.j.hh()) {
             if (this.mTbPageContext != null) {
-                this.mTbPageContext.showToast(d.l.neterror);
+                this.mTbPageContext.showToast(d.j.neterror);
                 return;
             }
             return;
@@ -99,7 +98,7 @@ public class j implements b {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.b
-    public void aWu() {
+    public void aZx() {
         if (this.mTbPageContext != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ThreadPrivacyIntermediateActivityConfig(this.mTbPageContext.getContext())));
         }
@@ -108,46 +107,46 @@ public class j implements b {
 
     @Override // com.baidu.tieba.personPolymeric.b.b
     public void setData(int i) {
-        this.eZs = i;
+        this.fol = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aWP() {
-        if (v.u(this.mList) || this.ffX == null || this.eZs >= this.mList.size()) {
+    public boolean aZT() {
+        if (v.v(this.mList) || this.fok == null || this.fol >= this.mList.size()) {
             return false;
         }
         boolean z = false;
         for (com.baidu.tieba.person.data.f fVar : this.mList) {
-            if ((fVar instanceof com.baidu.tieba.person.data.f) && fVar.aVg() != null && (fVar.aVg().get(0) instanceof k)) {
-                fVar.aVg().remove(0);
+            if ((fVar instanceof com.baidu.tieba.person.data.f) && fVar.aYj() != null && (fVar.aYj().get(0) instanceof com.baidu.tieba.personPolymeric.c.k)) {
+                fVar.aYj().remove(0);
                 z = true;
             }
         }
         if (z) {
-            this.ffX.c(this.mList, this.eZs, false);
+            this.fok.c(this.mList, this.fol, false);
             return z;
         }
         return z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWQ() {
-        if (!v.u(this.mList) && this.ffX != null && this.eZs < this.mList.size()) {
+    public void aZU() {
+        if (!v.v(this.mList) && this.fok != null && this.fol < this.mList.size()) {
             boolean z = false;
             for (com.baidu.tieba.person.data.f fVar : this.mList) {
-                if (fVar != null && fVar.aVg() != null && !(fVar.aVg().get(0) instanceof k)) {
-                    fVar.aVg().add(0, new k());
+                if (fVar != null && fVar.aYj() != null && !(fVar.aYj().get(0) instanceof com.baidu.tieba.personPolymeric.c.k)) {
+                    fVar.aYj().add(0, new com.baidu.tieba.personPolymeric.c.k());
                     z = true;
                 }
             }
             if (z) {
-                this.ffX.c(this.mList, this.eZs, true);
+                this.fok.c(this.mList, this.fol, true);
             }
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.b
-    public void cD(List<com.baidu.tieba.person.data.f> list) {
+    public void cE(List<com.baidu.tieba.person.data.f> list) {
         this.mList = list;
     }
 }

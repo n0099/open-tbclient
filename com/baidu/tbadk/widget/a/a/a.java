@@ -8,37 +8,37 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private final C0066a aOq;
-    private final Rect aOr;
-    private final Rect aOs;
-    private final Rect aOt;
-    private int aOu;
+    private final Rect aOA;
+    private int aOB;
+    private final C0066a aOx;
+    private final Rect aOy;
+    private final Rect aOz;
     private Bitmap mBitmap;
     private Canvas mCanvas;
 
     public a(int i) {
-        this.aOq = new C0066a();
-        this.aOr = new Rect();
-        this.aOs = new Rect();
-        this.aOt = new Rect();
+        this.aOx = new C0066a();
+        this.aOy = new Rect();
+        this.aOz = new Rect();
+        this.aOA = new Rect();
         this.mBitmap = Bitmap.createBitmap(i, i, TbConfig.BitmapConfig);
-        this.aOu = i;
+        this.aOB = i;
         this.mCanvas = new Canvas();
     }
 
     public a(Bitmap bitmap) {
-        this.aOq = new C0066a();
-        this.aOr = new Rect();
-        this.aOs = new Rect();
-        this.aOt = new Rect();
+        this.aOx = new C0066a();
+        this.aOy = new Rect();
+        this.aOz = new Rect();
+        this.aOA = new Rect();
         if (bitmap != null) {
             this.mBitmap = bitmap;
-            this.aOr.set(0, 0, this.mBitmap.getWidth(), this.mBitmap.getHeight());
+            this.aOy.set(0, 0, this.mBitmap.getWidth(), this.mBitmap.getHeight());
         }
         this.mCanvas = new Canvas();
     }
 
-    public void Hz() {
+    public void HH() {
         if (this.mBitmap != null && !this.mBitmap.isRecycled() && this.mBitmap.isMutable()) {
             this.mCanvas.setBitmap(this.mBitmap);
             this.mCanvas.drawColor(-1, PorterDuff.Mode.CLEAR);
@@ -46,7 +46,7 @@ public class a {
     }
 
     public boolean d(Rect rect) {
-        return rect != null && rect.right - rect.left == this.aOu && rect.bottom - rect.top == this.aOu;
+        return rect != null && rect.right - rect.left == this.aOB && rect.bottom - rect.top == this.aOB;
     }
 
     public void setBitmap(Bitmap bitmap) {
@@ -57,43 +57,43 @@ public class a {
         return this.mBitmap;
     }
 
-    public Rect HA() {
-        return this.aOr;
+    public Rect HI() {
+        return this.aOy;
     }
 
-    public Rect HB() {
-        return this.aOs;
+    public Rect HJ() {
+        return this.aOz;
     }
 
     public void j(int i, int i2, int i3, int i4) {
-        this.aOs.set(i, i2, i3, i4);
+        this.aOz.set(i, i2, i3, i4);
     }
 
     public void k(int i, int i2, int i3, int i4) {
-        this.aOr.set(i, i2, i3, i4);
+        this.aOy.set(i, i2, i3, i4);
     }
 
-    public void p(int i, int i2, int i3) {
-        this.aOq.row = i;
-        this.aOq.column = i2;
-        this.aOq.aOv = i3;
+    public void o(int i, int i2, int i3) {
+        this.aOx.row = i;
+        this.aOx.column = i2;
+        this.aOx.aOC = i3;
     }
 
-    public C0066a HC() {
-        return this.aOq;
+    public C0066a HK() {
+        return this.aOx;
     }
 
-    public Rect HD() {
-        int i = this.aOu * this.aOq.column * this.aOq.aOv;
-        int i2 = this.aOu * this.aOq.row * this.aOq.aOv;
-        this.aOt.set(i, i2, (this.aOu * this.aOq.aOv) + i, (this.aOu * this.aOq.aOv) + i2);
-        return this.aOt;
+    public Rect HL() {
+        int i = this.aOB * this.aOx.column * this.aOx.aOC;
+        int i2 = this.aOB * this.aOx.row * this.aOx.aOC;
+        this.aOA.set(i, i2, (this.aOB * this.aOx.aOC) + i, (this.aOB * this.aOx.aOC) + i2);
+        return this.aOA;
     }
 
     /* renamed from: com.baidu.tbadk.widget.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0066a {
-        int aOv;
+        int aOC;
         int column;
         int row;
 
@@ -103,35 +103,35 @@ public class a {
         public C0066a(int i, int i2, int i3) {
             this.row = i;
             this.column = i2;
-            this.aOv = i3;
+            this.aOC = i3;
         }
 
         public String toString() {
-            return "Position{row=" + this.row + ", column=" + this.column + ", sampleScale=" + this.aOv + '}';
+            return "Position{row=" + this.row + ", column=" + this.column + ", sampleScale=" + this.aOC + '}';
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof C0066a) {
                 C0066a c0066a = (C0066a) obj;
-                return this.row == c0066a.getRow() && this.column == c0066a.Dx() && this.aOv == c0066a.HE();
+                return this.row == c0066a.getRow() && this.column == c0066a.DM() && this.aOC == c0066a.HM();
             }
             return false;
         }
 
         public int hashCode() {
-            return (17 * (((this.row + 119) * 17) + this.column)) + (this.aOv * 100);
+            return (17 * (((this.row + 119) * 17) + this.column)) + (this.aOC * 100);
         }
 
         public int getRow() {
             return this.row;
         }
 
-        public int Dx() {
+        public int DM() {
             return this.column;
         }
 
-        public int HE() {
-            return this.aOv;
+        public int HM() {
+            return this.aOC;
         }
     }
 }

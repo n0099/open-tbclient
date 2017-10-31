@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
-    private final ArrayList<MetaData> gIk = new ArrayList<>();
+    private final ArrayList<MetaData> gSi = new ArrayList<>();
 
     public void a(JSONObject jSONObject, HashMap<String, String> hashMap) {
         String str;
@@ -25,7 +25,7 @@ public class d {
                     if (hashMap != null && (str = hashMap.get(metaData.getUserName())) != null) {
                         metaData.setPortrait(str);
                     }
-                    this.gIk.add(metaData);
+                    this.gSi.add(metaData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -49,8 +49,8 @@ public class d {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.gIk.size()) {
-                    MetaData metaData = this.gIk.get(i2);
+                if (i2 < this.gSi.size()) {
+                    MetaData metaData = this.gSi.get(i2);
                     metaData.setPortrait(hashMap.get(metaData.getUserName()));
                     i = i2 + 1;
                 } else {
@@ -60,7 +60,7 @@ public class d {
         }
     }
 
-    public ArrayList<MetaData> bzL() {
-        return this.gIk;
+    public ArrayList<MetaData> bDj() {
+        return this.gSi;
     }
 }

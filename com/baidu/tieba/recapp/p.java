@@ -18,17 +18,17 @@ public interface p {
 
     h bQ(Context context);
 
-    k bfI();
+    k biU();
 
-    m bfJ();
+    m biV();
 
-    com.baidu.tieba.k.a bfK();
+    com.baidu.tieba.k.a biW();
 
-    i bfL();
+    i biX();
 
-    List<AppData> bfM();
+    List<AppData> biY();
 
-    void bfN();
+    void biZ();
 
     com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 

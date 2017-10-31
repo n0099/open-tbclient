@@ -4,7 +4,6 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class MangaBrowserActivityConfig extends IntentConfig {
-    public static final int BROWSER_FORM_FRS_HEAD = 4;
     public static final int BROWSER_FROM_BOOK_COVER = 1;
     public static final int BROWSER_FROM_COLLECTION = 3;
     public static final int BROWSER_FROM_DOWN_LIST = 7;

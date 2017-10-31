@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class al {
-    private static al agC;
+    private static al agX;
 
-    public static synchronized al vf() {
+    public static synchronized al vm() {
         al alVar;
         synchronized (al.class) {
-            if (agC == null) {
-                agC = new al();
+            if (agX == null) {
+                agX = new al();
             }
-            alVar = agC;
+            alVar = agX;
         }
         return alVar;
     }
 
-    public String dH(String str) {
+    public String dN(String str) {
         if (str == null) {
             return null;
         }
@@ -30,35 +30,35 @@ public class al {
         return "image/" + (j % 20);
     }
 
-    public Bitmap dI(String str) {
+    public Bitmap dO(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return k.X(dH(str), str);
+        return k.X(dN(str), str);
     }
 
-    public boolean dJ(String str) {
+    public boolean dP(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return k.W(dH(str), str);
+        return k.W(dN(str), str);
     }
 
-    public int dK(String str) {
+    public int dQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) k.V(dH(str), str);
+        return (int) k.V(dN(str), str);
     }
 
     public boolean Z(String str, String str2) {
         String str3 = k.xT + "/" + TbConfig.getTempDirName() + "/";
-        if (!k.da(str3)) {
-            k.dr(str3);
+        if (!k.dh(str3)) {
+            k.dy(str3);
         }
-        String str4 = str3 + dH(str2);
-        if (!k.da(str4)) {
-            k.dr(str4);
+        String str4 = str3 + dN(str2);
+        if (!k.dh(str4)) {
+            k.dy(str4);
         }
         String str5 = str4 + "/" + str2;
         if (str.equals(str5)) {
@@ -69,16 +69,16 @@ public class al {
 
     public void i(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            k.d(dH(str), str, bArr);
+            k.d(dN(str), str, bArr);
         }
     }
 
-    private void w(File file) {
+    private void v(File file) {
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    w(file2);
+                    v(file2);
                     file2.delete();
                 } else if (!file2.delete()) {
                 }
@@ -86,22 +86,22 @@ public class al {
         }
     }
 
-    public void vg() {
-        w(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
-        w(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
+    public void vn() {
+        v(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
+        v(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void vh() {
-        x(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + k.cC(3)));
+    public void vo() {
+        w(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + k.cD(3)));
     }
 
-    private void x(File file) {
+    private void w(File file) {
         long currentTimeMillis = System.currentTimeMillis();
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    w(file2);
+                    v(file2);
                     file2.delete();
                 } else if (currentTimeMillis - file2.lastModified() >= -1702967296 && file2.delete()) {
                 }

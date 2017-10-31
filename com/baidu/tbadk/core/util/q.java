@@ -15,17 +15,17 @@ public interface q {
 
     void fs();
 
-    void k(ArrayList<BasicNameValuePair> arrayList);
+    void l(ArrayList<BasicNameValuePair> arrayList);
 
     void n(String str, String str2);
 
-    ArrayList<BasicNameValuePair> uh();
+    ArrayList<BasicNameValuePair> uo();
 
-    String ui();
+    String up();
 
-    byte[] uj();
+    byte[] uq();
 
-    String uk();
+    String ur();
 
-    String ul();
+    String us();
 }

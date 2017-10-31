@@ -10,7 +10,6 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class LiveRoomChatActivityConfig extends IntentConfig {
     public static final String FROM = "from";
-    public static final String FROM_NOTIFY = "from_notify";
 
     public LiveRoomChatActivityConfig(Context context, int i) {
         super(context);
@@ -37,7 +36,7 @@ public class LiveRoomChatActivityConfig extends IntentConfig {
         if (Build.VERSION.SDK_INT >= 9) {
             return true;
         }
-        UtilHelper.showToast(getContext(), getContext().getString(d.l.live_error_system_not_support));
+        UtilHelper.showToast(getContext(), getContext().getString(d.j.live_error_system_not_support));
         return false;
     }
 }

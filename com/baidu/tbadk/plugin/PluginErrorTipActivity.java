@@ -18,11 +18,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private TextView aKd;
-    private TextView aKe;
-    private TextView aKf;
-    private PluginStatus aKg;
-    private View apM;
+    private TextView aKN;
+    private TextView aKO;
+    private TextView aKP;
+    private PluginStatus aKQ;
+    private View aqh;
     private NavigationBar mNavigationBar;
 
     public static final void a(Context context, PluginStatus pluginStatus) {
@@ -41,41 +41,41 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.aKg = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.aKQ = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.aKg = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.aKQ = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.aKg == null) {
+        if (this.aKQ == null) {
             finish();
             return;
         }
-        setContentView(d.j.plugin_error_tip_activity);
+        setContentView(d.h.plugin_error_tip_activity);
         initUI();
     }
 
     protected void initUI() {
-        this.mNavigationBar = (NavigationBar) findViewById(d.h.view_navigation_bar);
-        this.apM = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.apM.setOnClickListener(this);
-        this.mNavigationBar.setTitleText(d.l.pluginstatus_tip_title);
-        this.aKd = (TextView) findViewById(d.h.plugin_error_tip_msg);
-        this.aKe = (TextView) findViewById(d.h.plugin_error_tip_resolve);
-        this.aKf = (TextView) findViewById(d.h.plugin_error_btn);
-        this.aKf.setOnClickListener(this);
-        this.aKd.setText(this.aKg.getErrorMsg());
-        this.aKe.setText(this.aKg.kd());
-        if (this.aKg.getErrorCode() == 5 || this.aKg.getErrorCode() == 1 || this.aKg.getErrorCode() == 100) {
-            this.aKf.setText(d.l.pluginstatus_btn_restartapp);
-            this.aKf.setVisibility(0);
+        this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
+        this.aqh = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.aqh.setOnClickListener(this);
+        this.mNavigationBar.setTitleText(d.j.pluginstatus_tip_title);
+        this.aKN = (TextView) findViewById(d.g.plugin_error_tip_msg);
+        this.aKO = (TextView) findViewById(d.g.plugin_error_tip_resolve);
+        this.aKP = (TextView) findViewById(d.g.plugin_error_btn);
+        this.aKP.setOnClickListener(this);
+        this.aKN.setText(this.aKQ.getErrorMsg());
+        this.aKO.setText(this.aKQ.ka());
+        if (this.aKQ.getErrorCode() == 5 || this.aKQ.getErrorCode() == 1 || this.aKQ.getErrorCode() == 100) {
+            this.aKP.setText(d.j.pluginstatus_btn_restartapp);
+            this.aKP.setVisibility(0);
             return;
         }
-        this.aKf.setVisibility(8);
+        this.aKP.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.aKg);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.aKQ);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -83,13 +83,13 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.apM) {
+        if (view == this.aqh) {
             finish();
-        } else if (view == this.aKf) {
-            if (this.aKg != null && this.aKg.getErrorCode() == 100) {
-                com.baidu.adp.plugin.b.a.ji().N(true);
+        } else if (view == this.aKP) {
+            if (this.aKQ != null && this.aKQ.getErrorCode() == 100) {
+                com.baidu.adp.plugin.b.a.jf().N(true);
             }
-            showLoadingDialog(getResources().getString(d.l.waiting));
+            showLoadingDialog(getResources().getString(d.j.waiting));
             e.fP().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
                 @Override // java.lang.Runnable
                 public void run() {

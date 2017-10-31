@@ -10,39 +10,39 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
-    private com.baidu.tieba.im.db.c dEq;
+    private com.baidu.tieba.im.db.c dMe;
     private int mCmd;
 
     public g() {
-        a(com.baidu.tieba.im.db.c.auW(), CmdConfigCustom.CMD_LOAD_HISTORY_GROUP);
+        a(com.baidu.tieba.im.db.c.axr(), CmdConfigCustom.CMD_LOAD_HISTORY_GROUP);
     }
 
     private void a(com.baidu.tieba.im.db.c cVar, int i) {
-        this.dEq = cVar;
+        this.dMe = cVar;
         this.mCmd = i;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
         if (customMessage == null || !(customMessage instanceof LoadHistoryMessage)) {
-            return nd(this.mCmd);
+            return nu(this.mCmd);
         }
-        if (this.dEq == null) {
-            return nd(this.mCmd);
+        if (this.dMe == null) {
+            return nu(this.mCmd);
         }
         LoadHistoryMessage.a data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.mCmd);
-        LinkedList<ChatMessage> b = this.dEq.b(data.id, data.dBi, data.dBj, data.limit);
-        if (b == null) {
-            return nd(this.mCmd);
+        LinkedList<ChatMessage> a = this.dMe.a(data.id, data.dIW, data.dIX, data.limit);
+        if (a == null) {
+            return nu(this.mCmd);
         }
         LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-        if (data.dBi == null) {
+        if (data.dIW == null) {
             aVar.isFirst = true;
         } else {
             aVar.isFirst = false;
         }
-        aVar.msgList = b;
+        aVar.msgList = a;
         aVar.id = data.id;
         try {
             loadHistoryResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_LOAD_HISTORY, aVar);
@@ -52,7 +52,7 @@ public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
         return loadHistoryResponsedMessage;
     }
 
-    private LoadHistoryResponsedMessage nd(int i) {
+    private LoadHistoryResponsedMessage nu(int i) {
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
         loadHistoryResponsedMessage.setError(-18);
         return loadHistoryResponsedMessage;

@@ -5,9 +5,9 @@ import java.util.List;
 import tbclient.FrsPage.NtSpreadInfo;
 /* loaded from: classes.dex */
 public class z extends bh {
-    public static final BdUniqueId Wf = BdUniqueId.gen();
-    public String Wg;
-    public String Wh;
+    public static final BdUniqueId Wx = BdUniqueId.gen();
+    public String Wy;
+    public String Wz;
     public String linkUrl;
     public List<String> pics;
     public Integer position;
@@ -19,19 +19,19 @@ public class z extends bh {
     public void a(NtSpreadInfo ntSpreadInfo) {
         if (ntSpreadInfo != null) {
             this.userName = ntSpreadInfo.user_name;
-            this.Wg = ntSpreadInfo.user_avatar;
+            this.Wy = ntSpreadInfo.user_avatar;
             this.tips = ntSpreadInfo.tips;
             this.type = ntSpreadInfo.type;
             this.title = ntSpreadInfo.title;
             this.pics = ntSpreadInfo.pics;
             this.linkUrl = ntSpreadInfo.link_url;
             this.position = ntSpreadInfo.position;
-            this.Wh = ntSpreadInfo.publish_date;
+            this.Wz = ntSpreadInfo.publish_date;
         }
     }
 
     @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return Wf;
+        return Wx;
     }
 }

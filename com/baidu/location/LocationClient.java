@@ -132,13 +132,13 @@ public final class LocationClient implements b.InterfaceC0024b {
                 case 27:
                     LocationClient.this.onNewNotifyLocation(message);
                     return;
-                case d.n.View_transformPivotY /* 54 */:
+                case d.l.View_transformPivotY /* 54 */:
                     if (LocationClient.this.mOption.location_change_notify) {
                         LocationClient.this.mGpsStatus = true;
                         return;
                     }
                     return;
-                case d.n.View_rotation /* 55 */:
+                case d.l.View_rotation /* 55 */:
                     if (LocationClient.this.mOption.location_change_notify) {
                         LocationClient.this.mGpsStatus = false;
                         return;

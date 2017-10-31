@@ -17,7 +17,7 @@ public class a {
     private final String tu = "c.tieba.baidu.com";
 
     /* renamed from: tv  reason: collision with root package name */
-    private long f0tv;
+    private long f1tv;
     private String tw;
     private long tz;
 
@@ -33,11 +33,11 @@ public class a {
     }
 
     private a() {
-        this.f0tv = 0L;
+        this.f1tv = 0L;
         this.tw = null;
         this.tz = 0L;
         SharedPreferences config = getConfig();
-        this.f0tv = config.getLong(ab("c.tieba.baidu.com"), 0L);
+        this.f1tv = config.getLong(ab("c.tieba.baidu.com"), 0L);
         this.tw = config.getString(ac("c.tieba.baidu.com"), null);
         this.tz = config.getLong(ad("c.tieba.baidu.com"), 0L);
     }
@@ -56,7 +56,7 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.f0tv;
+                    long j = this.f1tv;
                     long j2 = this.tz;
                     String str3 = this.tw;
                     if (currentTimeMillis - j > 43200000) {
@@ -108,7 +108,7 @@ public class a {
                 EditorHelper.putLong(config, ab(str), currentTimeMillis);
                 EditorHelper.putString(config, ac(str), str2);
                 EditorHelper.putLong(config, ad(str), currentTimeMillis2);
-                this.f0tv = currentTimeMillis;
+                this.f1tv = currentTimeMillis;
                 this.tz = currentTimeMillis2;
                 this.tw = str2;
             }

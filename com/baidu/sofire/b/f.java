@@ -71,8 +71,8 @@ public final class f {
                 long j = eVar.a.getLong("pu_cl_fd", 0L);
                 if (j == 0) {
                     j = System.currentTimeMillis();
-                    eVar.PS.putLong("pu_cl_fd", System.currentTimeMillis());
-                    eVar.PS.commit();
+                    eVar.Qh.putLong("pu_cl_fd", System.currentTimeMillis());
+                    eVar.Qh.commit();
                 }
                 if (currentTimeMillis - j > 86400000) {
                     HashMap hashMap = new HashMap();
@@ -83,19 +83,19 @@ public final class f {
                         hashMap.put("0", Integer.valueOf(eVar.a.getInt("wi_fa_pu_cl", 0)));
                         hashMap.put("1", Integer.valueOf(eVar.a.getInt("mo_fa_pu_cl", 0) + 1));
                     }
-                    eVar.PS.putInt("mo_fa_pu_cl", 0);
-                    eVar.PS.commit();
-                    eVar.PS.putInt("wi_fa_pu_cl", 0);
-                    eVar.PS.commit();
-                    eVar.PS.putLong("pu_cl_fd", System.currentTimeMillis());
-                    eVar.PS.commit();
+                    eVar.Qh.putInt("mo_fa_pu_cl", 0);
+                    eVar.Qh.commit();
+                    eVar.Qh.putInt("wi_fa_pu_cl", 0);
+                    eVar.Qh.commit();
+                    eVar.Qh.putLong("pu_cl_fd", System.currentTimeMillis());
+                    eVar.Qh.commit();
                     d.a(context, "1013104", hashMap);
                 } else if (d.c(context)) {
-                    eVar.PS.putInt("wi_fa_pu_ap", eVar.a.getInt("wi_fa_pu_cl", 0) + 1);
-                    eVar.PS.commit();
+                    eVar.Qh.putInt("wi_fa_pu_ap", eVar.a.getInt("wi_fa_pu_cl", 0) + 1);
+                    eVar.Qh.commit();
                 } else {
-                    eVar.PS.putInt("mo_fa_pu_ap", eVar.a.getInt("mo_fa_pu_cl", 0) + 1);
-                    eVar.PS.commit();
+                    eVar.Qh.putInt("mo_fa_pu_ap", eVar.a.getInt("mo_fa_pu_cl", 0) + 1);
+                    eVar.Qh.commit();
                 }
             } catch (Throwable th2) {
                 d.a(th2);

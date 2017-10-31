@@ -8,23 +8,23 @@ import com.baidu.tbadk.core.view.j;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static String ewc;
+    private static String eEm;
 
     public static SpannableStringBuilder al(Context context, String str) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) str);
         int length = spannableStringBuilder.length();
-        Drawable drawable = context.getResources().getDrawable(d.g.icon_nichenghuodong);
+        Drawable drawable = context.getResources().getDrawable(d.f.icon_nichenghuodong);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         spannableStringBuilder.append((CharSequence) "tag");
         spannableStringBuilder.setSpan(new j(drawable), length, spannableStringBuilder.length(), 33);
         return spannableStringBuilder;
     }
 
-    public static String aMy() {
-        if (TextUtils.isEmpty(ewc)) {
-            ewc = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("nick_name_activity_link", "");
+    public static String aPq() {
+        if (TextUtils.isEmpty(eEm)) {
+            eEm = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("nick_name_activity_link", "");
         }
-        return ewc;
+        return eEm;
     }
 }

@@ -1,17 +1,23 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.View;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class MessageCenterActivity extends BaseFragmentActivity {
-    private NavigationBar cRM;
+    private NavigationBar daD;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.cRM.onChangeSkinType(getPageContext(), i);
+        this.daD.onChangeSkinType(getPageContext(), i);
+        Fragment findFragmentById = getSupportFragmentManager().findFragmentById(d.g.fragment_container);
+        if (findFragmentById != null && (findFragmentById instanceof BaseFragment)) {
+            ((BaseFragment) findFragmentById).onChangeSkinType(i);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -22,15 +28,16 @@ public class MessageCenterActivity extends BaseFragmentActivity {
     }
 
     private void initView() {
-        setContentView(d.j.message_center_activity);
-        aiw();
-        getSupportFragmentManager().beginTransaction().add(d.h.fragment_container, new g()).commit();
+        setContentView(d.h.message_center_activity);
+        akI();
+        getSupportFragmentManager().beginTransaction().add(d.g.fragment_container, new g()).commit();
     }
 
-    private void aiw() {
-        this.cRM = (NavigationBar) findViewById(d.h.navigation_bar);
-        this.cRM.setCenterTextTitle(getResources().getString(d.l.my_message));
-        this.cRM.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivity.1
+    private void akI() {
+        this.daD = (NavigationBar) findViewById(d.g.navigation_bar);
+        this.daD.setCenterTextTitle(getResources().getString(d.j.my_message));
+        this.daD.showBottomLine();
+        this.daD.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageCenterActivity.this.finish();

@@ -26,8 +26,6 @@ import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
-    public static final int FORUM_LIKE = 1;
-    public static final int FORUM_UNLIKE = 0;
     private static final long serialVersionUID = -5446966999595522426L;
     private String accelerate_cotent;
     private AnchorPower anchorPower;

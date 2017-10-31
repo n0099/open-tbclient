@@ -6,57 +6,57 @@ import android.widget.Scroller;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class ScrollTextView extends TextView implements Runnable {
-    private Scroller aNk;
-    private float aNl;
-    private boolean aNm;
+    private Scroller aNO;
+    private float aNP;
+    private boolean aNQ;
 
     public ScrollTextView(Context context) {
         super(context);
-        this.aNl = 15.0f;
-        this.aNm = true;
+        this.aNP = 15.0f;
+        this.aNQ = true;
         setup(context);
     }
 
     private void setup(Context context) {
-        this.aNk = new Scroller(context, new LinearInterpolator());
-        setScroller(this.aNk);
+        this.aNO = new Scroller(context, new LinearInterpolator());
+        setScroller(this.aNO);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.aNk.isFinished()) {
-            Hr();
+        if (this.aNO.isFinished()) {
+            HE();
         }
     }
 
-    private void Hr() {
+    private void HE() {
         int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
         int lineHeight = height + (getLineHeight() * (getLineCount() - 1));
-        this.aNk.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.aNl));
-        if (this.aNm) {
+        this.aNO.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.aNP));
+        if (this.aNQ) {
             post(this);
         }
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.aNk.isFinished()) {
-            Hr();
+        if (this.aNO.isFinished()) {
+            HE();
         } else {
             post(this);
         }
     }
 
     public void setSpeed(float f) {
-        this.aNl = f;
+        this.aNP = f;
     }
 
     public float getSpeed() {
-        return this.aNl;
+        return this.aNP;
     }
 
     public void setContinuousScrolling(boolean z) {
-        this.aNm = z;
+        this.aNQ = z;
     }
 }

@@ -1,11 +1,12 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbPage.AddPost;
 /* loaded from: classes.dex */
-public class AdditionData implements Serializable {
+public class AdditionData extends OrmObject implements Serializable {
     private static final long serialVersionUID = -6760087984237848132L;
     private int alreadyCount;
     private long createTime;

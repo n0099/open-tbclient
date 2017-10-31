@@ -1,25 +1,25 @@
 package com.baidu.tbadk.widget.a.c;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.a.a.a> {
-    private int aOu;
+    private int aOB;
 
     public b(int i) {
-        this.aOu = i;
+        this.aOB = i;
     }
 
     public int getBlockSize() {
-        return this.aOu;
+        return this.aOB;
     }
 
-    public void fE(int i) {
-        this.aOu = i;
+    public void fF(int i) {
+        this.aOB = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: HZ */
+    /* renamed from: Ij */
     public com.baidu.tbadk.widget.a.a.a fI() {
-        return new com.baidu.tbadk.widget.a.a.a(this.aOu);
+        return new com.baidu.tbadk.widget.a.a.a(this.aOB);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

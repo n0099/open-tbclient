@@ -35,7 +35,7 @@ import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.mime.MIME;
 /* loaded from: classes.dex */
 public final class a {
-    private HttpURLConnection Qb;
+    private HttpURLConnection Qq;
     private Context c;
     private String e;
     private String f;
@@ -55,22 +55,22 @@ public final class a {
     /* renamed from: com.baidu.sofire.rp.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0039a implements X509TrustManager {
-        private X509TrustManager PC;
+        private X509TrustManager PR;
 
         C0039a(X509TrustManager x509TrustManager) {
-            this.PC = null;
-            this.PC = x509TrustManager;
+            this.PR = null;
+            this.PR = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.PC.checkClientTrusted(x509CertificateArr, str);
+            this.PR.checkClientTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             try {
-                this.PC.checkServerTrusted(x509CertificateArr, str);
+                this.PR.checkServerTrusted(x509CertificateArr, str);
             } catch (CertificateException e) {
                 for (Throwable th = e; th != null; th = th.getCause()) {
                     if ((th instanceof CertificateExpiredException) || (th instanceof CertificateNotYetValidException)) {
@@ -83,7 +83,7 @@ public final class a {
 
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
-            return this.PC.getAcceptedIssuers();
+            return this.PR.getAcceptedIssuers();
         }
     }
 
@@ -95,7 +95,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private HttpURLConnection ni() throws Exception {
+    private HttpURLConnection nl() throws Exception {
         String str;
         HttpURLConnection httpURLConnection;
         KeyStore keyStore;
@@ -285,32 +285,32 @@ public final class a {
             if (b.a(this.c) == 0) {
                 throw new NetworkErrorException("requestFromServerStreamByte no network");
             }
-            this.Qb = ni();
-            if (this.Qb == null) {
+            this.Qq = nl();
+            if (this.Qq == null) {
                 inputStream = null;
             } else if (bArr == null) {
-                if ("gzip".equalsIgnoreCase(this.Qb.getContentEncoding())) {
+                if ("gzip".equalsIgnoreCase(this.Qq.getContentEncoding())) {
                     this.j = true;
                 } else {
                     this.j = false;
                 }
-                inputStream = this.Qb.getInputStream();
+                inputStream = this.Qq.getInputStream();
             } else {
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(this.Qb.getOutputStream());
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(this.Qq.getOutputStream());
                 bufferedOutputStream.write(bArr);
                 bufferedOutputStream.flush();
                 bufferedOutputStream.close();
-                int responseCode = this.Qb.getResponseCode();
+                int responseCode = this.Qq.getResponseCode();
                 StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append("code:" + responseCode);
-                stringBuffer.append(",content:" + this.Qb.getContent());
-                stringBuffer.append("response:" + this.Qb.getResponseMessage());
-                if ("gzip".equalsIgnoreCase(this.Qb.getContentEncoding())) {
+                stringBuffer.append(",content:" + this.Qq.getContent());
+                stringBuffer.append("response:" + this.Qq.getResponseMessage());
+                if ("gzip".equalsIgnoreCase(this.Qq.getContentEncoding())) {
                     this.j = true;
                 } else {
                     this.j = false;
                 }
-                inputStream = this.Qb.getInputStream();
+                inputStream = this.Qq.getInputStream();
             }
             if (inputStream == null) {
                 try {
@@ -323,9 +323,9 @@ public final class a {
                 if (inputStream != null) {
                     inputStream.close();
                 }
-                if (this.Qb != null) {
-                    this.Qb.disconnect();
-                    this.Qb = null;
+                if (this.Qq != null) {
+                    this.Qq.disconnect();
+                    this.Qq = null;
                     return null;
                 }
                 return null;
@@ -342,9 +342,9 @@ public final class a {
                 if (inputStream != null) {
                     inputStream.close();
                 }
-                if (this.Qb != null) {
-                    this.Qb.disconnect();
-                    this.Qb = null;
+                if (this.Qq != null) {
+                    this.Qq.disconnect();
+                    this.Qq = null;
                 }
                 return a;
             } catch (Throwable th3) {
@@ -359,9 +359,9 @@ public final class a {
                 if (inputStream != null) {
                     inputStream.close();
                 }
-                if (this.Qb != null) {
-                    this.Qb.disconnect();
-                    this.Qb = null;
+                if (this.Qq != null) {
+                    this.Qq.disconnect();
+                    this.Qq = null;
                 }
                 throw th;
             }
@@ -383,16 +383,16 @@ public final class a {
             if (b.a(this.c) == 0) {
                 throw new NetworkErrorException("requestFromServerStream no network");
             }
-            this.Qb = ni();
-            if (this.Qb == null) {
+            this.Qq = nl();
+            if (this.Qq == null) {
                 inputStream = null;
             } else {
-                if ("gzip".equalsIgnoreCase(this.Qb.getContentEncoding())) {
+                if ("gzip".equalsIgnoreCase(this.Qq.getContentEncoding())) {
                     this.j = true;
                 } else {
                     this.j = false;
                 }
-                inputStream = this.Qb.getInputStream();
+                inputStream = this.Qq.getInputStream();
             }
             if (inputStream == null) {
                 try {
@@ -402,9 +402,9 @@ public final class a {
                     if (inputStream != null) {
                         inputStream.close();
                     }
-                    if (this.Qb != null) {
-                        this.Qb.disconnect();
-                        this.Qb = null;
+                    if (this.Qq != null) {
+                        this.Qq.disconnect();
+                        this.Qq = null;
                         return null;
                     }
                     return null;
@@ -422,9 +422,9 @@ public final class a {
                     if (inputStream != null) {
                         inputStream.close();
                     }
-                    if (this.Qb != null) {
-                        this.Qb.disconnect();
-                        this.Qb = null;
+                    if (this.Qq != null) {
+                        this.Qq.disconnect();
+                        this.Qq = null;
                     }
                     return a;
                 } catch (Exception e2) {
@@ -440,9 +440,9 @@ public final class a {
                     if (inputStream != null) {
                         inputStream.close();
                     }
-                    if (this.Qb != null) {
-                        this.Qb.disconnect();
-                        this.Qb = null;
+                    if (this.Qq != null) {
+                        this.Qq.disconnect();
+                        this.Qq = null;
                     }
                     throw th;
                 } catch (Exception e3) {

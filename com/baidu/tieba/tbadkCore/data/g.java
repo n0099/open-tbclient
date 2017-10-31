@@ -1,6 +1,5 @@
 package com.baidu.tieba.tbadkCore.data;
 
-import org.json.JSONObject;
 import tbclient.ActBtn;
 /* loaded from: classes.dex */
 public class g {
@@ -16,17 +15,6 @@ public class g {
             this.type = actBtn.type.intValue();
             this.url = actBtn.url;
             this.text = actBtn.text;
-        }
-    }
-
-    public g(JSONObject jSONObject) {
-        this.type = 0;
-        this.url = null;
-        this.text = null;
-        if (jSONObject != null) {
-            this.type = jSONObject.optInt("type");
-            this.url = jSONObject.optString("url");
-            this.text = jSONObject.optString("text");
         }
     }
 

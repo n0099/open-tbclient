@@ -6,7 +6,6 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class NotLoginGuideActivityConfig extends IntentConfig {
     public static String FROM_PAGE = GuildActivityConfig.FROM_PAGE;
     public static String FROM_ACCOUNT = "from_account";
-    public static String FROM_LOGO = "form_logo";
 
     public NotLoginGuideActivityConfig(Context context, String str) {
         super(context);

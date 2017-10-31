@@ -1,85 +1,72 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.av;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class t {
-    private BaseActivity boA;
-    private PbModel eBC;
-
-    public t(PbModel pbModel, BaseActivity baseActivity) {
-        this.eBC = pbModel;
-        this.boA = baseActivity;
+public class t extends m<com.baidu.tieba.pb.data.a, u> implements View.OnClickListener {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public t(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    private void kU(String str) {
-        if (str.startsWith("//")) {
-            str = str.substring(2);
-        }
-        Map<String, String> dS = av.dS(str);
-        if (dS != null) {
-            com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak("c10320");
-            akVar.ac("obj_locate", dS.get("obj_locate"));
-            akVar.r("obj_type", 1);
-            akVar.ac("tid", dS.get("tid"));
-            akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dS.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
-            akVar.ac("obj_param2", dS.get("obj_param2"));
-            akVar.r("obj_to", 3);
-            akVar.ac("obj_id", dS.get("bdid"));
-            if (!com.baidu.tbadk.core.util.am.isEmpty(dS.get("ext_log"))) {
-                try {
-                    JSONObject jSONObject = new JSONObject(dS.get("ext_log"));
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        akVar.ac(next, jSONObject.getString(next));
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: br */
+    public u onCreateViewHolder(ViewGroup viewGroup) {
+        u uVar = new u(LayoutInflater.from(this.mContext).inflate(d.h.god_card_list_item, (ViewGroup) null));
+        a(uVar);
+        return uVar;
+    }
+
+    private void a(u uVar) {
+        if (uVar != null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (uVar.mSkinType != skinType) {
+                com.baidu.tbadk.o.a.a(this.eMh.getPageContext(), uVar.getView());
             }
-            TiebaStatic.log(akVar);
+            uVar.mSkinType = skinType;
         }
     }
 
-    public String T(Intent intent) {
-        int length;
-        if (intent == null || intent.getData() == null) {
-            return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, u uVar) {
+        super.onFillViewHolder(i, view, viewGroup, aVar, uVar);
+        a(uVar);
+        uVar.eNM.setOnClickListener(this);
+        uVar.eNL.setOnClickListener(this);
+        uVar.eNM.setTag(aVar);
+        uVar.eNL.setTag(aVar);
+        if (aVar != null) {
+            uVar.cJl.startLoad(aVar.getPortrait(), 28, false);
+            uVar.bOl.setText(aVar.getUserName());
+            uVar.dvW.setText(aVar.aPB());
+            uVar.text.setText(aVar.getText());
+            uVar.eNL.startLoad(aVar.getPicUrl(), 10, false);
+            uVar.eNM.setText(aVar.aPC());
         }
-        String dataString = intent.getDataString();
-        if (StringUtils.isNull(dataString) || !dataString.startsWith("tbpb://")) {
-            return null;
-        }
-        String decode = Uri.decode(intent.getData().getEncodedPath());
-        if (StringUtils.isNull(decode)) {
-            return null;
-        }
-        Matcher matcher = Pattern.compile(".*fr=(.*)&tid=([\\\\d]+).*").matcher(decode);
-        if (matcher.find()) {
-            if ("mpush".equals(matcher.group(1))) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11895").ac("tid", matcher.group(2)));
-            } else {
-                kU(decode);
+        return view;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && ax.aT(this.mContext)) {
+            String aPD = ((com.baidu.tieba.pb.data.a) view.getTag()).aPD();
+            if (!StringUtils.isNull(aPD)) {
+                av.vI().c(this.eMh.getPageContext(), new String[]{aPD});
             }
-            return matcher.group(2);
         }
-        kU(decode);
-        int indexOf = decode.indexOf("tid=");
-        if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
-            return null;
-        }
-        return decode.substring(length);
     }
 }

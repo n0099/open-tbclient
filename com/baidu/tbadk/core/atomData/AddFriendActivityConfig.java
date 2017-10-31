@@ -8,14 +8,9 @@ public class AddFriendActivityConfig extends IntentConfig {
     public static final String FROM = "from";
     public static final String IS_USER_CLIENT_LOWER = "is_user_client_lower";
     public static final String MSG = "msg";
-    public static final String TYPE_ADD_FRD = "add_frd";
-    public static final String TYPE_AT_ME = "at_me";
-    public static final String TYPE_CONCERN_RECOM = "concern_recom";
     public static final String TYPE_FAVOR_LIST = "favor_list";
     public static final String TYPE_FOCUS = "focus";
-    public static final String TYPE_FOCUS_RECOM = "focus_recom";
     public static final String TYPE_FRS_HEAD = "frs_head";
-    public static final String TYPE_FRS_RECOM = "frs_recom";
     public static final String TYPE_IM_GROUP = "imgroup";
     public static final String TYPE_NEW_FRD = "new_frd";
     public static final String TYPE_PB_FLOOR = "pb_floor";

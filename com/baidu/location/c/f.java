@@ -12,8 +12,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private g MF;
-    private static volatile f ME = null;
+    private g LY;
+    private static volatile f LX = null;
     private static String c = "LogSDK";
     private static int d = 5;
     private static int e = 1024;
@@ -21,8 +21,8 @@ public class f {
     private static final String g = com.baidu.location.h.h.a + "/ller.dat";
     public static final String a = com.baidu.location.h.h.a + "/llin.dat";
     private SimpleDateFormat h = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private g MG = null;
-    private a MH = null;
+    private g LZ = null;
+    private a Ma = null;
     private long l = 0;
 
     /* loaded from: classes.dex */
@@ -69,9 +69,9 @@ public class f {
     }
 
     private f() {
-        this.MF = null;
-        if (this.MF == null) {
-            this.MF = new g();
+        this.LY = null;
+        if (this.LY == null) {
+            this.LY = new g();
         }
     }
 
@@ -190,15 +190,15 @@ public class f {
         }
     }
 
-    public static f mu() {
-        if (ME == null) {
+    public static f mo() {
+        if (LX == null) {
             synchronized (f.class) {
-                if (ME == null) {
-                    ME = new f();
+                if (LX == null) {
+                    LX = new f();
                 }
             }
         }
-        return ME;
+        return LX;
     }
 
     public void a(g gVar) {
@@ -216,8 +216,8 @@ public class f {
                 stringBuffer.append(format);
                 stringBuffer.append("&err=");
                 stringBuffer.append(str);
-                stringBuffer.append(com.baidu.location.h.c.nb().a(false));
-                stringBuffer.append(com.baidu.location.a.a.lY().c());
+                stringBuffer.append(com.baidu.location.h.c.mU().a(false));
+                stringBuffer.append(com.baidu.location.a.a.lS().c());
                 a(g, Jni.encode(stringBuffer.toString()));
             } catch (Exception e2) {
             }
@@ -225,19 +225,19 @@ public class f {
     }
 
     public void c() {
-        if (this.MF != null) {
-            a(f, Jni.encode(this.MF.b()));
-            this.MF.a();
+        if (this.LY != null) {
+            a(f, Jni.encode(this.LY.b()));
+            this.LY.a();
         }
     }
 
     public void d() {
         boolean z;
         boolean z2;
-        if (this.MH == null) {
-            this.MH = new a();
+        if (this.Ma == null) {
+            this.Ma = new a();
         }
-        if (System.currentTimeMillis() - this.l >= 3600000 && !this.MH.b()) {
+        if (System.currentTimeMillis() - this.l >= 3600000 && !this.Ma.b()) {
             try {
                 ArrayList arrayList = new ArrayList();
                 a(g, arrayList);
@@ -269,14 +269,14 @@ public class f {
                     } else {
                         jSONObject.put("loctc", jSONArray);
                     }
-                    this.MH.a(jSONObject.toString());
+                    this.Ma.a(jSONObject.toString());
                 }
             } catch (Exception e2) {
             }
         }
     }
 
-    public g mv() {
-        return this.MF;
+    public g mp() {
+        return this.LY;
     }
 }

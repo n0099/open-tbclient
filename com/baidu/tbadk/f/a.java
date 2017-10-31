@@ -1,66 +1,47 @@
 package com.baidu.tbadk.f;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.c;
-import java.io.File;
+import com.baidu.tbadk.TbConfig;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static long RH = 86400000;
+    public int RT = 300;
+    public int RU = 5000;
+    public int RV = 10000;
+    public int RW = TbConfig.POST_IMAGE_SMALL;
+    public int RX = 3000;
+    public int RY = 6000;
+    public boolean RZ = true;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void p(File file) {
-        if (file != null) {
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
             try {
-                if (file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles != null) {
-                        for (int i = 0; i < listFiles.length; i++) {
-                            if (listFiles[i].isDirectory()) {
-                                p(listFiles[i]);
-                            } else if (!listFiles[i].delete()) {
-                            }
-                        }
-                        return;
-                    }
-                    return;
+                int optInt = jSONObject.optInt("wifiSlow", -1);
+                if (optInt > 0) {
+                    this.RT = optInt;
                 }
-                if (!file.delete()) {
+                int optInt2 = jSONObject.optInt("threeGSlow", -1);
+                if (optInt2 > 0) {
+                    this.RU = optInt2;
                 }
+                int optInt3 = jSONObject.optInt("twoGSlow", -1);
+                if (optInt3 > 0) {
+                    this.RV = optInt3;
+                }
+                int optInt4 = jSONObject.optInt("wifiLog", -1);
+                if (optInt4 > 0) {
+                    this.RW = optInt4;
+                }
+                int optInt5 = jSONObject.optInt("threeGLog", -1);
+                if (optInt5 > 0) {
+                    this.RX = optInt5;
+                }
+                int optInt6 = jSONObject.optInt("twoGLog", -1);
+                if (optInt6 > 0) {
+                    this.RY = optInt6;
+                }
+                this.RZ = jSONObject.optInt("mobile_cdn_switch", 1) == 1;
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
         }
-    }
-
-    public static void init() {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tbadk.f.a.1
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.tbadk.f.a$1$1] */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                long j = b.getInstance().getLong("key_clear_resource", 0L);
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - j > a.RH) {
-                    new Thread() { // from class: com.baidu.tbadk.f.a.1.1
-                        @Override // java.lang.Thread, java.lang.Runnable
-                        public void run() {
-                            super.run();
-                            try {
-                                c.tX();
-                                a.p(TbadkCoreApplication.getInst().getCacheDir());
-                            } catch (Exception e) {
-                            }
-                        }
-                    }.start();
-                    b.getInstance().putLong("key_clear_resource", currentTimeMillis);
-                }
-            }
-        });
     }
 }

@@ -20,7 +20,7 @@ public class c implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
-    /* renamed from: c */
+    /* renamed from: d */
     public a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
         DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
@@ -44,7 +44,7 @@ public class c implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
-    /* renamed from: c */
+    /* renamed from: d */
     public a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.f.a aVar, Object... objArr) {
         int i3;
         String str3 = null;
@@ -57,26 +57,26 @@ public class c implements e<a> {
             aVar.vF = iVar;
         }
         String str4 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
-        byte[] eb = iVar.eb(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
-        if (!iVar.vL()) {
+        byte[] eh = iVar.eh(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
+        if (!iVar.vT()) {
             aVar2.error_code = 3;
-            aVar2.error_msg = h.getString(d.l.neterror);
+            aVar2.error_msg = h.getString(d.j.neterror);
             return aVar2;
-        } else if (eb == null || eb.length == 0) {
+        } else if (eh == null || eh.length == 0) {
             aVar2.error_code = 4;
-            aVar2.error_msg = h.getString(d.l.voice_cache_error_no_file);
+            aVar2.error_msg = h.getString(d.j.voice_cache_error_no_file);
             return aVar2;
         } else {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (eb == null || eb.length == 0) {
+            } else if (eh == null || eh.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.t(false);
-                diskFileOperate.setData(eb);
+                diskFileOperate.setData(eh);
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.c.d dVar = new com.baidu.tbadk.core.util.c.d();
                     dVar.f(diskFileOperate);
@@ -86,7 +86,7 @@ public class c implements e<a> {
                 if (diskFileOperate.isSuccess() && diskFileOperate.dV() != null) {
                     str5 = diskFileOperate.dV().getAbsolutePath();
                     i3 = 0;
-                } else if (k.ue() < eb.length) {
+                } else if (k.ul() < eh.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -97,7 +97,7 @@ public class c implements e<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.dN(i3);
+                aVar2.error_msg = a.dO(i3);
             }
             return aVar2;
         }
@@ -119,7 +119,7 @@ public class c implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
-    /* renamed from: f */
+    /* renamed from: g */
     public a b(String str, String str2, Object... objArr) {
         return null;
     }

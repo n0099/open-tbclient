@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.m;
+import com.baidu.tbadk.util.o;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
@@ -42,10 +42,6 @@ public class LookMoreReqMessage extends NetMessage {
         this.st_type = i;
     }
 
-    public void setIs_comm_reverse(int i) {
-        this.is_comm_reverse = i;
-    }
-
     public LookMoreReqMessage() {
         super(CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
         setNetType(NetMessage.NetType.AUTO);
@@ -54,18 +50,18 @@ public class LookMoreReqMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         try {
-            int ad = l.ad(TbadkCoreApplication.getInst());
-            int af = l.af(TbadkCoreApplication.getInst());
+            int ac = l.ac(TbadkCoreApplication.getInst());
+            int ae = l.ae(TbadkCoreApplication.getInst());
             DataReq.Builder builder = new DataReq.Builder();
             builder.kz = this.kz;
             builder.with_floor = Integer.valueOf(this.with_floor);
             builder.post_id = this.post_id;
-            builder.scr_w = Integer.valueOf(ad);
-            builder.scr_h = Integer.valueOf(af);
+            builder.scr_w = Integer.valueOf(ac);
+            builder.scr_h = Integer.valueOf(ae);
             builder.st_type = Integer.valueOf(this.st_type);
             builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
             if (z) {
-                m.bindCommonParamsToProtobufData(builder, true);
+                o.bindCommonParamsToProtobufData(builder, true);
             }
             GetPostListReqIdl.Builder builder2 = new GetPostListReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -3,22 +3,22 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.ImageView.a aBr;
-    private com.baidu.adp.widget.ImageView.a aBs;
+    private com.baidu.adp.widget.a.a aCa;
+    private com.baidu.adp.widget.a.a aCb;
     private int cols;
     private int rows;
 
-    public abstract boolean CH();
+    public abstract boolean CV();
 
-    public abstract EmotionGroupType CI();
+    public abstract EmotionGroupType CW();
 
-    public abstract String eR(int i);
+    public abstract String eS(int i);
 
-    public abstract boolean fB(String str);
+    public abstract boolean fI(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a fC(String str);
+    public abstract com.baidu.adp.widget.a.a fJ(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a fD(String str);
+    public abstract com.baidu.adp.widget.a.a fK(String str);
 
     public abstract int getEmotionsCount();
 
@@ -30,26 +30,26 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.ImageView.a CJ() {
-        return this.aBr;
+    public com.baidu.adp.widget.a.a CX() {
+        return this.aCa;
     }
 
-    public void c(com.baidu.adp.widget.ImageView.a aVar) {
+    public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.kN();
+            aVar.kK();
         }
-        this.aBr = aVar;
+        this.aCa = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a CK() {
-        return this.aBs;
+    public com.baidu.adp.widget.a.a CY() {
+        return this.aCb;
     }
 
-    public void d(com.baidu.adp.widget.ImageView.a aVar) {
+    public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.kN();
+            aVar.kK();
         }
-        this.aBs = aVar;
+        this.aCb = aVar;
     }
 
     public int getCols() {
@@ -57,16 +57,16 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eS(int i) {
+    public void eT(int i) {
         this.cols = i;
     }
 
-    public int CL() {
+    public int CZ() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eT(int i) {
+    public void eU(int i) {
         this.rows = i;
     }
 }

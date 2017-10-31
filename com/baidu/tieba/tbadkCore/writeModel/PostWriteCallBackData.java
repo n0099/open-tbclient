@@ -1,8 +1,11 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tieba.pb.CustomDialogData;
+import com.baidu.tieba.video.VideoTitleData;
 import java.io.Serializable;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PostWriteCallBackData implements Serializable {
     public static final int COPY_TW_ZHIBO_TAG = 3;
@@ -11,16 +14,23 @@ public class PostWriteCallBackData implements Serializable {
     public static final int ERROR_DISABLE_REPLY = 230277;
     public static final int ERROR_LEVEL_UNDER_THREE = 1990032;
     public static final int ERROR_VCODE_FAILED_WITH_STORY = -1;
+    public static final int VIDEO_FROM_ACTIVITY = 3;
+    public static final int VIDEO_FROM_FRS = 2;
+    public static final int VIDEO_FROM_MAINTAB = 1;
     private static final long serialVersionUID = 3542955843976043534L;
     private String colorMsg;
     private int errorCode;
     private String errorString;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
+    public int mFrom;
+    public String mVideoMd5;
+    public VideoTitleData mVideoTitleData;
     private String preMsg;
     private String threadId = null;
     private String postId = null;
     private AccessState accessState = null;
+    private ArrayList<String> sensitiveWords = null;
 
     public PostWriteCallBackData() {
     }
@@ -102,5 +112,30 @@ public class PostWriteCallBackData implements Serializable {
 
     public void setActivityDialog(CustomDialogData customDialogData) {
         this.mActDialogData = customDialogData;
+    }
+
+    public boolean isSensitiveError() {
+        return this.errorCode == 220015;
+    }
+
+    public void setSensitiveWords(ArrayList<String> arrayList) {
+        this.sensitiveWords = arrayList;
+    }
+
+    public ArrayList<String> getSensitiveWords() {
+        return this.sensitiveWords;
+    }
+
+    public String buildVideoFakeOnWallUrl() {
+        if (this.mVideoTitleData == null || StringUtils.isNull(this.mVideoTitleData.url)) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.mVideoTitleData.url);
+        if (!StringUtils.isNull(this.mVideoMd5)) {
+            sb.append("&video_md5=");
+            sb.append(this.mVideoMd5);
+        }
+        return sb.toString();
     }
 }

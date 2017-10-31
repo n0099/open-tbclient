@@ -1,32 +1,34 @@
 package com.baidu.tieba.video.editvideo.a;
 
-import android.text.TextPaint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.base.e;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
-import com.baidu.tieba.video.editvideo.data.MusicData;
+import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    public int gvc;
-    private List<MusicData> mList;
+    private InterfaceC0130a gDW;
+    private List<PendantData> mList;
     private e mPageContext;
+
+    /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0130a {
+        void a(View view, int i, PendantData pendantData);
+    }
 
     public a(e eVar) {
         this.mPageContext = eVar;
     }
 
-    public void setData(List<MusicData> list) {
+    public void setData(List<PendantData> list) {
         if (list != null) {
             this.mList = list;
             notifyDataSetChanged();
@@ -43,10 +45,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.mList == null) {
-            return null;
-        }
-        return this.mList.get(i);
+        return null;
     }
 
     @Override // android.widget.Adapter
@@ -56,94 +55,93 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0130a c0130a;
+        b bVar;
         if (view == null) {
-            view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.j.layout_music_item, (ViewGroup) null);
-            c0130a = new C0130a();
-            c0130a.guo = (TbImageView) view.findViewById(d.h.music_image);
-            c0130a.gur = (TextView) view.findViewById(d.h.music_title);
-            c0130a.guq = view.findViewById(d.h.music_loading);
-            c0130a.guo.setDrawerType(1);
-            c0130a.guo.setIsRound(true);
-            c0130a.guo.setDefaultBgResource(d.e.transparent);
-            c0130a.guo.setDefaultErrorResource(d.g.bg_video_cloudmusic);
-            c0130a.guo.setDefaultResource(d.g.bg_video_cloudmusic);
-            c0130a.guo.setBorderWidth(l.f(this.mPageContext.getPageActivity(), d.f.ds4));
-            c0130a.guo.setBorderColor(aj.getColor(d.e.cp_link_tip_a));
-            view.setTag(c0130a);
+            view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.layout_pendant_item, (ViewGroup) null);
+            bVar = new b();
+            bVar.gDY = (TextView) view.findViewById(d.g.cover_text);
+            bVar.gDZ = (TbImageView) view.findViewById(d.g.pendant_image);
+            bVar.gEa = (ProgressBar) view.findViewById(d.g.pendant_progressbar);
+            bVar.gDZ.setDefaultBgResource(d.C0080d.transparent);
+            bVar.gDZ.setDefaultErrorResource(d.C0080d.cp_cont_i);
+            bVar.gDZ.setDefaultResource(d.C0080d.cp_cont_i);
+            view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    if (a.this.gDW != null) {
+                        b bVar2 = (b) view2.getTag();
+                        if (bVar2.gDZ.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.gDZ.getTag();
+                            if (a.this.mList.size() > num.intValue()) {
+                                a.this.gDW.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                            }
+                        }
+                    }
+                }
+            });
+            view.setBackgroundColor(aj.getColor(d.C0080d.cp_bg_line_d));
+            view.setTag(bVar);
         } else {
-            c0130a = (C0130a) view.getTag();
+            bVar = (b) view.getTag();
         }
-        MusicData musicData = this.mList.get(i);
-        if (musicData != null) {
-            switch (musicData.editMusicType) {
+        PendantData pendantData = this.mList.get(i);
+        if (pendantData != null) {
+            bVar.gDZ.setTag(Integer.valueOf(i));
+            switch (pendantData.pendantType) {
+                case 0:
+                    bVar.gDY.setVisibility(0);
+                    bVar.gDZ.setVisibility(8);
+                    bVar.gEa.setVisibility(8);
+                    bVar.gDY.setTextColor(aj.getColor(d.C0080d.cp_cont_e));
+                    bVar.gDY.setText("No");
+                    bVar.gDY.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
+                    break;
                 case 1:
-                    c0130a.guo.c(String.valueOf(d.g.icon_video_mute), 24, false);
+                    bVar.gDY.setVisibility(0);
+                    bVar.gDZ.setVisibility(8);
+                    bVar.gEa.setVisibility(8);
+                    bVar.gDY.setTextColor(aj.getColor(d.C0080d.cp_cont_g));
+                    bVar.gDY.setText("T");
+                    bVar.gDY.setBackgroundColor(aj.getColor(d.C0080d.cp_link_tip_a));
                     break;
                 case 2:
-                    c0130a.guo.c(String.valueOf(d.g.icon_video_cloudmusic), 24, false);
+                    bVar.gDY.setVisibility(0);
+                    bVar.gDZ.setVisibility(8);
+                    bVar.gEa.setVisibility(8);
+                    bVar.gDY.setTextColor(aj.getColor(d.C0080d.cp_cont_g));
+                    bVar.gDY.setText("T");
+                    bVar.gDY.setBackgroundColor(aj.getColor(d.C0080d.cp_cont_d));
+                    break;
+                case 3:
+                    bVar.gDY.setVisibility(0);
+                    bVar.gDZ.setVisibility(8);
+                    bVar.gEa.setVisibility(8);
+                    bVar.gDY.setTextColor(aj.getColor(d.C0080d.cp_cont_d));
+                    bVar.gDY.setText("T");
+                    bVar.gDY.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
                     break;
                 default:
-                    c0130a.guo.c(musicData.img, 10, false);
+                    bVar.gDY.setVisibility(8);
+                    bVar.gDZ.setVisibility(0);
+                    bVar.gEa.setVisibility(8);
+                    bVar.gDZ.startLoad(pendantData.img, 10, false);
                     break;
-            }
-            c0130a.guq.setVisibility(4);
-            c0130a.gur.setTextColor(aj.getColor(d.e.cp_cont_j));
-            c0130a.gur.setText(musicData.name);
-            b(c0130a.gur, l.f(this.mPageContext.getPageActivity(), d.f.ds120), musicData.name);
-            if (i == this.gvc) {
-                c0130a.guo.setDrawBorder(true);
-            } else {
-                c0130a.guo.setDrawBorder(false);
-            }
-            if (i == 0) {
-                view.setPadding(l.f(this.mPageContext.getPageActivity(), d.f.ds34), l.f(this.mPageContext.getPageActivity(), d.f.ds44), 0, 0);
-            } else if (i == this.mList.size() - 1) {
-                view.setPadding(l.f(this.mPageContext.getPageActivity(), d.f.ds34), l.f(this.mPageContext.getPageActivity(), d.f.ds44), l.f(this.mPageContext.getPageActivity(), d.f.ds34), 0);
-            } else {
-                view.setPadding(l.f(this.mPageContext.getPageActivity(), d.f.ds28), l.f(this.mPageContext.getPageActivity(), d.f.ds44), 0, 0);
-            }
-            if (this.mPageContext.getPageActivity() instanceof BaseActivity) {
-                ((BaseActivity) this.mPageContext.getPageActivity()).getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
-                ((BaseActivity) this.mPageContext.getPageActivity()).getLayoutMode().t(view);
-            } else if (this.mPageContext.getPageActivity() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) this.mPageContext.getPageActivity()).getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
-                ((BaseFragmentActivity) this.mPageContext.getPageActivity()).getLayoutMode().t(view);
             }
         }
         return view;
     }
 
-    public void uw(int i) {
-        this.gvc = i;
-        notifyDataSetChanged();
+    public void a(InterfaceC0130a interfaceC0130a) {
+        this.gDW = interfaceC0130a;
     }
 
-    public int bvJ() {
-        return this.gvc;
-    }
-
-    public void b(TextView textView, int i, String str) {
-        if (i > 0) {
-            float f = l.f(this.mPageContext.getPageActivity(), d.f.fontsize24);
-            TextPaint textPaint = new TextPaint();
-            textPaint.setTextSize(f);
-            while (textPaint.measureText(str) > i) {
-                f -= 1.0f;
-                textPaint.setTextSize(f);
-            }
-            textView.setTextSize(0, f);
-        }
-    }
-
-    /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0130a {
-        public TbImageView guo;
-        public View guq;
-        public TextView gur;
+    public class b {
+        public TextView gDY;
+        public TbImageView gDZ;
+        public ProgressBar gEa;
 
-        public C0130a() {
+        public b() {
         }
     }
 }

@@ -12,14 +12,14 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0164a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0164a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0164a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0164a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0164a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0164a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0164a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0164a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_7 = null;
     int defaultAlgorithmId;
     int defaultIvSize;
     byte[] default_KID;
@@ -51,7 +51,7 @@ public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
     }
 
     public void setDefaultAlgorithmId(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wM(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.xj(i)));
         this.defaultAlgorithmId = i;
     }
 
@@ -61,7 +61,7 @@ public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
     }
 
     public void setDefaultIvSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wM(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.xj(i)));
         this.defaultIvSize = i;
     }
 

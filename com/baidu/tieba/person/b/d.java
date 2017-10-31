@@ -16,35 +16,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends j.a {
-    public TextView Ri;
-    public int aoN;
-    public View bSV;
-    public HTypeListView eZw;
-    public e eZx;
-    public TbPageContext mH;
+    public TextView Rz;
+    public int api;
+    public View caz;
+    public HTypeListView fhL;
+    public e fhM;
+    public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.aoN = 3;
+        this.api = 3;
         this.rootView = view;
-        this.mH = tbPageContext;
-        this.bSV = view.findViewById(d.h.divider_view_under_photo_album);
-        this.Ri = (TextView) view.findViewById(d.h.text_view_photo_album);
-        this.eZw = (HTypeListView) view.findViewById(d.h.listview_photo_album);
-        this.eZx = new e(this.mH, this.eZw);
+        this.mPageContext = tbPageContext;
+        this.caz = view.findViewById(d.g.divider_view_under_photo_album);
+        this.Rz = (TextView) view.findViewById(d.g.text_view_photo_album);
+        this.fhL = (HTypeListView) view.findViewById(d.g.listview_photo_album);
+        this.fhM = new e(this.mPageContext, this.fhL);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.eZx.setDatas(cB(fVar.getPhotoAlbum()));
+            this.fhM.setDatas(cC(fVar.getPhotoAlbum()));
         }
     }
 
-    private List<com.baidu.adp.widget.ListView.f> cB(List<com.baidu.adp.widget.ListView.f> list) {
-        if (v.t(list) > 0) {
+    private List<com.baidu.adp.widget.ListView.f> cC(List<com.baidu.adp.widget.ListView.f> list) {
+        if (v.u(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
-            com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.f(this.mH.getPageActivity(), d.f.ds32), l.f(this.mH.getPageActivity(), d.f.ds120));
+            com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.f(this.mPageContext.getPageActivity(), d.e.ds32), l.f(this.mPageContext.getPageActivity(), d.e.ds120));
             v.a(arrayList, 0, dVar);
             v.b(arrayList, dVar);
             return arrayList;
@@ -52,13 +52,13 @@ public class d extends j.a {
         return list;
     }
 
-    public void DQ() {
-        if (this.aoN != TbadkCoreApplication.getInst().getSkinType()) {
-            this.aoN = TbadkCoreApplication.getInst().getSkinType();
-            aj.k(this.rootView, d.e.cp_bg_line_d);
-            aj.k(this.bSV, d.e.cp_bg_line_c);
-            aj.c(this.Ri, d.e.cp_cont_d, 1);
-            this.eZx.notifyDataSetChanged();
+    public void Ee() {
+        if (this.api != TbadkCoreApplication.getInst().getSkinType()) {
+            this.api = TbadkCoreApplication.getInst().getSkinType();
+            aj.k(this.rootView, d.C0080d.cp_bg_line_d);
+            aj.k(this.caz, d.C0080d.cp_bg_line_c);
+            aj.c(this.Rz, d.C0080d.cp_cont_d, 1);
+            this.fhM.notifyDataSetChanged();
         }
     }
 }

@@ -7,21 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    public SharedPreferences PU;
-    public SharedPreferences.Editor PV;
-    private SharedPreferences.Editor PW;
-    public SharedPreferences.Editor PX;
+    public SharedPreferences Qj;
+    public SharedPreferences.Editor Qk;
+    private SharedPreferences.Editor Ql;
+    public SharedPreferences.Editor Qm;
     public SharedPreferences a;
     public SharedPreferences b;
 
     public a(Context context) {
         try {
             this.a = context.getSharedPreferences("re_po_rt", 0);
-            this.PV = this.a.edit();
+            this.Qk = this.a.edit();
             this.b = context.getSharedPreferences("leroadcfg", 0);
-            this.PW = this.b.edit();
-            this.PU = context.getSharedPreferences("leroadcfg", 0);
-            this.PX = this.PU.edit();
+            this.Ql = this.b.edit();
+            this.Qj = context.getSharedPreferences("leroadcfg", 0);
+            this.Qm = this.Qj.edit();
         } catch (Throwable th) {
             com.baidu.sofire.rp.f.b.a();
         }
@@ -29,13 +29,13 @@ public final class a {
 
     public final void a(b bVar) {
         if (bVar != null) {
-            this.PV.putString("re_con", this.a.getString("re_con", "") + "||" + b.b(bVar));
-            this.PV.commit();
+            this.Qk.putString("re_con", this.a.getString("re_con", "") + "||" + b.b(bVar));
+            this.Qk.commit();
         }
     }
 
     public final List<b> a() {
-        b bU;
+        b bZ;
         String string = this.a.getString("re_con", "");
         if (TextUtils.isEmpty(string)) {
             return null;
@@ -43,8 +43,8 @@ public final class a {
         ArrayList arrayList = new ArrayList();
         String[] split = string.split("\\|\\|");
         for (String str : split) {
-            if (!TextUtils.isEmpty(str) && (bU = b.bU(str)) != null) {
-                arrayList.add(bU);
+            if (!TextUtils.isEmpty(str) && (bZ = b.bZ(str)) != null) {
+                arrayList.add(bZ);
             }
         }
         return arrayList;

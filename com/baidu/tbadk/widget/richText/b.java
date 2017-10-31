@@ -1,144 +1,91 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.app.Activity;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tieba.d;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
-public class b extends ClickableSpan {
-    private String aRD;
-    private int aRE;
-    private int mType;
-    private String mUrl;
-    private int color = -1;
-    private int textColor = -1;
-    private int urlType = 0;
+public class b extends BitmapDrawable {
+    private Context mContext;
+    private int mId;
+    private String mKey;
+    private Rect ru = null;
+    private Matrix mMatrix = null;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public String subType;
-        public int type;
-        public String url;
+    public b(Context context, int i) {
+        this.mId = 0;
+        this.mContext = null;
+        this.mKey = null;
+        this.mContext = context;
+        this.mId = i;
+        this.mKey = String.valueOf(this.mId);
+    }
 
-        public a(int i, String str, String str2) {
-            this.type = i;
-            this.url = str;
-            this.subType = str2;
+    @Override // android.graphics.drawable.Drawable
+    public void setBounds(int i, int i2, int i3, int i4) {
+        this.ru = new Rect(i, i2, i3, i4);
+        this.mMatrix = null;
+        super.setBounds(i, i2, i3, i4);
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setBounds(Rect rect) {
+        this.ru = new Rect(rect);
+        this.mMatrix = null;
+        super.setBounds(rect);
+    }
+
+    public void U(int i, int i2) {
+        if (this.ru != null) {
+            super.setBounds(this.ru.left, this.ru.top, this.ru.right + i, this.ru.bottom + i2);
         }
     }
 
-    public b(int i, String str) {
-        this.mType = 0;
-        this.mUrl = null;
-        this.mUrl = str;
-        this.mType = i;
-    }
-
-    public void fN(int i) {
-        this.aRE = i;
-    }
-
-    public void setColor(int i) {
-        this.color = i;
-    }
-
-    public void setTextColor(int i) {
-        this.textColor = i;
-    }
-
-    public void fO(int i) {
-        this.urlType = i;
-    }
-
-    public void gV(String str) {
-        this.aRD = str;
-    }
-
-    public String getLink() {
-        return this.mUrl;
-    }
-
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        if (this.textColor != -1) {
-            textPaint.setColor(aj.getColor(this.textColor));
-        } else {
-            textPaint.setColor(textPaint.linkColor);
-        }
-        textPaint.setUnderlineText(false);
-        if (this.color != -1) {
-            textPaint.bgColor = this.color;
-        } else if (this.aRE == 1 && (this.mType == 18 || this.mType == 2)) {
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textPaint.bgColor = aj.getColor(d.e.cp_bg_line_c);
-            } else {
-                textPaint.bgColor = aj.getColor(d.e.cp_bg_line_z);
-            }
-        } else if (this.aRE == 2) {
-            textPaint.bgColor = aj.getColor(d.e.transparent);
-        }
-    }
-
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-        int i = 2;
-        int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aRD));
-        if (this.mType == 2) {
-            if (this.urlType != 1) {
-                if (this.urlType == 2) {
-                    i = 1;
-                } else {
-                    i2 = 2;
-                    i = 1;
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        com.baidu.adp.widget.a.a aVar;
+        if (this.mId > 0 && this.mContext != null) {
+            com.baidu.tbadk.imageManager.c Eg = com.baidu.tbadk.imageManager.c.Eg();
+            com.baidu.adp.widget.a.a go = (Eg == null || this.mKey == null) ? null : Eg.go(this.mKey);
+            if (go == null) {
+                Bitmap resBitmap = BitmapHelper.getResBitmap(this.mContext, this.mId);
+                if (resBitmap != null) {
+                    go = new com.baidu.adp.widget.a.a(resBitmap, false, null);
                 }
+                if (Eg != null && go != null && this.mKey != null) {
+                    Eg.c(this.mKey, go);
+                }
+                aVar = go;
+            } else {
+                aVar = go;
             }
-            TiebaStatic.log(new ak("c11972").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).r("obj_type", i));
-        }
-        MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-    }
-
-    public static void a(TbPageContext<?> tbPageContext, int i, String str, String str2) {
-        if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof d)) {
-            d dVar = (d) tbPageContext.getOrignalPage();
-            Activity pageActivity = tbPageContext.getPageActivity();
-            switch (i) {
-                case 2:
-                    dVar.V(pageActivity, str);
-                    return;
-                case 16:
-                    dVar.U(pageActivity, str);
-                    return;
-                case 18:
-                    dVar.V(pageActivity, str);
-                    return;
-                case 32:
-                    dVar.W(pageActivity, str);
-                    return;
-                case 64:
-                    dVar.X(pageActivity, str);
-                    return;
-                case 128:
-                    dVar.Y(pageActivity, str);
-                    return;
-                case 256:
-                    dVar.g(pageActivity, str, str2);
-                    return;
-                case 1024:
-                    dVar.Z(pageActivity, str);
-                    return;
-                default:
-                    return;
+            if (aVar != null) {
+                int width = aVar.getWidth();
+                int height = aVar.getHeight();
+                if (width > 0 && height > 0 && this.ru != null) {
+                    canvas.save();
+                    canvas.clipRect(super.getBounds());
+                    if (height > this.ru.bottom - this.ru.top || width > this.ru.right - this.ru.left) {
+                        if (this.mMatrix == null) {
+                            this.mMatrix = new Matrix();
+                            this.mMatrix.postTranslate(0.0f, 0.0f);
+                            float f = (this.ru.right - this.ru.left) / width;
+                            float f2 = (this.ru.bottom - this.ru.top) / height;
+                            if (f >= f2) {
+                                f = f2;
+                            }
+                            this.mMatrix.postScale(f, f);
+                        }
+                        aVar.a(canvas, this.mMatrix, null);
+                    } else {
+                        aVar.a(canvas, 0.0f, 0.0f, (Paint) null);
+                    }
+                    canvas.restore();
+                }
             }
         }
     }

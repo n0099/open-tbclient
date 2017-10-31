@@ -4,17 +4,17 @@ import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p extends b implements r {
-    public static final BdUniqueId bNJ = BdUniqueId.gen();
-    public boolean bNK = true;
-    public boolean bNL = true;
-    public String bNM;
-    public List<o> bNN;
-    public int beh;
+    public static final BdUniqueId bVn = BdUniqueId.gen();
+    public boolean bVo = true;
+    public boolean bVp = true;
+    public String bVq;
+    public List<o> bVr;
+    public int beY;
     public int position;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return bNJ;
+        return bVn;
     }
 
     @Override // com.baidu.tieba.card.data.r
@@ -23,17 +23,17 @@ public class p extends b implements r {
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean XV() {
+    public boolean aaf() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dC(boolean z) {
-        this.bNK = z;
+    public void dB(boolean z) {
+        this.bVo = z;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dD(boolean z) {
-        this.bNL = z;
+    public void dC(boolean z) {
+        this.bVp = z;
     }
 }

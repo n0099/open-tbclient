@@ -19,7 +19,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
         this.mContext = context;
     }
 
-    private String nS() {
+    private String nZ() {
         ax.aT(this.mContext);
         JSResultData jSResultData = new JSResultData();
         jSResultData.setStatus(1);
@@ -28,17 +28,17 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
         return OrmObject.jsonStrWithObject(jSResultData);
     }
 
-    private String nT() {
+    private String oa() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FINISH_THIS_PAGE));
         return "";
     }
 
-    private String nU() {
+    private String ob() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_PAGE_REFRESH));
         return "";
     }
 
-    private void bY(String str) {
+    private void ce(String str) {
     }
 
     @Override // com.baidu.tieba.tbadkCore.e.b
@@ -47,7 +47,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             if ("startLoginModule".equals(str2)) {
                 try {
                     new JSONObject(str3);
-                    jsPromptResult.confirm(nS());
+                    jsPromptResult.confirm(nZ());
                     return true;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -57,7 +57,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                 try {
                     String optString = new JSONObject(str3).optString("url");
                     if (!StringUtils.isNull(optString)) {
-                        bY(optString);
+                        ce(optString);
                     }
                     jsPromptResult.confirm();
                     return true;
@@ -67,7 +67,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             }
             if ("personPageRefresh".equals(str2)) {
                 try {
-                    jsPromptResult.confirm(nU());
+                    jsPromptResult.confirm(ob());
                     return true;
                 } catch (Exception e3) {
                     e3.printStackTrace();
@@ -75,7 +75,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             }
             if ("finishThisPage".equals(str2)) {
                 try {
-                    jsPromptResult.confirm(nT());
+                    jsPromptResult.confirm(oa());
                     return true;
                 } catch (Exception e4) {
                     e4.printStackTrace();

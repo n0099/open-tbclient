@@ -5,18 +5,18 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class t implements com.baidu.tbadk.core.flow.a.a {
-    private String VE;
-    private String VF;
-    private String VG;
-    private String VH;
-    private boolean VI;
+    private String VW;
+    private String VX;
+    private String VY;
+    private String VZ;
+    private boolean Wa;
     private String mTitle;
     private String tagNameUrl;
     private float tagRatio;
 
     public t(String str, String str2, String str3) {
-        this.VE = str;
-        this.VF = str2;
+        this.VW = str;
+        this.VX = str2;
         this.mTitle = str3;
     }
 
@@ -25,31 +25,31 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.VE;
+        return this.VW;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String pG() {
-        return this.VF;
+    public String pL() {
+        return this.VX;
     }
 
-    public String pH() {
+    public String pM() {
         return this.tagNameUrl;
     }
 
-    public float pI() {
+    public float pN() {
         return this.tagRatio;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: pJ */
+    /* renamed from: pO */
     public t clone() {
         t tVar = new t();
-        tVar.VE = this.VE;
-        tVar.VF = this.VF;
+        tVar.VW = this.VW;
+        tVar.VX = this.VX;
         tVar.mTitle = this.mTitle;
-        tVar.VG = this.VG;
-        tVar.VH = this.VH;
+        tVar.VY = this.VY;
+        tVar.VZ = this.VZ;
         tVar.tagNameUrl = this.tagNameUrl;
         tVar.tagRatio = this.tagRatio;
         return tVar;
@@ -57,8 +57,8 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
 
     public void a(HeadImgs headImgs) {
         if (headImgs != null) {
-            this.VE = headImgs.img_url;
-            this.VF = headImgs.pc_url;
+            this.VW = headImgs.img_url;
+            this.VX = headImgs.pc_url;
             this.tagNameUrl = headImgs.tag_name_url;
             String str = headImgs.tag_name_wh;
             if (str != null) {
@@ -77,19 +77,19 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
                 this.mTitle = headImgs.title.trim();
             }
             if (headImgs.subtitle != null) {
-                this.VG = headImgs.subtitle.trim();
+                this.VY = headImgs.subtitle.trim();
             }
             if (headImgs.btn_text != null) {
-                this.VH = headImgs.btn_text.trim();
+                this.VZ = headImgs.btn_text.trim();
             }
         }
     }
 
-    public boolean pK() {
-        return this.VI;
+    public boolean pP() {
+        return this.Wa;
     }
 
-    public void am(boolean z) {
-        this.VI = z;
+    public void ak(boolean z) {
+        this.Wa = z;
     }
 }

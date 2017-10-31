@@ -40,7 +40,7 @@ public class AddLotteryCountRequestMessage extends NetMessage {
         builder.from_type = Integer.valueOf(this.mFromType);
         builder.thread_id = Long.valueOf(this.mThreadId);
         if (z) {
-            com.baidu.tbadk.util.m.bindCommonParamsToProtobufData(builder, true);
+            com.baidu.tbadk.util.o.bindCommonParamsToProtobufData(builder, true);
         }
         AddLotteryCountReqIdl.Builder builder2 = new AddLotteryCountReqIdl.Builder();
         builder2.data = builder.build(false);

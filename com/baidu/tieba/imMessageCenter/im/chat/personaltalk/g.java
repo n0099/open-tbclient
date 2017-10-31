@@ -16,69 +16,69 @@ import protobuf.QueryUserInfos.DataRes;
 import protobuf.QueryUserInfos.IconInfo;
 /* loaded from: classes2.dex */
 public class g {
-    private final View baq;
-    private final TextView bix;
-    private final UserIconBox cJa;
-    private final HeadImageView csn;
-    private final PersonalTalkSettingActivity dHj;
-    private TbSettingTextTipView dHn;
-    private TbSettingTextTipView dHo;
-    private RelativeLayout dHp;
-    private LinearLayout dHq;
-    public PersonaltalkSettingViewBlackManView dHr;
-    public PersonalTalkSettingViewSettingView dHs;
+    private final View baW;
+    private final TextView bjJ;
+    private final UserIconBox cSm;
+    private final HeadImageView czK;
+    private final PersonalTalkSettingActivity dOX;
+    private TbSettingTextTipView dPb;
+    private TbSettingTextTipView dPc;
+    private RelativeLayout dPd;
+    private LinearLayout dPe;
+    public PersonaltalkSettingViewBlackManView dPf;
+    public PersonalTalkSettingViewSettingView dPg;
     private final TextView mName;
     private final NavigationBar mNavigationBar;
 
     public g(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.dHj = personalTalkSettingActivity;
-        this.dHj.setContentView(d.j.p2ptalk_setting_activity);
-        this.baq = this.dHj.findViewById(d.h.person_talk_setting_parent);
-        this.mNavigationBar = (NavigationBar) this.baq.findViewById(d.h.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.dHj.getPageContext().getString(d.l.talk_detail));
+        this.dOX = personalTalkSettingActivity;
+        this.dOX.setContentView(d.h.p2ptalk_setting_activity);
+        this.baW = this.dOX.findViewById(d.g.person_talk_setting_parent);
+        this.mNavigationBar = (NavigationBar) this.baW.findViewById(d.g.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.dOX.getPageContext().getString(d.j.talk_detail));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.dHr = (PersonaltalkSettingViewBlackManView) this.dHj.findViewById(d.h.black_status_view);
-        this.dHs = (PersonalTalkSettingViewSettingView) this.dHj.findViewById(d.h.setting_detail_view);
-        this.dHq = (LinearLayout) this.dHj.findViewById(d.h.user_info_lin);
-        this.dHn = (TbSettingTextTipView) this.dHj.findViewById(d.h.st_delete_talk_history);
-        this.dHo = (TbSettingTextTipView) this.dHj.findViewById(d.h.add_to_black);
-        this.dHp = (RelativeLayout) this.dHj.findViewById(d.h.remove_from_black_man);
-        this.dHn.setOnClickListener(this.dHj);
-        this.dHo.setOnClickListener(this.dHj);
-        this.dHp.setOnClickListener(this.dHj);
-        this.dHq.setOnClickListener(this.dHj);
-        this.csn = (HeadImageView) this.dHj.findViewById(d.h.photo);
-        this.csn.setIsRound(true);
-        this.mName = (TextView) this.dHj.findViewById(d.h.name);
-        this.cJa = (UserIconBox) this.dHj.findViewById(d.h.user_icon_box);
-        this.bix = (TextView) this.dHj.findViewById(d.h.user_desc);
+        this.dPf = (PersonaltalkSettingViewBlackManView) this.dOX.findViewById(d.g.black_status_view);
+        this.dPg = (PersonalTalkSettingViewSettingView) this.dOX.findViewById(d.g.setting_detail_view);
+        this.dPe = (LinearLayout) this.dOX.findViewById(d.g.user_info_lin);
+        this.dPb = (TbSettingTextTipView) this.dOX.findViewById(d.g.st_delete_talk_history);
+        this.dPc = (TbSettingTextTipView) this.dOX.findViewById(d.g.add_to_black);
+        this.dPd = (RelativeLayout) this.dOX.findViewById(d.g.remove_from_black_man);
+        this.dPb.setOnClickListener(this.dOX);
+        this.dPc.setOnClickListener(this.dOX);
+        this.dPd.setOnClickListener(this.dOX);
+        this.dPe.setOnClickListener(this.dOX);
+        this.czK = (HeadImageView) this.dOX.findViewById(d.g.photo);
+        this.czK.setIsRound(true);
+        this.mName = (TextView) this.dOX.findViewById(d.g.name);
+        this.cSm = (UserIconBox) this.dOX.findViewById(d.g.user_icon_box);
+        this.bjJ = (TextView) this.dOX.findViewById(d.g.user_desc);
     }
 
     public void onChangeSkinType(int i) {
-        this.dHj.getLayoutMode().t(this.baq);
-        this.mNavigationBar.onChangeSkinType(this.dHj.getPageContext(), i);
+        this.dOX.getLayoutMode().t(this.baW);
+        this.mNavigationBar.onChangeSkinType(this.dOX.getPageContext(), i);
     }
 
-    public void i(boolean z, int i) {
+    public void h(boolean z, int i) {
         if (z) {
-            this.dHr.setSex(i);
-            this.dHr.setVisibility(0);
-            this.dHs.setVisibility(8);
+            this.dPf.setSex(i);
+            this.dPf.setVisibility(0);
+            this.dPg.setVisibility(8);
             return;
         }
-        this.dHs.setVisibility(0);
-        this.dHr.setVisibility(8);
+        this.dPg.setVisibility(0);
+        this.dPf.setVisibility(8);
     }
 
-    public void gS(boolean z) {
-        this.dHs.gS(z);
+    public void gO(boolean z) {
+        this.dPg.gO(z);
     }
 
     public void e(f fVar) {
         if (fVar != null) {
-            i(fVar.azO(), fVar.azN().sex.intValue());
-            gS(fVar.azM());
-            a(fVar.azN());
+            h(fVar.aCj(), fVar.aCi().sex.intValue());
+            gO(fVar.aCh());
+            a(fVar.aCi());
             f(fVar);
         }
     }
@@ -88,16 +88,16 @@ public class g {
         if (dataRes != null) {
             this.mName.setText(dataRes.name);
             if (dataRes.sex.intValue() == 1) {
-                this.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, d.g.icon_pop_boy, 0);
+                this.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, d.f.icon_pop_boy, 0);
             } else if (dataRes.sex.intValue() != 2) {
                 i = 9;
             } else if (dataRes.iconInfo.size() > 0 && dataRes.iconInfo.get(0).name.equals(IconData.meizhi_icon_name)) {
                 this.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
             } else {
-                this.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, d.g.icon_pop_girl, 0);
+                this.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, d.f.icon_pop_girl, 0);
             }
-            this.bix.setText(dataRes.intro);
-            if (this.cJa != null) {
+            this.bjJ.setText(dataRes.intro);
+            if (this.cSm != null) {
                 LinkedList linkedList = new LinkedList();
                 for (IconInfo iconInfo : dataRes.iconInfo) {
                     IconData iconData = new IconData();
@@ -105,22 +105,22 @@ public class g {
                     iconData.setIcon(iconInfo.iconUrl);
                     linkedList.add(iconData);
                 }
-                this.cJa.a(linkedList, i, this.dHj.getResources().getDimensionPixelSize(d.f.ds28), this.dHj.getResources().getDimensionPixelSize(d.f.ds28), this.dHj.getResources().getDimensionPixelSize(d.f.ds4));
+                this.cSm.a(linkedList, i, this.dOX.getResources().getDimensionPixelSize(d.e.ds28), this.dOX.getResources().getDimensionPixelSize(d.e.ds28), this.dOX.getResources().getDimensionPixelSize(d.e.ds4));
             }
         }
     }
 
     public void f(f fVar) {
         String str;
-        if (fVar != null && fVar.azN() != null && (str = fVar.azN().portrait) != null && str.length() > 0) {
-            this.csn.setImageResource(0);
-            this.csn.c(str, 12, false);
+        if (fVar != null && fVar.aCi() != null && (str = fVar.aCi().portrait) != null && str.length() > 0) {
+            this.czK.setImageResource(0);
+            this.czK.startLoad(str, 12, false);
         }
     }
 
-    public void b(BdSwitchView.a aVar) {
-        if (this.dHs != null) {
-            this.dHs.setSwitchStateChangeListener(aVar);
+    public void a(BdSwitchView.a aVar) {
+        if (this.dPg != null) {
+            this.dPg.setSwitchStateChangeListener(aVar);
         }
     }
 }

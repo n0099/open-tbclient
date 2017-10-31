@@ -28,7 +28,7 @@ public class StoryPageActivityConfig extends IntentConfig {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static int Te = 1;
+        public static int Tx = 1;
         public static int FROM_FRS = 2;
     }
 
@@ -56,13 +56,13 @@ public class StoryPageActivityConfig extends IntentConfig {
             long longExtra2 = intent.getLongExtra("thread_id", -1L);
             this.mStoryModel = makeStoryModel(i.Y(getContext()));
             if (this.mStoryModel != null) {
-                return l.bmR().a(this.mStoryModel, arrayList, intExtra, longExtra, longExtra2, new f() { // from class: com.baidu.tbadk.core.atomData.StoryPageActivityConfig.1
+                return l.bpW().a(this.mStoryModel, arrayList, intExtra, longExtra, longExtra2, new f() { // from class: com.baidu.tbadk.core.atomData.StoryPageActivityConfig.1
                     @Override // com.baidu.tieba.story.f
                     public void a(int i, String str, MetaData metaData, List<UserStoryData> list) {
                         Class<?> intentClass = TbadkCoreApplication.getInst().getIntentClass(StoryPageActivityConfig.this.getConfig().getClass());
                         if (intentClass != null) {
                             StoryPageActivityConfig.this.savePreLoadData(list);
-                            l.bmR().d(metaData);
+                            l.bpW().e(metaData);
                             StoryPageActivityConfig.this.getConfig().setComponentClass(intentClass);
                             StoryPageActivityConfig.this.getConfig().run();
                             if (StoryPageActivityConfig.this.mDoneCallback != null) {
@@ -102,10 +102,10 @@ public class StoryPageActivityConfig extends IntentConfig {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void savePreLoadData(List<UserStoryData> list) {
-        if (!v.u(list)) {
+        if (!v.v(list)) {
             for (UserStoryData userStoryData : list) {
                 if (userStoryData != null && userStoryData.storyUser != null) {
-                    l.bmR().a(userStoryData.storyUser.getUserIdLong(), userStoryData);
+                    l.bpW().a(userStoryData.storyUser.getUserIdLong(), userStoryData);
                 }
             }
         }

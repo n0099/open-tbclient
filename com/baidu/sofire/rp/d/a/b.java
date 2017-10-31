@@ -11,12 +11,12 @@ import java.net.URLEncoder;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class b extends a {
-    private com.baidu.sofire.rp.d.b.a Qd;
+    private com.baidu.sofire.rp.d.b.a Qs;
 
     public b(Context context) {
         super(context);
         this.b = context;
-        this.Qd = com.baidu.sofire.rp.d.b.a.as(context);
+        this.Qs = com.baidu.sofire.rp.d.b.a.as(context);
     }
 
     public final boolean b(String str) {
@@ -26,9 +26,9 @@ public final class b extends a {
         }
         try {
             byte[] b = com.baidu.sofire.rp.f.b.b();
-            String a = this.Qd.a(URLEncoder.encode(Base64.encodeToString(f.c(b, i.a(d.a(this.b)).getBytes()), 0)));
+            String a = this.Qs.a(URLEncoder.encode(Base64.encodeToString(f.c(b, i.a(d.a(this.b)).getBytes()), 0)));
             String str3 = a;
-            com.baidu.sofire.rp.d.b.a aVar = this.Qd;
+            com.baidu.sofire.rp.d.b.a aVar = this.Qs;
             byte[] a2 = com.baidu.sofire.rp.d.b.a.a(b, str);
             if (a2 != null) {
                 try {
@@ -59,7 +59,7 @@ public final class b extends a {
 
     public final void a(Context context) {
         try {
-            String a = this.Qd.a();
+            String a = this.Qs.a();
             r0 = a;
             String a2 = a(a);
             r0 = a2;
@@ -76,48 +76,48 @@ public final class b extends a {
                                     com.baidu.sofire.rp.a.a aVar = new com.baidu.sofire.rp.a.a(this.b);
                                     int optInt = jSONObject2.optInt("n");
                                     if (optInt > 0) {
-                                        aVar.PV.putInt("re_net_ty", optInt);
-                                        aVar.PV.commit();
+                                        aVar.Qk.putInt("re_net_ty", optInt);
+                                        aVar.Qk.commit();
                                     }
                                     int optInt2 = jSONObject2.optInt("i");
                                     if (optInt2 > 0) {
-                                        aVar.PV.putInt("re_net_hr", optInt2);
-                                        aVar.PV.commit();
+                                        aVar.Qk.putInt("re_net_hr", optInt2);
+                                        aVar.Qk.commit();
                                     }
                                     int optInt3 = jSONObject2.optInt("i2");
                                     if (optInt3 > 0) {
-                                        aVar.PV.putInt("re_net_hr_bc", optInt3);
-                                        aVar.PV.commit();
+                                        aVar.Qk.putInt("re_net_hr_bc", optInt3);
+                                        aVar.Qk.commit();
                                     }
                                     String str = Integer.toString(optInt2) + " " + Integer.toString(optInt3);
                                     int optInt4 = jSONObject2.optInt("w");
                                     if (optInt4 > 0) {
-                                        aVar.PV.putInt("re_net_wt", optInt4);
-                                        aVar.PV.commit();
+                                        aVar.Qk.putInt("re_net_wt", optInt4);
+                                        aVar.Qk.commit();
                                     }
                                     if (jSONObject2.optInt("s1") > 0) {
-                                        aVar.PV.putInt("re_net_one_lt", jSONObject2.optInt("s1"));
-                                        aVar.PV.commit();
+                                        aVar.Qk.putInt("re_net_one_lt", jSONObject2.optInt("s1"));
+                                        aVar.Qk.commit();
                                     }
                                     int optInt5 = jSONObject2.optInt("s2");
                                     if (optInt5 > 0) {
-                                        aVar.PV.putInt("re_net_dy_lt", optInt5);
-                                        aVar.PV.commit();
+                                        aVar.Qk.putInt("re_net_dy_lt", optInt5);
+                                        aVar.Qk.commit();
                                     }
                                     int optInt6 = jSONObject2.optInt(Info.kBaiduTimeKey);
                                     if (optInt6 > 0) {
-                                        aVar.PV.putInt("re_net_over", optInt6);
-                                        aVar.PV.commit();
+                                        aVar.Qk.putInt("re_net_over", optInt6);
+                                        aVar.Qk.commit();
                                     }
                                     int optInt7 = jSONObject2.optInt("l1");
                                     if (optInt7 > 0) {
-                                        aVar.PV.putInt("up_nu_co", optInt7);
-                                        aVar.PV.commit();
+                                        aVar.Qk.putInt("up_nu_co", optInt7);
+                                        aVar.Qk.commit();
                                     }
                                     int optInt8 = jSONObject2.optInt("l2");
                                     if (optInt8 > 0) {
-                                        aVar.PV.putInt("up_nu_li", optInt8);
-                                        aVar.PV.commit();
+                                        aVar.Qk.putInt("up_nu_li", optInt8);
+                                        aVar.Qk.commit();
                                     }
                                     String str2 = Integer.toString(optInt7) + " " + Integer.toString(optInt8);
                                 } catch (Throwable th) {

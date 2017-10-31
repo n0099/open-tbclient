@@ -5,63 +5,63 @@ import java.util.List;
 import tbclient.SeniorLottery;
 /* loaded from: classes.dex */
 public class bb {
-    private ak XI;
-    private List<f> XJ;
-    private String XK;
-    private List<g> XL;
-    private String XM;
-    private List<aj> XN;
+    private ak Ya;
+    private List<f> Yb;
+    private String Yc;
+    private List<g> Yd;
+    private String Ye;
+    private List<aj> Yf;
 
-    public ak qD() {
-        return this.XI;
+    public ak qI() {
+        return this.Ya;
     }
 
-    public List<f> qE() {
-        return this.XJ;
+    public List<f> qJ() {
+        return this.Yb;
     }
 
-    public String qF() {
-        return this.XK;
+    public String qK() {
+        return this.Yc;
     }
 
-    public List<g> qG() {
-        return this.XL;
+    public List<g> qL() {
+        return this.Yd;
     }
 
-    public String qH() {
-        return this.XM;
+    public String qM() {
+        return this.Ye;
     }
 
-    public List<aj> qI() {
-        return this.XN;
+    public List<aj> qN() {
+        return this.Yf;
     }
 
     public void a(SeniorLottery seniorLottery) {
         if (seniorLottery != null) {
-            this.XI = new ak();
-            this.XI.a(seniorLottery.theme);
-            this.XJ = new ArrayList();
+            this.Ya = new ak();
+            this.Ya.a(seniorLottery.theme);
+            this.Yb = new ArrayList();
             int size = seniorLottery.award_info.size();
             for (int i = 0; i < size; i++) {
                 f fVar = new f();
                 fVar.a(seniorLottery.award_info.get(i));
-                this.XJ.add(fVar);
+                this.Yb.add(fVar);
             }
-            this.XK = seniorLottery.myaward;
-            this.XL = new ArrayList();
+            this.Yc = seniorLottery.myaward;
+            this.Yd = new ArrayList();
             int size2 = seniorLottery.luck_users.size();
             for (int i2 = 0; i2 < size2; i2++) {
                 g gVar = new g();
                 gVar.a(seniorLottery.luck_users.get(i2));
-                this.XL.add(gVar);
+                this.Yd.add(gVar);
             }
-            this.XM = seniorLottery.act_desc;
-            this.XN = new ArrayList();
+            this.Ye = seniorLottery.act_desc;
+            this.Yf = new ArrayList();
             int size3 = seniorLottery.act_regular.size();
             for (int i3 = 0; i3 < size3; i3++) {
                 aj ajVar = new aj();
                 ajVar.a(seniorLottery.act_regular.get(i3));
-                this.XN.add(ajVar);
+                this.Yf.add(ajVar);
             }
         }
     }

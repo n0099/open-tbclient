@@ -8,13 +8,12 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.Scroller;
-import com.baidu.tbadk.TbConfig;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private int HV;
-    private float aNX;
-    private boolean aoJ;
+    private float aOe;
+    private boolean ape;
+    private int mDuration;
     private int mTouchSlop;
 
     /* loaded from: classes.dex */
@@ -25,12 +24,12 @@ public class TbViewPager extends ViewPager {
 
         @Override // android.widget.Scroller
         public void startScroll(int i, int i2, int i3, int i4, int i5) {
-            super.startScroll(i, i2, i3, i4, TbViewPager.this.HV);
+            super.startScroll(i, i2, i3, i4, TbViewPager.this.mDuration);
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i, int i2, int i3, int i4) {
-            super.startScroll(i, i2, i3, i4, TbViewPager.this.HV);
+            super.startScroll(i, i2, i3, i4, TbViewPager.this.mDuration);
         }
 
         public void b(ViewPager viewPager) {
@@ -45,25 +44,25 @@ public class TbViewPager extends ViewPager {
     }
 
     public void setViewPagerScroll(int i) {
-        this.HV = i;
+        this.mDuration = i;
         new a(getContext()).b(this);
     }
 
     public int getScrollingDuration() {
-        return this.HV;
+        return this.mDuration;
     }
 
     public TbViewPager(Context context) {
         super(context);
-        this.aoJ = false;
-        this.HV = TbConfig.POST_IMAGE_SMALL;
+        this.ape = false;
+        this.mDuration = 600;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aoJ = false;
-        this.HV = TbConfig.POST_IMAGE_SMALL;
+        this.ape = false;
+        this.mDuration = 600;
         init();
     }
 
@@ -73,7 +72,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.aoJ = z;
+        this.ape = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -82,7 +81,7 @@ public class TbViewPager extends ViewPager {
         if (k(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.aoJ) {
+        if (motionEvent.getPointerCount() > 1 && this.ape) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -109,30 +108,30 @@ public class TbViewPager extends ViewPager {
             case 0:
             case 5:
             case 6:
-                aQ(true);
-                this.aNX = motionEvent.getX();
+                aO(true);
+                this.aOe = motionEvent.getX();
                 break;
             case 1:
             case 3:
-                aQ(false);
-                this.aNX = 0.0f;
+                aO(false);
+                this.aOe = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.aNX;
+                float x = motionEvent.getX() - this.aOe;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
-                        aQ(false);
+                        aO(false);
                         break;
                     } else {
-                        aQ(true);
+                        aO(true);
                         break;
                     }
                 } else if (getCurrentItem() == getAdapter().getCount() - 1) {
                     if (x <= (-this.mTouchSlop)) {
-                        aQ(false);
+                        aO(false);
                         break;
                     } else {
-                        aQ(true);
+                        aO(true);
                         break;
                     }
                 }
@@ -153,7 +152,7 @@ public class TbViewPager extends ViewPager {
         return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
     }
 
-    private void aQ(boolean z) {
+    private void aO(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }

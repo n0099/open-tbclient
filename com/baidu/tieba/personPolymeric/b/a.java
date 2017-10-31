@@ -9,15 +9,15 @@ public interface a {
 
     void a(com.baidu.tieba.personPolymeric.c.a aVar);
 
-    f aWr();
+    f aZu();
 
-    void aWs();
+    void aZv();
 
     void b(BaseFragment baseFragment);
 
-    void kh(boolean z);
+    void kb(boolean z);
 
-    void ki(boolean z);
+    void kc(boolean z);
 
     void onChangeSkinType(int i);
 

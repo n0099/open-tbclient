@@ -47,15 +47,15 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(d.l.error_unkown_try_again));
-                } else if (getError() != 0) {
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(d.j.error_unkown_try_again));
+                } else {
                     setErrorString(errorData.getError_msg());
                 }
                 return jSONObject;
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
-                setErrorString(TbadkCoreApplication.getInst().getApp().getString(d.l.error_unkown_try_again));
+                setErrorString(TbadkCoreApplication.getInst().getApp().getString(d.j.error_unkown_try_again));
                 return jSONObject;
             }
         } catch (Exception e3) {

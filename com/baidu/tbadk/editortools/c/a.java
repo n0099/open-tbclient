@@ -7,9 +7,9 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends r {
     public a(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(d.l.editor_hot_tipc), 26, i);
-        this.aBh = d.g.btn_pb_add_topic_n;
-        this.aBi = false;
-        this.aBm = new int[]{43};
+        super(context, TbadkCoreApplication.getInst().getString(d.j.editor_hot_tipc), 26, i);
+        this.aBQ = d.f.btn_pb_add_topic_n;
+        this.aBR = false;
+        this.aBV = new int[]{43};
     }
 }

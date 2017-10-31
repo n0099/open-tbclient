@@ -17,10 +17,4 @@ public class FrsGroupActivityConfig extends IntentConfig {
             intent.putExtra("forum_name", str2);
         }
     }
-
-    public void showRecommend() {
-        if (getIntent() != null) {
-            getIntent().putExtra(SHOW_RECOMMEND_GROUP, true);
-        }
-    }
 }

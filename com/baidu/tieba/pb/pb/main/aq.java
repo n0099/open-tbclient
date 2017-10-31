@@ -1,65 +1,32 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.d;
+import android.view.View;
+import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
-public class aq {
-    private TbPageContext mH;
+public abstract class aq {
+    protected BaseActivity brJ;
+    protected View mRootView;
 
-    public aq(TbPageContext tbPageContext) {
-        this.mH = tbPageContext;
+    protected abstract void a(d dVar);
+
+    public aq(BaseActivity baseActivity, View view) {
+        this.brJ = baseActivity;
+        this.mRootView = view;
     }
 
-    public void i(String str, byte[] bArr) {
-        new a(str, bArr).execute(new String[0]);
+    public void init() {
+        b(null);
     }
 
-    /* loaded from: classes.dex */
-    private class a extends BdAsyncTask<String, Integer, String> {
-        byte[] mData;
-        String mUrl;
-
-        public a(String str, byte[] bArr) {
-            this.mUrl = null;
-            this.mData = null;
-            this.mUrl = str;
-            this.mData = bArr;
+    public void b(d dVar) {
+        if (this.brJ != null && this.mRootView != null) {
+            a(dVar);
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: i */
-        public String doInBackground(String... strArr) {
-            switch (com.baidu.tbadk.core.util.k.a(this.mUrl, this.mData, aq.this.mH.getPageActivity())) {
-                case -2:
-                    return com.baidu.tbadk.core.util.k.ua();
-                case -1:
-                default:
-                    return aq.this.mH.getString(d.l.save_fail);
-                case 0:
-                    return aq.this.mH.getString(d.l.save_image_to_album);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            super.onPostExecute((a) str);
-            aq.this.mH.showToast(str);
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            super.onCancelled();
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            super.cancel(true);
+    public void a(View view, View.OnClickListener onClickListener) {
+        if (view != null) {
+            view.setOnClickListener(onClickListener);
         }
     }
 }

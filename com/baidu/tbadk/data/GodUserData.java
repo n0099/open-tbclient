@@ -1,13 +1,13 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.GodInfo;
 /* loaded from: classes.dex */
 public class GodUserData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 1;
-    private boolean canSendCall;
     private long fid;
     private int followed;
     private Long id;
@@ -81,24 +81,15 @@ public class GodUserData extends OrmObject implements Serializable {
         this.isFromNetWork = z;
     }
 
-    public boolean isCanSendCall() {
-        return this.canSendCall;
-    }
-
-    public void setCanSendCall(boolean z) {
-        this.canSendCall = z;
-    }
-
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.id = Long.valueOf(jSONObject.optLong("id"));
             this.intro = jSONObject.optString("intro");
             this.type = jSONObject.optInt("type");
-            this.fid = jSONObject.optLong("fid");
+            this.fid = jSONObject.optLong(ImageViewerConfig.FORUM_ID);
             this.followed = jSONObject.optInt("followed");
             this.mForumName = jSONObject.optString("forum_name");
             this.mRecommendReason = jSONObject.optString("recommend_reason");
-            this.canSendCall = jSONObject.optInt("can_send_msg") == 1;
         }
     }
 
@@ -111,7 +102,6 @@ public class GodUserData extends OrmObject implements Serializable {
             this.followed = godInfo.followed.intValue();
             this.mForumName = godInfo.forum_name;
             this.mRecommendReason = godInfo.recommend_reason;
-            this.canSendCall = godInfo.can_send_msg.intValue() == 1;
         }
     }
 }

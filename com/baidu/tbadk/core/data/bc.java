@@ -1,7 +1,5 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
 import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class bc {
@@ -18,21 +16,8 @@ public class bc {
         return this.forumName;
     }
 
-    public int qJ() {
+    public int qO() {
         return this.forumLevel;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.forumId = String.valueOf(jSONObject.optLong("id", 0L));
-                this.forumName = jSONObject.optString("name");
-                this.avatar = jSONObject.optString("avatar");
-                this.forumLevel = jSONObject.optInt("level_id");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
     }
 
     public void parserProtobuf(SimpleForum simpleForum) {

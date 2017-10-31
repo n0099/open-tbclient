@@ -18,60 +18,60 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FrsPraiseView extends LinearLayout {
-    private TextView amz;
-    private View cKl;
-    private boolean eRN;
-    private TextView gdP;
-    private TextView gdQ;
-    private PraiseData gdR;
-    private boolean gdS;
+    private TextView amU;
+    private View cTw;
+    private boolean fav;
+    private TextView gmB;
+    private TextView gmC;
+    private PraiseData gmD;
+    private boolean gmE;
     private Context mContext;
     private String mPostId;
     private String mThreadId;
 
     public FrsPraiseView(Context context) {
         super(context, null);
-        this.eRN = false;
-        this.gdS = false;
+        this.fav = false;
+        this.gmE = false;
     }
 
     public FrsPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eRN = false;
-        this.gdS = false;
+        this.fav = false;
+        this.gmE = false;
         setOrientation(0);
         this.mContext = context;
         initView();
     }
 
     private void initView() {
-        this.cKl = View.inflate(this.mContext, d.j.frs_item_praise, this);
-        this.amz = (TextView) this.cKl.findViewById(d.h.frs_go_praise_list_num);
-        this.gdP = (TextView) this.cKl.findViewById(d.h.frs_praise_user_name_text1);
-        this.gdQ = (TextView) this.cKl.findViewById(d.h.frs_praise_user_name_text2);
+        this.cTw = View.inflate(this.mContext, d.h.frs_item_praise, this);
+        this.amU = (TextView) this.cTw.findViewById(d.g.frs_go_praise_list_num);
+        this.gmB = (TextView) this.cTw.findViewById(d.g.frs_praise_user_name_text1);
+        this.gmC = (TextView) this.cTw.findViewById(d.g.frs_praise_user_name_text2);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str = "";
-                if (FrsPraiseView.this.gdR != null) {
-                    str = FrsPraiseView.this.gdR.getTitle();
+                if (FrsPraiseView.this.gmD != null) {
+                    str = FrsPraiseView.this.gmD.getTitle();
                 }
-                com.baidu.tbadk.util.k.a(new PraiseListActivityConfig(FrsPraiseView.this.mContext, FrsPraiseView.this.mThreadId, FrsPraiseView.this.mPostId, str, FrsPraiseView.this.eRN));
+                com.baidu.tbadk.util.m.a(new PraiseListActivityConfig(FrsPraiseView.this.mContext, FrsPraiseView.this.mThreadId, FrsPraiseView.this.mPostId, str, FrsPraiseView.this.fav));
             }
         });
-        this.gdQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.2
+        this.gmC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MetaData metaData = FrsPraiseView.this.gdR.getUser().get(1);
+                MetaData metaData = FrsPraiseView.this.gmD.getUser().get(1);
                 if (metaData != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(FrsPraiseView.this.mContext).createNormalConfig(com.baidu.adp.lib.g.b.c(metaData.getUserId(), 0L), false, metaData.isBigV())));
                 }
             }
         });
-        this.gdP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.3
+        this.gmB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MetaData metaData = FrsPraiseView.this.gdR.getUser().get(0);
+                MetaData metaData = FrsPraiseView.this.gmD.getUser().get(0);
                 if (metaData != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(FrsPraiseView.this.mContext).createNormalConfig(com.baidu.adp.lib.g.b.c(metaData.getUserId(), 0L), false, metaData.isBigV())));
                 }
@@ -83,77 +83,77 @@ public class FrsPraiseView extends LinearLayout {
         if (praiseData != null) {
             this.mThreadId = str;
             this.mPostId = str2;
-            this.gdR = praiseData;
-            mv(z);
+            this.gmD = praiseData;
+            mq(z);
         }
     }
 
     public void setIsFromPb(boolean z) {
-        this.eRN = z;
+        this.fav = z;
     }
 
     public void setIsFromPbVideo(boolean z) {
-        this.gdS = z;
+        this.gmE = z;
     }
 
-    private void mv(boolean z) {
-        long num = this.gdR.getNum();
-        this.gdQ.setVisibility(8);
-        this.gdP.setVisibility(8);
+    private void mq(boolean z) {
+        long num = this.gmD.getNum();
+        this.gmC.setVisibility(8);
+        this.gmB.setVisibility(8);
         if (num > 0) {
-            ArrayList<MetaData> user = this.gdR.getUser();
+            ArrayList<MetaData> user = this.gmD.getUser();
             if (user != null && user.size() > 0) {
                 if (user.size() == 1) {
                     if (user.get(0) != null) {
-                        this.gdP.setVisibility(0);
-                        this.gdP.setText(rA(user.get(0).getName_show()));
+                        this.gmB.setVisibility(0);
+                        this.gmB.setText(si(user.get(0).getName_show()));
                     }
                 } else {
                     if (user.get(0) != null) {
-                        this.gdP.setVisibility(0);
-                        this.gdP.setText(rA(user.get(0).getName_show()));
+                        this.gmB.setVisibility(0);
+                        this.gmB.setText(si(user.get(0).getName_show()));
                     }
                     if (user.get(1) != null) {
-                        this.gdQ.setVisibility(0);
-                        this.gdQ.setText("、" + rA(user.get(1).getName_show()));
+                        this.gmC.setVisibility(0);
+                        this.gmC.setText("、" + si(user.get(1).getName_show()));
                     }
                 }
             }
             if (num <= 2) {
-                this.amz.setText(this.mContext.getString(d.l.common_praise_view_text));
+                this.amU.setText(this.mContext.getString(d.j.common_praise_view_text));
             } else if (num <= 999999) {
-                this.amz.setText(this.mContext.getString(d.l.etc) + num + this.mContext.getString(d.l.common_praise_view_text2));
+                this.amU.setText(this.mContext.getString(d.j.etc) + num + this.mContext.getString(d.j.common_praise_view_text2));
             } else {
-                this.amz.setText(this.mContext.getString(d.l.etc) + "999999+" + this.mContext.getString(d.l.common_praise_view_text2));
+                this.amU.setText(this.mContext.getString(d.j.etc) + "999999+" + this.mContext.getString(d.j.common_praise_view_text2));
             }
         }
     }
 
-    private String rA(String str) {
+    private String si(String str) {
         if (!TextUtils.isEmpty(str) && str.length() > 14) {
             return str.substring(0, 14);
         }
         return str;
     }
 
-    public void dD(int i) {
-        if (this.eRN) {
-            if (this.gdS) {
-                aj.j(this.cKl, d.g.praise_video_selector);
-                aj.c(this.amz, d.e.cp_cont_c, 1);
-                aj.c(this.gdP, d.e.cp_link_tip_c, 1);
-                aj.c(this.gdQ, d.e.cp_link_tip_c, 1);
+    public void dE(int i) {
+        if (this.fav) {
+            if (this.gmE) {
+                aj.j(this.cTw, d.f.praise_video_selector);
+                aj.c(this.amU, d.C0080d.cp_cont_c, 1);
+                aj.c(this.gmB, d.C0080d.cp_link_tip_c, 1);
+                aj.c(this.gmC, d.C0080d.cp_link_tip_c, 1);
                 return;
             }
-            aj.j(this.cKl, d.g.praise_head_selector);
-            aj.c(this.amz, d.e.cp_cont_d, 1);
-            aj.c(this.gdP, d.e.cp_link_tip_c, 1);
-            aj.c(this.gdQ, d.e.cp_link_tip_c, 1);
+            aj.j(this.cTw, d.f.praise_head_selector);
+            aj.c(this.amU, d.C0080d.cp_cont_d, 1);
+            aj.c(this.gmB, d.C0080d.cp_link_tip_c, 1);
+            aj.c(this.gmC, d.C0080d.cp_link_tip_c, 1);
             return;
         }
-        aj.j(this.cKl, d.g.praise_view_btn_color);
-        aj.c(this.amz, d.e.cp_cont_d, 1);
-        aj.c(this.gdP, d.e.cp_cont_c, 1);
-        aj.c(this.gdQ, d.e.cp_cont_c, 1);
+        aj.j(this.cTw, d.f.praise_view_btn_color);
+        aj.c(this.amU, d.C0080d.cp_cont_d, 1);
+        aj.c(this.gmB, d.C0080d.cp_cont_c, 1);
+        aj.c(this.gmC, d.C0080d.cp_cont_c, 1);
     }
 }

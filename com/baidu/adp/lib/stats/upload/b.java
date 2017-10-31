@@ -62,7 +62,7 @@ public class b {
         if (this.xi != null) {
             this.xi.wr = Build.MODEL;
             this.xi.wv = Build.VERSION.RELEASE;
-            this.xi.mNetType = d.ab(BdBaseApplication.getInst());
+            this.xi.mNetType = d.getNetType(BdBaseApplication.getInst());
             this.xi.wu = String.valueOf(j.hn());
         }
         try {
@@ -90,7 +90,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gG() {
-        this.xi.mNetType = d.ab(BdBaseApplication.getInst());
+        this.xi.mNetType = d.getNetType(BdBaseApplication.getInst());
         this.xi.wu = String.valueOf(j.hn());
     }
 

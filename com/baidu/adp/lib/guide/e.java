@@ -134,7 +134,7 @@ public class e extends ViewGroup {
                 rectF.right = (this.uh.width() + view.getMeasuredWidth()) / 2.0f;
                 rectF.offset(this.uh.left, 0.0f);
                 return;
-            case d.n.View_onClick /* 48 */:
+            case d.l.View_onClick /* 48 */:
                 rectF.right = this.uh.right;
                 rectF.left = rectF.right - view.getMeasuredWidth();
                 return;
@@ -154,7 +154,7 @@ public class e extends ViewGroup {
                 rectF.bottom = (this.uh.width() + view.getMeasuredHeight()) / 2.0f;
                 rectF.offset(0.0f, this.uh.top);
                 return;
-            case d.n.View_onClick /* 48 */:
+            case d.l.View_onClick /* 48 */:
                 rectF.bottom = this.uh.bottom;
                 rectF.top = this.uh.bottom - view.getMeasuredHeight();
                 return;

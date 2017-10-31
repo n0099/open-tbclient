@@ -11,15 +11,12 @@ public class PayConfig implements Serializable {
     public static final int PAYTYPE_TYPE_CARDBOX = 4;
     private static final long serialVersionUID = 1473520404420820966L;
     private int isAutoPay;
-    public long mCategoryId;
     public String mClickZone;
     private int mFrom;
     private String mIsLeft;
     private boolean mIsPay;
     private boolean mIsPayDialog;
     private String mMoney;
-    public boolean mNeedPayDetail;
-    public String mOrderId;
     public String mOrderInfo;
     private String mOrderName;
     private PageDialogHelper.PayForm mPayForm;
@@ -28,18 +25,13 @@ public class PayConfig implements Serializable {
     private String mPropsMon;
     public String mReferPage;
     private String mTitle;
-    public float mTotalPrice;
     public String paymentPosKey;
     private int tBeanNum;
 
     public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, String str6) {
         this.mOrderName = "";
         this.mTitle = "";
-        this.mOrderId = "";
-        this.mTotalPrice = 0.0f;
         this.mOrderInfo = "";
-        this.mCategoryId = 0L;
-        this.mNeedPayDetail = false;
         this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
         this.mPayType = i;
@@ -55,11 +47,7 @@ public class PayConfig implements Serializable {
     public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, boolean z2, PageDialogHelper.PayForm payForm, String str5, String str6) {
         this.mOrderName = "";
         this.mTitle = "";
-        this.mOrderId = "";
-        this.mTotalPrice = 0.0f;
         this.mOrderInfo = "";
-        this.mCategoryId = 0L;
-        this.mNeedPayDetail = false;
         this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
         this.mPayType = i;
@@ -87,11 +75,7 @@ public class PayConfig implements Serializable {
     public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, boolean z2, PageDialogHelper.PayForm payForm, String str6, String str7) {
         this.mOrderName = "";
         this.mTitle = "";
-        this.mOrderId = "";
-        this.mTotalPrice = 0.0f;
         this.mOrderInfo = "";
-        this.mCategoryId = 0L;
-        this.mNeedPayDetail = false;
         this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
         this.mPayType = i;

@@ -9,30 +9,30 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.EnterForumInfoMessage;
 import com.baidu.tbadk.core.message.RequestEnterForumDataMessage;
-import com.baidu.tieba.enterForum.b.g;
-import com.baidu.tieba.enterForum.b.h;
+import com.baidu.tieba.enterForum.data.f;
+import com.baidu.tieba.enterForum.data.g;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.baidu.tieba.tbadkCore.d.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class CoreSearchRequestStatic {
-    private static EnterForumModel ccB;
+    private static EnterForumModel cjX;
 
     static {
-        acG();
+        aeO();
     }
 
-    private static void acG() {
-        c.brI();
-        if (ccB == null) {
-            ccB = new EnterForumModel(null);
-            ccB.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1
+    private static void aeO() {
+        c.buM();
+        if (cjX == null) {
+            cjX = new EnterForumModel(null);
+            cjX.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1
                 @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
                 public void a(EnterForumModel.a aVar) {
-                    h acy = aVar.cdu.acy();
+                    g aeH = aVar.ckP.aeH();
                     ArrayList arrayList = new ArrayList();
-                    Iterator<g> it = acy.acE().iterator();
+                    Iterator<f> it = aeH.aeM().iterator();
                     while (it.hasNext()) {
                         arrayList.add(it.next().getName());
                     }
@@ -43,12 +43,12 @@ public class CoreSearchRequestStatic {
         MessageManager.getInstance().registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && CoreSearchRequestStatic.ccB.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+                if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && CoreSearchRequestStatic.cjX.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                     if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                        CoreSearchRequestStatic.ccB.a((forumRecommendSocketResponseMessage) responsedMessage);
+                        CoreSearchRequestStatic.cjX.a((forumRecommendSocketResponseMessage) responsedMessage);
                     }
                     if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                        CoreSearchRequestStatic.ccB.a((forumRecommendHttpResponseMessage) responsedMessage);
+                        CoreSearchRequestStatic.cjX.a((forumRecommendHttpResponseMessage) responsedMessage);
                     }
                 }
             }
@@ -59,9 +59,9 @@ public class CoreSearchRequestStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
                     if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                        CoreSearchRequestStatic.ccB.ei(true);
+                        CoreSearchRequestStatic.cjX.eg(true);
                     } else {
-                        CoreSearchRequestStatic.ccB.eh(true);
+                        CoreSearchRequestStatic.cjX.ef(true);
                     }
                 }
             }

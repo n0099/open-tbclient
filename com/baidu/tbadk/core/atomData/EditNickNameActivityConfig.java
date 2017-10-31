@@ -8,10 +8,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class EditNickNameActivityConfig extends IntentConfig {
-    public static final String PARAM_NICKNAME = "param_nickname";
     public static final String PARAM_TYPE = "param_type";
     public static final String PARAM_URL = "param_url";
-    public static final int TYPE_MODIFY_ACTIVITY = 1;
     public static final int TYPE_MODIFY_NICKNAME = 0;
 
     public EditNickNameActivityConfig(Context context, int i, int i2, String str) {
@@ -27,7 +25,7 @@ public class EditNickNameActivityConfig extends IntentConfig {
         if (Build.VERSION.SDK_INT >= 9) {
             return true;
         }
-        UtilHelper.showToast(getContext(), getContext().getString(d.l.live_error_system_not_support));
+        UtilHelper.showToast(getContext(), getContext().getString(d.j.live_error_system_not_support));
         return false;
     }
 }

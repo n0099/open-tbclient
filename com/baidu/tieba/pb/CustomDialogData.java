@@ -7,11 +7,14 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class CustomDialogData implements Serializable {
     public static final String POS_LEFT = "left";
-    public static final String POS_RIGHT = "right";
+    public static final int TYPE_ADD_THREAD = 2;
+    public static final int TYPE_AGREE = 0;
+    public static final int TYPE_REPLY = 1;
     public String body;
     public Head head;
     public Button leftButton;
     public Button rightButton;
+    public int type = -1;
 
     /* loaded from: classes.dex */
     public static class Button implements Serializable {

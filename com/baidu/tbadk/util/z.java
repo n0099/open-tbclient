@@ -1,81 +1,147 @@
 package com.baidu.tbadk.util;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.media.ExifInterface;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.os.Bundle;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class z {
-    public static int readPictureDegree(String str) {
-        try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
-                case 3:
-                    return SubsamplingScaleImageView.ORIENTATION_180;
-                case 4:
-                case 5:
-                case 7:
-                default:
-                    return 0;
-                case 6:
-                    return 90;
-                case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
+    public static String ar(String str, String str2) {
+        int indexOf = str.indexOf(str2);
+        if (indexOf != -1) {
+            int length = str2.length() + indexOf;
+            int i = length;
+            while (i < str.length() && str.charAt(i) != '&') {
+                i++;
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return 0;
+            try {
+                return URLDecoder.decode(str.substring(length, i));
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+                return "";
+            }
         }
+        return "";
     }
 
-    private static Bitmap fz(int i) {
-        Exception e;
-        try {
-            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.k.dc("camera.jpg"));
-            Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap("camera.jpg", i);
-            if (readPictureDegree != 0 && subSampleBitmap != null) {
-                try {
-                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
-                } catch (Exception e2) {
-                    e = e2;
-                    BdLog.e(e.getMessage());
-                    return null;
+    public static String as(String str, String str2) {
+        String[] split;
+        String str3 = "";
+        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
+            for (int i = 1; i < split.length; i++) {
+                String[] split2 = split[i].split("&");
+                if (split2 != null && split2.length > 0) {
+                    int length = split2.length;
+                    int i2 = 0;
+                    while (true) {
+                        if (i2 < length) {
+                            String[] split3 = split2[i2].split("=");
+                            if (split3.length == 2) {
+                                String str4 = split3[0];
+                                String str5 = split3[1];
+                                if (str2.equals(str4)) {
+                                    try {
+                                        str3 = URLDecoder.decode(str5);
+                                        break;
+                                    } catch (Exception e) {
+                                        str3 = str5;
+                                    }
+                                }
+                            }
+                            i2++;
+                        }
+                    }
                 }
             }
-            return subSampleBitmap;
-        } catch (Exception e3) {
-            e = e3;
         }
+        return str3;
     }
 
-    private static Bitmap e(Context context, String str, int i) {
-        try {
-            return BitmapHelper.loadResizedBitmap(str, i, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public static Bundle gY(String str) {
+        URL url;
+        String query;
+        String[] split;
+        if (StringUtils.isNull(str)) {
             return null;
         }
-    }
-
-    private static Bitmap a(Context context, Uri uri, int i) {
+        Bundle bundle = new Bundle();
         try {
-            return BitmapHelper.subSampleBitmap(context, uri, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            url = new URL(str);
+            query = url.getQuery();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
             return null;
         }
+        bundle.putString("path", url.getPath());
+        for (String str2 : split) {
+            String[] split2 = str2.split("=");
+            if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
+                bundle.putString(split2[0], split2[1]);
+            }
+        }
+        return bundle;
     }
 
-    public static Bitmap a(int i, Context context, Uri uri, String str, int i2) {
-        if (i == 12001) {
-            return fz(i2);
+    /* loaded from: classes.dex */
+    public static class a {
+        public String BDUSS;
+        public String aMI;
+
+        public a(String str, String str2) {
+            this.BDUSS = "";
+            this.aMI = "";
+            this.BDUSS = str;
+            this.aMI = str2;
         }
-        if (!TextUtils.isEmpty(str)) {
-            return e(context, str, i2);
+
+        public int hashCode() {
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aMI != null ? this.aMI.hashCode() : 0);
         }
-        return a(context, uri, i2);
+
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && getClass() == obj.getClass()) {
+                a aVar = (a) obj;
+                if (this.BDUSS == null) {
+                    if (aVar.BDUSS != null) {
+                        return false;
+                    }
+                } else if (!this.BDUSS.equals(aVar.BDUSS)) {
+                    return false;
+                }
+                return this.aMI == null ? aVar.aMI == null : this.aMI.equals(aVar.aMI);
+            }
+            return false;
+        }
+    }
+
+    public static void a(final BaseWebView baseWebView, BdUniqueId bdUniqueId) {
+        if (baseWebView != null) {
+            CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_WEBVIEW_LOGIN) { // from class: com.baidu.tbadk.util.z.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.adp.framework.listener.MessageListener
+                public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921024 && baseWebView != null) {
+                        baseWebView.reload();
+                    }
+                }
+            };
+            if (bdUniqueId != null) {
+                customMessageListener.setTag(bdUniqueId);
+                MessageManager.getInstance().registerListener(customMessageListener);
+            }
+        }
     }
 }

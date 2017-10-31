@@ -7,26 +7,26 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class BdBaseViewPager extends ViewPager {
-    private boolean aoJ;
-    private boolean aoK;
+    private boolean ape;
+    private boolean apf;
     private float x;
     private float y;
 
     public BdBaseViewPager(Context context) {
         super(context);
-        this.aoJ = false;
-        this.aoK = false;
+        this.ape = false;
+        this.apf = false;
     }
 
     public BdBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aoJ = false;
-        this.aoK = false;
+        this.ape = false;
+        this.apf = false;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.aoJ = z;
+        this.ape = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -35,7 +35,7 @@ public class BdBaseViewPager extends ViewPager {
         if (k(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.aoJ) {
+        if (motionEvent.getPointerCount() > 1 && this.ape) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -56,7 +56,7 @@ public class BdBaseViewPager extends ViewPager {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.aoK) {
+        if (this.apf) {
             return false;
         }
         if (k(motionEvent)) {
@@ -67,15 +67,15 @@ public class BdBaseViewPager extends ViewPager {
                 this.x = getX();
                 this.y = getY();
                 if (Math.abs(this.x - getX()) <= Math.abs(this.y - getY())) {
-                    aQ(true);
+                    aO(true);
                     break;
                 } else {
-                    aQ(false);
+                    aO(false);
                     break;
                 }
             case 1:
             default:
-                aQ(true);
+                aO(true);
                 break;
             case 2:
                 if (Math.abs(this.x - getX()) <= Math.abs(this.y - getY())) {
@@ -87,7 +87,7 @@ public class BdBaseViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.aoK) {
+        if (this.apf) {
             return false;
         }
         switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
@@ -95,11 +95,11 @@ public class BdBaseViewPager extends ViewPager {
             case 2:
             case 5:
             case 6:
-                aQ(true);
+                aO(true);
                 break;
             case 1:
             case 3:
-                aQ(false);
+                aO(false);
                 break;
         }
         if (k(motionEvent)) {
@@ -117,13 +117,13 @@ public class BdBaseViewPager extends ViewPager {
         return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
     }
 
-    private void aQ(boolean z) {
+    private void aO(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }
     }
 
     public void setmDisallowSlip(boolean z) {
-        this.aoK = z;
+        this.apf = z;
     }
 }

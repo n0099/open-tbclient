@@ -1,76 +1,41 @@
 package com.baidu.tieba.homepage.personalize.a;
 
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tieba.card.data.q;
+import com.baidu.tieba.card.t;
+import com.baidu.tieba.card.u;
 /* loaded from: classes.dex */
-public class k extends BaseAdapter {
-    private com.baidu.tieba.homepage.personalize.data.f cZv;
+public class k extends com.baidu.adp.widget.ListView.a<q, com.baidu.tieba.card.a.a<t>> {
+    private TbPageContext<?> mPageContext;
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.cZv == null || this.cZv.dai == null) {
-            return 0;
-        }
-        return this.cZv.dai.size();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public k(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), q.bVK);
+        this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: lg */
-    public com.baidu.tieba.homepage.personalize.data.g getItem(int i) {
-        if (this.cZv == null || this.cZv.dai == null) {
-            return null;
-        }
-        return this.cZv.dai.get(i);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: S */
+    public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
+        t tVar = new t(this.mPageContext);
+        tVar.u("c10718", "c10719", "c10742");
+        return new com.baidu.tieba.card.a.a(tVar);
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        TextView textView;
-        if (view instanceof TextView) {
-            textView = (TextView) view;
-        } else {
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds10);
-            textView = new TextView(viewGroup.getContext());
-            textView.setSingleLine();
-            textView.setEllipsize(TextUtils.TruncateAt.END);
-            textView.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
-            textView.setGravity(17);
-            textView.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.fontsize28));
-            textView.setLayoutParams(new AbsListView.LayoutParams(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds146), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds60)));
-        }
-        com.baidu.tieba.homepage.personalize.data.g item = getItem(i);
-        if (item != null) {
-            textView.setText(item.tagName);
-            if (item.isSelect) {
-                aj.i(textView, d.e.cp_cont_g);
-                aj.j(textView, d.g.shape_semi_circle_all_selected);
-            } else {
-                aj.i(textView, d.e.cp_cont_f);
-                aj.j(textView, d.g.shape_semi_circle_all_line);
-            }
-        }
-        return textView;
-    }
-
-    public void a(com.baidu.tieba.homepage.personalize.data.f fVar) {
-        this.cZv = fVar;
-        notifyDataSetChanged();
-    }
-
-    public com.baidu.tieba.homepage.personalize.data.f apF() {
-        return this.cZv;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, q qVar, com.baidu.tieba.card.a.a aVar) {
+        aVar.aax().a((com.baidu.tieba.card.a) qVar);
+        aVar.aax().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        u.ZX().a(new ak("c10718").ac("obj_id", String.valueOf(qVar.bVL)));
+        return aVar.getView();
     }
 }

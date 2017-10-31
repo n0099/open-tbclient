@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util.c;
 
 import android.graphics.Bitmap;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aj;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class j extends a {
     private int procType;
@@ -27,35 +27,39 @@ public class j extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vP() {
+    public boolean vX() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vQ() {
+    public boolean vY() {
         return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
     /* renamed from: c */
-    public com.baidu.adp.widget.ImageView.a b(String str, String str2, Object... objArr) {
-        String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.ImageView.a gh = com.baidu.tbadk.imageManager.c.DT().gh(str3);
-        if (gh == null) {
-            Bitmap cQ = aj.cQ(com.baidu.adp.lib.g.b.g(str2, 0));
-            if (cQ == null) {
-                return null;
-            }
-            com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(cQ, false, str2);
-            com.baidu.tbadk.imageManager.c.DT().c(str3, aVar);
-            return aVar;
+    public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
+        com.baidu.adp.widget.a.a go = com.baidu.tbadk.imageManager.c.Eg().go(str);
+        if (go == null || go.kK() == null) {
+            return null;
         }
-        return gh;
+        return go;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
+    /* renamed from: b */
+    public com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
+        Bitmap decodeFile;
+        if (StringUtils.isNull(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
+            return null;
+        }
+        return new com.baidu.adp.widget.a.a(decodeFile, false);
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int vR() {
+    public int vZ() {
         return this.procType;
     }
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
 import dalvik.system.DexClassLoader;
 import dalvik.system.PathClassLoader;
 import java.io.File;
@@ -22,7 +21,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0012a {
-        public boolean EN;
+        public boolean Ey;
         public String mErrMsg;
     }
 
@@ -124,14 +123,14 @@ public class a {
                 declaredMethod.invoke(v, str2, null);
                 Object d = d(x(v), x(v2));
                 if (d instanceof File[]) {
-                    Arrays.sort((File[]) d, kg());
+                    Arrays.sort((File[]) d, kd());
                     list = d;
                 } else {
                     boolean z2 = d instanceof List;
                     list = d;
                     if (z2) {
                         List list4 = (List) d;
-                        Collections.sort(list4, kg());
+                        Collections.sort(list4, kd());
                         list = list4;
                     }
                 }
@@ -145,14 +144,14 @@ public class a {
                 a(v, v.getClass(), "dexElements", z ? d(w(v), w(v2)) : d(w(v2), w(v)));
                 Object d2 = d(x(v), x(v2));
                 if (d2 instanceof File[]) {
-                    Arrays.sort((File[]) d2, kg());
+                    Arrays.sort((File[]) d2, kd());
                     list3 = d2;
                 } else {
                     boolean z3 = d2 instanceof List;
                     list3 = d2;
                     if (z3) {
                         List list5 = (List) d2;
-                        Collections.sort(list5, kg());
+                        Collections.sort(list5, kd());
                         list3 = list5;
                     }
                 }
@@ -166,14 +165,14 @@ public class a {
                 a(v, v.getClass(), "dexElements", z ? d(w(v), w(v2)) : d(w(v2), w(v)));
                 Object d3 = d(x(v), x(v2));
                 if (d3 instanceof File[]) {
-                    Arrays.sort((File[]) d3, kg());
+                    Arrays.sort((File[]) d3, kd());
                     list2 = d3;
                 } else {
                     boolean z4 = d3 instanceof List;
                     list2 = d3;
                     if (z4) {
                         List list6 = (List) d3;
-                        Collections.sort(list6, kg());
+                        Collections.sort(list6, kd());
                         list2 = list6;
                     }
                 }
@@ -277,7 +276,7 @@ public class a {
 
     private static C0012a a(boolean z, Throwable th) {
         C0012a c0012a = new C0012a();
-        c0012a.EN = z;
+        c0012a.Ey = z;
         c0012a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0012a;
     }
@@ -314,7 +313,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> kg() {
+    private static final Comparator<File> kd() {
         return new Comparator<File>() { // from class: com.baidu.adp.plugin.util.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
@@ -332,6 +331,6 @@ public class a {
         if (str == null || str2 == null) {
             return 0;
         }
-        return (str.contains(TbConfig.MAIN_PACKAGE_NAME) ? -1 : 0) - (str2.contains(TbConfig.MAIN_PACKAGE_NAME) ? -1 : 0);
+        return (str.contains("com.baidu.tieba") ? -1 : 0) - (str2.contains("com.baidu.tieba") ? -1 : 0);
     }
 }

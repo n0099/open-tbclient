@@ -2,21 +2,19 @@ package com.baidu.tieba.personCenter.b;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.personCenter.c.e;
+import com.baidu.tieba.personCenter.data.e;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private com.baidu.tieba.personCenter.a.c eZP;
+    private com.baidu.tieba.personCenter.a.c fif;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
-    private TbPageContext mTbPageContext;
 
     public d(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
-        this.mTbPageContext = tbPageContext;
         this.mListView = bdTypeListView;
-        this.eZP = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.far);
-        this.mAdapters.add(this.eZP);
+        this.fif = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.fiJ);
+        this.mAdapters.add(this.fif);
         this.mListView.addAdapters(this.mAdapters);
     }
 }

@@ -12,6 +12,7 @@ public class CmdConfigHttp {
     public static final int CMD_ADD_EXPERIENCED = 1003332;
     public static final int CMD_ADD_LINK = 1003324;
     public static final int CMD_ADD_MSG_RECORD = 1003071;
+    public static final int CMD_ADD_SUB_COMMENT = 1003380;
     public static final int CMD_ADD_USER_ATTR_URL = 1003018;
     public static final int CMD_ADD_USER_BOOKMARK = 1003166;
     public static final int CMD_ADD_VOTE = 1003043;
@@ -61,6 +62,7 @@ public class CmdConfigHttp {
     public static final int CMD_DEFAULT_GIFT_LIST = 1003045;
     public static final int CMD_DELETE_EMOTION_PACKAGE = 1003347;
     public static final int CMD_DELETE_GRAFFITTI = 1003098;
+    public static final int CMD_DELETE_SUB_COMMENT = 1003381;
     public static final int CMD_DEL_USER_BOOKMARK = 1003167;
     public static final int CMD_DO_DAILY_TASK = 1003173;
     public static final int CMD_DRESSUP_CENTER = 1003030;
@@ -134,6 +136,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_USER_INFO = 1003001;
     public static final int CMD_GET_USER_ORDER = 1003075;
     public static final int CMD_GET_USER_VIDEO_LIST = 1003312;
+    public static final int CMD_GET_VIDEO_ACTIVITY = 1003376;
     public static final int CMD_GIFT_LIST_BY_CATEGORY = 1003046;
     public static final int CMD_GIFT_PALCE_ORDER = 1003053;
     public static final int CMD_GOD_THREAD_LIST = 1003074;
@@ -180,6 +183,7 @@ public class CmdConfigHttp {
     public static final int CMD_SEARCH_LIST = 1003196;
     public static final int CMD_SEARCH_PB_EMOTION = 1003330;
     public static final int CMD_SEARCH_POST_FORUM = 1003335;
+    public static final int CMD_SELECT_SUB_COMMENT = 1003379;
     public static final int CMD_SEND_BLESS = 1003080;
     public static final int CMD_SEND_FREE_GIFT = 1003052;
     public static final int CMD_SET_COMMON_FORUM_STATE = 1003151;
@@ -219,10 +223,13 @@ public class CmdConfigHttp {
     public static final int CMD_USER_MUTE_CHECK = 1003025;
     public static final int CMD_USER_MUTE_DEL = 1003028;
     public static final int CMD_USER_MUTE_QUERY = 1003026;
+    public static final int CMD_USER_REPORT = 1003382;
     public static final int CMD_VIDEO_ACTIVE_INFO = 1003191;
     public static final int CMD_VIDEO_AGGREGATION = 1003360;
     public static final int CMD_VIDEO_CLOUD_MUSIC_LIST = 1003367;
     public static final int CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS = 1003371;
+    public static final int CMD_VIDEO_COVER_PENDANT = 1003377;
+    public static final int CMD_VIDEO_MIDDLE_AGGREGATION = 1003378;
     public static final int CMD_VIDEO_SUG_MUSIC = 1003366;
     public static final int CMD_VIDEO_TEXT_UEG = 1003356;
     public static final int CMD_VOTE_EMOTION = 1003358;
@@ -241,6 +248,7 @@ public class CmdConfigHttp {
     public static final int FRS_HTTP_CMD = 1001703;
     public static final int FRS_LIST = 1001700;
     public static final int FRS_LIVE_TAB_CMD = 1001708;
+    public static final int FRS_LIVE_TIP_CMD = 1001713;
     public static final int FRS_LOAD_MORE_CMD = 1001704;
     public static final int FRS_MANGA_TAB_CMD = 1001711;
     public static final int FRS_MEMBER_TAB_CMD = 1001706;

@@ -20,18 +20,18 @@ public class c extends o {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.o
-    public String nV() {
+    public String oc() {
         return "TBHY_COMMON_Utils";
     }
 
-    @p(tJ = false, value = "showToast")
+    @p(tQ = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString(PushConstants.EXTRA_PUSH_MESSAGE)).tj();
+            BdToast.a(getContext(), jSONObject.optString(PushConstants.EXTRA_PUSH_MESSAGE)).tq();
         }
     }
 
-    @p(tJ = false, value = "showNetStatus")
+    @p(tQ = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
@@ -57,13 +57,13 @@ public class c extends o {
         return jSONObject;
     }
 
-    @p(tJ = false, value = "showDeviceInfo")
+    @p(tQ = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
-        String str3 = String.valueOf(l.ad(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(l.af(getContext()));
+        String str3 = String.valueOf(l.ac(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(l.ae(getContext()));
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
             jSONObject.put("systemName", "android");

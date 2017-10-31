@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class HotTopicActivityConfig extends IntentConfig {
@@ -19,9 +18,5 @@ public class HotTopicActivityConfig extends IntentConfig {
         intent.putExtra(IntentConfig.TOPIC_NAME, str2);
         intent.putExtra("from", str3);
         return this;
-    }
-
-    public static boolean isHotTopicAvailable() {
-        return TbadkCoreApplication.getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
     }
 }

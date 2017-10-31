@@ -9,53 +9,54 @@ import com.baidu.tbadk.core.util.k;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final String atF = k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public String WT;
-    public int atC;
-    private Bundle atE;
-    public int ats;
-    public String att;
-    public String aty;
-    public String atz;
+    public static final String auc = k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public String Xl;
+    public int atO;
+    public String atP;
+    public String atU;
+    public String atV;
+    public int atY;
+    private Bundle aub;
     public String fid;
     public String uid;
-    public boolean atk = false;
-    public boolean atl = false;
-    public boolean atm = false;
-    public boolean atn = false;
-    public boolean ato = false;
-    public boolean atp = false;
-    public boolean atq = false;
-    public String atr = "";
-    public int atA = 0;
-    public int atB = 3;
+    public boolean atG = false;
+    public boolean atH = false;
+    public boolean atI = false;
+    public boolean atJ = false;
+    public boolean atK = false;
+    public boolean atL = false;
+    public boolean atM = false;
+    public String atN = "";
+    public int atW = 0;
+    public int atX = 3;
+    public boolean atZ = false;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String atu = null;
-    public Uri atv = null;
-    public Location atw = null;
-    private WeakReference<Bitmap> atD = null;
-    public String atx = null;
+    public String atQ = null;
+    public Uri atR = null;
+    public Location atS = null;
+    private WeakReference<Bitmap> aua = null;
+    public String atT = null;
     public String extData = null;
 
-    public Bundle Ao() {
-        return this.atE;
+    public Bundle Ax() {
+        return this.aub;
     }
 
     public void e(Bundle bundle) {
-        this.atE = bundle;
+        this.aub = bundle;
     }
 
-    public Bitmap Ap() {
+    public Bitmap Ay() {
         Bitmap bitmap;
-        if (this.atD == null || (bitmap = this.atD.get()) == null || bitmap.isRecycled()) {
+        if (this.aua == null || (bitmap = this.aua.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void e(Bitmap bitmap) {
-        this.atD = new WeakReference<>(bitmap);
+        this.aua = new WeakReference<>(bitmap);
     }
 }

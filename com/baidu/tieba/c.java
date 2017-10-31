@@ -27,16 +27,16 @@ public class c {
         }
         final long currentTimeMillis = System.currentTimeMillis();
         final ImageView imageView = new ImageView(tbPageContext.getPageActivity());
-        aj.j(imageView, d.g.circle_shape);
-        int dimensionPixelSize = tbPageContext.getResources().getDimensionPixelSize(d.f.ds140);
+        aj.j(imageView, d.f.circle_shape);
+        int dimensionPixelSize = tbPageContext.getResources().getDimensionPixelSize(d.e.ds140);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
-        layoutParams.topMargin = tbPageContext.getResources().getDimensionPixelSize(d.f.ds374);
+        layoutParams.topMargin = tbPageContext.getResources().getDimensionPixelSize(d.e.ds374);
         layoutParams.addRule(14);
         relativeLayout.addView(imageView, layoutParams);
         final GifView gifView = new GifView(tbPageContext.getPageActivity());
         gifView.setAutoPlay(false);
         gifView.setIsKeepLastFrame(true);
-        gifView.setGifRaw(d.k.qidong);
+        gifView.setGifRaw(d.i.qidong);
         gifView.setVisibility(4);
         gifView.setPlayCallback(new GifView.a() { // from class: com.baidu.tieba.c.1
             @Override // com.baidu.tbadk.gif.GifView.a
@@ -51,9 +51,9 @@ public class c {
                 }
             }
         });
-        int dimensionPixelSize2 = tbPageContext.getResources().getDimensionPixelSize(d.f.ds640);
+        int dimensionPixelSize2 = tbPageContext.getResources().getDimensionPixelSize(d.e.ds640);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimensionPixelSize2, dimensionPixelSize2);
-        layoutParams2.topMargin = tbPageContext.getResources().getDimensionPixelSize(d.f.ds100);
+        layoutParams2.topMargin = tbPageContext.getResources().getDimensionPixelSize(d.e.ds100);
         layoutParams2.addRule(14);
         relativeLayout.addView(gifView, layoutParams2);
         ScaleAnimation scaleAnimation = new ScaleAnimation(50.0f, 1.0f, 50.0f, 1.0f, 1, 0.5f, 1, 0.5f);
@@ -71,7 +71,7 @@ public class c {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 GifView.this.setVisibility(0);
-                GifView.this.DM();
+                GifView.this.Eb();
             }
         });
         imageView.startAnimation(scaleAnimation);

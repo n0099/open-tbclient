@@ -15,7 +15,6 @@ public class UserStoryData implements Serializable {
     public MetaData storyUser;
     public int lastStoryFragIndex = 0;
     public boolean isTimeout = false;
-    public boolean isLoadSucc = false;
     public int otherUid = 0;
     public int storyUserType = 0;
     public List<bh> storyList = new LinkedList();

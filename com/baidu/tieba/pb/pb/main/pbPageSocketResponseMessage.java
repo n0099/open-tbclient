@@ -9,7 +9,6 @@ import tbclient.PbPage.PbPageResIdl;
 public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     private String cacheKey;
     private Context context;
-    private boolean hasNetworkError;
     private boolean isFromMark;
     private com.baidu.tieba.pb.data.e mAppealInfo;
     private com.baidu.tieba.pb.data.f pbData;
@@ -23,24 +22,8 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         return this.mAppealInfo;
     }
 
-    public boolean hasNetworkError() {
-        return this.hasNetworkError;
-    }
-
     public int getUpdateType() {
         return this.updateType;
-    }
-
-    public String getCacheKey() {
-        return this.cacheKey;
-    }
-
-    public boolean getIsFromMark() {
-        return this.isFromMark;
-    }
-
-    public void setUpdateType(int i) {
-        this.updateType = i;
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
@@ -51,7 +34,6 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             this.updateType = pbPageRequestMessage.getUpdateType();
             this.cacheKey = pbPageRequestMessage.getCacheKey();
             this.isFromMark = pbPageRequestMessage.getIsFromMark();
-            this.hasNetworkError = hasError();
             this.context = pbPageRequestMessage.getContext();
         }
     }
@@ -71,7 +53,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.e();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.eya = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.eGe = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -91,10 +73,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                g.aPh().a(this.cacheKey, this.isFromMark, bArr);
+                i.aSn().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                g.aPh().m(this.cacheKey, bArr);
+                i.aSn().m(this.cacheKey, bArr);
                 return;
             default:
                 return;

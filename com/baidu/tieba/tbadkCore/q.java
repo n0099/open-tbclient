@@ -1,67 +1,28 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.os.Handler;
-import android.os.Message;
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bh;
 /* loaded from: classes.dex */
-public class q implements View.OnTouchListener {
-    private a gfq;
-    private int count = 0;
-    private long ezi = 0;
-    private long ezj = 0;
-    private long ezl = 500;
-    private Handler mHandler = new Handler() { // from class: com.baidu.tieba.tbadkCore.q.1
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            if (message.what == 2) {
-                q.this.count = 0;
-                q.this.ezi = 0L;
-                q.this.ezj = 0L;
-            } else if (message.what == 1 && q.this.count == 1) {
-                if (q.this.gfq != null) {
-                    q.this.gfq.ahO();
-                }
-                q.this.count = 0;
-                q.this.ezi = 0L;
-                q.this.ezj = 0L;
-            }
-        }
-    };
+public class q extends bh {
+    public static final BdUniqueId goc = BdUniqueId.gen();
+    private String fortune_desc;
+    private boolean goe;
+    private k gof;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void ahO();
-
-        void ahP();
+    public boolean btJ() {
+        return this.goe;
     }
 
-    public q(a aVar) {
-        this.gfq = aVar;
+    public String btK() {
+        return this.fortune_desc;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            if (this.gfq == null) {
-                return false;
-            }
-            this.count++;
-            if (this.count == 1) {
-                this.ezi = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.ezl);
-                return true;
-            } else if (this.count == 2) {
-                this.ezj = System.currentTimeMillis();
-                if (this.ezj - this.ezi < this.ezl) {
-                    this.gfq.ahP();
-                }
-                this.mHandler.sendEmptyMessage(2);
-                return true;
-            } else {
-                return true;
-            }
-        }
-        return true;
+    public k btL() {
+        return this.gof;
+    }
+
+    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return goc;
     }
 }

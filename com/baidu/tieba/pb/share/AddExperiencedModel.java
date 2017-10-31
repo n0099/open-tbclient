@@ -2,9 +2,7 @@ package com.baidu.tieba.pb.share;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.g.b;
 import com.baidu.adp.lib.util.StringUtils;
@@ -21,46 +19,33 @@ public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_ADVANCED = 6;
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
-    public static String WEIXIN_FRIEND = "weixin_friend";
-    public static String WEIXIN_TIMELINE = "weixin_timeline";
-    private HttpMessageListener eSo;
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.eSo = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED) { // from class: com.baidu.tieba.pb.share.AddExperiencedModel.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage instanceof AddExperiencedResponseMessage) {
-                    AddExperiencedResponseMessage addExperiencedResponseMessage = (AddExperiencedResponseMessage) httpResponsedMessage;
-                }
-            }
-        };
-        DJ();
-        registerListener(this.eSo);
+        DY();
     }
 
-    private void DJ() {
+    private void DY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_EXPERIENCED, TbConfig.SERVER_ADDRESS + TbConfig.URL_ADD_EXPERIENCED);
         tbHttpMessageTask.setResponsedClass(AddExperiencedResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bI(String str, String str2) {
+    public void bE(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
         sendMessage(httpMessage);
     }
 
-    public static boolean po(String str) {
+    public static boolean pT(String str) {
         return b.c(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean pp(String str) {
+    public static boolean pU(String str) {
         String str2;
         boolean z;
-        l<String> N = a.sX().N("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
+        l<String> N = a.td().N("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
         if (N != null) {
             String str3 = N.get(str);
             String currentDay = UtilHelper.getCurrentDay();

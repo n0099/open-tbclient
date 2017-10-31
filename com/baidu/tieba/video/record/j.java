@@ -1,142 +1,236 @@
 package com.baidu.tieba.video.record;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
-import com.baidu.tieba.video.record.VideoEffectLayout;
-import java.util.List;
+import android.app.Activity;
+import android.content.Context;
+import android.media.MediaPlayer;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
+import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.video.editvideo.data.MusicData;
+import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
+import com.baidu.tieba.video.editvideo.model.a;
+import com.baidu.tieba.video.record.c;
+import com.baidu.tieba.video.record.i;
+import java.io.File;
 /* loaded from: classes2.dex */
-public class j extends BaseAdapter {
-    private VideoEffectLayout.a gAt;
-    private List<StickerItem> mDataList;
+public class j implements i.a {
+    private MediaPlayer aZK;
+    private SelectMusicModel gDH;
+    private String gFQ;
+    private boolean gFU;
+    private String gFV;
+    private Context mContext;
+    private int mPosition;
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (v.u(this.mDataList)) {
-            return 0;
-        }
-        return (int) Math.ceil(this.mDataList.size() / 2.0d);
+    public j(Activity activity) {
+        this.mContext = activity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: uE */
-    public StickerItem getItem(int i) {
-        return (StickerItem) v.c(this.mDataList, i);
+    public void b(SelectMusicModel selectMusicModel) {
+        this.gDH = selectMusicModel;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(final int i, View view, ViewGroup viewGroup) {
-        a aVar;
-        if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(d.j.list_item_sticker, (ViewGroup) null);
-            aVar = new a();
-            aVar.gAx = (TbImageView) view.findViewById(d.h.top_sticker);
-            aVar.gAy = (TbImageView) view.findViewById(d.h.bottom_sticker);
-            aVar.gAv = (RelativeLayout) view.findViewById(d.h.top_container);
-            aVar.gAB = (ImageView) view.findViewById(d.h.no_sticker);
-            aVar.gAw = (RelativeLayout) view.findViewById(d.h.bottom_container);
-            aVar.gAz = (ProgressBar) view.findViewById(d.h.top_progressbar);
-            aVar.gAA = (ProgressBar) view.findViewById(d.h.bottom_progressbar);
-            view.setTag(aVar);
-        } else {
-            aVar = (a) view.getTag();
-        }
-        aVar.gAx.setAutoChangeStyle(false);
-        aVar.gAy.setAutoChangeStyle(false);
-        aVar.gAx.setGifIconSupport(false);
-        aVar.gAy.setGifIconSupport(false);
-        if (v.c(this.mDataList, i * 2) instanceof StickerItem) {
-            aVar.gAv.setVisibility(0);
-            if (this.mDataList.get(i * 2).id == -1) {
-                aVar.gAB.setVisibility(0);
-                aVar.gAx.setVisibility(8);
-                aVar.gAB.setImageResource(d.g.icon_video_sticker_no);
-            } else {
-                aVar.gAB.setVisibility(8);
-                aVar.gAx.setVisibility(0);
-                aVar.gAx.c(this.mDataList.get(i * 2).img, 10, true);
+    public void a(MusicData musicData, Object obj) {
+        if (musicData != null) {
+            switch (musicData.editMusicType) {
+                case 0:
+                    a(obj, musicData);
+                    return;
+                case 1:
+                    bhq();
+                    return;
+                case 2:
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CloudMusicActivityConfig(this.mContext, 25032)));
+                    return;
+                default:
+                    return;
             }
-            aVar.gAv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.j.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    if (!((StickerItem) j.this.mDataList.get(i * 2)).isSelect && j.this.gAt != null) {
-                        j.this.gAt.a((StickerItem) j.this.mDataList.get(i * 2));
-                    }
+        }
+    }
+
+    private void bhq() {
+        if (this.aZK != null) {
+            if (this.aZK.isPlaying()) {
+                this.aZK.stop();
+            }
+            this.aZK.release();
+            this.aZK = null;
+        }
+        this.gFQ = null;
+        this.gFV = null;
+    }
+
+    private void a(Object obj, final MusicData musicData) {
+        if (musicData != null && !TextUtils.isEmpty(musicData.resource)) {
+            if (this.aZK != null && this.aZK.isPlaying()) {
+                this.aZK.stop();
+            }
+            this.gFV = musicData.id;
+            String tj = com.baidu.tieba.video.editvideo.model.a.byQ().tj(musicData.resource);
+            if (TextUtils.isEmpty(tj)) {
+                if (obj instanceof c.a) {
+                    final c.a aVar = (c.a) obj;
+                    aVar.mProgressBar.setVisibility(0);
+                    aVar.gIl.setDrawBorder(false);
+                    aVar.gIl.invalidate();
+                    this.mPosition = aVar.position;
+                    com.baidu.tieba.video.editvideo.model.a.byQ().a(musicData.id, musicData.resource, new a.InterfaceC0131a() { // from class: com.baidu.tieba.video.record.j.1
+                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0131a
+                        public void cf(String str, String str2) {
+                            if (!TextUtils.isEmpty(str2)) {
+                                str = str2;
+                            }
+                            j.this.a(str, musicData);
+                            aVar.mProgressBar.setVisibility(4);
+                            aVar.gIl.setDrawBorder(true);
+                            aVar.gIl.invalidate();
+                        }
+
+                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0131a
+                        public void tf(String str) {
+                            aVar.mProgressBar.setVisibility(4);
+                            aVar.gIl.setDrawBorder(true);
+                            aVar.gIl.invalidate();
+                            com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), str);
+                        }
+
+                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0131a
+                        public void byq() {
+                            aVar.gIl.setDrawBorder(true);
+                            aVar.gIl.invalidate();
+                            aVar.mProgressBar.setVisibility(4);
+                        }
+                    });
+                    return;
                 }
-            });
-            if (this.mDataList.get(i * 2).isDownLoading) {
-                aVar.gAz.setVisibility(0);
-            } else {
-                aVar.gAz.setVisibility(8);
-            }
-            if (this.mDataList.get(i * 2).isSelect) {
-                aj.j(aVar.gAv, d.g.bg_select_sticker);
-            } else {
-                aVar.gAv.setBackgroundResource(d.e.transparent);
-            }
-        } else {
-            aVar.gAv.setVisibility(8);
-        }
-        if (v.c(this.mDataList, (i * 2) + 1) instanceof StickerItem) {
-            aVar.gAw.setVisibility(0);
-            aVar.gAy.c(this.mDataList.get((i * 2) + 1).img, 10, true);
-            aVar.gAw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.j.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    if (!((StickerItem) j.this.mDataList.get((i * 2) + 1)).isSelect && j.this.gAt != null) {
-                        j.this.gAt.a((StickerItem) j.this.mDataList.get((i * 2) + 1));
+                com.baidu.tieba.video.editvideo.model.a.byQ().a(musicData.id, musicData.resource, new a.InterfaceC0131a() { // from class: com.baidu.tieba.video.record.j.2
+                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0131a
+                    public void cf(String str, String str2) {
+                        if (!TextUtils.isEmpty(str2)) {
+                            str = str2;
+                        }
+                        j.this.a(str, musicData);
                     }
-                }
-            });
-            if (this.mDataList.get((i * 2) + 1).isDownLoading) {
-                aVar.gAA.setVisibility(0);
-            } else {
-                aVar.gAA.setVisibility(8);
+
+                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0131a
+                    public void tf(String str) {
+                        com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), str);
+                    }
+
+                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0131a
+                    public void byq() {
+                    }
+                });
+                return;
             }
-            if (this.mDataList.get((i * 2) + 1).isSelect) {
-                aj.j(aVar.gAw, d.g.bg_select_sticker);
-            } else {
-                aVar.gAw.setBackgroundResource(d.e.transparent);
-            }
-        } else {
-            aVar.gAw.setVisibility(8);
+            a(tj, musicData);
         }
-        return view;
     }
 
-    public void p(List<StickerItem> list) {
-        this.mDataList = list;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str, MusicData musicData) {
+        if (!this.gFU) {
+            if (this.aZK == null) {
+                this.aZK = new MediaPlayer();
+                this.aZK.setAudioStreamType(3);
+            }
+            try {
+                this.gFQ = str;
+                this.aZK.reset();
+                this.aZK.setDataSource(str);
+                this.aZK.prepare();
+                this.aZK.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.record.j.3
+                    @Override // android.media.MediaPlayer.OnPreparedListener
+                    public void onPrepared(MediaPlayer mediaPlayer) {
+                        j.this.aZK.setLooping(true);
+                        j.this.aZK.start();
+                    }
+                });
+                this.aZK.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.video.record.j.4
+                    @Override // android.media.MediaPlayer.OnErrorListener
+                    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
+                        return false;
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+                b(str, musicData);
+            }
+        }
     }
 
-    public void a(VideoEffectLayout.a aVar) {
-        this.gAt = aVar;
+    private void b(String str, MusicData musicData) {
+        this.gFQ = null;
+        bhq();
+        if (str.startsWith("/")) {
+            File file = new File(str);
+            if (file.exists()) {
+                file.delete();
+            }
+            com.baidu.tieba.video.editvideo.model.a.byQ().byR();
+        }
+        a((Object) null, musicData);
     }
 
-    /* loaded from: classes2.dex */
-    public class a {
-        public ProgressBar gAA;
-        public ImageView gAB;
-        public RelativeLayout gAv;
-        public RelativeLayout gAw;
-        public TbImageView gAx;
-        public TbImageView gAy;
-        public ProgressBar gAz;
+    public String bAA() {
+        return this.gFQ;
+    }
 
-        public a() {
+    public void onPause() {
+        this.gFU = true;
+        if (this.aZK != null && this.aZK.isPlaying()) {
+            this.aZK.pause();
+        }
+    }
+
+    public void onResume() {
+        this.gFU = false;
+        if (this.aZK != null) {
+            this.aZK.start();
+            this.aZK.seekTo(0);
+        }
+    }
+
+    public void nc(boolean z) {
+        if (this.aZK != null && z) {
+            this.aZK.seekTo(0);
+        }
+        if (this.aZK != null && !this.aZK.isPlaying()) {
+            this.aZK.start();
+        }
+    }
+
+    public void bAB() {
+        if (this.aZK != null && this.aZK.isPlaying()) {
+            this.aZK.pause();
+        }
+    }
+
+    public void bAC() {
+        bhq();
+    }
+
+    public void cg(String str, String str2) {
+        this.gFU = false;
+        this.gFQ = str;
+        this.gFV = str2;
+        a(str, (MusicData) null);
+    }
+
+    public void a(EditVideoActivityConfig editVideoActivityConfig) {
+        if (!TextUtils.isEmpty(this.gFQ) && !TextUtils.isEmpty(this.gFV)) {
+            editVideoActivityConfig.addMusicInfo(this.gFQ, this.gFV, this.mPosition);
+        }
+    }
+
+    @Override // com.baidu.tieba.video.record.i.a
+    public void uV(int i) {
+        if (i == 1 && !TextUtils.isEmpty(this.gFQ)) {
+            onResume();
         }
     }
 }

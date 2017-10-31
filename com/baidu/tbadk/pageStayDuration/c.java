@@ -6,8 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    public static String E(List<String> list) {
-        if (v.t(list) <= 0) {
+    public static String F(List<String> list) {
+        if (v.u(list) <= 0) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
@@ -34,9 +34,9 @@ public class c {
     }
 
     public static List<String> e(List<String> list, int i) {
-        int t = v.t(list);
-        if (t > 0 && i >= 0 && t > i) {
-            return v.a(list, t - i, t);
+        int u = v.u(list);
+        if (u > 0 && i >= 0 && u > i) {
+            return v.a(list, u - i, u);
         }
         return list;
     }

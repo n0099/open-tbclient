@@ -6,7 +6,6 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class CreateForumActivityConfig extends IntentConfig {
     public static final String FORUM_NAME_ISVALID = "isvalid";
     public static final String FORUM_NAME_STRING = "barname";
-    public static boolean IS_SUPPORT_CREATE_BAR = false;
 
     public CreateForumActivityConfig(Context context, String str, boolean z) {
         super(context);

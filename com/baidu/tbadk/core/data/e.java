@@ -17,7 +17,7 @@ public class e {
         return this.post_url;
     }
 
-    public String pq() {
+    public String pv() {
         return this.button_text;
     }
 

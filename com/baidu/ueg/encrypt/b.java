@@ -2,9 +2,9 @@ package com.baidu.ueg.encrypt;
 /* loaded from: classes.dex */
 public class b {
     public static a a(com.baidu.ueg.encrypt.entity.a aVar) throws Exception {
-        switch (aVar.bCc()) {
+        switch (aVar.bFA()) {
             case RSA:
-                return new c(aVar.bCd());
+                return new c(aVar.bFB());
             default:
                 return null;
         }

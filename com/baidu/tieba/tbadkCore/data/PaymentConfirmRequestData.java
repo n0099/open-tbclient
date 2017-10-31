@@ -4,7 +4,6 @@ import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PaymentConfirmRequestData implements Serializable {
     public static final String TERMINAL_ANDROID = "320";
-    public static final String TERMINAL_IOS = "310";
     private static final long serialVersionUID = 5867821330520807722L;
     private long goods_duration;
     private String goods_name;

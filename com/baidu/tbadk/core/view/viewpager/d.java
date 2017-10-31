@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<f> aoQ;
-    private List<f> aoR;
-    private boolean aoS;
-    private boolean aoT;
-    private int aoV;
-    private int aoU = 2;
-    private int aoW = 1;
+    private List<f> apl;
+    private List<f> apm;
+    private boolean apn;
+    private boolean apo;
+    private int apr;
+    private int apq = 2;
+    private int aps = 1;
 
     public d(List<f> list, boolean z, int i) {
-        this.aoV = 2;
-        this.aoQ = list;
-        this.aoT = z;
-        this.aoV = i;
-        v(list);
+        this.apr = 2;
+        this.apl = list;
+        this.apo = z;
+        this.apr = i;
+        w(list);
     }
 
-    public void v(List<f> list) {
-        if (list != null && list.size() >= this.aoU && list.size() <= this.aoV) {
-            this.aoS = true;
-        } else if (list.size() > this.aoV && this.aoT) {
-            this.aoS = true;
+    public void w(List<f> list) {
+        if (list != null && list.size() >= this.apq && list.size() <= this.apr) {
+            this.apn = true;
+        } else if (list.size() > this.apr && this.apo) {
+            this.apn = true;
         } else {
-            this.aoS = false;
+            this.apn = false;
         }
-        this.aoR = wO();
+        this.apm = wV();
     }
 
-    private List<f> wO() {
+    private List<f> wV() {
         ArrayList arrayList = new ArrayList();
-        if (this.aoQ != null) {
-            if (this.aoS) {
-                if (this.aoQ.size() > this.aoV && this.aoQ.size() >= this.aoW) {
-                    arrayList.addAll(this.aoQ.subList(0, this.aoV));
-                    arrayList.addAll(0, this.aoQ.subList(this.aoV - this.aoW, this.aoV));
-                    arrayList.addAll(this.aoQ.subList(0, this.aoW));
+        if (this.apl != null) {
+            if (this.apn) {
+                if (this.apl.size() > this.apr && this.apl.size() >= this.aps) {
+                    arrayList.addAll(this.apl.subList(0, this.apr));
+                    arrayList.addAll(0, this.apl.subList(this.apr - this.aps, this.apr));
+                    arrayList.addAll(this.apl.subList(0, this.aps));
                 } else {
-                    arrayList.addAll(this.aoQ);
-                    arrayList.addAll(0, this.aoQ.subList(this.aoQ.size() - this.aoW, this.aoQ.size()));
-                    arrayList.addAll(this.aoQ.subList(0, this.aoW));
+                    arrayList.addAll(this.apl);
+                    arrayList.addAll(0, this.apl.subList(this.apl.size() - this.aps, this.apl.size()));
+                    arrayList.addAll(this.apl.subList(0, this.aps));
                 }
-            } else if (this.aoQ != null && this.aoQ.size() > 0 && this.aoQ.size() >= this.aoW) {
-                arrayList.addAll(this.aoQ.subList(0, this.aoW));
+            } else if (this.apl != null && this.apl.size() > 0 && this.apl.size() >= this.aps) {
+                arrayList.addAll(this.apl.subList(0, this.aps));
             }
         }
         return arrayList;
     }
 
-    public int dI(int i) {
-        if (this.aoS) {
-            int size = this.aoR.size();
+    public int dJ(int i) {
+        if (this.apn) {
+            int size = this.apm.size();
             if (i == 0) {
-                return (size - 1) - this.aoW;
+                return (size - 1) - this.aps;
             }
-            if (i == size - this.aoW) {
-                return this.aoW;
+            if (i == size - this.aps) {
+                return this.aps;
             }
             return i;
         }
         return i;
     }
 
-    public int dJ(int i) {
-        if (this.aoS) {
-            return i - this.aoW;
+    public int dK(int i) {
+        if (this.apn) {
+            return i - this.aps;
         }
         return i;
     }
 
-    public int wP() {
-        if (this.aoQ == null) {
+    public int wW() {
+        if (this.apl == null) {
             return 0;
         }
-        return this.aoQ.size();
+        return this.apl.size();
     }
 
-    public int wQ() {
-        if (this.aoS) {
-            return this.aoW;
+    public int wX() {
+        if (this.apn) {
+            return this.aps;
         }
         return 0;
     }
 
-    public void dK(int i) {
-        this.aoV = i;
-        v(this.aoQ);
-    }
-
     public void dL(int i) {
-        this.aoU = i;
-        v(this.aoQ);
-    }
-
-    public List<f> wR() {
-        return this.aoR;
+        this.apr = i;
+        w(this.apl);
     }
 
     public void dM(int i) {
-        this.aoW = i;
-        v(this.aoQ);
+        this.apq = i;
+        w(this.apl);
+    }
+
+    public List<f> wY() {
+        return this.apm;
+    }
+
+    public void dN(int i) {
+        this.aps = i;
+        w(this.apl);
     }
 }

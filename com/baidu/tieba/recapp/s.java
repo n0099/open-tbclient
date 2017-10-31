@@ -30,9 +30,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.TP;
-        if (StringUtils.isNull(str) && advertAppInfo.Ua != null) {
-            str = advertAppInfo.Ua.userName;
+        String str = advertAppInfo.Uh;
+        if (StringUtils.isNull(str) && advertAppInfo.Us != null) {
+            str = advertAppInfo.Us.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -48,29 +48,29 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        a.Cd().b(advertAppInfo);
-        String str2 = advertAppInfo.TP;
+        a.Cs().b(advertAppInfo);
+        String str2 = advertAppInfo.Uh;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.c.a.bfT().a(advertAppInfo.TT, advertAppInfo.TS, str2, i, com.baidu.tieba.recapp.c.a.qE(advertAppInfo.TT).intValue(), null, true, false, true, advertAppInfo.Ua.userPortrait, downloadStaticsData, advertAppInfo.Ua.userName);
+        com.baidu.tieba.recapp.c.a.bjf().a(advertAppInfo.Ul, advertAppInfo.Uk, str2, i, com.baidu.tieba.recapp.c.a.rl(advertAppInfo.Ul).intValue(), null, true, false, true, advertAppInfo.Us.userPortrait, downloadStaticsData, advertAppInfo.Us.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.c.a.bfT().j(advertAppInfo.TS, advertAppInfo.TT, true);
+        com.baidu.tieba.recapp.c.a.bjf().j(advertAppInfo.Uk, advertAppInfo.Ul, true);
     }
 
     public static final void an(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.util.l.showToast(context, d.l.download_error);
+            com.baidu.adp.lib.util.l.showToast(context, d.j.download_error);
             return;
         }
-        File dd = com.baidu.tbadk.core.util.k.dd(str.replace(".", "_") + ".apk");
-        if (dd != null) {
+        File dk = com.baidu.tbadk.core.util.k.dk(str.replace(".", "_") + ".apk");
+        if (dk != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(dd, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(dk, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -133,10 +133,10 @@ public class s {
                 tbImageView.setVisibility(8);
                 return;
             }
-            tbImageView.setDefaultErrorResource(d.g.icon_advert);
+            tbImageView.setDefaultErrorResource(d.f.icon_advert);
             tbImageView.setDefaultResource(0);
             tbImageView.setDefaultBgResource(0);
-            tbImageView.c(str, 10, false);
+            tbImageView.startLoad(str, 10, false);
             ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = i;
@@ -159,13 +159,13 @@ public class s {
                 tbImageView.setVisibility(8);
                 return;
             }
-            tbImageView.setDefaultErrorResource(d.g.icon_advert);
+            tbImageView.setDefaultErrorResource(d.f.icon_advert);
             tbImageView.setDefaultResource(0);
             tbImageView.setDefaultBgResource(0);
-            tbImageView.c(str, 10, false);
+            tbImageView.startLoad(str, 10, false);
             tbImageView.setEvent(new TbImageView.a() { // from class: com.baidu.tieba.recapp.s.1
                 @Override // com.baidu.tbadk.widget.TbImageView.a
-                public void s(String str2, boolean z) {
+                public void q(String str2, boolean z) {
                     ViewGroup.LayoutParams layoutParams = TbImageView.this.getLayoutParams();
                     if (layoutParams != null) {
                         layoutParams.height = i;
@@ -185,11 +185,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bfO().sendFRS(z, str, str2, str3, list, str4);
+        r.bja().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bfO().a(z, str, str2, str3, str4, list, str5);
+        r.bja().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int h(TbPageContext tbPageContext, String str) {
@@ -208,14 +208,14 @@ public class s {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        i bfL = r.bfO().bfL();
-        if (bfL == null) {
+        i biX = r.bja().biX();
+        if (biX == null) {
             return false;
         }
-        if (bfL.hA(str)) {
-            bfL.a(tbPageContext.getPageActivity(), strArr, true);
+        if (biX.hI(str)) {
+            biX.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bfL.d(tbPageContext.getPageActivity(), strArr);
+        return biX.d(tbPageContext.getPageActivity(), strArr);
     }
 }

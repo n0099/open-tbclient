@@ -94,7 +94,7 @@ public class MorePopupWindow extends PopupWindow {
     private void applaySkin(com.baidu.tbadk.core.c cVar, int i, Drawable drawable) {
         if (this.mContentView != null) {
             setBackgroundDrawable(drawable);
-            cVar.ah(i == 1);
+            cVar.ag(i == 1);
             try {
                 cVar.t(this.mContentView);
             } catch (IllegalArgumentException e) {
@@ -111,9 +111,9 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void setWidthAsWidthOfDeviceScreen(Context context) {
-        int ad = l.ad(context);
-        this.mContentView.getLayoutParams().width = ad;
-        setWidth(ad);
+        int ac = l.ac(context);
+        this.mContentView.getLayoutParams().width = ac;
+        setWidth(ac);
     }
 
     public void setWindowHeight(int i) {
@@ -145,7 +145,7 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void showWindowInLeftCenterOfHost(View view, boolean z) {
-        setAnimationStyle(d.m.pop_window_anim);
+        setAnimationStyle(d.k.pop_window_anim);
         setFocusable(z);
         com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, view, this.mShowLeftCenterXOff, (-this.mWindowHeight) + ((this.mWindowHeight - view.getHeight()) / 2));
     }
@@ -156,11 +156,11 @@ public class MorePopupWindow extends PopupWindow {
             int measuredWidth = this.mContentView.getMeasuredWidth();
             int measuredHeight = this.mContentView.getMeasuredHeight();
             setWidth(measuredWidth);
-            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(d.f.ds4));
+            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(d.e.ds4));
             setHeight(this.mWindowHeight);
-            int[] ah = l.ah(this.mActivity);
-            if (ah != null && ah.length > 1 && ah[0] > measuredWidth) {
-                this.mShowRightTopXOff = ah[0] - measuredWidth;
+            int[] ag = l.ag(this.mActivity);
+            if (ag != null && ag.length > 1 && ag[0] > measuredWidth) {
+                this.mShowRightTopXOff = ag[0] - measuredWidth;
             }
             this.mPadding_10 = 0;
             this.mShowLeftCenterXOff = -(measuredWidth + this.mPadding_10);

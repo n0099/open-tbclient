@@ -15,16 +15,16 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void fR(boolean z) {
+    public void fN(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aI */
+    /* renamed from: aX */
     public e.a<MsgleftView> onCreateViewHolder(ViewGroup viewGroup) {
-        MsgleftView msgleftView = new MsgleftView(this.mH);
+        MsgleftView msgleftView = new MsgleftView(this.mPageContext);
         return new a(msgleftView.cf(), msgleftView);
     }
 
@@ -34,19 +34,19 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgleftView asU = aVar.asU();
-        asU.mj(this.dmO);
-        asU.fR(this.mNeedShowName);
+        MsgleftView avp = aVar.avp();
+        avp.mA(this.duE);
+        avp.fN(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        asU.a(this.dmE);
-        asU.setOnItemViewLongClickListener(this.dmF);
-        asU.setPosition(i);
-        asU.bA(this.dmL);
-        asU.bz(chatMessage.getCacheData().getLastMsgTime());
-        asU.a(viewGroup, chatMessage);
-        asU.b(viewGroup, chatMessage);
-        this.mH.getLayoutMode().ah(false);
-        this.mH.getLayoutMode().t(view);
+        avp.a(this.duu);
+        avp.setOnItemViewLongClickListener(this.duv);
+        avp.setPosition(i);
+        avp.bB(this.duB);
+        avp.bA(chatMessage.getCacheData().getLastMsgTime());
+        avp.a(viewGroup, chatMessage);
+        avp.b(viewGroup, chatMessage);
+        this.mPageContext.getLayoutMode().ag(false);
+        this.mPageContext.getLayoutMode().t(view);
         return view;
     }
 

@@ -12,103 +12,107 @@ import com.baidu.tbadk.core.util.af;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class h extends g {
-    protected boolean amr;
-    private CustomMessageListener ams;
-    private CustomMessageListener amt;
+    protected boolean amN;
+    private CustomMessageListener amO;
     protected boolean isDone;
+    private CustomMessageListener listener;
 
     public h(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.isDone = true;
-        this.ams = new CustomMessageListener(CmdConfigCustom.CMD_PULL_IMAGE_CHANGE) { // from class: com.baidu.tbadk.core.view.h.1
+        this.listener = new CustomMessageListener(CmdConfigCustom.CMD_PULL_IMAGE_CHANGE) { // from class: com.baidu.tbadk.core.view.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (h.this.isDone) {
-                    h.this.dy(TbadkCoreApplication.getInst().getSkinType());
+                    h.this.dz(TbadkCoreApplication.getInst().getSkinType());
                 }
             }
         };
-        this.amt = new CustomMessageListener(CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE) { // from class: com.baidu.tbadk.core.view.h.2
+        this.amO = new CustomMessageListener(CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE) { // from class: com.baidu.tbadk.core.view.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                h.this.amb.setBackgroundColor(af.uU().cL(TbadkCoreApplication.getInst().getSkinType()));
+                h.this.amx.setBackgroundColor(af.vb().cM(TbadkCoreApplication.getInst().getSkinType()));
             }
         };
         d(tbPageContext);
     }
 
     @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
-    public void V(boolean z) {
-        this.amc.setBackgroundDrawable(null);
-        super.V(z);
+    public void U(boolean z) {
+        this.amy.setBackgroundDrawable(null);
+        super.U(z);
         this.isDone = true;
     }
 
     @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
-    public void U(boolean z) {
-        super.U(z);
+    public void T(boolean z) {
+        super.T(z);
         this.isDone = false;
-        if (!this.amr) {
-            dy(TbadkCoreApplication.getInst().getSkinType());
+        if (!this.amN) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (this.mSkinType != Integer.MIN_VALUE) {
+                skinType = this.mSkinType;
+            }
+            dz(skinType);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
-    public void lf() {
-        super.lf();
+    public void kZ() {
+        super.kZ();
         this.isDone = false;
     }
 
     @Override // com.baidu.tbadk.core.view.g
-    public void dy(int i) {
-        super.dy(i);
-        if (this.amb != null && this.amc != null) {
-            this.amr = false;
-            if (!vc()) {
-                this.amg = af.uU().cJ(i);
-                if (this.amg != null) {
-                    this.amr = true;
+    public void dz(int i) {
+        super.dz(i);
+        if (this.amx != null && this.amy != null) {
+            this.amN = false;
+            if (!vj()) {
+                this.amC = af.vb().cK(i);
+                if (this.amC != null) {
+                    this.amN = true;
                 } else {
-                    this.amg = new AnimationDrawable();
+                    this.amC = new AnimationDrawable();
                 }
-                this.amb.setBackgroundColor(af.uU().cL(i));
-                if (!this.amr) {
-                    this.amg = af.uU().cK(i);
+                this.amx.setBackgroundColor(af.vb().cM(i));
+                if (!this.amN) {
+                    this.amC = af.vb().cL(i);
                 }
-                this.amg.setOneShot(false);
-                this.amc.setBackgroundDrawable(this.amg);
+                this.amC.setOneShot(false);
+                this.amy.setBackgroundDrawable(this.amC);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
-    public void W(boolean z) {
-        super.W(z);
-        setPadding(0, -getContext().getResources().getDimensionPixelSize(d.f.ds46), 0, 0);
+    public void V(boolean z) {
+        super.V(z);
+        setPadding(0, -getContext().getResources().getDimensionPixelSize(d.e.ds46), 0, 0);
     }
 
     private void d(TbPageContext<?> tbPageContext) {
-        this.ams.setTag(tbPageContext.getUniqueId());
-        this.amt.setTag(tbPageContext.getUniqueId());
-        tbPageContext.registerListener(this.ams);
-        tbPageContext.registerListener(this.amt);
+        this.listener.setTag(tbPageContext.getUniqueId());
+        this.amO.setTag(tbPageContext.getUniqueId());
+        tbPageContext.registerListener(this.listener);
+        tbPageContext.registerListener(this.amO);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
-        if (this.ams != null) {
-            this.ams.setTag(bdUniqueId);
+        if (this.listener != null) {
+            this.listener.setTag(bdUniqueId);
         }
-        if (this.amt != null) {
-            this.amt.setTag(bdUniqueId);
+        if (this.amO != null) {
+            this.amO.setTag(bdUniqueId);
         }
-        MessageManager.getInstance().registerListener(this.ams);
-        MessageManager.getInstance().registerListener(this.amt);
+        MessageManager.getInstance().registerListener(this.listener);
+        MessageManager.getInstance().registerListener(this.amO);
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.ams);
-        MessageManager.getInstance().unRegisterListener(this.amt);
+        MessageManager.getInstance().unRegisterListener(this.listener);
+        MessageManager.getInstance().unRegisterListener(this.amO);
     }
 }

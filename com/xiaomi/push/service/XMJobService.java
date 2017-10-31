@@ -23,10 +23,10 @@ public class XMJobService extends Service {
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        private static class HandlerC0160a extends Handler {
+        private static class HandlerC0162a extends Handler {
             JobService a;
 
-            HandlerC0160a(JobService jobService) {
+            HandlerC0162a(JobService jobService) {
                 super(jobService.getMainLooper());
                 this.a = jobService;
             }
@@ -63,7 +63,7 @@ public class XMJobService extends Service {
             intent.setPackage(getPackageName());
             startService(intent);
             if (this.b == null) {
-                this.b = new HandlerC0160a(this);
+                this.b = new HandlerC0162a(this);
             }
             this.b.sendMessage(Message.obtain(this.b, 1, jobParameters));
             return true;

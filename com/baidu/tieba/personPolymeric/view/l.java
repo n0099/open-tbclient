@@ -1,196 +1,236 @@
 package com.baidu.tieba.personPolymeric.view;
 
-import android.content.Context;
-import android.support.v4.view.PagerAdapter;
+import android.graphics.Color;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.widget.viewpager.ListViewPager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class l extends LinearLayout {
-    private View aWK;
-    public ListViewPager dYq;
-    private com.baidu.tieba.personPolymeric.c.c fhr;
-    private com.baidu.adp.lib.e.b<n> fht;
-    private Context fie;
-    private a fif;
-    private int mSkinType;
-    public TextView mTitle;
-    private View rootView;
+public class l implements View.OnClickListener {
+    private View clV;
+    private FrameLayout fqC;
+    private TbImageView fqD;
+    private TbImageView fqE;
+    private TextView fqF;
+    private LinearLayout fqG;
+    private TextView fqH;
+    private TextView fqI;
+    private LinearLayout fqJ;
+    private LinearLayout fqK;
+    private LinearLayout fqL;
+    private ImageView fqM;
+    private boolean mIsHost;
+    private TbPageContext mPageContext;
+    private View mRootView;
+    private UserData mUserData;
 
-    public l(Context context) {
-        super(context);
-        this.mSkinType = 3;
-        this.fif = new a();
-        this.fht = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<n>() { // from class: com.baidu.tieba.personPolymeric.view.l.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aWq */
-            public n fI() {
-                return new n(l.this.fie);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: a */
-            public void n(n nVar) {
-                if (nVar != null) {
-                    nVar.removeAllViews();
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: b */
-            public n o(n nVar) {
-                return nVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: c */
-            public n p(n nVar) {
-                return nVar;
-            }
-        }, 12, 0);
-        init(context);
+    public l(TbPageContext<?> tbPageContext) {
+        this.mPageContext = tbPageContext;
+        Z(Yb());
     }
 
-    private void init(Context context) {
-        this.fie = context;
-        this.rootView = LayoutInflater.from(this.fie).inflate(d.j.person_info_common_forum_layout, this);
-        this.mTitle = (TextView) this.rootView.findViewById(d.h.common_forum_title);
-        this.dYq = (ListViewPager) this.rootView.findViewById(d.h.common_forum_viewpager);
-        this.aWK = this.rootView.findViewById(d.h.divider_line);
-        this.dYq.setOffscreenPageLimit(1);
+    private void Z(View view) {
+        this.fqC = (FrameLayout) view.findViewById(d.g.ala_entrance_root);
+        this.fqD = (TbImageView) view.findViewById(d.g.entrance_background);
+        this.fqD.setAutoChangeStyle(false);
+        this.fqD.setDrawerType(1);
+        this.fqD.setRadius(com.baidu.adp.lib.util.l.f(this.mPageContext.getPageActivity(), d.e.ds10));
+        this.fqE = (TbImageView) view.findViewById(d.g.live_level_img);
+        this.fqE.setAutoChangeStyle(false);
+        this.fqE.setDrawerType(1);
+        this.fqE.setRadius(com.baidu.adp.lib.util.l.f(this.mPageContext.getPageActivity(), d.e.ds10));
+        this.fqF = (TextView) view.findViewById(d.g.live_level_text);
+        this.fqG = (LinearLayout) view.findViewById(d.g.replay_root);
+        this.fqI = (TextView) this.fqG.findViewById(d.g.tv_replay_more);
+        this.fqM = (ImageView) this.fqG.findViewById(d.g.replay_more_arrow);
+        this.fqH = (TextView) this.fqG.findViewById(d.g.tv_replay_tile);
+        this.fqJ = (LinearLayout) this.fqG.findViewById(d.g.replay_item_one);
+        this.fqK = (LinearLayout) this.fqG.findViewById(d.g.replay_item_two);
+        this.fqL = (LinearLayout) this.fqG.findViewById(d.g.replay_item_three);
+        e(this.fqJ);
+        e(this.fqK);
+        e(this.fqL);
+        this.fqC.setOnClickListener(this);
+        this.fqJ.setOnClickListener(this);
+        this.fqK.setOnClickListener(this);
+        this.fqL.setOnClickListener(this);
+        this.fqI.setOnClickListener(this);
+        this.clV = view.findViewById(d.g.divider_view);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            aj.j(this.rootView, d.e.cp_bg_line_d);
-            aj.i(this.mTitle, d.e.cp_cont_b);
-            aj.k(this.aWK, d.e.cp_bg_line_e);
-            int childCount = this.dYq.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.dYq.getChildAt(i2);
-                if (childAt instanceof m) {
-                    ((m) childAt).onChangeSkinType();
-                }
-            }
-        }
-        this.mSkinType = i;
+        aj.k(this.mRootView, d.C0080d.cp_bg_line_d);
+        aj.i(this.fqH, d.C0080d.cp_cont_b);
+        aj.i(this.fqI, d.C0080d.cp_cont_d);
+        aj.k(this.clV, d.C0080d.cp_bg_line_e);
+        aj.c(this.fqM, d.f.icon_mine_list_arrow);
+        f(this.fqJ);
+        f(this.fqK);
+        f(this.fqL);
     }
 
-    public int getLayout() {
-        return d.j.person_info_common_forum_layout;
+    public View Yb() {
+        if (this.mRootView == null) {
+            this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.item_person_center_ala_live, (ViewGroup) null);
+        }
+        return this.mRootView;
     }
 
-    public void a(com.baidu.tieba.personPolymeric.c.c cVar) {
-        if (cVar != null) {
-            if (b(cVar)) {
-                this.fhr = cVar;
-                if (v.t(cVar.fgG) <= 2) {
-                    this.dYq.getLayoutParams().height = com.baidu.adp.lib.util.l.f(this.fie, d.f.ds140);
-                }
-                this.dYq.setAdapter(this.fif);
-            }
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        }
+    public void a(AlaLiveInfoCoreData alaLiveInfoCoreData, boolean z, UserData userData, List<AlaLiveInfoCoreData> list) {
+        this.mIsHost = z;
+        this.mUserData = userData;
+        a(alaLiveInfoCoreData, z, userData);
+        cJ(list);
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    /* loaded from: classes.dex */
-    private class a extends PagerAdapter {
-        private a() {
+    private void a(AlaLiveInfoCoreData alaLiveInfoCoreData, boolean z, UserData userData) {
+        if (z || alaLiveInfoCoreData == null || alaLiveInfoCoreData.liveStatus != 1 || userData == null || userData.alaUserData == null || StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
+            this.fqC.setVisibility(8);
+            return;
         }
-
-        @Override // android.support.v4.view.PagerAdapter
-        public int getCount() {
-            if (l.this.fhr == null || v.u(l.this.fhr.fgG)) {
-                return 0;
-            }
-            return l.this.fhr.fgG.size() % 4 == 0 ? l.this.fhr.fgG.size() / 4 : (l.this.fhr.fgG.size() / 4) + 1;
+        this.fqC.setVisibility(0);
+        this.fqC.setTag(alaLiveInfoCoreData);
+        if (!StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
+            this.fqD.startLoad(alaLiveInfoCoreData.liveCover, 10, false);
         }
-
-        @Override // android.support.v4.view.PagerAdapter
-        public boolean isViewFromObject(View view, Object obj) {
-            return view == obj;
+        int i = userData.alaUserData.level_id;
+        if (i <= 10) {
+            this.fqE.setBackgroundResource(d.f.shape_ala_grade_1_green);
+        } else if (i <= 20) {
+            this.fqE.setBackgroundResource(d.f.shape_ala_grade_2_blue);
+        } else if (i <= 30) {
+            this.fqE.setBackgroundResource(d.f.shape_ala_grade_3_yellow);
+        } else if (i <= 40) {
+            this.fqE.setBackgroundResource(d.f.shape_ala_grade_4_orange);
+        } else {
+            this.fqE.setBackgroundResource(d.f.shape_ala_grade_5_purple);
         }
-
-        @Override // android.support.v4.view.PagerAdapter
-        public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-            if (obj instanceof m) {
-                m mVar = (m) obj;
-                mVar.recycle();
-                viewGroup.removeView(mVar);
-            }
-        }
-
-        @Override // android.support.v4.view.PagerAdapter
-        public Object instantiateItem(ViewGroup viewGroup, int i) {
-            List<com.baidu.tieba.personPolymeric.c.f> qp = l.this.qp(i);
-            if (v.u(qp)) {
-                return null;
-            }
-            m mVar = new m(l.this.fie);
-            mVar.setForumItemViewBdObjectPool(l.this.fht);
-            mVar.setData(qp);
-            mVar.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.f.ds34));
-            mVar.setHorizontalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.f.ds34));
-            viewGroup.addView(mVar);
-            return mVar;
-        }
+        this.fqF.setText(qh(String.valueOf(i)));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.tieba.personPolymeric.c.f> qp(int i) {
-        if (this.fhr == null || v.u(this.fhr.fgG)) {
-            return null;
+    private void cJ(List<AlaLiveInfoCoreData> list) {
+        if (v.v(list)) {
+            this.fqG.setVisibility(8);
+            return;
         }
-        ArrayList arrayList = new ArrayList();
-        int i2 = i * 4;
-        while (true) {
-            int i3 = i2;
-            if (i3 >= (i * 4) + 4) {
-                return arrayList;
-            }
-            com.baidu.tieba.personPolymeric.c.f fVar = (com.baidu.tieba.personPolymeric.c.f) v.c(this.fhr.fgG, i3);
-            if (fVar != null) {
-                arrayList.add(fVar);
-            }
-            i2 = i3 + 1;
+        this.fqG.setVisibility(0);
+        this.fqK.setVisibility(0);
+        this.fqL.setVisibility(0);
+        this.fqJ.setVisibility(0);
+        int size = list.size();
+        if (size >= 4) {
+            this.fqI.setVisibility(0);
+            this.fqM.setVisibility(0);
+        } else {
+            this.fqI.setVisibility(4);
+            this.fqM.setVisibility(4);
+        }
+        a(list.get(0), this.fqJ);
+        if (size >= 3) {
+            a(list.get(1), this.fqK);
+            a(list.get(2), this.fqL);
+        } else if (size >= 2) {
+            a(list.get(1), this.fqK);
+            this.fqL.setVisibility(4);
+        } else {
+            this.fqK.setVisibility(4);
+            this.fqL.setVisibility(4);
         }
     }
 
-    public void setForumCardItemViewPool(com.baidu.adp.lib.e.b<n> bVar) {
-        this.fht = bVar;
+    private void e(LinearLayout linearLayout) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
+        int dimensionPixelSize = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds34);
+        layoutParams.width = ((com.baidu.adp.lib.util.l.ac(this.mPageContext.getPageActivity()) - (this.mPageContext.getResources().getDimensionPixelSize(d.e.ds16) * 2)) - (dimensionPixelSize * 2)) / 3;
+        layoutParams.height = -2;
+        linearLayout.setLayoutParams(layoutParams);
     }
 
-    private boolean b(com.baidu.tieba.personPolymeric.c.c cVar) {
-        if (cVar == null || v.u(cVar.fgG) || cVar == this.fhr) {
-            return false;
-        }
-        if (this.fhr == null || v.u(this.fhr.fgG)) {
-            return true;
-        }
-        if (v.u(cVar.fgG)) {
-            return false;
-        }
-        if (cVar.fgG.size() != this.fhr.fgG.size()) {
-            return true;
-        }
-        for (int i = 0; i < cVar.fgG.size(); i++) {
-            if (this.fhr.fgG.get(i) == null || cVar.fgG.get(i).forumId != this.fhr.fgG.get(i).forumId) {
-                return true;
+    private void f(LinearLayout linearLayout) {
+        TbImageView tbImageView = (TbImageView) linearLayout.findViewById(d.g.replay_item_cover);
+        tbImageView.setAutoChangeStyle(true);
+        tbImageView.setDefaultErrorResource(0);
+        tbImageView.setDefaultBgResource(d.f.pic_bg_video_frs);
+        aj.i((TextView) linearLayout.findViewById(d.g.replay_item_title), d.C0080d.cp_cont_b);
+    }
+
+    private void a(AlaLiveInfoCoreData alaLiveInfoCoreData, LinearLayout linearLayout) {
+        if (alaLiveInfoCoreData != null && linearLayout != null) {
+            linearLayout.setTag(alaLiveInfoCoreData);
+            TextView textView = (TextView) linearLayout.findViewById(d.g.replay_item_title);
+            if (textView != null && !StringUtils.isNull(alaLiveInfoCoreData.liveTitle)) {
+                textView.setText(alaLiveInfoCoreData.liveTitle);
+            }
+            TbImageView tbImageView = (TbImageView) linearLayout.findViewById(d.g.replay_item_cover);
+            if (tbImageView != null && !StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
+                tbImageView.startLoad(alaLiveInfoCoreData.liveCover, 10, false);
             }
         }
-        return false;
+    }
+
+    private SpannableStringBuilder qh(String str) {
+        String string = this.mPageContext.getResources().getString(d.j.ala_live_entrance_level_text_pre);
+        String str2 = string + String.format(this.mPageContext.getResources().getString(d.j.ala_live_entrance_level_text_content), str);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str2);
+        int color = this.mPageContext.getResources().getColor(d.C0080d.cp_cont_g);
+        int parseColor = Color.parseColor("#FFD026");
+        spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, string.length(), 17);
+        spannableStringBuilder.setSpan(new ForegroundColorSpan(parseColor), string.length(), string.length() + str.length(), 17);
+        spannableStringBuilder.setSpan(new ForegroundColorSpan(color), string.length() + str.length(), str2.length(), 18);
+        return spannableStringBuilder;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view == this.fqC) {
+            if (this.fqC.getTag() != null && (this.fqC.getTag() instanceof AlaLiveInfoCoreData)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(this.mPageContext.getPageActivity(), (AlaLiveInfoCoreData) this.fqC.getTag(), AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, TbadkCoreApplication.getCurrentAccount(), this.mIsHost, "")));
+                TiebaStatic.log(new ak("c12544"));
+            }
+        } else if (view == this.fqJ) {
+            bw(this.fqJ);
+        } else if (view == this.fqK) {
+            bw(this.fqK);
+        } else if (view == this.fqL) {
+            bw(this.fqL);
+        } else if (view == this.fqI) {
+            bai();
+        }
+    }
+
+    private void bw(View view) {
+        if (view.getTag() != null && (view.getTag() instanceof AlaLiveInfoCoreData)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(String.valueOf(((AlaLiveInfoCoreData) view.getTag()).threadId), null, "person_page")));
+        }
+    }
+
+    private void bai() {
+        if (this.mUserData != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(this.mPageContext.getPageActivity(), this.mUserData.getUserId(), this.mUserData.getUserName(), this.mUserData.getPortrait(), this.mUserData.getSex(), this.mUserData.getUserId().equals(TbadkCoreApplication.getCurrentAccount()))));
+        }
     }
 }

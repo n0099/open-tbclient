@@ -1,9 +1,11 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.data.BlockPopInfoData;
 /* loaded from: classes.dex */
 public abstract class ResponseCommitMessage extends SocketResponsedMessage {
     private String groupId;
+    private BlockPopInfoData mBlockPopInfoData;
     private long msgId;
     private long recordId;
 
@@ -33,5 +35,13 @@ public abstract class ResponseCommitMessage extends SocketResponsedMessage {
 
     public void setGroupId(String str) {
         this.groupId = str;
+    }
+
+    public void setBlockPopInfoData(BlockPopInfoData blockPopInfoData) {
+        this.mBlockPopInfoData = blockPopInfoData;
+    }
+
+    public BlockPopInfoData getBlockPopInfoData() {
+        return this.mBlockPopInfoData;
     }
 }

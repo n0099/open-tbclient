@@ -6,51 +6,51 @@ import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a extends g {
-    private BdTypeListView aUi;
-    private Map<String, String> aUj;
-    private Object aUk;
-    private boolean aUl;
-    private int aUm;
-    private int aoN;
+    private BdTypeListView aUn;
+    private Map<String, String> aUo;
+    private Object aUp;
+    private boolean aUq;
+    private int aUr;
+    private int api;
 
     public a(TbPageContext tbPageContext, int i) {
         super(tbPageContext, i);
-        this.aUl = false;
+        this.aUq = false;
     }
 
     public BdTypeListView getListView() {
-        return this.aUi;
+        return this.aUn;
     }
 
     public void a(BdTypeListView bdTypeListView) {
-        this.aUi = bdTypeListView;
+        this.aUn = bdTypeListView;
     }
 
-    public Object JK() {
-        return this.aUk;
+    public Object JU() {
+        return this.aUp;
     }
 
     public void H(Object obj) {
-        this.aUk = obj;
+        this.aUp = obj;
     }
 
-    public Map<String, String> JL() {
-        return this.aUj;
+    public Map<String, String> JV() {
+        return this.aUo;
     }
 
     public void setParams(Map<String, String> map) {
-        this.aUj = map;
+        this.aUo = map;
     }
 
-    public int JM() {
-        return this.aUm;
+    public int JW() {
+        return this.aUr;
     }
 
     public int getSkinType() {
-        return this.aoN;
+        return this.api;
     }
 
     public void setSkinType(int i) {
-        this.aoN = i;
+        this.api = i;
     }
 }

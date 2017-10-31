@@ -14,23 +14,23 @@ import com.baidu.tieba.d;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class PayConfigModel extends BdBaseModel {
-    private a aHT;
-    private final com.baidu.adp.framework.listener.a aHU;
+    private a aID;
+    private final com.baidu.adp.framework.listener.a aIE;
 
     public PayConfigModel(BaseActivity<?> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.aHU = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.pay.PayConfigModel.1
+        this.aIE = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.pay.PayConfigModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (PayConfigModel.this.checkMessageIsBelongToCurPage(responsedMessage)) {
                     if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                         String errorString = responsedMessage.getErrorString();
-                        String string = TbadkCoreApplication.getInst().getString(d.l.neterror);
+                        String string = TbadkCoreApplication.getInst().getString(d.j.neterror);
                         if (!StringUtils.isNull(errorString)) {
                             string = errorString;
                         }
-                        if (PayConfigModel.this.aHT != null) {
-                            PayConfigModel.this.aHT.onError(string);
+                        if (PayConfigModel.this.aID != null) {
+                            PayConfigModel.this.aID.onError(string);
                         }
                     } else if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
                         PayConfigModel.this.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
@@ -40,8 +40,8 @@ public class PayConfigModel extends BdBaseModel {
                 }
             }
         };
-        this.aHT = aVar;
-        registerListener(this.aHU);
+        this.aID = aVar;
+        registerListener(this.aIE);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -54,10 +54,10 @@ public class PayConfigModel extends BdBaseModel {
         return false;
     }
 
-    public void Fw() {
-        if (!c.Fx().Fy()) {
-            if (this.aHT != null) {
-                this.aHT.Fu();
+    public void FI() {
+        if (!c.FJ().FK()) {
+            if (this.aID != null) {
+                this.aID.FG();
                 return;
             }
             return;
@@ -68,7 +68,7 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.aHU);
+        MessageManager.getInstance().unRegisterListener(this.aIE);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -79,19 +79,19 @@ public class PayConfigModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
-            if (this.aHT != null) {
-                this.aHT.onError(TbadkCoreApplication.getInst().getString(d.l.data_load_error));
+            if (this.aID != null) {
+                this.aID.onError(TbadkCoreApplication.getInst().getString(d.j.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
-            if (this.aHT != null) {
-                this.aHT.Fv();
+            if (this.aID != null) {
+                this.aID.FH();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
-            if (this.aHT != null) {
-                this.aHT.Fu();
+            if (this.aID != null) {
+                this.aID.FG();
             }
-        } else if (this.aHT != null) {
-            this.aHT.onError("");
+        } else if (this.aID != null) {
+            this.aID.onError("");
         }
     }
 }

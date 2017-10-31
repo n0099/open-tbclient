@@ -15,35 +15,35 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.personCenter.b.b;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private b eZG;
+    private b fhV;
     private long userId;
     private boolean isSelf = true;
     @Deprecated
     private boolean isBigV = false;
-    private boolean eZF = false;
-    private long eBr = 0;
+    private boolean fhU = false;
+    private long eKg = 0;
 
     @Override // android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.mIsLogin = TbadkCoreApplication.isLogin();
         if (getArguments() != null) {
-            this.eZF = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
+            this.fhU = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        y(bundle);
-        View inflate = layoutInflater.inflate(d.j.fragment_my_tab_layout, (ViewGroup) null);
-        this.eZG = new b(inflate, getPageContext(), getUniqueId());
-        this.eZG.initView();
+        x(bundle);
+        View inflate = layoutInflater.inflate(d.h.fragment_my_tab_layout, (ViewGroup) null);
+        this.fhV = new b(inflate, getPageContext(), getUniqueId());
+        this.fhV.initView();
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
     public String getCurrentPageKey() {
-        if (this.eZF) {
+        if (this.fhU) {
             return null;
         }
         return "a011";
@@ -53,37 +53,37 @@ public class a extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.eZG.refreshView();
-            this.eZG.aVj();
+            this.fhV.refreshView();
+            this.fhV.aYm();
         } else {
-            this.eZG.aVk();
+            this.fhV.aYn();
         }
         if (isAdded()) {
-            com.baidu.tieba.j.a.bgJ().bgP();
+            com.baidu.tieba.j.a.bjW().bkc();
         }
-        com.baidu.tieba.j.a.bgJ().lH(isPrimary());
+        com.baidu.tieba.j.a.bjW().lC(isPrimary());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
         if (!this.isSelf && this.isBigV) {
-            this.eBr = System.currentTimeMillis();
+            this.eKg = System.currentTimeMillis();
         } else {
-            this.eBr = -1L;
+            this.eKg = -1L;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.eBr > 0) {
-            TiebaStatic.log(new ak("c12263").ac("obj_duration", String.valueOf((System.currentTimeMillis() - this.eBr) / 1000)).r("obj_type", 2));
-            this.eBr = 0L;
+        if (this.eKg > 0) {
+            TiebaStatic.log(new ak("c12263").ac("obj_duration", String.valueOf((System.currentTimeMillis() - this.eKg) / 1000)).r("obj_type", 2));
+            this.eKg = 0L;
         }
     }
 
-    private void y(Bundle bundle) {
+    private void x(Bundle bundle) {
         Intent intent = getActivity().getIntent();
         if (intent != null) {
             this.userId = intent.getLongExtra("user_id", com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
@@ -99,8 +99,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.eZG != null) {
-            this.eZG.onDestroy();
+        if (this.fhV != null) {
+            this.fhV.onDestroy();
         }
     }
 
@@ -117,8 +117,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eZG != null) {
-            this.eZG.onChangeSkinType(i);
+        if (this.fhV != null) {
+            this.fhV.onChangeSkinType(i);
         }
     }
 }

@@ -14,7 +14,7 @@ public class a extends com.baidu.b.b.a {
     }
 
     public static void a(Activity activity, String[] strArr, int i) {
-        if (com.baidu.b.a.ng()) {
+        if (com.baidu.b.a.nj()) {
             b.a(activity, strArr, i);
         } else if (activity instanceof InterfaceC0022a) {
             a(activity, strArr, i, (InterfaceC0022a) activity);
@@ -22,7 +22,7 @@ public class a extends com.baidu.b.b.a {
     }
 
     public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0022a interfaceC0022a) {
-        if (com.baidu.b.a.ng()) {
+        if (com.baidu.b.a.nj()) {
             b.a(activity, strArr, i);
         } else if (!activity.isFinishing() && interfaceC0022a != null) {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.b.a.a.1

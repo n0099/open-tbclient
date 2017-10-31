@@ -180,13 +180,13 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
                         socketResponsedMessage2.setRetry(this.nP.cM());
                         socketResponsedMessage2.performanceData.qh = j5;
                         socketResponsedMessage2.performanceData.qj = j4;
-                        socketResponsedMessage2.performanceData.qk = j6;
-                        socketResponsedMessage2.performanceData.ql = j7;
-                        socketResponsedMessage2.performanceData.qo = j8;
+                        socketResponsedMessage2.performanceData.ql = j6;
+                        socketResponsedMessage2.performanceData.qm = j7;
+                        socketResponsedMessage2.performanceData.qp = j8;
                     }
                     socketResponsedMessage2.setDownSize(i2);
-                    socketResponsedMessage2.performanceData.qn = currentTimeMillis3;
-                    socketResponsedMessage2.performanceData.qm = j11;
+                    socketResponsedMessage2.performanceData.qo = currentTimeMillis3;
+                    socketResponsedMessage2.performanceData.qn = j11;
                     socketResponsedMessage2.sequenceID = this.nO.pB.dg();
                     try {
                         socketResponsedMessage2.beforeDispatchInBackGround(i3, cVar2.pC);

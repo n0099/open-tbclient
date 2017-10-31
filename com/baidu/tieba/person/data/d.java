@@ -4,27 +4,27 @@ import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId eZg = BdUniqueId.gen();
-    public boolean cRI;
-    public String eZh;
-    public String eZi;
-    public String eZj;
-    public String eZk;
-    public int eZl;
-    public List<b> eZm;
+    public static final BdUniqueId fhx = BdUniqueId.gen();
+    public boolean daz;
+    public String fhA;
+    public String fhB;
+    public int fhC;
+    public List<b> fhD;
+    public String fhy;
+    public String fhz;
 
     public d(boolean z, a aVar) {
-        this.cRI = z;
-        this.eZi = aVar.icon;
-        this.eZh = aVar.title;
-        this.eZj = aVar.booktown;
-        this.eZk = aVar.tip;
-        this.eZm = aVar.eZb;
-        this.eZl = aVar.eZa;
+        this.daz = z;
+        this.fhz = aVar.icon;
+        this.fhy = aVar.title;
+        this.fhA = aVar.booktown;
+        this.fhB = aVar.tip;
+        this.fhD = aVar.fhs;
+        this.fhC = aVar.fhr;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return eZg;
+        return fhx;
     }
 }

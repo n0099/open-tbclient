@@ -12,33 +12,33 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class p extends j.a {
-    public View Rh;
-    public View aWK;
-    public TextView abE;
+    public View Ry;
+    public View aXa;
+    public TextView acd;
     public Context mContext;
 
     public p(View view, Context context) {
         super(view);
-        this.Rh = view;
-        this.abE = (TextView) view.findViewById(d.h.view_frs_read_progress);
-        this.aWK = view.findViewById(d.h.line_under_frs_progress);
+        this.Ry = view;
+        this.acd = (TextView) view.findViewById(d.g.view_frs_read_progress);
+        this.aXa = view.findViewById(d.g.line_under_frs_progress);
         this.mContext = context;
     }
 
     public void a(com.baidu.tieba.frs.p pVar) {
         if (pVar != null) {
-            String format = String.format(this.mContext.getResources().getString(d.l.smart_frs_read_progress_tip), am.s(pVar.ahT()));
-            String string = this.mContext.getResources().getString(d.l.click_to_refresh);
+            String format = String.format(this.mContext.getResources().getString(d.j.smart_frs_read_progress_tip), am.s(pVar.akb()));
+            String string = this.mContext.getResources().getString(d.j.click_to_refresh);
             SpannableString spannableString = new SpannableString(format);
-            UtilHelper.setSpan(spannableString, format, string, new ForegroundColorSpan(aj.getColor(d.e.cp_link_tip_a)));
-            this.abE.setText(spannableString);
-            wu();
+            UtilHelper.setSpan(spannableString, format, string, new ForegroundColorSpan(aj.getColor(d.C0080d.cp_link_tip_a)));
+            this.acd.setText(spannableString);
+            wB();
         }
     }
 
-    public void wu() {
-        aj.i(this.abE, d.e.cp_cont_c);
-        aj.j(this.Rh, d.g.addresslist_item_bg);
-        aj.k(this.aWK, d.e.cp_bg_line_c);
+    public void wB() {
+        aj.i(this.acd, d.C0080d.cp_cont_c);
+        aj.j(this.Ry, d.f.addresslist_item_bg);
+        aj.k(this.aXa, d.C0080d.cp_bg_line_c);
     }
 }

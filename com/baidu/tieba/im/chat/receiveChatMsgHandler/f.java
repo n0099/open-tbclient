@@ -12,19 +12,19 @@ public class f {
     public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.f.1
             @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-            public boolean lG(String str) {
+            public boolean mc(String str) {
                 return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
             }
-        }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0094a() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.f.2
-            @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.InterfaceC0094a
+        }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0092a() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.f.2
+            @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.InterfaceC0092a
             public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo2) {
                 if (chatMessage != null && chatMessage.getMsgType() == 22) {
-                    if (com.baidu.tieba.im.util.e.u(chatMessage)) {
+                    if (com.baidu.tieba.im.util.e.v(chatMessage)) {
                         return true;
                     }
-                    long i = f.i(chatMessage);
-                    if (i > imMessageCenterPojo2.getRead_msgId()) {
-                        imMessageCenterPojo2.setRead_msgId(i);
+                    long j = f.j(chatMessage);
+                    if (j > imMessageCenterPojo2.getRead_msgId()) {
+                        imMessageCenterPojo2.setRead_msgId(j);
                         return true;
                     }
                     return true;
@@ -34,7 +34,7 @@ public class f {
         });
     }
 
-    public static long i(ChatMessage chatMessage) {
+    public static long j(ChatMessage chatMessage) {
         JSONObject optJSONObject;
         if (chatMessage == null || chatMessage.getMsgType() != 22) {
             return -1L;
@@ -46,10 +46,10 @@ public class f {
             }
             JSONObject jSONObject = new JSONObject(content);
             String optString = jSONObject.optString("eventId");
-            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.sendmessage.a.dDv) {
+            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.sendmessage.a.dLj) {
                 return -1L;
             }
-            return com.baidu.tieba.im.util.d.bO(optJSONObject.optLong("readMsgId"));
+            return com.baidu.tieba.im.util.d.bP(optJSONObject.optLong("readMsgId"));
         } catch (Exception e) {
             return -1L;
         }

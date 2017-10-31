@@ -10,9 +10,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class XmlBox extends AbstractFullBox {
     public static final String TYPE = "xml ";
-    private static final /* synthetic */ a.InterfaceC0164a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0164a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0164a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_2 = null;
     String xml;
 
     static {

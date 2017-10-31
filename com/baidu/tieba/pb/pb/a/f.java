@@ -10,35 +10,35 @@ import com.baidu.adp.widget.ListView.j;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.k;
+import com.baidu.tieba.pb.pb.main.m;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
-public class f extends k<PostData, a> {
-    private View.OnClickListener baf;
+public class f extends m<PostData, a> {
+    private View.OnClickListener baM;
 
     public f(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.baf = onClickListener;
+        this.baM = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aY */
+    /* renamed from: bn */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(d.j.pb_reply_load_more_item, viewGroup, false);
-        inflate.findViewById(d.h.tv_pb_reply_more).setOnClickListener(this.baf);
+        View inflate = LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_load_more_item, viewGroup, false);
+        inflate.findViewById(d.g.tv_pb_reply_more).setOnClickListener(this.baM);
         a aVar = new a(inflate);
-        aVar.As();
+        aVar.AB();
         return aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, PostData postData, a aVar) {
         aVar.setData(postData);
@@ -47,29 +47,29 @@ public class f extends k<PostData, a> {
 
     /* loaded from: classes.dex */
     public static class a extends j.a {
-        private TextView ezK;
+        private TextView eHN;
 
         public a(View view) {
             super(view);
-            this.ezK = (TextView) view.findViewById(d.h.tv_pb_reply_more);
+            this.eHN = (TextView) view.findViewById(d.g.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.ggX) {
-                    Drawable drawable = aj.getDrawable(d.g.icon_emotion_smallarrow_n);
+                if (postData.gpJ) {
+                    Drawable drawable = aj.getDrawable(d.f.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.ezK.setCompoundDrawables(null, null, drawable, null);
+                    this.eHN.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
-                Drawable drawable2 = aj.getDrawable(d.g.icon_emotion_smallarrow_down);
+                Drawable drawable2 = aj.getDrawable(d.f.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.ezK.setCompoundDrawables(null, null, drawable2, null);
+                this.eHN.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
-        public void As() {
-            aj.i(this.ezK, d.e.cp_cont_d);
+        public void AB() {
+            aj.i(this.eHN, d.C0080d.cp_cont_d);
         }
     }
 }

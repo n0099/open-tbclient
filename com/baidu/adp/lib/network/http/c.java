@@ -567,10 +567,10 @@ public class c {
     }
 
     private void b(String str, d dVar) {
-        if (ITrafficStatsNativeManager.kk() != null && dVar != null && this.nI.fz() != null) {
+        if (ITrafficStatsNativeManager.kh() != null && dVar != null && this.nI.fz() != null) {
             String str2 = str == null ? this.nI.fz().contentType : str;
             BdLog.i("BdHttpManager2 contentType = " + str2 + "; uploadSize = " + dVar.uS + "; downloadSize = " + dVar.uT + "; url=" + dVar.url);
-            ITrafficStatsNativeManager.kk().a(str2, dVar.uS + 54, 54 + dVar.uT, dVar.url);
+            ITrafficStatsNativeManager.kh().a(str2, dVar.uS + 54, 54 + dVar.uT, dVar.url);
         }
     }
 }

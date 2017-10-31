@@ -1,64 +1,107 @@
 package com.baidu.tbadk.core.util.c;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.ao;
+import java.io.File;
 /* loaded from: classes.dex */
-public class e extends a {
-    private boolean aiu;
-    private boolean aiv;
-    private boolean aiw;
-    private int aiy;
-    private int aiz;
-    private int procType;
+public class e implements com.baidu.adp.lib.f.e<a> {
+    private final l aiV = new l();
 
-    public e(boolean z, boolean z2, boolean z3, int i) {
-        this.aiu = true;
-        this.aiv = false;
-        this.aiw = false;
-        this.procType = 0;
-        this.aiy = 0;
-        this.aiz = 0;
-        this.aiu = z;
-        this.aiv = z2;
-        this.aiw = z3;
-        this.procType = i;
-        int ad = com.baidu.adp.lib.util.l.ad(TbadkCoreApplication.getInst().getApp());
-        this.aiy = ad <= 0 ? 200 : ad;
-        if (this.aiy > 480) {
-            this.aiy = 480;
+    @Override // com.baidu.adp.lib.f.e
+    public boolean fM() {
+        return true;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.e
+    /* renamed from: f */
+    public a b(String str, String str2, Object... objArr) {
+        return null;
+    }
+
+    private void wa() {
+        b bVar = new b(TbConfig.SHARE_HUB_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
+        bVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        bVar.t(true);
+        com.baidu.adp.lib.Disk.d.dH().b(bVar);
+    }
+
+    private DiskFileOperate a(com.baidu.adp.widget.a.a aVar, String str) {
+        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, ao.dV(str), DiskFileOperate.Action.WRITE_FORCE);
+        diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
+        diskFileOperate.t(true);
+        diskFileOperate.setData(aVar.kP());
+        return diskFileOperate;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.e
+    /* renamed from: c */
+    public a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
+        wa();
+        com.baidu.adp.widget.a.a a2 = this.aiV.a(str, str2, aVar, objArr);
+        if (a2 != null && a2.kP() != null) {
+            DiskFileOperate a3 = a(a2, str2);
+            if (com.baidu.adp.lib.Disk.d.dH().b(a3) && a3.dV() != null) {
+                return new a(a2, a3.dV().getAbsolutePath());
+            }
         }
-        if (this.aiy > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 320.0f)) {
-            this.aiy = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 320.0f);
+        return null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.e
+    /* renamed from: c */
+    public a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.f.a aVar, Object... objArr) {
+        wa();
+        com.baidu.adp.widget.a.a a2 = this.aiV.a(str, str2, i, i2, bdAsyncTask, aVar, objArr);
+        if (a2 != null && a2.kP() != null) {
+            DiskFileOperate a3 = a(a2, str2);
+            if (com.baidu.adp.lib.Disk.d.dH().b(a3) && a3.dV() != null) {
+                return new a(a2, a3.dV().getAbsolutePath());
+            }
         }
-        this.aiz = (int) (this.aiy * 0.4f);
+        return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int getWidth() {
-        return com.baidu.adp.lib.util.j.hi() ? this.aiy : this.aiz;
+    @Override // com.baidu.adp.lib.f.e
+    public void a(String str, Object obj, Object... objArr) {
+        this.aiV.a(str, obj, objArr);
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int getHeight() {
-        return getWidth();
+    @Override // com.baidu.adp.lib.f.e
+    public BdAsyncTaskParallel fN() {
+        return this.aiV.fN();
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean isFromCDN() {
-        return this.aiu;
+    @Override // com.baidu.adp.lib.f.e
+    public int fO() {
+        return this.aiV.fO();
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vP() {
-        return this.aiw;
+    /* loaded from: classes.dex */
+    public static class b extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
+        public b(String str, String str2, DiskFileOperate.Action action) {
+            super(str, str2, action);
+        }
+
+        @Override // com.baidu.adp.lib.Disk.a
+        public boolean c(File file) {
+            return true;
+        }
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vQ() {
-        return this.aiv;
-    }
+    /* loaded from: classes.dex */
+    public static class a {
+        public com.baidu.adp.widget.a.a aiW;
+        public String path;
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int vR() {
-        return this.procType;
+        public a(com.baidu.adp.widget.a.a aVar, String str) {
+            this.aiW = aVar;
+            this.path = str;
+        }
     }
 }

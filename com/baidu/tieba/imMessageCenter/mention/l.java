@@ -3,12 +3,13 @@ package com.baidu.tieba.imMessageCenter.mention;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.util.o;
 import java.util.HashMap;
 import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes2.dex */
 public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int dKo;
+    private int dSa;
     private String ids;
     private int mPn = 1;
 
@@ -20,38 +21,38 @@ public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.dKo = 4;
+        this.dSa = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.dKo = 1;
+        this.dSa = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.dKo;
+        return this.dSa;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> EA() {
+    public HashMap<String, Object> EM() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
         hashMap.put("pn", String.valueOf(this.mPn));
-        if (this.dKo == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.dSa == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object bQ(boolean z) {
+    public Object bL(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.pn = Integer.valueOf(this.mPn);
             builder.ids = this.ids;
             if (z) {
-                com.baidu.tbadk.util.m.bindCommonParamsToProtobufData(builder, true);
+                o.bindCommonParamsToProtobufData(builder, true);
             }
             ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -67,12 +68,12 @@ public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Ex() {
+    public String EJ() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Ey() {
+    public boolean EK() {
         return true;
     }
 

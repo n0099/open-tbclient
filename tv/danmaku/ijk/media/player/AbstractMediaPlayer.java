@@ -7,10 +7,12 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
     private IMediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener;
     private IMediaPlayer.OnCompletionListener mOnCompletionListener;
     private IMediaPlayer.OnErrorListener mOnErrorListener;
+    private IMediaPlayer.OnHandleOppoErrorListener mOnHandleOppoErrorListener;
     private IMediaPlayer.OnInfoListener mOnInfoListener;
     private IMediaPlayer.OnMediaReleaseFinishedListener mOnMediaReleaseFinishedListener;
     private IMediaPlayer.OnPreparedListener mOnPreparedListener;
     private IMediaPlayer.OnSeekCompleteListener mOnSeekCompleteListener;
+    private IMediaPlayer.OnSubErrorInfoListener mOnSubErrorInfoListener;
     private IMediaPlayer.OnVideoSizeChangedListener mOnVideoSizeChangedListener;
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
@@ -53,6 +55,16 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         this.mOnMediaReleaseFinishedListener = onMediaReleaseFinishedListener;
     }
 
+    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
+    public void setOnSubErrorListener(IMediaPlayer.OnSubErrorInfoListener onSubErrorInfoListener) {
+        this.mOnSubErrorInfoListener = onSubErrorInfoListener;
+    }
+
+    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
+    public void setOnHandleOppoErrorListener(IMediaPlayer.OnHandleOppoErrorListener onHandleOppoErrorListener) {
+        this.mOnHandleOppoErrorListener = onHandleOppoErrorListener;
+    }
+
     public void resetListeners() {
         this.mOnPreparedListener = null;
         this.mOnBufferingUpdateListener = null;
@@ -62,6 +74,8 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         this.mOnErrorListener = null;
         this.mOnInfoListener = null;
         this.mOnMediaReleaseFinishedListener = null;
+        this.mOnSubErrorInfoListener = null;
+        this.mOnHandleOppoErrorListener = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -116,8 +130,27 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void notifyOnSubError(int i, int i2) {
+        if (this.mOnSubErrorInfoListener != null) {
+            this.mOnSubErrorInfoListener.onSubError(i, i2);
+        }
+    }
+
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setDataSource(IMediaDataSource iMediaDataSource) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
+    public void handleOppoError(String str) {
+        notifyOppoError(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void notifyOppoError(String str) {
+        if (this.mOnHandleOppoErrorListener != null) {
+            this.mOnHandleOppoErrorListener.handleOppoError(str);
+        }
     }
 }

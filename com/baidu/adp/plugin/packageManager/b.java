@@ -21,53 +21,53 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b Dt;
-    private HashMap<String, String> Du = new HashMap<>();
-    private a Dv = null;
-    private boolean Dw = false;
+    private static volatile b De;
+    private HashMap<String, String> Df = new HashMap<>();
+    private a Dg = null;
+    private boolean Dh = false;
 
-    public static b jq() {
-        if (Dt == null) {
+    public static b jn() {
+        if (De == null) {
             synchronized (b.class) {
-                if (Dt == null) {
-                    Dt = new b();
+                if (De == null) {
+                    De = new b();
                 }
             }
         }
-        return Dt;
+        return De;
     }
 
     private b() {
     }
 
     public void clear(boolean z) {
-        if (z && !this.Dw && this.Dv == null && jr()) {
-            this.Dv = new a();
-            this.Dv.execute(new Void[0]);
-            this.Dw = true;
+        if (z && !this.Dh && this.Dg == null && jo()) {
+            this.Dg = new a();
+            this.Dg.execute(new Void[0]);
+            this.Dh = true;
         }
     }
 
-    private boolean jr() {
+    private boolean jo() {
         String[] split;
-        this.Du.clear();
-        PluginSettings jU = com.baidu.adp.plugin.packageManager.pluginSettings.c.jX().jU();
-        if (jU == null) {
+        this.Df.clear();
+        PluginSettings jR = com.baidu.adp.plugin.packageManager.pluginSettings.c.jU().jR();
+        if (jR == null) {
             return false;
         }
-        Map<String, PluginSetting> plugins = jU.getPlugins();
+        Map<String, PluginSetting> plugins = jR.getPlugins();
         if (plugins.isEmpty()) {
             return false;
         }
         for (Map.Entry<String, PluginSetting> entry : plugins.entrySet()) {
             PluginSetting value = entry.getValue();
             if (!TextUtils.isEmpty(value.apkPath)) {
-                this.Du.put(new File(value.apkPath).getName(), "");
+                this.Df.put(new File(value.apkPath).getName(), "");
             }
             if (!TextUtils.isEmpty(value.getAbandon_apk_path()) && (split = value.getAbandon_apk_path().split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str)) {
-                        this.Du.put(new File(str).getName(), "");
+                        this.Df.put(new File(str).getName(), "");
                     }
                 }
             }
@@ -86,11 +86,11 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Boolean doInBackground(Void... voidArr) {
-            ArrayList<File> js = js();
-            if (js == null || js.size() == 0) {
+            ArrayList<File> jp = jp();
+            if (jp == null || jp.size() == 0) {
                 return false;
             }
-            d(js);
+            d(jp);
             return true;
         }
 
@@ -99,22 +99,22 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            b.this.Dv = null;
+            b.this.Dg = null;
         }
 
-        private ArrayList<File> js() {
-            File ki = Util.ki();
-            if (ki == null) {
+        private ArrayList<File> jp() {
+            File kf = Util.kf();
+            if (kf == null) {
                 return null;
             }
-            String jW = com.baidu.adp.plugin.packageManager.pluginSettings.b.jT().jW();
-            File[] listFiles = ki.listFiles();
+            String jT = com.baidu.adp.plugin.packageManager.pluginSettings.b.jQ().jT();
+            File[] listFiles = kf.listFiles();
             if (listFiles != null) {
                 StringBuilder sb = new StringBuilder();
                 StringBuilder sb2 = new StringBuilder();
                 StringBuilder sb3 = new StringBuilder();
                 try {
-                    for (Map.Entry entry : b.this.Du.entrySet()) {
+                    for (Map.Entry entry : b.this.Df.entrySet()) {
                         if (sb.length() > 0) {
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                         }
@@ -129,9 +129,9 @@ public class b {
                         String absolutePath = file.getAbsolutePath();
                         BdLog.i("ClearRedunceFiles file: " + file.getAbsolutePath());
                         String name = file.getName();
-                        if (!absolutePath.equals(jW) && !"plugin_settings".equals(file.getName()) && System.currentTimeMillis() - file.lastModified() >= 86400000) {
+                        if (!absolutePath.equals(jT) && !"plugin_settings".equals(file.getName()) && System.currentTimeMillis() - file.lastModified() >= 86400000) {
                             if (file.isDirectory()) {
-                                if (name.endsWith(".apk") || b.this.Du.get(name + ".apk") != null) {
+                                if (name.endsWith(".apk") || b.this.Df.get(name + ".apk") != null) {
                                     if (sb2.length() < 10000) {
                                         if (sb2.length() > 0) {
                                             sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -150,7 +150,7 @@ public class b {
                                     }
                                 }
                             } else if (name.endsWith(".apk")) {
-                                if (b.this.Du.get(name) != null) {
+                                if (b.this.Df.get(name) != null) {
                                     if (sb2.length() < 10000) {
                                         if (sb2.length() > 0) {
                                             sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -209,28 +209,28 @@ public class b {
                             }
                         }
                     }
-                    PluginSettings jU = com.baidu.adp.plugin.packageManager.pluginSettings.c.jX().jU();
-                    if (jU == null) {
+                    PluginSettings jR = com.baidu.adp.plugin.packageManager.pluginSettings.c.jU().jR();
+                    if (jR == null) {
                         final Message obtain = Message.obtain();
-                        com.baidu.adp.plugin.packageManager.pluginSettings.b.jT().a(new e() { // from class: com.baidu.adp.plugin.packageManager.b.a.1
+                        com.baidu.adp.plugin.packageManager.pluginSettings.b.jQ().a(new e() { // from class: com.baidu.adp.plugin.packageManager.b.a.1
                             @Override // com.baidu.adp.plugin.packageManager.pluginSettings.e
                             public void a(PluginSettings pluginSettings) {
                                 obtain.obj = pluginSettings;
                             }
                         });
                         if (obtain != null && obtain.obj != null && (obtain.obj instanceof PluginSettings)) {
-                            jU = (PluginSettings) obtain.obj;
+                            jR = (PluginSettings) obtain.obj;
                             sb4.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                             sb4.append("settings_null_read_plugin_settings_again");
                         }
                     }
-                    if (jU != null) {
+                    if (jR != null) {
                         sb4.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                        sb4.append(jU.getContainerVersion());
+                        sb4.append(jR.getContainerVersion());
                         sb4.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                        sb4.append(jU.getForbiddenFeatures());
+                        sb4.append(jR.getForbiddenFeatures());
                         sb4.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                        for (Map.Entry<String, PluginSetting> entry2 : jU.getPlugins().entrySet()) {
+                        for (Map.Entry<String, PluginSetting> entry2 : jR.getPlugins().entrySet()) {
                             PluginSetting value = entry2.getValue();
                             if (value != null) {
                                 sb4.append(value.packageName);
@@ -246,7 +246,7 @@ public class b {
                             }
                         }
                     }
-                    com.baidu.adp.plugin.b.a.ji().c("plugin_del_redundance", "del_redundance_detail", null, "uselist_" + sb.toString() + "_delandreason_" + sb3.toString() + "_jump_" + sb2.toString() + "_setting_" + sb4.toString());
+                    com.baidu.adp.plugin.b.a.jf().c("plugin_del_redundance", "del_redundance_detail", null, "uselist_" + sb.toString() + "_delandreason_" + sb3.toString() + "_jump_" + sb2.toString() + "_setting_" + sb4.toString());
                 }
                 return arrayList;
             }
@@ -261,9 +261,9 @@ public class b {
                     if (next != null) {
                         try {
                             f.j(next);
-                            com.baidu.adp.plugin.b.a.ji().c("plugin_del_redundance", "delete_redundance", null, next.getAbsolutePath());
+                            com.baidu.adp.plugin.b.a.jf().c("plugin_del_redundance", "delete_redundance", null, next.getAbsolutePath());
                         } catch (IOException e) {
-                            com.baidu.adp.plugin.b.a.ji().c("plugin_del_redundance", "delete_redundance_fail", null, next.getAbsolutePath() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
+                            com.baidu.adp.plugin.b.a.jf().c("plugin_del_redundance", "delete_redundance_fail", null, next.getAbsolutePath() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
                         }
                     }
                 }

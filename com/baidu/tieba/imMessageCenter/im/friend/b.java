@@ -16,85 +16,85 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
-    private BdListView HO;
-    private View Rh;
-    private NoNetworkView ccF;
-    private a dHD;
-    private IMBlackListActivity dHz;
+    private BdListView Hj;
+    private View Ry;
+    private NoNetworkView ckb;
+    private IMBlackListActivity dPn;
+    private a dPr;
     private NavigationBar mNavigationBar;
     private f mNoDataView;
     private ProgressBar mProgress;
 
     public b(IMBlackListActivity iMBlackListActivity) {
         super(iMBlackListActivity.getPageContext());
-        this.dHz = iMBlackListActivity;
-        wt();
+        this.dPn = iMBlackListActivity;
+        wA();
     }
 
-    public void DB() {
+    public void DQ() {
         this.mProgress.setVisibility(0);
     }
 
-    public void azT() {
+    public void aCo() {
         this.mProgress.setVisibility(8);
     }
 
     public void b(BlackListItemData blackListItemData) {
-        this.dHD.b(blackListItemData);
-        if (this.dHD.getCount() <= 0) {
-            this.HO.setVisibility(8);
+        this.dPr.b(blackListItemData);
+        if (this.dPr.getCount() <= 0) {
+            this.Hj.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
-        this.HO.setVisibility(0);
+        this.Hj.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.dHD.notifyDataSetChanged();
+        this.dPr.notifyDataSetChanged();
     }
 
     public void refreshData() {
-        if (this.dHD.getCount() <= 0) {
-            this.HO.setVisibility(8);
+        if (this.dPr.getCount() <= 0) {
+            this.Hj.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
-        this.HO.setVisibility(0);
+        this.Hj.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.dHD.notifyDataSetChanged();
+        this.dPr.notifyDataSetChanged();
     }
 
     public void R(ArrayList<BlackListItemData> arrayList) {
         if (arrayList == null || arrayList.size() <= 0) {
-            this.HO.setVisibility(8);
+            this.Hj.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
-        this.HO.setVisibility(0);
+        this.Hj.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.dHD.setData(arrayList);
-        this.dHD.notifyDataSetChanged();
+        this.dPr.setData(arrayList);
+        this.dPr.notifyDataSetChanged();
     }
 
-    private void wt() {
-        this.dHz.setContentView(d.j.im_black_list);
-        this.Rh = this.dHz.findViewById(d.h.root_view);
-        this.ccF = (NoNetworkView) this.Rh.findViewById(d.h.view_no_network);
-        this.mNavigationBar = (NavigationBar) this.Rh.findViewById(d.h.view_navigation_bar);
+    private void wA() {
+        this.dPn.setContentView(d.h.im_black_list);
+        this.Ry = this.dPn.findViewById(d.g.root_view);
+        this.ckb = (NoNetworkView) this.Ry.findViewById(d.g.view_no_network);
+        this.mNavigationBar = (NavigationBar) this.Ry.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(d.l.chat_black_list_title);
-        this.HO = (BdListView) this.Rh.findViewById(d.h.black_list);
-        this.mNoDataView = NoDataViewFactory.a(this.dHz.getPageContext().getContext(), this.Rh, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aLq), NoDataViewFactory.d.dp(d.l.black_list_no_data_text), null);
-        this.mProgress = (ProgressBar) this.Rh.findViewById(d.h.progress);
-        this.dHD = new a(this.dHz);
-        this.HO.setAdapter((ListAdapter) this.dHD);
-        wu();
+        this.mNavigationBar.setTitleText(d.j.chat_black_list_title);
+        this.Hj = (BdListView) this.Ry.findViewById(d.g.black_list);
+        this.mNoDataView = NoDataViewFactory.a(this.dPn.getPageContext().getContext(), this.Ry, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aLZ), NoDataViewFactory.d.dq(d.j.black_list_no_data_text), null);
+        this.mProgress = (ProgressBar) this.Ry.findViewById(d.g.progress);
+        this.dPr = new a(this.dPn);
+        this.Hj.setAdapter((ListAdapter) this.dPr);
+        wB();
     }
 
-    private void wu() {
+    private void wB() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.dHz.getLayoutMode().ah(skinType == 1);
-        this.dHz.getLayoutMode().t(this.Rh);
-        this.mNavigationBar.onChangeSkinType(this.dHz.getPageContext(), skinType);
-        this.mNoDataView.onChangeSkinType(this.dHz.getPageContext(), skinType);
-        this.ccF.onChangeSkinType(this.dHz.getPageContext(), skinType);
+        this.dPn.getLayoutMode().ag(skinType == 1);
+        this.dPn.getLayoutMode().t(this.Ry);
+        this.mNavigationBar.onChangeSkinType(this.dPn.getPageContext(), skinType);
+        this.mNoDataView.onChangeSkinType(this.dPn.getPageContext(), skinType);
+        this.ckb.onChangeSkinType(this.dPn.getPageContext(), skinType);
     }
 }

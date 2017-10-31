@@ -1,48 +1,52 @@
 package com.baidu.tbadk.j;
 
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.f;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.view.HeadImageViewGroup;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class a {
-    protected View aFK;
-    private boolean aFL;
+public class a extends j.a {
+    public HeadImageViewGroup aFg;
+    private f aFh;
+    public TextView mName;
+    private View.OnClickListener mOnClickListener;
+    private int mSkinType;
 
     public a(View view) {
-        this.aFK = view;
+        super(view);
+        this.mSkinType = 3;
+        View findViewById = view.findViewById(d.g.add_pic_root);
+        this.mName = (TextView) findViewById.findViewById(d.g.name_tv);
+        this.aFg = (HeadImageViewGroup) findViewById.findViewById(d.g.img);
     }
 
-    public boolean Eh() {
-        return this.aFL;
-    }
-
-    public void c(View view, boolean z) {
-        if (view != null && this.aFK != null && this.aFK.getParent() == null) {
-            this.aFL = true;
-            d.Q(view).a(view, this.aFK, z);
-            Ei();
+    public void c(f fVar) {
+        if (fVar instanceof com.baidu.tbadk.data.c) {
+            this.aFh = fVar;
+            this.aFg.getInnerImg().setIsRound(true);
+            this.aFg.getInnerImg().setVisibility(0);
+            this.aFg.getInnerImg().setTag(null);
+            this.aFg.getInnerImg().setImageResource(d.f.btn_story_release);
+            this.aFg.setOuterColor(d.C0080d.cp_link_tip_g);
+            this.mName.setText(((com.baidu.tbadk.data.c) fVar).getName());
+            this.aFg.setOnClickListener(this.mOnClickListener);
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void O(View view) {
-        if (view != null && this.aFK != null && this.aFK.getParent() != null && (view instanceof ViewGroup)) {
-            try {
-                Ej();
-                ((ViewGroup) view).removeView(this.aFK);
-                this.aFL = false;
-            } catch (Exception e) {
-            }
+    public void onChangeSkinType(int i) {
+        if (this.mSkinType != i) {
+            aj.c(this.mName, d.C0080d.cp_cont_f, 1);
+            this.aFg.onChangeSkinType(i);
+            this.mSkinType = i;
         }
     }
 
-    public void P(View view) {
-        c(view, false);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void Ei() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void Ej() {
+    public void setOnClick(View.OnClickListener onClickListener) {
+        this.mOnClickListener = onClickListener;
     }
 }

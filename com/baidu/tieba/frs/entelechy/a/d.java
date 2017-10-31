@@ -16,35 +16,35 @@ import com.baidu.tieba.card.v;
 import com.baidu.tieba.card.x;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.widget.ListView.a<bh, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.i>> implements v, com.baidu.tieba.frs.f.c {
-    private x bmv;
-    private int cwa;
+public class d extends com.baidu.adp.widget.ListView.a<bh, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.i>> implements v, com.baidu.tieba.frs.e.c {
+    private x boe;
+    private int cDH;
     private String mForumName;
-    private TbPageContext<?> mH;
     private boolean mIsFromCDN;
+    private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = true;
-        this.cwa = 0;
-        this.bmv = new x<bh>() { // from class: com.baidu.tieba.frs.entelechy.a.d.1
+        this.cDH = 0;
+        this.boe = new x<bh>() { // from class: com.baidu.tieba.frs.entelechy.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, bh bhVar) {
                 if (view != null && bhVar != null) {
-                    if (view.getId() == d.h.card_vote_header_image) {
-                        com.baidu.tieba.frs.f.b.alt().a(com.baidu.tieba.frs.f.c.cFQ, bhVar, 2);
-                    } else if (view.getId() == d.h.card_divider_tv) {
-                        com.baidu.tieba.frs.g.h.a(com.baidu.tieba.frs.f.c.cFQ, bhVar.rM());
+                    if (view.getId() == d.g.card_vote_header_image) {
+                        com.baidu.tieba.frs.e.b.aoe().a(com.baidu.tieba.frs.e.c.cPd, bhVar, 2);
+                    } else if (view.getId() == d.g.card_divider_tv) {
+                        com.baidu.tieba.frs.f.h.a(com.baidu.tieba.frs.e.c.cPd, bhVar.rS());
                     } else {
-                        com.baidu.tieba.frs.f.b.alt().a(com.baidu.tieba.frs.f.c.cFQ, bhVar, 1);
+                        com.baidu.tieba.frs.e.b.aoe().a(com.baidu.tieba.frs.e.c.cPd, bhVar, 1);
                     }
                 }
             }
         };
-        this.mH = tbPageContext;
-        this.cwa = com.baidu.adp.lib.util.l.f(this.mH.getPageActivity(), d.f.ds14);
+        this.mPageContext = tbPageContext;
+        this.cDH = com.baidu.adp.lib.util.l.f(this.mPageContext.getPageActivity(), d.e.ds14);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,27 +52,27 @@ public class d extends com.baidu.adp.widget.ListView.a<bh, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bh bhVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.i> aVar) {
-        if (aVar == null || aVar.Yn() == null) {
+        if (aVar == null || aVar.aax() == null) {
             return null;
         }
         a(i, view, bhVar, aVar);
-        aVar.Yn().a(bhVar);
-        aVar.Yn().setForumName(this.mForumName);
-        aVar.Yn().b(this.bmv);
-        com.baidu.tieba.frs.f.b.alt().a(cFQ, bhVar);
+        aVar.aax().a(bhVar);
+        aVar.aax().setForumName(this.mForumName);
+        aVar.aax().b(this.boe);
+        com.baidu.tieba.frs.e.b.aoe().a(cPd, bhVar);
         return aVar.getView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: B */
+    /* renamed from: S */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.frs.entelechy.view.i iVar = null;
-        if (this.mType == bh.Yh) {
-            iVar = new com.baidu.tieba.frs.entelechy.view.f(this.mH, this.mPageId);
-        } else if (this.mType == bh.Yi) {
-            iVar = new com.baidu.tieba.frs.entelechy.view.g(this.mH, this.mPageId);
+        if (this.mType == bh.Yz) {
+            iVar = new com.baidu.tieba.frs.entelechy.view.f(this.mPageContext, this.mPageId);
+        } else if (this.mType == bh.YA) {
+            iVar = new com.baidu.tieba.frs.entelechy.view.g(this.mPageContext, this.mPageId);
         }
         if (iVar != null) {
             iVar.k(this.mPageId);
@@ -83,21 +83,21 @@ public class d extends com.baidu.adp.widget.ListView.a<bh, com.baidu.tieba.card.
 
     private void a(int i, View view, bh bhVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.i> aVar) {
         if (bhVar != null && aVar != null) {
-            bhVar.sm();
-            MetaData author = bhVar.getAuthor();
-            if (author != null) {
-                final ThemeCardInUserData themeCard = author.getThemeCard();
+            bhVar.st();
+            MetaData rt = bhVar.rt();
+            if (rt != null) {
+                final ThemeCardInUserData themeCard = rt.getThemeCard();
                 if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
-                    aVar.Yn().csi.setVisibility(8);
+                    aVar.aax().czF.setVisibility(8);
                 } else {
-                    aVar.Yn().csi.setVisibility(0);
-                    aVar.Yn().csi.setImageBitmap(null);
-                    aVar.Yn().csi.c(themeCard.getCardImageUrlAndroid(), 10, false);
+                    aVar.aax().czF.setVisibility(0);
+                    aVar.aax().czF.setImageBitmap(null);
+                    aVar.aax().czF.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
                 }
-                aVar.Yn().csi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.d.2
+                aVar.aax().czF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.d.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(d.this.mH.getPageActivity(), themeCard.getCardId())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(d.this.mPageContext.getPageActivity(), themeCard.getCardId())));
                     }
                 });
             }

@@ -12,7 +12,6 @@ public class ForbidReasonData extends OrmObject implements Serializable {
     public static class ErrorInfo extends OrmObject {
         public int errno = 0;
         public String errMsg = "";
-        public String userMsg = "";
     }
 
     public ForbidReasonData() {
