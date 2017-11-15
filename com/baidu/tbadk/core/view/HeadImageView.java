@@ -96,8 +96,8 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.mPerfLog != null && this.mPerfLog.aJA) {
-            this.mPerfLog.Gb();
+        } else if (this.mPerfLog != null && this.mPerfLog.aJI) {
+            this.mPerfLog.Gm();
         }
     }
 

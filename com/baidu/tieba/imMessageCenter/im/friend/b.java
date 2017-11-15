@@ -18,48 +18,48 @@ import java.util.ArrayList;
 public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
     private BdListView Hj;
     private View Ry;
-    private NoNetworkView ckb;
-    private IMBlackListActivity dPn;
-    private a dPr;
+    private NoNetworkView cks;
+    private IMBlackListActivity dPs;
+    private a dPw;
     private NavigationBar mNavigationBar;
     private f mNoDataView;
     private ProgressBar mProgress;
 
     public b(IMBlackListActivity iMBlackListActivity) {
         super(iMBlackListActivity.getPageContext());
-        this.dPn = iMBlackListActivity;
+        this.dPs = iMBlackListActivity;
         wA();
     }
 
-    public void DQ() {
+    public void Ec() {
         this.mProgress.setVisibility(0);
     }
 
-    public void aCo() {
+    public void aCs() {
         this.mProgress.setVisibility(8);
     }
 
     public void b(BlackListItemData blackListItemData) {
-        this.dPr.b(blackListItemData);
-        if (this.dPr.getCount() <= 0) {
+        this.dPw.b(blackListItemData);
+        if (this.dPw.getCount() <= 0) {
             this.Hj.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
         this.Hj.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.dPr.notifyDataSetChanged();
+        this.dPw.notifyDataSetChanged();
     }
 
     public void refreshData() {
-        if (this.dPr.getCount() <= 0) {
+        if (this.dPw.getCount() <= 0) {
             this.Hj.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
         this.Hj.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.dPr.notifyDataSetChanged();
+        this.dPw.notifyDataSetChanged();
     }
 
     public void R(ArrayList<BlackListItemData> arrayList) {
@@ -70,31 +70,31 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
         }
         this.Hj.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.dPr.setData(arrayList);
-        this.dPr.notifyDataSetChanged();
+        this.dPw.setData(arrayList);
+        this.dPw.notifyDataSetChanged();
     }
 
     private void wA() {
-        this.dPn.setContentView(d.h.im_black_list);
-        this.Ry = this.dPn.findViewById(d.g.root_view);
-        this.ckb = (NoNetworkView) this.Ry.findViewById(d.g.view_no_network);
+        this.dPs.setContentView(d.h.im_black_list);
+        this.Ry = this.dPs.findViewById(d.g.root_view);
+        this.cks = (NoNetworkView) this.Ry.findViewById(d.g.view_no_network);
         this.mNavigationBar = (NavigationBar) this.Ry.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(d.j.chat_black_list_title);
         this.Hj = (BdListView) this.Ry.findViewById(d.g.black_list);
-        this.mNoDataView = NoDataViewFactory.a(this.dPn.getPageContext().getContext(), this.Ry, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aLZ), NoDataViewFactory.d.dq(d.j.black_list_no_data_text), null);
+        this.mNoDataView = NoDataViewFactory.a(this.dPs.getPageContext().getContext(), this.Ry, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aMh), NoDataViewFactory.d.dp(d.j.black_list_no_data_text), null);
         this.mProgress = (ProgressBar) this.Ry.findViewById(d.g.progress);
-        this.dPr = new a(this.dPn);
-        this.Hj.setAdapter((ListAdapter) this.dPr);
+        this.dPw = new a(this.dPs);
+        this.Hj.setAdapter((ListAdapter) this.dPw);
         wB();
     }
 
     private void wB() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.dPn.getLayoutMode().ag(skinType == 1);
-        this.dPn.getLayoutMode().t(this.Ry);
-        this.mNavigationBar.onChangeSkinType(this.dPn.getPageContext(), skinType);
-        this.mNoDataView.onChangeSkinType(this.dPn.getPageContext(), skinType);
-        this.ckb.onChangeSkinType(this.dPn.getPageContext(), skinType);
+        this.dPs.getLayoutMode().ag(skinType == 1);
+        this.dPs.getLayoutMode().t(this.Ry);
+        this.mNavigationBar.onChangeSkinType(this.dPs.getPageContext(), skinType);
+        this.mNoDataView.onChangeSkinType(this.dPs.getPageContext(), skinType);
+        this.cks.onChangeSkinType(this.dPs.getPageContext(), skinType);
     }
 }

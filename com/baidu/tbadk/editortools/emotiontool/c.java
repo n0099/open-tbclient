@@ -3,22 +3,22 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a aCa;
-    private com.baidu.adp.widget.a.a aCb;
+    private com.baidu.adp.widget.a.a aCi;
+    private com.baidu.adp.widget.a.a aCj;
     private int cols;
     private int rows;
 
-    public abstract boolean CV();
+    public abstract boolean Dh();
 
-    public abstract EmotionGroupType CW();
+    public abstract EmotionGroupType Di();
 
-    public abstract String eS(int i);
+    public abstract String eR(int i);
 
-    public abstract boolean fI(String str);
-
-    public abstract com.baidu.adp.widget.a.a fJ(String str);
+    public abstract boolean fJ(String str);
 
     public abstract com.baidu.adp.widget.a.a fK(String str);
+
+    public abstract com.baidu.adp.widget.a.a fL(String str);
 
     public abstract int getEmotionsCount();
 
@@ -30,26 +30,26 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.a.a CX() {
-        return this.aCa;
+    public com.baidu.adp.widget.a.a Dj() {
+        return this.aCi;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
             aVar.kK();
         }
-        this.aCa = aVar;
+        this.aCi = aVar;
     }
 
-    public com.baidu.adp.widget.a.a CY() {
-        return this.aCb;
+    public com.baidu.adp.widget.a.a Dk() {
+        return this.aCj;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
             aVar.kK();
         }
-        this.aCb = aVar;
+        this.aCj = aVar;
     }
 
     public int getCols() {
@@ -57,16 +57,16 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eT(int i) {
+    public void eS(int i) {
         this.cols = i;
     }
 
-    public int CZ() {
+    public int Dl() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eU(int i) {
+    public void eT(int i) {
         this.rows = i;
     }
 }

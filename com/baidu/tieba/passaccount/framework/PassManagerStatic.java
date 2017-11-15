@@ -25,12 +25,12 @@ import com.baidu.tieba.passaccount.app.SapiFastRegActivity;
 /* loaded from: classes.dex */
 public class PassManagerStatic {
     static {
-        Lx();
-        DY();
+        LI();
+        Ek();
         registerListener();
     }
 
-    private static void Lx() {
+    private static void LI() {
         a.checkPassV6Switch();
         if (!a.xo()) {
             TbadkCoreApplication.getInst().RegisterOrUpdateIntent(RegisterActivityConfig.class, SapiFastRegActivity.class);
@@ -39,11 +39,11 @@ public class PassManagerStatic {
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(QALoginActivityConfig.class, QALoginActivity.class);
     }
 
-    private static void DY() {
+    private static void Ek() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_PASS_MANAGER, new CustomMessageTask.CustomRunnable<Activity>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<c> run(CustomMessage<Activity> customMessage) {
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PASS_MANAGER, b.aOU());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PASS_MANAGER, b.aPc());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -51,7 +51,7 @@ public class PassManagerStatic {
         CustomMessageTask customMessageTask2 = new CustomMessageTask(CmdConfigCustom.CMD_ACCOUT_LOGIN_HELPER, new CustomMessageTask.CustomRunnable<Activity>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tbadk.core.a.a> run(CustomMessage<Activity> customMessage) {
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_ACCOUT_LOGIN_HELPER, com.baidu.tieba.passaccount.a.a.aOT());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_ACCOUT_LOGIN_HELPER, com.baidu.tieba.passaccount.a.a.aPb());
             }
         });
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

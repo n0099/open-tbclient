@@ -4,7 +4,7 @@ import com.baidu.tieba.monitor.VideoMonitorStatic;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public interface c {
-    JSONObject aNk();
+    JSONObject aNo();
 
     /* loaded from: classes.dex */
     public static abstract class a implements c {
@@ -16,12 +16,12 @@ public interface c {
         }
 
         @Override // com.baidu.tieba.monitor.a.c
-        public JSONObject aNk() {
+        public JSONObject aNo() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);
                 jSONObject.put("timestamp", this.timestamp);
-                jSONObject.put("network_status", VideoMonitorStatic.aNj());
+                jSONObject.put("network_status", VideoMonitorStatic.aNn());
             } catch (Exception e) {
                 e.printStackTrace();
             }

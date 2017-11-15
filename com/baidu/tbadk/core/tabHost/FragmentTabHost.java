@@ -157,7 +157,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         }
         if (!this.aef.contains(cVar)) {
             if (cVar.aep != null) {
-                cVar.aep.EE();
+                cVar.aep.EQ();
             }
             this.aec.addView(cVar.aen, i);
             if (i == -1) {
@@ -178,16 +178,16 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
     }
 
     public void initViewPager() {
-        cz(0);
+        cy(0);
     }
 
-    public void cz(int i) {
+    public void cy(int i) {
         if (this.aeg != null) {
             removeView(this.aeg);
         }
         this.aeg = new CustomViewPager(this.mContext);
         this.aeg.setId(d.g.tab_content);
-        cA(i);
+        cz(i);
         addView(this.aeg);
         removeView(this.aej);
         addView(this.aej);
@@ -212,7 +212,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         this.aeg.setAdapter(this.aei);
     }
 
-    public void cA(int i) {
+    public void cz(int i) {
         RelativeLayout.LayoutParams layoutParams;
         RelativeLayout.LayoutParams layoutParams2;
         if (this.aeg.getLayoutParams() == null) {
@@ -334,14 +334,14 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         return this.aec;
     }
 
-    public c cB(int i) {
+    public c cA(int i) {
         if (i < 0 || i >= this.aef.size()) {
             return null;
         }
         return this.aef.get(i);
     }
 
-    public c cC(int i) {
+    public c cB(int i) {
         for (c cVar : this.aef) {
             if (i == cVar.mType) {
                 return cVar;
@@ -376,7 +376,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
     }
 
     public void onChangeSkinType(int i) {
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(aj.cT(d.f.s_tabbar_bg));
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(aj.cS(d.f.s_tabbar_bg));
         if (i == 2 && this.aee) {
             this.aej.setBackgroundDrawable(bitmapDrawable);
         } else {
@@ -387,7 +387,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
             aj.k(this.ael, d.C0080d.cp_bg_line_b);
         }
         for (c cVar : this.aef) {
-            cVar.aen.dE(i);
+            cVar.aen.dD(i);
         }
         if (this.aei != null) {
             int count = this.aei.getCount();

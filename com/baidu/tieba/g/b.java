@@ -10,46 +10,46 @@ import tbclient.Esport;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class b implements f {
-    public static final BdUniqueId cYc = BdUniqueId.gen();
-    private int bUC;
-    private List<a> cYd;
-    private String cYe;
-    private String cYf;
+    public static final BdUniqueId cYw = BdUniqueId.gen();
+    private int bUP;
+    private List<a> cYx;
+    private String cYy;
+    private String cYz;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.bUC = esport.floor_no.intValue();
+            this.bUP = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.cYe = esport._static.img;
-                this.cYf = esport._static.url;
+                this.cYy = esport._static.img;
+                this.cYz = esport._static.url;
             }
-            this.cYd = new ArrayList();
-            if (!StringUtils.isNull(this.cYe)) {
+            this.cYx = new ArrayList();
+            if (!StringUtils.isNull(this.cYy)) {
                 a aVar = new a();
-                aVar.lD(this.cYe);
-                aVar.lE(this.cYf);
-                this.cYd.add(aVar);
+                aVar.lF(this.cYy);
+                aVar.lG(this.cYz);
+                this.cYx.add(aVar);
             }
             if (!v.v(esport.billboard)) {
                 for (EsportRank esportRank : esport.billboard) {
                     a aVar2 = new a();
                     aVar2.a(esportRank);
-                    this.cYd.add(aVar2);
+                    this.cYx.add(aVar2);
                 }
             }
         }
     }
 
-    public int aqe() {
-        return this.bUC;
+    public int aqu() {
+        return this.bUP;
     }
 
-    public List<a> aqf() {
-        return this.cYd;
+    public List<a> aqv() {
+        return this.cYx;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return cYc;
+        return cYw;
     }
 }

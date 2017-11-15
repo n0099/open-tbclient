@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CardGroupDividerView extends LinearLayout {
-    private static final int bVW = d.C0080d.cp_bg_line_c;
-    private static final int bVX = d.C0080d.cp_bg_line_c;
-    private View bVU;
-    private View bVV;
-    private int bVY;
+    private static final int bWj = d.C0080d.cp_bg_line_c;
+    private static final int bWk = d.C0080d.cp_bg_line_c;
+    private View bWh;
+    private View bWi;
+    private int bWl;
     private TextView mTitle;
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
@@ -27,35 +27,35 @@ public class CardGroupDividerView extends LinearLayout {
 
     public CardGroupDividerView(Context context) {
         super(context);
-        this.bVY = bVX;
+        this.bWl = bWk;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bVY = bVX;
+        this.bWl = bWk;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bVY = bVX;
+        this.bWl = bWk;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(d.h.card_divider_view, (ViewGroup) this, true);
-        this.bVU = findViewById(d.g.card_divider_top_margin);
+        this.bWh = findViewById(d.g.card_divider_top_margin);
         this.mTitle = (TextView) findViewById(d.g.card_divider_tv);
-        this.bVV = findViewById(d.g.bottom_line);
+        this.bWi = findViewById(d.g.bottom_line);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         aj.k(this, d.C0080d.cp_bg_line_d);
-        aj.k(this.bVU, d.C0080d.cp_bg_line_c);
+        aj.k(this.bWh, d.C0080d.cp_bg_line_c);
         aj.i(this.mTitle, d.C0080d.cp_cont_d);
-        aj.k(this.bVV, this.bVY);
+        aj.k(this.bWi, this.bWl);
     }
 
     public void setTitleText(String str) {
@@ -66,34 +66,34 @@ public class CardGroupDividerView extends LinearLayout {
         this.mTitle.setTextSize(i, f);
     }
 
-    public void aau() {
-        if (this.bVU.getVisibility() != 8) {
-            this.bVU.setVisibility(8);
+    public void aaG() {
+        if (this.bWh.getVisibility() != 8) {
+            this.bWh.setVisibility(8);
         }
     }
 
-    public void aav() {
-        if (this.bVU.getVisibility() != 0) {
-            this.bVU.setVisibility(0);
+    public void aaH() {
+        if (this.bWh.getVisibility() != 0) {
+            this.bWh.setVisibility(0);
         }
     }
 
-    public void aaw() {
-        aau();
+    public void aaI() {
+        aaG();
         if (this.mTitle.getVisibility() != 8) {
             this.mTitle.setVisibility(8);
         }
-        if (this.bVV.getVisibility() != 0) {
-            this.bVV.setVisibility(0);
-            setDividerColor(bVX);
+        if (this.bWi.getVisibility() != 0) {
+            this.bWi.setVisibility(0);
+            setDividerColor(bWk);
         }
     }
 
     public void w(String str, boolean z) {
         if (z) {
-            aav();
+            aaH();
         } else {
-            aau();
+            aaG();
         }
         if (TextUtils.isEmpty(str)) {
             this.mTitle.setVisibility(8);
@@ -101,18 +101,18 @@ public class CardGroupDividerView extends LinearLayout {
             this.mTitle.setVisibility(0);
             this.mTitle.setText(str);
         }
-        if (this.bVV.getVisibility() != 0) {
-            this.bVV.setVisibility(0);
-            setDividerColor(bVW);
+        if (this.bWi.getVisibility() != 0) {
+            this.bWi.setVisibility(0);
+            setDividerColor(bWj);
         }
     }
 
     private void setDividerColor(int i) {
-        this.bVY = i;
-        aj.k(this.bVV, this.bVY);
+        this.bWl = i;
+        aj.k(this.bWi, this.bWl);
     }
 
     public View getBotttomLine() {
-        return this.bVV;
+        return this.bWi;
     }
 }

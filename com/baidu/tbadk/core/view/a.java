@@ -60,7 +60,7 @@ public class a {
         }
     }
 
-    public void db(int i) {
+    public void da(int i) {
         if (this.mActivity != null) {
             this.ajo = this.mActivity.getString(i);
         }

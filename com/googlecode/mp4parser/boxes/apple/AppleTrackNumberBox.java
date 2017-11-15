@@ -6,10 +6,10 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class AppleTrackNumberBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_3 = null;
     int a;
     int b;
 
@@ -35,7 +35,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
     }
 
     public void setA(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.xj(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.xn(i)));
         this.a = i;
     }
 
@@ -45,7 +45,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
     }
 
     public void setB(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.xj(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.xn(i)));
         this.b = i;
     }
 

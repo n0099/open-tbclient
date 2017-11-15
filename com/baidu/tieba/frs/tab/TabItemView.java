@@ -12,25 +12,25 @@ import com.baidu.tieba.d;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class TabItemView extends TextView {
-    public static int cPA = 0;
-    public static int cPB = 1;
-    public static int cPC = 2;
-    private d cPD;
-    private boolean cPE;
-    private int cPF;
+    public static int cPU = 0;
+    public static int cPV = 1;
+    public static int cPW = 2;
+    private d cPX;
+    private boolean cPY;
+    private int cPZ;
     private int mState;
 
     public TabItemView(Context context, d dVar, int i, boolean z) {
         super(context);
-        this.mState = cPA;
-        this.cPF = 0;
-        this.cPD = dVar;
-        this.cPE = z;
+        this.mState = cPU;
+        this.cPZ = 0;
+        this.cPX = dVar;
+        this.cPY = z;
         l(context, i);
     }
 
     private void l(Context context, int i) {
-        if (this.cPE) {
+        if (this.cPY) {
             setPadding(0, l.f(getContext(), d.e.ds16), 0, 0);
             setTextSize(0, l.f(context, d.e.ds32));
         } else {
@@ -38,19 +38,19 @@ public class TabItemView extends TextView {
         }
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.cPD != null) {
-            setText(this.cPD.name);
+        if (this.cPX != null) {
+            setText(this.cPX.name);
         }
         wB();
     }
 
     public void setState(int i) {
-        if (this.cPD != null && this.cPD.cPz != null && this.cPD.cPz.cAA != null && this.cPD.cPz.cAA.size() > 0) {
+        if (this.cPX != null && this.cPX.cPT != null && this.cPX.cPT.cAT != null && this.cPX.cPT.cAT.size() > 0) {
             int i2 = -l.f(getContext(), d.e.ds10);
-            if (!this.cPE) {
+            if (!this.cPY) {
                 i2 = 0;
             }
-            if (i == cPC) {
+            if (i == cPW) {
                 Drawable drawable = aj.getDrawable(d.f.icon_toolbar_arrow_up);
                 drawable.setBounds(0, i2, drawable.getMinimumWidth(), drawable.getMinimumHeight() + i2);
                 setCompoundDrawables(null, null, drawable, null);
@@ -61,14 +61,14 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(d.e.ds8));
         }
-        if (this.cPE) {
+        if (this.cPY) {
             aj.c(this, d.C0080d.cp_cont_b, 1);
         } else {
-            if (i == cPB || i == cPC) {
-                if (this.cPF == 0) {
+            if (i == cPV || i == cPW) {
+                if (this.cPZ == 0) {
                     aj.c(this, d.C0080d.cp_link_tip_a, 1);
                 } else {
-                    aj.c(this, this.cPF, 1);
+                    aj.c(this, this.cPZ, 1);
                 }
             } else {
                 aj.c(this, d.C0080d.cp_cont_f, 1);
@@ -80,10 +80,10 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.cPD == null) {
+        if (this.cPX == null) {
             return -1;
         }
-        return this.cPD.cKA;
+        return this.cPX.cKT;
     }
 
     public int getState() {
@@ -98,7 +98,7 @@ public class TabItemView extends TextView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int spaceWidth = getSpaceWidth();
         if (spaceWidth >= 0) {
-            if (this.cPE) {
+            if (this.cPY) {
                 setPadding(0, l.f(getContext(), d.e.ds16), spaceWidth, 0);
             } else {
                 setPadding(0, 0, spaceWidth, 0);
@@ -127,10 +127,10 @@ public class TabItemView extends TextView {
     }
 
     public String getUrl() {
-        if (this.cPD == null) {
+        if (this.cPX == null) {
             return null;
         }
-        return this.cPD.url;
+        return this.cPX.url;
     }
 
     public int getDrawableWidth() {
@@ -143,10 +143,10 @@ public class TabItemView extends TextView {
     }
 
     public void setForNewFrame(boolean z) {
-        this.cPE = z;
+        this.cPY = z;
     }
 
     public void setSelectItemColorResId(int i) {
-        this.cPF = i;
+        this.cPZ = i;
     }
 }

@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.i> {
-    private ImageView bbD;
-    private TextView dem;
-    private String fmI;
+    private ImageView bbM;
+    private TextView deH;
+    private String fnf;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -21,16 +21,16 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
     private void init(View view) {
         this.mRootView = view.findViewById(d.g.card_null_polymeric_rootview);
-        this.bbD = (ImageView) view.findViewById(d.g.card_null_polymeric_icon);
-        this.dem = (TextView) view.findViewById(d.g.card_null_polymeric_txt);
+        this.bbM = (ImageView) view.findViewById(d.g.card_null_polymeric_icon);
+        this.deH = (TextView) view.findViewById(d.g.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             aj.j(this.mRootView, d.C0080d.cp_bg_line_d);
-            aj.c(this.bbD, d.f.emotion07);
-            aj.c(this.dem, d.C0080d.cp_cont_c, 1);
+            aj.c(this.bbM, d.f.emotion07);
+            aj.c(this.deH, d.C0080d.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.fmI)) {
-            TextView textView = this.dem;
+        if (StringUtils.isNull(this.fnf)) {
+            TextView textView = this.deH;
             String string2 = this.mContext.getString(d.j.person_polymeric_null_data);
             Object[] objArr = new Object[1];
             if (iVar.isHost) {
@@ -66,11 +66,11 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.dem.setText(this.fmI);
+        this.deH.setText(this.fnf);
     }
 
     public void setTip(String str) {
-        this.fmI = str;
+        this.fnf = str;
     }
 
     @Override // android.view.View.OnClickListener

@@ -12,6 +12,7 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
     private IMediaPlayer.OnMediaReleaseFinishedListener mOnMediaReleaseFinishedListener;
     private IMediaPlayer.OnPreparedListener mOnPreparedListener;
     private IMediaPlayer.OnSeekCompleteListener mOnSeekCompleteListener;
+    private IMediaPlayer.OnSpeedWhenInvokingErrorListener mOnSpeedWhenInvokingErrorListener;
     private IMediaPlayer.OnSubErrorInfoListener mOnSubErrorInfoListener;
     private IMediaPlayer.OnVideoSizeChangedListener mOnVideoSizeChangedListener;
 
@@ -131,9 +132,9 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void notifyOnSubError(int i, int i2) {
+    public final void notifyOnSubError(int i, int i2, String str) {
         if (this.mOnSubErrorInfoListener != null) {
-            this.mOnSubErrorInfoListener.onSubError(i, i2);
+            this.mOnSubErrorInfoListener.onSubError(i, i2, str);
         }
     }
 
@@ -151,6 +152,18 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
     public final void notifyOppoError(String str) {
         if (this.mOnHandleOppoErrorListener != null) {
             this.mOnHandleOppoErrorListener.handleOppoError(str);
+        }
+    }
+
+    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
+    public void setOnSpeedWhenInvokingErrorListener(IMediaPlayer.OnSpeedWhenInvokingErrorListener onSpeedWhenInvokingErrorListener) {
+        this.mOnSpeedWhenInvokingErrorListener = onSpeedWhenInvokingErrorListener;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void notifySpeed(long j) {
+        if (this.mOnSpeedWhenInvokingErrorListener != null) {
+            this.mOnSpeedWhenInvokingErrorListener.onSpeed(j);
         }
     }
 }

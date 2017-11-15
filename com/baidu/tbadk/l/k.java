@@ -6,7 +6,7 @@ public class k {
     protected BdUniqueId mId = BdUniqueId.gen();
     protected int mSubType = 0;
 
-    public void ft(int i) {
+    public void fs(int i) {
         this.mSubType = i;
     }
 }

@@ -30,7 +30,7 @@ public class t extends m<com.baidu.tieba.pb.data.a, u> implements View.OnClickLi
         if (uVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (uVar.mSkinType != skinType) {
-                com.baidu.tbadk.o.a.a(this.eMh.getPageContext(), uVar.getView());
+                com.baidu.tbadk.o.a.a(this.eMB.getPageContext(), uVar.getView());
             }
             uVar.mSkinType = skinType;
         }
@@ -43,17 +43,17 @@ public class t extends m<com.baidu.tieba.pb.data.a, u> implements View.OnClickLi
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, u uVar) {
         super.onFillViewHolder(i, view, viewGroup, aVar, uVar);
         a(uVar);
-        uVar.eNM.setOnClickListener(this);
-        uVar.eNL.setOnClickListener(this);
-        uVar.eNM.setTag(aVar);
-        uVar.eNL.setTag(aVar);
+        uVar.eOg.setOnClickListener(this);
+        uVar.eOf.setOnClickListener(this);
+        uVar.eOg.setTag(aVar);
+        uVar.eOf.setTag(aVar);
         if (aVar != null) {
-            uVar.cJl.startLoad(aVar.getPortrait(), 28, false);
-            uVar.bOl.setText(aVar.getUserName());
-            uVar.dvW.setText(aVar.aPB());
+            uVar.cJE.startLoad(aVar.getPortrait(), 28, false);
+            uVar.bOy.setText(aVar.getUserName());
+            uVar.dwq.setText(aVar.aPJ());
             uVar.text.setText(aVar.getText());
-            uVar.eNL.startLoad(aVar.getPicUrl(), 10, false);
-            uVar.eNM.setText(aVar.aPC());
+            uVar.eOf.startLoad(aVar.getPicUrl(), 10, false);
+            uVar.eOg.setText(aVar.aPK());
         }
         return view;
     }
@@ -63,9 +63,9 @@ public class t extends m<com.baidu.tieba.pb.data.a, u> implements View.OnClickLi
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && ax.aT(this.mContext)) {
-            String aPD = ((com.baidu.tieba.pb.data.a) view.getTag()).aPD();
-            if (!StringUtils.isNull(aPD)) {
-                av.vI().c(this.eMh.getPageContext(), new String[]{aPD});
+            String aPL = ((com.baidu.tieba.pb.data.a) view.getTag()).aPL();
+            if (!StringUtils.isNull(aPL)) {
+                av.vI().c(this.eMB.getPageContext(), new String[]{aPL});
             }
         }
     }

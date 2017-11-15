@@ -47,7 +47,7 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
 
     /* loaded from: classes.dex */
     public interface a {
-        int dc(int i);
+        int db(int i);
     }
 
     public CommonPagerSlidingTabStrip(Context context) {
@@ -128,7 +128,7 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
                 int i2 = i;
                 if (i2 < this.ajA) {
                     if (this.ajz.getAdapter() instanceof a) {
-                        w(i2, ((a) this.ajz.getAdapter()).dc(i2));
+                        w(i2, ((a) this.ajz.getAdapter()).db(i2));
                     } else {
                         i(i2, this.ajz.getAdapter().getPageTitle(i2).toString());
                     }
@@ -305,7 +305,7 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: dd */
+            /* renamed from: dc */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

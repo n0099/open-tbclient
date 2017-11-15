@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class x {
     public String Wo;
-    public String aMi;
-    public String azE;
-    public String fGE;
-    public String fGF;
-    public String fGG;
-    public String fGH;
-    public String fGI;
+    public String aMq;
+    public String azM;
+    public String fHj;
+    public String fHk;
+    public String fHl;
+    public String fHm;
+    public String fHn;
     public String mLocate;
     public String mSource;
     public String mType;
@@ -25,11 +25,11 @@ public class x {
             if (!StringUtils.isNull(this.mLocate)) {
                 akVar.ac("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.aMi)) {
-                akVar.ac("tid", this.aMi);
+            if (!StringUtils.isNull(this.aMq)) {
+                akVar.ac("tid", this.aMq);
             }
-            if (!StringUtils.isNull(this.azE)) {
-                akVar.ac(ImageViewerConfig.FORUM_ID, this.azE);
+            if (!StringUtils.isNull(this.azM)) {
+                akVar.ac(ImageViewerConfig.FORUM_ID, this.azM);
             }
             if (!StringUtils.isNull(this.mUid)) {
                 akVar.ac(SapiAccountManager.SESSION_UID, this.mUid);
@@ -37,39 +37,39 @@ public class x {
             if (!StringUtils.isNull(this.mSource)) {
                 akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
             }
-            if (!StringUtils.isNull(this.fGE)) {
-                akVar.ac("obj_param1", this.fGE);
+            if (!StringUtils.isNull(this.fHj)) {
+                akVar.ac("obj_param1", this.fHj);
             }
-            if (!StringUtils.isNull(this.fGF)) {
-                akVar.ac("obj_param2", this.fGF);
+            if (!StringUtils.isNull(this.fHk)) {
+                akVar.ac("obj_param2", this.fHk);
             }
-            if (!StringUtils.isNull(this.fGG)) {
-                akVar.ac("obj_param3", this.fGG);
+            if (!StringUtils.isNull(this.fHl)) {
+                akVar.ac("obj_param3", this.fHl);
             }
             if (!StringUtils.isNull(this.Wo)) {
                 akVar.ac("obj_id", this.Wo);
             }
-            if (!StringUtils.isNull(this.fGH)) {
-                akVar.ac("ab_tag", this.fGH);
+            if (!StringUtils.isNull(this.fHm)) {
+                akVar.ac("ab_tag", this.fHm);
             }
         }
         return akVar;
     }
 
-    public x bhL() {
+    public x bhT() {
         x xVar = new x();
         xVar.mLocate = this.mLocate;
         xVar.mType = this.mType;
-        xVar.aMi = this.aMi;
-        xVar.azE = this.azE;
+        xVar.aMq = this.aMq;
+        xVar.azM = this.azM;
         xVar.mUid = this.mUid;
         xVar.mSource = this.mSource;
-        xVar.fGE = this.fGE;
-        xVar.fGF = this.fGF;
-        xVar.fGG = this.fGG;
+        xVar.fHj = this.fHj;
+        xVar.fHk = this.fHk;
+        xVar.fHl = this.fHl;
         xVar.Wo = this.Wo;
-        xVar.fGH = this.fGH;
-        xVar.fGI = this.fGI;
+        xVar.fHm = this.fHm;
+        xVar.fHn = this.fHn;
         return xVar;
     }
 }

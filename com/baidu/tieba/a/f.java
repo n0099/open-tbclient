@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends g<com.baidu.tbadk.data.f, com.baidu.tbadk.j.d> {
-    private com.baidu.tbadk.j.d baO;
+    private com.baidu.tbadk.j.d baX;
     private View.OnClickListener mClickListener;
     private BdUniqueId mId;
     private TbPageContext mPageContext;
@@ -23,12 +23,12 @@ public class f extends g<com.baidu.tbadk.data.f, com.baidu.tbadk.j.d> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: i */
     public com.baidu.tbadk.j.d onCreateViewHolder(ViewGroup viewGroup) {
-        this.baO = new com.baidu.tbadk.j.d(LayoutInflater.from(this.mContext).inflate(d.h.entrance_story_pics_layout, viewGroup, false), this.mPageContext);
-        if (this.mId != null && this.baO.aFk != null) {
-            this.baO.aFk.i(this.mId);
-            this.baO.aFk.setItemOnclickListener(this.mClickListener);
+        this.baX = new com.baidu.tbadk.j.d(LayoutInflater.from(this.mContext).inflate(d.h.entrance_story_pics_layout, viewGroup, false), this.mPageContext);
+        if (this.mId != null && this.baX.aFs != null) {
+            this.baX.aFs.i(this.mId);
+            this.baX.aFs.setItemOnclickListener(this.mClickListener);
         }
-        return this.baO;
+        return this.baX;
     }
 
     public void j(BdUniqueId bdUniqueId) {
@@ -41,7 +41,7 @@ public class f extends g<com.baidu.tbadk.data.f, com.baidu.tbadk.j.d> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.f fVar, com.baidu.tbadk.j.d dVar) {
         if (fVar != null && dVar != null) {
-            dVar.Ee();
+            dVar.Eq();
             dVar.a(fVar);
         }
         return view;

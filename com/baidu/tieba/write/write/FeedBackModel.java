@@ -11,23 +11,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class FeedBackModel extends BdBaseModel<WriteActivity> {
-    private a gVj;
-    private ArrayList<bh> gVk;
-    private WriteActivity gVl;
+    private a gWt;
+    private ArrayList<bh> gWu;
+    private WriteActivity gWv;
     private int mErrCode;
 
     public FeedBackModel(WriteActivity writeActivity) {
         super(writeActivity.getPageContext());
-        this.gVj = null;
-        this.gVk = null;
+        this.gWt = null;
+        this.gWu = null;
         this.mErrCode = 0;
-        this.gVl = writeActivity;
-        this.gVk = new ArrayList<>();
+        this.gWv = writeActivity;
+        this.gWu = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<bh> bEm() {
-        return this.gVk;
+    public ArrayList<bh> bEz() {
+        return this.gWu;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,11 +36,11 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ub(String str) {
-        if (this.gVj == null) {
-            this.gVj = new a();
-            this.gVj.setPriority(3);
-            this.gVj.execute(str);
+    public void ui(String str) {
+        if (this.gWt == null) {
+            this.gWt = new a();
+            this.gWt.setPriority(3);
+            this.gWt.execute(str);
         }
     }
 
@@ -63,7 +63,7 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
             if (!this.mNetWork.uN().vL().isRequestSuccess()) {
                 return null;
             }
-            FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.gVl);
+            FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.gWv);
             feedBackModel.parserJson(up);
             return feedBackModel;
         }
@@ -74,14 +74,14 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
             super.onPostExecute(feedBackModel);
-            FeedBackModel.this.gVj = null;
+            FeedBackModel.this.gWt = null;
             FeedBackModel.this.mLoadDataCallBack.f(feedBackModel);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            FeedBackModel.this.gVj = null;
+            FeedBackModel.this.gWt = null;
             if (this.mNetWork != null) {
                 this.mNetWork.fo();
             }
@@ -107,7 +107,7 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
                         if (jSONObject2 != null) {
                             bh bhVar = new bh();
                             bhVar.parserJson(jSONObject2);
-                            this.gVk.add(bhVar);
+                            this.gWu.add(bhVar);
                         }
                     }
                 }
@@ -124,8 +124,8 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.gVj != null) {
-            this.gVj.cancel();
+        if (this.gWt != null) {
+            this.gWt.cancel();
             return true;
         }
         return true;

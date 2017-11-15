@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a {
-    private static final String eEC = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String eEW = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -27,8 +27,8 @@ public class a {
     /* loaded from: classes.dex */
     private static class C0110a extends BdAsyncTask<String, Object, ForbidResultData> {
         private String Ae;
-        private WeakReference<b> aZo;
-        private String eED;
+        private WeakReference<b> aZx;
+        private String eEX;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -40,10 +40,10 @@ public class a {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.eED = str6;
+            this.eEX = str6;
             this.Ae = str7;
             this.mPostId = str5;
-            this.aZo = new WeakReference<>(bVar);
+            this.aZx = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -52,8 +52,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: x */
         public ForbidResultData doInBackground(String... strArr) {
-            x xVar = new x(a.eEC);
-            xVar.n("day", this.eED);
+            x xVar = new x(a.eEW);
+            xVar.n("day", this.eEX);
             xVar.n("un", this.mUserName);
             xVar.n(ImageViewerConfig.FORUM_ID, this.mForumId);
             xVar.n("word", this.mForumName);
@@ -85,7 +85,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.aZo.get();
+            b bVar = this.aZx.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && am.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

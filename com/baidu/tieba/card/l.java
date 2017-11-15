@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 /* loaded from: classes.dex */
 public class l extends n {
     private bh ajq;
-    public EntelechyUserLikeButton bSC;
-    private com.baidu.tieba.card.data.l bSD;
+    public EntelechyUserLikeButton bSP;
+    private com.baidu.tieba.card.data.l bSQ;
     private TbPageContext mPageContext;
     private int mSkinType;
 
@@ -22,9 +22,9 @@ public class l extends n {
     @Override // com.baidu.tieba.card.n, com.baidu.tieba.card.a
     public void a(com.baidu.tieba.card.data.l lVar) {
         super.a(lVar);
-        if (lVar != null && lVar.blk != null) {
-            this.bSD = lVar;
-            this.ajq = lVar.blk;
+        if (lVar != null && lVar.blt != null) {
+            this.bSQ = lVar;
+            this.ajq = lVar.blt;
         }
     }
 

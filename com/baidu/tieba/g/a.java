@@ -3,60 +3,60 @@ package com.baidu.tieba.g;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String cXW;
-    private String cXX;
-    private String cXY;
-    private String cXZ;
-    private String cYa;
-    private String cYb;
+    private String cYq;
+    private String cYr;
+    private String cYs;
+    private String cYt;
+    private String cYu;
+    private String cYv;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.cXW = String.valueOf(esportRank.rank);
-            this.cXX = esportRank.text;
-            this.cYb = esportRank.url;
+            this.cYq = String.valueOf(esportRank.rank);
+            this.cYr = esportRank.text;
+            this.cYv = esportRank.url;
             if (esportRank.user != null) {
-                this.cXY = esportRank.user.steam_name;
-                this.cXZ = esportRank.user.steam_portrait;
+                this.cYs = esportRank.user.steam_name;
+                this.cYt = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String apX() {
+    public String aqn() {
         return this.mTitle;
     }
 
-    public String apY() {
-        return this.cXW;
+    public String aqo() {
+        return this.cYq;
     }
 
-    public String apZ() {
-        return this.cXX;
+    public String aqp() {
+        return this.cYr;
     }
 
-    public String aqa() {
-        return this.cXY;
+    public String aqq() {
+        return this.cYs;
     }
 
-    public String aqb() {
-        return this.cXZ;
+    public String aqr() {
+        return this.cYt;
     }
 
-    public String aqc() {
-        return this.cYa;
+    public String aqs() {
+        return this.cYu;
     }
 
-    public void lD(String str) {
-        this.cYa = str;
+    public void lF(String str) {
+        this.cYu = str;
     }
 
-    public String aqd() {
-        return this.cYb;
+    public String aqt() {
+        return this.cYv;
     }
 
-    public void lE(String str) {
-        this.cYb = str;
+    public void lG(String str) {
+        this.cYv = str;
     }
 }

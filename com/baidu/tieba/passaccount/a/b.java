@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b implements c {
-    private static b eDj;
+    private static b eDD;
 
     private b() {
     }
 
-    public static synchronized b aOU() {
+    public static synchronized b aPc() {
         b bVar;
         synchronized (b.class) {
-            if (eDj == null) {
-                eDj = new b();
+            if (eDD == null) {
+                eDD = new b();
             }
-            bVar = eDj;
+            bVar = eDD;
         }
         return bVar;
     }

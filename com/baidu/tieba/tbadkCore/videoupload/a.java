@@ -7,19 +7,19 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private static int grP = 6144000;
-    private static int grQ = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b grR;
+    private static int gsS = 6144000;
+    private static int gsT = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b gsU;
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (d.eV().af("is_video_batch") == 1) {
-                this.grR = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, grQ);
+                this.gsU = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gsT);
             } else {
-                this.grR = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, grP);
+                this.gsU = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gsS);
             }
-            this.grR.a(eVar);
-            return this.grR.aF(str2, i);
+            this.gsU.a(eVar);
+            return this.gsU.aF(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;
@@ -27,20 +27,20 @@ public class a {
     }
 
     public void cancelUpload() {
-        if (this.grR != null) {
-            this.grR.cancel();
+        if (this.gsU != null) {
+            this.gsU.cancel();
         }
     }
 
-    public static void ua(int i) {
+    public static void ue(int i) {
         if (i <= 0) {
-            grQ = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+            gsT = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
-            grQ = i;
+            gsT = i;
         }
     }
 
-    public static void ub(int i) {
+    public static void uf(int i) {
         if (i <= 0) {
             chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
@@ -48,11 +48,11 @@ public class a {
         }
     }
 
-    public static void uc(int i) {
+    public static void ug(int i) {
         if (i <= 0) {
-            grP = 6144000;
+            gsS = 6144000;
         } else {
-            grP = i;
+            gsS = i;
         }
     }
 }

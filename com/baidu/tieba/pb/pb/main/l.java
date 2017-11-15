@@ -18,75 +18,75 @@ import com.baidu.tieba.pb.pb.main.view.PbFloorAgreeView;
 import com.baidu.tieba.pb.pb.sub.SubPbLayout;
 /* loaded from: classes.dex */
 public class l extends j.a {
-    public TextView aYZ;
-    public View axo;
-    public TextView clT;
-    public boolean eHP;
-    public TextView eIJ;
-    public View eIe;
-    public LinearLayout eMX;
-    public TextView eMY;
-    public TextView eMZ;
-    public View eNa;
-    public TextView eNb;
-    public PbFloorAgreeView eNc;
-    public ImageView eNd;
-    public HeadImageView eNe;
-    public TbRichTextView eNf;
-    public ConstrainImageGroup eNg;
-    public SubPbLayout eNh;
-    public TextView eNi;
-    public ImageView eNj;
-    public HeadPendantView eNk;
-    public UserIconBox eNl;
-    public UserIconBox eNm;
+    public TextView aZi;
+    public View axw;
+    public TextView cmn;
+    public boolean eIj;
+    public View eIy;
+    public TextView eJd;
+    public ConstrainImageGroup eNA;
+    public SubPbLayout eNB;
+    public TextView eNC;
+    public ImageView eND;
+    public HeadPendantView eNE;
+    public UserIconBox eNF;
+    public UserIconBox eNG;
+    public LinearLayout eNr;
+    public TextView eNs;
+    public TextView eNt;
+    public View eNu;
+    public TextView eNv;
+    public PbFloorAgreeView eNw;
+    public ImageView eNx;
+    public HeadImageView eNy;
+    public TbRichTextView eNz;
     public View mBottomLine;
     public int mSkinType;
 
     public l(TbPageContext tbPageContext, View view) {
         super(view);
         this.mSkinType = 3;
-        this.eHP = true;
+        this.eIj = true;
         if (tbPageContext != null && view != null) {
-            this.eIe = view;
-            this.axo = view.findViewById(d.g.top_divider_line);
-            this.aYZ = (TextView) view.findViewById(d.g.view_user_name);
-            this.eMX = (LinearLayout) view.findViewById(d.g.content_user_and_praise);
-            this.eMY = (TextView) view.findViewById(d.g.view_author_tip);
-            this.eMZ = (TextView) view.findViewById(d.g.view_post_time);
-            this.clT = (TextView) view.findViewById(d.g.view_forum_name);
-            this.eNj = (ImageView) view.findViewById(d.g.icon_forum_level);
-            this.eNb = (TextView) view.findViewById(d.g.view_location);
-            this.eNd = (ImageView) view.findViewById(d.g.image_more_tip);
-            this.eNc = (PbFloorAgreeView) view.findViewById(d.g.view_floor_praise);
-            this.eNe = (HeadImageView) view.findViewById(d.g.normal_user_photo);
-            this.eNk = (HeadPendantView) view.findViewById(d.g.pendant_user_photo);
-            this.eNk.wg();
-            if (this.eNk.getHeadView() != null) {
-                this.eNk.getHeadView().setIsRound(true);
-                this.eNk.getHeadView().setDrawBorder(false);
+            this.eIy = view;
+            this.axw = view.findViewById(d.g.top_divider_line);
+            this.aZi = (TextView) view.findViewById(d.g.view_user_name);
+            this.eNr = (LinearLayout) view.findViewById(d.g.content_user_and_praise);
+            this.eNs = (TextView) view.findViewById(d.g.view_author_tip);
+            this.eNt = (TextView) view.findViewById(d.g.view_post_time);
+            this.cmn = (TextView) view.findViewById(d.g.view_forum_name);
+            this.eND = (ImageView) view.findViewById(d.g.icon_forum_level);
+            this.eNv = (TextView) view.findViewById(d.g.view_location);
+            this.eNx = (ImageView) view.findViewById(d.g.image_more_tip);
+            this.eNw = (PbFloorAgreeView) view.findViewById(d.g.view_floor_praise);
+            this.eNy = (HeadImageView) view.findViewById(d.g.normal_user_photo);
+            this.eNE = (HeadPendantView) view.findViewById(d.g.pendant_user_photo);
+            this.eNE.wg();
+            if (this.eNE.getHeadView() != null) {
+                this.eNE.getHeadView().setIsRound(true);
+                this.eNE.getHeadView().setDrawBorder(false);
             }
-            if (this.eNk.getPendantView() != null) {
-                this.eNk.getPendantView().setIsRound(true);
-                this.eNk.getPendantView().setDrawBorder(false);
+            if (this.eNE.getPendantView() != null) {
+                this.eNE.getPendantView().setIsRound(true);
+                this.eNE.getPendantView().setDrawBorder(false);
             }
-            this.eNl = (UserIconBox) view.findViewById(d.g.show_icon_vip);
-            this.eNm = (UserIconBox) view.findViewById(d.g.show_icon_yinji);
-            this.eNf = (TbRichTextView) view.findViewById(d.g.richText);
-            this.eNh = (SubPbLayout) view.findViewById(d.g.pb_post_footer_layout);
-            this.eNg = (ConstrainImageGroup) view.findViewById(d.g.floor_images_content);
+            this.eNF = (UserIconBox) view.findViewById(d.g.show_icon_vip);
+            this.eNG = (UserIconBox) view.findViewById(d.g.show_icon_yinji);
+            this.eNz = (TbRichTextView) view.findViewById(d.g.richText);
+            this.eNB = (SubPbLayout) view.findViewById(d.g.pb_post_footer_layout);
+            this.eNA = (ConstrainImageGroup) view.findViewById(d.g.floor_images_content);
             this.mBottomLine = view.findViewById(d.g.pb_bottom_line);
-            this.eNi = (TextView) view.findViewById(d.g.floor_num);
-            this.eNa = view.findViewById(d.g.line_between_floor_and_time);
-            this.eNg.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds16));
-            this.eNg.setSingleImageRatio(0.75d);
-            this.eNg.setImageProcessor(new com.baidu.tbadk.widget.layout.f(3));
-            this.eNf.setLayoutStrategy(new b(this.eNf.getLayoutStrategy()));
-            this.eNf.setTextSize(TbConfig.getContentSize());
-            this.eNe.setIsRound(true);
-            this.eNf.m(this.eHP, false);
-            this.eNf.setVoiceViewRes(d.h.voice_play_btn_new);
-            this.eIJ = (TextView) view.findViewById(d.g.pb_item_tail_content);
+            this.eNC = (TextView) view.findViewById(d.g.floor_num);
+            this.eNu = view.findViewById(d.g.line_between_floor_and_time);
+            this.eNA.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds16));
+            this.eNA.setSingleImageRatio(0.75d);
+            this.eNA.setImageProcessor(new com.baidu.tbadk.widget.layout.f(3));
+            this.eNz.setLayoutStrategy(new b(this.eNz.getLayoutStrategy()));
+            this.eNz.setTextSize(TbConfig.getContentSize());
+            this.eNy.setIsRound(true);
+            this.eNz.m(this.eIj, false);
+            this.eNz.setVoiceViewRes(d.h.voice_play_btn_new);
+            this.eJd = (TextView) view.findViewById(d.g.pb_item_tail_content);
         }
     }
 }

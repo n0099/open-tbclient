@@ -1,19 +1,19 @@
 package com.baidu.ueg.encrypt.entity;
 /* loaded from: classes.dex */
 public class a {
-    private EncryptAlgorithm gYH;
-    private String gYI;
+    private EncryptAlgorithm gZR;
+    private String gZS;
 
     public a(EncryptAlgorithm encryptAlgorithm, String str) {
-        this.gYH = encryptAlgorithm;
-        this.gYI = str;
+        this.gZR = encryptAlgorithm;
+        this.gZS = str;
     }
 
-    public EncryptAlgorithm bFA() {
-        return this.gYH;
+    public EncryptAlgorithm bFN() {
+        return this.gZR;
     }
 
-    public String bFB() {
-        return this.gYI;
+    public String bFO() {
+        return this.gZS;
     }
 }

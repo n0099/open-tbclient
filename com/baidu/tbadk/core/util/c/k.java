@@ -41,17 +41,17 @@ public class k extends a {
     /* renamed from: c */
     public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
         String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.a.a go = com.baidu.tbadk.imageManager.c.Eg().go(str3);
-        if (go == null) {
-            Bitmap cR = aj.cR(com.baidu.adp.lib.g.b.g(str2, 0));
-            if (cR == null) {
+        com.baidu.adp.widget.a.a gp = com.baidu.tbadk.imageManager.c.Es().gp(str3);
+        if (gp == null) {
+            Bitmap cQ = aj.cQ(com.baidu.adp.lib.g.b.g(str2, 0));
+            if (cQ == null) {
                 return null;
             }
-            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cR, false, str2);
-            com.baidu.tbadk.imageManager.c.Eg().c(str3, aVar);
+            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cQ, false, str2);
+            com.baidu.tbadk.imageManager.c.Es().c(str3, aVar);
             return aVar;
         }
-        return go;
+        return gp;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a

@@ -13,11 +13,11 @@ public class a {
     }
 
     public void a(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.EG() != null) {
+        if (bVar != null && bVar.ES() != null) {
             Iterator<com.baidu.tbadk.mainTab.b> it = this.Sf.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.mainTab.b next = it.next();
-                if (next != null && next.EG() != null && next.EG().type == bVar.EG().type) {
+                if (next != null && next.ES() != null && next.ES().type == bVar.ES().type) {
                     return;
                 }
             }

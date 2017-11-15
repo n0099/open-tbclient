@@ -9,54 +9,54 @@ import java.io.InputStreamReader;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class r {
-    private static String aKi = "tb_perfor_samllflow_time";
-    private static volatile r aKl;
-    private long aKk;
-    private boolean aKg = false;
-    private long aKj = 86400;
-    private long aKh = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aKi, 0);
+    private static String aKq = "tb_perfor_samllflow_time";
+    private static volatile r aKt;
+    private long aKs;
+    private boolean aKo = false;
+    private long aKr = 86400;
+    private long aKp = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aKq, 0);
 
-    public static r Gi() {
-        if (aKl == null) {
+    public static r Gt() {
+        if (aKt == null) {
             synchronized (r.class) {
-                if (aKl == null) {
-                    aKl = new r();
+                if (aKt == null) {
+                    aKt = new r();
                 }
             }
         }
-        return aKl;
+        return aKt;
     }
 
     private r() {
-        this.aKk = 0L;
-        this.aKk = this.aKj;
+        this.aKs = 0L;
+        this.aKs = this.aKr;
     }
 
-    public boolean Gj() {
-        if (!this.aKg || (System.currentTimeMillis() - this.aKh) / 1000 <= this.aKk) {
-            return this.aKg;
+    public boolean Gu() {
+        if (!this.aKo || (System.currentTimeMillis() - this.aKp) / 1000 <= this.aKs) {
+            return this.aKo;
         }
         return false;
     }
 
-    public void bT(boolean z) {
+    public void bU(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aKh || currentTimeMillis - this.aKh >= this.aKk) {
-                this.aKh = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKi, this.aKh);
+            if (0 == this.aKp || currentTimeMillis - this.aKp >= this.aKs) {
+                this.aKp = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKq, this.aKp);
             }
         } else {
-            this.aKh = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKi, this.aKh);
+            this.aKp = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKq, this.aKp);
         }
-        this.aKg = z;
+        this.aKo = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            s.Go().Gp();
+            s.Gz().GA();
         }
     }
 
-    public String Gk() {
+    public String Gv() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -70,7 +70,7 @@ public class r {
         }
     }
 
-    public final String Gl() {
+    public final String Gw() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
@@ -104,7 +104,7 @@ public class r {
         return "2G";
     }
 
-    public static String fu(int i) {
+    public static String ft(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -117,8 +117,8 @@ public class r {
         return "WIFI";
     }
 
-    public q fv(int i) {
-        if (Gj()) {
+    public q fu(int i) {
+        if (Gu()) {
             switch (i) {
                 case 1000:
                     t tVar = new t();
@@ -153,7 +153,7 @@ public class r {
 
     public void S(long j) {
         if (j > 0) {
-            this.aKk = j;
+            this.aKs = j;
         }
     }
 
@@ -166,7 +166,7 @@ public class r {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int Gm() {
+    public int Gx() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

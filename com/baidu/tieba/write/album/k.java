@@ -14,26 +14,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class k extends BaseAdapter {
-    private com.baidu.tbadk.img.b axU;
-    int eCf;
-    int eCg;
-    private boolean eCh;
-    private e gQT;
-    private i gQU;
-    private j gQV;
-    private View.OnClickListener gQW;
-    private AlbumActivity gQv;
+    private com.baidu.tbadk.img.b ayc;
+    int eCA;
+    private boolean eCB;
+    int eCz;
+    private AlbumActivity gRD;
+    private e gSb;
+    private i gSc;
+    private j gSd;
+    private View.OnClickListener gSe;
     private List<m> mDataList = new ArrayList();
     private int mItemHeight;
     private int mWidth;
 
     public k(AlbumActivity albumActivity, e eVar) {
-        this.gQv = albumActivity;
-        this.axU = albumActivity.aOH();
-        this.gQT = eVar;
-        this.mWidth = (int) this.gQv.getResources().getDimension(d.e.ds220);
-        this.eCf = com.baidu.adp.lib.util.l.f(this.gQv.getPageContext().getPageActivity(), d.e.ds8) / 3;
-        this.eCg = (this.eCf * 2) + 1;
+        this.gRD = albumActivity;
+        this.ayc = albumActivity.aOP();
+        this.gSb = eVar;
+        this.mWidth = (int) this.gRD.getResources().getDimension(d.e.ds220);
+        this.eCz = com.baidu.adp.lib.util.l.f(this.gRD.getPageContext().getPageActivity(), d.e.ds8) / 3;
+        this.eCA = (this.eCz * 2) + 1;
     }
 
     public void setData(List<m> list) {
@@ -42,7 +42,7 @@ public class k extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void vj(int i) {
+    public void vn(int i) {
         this.mItemHeight = i;
     }
 
@@ -53,10 +53,10 @@ public class k extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pi */
+    /* renamed from: pj */
     public ImageFileInfo getItem(int i) {
         if (this.mDataList.get(i) != null) {
-            return this.mDataList.get(i).bDe();
+            return this.mDataList.get(i).bDq();
         }
         return null;
     }
@@ -86,23 +86,23 @@ public class k extends BaseAdapter {
         if (mVar == null) {
             view.setVisibility(4);
         } else {
-            ImageFileInfo bDe = mVar.bDe();
+            ImageFileInfo bDq = mVar.bDq();
             if (mVar.getType() == 0 || mVar.getType() == 1) {
                 if (view == null || view.findViewById(d.g.filling_item) == null) {
-                    view = LayoutInflater.from(this.gQv.getPageContext().getPageActivity()).inflate(d.h.album_filling_item, (ViewGroup) null);
+                    view = LayoutInflater.from(this.gRD.getPageContext().getPageActivity()).inflate(d.h.album_filling_item, (ViewGroup) null);
                     bVar = null;
                 } else {
                     bVar = null;
                 }
             } else if (view == null || !(view.getTag() instanceof b)) {
                 b bVar2 = new b();
-                view = LayoutInflater.from(this.gQv.getPageContext().getPageActivity()).inflate(d.h.album_image_item_view, viewGroup, false);
+                view = LayoutInflater.from(this.gRD.getPageContext().getPageActivity()).inflate(d.h.album_image_item_view, viewGroup, false);
                 bVar2.rootView = view;
-                bVar2.gQZ = (HeadImageView) view.findViewById(d.g.pic);
-                bVar2.gQZ.setGifIconSupport(true);
-                bVar2.gQZ.setLongIconSupport(true);
-                bVar2.cmM = (ImageView) view.findViewById(d.g.select_icon);
-                bVar2.gut = (RelativeLayout) view.findViewById(d.g.lay_select);
+                bVar2.gSh = (HeadImageView) view.findViewById(d.g.pic);
+                bVar2.gSh.setGifIconSupport(true);
+                bVar2.gSh.setLongIconSupport(true);
+                bVar2.cnf = (ImageView) view.findViewById(d.g.select_icon);
+                bVar2.gvB = (RelativeLayout) view.findViewById(d.g.lay_select);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
@@ -111,15 +111,15 @@ public class k extends BaseAdapter {
             if (mVar.getType() == 0) {
                 View findViewById = view.findViewById(d.g.item_main_view);
                 ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
-                layoutParams.height = (int) (0.28f * com.baidu.adp.lib.util.l.ae(this.gQv.getPageContext().getPageActivity()));
+                layoutParams.height = (int) (0.28f * com.baidu.adp.lib.util.l.ae(this.gRD.getPageContext().getPageActivity()));
                 findViewById.setLayoutParams(layoutParams);
-                view.setBackgroundColor(this.gQv.getResources().getColor(d.C0080d.white_alpha0));
-                view.setOnClickListener(this.gQW);
+                view.setBackgroundColor(this.gRD.getResources().getColor(d.C0080d.white_alpha0));
+                view.setOnClickListener(this.gSe);
             } else if (mVar.getType() == 1) {
                 View findViewById2 = view.findViewById(d.g.item_main_view);
                 ViewGroup.LayoutParams layoutParams2 = findViewById2.getLayoutParams();
                 if (this.mDataList.size() - i <= 3) {
-                    layoutParams2.height = com.baidu.adp.lib.util.l.f(this.gQv.getPageContext().getContext(), d.e.ds140);
+                    layoutParams2.height = com.baidu.adp.lib.util.l.f(this.gRD.getPageContext().getContext(), d.e.ds140);
                 } else {
                     layoutParams2.height = this.mItemHeight;
                 }
@@ -131,71 +131,71 @@ public class k extends BaseAdapter {
                 int paddingTop = bVar.rootView.getPaddingTop();
                 int i2 = i % 3;
                 if (i2 == 0) {
-                    bVar.rootView.setPadding(0, paddingTop, this.eCg, 0);
+                    bVar.rootView.setPadding(0, paddingTop, this.eCA, 0);
                 } else if (i2 == 1) {
-                    bVar.rootView.setPadding(this.eCf, paddingTop, this.eCf, 0);
+                    bVar.rootView.setPadding(this.eCz, paddingTop, this.eCz, 0);
                 } else {
-                    bVar.rootView.setPadding(this.eCg, paddingTop, 0, 0);
+                    bVar.rootView.setPadding(this.eCA, paddingTop, 0, 0);
                 }
-                ViewGroup.LayoutParams layoutParams3 = bVar.gQZ.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams3 = bVar.gSh.getLayoutParams();
                 layoutParams3.height = this.mItemHeight;
-                bVar.gQZ.setLayoutParams(layoutParams3);
-                bVar.gQZ.setTag(null);
-                bVar.gQZ.setRadius(1);
-                bVar.gQZ.setDefaultResource(d.f.img_default_100);
-                bVar.gQZ.startLoad(null, 12, false);
-                bVar.gQZ.invalidate();
-                a(bVar, bDe, viewGroup);
-                a(bVar, bDe);
-                a aVar = new a(bVar, bDe, i);
-                bVar.gQZ.setOnClickListener(aVar);
-                bVar.gut.setOnClickListener(aVar);
+                bVar.gSh.setLayoutParams(layoutParams3);
+                bVar.gSh.setTag(null);
+                bVar.gSh.setRadius(1);
+                bVar.gSh.setDefaultResource(d.f.img_default_100);
+                bVar.gSh.startLoad(null, 12, false);
+                bVar.gSh.invalidate();
+                a(bVar, bDq, viewGroup);
+                a(bVar, bDq);
+                a aVar = new a(bVar, bDq, i);
+                bVar.gSh.setOnClickListener(aVar);
+                bVar.gvB.setOnClickListener(aVar);
             }
         }
         return view;
     }
 
     private void a(b bVar, ImageFileInfo imageFileInfo) {
-        if (this.gQT != null && imageFileInfo != null) {
-            if (this.gQT.isAdded(imageFileInfo)) {
-                bVar.cmM.setContentDescription(this.gQv.getResources().getString(d.j.check_box_checked));
-                aj.j(bVar.cmM, d.f.ic_post_image_selected_s);
+        if (this.gSb != null && imageFileInfo != null) {
+            if (this.gSb.isAdded(imageFileInfo)) {
+                bVar.cnf.setContentDescription(this.gRD.getResources().getString(d.j.check_box_checked));
+                aj.j(bVar.cnf, d.f.ic_post_image_selected_s);
                 return;
             }
-            bVar.cmM.setContentDescription(this.gQv.getResources().getString(d.j.check_box_not_checked));
-            aj.j(bVar.cmM, d.f.ic_post_image_selected_n);
+            bVar.cnf.setContentDescription(this.gRD.getResources().getString(d.j.check_box_not_checked));
+            aj.j(bVar.cnf, d.f.ic_post_image_selected_n);
         }
     }
 
     /* loaded from: classes2.dex */
     private class a implements View.OnClickListener {
-        private b gQY;
+        private b gSg;
         private ImageFileInfo imageFileInfo;
         private int position;
 
         public a(b bVar, ImageFileInfo imageFileInfo, int i) {
-            this.gQY = bVar;
+            this.gSg = bVar;
             this.imageFileInfo = imageFileInfo;
             this.position = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.gQY != null) {
-                if (view == this.gQY.gQZ) {
-                    if (k.this.gQU != null && this.imageFileInfo != null) {
-                        k.this.gQU.a(this.position - 3, this.imageFileInfo);
+            if (this.gSg != null) {
+                if (view == this.gSg.gSh) {
+                    if (k.this.gSc != null && this.imageFileInfo != null) {
+                        k.this.gSc.a(this.position - 3, this.imageFileInfo);
                     }
-                } else if (view == this.gQY.gut && k.this.gQT != null && k.this.gQV != null && this.imageFileInfo != null) {
-                    boolean isAdded = k.this.gQT.isAdded(this.imageFileInfo);
-                    if (k.this.gQV.a(this.position, this.imageFileInfo, !isAdded)) {
+                } else if (view == this.gSg.gvB && k.this.gSb != null && k.this.gSd != null && this.imageFileInfo != null) {
+                    boolean isAdded = k.this.gSb.isAdded(this.imageFileInfo);
+                    if (k.this.gSd.a(this.position, this.imageFileInfo, !isAdded)) {
                         if (!isAdded) {
-                            aj.j(this.gQY.cmM, d.f.ic_post_image_selected_s);
-                            this.gQY.cmM.setContentDescription(k.this.gQv.getResources().getString(d.j.check_box_checked));
+                            aj.j(this.gSg.cnf, d.f.ic_post_image_selected_s);
+                            this.gSg.cnf.setContentDescription(k.this.gRD.getResources().getString(d.j.check_box_checked));
                             return;
                         }
-                        aj.j(this.gQY.cmM, d.f.ic_post_image_selected_n);
-                        this.gQY.cmM.setContentDescription(k.this.gQv.getResources().getString(d.j.check_box_not_checked));
+                        aj.j(this.gSg.cnf, d.f.ic_post_image_selected_n);
+                        this.gSg.cnf.setContentDescription(k.this.gRD.getResources().getString(d.j.check_box_not_checked));
                     }
                 }
             }
@@ -203,15 +203,15 @@ public class k extends BaseAdapter {
     }
 
     private void a(b bVar, ImageFileInfo imageFileInfo, final ViewGroup viewGroup) {
-        if (imageFileInfo != null && bVar != null && bVar.gQZ != null) {
-            bVar.gQZ.setIsLongPic(imageFileInfo.isLong());
+        if (imageFileInfo != null && bVar != null && bVar.gSh != null) {
+            bVar.gSh.setIsLongPic(imageFileInfo.isLong());
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.K(this.mWidth, this.mWidth));
-            bVar.gQZ.setTag(imageFileInfo.toCachedKey(false));
-            if (this.axU.a(imageFileInfo, false) != null) {
-                bVar.gQZ.invalidate();
+            bVar.gSh.setTag(imageFileInfo.toCachedKey(false));
+            if (this.ayc.a(imageFileInfo, false) != null) {
+                bVar.gSh.invalidate();
             } else {
-                this.axU.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.k.1
+                this.ayc.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.k.1
                     @Override // com.baidu.tbadk.imageManager.b
                     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
                         HeadImageView headImageView;
@@ -219,33 +219,33 @@ public class k extends BaseAdapter {
                             headImageView.invalidate();
                         }
                     }
-                }, false, this.eCh);
+                }, false, this.eCB);
             }
         }
     }
 
     public boolean isScroll() {
-        return this.eCh;
+        return this.eCB;
     }
 
-    public void im(boolean z) {
-        this.eCh = z;
+    public void is(boolean z) {
+        this.eCB = z;
     }
 
     public void a(i iVar) {
-        this.gQU = iVar;
+        this.gSc = iVar;
     }
 
     public void a(j jVar) {
-        this.gQV = jVar;
+        this.gSd = jVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class b {
-        ImageView cmM;
-        HeadImageView gQZ;
-        RelativeLayout gut;
+        ImageView cnf;
+        HeadImageView gSh;
+        RelativeLayout gvB;
         View rootView;
 
         private b() {
@@ -253,7 +253,7 @@ public class k extends BaseAdapter {
     }
 
     public int g(ImageFileInfo imageFileInfo) {
-        ImageFileInfo bDe;
+        ImageFileInfo bDq;
         if (imageFileInfo == null || imageFileInfo.getFilePath() == null) {
             return -1;
         }
@@ -263,7 +263,7 @@ public class k extends BaseAdapter {
         int size = this.mDataList.size();
         for (int i = 0; i < size; i++) {
             m mVar = this.mDataList.get(i);
-            if (mVar != null && (bDe = mVar.bDe()) != null && bDe.getFilePath() != null && bDe.getFilePath().equals(imageFileInfo.getFilePath())) {
+            if (mVar != null && (bDq = mVar.bDq()) != null && bDq.getFilePath() != null && bDq.getFilePath().equals(imageFileInfo.getFilePath())) {
                 return i;
             }
         }
@@ -271,6 +271,6 @@ public class k extends BaseAdapter {
     }
 
     public void U(View.OnClickListener onClickListener) {
-        this.gQW = onClickListener;
+        this.gSe = onClickListener;
     }
 }

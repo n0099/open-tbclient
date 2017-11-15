@@ -269,7 +269,7 @@ public class TiebaStatic {
             s.ut();
             s.uu();
             s.uv();
-            com.baidu.tbadk.l.n.Gg();
+            com.baidu.tbadk.l.n.Gr();
             com.baidu.adp.lib.f.d.fL();
             BdStatisticsManager.getInstance().save();
             sendMultiProcessBroadcast();

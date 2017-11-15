@@ -173,7 +173,7 @@ public class s {
         String str5;
         if (com.baidu.adp.lib.util.l.hy() && dVar != null) {
             String str6 = "";
-            boolean gK = com.baidu.tbadk.util.i.gK(str2);
+            boolean gL = com.baidu.tbadk.util.i.gL(str2);
             boolean z5 = false;
             if (com.baidu.tbadk.core.util.a.e.getInstance() != null) {
                 z5 = true;
@@ -192,10 +192,10 @@ public class s {
                 z4 = j > ((long) com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().RX);
             }
             boolean z6 = false;
-            if (gK && z5) {
+            if (gL && z5) {
                 z6 = com.baidu.tbadk.core.util.a.e.getInstance().isShouldCDNFallBack();
             }
-            if (gK && hi && z6) {
+            if (gL && hi && z6) {
                 if (z) {
                     p.getInstance().insertNormalData(j, str);
                 } else {
@@ -205,7 +205,7 @@ public class s {
                     }
                 }
             }
-            if (gK) {
+            if (gL) {
                 afk = str;
             }
             boolean z7 = false;
@@ -213,7 +213,7 @@ public class s {
                 z7 = true;
             }
             synchronized (syncLock) {
-                r a2 = a(hi, gK, str2, z7);
+                r a2 = a(hi, gL, str2, z7);
                 boolean z8 = afh.afm;
                 if (a2 != null) {
                     a2.num++;
@@ -261,7 +261,7 @@ public class s {
             if (TextUtils.isEmpty(str6)) {
                 str6 = t.uE().uF();
             }
-            if (!gK || !TextUtils.isEmpty("")) {
+            if (!gL || !TextUtils.isEmpty("")) {
                 str4 = "";
             } else {
                 str4 = t.uE().dG(str);
@@ -293,7 +293,7 @@ public class s {
             aVar.p("status", String.valueOf(dVar.va));
             aVar.p("up", String.valueOf(dVar.uS));
             aVar.p("down", String.valueOf(dVar.uT));
-            aVar.p("isCDN", gK ? "1" : "0");
+            aVar.p("isCDN", gL ? "1" : "0");
             aVar.p("isWebp", bool.booleanValue() ? "1" : "0");
             aVar.p("isMobileProxy", z3 ? "1" : "0");
             aVar.p("exception", dVar.uY);
@@ -308,7 +308,7 @@ public class s {
                 aVar.p("tracecode2", dVar.ve);
             }
             BdStatisticsManager.getInstance().debug("img", aVar);
-            if (gK && !TextUtils.isEmpty(str6) && TextUtils.isEmpty(str4) && !z) {
+            if (gL && !TextUtils.isEmpty(str6) && TextUtils.isEmpty(str4) && !z) {
                 afh.afl++;
             }
         }
@@ -506,7 +506,7 @@ public class s {
     }
 
     private static String uy() {
-        return com.baidu.tbadk.imageManager.c.Eg().ei();
+        return com.baidu.tbadk.imageManager.c.Es().ei();
     }
 
     private static String uz() {

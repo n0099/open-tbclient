@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private static final String eEE = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
+    private static final String eEY = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -25,14 +25,14 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String aZk;
-        private String aZl;
-        private WeakReference<InterfaceC0111b> aZo;
+        private String aZt;
+        private String aZu;
+        private WeakReference<InterfaceC0111b> aZx;
 
         public a(String str, String str2, InterfaceC0111b interfaceC0111b) {
-            this.aZk = str;
-            this.aZl = str2;
-            this.aZo = new WeakReference<>(interfaceC0111b);
+            this.aZt = str;
+            this.aZu = str2;
+            this.aZx = new WeakReference<>(interfaceC0111b);
             setPriority(3);
         }
 
@@ -41,9 +41,9 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: y */
         public ForbidTplData doInBackground(String... strArr) {
-            x xVar = new x(b.eEE);
-            xVar.n("forum_id", this.aZk);
-            xVar.n("user_id", this.aZl);
+            x xVar = new x(b.eEY);
+            xVar.n("forum_id", this.aZt);
+            xVar.n("user_id", this.aZu);
             String up = xVar.up();
             if (xVar.uN().vL().isRequestSuccess()) {
                 try {
@@ -67,7 +67,7 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            InterfaceC0111b interfaceC0111b = this.aZo.get();
+            InterfaceC0111b interfaceC0111b = this.aZx.get();
             if (interfaceC0111b != null) {
                 if (forbidTplData.error.errno == 0 && am.isEmpty(forbidTplData.error.errMsg)) {
                     interfaceC0111b.a(forbidTplData);

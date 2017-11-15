@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int api;
-    private GradientDrawable goi;
-    protected int goj;
-    protected int gok;
+    private int aph;
+    private GradientDrawable gpl;
+    protected int gpm;
+    protected int gpn;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -24,10 +24,10 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.api = 3;
-        this.goj = (int) context.getResources().getDimension(d.e.ds18);
-        this.gok = (int) context.getResources().getDimension(d.e.ds6);
-        setPadding(this.goj, this.gok, this.goj, this.gok);
+        this.aph = 3;
+        this.gpm = (int) context.getResources().getDimension(d.e.ds18);
+        this.gpn = (int) context.getResources().getDimension(d.e.ds6);
+        setPadding(this.gpm, this.gpn, this.gpm, this.gpn);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(d.e.ds24));
@@ -41,19 +41,19 @@ public class EditorInfoView extends TextView {
 
     public void wB() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.api) {
-            this.api = skinType;
+        if (skinType != this.aph) {
+            this.aph = skinType;
             onChangeSkinType();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType() {
-        if (this.goi == null) {
-            this.goi = new GradientDrawable();
-            this.goi.setCornerRadius(getContext().getResources().getDimension(d.e.ds24));
+        if (this.gpl == null) {
+            this.gpl = new GradientDrawable();
+            this.gpl.setCornerRadius(getContext().getResources().getDimension(d.e.ds24));
         }
         aj.c(this, d.C0080d.cp_cont_c, 1);
-        this.goi.setColor(aj.getColor(d.C0080d.cp_bg_line_e));
+        this.gpl.setColor(aj.getColor(d.C0080d.cp_bg_line_e));
     }
 }

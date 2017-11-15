@@ -36,6 +36,8 @@ public interface IQuickMediaPlayer extends IInterface {
 
     void seekTo(int i) throws RemoteException;
 
+    void setDebugParams(String str, String str2) throws RemoteException;
+
     void setListener(IQuickMediaPlayerListener iQuickMediaPlayerListener) throws RemoteException;
 
     void setLooping(boolean z) throws RemoteException;
@@ -60,6 +62,7 @@ public interface IQuickMediaPlayer extends IInterface {
         static final int TRANSACTION_pause = 5;
         static final int TRANSACTION_release = 3;
         static final int TRANSACTION_seekTo = 8;
+        static final int TRANSACTION_setDebugParams = 18;
         static final int TRANSACTION_setListener = 15;
         static final int TRANSACTION_setLooping = 13;
         static final int TRANSACTION_setVolume = 12;
@@ -188,6 +191,11 @@ public interface IQuickMediaPlayer extends IInterface {
                     boolean isIjkPlayer = isIjkPlayer();
                     parcel2.writeNoException();
                     parcel2.writeInt(isIjkPlayer ? 1 : 0);
+                    return true;
+                case 18:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    setDebugParams(parcel.readString(), parcel.readString());
+                    parcel2.writeNoException();
                     return true;
                 case 1598968902:
                     parcel2.writeString(DESCRIPTOR);
@@ -472,6 +480,22 @@ public interface IQuickMediaPlayer extends IInterface {
                     this.mRemote.transact(17, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+            public void setDebugParams(String str, String str2) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeString(str);
+                    obtain.writeString(str2);
+                    this.mRemote.transact(18, obtain, obtain2, 0);
+                    obtain2.readException();
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();

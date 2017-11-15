@@ -48,17 +48,17 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        a.Cs().b(advertAppInfo);
+        a.CE().b(advertAppInfo);
         String str2 = advertAppInfo.Uh;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.c.a.bjf().a(advertAppInfo.Ul, advertAppInfo.Uk, str2, i, com.baidu.tieba.recapp.c.a.rl(advertAppInfo.Ul).intValue(), null, true, false, true, advertAppInfo.Us.userPortrait, downloadStaticsData, advertAppInfo.Us.userName);
+        com.baidu.tieba.recapp.c.a.bjq().a(advertAppInfo.Ul, advertAppInfo.Uk, str2, i, com.baidu.tieba.recapp.c.a.rs(advertAppInfo.Ul).intValue(), null, true, false, true, advertAppInfo.Us.userPortrait, downloadStaticsData, advertAppInfo.Us.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.c.a.bjf().j(advertAppInfo.Uk, advertAppInfo.Ul, true);
+        com.baidu.tieba.recapp.c.a.bjq().k(advertAppInfo.Uk, advertAppInfo.Ul, true);
     }
 
     public static final void an(Context context, String str) {
@@ -185,11 +185,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bja().sendFRS(z, str, str2, str3, list, str4);
+        r.bjl().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bja().a(z, str, str2, str3, str4, list, str5);
+        r.bjl().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int h(TbPageContext tbPageContext, String str) {
@@ -208,14 +208,14 @@ public class s {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        i biX = r.bja().biX();
-        if (biX == null) {
+        i bji = r.bjl().bji();
+        if (bji == null) {
             return false;
         }
-        if (biX.hI(str)) {
-            biX.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bji.hJ(str)) {
+            bji.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return biX.d(tbPageContext.getPageActivity(), strArr);
+        return bji.d(tbPageContext.getPageActivity(), strArr);
     }
 }

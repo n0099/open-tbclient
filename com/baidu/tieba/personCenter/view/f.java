@@ -12,37 +12,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private PersonMoreData fiB;
-    private g fjw;
-    private List<com.baidu.adp.widget.ListView.f> fjx;
+    private PersonMoreData fiY;
+    private g fjT;
+    private List<com.baidu.adp.widget.ListView.f> fjU;
     private TbPageContext mPageContext;
 
     public f(TbPageContext tbPageContext, Bundle bundle) {
         this.mPageContext = tbPageContext;
-        this.fjw = new g(tbPageContext);
+        this.fjT = new g(tbPageContext);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.fiB = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.fiY = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(d.h.person_center_more_layout);
-        this.fjw.Z(this.mPageContext.getPageActivity().findViewById(d.g.person_more_layout));
-        aYu();
-        this.fjw.setData(this.fjx);
+        this.fjT.Z(this.mPageContext.getPageActivity().findViewById(d.g.person_more_layout));
+        aYC();
+        this.fjT.setData(this.fjU);
     }
 
-    private void aYu() {
-        this.fjx = new ArrayList();
-        if (this.fiB != null && !v.v(this.fiB.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.fiB.mUrlMaps) {
+    private void aYC() {
+        this.fjU = new ArrayList();
+        if (this.fiY != null && !v.v(this.fiY.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.fiY.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     com.baidu.tieba.personCenter.data.e eVar = new com.baidu.tieba.personCenter.data.e();
                     eVar.title = personMoreItemData.mName;
                     eVar.type = 37;
-                    eVar.dac = personMoreItemData.mUrl;
+                    eVar.dax = personMoreItemData.mUrl;
                     eVar.itemId = personMoreItemData.mId;
-                    this.fjx.add(eVar);
+                    this.fjU.add(eVar);
                 }
             }
         }

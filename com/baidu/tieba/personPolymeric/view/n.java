@@ -9,50 +9,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n extends FlowLayout {
-    private List<com.baidu.tieba.personPolymeric.c.f> fqQ;
-    private List<o> fqR;
-    private com.baidu.adp.lib.e.b<o> fqS;
+    private List<com.baidu.tieba.personPolymeric.c.f> frn;
+    private List<o> fro;
+    private com.baidu.adp.lib.e.b<o> frp;
     private Context mContext;
 
     public n(Context context) {
         super(context);
-        this.fqR = new ArrayList();
+        this.fro = new ArrayList();
         this.mContext = context;
     }
 
     public void setData(List<com.baidu.tieba.personPolymeric.c.f> list) {
-        this.fqQ = list;
-        baj();
+        this.frn = list;
+        bar();
     }
 
-    private void baj() {
-        if (!v.v(this.fqQ)) {
-            for (com.baidu.tieba.personPolymeric.c.f fVar : this.fqQ) {
+    private void bar() {
+        if (!v.v(this.frn)) {
+            for (com.baidu.tieba.personPolymeric.c.f fVar : this.frn) {
                 if (fVar != null) {
-                    o fH = this.fqS.fH();
+                    o fH = this.frp.fH();
                     fH.setData(fVar);
                     addView(fH, new ViewGroup.LayoutParams(((com.baidu.adp.lib.util.l.ac(this.mContext) - com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds68)) - com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds68)) / 2, -2));
-                    this.fqR.add(fH);
+                    this.fro.add(fH);
                 }
             }
         }
     }
 
     public void recycle() {
-        if (!v.v(this.fqR)) {
-            for (o oVar : this.fqR) {
-                this.fqS.m(oVar);
+        if (!v.v(this.fro)) {
+            for (o oVar : this.fro) {
+                this.frp.m(oVar);
             }
             removeAllViews();
         }
     }
 
     public void setForumItemViewBdObjectPool(com.baidu.adp.lib.e.b<o> bVar) {
-        this.fqS = bVar;
+        this.frp = bVar;
     }
 
     public void onChangeSkinType() {
-        for (o oVar : this.fqR) {
+        for (o oVar : this.fro) {
             if (oVar != null) {
                 oVar.onChangeSkinType();
             }

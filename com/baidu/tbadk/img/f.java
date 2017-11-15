@@ -17,16 +17,16 @@ import java.io.RandomAccessFile;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private a aGf;
-    private Object aGg;
-    private e aGh;
+    private a aGn;
+    private Object aGo;
+    private e aGp;
     private int bigHeight;
     private int bigWidth;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int aGe = 512000;
+    private int aGm = 512000;
     private String groupId = "1";
     private x mNetwork = null;
 
@@ -47,10 +47,10 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.aGf = aVar;
-        this.aGg = obj;
+        this.aGn = aVar;
+        this.aGo = obj;
         if (aVar != null) {
-            this.aGe = 10240;
+            this.aGm = 10240;
         }
     }
 
@@ -108,10 +108,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.aGh == null) {
-            this.aGh = new e();
+        if (this.aGp == null) {
+            this.aGp = new e();
         }
-        return e(this.aGh.c(imageFileInfo, z), z, z2);
+        return e(this.aGp.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -204,8 +204,8 @@ public class f {
                         }
                     }
                 } else {
-                    String str2 = e2 + this.aGe;
-                    long j2 = length % ((long) this.aGe) == 0 ? length / this.aGe : (length / this.aGe) + 1;
+                    String str2 = e2 + this.aGm;
+                    long j2 = length % ((long) this.aGm) == 0 ? length / this.aGm : (length / this.aGm) + 1;
                     sb.append("|chunkNo=");
                     sb.append(j2);
                     randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -239,14 +239,14 @@ public class f {
                                             bArr = null;
                                         } else {
                                             if (i < j2) {
-                                                i4 = this.aGe;
+                                                i4 = this.aGm;
                                             } else if (i == j2) {
-                                                i4 = (int) (length - (this.aGe * (j2 - 1)));
+                                                i4 = (int) (length - (this.aGm * (j2 - 1)));
                                             }
                                             if (bArr2 == null || bArr2.length != i4) {
                                                 bArr2 = new byte[i4];
                                             }
-                                            randomAccessFile2.seek(this.aGe * (i - 1));
+                                            randomAccessFile2.seek(this.aGm * (i - 1));
                                             randomAccessFile2.read(bArr2, 0, i4);
                                             bArr = bArr2;
                                         }
@@ -302,9 +302,9 @@ public class f {
                                             if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                 int i5 = i + 1;
                                                 long j4 = j3 + i4;
-                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.aGe) : j4;
-                                                if (this.aGf != null) {
-                                                    this.aGf.a(str, this.aGg, j5, length);
+                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.aGm) : j4;
+                                                if (this.aGn != null) {
+                                                    this.aGn.a(str, this.aGo, j5, length);
                                                 }
                                                 i2 = i5;
                                                 j = j4;

@@ -12,7 +12,7 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
     public d(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.det);
+        super(context, com.baidu.tieba.homepage.concern.b.a.deN);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (aVar.ajo != null) {
             aVar2.akV.setText(aVar.ajo);
         }
-        switch (aVar.deu) {
+        switch (aVar.deO) {
             case 2:
                 aVar2.aN(TbadkCoreApplication.getInst().getSkinType(), d.f.emotion_dashen);
                 break;
@@ -45,30 +45,30 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* loaded from: classes.dex */
     public class a extends j.a {
         public TextView akV;
-        private int api;
-        public View cEJ;
-        public View cEK;
-        public ViewGroup def;
-        public ImageView deg;
+        private int aph;
+        public View cFc;
+        public View cFd;
+        public ViewGroup deA;
+        public ImageView deB;
 
         public a(View view) {
             super(view);
-            this.api = 3;
-            this.cEJ = view.findViewById(d.g.concern_emotion_tip_top_line);
-            this.def = (ViewGroup) view.findViewById(d.g.ll_concern_emotion_tip);
-            this.deg = (ImageView) view.findViewById(d.g.iv_concern_emotion_tip_pic);
+            this.aph = 3;
+            this.cFc = view.findViewById(d.g.concern_emotion_tip_top_line);
+            this.deA = (ViewGroup) view.findViewById(d.g.ll_concern_emotion_tip);
+            this.deB = (ImageView) view.findViewById(d.g.iv_concern_emotion_tip_pic);
             this.akV = (TextView) view.findViewById(d.g.tv_concern_emotion_tip);
-            this.cEK = view.findViewById(d.g.concern_emotion_tip_bottom_line);
+            this.cFd = view.findViewById(d.g.concern_emotion_tip_bottom_line);
         }
 
         protected void aN(int i, int i2) {
-            if (this.api != i) {
-                aj.k(this.cEJ, d.C0080d.cp_bg_line_c);
-                aj.c(this.deg, i2);
+            if (this.aph != i) {
+                aj.k(this.cFc, d.C0080d.cp_bg_line_c);
+                aj.c(this.deB, i2);
                 aj.i(this.akV, d.C0080d.cp_cont_b);
-                aj.k(this.cEK, d.C0080d.cp_bg_line_c);
+                aj.k(this.cFd, d.C0080d.cp_bg_line_c);
             }
-            this.api = i;
+            this.aph = i;
         }
     }
 }

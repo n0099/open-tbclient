@@ -3,5 +3,5 @@ package com.baidu.tbadk.i;
 public interface b {
     void destory();
 
-    void gf(String str);
+    void gg(String str);
 }

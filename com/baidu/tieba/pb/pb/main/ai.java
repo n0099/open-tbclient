@@ -20,36 +20,36 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class ai extends j.a {
     private CustomMessageListener Tc;
-    public TextLineView eQT;
-    public TextLineView eQU;
-    public TextView eQV;
-    public TextView eQW;
-    public View eQX;
-    public View eQY;
-    public View eQZ;
-    public TextLineView eRa;
-    public View eRb;
-    private List<TextLineView> eRc;
-    private int eRd;
-    private View.OnClickListener eRe;
-    private com.baidu.tieba.pb.data.j eRf;
-    private View.OnClickListener eRg;
-    private View.OnClickListener eRh;
+    private View.OnClickListener eRA;
+    private View.OnClickListener eRB;
+    public TextLineView eRn;
+    public TextLineView eRo;
+    public TextView eRp;
+    public TextView eRq;
+    public View eRr;
+    public View eRs;
+    public View eRt;
+    public TextLineView eRu;
+    public View eRv;
+    private List<TextLineView> eRw;
+    private int eRx;
+    private View.OnClickListener eRy;
+    private com.baidu.tieba.pb.data.j eRz;
     public int mSkinType;
 
     public ai(TbPageContext tbPageContext, View view) {
         super(view);
         this.mSkinType = 3;
-        this.eRd = 0;
-        this.eRg = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ai.2
+        this.eRx = 0;
+        this.eRA = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ai.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (ai.this.eRe != null) {
-                    ai.this.eRe.onClick(view2);
+                if (ai.this.eRy != null) {
+                    ai.this.eRy.onClick(view2);
                 }
                 if (com.baidu.adp.lib.util.j.hh()) {
                     if (view2 == null || !(view2.getTag() instanceof Boolean) || ((Boolean) view2.getTag()).booleanValue()) {
-                        for (TextLineView textLineView : ai.this.eRc) {
+                        for (TextLineView textLineView : ai.this.eRw) {
                             if (textLineView != null) {
                                 if (textLineView != view2) {
                                     textLineView.setSelected(false);
@@ -62,14 +62,14 @@ public class ai extends j.a {
                 }
             }
         };
-        this.eRh = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ai.3
+        this.eRB = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ai.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (ai.this.eRe != null) {
-                    ai.this.eRe.onClick(view2);
+                if (ai.this.eRy != null) {
+                    ai.this.eRy.onClick(view2);
                 }
                 if (com.baidu.adp.lib.util.j.hh() && view2 != null && (view2.getTag() instanceof Boolean)) {
-                    ai.this.jg(!((Boolean) view2.getTag()).booleanValue());
+                    ai.this.jm(!((Boolean) view2.getTag()).booleanValue());
                 }
             }
         };
@@ -77,8 +77,8 @@ public class ai extends j.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (ai.this.eRf != null && ai.this.eRf.mType == com.baidu.tieba.pb.data.j.eGO && customResponsedMessage != null && getTag() == com.baidu.tieba.pb.data.j.eGO && (customResponsedMessage.getData() instanceof ap.a)) {
-                    ((ap.a) customResponsedMessage.getData()).eUu = ai.this;
+                if (ai.this.eRz != null && ai.this.eRz.mType == com.baidu.tieba.pb.data.j.eHi && customResponsedMessage != null && getTag() == com.baidu.tieba.pb.data.j.eHi && (customResponsedMessage.getData() instanceof ap.a)) {
+                    ((ap.a) customResponsedMessage.getData()).eUP = ai.this;
                 }
             }
         };
@@ -88,79 +88,79 @@ public class ai extends j.a {
                 public void onClick(View view2) {
                 }
             });
-            this.eQT = (TextLineView) view.findViewById(d.g.reply_title);
-            this.eQT.setOnClickListener(this.eRg);
-            this.eQZ = view.findViewById(d.g.reply_god_title_group);
-            this.eRa = (TextLineView) view.findViewById(d.g.reply_god_title);
-            this.eRa.setSelected(false);
-            this.eRb = view.findViewById(d.g.reply_all_title);
-            this.eQU = (TextLineView) view.findViewById(d.g.floor_owner_reply);
-            this.eQU.setOnClickListener(this.eRg);
-            this.eQV = (TextView) view.findViewById(d.g.pb_sort);
-            this.eQV.setOnClickListener(this.eRh);
-            this.eQW = (TextView) view.findViewById(d.g.pb_god_reply_entrance_text);
-            this.eQT.setSelected(true);
-            this.eQU.setSelected(false);
-            this.eRc = new ArrayList();
-            this.eRc.add(this.eQT);
-            this.eRc.add(this.eQU);
-            this.eQX = view.findViewById(d.g.divider_with_reply_title);
-            this.eQY = view.findViewById(d.g.divider_bottom);
-            jg(true);
+            this.eRn = (TextLineView) view.findViewById(d.g.reply_title);
+            this.eRn.setOnClickListener(this.eRA);
+            this.eRt = view.findViewById(d.g.reply_god_title_group);
+            this.eRu = (TextLineView) view.findViewById(d.g.reply_god_title);
+            this.eRu.setSelected(false);
+            this.eRv = view.findViewById(d.g.reply_all_title);
+            this.eRo = (TextLineView) view.findViewById(d.g.floor_owner_reply);
+            this.eRo.setOnClickListener(this.eRA);
+            this.eRp = (TextView) view.findViewById(d.g.pb_sort);
+            this.eRp.setOnClickListener(this.eRB);
+            this.eRq = (TextView) view.findViewById(d.g.pb_god_reply_entrance_text);
+            this.eRn.setSelected(true);
+            this.eRo.setSelected(false);
+            this.eRw = new ArrayList();
+            this.eRw.add(this.eRn);
+            this.eRw.add(this.eRo);
+            this.eRr = view.findViewById(d.g.divider_with_reply_title);
+            this.eRs = view.findViewById(d.g.divider_bottom);
+            jm(true);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void jg(boolean z) {
-        this.eRd = z ? 0 : 1;
-        this.eQV.setVisibility(0);
-        if (this.eRd == 1) {
-            this.eQV.setText(d.j.default_sort);
-        } else if (this.eRd == 0) {
-            this.eQV.setText(d.j.view_reverse);
+    public void jm(boolean z) {
+        this.eRx = z ? 0 : 1;
+        this.eRp.setVisibility(0);
+        if (this.eRx == 1) {
+            this.eRp.setText(d.j.default_sort);
+        } else if (this.eRx == 0) {
+            this.eRp.setText(d.j.view_reverse);
         }
     }
 
-    public void jh(boolean z) {
+    public void jn(boolean z) {
         if (z) {
-            this.eQU.setSelected(true);
-            this.eQT.setSelected(false);
+            this.eRo.setSelected(true);
+            this.eRn.setSelected(false);
             return;
         }
-        this.eQU.setSelected(false);
-        this.eQT.setSelected(true);
+        this.eRo.setSelected(false);
+        this.eRn.setSelected(true);
     }
 
     public void a(com.baidu.tieba.pb.data.j jVar) {
-        this.eRf = jVar;
+        this.eRz = jVar;
         if (jVar != null) {
-            if (jVar.mType == com.baidu.tieba.pb.data.j.eGP) {
-                if (TextUtils.isEmpty(jVar.eGR)) {
-                    this.eRb.setVisibility(0);
-                    this.eQZ.setVisibility(8);
-                    this.eQT.setVisibility(0);
-                    this.eQT.setSelected(false);
-                    this.eQT.setClickable(false);
-                    this.eQT.setText(TbadkCoreApplication.getInst().getString(d.j.god_reply));
+            if (jVar.mType == com.baidu.tieba.pb.data.j.eHj) {
+                if (TextUtils.isEmpty(jVar.eHl)) {
+                    this.eRv.setVisibility(0);
+                    this.eRt.setVisibility(8);
+                    this.eRn.setVisibility(0);
+                    this.eRn.setSelected(false);
+                    this.eRn.setClickable(false);
+                    this.eRn.setText(TbadkCoreApplication.getInst().getString(d.j.god_reply));
                 } else {
-                    this.eRb.setVisibility(8);
-                    this.eQT.setVisibility(8);
-                    this.eQZ.setVisibility(0);
-                    this.eQZ.setOnClickListener(this.eRe);
+                    this.eRv.setVisibility(8);
+                    this.eRn.setVisibility(8);
+                    this.eRt.setVisibility(0);
+                    this.eRt.setOnClickListener(this.eRy);
                 }
-                this.eQV.setVisibility(8);
-                this.eQU.setVisibility(8);
-                this.eQY.setVisibility(8);
-            } else if (jVar.mType == com.baidu.tieba.pb.data.j.eGO) {
-                this.eQZ.setVisibility(8);
-                this.eRb.setVisibility(0);
-                this.eQT.setClickable(true);
-                this.eQT.setText(TbadkCoreApplication.getInst().getString(d.j.all_reply));
-                this.eQV.setVisibility(0);
-                this.eQU.setVisibility(0);
-                jh(jVar.eGS);
-                jg(jVar.aFc);
-                this.eQY.setVisibility(0);
+                this.eRp.setVisibility(8);
+                this.eRo.setVisibility(8);
+                this.eRs.setVisibility(8);
+            } else if (jVar.mType == com.baidu.tieba.pb.data.j.eHi) {
+                this.eRt.setVisibility(8);
+                this.eRv.setVisibility(0);
+                this.eRn.setClickable(true);
+                this.eRn.setText(TbadkCoreApplication.getInst().getString(d.j.all_reply));
+                this.eRp.setVisibility(0);
+                this.eRo.setVisibility(0);
+                jn(jVar.eHm);
+                jm(jVar.aFk);
+                this.eRs.setVisibility(0);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -169,18 +169,18 @@ public class ai extends j.a {
     private void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             com.baidu.tbadk.core.util.aj.k(getView(), d.C0080d.cp_bg_line_d);
-            this.eQT.onChangeSkinType(i);
-            this.eQU.onChangeSkinType(i);
-            this.eRa.onChangeSkinType(i);
-            if (this.eRf != null && this.eRf.mType == com.baidu.tieba.pb.data.j.eGP) {
-                com.baidu.tbadk.core.util.aj.c(this.eQT, d.C0080d.cp_cont_j, 1);
+            this.eRn.onChangeSkinType(i);
+            this.eRo.onChangeSkinType(i);
+            this.eRu.onChangeSkinType(i);
+            if (this.eRz != null && this.eRz.mType == com.baidu.tieba.pb.data.j.eHj) {
+                com.baidu.tbadk.core.util.aj.c(this.eRn, d.C0080d.cp_cont_j, 1);
             }
-            com.baidu.tbadk.core.util.aj.i(this.eQW, d.C0080d.cp_cont_d);
-            this.eQW.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.aj.getDrawable(d.f.icon_arrow_more_gray), (Drawable) null);
-            com.baidu.tbadk.core.util.aj.i(this.eQV, d.C0080d.cp_cont_j);
-            com.baidu.tbadk.core.util.aj.k(this.eQX, d.C0080d.cp_bg_line_c);
-            com.baidu.tbadk.core.util.aj.k(this.eQY, d.C0080d.cp_bg_line_c);
-            this.eQV.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.aj.getDrawable(d.f.icon_pb_sort), (Drawable) null);
+            com.baidu.tbadk.core.util.aj.i(this.eRq, d.C0080d.cp_cont_d);
+            this.eRq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.aj.getDrawable(d.f.icon_arrow_more_gray), (Drawable) null);
+            com.baidu.tbadk.core.util.aj.i(this.eRp, d.C0080d.cp_cont_j);
+            com.baidu.tbadk.core.util.aj.k(this.eRr, d.C0080d.cp_bg_line_c);
+            com.baidu.tbadk.core.util.aj.k(this.eRs, d.C0080d.cp_bg_line_c);
+            this.eRp.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.aj.getDrawable(d.f.icon_pb_sort), (Drawable) null);
         }
         this.mSkinType = i;
     }
@@ -192,6 +192,6 @@ public class ai extends j.a {
     }
 
     public void E(View.OnClickListener onClickListener) {
-        this.eRe = onClickListener;
+        this.eRy = onClickListener;
     }
 }

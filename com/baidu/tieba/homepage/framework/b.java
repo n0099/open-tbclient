@@ -5,5 +5,5 @@ public interface b {
 
     void aO(int i, int i2);
 
-    void ary();
+    void arO();
 }

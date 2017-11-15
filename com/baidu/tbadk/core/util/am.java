@@ -48,7 +48,7 @@ public class am extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static String cU(int i) {
+    public static String cT(int i) {
         int i2 = i / 1000;
         int i3 = i2 % 60;
         int i4 = (i2 / 60) % 60;
@@ -327,7 +327,7 @@ public class am extends com.baidu.adp.lib.util.k {
     }
 
     @Deprecated
-    public static String cV(int i) {
+    public static String cU(int i) {
         if (i > 9999) {
             return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(i / 10000.0f));
         }
@@ -502,7 +502,7 @@ public class am extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static String cW(int i) {
+    public static String cV(int i) {
         return new DecimalFormat("#,###").format(i);
     }
 
@@ -859,7 +859,7 @@ public class am extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static String cX(int i) {
+    public static String cW(int i) {
         switch (i) {
             case 1:
                 return TbadkCoreApplication.getInst().getContext().getString(d.j.he);
@@ -874,7 +874,7 @@ public class am extends com.baidu.adp.lib.util.k {
         return str != null ? str.trim() : "";
     }
 
-    public static String cY(int i) {
+    public static String cX(int i) {
         int i2 = i / 1000;
         int i3 = i2 % 60;
         int i4 = (i2 / 60) % 60;

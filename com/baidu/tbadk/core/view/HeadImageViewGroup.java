@@ -57,7 +57,7 @@ public class HeadImageViewGroup extends FrameLayout {
 
     public void we() {
         if (this.akg != null) {
-            this.akg.bpV();
+            this.akg.bqg();
             StoryHeaderOutView storyHeaderOutView = this.akg;
             StoryHeaderOutView storyHeaderOutView2 = this.akg;
             storyHeaderOutView.setMaskColor(0);

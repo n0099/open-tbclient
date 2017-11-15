@@ -30,13 +30,13 @@ public class ao {
     }
 
     public static boolean k(PostData postData) {
-        if (postData == null || postData.buC() == null) {
+        if (postData == null || postData.buO() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.h buC = postData.buC();
-        if (buC.goS) {
-            int buc = buC.buc();
-            return buc == 2 || buc == 1 || buc == 3;
+        com.baidu.tieba.tbadkCore.data.h buO = postData.buO();
+        if (buO.gpV) {
+            int buo = buO.buo();
+            return buo == 2 || buo == 1 || buo == 3;
         }
         return false;
     }

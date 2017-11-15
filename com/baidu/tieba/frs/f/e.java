@@ -14,16 +14,16 @@ import com.baidu.tieba.d;
 public class e {
     private static ShareFromFrsMsgData e(com.baidu.tieba.tbadkCore.j jVar) {
         ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(jVar.aPM().getImage_url());
-        shareFromFrsMsgData.setName(jVar.aPM().getName());
-        shareFromFrsMsgData.setMemberNum(jVar.aPM().getMember_num());
-        shareFromFrsMsgData.setPostNum(jVar.aPM().getPost_num());
-        shareFromFrsMsgData.setContent(jVar.aPM().getSlogan());
+        shareFromFrsMsgData.setImageUrl(jVar.aPU().getImage_url());
+        shareFromFrsMsgData.setName(jVar.aPU().getName());
+        shareFromFrsMsgData.setMemberNum(jVar.aPU().getMember_num());
+        shareFromFrsMsgData.setPostNum(jVar.aPU().getPost_num());
+        shareFromFrsMsgData.setContent(jVar.aPU().getSlogan());
         return shareFromFrsMsgData;
     }
 
     public static void a(final com.baidu.tieba.frs.f fVar, com.baidu.tieba.tbadkCore.j jVar, final int i, final String str, final long j) {
-        if (jVar != null && jVar.aPM() != null) {
+        if (jVar != null && jVar.aPU() != null) {
             final ShareFromFrsMsgData e = e(jVar);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(fVar.getPageContext().getPageActivity());
             final com.baidu.tieba.frs.view.d dVar = new com.baidu.tieba.frs.view.d(fVar.getPageContext().getPageActivity());
@@ -35,7 +35,7 @@ public class e {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), dVar.getChatMsgView());
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(com.baidu.tieba.frs.f.this.xH().getPageActivity(), i, str, j, "from_share", dVar.getLeaveMsg(), e.toChatMessageContent())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(com.baidu.tieba.frs.f.this.xP().getPageActivity(), i, str, j, "from_share", dVar.getLeaveMsg(), e.toChatMessageContent())));
                     aVar2.dismiss();
                 }
             });

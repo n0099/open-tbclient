@@ -18,24 +18,24 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends RelativeLayout {
-    private AnimatorSet fcA;
-    private AnimatorSet fcB;
-    private AnimatorSet fcC;
-    private AnimatorSet fcD;
-    private AnimatorSet fcE;
-    private boolean fcF;
-    private Runnable fcG;
-    private a fcb;
-    private ImageView fcr;
-    private ImageView fcs;
-    private ImageView fct;
-    private ImageView fcu;
-    private ImageView fcv;
-    private ImageView fcw;
-    private TextView fcx;
-    private AnimatorSet fcy;
-    private AnimatorSet fcz;
-    private static final int fcq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds48);
+    private ImageView fcN;
+    private ImageView fcO;
+    private ImageView fcP;
+    private ImageView fcQ;
+    private ImageView fcR;
+    private ImageView fcS;
+    private TextView fcT;
+    private AnimatorSet fcU;
+    private AnimatorSet fcV;
+    private AnimatorSet fcW;
+    private AnimatorSet fcX;
+    private AnimatorSet fcY;
+    private AnimatorSet fcZ;
+    private a fcx;
+    private AnimatorSet fda;
+    private boolean fdb;
+    private Runnable fdc;
+    private static final int fcM = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds48);
     private static final int SCREEN_WIDTH = l.ac(TbadkCoreApplication.getInst());
 
     /* loaded from: classes.dex */
@@ -45,11 +45,11 @@ public class c extends RelativeLayout {
 
     public c(Context context) {
         super(context);
-        this.fcF = false;
-        this.fcG = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
+        this.fdb = false;
+        this.fdc = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
             @Override // java.lang.Runnable
             public void run() {
-                c.this.aXr();
+                c.this.aXz();
             }
         };
         init();
@@ -57,115 +57,115 @@ public class c extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(d.h.pb_full_screen_floating_huaji_view, this);
-        this.fcr = (ImageView) findViewById(d.g.pb_video_floating_big_huaji);
-        this.fcs = (ImageView) findViewById(d.g.pb_video_floating_small_huaji1);
-        this.fct = (ImageView) findViewById(d.g.pb_video_floating_small_huaji2);
-        this.fcu = (ImageView) findViewById(d.g.pb_video_floating_small_huaji3);
-        this.fcv = (ImageView) findViewById(d.g.pb_video_floating_small_huaji4);
-        this.fcw = (ImageView) findViewById(d.g.pb_video_floating_small_huaji5);
-        this.fcx = (TextView) findViewById(d.g.pb_video_floating_huaji_tip);
-        this.fcx.setX((SCREEN_WIDTH - fcq) / 2);
+        this.fcN = (ImageView) findViewById(d.g.pb_video_floating_big_huaji);
+        this.fcO = (ImageView) findViewById(d.g.pb_video_floating_small_huaji1);
+        this.fcP = (ImageView) findViewById(d.g.pb_video_floating_small_huaji2);
+        this.fcQ = (ImageView) findViewById(d.g.pb_video_floating_small_huaji3);
+        this.fcR = (ImageView) findViewById(d.g.pb_video_floating_small_huaji4);
+        this.fcS = (ImageView) findViewById(d.g.pb_video_floating_small_huaji5);
+        this.fcT = (TextView) findViewById(d.g.pb_video_floating_huaji_tip);
+        this.fcT.setX((SCREEN_WIDTH - fcM) / 2);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        aXq();
+        aXy();
     }
 
-    private void aXq() {
-        this.fcy = new AnimatorSet();
+    private void aXy() {
+        this.fcU = new AnimatorSet();
         Drawable drawable = aj.getDrawable(d.f.icon_floor_bigpraised_floating);
         int intrinsicWidth = (SCREEN_WIDTH - drawable.getIntrinsicWidth()) / 2;
         int intrinsicWidth2 = 0 - drawable.getIntrinsicWidth();
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.fcr, "X", SCREEN_WIDTH, intrinsicWidth);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.fcN, "X", SCREEN_WIDTH, intrinsicWidth);
         ofFloat.setDuration(400L);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.fcr, "X", intrinsicWidth, intrinsicWidth2);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.fcN, "X", intrinsicWidth, intrinsicWidth2);
         ofFloat2.setDuration(500L);
         ofFloat2.setStartDelay(1000L);
-        this.fcy.playTogether(ofFloat, ofFloat2);
-        this.fcz = new AnimatorSet();
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.fcs, "X", SCREEN_WIDTH, intrinsicWidth2);
+        this.fcU.playTogether(ofFloat, ofFloat2);
+        this.fcV = new AnimatorSet();
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.fcO, "X", SCREEN_WIDTH, intrinsicWidth2);
         ofFloat3.setDuration(600L);
         ofFloat3.setStartDelay(800L);
-        this.fcz.play(ofFloat3);
-        this.fcA = new AnimatorSet();
-        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.fct, "X", SCREEN_WIDTH, intrinsicWidth2);
+        this.fcV.play(ofFloat3);
+        this.fcW = new AnimatorSet();
+        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.fcP, "X", SCREEN_WIDTH, intrinsicWidth2);
         ofFloat4.setDuration(600L);
         ofFloat4.setStartDelay(800L);
-        this.fcA.play(ofFloat4);
-        this.fcB = new AnimatorSet();
-        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.fcu, "X", SCREEN_WIDTH, intrinsicWidth2);
+        this.fcW.play(ofFloat4);
+        this.fcX = new AnimatorSet();
+        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.fcQ, "X", SCREEN_WIDTH, intrinsicWidth2);
         ofFloat5.setDuration(300L);
         ofFloat5.setStartDelay(1100L);
-        this.fcB.play(ofFloat5);
-        this.fcC = new AnimatorSet();
-        ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.fcv, "X", SCREEN_WIDTH, intrinsicWidth2);
+        this.fcX.play(ofFloat5);
+        this.fcY = new AnimatorSet();
+        ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.fcR, "X", SCREEN_WIDTH, intrinsicWidth2);
         ofFloat6.setDuration(200L);
         ofFloat6.setStartDelay(1200L);
-        this.fcC.play(ofFloat6);
-        this.fcD = new AnimatorSet();
-        ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.fcw, "X", SCREEN_WIDTH, intrinsicWidth2);
+        this.fcY.play(ofFloat6);
+        this.fcZ = new AnimatorSet();
+        ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.fcS, "X", SCREEN_WIDTH, intrinsicWidth2);
         ofFloat7.setDuration(150L);
         ofFloat7.setStartDelay(1400L);
-        this.fcD.play(ofFloat7);
-        this.fcE = new AnimatorSet();
-        ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.fcx, "scaleX", 0.0f, 2.0f, 1.0f);
+        this.fcZ.play(ofFloat7);
+        this.fda = new AnimatorSet();
+        ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.fcT, "scaleX", 0.0f, 2.0f, 1.0f);
         ofFloat8.setDuration(500L);
         ofFloat8.setStartDelay(400L);
-        ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.fcx, "scaleY", 0.0f, 2.0f, 1.0f);
+        ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.fcT, "scaleY", 0.0f, 2.0f, 1.0f);
         ofFloat9.setDuration(500L);
         ofFloat8.setStartDelay(400L);
-        ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.fcx, "X", SCREEN_WIDTH / 2, intrinsicWidth2);
+        ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.fcT, "X", SCREEN_WIDTH / 2, intrinsicWidth2);
         ofFloat10.setDuration(300L);
         ofFloat10.setStartDelay(700L);
-        this.fcE.playTogether(ofFloat8, ofFloat9, ofFloat10);
+        this.fda.playTogether(ofFloat8, ofFloat9, ofFloat10);
     }
 
     public void onChangeSkinType(int i) {
         aj.k(this, d.C0080d.black_alpha60);
-        aj.c(this.fcr, d.f.icon_floor_bigpraised_floating);
-        aj.c(this.fcs, d.f.icon_floor_praised_floating);
-        aj.c(this.fct, d.f.icon_floor_praised_floating);
-        aj.c(this.fcu, d.f.icon_floor_praised_floating);
-        aj.c(this.fcv, d.f.icon_floor_praised_floating);
-        aj.c(this.fcw, d.f.icon_floor_praised_floating);
-        aj.i(this.fcx, d.C0080d.cp_cont_i);
+        aj.c(this.fcN, d.f.icon_floor_bigpraised_floating);
+        aj.c(this.fcO, d.f.icon_floor_praised_floating);
+        aj.c(this.fcP, d.f.icon_floor_praised_floating);
+        aj.c(this.fcQ, d.f.icon_floor_praised_floating);
+        aj.c(this.fcR, d.f.icon_floor_praised_floating);
+        aj.c(this.fcS, d.f.icon_floor_praised_floating);
+        aj.i(this.fcT, d.C0080d.cp_cont_i);
     }
 
-    public void jR(boolean z) {
-        if (UtilHelper.getRealScreenOrientation(getContext()) != 2 && !this.fcF) {
-            this.fcF = true;
+    public void jX(boolean z) {
+        if (UtilHelper.getRealScreenOrientation(getContext()) != 2 && !this.fdb) {
+            this.fdb = true;
             ((ViewGroup) ((Activity) getContext()).getWindow().getDecorView()).addView(this);
-            postDelayed(this.fcG, 2000L);
-            this.fcy.start();
-            this.fcz.start();
-            this.fcA.start();
-            this.fcB.start();
-            this.fcC.start();
-            this.fcD.start();
+            postDelayed(this.fdc, 2000L);
+            this.fcU.start();
+            this.fcV.start();
+            this.fcW.start();
+            this.fcX.start();
+            this.fcY.start();
+            this.fcZ.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXr() {
-        this.fcF = false;
+    public void aXz() {
+        this.fdb = false;
         ViewGroup viewGroup = (ViewGroup) ((Activity) getContext()).getWindow().getDecorView();
         if (getParent() != null && getParent() == viewGroup) {
             viewGroup.removeView(this);
         }
-        if (this.fcb != null) {
-            this.fcb.onAnimationEnd();
+        if (this.fcx != null) {
+            this.fcx.onAnimationEnd();
         }
-        removeCallbacks(this.fcG);
+        removeCallbacks(this.fdc);
     }
 
     public void stopAnimation() {
-        if (this.fcF) {
-            aXr();
-            this.fcy.cancel();
-            this.fcz.cancel();
-            this.fcA.cancel();
-            this.fcB.cancel();
-            this.fcC.cancel();
-            this.fcD.cancel();
-            this.fcE.cancel();
+        if (this.fdb) {
+            aXz();
+            this.fcU.cancel();
+            this.fcV.cancel();
+            this.fcW.cancel();
+            this.fcX.cancel();
+            this.fcY.cancel();
+            this.fcZ.cancel();
+            this.fda.cancel();
         }
     }
 
@@ -178,6 +178,6 @@ public class c extends RelativeLayout {
     }
 
     public void setFloatingHuajiAninationListener(a aVar) {
-        this.fcb = aVar;
+        this.fcx = aVar;
     }
 }

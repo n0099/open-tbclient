@@ -19,7 +19,7 @@ public class az {
     public com.baidu.tieba.card.data.p qD() {
         com.baidu.tieba.card.data.p pVar = new com.baidu.tieba.card.data.p();
         ArrayList arrayList = null;
-        pVar.bVq = qC();
+        pVar.bVD = qC();
         if (this.XU != null) {
             ArrayList arrayList2 = new ArrayList();
             for (a aVar : this.XU) {
@@ -29,7 +29,7 @@ public class az {
             }
             arrayList = arrayList2;
         }
-        pVar.bVr = arrayList;
+        pVar.bVE = arrayList;
         return pVar;
     }
 

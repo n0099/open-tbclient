@@ -54,14 +54,14 @@ public class o extends a {
         if (this.ajh) {
             return null;
         }
-        com.baidu.adp.widget.a.a gn = com.baidu.tbadk.imageManager.c.Eg().gn(str);
-        if (gn != null) {
-            gn.Gk.Gm = "memory";
-            gn.Gk.Gn = 0L;
-            gn.Gk.Go = true;
-            return gn;
+        com.baidu.adp.widget.a.a go = com.baidu.tbadk.imageManager.c.Es().go(str);
+        if (go != null) {
+            go.Gk.Gm = "memory";
+            go.Gk.Gn = 0L;
+            go.Gk.Go = true;
+            return go;
         }
-        return gn;
+        return go;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -81,9 +81,9 @@ public class o extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
-        com.baidu.tbadk.imageManager.c Eg = com.baidu.tbadk.imageManager.c.Eg();
+        com.baidu.tbadk.imageManager.c Es = com.baidu.tbadk.imageManager.c.Es();
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            Eg.b(str, (com.baidu.adp.widget.a.a) obj);
+            Es.b(str, (com.baidu.adp.widget.a.a) obj);
         }
     }
 

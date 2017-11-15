@@ -18,7 +18,7 @@ public class v {
     public v(PbModel pbModel, BaseActivity baseActivity) {
     }
 
-    private void lv(String str) {
+    private void lx(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
@@ -66,11 +66,11 @@ public class v {
             if ("mpush".equals(matcher.group(1))) {
                 TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11895").ac("tid", matcher.group(2)));
             } else {
-                lv(decode);
+                lx(decode);
             }
             return matcher.group(2);
         }
-        lv(decode);
+        lx(decode);
         int indexOf = decode.indexOf("tid=");
         if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
             return null;

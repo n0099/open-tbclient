@@ -5,7 +5,7 @@ public interface k {
 
     int T(String str, boolean z);
 
-    void biL();
+    void biW();
 
     void f(String str, int i, boolean z);
 }

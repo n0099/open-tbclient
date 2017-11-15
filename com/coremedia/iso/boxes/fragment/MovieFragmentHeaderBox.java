@@ -10,9 +10,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class MovieFragmentHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mfhd";
-    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_2 = null;
     private long sequenceNumber;
 
     static {
@@ -53,7 +53,7 @@ public class MovieFragmentHeaderBox extends AbstractFullBox {
     }
 
     public void setSequenceNumber(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dR(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dT(j)));
         this.sequenceNumber = j;
     }
 

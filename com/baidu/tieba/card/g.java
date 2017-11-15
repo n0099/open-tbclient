@@ -19,12 +19,12 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.horizonalList.widget.f {
     private TbPageContext abI;
-    public TextView bOl;
-    public ClickableHeaderImageView bRs;
-    public TextView bRt;
-    public EntelechyUserLikeButton bRu;
-    private com.baidu.tbadk.core.view.userLike.c bRv;
-    private com.baidu.tieba.card.data.i bRw;
+    public TextView bOy;
+    public ClickableHeaderImageView bRF;
+    public TextView bRG;
+    public EntelechyUserLikeButton bRH;
+    private com.baidu.tbadk.core.view.userLike.c bRI;
+    private com.baidu.tieba.card.data.i bRJ;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
     private BdUniqueId uniqueId;
@@ -35,22 +35,22 @@ public class g extends com.baidu.tieba.horizonalList.widget.f {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.card.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (g.this.bRw != null && g.this.bRw.YJ != null && !StringUtils.isNull(g.this.bRw.YJ.getName_show()) && !StringUtils.isNull(g.this.bRw.YJ.getUserId())) {
-                    if (g.this.auz != null) {
-                        g.this.auz.onClick(view2);
+                if (g.this.bRJ != null && g.this.bRJ.YJ != null && !StringUtils.isNull(g.this.bRJ.YJ.getName_show()) && !StringUtils.isNull(g.this.bRJ.YJ.getUserId())) {
+                    if (g.this.auH != null) {
+                        g.this.auH.onClick(view2);
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(g.this.abI.getPageActivity(), g.this.bRw.YJ.getUserId(), g.this.bRw.YJ.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(g.this.abI.getPageActivity(), g.this.bRJ.YJ.getUserId(), g.this.bRJ.YJ.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
         this.abI = tbPageContext;
-        this.bRs = (ClickableHeaderImageView) view.findViewById(d.g.rec_god_item_header);
-        this.bRs.setGodIconMargin(d.e.ds6);
-        this.bOl = (TextView) view.findViewById(d.g.rec_god_item_user_name);
-        this.bRt = (TextView) view.findViewById(d.g.rec_god_item_user_describe);
-        this.bRu = (EntelechyUserLikeButton) view.findViewById(d.g.rec_god_item_user_like_btn);
-        this.bRv = new com.baidu.tbadk.core.view.userLike.c(this.abI, this.bRu);
-        this.bRv.setFromType("0");
+        this.bRF = (ClickableHeaderImageView) view.findViewById(d.g.rec_god_item_header);
+        this.bRF.setGodIconMargin(d.e.ds6);
+        this.bOy = (TextView) view.findViewById(d.g.rec_god_item_user_name);
+        this.bRG = (TextView) view.findViewById(d.g.rec_god_item_user_describe);
+        this.bRH = (EntelechyUserLikeButton) view.findViewById(d.g.rec_god_item_user_like_btn);
+        this.bRI = new com.baidu.tbadk.core.view.userLike.c(this.abI, this.bRH);
+        this.bRI.setFromType("0");
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -60,26 +60,26 @@ public class g extends com.baidu.tieba.horizonalList.widget.f {
     @Override // com.baidu.tieba.horizonalList.widget.f
     public com.baidu.tieba.horizonalList.widget.f ae(View view) {
         g gVar = new g(view, this.abI);
-        gVar.bRv.h(this.uniqueId);
+        gVar.bRI.h(this.uniqueId);
         return gVar;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.f
     public void a(com.baidu.tieba.horizonalList.widget.d dVar) {
         if (dVar instanceof com.baidu.tieba.card.data.i) {
-            this.bRw = (com.baidu.tieba.card.data.i) dVar;
-            if (this.bRw.YJ != null) {
-                getView().setTag(d.g.rec_god_item_root, this.bRw.YJ.getUserId());
-                this.bRs.setTag(d.g.rec_god_item_root, this.bRw.YJ.getUserId());
-                this.bRu.setTag(this.bRw.YJ);
-                this.bRs.setData(this.bRw.YJ);
-                this.bRs.setAfterClickListener(this.auz);
-                this.bOl.setText(am.t(this.bRw.YJ.getName_show(), 5));
+            this.bRJ = (com.baidu.tieba.card.data.i) dVar;
+            if (this.bRJ.YJ != null) {
+                getView().setTag(d.g.rec_god_item_root, this.bRJ.YJ.getUserId());
+                this.bRF.setTag(d.g.rec_god_item_root, this.bRJ.YJ.getUserId());
+                this.bRH.setTag(this.bRJ.YJ);
+                this.bRF.setData(this.bRJ.YJ);
+                this.bRF.setAfterClickListener(this.auH);
+                this.bOy.setText(am.t(this.bRJ.YJ.getName_show(), 5));
                 getView().setOnClickListener(this.mOnClickListener);
-                if (this.bRw.YJ.getGodUserData() != null) {
-                    this.bRt.setText(am.t(this.bRw.YJ.getGodUserData().getIntro(), 6));
+                if (this.bRJ.YJ.getGodUserData() != null) {
+                    this.bRG.setText(am.t(this.bRJ.YJ.getGodUserData().getIntro(), 6));
                 }
-                this.bRv.a(this.bRw.YJ);
+                this.bRI.a(this.bRJ.YJ);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
         }
@@ -88,10 +88,10 @@ public class g extends com.baidu.tieba.horizonalList.widget.f {
     @Override // com.baidu.tieba.horizonalList.widget.f
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            aj.i(this.bOl, d.C0080d.cp_cont_b);
-            aj.i(this.bRt, d.C0080d.cp_cont_d);
-            if (this.bRu != null) {
-                this.bRu.onChangeSkinType(i);
+            aj.i(this.bOy, d.C0080d.cp_cont_b);
+            aj.i(this.bRG, d.C0080d.cp_cont_d);
+            if (this.bRH != null) {
+                this.bRH.onChangeSkinType(i);
             }
         }
         this.mSkinType = i;

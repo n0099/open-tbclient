@@ -15,12 +15,12 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class a extends d {
-    private long gHa;
+    private long gIi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str) {
         super(str);
-        this.gHa = 88200L;
+        this.gIi = 88200L;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:106:0x0253 A[SYNTHETIC] */
@@ -32,7 +32,7 @@ public class a extends d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void ty(String str) {
+    public void tE(String str) {
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
         int i;
@@ -48,14 +48,14 @@ public class a extends d {
         FileInputStream fileInputStream2 = null;
         FileOutputStream fileOutputStream2 = null;
         try {
-            if (this.gHg == 0) {
-                this.gHg = 48000;
+            if (this.gIo == 0) {
+                this.gIo = 48000;
             }
             if (this.channelCount == 0) {
                 this.channelCount = 1;
             }
-            this.gHa = (this.gHg * 16) / 8;
-            fileInputStream = new FileInputStream(this.gHf);
+            this.gIi = (this.gIo * 16) / 8;
+            fileInputStream = new FileInputStream(this.gIn);
             try {
                 fileOutputStream = new FileOutputStream(str);
             } catch (Exception e) {
@@ -73,10 +73,10 @@ public class a extends d {
             fileInputStream = null;
         }
         try {
-            MediaCodec bzF = bzF();
-            bzF.start();
-            ByteBuffer[] inputBuffers = bzF.getInputBuffers();
-            ByteBuffer[] outputBuffers = bzF.getOutputBuffers();
+            MediaCodec bzR = bzR();
+            bzR.start();
+            ByteBuffer[] inputBuffers = bzR.getInputBuffers();
+            ByteBuffer[] outputBuffers = bzR.getOutputBuffers();
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
             long j3 = 0;
             long j4 = 0;
@@ -88,7 +88,7 @@ public class a extends d {
             byte[] bArr2 = new byte[4096];
             boolean z6 = false;
             while (!z4) {
-                if (z5 || (dequeueInputBuffer = bzF.dequeueInputBuffer(10000L)) < 0) {
+                if (z5 || (dequeueInputBuffer = bzR.dequeueInputBuffer(10000L)) < 0) {
                     i = i4;
                     bArr = bArr2;
                     z = z6;
@@ -108,7 +108,7 @@ public class a extends d {
                         z3 = i3 == -1 ? true : z6;
                     }
                     if (z3) {
-                        bzF.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                        bzR.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
                         i2 = i3;
                         bArr = bArr3;
                         z = z3;
@@ -119,20 +119,20 @@ public class a extends d {
                     } else {
                         byteBuffer.put(bArr3, 0, i3);
                         int i7 = i4 + i3;
-                        bzF.queueInputBuffer(dequeueInputBuffer, 0, i3, j4, 0);
+                        bzR.queueInputBuffer(dequeueInputBuffer, 0, i3, j4, 0);
                         i = i7;
                         i2 = i3;
                         bArr = bArr3;
                         z = z3;
-                        j = (long) ((1000000.0d * (i7 / 2.0d)) / this.gHa);
+                        j = (long) ((1000000.0d * (i7 / 2.0d)) / this.gIi);
                         z2 = z5;
                     }
                 }
-                int dequeueOutputBuffer = bzF.dequeueOutputBuffer(bufferInfo, 10000L);
+                int dequeueOutputBuffer = bzR.dequeueOutputBuffer(bufferInfo, 10000L);
                 if (dequeueOutputBuffer >= 0) {
                     if ((bufferInfo.flags & 2) != 0) {
                         BdLog.i("audio encoder: codec config buffer");
-                        bzF.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        bzR.releaseOutputBuffer(dequeueOutputBuffer, false);
                         i5 = i2;
                         bArr2 = bArr;
                         j4 = j;
@@ -155,7 +155,7 @@ public class a extends d {
                                 byteBuffer2.get(bArr4, 7, i8);
                                 fileOutputStream.write(bArr4, 0, bArr4.length);
                                 BdLog.i(bArr4.length + " bytes written.");
-                                bzF.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                bzR.releaseOutputBuffer(dequeueOutputBuffer, false);
                                 if ((bufferInfo.flags & 4) == 0) {
                                     j4 = j;
                                     z4 = true;
@@ -179,7 +179,7 @@ public class a extends d {
                             }
                         }
                         j2 = j3;
-                        bzF.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        bzR.releaseOutputBuffer(dequeueOutputBuffer, false);
                         if ((bufferInfo.flags & 4) == 0) {
                         }
                     }
@@ -187,12 +187,12 @@ public class a extends d {
                     bArr2 = bArr;
                     j4 = j;
                     z5 = z2;
-                    byteBufferArr = bzF.getOutputBuffers();
+                    byteBufferArr = bzR.getOutputBuffers();
                     i5 = i2;
                     i4 = i;
                     z6 = z;
                 } else if (dequeueOutputBuffer == -2) {
-                    BdLog.i("format change : " + bzF.getOutputFormat());
+                    BdLog.i("format change : " + bzR.getOutputFormat());
                     i5 = i2;
                     bArr2 = bArr;
                     j4 = j;
@@ -265,13 +265,13 @@ public class a extends d {
     }
 
     @TargetApi(16)
-    private MediaCodec bzF() throws IOException {
+    private MediaCodec bzR() throws IOException {
         MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
         MediaFormat mediaFormat = new MediaFormat();
         mediaFormat.setString(IMediaFormat.KEY_MIME, "audio/mp4a-latm");
         mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, 128000);
         mediaFormat.setInteger("channel-count", this.channelCount);
-        mediaFormat.setInteger("sample-rate", this.gHg);
+        mediaFormat.setInteger("sample-rate", this.gIo);
         mediaFormat.setInteger("aac-profile", 2);
         createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
         return createEncoderByType;
@@ -284,7 +284,7 @@ public class a extends d {
             if (i2 >= iArr.length) {
                 i2 = 4;
                 break;
-            } else if (iArr[i2] == this.gHg) {
+            } else if (iArr[i2] == this.gIo) {
                 break;
             } else {
                 i2++;

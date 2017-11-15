@@ -2,7 +2,7 @@ package com.baidu.tieba.im.settingcache;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.l;
+import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.util.h;
 import com.baidu.tbadk.util.u;
@@ -10,26 +10,26 @@ import com.baidu.tbadk.util.v;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class b extends a {
-    private static b dLN = new b();
+    private static b dLS = new b();
 
     private b() {
     }
 
-    public static b aBt() {
-        return dLN;
+    public static b aBx() {
+        return dLS;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: bf */
-    public GroupSettingItemData bd(String str, String str2) {
+    /* renamed from: bg */
+    public GroupSettingItemData be(String str, String str2) {
         GroupSettingItemData groupSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.dLK) {
-            ChatSetting chatSetting = this.dLK.get(str3);
+        synchronized (this.dLP) {
+            ChatSetting chatSetting = this.dLP.get(str3);
             groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
         }
         if (groupSettingItemData == null) {
@@ -38,34 +38,29 @@ public class b extends a {
             groupSettingItemData2.setGid(str2);
             groupSettingItemData2.setAcceptNotify(true);
             groupSettingItemData2.setInGroup(true);
-            if (l.hx()) {
-                a(groupSettingItemData2, null);
-                return groupSettingItemData2;
-            }
-            a(groupSettingItemData2);
             return groupSettingItemData2;
         }
         return groupSettingItemData;
     }
 
-    public void axq() {
+    public void axH() {
         super.m(GroupSettingItemData.class);
     }
 
     public void b(String str, String str2, boolean z, h<Void> hVar) {
-        GroupSettingItemData bd = bd(str, str2);
-        if (bd != null) {
-            bd.setAlreadyApply(z);
-            bd.setLastApplyTimeStamp(System.currentTimeMillis());
-            a(bd, hVar);
+        GroupSettingItemData be = be(str, str2);
+        if (be != null) {
+            be.setAlreadyApply(z);
+            be.setLastApplyTimeStamp(System.currentTimeMillis());
+            a(be, hVar);
         }
     }
 
     public void c(String str, String str2, boolean z, h<Void> hVar) {
-        GroupSettingItemData bd = bd(str, str2);
-        if (bd != null) {
-            bd.setInGroup(z);
-            a(bd, hVar);
+        GroupSettingItemData be = be(str, str2);
+        if (be != null) {
+            be.setInGroup(z);
+            a(be, hVar);
         }
     }
 
@@ -75,9 +70,9 @@ public class b extends a {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.u
             public Boolean doInBackground() {
-                GroupSettingItemData bd = b.this.bd(str, str2);
-                if (bd != null && bd.isAlreadyApply()) {
-                    if (System.currentTimeMillis() - bd.getLastApplyTimeStamp() <= j) {
+                GroupSettingItemData be = b.this.be(str, str2);
+                if (be != null && be.isAlreadyApply()) {
+                    if (System.currentTimeMillis() - be.getLastApplyTimeStamp() <= j) {
                         return false;
                     }
                 }
@@ -87,7 +82,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected com.baidu.adp.lib.cache.l<String> aBs() {
+    protected l<String> aBw() {
         return com.baidu.tbadk.core.c.a.td().cP("tb.im_group_setting");
     }
 
@@ -103,13 +98,13 @@ public class b extends a {
                 }
                 return;
             }
-            com.baidu.adp.lib.cache.l<String> aBs = aBs();
+            l<String> aBw = aBw();
             String str = uid + "@" + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.dLK) {
-                this.dLK.put(str, groupSettingItemData);
+            synchronized (this.dLP) {
+                this.dLP.put(str, groupSettingItemData);
             }
-            aBs.e(str, jsonStrWithObject);
+            aBw.e(str, jsonStrWithObject);
         }
     }
 
@@ -126,15 +121,15 @@ public class b extends a {
                 return;
             }
             final String str = uid + "@" + gid;
-            synchronized (this.dLK) {
-                this.dLK.put(str, groupSettingItemData);
+            synchronized (this.dLP) {
+                this.dLP.put(str, groupSettingItemData);
             }
             v.b(new u<Void>() { // from class: com.baidu.tieba.im.settingcache.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.u
-                /* renamed from: LS */
+                /* renamed from: Md */
                 public Void doInBackground() {
-                    b.this.aBs().e(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.aBw().e(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, hVar);
@@ -144,15 +139,15 @@ public class b extends a {
     public void b(String str, String str2, h<Void> hVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             final String str3 = str + "@" + str2;
-            synchronized (this.dLK) {
-                this.dLK.remove(str3);
+            synchronized (this.dLP) {
+                this.dLP.remove(str3);
             }
             v.b(new u<Void>() { // from class: com.baidu.tieba.im.settingcache.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.u
-                /* renamed from: LS */
+                /* renamed from: Md */
                 public Void doInBackground() {
-                    b.this.aBs().remove(str3);
+                    b.this.aBw().remove(str3);
                     return null;
                 }
             }, hVar);

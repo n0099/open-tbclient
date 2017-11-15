@@ -1,10 +1,10 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class ai extends j {
-    private static ai aLB = new ai();
+    private static ai aLJ = new ai();
 
-    public static boolean GB() {
-        return aLB.fS();
+    public static boolean GM() {
+        return aLJ.fS();
     }
 
     @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a

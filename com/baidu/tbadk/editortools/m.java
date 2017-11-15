@@ -7,26 +7,26 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class m extends com.baidu.tbadk.editortools.view.b {
-    private SparseIntArray aBG;
-    LinkedList<l> aBg;
+    private SparseIntArray aBO;
+    LinkedList<l> aBo;
 
     public m(Context context) {
         super(context);
-        this.aBG = new SparseIntArray();
+        this.aBO = new SparseIntArray();
         setBackgroundColorId(d.C0080d.common_color_10255);
         setToolId(2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void i(LinkedList<l> linkedList) {
-        this.aBg = linkedList;
+        this.aBo = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.b, com.baidu.tbadk.editortools.s
     public void init() {
         setShowDelete(false);
         n nVar = new n();
-        nVar.i(this.aBg);
+        nVar.i(this.aBo);
         b(nVar);
     }
 
@@ -35,12 +35,12 @@ public class m extends com.baidu.tbadk.editortools.view.b {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            CS();
+            De();
         }
     }
 
     private void c(a aVar) {
-        Integer valueOf = Integer.valueOf(this.aBG.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.aBO.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             intValue = 0;
@@ -52,13 +52,13 @@ public class m extends com.baidu.tbadk.editortools.view.b {
                 intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.g.b.g(str, 1);
             }
         }
-        this.aBG.put(aVar.id, intValue >= 0 ? intValue : 0);
+        this.aBO.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void CS() {
+    private void De() {
         int i = 0;
-        for (int i2 = 0; i2 < this.aBG.size(); i2++) {
-            i += this.aBG.valueAt(i2);
+        for (int i2 = 0; i2 < this.aBO.size(); i2++) {
+            i += this.aBO.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));

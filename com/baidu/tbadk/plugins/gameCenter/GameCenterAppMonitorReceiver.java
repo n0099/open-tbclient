@@ -7,8 +7,8 @@ import android.content.Intent;
 public class GameCenterAppMonitorReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (a.GA() != null) {
-            a.GA().onReceive(context, intent);
+        if (a.GL() != null) {
+            a.GL().onReceive(context, intent);
         }
     }
 }

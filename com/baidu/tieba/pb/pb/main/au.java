@@ -8,26 +8,26 @@ import com.baidu.tbadk.core.util.av;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class au {
-    private static au eUA = null;
+    private static au eUV = null;
 
-    public static au aVh() {
-        if (eUA == null) {
+    public static au aVp() {
+        if (eUV == null) {
             synchronized (au.class) {
-                if (eUA == null) {
-                    eUA = new au();
+                if (eUV == null) {
+                    eUV = new au();
                 }
             }
         }
-        return eUA;
+        return eUV;
     }
 
     public void f(TbPageContext tbPageContext, String str) {
         if (tbPageContext != null && !TextUtils.isEmpty(str)) {
             if (str.contains("is_native_app=1")) {
             }
-            if (pE(str)) {
+            if (pI(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (pF(str)) {
+            } else if (pJ(str)) {
                 av.vI().a(tbPageContext, new String[]{str}, true);
             } else {
                 av.vI().c(tbPageContext, new String[]{str});
@@ -35,16 +35,16 @@ public class au {
         }
     }
 
-    public static boolean pD(String str) {
+    public static boolean pH(String str) {
         return str != null && str.contains("bookcover:");
     }
 
-    private boolean pE(String str) {
+    private boolean pI(String str) {
         Map<String, String> dY;
         if (!TextUtils.isEmpty(str) && (dY = av.dY(av.dZ(str))) != null) {
             String str2 = dY.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return pE(com.baidu.adp.lib.util.k.aO(str2));
+                return pI(com.baidu.adp.lib.util.k.aO(str2));
             }
             String str3 = dY.get("tbgametype");
             return !TextUtils.isEmpty(str3) && str3.equals("1");
@@ -52,7 +52,7 @@ public class au {
         return false;
     }
 
-    private boolean pF(String str) {
+    private boolean pJ(String str) {
         return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

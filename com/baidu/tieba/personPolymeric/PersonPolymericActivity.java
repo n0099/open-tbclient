@@ -9,24 +9,24 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private a fmz;
+    private a fmW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.h.person_new_fragment_view);
-        this.fmz = new a();
+        this.fmW = new a();
         Bundle bundle2 = new Bundle();
         bundle2.putBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE, true);
-        this.fmz.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().add(d.g.fragment_container, this.fmz).commit();
+        this.fmW.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().add(d.g.fragment_container, this.fmW).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.fmz != null) {
-            this.fmz.onChangeSkinType(i);
+        if (this.fmW != null) {
+            this.fmW.onChangeSkinType(i);
         }
     }
 
@@ -39,15 +39,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.fmz != null) {
-            this.fmz.onActivityResult(i, i2, intent);
+        if (this.fmW != null) {
+            this.fmW.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.fmz != null) {
-            return this.fmz.getVoiceManager();
+        if (this.fmW != null) {
+            return this.fmW.getVoiceManager();
         }
         return null;
     }

@@ -15,10 +15,10 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class h {
     private TbPageContext<MsglistActivity<?>> abI;
-    private MsgLeftViewItemAdapter dvj;
-    private MsgRightViewItemAdapter dvk;
-    private MsgMidViewItemAdapter dvl;
-    private CustomMessageListener dvm;
+    private MsgLeftViewItemAdapter dvD;
+    private MsgRightViewItemAdapter dvE;
+    private MsgMidViewItemAdapter dvF;
+    private CustomMessageListener dvG;
     private List<e> mAdapters;
     private List<ChatMessage> mData;
     private BdTypeListView mListView;
@@ -30,14 +30,14 @@ public class h {
     public h(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
         this.mData = null;
         this.mAdapters = new ArrayList();
-        this.dvm = new CustomMessageListener(CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN) { // from class: com.baidu.tieba.im.chat.h.1
+        this.dvG = new CustomMessageListener(CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN) { // from class: com.baidu.tieba.im.chat.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.duA != null && aVar.context != null) {
-                        h.this.mAdapters.addAll(aVar.duA);
+                    if (aVar.duU != null && aVar.context != null) {
+                        h.this.mAdapters.addAll(aVar.duU);
                         h.this.mListView.addAdapters(new ArrayList(h.this.mAdapters));
                     }
                 }
@@ -46,48 +46,48 @@ public class h {
         this.abI = tbPageContext;
         this.mListView = bdTypeListView;
         initAdapters();
-        this.dvj.mA(i);
-        this.dvk.mA(i);
+        this.dvD.mA(i);
+        this.dvE.mA(i);
     }
 
     private void initAdapters() {
-        this.dvj = new MsgLeftViewItemAdapter(this.abI, ChatMessage.TYPE_MSG_LEFT);
-        this.dvj.fM(true);
-        this.dvj.fL(true);
-        this.dvk = new MsgRightViewItemAdapter(this.abI, ChatMessage.TYPE_MSG_RIGHT);
-        this.dvk.fM(true);
-        this.dvk.fL(true);
-        this.dvl = new MsgMidViewItemAdapter(this.abI, ChatMessage.TYPE_MSG_MID);
-        this.mAdapters.add(this.dvj);
-        this.mAdapters.add(this.dvk);
-        this.mAdapters.add(this.dvl);
+        this.dvD = new MsgLeftViewItemAdapter(this.abI, ChatMessage.TYPE_MSG_LEFT);
+        this.dvD.fS(true);
+        this.dvD.fR(true);
+        this.dvE = new MsgRightViewItemAdapter(this.abI, ChatMessage.TYPE_MSG_RIGHT);
+        this.dvE.fS(true);
+        this.dvE.fR(true);
+        this.dvF = new MsgMidViewItemAdapter(this.abI, ChatMessage.TYPE_MSG_MID);
+        this.mAdapters.add(this.dvD);
+        this.mAdapters.add(this.dvE);
+        this.mAdapters.add(this.dvF);
         initListener();
         MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-        aVar.duA = new ArrayList();
+        aVar.duU = new ArrayList();
         aVar.context = this.abI;
         MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
     }
 
     private void initListener() {
-        this.dvm.setPriority(Integer.MAX_VALUE);
-        this.abI.registerListener(this.dvm);
+        this.dvG.setPriority(Integer.MAX_VALUE);
+        this.abI.registerListener(this.dvG);
     }
 
-    public void fN(boolean z) {
-        if (this.dvj != null) {
-            this.dvj.fN(z);
+    public void fT(boolean z) {
+        if (this.dvD != null) {
+            this.dvD.fT(z);
         }
     }
 
-    public void fO(boolean z) {
-        if (this.dvk != null) {
-            this.dvk.fO(z);
+    public void fU(boolean z) {
+        if (this.dvE != null) {
+            this.dvE.fU(z);
         }
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
         for (e eVar : this.mAdapters) {
-            if (eVar.avo()) {
+            if (eVar.avF()) {
                 eVar.a(aVar);
             }
         }
@@ -95,7 +95,7 @@ public class h {
 
     public void setOnItemViewLongClickListener(b bVar) {
         for (e eVar : this.mAdapters) {
-            if (eVar.avn()) {
+            if (eVar.avE()) {
                 eVar.setOnItemViewLongClickListener(bVar);
             }
         }
@@ -142,9 +142,9 @@ public class h {
     }
 
     public void onDestory() {
-        if (this.dvm != null) {
-            MessageManager.getInstance().unRegisterListener(this.dvm);
-            this.dvm = null;
+        if (this.dvG != null) {
+            MessageManager.getInstance().unRegisterListener(this.dvG);
+            this.dvG = null;
         }
     }
 }

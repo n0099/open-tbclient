@@ -38,13 +38,13 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: c */
     public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a go = com.baidu.tbadk.imageManager.c.Eg().go(str);
-        if (go != null) {
-            go.Gk.Gm = "memory";
-            go.Gk.Gn = 0L;
-            go.Gk.Go = true;
+        com.baidu.adp.widget.a.a gp = com.baidu.tbadk.imageManager.c.Es().gp(str);
+        if (gp != null) {
+            gp.Gk.Gm = "memory";
+            gp.Gk.Gn = 0L;
+            gp.Gk.Go = true;
         }
-        return go;
+        return gp;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -172,7 +172,7 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
         }
         com.baidu.adp.lib.stats.a fK2 = s.fK();
         fK2.fT();
-        com.baidu.tbadk.imageManager.c.Eg().fi(TbConfig.getPbImageSize() + j.length);
+        com.baidu.tbadk.imageManager.c.Es().fh(TbConfig.getPbImageSize() + j.length);
         Bitmap a2 = a(j, rect, sb2);
         if (z && a2 == null) {
             TiebaStatic.imgError(TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str);
@@ -247,7 +247,7 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.c.Eg().c(str, (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.c.Es().c(str, (com.baidu.adp.widget.a.a) obj);
         }
     }
 
@@ -307,7 +307,7 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.c.Eg().fi(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.Es().fh(BitmapHelper.getBitmapSize(bitmap) * 2);
             return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
         }
         return bitmap;

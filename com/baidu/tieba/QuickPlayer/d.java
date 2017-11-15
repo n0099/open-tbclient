@@ -12,23 +12,23 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class d {
-    private static d aVS;
-    private IQuickMediaPlayerService aVU;
-    private Set<a> aVW;
+    private static d aWa;
+    private IQuickMediaPlayerService aWc;
+    private Set<a> aWe;
     private Context mContext = TbadkCoreApplication.getInst();
-    private boolean aVT = false;
-    private boolean aVV = false;
+    private boolean aWb = false;
+    private boolean aWd = false;
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.QuickPlayer.d.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            d.this.aVT = true;
-            com.baidu.adp.lib.g.e.fP().removeCallbacks(d.this.aVX);
-            d.this.aVU = IQuickMediaPlayerService.Stub.asInterface(iBinder);
-            if (d.this.aVV) {
-                d.this.aVV = false;
-                for (a aVar : d.this.aVW) {
+            d.this.aWb = true;
+            com.baidu.adp.lib.g.e.fP().removeCallbacks(d.this.aWf);
+            d.this.aWc = IQuickMediaPlayerService.Stub.asInterface(iBinder);
+            if (d.this.aWd) {
+                d.this.aWd = false;
+                for (a aVar : d.this.aWe) {
                     if (aVar != null) {
-                        aVar.KD();
+                        aVar.KO();
                     }
                 }
             }
@@ -36,44 +36,44 @@ public class d {
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            d.this.aVT = false;
-            d.this.aVV = true;
-            com.baidu.adp.lib.g.e.fP().postDelayed(d.this.aVX, 1000L);
+            d.this.aWb = false;
+            d.this.aWd = true;
+            com.baidu.adp.lib.g.e.fP().postDelayed(d.this.aWf, 1000L);
         }
     };
-    private Runnable aVX = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
+    private Runnable aWf = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
         @Override // java.lang.Runnable
         public void run() {
-            if (!d.this.aVT) {
-                d.this.KC();
-                com.baidu.adp.lib.g.e.fP().postDelayed(d.this.aVX, 1000L);
+            if (!d.this.aWb) {
+                d.this.KN();
+                com.baidu.adp.lib.g.e.fP().postDelayed(d.this.aWf, 1000L);
             }
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void KD();
+        void KO();
     }
 
     private d() {
-        KC();
-        this.aVW = new HashSet();
+        KN();
+        this.aWe = new HashSet();
     }
 
-    public static d KB() {
-        if (aVS == null) {
+    public static d KM() {
+        if (aWa == null) {
             synchronized (d.class) {
-                if (aVS == null) {
-                    aVS = new d();
+                if (aWa == null) {
+                    aWa = new d();
                 }
             }
         }
-        return aVS;
+        return aWa;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KC() {
+    public void KN() {
         try {
             this.mContext.bindService(new Intent(this.mContext, QuickMediaPlayerService.class), this.mServiceConnection, 1);
         } catch (Exception e) {
@@ -82,9 +82,9 @@ public class d {
     }
 
     public IQuickMediaPlayer createPlayer() {
-        if (this.aVT && this.aVU != null) {
+        if (this.aWb && this.aWc != null) {
             try {
-                return this.aVU.createPlayer();
+                return this.aWc.createPlayer();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -93,10 +93,10 @@ public class d {
     }
 
     public boolean a(a aVar) {
-        return this.aVW.add(aVar);
+        return this.aWe.add(aVar);
     }
 
     public void b(a aVar) {
-        this.aVW.remove(aVar);
+        this.aWe.remove(aVar);
     }
 }

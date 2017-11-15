@@ -62,7 +62,7 @@ public class ac {
                     if (dQ > 0) {
                         if (z) {
                             Bitmap dO = al.vm().dO(dV);
-                            com.baidu.tbadk.imageManager.c.Eg().fi(dQ);
+                            com.baidu.tbadk.imageManager.c.Es().fh(dQ);
                             if (dO != null) {
                                 a(str, dO, z2, al.vm().dP(dV), z3, dV);
                             }
@@ -105,7 +105,7 @@ public class ac {
     }
 
     private static void a(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.c.Eg().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.Es().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {

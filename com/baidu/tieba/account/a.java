@@ -19,7 +19,7 @@ public class a extends BaseAdapter {
     private View.OnClickListener alC;
     private BaseActivity mContext;
     private List<AccountData> mData = null;
-    private boolean aYJ = false;
+    private boolean aYS = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mContext = baseActivity;
@@ -78,30 +78,30 @@ public class a extends BaseAdapter {
                 } else if (getItemViewType(i) == 0) {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.h.account_item, (ViewGroup) null);
                     c0071a = new C0071a();
-                    c0071a.aYK = (TextView) view5.findViewById(d.g.account);
-                    c0071a.aYM = (ImageView) view5.findViewById(d.g.active);
-                    c0071a.aYN = (Button) view5.findViewById(d.g.delete);
+                    c0071a.aYT = (TextView) view5.findViewById(d.g.account);
+                    c0071a.aYV = (ImageView) view5.findViewById(d.g.active);
+                    c0071a.aYW = (Button) view5.findViewById(d.g.delete);
                     c0071a.mLine = view5.findViewById(d.g.account_item_line_layout);
-                    c0071a.aYN.setOnClickListener(this.alC);
+                    c0071a.aYW.setOnClickListener(this.alC);
                     view5.setTag(c0071a);
                 } else {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.h.account_add_item, (ViewGroup) null);
                     c0071a = new C0071a();
-                    c0071a.aYL = (TextView) view5.findViewById(d.g.add_text);
+                    c0071a.aYU = (TextView) view5.findViewById(d.g.add_text);
                     view5.setTag(c0071a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0071a.aYM.setVisibility(8);
-                    c0071a.aYN.setVisibility(8);
-                    c0071a.aYN.setTag(accountData);
+                    c0071a.aYV.setVisibility(8);
+                    c0071a.aYW.setVisibility(8);
+                    c0071a.aYW.setTag(accountData);
                     if (accountData != null) {
-                        c0071a.aYK.setText(accountData.getAccountNameShow());
+                        c0071a.aYT.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0071a.aYM.setVisibility(0);
+                            c0071a.aYV.setVisibility(0);
                         }
-                        if (this.aYJ) {
-                            c0071a.aYN.setVisibility(0);
+                        if (this.aYS) {
+                            c0071a.aYW.setVisibility(0);
                         }
                     }
                     if (i == getCount() - 2) {
@@ -151,11 +151,11 @@ public class a extends BaseAdapter {
     }
 
     public void setEditState(boolean z) {
-        this.aYJ = z;
+        this.aYS = z;
     }
 
-    public boolean Ly() {
-        return this.aYJ;
+    public boolean LJ() {
+        return this.aYS;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -174,10 +174,10 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private class C0071a {
-        TextView aYK;
-        TextView aYL;
-        ImageView aYM;
-        Button aYN;
+        TextView aYT;
+        TextView aYU;
+        ImageView aYV;
+        Button aYW;
         View mLine;
 
         private C0071a() {

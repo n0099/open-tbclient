@@ -40,11 +40,11 @@ public class j extends a {
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
     /* renamed from: c */
     public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a go = com.baidu.tbadk.imageManager.c.Eg().go(str);
-        if (go == null || go.kK() == null) {
+        com.baidu.adp.widget.a.a gp = com.baidu.tbadk.imageManager.c.Es().gp(str);
+        if (gp == null || gp.kK() == null) {
             return null;
         }
-        return go;
+        return gp;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

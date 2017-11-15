@@ -1,13 +1,13 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    String bhk();
+    String bhs();
 
-    void bhl();
+    void bht();
 
     j getMediaProgressObserver();
 
-    String hA(String str);
+    String hB(String str);
 
     void onCompletion();
 

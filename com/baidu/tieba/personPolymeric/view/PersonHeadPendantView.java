@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PersonHeadPendantView extends HeadPendantView {
-    private View frf;
+    private View frD;
 
     public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -27,8 +27,8 @@ public class PersonHeadPendantView extends HeadPendantView {
     @Override // com.baidu.tbadk.core.view.HeadPendantView
     public void init() {
         super.init();
-        this.frf = new View(getContext());
-        addView(this.frf, 0, new FrameLayout.LayoutParams(-1, -1));
+        this.frD = new View(getContext());
+        addView(this.frD, 0, new FrameLayout.LayoutParams(-1, -1));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -36,16 +36,16 @@ public class PersonHeadPendantView extends HeadPendantView {
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         this.aku.setIconMargin((int) (getMeasuredWidth() * 0.13f));
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.frf.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.frD.getLayoutParams();
         int measuredWidth = (int) ((getMeasuredWidth() * 0.13f) - getResources().getDimensionPixelSize(d.e.ds4));
         layoutParams.leftMargin = measuredWidth;
         layoutParams.topMargin = measuredWidth;
         layoutParams.rightMargin = measuredWidth;
         layoutParams.bottomMargin = measuredWidth;
-        this.frf.setLayoutParams(layoutParams);
+        this.frD.setLayoutParams(layoutParams);
     }
 
     public void setBackgroundViewDrawable(Drawable drawable) {
-        this.frf.setBackgroundDrawable(drawable);
+        this.frD.setBackgroundDrawable(drawable);
     }
 }

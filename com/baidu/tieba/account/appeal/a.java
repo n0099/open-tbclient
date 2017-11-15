@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a {
-    private static final String aZj = TbConfig.SERVER_ADDRESS + "c/c/bawu/appeal";
+    private static final String aZs = TbConfig.SERVER_ADDRESS + "c/c/bawu/appeal";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -25,18 +25,18 @@ public class a {
     /* renamed from: com.baidu.tieba.account.appeal.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private static class C0072a extends BdAsyncTask<String, Object, AppealData> {
-        private String aZk;
-        private String aZl;
-        private String aZm;
-        private String aZn;
-        private WeakReference<b> aZo;
+        private String aZt;
+        private String aZu;
+        private String aZv;
+        private String aZw;
+        private WeakReference<b> aZx;
 
         public C0072a(String str, String str2, String str3, String str4, b bVar) {
-            this.aZk = str;
-            this.aZl = str2;
-            this.aZm = str3;
-            this.aZn = str4;
-            this.aZo = new WeakReference<>(bVar);
+            this.aZt = str;
+            this.aZu = str2;
+            this.aZv = str3;
+            this.aZw = str4;
+            this.aZx = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -45,11 +45,11 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: q */
         public AppealData doInBackground(String... strArr) {
-            x xVar = new x(a.aZj);
-            xVar.n("forum_id", this.aZk);
-            xVar.n("user_id", this.aZl);
-            xVar.n("user_name", this.aZm);
-            xVar.n("content", this.aZn);
+            x xVar = new x(a.aZs);
+            xVar.n("forum_id", this.aZt);
+            xVar.n("user_id", this.aZu);
+            xVar.n("user_name", this.aZv);
+            xVar.n("content", this.aZw);
             String up = xVar.up();
             if (xVar.uN().vL().isRequestSuccess()) {
                 try {
@@ -73,7 +73,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(AppealData appealData) {
             super.onPostExecute(appealData);
-            b bVar = this.aZo.get();
+            b bVar = this.aZx.get();
             if (bVar != null) {
                 if (appealData.errNo == 0 && am.isEmpty(appealData.errMsg)) {
                     bVar.a(appealData);

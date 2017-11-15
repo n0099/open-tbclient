@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class b {
-    private static ArrayList<b> dkL = new ArrayList<>(5);
-    public int dkP;
-    public int dkQ;
-    int dkR;
+    private static ArrayList<b> dlf = new ArrayList<>(5);
+    public int dlj;
+    public int dlk;
+    int dll;
     public int type;
 
-    private void Kz() {
-        this.dkP = 0;
-        this.dkQ = 0;
-        this.dkR = 0;
+    private void KK() {
+        this.dlj = 0;
+        this.dlk = 0;
+        this.dll = 0;
         this.type = 0;
     }
 
@@ -21,8 +21,8 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long asJ() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.dkP, this.dkQ) : ExpandableListView.getPackedPositionForGroup(this.dkP);
+    public long ata() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.dlj, this.dlk) : ExpandableListView.getPackedPositionForGroup(this.dlj);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,20 +32,20 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b r(int i, int i2, int i3, int i4) {
-        b asK = asK();
-        asK.type = i;
-        asK.dkP = i2;
-        asK.dkQ = i3;
-        asK.dkR = i4;
-        return asK;
+        b atb = atb();
+        atb.type = i;
+        atb.dlj = i2;
+        atb.dlk = i3;
+        atb.dll = i4;
+        return atb;
     }
 
-    private static b asK() {
+    private static b atb() {
         b bVar;
-        synchronized (dkL) {
-            if (dkL.size() > 0) {
-                bVar = dkL.remove(0);
-                bVar.Kz();
+        synchronized (dlf) {
+            if (dlf.size() > 0) {
+                bVar = dlf.remove(0);
+                bVar.KK();
             } else {
                 bVar = new b();
             }
@@ -54,9 +54,9 @@ class b {
     }
 
     public void recycle() {
-        synchronized (dkL) {
-            if (dkL.size() < 5) {
-                dkL.add(this);
+        synchronized (dlf) {
+            if (dlf.size() < 5) {
+                dlf.add(this);
             }
         }
     }

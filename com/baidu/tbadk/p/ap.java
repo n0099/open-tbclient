@@ -6,11 +6,6 @@ public class ap extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "android_shouzhu_update";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected String[] eM() {
         return null;
     }
@@ -21,12 +16,17 @@ public class ap extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eO() {
-        return 0;
+    protected int eP() {
+        return 10;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eP() {
-        return 10;
+    protected String getName() {
+        return "portrait_cdn_open";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eO() {
+        return 0;
     }
 }

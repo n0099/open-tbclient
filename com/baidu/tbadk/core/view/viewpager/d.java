@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
+    private List<f> apk;
     private List<f> apl;
-    private List<f> apm;
+    private boolean apm;
     private boolean apn;
-    private boolean apo;
-    private int apr;
-    private int apq = 2;
-    private int aps = 1;
+    private int apq;
+    private int apo = 2;
+    private int apr = 1;
 
     public d(List<f> list, boolean z, int i) {
-        this.apr = 2;
-        this.apl = list;
-        this.apo = z;
-        this.apr = i;
+        this.apq = 2;
+        this.apk = list;
+        this.apn = z;
+        this.apq = i;
         w(list);
     }
 
     public void w(List<f> list) {
-        if (list != null && list.size() >= this.apq && list.size() <= this.apr) {
-            this.apn = true;
-        } else if (list.size() > this.apr && this.apo) {
-            this.apn = true;
+        if (list != null && list.size() >= this.apo && list.size() <= this.apq) {
+            this.apm = true;
+        } else if (list.size() > this.apq && this.apn) {
+            this.apm = true;
         } else {
-            this.apn = false;
+            this.apm = false;
         }
-        this.apm = wV();
+        this.apl = wV();
     }
 
     private List<f> wV() {
         ArrayList arrayList = new ArrayList();
-        if (this.apl != null) {
-            if (this.apn) {
-                if (this.apl.size() > this.apr && this.apl.size() >= this.aps) {
-                    arrayList.addAll(this.apl.subList(0, this.apr));
-                    arrayList.addAll(0, this.apl.subList(this.apr - this.aps, this.apr));
-                    arrayList.addAll(this.apl.subList(0, this.aps));
+        if (this.apk != null) {
+            if (this.apm) {
+                if (this.apk.size() > this.apq && this.apk.size() >= this.apr) {
+                    arrayList.addAll(this.apk.subList(0, this.apq));
+                    arrayList.addAll(0, this.apk.subList(this.apq - this.apr, this.apq));
+                    arrayList.addAll(this.apk.subList(0, this.apr));
                 } else {
-                    arrayList.addAll(this.apl);
-                    arrayList.addAll(0, this.apl.subList(this.apl.size() - this.aps, this.apl.size()));
-                    arrayList.addAll(this.apl.subList(0, this.aps));
+                    arrayList.addAll(this.apk);
+                    arrayList.addAll(0, this.apk.subList(this.apk.size() - this.apr, this.apk.size()));
+                    arrayList.addAll(this.apk.subList(0, this.apr));
                 }
-            } else if (this.apl != null && this.apl.size() > 0 && this.apl.size() >= this.aps) {
-                arrayList.addAll(this.apl.subList(0, this.aps));
+            } else if (this.apk != null && this.apk.size() > 0 && this.apk.size() >= this.apr) {
+                arrayList.addAll(this.apk.subList(0, this.apr));
             }
         }
         return arrayList;
     }
 
-    public int dJ(int i) {
-        if (this.apn) {
-            int size = this.apm.size();
+    public int dI(int i) {
+        if (this.apm) {
+            int size = this.apl.size();
             if (i == 0) {
-                return (size - 1) - this.aps;
+                return (size - 1) - this.apr;
             }
-            if (i == size - this.aps) {
-                return this.aps;
+            if (i == size - this.apr) {
+                return this.apr;
             }
             return i;
         }
         return i;
     }
 
-    public int dK(int i) {
-        if (this.apn) {
-            return i - this.aps;
+    public int dJ(int i) {
+        if (this.apm) {
+            return i - this.apr;
         }
         return i;
     }
 
     public int wW() {
-        if (this.apl == null) {
+        if (this.apk == null) {
             return 0;
         }
-        return this.apl.size();
+        return this.apk.size();
     }
 
     public int wX() {
-        if (this.apn) {
-            return this.aps;
+        if (this.apm) {
+            return this.apr;
         }
         return 0;
     }
 
-    public void dL(int i) {
-        this.apr = i;
-        w(this.apl);
+    public void dK(int i) {
+        this.apq = i;
+        w(this.apk);
     }
 
-    public void dM(int i) {
-        this.apq = i;
-        w(this.apl);
+    public void dL(int i) {
+        this.apo = i;
+        w(this.apk);
     }
 
     public List<f> wY() {
-        return this.apm;
+        return this.apl;
     }
 
-    public void dN(int i) {
-        this.aps = i;
-        w(this.apl);
+    public void dM(int i) {
+        this.apr = i;
+        w(this.apk);
     }
 }

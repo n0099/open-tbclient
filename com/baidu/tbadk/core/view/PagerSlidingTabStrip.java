@@ -41,18 +41,18 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public ViewPager.OnPageChangeListener ajx;
     private LinearLayout ajy;
     private ViewPager ajz;
-    private final b amb;
+    private final b ama;
+    private int amb;
     private int amc;
     private int amd;
     private int ame;
-    private int amf;
     private int currentPosition;
     private int dividerPadding;
     private Locale locale;
 
     /* loaded from: classes.dex */
     public interface a {
-        int dc(int i);
+        int db(int i);
     }
 
     public PagerSlidingTabStrip(Context context) {
@@ -65,19 +65,19 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     public PagerSlidingTabStrip(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.amb = new b();
+        this.ama = new b();
         this.currentPosition = 0;
         this.ajB = 0.0f;
         this.ajD = false;
         this.ajE = aj.getColor(d.C0080d.cp_cont_b);
         this.ajF = aj.getColor(d.C0080d.cp_cont_j);
-        this.amc = aj.getColor(d.C0080d.cp_bg_line_c);
+        this.amb = aj.getColor(d.C0080d.cp_bg_line_c);
         this.ajG = 52;
         this.ajH = 4;
-        this.amd = 2;
+        this.amc = 2;
         this.dividerPadding = 12;
-        this.ame = 24;
-        this.amf = 1;
+        this.amd = 24;
+        this.ame = 1;
         this.ajN = 12;
         this.ajO = null;
         this.ajP = 0;
@@ -95,11 +95,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         this.ajG = (int) TypedValue.applyDimension(1, this.ajG, displayMetrics);
         this.dividerPadding = (int) TypedValue.applyDimension(1, this.dividerPadding, displayMetrics);
+        this.amd = (int) TypedValue.applyDimension(1, this.amd, displayMetrics);
         this.ame = (int) TypedValue.applyDimension(1, this.ame, displayMetrics);
-        this.amf = (int) TypedValue.applyDimension(1, this.amf, displayMetrics);
         this.ajN = i;
         this.ajH = i3;
-        this.amd = i2;
+        this.amc = i2;
         this.ajD = z;
         this.ajC = new Paint();
         this.ajC.setAntiAlias(true);
@@ -114,7 +114,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public void setViewPager(ViewPager viewPager) {
         this.ajz = viewPager;
         if (viewPager.getAdapter() != null) {
-            viewPager.setOnPageChangeListener(this.amb);
+            viewPager.setOnPageChangeListener(this.ama);
             notifyDataSetChanged();
         }
     }
@@ -132,7 +132,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 int i2 = i;
                 if (i2 < this.ajA) {
                     if (this.ajz.getAdapter() instanceof a) {
-                        w(i2, ((a) this.ajz.getAdapter()).dc(i2));
+                        w(i2, ((a) this.ajz.getAdapter()).db(i2));
                     } else {
                         i(i2, this.ajz.getAdapter().getPageTitle(i2).toString());
                     }
@@ -176,7 +176,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 PagerSlidingTabStrip.this.updateTabStyles();
             }
         });
-        view.setPadding(this.ame, 0, this.ame, 0);
+        view.setPadding(this.amd, 0, this.amd, 0);
         this.ajy.addView(view, i, this.ajD ? this.ajv : this.aju);
     }
 
@@ -230,7 +230,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public void onChangeSkinType() {
         this.ajE = aj.getColor(d.C0080d.cp_cont_b);
         this.ajF = aj.getColor(d.C0080d.cp_cont_j);
-        this.amc = aj.getColor(d.C0080d.cp_bg_line_c);
+        this.amb = aj.getColor(d.C0080d.cp_bg_line_c);
         updateTabStyles();
     }
 
@@ -301,7 +301,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: dt */
+            /* renamed from: ds */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

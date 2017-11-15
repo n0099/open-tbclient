@@ -3,30 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class a {
-    private static a dfg = new a();
-    private long dfh = 0;
-    private SparseArray<Long> dfi = new SparseArray<>();
-    private SparseArray<Long> dfj = new SparseArray<>();
-    private SparseArray<Long> dfk = new SparseArray<>();
-    private SparseArray<Long> dfl = new SparseArray<>();
+    private static a dfA = new a();
+    private long dfB = 0;
+    private SparseArray<Long> dfC = new SparseArray<>();
+    private SparseArray<Long> dfD = new SparseArray<>();
+    private SparseArray<Long> dfE = new SparseArray<>();
+    private SparseArray<Long> dfF = new SparseArray<>();
 
     private a() {
     }
 
-    public static a arx() {
-        return dfg;
+    public static a arN() {
+        return dfA;
     }
 
     public long getCreateTime() {
-        return this.dfh;
+        return this.dfB;
     }
 
     public void setCreateTime(long j) {
-        this.dfh = j;
+        this.dfB = j;
     }
 
     public long lf(int i) {
-        Long l = this.dfj.get(i);
+        Long l = this.dfD.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void e(long j, int i) {
-        this.dfj.put(i, Long.valueOf(j));
+        this.dfD.put(i, Long.valueOf(j));
     }
 
     public long lg(int i) {
-        Long l = this.dfi.get(i);
+        Long l = this.dfC.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void f(long j, int i) {
-        this.dfi.put(i, Long.valueOf(j));
+        this.dfC.put(i, Long.valueOf(j));
     }
 
     public long lh(int i) {
-        Long l = this.dfk.get(i);
+        Long l = this.dfE.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void g(long j, int i) {
-        this.dfk.put(i, Long.valueOf(j));
+        this.dfE.put(i, Long.valueOf(j));
     }
 
     public long li(int i) {
-        Long l = this.dfl.get(i);
+        Long l = this.dfF.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void h(long j, int i) {
-        this.dfl.put(i, Long.valueOf(j));
+        this.dfF.put(i, Long.valueOf(j));
     }
 }

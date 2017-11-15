@@ -17,14 +17,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<ActivityType> {
     private boolean Ec;
-    private boolean aHA;
-    private boolean aHB;
-    private boolean aHC;
-    private boolean aHD;
-    private MessageListener<CustomResponsedMessage<?>> aHw;
-    private MessageListener<CustomResponsedMessage<?>> aHx;
-    private a<T> aHy;
-    private boolean aHz;
+    private MessageListener<CustomResponsedMessage<?>> aHE;
+    private MessageListener<CustomResponsedMessage<?>> aHF;
+    private a<T> aHG;
+    private boolean aHH;
+    private boolean aHI;
+    private boolean aHJ;
+    private boolean aHK;
+    private boolean aHL;
 
     /* loaded from: classes.dex */
     public interface a<T> {
@@ -33,66 +33,66 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
         void a(WriteCacheRespMsg<List<T>> writeCacheRespMsg, WriteCacheMessage<T> writeCacheMessage);
     }
 
-    public abstract String EJ();
+    public abstract String EV();
 
-    public abstract Class<T> EY();
+    public abstract Class<T> Fk();
 
-    public abstract int EZ();
+    public abstract int Fl();
 
-    public abstract int Fa();
+    public abstract int Fm();
 
     public CacheModel(TbPageContext<ActivityType> tbPageContext) {
         super(tbPageContext);
-        this.aHz = false;
-        this.aHA = false;
-        this.aHB = false;
-        this.aHC = false;
+        this.aHH = false;
+        this.aHI = false;
+        this.aHJ = false;
+        this.aHK = false;
         this.Ec = false;
-        this.aHD = false;
+        this.aHL = false;
     }
 
-    protected boolean ER() {
+    protected boolean Fd() {
         return true;
     }
 
     protected void a(ReadCacheMessage<T> readCacheMessage) {
     }
 
-    public final void ES() {
+    public final void Fe() {
         this.Ec = true;
-        EU();
-        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(EZ());
+        Fg();
+        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(Fl());
         readCacheMessage.setTag(getUniqueId());
-        readCacheMessage.setNeedUid(ER());
+        readCacheMessage.setNeedUid(Fd());
         a(readCacheMessage);
-        EW();
+        Fi();
         sendMessage(readCacheMessage);
         this.Ec = true;
     }
 
     public final void a(e eVar) {
         this.Ec = true;
-        EU();
-        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(EZ());
+        Fg();
+        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(Fl());
         readCacheMessage.setTag(getUniqueId());
         readCacheMessage.setRequestData(eVar);
-        readCacheMessage.setNeedUid(ER());
+        readCacheMessage.setNeedUid(Fd());
         a(readCacheMessage);
-        EW();
+        Fi();
         sendMessage(readCacheMessage);
     }
 
     public final void clearCache() {
-        this.aHD = true;
-        EV();
-        ET();
+        this.aHL = true;
+        Fh();
+        Ff();
     }
 
-    private final void ET() {
-        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(Fa());
+    private final void Ff() {
+        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(Fm());
         writeCacheMessage.setClear(true);
         writeCacheMessage.setTag(getUniqueId());
-        EX();
+        Fj();
         sendMessage(writeCacheMessage);
     }
 
@@ -101,17 +101,17 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
     }
 
     private final void b(T t) {
-        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(Fa());
+        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(Fm());
         writeCacheMessage.setTag(getUniqueId());
         writeCacheMessage.setData(t);
-        EX();
+        Fj();
         sendMessage(writeCacheMessage);
     }
 
-    private void EU() {
-        if (!this.aHB) {
-            if (this.aHw == null) {
-                this.aHw = new CustomMessageListener(EZ()) { // from class: com.baidu.tbadk.mvc.model.CacheModel.1
+    private void Fg() {
+        if (!this.aHJ) {
+            if (this.aHE == null) {
+                this.aHE = new CustomMessageListener(Fl()) { // from class: com.baidu.tbadk.mvc.model.CacheModel.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.adp.framework.listener.MessageListener
                     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -122,59 +122,59 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
                             if (readCacheRespMsg.getOrginalMessage() != null && (readCacheRespMsg.getOrginalMessage() instanceof ReadCacheMessage)) {
                                 readCacheMessage = (ReadCacheMessage) readCacheRespMsg.getOrginalMessage();
                             }
-                            if (CacheModel.this.aHy != null) {
-                                CacheModel.this.aHy.a(readCacheRespMsg, readCacheMessage);
+                            if (CacheModel.this.aHG != null) {
+                                CacheModel.this.aHG.a(readCacheRespMsg, readCacheMessage);
                             }
                         }
                     }
                 };
-                this.aHw.setSelfListener(true);
-                this.aHw.setTag(this.unique_id);
+                this.aHE.setSelfListener(true);
+                this.aHE.setTag(this.unique_id);
             }
-            registerListener(this.aHw);
-            this.aHB = true;
+            registerListener(this.aHE);
+            this.aHJ = true;
         }
     }
 
-    private void EV() {
-        if (!this.aHC) {
-            if (this.aHx == null) {
-                this.aHx = new CustomMessageListener(Fa()) { // from class: com.baidu.tbadk.mvc.model.CacheModel.2
+    private void Fh() {
+        if (!this.aHK) {
+            if (this.aHF == null) {
+                this.aHF = new CustomMessageListener(Fm()) { // from class: com.baidu.tbadk.mvc.model.CacheModel.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.adp.framework.listener.MessageListener
                     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                        CacheModel.this.aHD = false;
+                        CacheModel.this.aHL = false;
                         if (customResponsedMessage != null && (customResponsedMessage instanceof WriteCacheRespMsg)) {
                             WriteCacheRespMsg writeCacheRespMsg = (WriteCacheRespMsg) customResponsedMessage;
                             WriteCacheMessage writeCacheMessage = null;
                             if (writeCacheRespMsg.getOrginalMessage() != null && (writeCacheRespMsg.getOrginalMessage() instanceof WriteCacheMessage)) {
                                 writeCacheMessage = (WriteCacheMessage) writeCacheRespMsg.getOrginalMessage();
                             }
-                            if (CacheModel.this.aHy != null) {
-                                CacheModel.this.aHy.a(writeCacheRespMsg, writeCacheMessage);
+                            if (CacheModel.this.aHG != null) {
+                                CacheModel.this.aHG.a(writeCacheRespMsg, writeCacheMessage);
                             }
                         }
                     }
                 };
-                this.aHx.setSelfListener(true);
-                this.aHx.setTag(this.unique_id);
+                this.aHF.setSelfListener(true);
+                this.aHF.setTag(this.unique_id);
             }
-            registerListener(this.aHx);
-            this.aHC = true;
+            registerListener(this.aHF);
+            this.aHK = true;
         }
     }
 
-    private void EW() {
-        if (!this.aHz && MessageManager.getInstance().findTask(EZ()) == null) {
-            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(EZ(), new c(EZ(), EJ(), EY())));
-            this.aHz = true;
+    private void Fi() {
+        if (!this.aHH && MessageManager.getInstance().findTask(Fl()) == null) {
+            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(Fl(), new c(Fl(), EV(), Fk())));
+            this.aHH = true;
         }
     }
 
-    private void EX() {
-        if (!this.aHA && MessageManager.getInstance().findTask(Fa()) == null) {
-            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(Fa(), new com.baidu.tbadk.mvc.e.d(Fa(), EJ(), EY())));
-            this.aHA = true;
+    private void Fj() {
+        if (!this.aHI && MessageManager.getInstance().findTask(Fm()) == null) {
+            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(Fm(), new com.baidu.tbadk.mvc.e.d(Fm(), EV(), Fk())));
+            this.aHI = true;
         }
     }
 
@@ -191,6 +191,6 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
     }
 
     public void a(a<T> aVar) {
-        this.aHy = aVar;
+        this.aHG = aVar;
     }
 }

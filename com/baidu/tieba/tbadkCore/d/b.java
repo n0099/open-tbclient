@@ -4,10 +4,10 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a gqm;
-    private final int gqn = 10;
-    private final int gqo = 3000;
-    public String gqp = null;
+    private com.baidu.adp.lib.stats.a grp;
+    private final int grq = 10;
+    private final int grr = 3000;
+    public String grs = null;
     public boolean aiy = false;
 
     public b(String str) {
@@ -15,49 +15,49 @@ public class b {
     }
 
     public void X(String str, boolean z) {
-        this.gqp = str;
+        this.grs = str;
         this.aiy = z;
-        this.gqm = new com.baidu.adp.lib.stats.a("dbg");
-        c.k(str, getNetType(), z);
+        this.grp = new com.baidu.adp.lib.stats.a("dbg");
+        c.l(str, getNetType(), z);
     }
 
     public void start() {
-        this.gqm.fT();
+        this.grp.fT();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e buL;
-        if (this.gqm != null && (buL = buL()) != null) {
+        e buX;
+        if (this.grp != null && (buX = buX()) != null) {
             if (z) {
-                if (buL.gqu != null) {
-                    buL.gqu.num++;
+                if (buX.grx != null) {
+                    buX.grx.num++;
                     if (z2) {
-                        buL.gqu.gqr += j2;
-                        buL.gqu.size += j;
+                        buX.grx.gru += j2;
+                        buX.grx.size += j;
                     } else {
-                        buL.gqu.gqs++;
+                        buX.grx.grv++;
                     }
                 } else {
                     return;
                 }
-            } else if (buL.gqv != null) {
-                buL.gqv.num++;
+            } else if (buX.gry != null) {
+                buX.gry.num++;
                 if (z2) {
-                    buL.gqv.gqr += j3;
-                    buL.gqv.size += j;
+                    buX.gry.gru += j3;
+                    buX.gry.size += j;
                     j2 = j3;
                 } else {
-                    buL.gqv.gqs++;
+                    buX.gry.grv++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.gqm = null;
+            this.grp = null;
             if (z2) {
-                c.a(buL, 10);
+                c.a(buX, 10);
             }
-            if (this.gqp == "frsStat") {
+            if (this.grs == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.p("act", "frs");
@@ -74,20 +74,20 @@ public class b {
     }
 
     public void destory() {
-        e buL;
-        if (this.gqm != null && (buL = buL()) != null && buL.gqw != null) {
-            long fU = this.gqm.fU();
+        e buX;
+        if (this.grp != null && (buX = buX()) != null && buX.grz != null) {
+            long fU = this.grp.fU();
             if (fU > 3000) {
-                d dVar = buL.gqw;
-                dVar.gqr = fU + dVar.gqr;
-                buL.gqw.num++;
-                c.a(buL, 10);
+                d dVar = buX.grz;
+                dVar.gru = fU + dVar.gru;
+                buX.grz.num++;
+                c.a(buX, 10);
             }
         }
     }
 
-    private e buL() {
-        return c.l(this.gqp, getNetType(), this.aiy);
+    private e buX() {
+        return c.m(this.grs, getNetType(), this.aiy);
     }
 
     private String getNetType() {

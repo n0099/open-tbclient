@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends Dialog {
-    private LinearLayout aLG;
+    private LinearLayout aLO;
     private Context context;
     private View mContentView;
 
@@ -35,11 +35,11 @@ public class e extends Dialog {
         getWindow().setWindowAnimations(d.k.pb_more_pop_anim);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.aLG = (LinearLayout) findViewById(d.g.root_view);
+        this.aLO = (LinearLayout) findViewById(d.g.root_view);
         if (this.mContentView != null) {
-            this.aLG.addView(this.mContentView);
+            this.aLO.addView(this.mContentView);
         }
-        this.aLG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
+        this.aLO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();

@@ -32,121 +32,121 @@ public class a extends d<bh, b> implements c {
         }
         if (this.mSkinType == 1) {
             aj.k(bVar.mRootView, d.C0080d.cp_bg_line_d_1);
-            aj.k(bVar.cTM, d.C0080d.cp_bg_line_c_1);
-            aj.i(bVar.cTP, d.C0080d.cp_cont_e);
-            aj.i(bVar.cTR, d.C0080d.cp_cont_e);
-            aj.i(bVar.cTO, d.C0080d.cp_cont_b);
-            aj.i(bVar.cTQ, d.C0080d.cp_cont_b);
+            aj.k(bVar.cUg, d.C0080d.cp_bg_line_c_1);
+            aj.i(bVar.cUj, d.C0080d.cp_cont_e);
+            aj.i(bVar.cUl, d.C0080d.cp_cont_e);
+            aj.i(bVar.cUi, d.C0080d.cp_cont_b);
+            aj.i(bVar.cUk, d.C0080d.cp_cont_b);
             str = "#4f93ef";
         } else {
             aj.k(bVar.mRootView, d.C0080d.cp_bg_line_d);
-            aj.k(bVar.cTM, d.C0080d.cp_bg_line_c);
-            aj.i(bVar.cTP, d.C0080d.common_color_10139);
-            aj.i(bVar.cTR, d.C0080d.common_color_10139);
-            aj.i(bVar.cTO, d.C0080d.cp_bg_line_k);
-            aj.i(bVar.cTQ, d.C0080d.cp_bg_line_k);
+            aj.k(bVar.cUg, d.C0080d.cp_bg_line_c);
+            aj.i(bVar.cUj, d.C0080d.common_color_10139);
+            aj.i(bVar.cUl, d.C0080d.common_color_10139);
+            aj.i(bVar.cUi, d.C0080d.cp_bg_line_k);
+            aj.i(bVar.cUk, d.C0080d.cp_bg_line_k);
             str = "#3385ff";
         }
         final z zVar = (z) bhVar;
         String str3 = zVar.Wy;
         if (!StringUtils.isNull(str3)) {
-            bVar.cTN.setVisibility(0);
-            bVar.bQP.setVisibility(8);
-            bVar.cTN.setIsRound(true);
-            bVar.cTN.setUserId(bhVar.rt().getUserId());
-            bVar.cTN.setImageDrawable(null);
-            bVar.cTN.startLoad(str3, 10, false);
+            bVar.cUh.setVisibility(0);
+            bVar.bRc.setVisibility(8);
+            bVar.cUh.setIsRound(true);
+            bVar.cUh.setUserId(bhVar.rt().getUserId());
+            bVar.cUh.setImageDrawable(null);
+            bVar.cUh.startLoad(str3, 10, false);
         }
-        bVar.cTO.setText(zVar.userName);
-        bVar.cTP.setText(zVar.tips);
+        bVar.cUi.setText(zVar.userName);
+        bVar.cUj.setText(zVar.tips);
         if (StringUtils.isNull(zVar.type)) {
             str2 = zVar.title;
         } else {
             str2 = "<font color='" + str + "'>" + zVar.type + "·</font>" + zVar.title;
         }
-        bVar.cTQ.setText(Html.fromHtml(str2));
-        bVar.cTR.setText(zVar.Wz);
+        bVar.cUk.setText(Html.fromHtml(str2));
+        bVar.cUl.setText(zVar.Wz);
         if (zVar.pics != null) {
             int size = zVar.pics.size();
             if (size == 1) {
-                bVar.cTX.setVisibility(0);
-                bVar.cTS.setVisibility(8);
-                bVar.cTT.setVisibility(8);
-                bVar.cTU.setVisibility(8);
-                bVar.cTV.setVisibility(8);
-                bVar.cTW.setVisibility(8);
-                bVar.cTX.startLoad(zVar.pics.get(0), 10, false);
+                bVar.cUr.setVisibility(0);
+                bVar.cUm.setVisibility(8);
+                bVar.cUn.setVisibility(8);
+                bVar.cUo.setVisibility(8);
+                bVar.cUp.setVisibility(8);
+                bVar.cUq.setVisibility(8);
+                bVar.cUr.startLoad(zVar.pics.get(0), 10, false);
             } else if (size == 2) {
-                bVar.cTX.setVisibility(8);
-                bVar.cTS.setVisibility(8);
-                bVar.cTT.setVisibility(8);
-                bVar.cTU.setVisibility(8);
-                bVar.cTV.setVisibility(0);
-                bVar.cTW.setVisibility(8);
-                bVar.cUh.startLoad(zVar.pics.get(0), 10, false);
-                bVar.cUi.startLoad(zVar.pics.get(1), 10, false);
+                bVar.cUr.setVisibility(8);
+                bVar.cUm.setVisibility(8);
+                bVar.cUn.setVisibility(8);
+                bVar.cUo.setVisibility(8);
+                bVar.cUp.setVisibility(0);
+                bVar.cUq.setVisibility(8);
+                bVar.cUB.startLoad(zVar.pics.get(0), 10, false);
+                bVar.cUC.startLoad(zVar.pics.get(1), 10, false);
             } else if (size == 3) {
-                bVar.cTX.setVisibility(8);
-                bVar.cTS.setVisibility(0);
-                bVar.cTT.setVisibility(8);
-                bVar.cTU.setVisibility(8);
-                bVar.cTV.setVisibility(8);
-                bVar.cTW.setVisibility(8);
-                bVar.cTY.startLoad(zVar.pics.get(0), 10, false);
-                bVar.cTZ.startLoad(zVar.pics.get(1), 10, false);
-                bVar.cUa.startLoad(zVar.pics.get(2), 10, false);
+                bVar.cUr.setVisibility(8);
+                bVar.cUm.setVisibility(0);
+                bVar.cUn.setVisibility(8);
+                bVar.cUo.setVisibility(8);
+                bVar.cUp.setVisibility(8);
+                bVar.cUq.setVisibility(8);
+                bVar.cUs.startLoad(zVar.pics.get(0), 10, false);
+                bVar.cUt.startLoad(zVar.pics.get(1), 10, false);
+                bVar.cUu.startLoad(zVar.pics.get(2), 10, false);
             } else if (size == 4) {
-                bVar.cTX.setVisibility(8);
-                bVar.cTS.setVisibility(8);
-                bVar.cTT.setVisibility(8);
-                bVar.cTU.setVisibility(8);
-                bVar.cTV.setVisibility(0);
-                bVar.cTW.setVisibility(0);
-                bVar.cUh.startLoad(zVar.pics.get(0), 10, false);
-                bVar.cUi.startLoad(zVar.pics.get(1), 10, false);
-                bVar.cUj.startLoad(zVar.pics.get(2), 10, false);
-                bVar.cUk.startLoad(zVar.pics.get(3), 10, false);
+                bVar.cUr.setVisibility(8);
+                bVar.cUm.setVisibility(8);
+                bVar.cUn.setVisibility(8);
+                bVar.cUo.setVisibility(8);
+                bVar.cUp.setVisibility(0);
+                bVar.cUq.setVisibility(0);
+                bVar.cUB.startLoad(zVar.pics.get(0), 10, false);
+                bVar.cUC.startLoad(zVar.pics.get(1), 10, false);
+                bVar.cUD.startLoad(zVar.pics.get(2), 10, false);
+                bVar.cUE.startLoad(zVar.pics.get(3), 10, false);
             } else if (size == 5) {
-                bVar.cTX.setVisibility(8);
-                bVar.cTS.setVisibility(0);
-                bVar.cTT.setVisibility(8);
-                bVar.cTU.setVisibility(8);
-                bVar.cTV.setVisibility(0);
-                bVar.cTW.setVisibility(8);
-                bVar.cUh.startLoad(zVar.pics.get(0), 10, false);
-                bVar.cUi.startLoad(zVar.pics.get(1), 10, false);
-                bVar.cTY.startLoad(zVar.pics.get(2), 10, false);
-                bVar.cTZ.startLoad(zVar.pics.get(3), 10, false);
-                bVar.cUa.startLoad(zVar.pics.get(4), 10, false);
+                bVar.cUr.setVisibility(8);
+                bVar.cUm.setVisibility(0);
+                bVar.cUn.setVisibility(8);
+                bVar.cUo.setVisibility(8);
+                bVar.cUp.setVisibility(0);
+                bVar.cUq.setVisibility(8);
+                bVar.cUB.startLoad(zVar.pics.get(0), 10, false);
+                bVar.cUC.startLoad(zVar.pics.get(1), 10, false);
+                bVar.cUs.startLoad(zVar.pics.get(2), 10, false);
+                bVar.cUt.startLoad(zVar.pics.get(3), 10, false);
+                bVar.cUu.startLoad(zVar.pics.get(4), 10, false);
             } else if (size >= 6 && size < 9) {
-                bVar.cTX.setVisibility(8);
-                bVar.cTS.setVisibility(0);
-                bVar.cTT.setVisibility(0);
-                bVar.cTU.setVisibility(8);
-                bVar.cTV.setVisibility(8);
-                bVar.cTW.setVisibility(8);
-                bVar.cTY.startLoad(zVar.pics.get(0), 10, false);
-                bVar.cTZ.startLoad(zVar.pics.get(1), 10, false);
-                bVar.cUa.startLoad(zVar.pics.get(2), 10, false);
-                bVar.cUb.startLoad(zVar.pics.get(3), 10, false);
-                bVar.cUc.startLoad(zVar.pics.get(4), 10, false);
-                bVar.cUd.startLoad(zVar.pics.get(5), 10, false);
+                bVar.cUr.setVisibility(8);
+                bVar.cUm.setVisibility(0);
+                bVar.cUn.setVisibility(0);
+                bVar.cUo.setVisibility(8);
+                bVar.cUp.setVisibility(8);
+                bVar.cUq.setVisibility(8);
+                bVar.cUs.startLoad(zVar.pics.get(0), 10, false);
+                bVar.cUt.startLoad(zVar.pics.get(1), 10, false);
+                bVar.cUu.startLoad(zVar.pics.get(2), 10, false);
+                bVar.cUv.startLoad(zVar.pics.get(3), 10, false);
+                bVar.cUw.startLoad(zVar.pics.get(4), 10, false);
+                bVar.cUx.startLoad(zVar.pics.get(5), 10, false);
             } else if (size >= 9) {
-                bVar.cTX.setVisibility(8);
-                bVar.cTS.setVisibility(0);
-                bVar.cTT.setVisibility(0);
-                bVar.cTU.setVisibility(0);
-                bVar.cTV.setVisibility(8);
-                bVar.cTW.setVisibility(8);
-                bVar.cTY.startLoad(zVar.pics.get(0), 10, false);
-                bVar.cTZ.startLoad(zVar.pics.get(1), 10, false);
-                bVar.cUa.startLoad(zVar.pics.get(2), 10, false);
-                bVar.cUb.startLoad(zVar.pics.get(3), 10, false);
-                bVar.cUc.startLoad(zVar.pics.get(4), 10, false);
-                bVar.cUd.startLoad(zVar.pics.get(5), 10, false);
-                bVar.cUe.startLoad(zVar.pics.get(6), 10, false);
-                bVar.cUf.startLoad(zVar.pics.get(7), 10, false);
-                bVar.cUg.startLoad(zVar.pics.get(8), 10, false);
+                bVar.cUr.setVisibility(8);
+                bVar.cUm.setVisibility(0);
+                bVar.cUn.setVisibility(0);
+                bVar.cUo.setVisibility(0);
+                bVar.cUp.setVisibility(8);
+                bVar.cUq.setVisibility(8);
+                bVar.cUs.startLoad(zVar.pics.get(0), 10, false);
+                bVar.cUt.startLoad(zVar.pics.get(1), 10, false);
+                bVar.cUu.startLoad(zVar.pics.get(2), 10, false);
+                bVar.cUv.startLoad(zVar.pics.get(3), 10, false);
+                bVar.cUw.startLoad(zVar.pics.get(4), 10, false);
+                bVar.cUx.startLoad(zVar.pics.get(5), 10, false);
+                bVar.cUy.startLoad(zVar.pics.get(6), 10, false);
+                bVar.cUz.startLoad(zVar.pics.get(7), 10, false);
+                bVar.cUA.startLoad(zVar.pics.get(8), 10, false);
             }
         }
         bVar.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.h.a.1

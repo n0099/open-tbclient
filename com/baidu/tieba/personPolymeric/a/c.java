@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.w;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.d, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.c>> {
-    private w bQD;
+    private w bQQ;
     private TbPageContext<?> mPageContext;
 
     public c(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.d.fpf);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.d.fpD);
         this.mPageContext = tbPageContext;
     }
 
@@ -28,9 +28,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.c> aVar) {
-        aVar.aax().a(this.bQD);
-        aVar.aax().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.aax().a(dVar);
+        aVar.aaJ().a(this.bQQ);
+        aVar.aaJ().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.aaJ().a(dVar);
         return aVar.getView();
     }
 }

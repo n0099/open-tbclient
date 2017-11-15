@@ -34,7 +34,7 @@ public class AntiHelper {
         void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar);
     }
 
-    public static boolean tW(int i) {
+    public static boolean ua(int i) {
         return i == 3250002 || i == 3250001 || i == 3250003 || i == 3250004;
     }
 
@@ -105,7 +105,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!i(antiData)) {
-            bvh();
+            bvt();
         }
         if (f(antiData) || h(antiData)) {
             if (antiData.isHas_chance()) {
@@ -293,7 +293,7 @@ public class AntiHelper {
         }
     }
 
-    private static void bvh() {
+    private static void bvt() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().remove("anti_vcode_no_longer_tip");
     }
 }

@@ -29,8 +29,8 @@ public class b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static String eEj = "c12585";
-        public static String eEk = "c12586";
+        public static String eED = "c12585";
+        public static String eEE = "c12586";
     }
 
     public static void a(final com.baidu.adp.base.e eVar, CustomDialogData customDialogData) {
@@ -68,7 +68,7 @@ public class b {
                             }
                         }
                         aVar2.dismiss();
-                        ak akVar = new ak(a.eEk);
+                        ak akVar = new ak(a.eEE);
                         akVar.r("obj_locate", 2);
                         TiebaStatic.log(akVar);
                     }
@@ -77,7 +77,7 @@ public class b {
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         aVar2.dismiss();
-                        ak akVar = new ak(a.eEk);
+                        ak akVar = new ak(a.eEE);
                         akVar.r("obj_locate", 1);
                         TiebaStatic.log(akVar);
                     }
@@ -85,7 +85,7 @@ public class b {
                 aVar.b(eVar).th();
                 aj.i(textView, d.C0080d.cp_cont_b);
                 aj.i(textView2, d.C0080d.common_color_10122);
-                ak akVar = new ak(a.eEj);
+                ak akVar = new ak(a.eED);
                 switch (customDialogData.type) {
                     case 0:
                         i = 2;

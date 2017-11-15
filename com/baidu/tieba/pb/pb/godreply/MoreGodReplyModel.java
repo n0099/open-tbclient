@@ -13,26 +13,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MoreGodReplyModel extends BdBaseModel<e> {
-    private final PbModel eJh;
-    private int eJi;
-    private int eJj;
-    private x.a eJk;
-    private final x.a eJl;
+    private final PbModel eJB;
+    private int eJC;
+    private int eJD;
+    private x.a eJE;
+    private final x.a eJF;
     private boolean isLoading;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public MoreGodReplyModel(e eVar, PbModel pbModel) {
         super(eVar);
         this.isLoading = false;
-        this.eJi = -1;
-        this.eJj = -1;
-        this.eJl = new x.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
+        this.eJC = -1;
+        this.eJD = -1;
+        this.eJF = new x.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
             @Override // com.baidu.tieba.pb.pb.main.x.a
             public void B(List<PostData> list) {
                 MoreGodReplyModel.this.isLoading = false;
-                n aPY = MoreGodReplyModel.this.eJh.getPbData().aPY();
-                if (aPY != null) {
-                    List<PostData> list2 = aPY.eHj;
+                n aQg = MoreGodReplyModel.this.eJB.getPbData().aQg();
+                if (aQg != null) {
+                    List<PostData> list2 = aQg.eHD;
                     int size = list2.size();
                     if (!v.v(list)) {
                         for (PostData postData : list) {
@@ -41,47 +41,47 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
                             }
                         }
                     }
-                    MoreGodReplyModel.this.eJh.a(MoreGodReplyModel.this.eJh.getPbData(), size);
+                    MoreGodReplyModel.this.eJB.a(MoreGodReplyModel.this.eJB.getPbData(), size);
                 }
-                if (MoreGodReplyModel.this.eJi > 0) {
-                    MoreGodReplyModel.this.eJj = MoreGodReplyModel.this.eJi;
+                if (MoreGodReplyModel.this.eJC > 0) {
+                    MoreGodReplyModel.this.eJD = MoreGodReplyModel.this.eJC;
                 }
-                if (MoreGodReplyModel.this.eJk != null) {
-                    MoreGodReplyModel.this.eJk.B(list);
+                if (MoreGodReplyModel.this.eJE != null) {
+                    MoreGodReplyModel.this.eJE.B(list);
                 }
             }
 
             @Override // com.baidu.tieba.pb.pb.main.x.a
             public void h(int i, String str, String str2) {
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.eJk != null) {
-                    MoreGodReplyModel.this.eJk.h(i, str, str2);
+                if (MoreGodReplyModel.this.eJE != null) {
+                    MoreGodReplyModel.this.eJE.h(i, str, str2);
                 }
             }
         };
-        this.eJh = pbModel;
-        this.eJh.aSZ().b(this.eJl);
+        this.eJB = pbModel;
+        this.eJB.aTh().b(this.eJF);
     }
 
-    public boolean aQR() {
-        n aPY;
-        f pbData = this.eJh.getPbData();
-        if (pbData == null || (aPY = pbData.aPY()) == null) {
+    public boolean aQZ() {
+        n aQg;
+        f pbData = this.eJB.getPbData();
+        if (pbData == null || (aQg = pbData.aQg()) == null) {
             return false;
         }
-        if (this.eJj < 0) {
-            this.eJj = aPY.getCount();
+        if (this.eJD < 0) {
+            this.eJD = aQg.getCount();
         }
-        List<Long> list = aPY.eHk;
+        List<Long> list = aQg.eHE;
         int size = list.size();
-        int i = this.eJj;
-        if (size <= i || aPY.eHj.size() >= 100) {
+        int i = this.eJD;
+        if (size <= i || aQg.eHD.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
-        this.eJi = min;
+        this.eJC = min;
         this.isLoading = true;
-        this.eJh.aSZ().cv(list.subList(i, min));
+        this.eJB.aTh().cw(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
@@ -90,25 +90,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return this.isLoading;
     }
 
-    public PbModel aQS() {
-        return this.eJh;
+    public PbModel aRa() {
+        return this.eJB;
     }
 
-    public List<com.baidu.adp.widget.ListView.f> aQT() {
-        f pbData = this.eJh.getPbData();
-        if (pbData == null || pbData.aPY() == null || v.v(pbData.aPY().eHj)) {
+    public List<com.baidu.adp.widget.ListView.f> aRb() {
+        f pbData = this.eJB.getPbData();
+        if (pbData == null || pbData.aQg() == null || v.v(pbData.aQg().eHD)) {
             return null;
         }
-        n aPY = pbData.aPY();
+        n aQg = pbData.aQg();
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = aPY.eHj;
+        List<PostData> list = aQg.eHD;
         int size = list.size();
         int i = 0;
         while (i < size) {
             PostData postData = list.get(i);
             if (postData != null) {
                 arrayList.add(postData);
-                postData.gpT = i < size + (-1);
+                postData.gqW = i < size + (-1);
             }
             i++;
         }
@@ -127,19 +127,19 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
     }
 
     public void a(x.a aVar) {
-        this.eJk = aVar;
+        this.eJE = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean XU() {
-        n aPY;
-        f pbData = this.eJh.getPbData();
-        if (pbData == null || (aPY = pbData.aPY()) == null) {
+    public boolean Yg() {
+        n aQg;
+        f pbData = this.eJB.getPbData();
+        if (pbData == null || (aQg = pbData.aQg()) == null) {
             return false;
         }
-        if (this.eJj < 0) {
-            this.eJj = aPY.getCount();
+        if (this.eJD < 0) {
+            this.eJD = aQg.getCount();
         }
-        return aPY.eHk.size() > this.eJj && aPY.eHj.size() < 100;
+        return aQg.eHE.size() > this.eJD && aQg.eHD.size() < 100;
     }
 }

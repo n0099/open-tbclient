@@ -21,21 +21,21 @@ import com.baidu.tbadk.mainTab.e;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PersonInfoDelegateStatic extends b {
-    private ImageView epW;
-    private Boolean fhY = false;
-    private CustomMessageListener fhZ;
+    private ImageView eqa;
+    private Boolean fiv = false;
+    private CustomMessageListener fiw;
 
     static {
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c EG;
+                c ES;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(personInfoDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (EG = personInfoDelegateStatic.EG()) != null) {
-                        EG.aGS.setArguments(new Bundle());
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (ES = personInfoDelegateStatic.ES()) != null) {
+                        ES.aHa.setArguments(new Bundle());
                     }
                 }
             }
@@ -50,58 +50,58 @@ public class PersonInfoDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c EF() {
+    public c ER() {
         c cVar = new c();
-        cVar.aGS = new a();
+        cVar.aHa = new a();
         cVar.type = 8;
-        cVar.aGT = d.j.mine;
-        cVar.aGU = d.f.s_tabbar_icon_four_bg;
-        cVar.aGW = d.f.tabbar_person_anim;
-        cVar.aHa = c.aGZ;
+        cVar.aHb = d.j.mine;
+        cVar.aHc = d.f.s_tabbar_icon_four_bg;
+        cVar.aHe = d.f.tabbar_person_anim;
+        cVar.aHi = c.aHh;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public e aY(Context context) {
-        this.aGJ = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.h.maintab_bottom_indicator, (ViewGroup) null);
-        this.epW = new ImageView(context);
+        this.aGR = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.h.maintab_bottom_indicator, (ViewGroup) null);
+        this.eqa = new ImageView(context);
         e.a aVar = new e.a();
-        aVar.aHn = this.aGJ;
+        aVar.aHv = this.aGR;
         aVar.ur = l.dip2px(context, 10.0f);
-        aVar.view = this.epW;
-        aVar.aHl = d.f.icon_news_down_bar_one;
-        if (this.fhY.booleanValue()) {
-            this.epW.setVisibility(0);
+        aVar.view = this.eqa;
+        aVar.aHt = d.f.icon_news_down_bar_one;
+        if (this.fiv.booleanValue()) {
+            this.eqa.setVisibility(0);
         } else {
-            this.epW.setVisibility(8);
+            this.eqa.setVisibility(8);
         }
-        this.aGJ.a("emotion", aVar);
-        return this.aGJ;
+        this.aGR.a("emotion", aVar);
+        return this.aGR;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void EE() {
-        this.fhZ = new CustomMessageListener(CmdConfigCustom.MAINTAB_PERSON_TIP) { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.2
+    public void EQ() {
+        this.fiw = new CustomMessageListener(CmdConfigCustom.MAINTAB_PERSON_TIP) { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-                    PersonInfoDelegateStatic.this.fhY = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).aGG);
-                    PersonInfoDelegateStatic.this.epW.setVisibility(PersonInfoDelegateStatic.this.fhY.booleanValue() ? 0 : 8);
+                    PersonInfoDelegateStatic.this.fiv = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).aGO);
+                    PersonInfoDelegateStatic.this.eqa.setVisibility(PersonInfoDelegateStatic.this.fiv.booleanValue() ? 0 : 8);
                     AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                    if (!PersonInfoDelegateStatic.this.fhY.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
+                    if (!PersonInfoDelegateStatic.this.fiv.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
                         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("member_close_ad_mine_clicked", true);
                     }
                 }
             }
         };
-        this.fhZ.setPriority(7);
-        MessageManager.getInstance().registerListener(this.fhZ);
+        this.fiw.setPriority(7);
+        MessageManager.getInstance().registerListener(this.fiw);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void cB() {
         super.cB();
-        MessageManager.getInstance().unRegisterListener(this.fhZ);
+        MessageManager.getInstance().unRegisterListener(this.fiw);
     }
 }

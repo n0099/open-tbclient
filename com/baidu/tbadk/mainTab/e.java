@@ -9,30 +9,30 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class e extends FrameLayout {
-    protected boolean aHj;
+    protected boolean aHr;
 
     public e(Context context) {
         super(context);
-        this.aHj = false;
+        this.aHr = false;
     }
 
     public e(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aHj = false;
+        this.aHr = false;
     }
 
     public e(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aHj = false;
+        this.aHr = false;
     }
 
-    public void dE(int i) {
+    public void dD(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void bK(boolean z) {
+    public void bL(boolean z) {
     }
 
     public View getContentTv() {
@@ -45,7 +45,7 @@ public abstract class e extends FrameLayout {
     public void a(String str, a aVar) {
     }
 
-    public a gz(String str) {
+    public a gA(String str) {
         return null;
     }
 
@@ -77,25 +77,25 @@ public abstract class e extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.aHj = z;
+        this.aHr = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aHl;
-        public e aHn;
+        public int aHt;
+        public e aHv;
         public int ur;
         public View view;
-        public boolean aHk = true;
-        public int aHm = d.C0080d.common_color_10225;
+        public boolean aHs = true;
+        public int aHu = d.C0080d.common_color_10225;
 
-        public void dE(int i) {
-            if (this.aHl != 0) {
-                aj.j(this.view, this.aHl);
+        public void dD(int i) {
+            if (this.aHt != 0) {
+                aj.j(this.view, this.aHt);
             }
             if (this.view instanceof TextView) {
-                if (this.aHm != 0) {
-                    aj.c((TextView) this.view, this.aHm, 1);
+                if (this.aHu != 0) {
+                    aj.c((TextView) this.view, this.aHu, 1);
                 }
                 int b = b((TextView) this.view);
                 if (b > 0 && b < 10) {

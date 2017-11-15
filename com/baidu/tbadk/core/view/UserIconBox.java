@@ -17,11 +17,11 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class UserIconBox extends LinearLayout {
-    private boolean aoA;
-    private int aoB;
-    private boolean aoC;
-    private com.baidu.adp.lib.e.b<TbImageView> aoy;
-    private a aoz;
+    private int aoA;
+    private boolean aoB;
+    private com.baidu.adp.lib.e.b<TbImageView> aox;
+    private a aoy;
+    private boolean aoz;
     private Context mContext;
     private int mIconWidth;
 
@@ -33,22 +33,22 @@ public class UserIconBox extends LinearLayout {
     }
 
     public void setAutoChangedStyle(boolean z) {
-        this.aoA = z;
+        this.aoz = z;
     }
 
     public UserIconBox(Context context) {
         super(context);
+        this.aox = null;
         this.aoy = null;
-        this.aoz = null;
-        this.aoA = true;
+        this.aoz = true;
         init(context);
     }
 
     public UserIconBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        this.aox = null;
         this.aoy = null;
-        this.aoz = null;
-        this.aoA = true;
+        this.aoz = true;
         init(context);
     }
 
@@ -58,15 +58,15 @@ public class UserIconBox extends LinearLayout {
         setGravity(16);
         if (this.mContext instanceof b) {
             b bVar = (b) this.mContext;
-            this.aoy = bVar.wN();
-            if (bVar.getListView() == null || this.aoz == null) {
+            this.aox = bVar.wN();
+            if (bVar.getListView() == null || this.aoy == null) {
             }
         }
         setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.core.view.UserIconBox.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof TbImageView) && UserIconBox.this.aoy != null) {
-                    UserIconBox.this.aoy.m((TbImageView) view2);
+                if ((view2 instanceof TbImageView) && UserIconBox.this.aox != null) {
+                    UserIconBox.this.aox.m((TbImageView) view2);
                 }
             }
 
@@ -93,10 +93,10 @@ public class UserIconBox extends LinearLayout {
             return;
         }
         this.mIconWidth = i2;
-        this.aoB = i4;
-        this.aoC = z;
+        this.aoA = i4;
+        this.aoB = z;
         this.mIconWidth = i2;
-        if (!dD(min)) {
+        if (!dC(min)) {
             setVisibility(8);
         } else if (min > 0) {
             setVisibility(0);
@@ -115,7 +115,7 @@ public class UserIconBox extends LinearLayout {
                         tbImageView.setContentDescription(list.get(i5).getIconName());
                     }
                     tbImageView.setClickable(false);
-                    tbImageView.setAutoChangeStyle(this.aoA);
+                    tbImageView.setAutoChangeStyle(this.aoz);
                     tbImageView.startLoad(list.get(i5).getIcon(), 21, i2, i3, false);
                 }
             }
@@ -124,7 +124,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    private boolean dD(int i) {
+    private boolean dC(int i) {
         if (i <= 0) {
             return false;
         }
@@ -157,10 +157,10 @@ public class UserIconBox extends LinearLayout {
         for (int i6 = 0; i6 < childCount; i6++) {
             View childAt = getChildAt(i6);
             if (!z2) {
-                if (i6 == 0 && this.aoC) {
+                if (i6 == 0 && this.aoB) {
                     i5 += this.mIconWidth;
                 } else {
-                    i5 += this.mIconWidth + this.aoB;
+                    i5 += this.mIconWidth + this.aoA;
                 }
                 if (i5 > measuredWidth) {
                     z2 = true;
@@ -172,7 +172,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public void dE(int i) {
+    public void dD(int i) {
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
@@ -184,8 +184,8 @@ public class UserIconBox extends LinearLayout {
 
     private TbImageView aU(Context context) {
         TbImageView tbImageView = null;
-        if (this.aoy != null) {
-            tbImageView = this.aoy.fH();
+        if (this.aox != null) {
+            tbImageView = this.aox.fH();
         }
         if (tbImageView == null || tbImageView.getParent() != null) {
             return new TbImageView(context);

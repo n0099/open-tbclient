@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class c {
-    private HttpMessageListener cNB = new HttpMessageListener(CmdConfigHttp.FRS_LIVE_TIP_CMD) { // from class: com.baidu.tieba.frs.live.c.1
+    private a cNR;
+    private HttpMessageListener cNV = new HttpMessageListener(CmdConfigHttp.FRS_LIVE_TIP_CMD) { // from class: com.baidu.tieba.frs.live.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.cNx != null) {
-                c.this.cNx.a((FrsLiveTipResponseMessage) httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.cNR != null) {
+                c.this.cNR.a((FrsLiveTipResponseMessage) httpResponsedMessage);
             }
         }
     };
-    private a cNx;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -26,12 +26,12 @@ public class c {
     }
 
     public c(a aVar) {
-        this.cNx = aVar;
-        DY();
-        MessageManager.getInstance().registerListener(this.cNB);
+        this.cNR = aVar;
+        Ek();
+        MessageManager.getInstance().registerListener(this.cNV);
     }
 
-    private void DY() {
+    private void Ek() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LIVE_TIP_CMD, TbConfig.FRS_LIVE_TIP_ADDRESS);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -48,6 +48,6 @@ public class c {
 
     public void onDestory() {
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.FRS_LIVE_TIP_CMD);
-        MessageManager.getInstance().unRegisterListener(this.cNB);
+        MessageManager.getInstance().unRegisterListener(this.cNV);
     }
 }

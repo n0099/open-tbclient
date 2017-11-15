@@ -1,7 +1,7 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class d {
-    private long aXK;
+    private long aXT;
     private long currentSize;
     private String fileName;
 
@@ -9,19 +9,19 @@ public class d {
         return this.fileName;
     }
 
-    public void hm(String str) {
+    public void hn(String str) {
         this.fileName = str;
     }
 
-    public long KW() {
-        return this.aXK;
+    public long Lh() {
+        return this.aXT;
     }
 
     public void aq(long j) {
-        this.aXK = j;
+        this.aXT = j;
     }
 
-    public long KX() {
+    public long Li() {
         return this.currentSize;
     }
 

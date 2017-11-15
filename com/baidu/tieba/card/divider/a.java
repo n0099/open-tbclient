@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.widget.ListView.a<b, com.baidu.tieba.card.a.a<c>> {
-    private c bVT;
+    private c bWg;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext) {
@@ -18,8 +18,8 @@ public class a extends com.baidu.adp.widget.ListView.a<b, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: S */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.bVT = new c(this.mPageContext);
-        return new com.baidu.tieba.card.a.a(this.bVT);
+        this.bWg = new c(this.mPageContext);
+        return new com.baidu.tieba.card.a.a(this.bWg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,10 +27,10 @@ public class a extends com.baidu.adp.widget.ListView.a<b, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.aax() == null) {
+        if (aVar == null || aVar.aaJ() == null) {
             return null;
         }
-        aVar.aax().a((com.baidu.tieba.card.a) bVar);
+        aVar.aaJ().a((com.baidu.tieba.card.a) bVar);
         return aVar.getView();
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class bn {
     public WriteData aaE;
-    public com.baidu.tbadk.coreExtra.data.q aaF;
+    public com.baidu.tbadk.coreExtra.data.r aaF;
     public AccessState aaG;
     public boolean aaH;
 }

@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public void i(JSONObject jSONObject) {
+    public void j(JSONObject jSONObject) {
         JSONArray jSONArray;
         JSONObject optJSONObject;
         String str;
@@ -68,21 +68,21 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zu() {
+    public void zC() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String zv() {
+    public String zD() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
     public void eN(String str) {
-        String zv = zv();
-        if (!TextUtils.equals(zv, str) || !eO(zv)) {
-            ah(str, zv);
+        String zD = zD();
+        if (!TextUtils.equals(zD, str) || !eO(zD)) {
+            ah(str, zD);
         }
     }
 
@@ -100,15 +100,15 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String ass;
-        private final String ast;
+        private final String asy;
+        private final String asz;
         private final String mFile;
         private x mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.ass = str;
+            this.asy = str;
             this.mFile = str2;
-            this.ast = str3;
+            this.asz = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,11 +117,11 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new x(this.ass);
+                this.mNetWork = new x(this.asy);
                 bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(k.g(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.ass) && !this.ass.equals(this.ast)) {
-                        k.dv(ao.dV(this.ast));
+                    if (!StringUtils.isNull(k.g(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.asy) && !this.asy.equals(this.asz)) {
+                        k.dv(ao.dV(this.asz));
                     }
                 } else {
                     k.dv(this.mFile + ".tmp");
@@ -137,7 +137,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().zu();
+                new b().zC();
             }
         }
     }

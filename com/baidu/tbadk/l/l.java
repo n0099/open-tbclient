@@ -3,19 +3,19 @@ package com.baidu.tbadk.l;
 public class l extends k {
     public String Gm;
     public long Gn;
-    public boolean aJA;
+    public boolean aJI;
     public boolean isSuccess;
 
-    public void Gb() {
+    public void Gm() {
         t tVar;
-        if (r.Gi().Gj() && (tVar = (t) r.Gi().fv(this.mSubType)) != null) {
+        if (r.Gt().Gu() && (tVar = (t) r.Gt().fu(this.mSubType)) != null) {
             tVar.a(this, "head");
         }
     }
 
-    public void Gc() {
+    public void Gn() {
         t tVar;
-        if (r.Gi().Gj() && (tVar = (t) r.Gi().fv(this.mSubType)) != null) {
+        if (r.Gt().Gu() && (tVar = (t) r.Gt().fu(this.mSubType)) != null) {
             tVar.a(this, "img");
         }
     }

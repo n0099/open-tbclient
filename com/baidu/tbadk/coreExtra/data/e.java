@@ -1,37 +1,34 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.TbPageContext;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private final TbPageContext<?> abI;
-    private final int aqH;
-    private final int aqI;
-    private final boolean aqJ;
+    private String appId = "";
+    private String appName = "";
+    private String packageName = "";
+    private boolean aqM = false;
 
-    public e(TbPageContext<?> tbPageContext, int i, int i2, boolean z) {
-        this.abI = tbPageContext;
-        this.aqH = i;
-        this.aqI = i2;
-        this.aqJ = z;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.appId = jSONObject.optString("app_id", "");
+            this.appName = jSONObject.optString("app_name", "");
+            this.packageName = jSONObject.optString("package_name", "");
+        }
     }
 
-    public e(TbPageContext<?> tbPageContext, int i, int i2) {
-        this(tbPageContext, i, i2, false);
+    public String getAppId() {
+        return this.appId;
     }
 
-    public TbPageContext<?> xH() {
-        return this.abI;
+    public String getPackageName() {
+        return this.packageName;
     }
 
-    public int xI() {
-        return this.aqH;
+    public boolean xO() {
+        return this.aqM;
     }
 
-    public int xJ() {
-        return this.aqI;
-    }
-
-    public boolean isAvailable() {
-        return this.abI != null && this.aqH > 0 && this.aqI > 0;
+    public void aQ(boolean z) {
+        this.aqM = z;
     }
 }

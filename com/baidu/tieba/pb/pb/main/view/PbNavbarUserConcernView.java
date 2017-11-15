@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private TranslateAnimation eYo;
-    private ObjectAnimator eYp;
+    private TranslateAnimation eYJ;
+    private ObjectAnimator eYK;
 
     public PbNavbarUserConcernView(Context context) {
         super(context);
@@ -40,7 +40,7 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void dG(int i) {
+    public void dF(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -58,11 +58,11 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
             setVisibility(0);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         } else if (z) {
-            if (this.eYo == null) {
-                this.eYo = new TranslateAnimation(0.0f, getMeasuredWidth(), 0.0f, 0.0f);
-                this.eYo.setDuration(300L);
-                this.eYo.setFillAfter(true);
-                this.eYo.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
+            if (this.eYJ == null) {
+                this.eYJ = new TranslateAnimation(0.0f, getMeasuredWidth(), 0.0f, 0.0f);
+                this.eYJ.setDuration(300L);
+                this.eYJ.setFillAfter(true);
+                this.eYJ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
@@ -77,15 +77,15 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
                     }
                 });
             }
-            startAnimation(this.eYo);
+            startAnimation(this.eYJ);
         } else {
-            if (this.eYp == null) {
-                this.eYp = ObjectAnimator.ofFloat(this, "translationX", 0.0f, 30.0f);
-                this.eYp.setDuration(200L);
-                this.eYp.setRepeatCount(1);
-                this.eYp.setRepeatMode(2);
+            if (this.eYK == null) {
+                this.eYK = ObjectAnimator.ofFloat(this, "translationX", 0.0f, 30.0f);
+                this.eYK.setDuration(200L);
+                this.eYK.setRepeatCount(1);
+                this.eYK.setRepeatMode(2);
             }
-            this.eYp.start();
+            this.eYK.start();
         }
     }
 

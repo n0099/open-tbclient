@@ -216,7 +216,7 @@ public class y implements q {
                     if (i2 > 0) {
                         if (BdLog.isDebugMode()) {
                         }
-                        if (!com.baidu.tbadk.imageManager.c.Eg().fi(i2)) {
+                        if (!com.baidu.tbadk.imageManager.c.Es().fh(i2)) {
                             BdLog.d("Image download cacelled. out of memory. url:[" + this.afP.vK().vN().mUrl + "], size:" + i2);
                             this.afP.vL().vp = -16;
                             TiebaStatic.net(this.afP);

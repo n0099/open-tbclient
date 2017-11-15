@@ -17,22 +17,22 @@ public class a {
             bVar2.N(list);
             if (forumData != null) {
                 bVar2.setForumId(forumData.getId());
-                bVar2.hf(forumData.getFirst_class());
-                bVar2.hg(forumData.getSecond_class());
+                bVar2.hg(forumData.getFirst_class());
+                bVar2.hh(forumData.getSecond_class());
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                bVar2.hh(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+                bVar2.hi(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
-            bVar2.cg(z);
-            bVar2.gg(i);
+            bVar2.ch(z);
+            bVar2.gf(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE, bVar2));
         }
     }
 
     public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, FrsModelController frsModelController, List<com.baidu.adp.widget.ListView.f> list, int i) {
-        if (frsModelController != null && frsModelController.amp() != null) {
-            a(bVar, frsModelController.amp().aPM(), list, false, i);
+        if (frsModelController != null && frsModelController.amD() != null) {
+            a(bVar, frsModelController.amD().aPU(), list, false, i);
         }
     }
 
@@ -40,10 +40,10 @@ public class a {
         int[] iArr;
         int indexOf;
         if (eVar != null && v.u(list) > 0 && v.u(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.e.goM) {
+            for (int i : com.baidu.tieba.tbadkCore.data.e.gpP) {
                 com.baidu.adp.widget.ListView.f fVar = (com.baidu.adp.widget.ListView.f) v.c(list, i);
                 if (fVar != null && (indexOf = list2.indexOf(fVar)) >= 0) {
-                    eVar.bU(i, indexOf);
+                    eVar.bT(i, indexOf);
                 }
             }
         }

@@ -17,32 +17,32 @@ import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class VideoMonitorStatic {
-    private static CustomMessageListener exC = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.monitor.VideoMonitorStatic.1
+    private static CustomMessageListener exR = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.monitor.VideoMonitorStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.monitor.b.b.aNm().aNn();
+            com.baidu.tieba.monitor.c.b.aNv().aNw();
         }
     };
 
     static {
-        aNi();
-        MessageManager.getInstance().registerListener(exC);
+        aNm();
+        MessageManager.getInstance().registerListener(exR);
     }
 
-    private static void aNi() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_MONITOR_FACTORY, new CustomMessageTask.CustomRunnable<com.baidu.tieba.play.b.b>() { // from class: com.baidu.tieba.monitor.VideoMonitorStatic.2
+    private static void aNm() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_MONITOR_FACTORY, new CustomMessageTask.CustomRunnable<com.baidu.tieba.play.b.c>() { // from class: com.baidu.tieba.monitor.VideoMonitorStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.tieba.play.b.b> run(CustomMessage<com.baidu.tieba.play.b.b> customMessage) {
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_VIDEO_MONITOR_FACTORY, new b());
+            public CustomResponsedMessage<com.baidu.tieba.play.b.c> run(CustomMessage<com.baidu.tieba.play.b.c> customMessage) {
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_VIDEO_MONITOR_FACTORY, new c());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static String aNj() {
+    public static String aNn() {
         if (j.hi()) {
             return "WIFI";
         }
@@ -58,7 +58,7 @@ public class VideoMonitorStatic {
         return "4G";
     }
 
-    public static int pb(int i) {
+    public static int pc(int i) {
         switch (i) {
             case SapiErrorCode.NETWORK_FAILED /* -200 */:
                 return 1;
@@ -69,7 +69,7 @@ public class VideoMonitorStatic {
         }
     }
 
-    public static int oJ(String str) {
+    public static int oO(String str) {
         if (str.contains("127.0.0.1")) {
             return 1;
         }
@@ -79,7 +79,7 @@ public class VideoMonitorStatic {
         return 0;
     }
 
-    public static String pc(int i) {
+    public static String pd(int i) {
         switch (i) {
             case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
                 return TbadkCoreApplication.getInst().getString(d.j.error_extra_system_system);
@@ -166,7 +166,7 @@ public class VideoMonitorStatic {
         }
     }
 
-    public static String oK(String str) {
+    public static String oP(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }

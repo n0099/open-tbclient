@@ -6,14 +6,14 @@ import com.baidu.tieba.frs.entelechy.a.t;
 import com.baidu.tieba.frs.f;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tieba.frs.entelechy.b.a {
-    private a cCO;
+    private a cDh;
 
     public com.baidu.tieba.frs.entelechy.b.d z(f fVar) {
         return new com.baidu.tieba.frs.entelechy.c.a(fVar);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b akP() {
+    public com.baidu.tieba.frs.entelechy.b.b ald() {
         return new d();
     }
 
@@ -22,9 +22,9 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
         if (fVar == null) {
             return null;
         }
-        this.cCO = new c(fVar, null, null, i);
-        this.cCO.a(fVar.aiO());
-        return this.cCO;
+        this.cDh = new c(fVar, null, null, i);
+        this.cDh.a(fVar.ajc());
+        return this.cDh;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
@@ -36,7 +36,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
     @Override // com.baidu.tieba.frs.entelechy.b.a
     /* renamed from: a */
     public com.baidu.tieba.frs.g.d c(f fVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (fVar.ajq()) {
+        if (fVar.ajE()) {
             return null;
         }
         return new com.baidu.tieba.frs.g.d(fVar, noPressedRelativeLayout);
@@ -47,9 +47,9 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
         return new com.baidu.tieba.frs.g.b(fVar, noPressedRelativeLayout);
     }
 
-    public c akQ() {
-        if (this.cCO instanceof c) {
-            return (c) this.cCO;
+    public c ale() {
+        if (this.cDh instanceof c) {
+            return (c) this.cDh;
         }
         return null;
     }

@@ -43,7 +43,7 @@ public class ax {
         }
     }
 
-    private static int cZ(int i) {
+    private static int cY(int i) {
         return aC(i == 1);
     }
 
@@ -182,7 +182,7 @@ public class ax {
     public static void aS(Context context) {
         if (context != null) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            if (com.baidu.tbadk.coreExtra.a.a.aqk != null && com.baidu.tbadk.coreExtra.a.a.aqk == Domain.DOMAIN_QA) {
+            if (com.baidu.tbadk.coreExtra.a.a.aqj != null && com.baidu.tbadk.coreExtra.a.a.aqj == Domain.DOMAIN_QA) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new QALoginActivityConfig(context, true)));
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, 3, true)));
@@ -210,13 +210,13 @@ public class ax {
 
     public static void b(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(cZ(i));
+            textView.setTextColor(cY(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(cZ(i));
+            checkBox.setTextColor(cY(i));
         }
     }
 

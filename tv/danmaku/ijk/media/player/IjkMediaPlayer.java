@@ -18,7 +18,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.play.c.a;
+import com.baidu.tieba.play.d.a;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -61,6 +61,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     public static final int IJK_LOG_VERBOSE = 2;
     public static final int IJK_LOG_WARN = 5;
     private static final int MEDIA_BUFFERING_UPDATE = 3;
+    private static final int MEDIA_DETAILED_ERROR_LOG = 500;
     private static final int MEDIA_ERROR = 100;
     private static final int MEDIA_ERROR_IO = -1004;
     private static final int MEDIA_ERROR_LOG = 400;
@@ -314,7 +315,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         setDataSource(context, uri, (Map<String, String>) null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [378=6, 379=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [379=6, 380=5] */
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     @TargetApi(14)
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
@@ -740,10 +741,12 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class EventHandler extends Handler {
+        private boolean ignoreSubError;
         private final WeakReference<IjkMediaPlayer> mWeakPlayer;
 
         public EventHandler(IjkMediaPlayer ijkMediaPlayer, Looper looper) {
             super(looper);
+            this.ignoreSubError = false;
             this.mWeakPlayer = new WeakReference<>(ijkMediaPlayer);
         }
 
@@ -787,6 +790,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                     ijkMediaPlayer.notifyOnVideoSizeChanged(ijkMediaPlayer.mVideoWidth, ijkMediaPlayer.mVideoHeight, ijkMediaPlayer.mVideoSarNum, ijkMediaPlayer.mVideoSarDen);
                     return;
                 case 100:
+                    ijkMediaPlayer.notifySpeed(ijkMediaPlayer.getTcpSpeed());
                     if (!ijkMediaPlayer.notifyOnError(SapiErrorCode.NETWORK_FAILED, message.arg1, message.arg2)) {
                         ijkMediaPlayer.notifyOnCompletion();
                     }
@@ -802,8 +806,21 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         return;
                     }
                 case IjkMediaPlayer.MEDIA_ERROR_LOG /* 400 */:
-                    a.bK(message.arg1, message.arg2);
-                    ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2);
+                    a.bJ(message.arg1, message.arg2);
+                    ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
+                    return;
+                case 500:
+                    if (message.arg1 == -998877 || message.arg2 == -998877) {
+                        this.ignoreSubError = true;
+                    }
+                    if (!this.ignoreSubError) {
+                        String str = null;
+                        if (message.obj instanceof String) {
+                            str = (String) message.obj;
+                        }
+                        ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, str);
+                        return;
+                    }
                     return;
                 case IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND /* 10001 */:
                     ijkMediaPlayer.mVideoSarNum = message.arg1;

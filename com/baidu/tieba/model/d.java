@@ -24,28 +24,28 @@ import org.json.JSONObject;
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] aMR;
+        String[] aMV;
         if (bVar == null) {
             return null;
         }
         try {
-            aMR = aMR();
+            aMV = aMV();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (aMR != null) {
+        if (aMV != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
-            arrayList.add(new BasicNameValuePair("clientip", aMS()));
-            arrayList.add(new BasicNameValuePair("cert_id", aMR[0]));
+            arrayList.add(new BasicNameValuePair("clientip", aMW()));
+            arrayList.add(new BasicNameValuePair("cert_id", aMV[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(SapiAccountManager.SESSION_BDUSS, bVar.wt);
             jSONObject.put("ptoken", bVar.Tn);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aMR[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aMV[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", d(arrayList, TbConfig.PassConfig.ENC_KEY)));
             x xVar = new x(TbConfig.PassConfig.LOGIN_BDUSS_URL);
             xVar.uN().vK().mIsNeedAddCommenParam = false;
@@ -70,7 +70,7 @@ public class d {
         return null;
     }
 
-    private static String[] aMR() {
+    private static String[] aMV() {
         try {
             x xVar = new x(TbConfig.PassConfig.GET_CERT_URL);
             xVar.uN().vK().mIsNeedAddCommenParam = false;
@@ -82,7 +82,7 @@ public class d {
         }
     }
 
-    private static String aMS() {
+    private static String aMW() {
         if (j.hi()) {
             return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
         }

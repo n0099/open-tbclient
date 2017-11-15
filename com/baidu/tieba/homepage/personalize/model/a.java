@@ -16,13 +16,13 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
-    private int did = 0;
-    private com.baidu.tieba.homepage.personalize.b.d die = new com.baidu.tieba.homepage.personalize.b.d();
-    private final c deF = new c();
-    private final int bhh = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
+    private int dix = 0;
+    private com.baidu.tieba.homepage.personalize.b.d diy = new com.baidu.tieba.homepage.personalize.b.d();
+    private final c deZ = new c();
+    private final int bhq = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
-    public int asd() {
-        return this.bhh;
+    public int asu() {
+        return this.bhq;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -38,15 +38,15 @@ public class a {
         d.c(builder);
         d.c(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.bhh);
+        a(builder, i, this.bhq);
         d.e(builder);
         List<r> b = d.b(builder);
         bv(b);
         List<f> l = l(builder.thread_list, b);
-        this.die.bx(l);
+        this.diy.bx(l);
         b.a(builder, l);
-        this.deF.aUt = l;
-        return this.deF;
+        this.deZ.aUB = l;
+        return this.deZ;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -64,7 +64,7 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.did);
+        d.a(z, builder, builder2, i, this.dix);
     }
 
     private void a(boolean z, List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
@@ -96,7 +96,7 @@ public class a {
                 int u2 = v.u(list2) - 1;
                 i2 = 0;
                 while (u2 >= 0) {
-                    this.die.a(z, u2, list, list2);
+                    this.diy.a(z, u2, list, list2);
                     ThreadInfo threadInfo3 = (ThreadInfo) v.c(list2, u2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
                         if (!hashSet2.contains(threadInfo3.lego_card)) {
@@ -118,8 +118,8 @@ public class a {
                 }
             }
             int u3 = v.u(list);
-            this.deF.dig = (u3 - u) - i2;
-            this.did = u3 - u;
+            this.deZ.diA = (u3 - u) - i2;
+            this.dix = u3 - u;
         }
     }
 

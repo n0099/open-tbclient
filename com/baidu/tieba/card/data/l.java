@@ -7,25 +7,25 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.v;
 /* loaded from: classes.dex */
 public class l extends c {
-    public bh blk;
-    public static String bUL = "";
-    public static String bUM = "";
-    public static String bUN = "";
-    public static String bUO = "";
-    public static String bUP = "";
-    public static String bUQ = "";
-    public static String bUR = "";
-    public static String bUS = "";
-    public static String bUT = "";
-    public static String bUU = "";
-    public static String bUV = "";
+    public bh blt;
+    public static String bUY = "";
+    public static String bUZ = "";
+    public static String bVa = "";
+    public static String bVb = "";
+    public static String bVc = "";
+    public static String bVd = "";
+    public static String bVe = "";
+    public static String bVf = "";
+    public static String bVg = "";
+    public static String bVh = "";
+    public static String bVi = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId bUW = BdUniqueId.gen();
+    public static final BdUniqueId bVj = BdUniqueId.gen();
     public static final BdUniqueId Yp = BdUniqueId.gen();
-    public boolean bUX = false;
+    public boolean bVk = false;
     public boolean isLinkThread = false;
-    public boolean bUY = false;
-    public boolean aCw = true;
+    public boolean bVl = false;
+    public boolean aCE = true;
 
     public static boolean A(bh bhVar) {
         if (bhVar == null) {
@@ -36,11 +36,11 @@ public class l extends c {
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        if (this.blk == null) {
+        if (this.blt == null) {
             return TYPE;
         }
-        if (this.bUX) {
-            return bUW;
+        if (this.bVk) {
+            return bVj;
         }
         if (this.isLinkThread) {
             return Yp;
@@ -49,126 +49,126 @@ public class l extends c {
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bh Np() {
-        return this.blk;
+    public bh NA() {
+        return this.blt;
     }
 
-    public boolean aai() {
-        return (this.blk == null || v.u(this.blk.rI()) == 0) ? false : true;
+    public boolean aau() {
+        return (this.blt == null || v.u(this.blt.rI()) == 0) ? false : true;
     }
 
-    public ak aaj() {
-        if (aai()) {
-            ak jP = jP(bUQ);
-            if (jP != null && Np() != null) {
-                bh Np = Np();
-                jP.r("obj_name", Np.sL() != null && (Np.sL().aEt() != null || Np.sL().IQ() != null) ? 1 : 0);
+    public ak aav() {
+        if (aau()) {
+            ak jQ = jQ(bVd);
+            if (jQ != null && NA() != null) {
+                bh NA = NA();
+                jQ.r("obj_name", NA.sL() != null && (NA.sL().aEx() != null || NA.sL().Jb() != null) ? 1 : 0);
             }
-            return jP;
+            return jQ;
         }
-        ak jP2 = jP(bUL);
-        if (jP2 != null) {
-            jP2.ac("ab_tag", aac()).ac("ab_action", "show");
-            if (Np() != null) {
-                bh Np2 = Np();
-                boolean z = (Np2.sL() == null || (Np2.sL().aEt() == null && Np2.sL().IQ() == null)) ? false : true;
-                jP2.r("obj_name", z ? 1 : 0);
-                if (z && Np2.sL().aEt() != null && Np2.sL().aEt().II() != null && Np2.sL().aEt().II().size() > 0) {
-                    jP2.r("obj_to", Np2.sL().gpQ ? 2 : 1);
+        ak jQ2 = jQ(bUY);
+        if (jQ2 != null) {
+            jQ2.ac("ab_tag", aao()).ac("ab_action", "show");
+            if (NA() != null) {
+                bh NA2 = NA();
+                boolean z = (NA2.sL() == null || (NA2.sL().aEx() == null && NA2.sL().Jb() == null)) ? false : true;
+                jQ2.r("obj_name", z ? 1 : 0);
+                if (z && NA2.sL().aEx() != null && NA2.sL().aEx().IT() != null && NA2.sL().aEx().IT().size() > 0) {
+                    jQ2.r("obj_to", NA2.sL().gqT ? 2 : 1);
                 }
             }
         }
-        return jP2;
+        return jQ2;
     }
 
-    public ak jR(String str) {
+    public ak jS(String str) {
         ak akVar = new ak(str);
-        if (akVar != null && this.blk != null) {
-            akVar.f(ImageViewerConfig.FORUM_ID, this.blk.getFid());
-            akVar.ac("tid", this.blk.getTid());
-            akVar.r("obj_type", this.blk.isLinkThread() ? 4 : 1);
-            akVar.ac("obj_id", this.blk.rt().getUserId());
+        if (akVar != null && this.blt != null) {
+            akVar.f(ImageViewerConfig.FORUM_ID, this.blt.getFid());
+            akVar.ac("tid", this.blt.getTid());
+            akVar.r("obj_type", this.blt.isLinkThread() ? 4 : 1);
+            akVar.ac("obj_id", this.blt.rt().getUserId());
         }
         return akVar;
     }
 
-    public ak jS(String str) {
-        ak jP = jP(str);
-        if (jP != null) {
-            jP.ac("ab_tag", aac()).ac("ab_action", "show");
-            if (Np() != null) {
-                bh Np = Np();
-                boolean z = (Np.sL() == null || (Np.sL().aEt() == null && Np.sL().IQ() == null)) ? false : true;
-                jP.r("obj_name", z ? 1 : 0);
-                if (z && Np.sL().aEt() != null && Np.sL().aEt().II() != null && Np.sL().aEt().II().size() > 0) {
-                    jP.r("obj_to", Np.sL().gpQ ? 2 : 1);
+    public ak jT(String str) {
+        ak jQ = jQ(str);
+        if (jQ != null) {
+            jQ.ac("ab_tag", aao()).ac("ab_action", "show");
+            if (NA() != null) {
+                bh NA = NA();
+                boolean z = (NA.sL() == null || (NA.sL().aEx() == null && NA.sL().Jb() == null)) ? false : true;
+                jQ.r("obj_name", z ? 1 : 0);
+                if (z && NA.sL().aEx() != null && NA.sL().aEx().IT() != null && NA.sL().aEx().IT().size() > 0) {
+                    jQ.r("obj_to", NA.sL().gqT ? 2 : 1);
                 }
             }
         }
-        return jP;
+        return jQ;
     }
 
-    public ak jT(String str) {
-        ak jP = jP(str);
-        if (jP != null) {
-            jP.ac("ab_tag", aac()).ac("ab_action", "click");
+    public ak jU(String str) {
+        ak jQ = jQ(str);
+        if (jQ != null) {
+            jQ.ac("ab_tag", aao()).ac("ab_action", "click");
         }
-        return jP;
+        return jQ;
     }
 
-    public ak aak() {
-        if (aai()) {
-            return jP(bUR);
+    public ak aaw() {
+        if (aau()) {
+            return jQ(bVe);
         }
-        ak jP = jP(bUM);
-        if (jP != null) {
-            jP.ac("ab_tag", aac()).ac("ab_action", "click");
-            return jP;
+        ak jQ = jQ(bUZ);
+        if (jQ != null) {
+            jQ.ac("ab_tag", aao()).ac("ab_action", "click");
+            return jQ;
         }
-        return jP;
+        return jQ;
     }
 
-    public ak aal() {
-        if (aai()) {
-            return jP(bUS);
+    public ak aax() {
+        if (aau()) {
+            return jQ(bVf);
         }
-        ak P = P(bUN, 0);
+        ak P = P(bVa, 0);
         if (P != null) {
-            P.ac("ab_tag", aac()).ac("ab_action", "click");
+            P.ac("ab_tag", aao()).ac("ab_action", "click");
             return P;
         }
         return P;
     }
 
-    public ak aam() {
-        if (aai()) {
-            return jP(bUT);
+    public ak aay() {
+        if (aau()) {
+            return jQ(bVg);
         }
-        ak jP = jP(bUO);
-        if (jP != null) {
-            jP.ac("ab_tag", aac()).ac("ab_action", "click");
-            return jP;
+        ak jQ = jQ(bVb);
+        if (jQ != null) {
+            jQ.ac("ab_tag", aao()).ac("ab_action", "click");
+            return jQ;
         }
-        return jP;
+        return jQ;
     }
 
-    public ak aan() {
-        if (aai()) {
-            return jP(bUU);
+    public ak aaz() {
+        if (aau()) {
+            return jQ(bVh);
         }
-        ak jP = jP(bUP);
-        if (jP != null) {
-            jP.ac("ab_tag", aac()).ac("ab_action", "click");
-            return jP;
+        ak jQ = jQ(bVc);
+        if (jQ != null) {
+            jQ.ac("ab_tag", aao()).ac("ab_action", "click");
+            return jQ;
         }
-        return jP;
+        return jQ;
     }
 
-    public ak aao() {
-        return jP(bUV);
+    public ak aaA() {
+        return jQ(bVi);
     }
 
-    public ak jU(String str) {
-        return jP(str);
+    public ak jV(String str) {
+        return jQ(str);
     }
 }

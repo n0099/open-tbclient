@@ -15,106 +15,106 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<com.baidu.adp.widget.ListView.f> bsq;
-    private f cCJ;
-    private ExpandLayout cCM;
-    private com.baidu.adp.widget.ListView.f cRA;
-    private h cRB;
-    private View.OnClickListener cRC = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.1
+    private ArrayList<com.baidu.adp.widget.ListView.f> bsA;
+    private f cDc;
+    private ExpandLayout cDf;
+    private View cRT;
+    private com.baidu.adp.widget.ListView.f cRU;
+    private h cRV;
+    private View.OnClickListener cRW = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             f.a aVar;
-            if (a.this.cRA instanceof bh) {
-                bh bhVar = (bh) a.this.cRA;
+            if (a.this.cRU instanceof bh) {
+                bh bhVar = (bh) a.this.cRU;
                 view.setPressed(false);
                 if ((view.getTag() instanceof f.a) && (aVar = (f.a) view.getTag()) != null) {
                     com.baidu.tieba.tbadkCore.util.e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                     if (readThreadHistory != null) {
-                        readThreadHistory.sF(bhVar.getId());
+                        readThreadHistory.sL(bhVar.getId());
                     }
-                    aj.i(aVar.cTy, d.C0080d.cp_cont_c);
+                    aj.i(aVar.cTS, d.C0080d.cp_cont_c);
                 }
-                if (a.this.cRB != null) {
-                    a.this.cRB.a(view, bhVar, BdUniqueId.gen(), null, 0, 0L);
+                if (a.this.cRV != null) {
+                    a.this.cRV.a(view, bhVar, BdUniqueId.gen(), null, 0, 0L);
                 }
             }
         }
     };
-    private View cRz;
 
     public a(com.baidu.tieba.frs.f fVar, ExpandLayout expandLayout, HashSet<String> hashSet, f fVar2) {
-        this.cCM = expandLayout;
-        this.cCJ = fVar2;
-        this.cCJ.a(hashSet);
-        this.cCM.cRF.setAdapter(fVar2);
+        this.cDf = expandLayout;
+        this.cDc = fVar2;
+        this.cDc.a(hashSet);
+        this.cDf.cRZ.setAdapter(fVar2);
     }
 
     public void aZ(List<bh> list) {
-        if (this.bsq == null) {
-            this.bsq = new ArrayList<>();
+        if (this.bsA == null) {
+            this.bsA = new ArrayList<>();
         }
-        this.bsq.addAll(list);
+        this.bsA.addAll(list);
     }
 
     public void ba(List<com.baidu.tieba.tbadkCore.e> list) {
-        if (this.bsq == null) {
-            this.bsq = new ArrayList<>();
+        if (this.bsA == null) {
+            this.bsA = new ArrayList<>();
         }
         if (!v.v(list)) {
             int size = list.size();
-            this.bsq.addAll(list.subList(0, size <= 5 ? size : 5));
+            this.bsA.addAll(list.subList(0, size <= 5 ? size : 5));
         }
     }
 
-    public void aoL() {
-        if (this.cCM != null && !v.v(this.bsq)) {
-            if (this.cRz != null) {
-                this.cCM.cRE.removeView(this.cRz);
+    public void apa() {
+        if (this.cDf != null && !v.v(this.bsA)) {
+            if (this.cRT != null) {
+                this.cDf.cRY.removeView(this.cRT);
             }
-            this.cCM.cRF.removeAllViews();
-            this.cCM.cRG.setVisibility(8);
-            this.cCM.setVisibility(0);
+            this.cDf.cRZ.removeAllViews();
+            this.cDf.cSa.setVisibility(8);
+            this.cDf.setVisibility(0);
             ArrayList arrayList = null;
-            for (int i = 0; i < this.bsq.size(); i++) {
+            for (int i = 0; i < this.bsA.size(); i++) {
                 if (i == 0) {
-                    this.cRA = this.bsq.get(i);
-                    this.cRz = this.cCJ.g(this.cRA);
-                    if (this.cRz != null) {
-                        if (this.cRA instanceof bh) {
-                            this.cCJ.cTs = true;
-                            this.cRz.setOnClickListener(this.cRC);
+                    this.cRU = this.bsA.get(i);
+                    this.cRT = this.cDc.g(this.cRU);
+                    if (this.cRT != null) {
+                        if (this.cRU instanceof bh) {
+                            this.cDc.cTM = true;
+                            this.cRT.setOnClickListener(this.cRW);
                         } else {
-                            this.cCJ.cTs = false;
+                            this.cDc.cTM = false;
                         }
-                        this.cCM.cRE.addView(this.cRz, 0, new ViewGroup.LayoutParams(-1, -2));
+                        this.cDf.cRY.addView(this.cRT, 0, new ViewGroup.LayoutParams(-1, -2));
                     }
                 } else {
                     ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;
-                    arrayList2.add(this.bsq.get(i));
+                    arrayList2.add(this.bsA.get(i));
                     arrayList = arrayList2;
                 }
             }
-            if (!v.v(arrayList) && this.cCJ != null) {
-                this.cCM.cRG.setVisibility(0);
-                aj.c(this.cCM.cRG, d.f.icon_arrow_gray_down);
-                this.cCJ.setData(arrayList);
-                this.cCJ.notifyDataSetChanged();
+            if (!v.v(arrayList) && this.cDc != null) {
+                this.cDf.cSa.setVisibility(0);
+                aj.c(this.cDf.cSa, d.f.icon_arrow_gray_down);
+                this.cDc.setData(arrayList);
+                this.cDc.notifyDataSetChanged();
             }
         }
     }
 
     public void clearData() {
-        if (this.bsq != null) {
-            this.bsq.clear();
+        if (this.bsA != null) {
+            this.bsA.clear();
         }
-        if (this.cCM != null) {
-            this.cCM.reset();
-            this.cCM.setVisibility(8);
+        if (this.cDf != null) {
+            this.cDf.reset();
+            this.cDf.setVisibility(8);
         }
     }
 
     public void c(h hVar) {
-        this.cCJ.c(hVar);
-        this.cRB = hVar;
+        this.cDc.c(hVar);
+        this.cRV = hVar;
     }
 }

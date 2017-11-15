@@ -9,89 +9,89 @@ import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes.dex */
 public class s {
-    private RelativeLayout ckd;
-    private com.baidu.tbadk.editortools.pb.f eNH;
-    private PbFakeFloorModel eNI;
-    private String eNJ;
-    private NewWriteModel.d eNK;
+    private RelativeLayout cku;
+    private com.baidu.tbadk.editortools.pb.f eOb;
+    private PbFakeFloorModel eOc;
+    private String eOd;
+    private NewWriteModel.d eOe;
     private TbPageContext mPageContext;
 
     public s(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
         this.mPageContext = tbPageContext;
-        this.ckd = relativeLayout;
-        this.eNI = pbFakeFloorModel;
+        this.cku = relativeLayout;
+        this.eOc = pbFakeFloorModel;
     }
 
-    public void aSr() {
-        if (this.eNH != null) {
-            this.eNH.DG();
-            if (StringUtils.isNull(this.eNJ)) {
-                this.eNH.onDestory();
+    public void aSz() {
+        if (this.eOb != null) {
+            this.eOb.DS();
+            if (StringUtils.isNull(this.eOd)) {
+                this.eOb.onDestory();
             }
         }
     }
 
-    private void aSs() {
-        if (this.ckd != null && this.eNH == null) {
-            this.eNH = (com.baidu.tbadk.editortools.pb.f) new com.baidu.tbadk.editortools.pb.g().aW(this.mPageContext.getPageActivity());
-            this.eNH.a(this.mPageContext);
-            this.eNH.b(this.eNI);
-            this.eNH.CI().bw(true);
-            this.eNH.e(this.mPageContext);
-            aSt();
-            this.eNH.b(this.eNK);
+    private void aSA() {
+        if (this.cku != null && this.eOb == null) {
+            this.eOb = (com.baidu.tbadk.editortools.pb.f) new com.baidu.tbadk.editortools.pb.g().aW(this.mPageContext.getPageActivity());
+            this.eOb.a(this.mPageContext);
+            this.eOb.b(this.eOc);
+            this.eOb.CU().bx(true);
+            this.eOb.e(this.mPageContext);
+            aSB();
+            this.eOb.b(this.eOe);
         }
     }
 
-    public void bB(String str, String str2) {
-        this.eNJ = str2;
-        if (this.eNH == null) {
-            aSs();
+    public void bC(String str, String str2) {
+        this.eOd = str2;
+        if (this.eOb == null) {
+            aSA();
         } else {
-            this.eNH.b(this.eNI);
-            if (StringUtils.isNull(this.eNJ)) {
-                this.eNH.e(this.mPageContext);
+            this.eOb.b(this.eOc);
+            if (StringUtils.isNull(this.eOd)) {
+                this.eOb.e(this.mPageContext);
             }
         }
-        this.eNH.setReplyId(str);
-        this.eNH.gd(str2);
+        this.eOb.setReplyId(str);
+        this.eOb.ge(str2);
     }
 
-    private void aSt() {
-        if (this.ckd != null && this.eNH != null && this.eNH.CI() != null) {
+    private void aSB() {
+        if (this.cku != null && this.eOb != null && this.eOb.CU() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.ckd.addView(this.eNH.CI(), layoutParams);
+            this.cku.addView(this.eOb.CU(), layoutParams);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.eNH != null) {
-            this.eNH.onActivityResult(i, i2, intent);
+        if (this.eOb != null) {
+            this.eOb.onActivityResult(i, i2, intent);
         }
     }
 
     public void onStop() {
-        if (this.eNH != null) {
-            this.eNH.onStop();
+        if (this.eOb != null) {
+            this.eOb.onStop();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eNH != null && this.eNH.CI() != null) {
-            this.eNH.CI().onChangeSkinType(i);
+        if (this.eOb != null && this.eOb.CU() != null) {
+            this.eOb.CU().onChangeSkinType(i);
         }
     }
 
     public void a(NewWriteModel.d dVar) {
-        this.eNK = dVar;
-        if (this.eNH != null) {
-            this.eNH.b(dVar);
+        this.eOe = dVar;
+        if (this.eOb != null) {
+            this.eOb.b(dVar);
         }
     }
 
-    public com.baidu.tbadk.editortools.pb.f aSu() {
-        return this.eNH;
+    public com.baidu.tbadk.editortools.pb.f aSC() {
+        return this.eOb;
     }
 }

@@ -12,7 +12,7 @@ public class c {
     public String thumbnail;
     public int width;
 
-    public static c j(JSONObject jSONObject) {
+    public static c k(JSONObject jSONObject) {
         try {
             c cVar = new c();
             cVar.picId = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);

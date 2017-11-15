@@ -172,10 +172,10 @@ public class a extends com.baidu.adp.framework.a.d {
             httpMessage.addParam("stMode", String.valueOf(uY.mMode));
             httpMessage.addParam("stMethod", String.valueOf(uY.agj));
         }
-        int cI = aa.cI(0);
-        if (cI == 0 && uY != null) {
-            cI = uY.agl;
+        int cH = aa.cH(0);
+        if (cH == 0 && uY != null) {
+            cH = uY.agl;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(cI));
+        httpMessage.addParam("stErrorNums", String.valueOf(cH));
     }
 }

@@ -14,27 +14,27 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static c aIH = null;
+    private static c aIP = null;
 
     private c() {
     }
 
-    public static synchronized c FJ() {
+    public static synchronized c FU() {
         c cVar;
         synchronized (c.class) {
-            if (aIH == null) {
-                aIH = new c();
+            if (aIP == null) {
+                aIP = new c();
             }
-            cVar = aIH;
+            cVar = aIP;
         }
         return cVar;
     }
 
-    public boolean FK() {
-        return TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && FL();
+    public boolean FV() {
+        return TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && FW();
     }
 
-    public boolean FL() {
+    public boolean FW() {
         try {
             Class.forName("com.baidu.wallet.api.BaiduWallet");
             return true;
@@ -53,7 +53,7 @@ public class c {
     public void a(PayConfig payConfig, Context context) {
         if (payConfig == null || context == null) {
             showToast(d.j.plugin_pay_error);
-        } else if (!FK()) {
+        } else if (!FV()) {
             showToast(d.j.plugin_pay_wallet_not_found);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PayWalletActivityConfig(context, payConfig)));

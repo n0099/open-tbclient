@@ -11,8 +11,8 @@ import tbclient.Post;
 /* loaded from: classes.dex */
 public class n {
     public String forum_top_list;
-    public final List<PostData> eHj = new ArrayList();
-    public final List<Long> eHk = new ArrayList();
+    public final List<PostData> eHD = new ArrayList();
+    public final List<Long> eHE = new ArrayList();
     private int count = 0;
 
     public int getCount() {
@@ -27,19 +27,19 @@ public class n {
         if (pbTopAgreePost.post_list != null && pbTopAgreePost.post_list.size() > 0) {
             for (Post post : pbTopAgreePost.post_list) {
                 PostData postData = new PostData();
-                postData.gpR = SapiSafeFacade.SAPIWEBVIEW_BACK;
+                postData.gqU = SapiSafeFacade.SAPIWEBVIEW_BACK;
                 postData.a(post, context);
-                this.eHj.add(postData);
+                this.eHD.add(postData);
             }
         }
-        if (!v.v(this.eHj)) {
-            this.eHj.get(0).gpS = true;
-            setCount(this.eHj.size());
+        if (!v.v(this.eHD)) {
+            this.eHD.get(0).gqV = true;
+            setCount(this.eHD.size());
         }
         List<Long> list = pbTopAgreePost.post_id_list;
         if (list != null && list.size() > 0) {
             for (Long l : pbTopAgreePost.post_id_list) {
-                this.eHk.add(l);
+                this.eHE.add(l);
             }
         }
         this.forum_top_list = pbTopAgreePost.forum_top_list;

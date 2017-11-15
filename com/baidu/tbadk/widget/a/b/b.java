@@ -26,60 +26,60 @@ import java.util.List;
 public class b implements com.baidu.tbadk.widget.a.b.a {
     private static final String TAG = b.class.getSimpleName();
     private static final int TOUCH_SLOP = ViewConfiguration.get(TbadkCoreApplication.getInst()).getScaledTouchSlop();
-    private final View aOM;
-    private ScaleGestureDetector aON;
-    private BitmapRegionDecoder aOO;
-    private com.baidu.tbadk.widget.a.a.b aOP;
-    private com.baidu.tbadk.widget.a.c.a aOQ;
-    private float aOR;
-    private float aOS;
-    private int aOT;
-    private a aOU;
-    private com.baidu.tbadk.widget.a.c.c aOV;
-    private com.baidu.tbadk.widget.a.b.a aOY;
-    private ValueAnimator aOZ;
-    private View.OnLongClickListener axY;
+    private final View aOU;
+    private ScaleGestureDetector aOV;
+    private BitmapRegionDecoder aOW;
+    private com.baidu.tbadk.widget.a.a.b aOX;
+    private com.baidu.tbadk.widget.a.c.a aOY;
+    private float aOZ;
+    private float aPa;
+    private int aPb;
+    private a aPc;
+    private com.baidu.tbadk.widget.a.c.c aPd;
+    private com.baidu.tbadk.widget.a.b.a aPg;
+    private ValueAnimator aPh;
+    private View.OnLongClickListener ayg;
     private View.OnClickListener mClickListener;
     private final Context mContext;
     private GestureDetector mGestureDetector;
     private Bitmap mOriginalBitmap;
-    private float aMQ = 2.0f;
-    private float aMP = 1.0f;
-    private final Matrix aOW = new Matrix();
-    Bitmap aOX = null;
-    private boolean aPa = true;
-    private boolean aPb = false;
-    BdAsyncTask<String, String, String> aPc = new BdAsyncTask<String, String, String>() { // from class: com.baidu.tbadk.widget.a.b.b.2
+    private float aMY = 2.0f;
+    private float aMX = 1.0f;
+    private final Matrix aPe = new Matrix();
+    Bitmap aPf = null;
+    private boolean aPi = true;
+    private boolean aPj = false;
+    BdAsyncTask<String, String, String> aPk = new BdAsyncTask<String, String, String>() { // from class: com.baidu.tbadk.widget.a.b.b.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            if (b.this.aOP != null && b.this.aOO != null) {
-                int[] Ii = b.this.aOQ.Ii();
+            if (b.this.aOX != null && b.this.aOW != null) {
+                int[] It = b.this.aOY.It();
                 int i = 1;
-                while (Math.max(Ii[0] / b.this.aOP.HR(), Ii[1] / b.this.aOP.HS()) > Math.pow(2.0d, i)) {
+                while (Math.max(It[0] / b.this.aOX.Ic(), It[1] / b.this.aOX.Id()) > Math.pow(2.0d, i)) {
                     i++;
                 }
                 int pow = (int) Math.pow(2.0d, i);
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inSampleSize = pow;
-                Rect rect = new Rect(0, 0, Ii[0], Ii[1]);
+                Rect rect = new Rect(0, 0, It[0], It[1]);
                 try {
-                    b.this.aOX = b.this.aOO.decodeRegion(rect, options);
+                    b.this.aPf = b.this.aOW.decodeRegion(rect, options);
                 } catch (Throwable th) {
                     TbadkCoreApplication.getInst().onAppMemoryLow();
                     System.gc();
                     try {
-                        b.this.aOX = b.this.aOO.decodeRegion(rect, options);
+                        b.this.aPf = b.this.aOW.decodeRegion(rect, options);
                     } catch (Throwable th2) {
-                        b.this.aOX = null;
+                        b.this.aPf = null;
                     }
                 }
-                com.baidu.tbadk.imageManager.c.Eg().c("long_img_mThumb" + System.currentTimeMillis(), new com.baidu.adp.widget.a.a(b.this.aOX, false));
-                b.this.a(b.this.aOX, b.this.aOP, pow);
-                b.this.aOP.i(b.this.aOX);
-                b.this.If();
+                com.baidu.tbadk.imageManager.c.Es().c("long_img_mThumb" + System.currentTimeMillis(), new com.baidu.adp.widget.a.a(b.this.aPf, false));
+                b.this.a(b.this.aPf, b.this.aOX, pow);
+                b.this.aOX.i(b.this.aPf);
+                b.this.Iq();
             }
             return null;
         }
@@ -88,42 +88,42 @@ public class b implements com.baidu.tbadk.widget.a.b.a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            if (b.this.aOY != null) {
-                b.this.aOY.Bs();
+            if (b.this.aPg != null) {
+                b.this.aPg.BE();
             }
-            b.this.Id();
-            b.this.aOM.invalidate();
+            b.this.Io();
+            b.this.aOU.invalidate();
         }
     };
 
     public b(View view) {
-        this.aOT = 1;
-        this.aOM = view;
-        this.mContext = this.aOM.getContext();
+        this.aPb = 1;
+        this.aOU = view;
+        this.mContext = this.aOU.getContext();
         this.mGestureDetector = new GestureDetector(this.mContext, new C0067b());
-        this.aON = new ScaleGestureDetector(this.mContext, new c());
-        this.aOU = new a(this.mContext);
-        this.aOT = 0;
+        this.aOV = new ScaleGestureDetector(this.mContext, new c());
+        this.aPc = new a(this.mContext);
+        this.aPb = 0;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction() & CompatibleUtile.getActionMask();
-        if (this.aOT == 2 && HZ()) {
+        if (this.aPb == 2 && Ik()) {
             switch (action) {
                 case 0:
-                    if (!this.aOU.isFinished()) {
-                        this.aPb = true;
+                    if (!this.aPc.isFinished()) {
+                        this.aPj = true;
                     } else {
-                        this.aPb = false;
+                        this.aPj = false;
                     }
                 case 1:
                 case 3:
-                    Hj();
+                    Hu();
                     break;
             }
-            this.aOU.forceFinished(true);
-            this.aON.onTouchEvent(motionEvent);
-            if (this.aON.isInProgress()) {
+            this.aPc.forceFinished(true);
+            this.aOV.onTouchEvent(motionEvent);
+            if (this.aOV.isInProgress()) {
                 return true;
             }
             this.mGestureDetector.onTouchEvent(motionEvent);
@@ -132,57 +132,57 @@ public class b implements com.baidu.tbadk.widget.a.b.a {
         return false;
     }
 
-    public boolean HW() {
-        return Math.floor((double) (this.aMP * 10000.0f)) == Math.floor((double) (this.aOS * 10000.0f));
+    public boolean Ih() {
+        return Math.floor((double) (this.aMX * 10000.0f)) == Math.floor((double) (this.aPa * 10000.0f));
     }
 
-    public void Hj() {
-        if (this.aOS / this.aMP < 1.0f) {
-            a(this.aMP, 0.0f, 0.0f, 400);
+    public void Hu() {
+        if (this.aPa / this.aMX < 1.0f) {
+            a(this.aMX, 0.0f, 0.0f, 400);
         }
     }
 
-    public boolean HX() {
-        if (this.aOT == 1) {
+    public boolean Ii() {
+        if (this.aPb == 1) {
             return false;
         }
-        if (this.aOU.computeScrollOffset()) {
-            int currX = this.aOU.getCurrX();
-            this.aOU.fD(currX);
-            int currY = this.aOU.getCurrY();
-            this.aOU.fE(currY);
-            moveTo(-((currX - this.aOU.Ig()) * 2.0f), -((currY - this.aOU.Ih()) * 2.0f));
-            this.aOM.invalidate();
+        if (this.aPc.computeScrollOffset()) {
+            int currX = this.aPc.getCurrX();
+            this.aPc.fC(currX);
+            int currY = this.aPc.getCurrY();
+            this.aPc.fD(currY);
+            moveTo(-((currX - this.aPc.Ir()) * 2.0f), -((currY - this.aPc.Is()) * 2.0f));
+            this.aOU.invalidate();
             return true;
         }
         return true;
     }
 
     public void b(Bitmap bitmap, byte[] bArr) {
-        if (bArr != null && bArr.length != 0 && this.aOQ == null) {
+        if (bArr != null && bArr.length != 0 && this.aOY == null) {
             this.mOriginalBitmap = bitmap;
-            this.aOQ = new com.baidu.tbadk.widget.a.c.a(this.mContext);
+            this.aOY = new com.baidu.tbadk.widget.a.c.a(this.mContext);
             try {
-                this.aOO = this.aOQ.y(bArr);
+                this.aOW = this.aOY.y(bArr);
             } catch (Throwable th) {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 System.gc();
                 try {
-                    this.aOO = this.aOQ.y(bArr);
+                    this.aOW = this.aOY.y(bArr);
                 } catch (Throwable th2) {
                     th2.printStackTrace();
                 }
             }
-            this.aOT = 2;
-            HY();
+            this.aPb = 2;
+            Ij();
         }
     }
 
-    public void HY() {
-        if (this.aOT == 2 && this.aOQ != null && this.aPc.getStatus() == BdAsyncTask.BdAsyncTaskStatus.PENDING && this.aOP == null && this.aOM.getMeasuredWidth() > 0 && this.aOM.getMeasuredHeight() > 0 && this.aOQ.Ii()[0] > 0 && this.aOQ.Ii()[1] > 0) {
-            this.aOP = new com.baidu.tbadk.widget.a.a.b(this.aOM.getMeasuredWidth(), this.aOM.getMeasuredHeight(), this.aOQ.Ii());
-            this.aPc.setPriority(3);
-            this.aPc.execute(new String[0]);
+    public void Ij() {
+        if (this.aPb == 2 && this.aOY != null && this.aPk.getStatus() == BdAsyncTask.BdAsyncTaskStatus.PENDING && this.aOX == null && this.aOU.getMeasuredWidth() > 0 && this.aOU.getMeasuredHeight() > 0 && this.aOY.It()[0] > 0 && this.aOY.It()[1] > 0) {
+            this.aOX = new com.baidu.tbadk.widget.a.a.b(this.aOU.getMeasuredWidth(), this.aOU.getMeasuredHeight(), this.aOY.It());
+            this.aPk.setPriority(3);
+            this.aPk.execute(new String[0]);
         }
     }
 
@@ -191,17 +191,17 @@ public class b implements com.baidu.tbadk.widget.a.b.a {
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.axY = onLongClickListener;
+        this.ayg = onLongClickListener;
     }
 
     public boolean b(Canvas canvas, Bitmap bitmap) {
         float f;
-        if (bitmap != null && !bitmap.isRecycled() && !HZ()) {
+        if (bitmap != null && !bitmap.isRecycled() && !Ik()) {
             Matrix matrix = new Matrix();
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
-            int width2 = (this.aOM.getWidth() - this.aOM.getPaddingLeft()) - this.aOM.getPaddingRight();
-            int height2 = (this.aOM.getHeight() - this.aOM.getPaddingTop()) - this.aOM.getPaddingBottom();
+            int width2 = (this.aOU.getWidth() - this.aOU.getPaddingLeft()) - this.aOU.getPaddingRight();
+            int height2 = (this.aOU.getHeight() - this.aOU.getPaddingTop()) - this.aOU.getPaddingBottom();
             if (width * height2 > width2 * height) {
                 f = height2 / height;
             } else {
@@ -215,26 +215,26 @@ public class b implements com.baidu.tbadk.widget.a.b.a {
         return g(canvas);
     }
 
-    private boolean HZ() {
-        return (this.aOP == null || this.aOP.HV() == null || this.aOP.HV().getBitmap() == null || this.aOP.HV().getBitmap().isRecycled()) ? false : true;
+    private boolean Ik() {
+        return (this.aOX == null || this.aOX.Ig() == null || this.aOX.Ig().getBitmap() == null || this.aOX.Ig().getBitmap().isRecycled()) ? false : true;
     }
 
     protected boolean g(Canvas canvas) {
-        if (this.aOT != 1 || this.mOriginalBitmap == null) {
-            if (this.aOP != null) {
-                this.aOP.HQ();
-                if (HZ()) {
-                    canvas.drawBitmap(this.aOP.HV().getBitmap(), this.aOW, null);
+        if (this.aPb != 1 || this.mOriginalBitmap == null) {
+            if (this.aOX != null) {
+                this.aOX.Ib();
+                if (Ik()) {
+                    canvas.drawBitmap(this.aOX.Ig().getBitmap(), this.aPe, null);
                 }
-                a(this.aOP, false);
-                Ic();
+                a(this.aOX, false);
+                In();
                 canvas.save();
-                float HM = (1.0f * this.aOP.HM()) / this.aOP.HU();
-                canvas.scale(HM, HM);
-                List<com.baidu.tbadk.widget.a.a.a> HT = this.aOP.HT();
-                if (HT != null) {
-                    for (com.baidu.tbadk.widget.a.a.a aVar : HT) {
-                        canvas.drawBitmap(aVar.getBitmap(), aVar.HI(), aVar.HJ(), (Paint) null);
+                float HX = (1.0f * this.aOX.HX()) / this.aOX.If();
+                canvas.scale(HX, HX);
+                List<com.baidu.tbadk.widget.a.a.a> Ie = this.aOX.Ie();
+                if (Ie != null) {
+                    for (com.baidu.tbadk.widget.a.a.a aVar : Ie) {
+                        canvas.drawBitmap(aVar.getBitmap(), aVar.HT(), aVar.HU(), (Paint) null);
                     }
                 }
                 canvas.restore();
@@ -244,61 +244,61 @@ public class b implements com.baidu.tbadk.widget.a.b.a {
         return false;
     }
 
-    public float Ia() {
-        return this.aMP;
+    public float Il() {
+        return this.aMX;
     }
 
     public float getMinScaleValue() {
-        if (this.aMP < 1.0f) {
-            return this.aMP;
+        if (this.aMX < 1.0f) {
+            return this.aMX;
         }
         return 1.0f;
     }
 
-    public float Ib() {
-        return 2.0f * this.aMP;
+    public float Im() {
+        return 2.0f * this.aMX;
     }
 
     public void release() {
-        if (this.aOZ != null) {
-            this.aOZ.cancel();
+        if (this.aPh != null) {
+            this.aPh.cancel();
         }
-        if (this.aPc != null) {
-            this.aPc.cancel();
+        if (this.aPk != null) {
+            this.aPk.cancel();
         }
-        if (this.aOV != null) {
-            this.aOV.onDestory();
+        if (this.aPd != null) {
+            this.aPd.onDestory();
         }
-        if (this.aOP != null && this.aOP.HT() != null) {
-            this.aOP.HT().clear();
+        if (this.aOX != null && this.aOX.Ie() != null) {
+            this.aOX.Ie().clear();
         }
-        if (this.aOX != null) {
-            this.aOX.recycle();
-            this.aOX = null;
+        if (this.aPf != null) {
+            this.aPf.recycle();
+            this.aPf = null;
         }
-        if (this.aOO != null) {
-            this.aOO.recycle();
+        if (this.aOW != null) {
+            this.aOW.recycle();
         }
     }
 
-    private void Ic() {
-        List<com.baidu.tbadk.widget.a.a.a> HT = this.aOP.HT();
-        if (HT != null) {
-            for (com.baidu.tbadk.widget.a.a.a aVar : HT) {
-                a(aVar, this.aOP);
+    private void In() {
+        List<com.baidu.tbadk.widget.a.a.a> Ie = this.aOX.Ie();
+        if (Ie != null) {
+            for (com.baidu.tbadk.widget.a.a.a aVar : Ie) {
+                a(aVar, this.aOX);
             }
         }
     }
 
     public void a(com.baidu.tbadk.widget.a.b.a aVar) {
-        this.aOY = aVar;
+        this.aPg = aVar;
     }
 
     public void a(com.baidu.tbadk.widget.a.a.a aVar, com.baidu.tbadk.widget.a.a.b bVar) {
-        if (aVar.HK().DM() == 0 && aVar.HK().getRow() == 1) {
+        if (aVar.HV().DY() == 0 && aVar.HV().getRow() == 1) {
             System.currentTimeMillis();
         }
-        a(aVar, bVar.a(aVar), bVar.HQ());
+        a(aVar, bVar.a(aVar), bVar.Ib());
     }
 
     private void a(com.baidu.tbadk.widget.a.a.a aVar, Rect rect, Rect rect2) {
@@ -306,21 +306,21 @@ public class b implements com.baidu.tbadk.widget.a.b.a {
         int i2 = rect.right < rect2.right ? rect.right : rect2.right;
         int i3 = rect.top > rect2.top ? rect.top : rect2.top;
         int i4 = rect.bottom < rect2.bottom ? rect.bottom : rect2.bottom;
-        int HM = aVar.HK().HM();
-        aVar.k((i - rect.left) / HM, (i3 - rect.top) / HM, (i2 - rect.left) / HM, (i4 - rect.top) / HM);
-        aVar.j((i - rect2.left) / HM, (i3 - rect2.top) / HM, (i2 - rect2.left) / HM, (i4 - rect2.top) / HM);
+        int HX = aVar.HV().HX();
+        aVar.k((i - rect.left) / HX, (i3 - rect.top) / HX, (i2 - rect.left) / HX, (i4 - rect.top) / HX);
+        aVar.j((i - rect2.left) / HX, (i3 - rect2.top) / HX, (i2 - rect2.left) / HX, (i4 - rect2.top) / HX);
     }
 
     private void a(com.baidu.tbadk.widget.a.a.b bVar, boolean z) {
-        a(bVar.HO(), bVar.HM(), z);
+        a(bVar.HZ(), bVar.HX(), z);
     }
 
     private void a(Point[] pointArr, int i, boolean z) {
         int i2;
         boolean z2;
         List<com.baidu.tbadk.widget.a.a.a> list;
-        if (this.aOV == null) {
-            this.aOV = new com.baidu.tbadk.widget.a.c.c(this.aOP, this.aOO);
+        if (this.aPd == null) {
+            this.aPd = new com.baidu.tbadk.widget.a.c.c(this.aOX, this.aOW);
         }
         int i3 = pointArr[0].y;
         int i4 = pointArr[0].x;
@@ -331,11 +331,11 @@ public class b implements com.baidu.tbadk.widget.a.b.a {
             z2 = true;
             list = null;
         } else {
-            List<com.baidu.tbadk.widget.a.a.a> HT = this.aOP.HT();
-            HT.clear();
+            List<com.baidu.tbadk.widget.a.a.a> Ie = this.aOX.Ie();
+            Ie.clear();
             i2 = i3;
             z2 = true;
-            list = HT;
+            list = Ie;
         }
         while (i2 < i5) {
             for (int i7 = i4; i7 < i6; i7++) {
@@ -354,28 +354,28 @@ public class b implements com.baidu.tbadk.widget.a.b.a {
             i2++;
         }
         if (z2) {
-            this.aOV.Ik();
+            this.aPd.Iv();
         }
     }
 
-    public void Id() {
-        if (this.aOT != 1) {
-            a(this.aOP, true);
+    public void Io() {
+        if (this.aPb != 1) {
+            a(this.aOX, true);
         }
     }
 
     private void r(int i, int i2, int i3) {
         c.a aVar = new c.a(i, i2, i3);
         aVar.b(this);
-        this.aOV.a(aVar);
+        this.aPd.a(aVar);
     }
 
     private com.baidu.tbadk.widget.a.a.a s(int i, int i2, int i3) {
         com.baidu.tbadk.widget.a.a.a aVar;
         a.C0066a c0066a = new a.C0066a(i, i2, i3);
-        if (this.aOV.Il() != null && (aVar = this.aOV.Il().get(c0066a)) != null) {
+        if (this.aPd.Iw() != null && (aVar = this.aPd.Iw().get(c0066a)) != null) {
             if (aVar.getBitmap() == null || aVar.getBitmap().isRecycled()) {
-                this.aOV.Il().remove(c0066a);
+                this.aPd.Iw().remove(c0066a);
                 return null;
             }
             return aVar;
@@ -384,8 +384,8 @@ public class b implements com.baidu.tbadk.widget.a.b.a {
     }
 
     @Override // com.baidu.tbadk.widget.a.b.a
-    public void Bs() {
-        this.aOM.postInvalidate();
+    public void BE() {
+        this.aOU.postInvalidate();
     }
 
     /* renamed from: com.baidu.tbadk.widget.a.b.b$b  reason: collision with other inner class name */
@@ -398,50 +398,50 @@ public class b implements com.baidu.tbadk.widget.a.b.a {
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             b.this.moveTo((int) f, (int) f2);
             if (Math.abs(f2) > b.TOUCH_SLOP) {
-                b.this.aPb = true;
+                b.this.aPj = true;
             }
             return true;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
         public boolean onDoubleTap(MotionEvent motionEvent) {
-            b.this.a(b.this.aOS == b.this.aMQ ? b.this.aMP : b.this.aMQ, motionEvent.getX(), motionEvent.getY(), 400);
+            b.this.a(b.this.aPa == b.this.aMY ? b.this.aMX : b.this.aMY, motionEvent.getX(), motionEvent.getY(), 400);
             return true;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            Rect HQ = b.this.aOP.HQ();
-            Rect HN = b.this.aOP.HN();
-            float f3 = HQ.right - HN.right;
-            float f4 = HQ.left - HN.left;
-            float f5 = HQ.bottom - HN.bottom;
-            float f6 = HQ.top - HN.top;
-            b.this.aOU.forceFinished(true);
-            b.this.aOU.fling((int) 0.0f, (int) 0.0f, (int) f, (int) f2, (int) f3, (int) f4, (int) f5, (int) f6);
-            b.this.aOM.invalidate();
+            Rect Ib = b.this.aOX.Ib();
+            Rect HY = b.this.aOX.HY();
+            float f3 = Ib.right - HY.right;
+            float f4 = Ib.left - HY.left;
+            float f5 = Ib.bottom - HY.bottom;
+            float f6 = Ib.top - HY.top;
+            b.this.aPc.forceFinished(true);
+            b.this.aPc.fling((int) 0.0f, (int) 0.0f, (int) f, (int) f2, (int) f3, (int) f4, (int) f5, (int) f6);
+            b.this.aOU.invalidate();
             if (Math.abs(f2) > b.TOUCH_SLOP) {
-                b.this.aPb = true;
+                b.this.aPj = true;
             }
             return true;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public void onLongPress(MotionEvent motionEvent) {
-            if (b.this.aPb || b.this.axY == null) {
-                b.this.aPb = false;
+            if (b.this.aPj || b.this.ayg == null) {
+                b.this.aPj = false;
             } else {
-                b.this.axY.onLongClick(b.this.aOM);
+                b.this.ayg.onLongClick(b.this.aOU);
             }
             super.onLongPress(motionEvent);
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
         public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-            if (b.this.aPb || b.this.mClickListener == null) {
-                b.this.aPb = false;
+            if (b.this.aPj || b.this.mClickListener == null) {
+                b.this.aPj = false;
             } else {
-                b.this.mClickListener.onClick(b.this.aOM);
+                b.this.mClickListener.onClick(b.this.aOU);
             }
             return super.onSingleTapConfirmed(motionEvent);
         }
@@ -449,20 +449,20 @@ public class b implements com.baidu.tbadk.widget.a.b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float f, final float f2, final float f3, int i) {
-        if (this.aOZ != null) {
-            this.aOZ.cancel();
+        if (this.aPh != null) {
+            this.aPh.cancel();
         }
-        this.aOZ = ValueAnimator.ofFloat(this.aOS, f);
-        this.aOZ.setDuration(i);
-        this.aOZ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.a.b.b.1
+        this.aPh = ValueAnimator.ofFloat(this.aPa, f);
+        this.aPh.setDuration(i);
+        this.aPh.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.a.b.b.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator != null && (valueAnimator.getAnimatedValue() instanceof Float)) {
-                    b.this.b(((Float) valueAnimator.getAnimatedValue()).floatValue() / b.this.aOS, f2, f3);
+                    b.this.b(((Float) valueAnimator.getAnimatedValue()).floatValue() / b.this.aPa, f2, f3);
                 }
             }
         });
-        this.aOZ.start();
+        this.aPh.start();
     }
 
     /* loaded from: classes.dex */
@@ -478,134 +478,134 @@ public class b implements com.baidu.tbadk.widget.a.b.a {
     }
 
     public void b(float f, float f2, float f3) {
-        if (this.aOS * f < this.aOR) {
-            f = this.aOR / this.aOS;
+        if (this.aPa * f < this.aOZ) {
+            f = this.aOZ / this.aPa;
         }
-        if (this.aOS * f > this.aMQ) {
-            f = this.aMQ / this.aOS;
+        if (this.aPa * f > this.aMY) {
+            f = this.aMY / this.aPa;
         }
-        Rect HQ = this.aOP.HQ();
-        float f4 = ((HQ.left + HQ.right) * 1.0f) / 2.0f;
-        float f5 = ((HQ.bottom + HQ.top) * 1.0f) / 2.0f;
-        if (this.aOP != null) {
-            this.aOW.postScale(f, f, this.aOP.HR() / 2, this.aOP.HS() / 2);
-            this.aOP.a(1.0f / f, f4, f5);
-            this.aOS *= f;
-            this.aOP.F(1.0f / this.aOS);
-            float[] Ie = Ie();
-            this.aOW.postTranslate(-Ie[0], -Ie[1]);
-            this.aOP.f((Ie[0] * 1.0f) / this.aOS, (Ie[1] * 1.0f) / this.aOS);
-            Id();
-            this.aOM.invalidate();
+        Rect Ib = this.aOX.Ib();
+        float f4 = ((Ib.left + Ib.right) * 1.0f) / 2.0f;
+        float f5 = ((Ib.bottom + Ib.top) * 1.0f) / 2.0f;
+        if (this.aOX != null) {
+            this.aPe.postScale(f, f, this.aOX.Ic() / 2, this.aOX.Id() / 2);
+            this.aOX.a(1.0f / f, f4, f5);
+            this.aPa *= f;
+            this.aOX.F(1.0f / this.aPa);
+            float[] Ip = Ip();
+            this.aPe.postTranslate(-Ip[0], -Ip[1]);
+            this.aOX.f((Ip[0] * 1.0f) / this.aPa, (Ip[1] * 1.0f) / this.aPa);
+            Io();
+            this.aOU.invalidate();
         }
     }
 
-    public boolean Hi() {
-        Rect HQ;
-        return (this.aOP == null || (HQ = this.aOP.HQ()) == null || HQ.top > 10) ? false : true;
+    public boolean Ht() {
+        Rect Ib;
+        return (this.aOX == null || (Ib = this.aOX.Ib()) == null || Ib.top > 10) ? false : true;
     }
 
-    private float[] Ie() {
-        Rect HQ = this.aOP.HQ();
-        int[] Ii = this.aOQ.Ii();
-        float[] fArr = {(Ii[0] / 2) - (((HQ.left + HQ.right) * 1.0f) / 2.0f)};
-        if (HQ.top < 0) {
-            fArr[1] = 0 - HQ.top;
+    private float[] Ip() {
+        Rect Ib = this.aOX.Ib();
+        int[] It = this.aOY.It();
+        float[] fArr = {(It[0] / 2) - (((Ib.left + Ib.right) * 1.0f) / 2.0f)};
+        if (Ib.top < 0) {
+            fArr[1] = 0 - Ib.top;
         }
-        if (HQ.bottom > Ii[1]) {
-            fArr[1] = Ii[1] - HQ.bottom;
+        if (Ib.bottom > It[1]) {
+            fArr[1] = It[1] - Ib.bottom;
         }
-        if (HQ.bottom - HQ.top > Ii[1]) {
-            fArr[1] = (Ii[1] / 2) - (((HQ.bottom + HQ.top) * 1.0f) / 2.0f);
+        if (Ib.bottom - Ib.top > It[1]) {
+            fArr[1] = (It[1] / 2) - (((Ib.bottom + Ib.top) * 1.0f) / 2.0f);
         }
-        fArr[0] = fArr[0] * this.aOS;
-        fArr[1] = fArr[1] * this.aOS;
+        fArr[0] = fArr[0] * this.aPa;
+        fArr[1] = fArr[1] * this.aPa;
         return fArr;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void moveTo(float f, float f2) {
-        if (this.aOP != null) {
+        if (this.aOX != null) {
             float[] g = g(f, f2);
-            this.aOW.postTranslate(-g[0], -g[1]);
-            this.aOP.f((g[0] * 1.0f) / this.aOS, (g[1] * 1.0f) / this.aOS);
-            Id();
-            this.aOM.invalidate();
+            this.aPe.postTranslate(-g[0], -g[1]);
+            this.aOX.f((g[0] * 1.0f) / this.aPa, (g[1] * 1.0f) / this.aPa);
+            Io();
+            this.aOU.invalidate();
         }
     }
 
     private float[] g(float f, float f2) {
         float[] fArr = new float[2];
-        Rect HQ = this.aOP.HQ();
-        int[] Ii = this.aOQ.Ii();
-        if (HQ.top + f2 < 0.0f) {
+        Rect Ib = this.aOX.Ib();
+        int[] It = this.aOY.It();
+        if (Ib.top + f2 < 0.0f) {
             f2 = 0.0f;
         }
-        if (HQ.bottom + f2 > Ii[1]) {
-            f2 = (Ii[1] - HQ.bottom) * this.aOS;
+        if (Ib.bottom + f2 > It[1]) {
+            f2 = (It[1] - Ib.bottom) * this.aPa;
         }
-        if (HQ.bottom - HQ.top > Ii[1]) {
+        if (Ib.bottom - Ib.top > It[1]) {
             f2 = 0.0f;
         }
         fArr[0] = 0.0f;
         fArr[1] = f2;
-        this.aPa = f2 == 0.0f;
+        this.aPi = f2 == 0.0f;
         return fArr;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void If() {
-        if (this.aOP != null) {
-            this.aOP.G(1.0f / this.aMP);
+    public void Iq() {
+        if (this.aOX != null) {
+            this.aOX.G(1.0f / this.aMX);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Bitmap bitmap, com.baidu.tbadk.widget.a.a.b bVar, int i) {
-        float max = Math.max((bVar.HR() * 1.0f) / bitmap.getWidth(), (bVar.HS() * 1.0f) / bitmap.getHeight());
-        this.aOW.postScale(max, max);
-        this.aOR = max * (1.0f / i);
-        this.aMP = this.aOR;
-        this.aOS = this.aMP;
-        this.aMQ = 2.0f * this.aOS;
-        float HR = (bVar.HR() * 1.0f) / this.aOO.getWidth();
-        if (HR > 1.0f) {
-            this.aOR /= HR;
+        float max = Math.max((bVar.Ic() * 1.0f) / bitmap.getWidth(), (bVar.Id() * 1.0f) / bitmap.getHeight());
+        this.aPe.postScale(max, max);
+        this.aOZ = max * (1.0f / i);
+        this.aMX = this.aOZ;
+        this.aPa = this.aMX;
+        this.aMY = 2.0f * this.aPa;
+        float Ic = (bVar.Ic() * 1.0f) / this.aOW.getWidth();
+        if (Ic > 1.0f) {
+            this.aOZ /= Ic;
         }
-        bVar.F(1.0f / this.aOS);
+        bVar.F(1.0f / this.aPa);
     }
 
     /* loaded from: classes.dex */
     private class a extends Scroller {
-        int aPg;
-        int aPh;
+        int aPo;
+        int aPp;
 
         public a(Context context) {
             super(context);
-            this.aPg = 0;
-            this.aPh = 0;
+            this.aPo = 0;
+            this.aPp = 0;
+        }
+
+        public void fC(int i) {
+            this.aPo = i;
         }
 
         public void fD(int i) {
-            this.aPg = i;
+            this.aPp = i;
         }
 
-        public void fE(int i) {
-            this.aPh = i;
+        public int Ir() {
+            return this.aPo;
         }
 
-        public int Ig() {
-            return this.aPg;
-        }
-
-        public int Ih() {
-            return this.aPh;
+        public int Is() {
+            return this.aPp;
         }
 
         @Override // android.widget.Scroller
         public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-            this.aPg = 0;
-            this.aPh = 0;
+            this.aPo = 0;
+            this.aPp = 0;
             super.fling(i, i2, i3, i4, i5, i6, i7, i8);
         }
     }

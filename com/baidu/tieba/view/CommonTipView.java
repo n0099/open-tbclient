@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
-    private a gLU;
+    private a gNc;
     private int mDuration;
     private Runnable mHideTipRunnable;
     private TranslateAnimation mTipInAnimation;
@@ -53,8 +53,8 @@ public class CommonTipView extends TextView {
                 if (viewGroup != null) {
                     viewGroup.removeView(CommonTipView.this);
                 }
-                if (CommonTipView.this.gLU != null) {
-                    CommonTipView.this.gLU.onTipCompleted();
+                if (CommonTipView.this.gNc != null) {
+                    CommonTipView.this.gNc.onTipCompleted();
                 }
             }
 

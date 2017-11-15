@@ -19,14 +19,14 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> implements v, com.baidu.tieba.frs.e.c {
-    private x cEb;
+    private x cEu;
     private String mForumName;
 
     public static void bh(long j) {
-        if (j > 0 && cPd != null && !TextUtils.isEmpty(cPd.cOV)) {
+        if (j > 0 && cPx != null && !TextUtils.isEmpty(cPx.cPp)) {
             ak akVar = new ak("c11958");
             akVar.f("tid", j);
-            akVar.ac(ImageViewerConfig.FORUM_ID, cPd.cOV);
+            akVar.ac(ImageViewerConfig.FORUM_ID, cPx.cPp);
             TiebaStatic.log(akVar);
         }
     }
@@ -34,7 +34,7 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cEb = new x<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
+        this.cEu = new x<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, CardHListViewData cardHListViewData, Object obj) {
@@ -69,11 +69,11 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
     @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardHListViewData cardHListViewData, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.aax() == null) {
+        if (aVar == null || aVar.aaJ() == null) {
             return null;
         }
-        aVar.aax().a((com.baidu.tieba.card.a) cardHListViewData);
-        aVar.aax().b(this.cEb);
+        aVar.aaJ().a((com.baidu.tieba.card.a) cardHListViewData);
+        aVar.aaJ().b(this.cEu);
         return aVar.getView();
     }
 

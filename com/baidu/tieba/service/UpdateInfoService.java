@@ -19,12 +19,12 @@ public class UpdateInfoService extends BdBaseService {
                     if (address != null) {
                         float longitude = (float) address.getLongitude();
                         float latitude = (float) address.getLatitude();
-                        com.baidu.tieba.recapp.e.a.bjF().mi(String.valueOf(longitude));
-                        com.baidu.tieba.recapp.e.a.bjF().mj(String.valueOf(latitude));
-                        com.baidu.tieba.recapp.e.a.bjF().cA(System.currentTimeMillis());
-                        if (UpdateInfoService.this.mModel.aMO() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                        com.baidu.tieba.recapp.e.a.bjQ().mk(String.valueOf(longitude));
+                        com.baidu.tieba.recapp.e.a.bjQ().ml(String.valueOf(latitude));
+                        com.baidu.tieba.recapp.e.a.bjQ().cC(System.currentTimeMillis());
+                        if (UpdateInfoService.this.mModel.aMS() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                             UpdateInfoService.this.mModel.b(1, longitude, latitude);
-                            UpdateInfoService.this.mModel.aMP();
+                            UpdateInfoService.this.mModel.aMT();
                             return;
                         }
                         return;
@@ -49,11 +49,11 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new ReportUserInfoModel(null);
-        this.mModel.aMQ();
+        this.mModel.aMU();
         this.mModel.ch(540000L);
         this.mModel.a(new ReportUserInfoModel.a() { // from class: com.baidu.tieba.service.UpdateInfoService.1
             @Override // com.baidu.tieba.model.ReportUserInfoModel.a
-            public void oZ(int i) {
+            public void pa(int i) {
                 BdLog.i("location_success");
                 BdLog.e("location_success next time=" + i);
                 if (i <= 0) {
@@ -75,7 +75,7 @@ public class UpdateInfoService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.mModel.aMO()) {
+        if (this.mModel.aMS()) {
             findLocationFromLocal();
         }
     }

@@ -28,15 +28,15 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f extends BaseAdapter implements c {
-    private h cRB;
-    public boolean cTs;
-    private i cTt;
-    private com.baidu.tieba.frs.f cyR;
+    private h cRV;
+    public boolean cTM;
+    private i cTN;
+    private com.baidu.tieba.frs.f czk;
     private Context mContext;
     private List<com.baidu.adp.widget.ListView.f> mData;
-    private boolean cTr = false;
-    protected HashSet<String> cSJ = new HashSet<>();
-    protected final View.OnClickListener cSQ = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.f.1
+    private boolean cTL = false;
+    protected HashSet<String> cTd = new HashSet<>();
+    protected final View.OnClickListener cTk = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.f.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.tieba.tbadkCore.e eVar;
@@ -47,8 +47,8 @@ public class f extends BaseAdapter implements c {
                     } else {
                         if (view.getTag() instanceof a) {
                             a aVar = (a) view.getTag();
-                            if (aVar.cTy != null && (aVar.cTy.getTag() instanceof com.baidu.tieba.tbadkCore.e)) {
-                                eVar = (com.baidu.tieba.tbadkCore.e) aVar.cTy.getTag();
+                            if (aVar.cTS != null && (aVar.cTS.getTag() instanceof com.baidu.tieba.tbadkCore.e)) {
+                                eVar = (com.baidu.tieba.tbadkCore.e) aVar.cTS.getTag();
                             }
                         }
                         eVar = null;
@@ -59,47 +59,47 @@ public class f extends BaseAdapter implements c {
                             l.showToast(f.this.mContext, d.j.book_plugin_not_install_tip);
                             return;
                         }
-                        av.vI().c(f.this.cyR.xH(), new String[]{url});
-                        a.C0126a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", eVar.bso(), f.this.cyR.getForumId(), f.this.cyR.getForumName(), null);
-                        b.ca("obj_url", eVar.getUrl());
+                        av.vI().c(f.this.czk.xP(), new String[]{url});
+                        a.C0129a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", eVar.bsz(), f.this.czk.getForumId(), f.this.czk.getForumName(), null);
+                        b.ce("obj_url", eVar.getUrl());
                         b.save();
                     }
                 }
             }
         }
     };
-    private View.OnClickListener bwG = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.f.2
+    private View.OnClickListener bwS = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.f.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             a aVar;
             bh bhVar;
             view.setPressed(false);
-            if (f.this.cRB != null && (view.getTag() instanceof a) && (aVar = (a) view.getTag()) != null) {
+            if (f.this.cRV != null && (view.getTag() instanceof a) && (aVar = (a) view.getTag()) != null) {
                 com.baidu.adp.widget.ListView.f fVar = (com.baidu.adp.widget.ListView.f) v.c(f.this.mData, aVar.position);
                 if ((fVar instanceof bh) && (bhVar = (bh) fVar) != null) {
                     com.baidu.tieba.tbadkCore.util.e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                     if (readThreadHistory != null) {
-                        readThreadHistory.sF(bhVar.getId());
-                        aj.i(aVar.cTy, d.C0080d.cp_cont_c);
+                        readThreadHistory.sL(bhVar.getId());
+                        aj.i(aVar.cTS, d.C0080d.cp_cont_c);
                     }
-                    f.this.cRB.a(view, bhVar, BdUniqueId.gen(), null, f.this.cTs ? aVar.position + 1 : aVar.position, 0L);
+                    f.this.cRV.a(view, bhVar, BdUniqueId.gen(), null, f.this.cTM ? aVar.position + 1 : aVar.position, 0L);
                 }
             }
         }
     };
-    private View.OnLongClickListener cTu = new View.OnLongClickListener() { // from class: com.baidu.tieba.frs.view.f.3
+    private View.OnLongClickListener cTO = new View.OnLongClickListener() { // from class: com.baidu.tieba.frs.view.f.3
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            if (f.this.cTt == null || !(view.getTag() instanceof a)) {
+            if (f.this.cTN == null || !(view.getTag() instanceof a)) {
                 return false;
             }
             a aVar = (a) view.getTag();
-            return f.this.cTt.b(view, (com.baidu.adp.widget.ListView.f) v.c(f.this.mData, aVar.position), BdUniqueId.gen(), null, aVar.position, 0L);
+            return f.this.cTN.b(view, (com.baidu.adp.widget.ListView.f) v.c(f.this.mData, aVar.position), BdUniqueId.gen(), null, aVar.position, 0L);
         }
     };
 
     public f(com.baidu.tieba.frs.f fVar) {
-        this.cyR = fVar;
+        this.czk = fVar;
         this.mContext = fVar.getPageContext().getPageActivity();
     }
 
@@ -124,10 +124,10 @@ public class f extends BaseAdapter implements c {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(this.mContext).inflate(d.h.frs_header_top_item, (ViewGroup) null);
-            aVar.cTw = view;
-            aVar.cTx = (TextView) view.findViewById(d.g.top_item_type);
-            aVar.cTy = (TextView) view.findViewById(d.g.top_item_title);
-            aVar.cTz = (TextView) view.findViewById(d.g.top_item_rank);
+            aVar.cTQ = view;
+            aVar.cTR = (TextView) view.findViewById(d.g.top_item_type);
+            aVar.cTS = (TextView) view.findViewById(d.g.top_item_title);
+            aVar.cTT = (TextView) view.findViewById(d.g.top_item_rank);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -139,7 +139,7 @@ public class f extends BaseAdapter implements c {
                 a(aVar, bhVar, i);
             }
             aVar.position = i;
-            com.baidu.tieba.frs.e.b.aoe().a(cPd, bhVar);
+            com.baidu.tieba.frs.e.b.aot().a(cPx, bhVar);
         } else if (fVar instanceof com.baidu.tieba.tbadkCore.e) {
             a(aVar, (com.baidu.tieba.tbadkCore.e) fVar);
         }
@@ -148,34 +148,34 @@ public class f extends BaseAdapter implements c {
 
     private void a(a aVar, boolean z) {
         if (aVar != null) {
-            aj.i(aVar.cTx, d.C0080d.cp_link_tip_c);
+            aj.i(aVar.cTR, d.C0080d.cp_link_tip_c);
             if (z) {
-                aj.i(aVar.cTy, d.C0080d.cp_cont_c);
+                aj.i(aVar.cTS, d.C0080d.cp_cont_c);
             } else {
-                aj.i(aVar.cTy, d.C0080d.cp_cont_b);
+                aj.i(aVar.cTS, d.C0080d.cp_cont_b);
             }
-            aj.j(aVar.cTw, d.f.home_thread_card_item_bg);
+            aj.j(aVar.cTQ, d.f.home_thread_card_item_bg);
         }
     }
 
     public void c(h hVar) {
-        this.cRB = hVar;
+        this.cRV = hVar;
     }
 
     public void setData(List<com.baidu.adp.widget.ListView.f> list) {
         this.mData = list;
     }
 
-    public void fj(boolean z) {
-        this.cTr = z;
+    public void fp(boolean z) {
+        this.cTL = z;
     }
 
     /* loaded from: classes.dex */
     public class a {
-        View cTw;
-        TextView cTx;
-        TextView cTy;
-        TextView cTz;
+        View cTQ;
+        TextView cTR;
+        TextView cTS;
+        TextView cTT;
         int position;
 
         public a() {
@@ -185,9 +185,9 @@ public class f extends BaseAdapter implements c {
     public View R(bh bhVar) {
         a aVar = new a();
         View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_header_top_item, (ViewGroup) null);
-        aVar.cTw = inflate;
-        aVar.cTx = (TextView) inflate.findViewById(d.g.top_item_type);
-        aVar.cTy = (TextView) inflate.findViewById(d.g.top_item_title);
+        aVar.cTQ = inflate;
+        aVar.cTR = (TextView) inflate.findViewById(d.g.top_item_type);
+        aVar.cTS = (TextView) inflate.findViewById(d.g.top_item_title);
         a(aVar, bhVar, 0);
         inflate.setTag(aVar);
         return inflate;
@@ -196,10 +196,10 @@ public class f extends BaseAdapter implements c {
     public View a(com.baidu.tieba.tbadkCore.e eVar) {
         a aVar = new a();
         View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_header_top_item, (ViewGroup) null);
-        aVar.cTw = inflate;
-        aVar.cTx = (TextView) inflate.findViewById(d.g.top_item_type);
-        aVar.cTy = (TextView) inflate.findViewById(d.g.top_item_title);
-        aVar.cTz = (TextView) inflate.findViewById(d.g.top_item_rank);
+        aVar.cTQ = inflate;
+        aVar.cTR = (TextView) inflate.findViewById(d.g.top_item_type);
+        aVar.cTS = (TextView) inflate.findViewById(d.g.top_item_title);
+        aVar.cTT = (TextView) inflate.findViewById(d.g.top_item_rank);
         a(aVar, eVar);
         inflate.setTag(eVar);
         return inflate;
@@ -207,48 +207,48 @@ public class f extends BaseAdapter implements c {
 
     private void a(a aVar, bh bhVar, int i) {
         if (aVar != null && bhVar != null) {
-            aVar.cTx.setText(TbadkCoreApplication.getInst().getString(d.j.top));
+            aVar.cTR.setText(TbadkCoreApplication.getInst().getString(d.j.top));
             bhVar.se();
             SpannableStringBuilder rU = bhVar.rU();
-            aVar.cTy.setOnTouchListener(new com.baidu.tieba.view.l(rU));
-            aVar.cTy.setText(rU);
-            aVar.cTw.setOnClickListener(this.bwG);
-            aVar.cTw.setOnLongClickListener(this.cTu);
+            aVar.cTS.setOnTouchListener(new com.baidu.tieba.view.l(rU));
+            aVar.cTS.setText(rU);
+            aVar.cTQ.setOnClickListener(this.bwS);
+            aVar.cTQ.setOnLongClickListener(this.cTO);
             com.baidu.tieba.tbadkCore.util.e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            a(aVar, readThreadHistory != null && readThreadHistory.sG(bhVar.getId()));
+            a(aVar, readThreadHistory != null && readThreadHistory.sM(bhVar.getId()));
         }
     }
 
     private void a(a aVar, com.baidu.tieba.tbadkCore.e eVar) {
-        String lx = lx(eVar.aKd());
-        aVar.cTy.setText(eVar.getTitle());
-        aVar.cTx.setText(lx);
-        if (eVar.aQq() != 0) {
-            aVar.cTz.setVisibility(0);
-            if (eVar.aQq() == -1) {
-                aVar.cTz.setText(this.mContext.getString(d.j.no_rank));
-            } else if (eVar.aQq() > 999) {
-                aVar.cTz.setText(this.mContext.getString(d.j.rang_orer_thousand));
+        String lz = lz(eVar.aKh());
+        aVar.cTS.setText(eVar.getTitle());
+        aVar.cTR.setText(lz);
+        if (eVar.aQy() != 0) {
+            aVar.cTT.setVisibility(0);
+            if (eVar.aQy() == -1) {
+                aVar.cTT.setText(this.mContext.getString(d.j.no_rank));
+            } else if (eVar.aQy() > 999) {
+                aVar.cTT.setText(this.mContext.getString(d.j.rang_orer_thousand));
             } else {
-                aVar.cTz.setText(this.mContext.getString(d.j.rang_identify) + String.valueOf(eVar.aQq()));
+                aVar.cTT.setText(this.mContext.getString(d.j.rang_identify) + String.valueOf(eVar.aQy()));
             }
             if (!StringUtils.isNull(eVar.getTitle())) {
-                aVar.cTy.setText(am.e(eVar.getTitle(), 22, "..."));
+                aVar.cTS.setText(am.e(eVar.getTitle(), 22, "..."));
             }
         } else {
-            aVar.cTz.setVisibility(8);
+            aVar.cTT.setVisibility(8);
         }
-        aj.i(aVar.cTx, d.C0080d.cp_link_tip_d);
-        aj.i(aVar.cTz, d.C0080d.cp_link_tip_d);
-        aj.j(aVar.cTw, d.f.home_thread_card_item_bg);
-        aj.i(aVar.cTy, d.C0080d.cp_cont_b);
-        aVar.cTy.setTag(eVar);
-        if (this.cSQ != null) {
-            aVar.cTw.setOnClickListener(this.cSQ);
+        aj.i(aVar.cTR, d.C0080d.cp_link_tip_d);
+        aj.i(aVar.cTT, d.C0080d.cp_link_tip_d);
+        aj.j(aVar.cTQ, d.f.home_thread_card_item_bg);
+        aj.i(aVar.cTS, d.C0080d.cp_cont_b);
+        aVar.cTS.setTag(eVar);
+        if (this.cTk != null) {
+            aVar.cTQ.setOnClickListener(this.cTk);
         }
-        if (this.cSJ != null && this.cSJ.add(eVar.bso())) {
-            a.C0126a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", eVar.bso(), this.cyR.getForumId(), this.cyR.getForumName(), null);
-            b.ca("obj_url", eVar.getUrl());
+        if (this.cTd != null && this.cTd.add(eVar.bsz())) {
+            a.C0129a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", eVar.bsz(), this.czk.getForumId(), this.czk.getForumName(), null);
+            b.ce("obj_url", eVar.getUrl());
             b.save();
         }
     }
@@ -263,7 +263,7 @@ public class f extends BaseAdapter implements c {
         return null;
     }
 
-    private String lx(String str) {
+    private String lz(String str) {
         if (TextUtils.isEmpty(str) || str.trim().length() == 0) {
             return TbadkCoreApplication.getInst().getString(d.j.privilege);
         }
@@ -271,6 +271,6 @@ public class f extends BaseAdapter implements c {
     }
 
     public void a(HashSet<String> hashSet) {
-        this.cSJ = hashSet;
+        this.cTd = hashSet;
     }
 }

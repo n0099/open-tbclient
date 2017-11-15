@@ -223,7 +223,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         if (str == null) {
             return null;
         }
-        if (com.baidu.tbadk.util.i.gK(str)) {
+        if (com.baidu.tbadk.util.i.gL(str)) {
             int lastIndexOf = str.lastIndexOf("/");
             int lastIndexOf2 = str.lastIndexOf(".");
             int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -248,7 +248,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
 
     private static boolean el(String str) {
         String[] split;
-        if (str != null && com.baidu.tbadk.util.i.gK(str)) {
+        if (str != null && com.baidu.tbadk.util.i.gL(str)) {
             String[] split2 = str.split("/");
             if (split2.length > 3) {
                 try {

@@ -23,41 +23,41 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends ViewGroup {
-    private Paint aNK;
-    protected com.baidu.adp.lib.e.b<TbImageView> aPA;
-    private int aPB;
-    private int aPC;
-    private int aPD;
-    private String aPE;
-    private Paint aPF;
-    private int aPG;
-    private int aPH;
-    private int aPI;
-    private Bitmap aPJ;
-    private ViewGroup.OnHierarchyChangeListener aPK;
-    protected BdUniqueId aPq;
-    private double aPv;
-    private d aPw;
+    private Paint aNS;
+    private double aPD;
+    private d aPE;
+    protected com.baidu.adp.lib.e.b<TbImageView> aPI;
+    private int aPJ;
+    private int aPK;
+    private int aPL;
+    private String aPM;
+    private Paint aPN;
+    private int aPO;
+    private int aPP;
+    private int aPQ;
+    private Bitmap aPR;
+    private ViewGroup.OnHierarchyChangeListener aPS;
+    protected BdUniqueId aPy;
     private boolean aiR;
     private TbImageView.b mOnDrawListener;
 
     public b(Context context) {
         super(context);
-        this.aPC = -1;
+        this.aPK = -1;
         this.aiR = false;
-        this.aPD = d.C0080d.common_color_10082;
-        this.aPG = 0;
-        this.aPK = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.b.1
+        this.aPL = d.C0080d.common_color_10082;
+        this.aPO = 0;
+        this.aPS = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.b.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof TbImageView) && b.this.aPA != null) {
+                if ((view2 instanceof TbImageView) && b.this.aPI != null) {
                     TbImageView tbImageView = (TbImageView) view2;
                     tbImageView.reset();
-                    b.this.aPA.m(tbImageView);
+                    b.this.aPI.m(tbImageView);
                 }
             }
         };
@@ -91,26 +91,26 @@ public class b extends ViewGroup {
     }
 
     private void init() {
-        setOnHierarchyChangeListener(this.aPK);
-        this.aNK = new Paint();
-        this.aNK.setColor(aj.getColor(d.C0080d.cp_cont_i));
-        this.aNK.setTextSize(TbadkCoreApplication.getInst().getResources().getDimension(d.e.fontsize20));
-        this.aNK.setAntiAlias(true);
-        Paint.FontMetrics fontMetrics = this.aNK.getFontMetrics();
-        this.aPG = (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
-        this.aPH = ((int) (fontMetrics.ascent - fontMetrics.top)) + 4;
-        this.aPF = new Paint();
-        this.aPF.setColor(TbadkCoreApplication.getInst().getResources().getColor(d.C0080d.black_alpha40));
-        this.aPF.setAntiAlias(true);
-        this.aPJ = aj.cR(d.f.icon_image_home_n);
+        setOnHierarchyChangeListener(this.aPS);
+        this.aNS = new Paint();
+        this.aNS.setColor(aj.getColor(d.C0080d.cp_cont_i));
+        this.aNS.setTextSize(TbadkCoreApplication.getInst().getResources().getDimension(d.e.fontsize20));
+        this.aNS.setAntiAlias(true);
+        Paint.FontMetrics fontMetrics = this.aNS.getFontMetrics();
+        this.aPO = (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
+        this.aPP = ((int) (fontMetrics.ascent - fontMetrics.top)) + 4;
+        this.aPN = new Paint();
+        this.aPN.setColor(TbadkCoreApplication.getInst().getResources().getColor(d.C0080d.black_alpha40));
+        this.aPN.setAntiAlias(true);
+        this.aPR = aj.cQ(d.f.icon_image_home_n);
     }
 
     public void setImageClickListener(d dVar) {
-        this.aPw = dVar;
+        this.aPE = dVar;
     }
 
     public void setImageViewObjectPool(com.baidu.adp.lib.e.b<TbImageView> bVar) {
-        this.aPA = bVar;
+        this.aPI = bVar;
     }
 
     public void setFromCDN(boolean z) {
@@ -118,18 +118,18 @@ public class b extends ViewGroup {
     }
 
     public void setForeColorId(int i) {
-        this.aPD = i;
+        this.aPL = i;
     }
 
     public void setExtraCenterText(String str) {
-        this.aPE = str;
+        this.aPM = str;
     }
 
     public void setImageMaxChildCount(int i) {
         if (i > 0) {
-            this.aPC = i;
+            this.aPK = i;
         } else {
-            this.aPC = -1;
+            this.aPK = -1;
         }
     }
 
@@ -150,13 +150,13 @@ public class b extends ViewGroup {
     }
 
     public void setSingleImageRatio(double d) {
-        this.aPv = d;
+        this.aPD = d;
     }
 
     public void a(List<MediaData> list, int i, boolean z) {
         int u;
-        if (this.aPA != null && (u = v.u(list)) > 0) {
-            fI(u);
+        if (this.aPI != null && (u = v.u(list)) > 0) {
+            fH(u);
             int childCount = getChildCount();
             int i2 = this.aiR ? 13 : 14;
             int i3 = 0;
@@ -191,7 +191,7 @@ public class b extends ViewGroup {
     }
 
     private void a(TbImageView tbImageView, int i, boolean z, boolean z2) {
-        if (this.aPw != null && tbImageView != null) {
+        if (this.aPE != null && tbImageView != null) {
             View.OnClickListener onClickListener = tbImageView.getOnClickListener();
             if (onClickListener instanceof a) {
                 ((a) onClickListener).b(i, z, z2);
@@ -221,7 +221,7 @@ public class b extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
-        private boolean aPM;
+        private boolean aPU;
         private int currentIndex;
         private boolean hasMore;
 
@@ -232,33 +232,33 @@ public class b extends ViewGroup {
         public void b(int i, boolean z, boolean z2) {
             this.currentIndex = i;
             this.hasMore = z;
-            this.aPM = z2;
+            this.aPU = z2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.aPw != null) {
-                b.this.aPw.c(view, this.currentIndex, this.hasMore && this.aPM);
+            if (b.this.aPE != null) {
+                b.this.aPE.c(view, this.currentIndex, this.hasMore && this.aPU);
             }
         }
     }
 
     public void setImagePadding(int i) {
-        this.aPB = i;
+        this.aPJ = i;
     }
 
-    private void fI(int i) {
+    private void fH(int i) {
         int childCount = getChildCount() - i;
         if (childCount > 0) {
             removeViews(i, childCount);
         } else if (childCount < 0) {
             int abs = Math.abs(childCount);
             for (int i2 = 0; i2 < abs; i2++) {
-                TbImageView fH = this.aPA.fH();
+                TbImageView fH = this.aPI.fH();
                 fH.setContentDescription(getResources().getString(d.j.editor_image));
                 fH.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 fH.setDefaultBg(aj.getDrawable(d.C0080d.common_color_10220));
-                fH.setPageId(this.aPq);
+                fH.setPageId(this.aPy);
                 addView(fH);
             }
         }
@@ -269,12 +269,12 @@ public class b extends ViewGroup {
         super.onMeasure(i, i2);
         int childCount = getChildCount();
         if (childCount > 0) {
-            int max = Math.max(childCount, this.aPC);
+            int max = Math.max(childCount, this.aPK);
             int size = View.MeasureSpec.getSize(i);
-            int i3 = (size - ((max - 1) * this.aPB)) / max;
-            int i4 = this.aPv > 0.0d ? (int) ((i3 * this.aPv) + 0.5d) : i3;
-            if (this.aPI > 0) {
-                i4 = this.aPI;
+            int i3 = (size - ((max - 1) * this.aPJ)) / max;
+            int i4 = this.aPD > 0.0d ? (int) ((i3 * this.aPD) + 0.5d) : i3;
+            if (this.aPQ > 0) {
+                i4 = this.aPQ;
             }
             setMeasuredDimension(size, i4);
             for (int i5 = 0; i5 < childCount; i5++) {
@@ -293,7 +293,7 @@ public class b extends ViewGroup {
             View childAt = getChildAt(i5);
             if (childAt != null) {
                 int measuredWidth = childAt.getMeasuredWidth();
-                int i6 = (this.aPB + measuredWidth) * i5;
+                int i6 = (this.aPJ + measuredWidth) * i5;
                 childAt.layout(i6, 0, measuredWidth + i6, i4 - i2);
             }
         }
@@ -303,7 +303,7 @@ public class b extends ViewGroup {
     protected void dispatchDraw(Canvas canvas) {
         int childCount;
         super.dispatchDraw(canvas);
-        if (!StringUtils.isNull(this.aPE) && (childCount = getChildCount()) > 0 && getChildAt(childCount - 1) != null && this.aPE != null) {
+        if (!StringUtils.isNull(this.aPM) && (childCount = getChildCount()) > 0 && getChildAt(childCount - 1) != null && this.aPM != null) {
             b(canvas, getBackgroundRect());
         }
     }
@@ -313,10 +313,10 @@ public class b extends ViewGroup {
         int measuredHeight = getMeasuredHeight();
         int f = measuredWidth - l.f(getContext(), d.e.ds16);
         int f2 = measuredHeight - l.f(getContext(), d.e.ds16);
-        int measureText = (int) this.aNK.measureText(this.aPE);
+        int measureText = (int) this.aNS.measureText(this.aPM);
         int i = 0;
-        if (this.aPJ != null) {
-            i = this.aPJ.getWidth();
+        if (this.aPR != null) {
+            i = this.aPR.getWidth();
         }
         return new RectF(f - ((i + measureText) + l.f(getContext(), d.e.ds24)), f2 - l.f(getContext(), d.e.ds36), f, f2);
     }
@@ -324,31 +324,31 @@ public class b extends ViewGroup {
     private void b(Canvas canvas, RectF rectF) {
         if (rectF != null) {
             int f = l.f(getContext(), d.e.ds60);
-            canvas.drawRoundRect(rectF, f, f, this.aPF);
+            canvas.drawRoundRect(rectF, f, f, this.aPN);
             int centerY = (int) rectF.centerY();
-            int centerX = ((int) rectF.centerX()) - (((int) this.aNK.measureText(this.aPE)) / 2);
-            int i = ((this.aPG / 2) + centerY) - this.aPH;
-            if (this.aPJ != null) {
-                int width = this.aPJ.getWidth();
-                int height = this.aPJ.getHeight();
+            int centerX = ((int) rectF.centerX()) - (((int) this.aNS.measureText(this.aPM)) / 2);
+            int i = ((this.aPO / 2) + centerY) - this.aPP;
+            if (this.aPR != null) {
+                int width = this.aPR.getWidth();
+                int height = this.aPR.getHeight();
                 int f2 = ((int) rectF.left) + l.f(getContext(), d.e.ds8);
-                canvas.drawBitmap(this.aPJ, f2, centerY - (height / 2), (Paint) null);
+                canvas.drawBitmap(this.aPR, f2, centerY - (height / 2), (Paint) null);
                 centerX = width + f2;
             }
-            canvas.drawText(this.aPE, centerX, i, this.aNK);
+            canvas.drawText(this.aPM, centerX, i, this.aNS);
         }
     }
 
     public void onChangeSkinType() {
-        this.aNK.setColor(aj.getColor(d.C0080d.cp_cont_i));
+        this.aNS.setColor(aj.getColor(d.C0080d.cp_cont_i));
         invalidate();
     }
 
     public void setFixedImageHeight(int i) {
-        this.aPI = i;
+        this.aPQ = i;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aPq = bdUniqueId;
+        this.aPy = bdUniqueId;
     }
 }

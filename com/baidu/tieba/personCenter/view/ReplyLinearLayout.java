@@ -22,9 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams fjC;
-    private View.OnClickListener cuy;
-    private List<TextView> fjB;
+    private static ViewGroup.LayoutParams fjZ;
+    private View.OnClickListener cuR;
+    private List<TextView> fjY;
     private boolean mIsHost;
 
     public ReplyLinearLayout(Context context) {
@@ -33,7 +33,7 @@ public class ReplyLinearLayout extends LinearLayout {
 
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cuy = new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.ReplyLinearLayout.1
+        this.cuR = new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.ReplyLinearLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 boolean z;
@@ -60,24 +60,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.fjB = new ArrayList();
+        this.fjY = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (fjC == null) {
-            fjC = new LinearLayout.LayoutParams(-1, -2);
+        if (fjZ == null) {
+            fjZ = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.fjB.size();
+        int size2 = size - this.fjY.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.fjB.add(textView);
+            this.fjY.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.fjB.size(); i3++) {
-            TextView textView2 = this.fjB.get(i3);
+        for (int i3 = 0; i3 < this.fjY.size(); i3++) {
+            TextView textView2 = this.fjY.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -93,12 +93,12 @@ public class ReplyLinearLayout extends LinearLayout {
                     textView2.setText(charSequenceArr[4]);
                 }
                 textView2.setTag(charSequenceArr);
-                textView2.setOnClickListener(this.cuy);
+                textView2.setOnClickListener(this.cuR);
                 p(textView2, i3);
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(fjC);
+                    textView2.setLayoutParams(fjZ);
                     aj.c(textView2, d.C0080d.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
@@ -106,11 +106,11 @@ public class ReplyLinearLayout extends LinearLayout {
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(fjC);
+                    textView2.setLayoutParams(fjZ);
                     aj.c(textView2, d.C0080d.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(fjC);
+                    textView2.setLayoutParams(fjZ);
                     aj.c(textView2, d.C0080d.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);

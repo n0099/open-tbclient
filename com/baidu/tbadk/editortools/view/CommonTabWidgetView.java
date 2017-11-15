@@ -15,12 +15,12 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CommonTabWidgetView extends LinearLayout {
     private i Jb;
-    private CommonTabHorizonScrollView aEq;
-    private ImageView aEr;
+    private CommonTabHorizonScrollView aEy;
+    private ImageView aEz;
 
     /* loaded from: classes.dex */
     public interface a {
-        void fd(int i);
+        void fc(int i);
     }
 
     public CommonTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -41,9 +41,9 @@ public class CommonTabWidgetView extends LinearLayout {
         setVisibility(8);
         removeAllViews();
         LayoutInflater.from(context).inflate(d.h.common_tab_widget, (ViewGroup) this, true);
-        this.aEq = (CommonTabHorizonScrollView) findViewById(d.g.privilege_tab_scroll_view);
-        this.aEr = (ImageView) findViewById(d.g.privilege_tab_delete);
-        this.aEr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.view.CommonTabWidgetView.1
+        this.aEy = (CommonTabHorizonScrollView) findViewById(d.g.privilege_tab_scroll_view);
+        this.aEz = (ImageView) findViewById(d.g.privilege_tab_delete);
+        this.aEz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.view.CommonTabWidgetView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (CommonTabWidgetView.this.Jb != null) {
@@ -54,7 +54,7 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void setDatas(ArrayList<com.baidu.tbadk.editortools.view.a> arrayList) {
-        this.aEq.setDatas(arrayList);
+        this.aEy.setDatas(arrayList);
         if (arrayList == null || arrayList.size() <= 1) {
             setVisibility(8);
         } else {
@@ -63,33 +63,33 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void c(a.b bVar) {
-        this.aEq.c(bVar);
+        this.aEy.c(bVar);
     }
 
     public void setCurrentTab(int i) {
-        this.aEq.setCurrentTab(i);
+        this.aEy.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(a aVar) {
-        this.aEq.setOnTabSelectedListener(aVar);
+        this.aEy.setOnTabSelectedListener(aVar);
     }
 
     public void reset() {
-        this.aEq.reset();
+        this.aEy.reset();
     }
 
     public void onChangeSkinType(int i) {
         aj.k(this, d.C0080d.common_color_10223);
-        this.aEq.dE(i);
-        aj.c(this.aEr, d.f.but_face_close);
-        aj.k(this.aEr, d.C0080d.common_color_10224);
+        this.aEy.dD(i);
+        aj.c(this.aEz, d.f.but_face_close);
+        aj.k(this.aEz, d.C0080d.common_color_10224);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.aEr.setVisibility(0);
+            this.aEz.setVisibility(0);
         } else {
-            this.aEr.setVisibility(8);
+            this.aEz.setVisibility(8);
         }
     }
 }

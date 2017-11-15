@@ -281,7 +281,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                         ((e) this.mPlayer).setOnPreparedListener(null);
                     }
                     if (this.mPlayer.eA(this.mVoice.getName())) {
-                        this.mPlayer.dP((int) hK);
+                        this.mPlayer.dO((int) hK);
                         playVoice(null);
                     }
                 }
@@ -300,7 +300,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                         ((e) this.mPlayer).setOnPreparedListener(null);
                     }
                     if (this.mPlayer.eA(this.mVoice.getName())) {
-                        this.mPlayer.dP((int) longExtra);
+                        this.mPlayer.dO((int) longExtra);
                         playVoice(null);
                     }
                 }

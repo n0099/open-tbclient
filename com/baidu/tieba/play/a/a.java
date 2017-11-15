@@ -7,31 +7,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private List<String> fGJ;
-    private long fGK;
+    private List<String> fHo;
+    private long fHp;
     private long mStartTime = System.currentTimeMillis();
     private String zY;
 
-    public a qU(String str) {
+    public a qY(String str) {
         JSONArray optJSONArray;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.fGK = jSONObject.optLong("ttl");
+            this.fHp = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 this.zY = optJSONObject.keys().next();
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.zY);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("ip")) != null && optJSONArray.length() > 0) {
-                this.fGJ = new ArrayList();
+                this.fHo = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.fGJ.add((String) optJSONArray.get(i2));
+                        this.fHo.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -51,8 +51,8 @@ public class a {
         this.mStartTime = j;
     }
 
-    public List<String> bhM() {
-        return this.fGJ;
+    public List<String> bhU() {
+        return this.fHo;
     }
 
     public String getHost() {
@@ -60,6 +60,6 @@ public class a {
     }
 
     public boolean cz(long j) {
-        return j - this.mStartTime > this.fGK * 1000;
+        return j - this.mStartTime > this.fHp * 1000;
     }
 }

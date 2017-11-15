@@ -1416,9 +1416,9 @@ public class k {
             return null;
         }
         File[] listFiles = aeP.listFiles();
-        String cD = cD(i);
+        String cC = cC(i);
         for (int i2 = 0; i2 < listFiles.length; i2++) {
-            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(cD)) {
+            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(cC)) {
                 if (listFiles[i2].getName().endsWith(str)) {
                     return listFiles[i2].getAbsolutePath();
                 }
@@ -1430,7 +1430,7 @@ public class k {
         return null;
     }
 
-    public static String cD(int i) {
+    public static String cC(int i) {
         switch (i) {
             case 1:
                 return "voice";
@@ -1464,7 +1464,7 @@ public class k {
         if (z) {
             sb.append(uj());
         }
-        sb.append(cD(i));
+        sb.append(cC(i));
         sb.append(File.separator);
         sb.append(str);
         return sb.toString();
