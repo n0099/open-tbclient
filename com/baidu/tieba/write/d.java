@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends LinearLayout {
-    private TextView bBc;
-    private ImageView gPR;
-    private View gPS;
+    private TextView bBo;
+    private ImageView gQZ;
+    private View gRa;
     private Context mContext;
 
     public d(Context context) {
@@ -32,34 +32,34 @@ public class d extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(d.h.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.bBc = (TextView) findViewById(d.g.prefix_text);
-        this.gPR = (ImageView) findViewById(d.g.prefix_checked);
-        this.gPS = findViewById(d.g.prefix_item_divider);
-        this.bBc.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        aj.j(this.bBc, d.C0080d.cp_bg_line_d);
-        this.gPR.setBackgroundDrawable(aj.getDrawable(d.f.icon_set_list_ok_s));
-        aj.j(this.gPS, d.C0080d.cp_bg_line_c);
+        this.bBo = (TextView) findViewById(d.g.prefix_text);
+        this.gQZ = (ImageView) findViewById(d.g.prefix_checked);
+        this.gRa = findViewById(d.g.prefix_item_divider);
+        this.bBo.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        aj.j(this.bBo, d.C0080d.cp_bg_line_d);
+        this.gQZ.setBackgroundDrawable(aj.getDrawable(d.f.icon_set_list_ok_s));
+        aj.j(this.gRa, d.C0080d.cp_bg_line_c);
     }
 
     public void setPrefixText(String str) {
-        this.bBc.setText(str);
+        this.bBo.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.bBc.setTextColor(i);
+        this.bBo.setTextColor(i);
     }
 
-    public void nl(boolean z) {
+    public void nt(boolean z) {
         if (z) {
-            this.gPR.setVisibility(0);
+            this.gQZ.setVisibility(0);
         } else {
-            this.gPR.setVisibility(8);
+            this.gQZ.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.gPS.getLayoutParams()).setMargins(l.f(this.mContext, d.e.ds30), 0, l.f(this.mContext, d.e.ds30), 0);
+            ((LinearLayout.LayoutParams) this.gRa.getLayoutParams()).setMargins(l.f(this.mContext, d.e.ds30), 0, l.f(this.mContext, d.e.ds30), 0);
         }
     }
 }

@@ -5,40 +5,40 @@ import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
 /* loaded from: classes.dex */
 public class e {
-    private SearchEmotionModel.a cmg;
-    private SearchEmotionModel eXC;
-    private String eXD;
-    private Runnable eXE = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.e.1
+    private SearchEmotionModel.a cmz;
+    private SearchEmotionModel eXX;
+    private String eXY;
+    private Runnable eXZ = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(e.this.eXD) && e.this.cmg != null) {
-                if (e.this.eXC == null) {
-                    e.this.eXC = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(e.this.eXY) && e.this.cmz != null) {
+                if (e.this.eXX == null) {
+                    e.this.eXX = new SearchEmotionModel();
                 }
-                e.this.eXC.a(e.this.eXD, 0, 30, e.this.cmg);
+                e.this.eXX.a(e.this.eXY, 0, 30, e.this.cmz);
             }
         }
     };
     private Handler mHandler = new Handler();
 
-    public void pN(String str) {
+    public void pR(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.eXD = "";
+            this.eXY = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.eXE);
-        this.mHandler.postDelayed(this.eXE, 300L);
-        this.eXD = str;
+        this.mHandler.removeCallbacks(this.eXZ);
+        this.mHandler.postDelayed(this.eXZ, 300L);
+        this.eXY = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.cmg = aVar;
+        this.cmz = aVar;
     }
 
-    public void akK() {
-        if (this.eXC != null) {
-            this.eXC.cancelLoadData();
+    public void akY() {
+        if (this.eXX != null) {
+            this.eXX.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.eXE);
+        this.mHandler.removeCallbacks(this.eXZ);
     }
 }

@@ -20,10 +20,10 @@ public class ah extends m<com.baidu.tieba.pb.data.j, ai> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bv */
     public ai onCreateViewHolder(ViewGroup viewGroup) {
-        ai aiVar = new ai(this.eMh.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_title_layout, viewGroup, false));
+        ai aiVar = new ai(this.eMB.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_title_layout, viewGroup, false));
         aiVar.E(this.mCommonClickListener);
-        if (getType() == com.baidu.tieba.pb.data.j.eGO) {
-            aiVar.h(com.baidu.tieba.pb.data.j.eGO);
+        if (getType() == com.baidu.tieba.pb.data.j.eHi) {
+            aiVar.h(com.baidu.tieba.pb.data.j.eHi);
         }
         return aiVar;
     }
@@ -41,7 +41,7 @@ public class ah extends m<com.baidu.tieba.pb.data.j, ai> {
     }
 
     public void onDestory() {
-        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.eGO);
+        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.eHi);
     }
 
     public void setCommonClickListener(View.OnClickListener onClickListener) {

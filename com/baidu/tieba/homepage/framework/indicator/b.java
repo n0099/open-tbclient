@@ -4,65 +4,65 @@ import android.content.Context;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    private int dga;
-    private int dgb;
-    private int dgc;
-    private int dgd;
+    private int dgu;
+    private int dgv;
+    private int dgw;
+    private int dgx;
 
     public b() {
-        this.dga = -1;
-        this.dgb = -1;
-        this.dgc = -1;
-        this.dgd = -1;
-        int arI = arI();
+        this.dgu = -1;
+        this.dgv = -1;
+        this.dgw = -1;
+        this.dgx = -1;
+        int arY = arY();
         int i = 0;
-        if ((arI & 4) > 0) {
-            this.dga = 0;
+        if ((arY & 4) > 0) {
+            this.dgu = 0;
             i = 1;
         }
-        this.dgb = i;
+        this.dgv = i;
         int i2 = i + 1;
-        if ((arI & 8) > 0) {
-            this.dgc = i2;
+        if ((arY & 8) > 0) {
+            this.dgw = i2;
             i2++;
         }
-        if ((arI & 1) > 0) {
-            this.dgd = i2;
+        if ((arY & 1) > 0) {
+            this.dgx = i2;
         }
     }
 
     public int ls(int i) {
         switch (i) {
             case 0:
-                return this.dga;
+                return this.dgu;
             case 1:
-                return this.dgb;
+                return this.dgv;
             case 2:
-                return this.dgc;
+                return this.dgw;
             case 3:
-                return this.dgd;
+                return this.dgx;
             default:
                 return -1;
         }
     }
 
     public int getType(int i) {
-        if (i == this.dga) {
+        if (i == this.dgu) {
             return 0;
         }
-        if (i == this.dgb) {
+        if (i == this.dgv) {
             return 1;
         }
-        if (i == this.dgc) {
+        if (i == this.dgw) {
             return 2;
         }
-        if (i == this.dgd) {
+        if (i == this.dgx) {
             return 3;
         }
         return -1;
     }
 
-    private int arI() {
+    private int arY() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("recommend_tab_show", 7);
     }
 
@@ -70,16 +70,16 @@ public class b {
         if (context == null) {
             return null;
         }
-        if (i == this.dga) {
+        if (i == this.dgu) {
             return context.getString(d.j.tab_name_concern);
         }
-        if (i == this.dgb) {
+        if (i == this.dgv) {
             return context.getString(d.j.tab_name_recommend);
         }
-        if (i == this.dgc) {
+        if (i == this.dgw) {
             return context.getString(d.j.tab_name_discover);
         }
-        if (i == this.dgd) {
+        if (i == this.dgx) {
             return context.getString(d.j.tab_name_video_recommend);
         }
         return null;

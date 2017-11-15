@@ -8,13 +8,13 @@ public interface e {
     public interface a {
         void a(CloudMusicData.MusicTagList.MusicList musicList, int i);
 
-        void akK();
+        void akY();
 
-        void biw();
+        void biH();
 
         void c(CloudMusicData.MusicTagList musicTagList);
 
-        void uK(int i);
+        void uO(int i);
     }
 
     /* loaded from: classes2.dex */
@@ -23,16 +23,16 @@ public interface e {
 
         void b(CloudMusicData.MusicTagList musicTagList);
 
-        void byp();
+        void byB();
 
-        void mU(boolean z);
+        void nc(boolean z);
 
-        void mV(boolean z);
+        void nd(boolean z);
 
-        void uH(int i);
+        void uL(int i);
 
-        void uI(int i);
+        void uM(int i);
 
-        void uJ(int i);
+        void uN(int i);
     }
 }

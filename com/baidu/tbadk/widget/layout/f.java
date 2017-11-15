@@ -7,25 +7,25 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private int aPZ;
-    private int aQa;
-    private double aQb;
+    private int aQh;
+    private int aQi;
+    private double aQj;
 
     public f() {
-        this.aPZ = 3;
-        this.aQa = this.aPZ;
+        this.aQh = 3;
+        this.aQi = this.aQh;
     }
 
     public f(int i) {
-        this.aPZ = 3;
-        this.aQa = this.aPZ;
+        this.aQh = 3;
+        this.aQi = this.aQh;
         if (i > 0) {
-            this.aQa = i;
+            this.aQi = i;
         }
     }
 
     @Override // com.baidu.tbadk.widget.layout.c
-    public int fG(int i) {
+    public int fF(int i) {
         return 1;
     }
 
@@ -41,13 +41,13 @@ public class f implements c {
         }
         int u = v.u(list);
         if (u >= 2) {
-            bVar.setImageMaxChildCount(this.aPZ);
+            bVar.setImageMaxChildCount(this.aQh);
         } else {
             bVar.setImageMaxChildCount(-1);
         }
-        int i3 = u - this.aQa;
+        int i3 = u - this.aQi;
         if (i3 > 0) {
-            i2 = this.aQa + i;
+            i2 = this.aQi + i;
             List<MediaData> a = v.a(list, i, i2);
             bVar.setExtraCenterText(TbadkCoreApplication.getInst().getString(d.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)}));
             bVar.a(a, i, true);
@@ -56,22 +56,22 @@ public class f implements c {
             bVar.setExtraCenterText(null);
             i2 = u;
         }
-        bVar.setSingleImageRatio(fK(u));
+        bVar.setSingleImageRatio(fJ(u));
         return i2;
     }
 
-    private double fK(int i) {
+    private double fJ(int i) {
         TbadkCoreApplication.getInst();
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.aQb > 0.0d) {
-            return this.aQb;
+        if (this.aQj > 0.0d) {
+            return this.aQj;
         }
         return 0.6666666666666666d;
     }
 
     public void e(double d) {
-        this.aQb = d;
+        this.aQj = d;
     }
 }

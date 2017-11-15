@@ -7,56 +7,56 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class TbRichTextData extends OrmObject {
-    private SpannableStringBuilder aRI;
-    private TbRichTextImageInfo aRJ;
-    private ArrayList<b> aRK;
-    private TbRichTextTextInfo aRL;
-    private TbRichTextEmotionInfo aRM;
-    private f aRN;
-    private TbRichTextLinkImageInfo aRO;
-    private TbRichTextLinkButtonInfo aRP;
-    private TbRichTextMemeInfo aRQ;
-    private int aRR;
-    private boolean aRS;
-    private TbRichTextVoiceInfo aob;
+    private SpannableStringBuilder aRQ;
+    private TbRichTextImageInfo aRR;
+    private ArrayList<b> aRS;
+    private TbRichTextTextInfo aRT;
+    private TbRichTextEmotionInfo aRU;
+    private f aRV;
+    private TbRichTextLinkImageInfo aRW;
+    private TbRichTextLinkButtonInfo aRX;
+    private TbRichTextMemeInfo aRY;
+    private int aRZ;
+    private boolean aSa;
+    private TbRichTextVoiceInfo aoa;
     private int mType;
 
     public TbRichTextData() {
         this.mType = 0;
-        this.aRI = null;
-        this.aRJ = null;
-        this.aRK = null;
-        this.aob = null;
-        this.aRL = null;
-        this.aRS = false;
+        this.aRQ = null;
+        this.aRR = null;
+        this.aRS = null;
+        this.aoa = null;
+        this.aRT = null;
+        this.aSa = false;
     }
 
     public TbRichTextData(int i) {
         this.mType = 0;
-        this.aRI = null;
-        this.aRJ = null;
-        this.aRK = null;
-        this.aob = null;
-        this.aRL = null;
-        this.aRS = false;
+        this.aRQ = null;
+        this.aRR = null;
+        this.aRS = null;
+        this.aoa = null;
+        this.aRT = null;
+        this.aSa = false;
         this.mType = i;
-        this.aRL = new TbRichTextTextInfo();
+        this.aRT = new TbRichTextTextInfo();
     }
 
     public int getType() {
         return this.mType;
     }
 
-    public ArrayList<b> IN() {
-        if (this.aRK == null) {
-            this.aRK = new ArrayList<>();
+    public ArrayList<b> IY() {
+        if (this.aRS == null) {
+            this.aRS = new ArrayList<>();
         }
-        return this.aRK;
+        return this.aRS;
     }
 
     public void S(int i, int i2) {
-        if (this.aRK != null) {
-            Iterator<b> it = this.aRK.iterator();
+        if (this.aRS != null) {
+            Iterator<b> it = this.aRS.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 Rect bounds = next.getBounds();
@@ -68,8 +68,8 @@ public class TbRichTextData extends OrmObject {
     }
 
     public void T(int i, int i2) {
-        if (this.aRK != null) {
-            Iterator<b> it = this.aRK.iterator();
+        if (this.aRS != null) {
+            Iterator<b> it = this.aRS.iterator();
             while (it.hasNext()) {
                 it.next().setBounds(0, 0, i, i2);
             }
@@ -78,68 +78,68 @@ public class TbRichTextData extends OrmObject {
 
     public void append(CharSequence charSequence) {
         if ((this.mType == 1 || this.mType == 768) && charSequence != null) {
-            if (this.aRI == null) {
-                this.aRI = new SpannableStringBuilder("");
+            if (this.aRQ == null) {
+                this.aRQ = new SpannableStringBuilder("");
             }
-            this.aRI.append(charSequence);
-            this.aRL.charLength = this.aRI.length();
+            this.aRQ.append(charSequence);
+            this.aRT.charLength = this.aRQ.length();
         }
     }
 
     public void setVideoUrl(String str) {
         if (this.mType == 32 && str != null) {
-            this.aRI = new SpannableStringBuilder(str);
+            this.aRQ = new SpannableStringBuilder(str);
         }
     }
 
-    public TbRichTextImageInfo IO() {
+    public TbRichTextImageInfo IZ() {
         if (this.mType != 8) {
             return null;
         }
-        return this.aRJ;
+        return this.aRR;
     }
 
     public void a(TbRichTextImageInfo tbRichTextImageInfo) {
         if (this.mType == 8) {
-            this.aRJ = tbRichTextImageInfo;
+            this.aRR = tbRichTextImageInfo;
         }
     }
 
-    public SpannableStringBuilder IP() {
-        return this.aRI;
+    public SpannableStringBuilder Ja() {
+        return this.aRQ;
     }
 
     public void c(SpannableStringBuilder spannableStringBuilder) {
-        if (this.aRI != null) {
-            this.aRI.clear();
-            this.aRI.append((CharSequence) spannableStringBuilder);
+        if (this.aRQ != null) {
+            this.aRQ.clear();
+            this.aRQ.append((CharSequence) spannableStringBuilder);
         }
     }
 
-    public TbRichTextVoiceInfo IQ() {
+    public TbRichTextVoiceInfo Jb() {
         if (this.mType == 512 || this.mType == 768) {
-            return this.aob;
+            return this.aoa;
         }
         return null;
     }
 
     public void a(TbRichTextVoiceInfo tbRichTextVoiceInfo) {
         if (this.mType == 512 || this.mType == 768) {
-            this.aob = tbRichTextVoiceInfo;
+            this.aoa = tbRichTextVoiceInfo;
         }
     }
 
     public String toString() {
         if (this.mType == 1) {
-            if (this.aRI != null) {
-                return this.aRI.toString();
+            if (this.aRQ != null) {
+                return this.aRQ.toString();
             }
         } else if (this.mType == 8) {
-            if (this.aRJ != null) {
-                return this.aRJ.Jc();
+            if (this.aRR != null) {
+                return this.aRR.Jn();
             }
-        } else if (this.mType == 17 && this.aRM != null) {
-            return this.aRM.mGifInfo.mSharpText;
+        } else if (this.mType == 17 && this.aRU != null) {
+            return this.aRU.mGifInfo.mSharpText;
         }
         return "";
     }
@@ -155,78 +155,78 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public TbRichTextTextInfo IR() {
+    public TbRichTextTextInfo Jc() {
         if (this.mType != 1) {
             return null;
         }
-        return this.aRL;
+        return this.aRT;
     }
 
     public void a(f fVar) {
         if (this.mType == 32) {
-            this.aRN = fVar;
+            this.aRV = fVar;
         }
     }
 
-    public f IS() {
+    public f Jd() {
         if (this.mType != 32) {
             return null;
         }
-        return this.aRN;
+        return this.aRV;
     }
 
     public void a(TbRichTextEmotionInfo tbRichTextEmotionInfo) {
         if (this.mType == 17) {
-            this.aRM = tbRichTextEmotionInfo;
+            this.aRU = tbRichTextEmotionInfo;
         }
     }
 
     public void a(TbRichTextMemeInfo tbRichTextMemeInfo) {
         if (this.mType == 20) {
-            this.aRQ = tbRichTextMemeInfo;
+            this.aRY = tbRichTextMemeInfo;
         }
     }
 
-    public TbRichTextEmotionInfo IT() {
-        return this.aRM;
+    public TbRichTextEmotionInfo Je() {
+        return this.aRU;
     }
 
-    public TbRichTextMemeInfo IU() {
-        return this.aRQ;
+    public TbRichTextMemeInfo Jf() {
+        return this.aRY;
     }
 
-    public int IV() {
-        return this.aRR;
+    public int Jg() {
+        return this.aRZ;
     }
 
-    public void fV(int i) {
-        this.aRR = i;
+    public void fU(int i) {
+        this.aRZ = i;
     }
 
-    public TbRichTextLinkImageInfo IW() {
+    public TbRichTextLinkImageInfo Jh() {
         if (this.mType != 1280) {
             return null;
         }
-        return this.aRO;
+        return this.aRW;
     }
 
     public void a(TbRichTextLinkImageInfo tbRichTextLinkImageInfo) {
-        this.aRO = tbRichTextLinkImageInfo;
+        this.aRW = tbRichTextLinkImageInfo;
     }
 
-    public TbRichTextLinkButtonInfo IX() {
-        return this.aRP;
+    public TbRichTextLinkButtonInfo Ji() {
+        return this.aRX;
     }
 
     public void a(TbRichTextLinkButtonInfo tbRichTextLinkButtonInfo) {
-        this.aRP = tbRichTextLinkButtonInfo;
+        this.aRX = tbRichTextLinkButtonInfo;
     }
 
-    public void cc(boolean z) {
-        this.aRS = z;
+    public void cd(boolean z) {
+        this.aSa = z;
     }
 
-    public boolean IY() {
-        return this.aRS;
+    public boolean Jj() {
+        return this.aSa;
     }
 }

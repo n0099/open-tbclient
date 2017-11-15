@@ -5,45 +5,45 @@ import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
 public class PersonPrivateData extends OrmObject {
-    private int azU = 1;
-    private int azV = 1;
-    private int azW = 1;
-    private int azX = 1;
-    private int azY = 1;
-    private int azZ = 1;
+    private int aAc = 1;
+    private int aAd = 1;
+    private int aAe = 1;
+    private int aAf = 1;
+    private int aAg = 1;
+    private int aAh = 1;
 
-    public int Ce() {
-        return this.azV;
+    public int Cq() {
+        return this.aAd;
     }
 
-    public int Cf() {
-        return this.azX;
+    public int Cr() {
+        return this.aAf;
     }
 
-    public int Cg() {
-        return this.azZ;
+    public int Cs() {
+        return this.aAh;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.azU = jSONObject.optInt("location", 1);
-            this.azV = jSONObject.optInt("like", 1);
-            this.azW = jSONObject.optInt("group", 1);
-            this.azX = jSONObject.optInt("post", 1);
-            this.azY = jSONObject.optInt("friend", 1);
-            this.azZ = jSONObject.optInt("live", 1);
+            this.aAc = jSONObject.optInt("location", 1);
+            this.aAd = jSONObject.optInt("like", 1);
+            this.aAe = jSONObject.optInt("group", 1);
+            this.aAf = jSONObject.optInt("post", 1);
+            this.aAg = jSONObject.optInt("friend", 1);
+            this.aAh = jSONObject.optInt("live", 1);
         }
     }
 
     public void a(PrivSets privSets) {
         if (privSets != null) {
             try {
-                this.azU = privSets.location.intValue();
-                this.azV = privSets.like.intValue();
-                this.azW = privSets.group.intValue();
-                this.azX = privSets.post.intValue();
-                this.azY = privSets.friend.intValue();
-                this.azZ = privSets.live.intValue();
+                this.aAc = privSets.location.intValue();
+                this.aAd = privSets.like.intValue();
+                this.aAe = privSets.group.intValue();
+                this.aAf = privSets.post.intValue();
+                this.aAg = privSets.friend.intValue();
+                this.aAh = privSets.live.intValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }

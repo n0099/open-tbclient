@@ -796,7 +796,7 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                         for (int i5 = 0; i5 < size3; i5++) {
                             if (zhiBoInfoTW.labelInfo.get(i5) != null) {
                                 com.baidu.tbadk.coreExtra.view.e eVar = new com.baidu.tbadk.coreExtra.view.e();
-                                eVar.ev(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
+                                eVar.eu(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
                                 eVar.setLabelId(zhiBoInfoTW.labelInfo.get(i5).labelId);
                                 eVar.setLabelName(zhiBoInfoTW.labelInfo.get(i5).labelContent);
                                 this.Zc.add(eVar);
@@ -1235,10 +1235,10 @@ public class bh extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                 if (i4 >= arrayList.size()) {
                     break;
                 }
-                Bitmap cR = com.baidu.tbadk.core.util.aj.cR(((Integer) arrayList.get(i4)).intValue());
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(cR);
-                if (cR != null) {
-                    bitmapDrawable.setBounds(0, 0, cR.getWidth(), cR.getHeight());
+                Bitmap cQ = com.baidu.tbadk.core.util.aj.cQ(((Integer) arrayList.get(i4)).intValue());
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(cQ);
+                if (cQ != null) {
+                    bitmapDrawable.setBounds(0, 0, cQ.getWidth(), cQ.getHeight());
                 }
                 com.baidu.tbadk.core.view.i iVar = new com.baidu.tbadk.core.view.i(bitmapDrawable);
                 iVar.setOffset(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApplicationContext(), this.YC));

@@ -14,15 +14,15 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a extends b {
     private b.InterfaceC0047b abo;
-    private int cFf;
-    private f cyR;
+    private int cFy;
+    private f czk;
     private List<y> mDatas;
 
     public a(f fVar, b.InterfaceC0047b interfaceC0047b) {
         super(fVar.getActivity());
-        this.cFf = 0;
+        this.cFy = 0;
         if (fVar != null && interfaceC0047b != null) {
-            this.cyR = fVar;
+            this.czk = fVar;
             this.abo = interfaceC0047b;
         }
     }
@@ -33,8 +33,8 @@ public class a extends b {
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
                 y yVar = new y();
-                yVar.name = this.cyR.getResources().getString(d.j.attention_users_thread);
-                yVar.cAw = 6;
+                yVar.name = this.czk.getResources().getString(d.j.attention_users_thread);
+                yVar.cAP = 6;
                 this.mDatas.add(yVar);
             }
             ArrayList arrayList = new ArrayList();
@@ -48,7 +48,7 @@ public class a extends b {
         }
     }
 
-    public List<y> alK() {
+    public List<y> alY() {
         return this.mDatas;
     }
 

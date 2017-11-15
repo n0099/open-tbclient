@@ -28,11 +28,11 @@ import java.util.List;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes.dex */
 public class b extends BaseFragment implements ai {
-    private boolean csW;
-    private c.a ddA;
-    private c ddz;
-    private boolean ddB = false;
-    private CustomMessageListener biW = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.concern.b.1
+    private boolean ctp;
+    private c ddT;
+    private c.a ddU;
+    private boolean ddV = false;
+    private CustomMessageListener bjf = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.concern.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,8 +40,8 @@ public class b extends BaseFragment implements ai {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(b.this.getUniqueId())) {
-                    if (updateAttentionMessage.getData().arL != null) {
-                        if (AntiHelper.a(b.this.getActivity(), updateAttentionMessage.getData().arL, b.this.cys) != null) {
+                    if (updateAttentionMessage.getData().arR != null) {
+                        if (AntiHelper.a(b.this.getActivity(), updateAttentionMessage.getData().arR, b.this.cyL) != null) {
                             TiebaStatic.log(new ak("c12534").r("obj_locate", ap.a.ahv));
                         }
                     } else if (updateAttentionMessage.getData().BJ && updateAttentionMessage.getData().isAttention) {
@@ -51,7 +51,7 @@ public class b extends BaseFragment implements ai {
             }
         }
     };
-    private final AntiHelper.a cys = new AntiHelper.a() { // from class: com.baidu.tieba.homepage.concern.b.2
+    private final AntiHelper.a cyL = new AntiHelper.a() { // from class: com.baidu.tieba.homepage.concern.b.2
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
             TiebaStatic.log(new ak("c12536").r("obj_locate", ap.a.ahv));
@@ -68,25 +68,25 @@ public class b extends BaseFragment implements ai {
 
     @SuppressLint({"ValidFragment"})
     public b(Context context) {
-        this.ddz = new c(context);
-        this.ddz.amI();
-        registerListener(this.biW);
+        this.ddT = new c(context);
+        this.ddT.amW();
+        registerListener(this.bjf);
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.ddz.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.ddz.getParent()).removeView(this.ddz);
-            if (this.ddA != null) {
-                this.ddz.setCallback(this.ddA);
+        if (this.ddT.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.ddT.getParent()).removeView(this.ddT);
+            if (this.ddU != null) {
+                this.ddT.setCallback(this.ddU);
             }
         }
-        this.ddz.setPageUniqueId(getUniqueId());
-        if (this.ddB) {
-            this.ddz.amI();
-            this.ddB = false;
+        this.ddT.setPageUniqueId(getUniqueId());
+        if (this.ddV) {
+            this.ddT.amW();
+            this.ddV = false;
         }
-        return this.ddz;
+        return this.ddT;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -96,15 +96,15 @@ public class b extends BaseFragment implements ai {
 
     @Override // com.baidu.tieba.frs.ai
     public void setHeaderViewHeight(int i) {
-        if (this.ddz != null) {
-            this.ddz.setHeaderViewHeight(i);
+        if (this.ddT != null) {
+            this.ddT.setHeaderViewHeight(i);
         }
     }
 
     @Override // com.baidu.tieba.frs.ai
     public void setRecommendFrsNavigationAnimDispatcher(s sVar) {
-        if (this.ddz != null) {
-            this.ddz.setRecommendFrsNavigationAnimDispatcher(sVar);
+        if (this.ddT != null) {
+            this.ddT.setRecommendFrsNavigationAnimDispatcher(sVar);
         }
     }
 
@@ -120,13 +120,13 @@ public class b extends BaseFragment implements ai {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.ddz.setTabInForeBackgroundState(false);
+        this.ddT.setTabInForeBackgroundState(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.ddz.setTabInForeBackgroundState(true);
+        this.ddT.setTabInForeBackgroundState(true);
     }
 
     @Override // android.support.v4.app.Fragment
@@ -137,68 +137,68 @@ public class b extends BaseFragment implements ai {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.ddz.onDestroy();
-        this.ddB = true;
+        this.ddT.onDestroy();
+        this.ddV = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.csW) {
-                if (this.ddz != null) {
-                    this.ddz.arh();
+            if (!this.ctp) {
+                if (this.ddT != null) {
+                    this.ddT.arx();
                 }
-                this.csW = true;
+                this.ctp = true;
             }
-            this.ddz.ark();
+            this.ddT.arA();
             return;
         }
-        this.ddz.arl();
+        this.ddT.arB();
         completePullRefresh();
     }
 
-    public void OQ() {
-        this.ddz.setViewForeground(true);
+    public void Pb() {
+        this.ddT.setViewForeground(true);
     }
 
     public void completePullRefresh() {
-        this.ddz.completePullRefresh();
+        this.ddT.completePullRefresh();
     }
 
     public void setCallback(c.a aVar) {
-        this.ddA = aVar;
-        this.ddz.setCallback(aVar);
+        this.ddU = aVar;
+        this.ddT.setCallback(aVar);
     }
 
     public void T(String str, int i) {
-        this.ddz.T(str, i);
+        this.ddT.T(str, i);
     }
 
     public void a(DataRes dataRes, boolean z) {
-        if (this.ddz != null) {
-            this.ddz.a(dataRes, z);
+        if (this.ddT != null) {
+            this.ddT.a(dataRes, z);
         }
     }
 
-    public void arg() {
-        if (this.ddz != null) {
-            this.ddz.arh();
-            this.csW = true;
+    public void arw() {
+        if (this.ddT != null) {
+            this.ddT.arx();
+            this.ctp = true;
         }
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void NP() {
-        this.ddz.reload();
+    public void Oa() {
+        this.ddT.reload();
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void NQ() {
+    public void Ob() {
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void NR() {
+    public void Oc() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
@@ -223,7 +223,7 @@ public class b extends BaseFragment implements ai {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ddz.onChangeSkinType(i);
+        this.ddT.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.frs.ai

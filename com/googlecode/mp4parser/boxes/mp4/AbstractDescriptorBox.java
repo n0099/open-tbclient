@@ -12,11 +12,11 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class AbstractDescriptorBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0166a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_4 = null;
     private static Logger log;
     protected ByteBuffer data;
     protected BaseDescriptor descriptor;

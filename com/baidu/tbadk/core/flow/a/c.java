@@ -17,7 +17,7 @@ public class c {
         this.gravity = i;
     }
 
-    public final void cv(int i) {
+    public final void cu(int i) {
         this.acz = i;
     }
 
@@ -29,7 +29,7 @@ public class c {
         return this.acA;
     }
 
-    public final void cw(int i) {
+    public final void cv(int i) {
         this.acA = i;
     }
 
@@ -37,11 +37,11 @@ public class c {
         this.acB = i;
     }
 
-    public final void cx(int i) {
+    public final void cw(int i) {
         this.acC = i;
     }
 
-    public void cy(int i) {
+    public void cx(int i) {
         this.acD = i;
     }
 

@@ -29,6 +29,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_FROM_SQUARE_RECOMMEND = "from_square_recommend";
     public static final String FRS_FROM_SQUARE_TOP = "from_square_top";
     public static final String FRS_FROM_WRITESHARE = "tb_write_share";
+    public static final String FRS_GAME_DEFAULT_TAB_ID = "frs_game_default_tab_id";
     public static final String FRS_TO_PB = "tb_frslist";
     public static final String GOOD = "good";
     public static final String KEY_REFRESH = "refresh_all";
@@ -93,6 +94,11 @@ public class FrsActivityConfig extends IntentConfig {
             intent.addFlags(268435456);
         }
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+        return this;
+    }
+
+    public FrsActivityConfig setDefaultGameTabId(int i) {
+        getIntent().putExtra(FRS_GAME_DEFAULT_TAB_ID, i);
         return this;
     }
 }

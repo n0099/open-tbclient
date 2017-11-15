@@ -1,24 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes.dex */
 public class z {
-    public String ePY;
-    public boolean ePZ;
-    public boolean eQa;
-    public boolean ePJ = false;
-    public boolean ePK = false;
-    public boolean eHh = false;
-    public boolean ePL = false;
-    public boolean ePM = false;
-    public boolean ePN = false;
-    public boolean ePO = false;
-    public boolean ePP = false;
-    public boolean ePQ = false;
-    public boolean ePR = false;
-    public boolean ePS = false;
-    public boolean ePT = false;
-    public boolean ePU = false;
-    public boolean ePV = false;
-    public boolean ePW = false;
-    public boolean ePX = false;
+    public String eQs;
+    public boolean eQt;
+    public boolean eQu;
+    public boolean eQd = false;
+    public boolean eQe = false;
+    public boolean eHB = false;
+    public boolean eQf = false;
+    public boolean eQg = false;
+    public boolean eQh = false;
+    public boolean eQi = false;
+    public boolean eQj = false;
+    public boolean eQk = false;
+    public boolean eQl = false;
+    public boolean eQm = false;
+    public boolean eQn = false;
+    public boolean eQo = false;
+    public boolean eQp = false;
+    public boolean eQq = false;
+    public boolean eQr = false;
     public boolean isHostOnly = false;
 }

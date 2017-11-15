@@ -10,59 +10,59 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class am extends j.a {
-    public View dik;
-    public ImageView eRn;
-    public TextView eRo;
-    public TextView eRp;
+    public View diE;
+    public ImageView eRH;
+    public TextView eRI;
+    public TextView eRJ;
     public View mRootView;
 
     public am(View view) {
         super(view);
         if (view != null) {
             this.mRootView = view.findViewById(d.g.thread_praise_root);
-            this.eRn = (ImageView) view.findViewById(d.g.view_main_thread_praise_state);
-            this.eRo = (TextView) view.findViewById(d.g.view_main_thread_praise_num);
-            this.eRp = (TextView) view.findViewById(d.g.view_main_thread_praise_name_list);
-            this.dik = view.findViewById(d.g.bottom_divider_line);
+            this.eRH = (ImageView) view.findViewById(d.g.view_main_thread_praise_state);
+            this.eRI = (TextView) view.findViewById(d.g.view_main_thread_praise_num);
+            this.eRJ = (TextView) view.findViewById(d.g.view_main_thread_praise_name_list);
+            this.diE = view.findViewById(d.g.bottom_divider_line);
         }
     }
 
     public void b(com.baidu.tieba.pb.data.l lVar) {
         if (lVar != null) {
-            if (lVar.aQt()) {
-                if (lVar.eGT == 1) {
-                    com.baidu.tbadk.core.util.aj.c(this.eRn, d.f.icon_floor_big_praised);
-                } else if (lVar.eGT == 3) {
-                    com.baidu.tbadk.core.util.aj.c(this.eRn, d.f.icon_floor_trample);
-                } else if (lVar.eGT == 4) {
-                    com.baidu.tbadk.core.util.aj.c(this.eRn, d.f.icon_floor_big_trample);
+            if (lVar.aQB()) {
+                if (lVar.eHn == 1) {
+                    com.baidu.tbadk.core.util.aj.c(this.eRH, d.f.icon_floor_big_praised);
+                } else if (lVar.eHn == 3) {
+                    com.baidu.tbadk.core.util.aj.c(this.eRH, d.f.icon_floor_trample);
+                } else if (lVar.eHn == 4) {
+                    com.baidu.tbadk.core.util.aj.c(this.eRH, d.f.icon_floor_big_trample);
                 } else {
-                    com.baidu.tbadk.core.util.aj.c(this.eRn, d.f.icon_floor_bigpraised);
+                    com.baidu.tbadk.core.util.aj.c(this.eRH, d.f.icon_floor_bigpraised);
                 }
             } else {
-                com.baidu.tbadk.core.util.aj.c(this.eRn, d.f.icon_floor_bigpraise_n);
+                com.baidu.tbadk.core.util.aj.c(this.eRH, d.f.icon_floor_bigpraise_n);
             }
-            com.baidu.tbadk.core.util.aj.i(this.eRo, d.C0080d.cp_link_tip_c);
-            com.baidu.tbadk.core.util.aj.i(this.eRp, d.C0080d.cp_link_tip_c);
-            this.eRn.setTag(d.g.pb_main_thread_praise_data, lVar);
-            if (lVar.aQw()) {
-                com.baidu.tbadk.core.util.aj.k(this.dik, d.C0080d.cp_bg_line_c);
-                this.dik.setVisibility(0);
+            com.baidu.tbadk.core.util.aj.i(this.eRI, d.C0080d.cp_link_tip_c);
+            com.baidu.tbadk.core.util.aj.i(this.eRJ, d.C0080d.cp_link_tip_c);
+            this.eRH.setTag(d.g.pb_main_thread_praise_data, lVar);
+            if (lVar.aQE()) {
+                com.baidu.tbadk.core.util.aj.k(this.diE, d.C0080d.cp_bg_line_c);
+                this.diE.setVisibility(0);
             } else {
-                this.dik.setVisibility(8);
+                this.diE.setVisibility(8);
             }
-            if (lVar.aQs() <= 0 || com.baidu.tbadk.core.util.v.v(lVar.aQu())) {
-                this.eRo.setText(d.j.no_praise_tip);
-                com.baidu.tbadk.core.util.aj.i(this.eRo, d.C0080d.cp_cont_f);
-                this.eRp.setVisibility(8);
-                this.eRp.setTag(false);
-                this.eRo.setTag(false);
+            if (lVar.aQA() <= 0 || com.baidu.tbadk.core.util.v.v(lVar.aQC())) {
+                this.eRI.setText(d.j.no_praise_tip);
+                com.baidu.tbadk.core.util.aj.i(this.eRI, d.C0080d.cp_cont_f);
+                this.eRJ.setVisibility(8);
+                this.eRJ.setTag(false);
+                this.eRI.setTag(false);
                 return;
             }
-            this.eRp.setTag(true);
-            this.eRo.setTag(true);
-            this.eRp.setVisibility(0);
-            this.eRp.setText(Html.fromHtml(lVar.h(this.eRp), new Html.ImageGetter() { // from class: com.baidu.tieba.pb.pb.main.am.1
+            this.eRJ.setTag(true);
+            this.eRI.setTag(true);
+            this.eRJ.setVisibility(0);
+            this.eRJ.setText(Html.fromHtml(lVar.h(this.eRJ), new Html.ImageGetter() { // from class: com.baidu.tieba.pb.pb.main.am.1
                 @Override // android.text.Html.ImageGetter
                 public Drawable getDrawable(String str) {
                     int parseInt = Integer.parseInt(str);
@@ -75,7 +75,7 @@ public class am extends j.a {
                     return drawable;
                 }
             }, null));
-            this.eRo.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.count_main_thread_praise), com.baidu.tbadk.core.util.am.v(lVar.aQs())));
+            this.eRI.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.count_main_thread_praise), com.baidu.tbadk.core.util.am.v(lVar.aQA())));
         }
     }
 }

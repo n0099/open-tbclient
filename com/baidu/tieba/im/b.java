@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
 import com.baidu.tbadk.newFriends.ResponseApplyMessage;
 import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
-import com.baidu.tieba.im.b.d;
+import com.baidu.tieba.im.a.d;
 import com.baidu.tieba.im.message.ResponseCommitInviteMessage;
 import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 import com.baidu.tieba.im.message.ResponsePullMessage;
@@ -21,11 +21,11 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b {
     public static void init() {
-        auC();
-        auD();
+        auT();
+        auU();
     }
 
-    private static void auC() {
+    private static void auT() {
         c.b(104102, ResponseUpdateMaskInfoMessage.class, false);
         c.b(202003, ResponsePullMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         c.b(202009, PushResponseMessage.class, false);
@@ -39,7 +39,7 @@ public class b {
         c.b(104104, ResponseCheckUserMaskMessage.class, false);
     }
 
-    private static boolean auD() {
+    private static boolean auU() {
         MessageManager.getInstance().addResponsedMessageRule(new j(202006) { // from class: com.baidu.tieba.im.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.a.g
@@ -59,7 +59,7 @@ public class b {
         });
         MessageManager.getInstance().addResponsedMessageRule(new d());
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.push.d());
-        MessageManager.getInstance().addMessageRule(new com.baidu.tieba.im.b.c());
+        MessageManager.getInstance().addMessageRule(new com.baidu.tieba.im.a.c());
         return true;
     }
 }

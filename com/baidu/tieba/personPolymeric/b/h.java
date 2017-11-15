@@ -28,9 +28,9 @@ public class h {
     }
 
     public static void a(l lVar, BdUniqueId bdUniqueId) {
-        if (lVar != null && !StringUtils.isNull(lVar.Ck()) && v.v(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+        if (lVar != null && !StringUtils.isNull(lVar.Cw()) && v.v(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", lVar.Ck());
+            httpMessage.addParam("pic_url", lVar.Cw());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -38,13 +38,13 @@ public class h {
 
     public static void a(l lVar, List<com.baidu.adp.widget.ListView.f> list) {
         l lVar2;
-        if (lVar != null && !v.v(list) && !StringUtils.isNull(lVar.Ck())) {
+        if (lVar != null && !v.v(list) && !StringUtils.isNull(lVar.Cw())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.f fVar = list.get(i);
-                if ((fVar instanceof l) && (lVar2 = (l) fVar) != lVar && !lVar2.Cl()) {
-                    jSONArray.put(lVar2.Ck());
+                if ((fVar instanceof l) && (lVar2 = (l) fVar) != lVar && !lVar2.Cx()) {
+                    jSONArray.put(lVar2.Cw());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
@@ -58,7 +58,7 @@ public class h {
         }
     }
 
-    public static void o(String str, List<com.baidu.adp.widget.ListView.f> list) {
+    public static void p(String str, List<com.baidu.adp.widget.ListView.f> list) {
         if (!StringUtils.isNull(str)) {
             if (list == null) {
                 list = new ArrayList<>();
@@ -69,8 +69,8 @@ public class h {
                 com.baidu.adp.widget.ListView.f fVar = list.get(i);
                 if (fVar instanceof l) {
                     l lVar = (l) fVar;
-                    if (!lVar.Cl()) {
-                        jSONArray.put(lVar.Ck());
+                    if (!lVar.Cx()) {
+                        jSONArray.put(lVar.Cw());
                     }
                 }
             }

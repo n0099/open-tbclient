@@ -2,32 +2,32 @@ package org.aspectj.a.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class e extends a implements org.aspectj.lang.reflect.c {
-    Class hqo;
+    Class hry;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2, Class cls2) {
         super(i, str, cls, clsArr, strArr, clsArr2);
-        this.hqo = cls2;
+        this.hry = cls2;
     }
 
     public Class getReturnType() {
-        if (this.hqo == null) {
-            this.hqo = xm(6);
+        if (this.hry == null) {
+            this.hry = xq(6);
         }
-        return this.hqo;
+        return this.hry;
     }
 
     @Override // org.aspectj.a.b.f
     protected String b(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(hVar.xp(getModifiers()));
-        if (hVar.hxX) {
+        stringBuffer.append(hVar.xt(getModifiers()));
+        if (hVar.hzh) {
             stringBuffer.append(hVar.o(getReturnType()));
         }
-        if (hVar.hxX) {
+        if (hVar.hzh) {
             stringBuffer.append(" ");
         }
-        stringBuffer.append(hVar.e(bOU(), bOV()));
+        stringBuffer.append(hVar.e(bPh(), bPi()));
         stringBuffer.append(".");
         stringBuffer.append(getName());
         hVar.b(stringBuffer, getParameterTypes());

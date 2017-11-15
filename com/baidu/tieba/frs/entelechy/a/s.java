@@ -13,28 +13,28 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class s extends com.baidu.tieba.frs.d<bh, a<com.baidu.tieba.frs.entelechy.view.a>> implements v, com.baidu.tieba.frs.e.c {
-    private x<bh> boe;
-    private com.baidu.tieba.frs.entelechy.view.a cEL;
+    private x<bh> bon;
+    private com.baidu.tieba.frs.entelechy.view.a cFe;
     private String mForumName;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public s(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.boe = new x<bh>() { // from class: com.baidu.tieba.frs.entelechy.a.s.1
+        this.bon = new x<bh>() { // from class: com.baidu.tieba.frs.entelechy.a.s.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, bh bhVar) {
                 if (view != null && bhVar != null) {
-                    if (view.getId() == d.g.layout_root || (s.this.cEL.boD != null && s.this.cEL.boD.getCommentContainer() != null && view.getId() == s.this.cEL.boD.getCommentContainer().getId())) {
-                        com.baidu.tieba.frs.e.b.aoe().a(com.baidu.tieba.frs.e.c.cPd, bhVar, 1);
+                    if (view.getId() == d.g.layout_root || (s.this.cFe.boM != null && s.this.cFe.boM.getCommentContainer() != null && view.getId() == s.this.cFe.boM.getCommentContainer().getId())) {
+                        com.baidu.tieba.frs.e.b.aot().a(com.baidu.tieba.frs.e.c.cPx, bhVar, 1);
                         s.this.F(bhVar);
                     } else if (view.getId() == d.g.card_home_page_normal_thread_user_name || view.getId() == d.g.card_home_page_normal_thread_user_header) {
-                        com.baidu.tieba.frs.e.b.aoe().a(com.baidu.tieba.frs.e.c.cPd, bhVar, 2);
+                        com.baidu.tieba.frs.e.b.aot().a(com.baidu.tieba.frs.e.c.cPx, bhVar, 2);
                     } else if (view.getId() == d.g.header_divider) {
-                        com.baidu.tieba.frs.f.h.a(com.baidu.tieba.frs.e.c.cPd, bhVar.rS());
+                        com.baidu.tieba.frs.f.h.a(com.baidu.tieba.frs.e.c.cPx, bhVar.rS());
                     } else if (view.getId() == d.g.frame_video) {
-                        com.baidu.tieba.frs.e.b.aoe().a(com.baidu.tieba.frs.e.c.cPd, bhVar, 4);
+                        com.baidu.tieba.frs.e.b.aot().a(com.baidu.tieba.frs.e.c.cPx, bhVar, 4);
                         s.this.F(bhVar);
                     } else if (view.getId() == d.g.card_god_reply_layout) {
                         s.this.F(bhVar);
@@ -50,10 +50,10 @@ public class s extends com.baidu.tieba.frs.d<bh, a<com.baidu.tieba.frs.entelechy
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aj */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cEL = new com.baidu.tieba.frs.entelechy.view.a(this.mPageContext, this.mPageId);
-        this.cEL.k(this.mPageId);
-        this.cEL.setForumName(this.mForumName);
-        return new a(this.cEL);
+        this.cFe = new com.baidu.tieba.frs.entelechy.view.a(this.mPageContext, this.mPageId);
+        this.cFe.k(this.mPageId);
+        this.cFe.setForumName(this.mForumName);
+        return new a(this.cFe);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,17 +61,17 @@ public class s extends com.baidu.tieba.frs.d<bh, a<com.baidu.tieba.frs.entelechy
     @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bh bhVar, a aVar) {
-        if (aVar == null || aVar.aax() == null) {
+        if (aVar == null || aVar.aaJ() == null) {
             return null;
         }
-        aVar.aax().setVideoStatsData(D(bhVar));
-        aVar.aax().a(bhVar);
-        aVar.aax().setForumName(this.mForumName);
-        aVar.aax().b(this.boe);
-        com.baidu.tieba.frs.e.b.aoe().a(cPd, bhVar);
-        com.baidu.tieba.frs.e.b.aoe().N(bhVar);
+        aVar.aaJ().setVideoStatsData(D(bhVar));
+        aVar.aaJ().a(bhVar);
+        aVar.aaJ().setForumName(this.mForumName);
+        aVar.aaJ().b(this.bon);
+        com.baidu.tieba.frs.e.b.aot().a(cPx, bhVar);
+        com.baidu.tieba.frs.e.b.aot().N(bhVar);
         if (bhVar != null) {
-            TiebaStatic.log(new ak("c12125").ac("tid", bhVar.getId()).r("obj_locate", aiK() ? 2 : 1).f("obj_id", bhVar.rM() != null ? bhVar.rM().live_id : -1L).r("obj_type", 1));
+            TiebaStatic.log(new ak("c12125").ac("tid", bhVar.getId()).r("obj_locate", aiY() ? 2 : 1).f("obj_id", bhVar.rM() != null ? bhVar.rM().live_id : -1L).r("obj_type", 1));
             bhVar.st();
         }
         return aVar.getView();
@@ -83,14 +83,14 @@ public class s extends com.baidu.tieba.frs.d<bh, a<com.baidu.tieba.frs.entelechy
         }
         com.baidu.tieba.play.x xVar = new com.baidu.tieba.play.x();
         xVar.mLocate = bhVar.sp() ? TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE : "2";
-        xVar.azE = cPd.cOV;
-        xVar.aMi = bhVar.getTid();
+        xVar.azM = cPx.cPp;
+        xVar.aMq = bhVar.getTid();
         xVar.mSource = bhVar.ZQ;
-        xVar.fGE = bhVar.ZV;
-        xVar.fGF = bhVar.ZR;
-        xVar.fGH = bhVar.ZS;
+        xVar.fHj = bhVar.ZV;
+        xVar.fHk = bhVar.ZR;
+        xVar.fHm = bhVar.ZS;
         if (bhVar.rL() != null) {
-            xVar.fGI = bhVar.rL().video_md5;
+            xVar.fHn = bhVar.rL().video_md5;
         }
         return xVar;
     }
@@ -102,6 +102,6 @@ public class s extends com.baidu.tieba.frs.d<bh, a<com.baidu.tieba.frs.entelechy
 
     /* JADX INFO: Access modifiers changed from: private */
     public void F(bh bhVar) {
-        TiebaStatic.log(new ak("c12126").ac("tid", bhVar.getId()).r("obj_locate", aiK() ? 2 : 1).f("obj_id", bhVar.rM() == null ? -1L : bhVar.rM().live_id).r("obj_type", 1));
+        TiebaStatic.log(new ak("c12126").ac("tid", bhVar.getId()).r("obj_locate", aiY() ? 2 : 1).f("obj_id", bhVar.rM() == null ? -1L : bhVar.rM().live_id).r("obj_type", 1));
     }
 }

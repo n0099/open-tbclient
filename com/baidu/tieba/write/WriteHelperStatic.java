@@ -26,7 +26,7 @@ public class WriteHelperStatic {
                     intent.putExtra("model", bnVar.aaE);
                     intent.putExtra("is_ad", false);
                     if (bnVar.aaF != null) {
-                        intent.putExtra("page_type", com.baidu.adp.lib.g.b.g(bnVar.aaF.xZ(), 0));
+                        intent.putExtra("page_type", com.baidu.adp.lib.g.b.g(bnVar.aaF.yh(), 0));
                     }
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }

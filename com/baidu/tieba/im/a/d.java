@@ -1,4 +1,4 @@
-package com.baidu.tieba.im.b;
+package com.baidu.tieba.im.a;
 
 import android.util.SparseArray;
 import com.baidu.adp.framework.MessageManager;
@@ -40,7 +40,7 @@ public class d extends j {
                 }
             }
             if (!a(responsePullMessage)) {
-                b.aAE().aAL();
+                b.aAI().aAP();
                 return socketResponsedMessage;
             }
             return socketResponsedMessage;
@@ -66,12 +66,12 @@ public class d extends j {
                 return false;
             }
             SparseArray<Long> sparseArray = new SparseArray<>();
-            SparseArray<Long> aAm = com.baidu.tieba.im.memorycache.b.aAc().aAm();
+            SparseArray<Long> aAq = com.baidu.tieba.im.memorycache.b.aAg().aAq();
             boolean z = false;
             for (GroupMsgData groupMsgData : groupMsg) {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                    if (com.baidu.tieba.im.memorycache.c.nf(groupMsgData.getGroupInfo().getCustomType())) {
-                        Long l2 = aAm.get((int) groupMsgData.getGroupInfo().getGroupId());
+                    if (com.baidu.tieba.im.memorycache.c.ng(groupMsgData.getGroupInfo().getCustomType())) {
+                        Long l2 = aAq.get((int) groupMsgData.getGroupInfo().getGroupId());
                         if (l2 != null && (l = messageSyncMessage.getGroupMids().get((int) groupMsgData.getGroupInfo().getGroupId())) != null) {
                             if (l2.longValue() > l.longValue()) {
                                 z = true;
@@ -87,7 +87,7 @@ public class d extends j {
             if (!z || sparseArray.size() <= 0) {
                 return false;
             }
-            b.aAE().b(sparseArray);
+            b.aAI().b(sparseArray);
             return true;
         }
         return false;

@@ -9,10 +9,10 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.d;
 /* loaded from: classes.dex */
 public class ListViewPager extends ViewPager {
-    private float aOe;
-    private float aSW;
-    private float aSX;
-    private float aSY;
+    private float aOm;
+    private float aTe;
+    private float aTf;
+    private float aTg;
     private boolean akL;
     private d.c akN;
     private GestureDetector mGestureDetector;
@@ -92,28 +92,28 @@ public class ListViewPager extends ViewPager {
                 if (this.akN != null) {
                     this.akN.lm();
                 }
-                this.aOe = motionEvent.getX();
-                this.aSW = motionEvent.getY();
+                this.aOm = motionEvent.getX();
+                this.aTe = motionEvent.getY();
                 break;
             case 1:
             case 3:
                 if (this.akN != null) {
                     this.akN.lm();
                 }
-                this.aOe = 0.0f;
-                this.aSW = 0.0f;
-                this.aSX = 0.0f;
-                this.aSY = 0.0f;
+                this.aOm = 0.0f;
+                this.aTe = 0.0f;
+                this.aTf = 0.0f;
+                this.aTg = 0.0f;
                 break;
             case 2:
                 if (this.akN != null) {
                     this.akN.lm();
                 }
-                this.aSX = motionEvent.getX() - this.aOe;
-                this.aSY = motionEvent.getY() - this.aSW;
-                this.aOe = motionEvent.getX();
-                this.aSW = motionEvent.getY();
-                if (getCurrentItem() != 0 && Math.abs(this.aSX) > Math.abs(this.aSY)) {
+                this.aTf = motionEvent.getX() - this.aOm;
+                this.aTg = motionEvent.getY() - this.aTe;
+                this.aOm = motionEvent.getX();
+                this.aTe = motionEvent.getY();
+                if (getCurrentItem() != 0 && Math.abs(this.aTf) > Math.abs(this.aTg)) {
                     aO(true);
                     break;
                 }

@@ -13,6 +13,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayer;
 import java.util.HashMap;
+import java.util.Map;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes.dex */
@@ -33,6 +34,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     private int mCurrentState = 0;
     private int mTargetState = 0;
     private boolean mForceUseSystemMediaPlayer = false;
+    private Map<String, String> mDebugParamsMap = new HashMap();
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.1
         @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnPreparedListener
         public void onPrepared(IMediaPlayer iMediaPlayer) {
@@ -118,10 +120,10 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     };
     private IMediaPlayer.OnSubErrorInfoListener mOnSubErrorInfoListener = new IMediaPlayer.OnSubErrorInfoListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.6
         @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnSubErrorInfoListener
-        public void onSubError(int i, int i2) {
+        public void onSubError(int i, int i2, String str) {
             try {
                 if (QuickMediaPlayerBinder.this.mQuickMediaPlayerListener != null) {
-                    QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onSubError(i, i2);
+                    QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onSubError(i, i2, str);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -146,6 +148,18 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             try {
                 if (QuickMediaPlayerBinder.this.mQuickMediaPlayerListener != null) {
                     QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onSeekComplete();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+    private IMediaPlayer.OnSpeedWhenInvokingErrorListener mOnSpeedWhenInvokingErrorListener = new IMediaPlayer.OnSpeedWhenInvokingErrorListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.9
+        @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnSpeedWhenInvokingErrorListener
+        public void onSpeed(long j) {
+            try {
+                if (QuickMediaPlayerBinder.this.mQuickMediaPlayerListener != null) {
+                    QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onSpeedWhenError(j);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -189,6 +203,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mMediaPlayer.setOnMediaReleaseFinishedListener(this.mOnMediaReleaseFinishedListener);
             this.mMediaPlayer.setOnSubErrorListener(this.mOnSubErrorInfoListener);
             this.mMediaPlayer.setOnHandleOppoErrorListener(this.mOnHandleOppoErrorListener);
+            this.mMediaPlayer.setOnSpeedWhenInvokingErrorListener(this.mOnSpeedWhenInvokingErrorListener);
             if (!TextUtils.isEmpty(str)) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("Host", str);
@@ -204,6 +219,9 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             e.printStackTrace();
             this.mCurrentState = -1;
             this.mTargetState = -1;
+            if (this.mOnSubErrorInfoListener != null) {
+                this.mOnSubErrorInfoListener.onSubError(-24399, -24399, getExceptionDetailMsg(e));
+            }
             if (this.mOnErrorListener != null) {
                 this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? -200 : -100, -24399, -24399);
             }
@@ -211,6 +229,9 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             e2.printStackTrace();
             this.mCurrentState = -1;
             this.mTargetState = -1;
+            if (this.mOnSubErrorInfoListener != null) {
+                this.mOnSubErrorInfoListener.onSubError(-34399, -34399, getExceptionDetailMsg(e2));
+            }
             if (this.mOnErrorListener != null) {
                 IMediaPlayer.OnErrorListener onErrorListener = this.mOnErrorListener;
                 IMediaPlayer iMediaPlayer = this.mMediaPlayer;
@@ -220,6 +241,23 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                 onErrorListener.onError(iMediaPlayer, i, -34399, -34399);
             }
         }
+    }
+
+    private String getExceptionDetailMsg(Throwable th) {
+        if (th == null) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder(th.toString());
+        StackTraceElement[] stackTrace = th.getStackTrace();
+        if (stackTrace != null) {
+            for (int i = 0; i < stackTrace.length; i++) {
+                StackTraceElement stackTraceElement = stackTrace[i];
+                if (stackTraceElement != null && i < 7) {
+                    sb.append(" ----> ").append(stackTraceElement.getClassName()).append(".").append(stackTraceElement.getMethodName()).append("()");
+                }
+            }
+        }
+        return sb.toString();
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
@@ -347,6 +385,9 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             ijkMediaPlayer.setOption(1, "http-detect-range-support", 0L);
             ijkMediaPlayer.setOption(2, "skip_loop_filter", 0L);
             ijkMediaPlayer.setOption(4, "enable-accurate-seek", 1L);
+            for (Map.Entry<String, String> entry : this.mDebugParamsMap.entrySet()) {
+                ijkMediaPlayer.setOption(4, entry.getKey(), entry.getValue());
+            }
             return ijkMediaPlayer;
         } catch (Throwable th) {
             th.printStackTrace();
@@ -370,5 +411,10 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public boolean isIjkPlayer() throws RemoteException {
         return this.mMediaPlayer != null && (this.mMediaPlayer instanceof IjkMediaPlayer);
+    }
+
+    @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+    public void setDebugParams(String str, String str2) throws RemoteException {
+        this.mDebugParamsMap.put(str, str2);
     }
 }

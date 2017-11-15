@@ -17,7 +17,7 @@ public class ae extends m<com.baidu.tbadk.core.data.as, af> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bu */
     public af onCreateViewHolder(ViewGroup viewGroup) {
-        return new af(this.eMh.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_recommend_novel, viewGroup, false));
+        return new af(this.eMB.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_recommend_novel, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

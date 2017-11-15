@@ -20,9 +20,9 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g {
-    private com.baidu.tieba.NEGFeedBack.c bQR;
-    private ViewGroup cRq;
-    private c.a cRr = new c.a() { // from class: com.baidu.tieba.frs.g.g.1
+    private com.baidu.tieba.NEGFeedBack.c bRe;
+    private ViewGroup cRK;
+    private c.a cRL = new c.a() { // from class: com.baidu.tieba.frs.g.g.1
         @Override // com.baidu.tieba.NEGFeedBack.c.a
         public void a(al alVar) {
             TiebaStatic.log(new ak("c11973").ac(ImageViewerConfig.FORUM_ID, alVar.getFid()).ac("tid", alVar.getTid()).ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
@@ -51,7 +51,7 @@ public class g {
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mPageContext = tbPageContext;
-        this.cRq = viewGroup;
+        this.cRK = viewGroup;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -60,52 +60,52 @@ public class g {
 
     public void Q(bh bhVar) {
         int i = 0;
-        if (bhVar != null && this.mPageContext != null && this.cRq != null) {
+        if (bhVar != null && this.mPageContext != null && this.cRK != null) {
             boolean z = (bhVar.rt() == null || bhVar.rt().getUserId() == null || !bhVar.rt().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (bhVar.sy() && bhVar.qk() != null && !z) {
-                if (this.bQR == null) {
-                    this.bQR = new com.baidu.tieba.NEGFeedBack.c(this.mPageContext);
-                    this.bQR.setUniqueId(this.mBdUniqueId);
-                    this.bQR.setId(d.g.negative_feedback_view);
-                    this.bQR.Ku();
-                    this.bQR.setLeftPadding((int) this.mPageContext.getResources().getDimension(d.e.ds60));
-                    this.bQR.setDefaultReasonArray(new String[]{this.mPageContext.getString(d.j.bad_quality), "", ""});
-                    this.bQR.setEventCallback(this.cRr);
-                    this.cRq.addView(this.bQR);
+                if (this.bRe == null) {
+                    this.bRe = new com.baidu.tieba.NEGFeedBack.c(this.mPageContext);
+                    this.bRe.setUniqueId(this.mBdUniqueId);
+                    this.bRe.setId(d.g.negative_feedback_view);
+                    this.bRe.KF();
+                    this.bRe.setLeftPadding((int) this.mPageContext.getResources().getDimension(d.e.ds60));
+                    this.bRe.setDefaultReasonArray(new String[]{this.mPageContext.getString(d.j.bad_quality), "", ""});
+                    this.bRe.setEventCallback(this.cRL);
+                    this.cRK.addView(this.bRe);
                 }
-                if (this.bQR.getVisibility() != 0) {
-                    this.bQR.setVisibility(0);
+                if (this.bRe.getVisibility() != 0) {
+                    this.bRe.setVisibility(0);
                 }
                 al alVar = new al();
                 alVar.cD(bhVar.getTid());
                 alVar.setFid(bhVar.getFid());
                 alVar.a(bhVar.qk());
-                this.bQR.setData(alVar);
+                this.bRe.setData(alVar);
             } else {
-                if (this.bQR != null && this.bQR.getVisibility() != 8) {
-                    this.bQR.setVisibility(8);
+                if (this.bRe != null && this.bRe.getVisibility() != 8) {
+                    this.bRe.setVisibility(8);
                 }
                 i = l.f(this.mPageContext.getPageActivity(), d.e.ds32);
             }
-            if (this.cRq.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cRq.getLayoutParams();
+            if (this.cRK.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cRK.getLayoutParams();
                 layoutParams.rightMargin = i;
-                this.cRq.setLayoutParams(layoutParams);
+                this.cRK.setLayoutParams(layoutParams);
             }
-            if (this.cRq.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.cRq.getLayoutParams();
+            if (this.cRK.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.cRK.getLayoutParams();
                 layoutParams2.rightMargin = i;
-                this.cRq.setLayoutParams(layoutParams2);
+                this.cRK.setLayoutParams(layoutParams2);
             }
-            if (this.bQR != null) {
-                this.bQR.Kw();
+            if (this.bRe != null) {
+                this.bRe.KH();
             }
         }
     }
 
     public void onChangeSkinType() {
-        if (this.bQR != null) {
-            this.bQR.onChangeSkinType();
+        if (this.bRe != null) {
+            this.bRe.onChangeSkinType();
         }
     }
 }

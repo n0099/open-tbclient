@@ -5,30 +5,30 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.flow.a.a {
-    private String goY;
-    private String goZ;
-    private String gpa;
-    private String gpb;
+    private String gqb;
+    private String gqc;
+    private String gqd;
+    private String gqe;
     private int height;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public j(Timgs timgs) {
-        this.goY = null;
+        this.gqb = null;
         this.urlFlag = 0;
-        this.goZ = null;
-        this.gpa = null;
-        this.gpb = null;
+        this.gqc = null;
+        this.gqd = null;
+        this.gqe = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.goY = timgs.img_url;
+            this.gqb = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.goZ = timgs.url;
-            this.gpa = timgs.big_cdn_url;
-            this.gpb = timgs.des_main;
+            this.gqc = timgs.url;
+            this.gqd = timgs.big_cdn_url;
+            this.gqe = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -51,19 +51,19 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.goY;
+        return this.gqb;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String pL() {
-        return this.goZ;
+        return this.gqc;
     }
 
-    public String bud() {
-        return this.goY;
+    public String bup() {
+        return this.gqb;
     }
 
-    public String bue() {
-        return this.gpa;
+    public String buq() {
+        return this.gqd;
     }
 }

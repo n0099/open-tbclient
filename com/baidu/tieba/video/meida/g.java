@@ -27,21 +27,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class g {
-    private static volatile g gHm;
+    private static volatile g gIu;
 
     private g() {
-        f.bzG();
+        f.bzS();
     }
 
-    public static g bzM() {
-        if (gHm == null) {
+    public static g bzY() {
+        if (gIu == null) {
             synchronized (g.class) {
-                if (gHm == null) {
-                    gHm = new g();
+                if (gIu == null) {
+                    gIu = new g();
                 }
             }
         }
-        return gHm;
+        return gIu;
     }
 
     public boolean a(List<String> list, String str, boolean z) {
@@ -87,7 +87,7 @@ public class g {
         channel.close();
     }
 
-    public boolean ci(String str, String str2) {
+    public boolean cm(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return false;
         }
@@ -127,7 +127,7 @@ public class g {
             return false;
         }
         long currentTimeMillis2 = System.currentTimeMillis();
-        String str5 = com.baidu.tieba.video.b.gCt + (ao.dV(str + str2 + str3) + "/");
+        String str5 = com.baidu.tieba.video.b.gDB + (ao.dV(str + str2 + str3) + "/");
         new File(str5).mkdirs();
         File file2 = new File(str3);
         file2.mkdirs();
@@ -144,11 +144,11 @@ public class g {
                 if (c == -1) {
                     return false;
                 }
-                long p = p(str2, linkedList3);
-                if (p == -1) {
+                long q = q(str2, linkedList3);
+                if (q == -1) {
                     return false;
                 }
-                a(c, p, linkedList3, linkedList4);
+                a(c, q, linkedList3, linkedList4);
                 if (z && linkedList2.size() > 0 && Build.VERSION.SDK_INT >= 16) {
                     String str6 = str5 + "temp_" + System.currentTimeMillis();
                     b(str6, (List<Track>) null, linkedList4);
@@ -193,8 +193,8 @@ public class g {
         final String str4 = str2 + "temp_" + System.currentTimeMillis();
         File[] fileArr = new File[strArr.length];
         try {
-            f.a tA = f.tA(strArr[0]);
-            if (tA == null) {
+            f.a tG = f.tG(strArr[0]);
+            if (tG == null) {
                 return false;
             }
             f.a aVar2 = new f.a();
@@ -202,22 +202,22 @@ public class g {
             boolean z2 = true;
             while (i < strArr.length) {
                 if (i != 0) {
-                    f.a tA2 = f.tA(strArr[i]);
-                    if (tA2 == null) {
+                    f.a tG2 = f.tG(strArr[i]);
+                    if (tG2 == null) {
                         return false;
                     }
-                    z = f.a(tA, tA2);
-                    aVar = tA2;
+                    z = f.a(tG, tG2);
+                    aVar = tG2;
                 } else {
                     z = z2;
                     aVar = aVar2;
                 }
                 String str5 = str2 + "temp_" + i + "_" + System.currentTimeMillis();
-                if (new b(strArr[i]).a(str5, z, tA, aVar) != null) {
-                    if (!z && i != 0 && aVar.bzH()) {
+                if (new b(strArr[i]).a(str5, z, tG, aVar) != null) {
+                    if (!z && i != 0 && aVar.bzT()) {
                         str3 = str2 + "resample_" + System.currentTimeMillis();
                         long currentTimeMillis = System.currentTimeMillis();
-                        boolean e = f.e(str5, str3, aVar.gHg, tA.gHg);
+                        boolean e = f.e(str5, str3, aVar.gIo, tG.gIo);
                         BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
                     }
                     str3 = str5;
@@ -227,26 +227,26 @@ public class g {
                 aVar2 = aVar;
                 z2 = z;
             }
-            MultiAudioMixer bzK = MultiAudioMixer.bzK();
-            bzK.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.g.1
-                FileOutputStream gHn;
+            MultiAudioMixer bzW = MultiAudioMixer.bzW();
+            bzW.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.g.1
+                FileOutputStream gIv;
 
                 {
-                    this.gHn = new FileOutputStream(str4);
+                    this.gIv = new FileOutputStream(str4);
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
-                public void D(byte[] bArr) throws IOException {
-                    if (this.gHn != null) {
-                        this.gHn.write(bArr);
+                public void E(byte[] bArr) throws IOException {
+                    if (this.gIv != null) {
+                        this.gIv.write(bArr);
                     }
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
-                public void uP(int i2) {
+                public void uT(int i2) {
                     try {
-                        if (this.gHn != null) {
-                            this.gHn.close();
+                        if (this.gIv != null) {
+                            this.gIv.close();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -254,21 +254,21 @@ public class g {
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
-                public void bzL() {
+                public void bzX() {
                     try {
-                        if (this.gHn != null) {
-                            this.gHn.close();
+                        if (this.gIv != null) {
+                            this.gIv.close();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 }
             });
-            bzK.a(fileArr);
-            d tz = d.tz(str4);
-            tz.setSampleRate(tA.gHg);
-            tz.setChannelCount(tA.channelCount);
-            tz.ty(str);
+            bzW.a(fileArr);
+            d tF = d.tF(str4);
+            tF.setSampleRate(tG.gIo);
+            tF.setChannelCount(tG.channelCount);
+            tF.tE(str);
             return true;
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -402,7 +402,7 @@ public class g {
         return j;
     }
 
-    private long p(String str, List<Track> list) {
+    private long q(String str, List<Track> list) {
         long j = 0;
         try {
             Iterator<Track> it = MovieCreator.build(str).getTracks().iterator();

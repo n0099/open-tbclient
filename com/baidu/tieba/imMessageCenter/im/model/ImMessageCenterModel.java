@@ -1,7 +1,6 @@
 package com.baidu.tieba.imMessageCenter.im.model;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
@@ -45,9 +44,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData bd = b.aBt().bd(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (bd != null) {
-                buildNormalItem.setGroupSetting(bd);
+            GroupSettingItemData be = b.aBx().be(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (be != null) {
+                buildNormalItem.setGroupSetting(be);
             }
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountName())) {
                 if (TextUtils.isEmpty(buildNormalItem.getMsgContent())) {
@@ -61,18 +60,15 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     }
 
     private void b(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && imMessageCenterPojo.getIsFriend() != 0) {
-            BdLog.i("send message status " + imMessageCenterPojo.getSend_status());
-            ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
-            if (buildNormalItem != null) {
-                buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
-                buildNormalItem.setOwnerName(String.valueOf(4));
-                PersonalSettingItemData bd = e.aBw().bd(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-                if (bd != null) {
-                    buildNormalItem.setGroupSetting(bd);
-                }
-                insertShowData(buildNormalItem, this.mList);
+        ImMessageCenterShowItemData buildNormalItem;
+        if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && imMessageCenterPojo.getIsFriend() != 0 && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
+            buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
+            buildNormalItem.setOwnerName(String.valueOf(4));
+            PersonalSettingItemData be = e.aBA().be(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (be != null) {
+                buildNormalItem.setGroupSetting(be);
             }
+            insertShowData(buildNormalItem, this.mList);
         }
     }
 

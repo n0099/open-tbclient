@@ -39,7 +39,7 @@ public interface g {
 
     /* renamed from: com.baidu.tieba.play.g$g  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0121g {
+    public interface InterfaceC0124g {
         void onPrepared(g gVar);
     }
 
@@ -50,10 +50,15 @@ public interface g {
 
     /* loaded from: classes.dex */
     public interface i {
-        void onSubError(int i, int i2);
+        void onSpeed(long j);
     }
 
-    void GX();
+    /* loaded from: classes.dex */
+    public interface j {
+        void onSubError(int i, int i2, String str);
+    }
+
+    void Hi();
 
     void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, int i2);
 
@@ -68,6 +73,8 @@ public interface g {
     void a(f fVar);
 
     void a(i iVar);
+
+    void a(j jVar);
 
     void forceUseSystemMediaPlayer(boolean z);
 
@@ -95,7 +102,7 @@ public interface g {
 
     void setOnCompletionListener(a aVar);
 
-    void setOnPreparedListener(InterfaceC0121g interfaceC0121g);
+    void setOnPreparedListener(InterfaceC0124g interfaceC0124g);
 
     void setOnSeekCompleteListener(h hVar);
 

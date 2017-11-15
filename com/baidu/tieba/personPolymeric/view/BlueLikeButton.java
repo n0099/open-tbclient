@@ -11,26 +11,26 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean fpP;
+    private boolean fqm;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.fpP = false;
+        this.fqm = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fpP = false;
+        this.fqm = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fpP = false;
+        this.fqm = false;
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void aM(boolean z) {
-        this.fpP = z;
+        this.fqm = z;
         if (z) {
             setText(d.j.followed);
             setBackgroundDrawable(aj.getDrawable(d.f.selector_like_button_gray_bg));
@@ -50,7 +50,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void dG(int i) {
+    public void dF(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -65,7 +65,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
 
     public void onChangeSkinType(int i) {
         aj.c(this, d.C0080d.cp_cont_i, 1);
-        if (this.fpP) {
+        if (this.fqm) {
             setBackgroundDrawable(aj.getDrawable(d.f.selector_like_button_gray_bg));
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             return;

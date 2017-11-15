@@ -6,25 +6,25 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 /* loaded from: classes.dex */
 public class b extends TimePickerDialog {
-    private int dDS;
-    private int gLS;
-    private boolean gLT;
+    private int dEo;
+    private int gNa;
+    private boolean gNb;
 
     public b(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
         super(context, onTimeSetListener, i, i2, z);
-        this.dDS = -1;
-        this.gLS = -1;
-        this.gLT = false;
-        this.dDS = i;
-        this.gLS = i2;
+        this.dEo = -1;
+        this.gNa = -1;
+        this.gNb = false;
+        this.dEo = i;
+        this.gNa = i2;
     }
 
     @Override // android.app.TimePickerDialog
     public void updateTime(int i, int i2) {
         super.updateTime(i, i2);
-        this.dDS = i;
-        this.gLS = i2;
-        this.gLT = false;
+        this.dEo = i;
+        this.gNa = i2;
+        this.gNb = false;
     }
 
     @Override // android.app.TimePickerDialog, android.app.Dialog
@@ -37,8 +37,8 @@ public class b extends TimePickerDialog {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        bundle.putInt("hour_key", this.dDS);
-        bundle.putInt("min_key", this.gLS);
+        bundle.putInt("hour_key", this.dEo);
+        bundle.putInt("min_key", this.gNa);
         return bundle;
     }
 
@@ -46,25 +46,25 @@ public class b extends TimePickerDialog {
     public void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
         updateTime(0, 0);
-        this.dDS = bundle.getInt("hour_key");
-        this.gLS = bundle.getInt("min_key");
-        updateTime(this.dDS, this.gLS);
+        this.dEo = bundle.getInt("hour_key");
+        this.gNa = bundle.getInt("min_key");
+        updateTime(this.dEo, this.gNa);
     }
 
     @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == -1) {
-            this.gLT = true;
-        } else if (this.dDS >= 0 && this.gLS >= 0) {
-            updateTime(this.dDS, this.gLS);
+            this.gNb = true;
+        } else if (this.dEo >= 0 && this.gNa >= 0) {
+            updateTime(this.dEo, this.gNa);
         }
         super.onClick(dialogInterface, i);
     }
 
     @Override // android.app.Dialog
     protected void onStop() {
-        if (!this.gLT) {
-            updateTime(this.dDS, this.gLS);
+        if (!this.gNb) {
+            updateTime(this.dEo, this.gNa);
         }
         super.onStop();
     }

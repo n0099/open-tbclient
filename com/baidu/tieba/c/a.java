@@ -21,19 +21,19 @@ public class a {
     /* renamed from: com.baidu.tieba.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0078a {
-        void Zv();
+        void ZH();
     }
 
-    public static boolean Zt() {
+    public static boolean ZF() {
         return UtilHelper.isInstallApk(TbadkCoreApplication.getInst(), "com.baidu.tiebabz");
     }
 
-    public static void Zu() {
-        b.Cx().a("160802", "https://downpack.baidu.com/tbbazhu_AndroidPhone_1017265l.apk", "贴吧吧主版", null);
+    public static void ZG() {
+        b.CJ().a("160802", "https://downpack.baidu.com/tbbazhu_AndroidPhone_1017265l.apk", "贴吧吧主版", null);
     }
 
     public static void a(e<?> eVar, int i, int i2) {
-        if (!Zt()) {
+        if (!ZF()) {
             String str = "";
             switch (i2) {
                 case 1:
@@ -57,14 +57,14 @@ public class a {
     }
 
     public static void a(e<?> eVar, final int i, String str) {
-        if (!Zt()) {
+        if (!ZF()) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(eVar.getPageActivity());
             aVar.cS(str);
             aVar.a(d.j.download, new a.b() { // from class: com.baidu.tieba.c.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    a.Zu();
+                    a.ZG();
                     String str2 = "";
                     if (i == 1) {
                         str2 = "c11568";
@@ -97,7 +97,7 @@ public class a {
     }
 
     public static void a(e<?> eVar, String str, String str2, InterfaceC0078a interfaceC0078a) {
-        if (!Zt() || !h(eVar.getPageActivity(), str, str2)) {
+        if (!ZF() || !h(eVar.getPageActivity(), str, str2)) {
             if (j.hh()) {
                 if (j.hi()) {
                     a(eVar, 1, eVar.getString(d.j.bawu_center_wifi_tips));
@@ -246,7 +246,7 @@ public class a {
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                a.Zu();
+                a.ZG();
                 TiebaStatic.log("c11577");
             }
         });
@@ -255,7 +255,7 @@ public class a {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
                 if (InterfaceC0078a.this != null) {
-                    InterfaceC0078a.this.Zv();
+                    InterfaceC0078a.this.ZH();
                 }
                 TiebaStatic.log("c11574");
             }

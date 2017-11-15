@@ -30,7 +30,7 @@ import com.baidu.tbadk.core.util.c.p;
 import com.baidu.tbadk.core.util.c.q;
 import com.baidu.tbadk.core.util.c.r;
 import com.baidu.tbadk.kuang.ReLoginFromKuangMessage;
-import com.baidu.tbadk.p.an;
+import com.baidu.tbadk.p.ao;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
@@ -45,12 +45,12 @@ public class LaunchStatic {
         initRegisterTask();
         initRegisterListeners();
         oS();
-        an.GD();
+        ao.GO();
         com.baidu.tieba.tbadkCore.location.b.init();
-        com.baidu.tieba.im.widget.c.aBQ();
+        com.baidu.tieba.im.widget.c.aBU();
         com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.aAo();
-        com.baidu.tieba.im.db.h.axx();
+        ImMemoryCacheRegister.aAs();
+        com.baidu.tieba.im.db.h.axO();
         com.baidu.tbadk.browser.d.init();
         g.init();
         com.baidu.tieba.wallet.d.init();
@@ -88,7 +88,7 @@ public class LaunchStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        com.baidu.tbadk.getUserInfo.b.DX().DY();
+        com.baidu.tbadk.getUserInfo.b.Ej().Ek();
         com.baidu.tieba.tbadkCore.a.a.c(303039, ClientConfigSocketResponse.class, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.aE(TbConfig.GET_PAY_CONFIG, 303039));
         tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
@@ -122,7 +122,7 @@ public class LaunchStatic {
                     if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001325 && customResponsedMessage.getData() != null) {
                         if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                             TbadkCoreApplication.getInst().setIsKuangLogin(true);
-                            com.baidu.tbadk.kuang.a.bJ(true);
+                            com.baidu.tbadk.kuang.a.bK(true);
                             return;
                         }
                         TbadkCoreApplication.getInst().setIsKuangLogin(false);

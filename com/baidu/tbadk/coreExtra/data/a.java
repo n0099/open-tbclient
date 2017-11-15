@@ -1,82 +1,64 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private int aqt;
-    private long aqu;
-    private long aqv;
-    private String aqw;
-    private int aqq = 1;
-    private int aqs = 0;
-    private int aqx = 0;
-    private int aqy = 1;
-    private int aqz = 0;
-    private int aqA = 300;
-    private int aqB = 1;
-    private c aqr = new c();
+    private boolean aqp;
+    private String aqq;
+    private String aqr;
+    private String aqs;
+    private String aqt;
+    private boolean aqu;
+    private boolean aqv;
+    private String h5Url;
 
-    public void parserJson(JSONObject jSONObject) throws JSONException {
-        if (jSONObject != null) {
-            this.aqq = jSONObject.optInt("als_control", 1);
-            this.aqs = jSONObject.optInt("not_use_lego_patch", 0);
-            this.aqy = jSONObject.optInt("ad_video_not_autoplay", 1);
-            this.aqz = jSONObject.optInt("lp_video_not_autoplay", 0);
-            this.aqr.parserJson(jSONObject);
-            JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
-            if (optJSONObject != null) {
-                this.aqt = optJSONObject.optInt("log_feed_switch", 0);
-                this.aqu = optJSONObject.optLong("start_time", -1L);
-                this.aqv = optJSONObject.optLong("end_time", -1L);
-                this.aqw = optJSONObject.optString("ext_info");
-            }
-            this.aqx = jSONObject.optInt("ad_collect_switch", 0);
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("splash");
-            if (optJSONObject2 != null) {
-                this.aqA = optJSONObject2.optInt("interval", 300);
-            }
-            this.aqB = jSONObject.optInt("video_page_style", 1);
-        }
+    public boolean xv() {
+        return this.aqp;
     }
 
-    public c xv() {
-        return this.aqr;
+    public void aP(boolean z) {
+        this.aqp = z;
     }
 
     public boolean xw() {
-        return this.aqq > 0;
+        return this.aqv;
     }
 
-    public boolean xx() {
-        if (this.aqt == 1) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.aqu < currentTimeMillis && currentTimeMillis < this.aqv;
-        }
-        return false;
+    public String xx() {
+        return this.h5Url;
     }
 
     public boolean xy() {
-        return this.aqy == 1;
+        return this.aqu;
     }
 
-    public boolean xz() {
-        return this.aqz == 1;
+    public String xz() {
+        return this.aqt;
     }
 
     public String xA() {
-        return this.aqw;
+        return this.aqs;
     }
 
-    public boolean xB() {
-        return this.aqx == 1;
+    public String xB() {
+        return this.aqr;
     }
 
-    public int xC() {
-        return this.aqA;
+    public String xC() {
+        return this.aqq;
     }
 
-    public int xD() {
-        return this.aqB;
+    public void h(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            aP(jSONObject.optInt("switch") == 1);
+            this.aqq = jSONObject.optString("feed_text");
+            this.aqr = jSONObject.optString("enter_forum_text");
+            this.aqs = jSONObject.optString("my_tab_text");
+            long optLong = jSONObject.optLong("dot_timestamp");
+            this.aqt = optLong == 0 ? "" : optLong + "";
+            this.aqu = jSONObject.optInt("user_satisfy") == 1;
+            this.h5Url = jSONObject.optString("h5_url");
+            this.aqv = jSONObject.optInt("person_item_switch") == 1;
+        }
     }
 }

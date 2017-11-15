@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private static int eCB = 3;
+    private static int eCV = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -62,41 +62,41 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public TextView bRG;
-        public CheckBox eCC;
-        public BarImageView eCD;
-        private Drawable eCE;
-        private Drawable gSG;
+        public TextView bRT;
+        public CheckBox eCW;
+        public BarImageView eCX;
+        private Drawable eCY;
+        private Drawable gTO;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.bRG = (TextView) view.findViewById(d.g.transmit_forum_name);
-                this.eCC = (CheckBox) view.findViewById(d.g.transmit_check_box);
-                this.eCD = (BarImageView) view.findViewById(d.g.forum_avatar);
+                this.bRT = (TextView) view.findViewById(d.g.transmit_forum_name);
+                this.eCW = (CheckBox) view.findViewById(d.g.transmit_check_box);
+                this.eCX = (BarImageView) view.findViewById(d.g.forum_avatar);
             }
         }
 
         public void b(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.bRG.setText(transmitForumData.forumName);
-                this.eCC.setChecked(transmitForumData.checked);
-                this.eCD.startLoad(transmitForumData.avatar, 10, false);
+                this.bRT.setText(transmitForumData.forumName);
+                this.eCW.setChecked(transmitForumData.checked);
+                this.eCX.startLoad(transmitForumData.avatar, 10, false);
                 if (transmitForumData.aaB) {
-                    this.eCC.setButtonDrawable(this.gSG);
+                    this.eCW.setButtonDrawable(this.gTO);
                 } else {
-                    this.eCC.setButtonDrawable(this.eCE);
+                    this.eCW.setButtonDrawable(this.eCY);
                 }
             }
         }
 
         public void wB() {
-            if (b.eCB != this.mSkinType) {
-                aj.i(this.bRG, d.C0080d.cp_cont_b);
-                this.gSG = aj.getDrawable(d.f.icon_list_confirm_d);
-                this.eCE = aj.getDrawable(d.f.transmit_check_box);
+            if (b.eCV != this.mSkinType) {
+                aj.i(this.bRT, d.C0080d.cp_cont_b);
+                this.gTO = aj.getDrawable(d.f.icon_list_confirm_d);
+                this.eCY = aj.getDrawable(d.f.transmit_check_box);
             }
-            this.mSkinType = b.eCB;
+            this.mSkinType = b.eCV;
         }
     }
 
@@ -106,10 +106,10 @@ public class b extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void pj(int i) {
-        if (eCB != i) {
+    public void pk(int i) {
+        if (eCV != i) {
             notifyDataSetChanged();
         }
-        eCB = i;
+        eCV = i;
     }
 }

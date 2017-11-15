@@ -12,14 +12,14 @@ import tbclient.BannerUserStory;
 import tbclient.UserStory;
 /* loaded from: classes.dex */
 public class f implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId azy = BdUniqueId.gen();
-    private List<com.baidu.adp.widget.ListView.f> azA;
-    private List<com.baidu.adp.widget.ListView.f> azz;
+    public static final BdUniqueId azG = BdUniqueId.gen();
+    private List<com.baidu.adp.widget.ListView.f> azH;
+    private List<com.baidu.adp.widget.ListView.f> azI;
     private List<com.baidu.adp.widget.ListView.f> mList;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return azy;
+        return azG;
     }
 
     public List<com.baidu.adp.widget.ListView.f> getList() {
@@ -28,10 +28,10 @@ public class f implements com.baidu.adp.widget.ListView.f {
 
     public void a(BannerUserStory bannerUserStory, long j, long j2, String str, boolean z) {
         if (bannerUserStory != null && !v.v(bannerUserStory.user_story)) {
-            if (this.azz == null) {
-                this.azz = new ArrayList();
+            if (this.azH == null) {
+                this.azH = new ArrayList();
             } else {
-                this.azz.clear();
+                this.azH.clear();
             }
             List<UserStory> list = bannerUserStory.user_story;
             int size = list.size();
@@ -40,23 +40,23 @@ public class f implements com.baidu.adp.widget.ListView.f {
                 if (userStory != null && userStory != null) {
                     g gVar = new g();
                     gVar.a(userStory);
-                    gVar.azE = String.valueOf(j);
-                    this.azz.add(gVar);
+                    gVar.azM = String.valueOf(j);
+                    this.azH.add(gVar);
                 }
             }
             List<AlaLiveInfo> list2 = bannerUserStory.ala_live_list;
             if (!v.v(list2)) {
-                if (this.azA == null) {
-                    this.azA = new ArrayList();
+                if (this.azI == null) {
+                    this.azI = new ArrayList();
                 } else {
-                    this.azA.clear();
+                    this.azI.clear();
                 }
                 if (z) {
                     e eVar = new e();
                     eVar.x(list2);
                     eVar.setFid(String.valueOf(j2));
                     eVar.setForumName(str);
-                    this.azA.add(eVar);
+                    this.azI.add(eVar);
                     TiebaStatic.log(new ak("c12547"));
                 } else {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
@@ -67,26 +67,26 @@ public class f implements com.baidu.adp.widget.ListView.f {
                             }
                             d dVar = new d();
                             dVar.b(alaLiveInfo);
-                            this.azA.add(dVar);
+                            this.azI.add(dVar);
                         }
                     }
                 }
             }
-            Ca();
+            Cm();
         }
     }
 
-    private void Ca() {
+    private void Cm() {
         if (this.mList == null) {
             this.mList = new ArrayList();
         }
         this.mList.add(new c());
         long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
-        d.azw = 1;
-        if (!v.v(this.azz)) {
+        d.azE = 1;
+        if (!v.v(this.azH)) {
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.azz);
-            for (com.baidu.adp.widget.ListView.f fVar : this.azz) {
+            arrayList.addAll(this.azH);
+            for (com.baidu.adp.widget.ListView.f fVar : this.azH) {
                 if (fVar instanceof g) {
                     g gVar = (g) fVar;
                     if (gVar.user_id == 963275198 || gVar.user_id == currentAccountId) {
@@ -95,17 +95,17 @@ public class f implements com.baidu.adp.widget.ListView.f {
                     }
                 }
             }
-            if (!v.v(this.azA)) {
-                if (this.azA.get(0) instanceof d) {
-                    d.azw = this.mList.size();
+            if (!v.v(this.azI)) {
+                if (this.azI.get(0) instanceof d) {
+                    d.azE = this.mList.size();
                 }
-                this.mList.addAll(this.azA);
+                this.mList.addAll(this.azI);
             }
-            if (!v.v(this.azz)) {
+            if (!v.v(this.azH)) {
                 this.mList.addAll(arrayList);
             }
-        } else if (!v.v(this.azA)) {
-            this.mList.addAll(this.azA);
+        } else if (!v.v(this.azI)) {
+            this.mList.addAll(this.azI);
         }
     }
 }

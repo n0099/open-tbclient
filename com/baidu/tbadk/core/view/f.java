@@ -63,11 +63,11 @@ public class f extends LinearLayout {
             ((TbPageContext) eVar).getLayoutMode().t(this);
         }
         if (this.alz == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.alp.setImageBitmap(aj.cT(d.f.pic_emotion08));
+            this.alp.setImageBitmap(aj.cS(d.f.pic_emotion08));
         } else if (this.alz == NoDataViewFactory.ImgType.NODATA) {
-            this.alp.setImageBitmap(aj.cT(d.f.no_data_image));
+            this.alp.setImageBitmap(aj.cS(d.f.no_data_image));
         } else if (this.alz == NoDataViewFactory.ImgType.LOCAL) {
-            this.alp.setImageBitmap(aj.cT(this.alA));
+            this.alp.setImageBitmap(aj.cS(this.alA));
         } else if (i == 1) {
             this.alp.startLoad(this.alx, 29, false);
         } else {
@@ -114,32 +114,32 @@ public class f extends LinearLayout {
             this.alA = cVar.alA;
             switch (cVar.alG) {
                 case CREATE:
-                    this.alw = com.baidu.tbadk.util.b.GI().gH("pic_emotion03.png");
-                    this.alx = com.baidu.tbadk.util.b.GI().gH("pic_emotion03_1.png");
+                    this.alw = com.baidu.tbadk.util.b.GT().gI("pic_emotion03.png");
+                    this.alx = com.baidu.tbadk.util.b.GT().gI("pic_emotion03_1.png");
                     break;
                 case NODATA:
-                    this.alw = com.baidu.tbadk.util.b.GI().gH("pic_emotion05.png");
-                    this.alx = com.baidu.tbadk.util.b.GI().gH("pic_emotion05_1.png");
+                    this.alw = com.baidu.tbadk.util.b.GT().gI("pic_emotion05.png");
+                    this.alx = com.baidu.tbadk.util.b.GT().gI("pic_emotion05_1.png");
                     break;
                 case FINDBAR:
-                    this.alw = com.baidu.tbadk.util.b.GI().gH("pic_emotion01.png");
-                    this.alx = com.baidu.tbadk.util.b.GI().gH("pic_emotion01_1.png");
+                    this.alw = com.baidu.tbadk.util.b.GT().gI("pic_emotion01.png");
+                    this.alx = com.baidu.tbadk.util.b.GT().gI("pic_emotion01_1.png");
                     break;
                 case EMOTION:
-                    this.alw = com.baidu.tbadk.util.b.GI().gH("pic_emotion02.png");
-                    this.alx = com.baidu.tbadk.util.b.GI().gH("pic_emotion02_1.png");
+                    this.alw = com.baidu.tbadk.util.b.GT().gI("pic_emotion02.png");
+                    this.alx = com.baidu.tbadk.util.b.GT().gI("pic_emotion02_1.png");
                     break;
                 case GIFT:
-                    this.alw = com.baidu.tbadk.util.b.GI().gH("pic_emotion07.png");
-                    this.alx = com.baidu.tbadk.util.b.GI().gH("pic_emotion07_1.png");
+                    this.alw = com.baidu.tbadk.util.b.GT().gI("pic_emotion07.png");
+                    this.alx = com.baidu.tbadk.util.b.GT().gI("pic_emotion07_1.png");
                     break;
                 case SINGALL:
-                    this.alw = com.baidu.tbadk.util.b.GI().gH("pic_emotion06.png");
-                    this.alx = com.baidu.tbadk.util.b.GI().gH("pic_emotion06_1.png");
+                    this.alw = com.baidu.tbadk.util.b.GT().gI("pic_emotion06.png");
+                    this.alx = com.baidu.tbadk.util.b.GT().gI("pic_emotion06_1.png");
                     break;
                 case WEBVIEW:
-                    this.alw = com.baidu.tbadk.util.b.GI().gH("pic_emotion08.png");
-                    this.alx = com.baidu.tbadk.util.b.GI().gH("pic_emotion08_1.png");
+                    this.alw = com.baidu.tbadk.util.b.GT().gI("pic_emotion08.png");
+                    this.alx = com.baidu.tbadk.util.b.GT().gI("pic_emotion08_1.png");
                     break;
             }
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.alp.getLayoutParams();

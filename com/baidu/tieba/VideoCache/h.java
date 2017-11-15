@@ -2,57 +2,57 @@ package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class h {
     private String QI;
-    private String aXR;
-    private boolean aXS;
-    private long aXT = -1;
-    private long aXU = -1;
-    private long aXV = 0;
+    private String aYa;
+    private boolean aYb;
+    private long aYc = -1;
+    private long aYd = -1;
+    private long aYe = 0;
 
-    public String Lb() {
-        return this.aXR;
-    }
-
-    public void ht(String str) {
-        this.aXR = str;
-    }
-
-    public String Lc() {
-        return this.QI;
+    public String Lm() {
+        return this.aYa;
     }
 
     public void hu(String str) {
+        this.aYa = str;
+    }
+
+    public String Ln() {
+        return this.QI;
+    }
+
+    public void hv(String str) {
         this.QI = str;
     }
 
-    public boolean Ld() {
-        return this.aXS;
+    public boolean Lo() {
+        return this.aYb;
     }
 
-    public void ck(boolean z) {
-        this.aXS = z;
+    public void cl(boolean z) {
+        this.aYb = z;
     }
 
-    public long Le() {
-        return this.aXT;
+    public long Lp() {
+        return this.aYc;
     }
 
     public void as(long j) {
-        this.aXT = j;
+        this.aYc = j;
     }
 
-    public long Lf() {
-        return this.aXU;
+    public long Lq() {
+        return this.aYd;
     }
 
     public void at(long j) {
-        this.aXU = j;
+        this.aYd = j;
     }
 
     public long getTotalLength() {
-        return this.aXV;
+        return this.aYe;
     }
 
     public void N(long j) {
-        this.aXV = j;
+        this.aYe = j;
     }
 }

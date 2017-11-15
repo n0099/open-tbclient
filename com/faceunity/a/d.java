@@ -10,11 +10,11 @@ import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class d {
-    private Surface hhZ;
-    private b hht;
-    private MediaCodec hhu;
-    private int hhv;
-    private boolean hhw;
+    private b hiE;
+    private MediaCodec hiF;
+    private int hiG;
+    private boolean hiH;
+    private Surface hjk;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
 
     public d(int i, int i2, int i3, b bVar) throws IOException {
@@ -23,66 +23,66 @@ public class d {
         createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, i3);
         createVideoFormat.setInteger("frame-rate", 20);
         createVideoFormat.setInteger("i-frame-interval", 1);
-        this.hhu = MediaCodec.createEncoderByType("video/avc");
-        this.hhu.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.hhZ = this.hhu.createInputSurface();
-        this.hhu.start();
-        this.hhv = -1;
-        this.hhw = false;
-        this.hht = bVar;
+        this.hiF = MediaCodec.createEncoderByType("video/avc");
+        this.hiF.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+        this.hjk = this.hiF.createInputSurface();
+        this.hiF.start();
+        this.hiG = -1;
+        this.hiH = false;
+        this.hiE = bVar;
     }
 
     public Surface getInputSurface() {
-        return this.hhZ;
+        return this.hjk;
     }
 
     public void release() {
-        if (this.hhu != null) {
-            this.hhu.stop();
-            this.hhu.release();
-            this.hhu = null;
+        if (this.hiF != null) {
+            this.hiF.stop();
+            this.hiF.release();
+            this.hiF = null;
         }
-        if (this.hht != null) {
+        if (this.hiE != null) {
             try {
-                this.hht.stop();
+                this.hiE.stop();
             } catch (IllegalStateException e) {
             }
-            this.hht = null;
+            this.hiE = null;
         }
     }
 
-    public void nP(boolean z) throws Exception {
+    public void nX(boolean z) throws Exception {
         if (z) {
-            this.hhu.signalEndOfInputStream();
+            this.hiF.signalEndOfInputStream();
         }
-        ByteBuffer[] outputBuffers = this.hhu.getOutputBuffers();
+        ByteBuffer[] outputBuffers = this.hiF.getOutputBuffers();
         while (true) {
-            int dequeueOutputBuffer = this.hhu.dequeueOutputBuffer(this.mBufferInfo, 10000L);
+            int dequeueOutputBuffer = this.hiF.dequeueOutputBuffer(this.mBufferInfo, 10000L);
             if (dequeueOutputBuffer == -1) {
                 if (!z) {
                     return;
                 }
             } else if (dequeueOutputBuffer == -3) {
-                outputBuffers = this.hhu.getOutputBuffers();
+                outputBuffers = this.hiF.getOutputBuffers();
             } else if (dequeueOutputBuffer == -2) {
-                if (this.hhw) {
+                if (this.hiH) {
                     throw new RuntimeException("format changed twice");
                 }
-                MediaFormat outputFormat = this.hhu.getOutputFormat();
+                MediaFormat outputFormat = this.hiF.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.hhv = this.hht.a(outputFormat);
-                if (!this.hht.start()) {
-                    synchronized (this.hht) {
-                        while (!this.hht.isStarted()) {
+                this.hiG = this.hiE.a(outputFormat);
+                if (!this.hiE.start()) {
+                    synchronized (this.hiE) {
+                        while (!this.hiE.isStarted()) {
                             try {
-                                this.hht.wait(100L);
+                                this.hiE.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                this.hhw = true;
+                this.hiH = true;
             } else if (dequeueOutputBuffer < 0) {
                 Log.w("VideoEncoder", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
             } else {
@@ -94,14 +94,14 @@ public class d {
                     this.mBufferInfo.size = 0;
                 }
                 if (this.mBufferInfo.size != 0) {
-                    if (!this.hhw) {
+                    if (!this.hiH) {
                         throw new RuntimeException("muxer hasn't started");
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.hht.a(this.hhv, byteBuffer, this.mBufferInfo);
+                    this.hiE.a(this.hiG, byteBuffer, this.mBufferInfo);
                 }
-                this.hhu.releaseOutputBuffer(dequeueOutputBuffer, false);
+                this.hiF.releaseOutputBuffer(dequeueOutputBuffer, false);
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {
                         Log.w("VideoEncoder", "reached end of stream unexpectedly");

@@ -6,9 +6,9 @@ import tbclient.VideoDesc;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class u {
-    private long cCo;
+    private long cCH;
     private int duration;
-    private String fGA;
+    private String fHf;
     private String videoMd5;
     private String videoUrl;
 
@@ -43,17 +43,17 @@ public class u {
                     String str3 = videoDesc.video_width;
                     String str4 = videoDesc.video_height;
                     this.videoUrl = str;
-                    this.cCo = videoInfo.video_length.intValue();
+                    this.cCH = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.fGA = videoInfo.video_width + "x" + videoInfo.video_height;
+                    this.fHf = videoInfo.video_width + "x" + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
             str = str2;
             this.videoUrl = str;
-            this.cCo = videoInfo.video_length.intValue();
+            this.cCH = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.fGA = videoInfo.video_width + "x" + videoInfo.video_height;
+            this.fHf = videoInfo.video_width + "x" + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -68,15 +68,15 @@ public class u {
         }
     }
 
-    public long bhI() {
-        return this.cCo;
+    public long bhQ() {
+        return this.cCH;
     }
 
     public int getDuration() {
         return this.duration;
     }
 
-    public String bhJ() {
-        return this.fGA;
+    public String bhR() {
+        return this.fHf;
     }
 }

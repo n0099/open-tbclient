@@ -77,19 +77,19 @@ public class b {
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Integer, AccountData> {
         private final String Tn;
-        private final String exb;
-        private final a.InterfaceC0044a exc;
-        private final boolean exd;
+        private final String exf;
+        private final a.InterfaceC0044a exg;
+        private final boolean exh;
         private final String mName;
         private volatile x mNetwork = null;
         private String mStoken;
 
         public a(String str, String str2, String str3, a.InterfaceC0044a interfaceC0044a, boolean z) {
             this.mName = str;
-            this.exb = str2;
+            this.exf = str2;
             this.Tn = str3;
-            this.exd = z;
-            this.exc = interfaceC0044a == null ? new a.InterfaceC0044a() { // from class: com.baidu.tieba.model.b.a.1
+            this.exh = z;
+            this.exg = interfaceC0044a == null ? new a.InterfaceC0044a() { // from class: com.baidu.tieba.model.b.a.1
                 @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
                 public void cu(String str4) {
                 }
@@ -112,7 +112,7 @@ public class b {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.exc.cu(this.mName);
+            this.exg.cu(this.mName);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,7 +123,7 @@ public class b {
             a.b a;
             this.mNetwork = new x(TbConfig.LOGIN_FULL_ADDRESS);
             this.mNetwork.uN().vK().mIsUseCurrentBDUSS = false;
-            this.mNetwork.n("bdusstoken", this.exb + "|" + this.Tn);
+            this.mNetwork.n("bdusstoken", this.exf + "|" + this.Tn);
             if (!StringUtils.isNull(this.mStoken)) {
                 this.mNetwork.n("stoken", this.mStoken);
             }
@@ -138,8 +138,8 @@ public class b {
                 accountData.setAccount(aiVar.getUser().getUserName());
                 accountData.setPassword("");
                 accountData.setID(aiVar.getUser().getUserId());
-                String str = this.exb;
-                if (this.exd && (a = d.a(com.baidu.tbadk.core.a.a.pa().ct(str))) != null) {
+                String str = this.exf;
+                if (this.exh && (a = d.a(com.baidu.tbadk.core.a.a.pa().ct(str))) != null) {
                     str = a.wt + "|" + a.Tn;
                 }
                 accountData.setBDUSS(str);
@@ -164,7 +164,7 @@ public class b {
             ReloginManager.tX().aw(false);
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "cslogin_result", this.mNetwork.uR(), this.mNetwork.getErrorString(), new Object[0]);
             if (accountData != null && accountData.getBDUSS() != null) {
-                this.exc.a(accountData);
+                this.exg.a(accountData);
                 return;
             }
             String str = null;
@@ -175,7 +175,7 @@ public class b {
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getApp().getResources().getString(d.j.data_load_error);
             }
-            this.exc.c(this.mName, i, str);
+            this.exg.c(this.mName, i, str);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

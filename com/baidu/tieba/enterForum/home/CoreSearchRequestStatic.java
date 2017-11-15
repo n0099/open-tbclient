@@ -17,22 +17,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class CoreSearchRequestStatic {
-    private static EnterForumModel cjX;
+    private static EnterForumModel ckk;
 
     static {
-        aeO();
+        afa();
     }
 
-    private static void aeO() {
-        c.buM();
-        if (cjX == null) {
-            cjX = new EnterForumModel(null);
-            cjX.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1
+    private static void afa() {
+        c.buY();
+        if (ckk == null) {
+            ckk = new EnterForumModel(null);
+            ckk.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1
                 @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
                 public void a(EnterForumModel.a aVar) {
-                    g aeH = aVar.ckP.aeH();
+                    g aeT = aVar.cli.aeT();
                     ArrayList arrayList = new ArrayList();
-                    Iterator<f> it = aeH.aeM().iterator();
+                    Iterator<f> it = aeT.aeY().iterator();
                     while (it.hasNext()) {
                         arrayList.add(it.next().getName());
                     }
@@ -43,12 +43,12 @@ public class CoreSearchRequestStatic {
         MessageManager.getInstance().registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && CoreSearchRequestStatic.cjX.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+                if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && CoreSearchRequestStatic.ckk.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                     if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                        CoreSearchRequestStatic.cjX.a((forumRecommendSocketResponseMessage) responsedMessage);
+                        CoreSearchRequestStatic.ckk.a((forumRecommendSocketResponseMessage) responsedMessage);
                     }
                     if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                        CoreSearchRequestStatic.cjX.a((forumRecommendHttpResponseMessage) responsedMessage);
+                        CoreSearchRequestStatic.ckk.a((forumRecommendHttpResponseMessage) responsedMessage);
                     }
                 }
             }
@@ -59,9 +59,9 @@ public class CoreSearchRequestStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
                     if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                        CoreSearchRequestStatic.cjX.eg(true);
+                        CoreSearchRequestStatic.ckk.el(true);
                     } else {
-                        CoreSearchRequestStatic.cjX.ef(true);
+                        CoreSearchRequestStatic.ckk.ek(true);
                     }
                 }
             }

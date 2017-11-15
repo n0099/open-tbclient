@@ -28,7 +28,7 @@ public class z {
         return new y(aVar);
     }
 
-    public static void cH(int i) {
+    public static void cG(int i) {
         agg = i;
     }
 }

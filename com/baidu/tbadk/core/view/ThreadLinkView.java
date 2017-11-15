@@ -18,11 +18,11 @@ import com.baidu.tieba.card.m;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ThreadLinkView extends RelativeLayout {
-    private TbImageView aoe;
+    private TbImageView aod;
+    private TextView aoe;
     private TextView aof;
     private TextView aog;
-    private TextView aoh;
-    private ViewGroup aoi;
+    private ViewGroup aoh;
     private Context mContext;
     private BdUniqueId mTag;
 
@@ -44,15 +44,15 @@ public class ThreadLinkView extends RelativeLayout {
     private void init(Context context) {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(d.h.link_thread_item, (ViewGroup) this, true);
-        this.aoi = (ViewGroup) inflate.findViewById(d.g.root_layout);
-        this.aoe = (TbImageView) inflate.findViewById(d.g.link_thread_head_img);
-        this.aoe.setDefaultBgResource(d.f.icon_card_url_n);
-        this.aoe.setDefaultErrorResource(d.f.icon_card_url_n);
-        this.aof = (TextView) inflate.findViewById(d.g.link_thread_title);
-        this.aog = (TextView) inflate.findViewById(d.g.link_thread_abstract);
-        this.aoh = (TextView) inflate.findViewById(d.g.link_thread_url);
-        this.aoe.setLongIconSupport(false);
-        this.aoe.setGifIconSupport(false);
+        this.aoh = (ViewGroup) inflate.findViewById(d.g.root_layout);
+        this.aod = (TbImageView) inflate.findViewById(d.g.link_thread_head_img);
+        this.aod.setDefaultBgResource(d.f.icon_card_url_n);
+        this.aod.setDefaultErrorResource(d.f.icon_card_url_n);
+        this.aoe = (TextView) inflate.findViewById(d.g.link_thread_title);
+        this.aof = (TextView) inflate.findViewById(d.g.link_thread_abstract);
+        this.aog = (TextView) inflate.findViewById(d.g.link_thread_url);
+        this.aod.setLongIconSupport(false);
+        this.aod.setGifIconSupport(false);
         H(inflate);
     }
 
@@ -71,34 +71,34 @@ public class ThreadLinkView extends RelativeLayout {
             return;
         }
         setVisibility(0);
-        this.aoe.setPageId(this.mTag);
+        this.aod.setPageId(this.mTag);
         if (sM.qe()) {
-            this.aoh.setVisibility(0);
+            this.aog.setVisibility(0);
+            this.aoe.setVisibility(8);
             this.aof.setVisibility(8);
-            this.aog.setVisibility(8);
-            this.aoh.setText(sM.getLinkUrl());
-            this.aoe.reset();
+            this.aog.setText(sM.getLinkUrl());
+            this.aod.reset();
         } else {
-            this.aoh.setVisibility(8);
+            this.aog.setVisibility(8);
             String qa = sM.qa();
             String qb = sM.qb();
             if (!am.isEmpty(qa)) {
-                this.aof.setText(qa);
-                this.aof.setVisibility(0);
-                this.aog.setVisibility(8);
-            } else {
+                this.aoe.setText(qa);
+                this.aoe.setVisibility(0);
                 this.aof.setVisibility(8);
+            } else {
+                this.aoe.setVisibility(8);
                 if (!am.isEmpty(qb)) {
-                    this.aog.setText(qb);
-                    this.aog.setVisibility(0);
+                    this.aof.setText(qb);
+                    this.aof.setVisibility(0);
                 } else {
-                    this.aog.setVisibility(4);
+                    this.aof.setVisibility(4);
                 }
             }
             if (!am.isEmpty(sM.qc())) {
-                this.aoe.startLoad(sM.qc(), 10, false);
+                this.aod.startLoad(sM.qc(), 10, false);
             } else {
-                this.aoe.reset();
+                this.aod.reset();
             }
         }
         er(bhVar.getId());
@@ -106,25 +106,25 @@ public class ThreadLinkView extends RelativeLayout {
 
     public void onChangeSkinType() {
         aj.k(this, d.C0080d.cp_bg_line_e);
-        aj.k(this.aoe, d.C0080d.cp_bg_line_b);
+        aj.k(this.aod, d.C0080d.cp_bg_line_b);
     }
 
     public void er(String str) {
-        m.a(this.aof, str, d.C0080d.cp_cont_f, d.C0080d.cp_cont_d);
-        m.a(this.aoh, str, d.C0080d.cp_cont_f, d.C0080d.cp_cont_d);
+        m.a(this.aoe, str, d.C0080d.cp_cont_f, d.C0080d.cp_cont_d);
         m.a(this.aog, str, d.C0080d.cp_cont_f, d.C0080d.cp_cont_d);
+        m.a(this.aof, str, d.C0080d.cp_cont_f, d.C0080d.cp_cont_d);
     }
 
     private void H(View view) {
-        if (this.aoi != null && this.aoe != null) {
+        if (this.aoh != null && this.aod != null) {
             int ac = (((l.ac(this.mContext) - (l.f(this.mContext, d.e.ds34) * 2)) - (l.f(this.mContext, d.e.ds16) * 2)) - (l.f(this.mContext, d.e.ds16) * 5)) / 6;
-            ViewGroup.LayoutParams layoutParams = this.aoi.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.aoh.getLayoutParams();
             layoutParams.height = ac;
-            this.aoi.setLayoutParams(layoutParams);
-            ViewGroup.LayoutParams layoutParams2 = this.aoe.getLayoutParams();
+            this.aoh.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams2 = this.aod.getLayoutParams();
             layoutParams2.width = ac;
             layoutParams2.height = ac;
-            this.aoe.setLayoutParams(layoutParams2);
+            this.aod.setLayoutParams(layoutParams2);
         }
     }
 }

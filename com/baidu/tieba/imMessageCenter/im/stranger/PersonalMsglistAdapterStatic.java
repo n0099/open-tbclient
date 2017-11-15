@@ -16,10 +16,10 @@ public class PersonalMsglistAdapterStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.duA != null && aVar.context != null) {
+                    if (aVar.duU != null && aVar.context != null) {
                         MsgReplyCardViewItemAdapter msgReplyCardViewItemAdapter = new MsgReplyCardViewItemAdapter(aVar.context, ChatMessage.TYPE_MSG_REPLY_CARD);
-                        msgReplyCardViewItemAdapter.fM(true);
-                        aVar.duA.add(msgReplyCardViewItemAdapter);
+                        msgReplyCardViewItemAdapter.fS(true);
+                        aVar.duU.add(msgReplyCardViewItemAdapter);
                     }
                 }
             }

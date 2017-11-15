@@ -10,13 +10,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BdListViewHelper {
-    public static final int aLZ = com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds320);
+    public static final int aMh = com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds320);
 
     /* loaded from: classes.dex */
     public enum HeadType {
         DEFAULT,
         HASTAB,
-        HAS_NO_NETWORK_BAR
+        HAS_NO_NETWORK_BAR,
+        TIP
     }
 
     public static int a(HeadType headType) {
@@ -28,6 +29,8 @@ public class BdListViewHelper {
                 return com.baidu.adp.lib.util.l.f(context, d.e.ds176) + UtilHelper.getLightStatusBarHeight();
             case HAS_NO_NETWORK_BAR:
                 return com.baidu.adp.lib.util.l.f(context, d.e.ds168) + UtilHelper.getLightStatusBarHeight();
+            case TIP:
+                return com.baidu.adp.lib.util.l.f(context, d.e.ds56);
             default:
                 return com.baidu.adp.lib.util.l.f(context, d.e.ds88) + UtilHelper.getLightStatusBarHeight();
         }

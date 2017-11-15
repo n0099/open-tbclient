@@ -21,7 +21,9 @@ public interface IQuickMediaPlayerListener extends IInterface {
 
     void onSeekComplete() throws RemoteException;
 
-    void onSubError(int i, int i2) throws RemoteException;
+    void onSpeedWhenError(long j) throws RemoteException;
+
+    void onSubError(int i, int i2, String str) throws RemoteException;
 
     /* loaded from: classes.dex */
     public static abstract class Stub extends Binder implements IQuickMediaPlayerListener {
@@ -33,6 +35,7 @@ public interface IQuickMediaPlayerListener extends IInterface {
         static final int TRANSACTION_onPrepared = 1;
         static final int TRANSACTION_onReleaseFinished = 5;
         static final int TRANSACTION_onSeekComplete = 6;
+        static final int TRANSACTION_onSpeedWhenError = 9;
         static final int TRANSACTION_onSubError = 7;
 
         public Stub() {
@@ -90,12 +93,17 @@ public interface IQuickMediaPlayerListener extends IInterface {
                     return true;
                 case 7:
                     parcel.enforceInterface(DESCRIPTOR);
-                    onSubError(parcel.readInt(), parcel.readInt());
+                    onSubError(parcel.readInt(), parcel.readInt(), parcel.readString());
                     parcel2.writeNoException();
                     return true;
                 case 8:
                     parcel.enforceInterface(DESCRIPTOR);
                     onHandleOppoError(parcel.readString());
+                    parcel2.writeNoException();
+                    return true;
+                case 9:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onSpeedWhenError(parcel.readLong());
                     parcel2.writeNoException();
                     return true;
                 case 1598968902:
@@ -209,13 +217,14 @@ public interface IQuickMediaPlayerListener extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener
-            public void onSubError(int i, int i2) throws RemoteException {
+            public void onSubError(int i, int i2, String str) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
+                    obtain.writeString(str);
                     this.mRemote.transact(7, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
@@ -232,6 +241,21 @@ public interface IQuickMediaPlayerListener extends IInterface {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
                     this.mRemote.transact(8, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener
+            public void onSpeedWhenError(long j) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeLong(j);
+                    this.mRemote.transact(9, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

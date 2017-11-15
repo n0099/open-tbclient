@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.sharedPref.b;
 /* loaded from: classes2.dex */
 public class PushStatic {
-    private static CustomMessageListener gYC = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
+    private static CustomMessageListener gZM = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -22,18 +22,18 @@ public class PushStatic {
                     @Override // java.lang.Runnable
                     public void run() {
                         Log.e("BaiduYunPush", "push static init " + System.currentTimeMillis());
-                        PushStatic.bFz();
+                        PushStatic.bFM();
                     }
                 }).start();
             }
         }
     };
 
-    private static void bFx() {
+    private static void bFK() {
         cb(TbadkApplication.getInst());
     }
 
-    private static void bFy() {
+    private static void bFL() {
         cc(TbadkCoreApplication.getInst());
     }
 
@@ -57,20 +57,20 @@ public class PushStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bFz() {
+    public static void bFM() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (TbadkCoreApplication.getInst().isBaiduYunPushAvailable()) {
                 Log.e("BaiduYunPush", "switch available");
-                bFx();
+                bFK();
                 return;
             }
             Log.e("BaiduYunPush", "switch close");
-            bFy();
+            bFL();
         }
     }
 
     static {
         Log.e("BaiduYunPush", "push static init load static " + System.currentTimeMillis());
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, gYC);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, gZM);
     }
 }

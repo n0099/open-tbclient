@@ -3,7 +3,6 @@ package com.baidu.tbadk.browser;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -69,7 +68,7 @@ public class d {
         av.vI().a(new av.a() { // from class: com.baidu.tbadk.browser.d.3
             @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-                Bundle gY;
+                Bundle gZ;
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
@@ -125,7 +124,7 @@ public class d {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, z.ar(str, "bindid=")));
                     tbPageContext.getPageActivity().finish();
                     return 1;
-                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gY = z.gY(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gY.getString("path"))) {
+                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gZ = z.gZ(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gZ.getString("path"))) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
                     return 0;
                 } else {
@@ -243,7 +242,7 @@ public class d {
                 return false;
             }
             return str.equals(packageInfo.packageName);
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (Throwable th) {
             return false;
         }
     }

@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.util.s;
 /* loaded from: classes.dex */
 public interface ai {
-    void NP();
+    void Oa();
 
-    void NQ();
+    void Ob();
 
-    void NR();
+    void Oc();
 
     void setHeaderViewHeight(int i);
 

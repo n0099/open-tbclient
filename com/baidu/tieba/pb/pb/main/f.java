@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.data.bh;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends aq {
-    private TextView eJJ;
+    private TextView eKd;
 
     public f(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.eJJ = null;
+        this.eKd = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.aq
     protected void a(d dVar) {
-        this.eJJ = (TextView) this.mRootView.findViewById(d.g.icon_push);
-        this.eJJ.setVisibility(8);
+        this.eKd = (TextView) this.mRootView.findViewById(d.g.icon_push);
+        this.eKd.setVisibility(8);
     }
 
-    public void iF(boolean z) {
-        if (this.eJJ != null) {
+    public void iL(boolean z) {
+        if (this.eKd != null) {
             if (z) {
-                this.eJJ.setText(d.j.push);
-                com.baidu.tbadk.core.util.aj.i(this.eJJ, d.f.push_text_selector);
-                com.baidu.tbadk.core.util.aj.j(this.eJJ, d.f.push_bg_selector);
-                this.eJJ.setClickable(true);
+                this.eKd.setText(d.j.push);
+                com.baidu.tbadk.core.util.aj.i(this.eKd, d.f.push_text_selector);
+                com.baidu.tbadk.core.util.aj.j(this.eKd, d.f.push_bg_selector);
+                this.eKd.setClickable(true);
             } else {
-                this.eJJ.setText(d.j.already_push);
-                com.baidu.tbadk.core.util.aj.j(this.eJJ, d.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.aj.i(this.eJJ, d.C0080d.cp_cont_d);
-                this.eJJ.setClickable(false);
+                this.eKd.setText(d.j.already_push);
+                com.baidu.tbadk.core.util.aj.j(this.eKd, d.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.aj.i(this.eKd, d.C0080d.cp_cont_d);
+                this.eKd.setClickable(false);
             }
-            this.eJJ.setVisibility(0);
+            this.eKd.setVisibility(0);
         }
     }
 
@@ -41,14 +41,14 @@ public class f extends aq {
         if (bhVar != null && bhVar.rO() != null) {
             int status = bhVar.rO().getStatus();
             if (status == 1) {
-                iF(true);
+                iL(true);
             } else if (status == 2) {
-                iF(false);
+                iL(false);
             }
         }
     }
 
-    public TextView aRe() {
-        return this.eJJ;
+    public TextView aRm() {
+        return this.eKd;
     }
 }

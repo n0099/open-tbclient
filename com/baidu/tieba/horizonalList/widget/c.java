@@ -13,15 +13,15 @@ import java.util.List;
 public class c extends BaseAdapter {
     private int Hy;
     private List<d> WW;
-    private f dly;
-    public final ArrayList<f> dlz = new ArrayList<>();
+    private f dlS;
+    public final ArrayList<f> dlT = new ArrayList<>();
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
 
     public c(Context context, int i, f fVar) {
         this.mInflater = LayoutInflater.from(context);
         this.Hy = i;
-        this.dly = fVar;
+        this.dlS = fVar;
     }
 
     public void setData(List<d> list) {
@@ -59,10 +59,10 @@ public class c extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.Hy, viewGroup, false);
-            f ae = this.dly.ae(view);
+            f ae = this.dlS.ae(view);
             ae.setOnClickListener(this.mOnClickListener);
             view.setTag(ae);
-            this.dlz.add(ae);
+            this.dlT.add(ae);
         }
         f fVar = (f) view.getTag();
         if (v.c(this.WW, i) != null) {
@@ -77,9 +77,9 @@ public class c extends BaseAdapter {
         }
     }
 
-    public void dj(int i) {
-        if (v.u(this.dlz) > 0) {
-            Iterator<f> it = this.dlz.iterator();
+    public void di(int i) {
+        if (v.u(this.dlT) > 0) {
+            Iterator<f> it = this.dlT.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

@@ -13,34 +13,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class f {
-    private static f gQQ;
-    private ContentObserver gQR;
+    private static f gRY;
+    private ContentObserver gRZ;
     private BroadcastReceiver mReceiver;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<a> jq = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable gQS = new Runnable() { // from class: com.baidu.tieba.write.album.f.1
+    private Runnable gSa = new Runnable() { // from class: com.baidu.tieba.write.album.f.1
         @Override // java.lang.Runnable
         public void run() {
-            f.this.no(false);
+            f.this.nw(false);
         }
     };
 
     /* loaded from: classes2.dex */
     public interface a {
-        void np(boolean z);
+        void nx(boolean z);
     }
 
-    public static f bCX() {
-        if (gQQ == null) {
+    public static f bDj() {
+        if (gRY == null) {
             synchronized (f.class) {
-                if (gQQ == null) {
-                    gQQ = new f();
-                    gQQ.init(TbadkCoreApplication.getInst());
+                if (gRY == null) {
+                    gRY = new f();
+                    gRY.init(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return gQQ;
+        return gRY;
     }
 
     private f() {
@@ -53,11 +53,11 @@ public class f {
                 f.this.ab(intent);
             }
         };
-        this.gQR = new ContentObserver(this.mHandler) { // from class: com.baidu.tieba.write.album.f.3
+        this.gRZ = new ContentObserver(this.mHandler) { // from class: com.baidu.tieba.write.album.f.3
             @Override // android.database.ContentObserver
             public void onChange(boolean z) {
-                f.this.handler.removeCallbacks(f.this.gQS);
-                f.this.handler.postDelayed(f.this.gQS, 2000L);
+                f.this.handler.removeCallbacks(f.this.gSa);
+                f.this.handler.postDelayed(f.this.gSa, 2000L);
             }
         };
         IntentFilter intentFilter = new IntentFilter();
@@ -68,23 +68,23 @@ public class f {
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
         context.registerReceiver(this.mReceiver, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.gQR);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.gRZ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ab(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            no(true);
+            nw(true);
             return;
         }
-        this.handler.removeCallbacks(this.gQS);
-        this.handler.postDelayed(this.gQS, 2000L);
+        this.handler.removeCallbacks(this.gSa);
+        this.handler.postDelayed(this.gSa, 2000L);
     }
 
-    public void no(boolean z) {
+    public void nw(boolean z) {
         Iterator<a> it = this.jq.iterator();
         while (it.hasNext()) {
-            it.next().np(z);
+            it.next().nx(z);
         }
     }
 
@@ -108,8 +108,8 @@ public class f {
         removeAllListeners();
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.unregisterReceiver(this.mReceiver);
-        inst.getContentResolver().unregisterContentObserver(this.gQR);
-        this.handler.removeCallbacks(this.gQS);
-        gQQ = null;
+        inst.getContentResolver().unregisterContentObserver(this.gRZ);
+        this.handler.removeCallbacks(this.gSa);
+        gRY = null;
     }
 }

@@ -4,35 +4,35 @@ import tbclient.Lottery.DrawInfo;
 /* loaded from: classes.dex */
 public class b {
     private long UW;
-    private int eFY;
-    private String eFZ;
-    private String eGa;
+    private int eGs;
+    private String eGt;
+    private String eGu;
     private String mLink;
 
     private b(DrawInfo drawInfo) {
         if (drawInfo != null) {
-            this.eFY = drawInfo.draw_res_type.intValue();
+            this.eGs = drawInfo.draw_res_type.intValue();
             this.mLink = drawInfo.link;
-            this.eGa = drawInfo.award_des;
-            this.eFZ = drawInfo.award_imgsrc;
+            this.eGu = drawInfo.award_des;
+            this.eGt = drawInfo.award_imgsrc;
             this.UW = drawInfo.award_id.longValue();
         }
     }
 
-    public int aPF() {
-        return this.eFY;
+    public int aPN() {
+        return this.eGs;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public String aPG() {
-        return this.eFZ;
+    public String aPO() {
+        return this.eGt;
     }
 
-    public String aPH() {
-        return this.eGa;
+    public String aPP() {
+        return this.eGu;
     }
 
     public long pw() {

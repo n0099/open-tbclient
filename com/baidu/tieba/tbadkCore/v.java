@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class v {
     private String aiB = "bar_detail";
-    private a gov;
+    private a gpy;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -27,18 +27,18 @@ public class v {
     }
 
     public void a(a aVar) {
-        this.gov = aVar;
+        this.gpy = aVar;
     }
 
     public void s(String str, long j) {
-        new b(str, j, this.aiB, this.gov).execute(new Integer[0]);
+        new b(str, j, this.aiB, this.gpy).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b extends BdAsyncTask<Integer, Integer, Integer> {
         private String aiB;
-        private WeakReference<a> gow;
+        private WeakReference<a> gpz;
         private long mForumId;
         private String mForumName;
         private x mNetwork = null;
@@ -46,10 +46,10 @@ public class v {
         public b(String str, long j, String str2, a aVar) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.gow = null;
+            this.gpz = null;
             this.mForumName = str;
             this.mForumId = j;
-            this.gow = new WeakReference<>(aVar);
+            this.gpz = new WeakReference<>(aVar);
             this.aiB = str2;
             setPriority(3);
         }
@@ -87,10 +87,10 @@ public class v {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.gow != null) {
+            if (this.gpz != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.gow.get();
+                a aVar2 = this.gpz.get();
                 if (aVar2 != null) {
                     if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.uN().vL().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);

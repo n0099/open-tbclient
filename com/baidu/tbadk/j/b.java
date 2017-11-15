@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.HeadImageEntranceStoryAlaViewGroup;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends j.a {
-    public HeadImageEntranceStoryAlaViewGroup aFi;
+    public HeadImageEntranceStoryAlaViewGroup aFq;
     public TextView mName;
     public View mRootView;
     private int mSkinType;
@@ -21,19 +21,19 @@ public class b extends j.a {
         this.mStatus = 0;
         this.mRootView = view.findViewById(d.g.rootview);
         this.mName = (TextView) view.findViewById(d.g.name_txt);
-        this.aFi = (HeadImageEntranceStoryAlaViewGroup) view.findViewById(d.g.img_group);
+        this.aFq = (HeadImageEntranceStoryAlaViewGroup) view.findViewById(d.g.img_group);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            Ed();
-            this.aFi.onChangeSkinType(i);
+            Ep();
+            this.aFq.onChangeSkinType(i);
             this.mSkinType = i;
         }
     }
 
-    private void Ed() {
+    private void Ep() {
         switch (this.mStatus) {
             case 0:
                 aj.c(this.mName, d.C0080d.cp_cont_f, 1);

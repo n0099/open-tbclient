@@ -21,7 +21,7 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class h extends RelativeLayout implements View.OnClickListener {
     private TextView acd;
-    private ImageView fjA;
+    private ImageView fjX;
     private Context mContext;
     private View mRootView;
 
@@ -34,8 +34,8 @@ public class h extends RelativeLayout implements View.OnClickListener {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(d.h.person_privacy_tip_view, this);
         this.acd = (TextView) findViewById(d.g.tip_view);
-        this.fjA = (ImageView) findViewById(d.g.close_view);
-        this.fjA.setOnClickListener(this);
+        this.fjX = (ImageView) findViewById(d.g.close_view);
+        this.fjX.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
     }
 
@@ -58,7 +58,7 @@ public class h extends RelativeLayout implements View.OnClickListener {
     public void onChangeSkinType(int i) {
         aj.d(this, d.C0080d.cp_link_tip_a_alpha80, i);
         aj.b(this.acd, d.C0080d.cp_cont_g, 1, i);
-        aj.c(this.fjA, d.f.icon_home_card_close_white);
+        aj.c(this.fjX, d.f.icon_home_card_close_white);
         this.acd.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aj.getDrawable(d.f.icon_arrow_more_white), (Drawable) null);
     }
 
@@ -67,7 +67,7 @@ public class h extends RelativeLayout implements View.OnClickListener {
         if (view == this.mRootView) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ThreadPrivacyIntermediateActivityConfig(this.mContext)));
             TiebaStatic.log(new ak("c12521").r("obj_locate", 1));
-        } else if (view == this.fjA) {
+        } else if (view == this.fjX) {
             hide();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("clicked_blue_tip", true);
             TiebaStatic.log(new ak("c12521").r("obj_locate", 2));

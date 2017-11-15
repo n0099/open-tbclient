@@ -9,20 +9,20 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class e extends ImageSpan {
     private WeakReference<Drawable> Fc;
-    private int aOp;
+    private int aOx;
     private int paddingLeft;
     private int paddingRight;
 
     public e(Drawable drawable) {
         super(drawable);
-        this.aOp = 0;
+        this.aOx = 0;
     }
 
-    public void fB(int i) {
+    public void fA(int i) {
         this.paddingLeft = i;
     }
 
-    public void fC(int i) {
+    public void fB(int i) {
         this.paddingRight = i;
     }
 
@@ -52,7 +52,7 @@ public class e extends ImageSpan {
         Drawable ko = ko();
         if (ko != null) {
             canvas.save();
-            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - ko.getBounds().bottom) / 2) + i3) - this.aOp);
+            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - ko.getBounds().bottom) / 2) + i3) - this.aOx);
             ko.draw(canvas);
             canvas.restore();
         }
@@ -73,6 +73,6 @@ public class e extends ImageSpan {
     }
 
     public void setVerticalOffset(int i) {
-        this.aOp = i;
+        this.aOx = i;
     }
 }

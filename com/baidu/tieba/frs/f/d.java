@@ -26,16 +26,16 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.ad;
 /* loaded from: classes.dex */
 public class d {
-    private static final int cPZ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds76);
-    private static final int cQa = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds88);
+    private static final int cQt = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds76);
+    private static final int cQu = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds88);
     private static final int DS4 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds4);
     private static final int DS6 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds6);
-    private static final int cQb = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds50);
-    private static final int cQc = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds108);
-    private static final int cQd = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds128);
-    private static final int cQe = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.fontsize24);
-    private static final String cQf = TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed);
-    private static final String cQg = TbadkCoreApplication.getInst().getString(d.j.attention);
+    private static final int cQv = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds50);
+    private static final int cQw = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds108);
+    private static final int cQx = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds128);
+    private static final int cQy = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.fontsize24);
+    private static final String cQz = TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed);
+    private static final String cQA = TbadkCoreApplication.getInst().getString(d.j.attention);
 
     public static boolean a(final TbPageContext<?> tbPageContext, View view, HeadImageView headImageView, TextView textView, View view2, View view3, RelativeLayout relativeLayout, LinearLayout linearLayout, View view4, final bh bhVar, int i, final View.OnClickListener onClickListener, com.baidu.tieba.frs.c cVar, final BdUniqueId bdUniqueId) {
         final MetaData rt;
@@ -53,8 +53,8 @@ public class d {
             z = true;
         }
         if (z) {
-            if (bhVar.getFid() != 0 && !ad.akg().e(bhVar.getFid(), bhVar.getId())) {
-                ad.akg().d(bhVar.getFid(), bhVar.getId());
+            if (bhVar.getFid() != 0 && !ad.aku().e(bhVar.getFid(), bhVar.getId())) {
+                ad.aku().d(bhVar.getFid(), bhVar.getId());
                 TiebaStatic.log(new ak("c10633").ac("tid", bhVar.getId()).ac(ImageViewerConfig.FORUM_ID, String.valueOf(bhVar.getFid())));
             }
             View.OnClickListener onClickListener2 = new View.OnClickListener() { // from class: com.baidu.tieba.frs.f.d.1
@@ -84,7 +84,7 @@ public class d {
             View findViewWithTag = relativeLayout.findViewWithTag("frs_god_fans_count_tag");
             if (findViewWithTag == null || !(findViewWithTag instanceof TextView)) {
                 TextView textView4 = new TextView(tbPageContext.getPageActivity());
-                textView4.setTextSize(0, cQe);
+                textView4.setTextSize(0, cQy);
                 textView4.setSingleLine(true);
                 textView4.setIncludeFontPadding(false);
                 textView4.setGravity(16);
@@ -93,11 +93,11 @@ public class d {
                 clickableHeaderImageView = new ClickableHeaderImageView(tbPageContext.getPageActivity());
                 clickableHeaderImageView.setPageId(bdUniqueId);
                 clickableHeaderImageView.setGodIconMargin(0);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(cPZ, cPZ);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(cQt, cQt);
                 layoutParams.addRule(9);
                 clickableHeaderImageView.setTag("frs_god_head_image_view_tag");
                 relativeLayout.addView(clickableHeaderImageView, layoutParams);
-                linearLayout.setPadding(cQa, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
+                linearLayout.setPadding(cQu, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams2.addRule(11);
                 layoutParams2.addRule(10);
@@ -106,9 +106,9 @@ public class d {
                 textView5.setTag("frs_god_btn_attention_love_tag");
                 textView5.setId(d.g.btn_add_friend);
                 textView5.setLayoutParams(layoutParams2);
-                textView5.setTextSize(0, cQe);
-                textView5.setWidth(cQc);
-                textView5.setHeight(cQb);
+                textView5.setTextSize(0, cQy);
+                textView5.setWidth(cQw);
+                textView5.setHeight(cQv);
                 textView5.setGravity(17);
                 relativeLayout.addView(textView5);
                 textView2 = textView5;
@@ -125,14 +125,14 @@ public class d {
             }
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams3.topMargin = DS4;
-            layoutParams3.rightMargin = cQb;
+            layoutParams3.rightMargin = cQv;
             layoutParams3.addRule(5, d.g.frs_user_tshow_icon_box);
             layoutParams3.addRule(3, d.g.frs_item_loc_view);
             if (clickableHeaderImageView != null) {
                 if (com.baidu.tbadk.core.h.oT().oV()) {
                     clickableHeaderImageView.setVisibility(0);
-                    linearLayout.setPadding(cQa, linearLayout.getPaddingTop(), cQd, linearLayout.getPaddingBottom());
-                    layoutParams3.leftMargin = cQa;
+                    linearLayout.setPadding(cQu, linearLayout.getPaddingTop(), cQx, linearLayout.getPaddingBottom());
+                    layoutParams3.leftMargin = cQu;
                     clickableHeaderImageView.setOnClickListener(onClickListener);
                     clickableHeaderImageView.startLoad(rt.getPortrait(), 28, false);
                 } else {
@@ -181,32 +181,32 @@ public class d {
                 return false;
             }
             if (!bhVar.rZ() && !TextUtils.isEmpty(bhVar.getAddress()) && !TextUtils.isEmpty(bhVar.getAddress().trim())) {
-                gVar.cyN.setVisibility(0);
-                gVar.cyN.setText(bhVar.getAddress());
+                gVar.czg.setVisibility(0);
+                gVar.czg.setText(bhVar.getAddress());
             } else {
-                gVar.cyN.setVisibility(8);
+                gVar.czg.setVisibility(8);
             }
             if (bhVar.ri() != null && bhVar.ri().getNum() > 0) {
-                gVar.amU.setVisibility(0);
-                gVar.amU.setText(am.u(bhVar.ri().getNum()));
+                gVar.amT.setVisibility(0);
+                gVar.amT.setText(am.u(bhVar.ri().getNum()));
             } else {
-                gVar.amU.setVisibility(8);
+                gVar.amT.setVisibility(8);
             }
-            gVar.amU.setVisibility(8);
+            gVar.amT.setVisibility(8);
             int rl = bhVar.rl();
             if (rl > 0) {
-                gVar.cyO.setVisibility(0);
-                gVar.cyO.setText(am.y(rl));
+                gVar.czh.setVisibility(0);
+                gVar.czh.setText(am.y(rl));
             } else {
-                gVar.cyO.setVisibility(8);
+                gVar.czh.setVisibility(8);
             }
-            gVar.amR.setText(am.r(bhVar.rn() * 1000));
-            if (gVar.api != i) {
+            gVar.amQ.setText(am.r(bhVar.rn() * 1000));
+            if (gVar.aph != i) {
                 aj.j(textView2, d.f.icon_arrow_list);
                 aj.c(textView3, d.C0080d.cp_cont_d, 1);
                 a(textView2, godUserData.getIsLike(), cVar);
                 tbPageContext.getLayoutMode().t(view5);
-                gVar.api = i;
+                gVar.aph = i;
             }
             return true;
         }
@@ -244,14 +244,14 @@ public class d {
         if (z) {
             textView.setClickable(false);
             aj.c(textView, d.C0080d.cp_cont_d, 1);
-            textView.setText(cQf);
+            textView.setText(cQz);
             textView.setBackgroundDrawable(null);
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             textView.setPadding(0, 0, 0, 0);
             return;
         }
         aj.c(textView, d.C0080d.btn_forum_focus_color, 1);
-        textView.setText(cQg);
+        textView.setText(cQA);
         if (cVar != null) {
             textView.setBackgroundDrawable(cVar.u(d.f.btn_focus_border_bg, TbadkCoreApplication.getInst().getSkinType()));
             textView.setCompoundDrawablesWithIntrinsicBounds(cVar.u(d.f.btn_focus_cross_bg, TbadkCoreApplication.getInst().getSkinType()), (Drawable) null, (Drawable) null, (Drawable) null);

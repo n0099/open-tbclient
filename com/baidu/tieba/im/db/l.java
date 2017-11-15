@@ -10,20 +10,20 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class l extends a {
-    private static a dAi;
-    public static String dzT = "tb_private_msg_";
+    private static a dAC;
+    public static String dAn = "tb_private_msg_";
 
     private l() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized l axF() {
+    public static synchronized l axX() {
         l lVar;
         synchronized (l.class) {
-            if (dAi == null) {
-                dAi = new l();
+            if (dAC == null) {
+                dAC = new l();
             }
-            lVar = (l) dAi;
+            lVar = (l) dAC;
         }
         return lVar;
     }
@@ -49,10 +49,10 @@ public class l extends a {
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = dzT;
+            ?? r2 = dAn;
             try {
                 try {
-                    cursor = g.axv().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = g.axM().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
@@ -82,7 +82,7 @@ public class l extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        mu(str);
+                        mv(str);
                         n.e(cursor);
                         r2 = cursor;
                         return commonMsgPojo;

@@ -25,12 +25,12 @@ import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public final class a {
     private static final String acG = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> exM = new HashSet();
-    private static final boolean exN = oP(System.getProperty("java.vm.version"));
+    private static final Set<String> eyg = new HashSet();
+    private static final boolean eyh = oT(System.getProperty("java.vm.version"));
 
     public static void bH(Context context) {
         Log.i("MultiDex", "install");
-        if (exN) {
+        if (eyh) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -38,11 +38,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = exM;
-                    synchronized (exM) {
+                    Set<String> set = eyg;
+                    synchronized (eyg) {
                         String str = applicationInfo.sourceDir;
-                        if (!exM.contains(str)) {
-                            exM.add(str);
+                        if (!eyg.contains(str)) {
+                            eyg.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }
@@ -55,12 +55,12 @@ public final class a {
                                 bI(context);
                                 File file = new File(applicationInfo.dataDir, acG);
                                 List<File> a = com.baidu.tieba.i.b.a(context, applicationInfo, file, false);
-                                if (cm(a)) {
+                                if (cn(a)) {
                                     a(classLoader, file, a);
                                 } else {
                                     Log.w("MultiDex", "Files were not valid zip files.  Forcing a reload.");
                                     List<File> a2 = com.baidu.tieba.i.b.a(context, applicationInfo, file, true);
-                                    if (!cm(a2)) {
+                                    if (!cn(a2)) {
                                         throw new RuntimeException("Zip files were not valid.");
                                     }
                                     a(classLoader, file, a2);
@@ -93,7 +93,7 @@ public final class a {
         }
     }
 
-    static boolean oP(String str) {
+    static boolean oT(String str) {
         boolean z = false;
         if (str != null) {
             Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);
@@ -127,7 +127,7 @@ public final class a {
         }
     }
 
-    private static boolean cm(List<File> list) {
+    private static boolean cn(List<File> list) {
         for (File file : list) {
             if (!com.baidu.tieba.i.b.G(file)) {
                 return false;

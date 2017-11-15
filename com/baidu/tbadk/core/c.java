@@ -343,7 +343,7 @@ public class c {
 
     private ColorStateList c(boolean z, int i, int i2) {
         if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-            return aj.cQ(i);
+            return aj.cP(i);
         }
         if (!z) {
             return this.SH.getColorStateList(i);

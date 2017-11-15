@@ -1,32 +1,56 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
-public class ao extends com.baidu.adp.lib.b.a {
-    @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] eM() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eN() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eP() {
-        return 10;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "portrait_cdn_open";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eO() {
-        return 0;
+public class ao {
+    public static void GO() {
+        com.baidu.adp.lib.b.d.eV().f(t.class);
+        com.baidu.adp.lib.b.d.eV().f(a.class);
+        com.baidu.adp.lib.b.d.eV().f(b.class);
+        com.baidu.adp.lib.b.d.eV().f(c.class);
+        com.baidu.adp.lib.b.d.eV().f(d.class);
+        com.baidu.adp.lib.b.d.eV().f(f.class);
+        com.baidu.adp.lib.b.d.eV().f(e.class);
+        com.baidu.adp.lib.b.d.eV().f(h.class);
+        com.baidu.adp.lib.b.d.eV().f(i.class);
+        com.baidu.adp.lib.b.d.eV().f(k.class);
+        com.baidu.adp.lib.b.d.eV().f(l.class);
+        com.baidu.adp.lib.b.d.eV().f(m.class);
+        com.baidu.adp.lib.b.d.eV().f(n.class);
+        com.baidu.adp.lib.b.d.eV().f(o.class);
+        com.baidu.adp.lib.b.d.eV().f(r.class);
+        com.baidu.adp.lib.b.d.eV().f(s.class);
+        com.baidu.adp.lib.b.d.eV().f(u.class);
+        com.baidu.adp.lib.b.d.eV().f(v.class);
+        com.baidu.adp.lib.b.d.eV().f(x.class);
+        com.baidu.adp.lib.b.d.eV().f(y.class);
+        com.baidu.adp.lib.b.d.eV().f(z.class);
+        com.baidu.adp.lib.b.d.eV().f(aa.class);
+        com.baidu.adp.lib.b.d.eV().f(ab.class);
+        com.baidu.adp.lib.b.d.eV().f(ag.class);
+        com.baidu.adp.lib.b.d.eV().f(aj.class);
+        com.baidu.adp.lib.b.d.eV().f(ak.class);
+        com.baidu.adp.lib.b.d.eV().f(am.class);
+        com.baidu.adp.lib.b.d.eV().f(aq.class);
+        com.baidu.adp.lib.b.d.eV().f(as.class);
+        com.baidu.adp.lib.b.d.eV().f(au.class);
+        com.baidu.adp.lib.b.d.eV().f(av.class);
+        com.baidu.adp.lib.b.d.eV().f(ax.class);
+        com.baidu.adp.lib.b.d.eV().f(ay.class);
+        com.baidu.adp.lib.b.d.eV().f(az.class);
+        com.baidu.adp.lib.b.d.eV().f(aw.class);
+        com.baidu.adp.lib.b.d.eV().f(w.class);
+        com.baidu.adp.lib.b.d.eV().f(ae.class);
+        com.baidu.adp.lib.b.d.eV().f(ap.class);
+        com.baidu.adp.lib.b.d.eV().f(g.class);
+        com.baidu.adp.lib.b.d.eV().f(af.class);
+        com.baidu.adp.lib.b.d.eV().f(at.class);
+        com.baidu.adp.lib.b.d.eV().f(ac.class);
+        com.baidu.adp.lib.b.d.eV().f(q.class);
+        com.baidu.adp.lib.b.d.eV().f(ai.class);
+        com.baidu.adp.lib.b.d.eV().f(ah.class);
+        com.baidu.adp.lib.b.d.eV().f(ar.class);
+        com.baidu.adp.lib.b.d.eV().f(p.class);
+        com.baidu.adp.lib.b.d.eV().f(ad.class);
+        com.baidu.adp.lib.b.d.eV().f(al.class);
+        com.baidu.adp.lib.b.d.eV().f(an.class);
     }
 }

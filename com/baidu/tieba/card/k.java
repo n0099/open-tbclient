@@ -12,31 +12,31 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class k extends j {
     private bh ajq;
-    private View.OnClickListener bSA;
-    private com.baidu.tieba.card.data.n bSy;
-    private View.OnClickListener bSz;
+    private com.baidu.tieba.card.data.n bSL;
+    private View.OnClickListener bSM;
+    private View.OnClickListener bSN;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public k(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.bSz = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.1
+        this.bSM = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (k.this.ajq != null && k.this.ajq.rt() != null && !StringUtils.isNull(k.this.ajq.rt().getName_show()) && !StringUtils.isNull(k.this.ajq.rt().getUserId()) && k.this.ajq.rz() != null) {
-                    if (k.this.Zx() != null) {
-                        k.this.Zx().a(view, k.this.bSy);
+                    if (k.this.ZJ() != null) {
+                        k.this.ZJ().a(view, k.this.bSL);
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(k.this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(k.this.ajq.rt().getUserId(), 0L), false, k.this.ajq.rt().isBigV())));
                 }
             }
         };
-        this.bSA = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.2
+        this.bSN = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.Zx() != null) {
-                    k.this.Zx().a(view, k.this.bSy);
+                if (k.this.ZJ() != null) {
+                    k.this.ZJ().a(view, k.this.bSL);
                 }
             }
         };
@@ -47,9 +47,9 @@ public class k extends j {
     @Override // com.baidu.tieba.card.j, com.baidu.tieba.card.a
     public void a(com.baidu.tieba.card.data.n nVar) {
         super.a(nVar);
-        if (nVar != null && nVar.beV != null) {
-            this.bSy = nVar;
-            this.ajq = nVar.beV;
+        if (nVar != null && nVar.bff != null) {
+            this.bSL = nVar;
+            this.ajq = nVar.bff;
             nVar.sourceType = 0;
         }
     }

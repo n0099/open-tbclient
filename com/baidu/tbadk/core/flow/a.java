@@ -34,7 +34,7 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
         this.ack = onClickListener;
     }
 
-    public T cu(int i) {
+    public T ct(int i) {
         if (this.acj == null || this.acj.isEmpty() || i < 0 || i >= this.acj.size()) {
             return null;
         }

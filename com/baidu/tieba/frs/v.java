@@ -11,13 +11,13 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class v extends d<w, x> {
-    private final LinkedList<com.baidu.tbadk.k.f> cAs;
-    private final LinkedList<RelativeLayout> cAt;
+    private final LinkedList<com.baidu.tbadk.k.f> cAL;
+    private final LinkedList<RelativeLayout> cAM;
 
     public v(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cAs = new LinkedList<>();
-        this.cAt = new LinkedList<>();
+        this.cAL = new LinkedList<>();
+        this.cAM = new LinkedList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,10 +30,10 @@ public class v extends d<w, x> {
         relativeLayout.setGravity(17);
         com.baidu.tbadk.k.f fVar = new com.baidu.tbadk.k.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(d.e.ds140));
         fVar.P(relativeLayout);
-        this.cAs.add(fVar);
-        this.cAt.add(relativeLayout);
+        this.cAL.add(fVar);
+        this.cAM.add(relativeLayout);
         x xVar = new x(relativeLayout);
-        xVar.cAv = fVar;
+        xVar.cAO = fVar;
         return xVar;
     }
 
@@ -42,8 +42,8 @@ public class v extends d<w, x> {
     @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, w wVar, x xVar) {
-        if (xVar != null && xVar.cAv != null) {
-            xVar.cAv.onChangeSkinType();
+        if (xVar != null && xVar.cAO != null) {
+            xVar.cAO.onChangeSkinType();
         }
         return view;
     }
@@ -51,18 +51,18 @@ public class v extends d<w, x> {
     @Override // com.baidu.tieba.frs.d
     public void release() {
         super.release();
-        if (this.cAs.size() != 0 && this.cAt.size() == this.cAs.size()) {
+        if (this.cAL.size() != 0 && this.cAM.size() == this.cAL.size()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.cAs.size()) {
+                if (i2 >= this.cAL.size()) {
                     break;
                 }
-                this.cAs.get(i2).O(this.cAt.get(i2));
+                this.cAL.get(i2).O(this.cAM.get(i2));
                 i = i2 + 1;
             }
         }
-        this.cAs.clear();
-        this.cAt.clear();
+        this.cAL.clear();
+        this.cAM.clear();
     }
 }

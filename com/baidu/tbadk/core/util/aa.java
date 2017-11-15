@@ -16,11 +16,11 @@ public class aa {
         public long mTime;
     }
 
-    public static int cI(int i) {
+    public static int cH(int i) {
         return agi.getAndSet(i);
     }
 
-    public static int cJ(int i) {
+    public static int cI(int i) {
         return agi.addAndGet(i);
     }
 

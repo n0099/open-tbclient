@@ -44,8 +44,8 @@ import com.baidu.tieba.write.video.WriteVideoActivity;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class WriteActivityStatic {
-    private static int gWZ = 11;
-    private static int gXa = 18;
+    private static int gYj = 11;
+    private static int gYk = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -60,7 +60,7 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SelectForumActivityConfig.class, SelectForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(HotTopicChangeActivityConfig.class, HotTopicChangeFourmActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteUrlActivityConfig.class, WriteUrlActivity.class);
-        LocationModel.bvf();
+        LocationModel.bvr();
         av.vI().a("feedback:", new av.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
             @Override // com.baidu.tbadk.core.util.av.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
@@ -77,7 +77,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void C(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= gXa && Build.VERSION.SDK_INT >= gWZ) {
+        if (Build.VERSION.SDK_INT <= gYk && Build.VERSION.SDK_INT >= gYj) {
             D(tbPageContext);
         } else {
             E(tbPageContext);

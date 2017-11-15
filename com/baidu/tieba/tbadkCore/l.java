@@ -7,5 +7,5 @@ public interface l {
 
     void b(g gVar);
 
-    void jq(int i);
+    void jp(int i);
 }

@@ -22,27 +22,27 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        DY();
+        Ek();
     }
 
-    private void DY() {
+    private void Ek() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_EXPERIENCED, TbConfig.SERVER_ADDRESS + TbConfig.URL_ADD_EXPERIENCED);
         tbHttpMessageTask.setResponsedClass(AddExperiencedResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bE(String str, String str2) {
+    public void bF(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
         sendMessage(httpMessage);
     }
 
-    public static boolean pT(String str) {
+    public static boolean pX(String str) {
         return b.c(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean pU(String str) {
+    public static boolean pY(String str) {
         String str2;
         boolean z;
         l<String> N = a.td().N("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());

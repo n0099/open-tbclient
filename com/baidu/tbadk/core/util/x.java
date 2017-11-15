@@ -96,7 +96,7 @@ public class x {
             this.afQ.n("stMode", String.valueOf(this.afS.mMode));
             this.afQ.n("stMethod", String.valueOf(this.afS.agj));
         }
-        this.afT = aa.cI(0);
+        this.afT = aa.cH(0);
         if (this.afT == 0 && this.afS != null) {
             this.afT = this.afS.agl;
         }
@@ -238,7 +238,7 @@ public class x {
         this.afQ.n(SapiUtils.KEY_QR_LOGIN_SIGN, com.baidu.adp.lib.util.s.aS(stringBuffer.toString()));
     }
 
-    private String cF(int i) {
+    private String cE(int i) {
         String us;
         com.baidu.tbadk.coreExtra.a.c xn;
         switch (i) {
@@ -274,7 +274,7 @@ public class x {
         }
         if (!this.afP.vL().uQ()) {
             aa.a(this.afS);
-            aa.cJ(this.afT);
+            aa.cI(this.afT);
             return us;
         } else if (!this.afP.vL().isRequestSuccess()) {
             if (this.afP.vL().ahZ == 1 && this.afP.vK().ahW) {
@@ -295,7 +295,7 @@ public class x {
                         ReloginManager.tX().f(ua);
                         return null;
                     }
-                    return cG(i);
+                    return cF(i);
                 }
                 com.baidu.tbadk.core.data.ai e = e(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
                 if (!TextUtils.isEmpty(currentAccountObj.getID()) && (xn = com.baidu.tbadk.coreExtra.a.a.xn()) != null) {
@@ -309,7 +309,7 @@ public class x {
                     this.afP.vL().mErrorString = str;
                     return us;
                 }
-                us = cG(i);
+                us = cF(i);
             }
             com.baidu.tieba.h.a.a(this);
             return us;
@@ -318,7 +318,7 @@ public class x {
         }
     }
 
-    private String cG(int i) {
+    private String cF(int i) {
         String us;
         uO();
         switch (i) {
@@ -357,15 +357,15 @@ public class x {
     }
 
     public String up() {
-        return cF(2);
+        return cE(2);
     }
 
     public String ur() {
-        return cF(1);
+        return cE(1);
     }
 
     public String us() {
-        return cF(3);
+        return cE(3);
     }
 
     public String dI(String str) throws IOException {

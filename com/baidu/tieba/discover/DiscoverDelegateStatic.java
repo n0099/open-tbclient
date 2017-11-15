@@ -23,12 +23,12 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c EG;
+                c ES;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(discoverDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (EG = discoverDelegateStatic.EG()) != null) {
-                        EG.aGS.setArguments(new Bundle());
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (ES = discoverDelegateStatic.ES()) != null) {
+                        ES.aHa.setArguments(new Bundle());
                     }
                 }
             }
@@ -44,28 +44,28 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c EF() {
+    public c ER() {
         c cVar = new c();
-        cVar.aGS = new a();
+        cVar.aHa = new a();
         cVar.type = 10;
-        cVar.aGT = d.j.home_discover;
-        cVar.aGU = d.f.s_icon_tabbar_discover;
+        cVar.aHb = d.j.home_discover;
+        cVar.aHc = d.f.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public e aY(Context context) {
-        this.aGJ = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.aGR = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
         e.a aVar = new e.a();
-        aVar.aHn = this.aGJ;
+        aVar.aHv = this.aGR;
         aVar.ur = l.dip2px(context, 3.0f);
-        aVar.aHl = d.f.icon_news_down_bar_one;
-        this.aGJ.a("emotion", aVar);
-        return this.aGJ;
+        aVar.aHt = d.f.icon_news_down_bar_one;
+        this.aGR.a("emotion", aVar);
+        return this.aGR;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void EE() {
+    public void EQ() {
         isAdded = true;
     }
 

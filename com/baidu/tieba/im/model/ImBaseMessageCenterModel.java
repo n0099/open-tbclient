@@ -9,6 +9,8 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.chat.a.a;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,15 +37,13 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
             ImMessageCenterShowItemData removeItem = removeItem(imMessageCenterPojo);
             if (!isToShow(imMessageCenterPojo)) {
                 if (aVar != null) {
-                    aVar.avy();
+                    aVar.avP();
                     return;
                 }
                 return;
             }
             processMsg(imMessageCenterPojo, removeItem);
-            if (aVar != null) {
-                aVar.avy();
-            }
+            onComplete(aVar);
         }
     }
 
@@ -62,7 +62,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
             removeItem(imMessageCenterPojo);
             if (aVar != null) {
-                aVar.avy();
+                aVar.avP();
             }
         }
     }
@@ -71,7 +71,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         this.mList.clear();
         if (list == null) {
             if (aVar != null) {
-                aVar.avy();
+                aVar.avP();
                 return;
             }
             return;
@@ -81,9 +81,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 processMsg(imMessageCenterPojo, null);
             }
         }
-        if (aVar != null) {
-            aVar.avy();
-        }
+        onComplete(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -115,16 +113,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void insertShowData(ImMessageCenterShowItemData imMessageCenterShowItemData, List<ImMessageCenterShowItemData> list) {
         if (imMessageCenterShowItemData != null && list != null) {
-            int size = list.size();
-            int i = 0;
-            while (i < size) {
-                ImMessageCenterShowItemData imMessageCenterShowItemData2 = list.get(i);
-                if (imMessageCenterShowItemData2 != null && imMessageCenterShowItemData2.getServerTime() < imMessageCenterShowItemData.getServerTime()) {
-                    break;
-                }
-                i++;
-            }
-            list.add(i, imMessageCenterShowItemData);
+            list.add(imMessageCenterShowItemData);
         }
     }
 
@@ -148,7 +137,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                 }
                 if (aVar != null) {
-                    aVar.avy();
+                    aVar.avP();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new MemoryModifyVisibilityMessage.a(friendId, getCustomGroupType(imMessageCenterShowItemData), false)));
             }
@@ -173,5 +162,18 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         return false;
+    }
+
+    private void onComplete(a aVar) {
+        Collections.sort(this.mList, new Comparator<ImMessageCenterShowItemData>() { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // java.util.Comparator
+            public int compare(ImMessageCenterShowItemData imMessageCenterShowItemData, ImMessageCenterShowItemData imMessageCenterShowItemData2) {
+                return imMessageCenterShowItemData.getServerTime() < imMessageCenterShowItemData2.getServerTime() ? 1 : -1;
+            }
+        });
+        if (aVar != null) {
+            aVar.avP();
+        }
     }
 }

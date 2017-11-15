@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private C0050a asq;
+    private C0050a asw;
     private com.baidu.adp.base.d mLoadDataCallBack;
 
     public a(com.baidu.adp.base.d dVar) {
@@ -33,18 +33,18 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.asq == null) {
-            this.asq = new C0050a();
-            this.asq.setPriority(2);
-            this.asq.bf(z);
-            this.asq.setPortrait(str);
-            this.asq.setToUid(str2);
-            this.asq.setIsGod(z2);
-            this.asq.setFrom(str3);
-            this.asq.setPageId(bdUniqueId);
-            this.asq.setForumId(str4);
-            this.asq.setInLive(str5);
-            this.asq.execute(new Integer[0]);
+        if (this.asw == null) {
+            this.asw = new C0050a();
+            this.asw.setPriority(2);
+            this.asw.bg(z);
+            this.asw.setPortrait(str);
+            this.asw.setToUid(str2);
+            this.asw.setIsGod(z2);
+            this.asw.setFrom(str3);
+            this.asw.setPageId(bdUniqueId);
+            this.asw.setForumId(str4);
+            this.asw.setInLive(str5);
+            this.asw.execute(new Integer[0]);
         }
     }
 
@@ -80,7 +80,7 @@ public class a {
             this.toUid = str;
         }
 
-        public void bf(boolean z) {
+        public void bg(boolean z) {
             this.isAttention = z;
         }
 
@@ -141,7 +141,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0050a) str);
-            a.this.asq = null;
+            a.this.asw = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
                 aVar.BJ = this.mNetwork.uN().vL().isRequestSuccess();
@@ -163,9 +163,9 @@ public class a {
                 this.mNetwork.fo();
                 this.mNetwork = null;
             }
-            if (a.this.asq != null) {
-                a.this.asq.cancel();
-                a.this.asq = null;
+            if (a.this.asw != null) {
+                a.this.asw.cancel();
+                a.this.asw = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.f(false);
@@ -174,8 +174,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.asq != null) {
-            this.asq.cancel();
+        if (this.asw != null) {
+            this.asw.cancel();
         }
     }
 }

@@ -22,7 +22,7 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: c */
     public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.Eg().go(str);
+        return com.baidu.tbadk.imageManager.c.Es().gp(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -112,7 +112,7 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         if (j == null && !iVar.fz().vo) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.Eg().fi(TbConfig.getPbImageSize() + j.length);
+        com.baidu.tbadk.imageManager.c.Es().fh(TbConfig.getPbImageSize() + j.length);
         return a(str3, str2, aVar, null, a(BitmapHelper.Bytes2Bitmap(j), i, i2), iVar.isGif || com.baidu.adp.lib.util.l.j(j), iVar, j);
     }
 
@@ -121,7 +121,7 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.c.Eg().fi(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.Es().fh(BitmapHelper.getBitmapSize(bitmap) * 2);
             return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
         }
         return bitmap;
@@ -130,7 +130,7 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.c.Eg().c(str, (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.c.Es().c(str, (com.baidu.adp.widget.a.a) obj);
         }
     }
 

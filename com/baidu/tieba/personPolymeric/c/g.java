@@ -9,10 +9,10 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fpj = BdUniqueId.gen();
-    public boolean fpk;
-    public String fpl;
-    public List<com.baidu.adp.widget.ListView.f> fpm;
+    public static final BdUniqueId fpH = BdUniqueId.gen();
+    public boolean fpI;
+    public String fpJ;
+    public List<com.baidu.adp.widget.ListView.f> fpK;
     public int giftNum = 0;
     public boolean mIsHost;
     public int mSex;
@@ -23,7 +23,7 @@ public class g extends com.baidu.tieba.card.data.b {
         if (user != null && !v.v(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
             this.ws = user.name;
-            this.fpl = user.name_show;
+            this.fpJ = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.fpk = false;
+                this.fpI = false;
             } else {
-                this.fpk = true;
+                this.fpI = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.fpm = new ArrayList();
+            this.fpK = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     p pVar = new p();
                     pVar.a(giftInfo);
-                    this.fpm.add(pVar);
+                    this.fpK.add(pVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !v.v(this.fpm);
+        return !v.v(this.fpK);
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return fpj;
+        return fpH;
     }
 }

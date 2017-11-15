@@ -53,8 +53,13 @@ public interface IMediaPlayer {
     }
 
     /* loaded from: classes.dex */
+    public interface OnSpeedWhenInvokingErrorListener {
+        void onSpeed(long j);
+    }
+
+    /* loaded from: classes.dex */
     public interface OnSubErrorInfoListener {
-        void onSubError(int i, int i2);
+        void onSubError(int i, int i2, String str);
     }
 
     /* loaded from: classes.dex */
@@ -139,6 +144,8 @@ public interface IMediaPlayer {
     void setOnPreparedListener(OnPreparedListener onPreparedListener);
 
     void setOnSeekCompleteListener(OnSeekCompleteListener onSeekCompleteListener);
+
+    void setOnSpeedWhenInvokingErrorListener(OnSpeedWhenInvokingErrorListener onSpeedWhenInvokingErrorListener);
 
     void setOnSubErrorListener(OnSubErrorInfoListener onSubErrorInfoListener);
 

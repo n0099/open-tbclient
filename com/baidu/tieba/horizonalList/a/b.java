@@ -43,7 +43,7 @@ public class b {
         }
     }
 
-    public static final a aD(View view) {
+    public static final a aE(View view) {
         return Build.VERSION.SDK_INT >= 14 ? new com.baidu.tieba.horizonalList.a.b.a(view) : new C0088b(view);
     }
 }

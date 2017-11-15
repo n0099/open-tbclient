@@ -14,31 +14,31 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b {
     private int bgColor;
-    private ArrayList<String> gPa;
-    private String gPb;
-    private int gPc;
-    private int gPd;
-    private int gPe;
-    private int gPf = -1;
-    private boolean gPg = false;
-    private boolean gPh = false;
+    private ArrayList<String> gQi;
+    private String gQj;
+    private int gQk;
+    private int gQl;
+    private int gQm;
+    private int gQn = -1;
+    private boolean gQo = false;
+    private boolean gQp = false;
 
     public SpannableStringBuilder b(Editable editable) {
-        if (editable == null || StringUtils.isNull(editable.toString()) || v.v(this.gPa)) {
+        if (editable == null || StringUtils.isNull(editable.toString()) || v.v(this.gQi)) {
             return null;
         }
         String obj = editable.toString();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-        boolean z = this.gPf >= 0;
-        this.gPf = -1;
-        Iterator<String> it = this.gPa.iterator();
+        boolean z = this.gQn >= 0;
+        this.gQn = -1;
+        Iterator<String> it = this.gQi.iterator();
         while (it.hasNext()) {
             String next = it.next();
             if (!StringUtils.isNull(next)) {
                 a(spannableStringBuilder, obj, next);
             }
         }
-        if (this.gPf >= 0 || z) {
+        if (this.gQn >= 0 || z) {
             ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
             if (imageSpanArr != null) {
                 for (ImageSpan imageSpan : imageSpanArr) {
@@ -56,19 +56,19 @@ public class b {
         if (spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (this.gPe != 0 || this.bgColor != 0) {
+        if (this.gQm != 0 || this.bgColor != 0) {
             int indexOf = str.indexOf(str2);
             int length = str2.length();
             if (indexOf >= 0) {
-                if (this.gPf == -1) {
-                    this.gPf = indexOf + length;
-                } else if (indexOf + length < this.gPf) {
-                    this.gPf = indexOf + length;
+                if (this.gQn == -1) {
+                    this.gQn = indexOf + length;
+                } else if (indexOf + length < this.gQn) {
+                    this.gQn = indexOf + length;
                 }
             }
             while (indexOf >= 0) {
-                if (this.gPe != 0) {
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.gPe), indexOf, indexOf + length, 33);
+                if (this.gQm != 0) {
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.gQm), indexOf, indexOf + length, 33);
                 }
                 if (this.bgColor != 0) {
                     spannableStringBuilder.setSpan(new BackgroundColorSpan(this.bgColor), indexOf, indexOf + length, 33);
@@ -79,57 +79,57 @@ public class b {
     }
 
     public void onChangeSkinType() {
-        if (this.gPc != 0) {
-            this.gPe = aj.getColor(this.gPc);
+        if (this.gQk != 0) {
+            this.gQm = aj.getColor(this.gQk);
         }
-        if (this.gPd != 0) {
-            this.bgColor = aj.getColor(this.gPd);
+        if (this.gQl != 0) {
+            this.bgColor = aj.getColor(this.gQl);
         }
     }
 
     public void aB(ArrayList<String> arrayList) {
-        this.gPa = arrayList;
+        this.gQi = arrayList;
     }
 
-    public ArrayList<String> bCd() {
-        return this.gPa;
+    public ArrayList<String> bCp() {
+        return this.gQi;
     }
 
-    public void vc(int i) {
-        this.gPc = i;
-        this.gPe = aj.getColor(this.gPc);
+    public void vg(int i) {
+        this.gQk = i;
+        this.gQm = aj.getColor(this.gQk);
     }
 
-    public void vd(int i) {
-        this.gPd = i;
-        this.bgColor = aj.getColor(this.gPd);
+    public void vh(int i) {
+        this.gQl = i;
+        this.bgColor = aj.getColor(this.gQl);
     }
 
-    public int bCe() {
-        return this.gPf;
+    public int bCq() {
+        return this.gQn;
     }
 
-    public void ni(boolean z) {
-        this.gPg = z;
+    public void nq(boolean z) {
+        this.gQo = z;
     }
 
-    public boolean bCf() {
-        return this.gPg;
+    public boolean bCr() {
+        return this.gQo;
     }
 
-    public void nj(boolean z) {
-        this.gPh = z;
+    public void nr(boolean z) {
+        this.gQp = z;
     }
 
-    public boolean bCg() {
-        return this.gPh;
+    public boolean bCs() {
+        return this.gQp;
     }
 
-    public void tI(String str) {
-        this.gPb = str;
+    public void tO(String str) {
+        this.gQj = str;
     }
 
-    public String bCh() {
-        return this.gPb;
+    public String bCt() {
+        return this.gQj;
     }
 }

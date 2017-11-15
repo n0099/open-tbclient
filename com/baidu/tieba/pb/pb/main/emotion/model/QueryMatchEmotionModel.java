@@ -19,51 +19,51 @@ import java.util.Map;
 import tbclient.T;
 /* loaded from: classes.dex */
 public class QueryMatchEmotionModel extends BdBaseModel {
-    private static LinkedHashMap<String, List<EmotionImageData>> eWz = new LinkedHashMap<>();
-    private final HttpMessageListener aFT;
-    private a eWy;
+    private static LinkedHashMap<String, List<EmotionImageData>> eWU = new LinkedHashMap<>();
+    private final HttpMessageListener aGb;
+    private a eWT;
 
     /* loaded from: classes.dex */
     public interface a {
-        void m(String str, List<EmotionImageData> list);
+        void n(String str, List<EmotionImageData> list);
 
         void onFail(int i, String str);
     }
 
     public QueryMatchEmotionModel(e<T> eVar) {
         super(eVar);
-        this.aFT = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.1
+        this.aGb = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && QueryMatchEmotionModel.this.eWy != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && QueryMatchEmotionModel.this.eWT != null) {
                     QueryMatchEmotionResponseMessage queryMatchEmotionResponseMessage = (QueryMatchEmotionResponseMessage) httpResponsedMessage;
                     if (queryMatchEmotionResponseMessage.getData() == null) {
-                        QueryMatchEmotionModel.this.eWy.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
+                        QueryMatchEmotionModel.this.eWT.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
                     } else if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                         String str = (String) httpResponsedMessage.getOrginalMessage().getExtra();
-                        QueryMatchEmotionModel.this.eWy.m(str, queryMatchEmotionResponseMessage.getData());
-                        QueryMatchEmotionModel.this.n(str, queryMatchEmotionResponseMessage.getData());
+                        QueryMatchEmotionModel.this.eWT.n(str, queryMatchEmotionResponseMessage.getData());
+                        QueryMatchEmotionModel.this.o(str, queryMatchEmotionResponseMessage.getData());
                     }
                 }
             }
         };
-        DY();
-        this.aFT.setSelfListener(true);
-        registerListener(this.aFT);
+        Ek();
+        this.aGb.setSelfListener(true);
+        registerListener(this.aGb);
     }
 
-    private void DY() {
+    private void Ek() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION, TbConfig.SERVER_ADDRESS + "c/e/meme/sugQuery");
         tbHttpMessageTask.setResponsedClass(QueryMatchEmotionResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void a(String str, a aVar) {
-        this.eWy = aVar;
-        if (this.eWy != null) {
-            if (!v.v(pL(str))) {
-                this.eWy.m(str, eWz.get(str));
+        this.eWT = aVar;
+        if (this.eWT != null) {
+            if (!v.v(pP(str))) {
+                this.eWT.n(str, eWU.get(str));
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION);
@@ -74,30 +74,30 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void n(String str, List<EmotionImageData> list) {
+    public void o(String str, List<EmotionImageData> list) {
         if (!TextUtils.isEmpty(str) && !v.v(list)) {
-            if (eWz == null) {
-                eWz = new LinkedHashMap<>();
+            if (eWU == null) {
+                eWU = new LinkedHashMap<>();
             }
-            if (!eWz.containsKey(str)) {
-                if (eWz.size() > 10) {
-                    Map.Entry<String, List<EmotionImageData>> next = eWz.entrySet().iterator().next();
+            if (!eWU.containsKey(str)) {
+                if (eWU.size() > 10) {
+                    Map.Entry<String, List<EmotionImageData>> next = eWU.entrySet().iterator().next();
                     if (next != null) {
-                        eWz.remove(next.getKey());
+                        eWU.remove(next.getKey());
                     } else {
-                        eWz.clear();
+                        eWU.clear();
                     }
                 }
-                eWz.put(str, list);
+                eWU.put(str, list);
             }
         }
     }
 
-    private List<EmotionImageData> pL(String str) {
-        if (eWz == null || !eWz.containsKey(str)) {
+    private List<EmotionImageData> pP(String str) {
+        if (eWU == null || !eWU.containsKey(str)) {
             return null;
         }
-        return eWz.get(str);
+        return eWU.get(str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -107,7 +107,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.aFT);
+        MessageManager.getInstance().unRegisterListener(this.aGb);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION);
         return true;
     }

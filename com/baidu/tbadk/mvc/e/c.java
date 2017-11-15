@@ -34,7 +34,7 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
             return null;
         }
         ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
-        com.baidu.tbadk.mvc.b.d dVar3 = (com.baidu.tbadk.mvc.b.d) Fr();
+        com.baidu.tbadk.mvc.b.d dVar3 = (com.baidu.tbadk.mvc.b.d) FD();
         try {
             try {
                 if (readCacheMessage.isNeedUid()) {
@@ -53,7 +53,7 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                                 if (c != null) {
                                     ArrayList arrayList5 = new ArrayList(c.size());
                                     for (l.b<byte[]> bVar : c) {
-                                        if (bVar != null && (bArr = bVar.value) != null && (dVar2 = (com.baidu.tbadk.mvc.b.d) Fr()) != null) {
+                                        if (bVar != null && (bArr = bVar.value) != null && (dVar2 = (com.baidu.tbadk.mvc.b.d) FD()) != null) {
                                             ((com.baidu.tbadk.mvc.b.b) dVar2).x(bArr);
                                             arrayList5.add(dVar2);
                                         }
@@ -66,8 +66,8 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                             } else if ((dVar3 instanceof f) && (b = r.b(com.baidu.tbadk.core.c.a.td().N(this.sE, str))) != null) {
                                 ArrayList arrayList6 = new ArrayList(b.size());
                                 for (l.b<String> bVar2 : b) {
-                                    if (bVar2 != null && (str3 = bVar2.value) != null && (dVar = (com.baidu.tbadk.mvc.b.d) Fr()) != null) {
-                                        ((f) dVar).gA(str3);
+                                    if (bVar2 != null && (str3 = bVar2.value) != null && (dVar = (com.baidu.tbadk.mvc.b.d) FD()) != null) {
+                                        ((f) dVar).gB(str3);
                                         arrayList6.add(dVar);
                                     }
                                 }
@@ -80,9 +80,9 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                         }
                     } else {
                         String cacheKey = readCacheMessage.getRequestData().getCacheKey();
-                        String EJ = readCacheMessage.getRequestData().EJ();
+                        String EV = readCacheMessage.getRequestData().EV();
                         if (dVar3 instanceof com.baidu.tbadk.mvc.b.b) {
-                            byte[] bArr2 = com.baidu.tbadk.core.c.a.td().M(EJ, str).get(cacheKey);
+                            byte[] bArr2 = com.baidu.tbadk.core.c.a.td().M(EV, str).get(cacheKey);
                             if (bArr2 != null) {
                                 ((com.baidu.tbadk.mvc.b.b) dVar3).x(bArr2);
                                 ArrayList arrayList7 = new ArrayList();
@@ -99,8 +99,8 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                                     return new ReadCacheRespMsg(this.cmd, arrayList);
                                 }
                             }
-                        } else if ((dVar3 instanceof f) && (str2 = com.baidu.tbadk.core.c.a.td().N(EJ, str).get(cacheKey)) != null) {
-                            ((f) dVar3).gA(str2);
+                        } else if ((dVar3 instanceof f) && (str2 = com.baidu.tbadk.core.c.a.td().N(EV, str).get(cacheKey)) != null) {
+                            ((f) dVar3).gB(str2);
                             ArrayList arrayList8 = new ArrayList();
                             try {
                                 arrayList8.add(dVar3);

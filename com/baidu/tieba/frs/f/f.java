@@ -29,14 +29,14 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(com.baidu.tieba.frs.f fVar, String str) {
         Intent ad;
-        if (!TextUtils.isEmpty(str) && fVar != null && fVar.aiT() != null && (ad = i.ad(fVar.getPageContext().getPageActivity(), str)) != null) {
+        if (!TextUtils.isEmpty(str) && fVar != null && fVar.ajh() != null && (ad = i.ad(fVar.getPageContext().getPageActivity(), str)) != null) {
             Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
             intent.putExtra("duplicate", false);
             intent.putExtra("android.intent.extra.shortcut.NAME", str + fVar.getPageContext().getString(d.j.forum));
             intent.putExtra("android.intent.extra.shortcut.INTENT", ad);
-            BarImageView aoG = fVar.aiT().aoG();
-            if (aoG != null && aoG.getBdImage() != null && aoG.getBdImage().kK() != null) {
-                Bitmap kK = aoG.getBdImage().kK();
+            BarImageView aoV = fVar.ajh().aoV();
+            if (aoV != null && aoV.getBdImage() != null && aoV.getBdImage().kK() != null) {
+                Bitmap kK = aoV.getBdImage().kK();
                 Float valueOf = Float.valueOf(fVar.getResources().getDisplayMetrics().density);
                 intent.putExtra("android.intent.extra.shortcut.ICON", com.baidu.adp.lib.util.d.gP().a(com.baidu.adp.lib.util.d.gP().resizeBitmap(kK, valueOf.intValue() * 48), valueOf.intValue() * 6));
             } else {
@@ -48,14 +48,14 @@ public class f {
 
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final WeakReference<com.baidu.tieba.frs.f> cQr;
+        private final WeakReference<com.baidu.tieba.frs.f> cQL;
         private final String name;
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            com.baidu.tieba.frs.f fVar = this.cQr.get();
+            com.baidu.tieba.frs.f fVar = this.cQL.get();
             if (fVar == null || fVar.getPageContext() == null) {
                 return false;
             }
@@ -66,7 +66,7 @@ public class f {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            com.baidu.tieba.frs.f fVar = this.cQr.get();
+            com.baidu.tieba.frs.f fVar = this.cQL.get();
             if (fVar != null) {
                 if (!bool.booleanValue()) {
                     f.a(fVar, this.name);

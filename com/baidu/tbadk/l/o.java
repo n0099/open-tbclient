@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class o extends q {
     public static void b(com.baidu.tbadk.core.util.r rVar, com.baidu.tbadk.core.util.r rVar2, com.baidu.tbadk.core.util.r rVar3, com.baidu.tbadk.core.util.r rVar4, com.baidu.tbadk.core.util.r rVar5, int i) {
-        if (r.Gi().Gj()) {
+        if (r.Gt().Gu()) {
             com.baidu.adp.lib.stats.a fK = fK();
             fK.p("action", "dlStat");
             fK.p("c_dnum", String.valueOf(rVar.num));
@@ -33,13 +33,13 @@ public class o extends q {
             fK.p("op_spnum", String.valueOf(rVar5.afd));
             fK.p("op_costt", String.valueOf(rVar5.time));
             fK.p("op_dlsize", String.valueOf(rVar5.uT));
-            fK.p("nettype", r.fu(i));
+            fK.p("nettype", r.ft(i));
             BdStatisticsManager.getInstance().performance(TbConfig.TMP_PIC_DIR_NAME, fK);
         }
     }
 
     public static void a(int i, int i2, long j) {
-        if (r.Gi().Gj()) {
+        if (r.Gt().Gu()) {
             com.baidu.adp.lib.stats.a fK = fK();
             fK.p("action", "dcStat");
             fK.p("dcnum", String.valueOf(i));

@@ -85,7 +85,7 @@ public class av extends bh {
             LabelInfo labelInfo = list.get(i);
             if (labelInfo != null) {
                 com.baidu.tbadk.coreExtra.view.e eVar = new com.baidu.tbadk.coreExtra.view.e();
-                eVar.ev(labelInfo.labelHot.intValue());
+                eVar.eu(labelInfo.labelHot.intValue());
                 eVar.setLabelId(labelInfo.labelId);
                 eVar.setLabelName(labelInfo.labelContent);
                 arrayList.add(eVar);

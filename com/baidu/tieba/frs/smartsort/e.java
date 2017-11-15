@@ -18,7 +18,7 @@ public class e {
         this.lastTime = jSONObject.optLong("last_time");
     }
 
-    public JSONObject aod() {
+    public JSONObject aos() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);

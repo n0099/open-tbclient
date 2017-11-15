@@ -12,18 +12,18 @@ import com.baidu.tieba.d;
 public class SendView extends TextView implements s {
     private int Ja;
     private i Jb;
-    private boolean[] aDH;
-    private int[] aDI;
-    private int api;
+    private boolean[] aDP;
+    private int[] aDQ;
+    private int aph;
     private int mType;
-    public static int aDJ = 1;
+    public static int aDR = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.aDH = new boolean[]{false, false, false, false, false};
-        this.aDI = new int[]{0, 0};
-        this.api = 0;
+        this.aDP = new boolean[]{false, false, false, false, false};
+        this.aDQ = new int[]{0, 0};
+        this.aph = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(d.e.ds17), context.getResources().getDimensionPixelSize(d.e.ds28), context.getResources().getDimensionPixelSize(d.e.ds10), context.getResources().getDimensionPixelSize(d.e.ds28));
         setGravity(17);
@@ -46,67 +46,67 @@ public class SendView extends TextView implements s {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.aDH[0] = false;
+                        this.aDP[0] = false;
                         break;
                     } else {
-                        this.aDH[0] = true;
+                        this.aDP[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.aDH[0] = false;
-                    this.aDH[1] = false;
-                    this.aDH[2] = false;
-                    this.aDH[3] = false;
-                    this.aDH[4] = false;
-                    this.aDI[0] = 0;
-                    this.aDI[1] = 0;
+                    this.aDP[0] = false;
+                    this.aDP[1] = false;
+                    this.aDP[2] = false;
+                    this.aDP[3] = false;
+                    this.aDP[4] = false;
+                    this.aDQ[0] = 0;
+                    this.aDQ[1] = 0;
                     break;
                 case 10:
-                    this.aDH[2] = true;
+                    this.aDP[2] = true;
                     break;
                 case 11:
-                    this.aDH[2] = false;
+                    this.aDP[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.aCc != null) {
-                            if (aVar2.aCc.getChosedFiles() != null) {
-                                this.aDI[0] = aVar2.aCc.getChosedFiles().size();
+                        if (aVar2.aCk != null) {
+                            if (aVar2.aCk.getChosedFiles() != null) {
+                                this.aDQ[0] = aVar2.aCk.getChosedFiles().size();
                             } else {
-                                this.aDI[0] = 0;
+                                this.aDQ[0] = 0;
                             }
                         }
-                        if (this.aDI[0] > 0) {
-                            this.aDH[1] = true;
+                        if (this.aDQ[0] > 0) {
+                            this.aDP[1] = true;
                             break;
                         } else {
-                            this.aDH[1] = false;
+                            this.aDP[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.aDI;
+                    int[] iArr = this.aDQ;
                     iArr[0] = iArr[0] - 1;
-                    if (this.aDI[0] > 0) {
-                        this.aDH[1] = true;
+                    if (this.aDQ[0] > 0) {
+                        this.aDP[1] = true;
                         break;
                     } else {
-                        this.aDH[1] = false;
+                        this.aDP[1] = false;
                         break;
                     }
                 case 28:
                 case d.l.View_filterTouchesWhenObscured /* 39 */:
-                    this.aDH[3] = true;
+                    this.aDP[3] = true;
                     break;
                 case 29:
-                    this.aDH[3] = false;
+                    this.aDP[3] = false;
                     break;
             }
-            fa(this.mType);
+            eZ(this.mType);
         }
     }
 
@@ -149,7 +149,7 @@ public class SendView extends TextView implements s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
-        this.api = i;
+        this.aph = i;
         if (isEnabled()) {
             aj.b(this, d.C0080d.cp_link_tip_a, 1, i);
         } else {
@@ -161,19 +161,19 @@ public class SendView extends TextView implements s {
         this.mType = i;
     }
 
-    public void fa(int i) {
+    public void eZ(int i) {
         if (i == ALL) {
-            if (this.aDH[0] || this.aDH[1] || this.aDH[2] || this.aDH[3] || this.aDH[4]) {
+            if (this.aDP[0] || this.aDP[1] || this.aDP[2] || this.aDP[3] || this.aDP[4]) {
                 setEnabled(true);
-                aj.b(this, d.C0080d.cp_link_tip_a, 1, this.api);
+                aj.b(this, d.C0080d.cp_link_tip_a, 1, this.aph);
                 return;
             }
             setEnabled(false);
             aj.c(this, d.C0080d.cp_cont_e, 1);
-        } else if (i == aDJ) {
-            if (this.aDH[1]) {
+        } else if (i == aDR) {
+            if (this.aDP[1]) {
                 setEnabled(true);
-                aj.b(this, d.C0080d.cp_link_tip_a, 1, this.api);
+                aj.b(this, d.C0080d.cp_link_tip_a, 1, this.aph);
                 return;
             }
             setEnabled(false);

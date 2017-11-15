@@ -7,8 +7,8 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a extends FrameLayout {
-    private CompressProgressView gDB;
-    private TextView gDC;
+    private CompressProgressView gEJ;
+    private TextView gEK;
 
     public a(Context context) {
         super(context);
@@ -17,14 +17,14 @@ public class a extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.h.local_video_compress_dialog, this);
-        this.gDB = (CompressProgressView) findViewById(d.g.compress_progress_view);
-        this.gDC = (TextView) findViewById(d.g.compress_progress_text);
+        this.gEJ = (CompressProgressView) findViewById(d.g.compress_progress_view);
+        this.gEK = (TextView) findViewById(d.g.compress_progress_text);
     }
 
     public void setPercent(int i) {
         if (i >= 0 && i <= 100) {
-            this.gDB.setProgress(i);
-            this.gDC.setText(i + "%");
+            this.gEJ.setProgress(i);
+            this.gEK.setText(i + "%");
         }
     }
 

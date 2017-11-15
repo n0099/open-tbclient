@@ -6,12 +6,12 @@ import android.widget.ImageView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.widget.richText.a {
-    private static double eJF = 0.5d;
+    private static double eJZ = 0.5d;
 
     public b(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
-        cb(true);
-        IH();
+        cc(true);
+        IS();
         this.mOnDrawListener = new TbImageView.b() { // from class: com.baidu.tieba.pb.pb.main.b.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
@@ -45,18 +45,18 @@ public class b extends com.baidu.tbadk.widget.richText.a {
         if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
             return null;
         }
-        if (!this.aRo || aQZ <= 1.0f) {
+        if (!this.aRw || aRh <= 1.0f) {
             i3 = i;
         } else {
-            if (i * aQZ <= i3 * eJF) {
-                i3 = (int) (i * aQZ);
+            if (i * aRh <= i3 * eJZ) {
+                i3 = (int) (i * aRh);
             }
             i2 = (i3 * i2) / i;
             if (i2 > 4096) {
-                this.aRm = ImageView.ScaleType.MATRIX;
+                this.aRu = ImageView.ScaleType.MATRIX;
                 i2 = 4096;
             } else {
-                this.aRm = ImageView.ScaleType.CENTER_CROP;
+                this.aRu = ImageView.ScaleType.CENTER_CROP;
             }
         }
         return new int[]{i3, i2};

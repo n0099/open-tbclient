@@ -12,11 +12,11 @@ public class b implements com.baidu.tbadk.core.flow.b {
     @Override // com.baidu.tbadk.core.flow.b
     public c tt() {
         c cVar = new c();
-        cVar.cv(d.f.icon_banner_n);
-        cVar.cw(d.f.icon_banner_s);
+        cVar.cu(d.f.icon_banner_n);
+        cVar.cv(d.f.icon_banner_s);
         cVar.setSpacing(d.e.ds22);
         cVar.setGravity(81);
-        cVar.cx(d.e.ds22);
+        cVar.cw(d.e.ds22);
         return cVar;
     }
 

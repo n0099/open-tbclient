@@ -37,35 +37,35 @@ import tbclient.Userlike.DataRes;
 import tbclient.Userlike.UserList;
 /* loaded from: classes.dex */
 public class d {
-    private r aMz;
-    private View.OnTouchListener axV;
-    private com.baidu.tieba.e.a cRm;
-    private LongSparseArray<com.baidu.tieba.homepage.concern.b.b> dcd;
-    private DataRes.Builder ddN;
-    private final com.baidu.tieba.homepage.concern.a ddP;
-    private final com.baidu.tieba.homepage.concern.c.a ddQ;
-    private int ddR;
+    private r aMH;
+    private View.OnTouchListener ayd;
+    private com.baidu.tieba.e.a cRG;
+    private LongSparseArray<com.baidu.tieba.homepage.concern.b.b> dcy;
+    private DataRes.Builder deh;
+    private final com.baidu.tieba.homepage.concern.a dej;
+    private final com.baidu.tieba.homepage.concern.c.a dek;
+    private int del;
     private boolean hasMore;
     private final BdTypeListView mListView;
     private String pageTag;
-    private a ddM = null;
+    private a deg = null;
     private final List<f> mDataList = new LinkedList();
     private boolean mIsLoading = false;
-    private boolean ddO = false;
+    private boolean dei = false;
     private boolean mIsBackground = false;
     private AbsListView.OnScrollListener mOnScrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.homepage.concern.d.1
-        private int ddT = -1;
-        private int ddU = 0;
-        private boolean ddV = false;
+        private int den = -1;
+        private int deo = 0;
+        private boolean dep = false;
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            if (d.this.aMz != null && !d.this.mIsBackground) {
-                d.this.aMz.onScrollStateChanged(absListView, i);
+            if (d.this.aMH != null && !d.this.mIsBackground) {
+                d.this.aMH.onScrollStateChanged(absListView, i);
             }
             if (i == 0) {
-                u.ZX().Nb();
-                this.ddV = false;
+                u.aaj().Nm();
+                this.dep = false;
                 return;
             }
             if (i == 1) {
@@ -74,36 +74,36 @@ public class d {
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-            if (this.ddU > i) {
-                this.ddV = true;
+            if (this.deo > i) {
+                this.dep = true;
             }
-            if (d.this.aMz != null && !d.this.mIsBackground) {
-                d.this.aMz.a(absListView, this.ddU, i, i2, i3);
+            if (d.this.aMH != null && !d.this.mIsBackground) {
+                d.this.aMH.a(absListView, this.deo, i, i2, i3);
             }
-            this.ddU = i;
+            this.deo = i;
             int i4 = (i + i2) - 1;
-            if (!this.ddV && this.ddT != i4) {
-                this.ddT = i4;
+            if (!this.dep && this.den != i4) {
+                this.den = i4;
             }
-            if (this.ddV && this.ddT != i) {
-                this.ddT = i;
+            if (this.dep && this.den != i) {
+                this.den = i;
             }
         }
     };
-    private View.OnTouchListener aMA = new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.d.2
+    private View.OnTouchListener aMI = new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.d.2
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (d.this.axV != null) {
-                d.this.axV.onTouch(view, motionEvent);
+            if (d.this.ayd != null) {
+                d.this.ayd.onTouch(view, motionEvent);
             }
-            if (d.this.cRm != null) {
-                d.this.cRm.onTouchEvent(motionEvent);
+            if (d.this.cRG != null) {
+                d.this.cRG.onTouchEvent(motionEvent);
                 return false;
             }
             return false;
         }
     };
-    private a.InterfaceC0081a bzA = new a.InterfaceC0081a() { // from class: com.baidu.tieba.homepage.concern.d.3
+    private a.InterfaceC0081a bzM = new a.InterfaceC0081a() { // from class: com.baidu.tieba.homepage.concern.d.3
         @Override // com.baidu.tieba.e.a.InterfaceC0081a
         public void ag(int i, int i2) {
         }
@@ -116,14 +116,14 @@ public class d {
         public void ai(int i, int i2) {
         }
     };
-    private CustomMessageListener ddS = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.concern.d.7
+    private CustomMessageListener dem = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.concern.d.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             d.this.d(customResponsedMessage);
         }
     };
-    private CustomMessageListener cOw = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB) { // from class: com.baidu.tieba.homepage.concern.d.8
+    private CustomMessageListener cOQ = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB) { // from class: com.baidu.tieba.homepage.concern.d.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -133,9 +133,9 @@ public class d {
 
     /* loaded from: classes.dex */
     public interface a {
-        void arm();
+        void arC();
 
-        void lL(String str);
+        void lN(String str);
 
         void onError(int i, String str);
 
@@ -146,46 +146,46 @@ public class d {
         this.mIsBackground = z;
     }
 
-    public void eA(boolean z) {
+    public void eF(boolean z) {
         this.mIsBackground = z;
     }
 
     public d(e<?> eVar, BdTypeListView bdTypeListView, com.baidu.tieba.homepage.concern.a aVar) {
         this.mListView = bdTypeListView;
-        this.mListView.setOnTouchListener(this.aMA);
-        this.cRm = new com.baidu.tieba.e.a();
-        this.ddQ = new com.baidu.tieba.homepage.concern.c.a();
-        this.cRm.a(this.bzA);
-        this.ddP = aVar;
+        this.mListView.setOnTouchListener(this.aMI);
+        this.cRG = new com.baidu.tieba.e.a();
+        this.dek = new com.baidu.tieba.homepage.concern.c.a();
+        this.cRG.a(this.bzM);
+        this.dej = aVar;
         bdTypeListView.setOnScrollListener(this.mOnScrollListener);
     }
 
     public void m(BdUniqueId bdUniqueId) {
-        this.ddS.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.ddS);
-        this.cOw.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.cOw);
+        this.dem.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.dem);
+        this.cOQ.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.cOQ);
     }
 
     public void setRecommendFrsNavigationAnimDispatcher(s sVar) {
         if (sVar != null) {
-            this.aMz = sVar.GY();
-            this.axV = sVar.GZ();
+            this.aMH = sVar.Hj();
+            this.ayd = sVar.Hk();
         }
     }
 
     public void update() {
-        if (this.mDataList.size() == 0 && !this.ddO) {
-            arq();
+        if (this.mDataList.size() == 0 && !this.dei) {
+            arG();
         } else {
-            arn();
+            arD();
         }
     }
 
-    public void NF() {
-        if (!wz() && this.hasMore && this.ddM != null) {
+    public void NQ() {
+        if (!wz() && this.hasMore && this.deg != null) {
             setIsLoading(true);
-            this.ddM.lL(this.pageTag);
+            this.deg.lN(this.pageTag);
         }
     }
 
@@ -194,65 +194,65 @@ public class d {
         this.mListView.completePullRefreshPostDelayed(2000L);
         if (i != 0 || dataRes == null || !a(true, z, dataRes)) {
             if (this.mDataList.size() > 0) {
-                if (this.ddM != null) {
-                    this.ddM.onError(1, str);
+                if (this.deg != null) {
+                    this.deg.onError(1, str);
                     return;
                 }
                 return;
-            } else if (this.ddM != null) {
-                this.ddM.onError(2, str);
+            } else if (this.deg != null) {
+                this.deg.onError(2, str);
                 return;
             } else {
                 return;
             }
         }
-        if (this.ddM != null) {
-            this.ddM.y(z, false);
+        if (this.deg != null) {
+            this.deg.y(z, false);
         }
-        arr();
+        arH();
     }
 
-    public void fw(boolean z) {
+    public void fC(boolean z) {
         if (z) {
-            this.ddP.notifyDataSetChanged();
+            this.dej.notifyDataSetChanged();
         }
     }
 
-    private void arn() {
-        if (this.ddM != null) {
-            this.ddM.arm();
+    private void arD() {
+        if (this.deg != null) {
+            this.deg.arC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DataRes dataRes) {
-        this.ddO = true;
+        this.dei = true;
         if (dataRes != null) {
             if (a(false, true, dataRes)) {
-                if (this.ddM != null) {
-                    this.ddM.y(false, true);
+                if (this.deg != null) {
+                    this.deg.y(false, true);
                     return;
                 }
                 return;
             }
-            arn();
+            arD();
             return;
         }
-        arn();
+        arD();
     }
 
     private List<f> a(boolean z, DataRes.Builder builder, boolean z2) {
-        if (this.ddN == null) {
-            this.ddN = new DataRes.Builder();
+        if (this.deh == null) {
+            this.deh = new DataRes.Builder();
         }
         if (builder == null) {
             builder = new DataRes.Builder();
         }
-        com.baidu.tieba.homepage.personalize.model.c a2 = this.ddQ.a(z, this.ddN, builder, z2 ? 0 : 1);
+        com.baidu.tieba.homepage.personalize.model.c a2 = this.dek.a(z, this.deh, builder, z2 ? 0 : 1);
         if (a2 == null) {
             return null;
         }
-        return a2.aUt;
+        return a2.aUB;
     }
 
     private List<f> a(DataRes.Builder builder) {
@@ -268,7 +268,7 @@ public class d {
                     if (i == 30) {
                         break;
                     }
-                    com.baidu.tieba.homepage.concern.b.b bVar = this.dcd.get(userList.id.longValue());
+                    com.baidu.tieba.homepage.concern.b.b bVar = this.dcy.get(userList.id.longValue());
                     if (bVar != null) {
                         arrayList.add(bVar);
                         i++;
@@ -276,17 +276,17 @@ public class d {
                 }
             }
         }
-        this.dcd.clear();
+        this.dcy.clear();
         return arrayList;
     }
 
     private void bq(List<UserList> list) {
-        if (this.dcd == null) {
-            this.dcd = new LongSparseArray<>();
+        if (this.dcy == null) {
+            this.dcy = new LongSparseArray<>();
         }
         for (UserList userList : list) {
             com.baidu.tieba.homepage.concern.b.b a2 = a(userList);
-            switch (this.ddR) {
+            switch (this.del) {
                 case 2:
                     a2.le(2);
                     break;
@@ -298,22 +298,22 @@ public class d {
                     break;
             }
             if (a2 != null) {
-                this.dcd.put(userList.id.longValue(), a2);
+                this.dcy.put(userList.id.longValue(), a2);
             }
         }
     }
 
     private com.baidu.tieba.homepage.concern.b.b a(UserList userList) {
         com.baidu.tieba.homepage.concern.b.b bVar = new com.baidu.tieba.homepage.concern.b.b();
-        bVar.dez = new com.baidu.tieba.homepage.concern.b.c();
-        bVar.dez.b(userList);
-        bVar.bfD = new bh();
-        bVar.bfD.a(userList.thread_info);
-        bVar.art();
-        if (bVar.bfD.isLinkThread()) {
+        bVar.deT = new com.baidu.tieba.homepage.concern.b.c();
+        bVar.deT.b(userList);
+        bVar.bfM = new bh();
+        bVar.bfM.a(userList.thread_info);
+        bVar.arJ();
+        if (bVar.bfM.isLinkThread()) {
             bVar.isLinkThread = true;
         }
-        if (StringUtils.isNull(bVar.dez.getName()) || bVar.dez.getId() == 0 || StringUtils.isNull(bVar.bfD.getTid()) || StringUtils.isNull(bVar.bfD.getId())) {
+        if (StringUtils.isNull(bVar.deT.getName()) || bVar.deT.getId() == 0 || StringUtils.isNull(bVar.bfM.getTid()) || StringUtils.isNull(bVar.bfM.getId())) {
             return null;
         }
         return bVar;
@@ -323,8 +323,8 @@ public class d {
         return this.mDataList;
     }
 
-    public void aro() {
-        this.ddP.br(this.mDataList);
+    public void arE() {
+        this.dej.br(this.mDataList);
     }
 
     private boolean a(boolean z, boolean z2, DataRes dataRes) {
@@ -343,7 +343,7 @@ public class d {
         if (dataRes.req_unix != null) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_data_res_request_time"), dataRes.req_unix.longValue());
         }
-        if (dataRes.top_user_info != null && arp()) {
+        if (dataRes.top_user_info != null && arF()) {
             if (!am.isEmpty(builder.top_tips)) {
                 com.baidu.tieba.homepage.concern.b.a aVar = new com.baidu.tieba.homepage.concern.b.a();
                 aVar.ajo = builder.top_tips;
@@ -359,10 +359,10 @@ public class d {
         }
         if (!am.isEmpty(builder.user_tips)) {
             com.baidu.tieba.homepage.concern.b.a aVar2 = new com.baidu.tieba.homepage.concern.b.a();
-            this.ddR = builder.user_tips_type.intValue();
-            aVar2.deu = builder.user_tips_type.intValue();
+            this.del = builder.user_tips_type.intValue();
+            aVar2.deO = builder.user_tips_type.intValue();
             aVar2.ajo = builder.user_tips;
-            aVar2.dew = true;
+            aVar2.deQ = true;
             this.mDataList.add(aVar2);
         }
         List<f> a4 = a(builder);
@@ -372,7 +372,7 @@ public class d {
         if (!am.isEmpty(builder.last_tips)) {
             com.baidu.tieba.homepage.concern.b.a aVar3 = new com.baidu.tieba.homepage.concern.b.a();
             aVar3.ajo = builder.last_tips;
-            aVar3.dev = true;
+            aVar3.deP = true;
             this.mDataList.add(aVar3);
         }
         this.hasMore = builder.has_more.intValue() == 1;
@@ -380,26 +380,26 @@ public class d {
             return false;
         }
         if (z2) {
-            this.ddN.page_tag = dataRes.page_tag;
-            this.ddN.has_more = dataRes.has_more;
-            this.ddN.user_list = dataRes.user_list;
-            this.ddN.user_tips_type = dataRes.user_tips_type;
-            this.ddN.user_tips = dataRes.user_tips;
-            this.ddN.last_tips = dataRes.last_tips;
+            this.deh.page_tag = dataRes.page_tag;
+            this.deh.has_more = dataRes.has_more;
+            this.deh.user_list = dataRes.user_list;
+            this.deh.user_tips_type = dataRes.user_tips_type;
+            this.deh.user_tips = dataRes.user_tips;
+            this.deh.last_tips = dataRes.last_tips;
         }
-        this.ddN.banner_user_story = dataRes.banner_user_story;
-        this.ddN.top_tips = dataRes.top_tips;
-        this.ddN.top_user_info = dataRes.top_user_info;
-        if (this.ddR == 2 || this.ddR == 3) {
-            this.ddN.user_tips_type = dataRes.user_tips_type;
-            this.ddN.user_tips = dataRes.user_tips;
+        this.deh.banner_user_story = dataRes.banner_user_story;
+        this.deh.top_tips = dataRes.top_tips;
+        this.deh.top_user_info = dataRes.top_user_info;
+        if (this.del == 2 || this.del == 3) {
+            this.deh.user_tips_type = dataRes.user_tips_type;
+            this.deh.user_tips = dataRes.user_tips;
         }
-        this.ddP.br(this.mDataList);
-        this.ddP.arf();
+        this.dej.br(this.mDataList);
+        this.dej.arv();
         return true;
     }
 
-    private boolean arp() {
+    private boolean arF() {
         if (TbadkCoreApplication.isLogin()) {
             if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_top_user_user_like_time"), 0L) > 86400000) {
                 return true;
@@ -408,11 +408,11 @@ public class d {
         return false;
     }
 
-    private void arq() {
+    private void arG() {
         com.baidu.tbadk.util.v.a(new com.baidu.tbadk.util.u<DataRes>() { // from class: com.baidu.tieba.homepage.concern.d.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
-            /* renamed from: ars */
+            /* renamed from: arI */
             public DataRes doInBackground() {
                 l<byte[]> M = com.baidu.tbadk.core.c.a.td().M("tb.concern_page", TbadkCoreApplication.getCurrentAccount());
                 if (M == null) {
@@ -439,9 +439,9 @@ public class d {
         });
     }
 
-    private void arr() {
-        if (this.ddN != null) {
-            DataRes.Builder builder = new DataRes.Builder(this.ddN.build(true));
+    private void arH() {
+        if (this.deh != null) {
+            DataRes.Builder builder = new DataRes.Builder(this.deh.build(true));
             if (builder.thread_info != null && builder.thread_info.size() > 30) {
                 builder.thread_info = builder.thread_info.subList(0, 30);
             }
@@ -466,7 +466,7 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.ddM = aVar;
+        this.deg = aVar;
     }
 
     private boolean wz() {
@@ -484,7 +484,7 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(CustomResponsedMessage<?> customResponsedMessage) {
         ThreadInfo threadInfo;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.ddN != null && v.u(this.ddN.thread_info) != 0 && v.u(this.mDataList) != 0) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.deh != null && v.u(this.deh.thread_info) != 0 && v.u(this.mDataList) != 0) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
             if (!StringUtils.isNull(optString)) {
                 int i = 0;
@@ -495,21 +495,21 @@ public class d {
                     f fVar = this.mDataList.get(i);
                     if (fVar instanceof com.baidu.tieba.card.data.c) {
                         com.baidu.tieba.card.data.c cVar = (com.baidu.tieba.card.data.c) fVar;
-                        if (cVar.Np() != null && cVar.Np().getTid() != null && cVar.Np().getTid().equals(optString)) {
+                        if (cVar.NA() != null && cVar.NA().getTid() != null && cVar.NA().getTid().equals(optString)) {
                             this.mDataList.remove(i);
-                            if (this.ddP != null) {
-                                this.ddP.br(this.mDataList);
+                            if (this.dej != null) {
+                                this.dej.br(this.mDataList);
                             }
                         }
                     }
                     i++;
                 }
                 long c = com.baidu.adp.lib.g.b.c(optString, 0L);
-                for (int i2 = 0; i2 < this.ddN.thread_info.size(); i2++) {
-                    ConcernData concernData = this.ddN.thread_info.get(i2);
+                for (int i2 = 0; i2 < this.deh.thread_info.size(); i2++) {
+                    ConcernData concernData = this.deh.thread_info.get(i2);
                     if (concernData != null && (threadInfo = concernData.thread_list) != null && threadInfo.tid != null && threadInfo.tid.longValue() == c) {
-                        this.ddN.thread_info.remove(i2);
-                        arr();
+                        this.deh.thread_info.remove(i2);
+                        arH();
                         return;
                     }
                 }

@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class MessageCenterActivity extends BaseFragmentActivity {
-    private NavigationBar daD;
+    private NavigationBar daX;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.daD.onChangeSkinType(getPageContext(), i);
+        this.daX.onChangeSkinType(getPageContext(), i);
         Fragment findFragmentById = getSupportFragmentManager().findFragmentById(d.g.fragment_container);
         if (findFragmentById != null && (findFragmentById instanceof BaseFragment)) {
             ((BaseFragment) findFragmentById).onChangeSkinType(i);
@@ -29,15 +29,15 @@ public class MessageCenterActivity extends BaseFragmentActivity {
 
     private void initView() {
         setContentView(d.h.message_center_activity);
-        akI();
+        akW();
         getSupportFragmentManager().beginTransaction().add(d.g.fragment_container, new g()).commit();
     }
 
-    private void akI() {
-        this.daD = (NavigationBar) findViewById(d.g.navigation_bar);
-        this.daD.setCenterTextTitle(getResources().getString(d.j.my_message));
-        this.daD.showBottomLine();
-        this.daD.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivity.1
+    private void akW() {
+        this.daX = (NavigationBar) findViewById(d.g.navigation_bar);
+        this.daX.setCenterTextTitle(getResources().getString(d.j.my_message));
+        this.daX.showBottomLine();
+        this.daX.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageCenterActivity.this.finish();

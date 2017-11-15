@@ -668,7 +668,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.Eg().ff(i);
+            c.Es().fe(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

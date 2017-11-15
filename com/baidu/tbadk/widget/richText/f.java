@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f {
-    private String aSg;
-    private int aSh;
-    private String aSi;
-    private int aSj;
-    private int aSk;
+    private String aSo;
+    private int aSp;
+    private String aSq;
+    private int aSr;
+    private int aSs;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class f {
     public void b(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.aSg = pbContent.src;
+            this.aSo = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aSh = pbContent.e_type.intValue();
-            this.aSi = pbContent.text;
+            this.aSp = pbContent.e_type.intValue();
+            this.aSq = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aSj = pbContent.count.intValue();
-            this.aSk = pbContent.origin_size.intValue();
+            this.aSr = pbContent.count.intValue();
+            this.aSs = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class f {
     }
 
     public String getThumbUrl() {
-        return this.aSg;
+        return this.aSo;
     }
 
     public int getWidth() {
@@ -44,23 +44,23 @@ public class f {
         return this.height;
     }
 
-    public String Ju() {
-        return this.aSi;
+    public String JF() {
+        return this.aSq;
     }
 
-    public boolean Jv() {
-        return this.aSh == 15;
+    public boolean JG() {
+        return this.aSp == 15;
     }
 
     public boolean isAvaliable() {
         return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
     }
 
-    public int Jw() {
-        return this.aSj;
+    public int JH() {
+        return this.aSr;
     }
 
-    public void ga(int i) {
-        this.aSj = i;
+    public void fZ(int i) {
+        this.aSr = i;
     }
 }

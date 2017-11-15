@@ -10,9 +10,9 @@ import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class h extends MediaPlayer {
-    private Handler aWB;
-    private Handler.Callback aWC;
-    private b aWz;
+    private b aWI;
+    private Handler aWK;
+    private Handler.Callback aWL;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -26,12 +26,12 @@ public class h extends MediaPlayer {
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(this);
                 if (obj instanceof Handler) {
-                    this.aWB = (Handler) obj;
+                    this.aWK = (Handler) obj;
                     Field declaredField2 = Handler.class.getDeclaredField("mCallback");
                     declaredField2.setAccessible(true);
                     Object obj2 = declaredField2.get(obj);
                     if (obj2 instanceof Handler.Callback) {
-                        this.aWC = (Handler.Callback) obj2;
+                        this.aWL = (Handler.Callback) obj2;
                     }
                     declaredField2.set(obj, new a());
                 }
@@ -50,8 +50,8 @@ public class h extends MediaPlayer {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             try {
-                if ((h.this.aWC == null || !h.this.aWC.handleMessage(message)) && h.this.aWB != null) {
-                    h.this.aWB.handleMessage(message);
+                if ((h.this.aWL == null || !h.this.aWL.handleMessage(message)) && h.this.aWK != null) {
+                    h.this.aWK.handleMessage(message);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -70,12 +70,12 @@ public class h extends MediaPlayer {
                 for (int i = 0; i < stackTrace.length; i++) {
                     StackTraceElement stackTraceElement = stackTrace[i];
                     if (stackTraceElement != null && i < 7) {
-                        sb.append("\n").append(stackTraceElement.getClassName()).append(".").append(stackTraceElement.getMethodName()).append("()\n");
+                        sb.append(" ----> ").append(stackTraceElement.getClassName()).append(".").append(stackTraceElement.getMethodName()).append("()");
                     }
                 }
             }
-            if (this.aWz != null) {
-                this.aWz.handleOppoError(sb.toString());
+            if (this.aWI != null) {
+                this.aWI.handleOppoError(sb.toString());
             }
         }
     }
@@ -88,6 +88,6 @@ public class h extends MediaPlayer {
     }
 
     public void a(b bVar) {
-        this.aWz = bVar;
+        this.aWI = bVar;
     }
 }

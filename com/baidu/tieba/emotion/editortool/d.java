@@ -3,12 +3,12 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class d {
-    private EmotionGroupType cjm;
-    private int cjn;
-    private int cjo;
-    private com.baidu.tbadk.editortools.emotiontool.c cjp;
-    private int cjq;
-    private int cjr;
+    private int cjA;
+    private int cjB;
+    private com.baidu.tbadk.editortools.emotiontool.c cjC;
+    private int cjD;
+    private int cjE;
+    private EmotionGroupType cjz;
     private int column;
     private int endIndex;
     private int index;
@@ -16,22 +16,22 @@ public class d {
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.cjp = cVar;
+        this.cjC = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c aes() {
-        return this.cjp;
+    public com.baidu.tbadk.editortools.emotiontool.c aeE() {
+        return this.cjC;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.cjm = emotionGroupType;
+        this.cjz = emotionGroupType;
     }
 
-    public EmotionGroupType aet() {
-        return this.cjm;
+    public EmotionGroupType aeF() {
+        return this.cjz;
     }
 
-    public void fc(int i) {
+    public void fb(int i) {
         this.row = i;
     }
 
@@ -39,43 +39,43 @@ public class d {
         return this.row;
     }
 
-    public void fb(int i) {
+    public void fa(int i) {
         this.column = i;
     }
 
-    public int aeu() {
+    public int aeG() {
         return this.column;
     }
 
-    public void iJ(int i) {
-        this.cjr = i;
+    public void iH(int i) {
+        this.cjE = i;
     }
 
-    public int aev() {
-        return this.cjr;
+    public int aeH() {
+        return this.cjE;
+    }
+
+    public void iI(int i) {
+        this.cjD = i;
+    }
+
+    public int aeI() {
+        return this.cjD;
+    }
+
+    public void iJ(int i) {
+        this.cjA = i;
+    }
+
+    public int aeJ() {
+        return this.cjA;
     }
 
     public void iK(int i) {
-        this.cjq = i;
-    }
-
-    public int aew() {
-        return this.cjq;
-    }
-
-    public void iL(int i) {
-        this.cjn = i;
-    }
-
-    public int aex() {
-        return this.cjn;
-    }
-
-    public void iM(int i) {
         this.startIndex = i;
     }
 
-    public int aey() {
+    public int aeK() {
         return this.startIndex;
     }
 
@@ -91,11 +91,11 @@ public class d {
         return this.index;
     }
 
-    public void iN(int i) {
-        this.cjo = i;
+    public void iL(int i) {
+        this.cjB = i;
     }
 
-    public int aez() {
-        return this.cjo;
+    public int aeL() {
+        return this.cjB;
     }
 }

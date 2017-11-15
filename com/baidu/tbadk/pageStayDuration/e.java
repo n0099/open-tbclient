@@ -10,47 +10,47 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class e {
-    private static e aIz = null;
-    private boolean aIA = false;
-    private int aIB;
+    private static e aIH = null;
+    private boolean aII = false;
+    private int aIJ;
 
     private e() {
     }
 
-    public static e FD() {
-        if (aIz == null) {
+    public static e FO() {
+        if (aIH == null) {
             synchronized (e.class) {
-                if (aIz == null) {
-                    aIz = new e();
+                if (aIH == null) {
+                    aIH = new e();
                 }
             }
         }
-        return aIz;
+        return aIH;
     }
 
     public void a(Context context, d dVar, b bVar) {
         if (dVar != null && !StringUtils.isNull(dVar.getCurrentPageKey())) {
-            if (dVar.aIu) {
+            if (dVar.aIC) {
                 if (bVar == null) {
                     bVar = new b() { // from class: com.baidu.tbadk.pageStayDuration.e.1
                         @Override // com.baidu.tbadk.pageStayDuration.b
-                        public boolean Fx() {
+                        public boolean FJ() {
                             return true;
                         }
 
                         @Override // com.baidu.tbadk.pageStayDuration.b
-                        public int Fy() {
+                        public int FK() {
                             return 6;
                         }
                     };
                 }
                 if (bVar.a(dVar)) {
                     ak akVar = new ak("userconvert");
-                    akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, c.F(dVar.FA()));
+                    akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, c.F(dVar.FL()));
                     akVar.ac("obj_locate", dVar.getCurrentPageKey());
                     akVar.ac("obj_type", "0");
-                    if (!StringUtils.isNull(dVar.aIy)) {
-                        akVar.ac("obj_id", dVar.aIy);
+                    if (!StringUtils.isNull(dVar.aIG)) {
+                        akVar.ac("obj_id", dVar.aIG);
                     }
                     TiebaStatic.log(akVar);
                     return;
@@ -60,21 +60,21 @@ public class e {
             if (bVar == null) {
                 bVar = new b() { // from class: com.baidu.tbadk.pageStayDuration.e.2
                     @Override // com.baidu.tbadk.pageStayDuration.b
-                    public boolean Fx() {
+                    public boolean FJ() {
                         return true;
                     }
 
                     @Override // com.baidu.tbadk.pageStayDuration.b
-                    public int Fy() {
-                        return e.this.aIB;
+                    public int FK() {
+                        return e.this.aIJ;
                     }
                 };
             }
-            if (bVar.Fz() && bVar.a(dVar)) {
+            if (bVar.isSwitchOpen() && bVar.a(dVar)) {
                 ak akVar2 = new ak("stime");
-                akVar2.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, c.F(dVar.FA()));
+                akVar2.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, c.F(dVar.FL()));
                 akVar2.ac("obj_type", dVar.getCurrentPageKey());
-                akVar2.ac("obj_duration", String.valueOf(dVar.FB()));
+                akVar2.ac("obj_duration", String.valueOf(dVar.FM()));
                 if (dVar.getFid() > 0) {
                     akVar2.ac(ImageViewerConfig.FORUM_ID, String.valueOf(dVar.getFid()));
                 }
@@ -92,20 +92,20 @@ public class e {
         }
     }
 
-    public boolean FE() {
-        return this.aIA;
+    public boolean FP() {
+        return this.aII;
     }
 
-    public void bS(boolean z) {
-        this.aIA = z;
+    public void bT(boolean z) {
+        this.aII = z;
     }
 
-    public int FF() {
-        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("page_stay_max_cost", 0) : this.aIB;
+    public int FQ() {
+        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("page_stay_max_cost", 0) : this.aIJ;
     }
 
-    public void fp(int i) {
-        this.aIB = i;
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("page_stay_max_cost", this.aIB);
+    public void fo(int i) {
+        this.aIJ = i;
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("page_stay_max_cost", this.aIJ);
     }
 }

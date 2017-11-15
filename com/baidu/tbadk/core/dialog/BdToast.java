@@ -74,7 +74,7 @@ public class BdToast {
         return this;
     }
 
-    public void cr(int i) {
+    public void setOffsetY(int i) {
         this.us = i;
     }
 
@@ -95,7 +95,7 @@ public class BdToast {
         this.abE.setText(this.abP);
         this.yC.setGravity(this.mGravity, this.ur, this.us);
         this.yC.setDuration(this.mDuration);
-        cs(this.abR);
+        cr(this.abR);
         this.yC.setView(this.mRootView);
         return this;
     }
@@ -118,7 +118,7 @@ public class BdToast {
         abN = new SoftReference<>(this.yC);
     }
 
-    private void cs(int i) {
+    private void cr(int i) {
         if (i > 0) {
             this.mRootView.setPadding(i, this.mRootView.getTop(), i, this.mRootView.getBottom());
         }

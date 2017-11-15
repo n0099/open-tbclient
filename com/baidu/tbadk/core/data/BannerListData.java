@@ -66,9 +66,9 @@ public class BannerListData implements Serializable {
     }
 
     public void parserProtobuf(BannerList bannerList) {
-        List<AppData> biY = com.baidu.tieba.recapp.r.bja().biY();
-        if (biY != null) {
-            biY.clear();
+        List<AppData> bjj = com.baidu.tieba.recapp.r.bjl().bjj();
+        if (bjj != null) {
+            bjj.clear();
         }
         if (bannerList != null) {
             List<App> list = bannerList.app;
@@ -78,13 +78,13 @@ public class BannerListData implements Serializable {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
                         advertAppInfo.a(list.get(i));
                         this.advertAppList.add(advertAppInfo);
-                        if (biY != null) {
-                            biY.add(advertAppInfo.Uy);
+                        if (bjj != null) {
+                            bjj.add(advertAppInfo.Uy);
                         }
                     }
                 }
             }
-            com.baidu.tieba.recapp.r.bja().biZ();
+            com.baidu.tieba.recapp.r.bjl().bjk();
             Collections.sort(this.advertAppList, new Comparator<AdvertAppInfo>() { // from class: com.baidu.tbadk.core.data.BannerListData.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator

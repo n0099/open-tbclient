@@ -15,8 +15,8 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    private final c deF = new c();
-    private final int bhh = b.getInstance().getInt("home_page_max_thread_count", 300);
+    private final c deZ = new c();
+    private final int bhq = b.getInstance().getInt("home_page_max_thread_count", 300);
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -48,7 +48,7 @@ public class a {
                     k kVar = new k(bhVar);
                     if (kVar != null) {
                         kVar.Xl = bhVar.getTid();
-                        kVar.jO(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+                        kVar.jP(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                     }
                     if (kVar != null && kVar.isValid()) {
                         linkedList.add(kVar);
@@ -56,18 +56,18 @@ public class a {
                 } else {
                     l lVar = new l();
                     if (lVar != null) {
-                        lVar.blk = bhVar;
-                        lVar.jO(lVar.blk.isLinkThread() ? "4" : "1");
+                        lVar.blt = bhVar;
+                        lVar.jP(lVar.blt.isLinkThread() ? "4" : "1");
                         lVar.isLinkThread = false;
                     }
-                    if (lVar.blk != null && lVar.isValid() && !StringUtils.isNull(lVar.blk.getId()) && !"0".equals(lVar.blk.getTid())) {
+                    if (lVar.blt != null && lVar.isValid() && !StringUtils.isNull(lVar.blt.getId()) && !"0".equals(lVar.blt.getTid())) {
                         linkedList.add(lVar);
                     }
                 }
             }
         }
-        this.deF.aUt = linkedList;
-        return this.deF;
+        this.deZ.aUB = linkedList;
+        return this.deZ;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -94,7 +94,7 @@ public class a {
                     }
                 }
             }
-            this.deF.dig = v.u(list) - u;
+            this.deZ.diA = v.u(list) - u;
         }
     }
 

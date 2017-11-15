@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a eDf = null;
-    private final a.InterfaceC0044a eDg = new a.InterfaceC0044a() { // from class: com.baidu.tieba.passaccount.a.a.1
+    private static a eDz = null;
+    private final a.InterfaceC0044a eDA = new a.InterfaceC0044a() { // from class: com.baidu.tieba.passaccount.a.a.1
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
         public void cu(String str) {
         }
@@ -53,11 +53,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a aOT() {
-        if (eDf == null) {
-            eDf = new a();
+    public static a aPb() {
+        if (eDz == null) {
+            eDz = new a();
         }
-        return eDf;
+        return eDz;
     }
 
     @Override // com.baidu.tbadk.core.a.a
@@ -95,7 +95,7 @@ public class a extends com.baidu.tbadk.core.a.a {
         AccountData currentAccountObj;
         a.b ct;
         if (j.hh() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (ct = ct(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ct.wt, ct.Tn, currentAccountObj.getStoken(), this.eDg);
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ct.wt, ct.Tn, currentAccountObj.getStoken(), this.eDA);
         }
     }
 

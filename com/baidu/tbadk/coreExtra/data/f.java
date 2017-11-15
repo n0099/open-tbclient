@@ -1,49 +1,37 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class f {
-    private ArrayList<String> Xf;
-    private UserData mUser;
+    private final TbPageContext<?> abI;
+    private final int aqN;
+    private final int aqO;
+    private final boolean aqP;
 
-    public f() {
-        this.mUser = null;
-        this.Xf = null;
-        this.mUser = new UserData();
-        this.Xf = new ArrayList<>(3);
+    public f(TbPageContext<?> tbPageContext, int i, int i2, boolean z) {
+        this.abI = tbPageContext;
+        this.aqN = i;
+        this.aqO = i2;
+        this.aqP = z;
     }
 
-    public UserData getUser() {
-        return this.mUser;
+    public f(TbPageContext<?> tbPageContext, int i, int i2) {
+        this(tbPageContext, i, i2, false);
     }
 
-    public ArrayList<String> xK() {
-        return this.Xf;
+    public TbPageContext<?> xP() {
+        return this.abI;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public int xQ() {
+        return this.aqN;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.mUser.parserJson(jSONObject.optJSONObject("user"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.Xf.add(optJSONArray.optString(i, null));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public int xR() {
+        return this.aqO;
+    }
+
+    public boolean isAvailable() {
+        return this.abI != null && this.aqN > 0 && this.aqO > 0;
     }
 }

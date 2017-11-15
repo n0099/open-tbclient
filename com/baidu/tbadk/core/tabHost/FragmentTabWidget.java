@@ -96,7 +96,7 @@ public class FragmentTabWidget extends LinearLayout {
                 while (i2 < getChildCount()) {
                     e eVar = (e) getChildAt(i2);
                     eVar.setCheckDescriptionText(i == i2);
-                    eVar.bK(i == i2);
+                    eVar.bL(i == i2);
                     i2++;
                 }
             }
@@ -210,7 +210,7 @@ public class FragmentTabWidget extends LinearLayout {
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
             if (childAt instanceof FragmentTabIndicator) {
-                ((FragmentTabIndicator) childAt).dE(i);
+                ((FragmentTabIndicator) childAt).dD(i);
             }
         }
         invalidate();

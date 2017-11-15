@@ -92,7 +92,7 @@ public class al {
     }
 
     public void vo() {
-        w(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + k.cD(3)));
+        w(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + k.cC(3)));
     }
 
     private void w(File file) {

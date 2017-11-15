@@ -9,27 +9,27 @@ import java.util.List;
 public interface t {
     void a(com.baidu.tieba.frs.b bVar);
 
-    int aka();
+    int ako();
 
-    HashMap<Integer, bh> all();
+    void alA();
 
-    void alm();
+    int alB();
 
-    int aln();
+    int alC();
 
-    int alo();
+    int alD();
 
-    int alp();
+    int alE();
 
-    int alq();
+    void alF();
 
-    void alr();
+    HashMap<Integer, bh> alz();
 
     void b(ArrayList<com.baidu.adp.widget.ListView.f> arrayList, com.baidu.tieba.tbadkCore.j jVar);
 
-    void cD(boolean z);
+    void cE(boolean z);
 
-    void eM(boolean z);
+    void eR(boolean z);
 
     List<com.baidu.adp.widget.ListView.f> getDatas();
 

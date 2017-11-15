@@ -1,34 +1,67 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class m {
-    private int ard;
-    private int are;
-    private int arf;
+    private EmotionGroupType ari;
+    private int height;
+    private String name;
+    private String pid;
+    private String pname;
+    private String url;
+    private int width;
 
-    public int xT() {
-        if (this.ard == 0) {
-            return Integer.MAX_VALUE;
-        }
-        return this.ard;
+    public String getName() {
+        return this.name;
     }
 
-    public void eE(String str) {
-        this.ard = com.baidu.adp.lib.g.b.g(str, 0);
+    public void setName(String str) {
+        this.name = str;
     }
 
-    public int xU() {
-        return this.are;
+    public EmotionGroupType xZ() {
+        return this.ari;
     }
 
-    public void eF(String str) {
-        this.are = com.baidu.adp.lib.g.b.g(str, 0);
+    public void a(EmotionGroupType emotionGroupType) {
+        this.ari = emotionGroupType;
     }
 
-    public int xV() {
-        return this.arf;
+    public String ya() {
+        return this.pname;
     }
 
-    public void eG(String str) {
-        this.arf = com.baidu.adp.lib.g.b.g(str, 0);
+    public void eC(String str) {
+        this.pname = str;
+    }
+
+    public String getPid() {
+        return this.pid;
+    }
+
+    public void eD(String str) {
+        this.pid = str;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public void setWidth(int i) {
+        this.width = i;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
     }
 }

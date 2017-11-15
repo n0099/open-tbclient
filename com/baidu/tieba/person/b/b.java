@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends j.a {
-    private f aFh;
-    public ImageView fhI;
-    public TextView fhJ;
+    private f aFp;
+    public ImageView fif;
+    public TextView fig;
     private View.OnClickListener mClickListener;
     private int mSkinType;
     public View rootView;
@@ -21,17 +21,17 @@ public class b extends j.a {
         super(view);
         this.mSkinType = 3;
         this.rootView = view.findViewById(d.g.add_pic_root);
-        this.fhI = (ImageView) view.findViewById(d.g.add_image_view);
-        this.fhJ = (TextView) view.findViewById(d.g.tip_left_count_view);
+        this.fif = (ImageView) view.findViewById(d.g.add_image_view);
+        this.fig = (TextView) view.findViewById(d.g.tip_left_count_view);
     }
 
     public void c(f fVar) {
         if (fVar instanceof com.baidu.tieba.person.data.c) {
-            this.aFh = fVar;
+            this.aFp = fVar;
             com.baidu.tieba.person.data.c cVar = (com.baidu.tieba.person.data.c) fVar;
-            aj.c(this.fhI, d.f.icon_mine_pic_add);
-            if (cVar.aYh() > 0) {
-                this.fhJ.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.have_left_some_picture_upload), Integer.valueOf(cVar.aYh())));
+            aj.c(this.fif, d.f.icon_mine_pic_add);
+            if (cVar.aYp() > 0) {
+                this.fig.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.have_left_some_picture_upload), Integer.valueOf(cVar.aYp())));
             }
             getView().setOnClickListener(this.mClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -40,14 +40,14 @@ public class b extends j.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            aj.c(this.fhJ, d.C0080d.cp_cont_e, 1);
+            aj.c(this.fig, d.C0080d.cp_cont_e, 1);
             aj.k(getView(), d.C0080d.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
 
     public f wT() {
-        return this.aFh;
+        return this.aFp;
     }
 
     public void q(View.OnClickListener onClickListener) {

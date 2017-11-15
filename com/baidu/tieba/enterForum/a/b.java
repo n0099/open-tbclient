@@ -10,11 +10,11 @@ import com.baidu.tieba.enterForum.data.f;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends d<f, com.baidu.tbadk.mvc.d.b, e> implements c {
-    private int cjH;
+    private int cjU;
 
     public b(TbPageContext<?> tbPageContext, Class<e> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.cjH = -1;
+        this.cjU = -1;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
@@ -25,12 +25,12 @@ public class b extends d<f, com.baidu.tbadk.mvc.d.b, e> implements c {
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void iO(int i) {
-        this.cjH = i;
+    public void iM(int i) {
+        this.cjU = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void abb() {
+    public void abn() {
         notifyDataSetChanged();
     }
 
@@ -49,7 +49,7 @@ public class b extends d<f, com.baidu.tbadk.mvc.d.b, e> implements c {
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2 = super.getView(i, view, viewGroup);
         if (view2 != null) {
-            if (i == this.cjH) {
+            if (i == this.cjU) {
                 view2.setVisibility(4);
             } else {
                 view2.setVisibility(0);

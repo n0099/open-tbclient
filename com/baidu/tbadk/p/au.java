@@ -7,7 +7,7 @@ public class au extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "movideo_split";
+        return "video_list_weaklock_android";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -27,6 +27,6 @@ public class au extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int eP() {
-        return 0;
+        return 10;
     }
 }

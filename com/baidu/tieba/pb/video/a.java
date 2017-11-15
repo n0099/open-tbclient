@@ -10,7 +10,7 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.m;
 /* loaded from: classes.dex */
 public class a extends m<b, c> {
-    public View.OnClickListener aTx;
+    public View.OnClickListener aTF;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -31,15 +31,15 @@ public class a extends m<b, c> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.eMh.getLayoutMode().ag(this.mSkinType == 1);
-        this.eMh.getLayoutMode().t(view);
-        if (this.aTx != null) {
-            view.setOnClickListener(this.aTx);
+        this.eMB.getLayoutMode().ag(this.mSkinType == 1);
+        this.eMB.getLayoutMode().t(view);
+        if (this.aTF != null) {
+            view.setOnClickListener(this.aTF);
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aTx = onClickListener;
+        this.aTF = onClickListener;
     }
 }

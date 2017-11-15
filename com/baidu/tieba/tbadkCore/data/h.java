@@ -11,13 +11,13 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class h {
     private VideoInfo UK;
-    public String goR;
-    public boolean goS;
-    private int goT;
-    private ArrayList<g> goU;
-    private ArrayList<j> goV;
-    private i goW;
-    private int goX;
+    public String gpU;
+    public boolean gpV;
+    private int gpW;
+    private ArrayList<g> gpX;
+    private ArrayList<j> gpY;
+    private i gpZ;
+    private int gqa;
     public String position;
     private String tagName;
     public long templateId;
@@ -27,27 +27,27 @@ public class h {
             try {
                 this.position = tPointPost.position;
                 this.templateId = tPointPost.template_id.longValue();
-                this.goS = tPointPost.is_tuiguang.intValue() != 0;
-                this.goT = tPointPost.template_type.intValue();
+                this.gpV = tPointPost.is_tuiguang.intValue() != 0;
+                this.gpW = tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.goU = new ArrayList<>();
+                    this.gpX = new ArrayList<>();
                     for (int i = 0; i != list.size(); i++) {
-                        this.goU.add(new g(list.get(i)));
+                        this.gpX.add(new g(list.get(i)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.goV = new ArrayList<>();
+                    this.gpY = new ArrayList<>();
                     for (int i2 = 0; i2 != list2.size(); i2++) {
-                        this.goV.add(new j(list2.get(i2)));
+                        this.gpY.add(new j(list2.get(i2)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
-                    this.goW = new i(tPointPost.detail_info);
+                    this.gpZ = new i(tPointPost.detail_info);
                 }
-                this.goR = tPointPost.monitor_id;
-                this.goX = tPointPost.hidden_day.intValue();
+                this.gpU = tPointPost.monitor_id;
+                this.gqa = tPointPost.hidden_day.intValue();
                 this.UK = tPointPost.t_video;
                 this.tagName = tPointPost.tag_name;
             } catch (Exception e) {
@@ -56,28 +56,28 @@ public class h {
         }
     }
 
-    public j btY() {
-        return (j) v.c(this.goV, 0);
+    public j buk() {
+        return (j) v.c(this.gpY, 0);
     }
 
     public long getTemplateId() {
         return this.templateId;
     }
 
-    public ArrayList<g> btZ() {
-        return this.goU;
+    public ArrayList<g> bul() {
+        return this.gpX;
     }
 
-    public ArrayList<j> bua() {
-        return this.goV;
+    public ArrayList<j> bum() {
+        return this.gpY;
     }
 
-    public i bub() {
-        return this.goW;
+    public i bun() {
+        return this.gpZ;
     }
 
-    public int buc() {
-        return this.goT;
+    public int buo() {
+        return this.gpW;
     }
 
     public String getTagName() {
