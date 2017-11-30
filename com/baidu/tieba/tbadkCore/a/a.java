@@ -10,7 +10,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 /* loaded from: classes.dex */
 public class a {
-    private static int gpt = 1;
+    private static int gyl = 1;
 
     public static com.baidu.tbadk.task.a b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         try {
@@ -26,7 +26,7 @@ public class a {
         }
     }
 
-    public static String aE(String str, int i) {
+    public static String aF(String str, int i) {
         return TbConfig.SERVER_ADDRESS + str + "?cmd=" + i;
     }
 
@@ -43,7 +43,7 @@ public class a {
         bVar.setResponsedClass(cls);
         bVar.n(z);
         bVar.a(dupLicateMode);
-        bVar.setRetry(gpt);
+        bVar.setRetry(gyl);
         MessageManager.getInstance().unRegisterTask(i);
         MessageManager.getInstance().registerTask(bVar);
         bVar.setNeedEncrypt(z2);
@@ -51,13 +51,25 @@ public class a {
     }
 
     public static TbHttpMessageTask a(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, aE(str, i));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, aF(str, i));
         tbHttpMessageTask.setIsNeedLogin(z);
         tbHttpMessageTask.setIsNeedTbs(z2);
         tbHttpMessageTask.setIsNeedAddCommenParam(z3);
         tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
         tbHttpMessageTask.setResponsedClass(cls);
         MessageManager.getInstance().unRegisterTask(i2);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        return tbHttpMessageTask;
+    }
+
+    public static TbHttpMessageTask a(int i, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, TbConfig.SERVER_ADDRESS + str);
+        tbHttpMessageTask.setIsNeedLogin(z);
+        tbHttpMessageTask.setIsNeedTbs(z2);
+        tbHttpMessageTask.setIsNeedAddCommenParam(z3);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
+        tbHttpMessageTask.setResponsedClass(cls);
+        MessageManager.getInstance().unRegisterTask(i);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         return tbHttpMessageTask;
     }

@@ -44,9 +44,8 @@ public class LocationInfoView extends EditorInfoView {
         return this.mState;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView
-    public void onChangeSkinType() {
-        super.onChangeSkinType();
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
     }
 }

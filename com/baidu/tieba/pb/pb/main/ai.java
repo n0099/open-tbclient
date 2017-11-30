@@ -1,197 +1,223 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
+import android.os.Parcelable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.j;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.d;
-import com.baidu.tieba.pb.pb.main.ap;
-import com.baidu.tieba.pb.pb.main.view.TextLineView;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
-public class ai extends j.a {
-    private CustomMessageListener Tc;
-    private View.OnClickListener eRA;
-    private View.OnClickListener eRB;
-    public TextLineView eRn;
-    public TextLineView eRo;
-    public TextView eRp;
-    public TextView eRq;
-    public View eRr;
-    public View eRs;
-    public View eRt;
-    public TextLineView eRu;
-    public View eRv;
-    private List<TextLineView> eRw;
-    private int eRx;
-    private View.OnClickListener eRy;
-    private com.baidu.tieba.pb.data.j eRz;
-    public int mSkinType;
+public class ai {
+    private boolean eWS;
+    private boolean eWU;
+    private com.baidu.tieba.pb.data.f eXh;
+    private String eZK;
+    private boolean eZL;
+    private boolean eZM;
+    private Parcelable eZN;
+    private boolean eZO;
+    private PostData eZP;
+    private PostData eZQ;
+    private int eZR;
 
-    public ai(TbPageContext tbPageContext, View view) {
-        super(view);
-        this.mSkinType = 3;
-        this.eRx = 0;
-        this.eRA = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ai.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (ai.this.eRy != null) {
-                    ai.this.eRy.onClick(view2);
-                }
-                if (com.baidu.adp.lib.util.j.hh()) {
-                    if (view2 == null || !(view2.getTag() instanceof Boolean) || ((Boolean) view2.getTag()).booleanValue()) {
-                        for (TextLineView textLineView : ai.this.eRw) {
-                            if (textLineView != null) {
-                                if (textLineView != view2) {
-                                    textLineView.setSelected(false);
-                                } else {
-                                    textLineView.setSelected(true);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        };
-        this.eRB = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ai.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (ai.this.eRy != null) {
-                    ai.this.eRy.onClick(view2);
-                }
-                if (com.baidu.adp.lib.util.j.hh() && view2 != null && (view2.getTag() instanceof Boolean)) {
-                    ai.this.jm(!((Boolean) view2.getTag()).booleanValue());
-                }
-            }
-        };
-        this.Tc = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.ai.4
+    static {
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.pb.pb.main.ai.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (ai.this.eRz != null && ai.this.eRz.mType == com.baidu.tieba.pb.data.j.eHi && customResponsedMessage != null && getTag() == com.baidu.tieba.pb.data.j.eHi && (customResponsedMessage.getData() instanceof ap.a)) {
-                    ((ap.a) customResponsedMessage.getData()).eUP = ai.this;
+                ai.aVn().reset();
+            }
+        });
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.PB_RECORDER_RESET_CMD) { // from class: com.baidu.tieba.pb.pb.main.ai.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                ai.aVn().reset();
+            }
+        });
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.pb.pb.main.ai.3
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                ai.aVn().a(1, customResponsedMessage);
+            }
+        });
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.pb.pb.main.ai.4
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                ai.aVn().a(0, customResponsedMessage);
+            }
+        });
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_PENDANT) { // from class: com.baidu.tieba.pb.pb.main.ai.5
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.k)) {
+                    ai.aVn().a((com.baidu.tbadk.data.k) customResponsedMessage.getData());
                 }
             }
-        };
-        if (view != null) {
-            view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ai.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                }
-            });
-            this.eRn = (TextLineView) view.findViewById(d.g.reply_title);
-            this.eRn.setOnClickListener(this.eRA);
-            this.eRt = view.findViewById(d.g.reply_god_title_group);
-            this.eRu = (TextLineView) view.findViewById(d.g.reply_god_title);
-            this.eRu.setSelected(false);
-            this.eRv = view.findViewById(d.g.reply_all_title);
-            this.eRo = (TextLineView) view.findViewById(d.g.floor_owner_reply);
-            this.eRo.setOnClickListener(this.eRA);
-            this.eRp = (TextView) view.findViewById(d.g.pb_sort);
-            this.eRp.setOnClickListener(this.eRB);
-            this.eRq = (TextView) view.findViewById(d.g.pb_god_reply_entrance_text);
-            this.eRn.setSelected(true);
-            this.eRo.setSelected(false);
-            this.eRw = new ArrayList();
-            this.eRw.add(this.eRn);
-            this.eRw.add(this.eRo);
-            this.eRr = view.findViewById(d.g.divider_with_reply_title);
-            this.eRs = view.findViewById(d.g.divider_bottom);
-            jm(true);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        }
+        });
     }
 
-    public void jm(boolean z) {
-        this.eRx = z ? 0 : 1;
-        this.eRp.setVisibility(0);
-        if (this.eRx == 1) {
-            this.eRp.setText(d.j.default_sort);
-        } else if (this.eRx == 0) {
-            this.eRp.setText(d.j.view_reverse);
-        }
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a {
+        private static ai eZS = new ai();
     }
 
-    public void jn(boolean z) {
+    public static ai aVn() {
+        return a.eZS;
+    }
+
+    private ai() {
+        this.eZK = null;
+        this.eZL = false;
+        this.eXh = null;
+        this.eZM = false;
+        this.eZN = null;
+        this.eWU = true;
+        this.eWS = false;
+        this.eZO = false;
+    }
+
+    public void P(String str, boolean z) {
+        this.eZL = false;
         if (z) {
-            this.eRo.setSelected(true);
-            this.eRn.setSelected(false);
-            return;
+            str = null;
         }
-        this.eRo.setSelected(false);
-        this.eRn.setSelected(true);
+        if (str == null || str.length() < 1) {
+            reset();
+            this.eZK = null;
+        } else if (!str.equals(this.eZK)) {
+            reset();
+            this.eZK = str;
+        } else {
+            this.eZL = true;
+        }
     }
 
-    public void a(com.baidu.tieba.pb.data.j jVar) {
-        this.eRz = jVar;
-        if (jVar != null) {
-            if (jVar.mType == com.baidu.tieba.pb.data.j.eHj) {
-                if (TextUtils.isEmpty(jVar.eHl)) {
-                    this.eRv.setVisibility(0);
-                    this.eRt.setVisibility(8);
-                    this.eRn.setVisibility(0);
-                    this.eRn.setSelected(false);
-                    this.eRn.setClickable(false);
-                    this.eRn.setText(TbadkCoreApplication.getInst().getString(d.j.god_reply));
-                } else {
-                    this.eRv.setVisibility(8);
-                    this.eRn.setVisibility(8);
-                    this.eRt.setVisibility(0);
-                    this.eRt.setOnClickListener(this.eRy);
+    public com.baidu.tieba.pb.data.f getPbData() {
+        if (!this.eZL) {
+            this.eZM = false;
+            return null;
+        } else if (this.eXh != null && this.eXh.aRj() != null && this.eXh.aRj().size() > 0) {
+            this.eZM = true;
+            com.baidu.tieba.pb.data.f fVar = this.eXh;
+            this.eXh = null;
+            return fVar;
+        } else {
+            this.eZM = false;
+            this.eXh = null;
+            return null;
+        }
+    }
+
+    public Parcelable aVo() {
+        if (this.eZM) {
+            this.eZM = false;
+            Parcelable parcelable = this.eZN;
+            this.eZN = null;
+            return parcelable;
+        }
+        this.eZN = null;
+        return null;
+    }
+
+    public int aVp() {
+        return this.eZR;
+    }
+
+    public void qd(int i) {
+        this.eZR = i;
+    }
+
+    public PostData aVq() {
+        return this.eZQ;
+    }
+
+    public void i(PostData postData) {
+        this.eZQ = postData;
+    }
+
+    public PostData aVr() {
+        return this.eZP;
+    }
+
+    public void j(PostData postData) {
+        this.eZP = postData;
+    }
+
+    public boolean aUf() {
+        return this.eWU;
+    }
+
+    public boolean aVs() {
+        return this.eWS;
+    }
+
+    public boolean aVt() {
+        return this.eZO;
+    }
+
+    public boolean a(com.baidu.tieba.pb.data.f fVar, Parcelable parcelable, boolean z, boolean z2, boolean z3) {
+        this.eZL = false;
+        if (this.eZK == null) {
+            reset();
+            return false;
+        } else if (fVar == null) {
+            reset();
+            return false;
+        } else if (fVar.aRj() == null) {
+            reset();
+            return false;
+        } else if (fVar.aRj().size() < 1) {
+            reset();
+            return false;
+        } else if (parcelable == null) {
+            reset();
+            return false;
+        } else {
+            this.eXh = fVar;
+            this.eZM = false;
+            this.eZN = parcelable;
+            this.eWU = z;
+            this.eWS = z2;
+            this.eZO = z3;
+            return true;
+        }
+    }
+
+    public void reset() {
+        this.eZL = false;
+        this.eXh = null;
+        this.eZM = false;
+        this.eZN = null;
+    }
+
+    public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && this.eXh != null && this.eXh.aRf() != null) {
+            Object data = customResponsedMessage.getData();
+            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.c(this.eXh.aRf().getId(), 0L)) {
+                this.eXh.aRf().setLike(i);
+            }
+        }
+    }
+
+    public void a(com.baidu.tbadk.data.k kVar) {
+        if (kVar != null && this.eXh != null && this.eXh.aRj() != null && this.eXh.aRj().size() > 0) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (!StringUtils.isNull(currentAccount)) {
+                int size = this.eXh.aRj().size();
+                for (int i = 0; i < size; i++) {
+                    if (this.eXh.aRj().get(i) != null && this.eXh.aRj().get(i).rx() != null && currentAccount.equals(this.eXh.aRj().get(i).rx().getUserId()) && this.eXh.aRj().get(i).rx().getPendantData() != null) {
+                        this.eXh.aRj().get(i).rx().getPendantData().cF(kVar.pT());
+                        this.eXh.aRj().get(i).rx().getPendantData().T(kVar.CE());
+                    }
                 }
-                this.eRp.setVisibility(8);
-                this.eRo.setVisibility(8);
-                this.eRs.setVisibility(8);
-            } else if (jVar.mType == com.baidu.tieba.pb.data.j.eHi) {
-                this.eRt.setVisibility(8);
-                this.eRv.setVisibility(0);
-                this.eRn.setClickable(true);
-                this.eRn.setText(TbadkCoreApplication.getInst().getString(d.j.all_reply));
-                this.eRp.setVisibility(0);
-                this.eRo.setVisibility(0);
-                jn(jVar.eHm);
-                jm(jVar.aFk);
-                this.eRs.setVisibility(0);
             }
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
-    }
-
-    private void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.aj.k(getView(), d.C0080d.cp_bg_line_d);
-            this.eRn.onChangeSkinType(i);
-            this.eRo.onChangeSkinType(i);
-            this.eRu.onChangeSkinType(i);
-            if (this.eRz != null && this.eRz.mType == com.baidu.tieba.pb.data.j.eHj) {
-                com.baidu.tbadk.core.util.aj.c(this.eRn, d.C0080d.cp_cont_j, 1);
-            }
-            com.baidu.tbadk.core.util.aj.i(this.eRq, d.C0080d.cp_cont_d);
-            this.eRq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.aj.getDrawable(d.f.icon_arrow_more_gray), (Drawable) null);
-            com.baidu.tbadk.core.util.aj.i(this.eRp, d.C0080d.cp_cont_j);
-            com.baidu.tbadk.core.util.aj.k(this.eRr, d.C0080d.cp_bg_line_c);
-            com.baidu.tbadk.core.util.aj.k(this.eRs, d.C0080d.cp_bg_line_c);
-            this.eRp.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.aj.getDrawable(d.f.icon_pb_sort), (Drawable) null);
-        }
-        this.mSkinType = i;
-    }
-
-    public void h(BdUniqueId bdUniqueId) {
-        MessageManager.getInstance().unRegisterListener(bdUniqueId);
-        this.Tc.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.Tc);
-    }
-
-    public void E(View.OnClickListener onClickListener) {
-        this.eRy = onClickListener;
     }
 }

@@ -1,42 +1,31 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import tbclient.ForumPresentInfo;
-import tbclient.UserRankPresentInfo;
+import com.baidu.adp.BdUniqueId;
+import java.util.List;
+import tbclient.FrsPage.RecommendBook;
 /* loaded from: classes.dex */
-public class w {
-    public String Wh;
-    public ArrayList<a> users;
+public class w extends bd {
+    public static final BdUniqueId WU = BdUniqueId.gen();
+    public String VS;
+    public int WV;
+    public List<String> WW;
+    public String image;
+    public String linkUrl;
+    public String title;
 
-    public void a(ForumPresentInfo forumPresentInfo) {
-        if (forumPresentInfo != null) {
-            this.Wh = forumPresentInfo.content;
-            this.users = new ArrayList<>();
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < forumPresentInfo.user_list.size()) {
-                    this.users.add(new a(forumPresentInfo.user_list.get(i2)));
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
+    public void a(RecommendBook recommendBook) {
+        if (recommendBook != null) {
+            this.WV = recommendBook.type.intValue();
+            this.VS = recommendBook.book_id;
+            this.title = recommendBook.title;
+            this.image = recommendBook.image;
+            this.WW = recommendBook.desc;
+            this.linkUrl = recommendBook.link_url;
         }
     }
 
-    /* loaded from: classes.dex */
-    public class a {
-        public Integer Wi;
-        public String userName;
-        public String userPortrait;
-
-        public a(UserRankPresentInfo userRankPresentInfo) {
-            if (userRankPresentInfo != null) {
-                this.Wi = userRankPresentInfo.user_id;
-                this.userName = userRankPresentInfo.user_name;
-                this.userPortrait = userRankPresentInfo.portrait;
-            }
-        }
+    @Override // com.baidu.tbadk.core.data.bd, com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return WU;
     }
 }

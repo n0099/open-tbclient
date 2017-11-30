@@ -1,35 +1,31 @@
 package com.baidu.tbadk.h;
 
-import android.content.Context;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class a {
-    private ArrayList<com.baidu.tbadk.mainTab.b> Sf = new ArrayList<>();
-    private Context mContext;
+public class a implements b {
+    private b aFO;
 
-    public a(Context context) {
-        this.mContext = context;
-    }
-
-    public void a(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.ES() != null) {
-            Iterator<com.baidu.tbadk.mainTab.b> it = this.Sf.iterator();
-            while (it.hasNext()) {
-                com.baidu.tbadk.mainTab.b next = it.next();
-                if (next != null && next.ES() != null && next.ES().type == bVar.ES().type) {
-                    return;
-                }
-            }
-            this.Sf.add(bVar);
+    public a(TbPageContext<?> tbPageContext) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOD_RECOMMEND_CONTROLLER, b.class, tbPageContext);
+        if (runTask != null && runTask.getData() != null) {
+            this.aFO = (b) runTask.getData();
         }
     }
 
-    public ArrayList<com.baidu.tbadk.mainTab.b> os() {
-        return this.Sf;
+    @Override // com.baidu.tbadk.h.b
+    public void gj(String str) {
+        if (this.aFO != null) {
+            this.aFO.gj(str);
+        }
     }
 
-    public Context getContext() {
-        return this.mContext;
+    @Override // com.baidu.tbadk.h.b
+    public void destory() {
+        if (this.aFO != null) {
+            this.aFO.destory();
+        }
     }
 }

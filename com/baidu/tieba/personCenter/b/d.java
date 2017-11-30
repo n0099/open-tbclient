@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private com.baidu.tieba.personCenter.a.c fiC;
+    private com.baidu.tieba.personCenter.a.c frz;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
     public d(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
-        this.fiC = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.fjg);
-        this.mAdapters.add(this.fiC);
+        this.frz = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.fsd);
+        this.mAdapters.add(this.frz);
         this.mListView.addAdapters(this.mAdapters);
     }
 }

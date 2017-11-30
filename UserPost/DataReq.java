@@ -34,6 +34,10 @@ public final class DataReq extends Message {
     public final Integer is_thread;
     @ProtoField(tag = 28, type = Message.Datatype.UINT32)
     public final Integer is_twzhibo;
+    @ProtoField(tag = 33, type = Message.Datatype.INT32)
+    public final Integer is_view_card;
+    @ProtoField(tag = 34, type = Message.Datatype.UINT32)
+    public final Integer last_thread_time;
     @ProtoField(tag = 18, type = Message.Datatype.UINT32)
     public final Integer login;
     @ProtoField(tag = 23, type = Message.Datatype.STRING)
@@ -100,6 +104,8 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_SCR_H = 0;
     public static final Double DEFAULT_SCR_DIP = Double.valueOf(0.0d);
     public static final Integer DEFAULT_Q_TYPE = 0;
+    public static final Integer DEFAULT_IS_VIEW_CARD = 0;
+    public static final Integer DEFAULT_LAST_THREAD_TIME = 0;
 
     private DataReq(Builder builder, boolean z) {
         super(builder);
@@ -257,9 +263,19 @@ public final class DataReq extends Message {
             }
             if (builder.q_type == null) {
                 this.q_type = DEFAULT_Q_TYPE;
-                return;
             } else {
                 this.q_type = builder.q_type;
+            }
+            if (builder.is_view_card == null) {
+                this.is_view_card = DEFAULT_IS_VIEW_CARD;
+            } else {
+                this.is_view_card = builder.is_view_card;
+            }
+            if (builder.last_thread_time == null) {
+                this.last_thread_time = DEFAULT_LAST_THREAD_TIME;
+                return;
+            } else {
+                this.last_thread_time = builder.last_thread_time;
                 return;
             }
         }
@@ -295,6 +311,8 @@ public final class DataReq extends Message {
         this.scr_h = builder.scr_h;
         this.scr_dip = builder.scr_dip;
         this.q_type = builder.q_type;
+        this.is_view_card = builder.is_view_card;
+        this.last_thread_time = builder.last_thread_time;
     }
 
     /* loaded from: classes.dex */
@@ -310,6 +328,8 @@ public final class DataReq extends Message {
         public String ip_str;
         public Integer is_thread;
         public Integer is_twzhibo;
+        public Integer is_view_card;
+        public Integer last_thread_time;
         public Integer login;
         public String mobile;
         public String module_name;
@@ -370,6 +390,8 @@ public final class DataReq extends Message {
                 this.scr_h = dataReq.scr_h;
                 this.scr_dip = dataReq.scr_dip;
                 this.q_type = dataReq.q_type;
+                this.is_view_card = dataReq.is_view_card;
+                this.last_thread_time = dataReq.last_thread_time;
             }
         }
 

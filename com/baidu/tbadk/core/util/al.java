@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class al {
-    private static al agX;
+    private static al ahu;
 
-    public static synchronized al vm() {
+    public static synchronized al vp() {
         al alVar;
         synchronized (al.class) {
-            if (agX == null) {
-                agX = new al();
+            if (ahu == null) {
+                ahu = new al();
             }
-            alVar = agX;
+            alVar = ahu;
         }
         return alVar;
     }
 
-    public String dN(String str) {
+    public String dP(String str) {
         if (str == null) {
             return null;
         }
@@ -30,25 +30,25 @@ public class al {
         return "image/" + (j % 20);
     }
 
-    public Bitmap dO(String str) {
+    public Bitmap dQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return k.X(dN(str), str);
+        return k.X(dP(str), str);
     }
 
-    public boolean dP(String str) {
+    public boolean dR(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return k.W(dN(str), str);
+        return k.W(dP(str), str);
     }
 
-    public int dQ(String str) {
+    public int dS(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) k.V(dN(str), str);
+        return (int) k.V(dP(str), str);
     }
 
     public boolean Z(String str, String str2) {
@@ -56,7 +56,7 @@ public class al {
         if (!k.dh(str3)) {
             k.dy(str3);
         }
-        String str4 = str3 + dN(str2);
+        String str4 = str3 + dP(str2);
         if (!k.dh(str4)) {
             k.dy(str4);
         }
@@ -69,7 +69,7 @@ public class al {
 
     public void i(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            k.d(dN(str), str, bArr);
+            k.d(dP(str), str, bArr);
         }
     }
 
@@ -86,13 +86,13 @@ public class al {
         }
     }
 
-    public void vn() {
+    public void vq() {
         v(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
         v(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void vo() {
-        w(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + k.cC(3)));
+    public void vr() {
+        w(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + k.cD(3)));
     }
 
     private void w(File file) {

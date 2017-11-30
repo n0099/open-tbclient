@@ -8,7 +8,6 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,7 +40,7 @@ public class d extends c {
                     com.baidu.android.pushservice.g.a.c("InternalBindHandler", "bindParams is: " + d);
                     HashMap hashMap = new HashMap();
                     com.baidu.android.pushservice.e.b.b(hashMap);
-                    hashMap.put("device_type", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+                    hashMap.put("device_type", "3");
                     hashMap.put(LegoListActivityConfig.PARAMS, d);
                     int i = 0;
                     do {

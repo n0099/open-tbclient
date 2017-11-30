@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.util.ak;
@@ -14,61 +14,61 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements ae {
-    public String Xl;
-    private String bUO;
-    private int bUP;
-    private String bUQ;
-    private String bUR;
-    private String bUT;
+    private String cdi;
+    private int cdj;
+    private String cdk;
+    private String cdl;
+    private String cdn;
     private String mSource;
-    public int bUS = 0;
-    public SparseArray<String> Xm = null;
+    public String tid;
+    public int cdm = 0;
+    public SparseArray<String> XE = null;
 
     public void setWeight(String str) {
-        this.bUO = str;
+        this.cdi = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void ih(int i) {
-        this.bUP = i;
+    public void iE(int i) {
+        this.cdj = i;
     }
 
-    public void jO(String str) {
-        this.bUQ = str;
+    public void jU(String str) {
+        this.cdk = str;
     }
 
-    public int aam() {
-        return this.bUP;
+    public int abV() {
+        return this.cdj;
     }
 
-    public String aan() {
-        return this.mSource + "#" + this.bUP + "#" + this.bUQ;
+    public String abW() {
+        return this.mSource + "#" + this.cdj + "#" + this.cdk;
     }
 
     public String getWeight() {
-        return this.bUO;
+        return this.cdi;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String aao() {
-        return this.bUQ;
+    public String abX() {
+        return this.cdk;
     }
 
-    public String aap() {
-        return this.bUR;
+    public String abY() {
+        return this.cdl;
     }
 
-    public void jP(String str) {
-        this.bUR = str;
+    public void jV(String str) {
+        this.cdl = str;
     }
 
-    public bh NA() {
+    public bd Ox() {
         return null;
     }
 
@@ -77,47 +77,47 @@ public abstract class c extends b implements ae {
     }
 
     public void setExtra(String str) {
-        this.bUT = str;
+        this.cdn = str;
     }
 
     public String getExtra() {
-        return this.bUT;
+        return this.cdn;
     }
 
-    public ak jQ(String str) {
-        return s(str, false);
+    public ak jW(String str) {
+        return t(str, false);
     }
 
-    public ak s(String str, boolean z) {
-        bh NA = NA();
-        if (NA == null) {
+    public ak t(String str, boolean z) {
+        bd Ox = Ox();
+        if (Ox == null) {
             return null;
         }
-        ak ac = new ak(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(NA.getFid())).ac("tid", String.valueOf(NA.getTid())).ac("obj_id", getExtra()).ac("obj_param1", getWeight()).r("obj_param2", 1).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", aam()).ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.m.ZY());
+        ak ac = new ak(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Ox.getFid())).ac("tid", String.valueOf(Ox.getTid())).ac("obj_id", getExtra()).ac("obj_param1", getWeight()).r("obj_param2", 1).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", abV()).ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.k.abH());
         if (!z) {
-            ac.r("obj_type", aaq());
+            ac.r("obj_type", abZ());
         } else {
-            if (NA.aao > 0) {
+            if (Ox.aaG > 0) {
                 ac.r("midpageflag", 1);
             } else {
                 ac.r("midpageflag", 0);
             }
-            ac.ac("ab_tag", aao());
+            ac.ac("ab_tag", abX());
         }
-        if (NA.sL() != null && NA.sL().aEx() != null && NA.sL().aEx().IT() != null && NA.sL().aEx().IT().size() > 0) {
-            ac.r("obj_to", NA.sL().gqT ? 2 : 1);
+        if (Ox.sO() != null && Ox.sO().bwr() != null && Ox.sO().bwr().Jq() != null && Ox.sO().bwr().Jq().size() > 0) {
+            ac.r("obj_to", Ox.sO().gzM ? 2 : 1);
         }
         return ac;
     }
 
-    public ak P(String str, int i) {
-        bh NA = NA();
-        if (NA == null) {
+    public ak R(String str, int i) {
+        bd Ox = Ox();
+        if (Ox == null) {
             return null;
         }
-        ak ac = new ak(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(NA.getFid())).ac("tid", String.valueOf(NA.getTid())).r("obj_id", z(NA)).r("obj_param2", 1).ac("obj_param1", getWeight()).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", aam()).ac("obj_name", aao()).ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.m.ZY());
+        ak ac = new ak(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Ox.getFid())).ac("tid", String.valueOf(Ox.getTid())).r("obj_id", C(Ox)).r("obj_param2", 1).ac("obj_param1", getWeight()).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", abV()).ac("obj_name", abX()).ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.k.abH());
         if (i == 0) {
-            ac.r("obj_type", aaq());
+            ac.r("obj_type", abZ());
         } else {
             ac.r("obj_type", i);
         }
@@ -125,18 +125,18 @@ public abstract class c extends b implements ae {
         return ac;
     }
 
-    private int aaq() {
+    private int abZ() {
         int i;
         int i2 = 0;
-        bh NA = NA();
-        if (NA == null) {
+        bd Ox = Ox();
+        if (Ox == null) {
             return 0;
         }
-        ArrayList<MediaData> rE = NA.rE();
-        if (rE == null) {
+        ArrayList<MediaData> rI = Ox.rI();
+        if (rI == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = rE.iterator();
+            Iterator<MediaData> it = rI.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -154,17 +154,17 @@ public abstract class c extends b implements ae {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        bh NA = NA();
-        if (NA != null) {
-            return NA.getImages();
+        bd Ox = Ox();
+        if (Ox != null) {
+            return Ox.getImages();
         }
         return null;
     }
 
-    private int z(bh bhVar) {
-        if (bhVar.sz() == null || bhVar.sz().channelId <= 0) {
+    private int C(bd bdVar) {
+        if (bdVar.sC() == null || bdVar.sC().channelId <= 0) {
             return 0;
         }
-        return (int) bhVar.sz().channelId;
+        return (int) bdVar.sC().channelId;
     }
 }

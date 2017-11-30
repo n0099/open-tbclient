@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f {
-    private String aSo;
-    private int aSp;
-    private String aSq;
-    private int aSr;
-    private int aSs;
+    private String aVp;
+    private int aVq;
+    private String aVr;
+    private int aVs;
+    private int aVt;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class f {
     public void b(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.aSo = pbContent.src;
+            this.aVp = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aSp = pbContent.e_type.intValue();
-            this.aSq = pbContent.text;
+            this.aVq = pbContent.e_type.intValue();
+            this.aVr = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aSr = pbContent.count.intValue();
-            this.aSs = pbContent.origin_size.intValue();
+            this.aVs = pbContent.count.intValue();
+            this.aVt = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class f {
     }
 
     public String getThumbUrl() {
-        return this.aSo;
+        return this.aVp;
     }
 
     public int getWidth() {
@@ -44,23 +44,23 @@ public class f {
         return this.height;
     }
 
-    public String JF() {
-        return this.aSq;
+    public String Kc() {
+        return this.aVr;
     }
 
-    public boolean JG() {
-        return this.aSp == 15;
+    public boolean Kd() {
+        return this.aVq == 15;
     }
 
     public boolean isAvaliable() {
         return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
     }
 
-    public int JH() {
-        return this.aSr;
+    public int Ke() {
+        return this.aVs;
     }
 
-    public void fZ(int i) {
-        this.aSr = i;
+    public void gh(int i) {
+        this.aVs = i;
     }
 }

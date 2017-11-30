@@ -92,7 +92,7 @@ public final class SapiSafeFacade {
             aVar.s = jSONObject.optString(e);
             aVar.t = jSONObject.optString(f);
             aVar.u = jSONObject.optString(g);
-            aVar.v = jSONObject.optString("7");
+            aVar.v = jSONObject.optString(h);
             aVar.w = jSONObject.optString(i);
             aVar.x = jSONObject.optString(j);
             aVar.y = jSONObject.optString(k);

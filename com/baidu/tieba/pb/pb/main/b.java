@@ -3,15 +3,24 @@ package com.baidu.tieba.pb.pb.main;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.widget.ImageView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.widget.richText.a {
-    private static double eJZ = 0.5d;
+    private static double eRE = 0.5d;
 
     public b(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
-        cc(true);
-        IS();
+        cf(true);
+        Jp();
+        setLineSpacing(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds15), 1.0f);
+        fX(0);
+        fY(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds30));
+        fZ(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds12));
+        R(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48));
+        S(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds30), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds10));
+        ga(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds14));
         this.mOnDrawListener = new TbImageView.b() { // from class: com.baidu.tieba.pb.pb.main.b.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
@@ -45,18 +54,18 @@ public class b extends com.baidu.tbadk.widget.richText.a {
         if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
             return null;
         }
-        if (!this.aRw || aRh <= 1.0f) {
+        if (!this.aUu || aUe <= 1.0f) {
             i3 = i;
         } else {
-            if (i * aRh <= i3 * eJZ) {
-                i3 = (int) (i * aRh);
+            if (i * aUe <= i3 * eRE) {
+                i3 = (int) (i * aUe);
             }
             i2 = (i3 * i2) / i;
             if (i2 > 4096) {
-                this.aRu = ImageView.ScaleType.MATRIX;
+                this.aUs = ImageView.ScaleType.MATRIX;
                 i2 = 4096;
             } else {
-                this.aRu = ImageView.ScaleType.CENTER_CROP;
+                this.aUs = ImageView.ScaleType.CENTER_CROP;
             }
         }
         return new int[]{i3, i2};

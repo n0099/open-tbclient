@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes2.dex */
 public class c implements d.a {
-    private final CloudMusicModel gEd;
-    private final d.b gEe;
+    private final CloudMusicModel gNL;
+    private final d.b gNM;
 
     public c(CloudMusicModel cloudMusicModel, d.b bVar) {
-        this.gEd = cloudMusicModel;
-        this.gEe = bVar;
+        this.gNL = cloudMusicModel;
+        this.gNM = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
-    public void byE() {
-        this.gEe.nb(true);
-        this.gEd.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.c.1
+    public void bAH() {
+        this.gNM.nA(true);
+        this.gNL.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
-            public void ab(CloudMusicData cloudMusicData) {
-                c.this.gEe.nb(false);
+            public void ad(CloudMusicData cloudMusicData) {
+                c.this.gNM.nA(false);
                 if (cloudMusicData != null) {
-                    c.this.gEe.nc(false);
+                    c.this.gNM.nB(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        c.this.gEe.nc(true);
+                        c.this.gNM.nB(true);
                         return;
                     } else {
-                        c.this.gEe.a(cloudMusicData);
+                        c.this.gNM.a(cloudMusicData);
                         return;
                     }
                 }
-                c.this.gEe.nc(true);
+                c.this.gNM.nB(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
-    public void akY() {
-        this.gEd.cancelLoadData();
+    public void amU() {
+        this.gNL.cancelLoadData();
     }
 }

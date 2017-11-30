@@ -7,8 +7,6 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.InputStream;
@@ -147,7 +145,7 @@ public final class b {
             if (str5 == null) {
                 str5 = "";
             }
-            jSONObject.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, str5);
+            jSONObject.put("3", str5);
             String str6 = Build.DISPLAY;
             if (str6 == null) {
                 str6 = "";
@@ -167,7 +165,7 @@ public final class b {
             if (str9 == null) {
                 str9 = "";
             }
-            jSONObject.put(NewWriteModel.THREAD_TYPE_LBS, str9);
+            jSONObject.put("7", str9);
             jSONObject.put("8", d.a(context));
             String str10 = Build.MANUFACTURER;
             if (str10 == null) {
@@ -196,7 +194,7 @@ public final class b {
             } else if (b2.startsWith("46001")) {
                 str = "2";
             } else if (b2.startsWith("46003")) {
-                str = TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
+                str = "3";
             }
             jSONObject.put("15", str);
             jSONObject.put("16", d.d(context));
@@ -225,14 +223,14 @@ public final class b {
             jSONObject2.put("2", "0");
             String[] at = at(context);
             if (at != null && at.length == 2) {
-                jSONObject2.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, at[0]);
+                jSONObject2.put("3", at[0]);
             } else {
-                jSONObject2.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, "");
+                jSONObject2.put("3", "");
             }
             jSONObject2.put("4", 0);
             jSONObject2.put("5", 0);
             jSONObject2.put("6", 1);
-            jSONObject2.put(NewWriteModel.THREAD_TYPE_LBS, 0);
+            jSONObject2.put("7", 0);
             jSONObject2.put("8", bVar.a);
             jSONObject2.put("9", bVar.c);
             jSONObject2.put("10", "1001001");
@@ -256,14 +254,14 @@ public final class b {
             jSONObject.put("2", "0");
             String[] at = at(context);
             if (at != null && at.length == 2) {
-                jSONObject.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, at[0]);
+                jSONObject.put("3", at[0]);
             } else {
-                jSONObject.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, "");
+                jSONObject.put("3", "");
             }
             jSONObject.put("4", 0);
             jSONObject.put("5", 0);
             jSONObject.put("6", 1);
-            jSONObject.put(NewWriteModel.THREAD_TYPE_LBS, 0);
+            jSONObject.put("7", 0);
             jSONObject.put("8", bVar.a);
             jSONObject.put("9", bVar.c);
             jSONObject.put("10", bVar.d);
@@ -297,14 +295,14 @@ public final class b {
             jSONObject.put("2", "0");
             String[] at = at(context);
             if (at != null && at.length == 2) {
-                jSONObject.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, at[0]);
+                jSONObject.put("3", at[0]);
             } else {
-                jSONObject.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, "");
+                jSONObject.put("3", "");
             }
             jSONObject.put("4", 0);
             jSONObject.put("5", 0);
             jSONObject.put("6", 1);
-            jSONObject.put(NewWriteModel.THREAD_TYPE_LBS, 0);
+            jSONObject.put("7", 0);
             jSONObject.put("8", bVar.a);
             jSONObject.put("9", bVar.c);
             jSONObject.put("10", bVar.e);
@@ -336,14 +334,14 @@ public final class b {
             jSONObject2.put("2", "0");
             String[] at = at(context);
             if (at != null && at.length == 2) {
-                jSONObject2.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, at[0]);
+                jSONObject2.put("3", at[0]);
             } else {
-                jSONObject2.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, "");
+                jSONObject2.put("3", "");
             }
             jSONObject2.put("4", 0);
             jSONObject2.put("5", 0);
             jSONObject2.put("6", 1);
-            jSONObject2.put(NewWriteModel.THREAD_TYPE_LBS, 0);
+            jSONObject2.put("7", 0);
             jSONObject2.put("8", "sofire");
             com.baidu.sofire.rp.a.a aVar = new com.baidu.sofire.rp.a.a(context);
             String string = aVar.b.getString("ssv", "");
@@ -393,7 +391,7 @@ public final class b {
             str2 = "";
         }
         try {
-            str3 = jSONObject2.optString(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+            str3 = jSONObject2.optString("3");
         } catch (Exception e5) {
             str3 = "";
         }
@@ -416,11 +414,11 @@ public final class b {
         try {
             jSONObject3.put("1", obj);
             jSONObject3.put("2", context.getPackageName());
-            jSONObject3.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, str6);
+            jSONObject3.put("3", str6);
             jSONObject3.put("4", d.a(context));
             jSONObject3.put("5", str);
             jSONObject3.put("6", j);
-            jSONObject3.put(NewWriteModel.THREAD_TYPE_LBS, str2);
+            jSONObject3.put("7", str2);
             jSONObject3.put("8", str3);
             jSONObject3.put("9", str4);
             jSONObject3.put("10", str5);
@@ -469,8 +467,8 @@ public final class b {
                 aVar.a(bVar2);
             } else {
                 if (a2 != null && (indexOf = a2.indexOf(bVar2)) != -1 && (bVar = a2.get(indexOf)) != null) {
-                    aVar.Qk.putString("re_con", aVar.a.getString("re_con", "").replace(com.baidu.sofire.rp.a.b.b(bVar), com.baidu.sofire.rp.a.b.b(bVar2)));
-                    aVar.Qk.commit();
+                    aVar.QC.putString("re_con", aVar.a.getString("re_con", "").replace(com.baidu.sofire.rp.a.b.b(bVar), com.baidu.sofire.rp.a.b.b(bVar2)));
+                    aVar.QC.commit();
                 }
                 c.au(context).b();
                 return;
@@ -520,7 +518,7 @@ public final class b {
             } catch (Exception e5) {
             }
             try {
-                i2 = jSONObject.optInt(NewWriteModel.THREAD_TYPE_LBS);
+                i2 = jSONObject.optInt("7");
             } catch (Exception e6) {
                 i2 = 0;
             }
@@ -552,11 +550,11 @@ public final class b {
             jSONObject2.put("0", System.currentTimeMillis());
             jSONObject2.put("1", "0");
             jSONObject2.put("2", "0");
-            jSONObject2.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, "0");
+            jSONObject2.put("3", "0");
             jSONObject2.put("4", 0);
             jSONObject2.put("5", 0);
             jSONObject2.put("6", 1);
-            jSONObject2.put(NewWriteModel.THREAD_TYPE_LBS, 0);
+            jSONObject2.put("7", 0);
             jSONObject2.put("8", "");
             jSONObject2.put("9", "");
             jSONObject2.put("10", str);
@@ -589,8 +587,8 @@ public final class b {
                         }
                     }
                     if (!TextUtils.isEmpty(str2)) {
-                        aVar.Qk.putString("al_da" + str2, optJSONObject.optString(str2));
-                        aVar.Qk.commit();
+                        aVar.QC.putString("al_da" + str2, optJSONObject.optString(str2));
+                        aVar.QC.commit();
                     }
                 }
             } catch (Exception e) {
@@ -606,8 +604,8 @@ public final class b {
                         }
                     }
                     if (!TextUtils.isEmpty(str3)) {
-                        aVar.Qk.putString("in_da" + str3, optJSONObject2.optString(str3));
-                        aVar.Qk.commit();
+                        aVar.QC.putString("in_da" + str3, optJSONObject2.optString(str3));
+                        aVar.QC.commit();
                     }
                 }
             } catch (Exception e2) {
@@ -615,8 +613,8 @@ public final class b {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("2");
                 if (optJSONArray != null) {
-                    aVar.Qk.putString("li_pk_s", optJSONArray.toString());
-                    aVar.Qk.commit();
+                    aVar.QC.putString("li_pk_s", optJSONArray.toString());
+                    aVar.QC.commit();
                 }
             } catch (Exception e3) {
             }

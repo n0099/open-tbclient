@@ -22,16 +22,16 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, com.baidu.tbadk.j.b> {
-    private final long baE;
-    private final long baF;
-    private List<com.baidu.adp.widget.ListView.f> baG;
+public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, com.baidu.tbadk.i.b> {
+    private final long bdO;
+    private final long bdP;
+    private List<com.baidu.adp.widget.ListView.f> bdQ;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.d.azA, bdUniqueId);
-        this.baE = TbConfig.NOTIFY_SOUND_INTERVAL;
-        this.baF = 2000L;
+        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.d.aAb, bdUniqueId);
+        this.bdO = TbConfig.NOTIFY_SOUND_INTERVAL;
+        this.bdP = 2000L;
         this.mPageContext = tbPageContext;
     }
 
@@ -39,22 +39,22 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
         if (list == null) {
             list = new LinkedList<>();
         }
-        this.baG = list;
+        this.bdQ = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: e */
-    public com.baidu.tbadk.j.b onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tbadk.j.b(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.entrance_frs_story_item, (ViewGroup) null));
+    public com.baidu.tbadk.i.b onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tbadk.i.b(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.entrance_frs_story_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.d dVar, com.baidu.tbadk.j.b bVar) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.d dVar, com.baidu.tbadk.i.b bVar) {
         if (bVar == null || dVar == null) {
             return null;
         }
@@ -62,23 +62,23 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
         return view;
     }
 
-    private void a(com.baidu.tbadk.j.b bVar, final com.baidu.tbadk.data.d dVar, int i) {
-        if (bVar != null && dVar != null && dVar.azB.userInfo != null && !StringUtils.isNull(dVar.azB.userInfo.portrait)) {
-            bVar.mName.setText(dVar.azB.userInfo.userName);
-            bVar.aFq.setLiveIngImgVisible(true);
-            bVar.aFq.getFrontImg().setIsRound(true);
-            bVar.aFq.getFrontImg().startLoad(dVar.azB.userInfo.portrait, 25, false);
-            bVar.aFq.setOuterColor(d.C0080d.cp_link_tip_g);
-            if (!dVar.azC) {
-                if (!v.v(this.baG)) {
-                    bVar.aFq.getFrontImg().startAnimation(gn(i));
-                    dVar.azC = true;
-                    dVar.azD = System.currentTimeMillis();
+    private void a(com.baidu.tbadk.i.b bVar, final com.baidu.tbadk.data.d dVar, int i) {
+        if (bVar != null && dVar != null && dVar.aAc.userInfo != null && !StringUtils.isNull(dVar.aAc.userInfo.portrait)) {
+            bVar.mName.setText(dVar.aAc.userInfo.userName);
+            bVar.aFR.setLiveIngImgVisible(true);
+            bVar.aFR.getFrontImg().setIsRound(true);
+            bVar.aFR.getFrontImg().startLoad(dVar.aAc.userInfo.portrait, 25, false);
+            bVar.aFR.setOuterColor(d.C0082d.cp_link_tip_g);
+            if (!dVar.aAd) {
+                if (!v.w(this.bdQ)) {
+                    bVar.aFR.getFrontImg().startAnimation(gy(i));
+                    dVar.aAd = true;
+                    dVar.aAe = System.currentTimeMillis();
                 } else {
                     return;
                 }
             }
-            bVar.aFq.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.b.1
+            bVar.aFR.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.b.1
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     if (motionEvent.getAction() == 0) {
@@ -91,11 +91,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
                     return view.onTouchEvent(motionEvent);
                 }
             });
-            bVar.aFq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.b.2
+            bVar.aFR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData;
-                    if (dVar != null && (alaLiveInfoCoreData = dVar.azB) != null) {
+                    if (dVar != null && (alaLiveInfoCoreData = dVar.aAc) != null) {
                         TiebaStatic.log(new ak("c12546").ac("obj_param1", alaLiveInfoCoreData.userName));
                         AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(b.this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_CONCERN_TAB, TbadkCoreApplication.getCurrentAccount(), false, "");
                         alaLiveRoomActivityConfig.setIsForbidVerticalChangeLiveRoom(true);
@@ -107,12 +107,12 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
         }
     }
 
-    private ScaleAnimation gn(int i) {
+    private ScaleAnimation gy(int i) {
         long currentTimeMillis;
         long j;
         float f;
         float f2;
-        if (i == com.baidu.tbadk.data.d.azE) {
+        if (i == com.baidu.tbadk.data.d.aAf) {
             j = 0;
             f = 1.4f;
             f2 = 1.0f;
@@ -120,19 +120,19 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
             Object obj = null;
             Object obj2 = null;
             if (i > 0) {
-                obj = (com.baidu.adp.widget.ListView.f) this.baG.get(i - 1);
+                obj = (com.baidu.adp.widget.ListView.f) this.bdQ.get(i - 1);
             }
-            if (i < this.baG.size() - 1) {
-                obj2 = (com.baidu.adp.widget.ListView.f) this.baG.get(i + 1);
+            if (i < this.bdQ.size() - 1) {
+                obj2 = (com.baidu.adp.widget.ListView.f) this.bdQ.get(i + 1);
             }
             if (obj != null && (obj instanceof com.baidu.tbadk.data.d)) {
                 com.baidu.tbadk.data.d dVar = (com.baidu.tbadk.data.d) obj;
-                if (dVar.azC) {
-                    currentTimeMillis = dVar.azD;
+                if (dVar.aAd) {
+                    currentTimeMillis = dVar.aAe;
                 } else if (obj2 != null && (obj2 instanceof com.baidu.tbadk.data.d)) {
                     com.baidu.tbadk.data.d dVar2 = (com.baidu.tbadk.data.d) obj2;
-                    if (dVar2.azC) {
-                        currentTimeMillis = dVar2.azD;
+                    if (dVar2.aAd) {
+                        currentTimeMillis = dVar2.aAe;
                     } else {
                         currentTimeMillis = System.currentTimeMillis();
                     }

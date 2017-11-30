@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tieba.pb.CustomDialogData;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b {
@@ -9,11 +9,12 @@ public class b {
     private String colorMsg;
     final int errorCode;
     private String errorString;
-    private String gtK;
-    private String gtL;
+    private String gCJ;
+    private String gCK;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private String preMsg;
+    private String videoId;
     private String threadId = null;
     private String postId = null;
     private ArrayList<String> sensitiveWords = null;
@@ -28,15 +29,15 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean bvM() {
+    public boolean bxx() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean bvN() {
+    public boolean bxy() {
         return this.errorCode == 1990055;
     }
 
-    public boolean bvO() {
+    public boolean bxz() {
         return this.errorCode == 227001;
     }
 
@@ -52,7 +53,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData aEF() {
+    public AntiData aSb() {
         return this.antiData;
     }
 
@@ -96,20 +97,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String bvP() {
-        return this.gtK;
+    public String bxA() {
+        return this.gCJ;
     }
 
-    public void sR(String str) {
-        this.gtK = str;
+    public void to(String str) {
+        this.gCJ = str;
     }
 
-    public String bvQ() {
-        return this.gtL;
+    public String bxB() {
+        return this.gCK;
     }
 
-    public void sS(String str) {
-        this.gtL = str;
+    public void tp(String str) {
+        this.gCK = str;
     }
 
     public CustomDialogData getActivityDialog() {
@@ -130,5 +131,13 @@ public class b {
 
     public ArrayList<String> getSensitiveWords() {
         return this.sensitiveWords;
+    }
+
+    public String getVideoId() {
+        return this.videoId;
+    }
+
+    public void setVideoId(String str) {
+        this.videoId = str;
     }
 }

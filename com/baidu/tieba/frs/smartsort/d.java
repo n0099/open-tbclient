@@ -12,55 +12,55 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d cPj;
-    private boolean cPc = false;
-    private final HashMap<String, ArrayList<f>> cPi = new HashMap<>();
+    private static volatile d cYy;
+    private boolean cYr = false;
+    private final HashMap<String, ArrayList<f>> cYx = new HashMap<>();
 
     private d() {
     }
 
-    public static d aoo() {
-        if (cPj == null) {
+    public static d aqi() {
+        if (cYy == null) {
             synchronized (d.class) {
-                if (cPj == null) {
-                    cPj = new d();
+                if (cYy == null) {
+                    cYy = new d();
                 }
             }
         }
-        return cPj;
+        return cYy;
     }
 
-    public String aoi() {
+    public String aqc() {
         return "frs_sorttype_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     public synchronized void h(String str, int i, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String aoi = aoi();
-            ArrayList<f> arrayList = this.cPi.get(aoi);
+            String aqc = aqc();
+            ArrayList<f> arrayList = this.cYx.get(aqc);
             ArrayList<f> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            f lv = lv(str);
+            f lE = lE(str);
             boolean z = false;
-            if (lv != null) {
-                if (lv.cPm != i) {
-                    lv.cPm = i;
+            if (lE != null) {
+                if (lE.cYB != i) {
+                    lE.cYB = i;
                     z = true;
                 }
             } else {
                 f fVar = new f();
                 fVar.forumName = str;
-                fVar.cPm = i;
+                fVar.cYB = i;
                 arrayList2.add(fVar);
                 z = true;
             }
             if (z) {
-                f(aoi, arrayList2);
+                f(aqc, arrayList2);
             }
         }
     }
 
     private synchronized void f(String str, ArrayList<f> arrayList) {
-        JSONObject aos;
+        JSONObject aqm;
         if (!TextUtils.isEmpty(str) && arrayList != null) {
             JSONArray jSONArray = new JSONArray();
             int min = Math.min(30, arrayList.size());
@@ -68,26 +68,26 @@ public class d {
             ArrayList<f> arrayList2 = new ArrayList<>();
             for (int i = size; i < min; i++) {
                 f fVar = arrayList.get(i);
-                if (fVar != null && !TextUtils.isEmpty(fVar.forumName) && (aos = fVar.aos()) != null) {
-                    jSONArray.put(aos);
+                if (fVar != null && !TextUtils.isEmpty(fVar.forumName) && (aqm = fVar.aqm()) != null) {
+                    jSONArray.put(aqm);
                     arrayList2.add(fVar);
                 }
             }
-            if (!v.v(arrayList2)) {
-                this.cPi.put(str, arrayList2);
-                if (!this.cPc) {
-                    aop();
+            if (!v.w(arrayList2)) {
+                this.cYx.put(str, arrayList2);
+                if (!this.cYr) {
+                    aqj();
                 } else {
-                    lw(jSONArray.toString());
+                    lF(jSONArray.toString());
                 }
             }
         }
     }
 
-    public synchronized f lv(String str) {
+    public synchronized f lE(String str) {
         f fVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<f> arrayList = this.cPi.get(aoi());
+            ArrayList<f> arrayList = this.cYx.get(aqc());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -111,20 +111,20 @@ public class d {
         return fVar;
     }
 
-    private void lw(String str) {
-        l<String> aok = aok();
-        if (aok != null) {
-            aok.f("frs_sortType", str);
+    private void lF(String str) {
+        l<String> aqe = aqe();
+        if (aqe != null) {
+            aqe.f("frs_sortType", str);
         }
     }
 
-    public void aop() {
+    public void aqj() {
         com.baidu.tbadk.util.v.a(new u<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
-            /* renamed from: aor */
+            /* renamed from: aql */
             public l<String> doInBackground() {
-                return d.this.aok();
+                return d.this.aqe();
             }
         }, new h<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.d.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -135,12 +135,12 @@ public class d {
                     lVar.a("frs_sortType", new l.a<String>() { // from class: com.baidu.tieba.frs.smartsort.d.2.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.adp.lib.cache.l.a
-                        /* renamed from: aU */
+                        /* renamed from: aX */
                         public void g(String str, String str2) {
                             if (str2 != null) {
-                                d.this.cPi.put(d.this.aoi(), d.this.lu(str2));
+                                d.this.cYx.put(d.this.aqc(), d.this.lD(str2));
                             }
-                            d.this.cPc = true;
+                            d.this.cYr = true;
                         }
                     });
                 }
@@ -149,12 +149,12 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public l<String> aok() {
-        return com.baidu.tbadk.core.c.a.td().N("frs_sortType", TbadkCoreApplication.getCurrentAccount());
+    public l<String> aqe() {
+        return com.baidu.tbadk.core.c.a.tg().N("frs_sortType", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<f> lu(String str) {
+    public ArrayList<f> lD(String str) {
         ArrayList<f> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -169,8 +169,8 @@ public class d {
         return arrayList;
     }
 
-    public void aoq() {
-        lw("");
-        this.cPi.remove(aoi());
+    public void aqk() {
+        lF("");
+        this.cYx.remove(aqc());
     }
 }

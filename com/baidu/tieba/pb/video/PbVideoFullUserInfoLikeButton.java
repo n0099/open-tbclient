@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.video;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
@@ -22,13 +21,12 @@ public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.aoS) {
-            setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            aj.i(this, d.C0080d.cp_bg_line_d_alpha80);
-            setBackgroundDrawable(null);
+        if (this.apk) {
+            aj.j(this, d.f.haslike_grey_bg);
+            aj.i(this, d.C0082d.cp_cont_e);
             return;
         }
-        setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.icon_add_home_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        aj.i(this, d.C0080d.cp_cont_i);
+        aj.j(this, d.f.like_blue_bg);
+        aj.i(this, d.C0082d.cp_cont_i);
     }
 }

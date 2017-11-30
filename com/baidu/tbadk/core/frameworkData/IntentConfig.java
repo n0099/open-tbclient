@@ -53,6 +53,9 @@ public class IntentConfig extends OrmObject {
     public static final String IS_FROM_PB = "is_from_pb";
     public static final String IS_MASK = "isMask";
     public static final String IS_NEED_MULTIPLE = "is_need_multiple";
+    public static final String KEY_ALBUM_THREAD = "album_thread";
+    public static final String KEY_FROM_IM = "from_im";
+    public static final String KEY_FROM_WRITEACTIVITY = "from_write";
     private static final long LAUNCH_ACTIVITY_INTERVAL_TIME = 500;
     public static final String LIST = "list";
     public static final String LIST_TYPE = "list_type";
@@ -143,7 +146,7 @@ public class IntentConfig extends OrmObject {
             } else {
                 arrayList = (ArrayList) ((com.baidu.tbadk.pageStayDuration.a) X).getNextPageSourceKeyList();
             }
-            if (!v.v(arrayList)) {
+            if (!v.w(arrayList)) {
                 this.mIntent.putStringArrayListExtra(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, arrayList);
             }
         }

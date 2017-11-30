@@ -1,5 +1,6 @@
 package com.baidu.tieba.likedForum;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.o;
@@ -7,8 +8,18 @@ import tbclient.RecommendForumListForBottle.DataReq;
 import tbclient.RecommendForumListForBottle.RecommendForumListForBottleReqIdl;
 /* loaded from: classes.dex */
 public class GetBottleForumListReqMessage extends NetMessage {
+    private BdUniqueId mRequestId;
+
     public GetBottleForumListReqMessage() {
         super(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440);
+    }
+
+    public void setRequestId(BdUniqueId bdUniqueId) {
+        this.mRequestId = bdUniqueId;
+    }
+
+    public BdUniqueId getRequestId() {
+        return this.mRequestId;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

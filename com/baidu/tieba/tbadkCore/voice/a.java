@@ -4,15 +4,17 @@ import com.baidu.adp.lib.voice.f;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public interface a {
+    void a(f fVar);
+
     void a(TbPageContext<?> tbPageContext);
 
     boolean a(f fVar, int i);
 
     void bJ(String str);
 
-    void lE();
+    void lG();
 
-    boolean lF();
+    boolean lH();
 
     void release();
 

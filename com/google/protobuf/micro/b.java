@@ -71,7 +71,7 @@ public final class b {
         return new b(inputStream);
     }
 
-    public static b k(byte[] bArr, int i, int i2) {
+    public static b m(byte[] bArr, int i, int i2) {
         return new b(bArr, i, i2);
     }
 
@@ -152,17 +152,17 @@ public final class b {
         }
     }
 
-    public a bJe() {
+    public a bMa() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return a.K(ww(j));
+            return a.J(wU(j));
         }
-        a j2 = a.j(this.a, this.d, j);
+        a l = a.l(this.a, this.d, j);
         this.d = j + this.d;
-        return j2;
+        return l;
     }
 
-    public byte bJf() {
+    public byte bMb() {
         if (this.d == this.b) {
             a(true);
         }
@@ -236,7 +236,7 @@ public final class b {
     public String g() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return new String(ww(j), "UTF-8");
+            return new String(wU(j), "UTF-8");
         }
         String str = new String(this.a, this.d, j, "UTF-8");
         this.d = j + this.d;
@@ -248,31 +248,31 @@ public final class b {
     }
 
     public int j() {
-        byte bJf = bJf();
-        if (bJf >= 0) {
-            return bJf;
+        byte bMb = bMb();
+        if (bMb >= 0) {
+            return bMb;
         }
-        int i = bJf & Byte.MAX_VALUE;
-        byte bJf2 = bJf();
-        if (bJf2 >= 0) {
-            return i | (bJf2 << 7);
+        int i = bMb & Byte.MAX_VALUE;
+        byte bMb2 = bMb();
+        if (bMb2 >= 0) {
+            return i | (bMb2 << 7);
         }
-        int i2 = i | ((bJf2 & Byte.MAX_VALUE) << 7);
-        byte bJf3 = bJf();
-        if (bJf3 >= 0) {
-            return i2 | (bJf3 << 14);
+        int i2 = i | ((bMb2 & Byte.MAX_VALUE) << 7);
+        byte bMb3 = bMb();
+        if (bMb3 >= 0) {
+            return i2 | (bMb3 << 14);
         }
-        int i3 = i2 | ((bJf3 & Byte.MAX_VALUE) << 14);
-        byte bJf4 = bJf();
-        if (bJf4 >= 0) {
-            return i3 | (bJf4 << 21);
+        int i3 = i2 | ((bMb3 & Byte.MAX_VALUE) << 14);
+        byte bMb4 = bMb();
+        if (bMb4 >= 0) {
+            return i3 | (bMb4 << 21);
         }
-        int i4 = i3 | ((bJf4 & Byte.MAX_VALUE) << 21);
-        byte bJf5 = bJf();
-        int i5 = i4 | (bJf5 << 28);
-        if (bJf5 < 0) {
+        int i4 = i3 | ((bMb4 & Byte.MAX_VALUE) << 21);
+        byte bMb5 = bMb();
+        int i5 = i4 | (bMb5 << 28);
+        if (bMb5 < 0) {
             for (int i6 = 0; i6 < 5; i6++) {
-                if (bJf() >= 0) {
+                if (bMb() >= 0) {
                     return i5;
                 }
             }
@@ -284,9 +284,9 @@ public final class b {
     public long k() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
-            byte bJf = bJf();
-            j |= (bJf & Byte.MAX_VALUE) << i;
-            if ((bJf & 128) == 0) {
+            byte bMb = bMb();
+            j |= (bMb & Byte.MAX_VALUE) << i;
+            if ((bMb & 128) == 0) {
                 return j;
             }
         }
@@ -294,20 +294,20 @@ public final class b {
     }
 
     public int l() {
-        return (bJf() & 255) | ((bJf() & 255) << 8) | ((bJf() & 255) << 16) | ((bJf() & 255) << 24);
+        return (bMb() & 255) | ((bMb() & 255) << 8) | ((bMb() & 255) << 16) | ((bMb() & 255) << 24);
     }
 
     public long m() {
-        byte bJf = bJf();
-        byte bJf2 = bJf();
-        return ((bJf2 & 255) << 8) | (bJf & 255) | ((bJf() & 255) << 16) | ((bJf() & 255) << 24) | ((bJf() & 255) << 32) | ((bJf() & 255) << 40) | ((bJf() & 255) << 48) | ((bJf() & 255) << 56);
+        byte bMb = bMb();
+        byte bMb2 = bMb();
+        return ((bMb2 & 255) << 8) | (bMb & 255) | ((bMb() & 255) << 16) | ((bMb() & 255) << 24) | ((bMb() & 255) << 32) | ((bMb() & 255) << 40) | ((bMb() & 255) << 48) | ((bMb() & 255) << 56);
     }
 
     public boolean n() {
         return this.d == this.b && !a(false);
     }
 
-    public byte[] ww(int i) {
+    public byte[] wU(int i) {
         if (i < 0) {
             throw d.b();
         }

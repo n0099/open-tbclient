@@ -2,68 +2,68 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class m extends c {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private ak bVm;
-    private ak bVn;
-    private ak bVo;
-    private ak bVp;
-    public bh bff;
+    public bd bjD;
+    private ak cdG;
+    private ak cdH;
+    private ak cdI;
+    private ak cdJ;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
         return TYPE;
     }
 
-    public m(bh bhVar) {
-        this.bff = bhVar;
+    public m(bd bdVar) {
+        this.bjD = bdVar;
     }
 
-    public static boolean A(bh bhVar) {
-        return bhVar != null && bhVar.getThreadType() == 33;
+    public static boolean D(bd bdVar) {
+        return bdVar != null && bdVar.getThreadType() == 33;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bh NA() {
-        return this.bff;
+    public bd Ox() {
+        return this.bjD;
     }
 
-    public int aaB() {
-        return (this.bff == null || StringUtils.isNull(this.bff.getPhotoLiveCover())) ? 0 : 1;
+    public int ack() {
+        return (this.bjD == null || StringUtils.isNull(this.bjD.getPhotoLiveCover())) ? 0 : 1;
     }
 
     public void b(ak akVar) {
-        this.bVm = akVar;
+        this.cdG = akVar;
     }
 
     public void c(ak akVar) {
-        this.bVn = akVar;
+        this.cdH = akVar;
     }
 
     public void d(ak akVar) {
-        this.bVo = akVar;
+        this.cdI = akVar;
     }
 
     public void e(ak akVar) {
-        this.bVp = akVar;
+        this.cdJ = akVar;
     }
 
-    public ak aaC() {
-        return this.bVm != null ? this.bVm.ac("obj_param3", com.baidu.tieba.card.m.ZY()) : this.bVm;
+    public ak acl() {
+        return this.cdG != null ? this.cdG.ac("obj_param3", com.baidu.tieba.card.k.abH()) : this.cdG;
     }
 
-    public ak aaD() {
-        return this.bVn != null ? this.bVn.ac("obj_param3", com.baidu.tieba.card.m.ZY()) : this.bVn;
+    public ak acm() {
+        return this.cdH != null ? this.cdH.ac("obj_param3", com.baidu.tieba.card.k.abH()) : this.cdH;
     }
 
-    public ak aaE() {
-        return this.bVp != null ? this.bVp.ac("obj_param3", com.baidu.tieba.card.m.ZY()) : this.bVp;
+    public ak acn() {
+        return this.cdJ != null ? this.cdJ.ac("obj_param3", com.baidu.tieba.card.k.abH()) : this.cdJ;
     }
 
-    public ak aaF() {
-        return this.bVo != null ? this.bVo.ac("obj_param3", com.baidu.tieba.card.m.ZY()) : this.bVo;
+    public ak aco() {
+        return this.cdI != null ? this.cdI.ac("obj_param3", com.baidu.tieba.card.k.abH()) : this.cdI;
     }
 }

@@ -13,10 +13,10 @@ public class g {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String dwB;
-        public long dwI;
-        public String dwJ;
-        public int dwK;
+        public String dEq;
+        public long dEx;
+        public String dEy;
+        public int dEz;
         public String fid;
         public long picId;
         public String src;
@@ -59,14 +59,14 @@ public class g {
                 aVar.fid = str2;
                 aVar.picId = optLong;
                 aVar.taskId = j2;
-                aVar.dwB = optString5;
+                aVar.dEq = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }
                 if (userData != null) {
-                    aVar.dwI = j;
-                    aVar.dwJ = userData.getUserId();
-                    aVar.dwK = userData.getUserType();
+                    aVar.dEx = j;
+                    aVar.dEy = userData.getUserId();
+                    aVar.dEz = userData.getUserType();
                 }
                 linkedList.add(aVar);
             }

@@ -25,6 +25,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, f {
     private transient MsgCacheData cacheData;
     private String content;
     private int customGroupType;
+    private int followStatus;
     private GifInfo gifInfo;
     private String groupId;
     private boolean hasRead;
@@ -336,6 +337,14 @@ public abstract class ChatMessage extends TbSocketMessage implements a, f {
 
     public void setIsFriend(int i) {
         this.isFriend = i;
+    }
+
+    public void setFollowStatus(int i) {
+        this.followStatus = i;
+    }
+
+    public int getFollowStatus() {
+        return this.followStatus;
     }
 
     public int getCustomGroupType() {

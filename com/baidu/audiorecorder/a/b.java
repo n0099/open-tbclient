@@ -2,7 +2,7 @@ package com.baidu.audiorecorder.a;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.audiorecorder.lib.voice.g;
+import com.baidu.audiorecorder.lib.voice.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.editortools.r;
@@ -11,17 +11,17 @@ import com.baidu.tieba.d;
 public class b extends r {
     public b(Context context) {
         super(context, TbadkCoreApplication.getInst().getResources().getString(d.j.msglist_voice), 6);
-        this.aBY = d.f.btn_pb_add_microphone;
-        this.aCb = 6;
-        this.aCc = true;
-        this.aBn = g.ah(context);
-        this.aCd = new int[]{1, 9};
+        this.aCB = d.f.btn_pb_add_microphone;
+        this.aCE = 6;
+        this.aCF = true;
+        this.aBO = new e(context);
+        this.aCG = new int[]{1, 9};
     }
 
     @Override // com.baidu.tbadk.editortools.r
-    public boolean lP() {
+    public boolean lS() {
         if (TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
-            return super.lP();
+            return super.lS();
         }
         String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
         if (StringUtils.isNull(uegVoiceWarning)) {

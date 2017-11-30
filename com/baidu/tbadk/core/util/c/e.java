@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.ao;
 import java.io.File;
 /* loaded from: classes.dex */
 public class e implements com.baidu.adp.lib.f.e<a> {
-    private final l aiV = new l();
+    private final n ajr = new n();
 
     @Override // com.baidu.adp.lib.f.e
     public boolean fM() {
@@ -22,7 +22,7 @@ public class e implements com.baidu.adp.lib.f.e<a> {
         return null;
     }
 
-    private void wa() {
+    private void wd() {
         b bVar = new b(TbConfig.SHARE_HUB_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
         bVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         bVar.t(true);
@@ -30,7 +30,7 @@ public class e implements com.baidu.adp.lib.f.e<a> {
     }
 
     private DiskFileOperate a(com.baidu.adp.widget.a.a aVar, String str) {
-        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, ao.dV(str), DiskFileOperate.Action.WRITE_FORCE);
+        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, ao.dX(str), DiskFileOperate.Action.WRITE_FORCE);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
         diskFileOperate.t(true);
         diskFileOperate.setData(aVar.kP());
@@ -41,8 +41,8 @@ public class e implements com.baidu.adp.lib.f.e<a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: c */
     public a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        wa();
-        com.baidu.adp.widget.a.a a2 = this.aiV.a(str, str2, aVar, objArr);
+        wd();
+        com.baidu.adp.widget.a.a a2 = this.ajr.a(str, str2, aVar, objArr);
         if (a2 != null && a2.kP() != null) {
             DiskFileOperate a3 = a(a2, str2);
             if (com.baidu.adp.lib.Disk.d.dH().b(a3) && a3.dV() != null) {
@@ -56,8 +56,8 @@ public class e implements com.baidu.adp.lib.f.e<a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: c */
     public a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        wa();
-        com.baidu.adp.widget.a.a a2 = this.aiV.a(str, str2, i, i2, bdAsyncTask, aVar, objArr);
+        wd();
+        com.baidu.adp.widget.a.a a2 = this.ajr.a(str, str2, i, i2, bdAsyncTask, aVar, objArr);
         if (a2 != null && a2.kP() != null) {
             DiskFileOperate a3 = a(a2, str2);
             if (com.baidu.adp.lib.Disk.d.dH().b(a3) && a3.dV() != null) {
@@ -69,17 +69,17 @@ public class e implements com.baidu.adp.lib.f.e<a> {
 
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
-        this.aiV.a(str, obj, objArr);
+        this.ajr.a(str, obj, objArr);
     }
 
     @Override // com.baidu.adp.lib.f.e
     public BdAsyncTaskParallel fN() {
-        return this.aiV.fN();
+        return this.ajr.fN();
     }
 
     @Override // com.baidu.adp.lib.f.e
     public int fO() {
-        return this.aiV.fO();
+        return this.ajr.fO();
     }
 
     /* loaded from: classes.dex */
@@ -96,11 +96,11 @@ public class e implements com.baidu.adp.lib.f.e<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public com.baidu.adp.widget.a.a aiW;
+        public com.baidu.adp.widget.a.a ajs;
         public String path;
 
         public a(com.baidu.adp.widget.a.a aVar, String str) {
-            this.aiW = aVar;
+            this.ajs = aVar;
             this.path = str;
         }
     }

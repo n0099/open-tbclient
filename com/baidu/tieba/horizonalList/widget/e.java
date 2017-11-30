@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e implements Filterable, WrapperListAdapter {
-    static final ArrayList<HListView.b> dlU = new ArrayList<>();
+    static final ArrayList<HListView.b> dtI = new ArrayList<>();
     boolean Hg;
     private final ListAdapter mAdapter;
     ArrayList<HListView.b> mFooterViewInfos;
@@ -23,12 +23,12 @@ public class e implements Filterable, WrapperListAdapter {
         this.mAdapter = listAdapter;
         this.mIsFilterable = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.mHeaderViewInfos = dlU;
+            this.mHeaderViewInfos = dtI;
         } else {
             this.mHeaderViewInfos = arrayList;
         }
         if (arrayList2 == null) {
-            this.mFooterViewInfos = dlU;
+            this.mFooterViewInfos = dtI;
         } else {
             this.mFooterViewInfos = arrayList2;
         }
@@ -58,6 +58,36 @@ public class e implements Filterable, WrapperListAdapter {
             }
         }
         return true;
+    }
+
+    public boolean removeHeader(View view) {
+        boolean z = false;
+        for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
+            if (this.mHeaderViewInfos.get(i).view == view) {
+                this.mHeaderViewInfos.remove(i);
+                if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
+                    z = true;
+                }
+                this.Hg = z;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean removeFooter(View view) {
+        boolean z = false;
+        for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
+            if (this.mFooterViewInfos.get(i).view == view) {
+                this.mFooterViewInfos.remove(i);
+                if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
+                    z = true;
+                }
+                this.Hg = z;
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override // android.widget.Adapter

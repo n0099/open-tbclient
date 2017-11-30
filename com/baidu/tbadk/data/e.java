@@ -8,23 +8,23 @@ import java.util.List;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId azF = BdUniqueId.gen();
+    public static final BdUniqueId aAg = BdUniqueId.gen();
     private String fid;
     private String forumName;
     private List<AlaLiveInfoCoreData> list;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return azF;
+        return aAg;
     }
 
     public List<AlaLiveInfoCoreData> getList() {
         return this.list;
     }
 
-    public void x(List<AlaLiveInfo> list) {
-        if (list != null && !v.v(list)) {
-            if (this.list == null || !v.v(this.list)) {
+    public void y(List<AlaLiveInfo> list) {
+        if (list != null && !v.w(list)) {
+            if (this.list == null || !v.w(this.list)) {
                 this.list = new ArrayList();
             }
             for (AlaLiveInfo alaLiveInfo : list) {

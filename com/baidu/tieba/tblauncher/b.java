@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.core.e.a {
-    private a guU;
+    private a gDS;
 
     @Override // com.baidu.tbadk.core.e.a
     public void c(Context context, int i, boolean z) {
@@ -21,7 +21,7 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void aE(Context context) {
+    public void aG(Context context) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
             h(context, 1);
@@ -36,24 +36,24 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public Class<?> tV() {
+    public Class<?> tY() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public String tW() {
+    public String tZ() {
         return MainTabActivity.class.getName();
     }
 
     @Override // com.baidu.tbadk.core.e.a
     public int getCurrentTabType() {
-        if (this.guU != null) {
-            return this.guU.getCurrentTabType();
+        if (this.gDS != null) {
+            return this.gDS.getCurrentTabType();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.guU = aVar;
+        this.gDS = aVar;
     }
 }

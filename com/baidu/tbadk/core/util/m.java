@@ -43,7 +43,7 @@ public class m {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(tbPageContext.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));
                 }
             } else if (bs == PluginPackageManager.PluginStatus.FORBIDDEN) {
-                com.baidu.tbadk.coreExtra.e.a.a(tbPageContext, d.j.plugin_cookery_god_forbidden, new a.b() { // from class: com.baidu.tbadk.core.util.m.1
+                com.baidu.tbadk.coreExtra.d.a.a(tbPageContext, d.j.plugin_cookery_god_forbidden, new a.b() { // from class: com.baidu.tbadk.core.util.m.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(TbPageContext.this.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));

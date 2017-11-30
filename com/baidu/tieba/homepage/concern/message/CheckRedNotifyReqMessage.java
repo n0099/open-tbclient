@@ -7,8 +7,11 @@ import tbclient.RedNotify.DataReq;
 import tbclient.RedNotify.RedNotifyReqIdl;
 /* loaded from: classes.dex */
 public class CheckRedNotifyReqMessage extends NetMessage {
+    public boolean reqUnreadTipAfterFinish;
+
     public CheckRedNotifyReqMessage() {
         super(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476);
+        this.reqUnreadTipAfterFinish = false;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

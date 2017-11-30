@@ -36,7 +36,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class d {
-    public static boolean Rp = true;
+    public static boolean RY = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new CustomMessageListener(0) { // from class: com.baidu.tbadk.browser.d.1
@@ -44,11 +44,11 @@ public class d {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
-                    a.ax(TbadkCoreApplication.getInst());
+                    a.az(TbadkCoreApplication.getInst());
                 }
             }
         });
-        av.vI().a(new av.c() { // from class: com.baidu.tbadk.browser.d.2
+        av.vL().a(new av.c() { // from class: com.baidu.tbadk.browser.d.2
             @Override // com.baidu.tbadk.core.util.av.c
             public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, av.d dVar, boolean z2) {
                 if (z2) {
@@ -59,16 +59,16 @@ public class d {
             }
         });
         com.baidu.adp.lib.b.d.eV().a(new com.baidu.adp.lib.b.b("switch_mbaidu_startup", 1, null));
-        od();
-        of();
-        og();
+        ok();
+        om();
+        on();
     }
 
-    private static void od() {
-        av.vI().a(new av.a() { // from class: com.baidu.tbadk.browser.d.3
+    private static void ok() {
+        av.vL().a(new av.a() { // from class: com.baidu.tbadk.browser.d.3
             @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-                Bundle gZ;
+                Bundle hc;
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
@@ -86,7 +86,7 @@ public class d {
                     String substring = str.substring(4);
                     String str4 = "";
                     if (str.contains("body=")) {
-                        str4 = z.ar(str, "body=");
+                        str4 = z.as(str, "body=");
                         int indexOf = substring.indexOf("?");
                         if (indexOf >= 1) {
                             substring = substring.substring(0, indexOf - 1);
@@ -97,7 +97,7 @@ public class d {
                     UtilHelper.smsTo(tbPageContext.getPageActivity(), substring, str4);
                     return 0;
                 } else if (str.contains("jump=outer")) {
-                    a.Q(tbPageContext.getPageActivity(), str);
+                    a.R(tbPageContext.getPageActivity(), str);
                     return 1;
                 } else if ((str.contains("jump=finish_this_page") || str.startsWith("closewebview://")) && tbPageContext.getPageActivity() != null) {
                     tbPageContext.getPageActivity().finish();
@@ -121,10 +121,10 @@ public class d {
                     tbPageContext.getPageActivity().finish();
                     return 1;
                 } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("bunding_phone=1")) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, z.ar(str, "bindid=")));
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, z.as(str, "bindid=")));
                     tbPageContext.getPageActivity().finish();
                     return 1;
-                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gZ = z.gZ(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gZ.getString("path"))) {
+                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (hc = z.hc(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(hc.getString("path"))) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
                     return 0;
                 } else {
@@ -215,7 +215,7 @@ public class d {
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
         String cf = cf(str);
-        if (!ci(cf) && oe() && ck("com.baidu.searchbox") && cj(cf) && Rp) {
+        if (!ci(cf) && ol() && ck("com.baidu.searchbox") && cj(cf) && RY) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;
@@ -227,7 +227,7 @@ public class d {
         return WhiteListData.createBySP().checkUrl(str);
     }
 
-    private static boolean oe() {
+    private static boolean ol() {
         return com.baidu.adp.lib.b.d.eV().af("switch_mbaidu_startup") == 1;
     }
 
@@ -268,7 +268,7 @@ public class d {
     public static void c(final TbPageContext<?> tbPageContext, String str, final String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         final String cg = cg(str);
         if (z) {
-            com.baidu.tbadk.coreExtra.e.a.a(tbPageContext, new a.b() { // from class: com.baidu.tbadk.browser.d.4
+            com.baidu.tbadk.coreExtra.d.a.a(tbPageContext, new a.b() { // from class: com.baidu.tbadk.browser.d.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
@@ -285,8 +285,8 @@ public class d {
         }
     }
 
-    private static void of() {
-        av.vI().a(new av.a() { // from class: com.baidu.tbadk.browser.d.6
+    private static void om() {
+        av.vL().a(new av.a() { // from class: com.baidu.tbadk.browser.d.6
             @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 PbActivityConfig createNormalCfg;
@@ -302,8 +302,8 @@ public class d {
                     if (queryParameter == null || queryParameter.length() <= 0) {
                         return 3;
                     }
-                    if (queryParameter2 != null && (queryParameter2.equals("2") || queryParameter2.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE))) {
-                        createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createViewTypeCfg(queryParameter, Boolean.valueOf(queryParameter2.equals("2")).booleanValue(), Boolean.valueOf(queryParameter2.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE) ? false : true).booleanValue(), "lego");
+                    if (queryParameter2 != null && (queryParameter2.equals("2") || queryParameter2.equals("3"))) {
+                        createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createViewTypeCfg(queryParameter, Boolean.valueOf(queryParameter2.equals("2")).booleanValue(), Boolean.valueOf(queryParameter2.equals("3") ? false : true).booleanValue(), "lego");
                         createNormalCfg.setVideo_source("frs");
                     } else {
                         createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(queryParameter, null, "lego");
@@ -344,8 +344,8 @@ public class d {
         });
     }
 
-    private static void og() {
-        av.vI().a(new av.a() { // from class: com.baidu.tbadk.browser.d.7
+    private static void on() {
+        av.vL().a(new av.a() { // from class: com.baidu.tbadk.browser.d.7
             @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

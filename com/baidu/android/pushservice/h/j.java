@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.h;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -33,7 +32,7 @@ public class j extends m {
             jSONObject.put("msg_type", this.c);
         }
         if (!TextUtils.isEmpty(this.a)) {
-            jSONObject.put(PbActivityConfig.KEY_MSG_ID, this.a);
+            jSONObject.put("msg_id", this.a);
         }
         if (this.b > 0) {
             jSONObject.put("msg_len", this.b);

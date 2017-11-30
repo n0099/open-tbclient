@@ -1,10 +1,12 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.ImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu.tbadk.core.util.ae, com.baidu.tbadk.core.util.u, TbCheckBox.b {
     public static final int TYPE_COMMON_ATTENTION = 1;
@@ -14,6 +16,8 @@ public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu
     public static final String TYPE_USER = "type_user";
     public static final String TYPE_USER_NICKNAME_LEFT_DAYS = "type_user_nickname_left_days";
     private static final long serialVersionUID = -2636990595209169859L;
+    public boolean isLastNewFan;
+    public boolean isNewFan;
     public int mAttentionType;
     private boolean mIsChecked;
 
@@ -80,5 +84,21 @@ public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu
         preLoadImageInfo.procType = 12;
         arrayList.add(preLoadImageInfo);
         return arrayList;
+    }
+
+    @Override // com.baidu.tbadk.data.UserData, com.baidu.tbadk.data.MetaData
+    public void parserJson(JSONObject jSONObject) {
+        super.parserJson(jSONObject);
+        try {
+            this.isNewFan = jSONObject.optInt("is_new") == 1;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tbadk.core.view.userLike.a
+    public void setIsLike(boolean z) {
+        super.setIsLike(z);
+        setHave_attention(z ? 1 : 0);
     }
 }

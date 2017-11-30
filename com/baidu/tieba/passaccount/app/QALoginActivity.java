@@ -30,14 +30,14 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class QALoginActivity extends BaseActivity {
-    private BdAsyncTask<?, ?, ?> aYK;
+    private BdAsyncTask<?, ?, ?> bbW;
     private WebView mWebView;
     private String wt = "";
-    private String eDs = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
-    private String eDt = "http://wappass.qatest.baidu.com/passport/?login&u=https://tieba.baidu.com";
-    private boolean eDi = false;
+    private String eLd = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
+    private String eLe = "http://wappass.qatest.baidu.com/passport/?login&u=https://tieba.baidu.com";
+    private boolean eKT = false;
     private int mFrom = -1;
-    private final a.InterfaceC0044a adK = new a.InterfaceC0044a() { // from class: com.baidu.tieba.passaccount.app.QALoginActivity.2
+    private final a.InterfaceC0044a aef = new a.InterfaceC0044a() { // from class: com.baidu.tieba.passaccount.app.QALoginActivity.2
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0044a
         public void cu(String str) {
             if (QALoginActivity.this.getLoadingDialog() == null || !QALoginActivity.this.getLoadingDialog().isShowing()) {
@@ -60,9 +60,9 @@ public class QALoginActivity extends BaseActivity {
             }
             q(accountData);
             if (QALoginActivity.this.mFrom == 4) {
-                QALoginActivity.this.LK();
+                QALoginActivity.this.Mp();
             } else {
-                QALoginActivity.this.aOW();
+                QALoginActivity.this.aQh();
             }
         }
 
@@ -82,7 +82,7 @@ public class QALoginActivity extends BaseActivity {
                 }
             });
             TbadkCoreApplication.setCurrentAccount(accountData, QALoginActivity.this.getPageContext().getPageActivity());
-            com.baidu.tbadk.browser.a.ax(TbadkCoreApplication.getInst());
+            com.baidu.tbadk.browser.a.az(TbadkCoreApplication.getInst());
         }
     };
 
@@ -91,7 +91,7 @@ public class QALoginActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
-        this.eDi = intent.getBooleanExtra(IntentConfig.CLOSE, false);
+        this.eKT = intent.getBooleanExtra(IntentConfig.CLOSE, false);
         this.mFrom = intent.getIntExtra("from", -1);
         initView();
         initListener();
@@ -106,7 +106,7 @@ public class QALoginActivity extends BaseActivity {
     }
 
     public void initData() {
-        this.mWebView.loadUrl(this.eDt);
+        this.mWebView.loadUrl(this.eLe);
     }
 
     public void initListener() {
@@ -124,7 +124,7 @@ public class QALoginActivity extends BaseActivity {
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
-                if (str.startsWith(QALoginActivity.this.eDs) || str.startsWith("https://tieba.baidu.com")) {
+                if (str.startsWith(QALoginActivity.this.eLd) || str.startsWith("https://tieba.baidu.com")) {
                     String cookie = CookieManager.getInstance().getCookie(str);
                     if (cookie.contains("BDUSS=")) {
                         String[] split = cookie.split("=");
@@ -143,7 +143,7 @@ public class QALoginActivity extends BaseActivity {
                         }
                     }
                     if (QALoginActivity.this.wt != null && QALoginActivity.this.wt.length() > 0) {
-                        QALoginActivity.this.aOX();
+                        QALoginActivity.this.aQi();
                         return;
                     }
                     QALoginActivity.this.showToast("登录失败");
@@ -156,16 +156,16 @@ public class QALoginActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOX() {
+    public void aQi() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
-        if (this.aYK != null) {
-            this.aYK.cancel();
+        if (this.bbW != null) {
+            this.bbW.cancel();
         }
-        this.aYK = com.baidu.tieba.model.b.b("", this.wt, "", null, this.adK);
+        this.bbW = com.baidu.tieba.model.b.b("", this.wt, "", null, this.aef);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LK() {
+    public void Mp() {
         com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_startApp", 0, "", new Object[0]);
         if (TbadkCoreApplication.getInst().getIsFirstUse()) {
             if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) != null) {
@@ -183,11 +183,11 @@ public class QALoginActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOW() {
+    public void aQh() {
         int i = 1;
         com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.getInst().onUserChanged();
-        if (this.eDi) {
+        if (this.eKT) {
             Intent intent = new Intent();
             intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
             setResult(-1, intent);

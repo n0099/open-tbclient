@@ -10,7 +10,7 @@ public class e {
     public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.e.1
             @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-            public boolean me(String str) {
+            public boolean mn(String str) {
                 return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(1) && str.equals(ChatStatusManager.getInst().getCurId(1));
             }
         }, ChatStatusManager.getInst().getIsOpen(4));

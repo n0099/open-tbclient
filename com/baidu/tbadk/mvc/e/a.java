@@ -1,19 +1,19 @@
 package com.baidu.tbadk.mvc.e;
 /* loaded from: classes.dex */
 public abstract class a<T> extends b<T> {
-    protected Class<T> aIj;
+    protected Class<T> aIK;
     protected String sE;
 
     public a(int i, String str, Class<T> cls) {
         super(i);
         this.sE = str;
-        this.aIj = cls;
+        this.aIK = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public T FD() {
+    public T FK() {
         try {
-            return this.aIj.newInstance();
+            return this.aIK.newInstance();
         } catch (ExceptionInInitializerError e) {
             e.printStackTrace();
             return null;

@@ -6,18 +6,18 @@ import com.baidu.adp.widget.ListView.j;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends j.a {
-    public TextView amQ;
-    public TextView amT;
-    public int aph;
-    public TextView czg;
-    public TextView czh;
+    public TextView anm;
+    public TextView ann;
+    public int apA;
+    public TextView cIl;
+    public TextView cIm;
 
     public g(View view) {
         super(view);
-        this.aph = 3;
-        this.amQ = (TextView) getView().findViewById(d.g.frs_god_lv_reply_time);
-        this.amT = (TextView) getView().findViewById(d.g.frs_god_praise_num);
-        this.czh = (TextView) getView().findViewById(d.g.frs_god_reply_num);
-        this.czg = (TextView) getView().findViewById(d.g.frs_god_item_location_address);
+        this.apA = 3;
+        this.anm = (TextView) getView().findViewById(d.g.frs_god_lv_reply_time);
+        this.ann = (TextView) getView().findViewById(d.g.frs_god_praise_num);
+        this.cIm = (TextView) getView().findViewById(d.g.frs_god_reply_num);
+        this.cIl = (TextView) getView().findViewById(d.g.frs_god_item_location_address);
     }
 }

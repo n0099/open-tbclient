@@ -11,73 +11,73 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a extends CustomMessageListener {
-    public static a aaK = null;
-    private static HashMap<String, Integer> aaL = new HashMap<>();
-    private static ArrayList<String> aaM;
-    private static HashMap<String, l<byte[]>> aaN;
-    private static HashMap<String, l<String>> aaO;
+    public static a abg = null;
+    private static HashMap<String, Integer> abh = new HashMap<>();
+    private static ArrayList<String> abi;
+    private static HashMap<String, l<byte[]>> abj;
+    private static HashMap<String, l<String>> abk;
 
     static {
-        aaL.put("tb.pb_mark", 50);
-        aaL.put("tb.pb_history", 300);
-        aaL.put("tb.pb_normal", 1);
-        aaL.put("tb.pb_editor", 50);
-        aaL.put("tb.live_hotlist", 20);
-        aaL.put("tb.live_hotlist", 20);
-        aaL.put("tb.my_pages", 5);
-        aaL.put("tb.my_forums", 3);
-        aaL.put("tb.my_bookmarks", 3);
-        aaL.put("tb.my_posts", 3);
-        aaL.put("tb.im_frsgroup", 50);
-        aaL.put("tb.im_hotgroup", 30);
-        aaL.put("tb.im_groupinfo", 50);
-        aaL.put("tb.im_groupactivity", 50);
-        aaL.put("tb.im_entergroup", 10);
-        aaL.put("tb.im_enterforum_groupinfo", 10);
-        aaL.put("tb.im_group_setting", 3);
-        aaL.put("tb.im_personal_chat_setting", 3);
-        aaL.put("tb.im_official_chat_setting", 3);
-        aaL.put("tb.im_group_search_history", 50);
-        aaL.put("tb.im_official_history", 50);
-        aaL.put("tb.im_recommend_detail", 10);
-        aaL.put("tb.square", 1);
-        aaL.put("tb.first_dir", 1);
-        aaL.put("tb.forum_rank", 20);
-        aaL.put("tb.pic_gif", 50);
-        aaL.put("tb.official_bar_menu", 1000);
-        aaL.put("tb.friend_feed", 20);
-        aaL.put("net_err_record", 30);
-        aaL.put("tb_face_package", 30);
-        aaL.put("tb.recommend_friend", 10);
-        aaL.put("tb.searchperson_history", 5);
-        aaL.put("tb.game_center_home", 20);
-        aaL.put("tb.game_center_list", 20);
-        aaL.put("tb.person_wallet_new", 10);
-        aaL.put("bottom_write_story", 1);
-        aaM = new ArrayList<>();
-        aaM.add("tb.ala.gift_list");
-        aaM.add("tb.square");
-        aaM.add("tb.first_dir");
-        aaM.add("tb.forum_rank");
-        aaM.add("tb.im_group_setting");
-        aaM.add("tb.im_personal_chat_setting");
-        aaM.add("tb.im_official_chat_setting");
-        aaM.add("net_err_record");
-        aaM.add("tb_user_profile");
-        aaM.add("tb_forum_recommend");
-        aaM.add("tb.ad_killer_tags");
-        aaM.add("tb.manga.settings");
-        aaM.add("tb.share_add_experienced");
-        aaO = new HashMap<>();
-        aaN = new HashMap<>();
+        abh.put("tb.pb_mark", 50);
+        abh.put("tb.pb_history", 300);
+        abh.put("tb.pb_normal", 1);
+        abh.put("tb.pb_editor", 50);
+        abh.put("tb.live_hotlist", 20);
+        abh.put("tb.live_hotlist", 20);
+        abh.put("tb.my_pages", 5);
+        abh.put("tb.my_forums", 3);
+        abh.put("tb.my_bookmarks", 3);
+        abh.put("tb.my_posts", 3);
+        abh.put("tb.im_frsgroup", 50);
+        abh.put("tb.im_hotgroup", 30);
+        abh.put("tb.im_groupinfo", 50);
+        abh.put("tb.im_groupactivity", 50);
+        abh.put("tb.im_entergroup", 10);
+        abh.put("tb.im_enterforum_groupinfo", 10);
+        abh.put("tb.im_group_setting", 3);
+        abh.put("tb.im_personal_chat_setting", 3);
+        abh.put("tb.im_official_chat_setting", 3);
+        abh.put("tb.im_group_search_history", 50);
+        abh.put("tb.im_official_history", 50);
+        abh.put("tb.im_recommend_detail", 10);
+        abh.put("tb.square", 1);
+        abh.put("tb.first_dir", 1);
+        abh.put("tb.forum_rank", 20);
+        abh.put("tb.pic_gif", 50);
+        abh.put("tb.official_bar_menu", 1000);
+        abh.put("tb.friend_feed", 20);
+        abh.put("net_err_record", 30);
+        abh.put("tb_face_package", 30);
+        abh.put("tb.recommend_friend", 10);
+        abh.put("tb.searchperson_history", 5);
+        abh.put("tb.game_center_home", 20);
+        abh.put("tb.game_center_list", 20);
+        abh.put("tb.person_wallet_new", 10);
+        abh.put("bottom_write_story", 1);
+        abi = new ArrayList<>();
+        abi.add("tb.ala.gift_list");
+        abi.add("tb.square");
+        abi.add("tb.first_dir");
+        abi.add("tb.forum_rank");
+        abi.add("tb.im_group_setting");
+        abi.add("tb.im_personal_chat_setting");
+        abi.add("tb.im_official_chat_setting");
+        abi.add("net_err_record");
+        abi.add("tb_user_profile");
+        abi.add("tb_forum_recommend");
+        abi.add("tb.ad_killer_tags");
+        abi.add("tb.manga.settings");
+        abi.add("tb.share_add_experienced");
+        abk = new HashMap<>();
+        abj = new HashMap<>();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_KV_CACHE_SUCC));
     }
 
-    public static a td() {
-        if (aaK == null) {
-            aaK = new a();
+    public static a tg() {
+        if (abg == null) {
+            abg = new a();
         }
-        return aaK;
+        return abg;
     }
 
     private a() {
@@ -98,13 +98,13 @@ public class a extends CustomMessageListener {
             return null;
         }
         String str3 = str2 != null ? str + str2 : str;
-        l<byte[]> lVar = aaN.get(str3);
+        l<byte[]> lVar = abj.get(str3);
         if (lVar == null || !(lVar instanceof l)) {
             BdCacheService eE = BdCacheService.eE();
-            Integer num = aaL.get(str);
+            Integer num = abh.get(str);
             num = (num == null || num.intValue() == 0) ? 20 : 20;
             BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-            if (aaM.contains(str)) {
+            if (abi.contains(str)) {
                 cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
             }
             try {
@@ -112,7 +112,7 @@ public class a extends CustomMessageListener {
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            aaN.put(str3, lVar);
+            abj.put(str3, lVar);
             return lVar;
         }
         return lVar;
@@ -123,12 +123,12 @@ public class a extends CustomMessageListener {
             return null;
         }
         String str3 = str2 != null ? str + str2 : str;
-        l<String> lVar = aaO.get(str3);
+        l<String> lVar = abk.get(str3);
         BdCacheService eE = BdCacheService.eE();
-        Integer num = aaL.get(str);
+        Integer num = abh.get(str);
         num = (num == null || num.intValue() == 0) ? 20 : 20;
         BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-        if (aaM.contains(str)) {
+        if (abi.contains(str)) {
             cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
         }
         try {
@@ -144,11 +144,11 @@ public class a extends CustomMessageListener {
             if (str2 != null) {
                 str = str + str2;
             }
-            l<String> lVar = aaO.get(str);
+            l<String> lVar = abk.get(str);
             if (lVar != null) {
                 try {
                     BdCacheService.eE().a(lVar);
-                    aaO.remove(str);
+                    abk.remove(str);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -163,7 +163,7 @@ public class a extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        aaN.clear();
-        aaO.clear();
+        abj.clear();
+        abk.clear();
     }
 }

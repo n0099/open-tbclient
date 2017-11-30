@@ -7,21 +7,21 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class WholeDisplayGridView extends BdGridView {
-    private boolean aoN;
+    private boolean apf;
 
     public WholeDisplayGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aoN = false;
+        this.apf = false;
     }
 
     public WholeDisplayGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aoN = false;
+        this.apf = false;
     }
 
     public WholeDisplayGridView(Context context) {
         super(context);
-        this.aoN = false;
+        this.apf = false;
     }
 
     @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
@@ -31,13 +31,13 @@ public class WholeDisplayGridView extends BdGridView {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 2 && this.aoN) {
+        if (motionEvent.getAction() == 2 && this.apf) {
             return true;
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     public void setForbidMove(boolean z) {
-        this.aoN = z;
+        this.apf = z;
     }
 }

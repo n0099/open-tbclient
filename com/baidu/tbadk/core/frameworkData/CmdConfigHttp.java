@@ -52,6 +52,7 @@ public class CmdConfigHttp {
     public static final int CMD_COMMIT_GRAFFITI = 1003081;
     public static final int CMD_CONCERN_CHECK_RED_NOTIFY = 1003344;
     public static final int CMD_CONCERN_PAGE = 1003343;
+    public static final int CMD_CONCERN_UNREAD_TIP = 1003387;
     public static final int CMD_COOKERY_BET = 1003069;
     public static final int CMD_COOKER_GAME_RESULT = 1003049;
     public static final int CMD_COOKER_RANK_LIST = 1003044;
@@ -96,10 +97,11 @@ public class CmdConfigHttp {
     public static final int CMD_GET_EMOTION_EMOTION_CHANGE = 1003355;
     public static final int CMD_GET_EMOTION_EMOTION_SHOP = 1003354;
     public static final int CMD_GET_EMOTION_INFOS = 1003353;
+    public static final int CMD_GET_EMOTION_MINE_MANAGER = 1003385;
+    public static final int CMD_GET_EMOTION_SINGLE_THREAD = 1003386;
     public static final int CMD_GET_FACE_GROUP_INFO = 1003338;
     public static final int CMD_GET_FACE_MAKE_HOT_WORDS = 1003352;
     public static final int CMD_GET_FINE_PB = 1003006;
-    public static final int CMD_GET_FORUM_PRIVATE_INFO = 1003372;
     public static final int CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH = 1003319;
     public static final int CMD_GET_FRIEND_LIST = 1003004;
     public static final int CMD_GET_GAME_BANNER = 1003013;
@@ -137,6 +139,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_USER_ORDER = 1003075;
     public static final int CMD_GET_USER_VIDEO_LIST = 1003312;
     public static final int CMD_GET_VIDEO_ACTIVITY = 1003376;
+    public static final int CMD_GET_VIDEO_INFO_BY_LOGVID = 1003384;
     public static final int CMD_GIFT_LIST_BY_CATEGORY = 1003046;
     public static final int CMD_GIFT_PALCE_ORDER = 1003053;
     public static final int CMD_GOD_THREAD_LIST = 1003074;
@@ -158,6 +161,7 @@ public class CmdConfigHttp {
     public static final int CMD_MEMBER_CLOSE_AD = 1003090;
     public static final int CMD_MEMBER_FREE_BOOK = 1003321;
     public static final int CMD_MEMBER_TASK = 1003187;
+    public static final int CMD_MOOV_UPLOAD = 1003388;
     public static final int CMD_NEG_FEED_BACK = 1003184;
     public static final int CMD_OP_BOOKRACK = 1003163;
     public static final int CMD_PAYMENT_CONFIRM_INFO = 1001536;
@@ -193,9 +197,9 @@ public class CmdConfigHttp {
     public static final int CMD_SET_READER_LACK_IMAGE_URL = 1003169;
     public static final int CMD_SET_USER_BOOK_HISTORY = 1003170;
     public static final int CMD_SET_USER_PICS = 1003064;
-    public static final int CMD_SET_USER_PRIVATE_FORUM = 1003373;
     public static final int CMD_SHARE_FACE_GROUP = 1003340;
     public static final int CMD_SHARE_REPORT = 1003363;
+    public static final int CMD_SHARE_SUCCESS_REPLY_SERVER = 1003383;
     public static final int CMD_SKIN_DETAIL = 1003037;
     public static final int CMD_SQUARE_FORUM_LIST = 1003060;
     public static final int CMD_STATIC_SPLASH = 1003193;
@@ -285,6 +289,7 @@ public class CmdConfigHttp {
     public static final int PB_LOTTERY_ADD_COUNT = 1001805;
     public static final int PB_LOTTERY_HTTP_CMD = 1001802;
     public static final int PB_PAGE_HTTP_CMD = 1001801;
+    public static final int PB_PLAY_REPORT_CMD = 1004179;
     public static final int PB_PLAY_STATISTICS_CMD = 1001804;
     public static final int PB_PUSH_THREAD_HTTP_CMD = 1001806;
     public static final int PHOTO_LIVE_ADD_BLACK_LIST_HTTP_CMD = 1004103;

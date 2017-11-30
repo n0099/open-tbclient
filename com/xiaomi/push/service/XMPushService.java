@@ -19,7 +19,6 @@ import android.os.IBinder;
 import android.os.Parcelable;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.network.HostManager;
@@ -476,7 +475,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
             return;
         }
         ak.b b2 = ak.a().b(cVar.l(), cVar.n());
-        if (booleanExtra && TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equals(cVar.l()) && (h2 = h()) != null && h2.a()) {
+        if (booleanExtra && "3".equals(cVar.l()) && (h2 = h()) != null && h2.a()) {
             c(new as(this, com.xiaomi.slim.b.a(cVar, b2.i)));
             return;
         }
@@ -589,7 +588,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
             }
         }
         ak a2 = ak.a();
-        if (!booleanExtra || !TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equals(cVarArr[0].l()) || (h2 = h()) == null || !h2.a()) {
+        if (!booleanExtra || !"3".equals(cVarArr[0].l()) || (h2 = h()) == null || !h2.a()) {
             while (i2 < cVarArr.length) {
                 cVarArr[i2] = booleanExtra ? a(cVarArr[i2], a2.b(cVarArr[i2].l(), cVarArr[i2].n()).i) : cVarArr[i2];
                 i2++;

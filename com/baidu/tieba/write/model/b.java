@@ -1,24 +1,24 @@
 package com.baidu.tieba.write.model;
 
-import com.baidu.tieba.write.a.d;
+import com.baidu.tieba.write.a.c;
 /* loaded from: classes2.dex */
 public class b {
-    private com.baidu.tieba.write.a.b gTz = null;
-    private d gTA = null;
+    private com.baidu.tieba.write.a.b heu = null;
+    private c hev = null;
 
-    public com.baidu.tieba.write.a.b bDy() {
-        return this.gTz;
+    public com.baidu.tieba.write.a.b bGe() {
+        return this.heu;
     }
 
     public void a(com.baidu.tieba.write.a.b bVar) {
-        this.gTz = bVar;
+        this.heu = bVar;
     }
 
-    public d bDz() {
-        return this.gTA;
+    public c bGf() {
+        return this.hev;
     }
 
-    public void a(d dVar) {
-        this.gTA = dVar;
+    public void a(c cVar) {
+        this.hev = cVar;
     }
 }

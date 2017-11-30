@@ -1,75 +1,84 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ak;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class x {
-    public String Wo;
-    public String aMq;
-    public String azM;
-    public String fHj;
-    public String fHk;
-    public String fHl;
-    public String fHm;
-    public String fHn;
-    public String mLocate;
-    public String mSource;
-    public String mType;
-    public String mUid;
+    private static x fQm = null;
+    private HashMap<String, a> fQn = new HashMap<>();
 
-    public ak f(ak akVar) {
-        if (akVar != null) {
-            if (!StringUtils.isNull(this.mLocate)) {
-                akVar.ac("obj_locate", this.mLocate);
-            }
-            if (!StringUtils.isNull(this.aMq)) {
-                akVar.ac("tid", this.aMq);
-            }
-            if (!StringUtils.isNull(this.azM)) {
-                akVar.ac(ImageViewerConfig.FORUM_ID, this.azM);
-            }
-            if (!StringUtils.isNull(this.mUid)) {
-                akVar.ac(SapiAccountManager.SESSION_UID, this.mUid);
-            }
-            if (!StringUtils.isNull(this.mSource)) {
-                akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
-            }
-            if (!StringUtils.isNull(this.fHj)) {
-                akVar.ac("obj_param1", this.fHj);
-            }
-            if (!StringUtils.isNull(this.fHk)) {
-                akVar.ac("obj_param2", this.fHk);
-            }
-            if (!StringUtils.isNull(this.fHl)) {
-                akVar.ac("obj_param3", this.fHl);
-            }
-            if (!StringUtils.isNull(this.Wo)) {
-                akVar.ac("obj_id", this.Wo);
-            }
-            if (!StringUtils.isNull(this.fHm)) {
-                akVar.ac("ab_tag", this.fHm);
-            }
-        }
-        return akVar;
+    private x() {
     }
 
-    public x bhT() {
-        x xVar = new x();
-        xVar.mLocate = this.mLocate;
-        xVar.mType = this.mType;
-        xVar.aMq = this.aMq;
-        xVar.azM = this.azM;
-        xVar.mUid = this.mUid;
-        xVar.mSource = this.mSource;
-        xVar.fHj = this.fHj;
-        xVar.fHk = this.fHk;
-        xVar.fHl = this.fHl;
-        xVar.Wo = this.Wo;
-        xVar.fHm = this.fHm;
-        xVar.fHn = this.fHn;
-        return xVar;
+    public static x bjC() {
+        if (fQm == null) {
+            synchronized (x.class) {
+                if (fQm == null) {
+                    fQm = new x();
+                }
+            }
+        }
+        return fQm;
+    }
+
+    public void av(String str, int i) {
+        a aVar = this.fQn.get(str);
+        if (aVar == null) {
+            this.fQn.put(str, new a(i, System.currentTimeMillis()));
+        } else {
+            aVar.lastUpdateTime = System.currentTimeMillis();
+            aVar.position = i;
+        }
+        if (this.fQn.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.fQn.entrySet());
+            Collections.sort(arrayList, new Comparator<Map.Entry<String, a>>() { // from class: com.baidu.tieba.play.x.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // java.util.Comparator
+                /* renamed from: b */
+                public int compare(Map.Entry<String, a> entry, Map.Entry<String, a> entry2) {
+                    return (int) (entry.getValue().lastUpdateTime - entry2.getValue().lastUpdateTime);
+                }
+            });
+            int i2 = 0;
+            while (true) {
+                int i3 = i2;
+                if (i3 < 10) {
+                    this.fQn.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    i2 = i3 + 1;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public void remove(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            this.fQn.remove(str);
+        }
+    }
+
+    public int rs(String str) {
+        a aVar = this.fQn.get(str);
+        if (aVar != null) {
+            return aVar.position;
+        }
+        return 0;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a {
+        public long lastUpdateTime;
+        public int position;
+
+        public a(int i, long j) {
+            this.position = i;
+            this.lastUpdateTime = j;
+        }
     }
 }

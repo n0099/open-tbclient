@@ -1,39 +1,27 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import tbclient.RecommendInfo;
-import tbclient.SchoolRecomUserInfo;
+import tbclient.SimpleForum;
 /* loaded from: classes.dex */
-public class ay extends bh {
-    public static final BdUniqueId XR = BdUniqueId.gen();
-    private String title = "";
-    private ArrayList<ba> XS = new ArrayList<>();
+public class ay {
+    private String avatar;
+    private String forumId;
+    private int forumLevel;
+    private String forumName;
 
-    public void a(RecommendInfo recommendInfo) {
-        if (recommendInfo != null) {
-            this.title = recommendInfo.title;
-            for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
-                if (schoolRecomUserInfo != null) {
-                    ba baVar = new ba();
-                    baVar.a(schoolRecomUserInfo);
-                    this.XS.add(baVar);
-                }
-            }
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public void parserProtobuf(SimpleForum simpleForum) {
+        if (simpleForum != null) {
+            this.forumId = String.valueOf(simpleForum.id);
+            this.forumName = simpleForum.name;
+            this.avatar = simpleForum.avatar;
+            this.forumLevel = simpleForum.level_id.intValue();
         }
-    }
-
-    @Override // com.baidu.tbadk.core.data.bh
-    public String getTitle() {
-        return this.title;
-    }
-
-    public ArrayList<ba> qB() {
-        return this.XS;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return XR;
     }
 }

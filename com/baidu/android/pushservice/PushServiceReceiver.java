@@ -25,7 +25,6 @@ import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.richmedia.MediaViewActivity;
 import com.baidu.android.pushservice.richmedia.c;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.util.concurrent.locks.ReentrantLock;
@@ -281,7 +280,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent.setData(Uri.parse("content://" + str3));
         intent.putExtra("public_msg", publicMsg);
         intent.putExtra("app_id", str4);
-        intent.putExtra(PbActivityConfig.KEY_MSG_ID, str3);
+        intent.putExtra("msg_id", str3);
         PendingIntent service = PendingIntent.getService(context, 0, intent, 0);
         Intent intent2 = new Intent();
         intent2.setClassName(str, str2);
@@ -289,7 +288,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent2.setData(Uri.parse("content://" + str3));
         intent2.putExtra("public_msg", publicMsg);
         intent2.putExtra("app_id", str4);
-        intent2.putExtra(PbActivityConfig.KEY_MSG_ID, str3);
+        intent2.putExtra("msg_id", str3);
         PendingIntent service2 = PendingIntent.getService(context, 0, intent2, 0);
         boolean p = p.p(context, publicMsg.mPkgName);
         Notification a2 = publicMsg.mNotificationBuilder == 0 ? d.a(context, publicMsg.mNotificationBuilder, publicMsg.mNotificationBasicStyle, publicMsg.mTitle, publicMsg.mDescription, p) : d.a(context, publicMsg.mNotificationBuilder, publicMsg.mTitle, publicMsg.mDescription, p);

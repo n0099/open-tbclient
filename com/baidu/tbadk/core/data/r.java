@@ -1,37 +1,37 @@
 package com.baidu.tbadk.core.data;
 
 import java.util.ArrayList;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes.dex */
 public class r {
-    private String VG;
-    private int VH;
-    private ArrayList<t> VI = new ArrayList<>();
-    private int height;
-    private String obj_id;
-    private int width;
+    private o WD;
+    private long threadId;
+    private long Wy = 0;
+    private String Wz = "";
+    private long WA = 0;
+    private String WB = "";
+    private String imgUrl = "";
+    private String WC = "";
 
-    public ArrayList<t> pI() {
-        return this.VI;
-    }
-
-    public void f(ArrayList<t> arrayList) {
-        this.VI = arrayList;
-    }
-
-    public void a(ActivityHead activityHead) {
-        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
-            this.VH = activityHead.activity_type.intValue();
-            this.VG = activityHead.activity_title;
-            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
-            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
-            this.obj_id = activityHead.obj_id;
-            for (HeadImgs headImgs : activityHead.head_imgs) {
-                t tVar = new t();
-                tVar.a(headImgs);
-                this.VI.add(tVar);
-            }
+    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        if (forumHeadlineImgInfo != null) {
+            this.threadId = forumHeadlineImgInfo.thread_id.longValue();
+            this.Wy = forumHeadlineImgInfo.thread_user_id.longValue();
+            this.Wz = forumHeadlineImgInfo.thread_user_name;
+            this.WA = forumHeadlineImgInfo.img_user_id.longValue();
+            this.WB = forumHeadlineImgInfo.img_user_name;
+            this.imgUrl = forumHeadlineImgInfo.img_url;
+            this.WC = forumHeadlineImgInfo.headline_url;
+            this.WD = new o();
+            ArrayList<q> arrayList = new ArrayList<>();
+            q qVar = new q(this.imgUrl == null ? "" : this.imgUrl, this.WC == null ? "" : this.WC, null);
+            qVar.ak(true);
+            arrayList.add(qVar);
+            this.WD.f(arrayList);
         }
+    }
+
+    public String pT() {
+        return this.imgUrl;
     }
 }

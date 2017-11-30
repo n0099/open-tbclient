@@ -56,8 +56,8 @@ public class PhotoLiveActivityConfig extends IntentConfig {
                 intent.putExtra("from_frs", true);
             } else if ("from_mark".equals(str4)) {
                 intent.putExtra("from_mark", true);
-            } else if (KEY_FROM_WRITE.equals(str4)) {
-                intent.putExtra(KEY_FROM_WRITE, true);
+            } else if ("from_write".equals(str4)) {
+                intent.putExtra("from_write", true);
             } else if (KEY_FROM_MY_OR_HIS_THREAD.equals(str4)) {
                 intent.putExtra(KEY_FROM_MY_OR_HIS_THREAD, true);
             } else if (KEY_FROM_MESSAGE.equals(str4)) {
@@ -110,12 +110,12 @@ public class PhotoLiveActivityConfig extends IntentConfig {
             return this;
         }
 
-        public a bC(int i) {
+        public a bD(int i) {
             this.requestCode = i;
             return this;
         }
 
-        public PhotoLiveActivityConfig pi() {
+        public PhotoLiveActivityConfig pp() {
             return new PhotoLiveActivityConfig(this);
         }
     }

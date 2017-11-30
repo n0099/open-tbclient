@@ -1,8 +1,6 @@
 package com.googlecode.mp4parser.boxes.apple;
 
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.pay.PayConfig;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractBox;
@@ -15,12 +13,12 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0169a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_5 = null;
     private static HashMap<String, String> language;
     int dataCountry;
     int dataLanguage;
@@ -77,7 +75,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataCountry(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.xn(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.xL(i)));
         this.dataCountry = i;
     }
 
@@ -87,7 +85,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataLanguage(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.xn(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.xL(i)));
         this.dataLanguage = i;
     }
 
@@ -135,11 +133,11 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("0", "English");
         language.put("1", "French");
         language.put("2", "German");
-        language.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, "Italian");
+        language.put("3", "Italian");
         language.put("4", "Dutch");
         language.put("5", "Swedish");
         language.put("6", "Spanish");
-        language.put(NewWriteModel.THREAD_TYPE_LBS, "Danish");
+        language.put("7", "Danish");
         language.put("8", "Portuguese");
         language.put("9", "Norwegian");
         language.put("10", "Hebrew");

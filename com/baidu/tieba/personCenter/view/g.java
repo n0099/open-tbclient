@@ -9,7 +9,7 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private com.baidu.tieba.personCenter.b.d fjV;
+    private com.baidu.tieba.personCenter.b.d fsS;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     TbPageContext mPageContext;
@@ -18,14 +18,14 @@ public class g {
         this.mPageContext = tbPageContext;
     }
 
-    public void Z(View view) {
+    public void aa(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(d.g.person_more_navigation_bar);
-        akW();
+        amS();
         this.mListView = (BdTypeListView) view.findViewById(d.g.person_more_listview);
-        this.fjV = new com.baidu.tieba.personCenter.b.d(this.mPageContext, this.mListView);
+        this.fsS = new com.baidu.tieba.personCenter.b.d(this.mPageContext, this.mListView);
     }
 
-    private void akW() {
+    private void amS() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(d.j.more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.g.1

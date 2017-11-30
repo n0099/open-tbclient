@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -76,7 +75,7 @@ public class h extends c {
                         if (a4) {
                             str = "com.baidu.android.pushservice.action.FB_MESSAGE";
                         } else {
-                            intent.putExtra(PbActivityConfig.KEY_MSG_ID, h);
+                            intent.putExtra("msg_id", h);
                             str = PushConstants.ACTION_MESSAGE;
                         }
                         intent.putExtra("message_string", a3.mDescription);

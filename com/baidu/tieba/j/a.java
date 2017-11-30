@@ -1,372 +1,377 @@
 package com.baidu.tieba.j;
 
-import android.util.SparseArray;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.g.e;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.data.NewsNotifyMessage;
-import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
-import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
-import com.baidu.tieba.j.b;
-/* loaded from: classes.dex */
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.channels.FileChannel;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes2.dex */
 public class a {
-    private CustomMessageListener dfL;
-    private boolean fQT;
-    private boolean fQU;
-    private boolean fQV;
-    private boolean fQW;
-    private boolean fQX;
-    private boolean fQY;
-    private boolean fQZ;
-    private int fRa;
-    private int fRb;
-    private int fRc;
-    private int fRd;
-    private boolean fRe;
-    private boolean fRf;
-    private boolean fRg;
-    private boolean fRh;
-    private boolean fRi;
-    private boolean fRj;
-    private boolean fRk;
-    private final CustomMessageListener fRl;
-    CustomMessageListener fRm;
-    private CustomMessageListener fRn;
-    private CustomMessageListener fRo;
-    private CustomMessageListener fRp;
-    private CustomMessageListener fRq;
-    private boolean isPrimary;
-    private boolean mHasNewVersion;
+    private static final int eDQ = B(new byte[]{102, 114, 101, 101});
+    private static final int eDR = B(new byte[]{106, 117, 110, 107});
+    private static final int eDS = B(new byte[]{109, 100, 97, 116});
+    private static final int eDT = B(new byte[]{109, 111, 111, 118});
+    private static final int eDU = B(new byte[]{112, 110, 111, 116});
+    private static final int eDV = B(new byte[]{115, 107, 105, 112});
+    private static final int eDW = B(new byte[]{119, 105, 100, 101});
+    private static final int eDX = B(new byte[]{80, 73, 67, 84});
+    private static final int eDY = B(new byte[]{102, 116, 121, 112});
+    private static final int eDZ = B(new byte[]{117, 117, 105, 100});
+    private static final int eEa = B(new byte[]{99, 109, 111, 118});
+    private static final int eEb = B(new byte[]{115, 116, 99, 111});
+    private static final int eEc = B(new byte[]{99, 111, 54, 52});
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0102a {
-        private static final a fRs = new a();
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0103a {
+        void it(boolean z);
     }
 
-    private a() {
-        this.isPrimary = false;
-        this.fQT = false;
-        this.fQU = false;
-        this.fQV = false;
-        this.fQW = false;
-        this.fQX = false;
-        this.fQY = false;
-        this.fQZ = false;
-        this.fRa = 0;
-        this.fRb = 0;
-        this.fRc = 0;
-        this.fRd = 0;
-        this.fRe = false;
-        this.mHasNewVersion = false;
-        this.fRf = false;
-        this.fRg = false;
-        this.fRh = false;
-        this.fRi = false;
-        this.fRj = false;
-        this.fRl = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.j.a.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120) {
-                    a.this.h(customResponsedMessage);
-                }
+    /* loaded from: classes2.dex */
+    public interface b {
+        void po(int i);
+    }
+
+    static long pn(int i) {
+        return i & 4294967295L;
+    }
+
+    static int cq(long j) throws RuntimeException {
+        if (j > 2147483647L || j < 0) {
+            throw new RuntimeException("uint32 value is too large");
+        }
+        return (int) j;
+    }
+
+    static long cr(long j) throws RuntimeException {
+        if (j < 0) {
+            throw new RuntimeException("uint64 value is too large");
+        }
+        return j;
+    }
+
+    private static int B(byte[] bArr) {
+        return ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN).getInt();
+    }
+
+    private static boolean a(FileChannel fileChannel, ByteBuffer byteBuffer) throws IOException {
+        byteBuffer.clear();
+        int read = fileChannel.read(byteBuffer);
+        byteBuffer.flip();
+        return read == byteBuffer.capacity();
+    }
+
+    private static boolean a(FileChannel fileChannel, ByteBuffer byteBuffer, long j) throws IOException {
+        byteBuffer.clear();
+        int read = fileChannel.read(byteBuffer, j);
+        byteBuffer.flip();
+        return read == byteBuffer.capacity();
+    }
+
+    public static void a(String str, final b bVar) {
+        if (bVar != null) {
+            if (StringUtils.isNull(str)) {
+                bVar.po(2);
             }
-        };
-        this.fRm = new CustomMessageListener(CmdConfigCustom.CMD_RESPONSE_UNREAD_NEW_FRIENDS_NUM) { // from class: com.baidu.tieba.j.a.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001176 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
-                    ResponseUnreadPointNum responseUnreadPointNum = (ResponseUnreadPointNum) customResponsedMessage;
-                    if (responseUnreadPointNum.getNum() <= 0 || a.this.fRd >= responseUnreadPointNum.getNum()) {
-                        a.this.fRd = responseUnreadPointNum.getNum();
-                        a.this.fRe = false;
-                    } else {
-                        a.this.fRe = true;
-                        a.this.fQW = a.this.fRe ? true : a.this.fQW;
-                        a.this.fRd = responseUnreadPointNum.getNum();
-                        a.this.bkl();
+            new BdAsyncTask<String, Void, Integer>() { // from class: com.baidu.tieba.j.a.1
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                /* renamed from: x */
+                public Integer doInBackground(String... strArr) {
+                    if (strArr == null || strArr.length != 1) {
+                        return 2;
                     }
-                    a.this.bkk();
+                    return Integer.valueOf(a.pg(strArr[0]));
                 }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                public void onPostExecute(Integer num) {
+                    super.onPostExecute((AnonymousClass1) num);
+                    if (b.this != null) {
+                        b.this.po(num.intValue());
+                    }
+                }
+            }.execute(str);
+        }
+    }
+
+    public static int pg(String str) {
+        FileInputStream fileInputStream;
+        Throwable th;
+        try {
+            fileInputStream = new FileInputStream(str);
+            try {
+                int a = a(fileInputStream.getChannel());
+                com.baidu.adp.lib.g.a.d(fileInputStream);
+                return a;
+            } catch (Exception e) {
+                com.baidu.adp.lib.g.a.d(fileInputStream);
+                return 2;
+            } catch (Throwable th2) {
+                th = th2;
+                com.baidu.adp.lib.g.a.d(fileInputStream);
+                throw th;
             }
-        };
-        this.fRn = new CustomMessageListener(CmdConfigCustom.CMD_MAINTAB_MEMBER_RED_TIP) { // from class: com.baidu.tieba.j.a.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                    boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-                    if (booleanValue) {
-                        if (TbadkCoreApplication.isLogin()) {
-                            if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() <= com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("maintab_member_center_red_tip_" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
-                                booleanValue = false;
-                            }
-                        } else {
-                            booleanValue = false;
+        } catch (Exception e2) {
+            fileInputStream = null;
+        } catch (Throwable th3) {
+            fileInputStream = null;
+            th = th3;
+        }
+    }
+
+    public static int a(FileChannel fileChannel) throws IOException, RuntimeException {
+        int i;
+        ByteBuffer order = ByteBuffer.allocate(8).order(ByteOrder.BIG_ENDIAN);
+        int i2 = 0;
+        while (true) {
+            if (!a(fileChannel, order)) {
+                i = i2;
+                break;
+            }
+            long pn = pn(order.getInt());
+            i = order.getInt();
+            if (i == eDY) {
+                int cq = cq(pn);
+                ByteBuffer order2 = ByteBuffer.allocate(cq).order(ByteOrder.BIG_ENDIAN);
+                order.rewind();
+                order2.put(order);
+                if (fileChannel.read(order2) >= cq - 8) {
+                    order2.flip();
+                    if ((i == eDQ && i != eDR && i != eDS && i != eDT && i != eDU && i != eDV && i != eDW && i != eDX && i != eDZ && i != eDY) || pn < 8) {
+                        break;
+                    }
+                    i2 = i;
+                } else {
+                    break;
+                }
+            } else {
+                if (pn == 1) {
+                    order.clear();
+                    if (!a(fileChannel, order)) {
+                        break;
+                    }
+                    pn = cr(order.getLong());
+                    fileChannel.position((fileChannel.position() + pn) - 16);
+                } else {
+                    fileChannel.position((fileChannel.position() + pn) - 8);
+                }
+                if (i == eDQ) {
+                }
+                i2 = i;
+            }
+        }
+        return i != eDT ? 0 : 1;
+    }
+
+    public static void a(String str, String str2, final InterfaceC0103a interfaceC0103a) {
+        if (interfaceC0103a != null) {
+            if (StringUtils.isNull(str) || StringUtils.isNull(str2) || !new File(str).exists()) {
+                interfaceC0103a.it(false);
+            } else {
+                new BdAsyncTask<String, Void, Boolean>() { // from class: com.baidu.tieba.j.a.2
+                    /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX INFO: Access modifiers changed from: protected */
+                    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                    public Boolean doInBackground(String... strArr) {
+                        if (strArr == null || strArr.length != 2) {
+                            return false;
+                        }
+                        return Boolean.valueOf(a.bB(strArr[0], strArr[1]));
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX INFO: Access modifiers changed from: protected */
+                    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                    public void onPostExecute(Boolean bool) {
+                        super.onPostExecute((AnonymousClass2) bool);
+                        if (InterfaceC0103a.this != null) {
+                            InterfaceC0103a.this.it(bool.booleanValue());
                         }
                     }
-                    a.this.fRi = booleanValue;
-                    a.this.fQY = booleanValue;
-                    a.this.bkl();
-                }
+                }.execute(str, str2);
             }
-        };
-        this.fRo = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_VERSION_MSG) { // from class: com.baidu.tieba.j.a.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                    a.this.mHasNewVersion = ((Boolean) customResponsedMessage.getData()).booleanValue();
-                    a.this.fQX = a.this.mHasNewVersion ? true : a.this.fQX;
-                    a.this.bkl();
+        }
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [238=4] */
+    public static boolean bB(String str, String str2) {
+        FileInputStream fileInputStream;
+        Throwable th;
+        FileOutputStream fileOutputStream;
+        try {
+            fileInputStream = new FileInputStream(str);
+            try {
+                FileChannel channel = fileInputStream.getChannel();
+                fileOutputStream = new FileOutputStream(str2);
+                try {
+                    boolean a = a(channel, fileOutputStream.getChannel());
+                    com.baidu.adp.lib.g.a.d(fileInputStream);
+                    com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
+                    return a;
+                } catch (Exception e) {
+                    com.baidu.adp.lib.g.a.d(fileInputStream);
+                    com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
+                    return false;
+                } catch (Throwable th2) {
+                    th = th2;
+                    com.baidu.adp.lib.g.a.d(fileInputStream);
+                    com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
+                    throw th;
                 }
+            } catch (Exception e2) {
+                fileOutputStream = null;
+            } catch (Throwable th3) {
+                fileOutputStream = null;
+                th = th3;
             }
-        };
-        this.dfL = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.baidu.tieba.j.a.5
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    Object data = customResponsedMessage.getData();
-                    if ((data instanceof Integer) && ((Integer) data).intValue() == 4) {
-                        a.this.bkn();
+        } catch (Exception e3) {
+            fileOutputStream = null;
+            fileInputStream = null;
+        } catch (Throwable th4) {
+            fileInputStream = null;
+            th = th4;
+            fileOutputStream = null;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:99:0x00cc A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private static boolean a(FileChannel fileChannel, FileChannel fileChannel2) throws IOException {
+        ByteBuffer byteBuffer;
+        int i;
+        long j;
+        ByteBuffer order = ByteBuffer.allocate(8).order(ByteOrder.BIG_ENDIAN);
+        int i2 = 0;
+        long j2 = 0;
+        ByteBuffer byteBuffer2 = null;
+        long j3 = 0;
+        while (true) {
+            if (!a(fileChannel, order)) {
+                long j4 = j3;
+                byteBuffer = byteBuffer2;
+                i = i2;
+                j = j4;
+                break;
+            }
+            j2 = pn(order.getInt());
+            i2 = order.getInt();
+            if (i2 == eDY) {
+                int cq = cq(j2);
+                byteBuffer2 = ByteBuffer.allocate(cq).order(ByteOrder.BIG_ENDIAN);
+                order.rewind();
+                byteBuffer2.put(order);
+                if (fileChannel.read(byteBuffer2) < cq - 8) {
+                    long j5 = j3;
+                    byteBuffer = byteBuffer2;
+                    i = i2;
+                    j = j5;
+                    break;
+                }
+                byteBuffer2.flip();
+                j3 = fileChannel.position();
+                if (i2 == eDQ && i2 != eDR && i2 != eDS && i2 != eDT && i2 != eDU && i2 != eDV && i2 != eDW && i2 != eDX && i2 != eDZ && i2 != eDY) {
+                    long j6 = j3;
+                    byteBuffer = byteBuffer2;
+                    i = i2;
+                    j = j6;
+                    break;
+                } else if (j2 < 8) {
+                    long j7 = j3;
+                    byteBuffer = byteBuffer2;
+                    i = i2;
+                    j = j7;
+                    break;
+                }
+            } else {
+                if (j2 == 1) {
+                    order.clear();
+                    if (!a(fileChannel, order)) {
+                        long j8 = j3;
+                        byteBuffer = byteBuffer2;
+                        i = i2;
+                        j = j8;
+                        break;
                     }
+                    j2 = cr(order.getLong());
+                    fileChannel.position((fileChannel.position() + j2) - 16);
+                } else {
+                    fileChannel.position((fileChannel.position() + j2) - 8);
+                }
+                if (i2 == eDQ) {
+                }
+                if (j2 < 8) {
                 }
             }
-        };
-        this.fRp = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.j.a.6
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    a.this.bkp();
+        }
+        if (i != eDT) {
+            return false;
+        }
+        int cq2 = cq(j2);
+        long size = fileChannel.size() - cq2;
+        ByteBuffer order2 = ByteBuffer.allocate(cq2).order(ByteOrder.BIG_ENDIAN);
+        if (!a(fileChannel, order2, size)) {
+            throw new RuntimeException("failed to read moov atom");
+        }
+        if (order2.getInt(12) == eEa) {
+            throw new RuntimeException("this utility does not support compressed moov atoms yet");
+        }
+        while (order2.remaining() >= 8) {
+            int position = order2.position();
+            int i3 = order2.getInt(position + 4);
+            if (i3 != eEb && i3 != eEc) {
+                order2.position(order2.position() + 1);
+            } else if (pn(order2.getInt(position)) > order2.remaining()) {
+                throw new RuntimeException("bad atom size");
+            } else {
+                order2.position(position + 12);
+                if (order2.remaining() < 4) {
+                    throw new RuntimeException("malformed atom");
                 }
-            }
-        };
-        this.fRq = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tieba.j.a.7
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                com.baidu.tbadk.coreExtra.data.a activityPrizeData = TbadkCoreApplication.getInst().getActivityPrizeData();
-                if (activityPrizeData.xv()) {
-                    String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    if (!StringUtils.isNull(currentAccount)) {
-                        String xz = activityPrizeData.xz();
-                        String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("person_item_activity_prize_red_tip" + currentAccount, "");
-                        if (!StringUtils.isNull(xz) && !xz.equals(string)) {
-                            a.this.fQZ = true;
-                            a.this.fRj = true;
-                            a.this.bkl();
+                int cq3 = cq(order2.getInt());
+                if (i3 == eEb) {
+                    if (order2.remaining() < cq3 * 4) {
+                        throw new RuntimeException("bad atom size/element count");
+                    }
+                    for (int i4 = 0; i4 < cq3; i4++) {
+                        int i5 = order2.getInt(order2.position());
+                        int i6 = i5 + cq2;
+                        if (i5 < 0 && i6 >= 0) {
+                            throw new RuntimeException("This is bug in original qt-faststart.c: stco atom should be extended to co64 atom as new offset value overflows uint32, but is not implemented.");
                         }
+                        order2.putInt(i6);
+                    }
+                    continue;
+                } else if (i3 != eEc) {
+                    continue;
+                } else if (order2.remaining() < cq3 * 8) {
+                    throw new RuntimeException("bad atom size/element count");
+                } else {
+                    for (int i7 = 0; i7 < cq3; i7++) {
+                        order2.putLong(order2.getLong(order2.position()) + cq2);
                     }
                 }
             }
-        };
-        initListener();
-    }
-
-    public static final a bkh() {
-        return C0102a.fRs;
-    }
-
-    private void initListener() {
-        MessageManager.getInstance().registerListener(this.fRl);
-        MessageManager.getInstance().registerListener(this.fRm);
-        MessageManager.getInstance().registerListener(this.fRo);
-        MessageManager.getInstance().registerListener(this.fRp);
-        MessageManager.getInstance().registerListener(this.fRn);
-        MessageManager.getInstance().registerListener(this.dfL);
-        MessageManager.getInstance().registerListener(this.fRq);
-    }
-
-    private void bki() {
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (!com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("member_close_ad_setting_clicked", false) && currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-            this.fQX = true;
         }
-        TbadkSettings inst = TbadkSettings.getInst();
-        StringBuilder append = new StringBuilder().append("has_clicked_addresslist_item_in_leftnavi");
-        TbadkCoreApplication.getInst();
-        this.fRk = inst.loadBoolean(append.append(TbadkCoreApplication.getCurrentAccount()).toString(), false);
-    }
-
-    private void bkj() {
-        if (TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(this.fQX)));
+        fileChannel.position(j);
+        if (byteBuffer != null) {
+            byteBuffer.rewind();
+            fileChannel2.write(byteBuffer);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void h(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage != null && (responsedMessage instanceof NewsNotifyMessage)) {
-            NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
-            this.fRh = newsNotifyMessage.getMsgBookmark() > this.fRc;
-            this.fRf = newsNotifyMessage.getMsgFans() > this.fRa;
-            this.fRg = newsNotifyMessage.getMsgGiftNum() > this.fRb;
-            this.fRc = newsNotifyMessage.getMsgBookmark();
-            this.fRa = newsNotifyMessage.getMsgFans();
-            this.fRb = newsNotifyMessage.getMsgGiftNum();
-            if (this.fRh || this.fRf || this.fRg || this.mHasNewVersion) {
-                this.fQT = this.fRf ? true : this.fQT;
-                this.fQU = this.fRh ? true : this.fQU;
-                this.fQV = this.fRg ? true : this.fQV;
-                this.fQX = this.mHasNewVersion ? true : this.fQX;
-                bkl();
-            }
-        }
-    }
-
-    public void bkk() {
-        TbadkSettings inst = TbadkSettings.getInst();
-        StringBuilder append = new StringBuilder().append("has_clicked_addresslist_item_in_leftnavi");
-        TbadkCoreApplication.getInst();
-        inst.saveBoolean(append.append(TbadkCoreApplication.getCurrentAccount()).toString(), !this.fRe);
-    }
-
-    public void lK(boolean z) {
-        this.isPrimary = z;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bkl() {
-        SparseArray sparseArray = new SparseArray();
-        if (this.fRe) {
-            sparseArray.append(4, new b.a(this.fQW, this.fRd));
-        }
-        if (this.fRf) {
-            sparseArray.append(2, new b.a(this.fQT, this.fRa));
-        }
-        if (this.fRg) {
-            sparseArray.append(1, new b.a(this.fQV, this.fRb));
-        }
-        if (this.fRh) {
-            sparseArray.append(3, new b.a(this.fQU, this.fRc));
-        }
-        if (this.mHasNewVersion) {
-            sparseArray.append(5, new b.a(this.fQX, 0));
-        }
-        if (this.fRi) {
-            sparseArray.append(7, new b.a(this.fQY, 0));
-        }
-        if (this.fRj) {
-            sparseArray.append(9, new b.a(this.fQZ, 0));
-        }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_RED_TIP, new b(sparseArray)));
-        bkm();
-    }
-
-    public void lL(boolean z) {
-        if (z) {
-            SparseArray sparseArray = new SparseArray();
-            sparseArray.append(4, new b.a(this.fQW, this.fRd));
-            sparseArray.append(2, new b.a(this.fQT, this.fRa));
-            sparseArray.append(1, new b.a(this.fQV, this.fRb));
-            sparseArray.append(3, new b.a(this.fQU, this.fRc));
-            sparseArray.append(5, new b.a(this.fQX, 0));
-            sparseArray.append(7, new b.a(this.fQY, 0));
-            sparseArray.append(9, new b.a(this.fQZ, 0));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_RED_TIP, new b(sparseArray)));
-        }
-    }
-
-    private void bkm() {
-        boolean z = (this.fRa > 0 && this.fRf) || (this.fRc > 0 && this.fRh) || this.mHasNewVersion || this.fRj;
-        if (z && !this.isPrimary && TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(z, 0)));
-        }
-    }
-
-    public void bkn() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(false)));
-    }
-
-    public void c(int i, boolean z, boolean z2) {
-        String currentAccount;
-        if (z2) {
-            switch (i) {
-                case 1:
-                    this.fQV = z;
-                    break;
-                case 2:
-                    this.fQT = z;
-                    break;
-                case 3:
-                    this.fQU = z;
-                    break;
-                case 4:
-                    this.fQW = z;
-                    break;
-                case 5:
-                    AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                    if (currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-                        com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("member_close_ad_setting_clicked", true);
-                    }
-                    this.fQX = z;
-                    break;
-                case 7:
-                    if (!TbadkCoreApplication.isLogin()) {
-                        currentAccount = "temp";
-                    } else {
-                        currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    }
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("maintab_member_center_red_tip_" + currentAccount, TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime());
-                    this.fQY = z;
-                    break;
-                case 9:
-                    this.fQZ = z;
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().putString("person_item_activity_prize_red_tip" + TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getInst().getActivityPrizeData().xz());
-                    break;
-            }
-            lL(z2);
-            bko();
-        }
-    }
-
-    private void bko() {
-        boolean z = this.fQV || this.fQU || this.fQT || this.fQW || this.fQX || this.fQY || this.fQZ;
-        if (!this.isPrimary && TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(z, 0)));
-        }
-    }
-
-    public void bkp() {
-        this.fQT = false;
-        this.fQU = false;
-        this.fQV = false;
-        this.fQW = false;
-        this.fQX = false;
-        this.fQY = false;
-        this.fQZ = false;
-        this.fRa = 0;
-        this.fRb = 0;
-        this.fRc = 0;
-        this.fRd = 0;
-        this.fRe = false;
-        this.mHasNewVersion = false;
-        this.fRf = false;
-        this.fRg = false;
-        this.fRh = false;
-        this.fRi = false;
-        this.fRj = false;
-        bki();
-        e.fP().post(new Runnable() { // from class: com.baidu.tieba.j.a.8
-            @Override // java.lang.Runnable
-            public void run() {
-                if (!a.this.fRk) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
-                }
-            }
-        });
-        bkj();
+        order2.rewind();
+        fileChannel2.write(order2);
+        fileChannel.transferTo(j, size - j, fileChannel2);
+        return true;
     }
 }

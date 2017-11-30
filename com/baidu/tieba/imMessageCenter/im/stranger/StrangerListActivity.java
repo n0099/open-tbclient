@@ -24,26 +24,26 @@ import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
-    private b dQJ;
-    private StrangerListModel dQK;
-    private StrangerListActivity dQL;
-    private com.baidu.tbadk.core.dialog.a dQM;
-    private a.b dQN = new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.2
+    private StrangerListActivity dYA;
+    private com.baidu.tbadk.core.dialog.a dYB;
+    private b dYy;
+    private StrangerListModel dYz;
+    private a.b dYC = new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            StrangerListActivity.this.dQM.dismiss();
-            StrangerListActivity.this.dQK.aCU();
+            StrangerListActivity.this.dYB.dismiss();
+            StrangerListActivity.this.dYz.aEu();
             StrangerListActivity.this.showToast(d.j.delete_success, false);
             StrangerListActivity.this.finish();
         }
     };
-    private a.b dQO = new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.3
+    private a.b dYD = new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.3
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            StrangerListActivity.this.dQM.dismiss();
+            StrangerListActivity.this.dYB.dismiss();
         }
     };
-    private final CustomMessageListener dxz = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.4
+    private final CustomMessageListener dFn = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,21 +55,21 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 } else if (customResponsedMessage.getCmd() == 2016007) {
                     StrangerListActivity.this.g(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2016001) {
-                    StrangerListActivity.this.dQK.setData(null, StrangerListActivity.this.dxB);
-                } else if (customResponsedMessage.getCmd() == 2016011 && StrangerListActivity.this.dQJ != null && StrangerListActivity.this.dQJ.aCV() != null) {
-                    StrangerListActivity.this.dQJ.aCV().notifyDataSetChanged();
+                    StrangerListActivity.this.dYz.setData(null, StrangerListActivity.this.dFp);
+                } else if (customResponsedMessage.getCmd() == 2016011 && StrangerListActivity.this.dYy != null && StrangerListActivity.this.dYy.aEv() != null) {
+                    StrangerListActivity.this.dYy.aEv().notifyDataSetChanged();
                 }
             }
         }
     };
-    private com.baidu.tieba.im.chat.a.a dxB = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.5
+    private com.baidu.tieba.im.chat.a.a dFp = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.5
         @Override // com.baidu.tieba.im.chat.a.a
-        public void avP() {
-            if (StrangerListActivity.this.dQJ != null && StrangerListActivity.this.dQJ.aCV() != null && StrangerListActivity.this.dQK != null) {
-                if (StrangerListActivity.this.dQK.getData().size() == 0) {
+        public void axp() {
+            if (StrangerListActivity.this.dYy != null && StrangerListActivity.this.dYy.aEv() != null && StrangerListActivity.this.dYz != null) {
+                if (StrangerListActivity.this.dYz.getData().size() == 0) {
                     StrangerListActivity.this.finish();
                 }
-                StrangerListActivity.this.dQJ.aCV().setData(StrangerListActivity.this.dQK.getData());
+                StrangerListActivity.this.dYy.aEv().setData(StrangerListActivity.this.dYz.getData());
             }
         }
     };
@@ -78,7 +78,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dQL = this;
+        this.dYA = this;
         a(this);
         initData();
         registerListener();
@@ -105,59 +105,61 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     private void registerListener() {
-        registerListener(CmdConfigCustom.MEMORY_CHANGED, this.dxz);
-        registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.dxz);
-        registerListener(CmdConfigCustom.MEMORY_CLEAR, this.dxz);
-        registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.dxz);
-        registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.dxz);
+        registerListener(CmdConfigCustom.MEMORY_CHANGED, this.dFn);
+        registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.dFn);
+        registerListener(CmdConfigCustom.MEMORY_CLEAR, this.dFn);
+        registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.dFn);
+        registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.dFn);
     }
 
     private void a(StrangerListActivity strangerListActivity) {
-        this.dQJ = new b(strangerListActivity);
-        this.dQM = new com.baidu.tbadk.core.dialog.a(strangerListActivity.getPageContext().getPageActivity());
-        this.dQM.cc(d.j.sure_to_delete_all_stranger_msg);
-        this.dQM.a(d.j.confirm, this.dQN);
-        this.dQM.b(d.j.cancel, this.dQO);
-        this.dQM.b(strangerListActivity.getPageContext());
+        this.dYy = new b(strangerListActivity);
+        this.dYB = new com.baidu.tbadk.core.dialog.a(strangerListActivity.getPageContext().getPageActivity());
+        this.dYB.cd(d.j.sure_to_delete_all_stranger_msg);
+        this.dYB.a(d.j.confirm, this.dYC);
+        this.dYB.b(d.j.cancel, this.dYD);
+        this.dYB.b(strangerListActivity.getPageContext());
     }
 
     private void initData() {
-        this.dQK = new StrangerListModel(getPageContext());
+        this.dYz = new StrangerListModel(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.dQJ != null) {
-            this.dQJ.onChangeSkinType(i);
+        if (this.dYy != null) {
+            this.dYy.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ImMessageCenterShowItemData mC;
-        if (this.dQJ != null && this.dQJ.aCV() != null && (mC = this.dQJ.aCV().getItem(i)) != null) {
-            sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.dQL.getPageContext().getContext(), com.baidu.adp.lib.g.b.c(mC.getFriendId(), 0L), mC.getFriendName(), mC.getFriendPortrait(), 0, 0)));
+        ImMessageCenterShowItemData mQ;
+        if (this.dYy != null && this.dYy.aEv() != null && (mQ = this.dYy.aEv().getItem(i)) != null) {
+            PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.dYA.getPageContext().getContext(), com.baidu.adp.lib.g.b.c(mQ.getFriendId(), 0L), mQ.getFriendName(), mQ.getFriendPortrait(), 0, 0);
+            personalChatActivityConfig.setFollowStatus(0);
+            sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, personalChatActivityConfig));
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        final ImMessageCenterShowItemData mC;
-        if (this.dQJ == null || this.dQJ.aCV() == null || (mC = this.dQJ.aCV().getItem(i)) == null) {
+        final ImMessageCenterShowItemData mQ;
+        if (this.dYy == null || this.dYy.aEv() == null || (mQ = this.dYy.aEv().getItem(i)) == null) {
             return false;
         }
-        final int size = this.dQK.getData().size();
-        com.baidu.tbadk.coreExtra.e.a.a(getPageContext().getContext(), new b.InterfaceC0047b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.1
+        final int size = this.dYz.getData().size();
+        com.baidu.tbadk.coreExtra.d.a.a(getPageContext().getContext(), new b.InterfaceC0047b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.1
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0047b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i2, View view2) {
                 bVar.dismiss();
                 if (size == 1) {
-                    StrangerListActivity.this.dQK.aCU();
+                    StrangerListActivity.this.dYz.aEu();
                     StrangerListActivity.this.finish();
                     return;
                 }
-                StrangerListActivity.this.dQK.deleteItem(mC, StrangerListActivity.this.dxB);
+                StrangerListActivity.this.dYz.deleteItem(mQ, StrangerListActivity.this.dFp);
             }
         });
         return true;
@@ -166,8 +168,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.dQJ.aCW() && this.dQM != null) {
-            this.dQM.th();
+        if (view == this.dYy.aEw() && this.dYB != null) {
+            this.dYB.tk();
         }
     }
 
@@ -175,8 +177,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.dQJ != null && this.dQJ.aCV() != null) {
-            this.dQJ.aCV().notifyDataSetChanged();
+        if (this.dYy != null && this.dYy.aEv() != null) {
+            this.dYy.aEv().notifyDataSetChanged();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a("-1001", -7)));
     }
@@ -194,11 +196,11 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.dQK != null) {
-                    this.dQK.insertOrUpdate(data, this.dxB);
+                if (this.dYz != null) {
+                    this.dYz.insertOrUpdate(data, this.dFp);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.dQK != null) {
-                this.dQK.remove(data, this.dxB);
+            } else if (memoryChangedMessage.getType() == 2 && this.dYz != null) {
+                this.dYz.remove(data, this.dFp);
             }
         }
     }
@@ -208,8 +210,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 3 && this.dQK != null) {
-                this.dQK.setData(data, this.dxB);
+            if (responsedMemoryListMessage.getType() == 3 && this.dYz != null) {
+                this.dYz.setData(data, this.dFp);
             }
         }
     }

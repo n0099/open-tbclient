@@ -1,47 +1,47 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 public class t {
-    private static t afH;
-    private long afC = 0;
-    private long afD = 0;
-    private String afE = "";
-    private String afF = "";
-    private final long afG = 120000;
+    private static t agf;
+    private long afZ = 0;
+    private long aga = 0;
+    private String agb = "";
+    private String agc = "";
+    private final long agd = 120000;
 
-    public static t uE() {
-        if (afH == null) {
+    public static t uH() {
+        if (agf == null) {
             synchronized (t.class) {
-                if (afH == null) {
-                    afH = new t();
+                if (agf == null) {
+                    agf = new t();
                 }
             }
         }
-        return afH;
+        return agf;
     }
 
-    public String uF() {
+    public String uI() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.afC > 120000) {
+        if (currentTimeMillis - this.afZ > 120000) {
             if (com.baidu.adp.lib.util.l.hx()) {
                 return "";
             }
-            this.afC = currentTimeMillis;
-            this.afE = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
+            this.afZ = currentTimeMillis;
+            this.agb = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
         }
-        return this.afE;
+        return this.agb;
     }
 
     public String dG(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.afD > 120000) {
+        if (currentTimeMillis - this.aga > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");
             if (indexOf <= 0 || com.baidu.adp.lib.util.l.hx()) {
                 return "";
             }
-            this.afD = currentTimeMillis;
-            this.afF = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
-            return this.afF;
+            this.aga = currentTimeMillis;
+            this.agc = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
+            return this.agc;
         }
-        return this.afF;
+        return this.agc;
     }
 }

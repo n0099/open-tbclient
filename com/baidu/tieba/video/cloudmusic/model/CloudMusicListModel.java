@@ -16,8 +16,8 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CloudMusicListModel extends BdBaseModel {
-    private a<CloudMusicData.MusicTagList> gEx;
-    private final HttpMessageListener gEy;
+    private a<CloudMusicData.MusicTagList> gOf;
+    private final HttpMessageListener gOg;
     private int pn;
 
     static /* synthetic */ int b(CloudMusicListModel cloudMusicListModel) {
@@ -29,25 +29,25 @@ public class CloudMusicListModel extends BdBaseModel {
     public CloudMusicListModel(e eVar) {
         super(eVar);
         this.pn = 1;
-        this.gEy = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST) { // from class: com.baidu.tieba.video.cloudmusic.model.CloudMusicListModel.1
+        this.gOg = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST) { // from class: com.baidu.tieba.video.cloudmusic.model.CloudMusicListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003367 && (httpResponsedMessage instanceof VideoCloudMusicListResponseMessage) && CloudMusicListModel.this.gEx != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003367 && (httpResponsedMessage instanceof VideoCloudMusicListResponseMessage) && CloudMusicListModel.this.gOf != null) {
                     if (httpResponsedMessage.hasError() && httpResponsedMessage.getError() != 0) {
                         CloudMusicListModel.b(CloudMusicListModel.this);
                     }
-                    CloudMusicListModel.this.gEx.ab(((VideoCloudMusicListResponseMessage) httpResponsedMessage).mCloudMusicWithTagData);
+                    CloudMusicListModel.this.gOf.ad(((VideoCloudMusicListResponseMessage) httpResponsedMessage).mCloudMusicWithTagData);
                 }
             }
         };
-        byK();
-        this.gEy.setTag(getUniqueId());
-        this.gEy.setSelfListener(true);
-        registerListener(this.gEy);
+        bAN();
+        this.gOg.setTag(getUniqueId());
+        this.gOg.setSelfListener(true);
+        registerListener(this.gOg);
     }
 
-    private void byK() {
+    private void bAN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST, TbConfig.SERVER_ADDRESS + "c/f/video/getMusicTagList");
         tbHttpMessageTask.setResponsedClass(VideoCloudMusicListResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -80,11 +80,11 @@ public class CloudMusicListModel extends BdBaseModel {
             httpMessage.addParam(LegoListActivityConfig.RN, 10);
             httpMessage.addParam("tag_id", i);
             sendMessage(httpMessage);
-            this.gEx = aVar;
+            this.gOf = aVar;
         }
     }
 
-    public void byL() {
+    public void bAO() {
         this.pn = 1;
     }
 

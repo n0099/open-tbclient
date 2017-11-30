@@ -15,6 +15,7 @@ public class ImMessageCenterPojo implements Serializable {
     public static final int SHOW = 0;
     public static final int UN_DELETE = 0;
     private static final long serialVersionUID = -8887966163420052407L;
+    int followStatus;
     String gid;
     String group_ext;
     String group_head;
@@ -271,11 +272,12 @@ public class ImMessageCenterPojo implements Serializable {
         if (!z) {
             imMessageCenterPojo.setCustomGroupType(2);
         }
-        imMessageCenterPojo.setLast_content(e.H(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+        imMessageCenterPojo.setLast_content(e.K(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
         imMessageCenterPojo.setLast_user_name(userData.getUserName());
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
         imMessageCenterPojo.setIsFriend(commonMsgPojo.getIsFriend());
+        imMessageCenterPojo.setFollowStatus(commonMsgPojo.getFollowStatus());
         imMessageCenterPojo.setLast_rid(commonMsgPojo.getRid());
         imMessageCenterPojo.setLast_rid(commonMsgPojo.getRid());
         imMessageCenterPojo.setSend_status(commonMsgPojo.getMsg_status());
@@ -296,6 +298,14 @@ public class ImMessageCenterPojo implements Serializable {
 
     public void setIsFriend(int i) {
         this.isFriend = i;
+    }
+
+    public void setFollowStatus(int i) {
+        this.followStatus = i;
+    }
+
+    public int getFollowStatus() {
+        return this.followStatus;
     }
 
     public long getSent_msgId() {

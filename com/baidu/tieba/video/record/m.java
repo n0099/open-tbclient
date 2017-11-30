@@ -1,156 +1,186 @@
 package com.baidu.tieba.video.record;
 
-import android.content.Context;
-import android.hardware.Camera;
-import android.media.MediaRecorder;
-import android.os.Handler;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import android.view.MotionEvent;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import com.baidu.tbadk.TbConfig;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.download.DownloadData;
 import java.io.File;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes2.dex */
-public class m extends SurfaceView implements SurfaceHolder.Callback, g {
-    private int gJI;
-    private int gJJ;
-    private h gJz;
-    private boolean gMv;
-    private boolean gMw;
-    private MediaRecorder gmv;
-    private SurfaceHolder mSurfaceHolder;
-
-    public m(Context context, h hVar) {
-        super(context);
-        this.gJI = 720;
-        this.gJJ = TbConfig.HEAD_IMG_SIZE;
-        this.gJz = hVar;
-        getHolder().addCallback(this);
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        this.mSurfaceHolder = surfaceHolder;
-        bAu();
-        this.gMw = true;
-    }
-
-    private void bAu() {
-        Handler mainHandler = this.gJz.getMainHandler();
-        mainHandler.sendMessage(mainHandler.obtainMessage(1));
-    }
-
-    public void onResume() {
-        if (this.gMw) {
-            bAu();
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-    }
-
-    @Override // com.baidu.tieba.video.record.g
-    public void d(Camera camera) {
-        if (!this.gMv && camera != null) {
-            this.gMv = true;
-            try {
-                camera.setPreviewDisplay(this.mSurfaceHolder);
-            } catch (IOException e) {
-                e.printStackTrace();
+public class m {
+    public static final String gWn;
+    private HashMap<String, String> gPq;
+    private List<DownloadData> gWo;
+    private a gWp;
+    private String gWq;
+    private com.baidu.tbadk.download.d gWr = new com.baidu.tbadk.download.d() { // from class: com.baidu.tieba.video.record.m.1
+        @Override // com.baidu.tbadk.download.d
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            if (downloadData.getStatus() == 4) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                m.this.x(downloadData);
+                if (m.this.gWp != null && m.this.gWq.equals(downloadData.getUrl())) {
+                    m.this.gWp.bAF();
+                }
             }
-            camera.startPreview();
         }
+
+        @Override // com.baidu.tbadk.download.d
+        public boolean onPreDownload(DownloadData downloadData) {
+            return true;
+        }
+
+        @Override // com.baidu.tbadk.download.d
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            return true;
+        }
+
+        @Override // com.baidu.tbadk.download.d
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(m.gWn)) {
+                m.this.x(downloadData);
+                if (m.this.gWp != null && m.this.gWq.equals(downloadData.getUrl())) {
+                    m.this.gPq.put(downloadData.getPath().substring(m.gWn.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    m.this.gWp.cm(m.this.gWq, downloadData.getPath());
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.download.d
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+            File file = new File(downloadData.getPath());
+            if (file.exists()) {
+                file.delete();
+            }
+            m.this.x(downloadData);
+            if (m.this.gWp != null && m.this.gWq.equals(downloadData.getUrl())) {
+                m.this.gWp.tR(str);
+            }
+        }
+    };
+
+    /* loaded from: classes2.dex */
+    public interface a {
+        void bAF();
+
+        void cm(String str, String str2);
+
+        void tR(String str);
     }
 
-    @Override // com.baidu.tieba.video.record.g
-    public void e(Camera camera) {
-        if (camera != null) {
-            this.gmv = new MediaRecorder();
-            this.gmv.reset();
-            try {
-                camera.unlock();
-            } catch (Throwable th) {
-                th.printStackTrace();
+    static {
+        gWn = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
+    }
+
+    public String up(String str) {
+        String dX = ao.dX(str);
+        if (dX == null) {
+            return null;
+        }
+        if (this.gPq == null) {
+            this.gPq = new HashMap<>();
+            bDK();
+        }
+        return this.gPq.get(dX);
+    }
+
+    public void bDK() {
+        if (!StringUtils.isNull(gWn)) {
+            if (this.gPq == null) {
+                this.gPq = new HashMap<>();
+            } else {
+                this.gPq.clear();
             }
-            this.gmv.setCamera(camera);
-            this.gmv.setOnErrorListener(new MediaRecorder.OnErrorListener() { // from class: com.baidu.tieba.video.record.m.1
-                @Override // android.media.MediaRecorder.OnErrorListener
-                public void onError(MediaRecorder mediaRecorder, int i, int i2) {
-                    if (mediaRecorder != null) {
-                        try {
-                            mediaRecorder.reset();
-                        } catch (IllegalStateException e) {
-                            e.printStackTrace();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
+            File file = new File(gWn);
+            if (file.exists()) {
+                File[] listFiles = file.listFiles();
+                for (File file2 : listFiles) {
+                    if (file2.isFile()) {
+                        this.gPq.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                     }
                 }
-            });
-            if (this.mSurfaceHolder != null) {
-                this.gmv.setPreviewDisplay(this.mSurfaceHolder.getSurface());
             }
-            this.gmv.setVideoSource(1);
-            this.gmv.setAudioSource(1);
-            this.gmv.setOutputFormat(2);
-            this.gmv.setVideoEncoder(2);
-            this.gmv.setAudioEncoder(3);
-            this.gmv.setAudioSamplingRate(48000);
-            this.gmv.setAudioChannels(1);
-            this.gmv.setVideoEncodingBitRate(AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
-            this.gmv.setVideoFrameRate(20);
-            if (this.gJz.gKa) {
-                this.gmv.setOrientationHint(SubsamplingScaleImageView.ORIENTATION_270);
-            } else {
-                this.gmv.setOrientationHint(90);
+        }
+    }
+
+    public void uq(String str) {
+        if (TextUtils.isEmpty(str) || StringUtils.isNull(gWn)) {
+            if (this.gWp != null) {
+                this.gWp.tR("");
+                return;
             }
-            this.gmv.setVideoSize(1280, 720);
-            File file = new File(com.baidu.tieba.video.b.gDB);
-            if (!com.baidu.tbadk.core.util.k.dh(file.getAbsolutePath())) {
+            return;
+        }
+        String dX = ao.dX(str);
+        if (dX != null) {
+            File file = new File(gWn);
+            if (!file.exists()) {
                 file.mkdirs();
             }
-            this.gmv.setOutputFile(this.gJz.bAw());
-            try {
-                this.gmv.prepare();
-                this.gmv.start();
-            } catch (Throwable th2) {
-                th2.printStackTrace();
+            String str2 = "." + str.substring(str.lastIndexOf(".") + 1);
+            if (this.gWo == null) {
+                this.gWo = new ArrayList();
+            }
+            if (!fI(str)) {
+                DownloadData downloadData = new DownloadData();
+                downloadData.setType(10);
+                downloadData.setUrl(str);
+                downloadData.setPath(gWn + "/" + dX + str2);
+                downloadData.setCallback(this.gWr);
+                this.gWo.add(downloadData);
+                com.baidu.tbadk.download.e.CV().f(downloadData);
             }
         }
     }
 
-    @Override // com.baidu.tieba.video.record.g
-    public void f(Camera camera) {
-        if (this.gmv != null) {
-            try {
-                this.gmv.stop();
-                this.gmv.release();
-            } catch (Exception e) {
-                e.printStackTrace();
+    private boolean fI(String str) {
+        if (v.w(this.gWo) || str == null) {
+            return false;
+        }
+        for (DownloadData downloadData : this.gWo) {
+            if (downloadData != null && str.equals(downloadData.getUrl())) {
+                return true;
             }
         }
+        return false;
     }
 
-    @Override // com.baidu.tieba.video.record.g
-    public void g(Camera camera) {
-        if (this.gMv) {
-            this.gMv = false;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void x(DownloadData downloadData) {
+        int i;
+        if (!v.w(this.gWo) && downloadData != null) {
+            int i2 = 0;
+            while (true) {
+                i = i2;
+                if (i >= this.gWo.size()) {
+                    i = -1;
+                    break;
+                } else if (this.gWo.get(i) != null && this.gWo.get(i).getUrl() != null && this.gWo.get(i).getUrl().equals(downloadData.getUrl())) {
+                    break;
+                } else {
+                    i2 = i + 1;
+                }
+            }
+            this.gWo.remove(i);
         }
     }
 
-    @Override // com.baidu.tieba.video.record.g
-    public void setPreviewSize(int i, int i2) {
+    public void a(a aVar) {
+        this.gWp = aVar;
     }
 
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.gJz.a(motionEvent, getParent());
+    public void ur(String str) {
+        if (str == null) {
+            this.gWq = "";
+        } else {
+            this.gWq = str;
+        }
     }
 }

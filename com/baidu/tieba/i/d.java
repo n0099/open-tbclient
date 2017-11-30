@@ -1,73 +1,138 @@
 package com.baidu.tieba.i;
 
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.i.g;
 import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.zip.CRC32;
-import java.util.zip.ZipException;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes.dex */
-final class d {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static long E(File file) throws IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import org.json.JSONArray;
+/* loaded from: classes2.dex */
+public class d {
+    public static boolean e(File file, String str) {
+        return a(file, str, true);
+    }
+
+    public static boolean a(File file, String str, boolean z) {
+        FileOutputStream fileOutputStream;
+        FileOutputStream fileOutputStream2 = null;
         try {
-            return a(randomAccessFile, b(randomAccessFile));
-        } finally {
-            randomAccessFile.close();
-        }
-    }
-
-    static a b(RandomAccessFile randomAccessFile) throws IOException, ZipException {
-        long length = randomAccessFile.length() - 22;
-        if (length < 0) {
-            throw new ZipException("File too short to be a zip file: " + randomAccessFile.length());
-        }
-        long j = length - IjkMediaMeta.AV_CH_TOP_BACK_CENTER;
-        long j2 = j >= 0 ? j : 0L;
-        int reverseBytes = Integer.reverseBytes(101010256);
-        long j3 = length;
-        do {
-            randomAccessFile.seek(j3);
-            if (randomAccessFile.readInt() == reverseBytes) {
-                randomAccessFile.skipBytes(2);
-                randomAccessFile.skipBytes(2);
-                randomAccessFile.skipBytes(2);
-                randomAccessFile.skipBytes(2);
-                a aVar = new a();
-                aVar.size = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
-                aVar.offset = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
-                return aVar;
+            try {
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                fileOutputStream = new FileOutputStream(file, z);
+            } catch (Exception e) {
+                e = e;
             }
-            j3--;
-        } while (j3 >= j2);
-        throw new ZipException("End Of Central Directory signature not found");
-    }
-
-    static long a(RandomAccessFile randomAccessFile, a aVar) throws IOException {
-        CRC32 crc32 = new CRC32();
-        long j = aVar.size;
-        randomAccessFile.seek(aVar.offset);
-        byte[] bArr = new byte[16384];
-        int read = randomAccessFile.read(bArr, 0, (int) Math.min((long) IjkMediaMeta.AV_CH_TOP_FRONT_RIGHT, j));
-        while (read != -1) {
-            crc32.update(bArr, 0, read);
-            j -= read;
-            if (j == 0) {
-                break;
-            }
-            read = randomAccessFile.read(bArr, 0, (int) Math.min((long) IjkMediaMeta.AV_CH_TOP_FRONT_RIGHT, j));
+        } catch (Throwable th) {
+            th = th;
         }
-        return crc32.getValue();
+        try {
+            fileOutputStream.write(str.getBytes());
+            fileOutputStream.flush();
+            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
+            return true;
+        } catch (Exception e2) {
+            e = e2;
+            fileOutputStream2 = fileOutputStream;
+            e.printStackTrace();
+            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
+            return false;
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream2 = fileOutputStream;
+            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
+            throw th;
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public static class a {
-        long offset;
-        long size;
+    public static void oP(String str) {
+        if (!StringUtils.isNull(str)) {
+            File file = new File(str);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+        }
+    }
 
-        a() {
+    public static String C(File file) {
+        FileInputStream fileInputStream;
+        StringBuilder sb = new StringBuilder();
+        try {
+            fileInputStream = new FileInputStream(file);
+            try {
+                try {
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        sb.append(new String(bArr, 0, read));
+                    }
+                    com.baidu.adp.lib.g.a.d(fileInputStream);
+                } catch (Exception e) {
+                    e = e;
+                    e.printStackTrace();
+                    com.baidu.adp.lib.g.a.d(fileInputStream);
+                    return sb.toString();
+                }
+            } catch (Throwable th) {
+                th = th;
+                com.baidu.adp.lib.g.a.d(fileInputStream);
+                throw th;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            fileInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            fileInputStream = null;
+            com.baidu.adp.lib.g.a.d(fileInputStream);
+            throw th;
+        }
+        return sb.toString();
+    }
+
+    public static JSONArray oQ(String str) {
+        JSONArray jSONArray = new JSONArray();
+        if (StringUtils.isNull(str)) {
+            return jSONArray;
+        }
+        File file = new File(str);
+        if (file.exists()) {
+            String C = C(file);
+            String[] split = C.split("\n");
+            if (split.length > 0) {
+                for (String str2 : split) {
+                    a(str2, jSONArray);
+                }
+            } else {
+                a(C, jSONArray);
+            }
+            com.baidu.tbadk.core.util.k.s(file);
+            return jSONArray;
+        }
+        return jSONArray;
+    }
+
+    private static void a(String str, JSONArray jSONArray) {
+        if (!StringUtils.isNull(str) && jSONArray != null) {
+            try {
+                JSONArray jSONArray2 = new JSONArray(str);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    jSONArray.put(jSONArray2.optJSONObject(i));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void oR(String str) {
+        if (!StringUtils.isNull(str)) {
+            com.baidu.tbadk.core.util.k.r(new File(g.a.eDp + g.a.eDg + str));
         }
     }
 }

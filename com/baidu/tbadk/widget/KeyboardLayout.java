@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class KeyboardLayout extends RelativeLayout {
-    private boolean aNT;
-    private a aNU;
+    private boolean aOu;
+    private a aOv;
     private boolean mHasKeybord;
     private int mHeight;
 
@@ -17,45 +17,45 @@ public class KeyboardLayout extends RelativeLayout {
 
     public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aNT = false;
+        this.aOu = false;
     }
 
     public KeyboardLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aNT = false;
+        this.aOu = false;
     }
 
     public KeyboardLayout(Context context) {
         super(context);
-        this.aNT = false;
+        this.aOu = false;
     }
 
     public void setOnkbdStateListener(a aVar) {
-        this.aNU = aVar;
+        this.aOv = aVar;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (!this.aNT) {
-            this.aNT = true;
+        if (!this.aOu) {
+            this.aOu = true;
             this.mHeight = i4;
-            if (this.aNU != null) {
-                this.aNU.aM(-1);
+            if (this.aOv != null) {
+                this.aOv.aM(-1);
             }
         } else {
             this.mHeight = this.mHeight < i4 ? i4 : this.mHeight;
         }
-        if (this.aNT && this.mHeight > i4) {
+        if (this.aOu && this.mHeight > i4) {
             this.mHasKeybord = true;
-            if (this.aNU != null) {
-                this.aNU.aM(-3);
+            if (this.aOv != null) {
+                this.aOv.aM(-3);
             }
         }
-        if (this.aNT && this.mHasKeybord && this.mHeight == i4) {
+        if (this.aOu && this.mHasKeybord && this.mHeight == i4) {
             this.mHasKeybord = false;
-            if (this.aNU != null) {
-                this.aNU.aM(-2);
+            if (this.aOv != null) {
+                this.aOv.aM(-2);
             }
         }
     }

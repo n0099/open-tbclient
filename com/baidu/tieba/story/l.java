@@ -8,50 +8,50 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    private static volatile l ggc;
-    private final Map<Long, UserStoryData> gga = new HashMap();
-    private MetaData ggb;
+    private static volatile l goU;
+    private final Map<Long, UserStoryData> goS = new HashMap();
+    private MetaData goT;
 
     private l() {
     }
 
-    public static l bqh() {
-        if (ggc == null) {
+    public static l brP() {
+        if (goU == null) {
             synchronized (l.class) {
-                if (ggc == null) {
-                    ggc = new l();
+                if (goU == null) {
+                    goU = new l();
                 }
             }
         }
-        return ggc;
+        return goU;
     }
 
     public void a(long j, UserStoryData userStoryData) {
-        this.gga.put(Long.valueOf(j), userStoryData);
+        this.goS.put(Long.valueOf(j), userStoryData);
     }
 
-    public void e(MetaData metaData) {
-        this.ggb = metaData;
+    public void d(MetaData metaData) {
+        this.goT = metaData;
     }
 
-    public MetaData bqi() {
-        return this.ggb;
+    public MetaData brQ() {
+        return this.goT;
     }
 
-    public UserStoryData cI(long j) {
-        return this.gga.get(Long.valueOf(j));
+    public UserStoryData cP(long j) {
+        return this.goS.get(Long.valueOf(j));
     }
 
     public void clear() {
-        this.gga.clear();
-        this.ggb = null;
+        this.goS.clear();
+        this.goT = null;
     }
 
     public boolean a(d dVar, List<MetaData> list, int i, long j, long j2, f fVar) {
-        if (v.v(list) || dVar == null) {
+        if (v.w(list) || dVar == null) {
             return false;
         }
-        int i2 = (i < 0 || i > v.u(list) + (-1)) ? 0 : i;
+        int i2 = (i < 0 || i > v.v(list) + (-1)) ? 0 : i;
         ArrayList<MetaData> arrayList = new ArrayList<>();
         MetaData metaData = (MetaData) v.c(list, i2);
         MetaData metaData2 = (MetaData) v.c(list, i2 + 1);
@@ -69,15 +69,15 @@ public class l {
         return true;
     }
 
-    public int bqj() {
+    public int brR() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), 0);
     }
 
-    public void bqk() {
-        tu(0);
+    public void brS() {
+        tK(0);
     }
 
-    public void tu(int i) {
+    public void tK(int i) {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), i);
     }
 }

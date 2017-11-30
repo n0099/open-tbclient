@@ -8,12 +8,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.c, com.baidu.tbadk.j.a> {
-    private View.OnClickListener baV;
+public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.c, com.baidu.tbadk.i.a> {
+    private View.OnClickListener bef;
     private TbPageContext mPageContext;
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.c.azz, bdUniqueId);
+        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.c.aAa, bdUniqueId);
         this.mPageContext = tbPageContext;
     }
 
@@ -21,19 +21,19 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.c, c
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: h */
-    public com.baidu.tbadk.j.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tbadk.j.a(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.entrance_pic_add_item, (ViewGroup) null));
+    public com.baidu.tbadk.i.a onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tbadk.i.a(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.entrance_pic_add_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.c cVar, com.baidu.tbadk.j.a aVar) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.c cVar, com.baidu.tbadk.i.a aVar) {
         if (aVar == null || cVar == null) {
             return null;
         }
-        aVar.aFo.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.e.1
+        aVar.aFP.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.e.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
@@ -46,12 +46,12 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.c, c
                 return view2.onTouchEvent(motionEvent);
             }
         });
-        aVar.setOnClick(this.baV);
+        aVar.setOnClick(this.bef);
         aVar.c(cVar);
         return aVar.getView();
     }
 
     public void setOnClick(View.OnClickListener onClickListener) {
-        this.baV = onClickListener;
+        this.bef = onClickListener;
     }
 }

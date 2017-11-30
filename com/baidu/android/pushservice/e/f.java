@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tbadk.TbConfig;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class f extends d {
@@ -68,7 +67,7 @@ public class f extends d {
             com.baidu.android.pushservice.g.a.a("Bind", e);
         }
         if (com.baidu.android.pushservice.j.p.E(this.a)) {
-            hashMap.put("connect_version", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+            hashMap.put("connect_version", "3");
         } else {
             hashMap.put("connect_version", "2");
         }

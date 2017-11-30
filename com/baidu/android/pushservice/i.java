@@ -19,7 +19,6 @@ import com.baidu.android.pushservice.e.y;
 import com.baidu.android.pushservice.e.z;
 import com.baidu.android.pushservice.h.p;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* loaded from: classes2.dex */
 public class i {
     private static i c;
@@ -347,14 +346,14 @@ public class i {
         } else if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action) || "com.baidu.android.pushservice.action.privatenotification.DELETE".equals(action)) {
             PublicMsg publicMsg = (PublicMsg) intent.getParcelableExtra("public_msg");
             if (com.baidu.android.pushservice.j.p.b(this.a, publicMsg)) {
-                publicMsg.handlePrivateNotification(this.a, action, intent.getStringExtra(PbActivityConfig.KEY_MSG_ID), intent.getStringExtra("app_id"));
+                publicMsg.handlePrivateNotification(this.a, action, intent.getStringExtra("msg_id"), intent.getStringExtra("app_id"));
                 return true;
             }
             return true;
         } else if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.DELETE".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.NOTIFIED".equals(action)) {
             com.baidu.android.pushservice.j.p.b("push_passthrough: receive  click delete and notified action", this.a);
             com.baidu.android.pushservice.g.a.c("RegistrationService", "handle passthrough notification " + action);
-            com.baidu.android.pushservice.h.k.a(this.a, intent.hasExtra(PbActivityConfig.KEY_MSG_ID) ? intent.getStringExtra(PbActivityConfig.KEY_MSG_ID) : null, intent.hasExtra("app_id") ? intent.getStringExtra("app_id") : null, action);
+            com.baidu.android.pushservice.h.k.a(this.a, intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null, intent.hasExtra("app_id") ? intent.getStringExtra("app_id") : null, action);
             return true;
         } else if ("com.baidu.android.pushservice.action.media.CLICK".equals(action) || "com.baidu.android.pushservice.action.media.DELETE".equals(action)) {
             ((PublicMsg) intent.getParcelableExtra("public_msg")).handleRichMediaNotification(this.a, action, intent.getStringExtra("app_id"));

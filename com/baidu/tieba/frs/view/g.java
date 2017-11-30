@@ -10,15 +10,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
+import com.baidu.tbadk.core.view.userLike.CardUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
-import com.baidu.tbadk.core.view.userLike.PbFirstFloorUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends LinearLayout {
-    private TextView anN;
-    private ClickableHeaderImageView cTU;
-    private PbFirstFloorUserLikeButton cTV;
-    private TextView cTW;
+    private TextView anX;
+    private ClickableHeaderImageView ddc;
+    private CardUserLikeButton ddd;
+    private TextView dde;
     private boolean isGod;
     private int mSkinType;
 
@@ -31,17 +31,17 @@ public class g extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.h.frs_user_recommend_item, (ViewGroup) this, true);
-        this.cTU = (ClickableHeaderImageView) findViewById(d.g.user_recommend_head);
-        this.cTU.setAutoChangeStyle(true);
-        this.cTU.setDefaultResource(17170445);
-        this.cTU.setDefaultErrorResource(d.f.icon_default_avatar100);
-        this.cTU.setDefaultBgResource(d.C0080d.cp_bg_line_e);
-        this.cTU.setIsRound(true);
-        this.cTU.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.cTV = (PbFirstFloorUserLikeButton) findViewById(d.g.user_recommend_like_btn);
-        this.cTV.setGravity(17);
-        this.anN = (TextView) findViewById(d.g.user_recommend_username);
-        this.cTW = (TextView) findViewById(d.g.user_recommend_fans_num);
+        this.ddc = (ClickableHeaderImageView) findViewById(d.g.user_recommend_head);
+        this.ddc.setAutoChangeStyle(true);
+        this.ddc.setDefaultResource(17170445);
+        this.ddc.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.ddc.setDefaultBgResource(d.C0082d.cp_bg_line_e);
+        this.ddc.setIsRound(true);
+        this.ddc.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.ddd = (CardUserLikeButton) findViewById(d.g.user_recommend_like_btn);
+        this.ddd.setGravity(17);
+        this.anX = (TextView) findViewById(d.g.user_recommend_username);
+        this.dde = (TextView) findViewById(d.g.user_recommend_fans_num);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -49,7 +49,7 @@ public class g extends LinearLayout {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.cTU.onClick(g.this.cTU);
+                g.this.ddc.onClick(g.this.ddc);
             }
         });
     }
@@ -58,9 +58,9 @@ public class g extends LinearLayout {
         if (this.isGod != z) {
             this.isGod = z;
             if (z) {
-                this.anN.setTextColor(aj.getColor(this.mSkinType, d.C0080d.cp_cont_r));
+                this.anX.setTextColor(aj.getColor(this.mSkinType, d.C0082d.cp_cont_r));
             } else {
-                this.anN.setTextColor(aj.getColor(this.mSkinType, d.C0080d.cp_cont_b));
+                this.anX.setTextColor(aj.getColor(this.mSkinType, d.C0082d.cp_cont_b));
             }
         }
     }
@@ -68,30 +68,30 @@ public class g extends LinearLayout {
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.cTW.setTextColor(aj.getColor(i, d.C0080d.cp_cont_d));
+            this.dde.setTextColor(aj.getColor(i, d.C0082d.cp_cont_d));
             if (this.isGod) {
-                this.anN.setTextColor(aj.getColor(i, d.C0080d.cp_cont_r));
+                this.anX.setTextColor(aj.getColor(i, d.C0082d.cp_cont_r));
             } else {
-                this.anN.setTextColor(aj.getColor(i, d.C0080d.cp_cont_b));
+                this.anX.setTextColor(aj.getColor(i, d.C0082d.cp_cont_b));
             }
-            setBackgroundColor(aj.getColor(i, d.C0080d.cp_bg_line_d));
-            this.cTV.onChangeSkinType(i);
+            setBackgroundColor(aj.getColor(i, d.C0082d.cp_bg_line_d));
+            this.ddd.onChangeSkinType(i);
         }
     }
 
     public ClickableHeaderImageView getHeaderView() {
-        return this.cTU;
+        return this.ddc;
     }
 
     public CommonUserLikeButton getLikeBtn() {
-        return this.cTV;
+        return this.ddd;
     }
 
     public TextView getUsername() {
-        return this.anN;
+        return this.anX;
     }
 
     public TextView getFansNum() {
-        return this.cTW;
+        return this.dde;
     }
 }

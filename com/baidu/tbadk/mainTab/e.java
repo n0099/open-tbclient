@@ -9,30 +9,30 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class e extends FrameLayout {
-    protected boolean aHr;
+    protected boolean aHT;
 
     public e(Context context) {
         super(context);
-        this.aHr = false;
+        this.aHT = false;
     }
 
     public e(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aHr = false;
+        this.aHT = false;
     }
 
     public e(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aHr = false;
+        this.aHT = false;
     }
 
-    public void dD(int i) {
+    public void dE(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void bL(boolean z) {
+    public void bK(boolean z) {
     }
 
     public View getContentTv() {
@@ -45,7 +45,7 @@ public abstract class e extends FrameLayout {
     public void a(String str, a aVar) {
     }
 
-    public a gA(String str) {
+    public a gD(String str) {
         return null;
     }
 
@@ -55,7 +55,7 @@ public abstract class e extends FrameLayout {
     public void setText(String str) {
     }
 
-    public void L(int i, int i2) {
+    public void J(int i, int i2) {
     }
 
     public void setCompoundDrawablesTopResId(int i) {
@@ -77,25 +77,25 @@ public abstract class e extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.aHr = z;
+        this.aHT = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aHt;
-        public e aHv;
+        public int aHV;
+        public e aHX;
         public int ur;
         public View view;
-        public boolean aHs = true;
-        public int aHu = d.C0080d.common_color_10225;
+        public boolean aHU = true;
+        public int aHW = d.C0082d.common_color_10225;
 
-        public void dD(int i) {
-            if (this.aHt != 0) {
-                aj.j(this.view, this.aHt);
+        public void dE(int i) {
+            if (this.aHV != 0) {
+                aj.j(this.view, this.aHV);
             }
             if (this.view instanceof TextView) {
-                if (this.aHu != 0) {
-                    aj.c((TextView) this.view, this.aHu, 1);
+                if (this.aHW != 0) {
+                    aj.c((TextView) this.view, this.aHW, 1);
                 }
                 int b = b((TextView) this.view);
                 if (b > 0 && b < 10) {

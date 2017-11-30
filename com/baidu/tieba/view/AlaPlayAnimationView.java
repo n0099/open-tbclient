@@ -6,45 +6,53 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator gMG;
+    private ObjectAnimator gXC;
+    private boolean gXD;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
+        this.gXD = false;
         init();
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        this.gXD = false;
         init();
     }
 
     private void init() {
-        this.gMG = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.gMG.setRepeatMode(1);
-        this.gMG.setRepeatCount(-1);
-        this.gMG.setDuration(700L);
+        this.gXC = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.gXC.setRepeatMode(1);
+        this.gXC.setRepeatCount(-1);
+        this.gXC.setDuration(700L);
         setVisibility(8);
+        this.gXD = false;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bBp();
+        bDX();
     }
 
-    public void aal() {
-        if (this.gMG != null) {
-            setVisibility(0);
-            this.gMG.start();
+    public void startPlayAnimation() {
+        if (!this.gXD) {
+            this.gXD = true;
+            if (this.gXC != null) {
+                setVisibility(0);
+                this.gXC.start();
+            }
         }
     }
 
-    public void bBp() {
-        if (this.gMG != null) {
-            this.gMG.setRepeatCount(-1);
-            this.gMG.cancel();
+    public void bDX() {
+        if (this.gXC != null) {
+            this.gXC.setRepeatCount(-1);
+            this.gXC.cancel();
             clearAnimation();
         }
+        this.gXD = false;
         setVisibility(8);
     }
 }

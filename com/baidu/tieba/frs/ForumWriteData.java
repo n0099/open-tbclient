@@ -10,9 +10,11 @@ public class ForumWriteData implements Serializable {
     public String avatar;
     public final String forumId;
     public final String forumName;
+    public String mFrom;
     public int mem_type;
     public final PostPrefixData prefixData;
     public PostTopicData topicData;
+    public String writeCallFrom;
     public int categoryId = -1;
     public int forumLevel = -1;
 

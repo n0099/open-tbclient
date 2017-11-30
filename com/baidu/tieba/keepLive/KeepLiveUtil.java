@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Build;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
 import com.baidu.tieba.keepLive.startActivity.ScreenBroadcastListener;
 import com.baidu.tieba.keepLive.startActivity.ScreenManager;
@@ -19,33 +20,33 @@ public class KeepLiveUtil {
     public static Context mKeepLiveContext;
     private static ScreenManager screenManager = null;
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:20:0x002e -> B:21:0x0025). Please submit an issue!!! */
     public static void startForKeeplive(Context context) {
-        if (TbadkCoreApplication.getKeepLiveSwitch(context)) {
-            if (context == null) {
-                context = mKeepLiveContext;
-            }
-            if (context != null) {
-                if ((context instanceof Activity) || (context instanceof Application)) {
-                    mKeepLiveContext = context;
+        try {
+            TiebaStatic.log("c12662");
+            if (TbadkCoreApplication.getKeepLiveSwitch(context)) {
+                if (context == null) {
+                    context = mKeepLiveContext;
                 }
-                try {
+                if (context != null) {
+                    if ((context instanceof Activity) || (context instanceof Application)) {
+                        mKeepLiveContext = context;
+                    }
                     if (Build.VERSION.SDK_INT >= 23) {
                         BdSocketLinkService.startService(false, "restart");
                     } else {
                         GuardServiceObserver.startNativeServiceForUnder23(context);
                     }
-                } catch (Throwable th) {
-                    BdSocketLinkService.startService(false, "restart");
+                } else {
+                    return;
                 }
-            } else {
-                return;
             }
+            reBorn();
+        } catch (Throwable th) {
         }
-        reBorn();
     }
 
     public static void startRemoteService() {
+        TiebaStatic.log("c12662");
         BdSocketLinkService.startService(false, "restart");
     }
 

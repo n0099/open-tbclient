@@ -3,15 +3,15 @@ package com.baidu.tbadk.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class q extends Thread {
-    private int aMC;
-    private int aMD;
+    private int aNd;
+    private int aNe;
     private String type = null;
 
     public q(int i, int i2) {
-        this.aMC = 0;
-        this.aMD = 0;
-        this.aMC = i;
-        this.aMD = i2;
+        this.aNd = 0;
+        this.aNe = 0;
+        this.aNd = i;
+        this.aNe = i2;
     }
 
     public void setType(String str) {
@@ -22,11 +22,11 @@ public class q extends Thread {
     public void run() {
         super.run();
         com.baidu.tbadk.core.util.x xVar = new com.baidu.tbadk.core.util.x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-        xVar.n("img_num", String.valueOf(this.aMC));
-        xVar.n("img_total", String.valueOf(this.aMD));
+        xVar.n("img_num", String.valueOf(this.aNd));
+        xVar.n("img_total", String.valueOf(this.aNe));
         if (this.type != null) {
             xVar.n("img_type", this.type);
         }
-        xVar.up();
+        xVar.us();
     }
 }

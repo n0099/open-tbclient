@@ -10,10 +10,12 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteData extends OrmObject implements Serializable {
     public static final String CALL_FROM_ONE = "1";
+    public static final String CALL_FROM_PERSON = "3";
     public static final String CALL_FROM_TWO = "2";
     public static final int NEW = 0;
     public static final int NEW_DRUFTING_BOTTLE = 7;
     public static final int NEW_PHOTO_LIVE = 4;
+    public static final int NEW_RECORD = 10;
     public static final int NEW_TEXT = 9;
     public static final int NEW_VOTE = 6;
     public static final int REPLY = 1;
@@ -28,9 +30,12 @@ public class WriteData extends OrmObject implements Serializable {
     public static final int VIDEO_REVIEW_TYPE_NOT_NEED = 2;
     private String callFrom;
     private boolean canNoForum;
+    private int entranceType;
     private boolean isAd;
     private boolean isBabaoPosted;
     private boolean isLinkThread;
+    private boolean isPrivacy;
+    private boolean isShareThread;
     private boolean isUserFeedback;
     private String linkUrl;
     private String linkUrlCode;
@@ -53,8 +58,11 @@ public class WriteData extends OrmObject implements Serializable {
     private boolean mIsInterviewLivew;
     private boolean mIsNoTitle;
     private int mIsStory;
+    private String mLat;
+    private String mLng;
     private String mMemeContSign;
     private String mMemeText;
+    private boolean mPostLatLng;
     private String mRecommendExt;
     private String mReplyUid;
     private String mRepostId;
@@ -72,6 +80,7 @@ public class WriteData extends OrmObject implements Serializable {
     private String mShareSummaryImgType;
     private int mShareSummaryImgWidth;
     private String mShareSummaryTitle;
+    private int mTakePhotoNum;
     private String mTaskId;
     private String mThreadId;
     private String mTitle;
@@ -81,10 +90,15 @@ public class WriteData extends OrmObject implements Serializable {
     private String mVcodeMD5;
     private String mVcodeType;
     private String mVcodeUrl;
+    private String mVideoId;
     private VideoInfo mVideoInfo;
     private int mVideoReviewType;
     private String mVoiceMd5;
     private VoteInfo mVoteInfo;
+    private String originalThreadId;
+    private String originalVideoCover;
+    private String originalVideoTitle;
+    public String sourceFrom;
     private String transmitForumData;
     private String vForumId;
     private String vForumName;
@@ -139,6 +153,7 @@ public class WriteData extends OrmObject implements Serializable {
         this.callFrom = "2";
         this.mBigEmtionCount = 0;
         this.isLinkThread = false;
+        this.mPostLatLng = false;
         this.mType = 0;
         this.mForumId = null;
         this.mForumName = null;
@@ -170,6 +185,11 @@ public class WriteData extends OrmObject implements Serializable {
         this.mIsBarrage = false;
         this.mBarrageTime = 0L;
         this.mIsStory = 0;
+        this.isPrivacy = false;
+        this.isShareThread = false;
+        this.originalThreadId = "";
+        this.mTakePhotoNum = 0;
+        this.entranceType = 0;
     }
 
     public WriteData(int i) {
@@ -181,6 +201,7 @@ public class WriteData extends OrmObject implements Serializable {
         this.callFrom = "2";
         this.mBigEmtionCount = 0;
         this.isLinkThread = false;
+        this.mPostLatLng = false;
         this.mType = i;
         this.mTitle = null;
         this.mContent = null;
@@ -219,6 +240,7 @@ public class WriteData extends OrmObject implements Serializable {
             jSONObject.put("is_barrage", this.mIsBarrage);
             jSONObject.put("barrage_time", this.mBarrageTime);
             jSONObject.put("big_count", this.mBigEmtionCount);
+            jSONObject.put("source_from", this.sourceFrom);
         } catch (Exception e) {
         }
         return jSONObject.toString();
@@ -248,8 +270,9 @@ public class WriteData extends OrmObject implements Serializable {
                 writeData.writeImagesInfo.parseJson(optJSONObject2);
             }
             writeData.mIsBarrage = jSONObject.optBoolean("is_barrage");
-            writeData.mBarrageTime = jSONObject.getLong("barrage_time");
-            writeData.mBigEmtionCount = jSONObject.getInt("big_count");
+            writeData.mBarrageTime = jSONObject.optLong("barrage_time");
+            writeData.mBigEmtionCount = jSONObject.optInt("big_count");
+            writeData.sourceFrom = jSONObject.optString("source_from");
             return writeData;
         } catch (Exception e) {
             return null;
@@ -792,5 +815,93 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setIsLinkThread(boolean z) {
         this.isLinkThread = z;
+    }
+
+    public String getLat() {
+        return this.mLat;
+    }
+
+    public void setLat(String str) {
+        this.mLat = str;
+    }
+
+    public String getLng() {
+        return this.mLng;
+    }
+
+    public void setLng(String str) {
+        this.mLng = str;
+    }
+
+    public boolean isPostLatLng() {
+        return this.mPostLatLng;
+    }
+
+    public void setPostLatLng(boolean z) {
+        this.mPostLatLng = z;
+    }
+
+    public void setPrivacy(boolean z) {
+        this.isPrivacy = z;
+    }
+
+    public boolean isPrivacy() {
+        return this.isPrivacy;
+    }
+
+    public void setIsShareThread(boolean z) {
+        this.isShareThread = z;
+    }
+
+    public boolean isShareThread() {
+        return this.isShareThread;
+    }
+
+    public void setOriginalThreadId(String str) {
+        this.originalThreadId = str;
+    }
+
+    public String getOriginalThreadId() {
+        return this.originalThreadId;
+    }
+
+    public String getVideoId() {
+        return this.mVideoId;
+    }
+
+    public void setVideoId(String str) {
+        this.mVideoId = str;
+    }
+
+    public String getOriginalVideoTitle() {
+        return this.originalVideoTitle;
+    }
+
+    public void setOriginalVideoTitle(String str) {
+        this.originalVideoTitle = str;
+    }
+
+    public String getOriginalVideoCover() {
+        return this.originalVideoCover;
+    }
+
+    public void setOriginalVideoCover(String str) {
+        this.originalVideoCover = str;
+    }
+
+    public void setTakePhotoNum(int i) {
+        this.mTakePhotoNum = i;
+    }
+
+    public int getTakePhotoNum() {
+        return this.mTakePhotoNum;
+    }
+
+    public void setEntranceType(int i) {
+        this.entranceType = i;
+    }
+
+    public int getEntranceType() {
+        return this.entranceType;
     }
 }

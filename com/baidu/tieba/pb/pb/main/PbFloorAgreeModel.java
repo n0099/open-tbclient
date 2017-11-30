@@ -5,23 +5,22 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.CustomDialogData;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PbFloorAgreeModel {
-    private PbModel eKK;
-    private final HttpMessageListener eNY = new HttpMessageListener(CmdConfigHttp.CMD_PB_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.1
+    private PbModel eSp;
+    private final HttpMessageListener eWa = new HttpMessageListener(CmdConfigHttp.CMD_PB_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             PbFloorAgreeModel.this.a(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
         }
     };
-    private final HttpMessageListener eNZ = new HttpMessageListener(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.2
+    private final HttpMessageListener eWb = new HttpMessageListener(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -32,19 +31,19 @@ public class PbFloorAgreeModel {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void a(CustomDialogData customDialogData);
+        void c(CustomDialogData customDialogData);
 
-        void pA(int i);
+        void pN(int i);
     }
 
     public PbFloorAgreeModel(PbModel pbModel) {
-        this.eKK = pbModel;
-        Ek();
-        MessageManager.getInstance().registerListener(this.eNY);
-        MessageManager.getInstance().registerListener(this.eNZ);
+        this.eSp = pbModel;
+        zK();
+        MessageManager.getInstance().registerListener(this.eWa);
+        MessageManager.getInstance().registerListener(this.eWb);
     }
 
-    private void Ek() {
+    private void zK() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_FLOOR_AGREE, TbConfig.SERVER_ADDRESS + TbConfig.PB_FLOOR_AGREE_URL);
         tbHttpMessageTask.setResponsedClass(PbFloorAgreeResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -56,17 +55,17 @@ public class PbFloorAgreeModel {
     }
 
     public void a(String str, int i, a aVar) {
-        if (this.eKK != null && this.eKK.getPbData() != null) {
+        if (this.eSp != null && this.eSp.getPbData() != null) {
             a(str, i, 1, 2, "", aVar);
         }
     }
 
     public void a(String str, int i, int i2, int i3, String str2, a aVar) {
-        if (this.eKK != null && this.eKK.getPbData() != null) {
+        if (this.eSp != null && this.eSp.getPbData() != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("post_id", str);
-            httpMessage.addParam("thread_id", this.eKK.getPbData().getThreadId());
-            httpMessage.addParam(PbActivityConfig.KEY_MSG_OP_TYPE, i);
+            httpMessage.addParam("thread_id", this.eSp.getPbData().getThreadId());
+            httpMessage.addParam("op_type", i);
             httpMessage.addParam("obj_type", i2);
             httpMessage.addParam("agree_type", i3);
             httpMessage.addParam("forum_id", str2);
@@ -76,9 +75,9 @@ public class PbFloorAgreeModel {
     }
 
     public void a(String str, int i, int i2, String str2, a aVar) {
-        if (this.eKK != null && this.eKK.getPbData() != null) {
+        if (this.eSp != null && this.eSp.getPbData() != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
-            httpMessage.addParam("thread_id", this.eKK.getPbData().getThreadId());
+            httpMessage.addParam("thread_id", this.eSp.getPbData().getThreadId());
             httpMessage.addParam("post_id", str);
             httpMessage.addParam("obj_type", i);
             httpMessage.addParam("agree_type", i2);
@@ -101,11 +100,11 @@ public class PbFloorAgreeModel {
             if (aVar != null) {
                 PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage;
                 if (!pbFloorAgreeResponseMessage.hasError()) {
-                    aVar.pA(pbFloorAgreeResponseMessage.getScore());
+                    aVar.pN(pbFloorAgreeResponseMessage.getScore());
                     if (pbFloorAgreeResponseMessage.getActivityDialogData() == null) {
                         return;
                     }
-                    aVar.a(pbFloorAgreeResponseMessage.mActDialogData);
+                    aVar.c(pbFloorAgreeResponseMessage.mActDialogData);
                 }
             }
         }
@@ -131,7 +130,7 @@ public class PbFloorAgreeModel {
                 if (optJSONObject2 != null) {
                     this.mScore = optJSONObject2.optInt("score");
                 }
-                this.mActDialogData = com.baidu.tieba.pb.b.I(optJSONObject);
+                this.mActDialogData = com.baidu.tieba.pb.b.K(optJSONObject);
             }
         }
 
@@ -145,8 +144,8 @@ public class PbFloorAgreeModel {
     }
 
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.eNY);
-        MessageManager.getInstance().unRegisterListener(this.eNZ);
+        MessageManager.getInstance().unRegisterListener(this.eWa);
+        MessageManager.getInstance().unRegisterListener(this.eWb);
         return true;
     }
 }

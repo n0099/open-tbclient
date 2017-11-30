@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public abstract class m<T, V extends j.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected PbActivity eMB;
-    private SparseArray<SoftReference<Drawable>> eNH;
-    private SparseArray<Integer> eNI;
+    protected PbActivity eUm;
+    private SparseArray<SoftReference<Drawable>> eVx;
+    private SparseArray<Integer> eVy;
     protected boolean mIsFromCDN;
     protected ListView mListView;
     protected int mSkinType;
@@ -24,14 +24,14 @@ public abstract class m<T, V extends j.a> extends com.baidu.adp.widget.ListView.
         super(pbActivity == null ? null : pbActivity.getPageContext().getPageActivity(), bdUniqueId);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.eNH = new SparseArray<>();
-        this.eNI = new SparseArray<>();
-        ap(pbActivity);
+        this.eVx = new SparseArray<>();
+        this.eVy = new SparseArray<>();
+        ao(pbActivity);
     }
 
-    public void ap(PbActivity pbActivity) {
+    public void ao(PbActivity pbActivity) {
         if (pbActivity != null) {
-            this.eMB = pbActivity;
+            this.eUm = pbActivity;
             this.mContext = pbActivity.getActivity();
         }
     }
@@ -50,26 +50,26 @@ public abstract class m<T, V extends j.a> extends com.baidu.adp.widget.ListView.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int getDimensionPixelSize(int i) {
-        Integer num = this.eNI.get(i);
+        Integer num = this.eVy.get(i);
         if (num != null) {
             return num.intValue();
         }
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-        this.eNI.put(i, Integer.valueOf(dimensionPixelSize));
+        this.eVy.put(i, Integer.valueOf(dimensionPixelSize));
         return dimensionPixelSize;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Drawable getDrawable(int i) {
         Drawable drawable;
-        SoftReference<Drawable> softReference = this.eNH.get(i);
+        SoftReference<Drawable> softReference = this.eVx.get(i);
         if (softReference == null) {
             drawable = null;
         } else {
             drawable = softReference.get();
         }
         if (drawable == null && (drawable = com.baidu.tbadk.core.util.aj.getDrawable(i)) != null) {
-            this.eNH.put(i, new SoftReference<>(drawable));
+            this.eVx.put(i, new SoftReference<>(drawable));
         }
         return drawable;
     }

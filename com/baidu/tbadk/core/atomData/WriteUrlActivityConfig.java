@@ -9,7 +9,7 @@ public class WriteUrlActivityConfig extends IntentConfig {
         if (getIntent() != null) {
             getIntent().putExtra("forum_id", str);
             getIntent().putExtra("forum_name", str2);
-            getIntent().putExtra(WriteActivityConfig.KEY_CALL_FROM, str3);
+            getIntent().putExtra("KEY_CALL_FROM", str3);
         }
     }
 }

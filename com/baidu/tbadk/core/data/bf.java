@@ -1,122 +1,85 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
-import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
-import tbclient.TaskInfo;
+import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class bf {
-    private long Yj;
-    private String Yk;
-    private String Yl;
-    private long endTime;
-    private long forumId;
-    private String forumName;
-    private int mHeight;
-    private int mWidth;
-    private String obj_id;
-    private long taskId;
-    private long threadId;
+    private String aaN;
+    private String aaO;
+    private int aaP;
+    private String aaQ;
+    private long aaR;
+    private String aaS;
+    private String imgUrl;
+    private String subTitle;
+    private String summary;
 
-    public String getForumName() {
-        return this.forumName;
+    public String pT() {
+        return this.imgUrl;
     }
 
-    public String getForumId() {
-        return this.forumId + "";
+    public String sR() {
+        return this.summary;
     }
 
-    public long qT() {
-        return this.Yj;
+    public String sS() {
+        return this.aaO;
     }
 
-    public long qU() {
-        return this.endTime;
+    public int sT() {
+        return this.aaP;
     }
 
-    public String getTaskId() {
-        return this.taskId + "";
+    public String sU() {
+        return this.aaQ;
     }
 
-    public String getThreadId() {
-        return this.threadId + "";
+    public long sV() {
+        return this.aaR;
     }
 
-    public String qV() {
-        return this.Yl;
-    }
-
-    public int qW() {
-        return this.mWidth;
-    }
-
-    public int qX() {
-        return this.mHeight;
-    }
-
-    public String pB() {
-        return this.obj_id;
-    }
-
-    public void a(TaskInfo taskInfo) {
-        if (taskInfo != null) {
-            this.forumName = taskInfo.forum_name;
-            this.forumId = taskInfo.forum_id.longValue();
-            this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
-            this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
-            this.Yk = taskInfo.bgimg;
-            this.Yl = taskInfo.thread_img;
-            this.Yj = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
-            this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
-            String str = taskInfo.thread_img_size;
-            if (str != null) {
-                try {
-                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.mWidth = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    this.mHeight = com.baidu.adp.lib.g.b.g(split[1], 1);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
+    public void a(TopCode topCode) {
+        if (topCode != null) {
+            this.imgUrl = topCode.img_url;
+            this.aaN = topCode.game_link;
+            this.summary = topCode.summary;
+            this.aaO = topCode.code_link;
+            this.aaP = topCode.get_type.intValue();
+            this.aaQ = topCode.surplusgift;
+            if (topCode.giftworth.longValue() < 0) {
+                this.aaR = 0L;
+            } else {
+                this.aaR = topCode.giftworth.longValue();
             }
-            if (this.mWidth <= 0) {
-                this.mWidth = 1;
-            }
-            if (this.mHeight <= 0) {
-                this.mHeight = 1;
-            }
-            this.obj_id = taskInfo.obj_id;
+            this.aaS = topCode.type_text;
+            this.subTitle = topCode.subtitle;
         }
     }
 
-    public void parserJson(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.forumName = jSONObject.optString("forum_name");
-                this.forumId = jSONObject.optLong("forum_id");
-                this.taskId = jSONObject.optLong(InterviewLiveActivityConfig.KEY_TASK_ID);
-                this.threadId = jSONObject.optLong("thread_id");
-                this.Yk = jSONObject.optString("bgimg");
-                this.Yj = jSONObject.optLong("start_time");
-                this.endTime = jSONObject.optLong("end_time");
-                this.Yl = jSONObject.optString("thread_img");
-                String optString = jSONObject.optString("thread_img_size");
-                if (optString != null && optString.length() > 0) {
-                    String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    if (split.length > 1) {
-                        this.mWidth = Integer.valueOf(split[0]).intValue();
-                        this.mHeight = Integer.valueOf(split[1]).intValue();
-                    }
-                }
-                if (this.mWidth <= 0) {
-                    this.mWidth = 1;
-                }
-                if (this.mHeight <= 0) {
-                    this.mHeight = 1;
-                }
+                this.imgUrl = jSONObject.optString("img_url");
+                this.aaN = jSONObject.optString("game_link");
+                this.summary = jSONObject.optString("summary");
+                this.aaO = jSONObject.optString("code_link");
+                this.aaP = jSONObject.optInt("get_type", 1);
+                this.aaQ = jSONObject.optString("surplusgift");
+                this.aaR = jSONObject.optLong("giftworth", 0L);
+                this.aaS = jSONObject.optString("type_text");
+                this.subTitle = jSONObject.optString("subtitle");
             } catch (Exception e) {
-                BdLog.e(e.toString());
+                BdLog.e(e.getMessage());
             }
         }
+    }
+
+    public String sW() {
+        return this.aaS;
+    }
+
+    public String getSubTitle() {
+        return this.subTitle;
     }
 }

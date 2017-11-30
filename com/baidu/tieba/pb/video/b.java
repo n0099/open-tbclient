@@ -3,10 +3,10 @@ package com.baidu.tieba.pb.video;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId fbr = BdUniqueId.gen();
+    public static final BdUniqueId fil = BdUniqueId.gen();
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return fbr;
+        return fil;
     }
 }

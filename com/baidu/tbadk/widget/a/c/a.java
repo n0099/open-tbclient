@@ -5,7 +5,7 @@ import android.graphics.BitmapRegionDecoder;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class a {
-    private final int[] aPq = new int[2];
+    private final int[] aSn = new int[2];
     private Context mContext;
 
     public a(Context context) {
@@ -17,12 +17,12 @@ public class a {
             return null;
         }
         BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, false);
-        this.aPq[0] = newInstance.getWidth();
-        this.aPq[1] = newInstance.getHeight();
+        this.aSn[0] = newInstance.getWidth();
+        this.aSn[1] = newInstance.getHeight();
         return newInstance;
     }
 
-    public int[] It() {
-        return this.aPq;
+    public int[] IQ() {
+        return this.aSn;
     }
 }

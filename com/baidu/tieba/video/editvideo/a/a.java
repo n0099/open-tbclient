@@ -14,13 +14,13 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0133a gFe;
+    private InterfaceC0132a gOF;
     private List<PendantData> mList;
     private e mPageContext;
 
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0133a {
+    public interface InterfaceC0132a {
         void a(View view, int i, PendantData pendantData);
     }
 
@@ -59,87 +59,87 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.gFg = (TextView) view.findViewById(d.g.cover_text);
-            bVar.gFh = (TbImageView) view.findViewById(d.g.pendant_image);
-            bVar.gFi = (ProgressBar) view.findViewById(d.g.pendant_progressbar);
-            bVar.gFh.setDefaultBgResource(d.C0080d.transparent);
-            bVar.gFh.setDefaultErrorResource(d.C0080d.cp_cont_i);
-            bVar.gFh.setDefaultResource(d.C0080d.cp_cont_i);
+            bVar.gOH = (TextView) view.findViewById(d.g.cover_text);
+            bVar.gOI = (TbImageView) view.findViewById(d.g.pendant_image);
+            bVar.gOJ = (ProgressBar) view.findViewById(d.g.pendant_progressbar);
+            bVar.gOI.setDefaultBgResource(d.C0082d.transparent);
+            bVar.gOI.setDefaultErrorResource(d.C0082d.cp_cont_i);
+            bVar.gOI.setDefaultResource(d.C0082d.cp_cont_i);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.gFe != null) {
+                    if (a.this.gOF != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.gFh.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.gFh.getTag();
+                        if (bVar2.gOI.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.gOI.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.gFe.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.gOF.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
                 }
             });
-            view.setBackgroundColor(aj.getColor(d.C0080d.cp_bg_line_d));
+            view.setBackgroundColor(aj.getColor(d.C0082d.cp_bg_line_d));
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.gFh.setTag(Integer.valueOf(i));
+            bVar.gOI.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.gFg.setVisibility(0);
-                    bVar.gFh.setVisibility(8);
-                    bVar.gFi.setVisibility(8);
-                    bVar.gFg.setTextColor(aj.getColor(d.C0080d.cp_cont_e));
-                    bVar.gFg.setText("No");
-                    bVar.gFg.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
+                    bVar.gOH.setVisibility(0);
+                    bVar.gOI.setVisibility(8);
+                    bVar.gOJ.setVisibility(8);
+                    bVar.gOH.setTextColor(aj.getColor(d.C0082d.cp_cont_e));
+                    bVar.gOH.setText("No");
+                    bVar.gOH.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.gFg.setVisibility(0);
-                    bVar.gFh.setVisibility(8);
-                    bVar.gFi.setVisibility(8);
-                    bVar.gFg.setTextColor(aj.getColor(d.C0080d.cp_cont_g));
-                    bVar.gFg.setText("T");
-                    bVar.gFg.setBackgroundColor(aj.getColor(d.C0080d.cp_link_tip_a));
+                    bVar.gOH.setVisibility(0);
+                    bVar.gOI.setVisibility(8);
+                    bVar.gOJ.setVisibility(8);
+                    bVar.gOH.setTextColor(aj.getColor(d.C0082d.cp_cont_g));
+                    bVar.gOH.setText("T");
+                    bVar.gOH.setBackgroundColor(aj.getColor(d.C0082d.cp_link_tip_a));
                     break;
                 case 2:
-                    bVar.gFg.setVisibility(0);
-                    bVar.gFh.setVisibility(8);
-                    bVar.gFi.setVisibility(8);
-                    bVar.gFg.setTextColor(aj.getColor(d.C0080d.cp_cont_g));
-                    bVar.gFg.setText("T");
-                    bVar.gFg.setBackgroundColor(aj.getColor(d.C0080d.cp_cont_d));
+                    bVar.gOH.setVisibility(0);
+                    bVar.gOI.setVisibility(8);
+                    bVar.gOJ.setVisibility(8);
+                    bVar.gOH.setTextColor(aj.getColor(d.C0082d.cp_cont_g));
+                    bVar.gOH.setText("T");
+                    bVar.gOH.setBackgroundColor(aj.getColor(d.C0082d.cp_cont_d));
                     break;
                 case 3:
-                    bVar.gFg.setVisibility(0);
-                    bVar.gFh.setVisibility(8);
-                    bVar.gFi.setVisibility(8);
-                    bVar.gFg.setTextColor(aj.getColor(d.C0080d.cp_cont_d));
-                    bVar.gFg.setText("T");
-                    bVar.gFg.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
+                    bVar.gOH.setVisibility(0);
+                    bVar.gOI.setVisibility(8);
+                    bVar.gOJ.setVisibility(8);
+                    bVar.gOH.setTextColor(aj.getColor(d.C0082d.cp_cont_d));
+                    bVar.gOH.setText("T");
+                    bVar.gOH.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
                     break;
                 default:
-                    bVar.gFg.setVisibility(8);
-                    bVar.gFh.setVisibility(0);
-                    bVar.gFi.setVisibility(8);
-                    bVar.gFh.startLoad(pendantData.img, 10, false);
+                    bVar.gOH.setVisibility(8);
+                    bVar.gOI.setVisibility(0);
+                    bVar.gOJ.setVisibility(8);
+                    bVar.gOI.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
         return view;
     }
 
-    public void a(InterfaceC0133a interfaceC0133a) {
-        this.gFe = interfaceC0133a;
+    public void a(InterfaceC0132a interfaceC0132a) {
+        this.gOF = interfaceC0132a;
     }
 
     /* loaded from: classes2.dex */
     public class b {
-        public TextView gFg;
-        public TbImageView gFh;
-        public ProgressBar gFi;
+        public TextView gOH;
+        public TbImageView gOI;
+        public ProgressBar gOJ;
 
         public b() {
         }

@@ -5,12 +5,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.m;
 /* loaded from: classes.dex */
 public class a extends m<b, c> {
-    public View.OnClickListener aTF;
+    public View.OnClickListener aWG;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -19,7 +20,7 @@ public class a extends m<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bx */
+    /* renamed from: bs */
     public c onCreateViewHolder(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(d.h.pb_god_reply_look_more_item, viewGroup, false));
     }
@@ -30,16 +31,21 @@ public class a extends m<b, c> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
-        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.eMB.getLayoutMode().ag(this.mSkinType == 1);
-        this.eMB.getLayoutMode().t(view);
-        if (this.aTF != null) {
-            view.setOnClickListener(this.aTF);
+        if (cVar != null && cVar.cbb != null) {
+            if (this.aWG != null) {
+                cVar.cbb.setOnClickListener(this.aWG);
+            }
+            if (cVar.apA != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.apA = TbadkCoreApplication.getInst().getSkinType();
+                aj.i(cVar.cbb, d.C0082d.cp_cont_f);
+                aj.j(cVar.cbb, d.f.more_all);
+                aj.j(cVar.bae, d.C0082d.cp_bg_line_c);
+            }
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aTF = onClickListener;
+        this.aWG = onClickListener;
     }
 }

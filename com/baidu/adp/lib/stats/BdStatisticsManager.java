@@ -28,9 +28,11 @@ public class BdStatisticsManager {
     private static final int IMG_OVER_TIME = 2000;
     public static final int INIT_UPLOAD_TIME_INTERVAL = 15000;
     private static final String MAIN_PROCESS_MD5 = "44f94582";
+    public static final int MIN_UPLOAD_TIMER_INTERVAL = 60000;
+    public static final int OLD_TIMER_INTERVAL = 3600000;
     public static final byte UPLOAD_INIT = 2;
     public static final byte UPLOAD_TIMER = 1;
-    public static final int UPLOAD_TIMER_INTERVAL = 3600000;
+    public static final int UPLOAD_TIMER_INTERVAL = 1800000;
     private String mAppVersion;
     private b mBdLogSetting;
     private Context mContext;
@@ -58,6 +60,7 @@ public class BdStatisticsManager {
         }
     };
     private boolean isSwitchReady = false;
+    private long mUploadInterval = 1800000;
     private a.InterfaceC0006a mLogSwitchInitCallback = new a.InterfaceC0006a() { // from class: com.baidu.adp.lib.stats.BdStatisticsManager.2
         @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0006a
         public void fR() {
@@ -85,7 +88,7 @@ public class BdStatisticsManager {
         return this.mBdLogSetting;
     }
 
-    public void init(Context context, boolean z, String str, String str2, String str3, String str4, c cVar, b bVar) {
+    public void init(Context context, boolean z, String str, String str2, String str3, String str4, c cVar, b bVar, long j) {
         this.mContext = context;
         this.mWriteFileDir = str3;
         this.mNotUploadWriteFileDir = this.mWriteFileDir + "/notUpload";
@@ -114,6 +117,9 @@ public class BdStatisticsManager {
             }
         } catch (Exception e) {
             BdLog.e(e);
+        }
+        if (j >= 60000) {
+            this.mUploadInterval = j;
         }
         startOrNextUploadTimer();
     }
@@ -251,7 +257,7 @@ public class BdStatisticsManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void startOrNextUploadTimer() {
         mHandler.removeMessages(1);
-        mHandler.sendMessageDelayed(mHandler.obtainMessage(1), 3600000L);
+        mHandler.sendMessageDelayed(mHandler.obtainMessage(1), this.mUploadInterval);
     }
 
     public void resetSwitch(String str) {
@@ -498,5 +504,9 @@ public class BdStatisticsManager {
 
     public static void clearInstance() {
         statisticsManager = null;
+    }
+
+    public long getUploadInterval() {
+        return this.mUploadInterval;
     }
 }

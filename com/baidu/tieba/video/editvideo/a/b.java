@@ -1,52 +1,39 @@
 package com.baidu.tieba.video.editvideo.a;
 
-import android.text.TextPaint;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.adp.base.e;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
-import com.baidu.tieba.video.editvideo.data.MusicData;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class b extends BaseAdapter {
-    public int gFj;
-    public String gFk;
-    private List<MusicData> mList;
-    private e mPageContext;
+public class b extends BaseAdapter implements View.OnClickListener {
+    private com.baidu.tieba.video.editvideo.data.a gOK;
+    private List<com.baidu.tieba.video.editvideo.data.a> mList = new ArrayList();
 
-    public b(e eVar) {
-        this.mPageContext = eVar;
-    }
-
-    public void setData(List<MusicData> list) {
+    public void setData(List<com.baidu.tieba.video.editvideo.data.a> list) {
         if (list != null) {
             this.mList = list;
-            to(this.gFk);
-            notifyDataSetChanged();
+            if (this.mList.size() > 0) {
+                this.gOK = this.mList.get(0);
+            }
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mList == null) {
-            return 0;
-        }
         return this.mList.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.mList == null) {
+        if (i < 0 || i >= this.mList.size()) {
             return null;
         }
         return this.mList.get(i);
@@ -61,107 +48,52 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.layout_music_item, (ViewGroup) null);
             aVar = new a();
-            aVar.gEo = (TbImageView) view.findViewById(d.g.music_image);
-            aVar.gEr = (TextView) view.findViewById(d.g.music_title);
-            aVar.gEq = view.findViewById(d.g.music_loading);
-            aVar.gEo.setDrawerType(1);
-            aVar.gEo.setIsRound(true);
-            aVar.gEo.setDefaultBgResource(d.C0080d.transparent);
-            aVar.gEo.setDefaultErrorResource(d.f.bg_video_cloudmusic);
-            aVar.gEo.setDefaultResource(d.f.bg_video_cloudmusic);
-            aVar.gEo.setBorderWidth(l.f(this.mPageContext.getPageActivity(), d.e.ds4));
-            aVar.gEo.setBorderColor(aj.getColor(d.C0080d.cp_link_tip_a));
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.list_item_filter, (ViewGroup) null);
+            aVar.gOL = (TbImageView) view.findViewById(d.g.iv_effect);
+            aVar.gOL.setIsRound(true);
+            aVar.gOL.setDrawerType(1);
+            aVar.gOL.setDefaultBgResource(d.C0082d.transparent);
+            aVar.gOL.setBorderWidth(l.f(viewGroup.getContext(), d.e.ds4));
+            aVar.gOL.setBorderColor(aj.getColor(d.C0082d.cp_link_tip_a));
+            aVar.eWk = (TextView) view.findViewById(d.g.tv_name);
+            aj.i(aVar.eWk, d.C0082d.cp_cont_j);
+            aVar.eWk = (TextView) view.findViewById(d.g.tv_name);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        MusicData musicData = this.mList.get(i);
-        if (musicData != null) {
-            switch (musicData.editMusicType) {
-                case 1:
-                    aVar.gEo.startLoad(String.valueOf(d.f.icon_video_mute), 24, false);
-                    break;
-                case 2:
-                    aVar.gEo.startLoad(String.valueOf(d.f.icon_video_cloudmusic), 24, false);
-                    break;
-                default:
-                    aVar.gEo.startLoad(musicData.img, 10, false);
-                    break;
+        if (i >= 0 && i < this.mList.size()) {
+            com.baidu.tieba.video.editvideo.data.a aVar2 = this.mList.get(i);
+            if (aVar2 != null) {
+                aVar.gOL.setTag(aVar2);
+                aVar.gOL.setOnClickListener(this);
+                aVar.gOL.startLoad(String.valueOf(aVar2.gPo), 24, false);
+                aVar.eWk.setText(aVar2.name);
             }
-            aVar.gEq.setVisibility(4);
-            aVar.gEr.setTextColor(aj.getColor(d.C0080d.cp_cont_j));
-            aVar.gEr.setText(musicData.name);
-            b(aVar.gEr, l.f(this.mPageContext.getPageActivity(), d.e.ds120), musicData.name);
-            if (i == this.gFj) {
-                aVar.gEo.setDrawBorder(true);
+            if (!TextUtils.isEmpty(aVar2.name) && this.gOK != null && TextUtils.equals(aVar2.name, this.gOK.name)) {
+                aVar.gOL.setDrawBorder(true);
             } else {
-                aVar.gEo.setDrawBorder(false);
-            }
-            if (i == 0) {
-                view.setPadding(l.f(this.mPageContext.getPageActivity(), d.e.ds34), l.f(this.mPageContext.getPageActivity(), d.e.ds44), 0, 0);
-            } else if (i == this.mList.size() - 1) {
-                view.setPadding(l.f(this.mPageContext.getPageActivity(), d.e.ds34), l.f(this.mPageContext.getPageActivity(), d.e.ds44), l.f(this.mPageContext.getPageActivity(), d.e.ds34), 0);
-            } else {
-                view.setPadding(l.f(this.mPageContext.getPageActivity(), d.e.ds28), l.f(this.mPageContext.getPageActivity(), d.e.ds44), 0, 0);
-            }
-            if (this.mPageContext.getPageActivity() instanceof BaseActivity) {
-                ((BaseActivity) this.mPageContext.getPageActivity()).getLayoutMode().ag(TbadkCoreApplication.getInst().getSkinType() == 1);
-                ((BaseActivity) this.mPageContext.getPageActivity()).getLayoutMode().t(view);
-            } else if (this.mPageContext.getPageActivity() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) this.mPageContext.getPageActivity()).getLayoutMode().ag(TbadkCoreApplication.getInst().getSkinType() == 1);
-                ((BaseFragmentActivity) this.mPageContext.getPageActivity()).getLayoutMode().t(view);
+                aVar.gOL.setDrawBorder(false);
             }
         }
         return view;
     }
 
-    public void uR(int i) {
-        this.gFj = i;
-        notifyDataSetChanged();
-    }
-
-    public void to(String str) {
-        this.gFk = str;
-        if (!TextUtils.isEmpty(str) && this.mList != null) {
-            int i = -1;
-            for (int i2 = 0; i2 < this.mList.size(); i2++) {
-                if (str.equals(this.mList.get(i2).id)) {
-                    i = i2;
-                }
-            }
-            if (i == -1) {
-                i = 1;
-            }
-            this.gFj = i;
-        }
-    }
-
-    public int bza() {
-        return this.gFj;
-    }
-
-    public void b(TextView textView, int i, String str) {
-        if (i > 0) {
-            float f = l.f(this.mPageContext.getPageActivity(), d.e.fontsize24);
-            TextPaint textPaint = new TextPaint();
-            textPaint.setTextSize(f);
-            while (textPaint.measureText(str) > i) {
-                f -= 1.0f;
-                textPaint.setTextSize(f);
-            }
-            textView.setTextSize(0, f);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view.getId() == d.g.iv_effect && (view.getTag() instanceof com.baidu.tieba.video.editvideo.data.a)) {
+            this.gOK = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
+            notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes2.dex */
-    public class a {
-        public TbImageView gEo;
-        public View gEq;
-        public TextView gEr;
+    class a {
+        TextView eWk;
+        TbImageView gOL;
 
-        public a() {
+        a() {
         }
     }
 }

@@ -283,7 +283,7 @@ public class g {
                 }
                 if (value.gm() > 102400) {
                     d.c(value, false, false, false);
-                } else if (System.currentTimeMillis() - value.gh() >= 3600000) {
+                } else if (System.currentTimeMillis() - value.gh() >= BdStatisticsManager.getInstance().getUploadInterval()) {
                     d.c(value, false, false, false);
                 }
             }

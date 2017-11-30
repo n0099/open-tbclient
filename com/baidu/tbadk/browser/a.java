@@ -39,12 +39,16 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void O(Context context, String str) {
+    public static void P(Context context, String str) {
         b(context, true, str);
     }
 
     public static void b(Context context, boolean z, String str) {
         a(context, "", str, true, true, true, true, z);
+    }
+
+    public static void a(Context context, boolean z, String str, String str2) {
+        a(context, str2, str, true, true, true, true, z);
     }
 
     public static void f(Context context, String str, String str2) {
@@ -60,7 +64,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        nY();
+        of();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -76,7 +80,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
-        nY();
+        of();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -91,11 +95,11 @@ public class a {
         }
     }
 
-    public static void P(Context context, String str) {
-        O(context, str);
+    public static void Q(Context context, String str) {
+        P(context, str);
     }
 
-    public static void Q(Context context, String str) {
+    public static void R(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -133,7 +137,7 @@ public class a {
         return (am.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void ax(Context context) {
+    public static void az(Context context) {
         CookieManager cookieManager;
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
@@ -144,7 +148,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.pa().ct(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.ph().ct(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String d = com.baidu.tbadk.core.a.e.d(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(d)) {
@@ -172,7 +176,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void nY() {
+    private static void of() {
         new ag("open_webview", true).start();
     }
 }

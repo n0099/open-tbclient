@@ -1,30 +1,35 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.VideoChannelInfo;
+import tbclient.FrsPage.Yule;
 /* loaded from: classes.dex */
 public class bm {
-    public int aaD;
-    public String channelAvatar;
-    public long channelId;
-    public String channelName;
-    public int mCurrentPage;
+    private int abe = 0;
+    private bl abf = new bl();
 
-    public void a(VideoChannelInfo videoChannelInfo) {
-        if (videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
-            this.channelId = videoChannelInfo.channel_id.longValue();
-            this.channelName = videoChannelInfo.channel_name;
-            this.channelAvatar = videoChannelInfo.channel_avatar;
+    public boolean tc() {
+        return this.abe != 0;
+    }
+
+    public bl td() {
+        return this.abf;
+    }
+
+    public void a(Yule yule) {
+        if (yule != null) {
+            this.abe = yule.activity_show.intValue();
+            this.abf.a(yule.yule_activity);
         }
     }
 
-    public void f(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.channelId = jSONObject.optLong("channel_id", 0L);
-                this.channelName = jSONObject.optString("channel_name");
-                this.channelAvatar = jSONObject.optString("channel_avatar");
+                this.abe = jSONObject.optInt("activity_show");
+                this.abf.parserJson(jSONObject.optJSONObject("yule_activity"));
             } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

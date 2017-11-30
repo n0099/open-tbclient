@@ -1,85 +1,104 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
-import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
-public class ao {
-    public static Intent ac(Context context, String str) {
-        if (TextUtils.isEmpty(str) || context == null) {
-            return null;
+public class ao extends j.a {
+    public View drA;
+    public ImageView fap;
+    public TextView faq;
+    public TextView far;
+    public View fas;
+    public View fat;
+    public ImageView fau;
+    public TextView fav;
+    public View mRootView;
+
+    public ao(View view) {
+        super(view);
+        if (view != null) {
+            this.mRootView = view.findViewById(d.g.thread_praise_root);
+            this.fap = (ImageView) view.findViewById(d.g.view_main_thread_praise_state);
+            this.faq = (TextView) view.findViewById(d.g.view_main_thread_praise_num);
+            this.fav = (TextView) view.findViewById(d.g.tv_share);
+            this.far = (TextView) view.findViewById(d.g.tv_praise);
+            this.fas = view.findViewById(d.g.praise_container);
+            this.fat = view.findViewById(d.g.share_container);
+            this.fau = (ImageView) view.findViewById(d.g.view_main_thread_share_state);
+            this.drA = view.findViewById(d.g.bottom_divider_line);
         }
-        Intent intent = new Intent(context, DealIntentService.class);
-        intent.putExtra("class", 1);
-        intent.putExtra("id", str);
-        intent.putExtra("from", "nas");
-        return intent;
     }
 
-    public static boolean k(PostData postData) {
-        if (postData == null || postData.buO() == null) {
-            return false;
-        }
-        com.baidu.tieba.tbadkCore.data.h buO = postData.buO();
-        if (buO.gpV) {
-            int buo = buO.buo();
-            return buo == 2 || buo == 1 || buo == 3;
-        }
-        return false;
-    }
-
-    public static String c(MetaData metaData) {
-        if (metaData == null || metaData.getGodUserData() == null) {
-            return "";
-        }
-        String forumName = metaData.getGodUserData().getForumName();
-        if ((metaData.getGodUserData().getType() == 2 || metaData.getGodUserData().getType() == 1) && !TextUtils.isEmpty(forumName)) {
-            return UtilHelper.getForumNameWithBar(UtilHelper.getFixedBarText(forumName, 5, true, true));
-        }
-        if (StringUtils.isNull(metaData.getGodIntro())) {
-            return "";
-        }
-        return metaData.getGodIntro();
-    }
-
-    public static void w(TbPageContext tbPageContext) {
-        if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
-            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.h.user_like_success_dialog, (ViewGroup) null);
-            com.baidu.tbadk.core.util.aj.i((TextView) inflate.findViewById(d.g.dialog_title), d.C0080d.cp_cont_b);
-            com.baidu.tbadk.core.util.aj.i((TextView) inflate.findViewById(d.g.dialog_message), d.C0080d.cp_cont_j);
-            aVar.a(d.j.know, new a.b() { // from class: com.baidu.tieba.pb.pb.main.ao.1
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    if (aVar2 != null) {
-                        aVar2.dismiss();
-                    }
+    public void b(com.baidu.tieba.pb.data.l lVar) {
+        if (lVar != null) {
+            if (lVar.aRN()) {
+                if (lVar.eOX == 1) {
+                    com.baidu.tbadk.core.util.aj.c(this.fap, d.f.icon_floor_big_praised);
+                } else if (lVar.eOX == 3) {
+                    com.baidu.tbadk.core.util.aj.c(this.fap, d.f.icon_floor_trample);
+                } else if (lVar.eOX == 4) {
+                    com.baidu.tbadk.core.util.aj.c(this.fap, d.f.icon_floor_big_trample);
+                } else if (lVar.aRP() == 1) {
+                    com.baidu.tbadk.core.util.aj.c(this.fap, d.f.icon_card_liked_n);
+                } else {
+                    com.baidu.tbadk.core.util.aj.c(this.fap, d.f.icon_floor_bigpraised);
                 }
-            });
-            ((ImageView) inflate.findViewById(d.g.dialog_close)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ao.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (com.baidu.tbadk.core.dialog.a.this != null) {
-                        com.baidu.tbadk.core.dialog.a.this.dismiss();
-                    }
+                com.baidu.tbadk.core.util.aj.i(this.far, d.C0082d.text_conth_50_color);
+                this.fas.setBackgroundDrawable(com.baidu.tbadk.core.util.aj.getDrawable(d.f.bg_first_floor_praise_border_selector_orange));
+            } else {
+                com.baidu.tbadk.core.util.aj.c(this.fap, d.f.icon_card_like_n);
+                com.baidu.tbadk.core.util.aj.i(this.far, d.C0082d.text_contf_50_color);
+                this.fas.setBackgroundDrawable(com.baidu.tbadk.core.util.aj.getDrawable(d.f.bg_first_floor_praise_border_selector));
+            }
+            aVv();
+            if (lVar.cLy > 0) {
+                if (com.baidu.tbadk.core.util.am.dU(com.baidu.tbadk.core.util.am.v(lVar.cLy)) >= 6) {
+                    this.fav.setPadding((int) getView().getResources().getDimension(d.e.ds40), 0, (int) getView().getResources().getDimension(d.e.ds40), 0);
                 }
-            });
-            aVar.v(inflate);
-            aVar.ao(false);
-            aVar.b(tbPageContext).th();
+                this.fav.setText(com.baidu.tbadk.core.util.am.v(lVar.cLy));
+            } else {
+                this.fav.setText(getView().getResources().getString(d.j.share));
+            }
+            com.baidu.tbadk.core.util.aj.i(this.faq, d.C0082d.cp_link_tip_c);
+            this.fap.setTag(d.g.pb_main_thread_praise_data, lVar);
+            this.far.setTag(d.g.pb_main_thread_praise_data, lVar);
+            if (lVar.aRR()) {
+                com.baidu.tbadk.core.util.aj.k(this.drA, d.C0082d.cp_bg_line_c);
+                this.drA.setVisibility(0);
+            } else {
+                this.drA.setVisibility(8);
+            }
+            if (lVar.aRM() <= 0 || com.baidu.tbadk.core.util.v.w(lVar.aRO())) {
+                this.faq.setText(d.j.no_praise_tip);
+                this.far.setText(d.j.action_praise_default);
+                com.baidu.tbadk.core.util.aj.i(this.faq, d.C0082d.cp_cont_f);
+                this.faq.setTag(false);
+                this.fas.setBackgroundDrawable(com.baidu.tbadk.core.util.aj.getDrawable(d.f.bg_first_floor_praise_border_selector));
+                com.baidu.tbadk.core.util.aj.i(this.far, d.C0082d.text_contf_50_color);
+                com.baidu.tbadk.core.util.aj.c(this.fap, d.f.icon_card_like_n);
+                return;
+            }
+            this.faq.setTag(true);
+            this.faq.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.count_main_thread_praise), com.baidu.tbadk.core.util.am.v(lVar.aRM())));
+            this.far.setText(com.baidu.tbadk.core.util.am.v(lVar.aRM()));
         }
+    }
+
+    private void aVv() {
+        this.fat.setBackgroundDrawable(com.baidu.tbadk.core.util.aj.getDrawable(d.f.bg_first_floor_praise_border_selector));
+        com.baidu.tbadk.core.util.aj.j(this.fau, d.f.icon_pb_first_floor_share_selector);
+        com.baidu.tbadk.core.util.aj.i(this.fav, d.C0082d.text_contf_50_color);
+    }
+
+    public void aVw() {
+        this.mRootView.setPadding(0, com.baidu.adp.lib.util.l.f(getView().getContext(), d.e.tbds56), 0, 0);
+    }
+
+    public void aVx() {
+        this.mRootView.setPadding(0, 0, 0, 0);
     }
 }

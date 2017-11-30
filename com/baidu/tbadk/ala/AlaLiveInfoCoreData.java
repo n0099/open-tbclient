@@ -1,11 +1,12 @@
 package com.baidu.tbadk.ala;
 
-import com.baidu.tbadk.core.data.i;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.h;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
-public class AlaLiveInfoCoreData extends i implements Serializable {
+public class AlaLiveInfoCoreData extends h implements Serializable {
     private static final long serialVersionUID = 5768965545624138312L;
     public long audienceCount;
     public long groupID;
@@ -24,7 +25,7 @@ public class AlaLiveInfoCoreData extends i implements Serializable {
     public AlaLiveUserInfoData userInfo;
     public String userName;
 
-    @Override // com.baidu.tbadk.core.data.i
+    @Override // com.baidu.tbadk.core.data.h
     public void parserJson(JSONObject jSONObject) {
     }
 
@@ -54,30 +55,30 @@ public class AlaLiveInfoCoreData extends i implements Serializable {
         }
     }
 
-    public void fillWithInfoData(com.baidu.tbadk.core.data.c cVar) {
-        if (cVar != null) {
-            this.liveID = cVar.live_id;
-            if (cVar.UQ != null) {
-                this.userName = cVar.UQ.user_name;
+    public void fillWithInfoData(AlaInfoData alaInfoData) {
+        if (alaInfoData != null) {
+            this.liveID = alaInfoData.live_id;
+            if (alaInfoData.user_info != null) {
+                this.userName = alaInfoData.user_info.user_name;
             }
-            if (cVar.UQ != null) {
+            if (alaInfoData.user_info != null) {
                 if (this.userInfo == null) {
                     this.userInfo = new AlaLiveUserInfoData();
                 }
-                this.userInfo.convertFromAlaUserInfoData(cVar.UQ);
+                this.userInfo.convertFromAlaUserInfoData(alaInfoData.user_info);
             }
-            this.groupID = cVar.group_id;
-            this.sessionID = cVar.session_id;
-            this.liveTitle = cVar.description;
-            this.liveCover = cVar.cover;
-            this.rtmpUrl = cVar.rtmp_url;
-            this.hslUrl = cVar.hls_url;
-            this.audienceCount = cVar.audience_count;
-            this.liveType = cVar.live_type;
-            this.screenDirection = cVar.screen_direction;
-            this.liveStatus = cVar.live_status;
-            this.mediaPic = cVar.media_pic;
-            this.threadId = cVar.thread_id;
+            this.groupID = alaInfoData.group_id;
+            this.sessionID = alaInfoData.session_id;
+            this.liveTitle = alaInfoData.description;
+            this.liveCover = alaInfoData.cover;
+            this.rtmpUrl = alaInfoData.rtmp_url;
+            this.hslUrl = alaInfoData.hls_url;
+            this.audienceCount = alaInfoData.audience_count;
+            this.liveType = alaInfoData.live_type;
+            this.screenDirection = alaInfoData.screen_direction;
+            this.liveStatus = alaInfoData.live_status;
+            this.mediaPic = alaInfoData.media_pic;
+            this.threadId = alaInfoData.thread_id;
         }
     }
 }

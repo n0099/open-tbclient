@@ -9,11 +9,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private static final AtomicLong adj = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
-    final Map<String, Object> adk;
-    final Map<String, Object> adl;
-    final String adm;
-    final long adn;
+    private static final AtomicLong adE = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+    final Map<String, Object> adF;
+    final Map<String, Object> adG;
+    final String adH;
+    final long adI;
     final String cmd;
     final String method;
     final long start;
@@ -22,21 +22,21 @@ public class n {
     private n(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
         this.cmd = str;
         this.method = str2;
-        this.adk = map;
-        this.adl = map2;
+        this.adF = map;
+        this.adG = map2;
         this.type = i;
-        this.adm = str3;
-        this.adn = j;
+        this.adH = str3;
+        this.adI = j;
         this.start = System.currentTimeMillis();
     }
 
     private static n a(int i, String str, String str2, Map<String, Object> map, long j, boolean z) {
-        return new n(i, str, str2, map, null, z ? tP() : null, j);
+        return new n(i, str, str2, map, null, z ? tS() : null, j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static n a(Map<String, Object> map, long j, l lVar) {
-        return new a(1, null, null, map, null, tP(), lVar, j);
+        return new a(1, null, null, map, null, tS(), lVar, j);
     }
 
     public static n a(String str, String str2, Map<String, Object> map, long j, boolean z) {
@@ -47,14 +47,14 @@ public class n {
         if (lVar == null) {
             throw new IllegalArgumentException("handler can't be null.");
         }
-        return new a(2, str, str2, map, null, tP(), lVar, j);
+        return new a(2, str, str2, map, null, tS(), lVar, j);
     }
 
     public static n b(String str, Map<String, Object> map) {
         return new n(3, null, null, null, map, str, -1L);
     }
 
-    private String tN() {
+    private String tQ() {
         switch (this.type) {
             case 1:
                 return "ping";
@@ -67,7 +67,7 @@ public class n {
         }
     }
 
-    public String tO() throws JSONException {
+    public String tR() throws JSONException {
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(this.cmd)) {
             jSONObject.put(IntentConfig.CMD, this.cmd);
@@ -75,19 +75,19 @@ public class n {
         if (!TextUtils.isEmpty(this.method)) {
             jSONObject.put(PushConstants.EXTRA_METHOD, this.method);
         }
-        if (this.adk != null && !this.adk.isEmpty()) {
+        if (this.adF != null && !this.adF.isEmpty()) {
             JSONObject jSONObject2 = new JSONObject();
-            b(this.adk, jSONObject2);
+            b(this.adF, jSONObject2);
             jSONObject.put("inputData", jSONObject2);
         }
-        if (this.adl != null && !this.adl.isEmpty()) {
+        if (this.adG != null && !this.adG.isEmpty()) {
             JSONObject jSONObject3 = new JSONObject();
-            b(this.adl, jSONObject3);
+            b(this.adG, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
-        jSONObject.put("messageType", tN());
-        if (!TextUtils.isEmpty(this.adm)) {
-            jSONObject.put("callbackId", this.adm);
+        jSONObject.put("messageType", tQ());
+        if (!TextUtils.isEmpty(this.adH)) {
+            jSONObject.put("callbackId", this.adH);
         }
         return encode(jSONObject.toString());
     }
@@ -96,8 +96,8 @@ public class n {
     public void g(JSONObject jSONObject) {
     }
 
-    private static String tP() {
-        return "TBCWebViewJsBridge_callback_ID_" + adj.getAndIncrement();
+    private static String tS() {
+        return "TBCWebViewJsBridge_callback_ID_" + adE.getAndIncrement();
     }
 
     private void b(Map<String, Object> map, JSONObject jSONObject) throws JSONException {
@@ -116,21 +116,21 @@ public class n {
 
     /* loaded from: classes.dex */
     private static final class a extends n {
-        private final l ado;
+        private final l adJ;
 
         private a(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, l lVar, long j) {
             super(i, str, str2, map, map2, str3, j);
-            this.ado = lVar;
+            this.adJ = lVar;
         }
 
         @Override // com.baidu.tbadk.core.hybrid.n
         protected void g(JSONObject jSONObject) {
-            this.ado.a(this, jSONObject);
+            this.adJ.a(this, jSONObject);
         }
 
         @Override // com.baidu.tbadk.core.hybrid.n
         void b(int i, Throwable th) {
-            this.ado.b(i, th);
+            this.adJ.b(i, th);
         }
     }
 }

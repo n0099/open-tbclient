@@ -1,35 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
-import tbclient.FrsPage.ColorEgg;
+import tbclient.FrsPage.ActivityHead;
+import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class o {
-    private ArrayList<String> Vu = new ArrayList<>();
-    private int Vv;
+    private String Wd;
+    private int We;
+    private ArrayList<q> Wf = new ArrayList<>();
+    private int height;
+    private String obj_id;
+    private int width;
 
-    public ArrayList<String> pC() {
-        return this.Vu;
+    public ArrayList<q> pL() {
+        return this.Wf;
     }
 
-    public int pD() {
-        return this.Vv;
+    public void f(ArrayList<q> arrayList) {
+        this.Wf = arrayList;
     }
 
-    public boolean a(ColorEgg colorEgg) {
-        this.Vv = 0;
-        if (colorEgg == null || colorEgg.holiday_words == null || colorEgg.holiday_words.size() <= 0) {
-            return false;
-        }
-        for (String str : colorEgg.holiday_words) {
-            if (!StringUtils.isNull(str)) {
-                this.Vu.add(str);
+    public void a(ActivityHead activityHead) {
+        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
+            this.We = activityHead.activity_type.intValue();
+            this.Wd = activityHead.activity_title;
+            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
+            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
+            this.obj_id = activityHead.obj_id;
+            for (HeadImgs headImgs : activityHead.head_imgs) {
+                q qVar = new q();
+                qVar.a(headImgs);
+                this.Wf.add(qVar);
             }
         }
-        if (this.Vu.size() <= 0) {
-            return false;
-        }
-        this.Vv = colorEgg.style_flag.intValue();
-        return true;
     }
 }

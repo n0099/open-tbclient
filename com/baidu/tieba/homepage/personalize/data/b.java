@@ -8,18 +8,18 @@ import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes.dex */
 public class b extends g implements r {
-    private CardForum diu;
+    private CardForum drl;
 
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.diu = cardForum;
+            this.drl = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(aat() + cardForum.position.intValue());
+                setYuelaouLocate(acc() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(aat() + 0);
+                setYuelaouLocate(acc() + 0);
             }
-            if (v.u(cardForum.forum_list) > 0) {
+            if (v.v(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
                     if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
                         com.baidu.tieba.card.data.e eVar = new com.baidu.tieba.card.data.e();
@@ -36,35 +36,35 @@ public class b extends g implements r {
 
     @Override // com.baidu.tieba.card.data.r
     public int getPosition() {
-        if (this.diu != null) {
-            return this.diu.position.intValue();
+        if (this.drl != null) {
+            return this.drl.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean aar() {
+    public boolean aca() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dG(boolean z) {
+    public void dV(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dH(boolean z) {
+    public void dW(boolean z) {
         this.showBottomDivider = z;
     }
 
-    public boolean MD() {
-        if (v.u(getDataList()) > 0) {
+    public boolean Ni() {
+        if (v.v(getDataList()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean ly(int i) {
+    public static boolean lX(int i) {
         return i == 1;
     }
 }

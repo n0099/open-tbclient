@@ -31,6 +31,10 @@ public class PersonPolymericActivityConfig extends IntentConfig {
         return this;
     }
 
+    public void setSourceTid(String str) {
+        getIntent().putExtra("thread_id", str);
+    }
+
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean asynStart() {
         return false;

@@ -1,186 +1,142 @@
 package com.baidu.tieba.video.record;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.download.DownloadData;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.d;
+import com.baidu.tieba.video.record.VideoEffectLayout;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class l {
-    public static final String gLx;
-    private HashMap<String, String> gFn;
-    private String gLA;
-    private com.baidu.tbadk.download.d gLB = new com.baidu.tbadk.download.d() { // from class: com.baidu.tieba.video.record.l.1
-        @Override // com.baidu.tbadk.download.d
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            if (downloadData.getStatus() == 4) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                l.this.w(downloadData);
-                if (l.this.gLz != null && l.this.gLA.equals(downloadData.getUrl())) {
-                    l.this.gLz.byC();
-                }
-            }
+public class l extends BaseAdapter {
+    private VideoEffectLayout.a gWe;
+    private List<StickerItem> mDataList;
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (v.w(this.mDataList)) {
+            return 0;
         }
-
-        @Override // com.baidu.tbadk.download.d
-        public boolean onPreDownload(DownloadData downloadData) {
-            return true;
-        }
-
-        @Override // com.baidu.tbadk.download.d
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            return true;
-        }
-
-        @Override // com.baidu.tbadk.download.d
-        public void onFileDownloadSucceed(DownloadData downloadData) {
-            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.gLx)) {
-                l.this.w(downloadData);
-                if (l.this.gLz != null && l.this.gLA.equals(downloadData.getUrl())) {
-                    l.this.gFn.put(downloadData.getPath().substring(l.gLx.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                    l.this.gLz.cj(l.this.gLA, downloadData.getPath());
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.download.d
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-            File file = new File(downloadData.getPath());
-            if (file.exists()) {
-                file.delete();
-            }
-            l.this.w(downloadData);
-            if (l.this.gLz != null && l.this.gLA.equals(downloadData.getUrl())) {
-                l.this.gLz.tl(str);
-            }
-        }
-    };
-    private List<DownloadData> gLy;
-    private a gLz;
-
-    /* loaded from: classes2.dex */
-    public interface a {
-        void byC();
-
-        void cj(String str, String str2);
-
-        void tl(String str);
+        return (int) Math.ceil(this.mDataList.size() / 2.0d);
     }
 
-    static {
-        gLx = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: vu */
+    public StickerItem getItem(int i) {
+        return (StickerItem) v.c(this.mDataList, i);
     }
 
-    public String tH(String str) {
-        String dV = ao.dV(str);
-        if (dV == null) {
-            return null;
-        }
-        if (this.gFn == null) {
-            this.gFn = new HashMap<>();
-            bBd();
-        }
-        return this.gFn.get(dV);
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
     }
 
-    public void bBd() {
-        if (!StringUtils.isNull(gLx)) {
-            if (this.gFn == null) {
-                this.gFn = new HashMap<>();
+    @Override // android.widget.Adapter
+    public View getView(final int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        if (view == null) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.list_item_sticker, (ViewGroup) null);
+            aVar = new a();
+            aVar.gWi = (TbImageView) view.findViewById(d.g.top_sticker);
+            aVar.gWj = (TbImageView) view.findViewById(d.g.bottom_sticker);
+            aVar.gWg = (RelativeLayout) view.findViewById(d.g.top_container);
+            aVar.gWm = (ImageView) view.findViewById(d.g.no_sticker);
+            aVar.gWh = (RelativeLayout) view.findViewById(d.g.bottom_container);
+            aVar.gWk = (ProgressBar) view.findViewById(d.g.top_progressbar);
+            aVar.gWl = (ProgressBar) view.findViewById(d.g.bottom_progressbar);
+            view.setTag(aVar);
+        } else {
+            aVar = (a) view.getTag();
+        }
+        aVar.gWi.setAutoChangeStyle(false);
+        aVar.gWj.setAutoChangeStyle(false);
+        aVar.gWi.setGifIconSupport(false);
+        aVar.gWj.setGifIconSupport(false);
+        if (v.c(this.mDataList, i * 2) instanceof StickerItem) {
+            aVar.gWg.setVisibility(0);
+            if (this.mDataList.get(i * 2).id == -1) {
+                aVar.gWm.setVisibility(0);
+                aVar.gWi.setVisibility(8);
+                aVar.gWm.setImageResource(d.f.icon_video_sticker_no);
             } else {
-                this.gFn.clear();
+                aVar.gWm.setVisibility(8);
+                aVar.gWi.setVisibility(0);
+                aVar.gWi.startLoad(this.mDataList.get(i * 2).img, 10, true);
             }
-            File file = new File(gLx);
-            if (file.exists()) {
-                File[] listFiles = file.listFiles();
-                for (File file2 : listFiles) {
-                    if (file2.isFile()) {
-                        this.gFn.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+            aVar.gWg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.l.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    if (!((StickerItem) l.this.mDataList.get(i * 2)).isSelect && l.this.gWe != null) {
+                        l.this.gWe.a((StickerItem) l.this.mDataList.get(i * 2));
                     }
                 }
+            });
+            if (this.mDataList.get(i * 2).isDownLoading) {
+                aVar.gWk.setVisibility(0);
+            } else {
+                aVar.gWk.setVisibility(8);
             }
-        }
-    }
-
-    public void tI(String str) {
-        if (TextUtils.isEmpty(str) || StringUtils.isNull(gLx)) {
-            if (this.gLz != null) {
-                this.gLz.tl("");
-                return;
+            if (this.mDataList.get(i * 2).isSelect) {
+                aj.j(aVar.gWg, d.f.bg_select_sticker);
+            } else {
+                aVar.gWg.setBackgroundResource(d.C0082d.transparent);
             }
-            return;
-        }
-        String dV = ao.dV(str);
-        if (dV != null) {
-            File file = new File(gLx);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            String str2 = "." + str.substring(str.lastIndexOf(".") + 1);
-            if (this.gLy == null) {
-                this.gLy = new ArrayList();
-            }
-            if (!fC(str)) {
-                DownloadData downloadData = new DownloadData();
-                downloadData.setType(10);
-                downloadData.setUrl(str);
-                downloadData.setPath(gLx + "/" + dV + str2);
-                downloadData.setCallback(this.gLB);
-                this.gLy.add(downloadData);
-                com.baidu.tbadk.download.e.CM().f(downloadData);
-            }
-        }
-    }
-
-    private boolean fC(String str) {
-        if (v.v(this.gLy) || str == null) {
-            return false;
-        }
-        for (DownloadData downloadData : this.gLy) {
-            if (downloadData != null && str.equals(downloadData.getUrl())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void w(DownloadData downloadData) {
-        int i;
-        if (!v.v(this.gLy) && downloadData != null) {
-            int i2 = 0;
-            while (true) {
-                i = i2;
-                if (i >= this.gLy.size()) {
-                    i = -1;
-                    break;
-                } else if (this.gLy.get(i) != null && this.gLy.get(i).getUrl() != null && this.gLy.get(i).getUrl().equals(downloadData.getUrl())) {
-                    break;
-                } else {
-                    i2 = i + 1;
-                }
-            }
-            this.gLy.remove(i);
-        }
-    }
-
-    public void a(a aVar) {
-        this.gLz = aVar;
-    }
-
-    public void tJ(String str) {
-        if (str == null) {
-            this.gLA = "";
         } else {
-            this.gLA = str;
+            aVar.gWg.setVisibility(8);
+        }
+        if (v.c(this.mDataList, (i * 2) + 1) instanceof StickerItem) {
+            aVar.gWh.setVisibility(0);
+            aVar.gWj.startLoad(this.mDataList.get((i * 2) + 1).img, 10, true);
+            aVar.gWh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.l.2
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    if (!((StickerItem) l.this.mDataList.get((i * 2) + 1)).isSelect && l.this.gWe != null) {
+                        l.this.gWe.a((StickerItem) l.this.mDataList.get((i * 2) + 1));
+                    }
+                }
+            });
+            if (this.mDataList.get((i * 2) + 1).isDownLoading) {
+                aVar.gWl.setVisibility(0);
+            } else {
+                aVar.gWl.setVisibility(8);
+            }
+            if (this.mDataList.get((i * 2) + 1).isSelect) {
+                aj.j(aVar.gWh, d.f.bg_select_sticker);
+            } else {
+                aVar.gWh.setBackgroundResource(d.C0082d.transparent);
+            }
+        } else {
+            aVar.gWh.setVisibility(8);
+        }
+        return view;
+    }
+
+    public void r(List<StickerItem> list) {
+        this.mDataList = list;
+    }
+
+    public void a(VideoEffectLayout.a aVar) {
+        this.gWe = aVar;
+    }
+
+    /* loaded from: classes2.dex */
+    public class a {
+        public RelativeLayout gWg;
+        public RelativeLayout gWh;
+        public TbImageView gWi;
+        public TbImageView gWj;
+        public ProgressBar gWk;
+        public ProgressBar gWl;
+        public ImageView gWm;
+
+        public a() {
         }
     }
 }

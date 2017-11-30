@@ -5,6 +5,7 @@ import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.am;
 import java.io.Serializable;
 import org.json.JSONArray;
@@ -15,6 +16,7 @@ public class MarkData implements Serializable {
     private long cartoonId;
     private int chapterId;
     private boolean isManga;
+    private boolean isShareThread;
     private int is_deleted;
     private int is_follow;
     private String mAccount;
@@ -22,6 +24,7 @@ public class MarkData implements Serializable {
     private String mForumName;
     private String mPostId;
     private String mThreadId;
+    private OriginalThreadInfo originalThreadInfo;
     private String portrait;
     private boolean mIsPhotoLiveThread = false;
     private String mId = null;
@@ -281,12 +284,25 @@ public class MarkData implements Serializable {
         this.pic_url = str;
     }
 
+    public boolean isShareThread() {
+        return this.isShareThread;
+    }
+
+    public OriginalThreadInfo getOriginalThreadInfo() {
+        return this.originalThreadInfo;
+    }
+
     public JSONObject toJson() {
+        int i;
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("tid", this.mThreadId);
             jSONObject.put(Info.kBaiduPIDKey, this.mPostId);
-            int i = this.mSequence ? 1 : 4;
+            if (this.mSequence) {
+                i = 1;
+            } else {
+                i = 4;
+            }
             if (this.mHostMode) {
                 i += 2;
             }
@@ -311,6 +327,12 @@ public class MarkData implements Serializable {
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
             this.mNewCounts = jSONObject.optInt("count");
+            this.isShareThread = jSONObject.optInt("is_share_thread", 0) == 1;
+            JSONObject optJSONObject = jSONObject.optJSONObject("origin_thread_info");
+            if (this.isShareThread) {
+                this.originalThreadInfo = new OriginalThreadInfo();
+                this.originalThreadInfo.parserJson(optJSONObject);
+            }
             this.mIsPhotoLiveThread = "33".equals(String.valueOf(jSONObject.optInt("thread_type")));
             int optInt = jSONObject.optInt("mark_status");
             JSONArray optJSONArray = jSONObject.optJSONArray("media");
@@ -335,11 +357,11 @@ public class MarkData implements Serializable {
             this.metaData.setUserId(this.mUesrId);
             this.metaData.setIsBigV(this.is_god == 5);
             this.metaData.setIsLike(this.is_follow == 1);
-            JSONObject optJSONObject = jSONObject.optJSONObject("cartoon_info");
-            if (optJSONObject != null) {
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("cartoon_info");
+            if (optJSONObject2 != null) {
                 this.isManga = true;
-                this.cartoonId = optJSONObject.optLong("cartoon_id");
-                this.chapterId = optJSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+                this.cartoonId = optJSONObject2.optLong("cartoon_id");
+                this.chapterId = optJSONObject2.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
             }
             if (optInt == 0) {
                 this.mSequence = true;

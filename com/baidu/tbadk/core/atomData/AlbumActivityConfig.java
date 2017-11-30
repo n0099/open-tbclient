@@ -10,6 +10,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final String CAMERA_PHOTO_NAME = "camera_photo_name";
     public static final String CAMERA_REQUEST_FROM = "camera_request_from";
     public static final String CAMERA_RESULT = "camera_result";
+    public static final String FINISH_SELF = "finish_self";
     public static final int FROM_DEFAULT = 0;
     public static final String FROM_FRS = "frs";
     public static final String FROM_MAIN_TAB = "main_tab";
@@ -76,6 +77,24 @@ public class AlbumActivityConfig extends IntentConfig {
     public void setRequestFrom(int i) {
         if (getIntent() != null) {
             getIntent().putExtra(CAMERA_REQUEST_FROM, i);
+        }
+    }
+
+    public void setAlbumThread(int i) {
+        if (getIntent() != null) {
+            getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i);
+        }
+    }
+
+    public void setFromWrite(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra("from_write", z);
+        }
+    }
+
+    public void setImResource(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra(IntentConfig.KEY_FROM_IM, z);
         }
     }
 }

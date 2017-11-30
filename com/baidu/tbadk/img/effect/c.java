@@ -1,15 +1,17 @@
 package com.baidu.tbadk.img.effect;
 
 import android.graphics.Bitmap;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c aGr = new c();
-    private final HashMap<String, Class<? extends b>> aGs = new HashMap<>();
+    private static c aGS = new c();
+    private final HashMap<String, Class<? extends b>> aGT = new HashMap<>();
 
-    public static c EE() {
-        return aGr;
+    public static c EL() {
+        return aGS;
     }
 
     private c() {
@@ -17,71 +19,24 @@ public class c {
         j(f.class);
         j(a.class);
         j(e.class);
+        j(g.class);
     }
 
-    public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list) throws Exception {
-        d dVar;
-        Bitmap bitmap2;
+    public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
+        Bitmap b;
         int i;
-        int i2 = 0;
-        if (bitmap != null && list != null && !list.isEmpty()) {
-            if (list != null) {
-                int i3 = 0;
-                dVar = null;
-                while (i3 < list.size()) {
-                    ImageOperation imageOperation = list.get(i3);
-                    if ("resize".equals(imageOperation.actionName)) {
-                        d dVar2 = (d) a(imageOperation);
-                        if (dVar != null && dVar2.getMaxWidth() > dVar.getMaxWidth() && dVar2.getMaxHeight() > dVar.getMaxHeight()) {
-                            dVar2 = dVar;
-                        }
-                        list.remove(i3);
-                        dVar = dVar2;
-                        i = i3 - 1;
-                    } else {
-                        i = i3;
-                    }
-                    i3 = i + 1;
+        if (bitmap != null && !v.w(list)) {
+            int size = list.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                b a = a(list.get(i2));
+                if ((a instanceof g) && imageFileInfo != null) {
+                    ((g) a).setPath(imageFileInfo.getFilePath());
+                    return a.b(bitmap, z);
                 }
-            } else {
-                dVar = null;
             }
-            Bitmap b = dVar != null ? dVar.b(bitmap, z) : null;
-            if (list != null) {
-                while (true) {
-                    bitmap2 = b;
-                    if (i2 >= list.size()) {
-                        break;
-                    }
-                    b a = a(list.get(i2));
-                    if (a == null) {
-                        b = bitmap2;
-                    } else if (bitmap2 == null) {
-                        return null;
-                    } else {
-                        b = a.b(bitmap, z);
-                    }
-                    i2++;
-                }
-            } else {
-                bitmap2 = b;
-            }
-            return bitmap2;
-        }
-        return bitmap;
-    }
-
-    public Bitmap b(String str, List<ImageOperation> list) throws Exception {
-        d dVar;
-        int i;
-        int i2 = 0;
-        if (list == null || list.isEmpty()) {
-            return null;
-        }
-        if (list != null) {
             int i3 = 0;
-            dVar = null;
-            while (i3 < list.size()) {
+            d dVar = null;
+            while (i3 < size) {
                 ImageOperation imageOperation = list.get(i3);
                 if ("resize".equals(imageOperation.actionName)) {
                     d dVar2 = (d) a(imageOperation);
@@ -96,34 +51,84 @@ public class c {
                 }
                 i3 = i + 1;
             }
-        } else {
-            dVar = null;
-        }
-        Bitmap gw = dVar != null ? dVar.gw(str) : null;
-        if (list == null) {
-            return gw;
-        }
-        while (true) {
-            Bitmap bitmap = gw;
-            if (i2 < list.size()) {
-                b a = a(list.get(i2));
-                if (a == null) {
-                    gw = bitmap;
-                } else if (bitmap == null) {
-                    gw = a.gw(str);
-                } else {
-                    gw = a.b(bitmap, true);
+            Bitmap b2 = dVar != null ? dVar.b(bitmap, z) : null;
+            if (list != null) {
+                int i4 = 0;
+                while (i4 < size) {
+                    b a2 = a(list.get(i4));
+                    if (a2 == null) {
+                        b = b2;
+                    } else if (b2 == null) {
+                        return null;
+                    } else {
+                        b = a2.b(bitmap, z);
+                    }
+                    i4++;
+                    b2 = b;
                 }
-                i2++;
-            } else {
-                return bitmap;
+            }
+            return b2;
+        }
+        return bitmap;
+    }
+
+    public Bitmap a(String str, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
+        Bitmap bitmap;
+        int i;
+        int i2 = 0;
+        if (v.w(list)) {
+            return null;
+        }
+        int size = list.size();
+        for (int i3 = 0; i3 < size; i3++) {
+            b a = a(list.get(i3));
+            if ((a instanceof g) && imageFileInfo != null) {
+                return a.gz(imageFileInfo.getFilePath());
             }
         }
+        int i4 = 0;
+        d dVar = null;
+        while (i4 < list.size()) {
+            ImageOperation imageOperation = list.get(i4);
+            if ("resize".equals(imageOperation.actionName)) {
+                d dVar2 = (d) a(imageOperation);
+                if (dVar != null && dVar2.getMaxWidth() > dVar.getMaxWidth() && dVar2.getMaxHeight() > dVar.getMaxHeight()) {
+                    dVar2 = dVar;
+                }
+                list.remove(i4);
+                dVar = dVar2;
+                i = i4 - 1;
+            } else {
+                i = i4;
+            }
+            i4 = i + 1;
+        }
+        Bitmap gz = dVar != null ? dVar.gz(str) : null;
+        if (list != null) {
+            while (true) {
+                bitmap = gz;
+                if (i2 >= list.size()) {
+                    break;
+                }
+                b a2 = a(list.get(i2));
+                if (a2 == null) {
+                    gz = bitmap;
+                } else if (bitmap == null) {
+                    gz = a2.gz(str);
+                } else {
+                    gz = a2.b(bitmap, true);
+                }
+                i2++;
+            }
+        } else {
+            bitmap = gz;
+        }
+        return bitmap;
     }
 
     protected b a(ImageOperation imageOperation) {
         b k;
-        Class<? extends b> cls = this.aGs.get(imageOperation.actionName);
+        Class<? extends b> cls = this.aGT.get(imageOperation.actionName);
         if (cls != null && (k = k(cls)) != null) {
             k.setParams(imageOperation.actionParam);
             return k;
@@ -134,7 +139,7 @@ public class c {
     private void j(Class<? extends b> cls) {
         b k = k(cls);
         if (k != null) {
-            this.aGs.put(k.getActionName(), cls);
+            this.aGT.put(k.getActionName(), cls);
         }
     }
 

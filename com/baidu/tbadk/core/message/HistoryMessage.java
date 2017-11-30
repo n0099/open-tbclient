@@ -12,6 +12,7 @@ public class HistoryMessage extends CustomResponsedMessage<Boolean> {
     public String forumName;
     public boolean isHostOnly;
     public boolean isManga;
+    public boolean isShareThread;
     public boolean isSquence;
     public String liveId;
     public String postID;

@@ -15,7 +15,7 @@ public class HotTopicChangeActivityConfig extends IntentConfig {
         super(context);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra(WriteActivityConfig.HOT_TOPIC_POST_FORUM, (Serializable) list);
+        getIntent().putExtra("hot_topic_forum_list", (Serializable) list);
     }
 
     public void setUseOriginList(boolean z) {

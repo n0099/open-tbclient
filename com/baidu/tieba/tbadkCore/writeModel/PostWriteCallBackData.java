@@ -2,7 +2,7 @@ package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.coreExtra.data.AccessState;
-import com.baidu.tieba.pb.CustomDialogData;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.video.VideoTitleData;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,6 +27,7 @@ public class PostWriteCallBackData implements Serializable {
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
     private String preMsg;
+    private String video_id;
     private String threadId = null;
     private String postId = null;
     private AccessState accessState = null;
@@ -96,6 +97,14 @@ public class PostWriteCallBackData implements Serializable {
 
     public int getIsCopyTWZhibo() {
         return this.isCopyTWZhibo;
+    }
+
+    public String getVideoid() {
+        return this.video_id;
+    }
+
+    public void setVideoid(String str) {
+        this.video_id = str;
     }
 
     public AccessState getAccessState() {

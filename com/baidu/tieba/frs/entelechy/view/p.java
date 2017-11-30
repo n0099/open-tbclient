@@ -12,33 +12,33 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class p extends j.a {
-    public View Ry;
-    public View aXj;
-    public TextView acd;
+    public View Sh;
+    public TextView acy;
+    public View bam;
     public Context mContext;
 
     public p(View view, Context context) {
         super(view);
-        this.Ry = view;
-        this.acd = (TextView) view.findViewById(d.g.view_frs_read_progress);
-        this.aXj = view.findViewById(d.g.line_under_frs_progress);
+        this.Sh = view;
+        this.acy = (TextView) view.findViewById(d.g.view_frs_read_progress);
+        this.bam = view.findViewById(d.g.line_under_frs_progress);
         this.mContext = context;
     }
 
     public void a(com.baidu.tieba.frs.p pVar) {
         if (pVar != null) {
-            String format = String.format(this.mContext.getResources().getString(d.j.smart_frs_read_progress_tip), am.s(pVar.akp()));
+            String format = String.format(this.mContext.getResources().getString(d.j.smart_frs_read_progress_tip), am.s(pVar.aml()));
             String string = this.mContext.getResources().getString(d.j.click_to_refresh);
             SpannableString spannableString = new SpannableString(format);
-            UtilHelper.setSpan(spannableString, format, string, new ForegroundColorSpan(aj.getColor(d.C0080d.cp_link_tip_a)));
-            this.acd.setText(spannableString);
-            wB();
+            UtilHelper.setSpan(spannableString, format, string, new ForegroundColorSpan(aj.getColor(d.C0082d.cp_link_tip_a)));
+            this.acy.setText(spannableString);
+            wE();
         }
     }
 
-    public void wB() {
-        aj.i(this.acd, d.C0080d.cp_cont_c);
-        aj.j(this.Ry, d.f.addresslist_item_bg);
-        aj.k(this.aXj, d.C0080d.cp_bg_line_c);
+    public void wE() {
+        aj.i(this.acy, d.C0082d.cp_cont_c);
+        aj.j(this.Sh, d.f.addresslist_item_bg);
+        aj.k(this.bam, d.C0082d.cp_bg_line_c);
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.message.RequestUpdateForumMask;
 import com.baidu.tbadk.core.message.ResponseUpdateForumMask;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.coreExtra.c.e;
+import com.baidu.tbadk.coreExtra.model.e;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.e;
@@ -24,9 +24,9 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.imMessageCenter.mention.g;
 /* loaded from: classes2.dex */
 public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private TextView axt;
-    private CustomMessageListener dOs;
-    private com.baidu.adp.framework.listener.c dOt = new com.baidu.adp.framework.listener.c(104106) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.3
+    private TextView axU;
+    private CustomMessageListener dWh;
+    private com.baidu.adp.framework.listener.c dWi = new com.baidu.adp.framework.listener.c(104106) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -34,15 +34,15 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
             if ((socketResponsedMessage instanceof ResponseUpdateForumMask) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateForumMask)) {
                 RequestUpdateForumMask requestUpdateForumMask = (RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage();
                 boolean flag = requestUpdateForumMask != null ? requestUpdateForumMask.getFlag() : false;
-                int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.yK().getMsgChat();
-                int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.yK().getMsgReplyme();
-                int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.yK().getMsgAtme();
-                int yR = com.baidu.tbadk.coreExtra.messageCenter.a.yK().yR();
-                e zf = com.baidu.tbadk.coreExtra.messageCenter.a.yK().zf();
-                if (zf != null && flag) {
-                    i = zf.Ar();
+                int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.yM().getMsgChat();
+                int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.yM().getMsgReplyme();
+                int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.yM().getMsgAtme();
+                int yT = com.baidu.tbadk.coreExtra.messageCenter.a.yM().yT();
+                e zh = com.baidu.tbadk.coreExtra.messageCenter.a.yM().zh();
+                if (zh != null && flag) {
+                    i = zh.Av();
                 }
-                ImMessageCenterDelegateStatic.n(ImMessageCenterDelegateStatic.this.axt, (((msgChat - i) + msgReplyme) + msgAtme) - yR);
+                ImMessageCenterDelegateStatic.n(ImMessageCenterDelegateStatic.this.axU, (((msgChat - i) + msgReplyme) + msgAtme) - yT);
             }
         }
     };
@@ -53,31 +53,31 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c ER() {
+    public com.baidu.tbadk.mainTab.c EY() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         g gVar = new g();
-        gVar.ha(true);
-        cVar.aHa = gVar;
+        gVar.hu(true);
+        cVar.aHC = gVar;
         cVar.type = 3;
-        cVar.aHb = d.j.my_message;
-        cVar.aHc = d.f.s_tabbar_icon_three_bg;
-        cVar.aHi = com.baidu.tbadk.mainTab.c.aHf;
+        cVar.aHD = d.j.my_message;
+        cVar.aHE = d.f.s_tabbar_icon_three_bg;
+        cVar.aHK = com.baidu.tbadk.mainTab.c.aHH;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.e aY(Context context) {
-        this.aGR = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.axt = (TextView) LayoutInflater.from(context).inflate(d.h.message_tip_item, (ViewGroup) null);
+    public com.baidu.tbadk.mainTab.e bd(Context context) {
+        this.aHt = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.axU = (TextView) LayoutInflater.from(context).inflate(d.h.message_tip_item, (ViewGroup) null);
         e.a aVar = new e.a();
-        aVar.aHv = this.aGR;
+        aVar.aHX = this.aHt;
         aVar.ur = l.dip2px(context, 3.0f);
-        aVar.view = this.axt;
-        aVar.aHt = d.f.icon_dot_orange;
-        aVar.aHu = d.C0080d.common_color_10225;
-        this.axt.setVisibility(8);
-        this.aGR.a(AddFriendActivityConfig.MSG, aVar);
-        return this.aGR;
+        aVar.view = this.axU;
+        aVar.aHV = d.f.icon_dot_orange;
+        aVar.aHW = d.C0082d.common_color_10225;
+        this.axU.setVisibility(8);
+        this.aHt.a(AddFriendActivityConfig.MSG, aVar);
+        return this.aHt;
     }
 
     static {
@@ -93,32 +93,32 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void EQ() {
-        this.dOs = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+    public void EX() {
+        this.dWh = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage)) {
                     NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
                     int a = c.a(newsNotifyMessage);
-                    if (ImMessageCenterDelegateStatic.this.axt != null) {
-                        if (!com.baidu.tbadk.coreExtra.messageCenter.b.zh().zB()) {
+                    if (ImMessageCenterDelegateStatic.this.axU != null) {
+                        if (!com.baidu.tbadk.coreExtra.messageCenter.b.zj().zD()) {
                             a -= newsNotifyMessage.getMsgOfficialMerge();
                         }
-                        ImMessageCenterDelegateStatic.n(ImMessageCenterDelegateStatic.this.axt, a);
+                        ImMessageCenterDelegateStatic.n(ImMessageCenterDelegateStatic.this.axU, a);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.dOs);
-        MessageManager.getInstance().registerListener(this.dOt);
+        MessageManager.getInstance().registerListener(this.dWh);
+        MessageManager.getInstance().registerListener(this.dWi);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void cB() {
         super.cB();
-        MessageManager.getInstance().unRegisterListener(this.dOs);
-        MessageManager.getInstance().unRegisterListener(this.dOt);
+        MessageManager.getInstance().unRegisterListener(this.dWh);
+        MessageManager.getInstance().unRegisterListener(this.dWi);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -126,7 +126,7 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     public static void n(TextView textView, int i) {
         if (textView != null) {
             textView.setVisibility(0);
-            aj.c(textView, d.C0080d.common_color_10225, 1);
+            aj.c(textView, d.C0082d.common_color_10225, 1);
             if (i <= 0) {
                 textView.setVisibility(8);
             } else if (i < 10) {

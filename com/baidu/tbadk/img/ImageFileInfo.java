@@ -1,54 +1,64 @@
 package com.baidu.tbadk.img;
 
 import android.graphics.Bitmap;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
+import com.baidu.tbadk.album.MediaFileInfo;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ImageFileInfo extends OrmObject implements Serializable {
+public class ImageFileInfo extends MediaFileInfo {
     private String _cacheKey_all;
     private String _cacheKey_page;
     private String albumId;
+    public String extra;
     private String filePath;
     private boolean hasAddPostQualityAction;
+    public int height;
+    private boolean isFromCamera;
     private boolean isGif;
     private boolean isLong;
     private boolean isOrginalBitmapShared;
     private boolean isTempFile;
+    public int mCount = 0;
+    public long mRotateType = 0;
     private String modifyTime;
     private Bitmap orginalBitmap;
     private LinkedList<ImageOperation> pageActionsList;
     private LinkedList<ImageOperation> persistActionsList;
     private String serverImageCode;
     public ImageUploadResult.picInfo serverPicInfo;
+    public int width;
 
     public String toCachedKey(boolean z) {
-        int i = 0;
         if (z) {
             if (this._cacheKey_all == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("persist_");
                 sb.append(this.filePath);
-                if (this.persistActionsList != null) {
-                    for (int i2 = 0; i2 < this.persistActionsList.size(); i2++) {
-                        ImageOperation imageOperation = this.persistActionsList.get(i2);
-                        sb.append(':').append(imageOperation.actionName).append('=').append(imageOperation.actionParam);
+                if (v.v(this.persistActionsList) > 0) {
+                    Iterator<ImageOperation> it = this.persistActionsList.iterator();
+                    while (it.hasNext()) {
+                        ImageOperation next = it.next();
+                        if (next != null) {
+                            sb.append(':').append(next.actionName).append('=').append(next.actionParam);
+                        }
                     }
                 }
-                if (this.pageActionsList != null) {
-                    while (i < this.pageActionsList.size()) {
-                        ImageOperation imageOperation2 = this.pageActionsList.get(i);
-                        sb.append(':').append(imageOperation2.actionName).append('=').append(imageOperation2.actionParam);
-                        i++;
+                if (v.v(this.pageActionsList) > 0) {
+                    Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
+                    while (it2.hasNext()) {
+                        ImageOperation next2 = it2.next();
+                        if (next2 != null) {
+                            sb.append(':').append(next2.actionName).append('=').append(next2.actionParam);
+                        }
                     }
                 }
                 this._cacheKey_all = sb.toString();
@@ -60,10 +70,15 @@ public class ImageFileInfo extends OrmObject implements Serializable {
             sb2.append("page_");
             sb2.append(this.filePath);
             if (this.pageActionsList != null) {
-                while (i < this.pageActionsList.size()) {
-                    ImageOperation imageOperation3 = this.pageActionsList.get(i);
-                    sb2.append(':').append(imageOperation3.actionName).append('=').append(imageOperation3.actionParam);
-                    i++;
+                int i = 0;
+                while (true) {
+                    int i2 = i;
+                    if (i2 >= this.pageActionsList.size()) {
+                        break;
+                    }
+                    ImageOperation imageOperation = this.pageActionsList.get(i2);
+                    sb2.append(':').append(imageOperation.actionName).append('=').append(imageOperation.actionParam);
+                    i = i2 + 1;
                 }
             }
             this._cacheKey_page = sb2.toString();
@@ -107,6 +122,7 @@ public class ImageFileInfo extends OrmObject implements Serializable {
             this.serverPicInfo.parseJson(jSONObject.optJSONObject("serverPicInfo"));
             this.isGif = jSONObject.optBoolean("isGif", false);
             this.isLong = jSONObject.optBoolean("isLong", false);
+            this.isFromCamera = jSONObject.optBoolean("isFromCamera", false);
         }
     }
 
@@ -137,6 +153,7 @@ public class ImageFileInfo extends OrmObject implements Serializable {
             }
             jSONObject.put("isGif", this.isGif);
             jSONObject.put("isLong", this.isLong);
+            jSONObject.put("isFromCamera", this.isFromCamera);
             return jSONObject;
         } catch (JSONException e) {
             BdLog.e(e.getMessage());
@@ -299,6 +316,14 @@ public class ImageFileInfo extends OrmObject implements Serializable {
         return this.isGif;
     }
 
+    public long getRotateType() {
+        return this.mRotateType;
+    }
+
+    public void setRotateType(long j) {
+        this.mRotateType = j;
+    }
+
     public void setIsLong(boolean z) {
         this.isLong = z;
     }
@@ -307,12 +332,23 @@ public class ImageFileInfo extends OrmObject implements Serializable {
         return this.isLong;
     }
 
-    public void applayRotatePageActionToPersistAction() {
+    public void setIsFromCamera(boolean z) {
+        this.isFromCamera = z;
+    }
+
+    public boolean isFromCamera() {
+        return this.isFromCamera;
+    }
+
+    public void applayRotatePageActionToPersistAction(ImageFileInfo imageFileInfo) {
         if (getPageActionsList() != null) {
             Iterator<ImageOperation> it = getPageActionsList().iterator();
             while (it.hasNext()) {
                 ImageOperation next = it.next();
                 if ("rotate".equals(next.actionName)) {
+                    if (imageFileInfo != null) {
+                        imageFileInfo.setIsGif(false);
+                    }
                     addPersistAction(next);
                 }
             }
@@ -343,6 +379,12 @@ public class ImageFileInfo extends OrmObject implements Serializable {
         }
         imageFileInfo.setIsGif(isGif());
         imageFileInfo.setIsLong(isLong());
+        imageFileInfo.setIsFromCamera(isFromCamera());
         return imageFileInfo;
+    }
+
+    @Override // com.baidu.tbadk.album.MediaFileInfo
+    public int getType() {
+        return 0;
     }
 }

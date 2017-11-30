@@ -9,6 +9,7 @@ import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.data.PostTopicData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
@@ -133,7 +134,7 @@ public class WriteActivityConfig extends IntentConfig {
             getIntent().putExtra(SUB_USER_NAME, str5);
         }
         if (additionData != null) {
-            getIntent().putExtra(ADDITION_DATA, additionData);
+            getIntent().putExtra("addition_data", additionData);
         }
         if (postPrefixData != null) {
             getIntent().putExtra("prefix_data", postPrefixData);
@@ -142,9 +143,9 @@ public class WriteActivityConfig extends IntentConfig {
     }
 
     public void setTitleAndContent(String str, String str2, boolean z) {
-        getIntent().putExtra(TITLE, str);
-        getIntent().putExtra(CONTENT, str2);
-        getIntent().putExtra(IS_SAVE_DRAFTE, z);
+        getIntent().putExtra("write_title", str);
+        getIntent().putExtra("write_content", str2);
+        getIntent().putExtra("need_save_draft", z);
     }
 
     public void setIsVcodeFeedBack() {
@@ -155,19 +156,31 @@ public class WriteActivityConfig extends IntentConfig {
 
     public void setCallFrom(String str) {
         if (getIntent() != null) {
-            getIntent().putExtra(KEY_CALL_FROM, str);
+            getIntent().putExtra("KEY_CALL_FROM", str);
         }
     }
 
     public void setForumLevel(int i) {
         if (getIntent() != null) {
-            getIntent().putExtra(KEY_WRITE_LEVEL, i);
+            getIntent().putExtra("key_write_level", i);
         }
     }
 
     public void setForumAvatar(String str) {
         if (getIntent() != null) {
             getIntent().putExtra("forum_avatar", str);
+        }
+    }
+
+    public void setAlbumThread(int i) {
+        if (getIntent() != null) {
+            getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i);
+        }
+    }
+
+    public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
+        if (getIntent() != null && writeImagesInfo != null) {
+            getIntent().putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
         }
     }
 }

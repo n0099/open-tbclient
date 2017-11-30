@@ -4,32 +4,32 @@ import android.support.v4.util.LongSparseArray;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ad {
-    private static final ad cAX = new ad();
-    private LongSparseArray<LinkedList<String>> cAW = new LongSparseArray<>();
+    private static final ad cKb = new ad();
+    private LongSparseArray<LinkedList<String>> cKa = new LongSparseArray<>();
 
     private ad() {
     }
 
-    public static ad aku() {
-        return cAX;
+    public static ad amq() {
+        return cKb;
     }
 
-    public void d(long j, String str) {
-        LinkedList<String> linkedList = this.cAW.get(j);
+    public void e(long j, String str) {
+        LinkedList<String> linkedList = this.cKa.get(j);
         if (linkedList == null) {
             linkedList = new LinkedList<>();
-            this.cAW.put(j, linkedList);
+            this.cKa.put(j, linkedList);
         }
         linkedList.add(str);
     }
 
-    public boolean e(long j, String str) {
-        LinkedList<String> linkedList = this.cAW.get(j);
+    public boolean f(long j, String str) {
+        LinkedList<String> linkedList = this.cKa.get(j);
         return linkedList != null && linkedList.contains(str);
     }
 
-    public void bg(long j) {
-        LinkedList<String> linkedList = this.cAW.get(j);
+    public void bo(long j) {
+        LinkedList<String> linkedList = this.cKa.get(j);
         if (linkedList != null) {
             linkedList.clear();
         }

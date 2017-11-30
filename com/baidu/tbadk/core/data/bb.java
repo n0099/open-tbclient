@@ -1,67 +1,121 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SeniorLottery;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
+import com.xiaomi.mipush.sdk.Constants;
+import org.json.JSONObject;
+import tbclient.TaskInfo;
 /* loaded from: classes.dex */
 public class bb {
-    private ak Ya;
-    private List<f> Yb;
-    private String Yc;
-    private List<g> Yd;
-    private String Ye;
-    private List<aj> Yf;
+    private long YB;
+    private String YC;
+    private String YD;
+    private long endTime;
+    private long forumId;
+    private String forumName;
+    private int mHeight;
+    private int mWidth;
+    private String obj_id;
+    private long taskId;
+    private long threadId;
 
-    public ak qI() {
-        return this.Ya;
+    public String getForumName() {
+        return this.forumName;
     }
 
-    public List<f> qJ() {
-        return this.Yb;
+    public String getForumId() {
+        return this.forumId + "";
     }
 
-    public String qK() {
-        return this.Yc;
+    public long qX() {
+        return this.YB;
     }
 
-    public List<g> qL() {
-        return this.Yd;
+    public long qY() {
+        return this.endTime;
     }
 
-    public String qM() {
-        return this.Ye;
+    public String getTaskId() {
+        return this.taskId + "";
     }
 
-    public List<aj> qN() {
-        return this.Yf;
+    public String getThreadId() {
+        return this.threadId + "";
     }
 
-    public void a(SeniorLottery seniorLottery) {
-        if (seniorLottery != null) {
-            this.Ya = new ak();
-            this.Ya.a(seniorLottery.theme);
-            this.Yb = new ArrayList();
-            int size = seniorLottery.award_info.size();
-            for (int i = 0; i < size; i++) {
-                f fVar = new f();
-                fVar.a(seniorLottery.award_info.get(i));
-                this.Yb.add(fVar);
+    public String qZ() {
+        return this.YD;
+    }
+
+    public int ra() {
+        return this.mWidth;
+    }
+
+    public int rb() {
+        return this.mHeight;
+    }
+
+    public String pI() {
+        return this.obj_id;
+    }
+
+    public void a(TaskInfo taskInfo) {
+        if (taskInfo != null) {
+            this.forumName = taskInfo.forum_name;
+            this.forumId = taskInfo.forum_id.longValue();
+            this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
+            this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
+            this.YC = taskInfo.bgimg;
+            this.YD = taskInfo.thread_img;
+            this.YB = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
+            this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
+            String str = taskInfo.thread_img_size;
+            if (str != null) {
+                try {
+                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    this.mWidth = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    this.mHeight = com.baidu.adp.lib.g.b.g(split[1], 1);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
             }
-            this.Yc = seniorLottery.myaward;
-            this.Yd = new ArrayList();
-            int size2 = seniorLottery.luck_users.size();
-            for (int i2 = 0; i2 < size2; i2++) {
-                g gVar = new g();
-                gVar.a(seniorLottery.luck_users.get(i2));
-                this.Yd.add(gVar);
+            if (this.mWidth <= 0) {
+                this.mWidth = 1;
             }
-            this.Ye = seniorLottery.act_desc;
-            this.Yf = new ArrayList();
-            int size3 = seniorLottery.act_regular.size();
-            for (int i3 = 0; i3 < size3; i3++) {
-                aj ajVar = new aj();
-                ajVar.a(seniorLottery.act_regular.get(i3));
-                this.Yf.add(ajVar);
+            if (this.mHeight <= 0) {
+                this.mHeight = 1;
+            }
+            this.obj_id = taskInfo.obj_id;
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.forumName = jSONObject.optString("forum_name");
+                this.forumId = jSONObject.optLong("forum_id");
+                this.taskId = jSONObject.optLong(InterviewLiveActivityConfig.KEY_TASK_ID);
+                this.threadId = jSONObject.optLong("thread_id");
+                this.YC = jSONObject.optString("bgimg");
+                this.YB = jSONObject.optLong("start_time");
+                this.endTime = jSONObject.optLong("end_time");
+                this.YD = jSONObject.optString("thread_img");
+                String optString = jSONObject.optString("thread_img_size");
+                if (optString != null && optString.length() > 0) {
+                    String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    if (split.length > 1) {
+                        this.mWidth = Integer.valueOf(split[0]).intValue();
+                        this.mHeight = Integer.valueOf(split[1]).intValue();
+                    }
+                }
+                if (this.mWidth <= 0) {
+                    this.mWidth = 1;
+                }
+                if (this.mHeight <= 0) {
+                    this.mHeight = 1;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
             }
         }
     }

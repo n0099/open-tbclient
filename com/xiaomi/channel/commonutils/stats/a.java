@@ -3,24 +3,24 @@ package com.xiaomi.channel.commonutils.stats;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class a {
-    private LinkedList<C0158a> a = new LinkedList<>();
+    private LinkedList<C0157a> a = new LinkedList<>();
 
     /* renamed from: com.xiaomi.channel.commonutils.stats.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0158a {
+    public static class C0157a {
         private static final a d = new a();
         public int a;
         public String b;
         public Object c;
 
-        C0158a(int i, Object obj) {
+        C0157a(int i, Object obj) {
             this.a = i;
             this.c = obj;
         }
     }
 
     public static a a() {
-        return C0158a.d;
+        return C0157a.d;
     }
 
     private void d() {
@@ -30,7 +30,7 @@ public class a {
     }
 
     public synchronized void a(Object obj) {
-        this.a.add(new C0158a(0, obj));
+        this.a.add(new C0157a(0, obj));
         d();
     }
 
@@ -38,8 +38,8 @@ public class a {
         return this.a.size();
     }
 
-    public synchronized LinkedList<C0158a> c() {
-        LinkedList<C0158a> linkedList;
+    public synchronized LinkedList<C0157a> c() {
+        LinkedList<C0157a> linkedList;
         linkedList = this.a;
         this.a = new LinkedList<>();
         return linkedList;

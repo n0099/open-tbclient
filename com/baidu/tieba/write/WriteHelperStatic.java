@@ -3,10 +3,13 @@ package com.baidu.tieba.write;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.data.bn;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.write.accountAccess.AccountAccessActivity;
 import com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity;
@@ -18,15 +21,15 @@ public class WriteHelperStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bn)) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bk)) {
                     Intent intent = new Intent();
                     intent.setFlags(268435456);
                     intent.setClass(TbadkCoreApplication.getInst().getContext(), NewVcodeActivity.class);
-                    bn bnVar = (bn) customResponsedMessage.getData();
-                    intent.putExtra("model", bnVar.aaE);
+                    bk bkVar = (bk) customResponsedMessage.getData();
+                    intent.putExtra("model", bkVar.aaZ);
                     intent.putExtra("is_ad", false);
-                    if (bnVar.aaF != null) {
-                        intent.putExtra("page_type", com.baidu.adp.lib.g.b.g(bnVar.aaF.yh(), 0));
+                    if (bkVar.aba != null) {
+                        intent.putExtra("page_type", com.baidu.adp.lib.g.b.g(bkVar.aba.yi(), 0));
                     }
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }
@@ -36,11 +39,11 @@ public class WriteHelperStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bn)) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bk)) {
                     Intent intent = new Intent();
                     intent.setFlags(268435456);
                     intent.setClass(TbadkCoreApplication.getInst().getContext(), VcodeActivity.class);
-                    intent.putExtra("model", ((bn) customResponsedMessage.getData()).aaE);
+                    intent.putExtra("model", ((bk) customResponsedMessage.getData()).aaZ);
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }
             }
@@ -49,16 +52,28 @@ public class WriteHelperStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bn)) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bk)) {
                     Intent intent = new Intent();
                     intent.setFlags(268435456);
                     intent.setClass(TbadkCoreApplication.getInst().getContext(), AccountAccessActivity.class);
-                    bn bnVar = (bn) customResponsedMessage.getData();
-                    intent.putExtra(AccountAccessActivityConfig.KEY_WRITE_DATA, bnVar.aaE);
-                    intent.putExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE, bnVar.aaG);
+                    bk bkVar = (bk) customResponsedMessage.getData();
+                    intent.putExtra(AccountAccessActivityConfig.KEY_WRITE_DATA, bkVar.aaZ);
+                    intent.putExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE, bkVar.abb);
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }
             }
         });
+        ate();
+    }
+
+    public static void ate() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.write.WriteHelperStatic.4
+            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<com.baidu.tieba.d.a> run(CustomMessage<TbPageContext> customMessage) {
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, customMessage.getData() != null ? new a(customMessage.getData(), null) : null);
+            }
+        });
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 }

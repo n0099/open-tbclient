@@ -1,11 +1,7 @@
 package com.baidu.tbadk.d;
+
+import android.view.View;
 /* loaded from: classes.dex */
 public interface a {
-    void cd(String str);
-
-    void nU();
-
-    void nV();
-
-    void ni();
+    boolean s(View view);
 }

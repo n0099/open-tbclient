@@ -17,6 +17,7 @@ import com.baidu.tbadk.core.atomData.HotTopicChangeActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
+import com.baidu.tbadk.core.atomData.TransmitPostEditActivityConfig;
 import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
@@ -44,11 +45,12 @@ import com.baidu.tieba.write.video.WriteVideoActivity;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class WriteActivityStatic {
-    private static int gYj = 11;
-    private static int gYk = 18;
+    private static int hjp = 11;
+    private static int hjq = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(TransmitPostEditActivityConfig.class, TransmitPostEditActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteVideoActivityConfig.class, WriteVideoActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(VcodeActivityConfig.class, VcodeActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlbumActivityConfig.class, AlbumActivity.class);
@@ -60,12 +62,12 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SelectForumActivityConfig.class, SelectForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(HotTopicChangeActivityConfig.class, HotTopicChangeFourmActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteUrlActivityConfig.class, WriteUrlActivity.class);
-        LocationModel.bvr();
-        av.vI().a("feedback:", new av.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
+        LocationModel.bxb();
+        av.vL().a("feedback:", new av.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
             @Override // com.baidu.tbadk.core.util.av.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {
-                    WriteActivityStatic.C(tbPageContext);
+                    WriteActivityStatic.D(tbPageContext);
                 }
             }
         });
@@ -75,20 +77,20 @@ public class WriteActivityStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void C(TbPageContext<?> tbPageContext) {
+    public static void D(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= gYk && Build.VERSION.SDK_INT >= gYj) {
-            D(tbPageContext);
-        } else {
+        if (Build.VERSION.SDK_INT <= hjq && Build.VERSION.SDK_INT >= hjp) {
             E(tbPageContext);
+        } else {
+            F(tbPageContext);
         }
     }
 
-    private static void D(TbPageContext<?> tbPageContext) {
+    private static void E(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(d.j.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
     }
 
-    private static void E(TbPageContext<?> tbPageContext) {
+    private static void F(TbPageContext<?> tbPageContext) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(d.j.login_feedback), true, 12008)));
@@ -101,7 +103,7 @@ public class WriteActivityStatic {
             return;
         }
         antiData.setIfVoice(false);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteActivityConfig(tbPageContext.getPageActivity(), 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteActivityConfig(tbPageContext.getPageActivity(), 9, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
     }
 
     private static void registerListener() {
@@ -109,7 +111,7 @@ public class WriteActivityStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && at.vE() != null && at.vE().indexOf("NewVcode") != -1) {
+                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && at.vH() != null && at.vH().indexOf("NewVcode") != -1) {
                     TbadkCoreApplication.getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() + 1);
                 }
             }

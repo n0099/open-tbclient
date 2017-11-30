@@ -14,108 +14,108 @@ import com.baidu.tieba.frs.as;
 import com.baidu.tieba.frs.i;
 /* loaded from: classes.dex */
 public class b {
-    private as bhk;
-    private final com.baidu.tieba.frs.f cFg;
-    private TextView cLu;
-    private boolean cPg;
-    private int cPh = -1;
-    private int cpC;
+    private as bmI;
+    private final com.baidu.tieba.frs.f cOm;
+    private TextView cUI;
+    private boolean cYv;
+    private int cYw = -1;
+    private int cyn;
 
     public b(com.baidu.tieba.frs.f fVar) {
-        this.cpC = 0;
+        this.cyn = 0;
         if (fVar == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.cFg = fVar;
+        this.cOm = fVar;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.cpC = UtilHelper.getStatusBarHeight();
+            this.cyn = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void aom() {
-        if (this.cPg && this.cPh >= 0) {
-            kl(this.cPh);
+    public void aqg() {
+        if (this.cYv && this.cYw >= 0) {
+            kJ(this.cYw);
         }
-        this.cPg = false;
+        this.cYv = false;
     }
 
-    public void kk(int i) {
+    public void kI(int i) {
         if (i >= 0) {
-            fi(true);
-            km(i);
+            fz(true);
+            kK(i);
             return;
         }
-        fi(false);
-        km(i);
+        fz(false);
+        kK(i);
     }
 
-    private void kl(int i) {
+    private void kJ(int i) {
         String string;
-        com.baidu.tieba.frs.entelechy.b.d aji = this.cFg.aji();
-        i ajk = this.cFg.ajk();
-        if (ajk != null && aji != null && aji.alP() != null && (ajk.VB() instanceof NoPressedRelativeLayout)) {
-            if (this.cLu == null && this.cFg.getPageContext() != null) {
-                this.cLu = new TextView(this.cFg.getPageContext().getPageActivity());
-                this.cLu.setTextSize(0, this.cFg.getResources().getDimensionPixelSize(d.e.fontsize28));
-                this.cLu.setGravity(17);
+        com.baidu.tieba.frs.entelechy.b.d alc = this.cOm.alc();
+        i ale = this.cOm.ale();
+        if (ale != null && alc != null && alc.anK() != null && (ale.WP() instanceof NoPressedRelativeLayout)) {
+            if (this.cUI == null && this.cOm.getPageContext() != null) {
+                this.cUI = new TextView(this.cOm.getPageContext().getPageActivity());
+                this.cUI.setTextSize(0, this.cOm.getResources().getDimensionPixelSize(d.e.fontsize28));
+                this.cUI.setGravity(17);
             }
-            if (this.cLu != null) {
+            if (this.cUI != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(d.j.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(d.j.recommend_frs_refresh_nodata);
                 }
-                this.cLu.setText(string);
+                this.cUI.setText(string);
             }
-            View alP = aji.alP();
-            BdTypeListView listView = ajk.getListView();
-            if (alP != null && listView != null) {
-                aj.j(this.cLu, d.C0080d.common_color_10260);
-                aj.i(this.cLu, d.C0080d.cp_cont_g);
+            View anK = alc.anK();
+            BdTypeListView listView = ale.getListView();
+            if (anK != null && listView != null) {
+                aj.j(this.cUI, d.C0082d.common_color_10260);
+                aj.i(this.cUI, d.C0082d.cp_cont_g);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.f(TbadkCoreApplication.getInst(), d.e.ds56));
                 layoutParams.addRule(6, d.g.frs_list_content);
-                if (ajk.ajI() != null && ajk.ajI().getLayoutParams() != null) {
-                    layoutParams.topMargin = ajk.ajI().getLayoutParams().height;
+                if (ale.alC() != null && ale.alC().getLayoutParams() != null) {
+                    layoutParams.topMargin = ale.alC().getLayoutParams().height;
                 } else {
                     layoutParams.topMargin = 0;
                 }
-                if (this.bhk == null) {
-                    this.bhk = new as();
+                if (this.bmI == null) {
+                    this.bmI = new as();
                 }
-                this.bhk.a(this.cLu, (NoPressedRelativeLayout) ajk.VB(), layoutParams, 2000);
-                this.cPh = -1;
+                this.bmI.a(this.cUI, (NoPressedRelativeLayout) ale.WP(), layoutParams, 2000);
+                this.cYw = -1;
             }
         }
     }
 
-    public void aon() {
-        if (this.cLu != null && this.cLu.getVisibility() == 0) {
-            com.baidu.tieba.frs.entelechy.b.d aji = this.cFg.aji();
-            i ajk = this.cFg.ajk();
-            if (ajk != null && aji != null && aji.alP() != null && (ajk.VB() instanceof NoPressedRelativeLayout)) {
-                BdTypeListView listView = ajk.getListView();
-                View alP = aji.alP();
+    public void aqh() {
+        if (this.cUI != null && this.cUI.getVisibility() == 0) {
+            com.baidu.tieba.frs.entelechy.b.d alc = this.cOm.alc();
+            i ale = this.cOm.ale();
+            if (ale != null && alc != null && alc.anK() != null && (ale.WP() instanceof NoPressedRelativeLayout)) {
+                BdTypeListView listView = ale.getListView();
+                View anK = alc.anK();
                 if (listView != null) {
-                    boolean z = listView.indexOfChild(alP) >= 0;
-                    if (this.bhk != null && !z && this.cLu.getTop() <= this.cpC) {
-                        this.bhk.hideTip();
+                    boolean z = listView.indexOfChild(anK) >= 0;
+                    if (this.bmI != null && !z && this.cUI.getTop() <= this.cyn) {
+                        this.bmI.hideTip();
                     }
                 }
             }
         }
     }
 
-    public void fi(boolean z) {
-        this.cPg = z;
+    public void fz(boolean z) {
+        this.cYv = z;
     }
 
-    public void km(int i) {
-        this.cPh = i;
+    public void kK(int i) {
+        this.cYw = i;
     }
 
     public void onDestroy() {
-        if (this.bhk != null) {
-            this.bhk.onDestroy();
+        if (this.bmI != null) {
+            this.bmI.onDestroy();
         }
     }
 }

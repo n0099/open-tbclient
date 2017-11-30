@@ -5,28 +5,28 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.frs.aj;
 import com.baidu.tieba.frs.tab.TabData;
-import com.baidu.tieba.tbadkCore.j;
+import com.baidu.tieba.tbadkCore.k;
 /* loaded from: classes.dex */
 public interface d {
     void a(AbsListView absListView, int i, int i2, int i3, int i4);
 
     void a(BdListView bdListView, int i);
 
-    void a(BdListView bdListView, j jVar, int i);
+    void a(BdListView bdListView, k kVar, int i);
 
     void a(aj ajVar);
 
-    TabData alN();
+    TabData anI();
 
-    View alO();
+    View anJ();
 
-    View alP();
+    View anK();
 
-    void aw(View view);
+    void ax(View view);
 
     void b(BdListView bdListView);
 
-    void eU(boolean z);
+    void fl(boolean z);
 
     void onChangeSkinType(int i);
 }

@@ -1,31 +1,21 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.MemberShowIcon;
+import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes.dex */
 public class v {
-    private String mIcon;
-    private String mName;
-    private String mUrl;
+    private String WP;
+    private String WQ;
+    private String WR;
+    private String WS;
+    private int WT;
 
-    public void a(MemberShowIcon memberShowIcon) {
-        if (memberShowIcon != null) {
-            this.mIcon = memberShowIcon.icon;
-            this.mName = memberShowIcon.name;
-            this.mUrl = memberShowIcon.url;
-        }
-    }
-
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.mIcon = jSONObject.optString("icon");
-                this.mName = jSONObject.optString("name");
-                this.mUrl = jSONObject.optString("url");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    public void a(HeadSdk headSdk) {
+        if (headSdk != null) {
+            this.WP = headSdk.head_pic;
+            this.WQ = headSdk.head_text;
+            this.WR = headSdk.sdk_name;
+            this.WS = headSdk.sdk_params;
+            this.WT = headSdk.head_type.intValue();
         }
     }
 }

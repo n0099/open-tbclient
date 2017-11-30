@@ -2,7 +2,6 @@ package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
-import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
@@ -19,7 +18,7 @@ import javax.security.cert.X509Certificate;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class SapiDataEncryptor {
-    public static final String a = TextUtils.join("", new String[]{"b", "a", "i", "d", "u", "v", "o", "i", "c", "e", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, "5", "h", "y", "1", "2"});
+    public static final String a = TextUtils.join("", new String[]{"b", "a", "i", "d", "u", "v", "o", "i", "c", "e", "3", "5", "h", "y", "1", "2"});
     public static final String b = TextUtils.join("", new String[]{"b", "a", "i", "d", "u", "f", "a", "c", "e", "D", "z", "T", "9", "9", "1", "1"});
     private static final String c = "0123456789ABCDEF";
     private String d;

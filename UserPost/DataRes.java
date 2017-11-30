@@ -19,12 +19,15 @@ public final class DataRes extends Message {
     public final List<PostInfoList> post_list;
     @ProtoField(tag = 3, type = Message.Datatype.UINT64)
     public final Long time;
+    @ProtoField(tag = 7, type = Message.Datatype.INT32)
+    public final Integer view_card_num;
     public static final List<PostInfoList> DEFAULT_POST_LIST = Collections.emptyList();
     public static final Integer DEFAULT_HIDE_POST = 0;
     public static final Long DEFAULT_TIME = 0L;
     public static final Long DEFAULT_CTIME = 0L;
     public static final Long DEFAULT_LOGID = 0L;
     public static final Integer DEFAULT_MASK_TYPE = 0;
+    public static final Integer DEFAULT_VIEW_CARD_NUM = 0;
 
     private DataRes(Builder builder, boolean z) {
         super(builder);
@@ -56,9 +59,14 @@ public final class DataRes extends Message {
             }
             if (builder.mask_type == null) {
                 this.mask_type = DEFAULT_MASK_TYPE;
-                return;
             } else {
                 this.mask_type = builder.mask_type;
+            }
+            if (builder.view_card_num == null) {
+                this.view_card_num = DEFAULT_VIEW_CARD_NUM;
+                return;
+            } else {
+                this.view_card_num = builder.view_card_num;
                 return;
             }
         }
@@ -68,6 +76,7 @@ public final class DataRes extends Message {
         this.ctime = builder.ctime;
         this.logid = builder.logid;
         this.mask_type = builder.mask_type;
+        this.view_card_num = builder.view_card_num;
     }
 
     /* loaded from: classes.dex */
@@ -78,6 +87,7 @@ public final class DataRes extends Message {
         public Integer mask_type;
         public List<PostInfoList> post_list;
         public Long time;
+        public Integer view_card_num;
 
         public Builder() {
         }
@@ -91,6 +101,7 @@ public final class DataRes extends Message {
                 this.ctime = dataRes.ctime;
                 this.logid = dataRes.logid;
                 this.mask_type = dataRes.mask_type;
+                this.view_card_num = dataRes.view_card_num;
             }
         }
 

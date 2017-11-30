@@ -14,116 +14,116 @@ import java.util.Map;
 @SuppressLint({"DefaultLocale"})
 /* loaded from: classes.dex */
 public class i implements a.InterfaceC0005a {
-    private static int aiF = 5;
-    private static int aiJ = 0;
-    private static int aiK = 0;
-    private static int aiL = 0;
-    private static int aiP = 0;
-    private com.baidu.adp.lib.network.http.e aiC;
-    private f aiG;
+    private static int ajb = 5;
+    private static int ajf = 0;
+    private static int ajg = 0;
+    private static int ajh = 0;
+    private static int ajl = 0;
+    private com.baidu.adp.lib.network.http.e aiY;
+    private f ajc;
     private volatile com.baidu.adp.lib.network.http.c nJ = null;
-    private HashMap<String, String> aiD = null;
-    private com.baidu.adp.lib.network.http.g aiE = new com.baidu.adp.lib.network.http.g();
-    public boolean aiH = false;
+    private HashMap<String, String> aiZ = null;
+    private com.baidu.adp.lib.network.http.g aja = new com.baidu.adp.lib.network.http.g();
+    public boolean ajd = false;
     public boolean isGif = false;
     public String uY = "";
-    public com.baidu.adp.lib.network.http.d aiI = null;
+    public com.baidu.adp.lib.network.http.d aje = null;
     public int dataSize = -1;
     public int responseCode = -1;
     public int errorCode = -1;
-    private boolean aiM = false;
-    public boolean aiN = false;
+    private boolean aji = false;
+    public boolean ajj = false;
     private boolean mUseHttpClient = TbadkCoreApplication.getInst().isHttpClientOpen();
     private boolean mUseHttpAutoSwitch = TbadkCoreApplication.getInst().isHttpAutoSwitch();
-    private boolean aiO = false;
+    private boolean ajk = false;
 
-    public boolean vT() {
-        return this.aiM;
+    public boolean vW() {
+        return this.aji;
     }
 
     public com.baidu.adp.lib.network.http.g fz() {
-        return this.aiE;
+        return this.aja;
     }
 
-    public void vU() {
-        this.aiI = null;
+    public void vX() {
+        this.aje = null;
         this.uY = "";
-        this.aiM = false;
+        this.aji = false;
         this.responseCode = -1;
         this.dataSize = -1;
         this.isGif = false;
-        this.aiH = false;
+        this.ajd = false;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE, IPUT, IGET]}, finally: {[IGET, INVOKE, IPUT, IGET, CONSTRUCTOR, IGET, IGET, INVOKE, INVOKE, INVOKE, INVOKE, IPUT, CONSTRUCTOR, IGET, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IF] complete} */
-    private final byte[] eg(String str) {
+    private final byte[] ei(String str) {
         StringBuffer stringBuffer = new StringBuffer();
         try {
             try {
-                vU();
-                if (this.aiC != null) {
+                vX();
+                if (this.aiY != null) {
                     cancel();
                     this.nJ = null;
                 }
-                this.aiC = new com.baidu.adp.lib.network.http.e();
-                this.aiC.fy().setUrl(str);
-                if (this.aiD != null) {
-                    for (Map.Entry<String, String> entry : this.aiD.entrySet()) {
-                        this.aiC.fy().n(entry.getKey(), entry.getValue());
+                this.aiY = new com.baidu.adp.lib.network.http.e();
+                this.aiY.fy().setUrl(str);
+                if (this.aiZ != null) {
+                    for (Map.Entry<String, String> entry : this.aiZ.entrySet()) {
+                        this.aiY.fy().n(entry.getKey(), entry.getValue());
                     }
                 }
-                this.nJ = new com.baidu.adp.lib.network.http.c(this.aiC);
-                this.nJ.d(aiF, 0, 0);
-                this.aiE = this.aiC.fz();
-                byte[] bArr = this.aiC.fz().vr;
-                this.responseCode = this.aiC.fz().responseCode;
-                this.errorCode = this.aiC.fz().vp;
-                this.aiM = this.aiC.fz().fF();
+                this.nJ = new com.baidu.adp.lib.network.http.c(this.aiY);
+                this.nJ.d(ajb, 0, 0);
+                this.aja = this.aiY.fz();
+                byte[] bArr = this.aiY.fz().vr;
+                this.responseCode = this.aiY.fz().responseCode;
+                this.errorCode = this.aiY.fz().vp;
+                this.aji = this.aiY.fz().fF();
                 if (bArr != null) {
                     this.dataSize = bArr.length;
                 } else {
                     this.dataSize = 0;
                 }
-                if (this.aiC.fz().contentEncoding != null && this.aiC.fz().contentEncoding.toLowerCase().contains("gzip")) {
-                    this.aiH = true;
+                if (this.aiY.fz().contentEncoding != null && this.aiY.fz().contentEncoding.toLowerCase().contains("gzip")) {
+                    this.ajd = true;
                     bArr = w(bArr);
                 }
-                if (!this.aiM) {
+                if (!this.aji) {
                     c(str, null);
                 }
-                this.aiI = this.aiC.fB();
-                if (this.aiI != null) {
+                this.aje = this.aiY.fB();
+                if (this.aje != null) {
                     StringBuilder sb = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar = this.aiI;
+                    com.baidu.adp.lib.network.http.d dVar = this.aje;
                     dVar.uY = sb.append(dVar.uY).append(stringBuffer.toString()).toString();
                     StringBuilder sb2 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar2 = this.aiI;
+                    com.baidu.adp.lib.network.http.d dVar2 = this.aje;
                     dVar2.uY = sb2.append(dVar2.uY).append("_responseCode:").append(this.responseCode).toString();
                     return bArr;
                 }
                 return bArr;
             } catch (Exception e) {
                 stringBuffer.append("httpmanagererr_" + e.getClass() + "_" + e.getMessage());
-                this.aiI = this.aiC.fB();
-                if (this.aiI != null) {
+                this.aje = this.aiY.fB();
+                if (this.aje != null) {
                     StringBuilder sb3 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar3 = this.aiI;
+                    com.baidu.adp.lib.network.http.d dVar3 = this.aje;
                     dVar3.uY = sb3.append(dVar3.uY).append(stringBuffer.toString()).toString();
                     StringBuilder sb4 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar4 = this.aiI;
+                    com.baidu.adp.lib.network.http.d dVar4 = this.aje;
                     dVar4.uY = sb4.append(dVar4.uY).append("_responseCode:").append(this.responseCode).toString();
                     return null;
                 }
                 return null;
             }
         } catch (Throwable th) {
-            this.aiI = this.aiC.fB();
-            if (this.aiI != null) {
+            this.aje = this.aiY.fB();
+            if (this.aje != null) {
                 StringBuilder sb5 = new StringBuilder();
-                com.baidu.adp.lib.network.http.d dVar5 = this.aiI;
+                com.baidu.adp.lib.network.http.d dVar5 = this.aje;
                 dVar5.uY = sb5.append(dVar5.uY).append(stringBuffer.toString()).toString();
                 StringBuilder sb6 = new StringBuilder();
-                com.baidu.adp.lib.network.http.d dVar6 = this.aiI;
+                com.baidu.adp.lib.network.http.d dVar6 = this.aje;
                 dVar6.uY = sb6.append(dVar6.uY).append("_responseCode:").append(this.responseCode).toString();
             }
             throw th;
@@ -141,19 +141,19 @@ public class i implements a.InterfaceC0005a {
         }
     }
 
-    public byte[] eh(String str) {
-        return eg(str);
+    public byte[] ej(String str) {
+        return ei(str);
     }
 
-    private boolean vV() {
-        if (this.aiE.vo) {
+    private boolean vY() {
+        if (this.aja.vo) {
             return false;
         }
         if (this.errorCode == -12 || this.errorCode == -18 || this.errorCode == -19) {
-            int i = aiP + 1;
-            aiP = i;
+            int i = ajl + 1;
+            ajl = i;
             if (i >= 5) {
-                aiP = 0;
+                ajl = 0;
                 return true;
             }
             return false;
@@ -169,35 +169,35 @@ public class i implements a.InterfaceC0005a {
         int i2 = 0;
         if (!this.mUseHttpClient) {
             try {
-                byte[] eg = eg(str);
-                int i3 = aiJ + 1;
-                aiJ = i3;
+                byte[] ei = ei(str);
+                int i3 = ajf + 1;
+                ajf = i3;
                 if (i3 <= 2 && this.responseCode != 200) {
-                    if (aiJ == 1) {
-                        aiL = this.errorCode;
+                    if (ajf == 1) {
+                        ajh = this.errorCode;
                     }
-                    aiK++;
+                    ajg++;
                 }
-                if (aiJ == 2) {
-                    s.a("A2T", aiL, this.errorCode, aiK);
+                if (ajf == 2) {
+                    s.a("A2T", ajh, this.errorCode, ajg);
                 }
-                if (true == vV()) {
+                if (true == vY()) {
                     this.mUseHttpClient = true;
-                    this.aiO = true;
+                    this.ajk = true;
                     TbadkCoreApplication.getInst().setHttpClientOpen(true);
-                    aiK = 0;
-                    aiJ = 0;
-                    aiL = 0;
+                    ajg = 0;
+                    ajf = 0;
+                    ajh = 0;
                 }
-                if (eg == null) {
+                if (ei == null) {
                     return null;
                 }
-                if (this.aiC != null && this.aiC.fz().vq != null) {
-                    List<String> list = this.aiC.fz().vq.get("imgsrc");
+                if (this.aiY != null && this.aiY.fz().vq != null) {
+                    List<String> list = this.aiY.fz().vq.get("imgsrc");
                     if (list != null && list.size() > 0 && (str2 = list.get(0)) != null && str2.length() > 0) {
                         i2 = 1;
                     }
-                    List<String> list2 = this.aiC.fz().vq.get("Src-Content-Type");
+                    List<String> list2 = this.aiY.fz().vq.get("Src-Content-Type");
                     if (list2 != null && list2.size() > 0) {
                         if ("image/gif".equalsIgnoreCase(list2.get(0))) {
                             this.isGif = true;
@@ -205,19 +205,19 @@ public class i implements a.InterfaceC0005a {
                             this.isGif = false;
                         }
                     }
-                    List<String> list3 = this.aiC.fz().vq.get("Error-Message");
+                    List<String> list3 = this.aiY.fz().vq.get("Error-Message");
                     if (list3 != null && list3.size() > 0) {
                         String str3 = list3.get(0);
                         if (TextUtils.isEmpty(str3) || str3.equalsIgnoreCase("OK")) {
-                            this.aiN = false;
+                            this.ajj = false;
                             i = i2;
-                            return (this.aiM || (!z && i == 0) || !new String(eg, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) ? eg : copyOfRange(eg, 23, eg.length);
+                            return (this.aji || (!z && i == 0) || !new String(ei, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) ? ei : copyOfRange(ei, 23, ei.length);
                         }
-                        this.aiN = true;
+                        this.ajj = true;
                     }
                 }
                 i = i2;
-                if (this.aiM) {
+                if (this.aji) {
                 }
             } catch (Exception e) {
                 this.uY += "BDIMAGE DECODE ERROR" + e.getMessage();
@@ -227,43 +227,43 @@ public class i implements a.InterfaceC0005a {
         StringBuilder sb = new StringBuilder(20);
         try {
             try {
-                vU();
-                if (this.aiG != null) {
+                vX();
+                if (this.ajc != null) {
                     cancel();
                 }
-                this.aiC = new com.baidu.adp.lib.network.http.e();
-                this.aiG = new f(this.aiC);
-                this.aiC.fy().setUrl(str);
-                if (this.aiD != null) {
-                    for (Map.Entry<String, String> entry : this.aiD.entrySet()) {
-                        this.aiC.fy().n(entry.getKey(), entry.getValue());
+                this.aiY = new com.baidu.adp.lib.network.http.e();
+                this.ajc = new f(this.aiY);
+                this.aiY.fy().setUrl(str);
+                if (this.aiZ != null) {
+                    for (Map.Entry<String, String> entry : this.aiZ.entrySet()) {
+                        this.aiY.fy().n(entry.getKey(), entry.getValue());
                     }
                 }
-                this.aiG.d(null, null, -1);
-                this.aiE = this.aiC.fz();
-                byte[] bArr = this.aiC.fz().vr;
-                this.responseCode = this.aiC.fz().responseCode;
-                this.errorCode = this.aiC.fz().vp;
-                this.aiM = this.aiC.fz().fF();
-                if (this.mUseHttpAutoSwitch && true == vV()) {
+                this.ajc.d(null, null, -1);
+                this.aja = this.aiY.fz();
+                byte[] bArr = this.aiY.fz().vr;
+                this.responseCode = this.aiY.fz().responseCode;
+                this.errorCode = this.aiY.fz().vp;
+                this.aji = this.aiY.fz().fF();
+                if (this.mUseHttpAutoSwitch && true == vY()) {
                     this.mUseHttpClient = false;
                     TbadkCoreApplication.getInst().setHttpClientOpen(false);
-                    aiK = 0;
-                    aiJ = 0;
-                    aiL = 0;
+                    ajg = 0;
+                    ajf = 0;
+                    ajh = 0;
                 }
-                if (this.aiO) {
-                    int i4 = aiJ + 1;
-                    aiJ = i4;
+                if (this.ajk) {
+                    int i4 = ajf + 1;
+                    ajf = i4;
                     if (i4 <= 2 && this.responseCode != 200) {
-                        aiK++;
-                        if (aiJ == 1) {
-                            aiL = this.errorCode;
+                        ajg++;
+                        if (ajf == 1) {
+                            ajh = this.errorCode;
                         }
                     }
-                    if (aiJ == 2) {
-                        s.a("T2A", aiL, this.errorCode, aiK);
-                        this.aiO = false;
+                    if (ajf == 2) {
+                        s.a("T2A", ajh, this.errorCode, ajg);
+                        this.ajk = false;
                     }
                 }
                 if (bArr != null) {
@@ -271,16 +271,16 @@ public class i implements a.InterfaceC0005a {
                 } else {
                     this.dataSize = 0;
                 }
-                this.isGif = this.aiG.isGif();
-                this.aiN = this.aiG.vS();
-                int size = this.aiC.fA().size();
+                this.isGif = this.ajc.isGif();
+                this.ajj = this.ajc.vV();
+                int size = this.aiY.fA().size();
                 if (size > 0) {
                     sb.append("_ipsize:");
                     sb.append(size);
                     sb.append("_ips:");
                     while (i2 < size) {
-                        if (this.aiC.fA().get(i2) != null) {
-                            sb.append(this.aiC.fA().get(i2).vb);
+                        if (this.aiY.fA().get(i2) != null) {
+                            sb.append(this.aiY.fA().get(i2).vb);
                         }
                         if (i2 != size - 1) {
                             sb.append("_");
@@ -288,29 +288,29 @@ public class i implements a.InterfaceC0005a {
                         i2++;
                     }
                 }
-                this.aiI = this.aiC.fB();
-                if (this.aiI != null) {
+                this.aje = this.aiY.fB();
+                if (this.aje != null) {
                     StringBuilder sb2 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar = this.aiI;
+                    com.baidu.adp.lib.network.http.d dVar = this.aje;
                     dVar.uY = sb2.append(dVar.uY).append(sb.toString()).toString();
                     StringBuilder sb3 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar2 = this.aiI;
+                    com.baidu.adp.lib.network.http.d dVar2 = this.aje;
                     dVar2.uY = sb3.append(dVar2.uY).append("_responseCode:").append(this.responseCode).toString();
                     StringBuilder sb4 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar3 = this.aiI;
+                    com.baidu.adp.lib.network.http.d dVar3 = this.aje;
                     dVar3.uY = sb4.append(dVar3.uY).append("_size:").append(Integer.toString(this.dataSize)).toString();
                 }
                 return bArr;
             } catch (Exception e2) {
                 sb.append("_httpclienterr_" + e2.getClass() + "_" + e2.getMessage());
-                int size2 = this.aiC.fA().size();
+                int size2 = this.aiY.fA().size();
                 if (size2 > 0) {
                     sb.append("_ipsize:");
                     sb.append(size2);
                     sb.append("_ips:");
                     while (i2 < size2) {
-                        if (this.aiC.fA().get(i2) != null) {
-                            sb.append(this.aiC.fA().get(i2).vb);
+                        if (this.aiY.fA().get(i2) != null) {
+                            sb.append(this.aiY.fA().get(i2).vb);
                         }
                         if (i2 != size2 - 1) {
                             sb.append("_");
@@ -318,29 +318,29 @@ public class i implements a.InterfaceC0005a {
                         i2++;
                     }
                 }
-                this.aiI = this.aiC.fB();
-                if (this.aiI != null) {
+                this.aje = this.aiY.fB();
+                if (this.aje != null) {
                     StringBuilder sb5 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar4 = this.aiI;
+                    com.baidu.adp.lib.network.http.d dVar4 = this.aje;
                     dVar4.uY = sb5.append(dVar4.uY).append(sb.toString()).toString();
                     StringBuilder sb6 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar5 = this.aiI;
+                    com.baidu.adp.lib.network.http.d dVar5 = this.aje;
                     dVar5.uY = sb6.append(dVar5.uY).append("_responseCode:").append(this.responseCode).toString();
                     StringBuilder sb7 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar6 = this.aiI;
+                    com.baidu.adp.lib.network.http.d dVar6 = this.aje;
                     dVar6.uY = sb7.append(dVar6.uY).append("_size:").append(Integer.toString(this.dataSize)).toString();
                 }
                 return null;
             }
         } catch (Throwable th) {
-            int size3 = this.aiC.fA().size();
+            int size3 = this.aiY.fA().size();
             if (size3 > 0) {
                 sb.append("_ipsize:");
                 sb.append(size3);
                 sb.append("_ips:");
                 while (i2 < size3) {
-                    if (this.aiC.fA().get(i2) != null) {
-                        sb.append(this.aiC.fA().get(i2).vb);
+                    if (this.aiY.fA().get(i2) != null) {
+                        sb.append(this.aiY.fA().get(i2).vb);
                     }
                     if (i2 != size3 - 1) {
                         sb.append("_");
@@ -348,16 +348,16 @@ public class i implements a.InterfaceC0005a {
                     i2++;
                 }
             }
-            this.aiI = this.aiC.fB();
-            if (this.aiI != null) {
+            this.aje = this.aiY.fB();
+            if (this.aje != null) {
                 StringBuilder sb8 = new StringBuilder();
-                com.baidu.adp.lib.network.http.d dVar7 = this.aiI;
+                com.baidu.adp.lib.network.http.d dVar7 = this.aje;
                 dVar7.uY = sb8.append(dVar7.uY).append(sb.toString()).toString();
                 StringBuilder sb9 = new StringBuilder();
-                com.baidu.adp.lib.network.http.d dVar8 = this.aiI;
+                com.baidu.adp.lib.network.http.d dVar8 = this.aje;
                 dVar8.uY = sb9.append(dVar8.uY).append("_responseCode:").append(this.responseCode).toString();
                 StringBuilder sb10 = new StringBuilder();
-                com.baidu.adp.lib.network.http.d dVar9 = this.aiI;
+                com.baidu.adp.lib.network.http.d dVar9 = this.aje;
                 dVar9.uY = sb10.append(dVar9.uY).append("_size:").append(Integer.toString(this.dataSize)).toString();
             }
             throw th;
@@ -381,8 +381,8 @@ public class i implements a.InterfaceC0005a {
             stringBuffer.append(str);
             stringBuffer.append("thread_id:");
             stringBuffer.append(Thread.currentThread().getId());
-            for (int i = 0; i < this.aiC.fA().size(); i++) {
-                com.baidu.adp.lib.network.http.d dVar = this.aiC.fA().get(i);
+            for (int i = 0; i < this.aiY.fA().size(); i++) {
+                com.baidu.adp.lib.network.http.d dVar = this.aiY.fA().get(i);
                 stringBuffer.append(" index: ");
                 stringBuffer.append(i);
                 stringBuffer.append("exception:");
@@ -416,7 +416,7 @@ public class i implements a.InterfaceC0005a {
             this.uY = stringBuffer.toString();
         } catch (Exception e) {
         } finally {
-            this.aiM = false;
+            this.aji = false;
         }
     }
 
@@ -425,16 +425,16 @@ public class i implements a.InterfaceC0005a {
         if (this.nJ != null) {
             this.nJ.cancel();
         }
-        if (this.aiG != null) {
-            this.aiG.cancel();
-            this.aiG = null;
+        if (this.ajc != null) {
+            this.ajc.cancel();
+            this.ajc = null;
         }
     }
 
-    public boolean vW() {
-        if (this.aiG == null) {
+    public boolean vZ() {
+        if (this.ajc == null) {
             return false;
         }
-        return this.aiG.aio;
+        return this.ajc.aiL;
     }
 }

@@ -6,7 +6,6 @@ import android.net.Proxy;
 import android.net.TrafficStats;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -68,7 +67,7 @@ public final class i {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private HttpURLConnection nl() throws IOException {
+    private HttpURLConnection no() throws IOException {
         String str;
         HttpURLConnection httpURLConnection;
         String[] e;
@@ -142,7 +141,7 @@ public final class i {
                 e = d.e(this.a);
                 if (e == null) {
                 }
-                str2 = TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
+                str2 = "3";
                 httpURLConnection.setRequestProperty("User-Agent", "eos/" + str2 + "/" + l.a(this.a) + "/2.0.8");
                 httpURLConnection.setRequestProperty("Pragma", "no-cache");
                 httpURLConnection.setRequestProperty("Accept", "*/*");
@@ -182,7 +181,7 @@ public final class i {
         if (e == null && e.length == 2 && !TextUtils.isEmpty(e[0])) {
             str2 = e[0];
         } else {
-            str2 = TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
+            str2 = "3";
         }
         httpURLConnection.setRequestProperty("User-Agent", "eos/" + str2 + "/" + l.a(this.a) + "/2.0.8");
         httpURLConnection.setRequestProperty("Pragma", "no-cache");
@@ -298,7 +297,7 @@ public final class i {
             this.c = "POST";
             this.d = str;
             try {
-                httpURLConnection = nl();
+                httpURLConnection = no();
                 try {
                     inputStream = a(bArr, httpURLConnection);
                     String a2 = a(inputStream);
@@ -366,7 +365,7 @@ public final class i {
             try {
                 this.c = "GET";
                 this.d = str;
-                httpURLConnection = nl();
+                httpURLConnection = no();
                 try {
                     inputStream = a(null, httpURLConnection);
                     String a2 = a(inputStream);
@@ -465,7 +464,7 @@ public final class i {
             java.lang.String r1 = "GET"
             r6.c = r1     // Catch: java.lang.Throwable -> L9b
             r6.d = r7     // Catch: java.lang.Throwable -> L9b
-            java.net.HttpURLConnection r2 = r6.nl()     // Catch: java.lang.Throwable -> L9b
+            java.net.HttpURLConnection r2 = r6.no()     // Catch: java.lang.Throwable -> L9b
             java.io.InputStream r3 = r6.g(r2)     // Catch: java.lang.Throwable -> L104
             boolean r1 = r6.b(r3, r8)     // Catch: java.lang.Throwable -> L104
             if (r3 == 0) goto L77
@@ -642,24 +641,24 @@ public final class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements X509TrustManager {
-        private X509TrustManager PR;
+        private X509TrustManager Qj;
 
         a(X509TrustManager x509TrustManager) {
-            this.PR = null;
-            this.PR = x509TrustManager;
+            this.Qj = null;
+            this.Qj = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             com.baidu.sofire.b.a();
-            this.PR.checkClientTrusted(x509CertificateArr, str);
+            this.Qj.checkClientTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             com.baidu.sofire.b.a();
             try {
-                this.PR.checkServerTrusted(x509CertificateArr, str);
+                this.Qj.checkServerTrusted(x509CertificateArr, str);
                 com.baidu.sofire.b.a();
             } catch (CertificateException e) {
                 d.a(e);
@@ -678,7 +677,7 @@ public final class i {
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
             com.baidu.sofire.b.a();
-            return this.PR.getAcceptedIssuers();
+            return this.Qj.getAcceptedIssuers();
         }
     }
 }

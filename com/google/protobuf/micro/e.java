@@ -15,9 +15,9 @@ public abstract class e {
 
     public void a(byte[] bArr, int i, int i2) {
         try {
-            c l = c.l(bArr, i, i2);
-            a(l);
-            l.c();
+            c n = c.n(bArr, i, i2);
+            a(n);
+            n.c();
         } catch (IOException e) {
             throw new RuntimeException("Serializing to a byte array threw an IOException (should never happen).");
         }
@@ -32,9 +32,9 @@ public abstract class e {
 
     public e b(byte[] bArr, int i, int i2) {
         try {
-            b k = b.k(bArr, i, i2);
-            a(k);
-            k.a(0);
+            b m = b.m(bArr, i, i2);
+            a(m);
+            m.a(0);
             return this;
         } catch (d e) {
             throw e;

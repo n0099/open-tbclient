@@ -7,7 +7,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.j.p;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* loaded from: classes2.dex */
 public class g extends c {
     public g(Context context) {
@@ -47,7 +46,7 @@ public class g extends c {
                         intent.putExtra("bd.message.rate.MH", true);
                     }
                     intent.putExtra("app_id", e);
-                    intent.putExtra(PbActivityConfig.KEY_MSG_ID, h);
+                    intent.putExtra("msg_id", h);
                     intent.putExtra(PushConstants.EXTRA_PUSH_MESSAGE, bArr);
                     intent.putExtra("message_string", str);
                     intent.putExtra("message_id", h);

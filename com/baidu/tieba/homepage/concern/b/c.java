@@ -24,10 +24,6 @@ public class c implements com.baidu.tbadk.core.view.userLike.a {
         return this.name;
     }
 
-    public String getIntro() {
-        return this.intro;
-    }
-
     @Override // com.baidu.tbadk.core.view.userLike.a
     public boolean getIsLike() {
         return this.is_like == 1;
@@ -67,7 +63,7 @@ public class c implements com.baidu.tbadk.core.view.userLike.a {
         return this.portrait;
     }
 
-    public String arL() {
+    public String atF() {
         return this.recom_reason;
     }
 

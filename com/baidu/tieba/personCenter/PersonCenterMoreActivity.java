@@ -7,18 +7,18 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.personCenter.view.f;
 /* loaded from: classes.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
-    private f fit;
-    private Bundle fiu;
+    private f frq;
+    private Bundle frr;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null && getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE) != null) {
-            this.fiu = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+            this.frr = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
         }
         setContentView(d.h.person_center_more_layout);
-        this.fit = new f(getPageContext(), this.fiu);
-        this.fit.initView();
+        this.frq = new f(getPageContext(), this.frr);
+        this.frq.initView();
     }
 }

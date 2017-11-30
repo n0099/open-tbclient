@@ -1,16 +1,19 @@
 package com.baidu.tieba.face;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.imageManager.d;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    public static final Pattern cmx = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
-    public static final Pattern cmy = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern cvb = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern cvc = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
-    public static String kj(String str) {
-        String replaceAll = str.replaceAll(d.aFJ, "meme,");
+    public static String kr(String str) {
+        String replaceAll = str.replaceAll(d.aGk, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
         int i = 0;
@@ -35,5 +38,41 @@ public class a {
             }
         }
         return sb.toString();
+    }
+
+    public static int ks(String str) {
+        int i;
+        CustomResponsedMessage runTask;
+        int i2 = 0;
+        if (str == null || str.length() == 0) {
+            return 0;
+        }
+        Matcher matcher = cvb.matcher(str);
+        while (true) {
+            i = i2;
+            if (!matcher.find()) {
+                break;
+            }
+            String group = matcher.group();
+            if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_VALID) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_VALID, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+                i++;
+            }
+            i2 = i;
+        }
+        Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(str);
+        while (matcher2.find()) {
+            String[] split = matcher2.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (split != null && split.length == 5) {
+                i++;
+            }
+        }
+        Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(str);
+        while (matcher3.find()) {
+            String[] split2 = matcher3.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (split2 != null && split2.length == 6) {
+                i++;
+            }
+        }
+        return i;
     }
 }

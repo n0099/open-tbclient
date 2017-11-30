@@ -6,72 +6,72 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes.dex */
 public final class c {
-    private static Lock Qy = new ReentrantLock();
-    private static c Qz = null;
-    private com.baidu.sofire.rp.e.a QA;
+    private static Lock QR = new ReentrantLock();
+    private static c QS = null;
+    private com.baidu.sofire.rp.e.a QT;
 
     private c(Context context) {
-        this.QA = new com.baidu.sofire.rp.e.a(context);
+        this.QT = new com.baidu.sofire.rp.e.a(context);
     }
 
     public static c au(Context context) {
-        if (Qz != null) {
-            return Qz;
+        if (QS != null) {
+            return QS;
         }
         try {
-            Qy.lock();
-            if (Qz == null) {
-                Qz = new c(context);
+            QR.lock();
+            if (QS == null) {
+                QS = new c(context);
             }
-            return Qz;
+            return QS;
         } finally {
-            Qy.unlock();
+            QR.unlock();
         }
     }
 
     public final void a() {
-        this.QA.a();
+        this.QT.a();
     }
 
     public final void b() {
-        this.QA.b();
+        this.QT.b();
     }
 
     public final void b(com.baidu.sofire.rp.c.a aVar) {
         Message message = new Message();
         message.what = 1;
         message.obj = aVar;
-        this.QA.a(message);
+        this.QT.a(message);
     }
 
     public final void c() {
         Message message = new Message();
         message.what = 2;
-        this.QA.a(message);
+        this.QT.a(message);
     }
 
     public final void a(com.baidu.sofire.rp.a.b bVar) {
         Message message = new Message();
         message.what = 3;
         message.obj = bVar;
-        this.QA.a(message);
+        this.QT.a(message);
     }
 
     public final void d() {
         Message message = new Message();
         message.what = 8;
-        this.QA.a(message);
+        this.QT.a(message);
     }
 
     public final void e() {
         Message message = new Message();
         message.what = 6;
-        this.QA.a(message);
+        this.QT.a(message);
     }
 
     public final void f() {
         Message message = new Message();
         message.what = 9;
-        this.QA.a(message);
+        this.QT.a(message);
     }
 }

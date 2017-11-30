@@ -31,7 +31,7 @@ public class ab {
         }
     }
 
-    private static Bitmap fz(int i) {
+    private static Bitmap fy(int i) {
         Exception e;
         try {
             int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.k.dj("camera.jpg"));
@@ -71,7 +71,7 @@ public class ab {
 
     public static Bitmap a(int i, Context context, Uri uri, String str, int i2) {
         if (i == 12001) {
-            return fz(i2);
+            return fy(i2);
         }
         if (!TextUtils.isEmpty(str)) {
             return e(context, str, i2);

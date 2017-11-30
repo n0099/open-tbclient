@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.e.a;
 import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
@@ -147,7 +146,7 @@ public class x implements Runnable {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(PushConstants.EXTRA_METHOD, Constants.EXTRA_KEY_TOKEN);
         b.b(hashMap);
-        hashMap.put("device_type", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+        hashMap.put("device_type", "3");
         String b = com.baidu.android.pushservice.k.e.b(this.a);
         if (com.baidu.android.pushservice.h.f()) {
             hashMap.put("rsa_device_id", com.baidu.android.pushservice.k.b.a(com.baidu.android.pushservice.k.g.b(b.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/7VlVn9LIrZ71PL2RZMbK/Yxc\r\ndb046w/cXVylxS7ouPY06namZUFVhdbUnNRJzmGUZlzs3jUbvMO3l+4c9cw/n9aQ\r\nrm/brgaRDeZbeSrQYRZv60xzJIimuFFxsRM+ku6/dAyYmXiQXlRbgvFQ0MsVng4j\r\nv+cXhtTis2Kbwb8mQwIDAQAB\r\n"), "utf-8"));

@@ -24,43 +24,43 @@ import org.json.JSONObject;
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] aMV;
+        String[] aNE;
         if (bVar == null) {
             return null;
         }
         try {
-            aMV = aMV();
+            aNE = aNE();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (aMV != null) {
+        if (aNE != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
-            arrayList.add(new BasicNameValuePair("clientip", aMW()));
-            arrayList.add(new BasicNameValuePair("cert_id", aMV[0]));
+            arrayList.add(new BasicNameValuePair("clientip", aNF()));
+            arrayList.add(new BasicNameValuePair("cert_id", aNE[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(SapiAccountManager.SESSION_BDUSS, bVar.wt);
-            jSONObject.put("ptoken", bVar.Tn);
+            jSONObject.put("ptoken", bVar.TV);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aMV[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aNE[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", d(arrayList, TbConfig.PassConfig.ENC_KEY)));
             x xVar = new x(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-            xVar.uN().vK().mIsNeedAddCommenParam = false;
-            xVar.uN().vK().mIsUseCurrentBDUSS = false;
+            xVar.uQ().vN().mIsNeedAddCommenParam = false;
+            xVar.uQ().vN().mIsUseCurrentBDUSS = false;
             xVar.l(arrayList);
-            xVar.uN().vK().vN().aix = true;
-            xVar.uN().vK().vN().mIsBaiduServer = false;
-            String up = xVar.up();
-            if (xVar.uN().vL().isRequestSuccess() && !am.isEmpty(up)) {
-                JSONObject jSONObject2 = new JSONObject(up);
+            xVar.uQ().vN().vQ().aiU = true;
+            xVar.uQ().vN().vQ().mIsBaiduServer = false;
+            String us = xVar.us();
+            if (xVar.uQ().vO().isRequestSuccess() && !am.isEmpty(us)) {
+                JSONObject jSONObject2 = new JSONObject(us);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     bVar2 = new a.b();
                     bVar2.wt = jSONObject2.optString(SapiAccountManager.SESSION_BDUSS);
-                    bVar2.Tn = jSONObject2.optString("ptoken");
-                    bVar2.To = jSONObject2.optString("uname");
+                    bVar2.TV = jSONObject2.optString("ptoken");
+                    bVar2.TW = jSONObject2.optString("uname");
                     return bVar2;
                 }
             }
@@ -70,19 +70,19 @@ public class d {
         return null;
     }
 
-    private static String[] aMV() {
+    private static String[] aNE() {
         try {
             x xVar = new x(TbConfig.PassConfig.GET_CERT_URL);
-            xVar.uN().vK().mIsNeedAddCommenParam = false;
-            xVar.uN().vK().mIsUseCurrentBDUSS = false;
-            JSONObject jSONObject = new JSONObject(new String(xVar.uq()));
+            xVar.uQ().vN().mIsNeedAddCommenParam = false;
+            xVar.uQ().vN().mIsUseCurrentBDUSS = false;
+            JSONObject jSONObject = new JSONObject(new String(xVar.ut()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {
             return null;
         }
     }
 
-    private static String aMW() {
+    private static String aNF() {
         if (j.hi()) {
             return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
         }

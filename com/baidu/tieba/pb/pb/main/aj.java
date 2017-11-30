@@ -1,4 +1,54 @@
 package com.baidu.tieba.pb.pb.main;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class aj {
+public class aj extends m<com.baidu.tieba.pb.data.j, ak> {
+    private View.OnClickListener mCommonClickListener;
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public aj(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bq */
+    public ak onCreateViewHolder(ViewGroup viewGroup) {
+        ak akVar = new ak(this.eUm.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_title_layout, viewGroup, false));
+        akVar.F(this.mCommonClickListener);
+        if (getType() == com.baidu.tieba.pb.data.j.eOS) {
+            akVar.h(com.baidu.tieba.pb.data.j.eOS);
+        }
+        return akVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.j jVar, ak akVar) {
+        super.onFillViewHolder(i, view, viewGroup, jVar, akVar);
+        if (akVar != null) {
+            if (getType() == com.baidu.tieba.pb.data.j.eOT) {
+                akVar.p(com.baidu.tieba.pb.data.j.eOT);
+            }
+            akVar.a(jVar);
+        }
+        return view;
+    }
+
+    public void onDestory() {
+        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.eOS);
+        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.eOT);
+    }
+
+    public void setCommonClickListener(View.OnClickListener onClickListener) {
+        this.mCommonClickListener = onClickListener;
+    }
 }
