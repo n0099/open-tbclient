@@ -1,86 +1,106 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class an extends com.baidu.tbadk.core.view.userLike.c {
-    private String aMq;
-    public boolean eRL;
-    private int eRM;
-    public boolean isBigV;
-    private TbPageContext mPageContext;
+public class an extends m<com.baidu.tieba.pb.data.l, ao> {
+    private View.OnTouchListener aNj;
+    private com.baidu.tieba.pb.a.c aVF;
+    private FrameLayout bmC;
+    private com.baidu.tieba.pb.view.d fam;
+    public boolean fan;
+    private View.OnClickListener mClickListener;
 
-    public an(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
-        super(tbPageContext, bVar);
-        this.eRL = false;
-        this.isBigV = false;
-        this.eRM = 0;
-        this.eRM = i;
-        this.mPageContext = tbPageContext;
-        if (this.eRM == 1) {
-            super.setFromType("4");
-        } else if (this.eRM == 3) {
-            super.setFromType("5");
-        } else {
-            super.setFromType("0");
-        }
-    }
-
-    public void cD(String str) {
-        this.aMq = str;
-    }
-
-    private int aTX() {
-        String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
-        if (fromPageKey == null) {
-            return 3;
-        }
-        if (fromPageKey.equals("a038")) {
-            return 1;
-        }
-        if (fromPageKey.equals("a002")) {
-            return 2;
-        }
-        if (fromPageKey.equals("a006")) {
-            return 3;
-        }
-        if (fromPageKey.equals("a011")) {
-            return 4;
-        }
-        if (fromPageKey.equals("a033")) {
-            return 5;
-        }
-        if (fromPageKey.equals("a010")) {
-            return 6;
-        }
-        return 7;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        int i2 = 2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12408").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, aTX()).ac("obj_id", this.aoW != null ? this.aoW.getUserId() : "").ac("tid", this.aMq));
-        if (this.eRM == 1) {
-            i = 3;
-        } else {
-            i = this.eRM == 3 ? 2 : 0;
-        }
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12507").r("obj_locate", i));
-        super.onClick(view);
-        if (this.eRL && this.aoW != null) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11924").ac("obj_id", this.aoW.getUserId()));
-        }
-        if (this.isBigV && this.aoW != null) {
-            if (this.eRM == 1) {
-                i2 = 1;
-            } else if (this.eRM != 2) {
-                i2 = 0;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public an(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
+        this.aNj = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.an.1
+            @Override // android.view.View.OnTouchListener
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (an.this.fam != null) {
+                    return an.this.fam.onTouch(view, motionEvent);
+                }
+                return false;
             }
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12150").r("obj_locate", i2).ac("obj_id", this.aoW.getUserId()));
+        };
+        this.bmC = new FrameLayout(pbActivity.getPageContext().getPageActivity());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+        this.bmC.setBackgroundResource(d.C0082d.transparent);
+        this.bmC.setTag("PraiseContainerView");
+        ((FrameLayout) pbActivity.getPageContext().getPageActivity().getWindow().getDecorView()).addView(this.bmC, layoutParams);
+        this.fam = new com.baidu.tieba.pb.view.d(pbActivity.getPageContext().getPageActivity(), this.bmC);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: br */
+    public ao onCreateViewHolder(ViewGroup viewGroup) {
+        ao aoVar = new ao(LayoutInflater.from(this.mContext).inflate(d.h.layout_thread_praise_item, viewGroup, false));
+        if (this.aVF != null && aoVar.mRootView != null) {
+            aoVar.mRootView.setClickable(true);
+            aoVar.mRootView.setOnTouchListener(this.aVF);
         }
+        return aoVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.l lVar, ao aoVar) {
+        super.onFillViewHolder(i, view, viewGroup, lVar, aoVar);
+        if (lVar != null && aoVar != null) {
+            aoVar.b(lVar);
+            aoVar.far.setTag(d.g.pb_main_thread_praise_data, lVar);
+            aoVar.far.setTag(d.g.pb_main_thread_praise_view, aoVar);
+            ((ao) this.viewholder).fas.setTag(d.g.pb_main_thread_praise_view, aoVar);
+            aoVar.fap.setTag(d.g.pb_main_thread_praise_view, aoVar);
+            if (this.fam != null) {
+                this.fam.setAnchorView(aoVar.fap);
+                this.fam.bp(((ao) this.viewholder).fas);
+                this.fam.setOnTouchListener(this.aNj);
+            } else {
+                aoVar.far.setOnClickListener(this.mClickListener);
+            }
+            aoVar.fas.setOnClickListener(this.mClickListener);
+            aoVar.faq.setOnClickListener(this.mClickListener);
+            aoVar.fav.setOnClickListener(this.mClickListener);
+            aoVar.fat.setOnClickListener(this.mClickListener);
+            if (this.fan) {
+                aoVar.aVx();
+            } else {
+                aoVar.aVw();
+            }
+        }
+        return view;
+    }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.mClickListener = onClickListener;
+        if (this.fam != null) {
+            this.fam.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setTbGestureDetector(com.baidu.tieba.pb.a.c cVar) {
+        this.aVF = cVar;
+    }
+
+    public void pP(int i) {
+        if (i == 3 && this.eUm != null && this.bmC != null) {
+            this.bmC.removeAllViews();
+            ((FrameLayout) this.eUm.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.bmC);
+        }
+        this.fam.pP(i);
+    }
+
+    public void j(boolean z, int i) {
+        this.fam.k(z, i);
     }
 }

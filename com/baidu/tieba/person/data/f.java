@@ -3,22 +3,22 @@ package com.baidu.tieba.person.data;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f {
-    private ArrayList<com.baidu.adp.widget.ListView.f> acc;
-    private boolean fie = true;
+    private ArrayList<com.baidu.adp.widget.ListView.f> acx;
+    private boolean frb = true;
 
-    public void ak(ArrayList<com.baidu.adp.widget.ListView.f> arrayList) {
-        this.acc = arrayList;
+    public void al(ArrayList<com.baidu.adp.widget.ListView.f> arrayList) {
+        this.acx = arrayList;
     }
 
-    public boolean aYq() {
-        return this.fie;
+    public boolean aZS() {
+        return this.frb;
     }
 
-    public void kb(boolean z) {
-        this.fie = z;
+    public void kz(boolean z) {
+        this.frb = z;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.f> aYr() {
-        return this.acc;
+    public ArrayList<com.baidu.adp.widget.ListView.f> aZT() {
+        return this.acx;
     }
 }

@@ -10,7 +10,7 @@ import android.view.Surface;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.video.meida.c;
-import com.baidu.tieba.video.meida.f;
+import com.baidu.tieba.video.meida.g;
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IMediaFormat;
@@ -27,7 +27,7 @@ public class b extends c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public c.b a(String str, boolean z, f.a aVar, f.a aVar2) throws Exception {
+    public c.b a(String str, boolean z, g.a aVar, g.a aVar2) throws Exception {
         MediaFormat mediaFormat;
         boolean z2;
         int dequeueOutputBuffer;
@@ -39,7 +39,7 @@ public class b extends c {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        String str2 = this.gIj;
+        String str2 = this.gSy;
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(str2);
         int i3 = 0;
@@ -64,10 +64,10 @@ public class b extends c {
         BdLog.e("mediaFormat " + mediaFormat);
         c.b bVar = new c.b();
         bVar.channel = aVar2.channelCount;
-        bVar.sampleRate = aVar2.gIo;
-        bVar.gIm = aVar2.gIm;
-        bVar.gIl = str;
-        FileOutputStream fileOutputStream = new FileOutputStream(bVar.gIl);
+        bVar.sampleRate = aVar2.gSD;
+        bVar.gSB = aVar2.gSB;
+        bVar.gSA = str;
+        FileOutputStream fileOutputStream = new FileOutputStream(bVar.gSA);
         MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString(IMediaFormat.KEY_MIME));
         createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
         createDecoderByType.start();
@@ -105,11 +105,11 @@ public class b extends c {
                                         byte[] bArr2 = null;
                                         byte[] bArr3 = null;
                                         if (!z) {
-                                            if (aVar2.bzV()) {
-                                                bArr2 = f.a(aVar2.gIm / 8, aVar.gIm / 8, bArr);
+                                            if (aVar2.bCs()) {
+                                                bArr2 = g.a(aVar2.gSB / 8, aVar.gSB / 8, bArr);
                                             }
-                                            if (aVar2.bzU()) {
-                                                bArr3 = f.a(aVar2.channelCount, aVar.channelCount, aVar.gIm / 8, bArr2 == null ? bArr : bArr2);
+                                            if (aVar2.bCr()) {
+                                                bArr3 = g.a(aVar2.channelCount, aVar.channelCount, aVar.gSB / 8, bArr2 == null ? bArr : bArr2);
                                             }
                                         }
                                         if (bArr3 != null) {
@@ -118,10 +118,10 @@ public class b extends c {
                                             bArr2 = bArr;
                                         }
                                         fileOutputStream.write(bArr2);
-                                        if (this.gIk != null) {
-                                            this.gIk.a(bArr, bufferInfo.presentationTimeUs / d);
+                                        if (this.gSz != null) {
+                                            this.gSz.a(bArr, bufferInfo.presentationTimeUs / d);
                                         }
-                                        BdLog.i(this.gIj + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                        BdLog.i(this.gSy + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
                                     } else {
                                         i2 = i4;
                                     }
@@ -172,8 +172,8 @@ public class b extends c {
             outputBuffers = byteBufferArr;
         }
         bVar.size = i4;
-        if (this.gIk != null) {
-            this.gIk.a(null, 1.0d);
+        if (this.gSz != null) {
+            this.gSz.a(null, 1.0d);
         }
         BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - currentTimeMillis) + " milliseconds !");
         return bVar;

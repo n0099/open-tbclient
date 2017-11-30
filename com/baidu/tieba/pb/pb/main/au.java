@@ -1,58 +1,29 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.message.GameLaunchMessage;
-import com.baidu.tbadk.core.util.av;
-import java.util.Map;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class au {
-    private static au eUV = null;
-
-    public static au aVp() {
-        if (eUV == null) {
-            synchronized (au.class) {
-                if (eUV == null) {
-                    eUV = new au();
-                }
-            }
+public class au implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
+            return null;
         }
-        return eUV;
-    }
-
-    public void f(TbPageContext tbPageContext, String str) {
-        if (tbPageContext != null && !TextUtils.isEmpty(str)) {
-            if (str.contains("is_native_app=1")) {
-            }
-            if (pI(str)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (pJ(str)) {
-                av.vI().a(tbPageContext, new String[]{str}, true);
-            } else {
-                av.vI().c(tbPageContext, new String[]{str});
-            }
+        PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
+        byte[] O = i.aTP().O(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
+        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
+        pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
+        pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
+        pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
+        pbPageReadLocalResponseMessage.setContext(pbPageReadLocalRequestMessage.getContext());
+        try {
+            pbPageReadLocalResponseMessage.decodeInBackGround(CmdConfigCustom.PB_PAGE_CACHE_CMD, O);
+            return pbPageReadLocalResponseMessage;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return pbPageReadLocalResponseMessage;
         }
-    }
-
-    public static boolean pH(String str) {
-        return str != null && str.contains("bookcover:");
-    }
-
-    private boolean pI(String str) {
-        Map<String, String> dY;
-        if (!TextUtils.isEmpty(str) && (dY = av.dY(av.dZ(str))) != null) {
-            String str2 = dY.get("url");
-            if (!TextUtils.isEmpty(str2)) {
-                return pI(com.baidu.adp.lib.util.k.aO(str2));
-            }
-            String str3 = dY.get("tbgametype");
-            return !TextUtils.isEmpty(str3) && str3.equals("1");
-        }
-        return false;
-    }
-
-    private boolean pJ(String str) {
-        return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

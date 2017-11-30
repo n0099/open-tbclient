@@ -1,97 +1,82 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreReqMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.List;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
-    private PbModel eKK;
-    public a eLo;
-    protected final com.baidu.adp.framework.listener.a ePI = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PB_GOD_MORE, 309446) { // from class: com.baidu.tieba.pb.pb.main.x.1
-        @Override // com.baidu.adp.framework.listener.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage != null) {
-                if (responsedMessage instanceof LookMoreHttpResMessage) {
-                    LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
-                    List<PostData> data = lookMoreHttpResMessage.getData();
-                    String errorString = lookMoreHttpResMessage.getErrorString();
-                    int error = lookMoreHttpResMessage.getError();
-                    if (error == 0) {
-                        if (!com.baidu.tbadk.core.util.v.v(data)) {
-                            x.this.eLo.B(data);
-                            return;
-                        }
-                        return;
-                    }
-                    x.this.eLo.h(error, errorString, "");
-                } else if (responsedMessage instanceof LookMoreSocketResMessage) {
-                    LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
-                    List<PostData> data2 = lookMoreSocketResMessage.getData();
-                    String errorString2 = lookMoreSocketResMessage.getErrorString();
-                    int error2 = lookMoreSocketResMessage.getError();
-                    if (error2 == 0) {
-                        if (data2 != null) {
-                            x.this.eLo.B(data2);
-                            return;
-                        }
-                        return;
-                    }
-                    x.this.eLo.h(error2, errorString2, "");
-                }
-            }
-        }
-    };
-
-    /* loaded from: classes.dex */
-    public interface a {
-        void B(List<PostData> list);
-
-        void h(int i, String str, String str2);
-    }
+    public int eYe;
 
     public x(PbModel pbModel, BaseActivity baseActivity) {
-        this.eKK = pbModel;
-        Ek();
-        MessageManager.getInstance().registerListener(this.ePI);
-        this.eLo = null;
     }
 
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.ePI);
-    }
-
-    public void b(a aVar) {
-        this.eLo = aVar;
-    }
-
-    private void Ek() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, com.baidu.tieba.tbadkCore.a.a.aE(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
-        tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.a.a.c(309446, LookMoreSocketResMessage.class, false);
-    }
-
-    public void cw(List<Long> list) {
-        if (this.eKK != null && this.eKK.getPbData() != null) {
-            int ac = com.baidu.adp.lib.util.l.ac(TbadkCoreApplication.getInst());
-            int ae = com.baidu.adp.lib.util.l.ae(TbadkCoreApplication.getInst());
-            LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-            lookMoreReqMessage.setKz(Long.valueOf(com.baidu.adp.lib.g.b.c(this.eKK.eOn, 0L)));
-            lookMoreReqMessage.setPost_id(list);
-            lookMoreReqMessage.setSt_type(com.baidu.adp.lib.g.b.g(this.eKK.mStType, 0));
-            lookMoreReqMessage.setWith_floor(1);
-            lookMoreReqMessage.setScr_w(ac);
-            lookMoreReqMessage.setScr_h(ae);
-            MessageManager.getInstance().sendMessage(lookMoreReqMessage);
+    private void lG(String str) {
+        if (str.startsWith("//")) {
+            str = str.substring(2);
         }
+        Map<String, String> ea = com.baidu.tbadk.core.util.av.ea(str);
+        if (ea != null) {
+            this.eYe = 5;
+            com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak("c10320");
+            akVar.ac("obj_locate", ea.get("obj_locate"));
+            akVar.r("obj_type", 1);
+            akVar.ac("tid", ea.get("tid"));
+            akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, ea.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
+            akVar.ac("obj_param2", ea.get("obj_param2"));
+            akVar.r("obj_to", 3);
+            akVar.ac("obj_id", ea.get("bdid"));
+            if (!com.baidu.tbadk.core.util.am.isEmpty(ea.get("ext_log"))) {
+                try {
+                    JSONObject jSONObject = new JSONObject(ea.get("ext_log"));
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        akVar.ac(next, jSONObject.getString(next));
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            TiebaStatic.log(akVar);
+        }
+    }
+
+    public String W(Intent intent) {
+        int length;
+        if (intent == null || intent.getData() == null) {
+            return null;
+        }
+        String dataString = intent.getDataString();
+        if (StringUtils.isNull(dataString) || !dataString.startsWith("tbpb://")) {
+            return null;
+        }
+        String decode = Uri.decode(intent.getData().getEncodedPath());
+        if (StringUtils.isNull(decode)) {
+            return null;
+        }
+        Matcher matcher = Pattern.compile(".*fr=(.*)&tid=([\\\\d]+).*").matcher(decode);
+        if (matcher.find()) {
+            if ("mpush".equals(matcher.group(1))) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11895").ac("tid", matcher.group(2)));
+            } else {
+                lG(decode);
+            }
+            return matcher.group(2);
+        }
+        lG(decode);
+        int indexOf = decode.indexOf("tid=");
+        if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
+            return null;
+        }
+        return decode.substring(length);
     }
 }

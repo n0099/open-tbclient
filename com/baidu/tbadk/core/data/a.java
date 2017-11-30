@@ -8,23 +8,23 @@ import org.json.JSONObject;
 import tbclient.ActInfo;
 /* loaded from: classes.dex */
 public class a {
-    private int TB;
-    private int TC;
-    private int TD;
-    private int TE;
-    private int TF;
-    private String TG;
-    private int TH = 1;
-    private int TI = 1;
-    private int TJ;
-    private bb TK;
+    private int Uj;
+    private int Uk;
+    private int Ul;
+    private int Um;
+    private int Un;
+    private String Uo;
+    private int Up = 1;
+    private int Uq = 1;
+    private int Ur;
+    private ax Us;
     private int activity_type;
     private boolean mIsSenior;
     private int status;
     private int total_num;
     private String url;
 
-    public int pj() {
+    public int pq() {
         return this.activity_type;
     }
 
@@ -32,78 +32,78 @@ public class a {
         return this.status;
     }
 
-    public int pk() {
-        return this.TB;
+    public int pr() {
+        return this.Uj;
     }
 
-    public int pl() {
-        return this.TC;
+    public int ps() {
+        return this.Uk;
     }
 
     public String getUrl() {
         return this.url;
     }
 
-    public int pm() {
+    public int pt() {
         return this.total_num;
     }
 
     public int getActivityId() {
-        return this.TD;
+        return this.Ul;
     }
 
-    public int pn() {
-        return this.TE;
+    public int pu() {
+        return this.Um;
     }
 
-    public int po() {
-        return this.TF;
+    public int pv() {
+        return this.Un;
     }
 
     public boolean getIsSenior() {
         return this.mIsSenior;
     }
 
-    public int pp() {
-        return this.TJ;
+    public int pw() {
+        return this.Ur;
     }
 
-    public bb pq() {
-        return this.TK;
+    public ax px() {
+        return this.Us;
     }
 
     public void a(ActInfo actInfo) {
         if (actInfo != null) {
             this.activity_type = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
             this.status = actInfo.status != null ? actInfo.status.intValue() : -1;
-            this.TB = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
-            this.TC = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
+            this.Uj = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
+            this.Uk = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
             this.url = actInfo.url;
             this.total_num = actInfo.total_num != null ? actInfo.total_num.intValue() : -1;
-            this.TD = actInfo.activity_id.intValue();
-            this.TE = actInfo.award_act_id.intValue();
-            this.TF = actInfo.component_id.intValue();
+            this.Ul = actInfo.activity_id.intValue();
+            this.Um = actInfo.award_act_id.intValue();
+            this.Un = actInfo.component_id.intValue();
             this.mIsSenior = actInfo.is_senior.booleanValue();
-            this.TG = actInfo.banner_img;
-            this.TJ = actInfo.show_total_num.intValue();
+            this.Uo = actInfo.banner_img;
+            this.Ur = actInfo.show_total_num.intValue();
             String str = actInfo.banner_img_size;
             if (!com.baidu.tbadk.core.util.am.isEmpty(str)) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.TH = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    this.TI = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    this.Up = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    this.Uq = com.baidu.adp.lib.g.b.g(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            if (this.TH <= 0) {
-                this.TH = 1;
+            if (this.Up <= 0) {
+                this.Up = 1;
             }
-            if (this.TI <= 0) {
-                this.TI = 1;
+            if (this.Uq <= 0) {
+                this.Uq = 1;
             }
-            this.TK = new bb();
-            this.TK.a(actInfo.lottery_senior);
+            this.Us = new ax();
+            this.Us.a(actInfo.lottery_senior);
         }
     }
 
@@ -112,27 +112,27 @@ public class a {
             try {
                 this.activity_type = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.status = jSONObject.optInt("status");
-                this.TB = jSONObject.optInt("begin_time");
-                this.TC = jSONObject.optInt("end_time");
+                this.Uj = jSONObject.optInt("begin_time");
+                this.Uk = jSONObject.optInt("end_time");
                 this.url = jSONObject.optString("url");
                 this.total_num = jSONObject.optInt("total_num");
-                this.TD = jSONObject.optInt(GroupActivityActivityConfig.ACTIVITY_ID);
-                this.TE = jSONObject.optInt("award_act_id");
-                this.TF = jSONObject.optInt("component_id");
+                this.Ul = jSONObject.optInt(GroupActivityActivityConfig.ACTIVITY_ID);
+                this.Um = jSONObject.optInt("award_act_id");
+                this.Un = jSONObject.optInt("component_id");
                 this.mIsSenior = jSONObject.optBoolean("is_senior");
-                this.TG = jSONObject.optString("banner_img");
-                this.TJ = jSONObject.optInt("show_total_num");
+                this.Uo = jSONObject.optString("banner_img");
+                this.Ur = jSONObject.optInt("show_total_num");
                 String optString = jSONObject.optString("banner_img_size");
                 if (!com.baidu.tbadk.core.util.am.isEmpty(optString)) {
                     String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.TH = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    this.TI = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    this.Up = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    this.Uq = com.baidu.adp.lib.g.b.g(split[1], 1);
                 }
-                if (this.TH <= 0) {
-                    this.TH = 1;
+                if (this.Up <= 0) {
+                    this.Up = 1;
                 }
-                if (this.TI <= 0) {
-                    this.TI = 1;
+                if (this.Uq <= 0) {
+                    this.Uq = 1;
                 }
             } catch (Exception e) {
                 BdLog.e(e.toString());

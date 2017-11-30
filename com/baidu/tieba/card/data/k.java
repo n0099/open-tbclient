@@ -1,7 +1,7 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class k extends l {
@@ -12,24 +12,24 @@ public class k extends l {
         return TYPE;
     }
 
-    public k(bh bhVar) {
-        this.blt = bhVar;
+    public k(bd bdVar) {
+        this.threadData = bdVar;
     }
 
-    public static boolean A(bh bhVar) {
-        return bhVar != null && bhVar.getThreadType() == 49;
+    public static boolean D(bd bdVar) {
+        return bdVar != null && bdVar.getThreadType() == 49;
     }
 
-    public ak jR(String str) {
-        ak jS = jS(str);
-        jS.dM("obj_type");
-        jS.dM("obj_type");
-        jS.r("obj_type", 3);
-        return jS;
+    public ak jX(String str) {
+        ak jY = jY(str);
+        jY.dO("obj_type");
+        jY.dO("obj_type");
+        jY.r("obj_type", 3);
+        return jY;
     }
 
     @Override // com.baidu.tieba.card.data.l, com.baidu.tieba.card.data.c
-    public bh NA() {
-        return this.blt;
+    public bd Ox() {
+        return this.threadData;
     }
 }

@@ -3,11 +3,12 @@ package com.baidu.tieba.pb.a;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a eHK;
-    private View eHL;
-    private GestureDetector mGestureDetector = new GestureDetector(this);
+    private a ePv;
+    private View ePw;
+    private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.eHK = aVar;
+        this.ePv = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.eHL = view;
+        this.ePw = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -61,29 +62,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.eHK != null) {
-            return this.eHK.a(this.eHL, motionEvent);
+        if (this.ePv != null) {
+            return this.ePv.a(this.ePw, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.eHK != null) {
-            return this.eHK.b(this.eHL, motionEvent);
+        if (this.ePv != null) {
+            return this.ePv.b(this.ePw, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.eHK != null) {
-            return this.eHK.c(this.eHL, motionEvent);
+        if (this.ePv != null) {
+            return this.ePv.c(this.ePw, motionEvent);
         }
         return false;
     }
 
-    public void bg(View view) {
-        this.eHL = view;
+    public void aX(View view) {
+        this.ePw = view;
     }
 }

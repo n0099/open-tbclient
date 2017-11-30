@@ -336,7 +336,7 @@ public class BitmapHelper {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [524=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [511=4] */
     public static android.graphics.Bitmap loadResizedBitmap(java.lang.String r8, int r9, int r10) {
         /*
             r1 = 1
@@ -510,7 +510,7 @@ public class BitmapHelper {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [587=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [574=4] */
     public static android.graphics.Bitmap loadBitmap(java.lang.String r4, android.graphics.BitmapFactory.Options r5) {
         /*
             r1 = 0
@@ -785,7 +785,7 @@ public class BitmapHelper {
         return Bytes2Bitmap(bArr, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [832=5, 830=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [817=6, 819=5] */
     public static Bitmap Bytes2Bitmap(byte[] bArr, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -875,7 +875,7 @@ public class BitmapHelper {
         return bitmap2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [877=6, 879=5, 881=5, 883=5, 884=5, 885=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [864=6, 866=5, 868=5, 870=5, 871=5, 872=5] */
     public static Bitmap Bytes2NineBitmap(byte[] bArr, Rect rect, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;

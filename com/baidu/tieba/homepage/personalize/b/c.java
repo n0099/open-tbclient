@@ -5,7 +5,7 @@ import com.baidu.tieba.card.data.r;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.card.data.b implements r {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public long diL;
+    public long drH;
     public boolean showBottomDivider = false;
 
     @Override // com.baidu.adp.widget.ListView.f
@@ -19,16 +19,16 @@ public class c extends com.baidu.tieba.card.data.b implements r {
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean aar() {
+    public boolean aca() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dG(boolean z) {
+    public void dV(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dH(boolean z) {
+    public void dW(boolean z) {
         this.showBottomDivider = z;
     }
 }

@@ -43,6 +43,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
@@ -60,62 +61,61 @@ import com.baidu.tieba.imMessageCenter.StrangerListActivityConfig;
 import com.baidu.tieba.imMessageCenter.im.chat.notify.MessageAggregationListAdapter;
 import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 import com.baidu.tieba.imMessageCenter.im.view.ShutDownValidateTipView;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e extends com.baidu.adp.base.c<g> implements g.b {
-    private View amv;
-    private View bYw;
-    private final CustomMessageListener bbo;
-    private NoNetworkView bgM;
-    private NavigationBar coN;
-    private RelativeLayout cuK;
-    private final CustomMessageListener cyW;
-    private ShutDownValidateTipView dOB;
-    com.baidu.tbadk.core.dialog.b dOC;
-    private b.InterfaceC0047b dOD;
-    private int dOE;
-    private boolean dOF;
-    private final AdapterView.OnItemClickListener dOG;
-    private final AdapterView.OnItemLongClickListener dOH;
-    private ImMessageCenterModel dOv;
-    private ImMessageCenterShowItemData dOx;
-    private BdListView dOy;
-    private final g dRs;
-    private MessageAggregationListAdapter dRt;
-    private boolean dRu;
-    private boolean dRv;
-    private boolean dRw;
-    private int dRx;
-    private TextView dRy;
-    private CustomMessageListener dRz;
-    private com.baidu.tieba.im.chat.a.a dxB;
-    private final CustomMessageListener dxz;
+    private View amR;
+    private final CustomMessageListener bez;
+    private NoNetworkView blt;
+    private RelativeLayout cDP;
+    private final CustomMessageListener cIb;
+    private View cgT;
+    private NavigationBar cxz;
+    private final CustomMessageListener dFn;
+    private com.baidu.tieba.im.chat.a.a dFp;
+    private ImMessageCenterModel dWk;
+    private ImMessageCenterShowItemData dWm;
+    private BdListView dWn;
+    private ShutDownValidateTipView dWq;
+    com.baidu.tbadk.core.dialog.b dWr;
+    private b.InterfaceC0047b dWs;
+    private int dWt;
+    private boolean dWu;
+    private final AdapterView.OnItemClickListener dWv;
+    private final AdapterView.OnItemLongClickListener dWw;
+    private final g dZg;
+    private MessageAggregationListAdapter dZh;
+    private boolean dZi;
+    private boolean dZj;
+    private boolean dZk;
+    private int dZl;
+    private TextView dZm;
+    private CustomMessageListener dZn;
     private com.baidu.tbadk.core.view.f mNoDataView;
     private View rootView;
 
     public e(g gVar) {
         super(com.baidu.adp.base.i.Y(gVar.getPageContext().getPageActivity()));
-        this.dOv = null;
-        this.dOx = null;
-        this.dOy = null;
-        this.dRt = null;
-        this.dOC = null;
-        this.dOF = true;
-        this.dRu = false;
-        this.dRv = false;
-        this.dRw = true;
-        this.dRx = 16;
-        this.bbo = new CustomMessageListener(CmdConfigCustom.CMD_RE_LOGIN_FROM_KUANG) { // from class: com.baidu.tieba.imMessageCenter.mention.e.1
+        this.dWk = null;
+        this.dWm = null;
+        this.dWn = null;
+        this.dZh = null;
+        this.dWr = null;
+        this.dWu = true;
+        this.dZi = false;
+        this.dZj = false;
+        this.dZk = true;
+        this.dZl = 16;
+        this.bez = new CustomMessageListener(CmdConfigCustom.CMD_RE_LOGIN_FROM_KUANG) { // from class: com.baidu.tieba.imMessageCenter.mention.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && e.this.dRt != null) {
-                    e.this.dRt.notifyDataSetChanged();
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && e.this.dZh != null) {
+                    e.this.dZh.notifyDataSetChanged();
                 }
             }
         };
-        this.dRz = new CustomMessageListener(CmdConfigCustom.CMD_ADDRESSLIST_PLUGIN_INSTALL_SUCCESS) { // from class: com.baidu.tieba.imMessageCenter.mention.e.8
+        this.dZn = new CustomMessageListener(CmdConfigCustom.CMD_ADDRESSLIST_PLUGIN_INSTALL_SUCCESS) { // from class: com.baidu.tieba.imMessageCenter.mention.e.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -124,68 +124,69 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
                 }
             }
         };
-        this.dOG = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.15
+        this.dWv = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.15
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (i >= 0) {
-                    ImMessageCenterShowItemData item = e.this.dRt.getItem(i);
+                    ImMessageCenterShowItemData item = e.this.dZh.getItem(i);
                     if (item != null) {
-                        TiebaStatic.eventStat(e.this.dRs.getPageContext().getPageActivity(), "list_to_chat", "chatlistclick", 1, new Object[0]);
+                        TiebaStatic.eventStat(e.this.dZg.getPageContext().getPageActivity(), "list_to_chat", "chatlistclick", 1, new Object[0]);
                         String ownerName = item.getOwnerName();
                         if (TextUtils.isEmpty(ownerName)) {
                             e(item);
                             return;
                         } else if (ownerName.equals("1")) {
-                            if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.dRs.getPageContext().getOrignalPage(), GroupChatActivityConfig.class)) {
-                                TiebaStatic.eventStat(e.this.dRs.getPageContext().getContext(), "chat_list_to_group", "click", 1, new Object[0]);
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(e.this.dRs.getPageContext().getPageActivity(), Integer.parseInt(item.getFriendId()), item.getFriendName(), 0L, "msg_lstb")));
+                            if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.dZg.getPageContext().getOrignalPage(), GroupChatActivityConfig.class)) {
+                                TiebaStatic.eventStat(e.this.dZg.getPageContext().getContext(), "chat_list_to_group", "click", 1, new Object[0]);
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(e.this.dZg.getPageContext().getPageActivity(), Integer.parseInt(item.getFriendId()), item.getFriendName(), 0L, "msg_lstb")));
                                 return;
                             }
                             return;
                         } else if (item.getOwnerName().equals("2")) {
-                            if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.dRs.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_VALIDATE_ACTIVITY_START)) {
+                            if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.dZg.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_VALIDATE_ACTIVITY_START)) {
                                 d(item);
-                                if (com.baidu.tbadk.coreExtra.messageCenter.a.yK().zf() != null) {
-                                    com.baidu.tbadk.coreExtra.messageCenter.a.yK().zf().eb(0);
+                                if (com.baidu.tbadk.coreExtra.messageCenter.a.yM().zh() != null) {
+                                    com.baidu.tbadk.coreExtra.messageCenter.a.yM().zh().ec(0);
                                 }
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_VALIDATE_ACTIVITY_START, new ValidateActivityConfig(e.this.dRs.getPageContext().getPageActivity())));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_VALIDATE_ACTIVITY_START, new ValidateActivityConfig(e.this.dZg.getPageContext().getPageActivity())));
                                 return;
                             }
                             return;
-                        } else if (item.getOwnerName().equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-                            if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.dRs.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_UPDATES_ACTIVITY_START)) {
+                        } else if (item.getOwnerName().equals("3")) {
+                            if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.dZg.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_UPDATES_ACTIVITY_START)) {
                                 d(item);
-                                if (com.baidu.tbadk.coreExtra.messageCenter.a.yK().zf() != null) {
-                                    com.baidu.tbadk.coreExtra.messageCenter.a.yK().zf().ea(0);
+                                if (com.baidu.tbadk.coreExtra.messageCenter.a.yM().zh() != null) {
+                                    com.baidu.tbadk.coreExtra.messageCenter.a.yM().zh().eb(0);
                                 }
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_UPDATES_ACTIVITY_START, new UpdatesActivityConfig(e.this.dRs.getPageContext().getPageActivity())));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_UPDATES_ACTIVITY_START, new UpdatesActivityConfig(e.this.dZg.getPageContext().getPageActivity())));
                                 return;
                             }
                             return;
                         } else if (item.getOwnerName().equals("6")) {
-                            if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.dRs.getPageContext().getOrignalPage(), LiveNotifyActivityConfig.class)) {
+                            if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.dZg.getPageContext().getOrignalPage(), LiveNotifyActivityConfig.class)) {
                                 d(item);
-                                if (com.baidu.tbadk.coreExtra.messageCenter.a.yK().zf() != null) {
-                                    com.baidu.tbadk.coreExtra.messageCenter.a.yK().zf().ek(0);
+                                if (com.baidu.tbadk.coreExtra.messageCenter.a.yM().zh() != null) {
+                                    com.baidu.tbadk.coreExtra.messageCenter.a.yM().zh().el(0);
                                 }
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LiveNotifyActivityConfig(e.this.dRs.getPageContext().getPageActivity())));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LiveNotifyActivityConfig(e.this.dZg.getPageContext().getPageActivity())));
                                 return;
                             }
                             return;
                         } else if (ownerName.equals("5")) {
-                            if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.dRs.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_OFFICIALBARTIP_ACTIVITY_START)) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_OFFICIALBARTIP_ACTIVITY_START, new OfficialBarTipActivityConfig(e.this.dRs.getPageContext().getPageActivity())));
+                            if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.dZg.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_OFFICIALBARTIP_ACTIVITY_START)) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_OFFICIALBARTIP_ACTIVITY_START, new OfficialBarTipActivityConfig(e.this.dZg.getPageContext().getPageActivity())));
                                 return;
                             }
                             return;
                         } else if (ownerName.equals("8")) {
-                            if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.dRs.getPageContext().getOrignalPage(), (int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT)) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(e.this.dRs.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(item.getFriendId(), 0L), item.getFriendName(), item.getFriendPortrait(), 0, item.getUserType())));
+                            if (com.baidu.tieba.imMessageCenter.im.chat.notify.a.a(e.this.dZg.getPageContext().getOrignalPage(), (int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT)) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(e.this.dZg.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(item.getFriendId(), 0L), item.getFriendName(), item.getFriendPortrait(), 0, item.getUserType())));
                                 return;
                             }
                             return;
-                        } else if (ownerName.equals(NewWriteModel.THREAD_TYPE_LBS)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new StrangerListActivityConfig(e.this.dRs.getPageContext().getPageActivity())));
+                        } else if (ownerName.equals("7")) {
+                            TiebaStatic.log(new ak("c12614"));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new StrangerListActivityConfig(e.this.dZg.getPageContext().getPageActivity())));
                             return;
                         } else {
                             e(item);
@@ -193,19 +194,19 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
                         }
                     }
                     if (i == 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ReplyMessageActivityConfig(e.this.dRs.getPageContext().getPageActivity())));
-                        com.baidu.tbadk.coreExtra.messageCenter.a.yK().yZ();
-                        e.this.dRt.nA(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.yK().setMsgReplyme(0);
-                        TiebaStatic.eventStat(e.this.dRs.getPageContext().getPageActivity(), "msg_reply_tab_click", "click", 1, new Object[0]);
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ReplyMessageActivityConfig(e.this.dZg.getPageContext().getPageActivity())));
+                        com.baidu.tbadk.coreExtra.messageCenter.a.yM().zb();
+                        e.this.dZh.nO(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.yM().setMsgReplyme(0);
+                        TiebaStatic.eventStat(e.this.dZg.getPageContext().getPageActivity(), "msg_reply_tab_click", "click", 1, new Object[0]);
                     } else if (i == 1) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtMessageActivityConfig(e.this.dRs.getPageContext().getPageActivity())));
-                        com.baidu.tbadk.coreExtra.messageCenter.a.yK().za();
-                        com.baidu.tbadk.coreExtra.messageCenter.a.yK().setMsgAtme(0);
-                        e.this.dRt.nB(0);
-                        TiebaStatic.eventStat(e.this.dRs.getPageContext().getPageActivity(), "msg_atme_tab_click", "click", 1, new Object[0]);
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtMessageActivityConfig(e.this.dZg.getPageContext().getPageActivity())));
+                        com.baidu.tbadk.coreExtra.messageCenter.a.yM().zc();
+                        com.baidu.tbadk.coreExtra.messageCenter.a.yM().setMsgAtme(0);
+                        e.this.dZh.nP(0);
+                        TiebaStatic.eventStat(e.this.dZg.getPageContext().getPageActivity(), "msg_atme_tab_click", "click", 1, new Object[0]);
                     }
-                    e.this.dRt.notifyDataSetChanged();
+                    e.this.dZh.notifyDataSetChanged();
                 }
             }
 
@@ -216,17 +217,17 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
                         if (customMessage != null && imMessageCenterShowItemData != null) {
                             imMessageCenterShowItemData.setUnReadCount(0);
                             if (imMessageCenterShowItemData.getOwnerName().equals("2")) {
-                                com.baidu.tieba.im.db.d.axJ().mx("apply_join_group");
-                            } else if (imMessageCenterShowItemData.getOwnerName().equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-                                com.baidu.tieba.im.db.d.axJ().mx("group_intro_change");
-                                com.baidu.tieba.im.db.d.axJ().mx("group_name_change");
-                                com.baidu.tieba.im.db.d.axJ().mx("group_notice_change");
-                                com.baidu.tieba.im.db.d.axJ().mx("group_level_up");
-                                com.baidu.tieba.im.db.d.axJ().mx("dismiss_group");
-                                com.baidu.tieba.im.db.d.axJ().mx("kick_out");
-                                com.baidu.tieba.im.db.d.axJ().mx("group_activitys_change");
+                                com.baidu.tieba.im.db.d.azj().mG("apply_join_group");
+                            } else if (imMessageCenterShowItemData.getOwnerName().equals("3")) {
+                                com.baidu.tieba.im.db.d.azj().mG("group_intro_change");
+                                com.baidu.tieba.im.db.d.azj().mG("group_name_change");
+                                com.baidu.tieba.im.db.d.azj().mG("group_notice_change");
+                                com.baidu.tieba.im.db.d.azj().mG("group_level_up");
+                                com.baidu.tieba.im.db.d.azj().mG("dismiss_group");
+                                com.baidu.tieba.im.db.d.azj().mG("kick_out");
+                                com.baidu.tieba.im.db.d.azj().mG("group_activitys_change");
                             } else if (imMessageCenterShowItemData.getOwnerName().equals("6")) {
-                                com.baidu.tieba.im.db.d.axJ().mx("live_notify");
+                                com.baidu.tieba.im.db.d.azj().mG("live_notify");
                             }
                         }
                         return null;
@@ -240,35 +241,35 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
 
             private void e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
                 if (imMessageCenterShowItemData.getUnReadCount() > 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.yK().setMsgChat(com.baidu.tbadk.coreExtra.messageCenter.a.yK().getMsgChat() - imMessageCenterShowItemData.getUnReadCount());
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yM().setMsgChat(com.baidu.tbadk.coreExtra.messageCenter.a.yM().getMsgChat() - imMessageCenterShowItemData.getUnReadCount());
                     imMessageCenterShowItemData.setUnReadCount(0);
                 }
                 try {
                     long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
                     TiebaStatic.log("tab_msg_personal_chat_click");
                     TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", "1");
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(e.this.dRs.getPageContext().getPageActivity(), parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(e.this.dZg.getPageContext().getPageActivity(), parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         };
-        this.dOH = new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.2
+        this.dWw = new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.2
             @Override // android.widget.AdapterView.OnItemLongClickListener
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (i <= 1) {
                     return false;
                 }
-                e.this.dOx = e.this.dRt.getItem(i);
-                e.this.c(e.this.dOx);
-                if (e.this.dOC != null) {
-                    e.this.dOC.tl();
+                e.this.dWm = e.this.dZh.getItem(i);
+                e.this.c(e.this.dWm);
+                if (e.this.dWr != null) {
+                    e.this.dWr.to();
                     return true;
                 }
                 return true;
             }
         };
-        this.dxz = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.mention.e.4
+        this.dFn = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.mention.e.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -280,31 +281,31 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
                     } else if (customResponsedMessage.getCmd() == 2016007) {
                         e.this.g(customResponsedMessage);
                     } else if (customResponsedMessage.getCmd() == 2016001) {
-                        e.this.dOv.setData(null, e.this.dxB);
+                        e.this.dWk.setData(null, e.this.dFp);
                     } else if (customResponsedMessage.getCmd() == 2016010) {
-                        if (e.this.dRt != null) {
-                            e.this.dRt.notifyDataSetChanged();
+                        if (e.this.dZh != null) {
+                            e.this.dZh.notifyDataSetChanged();
                         }
-                    } else if (customResponsedMessage.getCmd() == 2016011 && e.this.dRt != null) {
-                        e.this.dRt.notifyDataSetChanged();
+                    } else if (customResponsedMessage.getCmd() == 2016011 && e.this.dZh != null) {
+                        e.this.dZh.notifyDataSetChanged();
                     }
                 }
             }
         };
-        this.dxB = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.mention.e.5
+        this.dFp = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.mention.e.5
             @Override // com.baidu.tieba.im.chat.a.a
-            public void avP() {
-                if (e.this.dOy != null && e.this.dOv != null) {
-                    e.this.dOy.completePullRefreshPostDelayed(2000L);
-                    if (e.this.dOv.getData() != null) {
-                        e.this.dRt.setData(e.this.dOv.getData());
+            public void axp() {
+                if (e.this.dWn != null && e.this.dWk != null) {
+                    e.this.dWn.completePullRefreshPostDelayed(2000L);
+                    if (e.this.dWk.getData() != null) {
+                        e.this.dZh.setData(e.this.dWk.getData());
                     } else {
                         e.this.D(e.this.isLogin(), true);
                     }
                 }
             }
         };
-        this.cyW = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.imMessageCenter.mention.e.7
+        this.cIb = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.imMessageCenter.mention.e.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -313,151 +314,151 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
                 }
             }
         };
-        this.dRs = gVar;
+        this.dZg = gVar;
     }
 
     public void k(Bundle bundle) {
         if (MentionActivityConfig.jumpInTab != -1) {
-            this.dRx = MentionActivityConfig.jumpInTab;
+            this.dZl = MentionActivityConfig.jumpInTab;
             MentionActivityConfig.jumpInTab = -1;
         } else if (bundle != null) {
-            this.dRx = bundle.getInt(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.dRx);
+            this.dZl = bundle.getInt(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.dZl);
         }
     }
 
-    public void alS() {
-        if (this.dRt != null) {
-            this.dRt.notifyDataSetChanged();
+    public void anN() {
+        if (this.dZh != null) {
+            this.dZh.notifyDataSetChanged();
         }
     }
 
     public void onActivityDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dxz);
+        MessageManager.getInstance().unRegisterListener(this.dFn);
     }
 
-    public View Pl() {
-        this.dOE = 3;
-        this.rootView = LayoutInflater.from(this.dRs.getPageContext().getPageActivity()).inflate(d.h.chat_list_activity, (ViewGroup) null, false);
+    public View Qv() {
+        this.dWt = 3;
+        this.rootView = LayoutInflater.from(this.dZg.getPageContext().getPageActivity()).inflate(d.h.chat_list_activity, (ViewGroup) null, false);
         initData();
-        ar(this.rootView);
-        TiebaStatic.eventStat(this.dRs.getPageContext().getPageActivity(), "enter_chatlist", "chatlistclick", 1, new Object[0]);
+        as(this.rootView);
+        TiebaStatic.eventStat(this.dZg.getPageContext().getPageActivity(), "enter_chatlist", "chatlistclick", 1, new Object[0]);
         registerListener();
-        abA();
+        adj();
         return this.rootView;
     }
 
-    protected void abA() {
-        this.dOy.startPullRefresh();
-        this.dRu = isLogin();
-        if (!this.dRu) {
-            D(this.dRu, true);
+    protected void adj() {
+        this.dWn.startPullRefresh();
+        this.dZi = isLogin();
+        if (!this.dZi) {
+            D(this.dZi, true);
         }
     }
 
     private void registerListener() {
-        this.dRs.registerListener(CmdConfigCustom.MEMORY_CHANGED, this.dxz);
-        this.dRs.registerListener(CmdConfigCustom.MEMORY_CLEAR, this.dxz);
-        this.dRs.registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.dxz);
-        this.dRs.registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.dxz);
-        this.dRs.registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.dxz);
-        this.dRs.registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.dxz);
-        this.dRs.registerListener(this.bbo);
-        this.dRs.registerListener(this.dRz);
+        this.dZg.registerListener(CmdConfigCustom.MEMORY_CHANGED, this.dFn);
+        this.dZg.registerListener(CmdConfigCustom.MEMORY_CLEAR, this.dFn);
+        this.dZg.registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.dFn);
+        this.dZg.registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.dFn);
+        this.dZg.registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.dFn);
+        this.dZg.registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.dFn);
+        this.dZg.registerListener(this.bez);
+        this.dZg.registerListener(this.dZn);
     }
 
-    public void gW(boolean z) {
-        this.dRv = z;
+    public void hq(boolean z) {
+        this.dZj = z;
     }
 
-    public void gX(boolean z) {
-        this.dRw = z;
+    public void hr(boolean z) {
+        this.dZk = z;
     }
 
     public void onPrimary() {
-        if (this.dRt != null && this.dRt.getCount() == 0) {
-            gW(true);
+        if (this.dZh != null && this.dZh.getCount() == 0) {
+            hq(true);
         }
-        if (this.dRw || this.dRv) {
-            this.dRw = false;
-            this.dRv = false;
-            dO(false);
+        if (this.dZk || this.dZj) {
+            this.dZk = false;
+            this.dZj = false;
+            ed(false);
         }
         boolean isLogin = isLogin();
-        if (this.dRu != isLogin) {
-            this.dRu = isLogin;
-            onUserChanged(this.dRu);
+        if (this.dZi != isLogin) {
+            this.dZi = isLogin;
+            onUserChanged(this.dZi);
         }
         if (this.mNoDataView != null) {
-            this.mNoDataView.e(this.dRs.getPageContext());
+            this.mNoDataView.e(this.dZg.getPageContext());
         }
     }
 
     private void initData() {
-        this.dOv = new ImMessageCenterModel();
-        gQ(com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_shut_down_validate", false) ? false : true);
-        this.dRs.registerListener(this.cyW);
+        this.dWk = new ImMessageCenterModel();
+        hk(com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_shut_down_validate", false) ? false : true);
+        this.dZg.registerListener(this.cIb);
     }
 
-    private void ar(View view) {
-        this.cuK = (RelativeLayout) view.findViewById(d.g.chat_list);
-        this.dOB = (ShutDownValidateTipView) view.findViewById(d.g.view_no_validate);
-        this.dOB.setVisibility(8);
-        this.dOB.setShutDownClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.9
+    private void as(View view) {
+        this.cDP = (RelativeLayout) view.findViewById(d.g.chat_list);
+        this.dWq = (ShutDownValidateTipView) view.findViewById(d.g.view_no_validate);
+        this.dWq.setVisibility(8);
+        this.dWq.setShutDownClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("is_shut_down_validate", true);
-                e.this.gQ(false);
-                e.this.gO(false);
+                e.this.hk(false);
+                e.this.hi(false);
             }
         });
-        this.coN = (NavigationBar) this.cuK.findViewById(d.g.view_navigation_bar);
-        this.dRy = (TextView) this.coN.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.h.maintab_title_layout, (View.OnClickListener) null).findViewById(d.g.title_textview);
+        this.cxz = (NavigationBar) this.cDP.findViewById(d.g.view_navigation_bar);
+        this.dZm = (TextView) this.cxz.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.h.maintab_title_layout, (View.OnClickListener) null).findViewById(d.g.title_textview);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-        int dimension = (int) this.dRs.getResources().getDimension(d.e.ds16);
+        int dimension = (int) this.dZg.getResources().getDimension(d.e.ds16);
         layoutParams.setMargins(dimension, dimension, 0, dimension);
-        this.dRy.setLayoutParams(layoutParams);
-        this.dRy.setText(d.j.my_message);
-        this.coN.switchNaviBarStatus(isLogin());
+        this.dZm.setLayoutParams(layoutParams);
+        this.dZm.setText(d.j.my_message);
+        this.cxz.switchNaviBarStatus(isLogin());
         if (!isLogin()) {
-            this.coN.setRegisterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.10
+            this.cxz.setRegisterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.10
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     TiebaStatic.eventStat(e.this.mContext.getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
-                    ax.aR(e.this.mContext.getPageActivity());
+                    ax.aT(e.this.mContext.getPageActivity());
                 }
             });
-            this.coN.setLoginClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.11
+            this.cxz.setLoginClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.11
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     TiebaStatic.eventStat(e.this.mContext.getPageActivity(), "notlogin_4", "click", 1, new Object[0]);
-                    ax.aS(e.this.mContext.getPageActivity());
+                    ax.aU(e.this.mContext.getPageActivity());
                 }
             });
         }
-        this.amv = new TextView(this.dRs.getPageContext().getPageActivity());
-        this.amv.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.l.f(this.dRs.getPageContext().getPageActivity(), d.e.ds88)));
-        BdListViewHelper.a(this.amv, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.j.hh());
-        this.bgM = (NoNetworkView) this.cuK.findViewById(d.g.view_no_network);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bgM.getLayoutParams();
+        this.amR = new TextView(this.dZg.getPageContext().getPageActivity());
+        this.amR.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.l.f(this.dZg.getPageContext().getPageActivity(), d.e.ds88)));
+        BdListViewHelper.a(this.amR, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.j.hh());
+        this.blt = (NoNetworkView) this.cDP.findViewById(d.g.view_no_network);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.blt.getLayoutParams();
         layoutParams2.setMargins(0, com.baidu.adp.lib.util.l.dip2px(this.mContext.getContext(), 44.0f) + UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-        this.bgM.setLayoutParams(layoutParams2);
-        this.bgM.a(new NoNetworkView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.e.12
+        this.blt.setLayoutParams(layoutParams2);
+        this.blt.a(new NoNetworkView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.e.12
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void aJ(boolean z) {
-                e.this.gV(z);
+                e.this.hp(z);
             }
         });
-        this.dOy = (BdListView) view.findViewById(d.g.chat_list_content);
-        this.dOy.addHeaderView(this.amv);
-        this.dOy.setDividerHeight(0);
-        this.dRt = new MessageAggregationListAdapter(this.dRs.getPageContext().getPageActivity());
-        this.dRt.a(this);
-        this.dOy.setAdapter((ListAdapter) this.dRt);
-        this.dOy.setOnItemClickListener(this.dOG);
-        this.dOy.setOnItemLongClickListener(this.dOH);
-        this.bYw = new View(this.dRs.getFragmentActivity());
-        this.bYw.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.util.l.f(this.dRs.getFragmentActivity(), d.e.ds150)));
-        this.dOy.addFooterView(this.bYw);
+        this.dWn = (BdListView) view.findViewById(d.g.chat_list_content);
+        this.dWn.addHeaderView(this.amR);
+        this.dWn.setDividerHeight(0);
+        this.dZh = new MessageAggregationListAdapter(this.dZg.getPageContext().getPageActivity());
+        this.dZh.a(this);
+        this.dWn.setAdapter((ListAdapter) this.dZh);
+        this.dWn.setOnItemClickListener(this.dWv);
+        this.dWn.setOnItemLongClickListener(this.dWw);
+        this.cgT = new View(this.dZg.getFragmentActivity());
+        this.cgT.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.util.l.f(this.dZg.getFragmentActivity(), d.e.ds150)));
+        this.dWn.addFooterView(this.cgT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -467,36 +468,36 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
 
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.dRs.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.dZg.getPageContext(), i);
         }
-        this.bgM.onChangeSkinType(getPageContext(), i);
-        this.coN.onChangeSkinType(tbPageContext, i);
-        if (this.dOB != null) {
-            this.dOB.onChangeSkinType(i);
+        this.blt.onChangeSkinType(getPageContext(), i);
+        this.cxz.onChangeSkinType(tbPageContext, i);
+        if (this.dWq != null) {
+            this.dWq.onChangeSkinType(i);
         }
-        aj.a(this.dRy, d.C0080d.cp_cont_b, d.C0080d.s_navbar_title_color, i);
-        if (this.dRt != null) {
-            this.dRt.notifyDataSetChanged();
+        aj.a(this.dZm, d.C0082d.cp_cont_b, d.C0082d.s_navbar_title_color, i);
+        if (this.dZh != null) {
+            this.dZh.notifyDataSetChanged();
         }
         if (tbPageContext != null) {
-            tbPageContext.getLayoutMode().t(this.cuK);
+            tbPageContext.getLayoutMode().t(this.cDP);
             return true;
         }
         return true;
     }
 
-    private void gY(boolean z) {
+    private void hs(boolean z) {
         if (z) {
-            aCh();
+            aDH();
         } else {
-            aCi();
+            aDI();
         }
     }
 
-    private void aCh() {
+    private void aDH() {
         NoDataViewFactory.b bVar = null;
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
-            bVar = NoDataViewFactory.b.a(new NoDataViewFactory.a(this.dRs.getResources().getString(d.j.maintab_imcenter_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.13
+            bVar = NoDataViewFactory.b.a(new NoDataViewFactory.a(this.dZg.getResources().getString(d.j.maintab_imcenter_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.13
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (e.this.isLogin()) {
@@ -505,23 +506,23 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
                 }
             }));
         }
-        this.mNoDataView = NoDataViewFactory.a(this.dRs.getPageContext().getPageActivity(), this.cuK, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.dRs.getResources().getDimension(d.e.ds320)), NoDataViewFactory.d.dp(d.j.no_recent_chat), bVar);
+        this.mNoDataView = NoDataViewFactory.a(this.dZg.getPageContext().getPageActivity(), this.cDP, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.dZg.getResources().getDimension(d.e.ds320)), NoDataViewFactory.d.dq(d.j.no_recent_chat), bVar);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void aCi() {
-        NoDataViewFactory.a aVar = new NoDataViewFactory.a(this.dRs.getResources().getString(d.j.maintab_imcenter_unlogin_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.14
+    private void aDI() {
+        NoDataViewFactory.a aVar = new NoDataViewFactory.a(this.dZg.getResources().getString(d.j.maintab_imcenter_unlogin_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.14
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TiebaStatic.eventStat(e.this.dRs.getPageContext().getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
-                ax.aS(e.this.dRs.getPageContext().getPageActivity());
+                TiebaStatic.eventStat(e.this.dZg.getPageContext().getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
+                ax.aU(e.this.dZg.getPageContext().getPageActivity());
             }
         });
-        int dimensionPixelSize = this.dRs.getResources().getDimensionPixelSize(d.e.ds320);
-        int dimensionPixelSize2 = this.dRs.getResources().getDimensionPixelSize(d.e.ds480);
-        int dimensionPixelSize3 = this.dRs.getResources().getDimensionPixelSize(d.e.ds360);
-        int dimensionPixelSize4 = this.dRs.getResources().getDimensionPixelSize(d.e.ds60);
-        this.mNoDataView = NoDataViewFactory.a(this.dRs.getPageContext().getPageActivity(), this.cuK, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, d.f.pic_msg_unlogin, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.C(d.j.msg_center_unlogin_tip, dimensionPixelSize4), NoDataViewFactory.b.a(aVar, this.dRs.getResources().getDimensionPixelSize(d.e.ds20)));
+        int dimensionPixelSize = this.dZg.getResources().getDimensionPixelSize(d.e.ds320);
+        int dimensionPixelSize2 = this.dZg.getResources().getDimensionPixelSize(d.e.ds480);
+        int dimensionPixelSize3 = this.dZg.getResources().getDimensionPixelSize(d.e.ds360);
+        int dimensionPixelSize4 = this.dZg.getResources().getDimensionPixelSize(d.e.ds60);
+        this.mNoDataView = NoDataViewFactory.a(this.dZg.getPageContext().getPageActivity(), this.cDP, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, d.f.pic_msg_unlogin, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.B(d.j.msg_center_unlogin_tip, dimensionPixelSize4), NoDataViewFactory.b.a(aVar, this.dZg.getResources().getDimensionPixelSize(d.e.ds20)));
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -531,42 +532,42 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(final ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.dOD = new b.InterfaceC0047b() { // from class: com.baidu.tieba.imMessageCenter.mention.e.3
+        this.dWs = new b.InterfaceC0047b() { // from class: com.baidu.tieba.imMessageCenter.mention.e.3
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0047b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 bVar.dismiss();
                 switch (i) {
                     case 0:
-                        e.this.dOv.deleteItem(imMessageCenterShowItemData, e.this.dxB);
+                        e.this.dWk.deleteItem(imMessageCenterShowItemData, e.this.dFp);
                         return;
                     default:
                         return;
                 }
             }
         };
-        String string = this.dRs.getPageContext().getPageActivity().getString(d.j.delete_user_chat);
-        this.dOC = new com.baidu.tbadk.core.dialog.b(this.dRs.getPageContext().getPageActivity());
-        this.dOC.cf(d.j.operation);
-        this.dOC.a(new String[]{string}, this.dOD);
-        this.dOC.d(this.dRs.getPageContext());
+        String string = this.dZg.getPageContext().getPageActivity().getString(d.j.delete_user_chat);
+        this.dWr = new com.baidu.tbadk.core.dialog.b(this.dZg.getPageContext().getPageActivity());
+        this.dWr.cg(d.j.operation);
+        this.dWr.a(new String[]{string}, this.dWs);
+        this.dWr.d(this.dZg.getPageContext());
     }
 
-    protected boolean dO(boolean z) {
+    protected boolean ed(boolean z) {
         if (!z) {
             MessageManager.getInstance().sendMessage(new RequestMemoryListMessage(1));
         } else {
-            this.dOy.completePullRefreshPostDelayed(2000L);
+            this.dWn.completePullRefreshPostDelayed(2000L);
         }
         return true;
     }
 
-    public void gO(boolean z) {
+    public void hi(boolean z) {
         if (z) {
-            if (aCj() && this.dOB.getVisibility() != 0) {
-                this.dOB.setVisibility(0);
+            if (aDJ() && this.dWq.getVisibility() != 0) {
+                this.dWq.setVisibility(0);
             }
-        } else if (this.dOB.getVisibility() != 8) {
-            this.dOB.setVisibility(8);
+        } else if (this.dWq.getVisibility() != 8) {
+            this.dWq.setVisibility(8);
         }
     }
 
@@ -575,25 +576,25 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
             if (this.mNoDataView != null) {
                 this.mNoDataView.setVisibility(8);
             }
-            this.dOy.setVisibility(0);
+            this.dWn.setVisibility(0);
             return;
         }
         if (this.mNoDataView != null) {
-            this.cuK.removeView(this.mNoDataView);
+            this.cDP.removeView(this.mNoDataView);
         }
-        gY(z);
+        hs(z);
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(0);
         }
-        this.dOy.setVisibility(8);
+        this.dWn.setVisibility(8);
     }
 
-    public boolean aCj() {
-        return this.dOF;
+    public boolean aDJ() {
+        return this.dWu;
     }
 
-    public void gQ(boolean z) {
-        this.dOF = z;
+    public void hk(boolean z) {
+        this.dWu = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -609,11 +610,11 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.dOv != null) {
-                    this.dOv.insertOrUpdate(data, this.dxB);
+                if (this.dWk != null) {
+                    this.dWk.insertOrUpdate(data, this.dFp);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.dOv != null) {
-                this.dOv.remove(data, this.dxB);
+            } else if (memoryChangedMessage.getType() == 2 && this.dWk != null) {
+                this.dWk.remove(data, this.dFp);
             }
         }
     }
@@ -623,8 +624,8 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 1 && this.dOv != null) {
-                this.dOv.setData(data, this.dxB);
+            if (responsedMemoryListMessage.getType() == 1 && this.dWk != null) {
+                this.dWk.setData(data, this.dFp);
             }
         }
     }
@@ -632,21 +633,21 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void onNewIntent(Intent intent) {
         if (intent != null) {
-            this.dRx = intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
-            if (this.dRx != -1) {
-                gW(true);
+            this.dZl = intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
+            if (this.dZl != -1) {
+                hq(true);
                 onPrimary();
             }
         }
     }
 
-    public void gV(boolean z) {
-        BdListViewHelper.a(this.amv, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.j.hh());
-        if (z && this.dOy != null && this.dOy.getWrappedAdapter() != null && this.dOy.getWrappedAdapter().getCount() <= 0) {
+    public void hp(boolean z) {
+        BdListViewHelper.a(this.amR, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.j.hh());
+        if (z && this.dWn != null && this.dWn.getWrappedAdapter() != null && this.dWn.getWrappedAdapter().getCount() <= 0) {
             com.baidu.adp.lib.g.e.fP().post(new Runnable() { // from class: com.baidu.tieba.imMessageCenter.mention.e.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    e.this.dOy.startPullRefresh();
+                    e.this.dWn.startPullRefresh();
                 }
             });
         }
@@ -664,17 +665,17 @@ public class e extends com.baidu.adp.base.c<g> implements g.b {
                 return;
             }
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
-            bo(newsNotifyMessage.getMsgReplyme(), newsNotifyMessage.getMsgAtme());
+            bj(newsNotifyMessage.getMsgReplyme(), newsNotifyMessage.getMsgAtme());
         }
     }
 
-    private void bo(int i, int i2) {
-        this.dRt.nA(i);
-        this.dRt.nB(i2);
-        this.dRt.notifyDataSetChanged();
+    private void bj(int i, int i2) {
+        this.dZh.nO(i);
+        this.dZh.nP(i2);
+        this.dZh.notifyDataSetChanged();
     }
 
-    public void gZ(boolean z) {
-        this.coN.setVisibility(z ? 0 : 8);
+    public void ht(boolean z) {
+        this.cxz.setVisibility(z ? 0 : 8);
     }
 }

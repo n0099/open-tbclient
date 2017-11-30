@@ -86,9 +86,9 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends j, M extends Mes
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String EV = eVar.EV();
+                String Fc = eVar.Fc();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(EV) && bArr != null && (M = a.td().M(EV, currentAccount)) != null) {
+                if (cacheKey != null && !TextUtils.isEmpty(Fc) && bArr != null && (M = a.tg().M(Fc, currentAccount)) != null) {
                     M.e(cacheKey, bArr);
                 }
             }

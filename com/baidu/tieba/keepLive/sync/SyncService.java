@@ -15,6 +15,7 @@ import android.os.IBinder;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
 /* loaded from: classes2.dex */
 public class SyncService extends Service {
@@ -24,6 +25,10 @@ public class SyncService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
+        try {
+            TiebaStatic.log("c12662");
+        } catch (Throwable th) {
+        }
         TbadkCoreApplication.getInst();
         if (TbadkCoreApplication.getKeepLiveSwitch(this)) {
             try {
@@ -38,7 +43,7 @@ public class SyncService extends Service {
                     }
                 }
                 return;
-            } catch (Throwable th) {
+            } catch (Throwable th2) {
                 BdSocketLinkService.startService(false, "restart");
                 return;
             }

@@ -1,8 +1,15 @@
 package com.baidu.tieba.video;
+/* loaded from: classes.dex */
+public interface c {
+    void bAB();
 
-import android.os.Environment;
-/* loaded from: classes2.dex */
-public class c {
-    public static final String gDE = Environment.getExternalStorageDirectory().toString();
-    public static final String gDF = b.gDB;
+    void onConvertAborted();
+
+    void onConvertFailed();
+
+    void onConvertProgress(int i);
+
+    void onConvertSuccess();
+
+    void vc(int i);
 }

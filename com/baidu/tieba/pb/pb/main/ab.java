@@ -1,35 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class ab extends m<com.baidu.tieba.pb.data.i, com.baidu.tieba.pb.pb.a.e> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ab(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bs */
-    public com.baidu.tieba.pb.pb.a.e onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.pb.pb.a.e(LayoutInflater.from(this.mContext).inflate(d.h.pb_no_data_item_layout, viewGroup, false), this.mContext);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.i iVar, com.baidu.tieba.pb.pb.a.e eVar) {
-        super.onFillViewHolder(i, view, viewGroup, iVar, eVar);
-        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.eMB.getLayoutMode().ag(this.mSkinType == 1);
-        this.eMB.getLayoutMode().t(view);
-        return view;
-    }
+public class ab {
+    public String eYY;
+    public boolean eYZ;
+    public boolean eZa;
+    public boolean eYJ = false;
+    public boolean eYK = false;
+    public boolean ePm = false;
+    public boolean eYL = false;
+    public boolean eYM = false;
+    public boolean eYN = false;
+    public boolean eYO = false;
+    public boolean eYP = false;
+    public boolean eYQ = false;
+    public boolean eYR = false;
+    public boolean eYS = false;
+    public boolean eYT = false;
+    public boolean eYU = false;
+    public boolean eYV = false;
+    public boolean eYW = false;
+    public boolean eYX = false;
+    public boolean isHostOnly = false;
 }

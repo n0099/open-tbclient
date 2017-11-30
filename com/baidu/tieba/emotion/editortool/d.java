@@ -3,35 +3,35 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class d {
-    private int cjA;
-    private int cjB;
-    private com.baidu.tbadk.editortools.emotiontool.c cjC;
-    private int cjD;
-    private int cjE;
-    private EmotionGroupType cjz;
     private int column;
+    private EmotionGroupType csg;
+    private int csh;
+    private int csi;
+    private com.baidu.tbadk.editortools.emotiontool.c csj;
+    private int csk;
+    private int csl;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.cjC = cVar;
+        this.csj = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c aeE() {
-        return this.cjC;
+    public com.baidu.tbadk.editortools.emotiontool.c agq() {
+        return this.csj;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.cjz = emotionGroupType;
+        this.csg = emotionGroupType;
     }
 
-    public EmotionGroupType aeF() {
-        return this.cjz;
+    public EmotionGroupType agr() {
+        return this.csg;
     }
 
-    public void fb(int i) {
+    public void fa(int i) {
         this.row = i;
     }
 
@@ -39,43 +39,43 @@ public class d {
         return this.row;
     }
 
-    public void fa(int i) {
+    public void eZ(int i) {
         this.column = i;
     }
 
-    public int aeG() {
+    public int ags() {
         return this.column;
     }
 
-    public void iH(int i) {
-        this.cjE = i;
+    public void jf(int i) {
+        this.csl = i;
     }
 
-    public int aeH() {
-        return this.cjE;
+    public int agt() {
+        return this.csl;
     }
 
-    public void iI(int i) {
-        this.cjD = i;
+    public void jg(int i) {
+        this.csk = i;
     }
 
-    public int aeI() {
-        return this.cjD;
+    public int agu() {
+        return this.csk;
     }
 
-    public void iJ(int i) {
-        this.cjA = i;
+    public void jh(int i) {
+        this.csh = i;
     }
 
-    public int aeJ() {
-        return this.cjA;
+    public int agv() {
+        return this.csh;
     }
 
-    public void iK(int i) {
+    public void ji(int i) {
         this.startIndex = i;
     }
 
-    public int aeK() {
+    public int agw() {
         return this.startIndex;
     }
 
@@ -91,11 +91,11 @@ public class d {
         return this.index;
     }
 
-    public void iL(int i) {
-        this.cjB = i;
+    public void jj(int i) {
+        this.csi = i;
     }
 
-    public int aeL() {
-        return this.cjB;
+    public int agx() {
+        return this.csi;
     }
 }

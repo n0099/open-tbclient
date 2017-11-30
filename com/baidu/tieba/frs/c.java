@@ -4,14 +4,14 @@ import android.graphics.drawable.Drawable;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c {
-    private HashMap<String, Drawable> cxw = new HashMap<>();
+    private HashMap<String, Drawable> cGC = new HashMap<>();
 
     public Drawable u(int i, int i2) {
         String aw = aw(i, i2);
-        Drawable drawable = this.cxw.get(aw);
+        Drawable drawable = this.cGC.get(aw);
         if (drawable == null) {
             Drawable u = com.baidu.tbadk.core.util.aj.u(i2, i);
-            this.cxw.put(aw, u);
+            this.cGC.put(aw, u);
             return u.getConstantState().newDrawable();
         }
         return drawable.getConstantState().newDrawable();
@@ -22,8 +22,8 @@ public class c {
     }
 
     public void destory() {
-        if (!this.cxw.isEmpty()) {
-            this.cxw.clear();
+        if (!this.cGC.isEmpty()) {
+            this.cGC.clear();
         }
     }
 }

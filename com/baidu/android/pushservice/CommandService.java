@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.h.k;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class CommandService extends Service {
@@ -77,14 +76,14 @@ public class CommandService extends Service {
                 if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.DELETE".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.NOTIFIED".equals(action)) {
                     p.b("push_passthrough: receive  click delete and notified action", getApplicationContext());
                     com.baidu.android.pushservice.g.a.c("CommandService", "handle passthrough notification " + action);
-                    k.a(getApplicationContext(), intent.hasExtra(PbActivityConfig.KEY_MSG_ID) ? intent.getStringExtra(PbActivityConfig.KEY_MSG_ID) : null, intent.hasExtra("app_id") ? intent.getStringExtra("app_id") : null, action);
+                    k.a(getApplicationContext(), intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null, intent.hasExtra("app_id") ? intent.getStringExtra("app_id") : null, action);
                     if (intent.getBooleanExtra("self_insert", false)) {
                         new com.baidu.android.pushservice.h.p(this).a();
                     }
                     stopSelf();
                 } else if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action) || "com.baidu.android.pushservice.action.privatenotification.DELETE".equals(action)) {
                     String stringExtra = intent.getStringExtra("app_id");
-                    String stringExtra2 = intent.getStringExtra(PbActivityConfig.KEY_MSG_ID);
+                    String stringExtra2 = intent.getStringExtra("msg_id");
                     ((PublicMsg) intent.getParcelableExtra("public_msg")).handlePrivateNotification(getApplicationContext(), action, stringExtra2, stringExtra);
                     if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action)) {
                         com.baidu.android.pushservice.h.p.a(getApplicationContext(), stringExtra2, "010203");

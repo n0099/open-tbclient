@@ -1,30 +1,47 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bh;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.core.data.bl;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Environment;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ab;
+import com.baidu.tieba.d;
+import java.io.File;
 /* loaded from: classes.dex */
-public class u extends bh {
-    public static final BdUniqueId gpu = BdUniqueId.gen();
-    private bi gpv;
-    private bl gpw;
-    private boolean gpx = false;
-
-    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return gpu;
+public class u {
+    public static final void am(Context context, String str) {
+        if (TextUtils.isEmpty(str)) {
+            com.baidu.adp.lib.util.l.showToast(context, d.j.download_error);
+            return;
+        }
+        File dk = com.baidu.tbadk.core.util.k.dk(str.replace(".", "_") + ".apk");
+        if (dk != null) {
+            Intent intent = new Intent();
+            intent.setAction("android.intent.action.VIEW");
+            intent.setDataAndType(UtilHelper.getUriFromFile(dk, intent, context), "application/vnd.android.package-archive");
+            intent.addFlags(268435456);
+            context.startActivity(intent);
+        }
     }
 
-    public boolean btY() {
-        return this.gpx;
+    public static boolean isInstalledPackage(Context context, String str) {
+        if (context.getPackageManager().getApplicationInfo(str, 8192) != null) {
+            return true;
+        }
+        return false;
     }
 
-    public bi btZ() {
-        return this.gpv;
-    }
-
-    public bl bua() {
-        return this.gpw;
+    public static boolean B(Activity activity) {
+        if (Build.VERSION.SDK_INT < 23) {
+            return true;
+        }
+        boolean aP = ab.aP(activity);
+        if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
+            return false;
+        }
+        return aP;
     }
 }

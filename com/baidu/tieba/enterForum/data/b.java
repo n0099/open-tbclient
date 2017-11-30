@@ -11,11 +11,11 @@ import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class b {
     private boolean BJ;
-    private List<com.baidu.tieba.enterForum.multiConcern.b> cjZ;
-    private HotSearchInfoData cka;
+    private List<com.baidu.tieba.enterForum.multiConcern.b> csG;
+    private HotSearchInfoData csH;
     private int time = 0;
-    private g cjX = new g();
-    private j cjY = new j();
+    private g csE = new g();
+    private j csF = new j();
 
     public b() {
         this.BJ = true;
@@ -27,7 +27,7 @@ public class b {
     }
 
     public HotSearchInfoData getHotSearchInfoData() {
-        return this.cka;
+        return this.csH;
     }
 
     public void a(DataRes dataRes) {
@@ -42,20 +42,20 @@ public class b {
             try {
                 setTime(dataRes.time.intValue());
                 if (dataRes.like_forum != null) {
-                    this.cjX.ap(dataRes.like_forum);
+                    this.csE.aB(dataRes.like_forum);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.cjY.aq(dataRes.recommend_forum_info);
+                    this.csF.aC(dataRes.recommend_forum_info);
                 }
                 if (dataRes.hot_search != null) {
-                    this.cka = new HotSearchInfoData();
-                    this.cka.a(dataRes.hot_search);
+                    this.csH = new HotSearchInfoData();
+                    this.csH.a(dataRes.hot_search);
                 }
-                if (!v.v(dataRes.tag_recommend_forum)) {
-                    if (this.cjZ == null) {
-                        this.cjZ = new ArrayList();
+                if (!v.w(dataRes.tag_recommend_forum)) {
+                    if (this.csG == null) {
+                        this.csG = new ArrayList();
                     } else {
-                        this.cjZ.clear();
+                        this.csG.clear();
                     }
                     int i2 = 0;
                     for (RecommendForumInfo recommendForumInfo : dataRes.tag_recommend_forum) {
@@ -70,7 +70,7 @@ public class b {
                                 bVar.followNum = recommendForumInfo.member_count.intValue();
                                 bVar.threadNum = recommendForumInfo.thread_count.intValue();
                                 bVar.isSelected = true;
-                                this.cjZ.add(bVar);
+                                this.csG.add(bVar);
                                 i = i2 + 1;
                             }
                             i2 = i;
@@ -80,31 +80,31 @@ public class b {
                     }
                     return;
                 }
-                this.cjZ = null;
+                this.csG = null;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public g aeT() {
-        return this.cjX;
+    public g agF() {
+        return this.csE;
     }
 
     public void a(g gVar) {
-        this.cjX = gVar;
+        this.csE = gVar;
     }
 
     public void a(j jVar) {
-        this.cjY = jVar;
+        this.csF = jVar;
     }
 
-    public List<com.baidu.tieba.enterForum.multiConcern.b> aeU() {
-        return this.cjZ;
+    public List<com.baidu.tieba.enterForum.multiConcern.b> agG() {
+        return this.csG;
     }
 
-    public void ao(List<com.baidu.tieba.enterForum.multiConcern.b> list) {
-        this.cjZ = list;
+    public void aA(List<com.baidu.tieba.enterForum.multiConcern.b> list) {
+        this.csG = list;
     }
 
     public void av(boolean z) {
@@ -115,11 +115,11 @@ public class b {
         return this.BJ;
     }
 
-    public boolean aeV() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.b.azx.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.azx.longValue();
+    public boolean agH() {
+        return System.currentTimeMillis() / com.baidu.tbadk.data.b.azY.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.azY.longValue();
     }
 
     public void a(HotSearchInfoData hotSearchInfoData) {
-        this.cka = hotSearchInfoData;
+        this.csH = hotSearchInfoData;
     }
 }

@@ -4,20 +4,20 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.j;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class a implements ag {
-    public static final AtomicReference<ag> cxp = new AtomicReference<>(null);
-    private static final ag cxq = new a();
+    public static final AtomicReference<ag> cGv = new AtomicReference<>(null);
+    private static final ag cGw = new a();
 
     private a() {
     }
 
-    public static ag aiN() {
-        ag agVar = cxp.get();
-        return agVar == null ? cxq : agVar;
+    public static ag akH() {
+        ag agVar = cGv.get();
+        return agVar == null ? cGw : agVar;
     }
 
     @Override // com.baidu.tieba.frs.ag
@@ -27,13 +27,13 @@ public class a implements ag {
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public com.baidu.adp.widget.ListView.a<? extends bh, ? extends j.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+    public com.baidu.adp.widget.ListView.a<? extends bd, ? extends j.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public com.baidu.adp.widget.ListView.a<? extends bh, ? extends j.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+    public com.baidu.adp.widget.ListView.a<? extends bd, ? extends j.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }

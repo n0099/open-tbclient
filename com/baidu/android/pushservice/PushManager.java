@@ -9,7 +9,6 @@ import android.util.Log;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"WorldReadableFiles"})
@@ -145,7 +144,7 @@ public class PushManager {
                 if (packageName != null) {
                     com.baidu.android.pushservice.g.b.a(TAG, "PassThroughMessageClick  : " + packageName, context.getApplicationContext());
                     intent.putExtra("app_id", str2);
-                    intent.putExtra(PbActivityConfig.KEY_MSG_ID, str);
+                    intent.putExtra("msg_id", str);
                     intent.setAction("com.baidu.android.pushservice.action.passthrough.notification.CLICK");
                     intent.setClassName(packageName, "com.baidu.android.pushservice.CommandService");
                     context.startService(intent);
@@ -167,7 +166,7 @@ public class PushManager {
                 if (packageName != null) {
                     com.baidu.android.pushservice.g.b.a(TAG, "PassThroughMessageDelete  : " + packageName, context.getApplicationContext());
                     intent.putExtra("app_id", str2);
-                    intent.putExtra(PbActivityConfig.KEY_MSG_ID, str);
+                    intent.putExtra("msg_id", str);
                     intent.setAction("com.baidu.android.pushservice.action.passthrough.notification.DELETE");
                     intent.setClassName(packageName, "com.baidu.android.pushservice.CommandService");
                     context.startService(intent);
@@ -188,7 +187,7 @@ public class PushManager {
             if (packageName != null) {
                 com.baidu.android.pushservice.g.b.a(TAG, "PassThroughMessageNotified  : " + packageName, context.getApplicationContext());
                 intent.putExtra("app_id", str2);
-                intent.putExtra(PbActivityConfig.KEY_MSG_ID, str);
+                intent.putExtra("msg_id", str);
                 intent.setAction("com.baidu.android.pushservice.action.passthrough.notification.NOTIFIED");
                 intent.setClassName(packageName, "com.baidu.android.pushservice.CommandService");
                 context.startService(intent);

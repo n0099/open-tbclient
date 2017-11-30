@@ -57,12 +57,12 @@ public class c implements e<a> {
             aVar.vF = iVar;
         }
         String str4 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
-        byte[] eh = iVar.eh(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
-        if (!iVar.vT()) {
+        byte[] ej = iVar.ej(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
+        if (!iVar.vW()) {
             aVar2.error_code = 3;
             aVar2.error_msg = h.getString(d.j.neterror);
             return aVar2;
-        } else if (eh == null || eh.length == 0) {
+        } else if (ej == null || ej.length == 0) {
             aVar2.error_code = 4;
             aVar2.error_msg = h.getString(d.j.voice_cache_error_no_file);
             return aVar2;
@@ -70,13 +70,13 @@ public class c implements e<a> {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (eh == null || eh.length == 0) {
+            } else if (ej == null || ej.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.t(false);
-                diskFileOperate.setData(eh);
+                diskFileOperate.setData(ej);
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.c.d dVar = new com.baidu.tbadk.core.util.c.d();
                     dVar.f(diskFileOperate);
@@ -86,7 +86,7 @@ public class c implements e<a> {
                 if (diskFileOperate.isSuccess() && diskFileOperate.dV() != null) {
                     str5 = diskFileOperate.dV().getAbsolutePath();
                     i3 = 0;
-                } else if (k.ul() < eh.length) {
+                } else if (k.uo() < ej.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -97,7 +97,7 @@ public class c implements e<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.dN(i3);
+                aVar2.error_msg = a.dO(i3);
             }
             return aVar2;
         }

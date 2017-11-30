@@ -40,7 +40,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tbadk.l.q;
+import com.baidu.tbadk.k.q;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -213,11 +213,11 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 a2.a(new o(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.2
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.o
-                    public String oc() {
+                    public String oj() {
                         return "TBHY_COMMON_Performance";
                     }
 
-                    @p(tQ = false, value = "trackFPS")
+                    @p(tT = false, value = "trackFPS")
                     private void trackFPS() {
                         TbWebViewActivity.this.trackFPS();
                     }
@@ -228,11 +228,11 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 a2.a(new o(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.3
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.o
-                    public String oc() {
+                    public String oj() {
                         return "TBHY_COMMON_Share";
                     }
 
-                    @p(tQ = false, value = TbConfig.TMP_SHARE_DIR_NAME)
+                    @p(tT = false, value = TbConfig.TMP_SHARE_DIR_NAME)
                     private void share(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             String optString = jSONObject.optString(VrPlayerActivityConfig.TITLE);
@@ -244,7 +244,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                                 TbWebViewActivity.this.mShareResultToFe = true;
                                 TbWebViewActivity.this.mBid = optString5;
                             }
-                            final com.baidu.tbadk.coreExtra.d.d createShareContent = TbWebViewActivity.this.createShareContent(optString, optString4, optString2, optString3);
+                            final com.baidu.tbadk.coreExtra.c.d createShareContent = TbWebViewActivity.this.createShareContent(optString, optString4, optString2, optString3);
                             com.baidu.adp.lib.g.e.fP().post(new Runnable() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.3.1
                                 @Override // java.lang.Runnable
                                 public void run() {
@@ -257,11 +257,11 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 a2.a(new o(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.4
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.o
-                    public String oc() {
+                    public String oj() {
                         return "TBHY_COMMON_UISwitch";
                     }
 
-                    @p(tQ = false, value = "viewHideSwitch")
+                    @p(tT = false, value = "viewHideSwitch")
                     private void viewHideSwitch(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             String optString = jSONObject.optJSONObject(TbConfig.TMP_SHARE_DIR_NAME).optString("value");
@@ -383,7 +383,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.bvh();
+            this.jsBridge.bwR();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
@@ -460,7 +460,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int b = av.vI().b(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
+            int b = av.vL().b(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
             if (b == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
@@ -473,7 +473,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     TbWebViewActivity.this.runOnUiThread(new Runnable() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            TbWebViewActivity.this.mView.oo();
+                            TbWebViewActivity.this.mView.ov();
                         }
                     });
                 }
@@ -510,7 +510,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void initCookie() {
-        com.baidu.tbadk.browser.a.ax(getApplicationContext());
+        com.baidu.tbadk.browser.a.az(getApplicationContext());
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
@@ -559,9 +559,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public void trackFPS() {
         if (!sFrameLostTracked) {
             sFrameLostTracked = true;
-            h.tG().a(16, new k() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.6
+            h.tJ().a(16, new k() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.6
                 @Override // com.baidu.tbadk.core.hybrid.k
-                public void o(List<Long> list) {
+                public void p(List<Long> list) {
                     if (list != null && list.size() != 0) {
                         String str = "";
                         StringBuilder sb = new StringBuilder();

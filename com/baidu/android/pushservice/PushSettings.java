@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
@@ -203,10 +204,7 @@ public class PushSettings {
             return 0;
         }
         int b2 = m.b(context, "com.baidu.pushservice.lsi", -1);
-        if (b2 < 0) {
-            return 1800000;
-        }
-        return b2;
+        return b2 < 0 ? BdStatisticsManager.UPLOAD_TIMER_INTERVAL : b2;
     }
 
     public static boolean h(Context context) {

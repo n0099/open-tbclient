@@ -6,36 +6,36 @@ import android.animation.ValueAnimator;
 import android.view.View;
 /* loaded from: classes.dex */
 public class m {
-    private ValueAnimator ggd;
-    private ValueAnimator gge;
-    private int ggf = 800;
-    private b ggg;
+    private ValueAnimator goV;
+    private ValueAnimator goW;
+    private int goX = 800;
+    private b goY;
 
-    public void bql() {
-        if (this.ggd != null) {
-            this.ggd.cancel();
-            this.ggd = null;
+    public void brT() {
+        if (this.goV != null) {
+            this.goV.cancel();
+            this.goV = null;
         }
     }
 
-    public void bI(View view) {
-        if (this.ggd == null || !this.ggd.isStarted()) {
-            if (this.ggg != null) {
-                this.ggg.bqc();
+    public void bD(View view) {
+        if (this.goV == null || !this.goV.isStarted()) {
+            if (this.goY != null) {
+                this.goY.brK();
             }
-            this.ggd = ObjectAnimator.ofFloat(view, "rotation", 0.0f, 360.0f);
-            this.ggd.setRepeatCount(-1);
-            this.ggd.setRepeatMode(1);
-            this.ggd.setDuration(this.ggf);
-            this.ggd.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.story.m.1
+            this.goV = ObjectAnimator.ofFloat(view, "rotation", 0.0f, 360.0f);
+            this.goV.setRepeatCount(-1);
+            this.goV.setRepeatMode(1);
+            this.goV.setDuration(this.goX);
+            this.goV.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.story.m.1
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (m.this.ggg != null) {
-                        m.this.ggg.bqd();
+                    if (m.this.goY != null) {
+                        m.this.goY.brL();
                     }
                 }
 
@@ -47,32 +47,32 @@ public class m {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.ggd.start();
+            this.goV.start();
         }
     }
 
-    public void bqm() {
-        bql();
-        this.gge = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.gge.setRepeatCount(0);
-        this.gge.setDuration(800L);
-        this.gge.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.story.m.2
+    public void brU() {
+        brT();
+        this.goW = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.goW.setRepeatCount(0);
+        this.goW.setDuration(800L);
+        this.goW.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.story.m.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue() * 360.0f;
-                if (m.this.ggg != null) {
-                    m.this.ggg.aa(floatValue);
+                if (m.this.goY != null) {
+                    m.this.goY.ak(floatValue);
                 }
             }
         });
-        this.gge.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.story.m.3
+        this.goW.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.story.m.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                m.this.bqg();
+                m.this.brO();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -83,26 +83,26 @@ public class m {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.gge.start();
+        this.goW.start();
     }
 
     public m(b bVar) {
-        this.ggg = bVar;
+        this.goY = bVar;
     }
 
     public boolean isRunning() {
-        if (this.ggd == null || !this.ggd.isStarted()) {
-            return this.gge != null && this.gge.isStarted();
+        if (this.goV == null || !this.goV.isStarted()) {
+            return this.goW != null && this.goW.isStarted();
         }
         return true;
     }
 
-    public void bqg() {
-        if (this.ggd != null) {
-            this.ggd.cancel();
+    public void brO() {
+        if (this.goV != null) {
+            this.goV.cancel();
         }
-        if (this.gge != null) {
-            this.gge.cancel();
+        if (this.goW != null) {
+            this.goW.cancel();
         }
     }
 }

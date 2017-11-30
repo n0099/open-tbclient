@@ -74,7 +74,6 @@ import com.baidu.sapi2.utils.enums.BiometricType;
 import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.TbConfig;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -102,7 +101,7 @@ public final class SapiAccountService {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("client", "android"));
         arrayList.add(new BasicNameValuePair("clientfrom", a));
-        arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+        arrayList.add(new BasicNameValuePair("adapter", "3"));
         arrayList.add(new BasicNameValuePair("banner", "1"));
         arrayList.add(new BasicNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
         return this.c.e() + "?" + SapiUtils.createRequestParams(arrayList);
@@ -111,7 +110,7 @@ public final class SapiAccountService {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String c() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+        arrayList.add(new BasicNameValuePair("adapter", "3"));
         arrayList.add(new BasicNameValuePair("banner", "1"));
         arrayList.add(new BasicNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
         return this.c.f() + "?" + SapiUtils.createRequestParams(arrayList);
@@ -120,7 +119,7 @@ public final class SapiAccountService {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String d() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+        arrayList.add(new BasicNameValuePair("adapter", "3"));
         arrayList.add(new BasicNameValuePair("banner", "1"));
         return this.c.g() + "?" + k() + "&" + SapiUtils.createRequestParams(arrayList);
     }
@@ -131,21 +130,21 @@ public final class SapiAccountService {
             throw new IllegalArgumentException("BindWidgetAction can't be null");
         }
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+        arrayList.add(new BasicNameValuePair("adapter", "3"));
         return this.c.a(bindWidgetAction) + "?" + k() + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String e() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+        arrayList.add(new BasicNameValuePair("adapter", "3"));
         return this.c.j() + "?" + k() + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String f() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+        arrayList.add(new BasicNameValuePair("adapter", "3"));
         return this.c.k() + "?" + k() + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
@@ -155,7 +154,7 @@ public final class SapiAccountService {
         arrayList.add(new BasicNameValuePair("client", "android"));
         arrayList.add(new BasicNameValuePair("clientfrom", a));
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
-        arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+        arrayList.add(new BasicNameValuePair("adapter", "3"));
         arrayList.add(new BasicNameValuePair("wapsec", "center"));
         List<BiometricType> list = this.b.biometricTypeList;
         for (int i = 0; i < list.size(); i++) {
@@ -210,7 +209,7 @@ public final class SapiAccountService {
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("login_share_strategy", this.b.loginShareStrategy().getStrValue()));
         arrayList.add(new BasicNameValuePair("client", "android"));
-        arrayList.add(new BasicNameValuePair("adapter", this.b.customActionBarEnabled ? TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE : ""));
+        arrayList.add(new BasicNameValuePair("adapter", this.b.customActionBarEnabled ? "3" : ""));
         arrayList.add(new BasicNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
         arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
         arrayList.add(new BasicNameValuePair("loginLink", String.valueOf(this.b.smsLoginConfig.flagShowLoginLink.ordinal())));
@@ -302,7 +301,7 @@ public final class SapiAccountService {
         if (z) {
             arrayList.add(new BasicNameValuePair("act", "bind"));
             arrayList.add(new BasicNameValuePair("wapsec", "center"));
-            arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+            arrayList.add(new BasicNameValuePair("adapter", "3"));
             try {
                 arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(str, "UTF-8")));
             } catch (UnsupportedEncodingException e) {
@@ -323,7 +322,7 @@ public final class SapiAccountService {
         arrayList.add(new BasicNameValuePair("code", str));
         if (z) {
             arrayList.add(new BasicNameValuePair("wapsec", "center"));
-            arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+            arrayList.add(new BasicNameValuePair("adapter", "3"));
         }
         arrayList.add(new BasicNameValuePair("appid", this.b.wxAppID));
         arrayList.add(new BasicNameValuePair("display", a));

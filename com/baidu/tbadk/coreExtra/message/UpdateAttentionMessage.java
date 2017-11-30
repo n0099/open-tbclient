@@ -14,40 +14,40 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public boolean BJ;
-        public c ahT;
-        public JSONObject arP;
-        public boolean arQ;
-        public BlockPopInfoData arR;
+        public c aiq;
+        public JSONObject asi;
+        public boolean asj;
+        public BlockPopInfoData ask;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
         public String toUid;
         public boolean isGod = false;
-        public boolean arO = false;
+        public boolean ash = false;
 
         public void k(String str, boolean z) {
             boolean z2 = true;
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.arP = jSONObject;
+                    this.asi = jSONObject;
                     JSONObject optJSONObject = jSONObject.optJSONObject(LoginActivityConfig.INFO);
                     if (optJSONObject != null) {
                         if (!z || optJSONObject.optInt("is_toast", 0) != 1) {
                             z2 = false;
                         }
-                        this.arO = z2;
+                        this.ash = z2;
                         this.showMsg = optJSONObject.optString("toast_text");
                         String optString = optJSONObject.optString("block_content");
                         String optString2 = optJSONObject.optString("block_dealurl");
                         String optString3 = optJSONObject.optString("block_confirm");
                         String optString4 = optJSONObject.optString("block_cancel");
                         if (!am.isEmpty(optString) && !am.isEmpty(optString2) && !am.isEmpty(optString3) && !am.isEmpty(optString4)) {
-                            this.arR = new BlockPopInfoData();
-                            this.arR.block_info = optString;
-                            this.arR.ahead_url = optString2;
-                            this.arR.ahead_info = optString3;
-                            this.arR.ok_info = optString4;
+                            this.ask = new BlockPopInfoData();
+                            this.ask.block_info = optString;
+                            this.ask.ahead_url = optString2;
+                            this.ask.ahead_info = optString3;
+                            this.ask.ok_info = optString4;
                         }
                     }
                 } catch (Exception e) {

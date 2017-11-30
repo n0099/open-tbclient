@@ -9,14 +9,14 @@ import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes.dex */
-public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<g, FrsPageResIdl> {
+public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<h, FrsPageResIdl> {
     private boolean hasNetworkError;
     private int mCategoryId;
     private int mIsGood;
     private int mLoadType;
     private int mSortType;
     private boolean needCache;
-    private g responseData;
+    private h responseData;
     private int updateType;
 
     public boolean hasNetworkError() {
@@ -46,7 +46,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<g, 
                 this.needCache = frsRequestData.isNeedCache();
                 this.mCategoryId = frsRequestData.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = frsRequestData.Pj();
+                this.mSortType = frsRequestData.Qt();
                 this.mIsGood = frsRequestData.getIsGood();
                 this.mLoadType = frsRequestData.getLoadType();
             }
@@ -56,10 +56,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<g, 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        this.responseData = new g();
-        FrsPageResIdl D = this.responseData.D(bArr);
-        setError(D.error.errorno.intValue());
-        setErrorString(D.error.usermsg);
+        this.responseData = new h();
+        FrsPageResIdl C = this.responseData.C(bArr);
+        setError(C.error.errorno.intValue());
+        setErrorString(C.error.usermsg);
         setData(this.responseData);
     }
 
@@ -69,8 +69,8 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<g, 
         int g;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.btd() != null && !StringUtils.isNull(this.responseData.btd().pJ(), true) && !this.responseData.btd().pJ().equals("0") && this.responseData.btd().pK() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.btd().pJ(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
-            this.responseData.j(Integer.valueOf(((Integer) runTask.getData()).intValue()));
+        if (this.responseData.buJ() != null && !StringUtils.isNull(this.responseData.buJ().pM(), true) && !this.responseData.buJ().pM().equals("0") && this.responseData.buJ().pN() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.buJ().pM(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
+            this.responseData.k(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
 
@@ -78,9 +78,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<g, 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null) {
-            boolean z = com.baidu.tbadk.core.util.v.u(this.responseData.getThreadList()) >= 15;
-            if (this.needCache && this.responseData.aPU() != null && z) {
-                c.bsx().c(c.bsx().d(this.responseData.aPU().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+            boolean z = com.baidu.tbadk.core.util.v.v(this.responseData.getThreadList()) >= 15;
+            if (this.needCache && this.responseData.aRf() != null && z) {
+                c.bue().c(c.bue().d(this.responseData.aRf().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
             }
         }
     }
@@ -98,11 +98,11 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<g, 
         this.updateType = i;
     }
 
-    public g getResponseData() {
+    public h getResponseData() {
         return this.responseData;
     }
 
-    public void setResponseData(g gVar) {
-        this.responseData = gVar;
+    public void setResponseData(h hVar) {
+        this.responseData = hVar;
     }
 }

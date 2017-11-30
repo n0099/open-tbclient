@@ -20,6 +20,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public static final String KEY_IMG_URLS = "img_urls";
     public static final String KEY_IS_JUMP_FROM_PB = "is_jump_from_pb";
     public static final String KEY_IS_SHOW_GO_TO_SUBJECT = "is_show_go_to_subject";
+    public static final String KEY_PAGE_START_FROM = "page_start_from";
     public static final String KEY_POST_ID = "post_id";
     public static final String KEY_REPLAY_NAME = "replay_name";
     public static final String KEY_REPLAY_POST_ID = "replay_post_id";
@@ -115,6 +116,13 @@ public class SubPbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra(KEY_FROM_FORUM_ID, str);
+        }
+    }
+
+    public void setKeyPageStartFrom(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_PAGE_START_FROM, i);
         }
     }
 }

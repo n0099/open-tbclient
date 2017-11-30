@@ -3,15 +3,15 @@ package com.baidu.tbadk.imageManager;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface a {
-    int Dg();
+    int Dq();
 
-    C0058a S(Context context, String str);
+    C0058a T(Context context, String str);
 
-    int fG(String str);
+    int fM(String str);
 
-    int fH(String str);
+    int fN(String str);
 
-    String fI(String str);
+    String fO(String str);
 
     /* renamed from: com.baidu.tbadk.imageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */

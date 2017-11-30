@@ -1,15 +1,13 @@
 package com.baidu.sofire.b;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public final class j {
-    private static final String[] a = {"0", "1", "2", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, "4", "5", "6", NewWriteModel.THREAD_TYPE_LBS, "8", "9", "a", "b", "c", "d", "e", "f"};
+    private static final String[] a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
 
     private static String t(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();

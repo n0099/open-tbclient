@@ -1,11 +1,11 @@
 package com.baidu.tieba.story;
 /* loaded from: classes.dex */
 public interface b {
-    void aa(float f);
+    void ak(float f);
 
-    void bqc();
+    void brK();
 
-    void bqd();
+    void brL();
 
-    void bqe();
+    void brM();
 }

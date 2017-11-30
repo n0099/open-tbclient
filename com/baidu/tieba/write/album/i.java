@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.album;
 
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.album.MediaFileInfo;
 /* loaded from: classes2.dex */
 public interface i {
-    void a(int i, ImageFileInfo imageFileInfo);
+    boolean b(int i, MediaFileInfo mediaFileInfo);
 }

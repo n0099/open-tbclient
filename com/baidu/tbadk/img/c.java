@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    public String QI;
+    public String Rb;
     public int height;
     public String picId;
     public String picUrl;
@@ -12,7 +12,7 @@ public class c {
     public String thumbnail;
     public int width;
 
-    public static c k(JSONObject jSONObject) {
+    public static c j(JSONObject jSONObject) {
         try {
             c cVar = new c();
             cVar.picId = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
@@ -20,7 +20,7 @@ public class c {
             cVar.height = jSONObject.optInt("height");
             cVar.picUrl = jSONObject.optString("pic_url");
             cVar.thumbnail = jSONObject.optString("thumbnail");
-            cVar.QI = jSONObject.optString("origin_url");
+            cVar.Rb = jSONObject.optString("origin_url");
             return cVar;
         } catch (Exception e) {
             return null;

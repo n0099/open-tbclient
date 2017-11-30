@@ -16,12 +16,12 @@ public final class k {
     private static final String e = String.format(Locale.US, "SELECT * FROM LOG ORDER BY timestamp DESC LIMIT %d;", 3);
     private final SQLiteDatabase b;
     private String a = null;
-    private final a Na = new a(this);
+    private final a Ns = new a(this);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends com.baidu.location.h.f {
-        private k Nb;
+        private k Nt;
         private int b;
         private long c;
         private String d = null;
@@ -29,7 +29,7 @@ public final class k {
         private boolean f = false;
 
         a(k kVar) {
-            this.Nb = kVar;
+            this.Nt = kVar;
             this.k = new HashMap();
             this.b = 0;
             this.c = -1L;
@@ -40,7 +40,7 @@ public final class k {
             if (this.e) {
                 return;
             }
-            this.d = this.Nb.b();
+            this.d = this.Nt.b();
             if (this.c != -1 && this.c + 86400000 <= System.currentTimeMillis()) {
                 this.b = 0;
                 this.c = -1L;
@@ -172,7 +172,7 @@ public final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.Na.b();
+        this.Ns.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

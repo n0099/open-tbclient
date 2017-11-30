@@ -3,7 +3,6 @@ package com.baidu.tieba.write.write;
 import android.content.Intent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes2.dex */
@@ -12,18 +11,18 @@ public class WriteUrlModel extends NewWriteModel {
         super(tbPageContext);
     }
 
-    public void ah(Intent intent) {
+    public void am(Intent intent) {
         if (intent != null) {
             WriteData writeData = new WriteData();
             writeData.setType(intent.getIntExtra("type", 0));
             writeData.setForumId(intent.getStringExtra("forum_id"));
             writeData.setForumName(intent.getStringExtra("forum_name"));
-            writeData.setCallFrom(intent.getStringExtra(WriteActivityConfig.KEY_CALL_FROM));
+            writeData.setCallFrom(intent.getStringExtra("KEY_CALL_FROM"));
             setWriteData(writeData);
         }
     }
 
-    public void o(String str, String str2, String str3, String str4) {
+    public void e(String str, String str2, String str3, String str4, String str5, String str6) {
         WriteData writeData = getWriteData();
         if (writeData != null) {
             cancelLoadData();
@@ -33,6 +32,9 @@ public class WriteUrlModel extends NewWriteModel {
             writeData.setLinkUrl(str3);
             writeData.setLinkUrlCode(str4);
             writeData.setIsLinkThread(true);
+            writeData.setPostLatLng(true);
+            writeData.setLat(str5);
+            writeData.setLng(str6);
             startPostWrite();
         }
     }

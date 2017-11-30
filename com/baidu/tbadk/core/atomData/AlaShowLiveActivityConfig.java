@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+@Deprecated
 /* loaded from: classes.dex */
 public class AlaShowLiveActivityConfig extends IntentConfig {
     public AlaShowLiveActivityConfig(Context context) {

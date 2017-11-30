@@ -2,7 +2,6 @@ package com.baidu.tieba.myCollection.baseHistory;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.mvc.b.f;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,6 +9,7 @@ import org.json.JSONObject;
 public class a implements f {
     private long cartoonId;
     private int chapterId;
+    private boolean isShareThread;
     private String threadId = "";
     private String threadName = "";
     private String forumName = "";
@@ -79,54 +79,52 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean H(JSONObject jSONObject) {
-        try {
-            String string = jSONObject.getString("forum_name");
-            String string2 = jSONObject.getString("thread_id");
-            String string3 = jSONObject.getString("thread_name");
-            long j = jSONObject.getLong(PbActivityConfig.KEY_THREAD_TIME);
-            this.postID = jSONObject.optString("post_id");
-            this.isHostOnly = jSONObject.optBoolean(PbActivityConfig.KEY_HOST_ONLY);
-            this.isSquence = jSONObject.optBoolean(PbActivityConfig.KEY_SQUENCE);
-            this.isManga = jSONObject.optBoolean("is_manga");
-            this.cartoonId = jSONObject.optLong("cartoon_id");
-            this.chapterId = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
-            if (!TextUtils.isEmpty(string)) {
-                this.forumName = string;
-            }
-            if (!TextUtils.isEmpty(string2)) {
-                this.threadId = string2;
-            }
-            if (!TextUtils.isEmpty(string3)) {
-                this.threadName = string3;
-            }
-            if (j > 2000) {
-                this.time = j;
-            }
-            this.threadType = jSONObject.optInt("thread_type");
-            this.liveId = jSONObject.optString("live_id", "");
-            this.userName = jSONObject.optString("user_name", "");
-            this.description = jSONObject.optString("live_description", "");
-            return true;
-        } catch (JSONException e) {
-            return false;
+    public boolean J(JSONObject jSONObject) {
+        String optString = jSONObject.optString("forum_name");
+        String optString2 = jSONObject.optString("thread_id");
+        String optString3 = jSONObject.optString("thread_name");
+        long optLong = jSONObject.optLong("thread_time");
+        this.postID = jSONObject.optString("post_id");
+        this.isHostOnly = jSONObject.optBoolean("host_only");
+        this.isSquence = jSONObject.optBoolean("squence");
+        this.isManga = jSONObject.optBoolean("is_manga");
+        this.cartoonId = jSONObject.optLong("cartoon_id");
+        this.chapterId = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+        this.isShareThread = jSONObject.optBoolean("is_share_thread", false);
+        if (!TextUtils.isEmpty(optString)) {
+            this.forumName = optString;
         }
+        if (!TextUtils.isEmpty(optString2)) {
+            this.threadId = optString2;
+        }
+        if (!TextUtils.isEmpty(optString3)) {
+            this.threadName = optString3;
+        }
+        if (optLong > 2000) {
+            this.time = optLong;
+        }
+        this.threadType = jSONObject.optInt("thread_type");
+        this.liveId = jSONObject.optString("live_id", "");
+        this.userName = jSONObject.optString("user_name", "");
+        this.description = jSONObject.optString("live_description", "");
+        return true;
     }
 
-    public JSONObject ZC() {
+    public JSONObject abl() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("thread_id", this.threadId);
-            jSONObject.put(PbActivityConfig.KEY_THREAD_TIME, this.time);
+            jSONObject.put("thread_time", this.time);
             jSONObject.put("thread_name", this.threadName);
             jSONObject.put("post_id", this.postID);
-            jSONObject.put(PbActivityConfig.KEY_HOST_ONLY, this.isHostOnly);
-            jSONObject.put(PbActivityConfig.KEY_SQUENCE, this.isSquence);
+            jSONObject.put("host_only", this.isHostOnly);
+            jSONObject.put("squence", this.isSquence);
             jSONObject.put("thread_type", this.threadType);
             jSONObject.put("is_manga", this.isManga);
             jSONObject.put("cartoon_id", this.cartoonId);
             jSONObject.put(MangaBrowserActivityConfig.CHAPTER_ID, this.chapterId);
+            jSONObject.put("is_share_thread", this.isShareThread);
             jSONObject.put("live_id", this.liveId);
             jSONObject.put("user_name", this.userName);
             jSONObject.put("live_description", this.description);
@@ -159,6 +157,14 @@ public class a implements f {
         this.chapterId = i;
     }
 
+    public void setIsShareThread(boolean z) {
+        this.isShareThread = z;
+    }
+
+    public boolean isShareThread() {
+        return this.isShareThread;
+    }
+
     public void setThreadType(int i) {
         this.threadType = i;
     }
@@ -171,7 +177,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String aOi() {
+    public String aOW() {
         return this.threadName;
     }
 
@@ -187,7 +193,7 @@ public class a implements f {
         this.threadId = str;
     }
 
-    public void oX(String str) {
+    public void pl(String str) {
         this.threadName = str;
     }
 
@@ -195,27 +201,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String Do() {
+    public String Dx() {
         return this.postID;
     }
 
-    public void oY(String str) {
+    public void pm(String str) {
         this.postID = str;
     }
 
-    public boolean aOj() {
+    public boolean aOX() {
         return this.isHostOnly;
     }
 
-    public void in(boolean z) {
+    public void iE(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean aOk() {
+    public boolean aOY() {
         return this.isSquence;
     }
 
-    public void io(boolean z) {
+    public void iF(boolean z) {
         this.isSquence = z;
     }
 
@@ -223,7 +229,7 @@ public class a implements f {
         return this.liveId;
     }
 
-    public void oZ(String str) {
+    public void pn(String str) {
         this.liveId = str;
     }
 
@@ -249,15 +255,15 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String EX() {
-        return ZC().toString();
+    public String Fe() {
+        return abl().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean gB(String str) {
+    public boolean gE(String str) {
         if (str != null) {
             try {
-                return H(new JSONObject(str));
+                return J(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

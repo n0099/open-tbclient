@@ -12,13 +12,13 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
     public d(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.deN);
+        super(context, com.baidu.tieba.homepage.concern.b.a.dnu);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aH */
+    /* renamed from: aI */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         return new a(View.inflate(viewGroup.getContext(), d.h.concern_emotion_tip_layout, null));
     }
@@ -28,10 +28,10 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        if (aVar.ajo != null) {
-            aVar2.akV.setText(aVar.ajo);
+        if (aVar.ajK != null) {
+            aVar2.als.setText(aVar.ajK);
         }
-        switch (aVar.deO) {
+        switch (aVar.dnv) {
             case 2:
                 aVar2.aN(TbadkCoreApplication.getInst().getSkinType(), d.f.emotion_dashen);
                 break;
@@ -44,31 +44,31 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes.dex */
     public class a extends j.a {
-        public TextView akV;
-        private int aph;
-        public View cFc;
-        public View cFd;
-        public ViewGroup deA;
-        public ImageView deB;
+        public TextView als;
+        private int apA;
+        public View cOi;
+        public View cOj;
+        public ViewGroup dnf;
+        public ImageView dng;
 
         public a(View view) {
             super(view);
-            this.aph = 3;
-            this.cFc = view.findViewById(d.g.concern_emotion_tip_top_line);
-            this.deA = (ViewGroup) view.findViewById(d.g.ll_concern_emotion_tip);
-            this.deB = (ImageView) view.findViewById(d.g.iv_concern_emotion_tip_pic);
-            this.akV = (TextView) view.findViewById(d.g.tv_concern_emotion_tip);
-            this.cFd = view.findViewById(d.g.concern_emotion_tip_bottom_line);
+            this.apA = 3;
+            this.cOi = view.findViewById(d.g.concern_emotion_tip_top_line);
+            this.dnf = (ViewGroup) view.findViewById(d.g.ll_concern_emotion_tip);
+            this.dng = (ImageView) view.findViewById(d.g.iv_concern_emotion_tip_pic);
+            this.als = (TextView) view.findViewById(d.g.tv_concern_emotion_tip);
+            this.cOj = view.findViewById(d.g.concern_emotion_tip_bottom_line);
         }
 
         protected void aN(int i, int i2) {
-            if (this.aph != i) {
-                aj.k(this.cFc, d.C0080d.cp_bg_line_c);
-                aj.c(this.deB, i2);
-                aj.i(this.akV, d.C0080d.cp_cont_b);
-                aj.k(this.cFd, d.C0080d.cp_bg_line_c);
+            if (this.apA != i) {
+                aj.k(this.cOi, d.C0082d.cp_bg_line_c);
+                aj.c(this.dng, i2);
+                aj.i(this.als, d.C0082d.cp_cont_b);
+                aj.k(this.cOj, d.C0082d.cp_bg_line_c);
             }
-            this.aph = i;
+            this.apA = i;
         }
     }
 }

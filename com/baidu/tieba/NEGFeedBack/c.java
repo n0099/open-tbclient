@@ -2,47 +2,48 @@ package com.baidu.tieba.NEGFeedBack;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.al;
+import com.baidu.tbadk.core.data.ah;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends ImageView {
-    private int aEf;
-    private int aEg;
-    private long aVB;
-    d aVC;
-    private View.OnClickListener aVD;
+    private int aEF;
+    private int aEG;
+    private long aYC;
+    d aYD;
+    private View.OnClickListener aYE;
     private Context mContext;
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(al alVar);
+        void a(ah ahVar);
 
-        void a(al alVar, CompoundButton compoundButton, boolean z);
+        void a(ah ahVar, CompoundButton compoundButton, boolean z);
 
-        void a(ArrayList<Integer> arrayList, al alVar);
+        void a(ArrayList<Integer> arrayList, ah ahVar);
     }
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.aVB = 0L;
-        this.aVD = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
+        this.aYC = 0L;
+        this.aYE = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.KH();
+                c.this.Le();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - c.this.aVB > 500) {
-                    c.this.KG();
+                if (currentTimeMillis - c.this.aYC > 500) {
+                    c.this.Ld();
                 }
-                c.this.aVB = currentTimeMillis;
+                c.this.aYC = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -50,52 +51,46 @@ public class c extends ImageView {
     }
 
     private void g(TbPageContext tbPageContext) {
-        this.aVC = new d(tbPageContext, this);
-        setOnClickListener(this.aVD);
+        this.aYD = new d(tbPageContext, this);
+        setOnClickListener(this.aYE);
         aj.c(this, d.f.icon_home_feedback_selector);
-        this.aEf = l.f(this.mContext, d.e.ds60);
-        this.aEg = l.f(this.mContext, d.e.ds4);
+        setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.aVC.setUniqueId(bdUniqueId);
+        this.aYD.setUniqueId(bdUniqueId);
     }
 
-    public void KF() {
-        int f = l.f(this.mContext, d.e.ds48);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.height = f;
-        layoutParams.gravity = 48;
-        setLayoutParams(layoutParams);
-        setPadding(this.aEf, 0, this.aEg, 0);
+    public void Lc() {
+        onChangeSkinType();
     }
 
     public void setLeftPadding(int i) {
-        this.aEf = i;
-        setPadding(i, 0, this.aEg, 0);
+        this.aEF = i;
+        setPadding(i, 0, this.aEG, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KG() {
-        this.aVC.KG();
+    public void Ld() {
+        this.aYD.Ld();
     }
 
-    public void KH() {
-        this.aVC.KH();
+    public void Le() {
+        this.aYD.Le();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.aVC.onDetachedFromWindow();
+        this.aYD.onDetachedFromWindow();
     }
 
-    public void setData(al alVar) {
-        this.aVC.setData(alVar);
+    public void setData(ah ahVar) {
+        this.aYD.setData(ahVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.aVC.setFirstRowSingleColumn(z);
+        this.aYD.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
@@ -103,10 +98,23 @@ public class c extends ImageView {
     }
 
     public void setEventCallback(a aVar) {
-        this.aVC.setEventCallback(aVar);
+        this.aYD.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.aVC.setDefaultReasonArray(strArr);
+        this.aYD.setDefaultReasonArray(strArr);
+    }
+
+    public void a(ViewGroup viewGroup, int i, int i2) {
+        setPadding(0, i2, i2, 0);
+        if (viewGroup instanceof RelativeLayout) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i);
+            layoutParams.addRule(11);
+            viewGroup.addView(this, layoutParams);
+        } else if (viewGroup instanceof FrameLayout) {
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(i, i);
+            layoutParams2.gravity = 53;
+            viewGroup.addView(this, layoutParams2);
+        }
     }
 }

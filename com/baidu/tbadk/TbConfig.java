@@ -241,7 +241,7 @@ public class TbConfig {
     public static final int MAX_EMOTION_COUNT = 10;
     public static final int MAX_FRS_ICON_NUM = 3;
     public static final int MAX_HOME_ICON_NUM = 3;
-    public static final int MAX_PB_ICON_NUM = 3;
+    public static final int MAX_PB_ICON_NUM = 4;
     public static final int MAX_PB_PIC_ONEPOST = 10;
     public static final int MAX_PERSON_INFO_ICON_NUM = 9;
     public static final int MAX_PRELOAD_PHOTO_NUM = 30;
@@ -423,6 +423,7 @@ public class TbConfig {
     public static final String URL_CHECK_VIDEO_STATUS = "c/c/video/uploadVideoStatus";
     public static final String URL_CONCERN_CHECK_RED_NOTIFY = "c/f/concern/rednotify";
     public static final String URL_CONCERN_PAGE = "c/f/concern/userlike";
+    public static final String URL_CONCERN_UNREAD_TIP = "c/f/excellent/unreadtip";
     public static final String URL_DELETE_GRAFFITTI = "c/c/graffiti/remove";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final String URL_GET_CONSENTLIST = "c/u/feed/getConsentList";
@@ -434,6 +435,7 @@ public class TbConfig {
     public static final String URL_GET_RECOMMEND_GOD = "c/u/user/getRecommendGod";
     public static final String URL_GET_STICKER_LIST = "c/f/story/getSticker";
     public static final String URL_GET_TOPIC_RELATE_THREAD = "c/f/recommend/getTopicRelateThread";
+    public static final String URL_GET_VIDEO_INFO_BY_VLOGID = "/c/f/video/getVideoInfoByVLogId";
     public static final String URL_HOST_TOPIC_LIST = "https://tieba.baidu.com/mo/q/hotMessage/list";
     public static final String URL_IMAGE_PREFIX = "http://c.tieba.baidu.com/c/p/img?src=";
     public static final String URL_JUMP_TAG_CARDBOX = "https://tieba.baidu.com/n/apage-runtime/page/packet?tieba_hybrid_enabled=1";
@@ -444,9 +446,14 @@ public class TbConfig {
     public static final String URL_MANGA_REPORT = "c/e/cartoon/getReportType";
     public static final String URL_MANGA_REPORT_TYPE = "c/e/cartoon/getReportType";
     public static final String URL_MEMBER_BUY = "http://tieba.baidu.com/mo/q/member/pk?jumptoforum=memberbuy";
+    public static final String URL_MOOV_REPORT = "c/c/video/reportSlowStart";
     public static final String URL_PLAY_DURATION_STATISTICS = "c/c/video/playDura";
+    public static final String URL_PLAY_REPORT = "c/c/video/addReport";
     public static final String URL_PLAY_STATISTICS = "c/c/video/playStat";
+    public static final String URL_POST_VIDEO_MONITOR_REPORT = "ala/sys/vtlog";
+    public static final String URL_SET_PRIVACY = "c/c/thread/setPrivacy";
     public static final String URL_SHARE_REPORT = "c/c/thread/share";
+    public static final String URL_SHARE_SUCCESS_TO_REPLY_SERVER = "/c/c/video/share";
     public static final String URL_STORY_PAGE = "c/f/story/storypage";
     public static final String URL_SUB_INTEREST_LABEL_LIST = "c/f/recommtag/subTagList";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
@@ -529,14 +536,18 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds44);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds40);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds36);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds32);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds34);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds32);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds30);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds28);
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds52);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds42);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds52);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds44);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds38);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds72);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds68);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds64);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds56);
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
@@ -668,7 +679,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.Es().fe(i);
+            c.Ez().fd(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -769,7 +780,18 @@ public class TbConfig {
     }
 
     public static int getContentSizeOfPostTitle() {
-        return getContentSize() + 3;
+        switch (TbadkCoreApplication.getInst().getFontSize()) {
+            case 0:
+                return VALUE_PB_TITLE_FONT_SIZE_XLAGER;
+            case 1:
+                return VALUE_PB_TITLE_FONT_SIZE_BIG;
+            case 2:
+                return VALUE_PB_TITLE_FONT_SIZE_MID;
+            case 3:
+                return VALUE_PB_TITLE_FONT_SIZE_SMALL;
+            default:
+                return VALUE_PB_TITLE_FONT_SIZE_SMALL;
+        }
     }
 
     public static int getContentSizeOfLzl() {

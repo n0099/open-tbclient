@@ -7,26 +7,37 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class m extends com.baidu.tbadk.editortools.view.b {
-    private SparseIntArray aBO;
-    LinkedList<l> aBo;
+    LinkedList<l> aBP;
+    private SparseIntArray aCq;
+    private boolean aCr;
 
     public m(Context context) {
         super(context);
-        this.aBO = new SparseIntArray();
-        setBackgroundColorId(d.C0080d.common_color_10255);
+        this.aCq = new SparseIntArray();
+        this.aCr = true;
+        setBackgroundColorId(d.C0082d.cp_bg_line_d);
         setToolId(2);
+    }
+
+    public m(Context context, boolean z) {
+        super(context);
+        this.aCq = new SparseIntArray();
+        this.aCr = true;
+        setBackgroundColorId(d.C0082d.cp_bg_line_d);
+        setToolId(2);
+        this.aCr = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void i(LinkedList<l> linkedList) {
-        this.aBo = linkedList;
+        this.aBP = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.b, com.baidu.tbadk.editortools.s
     public void init() {
         setShowDelete(false);
         n nVar = new n();
-        nVar.i(this.aBo);
+        nVar.i(this.aBP);
         b(nVar);
     }
 
@@ -35,12 +46,12 @@ public class m extends com.baidu.tbadk.editortools.view.b {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            De();
+            Do();
         }
     }
 
     private void c(a aVar) {
-        Integer valueOf = Integer.valueOf(this.aBO.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.aCq.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             intValue = 0;
@@ -52,13 +63,13 @@ public class m extends com.baidu.tbadk.editortools.view.b {
                 intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.g.b.g(str, 1);
             }
         }
-        this.aBO.put(aVar.id, intValue >= 0 ? intValue : 0);
+        this.aCq.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void De() {
+    private void Do() {
         int i = 0;
-        for (int i2 = 0; i2 < this.aBO.size(); i2++) {
-            i += this.aBO.valueAt(i2);
+        for (int i2 = 0; i2 < this.aCq.size(); i2++) {
+            i += this.aCq.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));
@@ -68,7 +79,7 @@ public class m extends com.baidu.tbadk.editortools.view.b {
     }
 
     @Override // com.baidu.tbadk.editortools.view.b, com.baidu.tbadk.editortools.s
-    public void lG() {
-        super.lG();
+    public void lE() {
+        super.lE();
     }
 }

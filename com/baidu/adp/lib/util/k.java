@@ -127,7 +127,7 @@ public class k {
             }
             i2++;
         }
-        if (i2 < length) {
+        if (i2 < length - 1) {
             return str.substring(0, i2 + 1) + "...";
         }
         return str;

@@ -1,11 +1,23 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.List;
+import tbclient.LotteryTheme;
 /* loaded from: classes.dex */
 public class ag {
-    private List<HotTopicBussinessData> WW;
+    private String XC;
+    private String XD;
 
-    public void q(List<HotTopicBussinessData> list) {
-        this.WW = list;
+    public String ql() {
+        return this.XC;
+    }
+
+    public String qm() {
+        return this.XD;
+    }
+
+    public void a(LotteryTheme lotteryTheme) {
+        if (lotteryTheme != null) {
+            this.XC = lotteryTheme.bgcolor;
+            this.XD = lotteryTheme.bgimage;
+        }
     }
 }

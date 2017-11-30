@@ -3,19 +3,19 @@ package com.baidu.tieba.video.localvideo;
 import android.graphics.Bitmap;
 /* loaded from: classes2.dex */
 public class d {
-    private String cCN;
     private long duration;
-    private String gHS;
-    private Bitmap gHT;
-    private boolean gHU = false;
-    private long gmY;
+    private String gSw;
+    private boolean hasLoaded = false;
+    private long lastModified;
     private String mimeType;
+    private Bitmap thumbnailBitmap;
     private int videoHeight;
+    private String videoId;
     private String videoPath;
     private int videoWidth;
 
-    public void tx(String str) {
-        this.cCN = str;
+    public void setVideoId(String str) {
+        this.videoId = str;
     }
 
     public String getVideoPath() {
@@ -58,31 +58,31 @@ public class d {
         this.videoHeight = i;
     }
 
-    public void ty(String str) {
-        this.gHS = str;
+    public void ui(String str) {
+        this.gSw = str;
     }
 
     public long getLastModified() {
-        return this.gmY;
+        return this.lastModified;
     }
 
-    public void cO(long j) {
-        this.gmY = j;
+    public void cV(long j) {
+        this.lastModified = j;
     }
 
-    public synchronized Bitmap bzO() {
-        return this.gHT;
+    public synchronized Bitmap bCm() {
+        return this.thumbnailBitmap;
     }
 
-    public void s(Bitmap bitmap) {
-        this.gHT = bitmap;
+    public void w(Bitmap bitmap) {
+        this.thumbnailBitmap = bitmap;
     }
 
-    public void ng(boolean z) {
-        this.gHU = z;
+    public void nF(boolean z) {
+        this.hasLoaded = z;
     }
 
-    public boolean bzP() {
-        return this.gHU;
+    public boolean bCn() {
+        return this.hasLoaded;
     }
 }

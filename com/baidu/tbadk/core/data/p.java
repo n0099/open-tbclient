@@ -1,110 +1,49 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.DeclareInfo;
-import tbclient.ThreadInfo;
+import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes.dex */
-public class p implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId Vw = BdUniqueId.gen();
-    private List<q> Vx;
-    private long Vy;
-    private long Vz;
-    private long mForumId;
+public class p {
+    private int VU;
+    private String Wg;
+    private String Wh;
+    private String Wi;
+    private String Wj;
+    private String Wk;
+    private String Wl;
+    private String Wm;
+    private long Wn;
+    private long Wo;
+    private long Wp;
+    private long Wq;
+    private long Wr;
+    private long Ws;
+    private String author;
 
-    @Override // com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return Vw;
+    public String pM() {
+        return this.Wg;
     }
 
-    public void a(ThreadInfo threadInfo) {
-        boolean z;
-        if (threadInfo != null) {
-            this.Vz = threadInfo.id.longValue();
-            if (threadInfo.author != null) {
-                this.Vy = threadInfo.author.id.longValue();
-            }
-            if (threadInfo.declare_list != null) {
-                this.Vx = new ArrayList();
-                boolean z2 = false;
-                for (DeclareInfo declareInfo : threadInfo.declare_list) {
-                    if (declareInfo != null) {
-                        q qVar = new q();
-                        qVar.a(declareInfo);
-                        if (z2) {
-                            qVar.VE = false;
-                        }
-                        z = qVar.VE || z2;
-                        this.Vx.add(qVar);
-                    } else {
-                        z = z2;
-                    }
-                    z2 = z;
-                }
-            }
+    public int pN() {
+        return this.VU;
+    }
+
+    public void a(ForumBookInfo forumBookInfo) {
+        if (forumBookInfo != null) {
+            this.Wg = forumBookInfo.book_id;
+            this.VU = forumBookInfo.book_type.intValue();
+            this.Wh = forumBookInfo.book_title;
+            this.Wi = forumBookInfo.book_cover;
+            this.author = forumBookInfo.author;
+            this.Wj = forumBookInfo.forum_pic;
+            this.Wk = forumBookInfo.show_chapter_id;
+            this.Wl = forumBookInfo.show_chapter_no;
+            this.Wm = forumBookInfo.show_chapter_title;
+            this.Wn = forumBookInfo.history_page_id.longValue();
+            this.Wo = forumBookInfo.history_paragraph_id.longValue();
+            this.Wp = forumBookInfo.history_word_id.longValue();
+            this.Wq = forumBookInfo.history_percent.longValue();
+            this.Wr = forumBookInfo.show_page_id.longValue();
+            this.Ws = forumBookInfo.show_paragraph_id.longValue();
         }
-    }
-
-    public List<q> pE() {
-        return this.Vx;
-    }
-
-    public long pF() {
-        return this.Vy;
-    }
-
-    public long getTid() {
-        return this.Vz;
-    }
-
-    public long getForumId() {
-        return this.mForumId;
-    }
-
-    public void setForumId(long j) {
-        this.mForumId = j;
-    }
-
-    public boolean pG() {
-        if (TbadkCoreApplication.getCurrentAccount() != null) {
-            return TbadkCoreApplication.getCurrentAccount().equals(String.valueOf(this.Vy));
-        }
-        return false;
-    }
-
-    public boolean pH() {
-        boolean z;
-        if (this.Vx == null) {
-            return false;
-        }
-        boolean z2 = false;
-        for (q qVar : this.Vx) {
-            if (qVar != null) {
-                z = z2 || qVar.VE;
-                if (z) {
-                    return true;
-                }
-            } else {
-                z = z2;
-            }
-            z2 = z;
-        }
-        return false;
-    }
-
-    public long bD(int i) {
-        long j = 0;
-        if (this.Vx != null) {
-            long size = this.Vx.size() > i ? i : this.Vx.size();
-            int i2 = 0;
-            while (i2 < size) {
-                q qVar = this.Vx.get(i2);
-                i2++;
-                j = qVar != null ? qVar.VD + j : j;
-            }
-        }
-        return j;
     }
 }

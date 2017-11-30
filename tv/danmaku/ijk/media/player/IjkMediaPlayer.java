@@ -18,7 +18,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.play.d.a;
+import com.baidu.tieba.play.b.a;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -584,7 +584,6 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     public void release() {
         stayAwake(false);
         updateSurfaceScreenOn();
-        notifyOnReleaseFinished();
         resetListeners();
         try {
             _release();

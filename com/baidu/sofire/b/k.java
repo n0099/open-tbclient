@@ -7,7 +7,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.sofire.ac.U;
-import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
 import java.security.PublicKey;
 import java.security.cert.CertificateFactory;
@@ -30,7 +29,7 @@ public final class k {
                 str = e[0];
                 str2 = e[1];
             } else {
-                str = TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
+                str = "3";
                 str2 = "925fc15df8a49bed0b3eca8d2b44cb7b";
             }
             JSONObject jSONObject = new JSONObject();

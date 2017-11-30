@@ -12,6 +12,12 @@ import com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener;
 public interface IQuickMediaPlayer extends IInterface {
     void forceUseSystemMediaPlayer(boolean z) throws RemoteException;
 
+    int getBitRate() throws RemoteException;
+
+    int getCachedPostion() throws RemoteException;
+
+    int getCachedSize() throws RemoteException;
+
     int getCurrentPosition() throws RemoteException;
 
     int getDuration() throws RemoteException;
@@ -50,6 +56,9 @@ public interface IQuickMediaPlayer extends IInterface {
     public static abstract class Stub extends Binder implements IQuickMediaPlayer {
         private static final String DESCRIPTOR = "com.baidu.tieba.QuickPlayer.IQuickMediaPlayer";
         static final int TRANSACTION_forceUseSystemMediaPlayer = 1;
+        static final int TRANSACTION_getBitRate = 20;
+        static final int TRANSACTION_getCachedPostion = 19;
+        static final int TRANSACTION_getCachedSize = 21;
         static final int TRANSACTION_getCurrentPosition = 7;
         static final int TRANSACTION_getDuration = 6;
         static final int TRANSACTION_getVideoHeight = 11;
@@ -196,6 +205,24 @@ public interface IQuickMediaPlayer extends IInterface {
                     parcel.enforceInterface(DESCRIPTOR);
                     setDebugParams(parcel.readString(), parcel.readString());
                     parcel2.writeNoException();
+                    return true;
+                case 19:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    int cachedPostion = getCachedPostion();
+                    parcel2.writeNoException();
+                    parcel2.writeInt(cachedPostion);
+                    return true;
+                case 20:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    int bitRate = getBitRate();
+                    parcel2.writeNoException();
+                    parcel2.writeInt(bitRate);
+                    return true;
+                case 21:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    int cachedSize = getCachedSize();
+                    parcel2.writeNoException();
+                    parcel2.writeInt(cachedSize);
                     return true;
                 case 1598968902:
                     parcel2.writeString(DESCRIPTOR);
@@ -496,6 +523,51 @@ public interface IQuickMediaPlayer extends IInterface {
                     obtain.writeString(str2);
                     this.mRemote.transact(18, obtain, obtain2, 0);
                     obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+            public int getCachedPostion() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(19, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readInt();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+            public int getBitRate() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(20, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readInt();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+            public int getCachedSize() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(21, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readInt();
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();

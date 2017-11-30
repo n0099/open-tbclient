@@ -6,12 +6,13 @@ import com.baidu.tieba.d;
 public class c extends b {
     public c(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
-        setLineSpacing(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds8), 1.0f);
-        Q(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds40), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds40));
-        fP(0);
-        fQ(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds34));
-        fR(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds34));
-        R(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds16), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds34));
-        fS(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds0));
+        setLineSpacing(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds17), 1.0f);
+        R(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48));
+        fX(0);
+        fY(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds38));
+        fZ(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds44));
+        S(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds44), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds24));
+        fW(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds38));
+        ga(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds68));
     }
 }

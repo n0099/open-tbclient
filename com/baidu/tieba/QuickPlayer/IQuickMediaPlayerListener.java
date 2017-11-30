@@ -17,8 +17,6 @@ public interface IQuickMediaPlayerListener extends IInterface {
 
     void onPrepared() throws RemoteException;
 
-    void onReleaseFinished() throws RemoteException;
-
     void onSeekComplete() throws RemoteException;
 
     void onSpeedWhenError(long j) throws RemoteException;
@@ -30,13 +28,12 @@ public interface IQuickMediaPlayerListener extends IInterface {
         private static final String DESCRIPTOR = "com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener";
         static final int TRANSACTION_onCompletion = 2;
         static final int TRANSACTION_onError = 3;
-        static final int TRANSACTION_onHandleOppoError = 8;
+        static final int TRANSACTION_onHandleOppoError = 7;
         static final int TRANSACTION_onInfo = 4;
         static final int TRANSACTION_onPrepared = 1;
-        static final int TRANSACTION_onReleaseFinished = 5;
-        static final int TRANSACTION_onSeekComplete = 6;
-        static final int TRANSACTION_onSpeedWhenError = 9;
-        static final int TRANSACTION_onSubError = 7;
+        static final int TRANSACTION_onSeekComplete = 5;
+        static final int TRANSACTION_onSpeedWhenError = 8;
+        static final int TRANSACTION_onSubError = 6;
 
         public Stub() {
             attachInterface(this, DESCRIPTOR);
@@ -83,25 +80,20 @@ public interface IQuickMediaPlayerListener extends IInterface {
                     return true;
                 case 5:
                     parcel.enforceInterface(DESCRIPTOR);
-                    onReleaseFinished();
+                    onSeekComplete();
                     parcel2.writeNoException();
                     return true;
                 case 6:
                     parcel.enforceInterface(DESCRIPTOR);
-                    onSeekComplete();
+                    onSubError(parcel.readInt(), parcel.readInt(), parcel.readString());
                     parcel2.writeNoException();
                     return true;
                 case 7:
                     parcel.enforceInterface(DESCRIPTOR);
-                    onSubError(parcel.readInt(), parcel.readInt(), parcel.readString());
-                    parcel2.writeNoException();
-                    return true;
-                case 8:
-                    parcel.enforceInterface(DESCRIPTOR);
                     onHandleOppoError(parcel.readString());
                     parcel2.writeNoException();
                     return true;
-                case 9:
+                case 8:
                     parcel.enforceInterface(DESCRIPTOR);
                     onSpeedWhenError(parcel.readLong());
                     parcel2.writeNoException();
@@ -189,26 +181,12 @@ public interface IQuickMediaPlayerListener extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener
-            public void onReleaseFinished() throws RemoteException {
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(5, obtain, obtain2, 0);
-                    obtain2.readException();
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
-            }
-
-            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener
             public void onSeekComplete() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(6, obtain, obtain2, 0);
+                    this.mRemote.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -225,7 +203,7 @@ public interface IQuickMediaPlayerListener extends IInterface {
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
                     obtain.writeString(str);
-                    this.mRemote.transact(7, obtain, obtain2, 0);
+                    this.mRemote.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -240,7 +218,7 @@ public interface IQuickMediaPlayerListener extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
-                    this.mRemote.transact(8, obtain, obtain2, 0);
+                    this.mRemote.transact(7, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -255,7 +233,7 @@ public interface IQuickMediaPlayerListener extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeLong(j);
-                    this.mRemote.transact(9, obtain, obtain2, 0);
+                    this.mRemote.transact(8, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

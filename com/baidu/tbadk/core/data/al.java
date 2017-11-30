@@ -1,33 +1,106 @@
 package com.baidu.tbadk.core.data;
 
-import android.util.SparseArray;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.Page;
 /* loaded from: classes.dex */
 public class al {
-    private String Xl;
-    public SparseArray<String> Xm = null;
-    private String fid;
+    private int XH = 0;
+    private int total_num = 0;
+    private int current_page = 0;
+    private int XJ = 0;
+    private int has_more = 0;
+    private int XK = 0;
+    private int total_count = 0;
+    private int XI = 0;
 
-    public String getTid() {
-        return this.Xl;
+    public int qr() {
+        return this.XH;
     }
 
-    public void cD(String str) {
-        this.Xl = str;
+    public void bF(int i) {
+        this.XH = i;
     }
 
-    public String getFid() {
-        return this.fid;
+    public int pt() {
+        return this.total_num;
     }
 
-    public void setFid(long j) {
-        this.fid = String.valueOf(j);
+    public void bG(int i) {
+        this.total_num = i;
     }
 
-    public SparseArray<String> qk() {
-        return this.Xm;
+    public int qs() {
+        return this.total_count;
     }
 
-    public void a(SparseArray<String> sparseArray) {
-        this.Xm = sparseArray;
+    public int qt() {
+        return this.XI;
+    }
+
+    public void bH(int i) {
+        this.XI = i;
+    }
+
+    public int qu() {
+        return this.current_page;
+    }
+
+    public void bI(int i) {
+        this.current_page = i;
+    }
+
+    public int qv() {
+        return this.XJ;
+    }
+
+    public void bJ(int i) {
+        this.XJ = i;
+    }
+
+    public void bK(int i) {
+        this.has_more = i;
+    }
+
+    public int qw() {
+        return this.has_more;
+    }
+
+    public void bL(int i) {
+        this.XK = i;
+    }
+
+    public int qx() {
+        return this.XK;
+    }
+
+    public void a(Page page) {
+        if (page != null) {
+            this.XH = page.total_page.intValue();
+            this.total_num = page.total_num.intValue();
+            this.total_count = page.total_count.intValue();
+            this.current_page = page.current_page.intValue();
+            this.XJ = page.page_size.intValue();
+            this.has_more = page.has_more.intValue();
+            this.XK = page.has_prev.intValue();
+            this.XI = page.lz_total_floor.intValue();
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.XH = jSONObject.optInt("total_page", 0);
+                this.total_num = jSONObject.optInt("total_num", 0);
+                this.total_count = jSONObject.optInt("total_count", 0);
+                this.current_page = jSONObject.optInt("current_page", 0);
+                this.XJ = jSONObject.optInt("page_size", 0);
+                this.has_more = jSONObject.optInt("has_more", 0);
+                this.XK = jSONObject.optInt("has_prev", 0);
+                this.XI = jSONObject.optInt("lz_total_floor", 0);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

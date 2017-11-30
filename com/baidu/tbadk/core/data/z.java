@@ -1,37 +1,36 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.List;
-import tbclient.FrsPage.NtSpreadInfo;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.FrsPage.Classify;
 /* loaded from: classes.dex */
-public class z extends bh {
-    public static final BdUniqueId Wx = BdUniqueId.gen();
-    public String Wy;
-    public String Wz;
-    public String linkUrl;
-    public List<String> pics;
-    public Integer position;
-    public String tips;
-    public String title;
-    public String type;
-    public String userName;
+public class z {
+    private String class_name = null;
+    private int Xk = 0;
 
-    public void a(NtSpreadInfo ntSpreadInfo) {
-        if (ntSpreadInfo != null) {
-            this.userName = ntSpreadInfo.user_name;
-            this.Wy = ntSpreadInfo.user_avatar;
-            this.tips = ntSpreadInfo.tips;
-            this.type = ntSpreadInfo.type;
-            this.title = ntSpreadInfo.title;
-            this.pics = ntSpreadInfo.pics;
-            this.linkUrl = ntSpreadInfo.link_url;
-            this.position = ntSpreadInfo.position;
-            this.Wz = ntSpreadInfo.publish_date;
+    public String pX() {
+        return this.class_name;
+    }
+
+    public int pY() {
+        return this.Xk;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.Xk = jSONObject.optInt("class_id", 0);
+                this.class_name = jSONObject.optString("class_name");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return Wx;
+    public void a(Classify classify) {
+        if (classify != null) {
+            this.Xk = classify.class_id.intValue();
+            this.class_name = classify.class_name;
+        }
     }
 }

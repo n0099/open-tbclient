@@ -9,14 +9,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
-    private String aiB;
-    protected x<T> bQP;
-    protected w bQQ;
+    protected v<T> bYO;
+    public int currentPageType;
     public Context mContext;
-    public int mSkinType;
-    private BdUniqueId mTag;
+    private String mFrom;
     public TbPageContext<?> mTbPageContext;
-    private View mView;
+    public int mSkinType = 3;
+    private BdUniqueId mTag = null;
+    private View mView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null, false);
 
     public abstract void a(T t);
 
@@ -25,19 +25,8 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     public abstract int getLayout();
 
     public a(TbPageContext<?> tbPageContext) {
-        this.mSkinType = 3;
-        this.mTag = null;
         this.mTbPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.mView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null, false);
-    }
-
-    public a(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
-        this.mSkinType = 3;
-        this.mTag = null;
-        this.mTbPageContext = tbPageContext;
-        this.mContext = tbPageContext.getPageActivity();
-        this.mView = LayoutInflater.from(getContext()).inflate(getLayout(), viewGroup, false);
     }
 
     public BdUniqueId getTag() {
@@ -49,11 +38,11 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     }
 
     public String getFrom() {
-        return this.aiB;
+        return this.mFrom;
     }
 
     public void setFrom(String str) {
-        this.aiB = str;
+        this.mFrom = str;
     }
 
     public View getView() {
@@ -64,22 +53,18 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
         return this.mContext;
     }
 
-    public TbPageContext<?> ZI() {
+    public TbPageContext<?> abr() {
         return this.mTbPageContext;
     }
 
     public void onDestroy() {
     }
 
-    public void b(x<T> xVar) {
-        this.bQP = xVar;
+    public void b(v<T> vVar) {
+        this.bYO = vVar;
     }
 
-    public void a(w wVar) {
-        this.bQQ = wVar;
-    }
-
-    public x<T> ZJ() {
-        return this.bQP;
+    public v<T> abs() {
+        return this.bYO;
     }
 }

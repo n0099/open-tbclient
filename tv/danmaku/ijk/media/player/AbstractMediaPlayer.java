@@ -9,7 +9,6 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
     private IMediaPlayer.OnErrorListener mOnErrorListener;
     private IMediaPlayer.OnHandleOppoErrorListener mOnHandleOppoErrorListener;
     private IMediaPlayer.OnInfoListener mOnInfoListener;
-    private IMediaPlayer.OnMediaReleaseFinishedListener mOnMediaReleaseFinishedListener;
     private IMediaPlayer.OnPreparedListener mOnPreparedListener;
     private IMediaPlayer.OnSeekCompleteListener mOnSeekCompleteListener;
     private IMediaPlayer.OnSpeedWhenInvokingErrorListener mOnSpeedWhenInvokingErrorListener;
@@ -52,11 +51,6 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setOnMediaReleaseFinishedListener(IMediaPlayer.OnMediaReleaseFinishedListener onMediaReleaseFinishedListener) {
-        this.mOnMediaReleaseFinishedListener = onMediaReleaseFinishedListener;
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setOnSubErrorListener(IMediaPlayer.OnSubErrorInfoListener onSubErrorInfoListener) {
         this.mOnSubErrorInfoListener = onSubErrorInfoListener;
     }
@@ -74,7 +68,6 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         this.mOnVideoSizeChangedListener = null;
         this.mOnErrorListener = null;
         this.mOnInfoListener = null;
-        this.mOnMediaReleaseFinishedListener = null;
         this.mOnSubErrorInfoListener = null;
         this.mOnHandleOppoErrorListener = null;
     }
@@ -122,13 +115,6 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
     /* JADX INFO: Access modifiers changed from: protected */
     public final boolean notifyOnInfo(int i, int i2) {
         return this.mOnInfoListener != null && this.mOnInfoListener.onInfo(this, i, i2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void notifyOnReleaseFinished() {
-        if (this.mOnMediaReleaseFinishedListener != null) {
-            this.mOnMediaReleaseFinishedListener.onFinished();
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

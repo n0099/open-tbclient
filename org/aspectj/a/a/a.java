@@ -1,7 +1,7 @@
 package org.aspectj.a.a;
 /* loaded from: classes2.dex */
 public final class a {
-    public static Object xn(int i) {
+    public static Object xL(int i) {
         return new Integer(i);
     }
 
@@ -13,11 +13,11 @@ public final class a {
         return new Byte(b);
     }
 
-    public static Object dT(long j) {
+    public static Object dY(long j) {
         return new Long(j);
     }
 
-    public static Object ag(float f) {
+    public static Object aq(float f) {
         return new Float(f);
     }
 
@@ -25,7 +25,7 @@ public final class a {
         return new Double(d);
     }
 
-    public static Object oi(boolean z) {
+    public static Object oM(boolean z) {
         return new Boolean(z);
     }
 }

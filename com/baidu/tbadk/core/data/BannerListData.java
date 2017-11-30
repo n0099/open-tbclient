@@ -33,8 +33,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).Ug)) {
-                sb.append(this.advertAppList.get(i).Ug);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).UR)) {
+                sb.append(this.advertAppList.get(i).UR);
                 if (i != size - 1) {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
@@ -66,9 +66,9 @@ public class BannerListData implements Serializable {
     }
 
     public void parserProtobuf(BannerList bannerList) {
-        List<AppData> bjj = com.baidu.tieba.recapp.r.bjl().bjj();
-        if (bjj != null) {
-            bjj.clear();
+        List<AppData> blj = com.baidu.tieba.recapp.q.bll().blj();
+        if (blj != null) {
+            blj.clear();
         }
         if (bannerList != null) {
             List<App> list = bannerList.app;
@@ -78,13 +78,13 @@ public class BannerListData implements Serializable {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
                         advertAppInfo.a(list.get(i));
                         this.advertAppList.add(advertAppInfo);
-                        if (bjj != null) {
-                            bjj.add(advertAppInfo.Uy);
+                        if (blj != null) {
+                            blj.add(advertAppInfo.Vj);
                         }
                     }
                 }
             }
-            com.baidu.tieba.recapp.r.bjl().bjk();
+            com.baidu.tieba.recapp.q.bll().blk();
             Collections.sort(this.advertAppList, new Comparator<AdvertAppInfo>() { // from class: com.baidu.tbadk.core.data.BannerListData.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -104,9 +104,9 @@ public class BannerListData implements Serializable {
                 }
             }
             if (bannerList.hot_topic != null) {
-                az azVar = new az();
-                azVar.a(bannerList.hot_topic);
-                this.recomTopicData = azVar.qD();
+                av avVar = new av();
+                avVar.a(bannerList.hot_topic);
+                this.recomTopicData = avVar.qI();
             }
         }
     }

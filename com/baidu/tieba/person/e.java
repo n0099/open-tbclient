@@ -10,14 +10,20 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends Dialog {
-    private LinearLayout aLO;
+    private LinearLayout aMp;
     private Context context;
+    private float fqt;
     private View mContentView;
 
     public e(Context context, View view) {
         super(context, 16973835);
+        this.fqt = 0.3f;
         this.context = context;
         this.mContentView = view;
+    }
+
+    public void ah(float f) {
+        this.fqt = f;
     }
 
     @Override // android.app.Dialog
@@ -29,17 +35,17 @@ public class e extends Dialog {
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
-        getWindow().setBackgroundDrawableResource(d.C0080d.transparent);
-        getWindow().setDimAmount(0.3f);
+        getWindow().setBackgroundDrawableResource(d.C0082d.transparent);
+        getWindow().setDimAmount(this.fqt);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(d.k.pb_more_pop_anim);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.aLO = (LinearLayout) findViewById(d.g.root_view);
+        this.aMp = (LinearLayout) findViewById(d.g.root_view);
         if (this.mContentView != null) {
-            this.aLO.addView(this.mContentView);
+            this.aMp.addView(this.mContentView);
         }
-        this.aLO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
+        this.aMp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();

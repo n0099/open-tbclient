@@ -3,32 +3,24 @@ package com.baidu.tieba.video.localvideo;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
-import android.os.Environment;
 import android.provider.MediaStore;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import java.io.ByteArrayOutputStream;
+import com.baidu.tieba.video.f;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    public static final String gHV = Environment.getExternalStorageDirectory().toString() + "/.video_pics";
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [97=4, 124=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [89=4, 116=4] */
     /* JADX WARN: Removed duplicated region for block: B:53:0x0163  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<d> bZ(Context context) {
+    public static List<d> ci(Context context) {
         Cursor cursor;
         Cursor cursor2;
         String videoPath;
@@ -46,21 +38,21 @@ public class e {
                 for (int i = 0; i < count; i++) {
                     d dVar = new d();
                     String string2 = cursor.getString(cursor.getColumnIndex("_id"));
-                    dVar.tx(string2);
+                    dVar.setVideoId(string2);
                     String string3 = cursor.getString(cursor.getColumnIndex("_data"));
                     if (string3 != null) {
                         dVar.setVideoPath(string3.replace("/storage/emulated/0", "/sdcard"));
                     }
                     dVar.setDuration(com.baidu.adp.lib.g.b.g(cursor.getString(cursor.getColumnIndex("duration")), 0));
                     dVar.setMimeType(cursor.getString(cursor.getColumnIndex("mime_type")));
-                    dVar.cO(Long.parseLong(cursor.getString(cursor.getColumnIndex("date_modified"))));
+                    dVar.cV(Long.parseLong(cursor.getString(cursor.getColumnIndex("date_modified"))));
                     try {
                         cursor2 = contentResolver.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, strArr, "video_id=" + string2, null, null);
                         if (cursor2 != null) {
                             try {
                                 try {
                                     if (cursor2.moveToFirst() && (string = cursor2.getString(cursor2.getColumnIndex("_data"))) != null) {
-                                        dVar.ty(string.replace("/storage/emulated/0", "/sdcard"));
+                                        dVar.ui(string.replace("/storage/emulated/0", "/sdcard"));
                                     }
                                 } catch (Throwable th) {
                                     th = th;
@@ -96,7 +88,7 @@ public class e {
                         cursor2 = null;
                     }
                     cursor.moveToNext();
-                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && tD(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
+                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && ul(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
                         videoPath = dVar.getVideoPath();
                         String substring2 = videoPath.substring(0, videoPath.lastIndexOf("/"));
                         if (!videoPath.contains("/DCIM/") && ((substring2 == null || !substring2.equals("/sdcard")) && (file = new File(videoPath)) != null && file.exists())) {
@@ -139,44 +131,18 @@ public class e {
         return arrayList;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public static int tz(String str) {
-        MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-        try {
-            try {
-                mediaMetadataRetriever.setDataSource(str);
-                int parseInt = Integer.parseInt(mediaMetadataRetriever.extractMetadata(20));
-                try {
-                    return parseInt;
-                } catch (Exception e) {
-                    return parseInt;
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                try {
-                    mediaMetadataRetriever.release();
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                }
-                return 0;
-            }
-        } finally {
-            try {
-                mediaMetadataRetriever.release();
-            } catch (Exception e4) {
-                e4.printStackTrace();
-            }
-        }
+    public static int tQ(String str) {
+        return f.tQ(str);
     }
 
-    public static d tA(String str) {
+    public static d uj(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
         }
         d dVar = new d();
         dVar.setVideoPath(str);
-        dVar.cO(file.lastModified());
+        dVar.cV(file.lastModified());
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
             try {
@@ -213,185 +179,48 @@ public class e {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:57:0x0114 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x0121 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:66:0x005e */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v11 */
-    /* JADX WARN: Type inference failed for: r2v12, types: [java.io.FileOutputStream] */
-    /* JADX WARN: Type inference failed for: r2v14 */
-    /* JADX WARN: Type inference failed for: r2v16 */
-    /* JADX WARN: Type inference failed for: r2v19 */
-    /* JADX WARN: Type inference failed for: r2v24 */
-    /* JADX WARN: Type inference failed for: r2v25 */
-    /* JADX WARN: Type inference failed for: r2v26 */
-    /* JADX WARN: Type inference failed for: r2v27 */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    /* JADX WARN: Type inference failed for: r3v10, types: [java.io.ByteArrayOutputStream] */
-    /* JADX WARN: Type inference failed for: r3v11 */
-    /* JADX WARN: Type inference failed for: r3v12 */
-    /* JADX WARN: Type inference failed for: r3v13 */
-    /* JADX WARN: Type inference failed for: r3v14, types: [java.io.OutputStream, java.io.ByteArrayOutputStream] */
-    /* JADX WARN: Type inference failed for: r3v15 */
-    /* JADX WARN: Type inference failed for: r3v16 */
-    /* JADX WARN: Type inference failed for: r3v17 */
-    /* JADX WARN: Type inference failed for: r3v18 */
-    /* JADX WARN: Type inference failed for: r3v5, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r3v6 */
-    /* JADX WARN: Type inference failed for: r3v7 */
-    /* JADX WARN: Type inference failed for: r3v8 */
-    /* JADX WARN: Type inference failed for: r3v9, types: [java.io.ByteArrayOutputStream] */
-    public static d tB(String str) {
-        Bitmap bitmap;
-        FileOutputStream fileOutputStream;
-        Exception e;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public static d uk(String str) {
         File file = new File(str);
-        if (file != null && file.exists() && file.isFile()) {
-            d dVar = new d();
-            dVar.setVideoPath(str);
-            dVar.cO(file.lastModified());
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            File file2 = new File(gHV);
-            if (!file2.exists()) {
-                file2.mkdir();
-            }
-            ?? r3 = ".png";
-            StringBuilder append = new StringBuilder().append(gHV).append(File.separator).append(tC(str)).append(".png");
-            String sb = append.toString();
-            try {
-                try {
-                    mediaMetadataRetriever.setDataSource(str);
-                    bitmap = mediaMetadataRetriever.getFrameAtTime(0L, 1);
-                    try {
-                        r3 = new ByteArrayOutputStream();
-                        try {
-                            bitmap.compress(Bitmap.CompressFormat.PNG, 50, r3);
-                            fileOutputStream = new FileOutputStream(sb);
-                            try {
-                                fileOutputStream.write(r3.toByteArray());
-                                dVar.ty(sb);
-                                dVar.setDuration(Integer.parseInt(mediaMetadataRetriever.extractMetadata(9)));
-                                dVar.setMimeType(mediaMetadataRetriever.extractMetadata(12));
-                                dVar.setVideoWidth(Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)));
-                                dVar.setVideoHeight(Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)));
-                                if (r3 != 0) {
-                                    try {
-                                        r3.close();
-                                    } catch (Exception e2) {
-                                        e2.printStackTrace();
-                                        append = fileOutputStream;
-                                        r3 = r3;
-                                    }
-                                }
-                                if (fileOutputStream != null) {
-                                    fileOutputStream.close();
-                                }
-                                if (bitmap != 0) {
-                                    bitmap.recycle();
-                                }
-                                mediaMetadataRetriever.release();
-                                append = fileOutputStream;
-                                r3 = r3;
-                            } catch (Exception e3) {
-                                e = e3;
-                                e.printStackTrace();
-                                if (r3 != 0) {
-                                    try {
-                                        r3.close();
-                                    } catch (Exception e4) {
-                                        e4.printStackTrace();
-                                        append = fileOutputStream;
-                                        r3 = r3;
-                                    }
-                                }
-                                if (fileOutputStream != null) {
-                                    fileOutputStream.close();
-                                }
-                                if (bitmap != null) {
-                                    bitmap.recycle();
-                                }
-                                mediaMetadataRetriever.release();
-                                append = fileOutputStream;
-                                r3 = r3;
-                                return dVar;
-                            }
-                        } catch (Exception e5) {
-                            fileOutputStream = null;
-                            e = e5;
-                        } catch (Throwable th) {
-                            th = th;
-                            append = 0;
-                            if (r3 != 0) {
-                                try {
-                                    r3.close();
-                                } catch (Exception e6) {
-                                    e6.printStackTrace();
-                                    throw th;
-                                }
-                            }
-                            if (append != 0) {
-                                append.close();
-                            }
-                            if (bitmap != null) {
-                                bitmap.recycle();
-                            }
-                            mediaMetadataRetriever.release();
-                            throw th;
-                        }
-                    } catch (Exception e7) {
-                        r3 = 0;
-                        e = e7;
-                        fileOutputStream = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        append = 0;
-                        r3 = 0;
-                    }
-                } catch (Throwable th3) {
-                    th = th3;
-                }
-            } catch (Exception e8) {
-                r3 = 0;
-                bitmap = null;
-                fileOutputStream = null;
-                e = e8;
-            } catch (Throwable th4) {
-                th = th4;
-                append = 0;
-                r3 = 0;
-                bitmap = null;
-            }
-            return dVar;
+        if (file == null || !file.exists() || !file.isFile()) {
+            return null;
         }
-        return null;
+        d dVar = new d();
+        dVar.setVideoPath(str);
+        dVar.cV(file.lastModified());
+        MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+        try {
+            try {
+                mediaMetadataRetriever.setDataSource(str);
+                dVar.setDuration(Integer.parseInt(mediaMetadataRetriever.extractMetadata(9)));
+                dVar.setMimeType(mediaMetadataRetriever.extractMetadata(12));
+                dVar.setVideoWidth(Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)));
+                dVar.setVideoHeight(Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)));
+            } finally {
+                try {
+                    mediaMetadataRetriever.release();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            try {
+                mediaMetadataRetriever.release();
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
+        }
+        return dVar;
     }
 
-    public static String tC(String str) {
-        if (str == null || str.isEmpty()) {
-            return "";
-        }
-        try {
-            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
-            StringBuilder sb = new StringBuilder(digest.length * 2);
-            for (byte b : digest) {
-                if ((b & 255) < 16) {
-                    sb.append("0");
-                }
-                sb.append(Integer.toHexString(b & 255));
-            }
-            return sb.toString();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            return "";
-        } catch (NoSuchAlgorithmException e2) {
-            e2.printStackTrace();
-            return "";
-        }
+    public static String tP(String str) {
+        return f.tP(str);
     }
 
     public static void d(String str, List<d> list, boolean z) {
         File[] listFiles;
-        d tA;
+        d uj;
         if (list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
             for (File file : listFiles) {
                 if (file != null && !StringUtils.isNull(file.getPath())) {
@@ -401,8 +230,8 @@ public class e {
                             if (file.exists()) {
                                 file.delete();
                             }
-                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (tA = tA(file.getPath())) != null && file.length() > 102400 && tA.getDuration() >= 1000 && tD(tA.getMimeType())) {
-                            list.add(tA);
+                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (uj = uj(file.getPath())) != null && file.length() > 102400 && uj.getDuration() >= 1000 && ul(uj.getMimeType())) {
+                            list.add(uj);
                         }
                     } else if (file.isDirectory() && !path.contains("/.") && z) {
                         d(path, list, z);
@@ -412,7 +241,7 @@ public class e {
         }
     }
 
-    public static void dF(List<d> list) {
+    public static void dS(List<d> list) {
         Collections.sort(list, new a());
     }
 
@@ -433,7 +262,7 @@ public class e {
         }
     }
 
-    public static boolean tD(String str) {
+    public static boolean ul(String str) {
         return "video/mp4".equals(str) || "video/ext-mp4".equals(str);
     }
 }

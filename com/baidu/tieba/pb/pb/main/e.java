@@ -4,16 +4,16 @@ import android.webkit.WebView;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public interface e {
-    public static final AtomicReference<a> eKc = new AtomicReference<>(null);
+    public static final AtomicReference<a> eRH = new AtomicReference<>(null);
 
     /* loaded from: classes.dex */
     public interface a {
         e a(PbActivity pbActivity);
     }
 
-    void Q(int i, String str);
+    void W(int i, String str);
 
-    WebView aRk();
+    WebView aSA();
 
-    void aRl();
+    void aSB();
 }

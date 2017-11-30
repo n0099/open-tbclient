@@ -9,40 +9,40 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends d {
-    private ViewGroup abJ;
-    private TextView abK;
-    private TextView abL;
-    private View.OnClickListener abM;
+    private ViewGroup ace;
+    private TextView acf;
+    private TextView acg;
+    private View.OnClickListener ach;
     private TbPageContext<?> mPageContext;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
-        this.abJ = (ViewGroup) ((ViewStub) getRootView().findViewById(d.g.yes_no_viewStub)).inflate();
-        this.abK = (TextView) this.abJ.findViewById(d.g.yes);
-        this.abL = (TextView) this.abJ.findViewById(d.g.no);
+        this.ace = (ViewGroup) ((ViewStub) getRootView().findViewById(d.g.yes_no_viewStub)).inflate();
+        this.acf = (TextView) this.ace.findViewById(d.g.yes);
+        this.acg = (TextView) this.ace.findViewById(d.g.no);
     }
 
     public e a(int i, View.OnClickListener onClickListener) {
-        this.abK.setText(i);
-        this.abK.setOnClickListener(onClickListener);
-        this.abM = onClickListener;
+        this.acf.setText(i);
+        this.acf.setOnClickListener(onClickListener);
+        this.ach = onClickListener;
         return this;
     }
 
     public void setPositiveButtonEnable(boolean z) {
         if (z) {
-            aj.i(this.abK, d.C0080d.cp_link_tip_a);
-            this.abK.setOnClickListener(this.abM);
+            aj.i(this.acf, d.C0082d.cp_link_tip_a);
+            this.acf.setOnClickListener(this.ach);
             return;
         }
-        aj.i(this.abK, d.C0080d.cp_cont_e);
-        this.abK.setOnClickListener(null);
+        aj.i(this.acf, d.C0082d.cp_cont_e);
+        this.acf.setOnClickListener(null);
     }
 
     public e b(int i, View.OnClickListener onClickListener) {
-        this.abL.setText(i);
-        this.abL.setOnClickListener(onClickListener);
+        this.acg.setText(i);
+        this.acg.setOnClickListener(onClickListener);
         return this;
     }
 }

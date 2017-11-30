@@ -3,13 +3,17 @@ package com.baidu.tieba.im.db.pojo;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
+import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import com.baidu.tieba.im.sendmessage.a;
+import com.baidu.tieba.im.util.e;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class CommonMsgPojo extends OrmObject implements Serializable {
@@ -22,6 +26,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
     private long create_time;
     private int customGroupType;
     private String ext;
+    private int followStatus;
     private String gid;
     private int isFriend;
     private boolean isPrivate;
@@ -86,15 +91,20 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.dLo);
+                this.gid = String.valueOf(a.dTc);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(a.dLp);
+                this.gid = String.valueOf(a.dTd);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());
             this.toUid = String.valueOf(chatMessage.getToUserId());
             this.user_info_data = chatMessage.getUserInfo();
             this.to_user_info_data = chatMessage.getToUserInfo();
+            try {
+                this.to_user_info = OrmObject.jsonStrWithObject(chatMessage.getToUserInfo());
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
             this.create_time = chatMessage.getTime();
             this.msg_type = chatMessage.getMsgType();
             if (chatMessage.getLocalData() != null) {
@@ -107,6 +117,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             this.rid = chatMessage.getRecordId();
             checkRidAndSelf();
             this.isFriend = chatMessage.getIsFriend();
+            this.followStatus = chatMessage.getFollowStatus();
         }
     }
 
@@ -161,6 +172,115 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
 
     public void setTaskId(String str) {
         this.taskId = str;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:16:0x002f  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0096  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x00c0  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00fc  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public ChatMessage toChatMessage() {
+        Exception exc;
+        long j;
+        long j2;
+        long j3;
+        ChatMessage personalChatMessage;
+        UserData userInfo;
+        UserData toUserInfo;
+        OldUserData oldUserData;
+        long j4;
+        OldUserData oldUserData2;
+        long j5 = 0;
+        try {
+            j2 = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
+            try {
+                j3 = (this.toUid == null || this.toUid.length() <= 0) ? 0L : Long.parseLong(this.toUid);
+            } catch (Exception e) {
+                j = j2;
+                exc = e;
+                exc.printStackTrace();
+                j2 = j;
+                j3 = 0;
+                if (!TextUtils.isEmpty(this.toUid)) {
+                }
+                personalChatMessage.setMsgId(this.mid);
+                personalChatMessage.setUserId(j2);
+                personalChatMessage.setToUserId(j3);
+                personalChatMessage.setRecordId(this.rid);
+                this.user_info_data = (UserData) OrmObject.objectWithJsonStr(this.user_info, UserData.class);
+                this.to_user_info_data = (UserData) OrmObject.objectWithJsonStr(this.to_user_info, UserData.class);
+                personalChatMessage.setUserInfo(this.user_info_data);
+                personalChatMessage.setToUserInfo(this.to_user_info_data);
+                personalChatMessage.setTime(this.create_time);
+                personalChatMessage.setMsgType((short) this.msg_type);
+                MsgLocalData msgLocalData = new MsgLocalData();
+                msgLocalData.setStatus(Short.valueOf((short) this.msg_status));
+                personalChatMessage.setLocalData(msgLocalData);
+                personalChatMessage.setContent(this.content);
+                userInfo = personalChatMessage.getUserInfo();
+                if (userInfo != null) {
+                }
+                toUserInfo = personalChatMessage.getToUserInfo();
+                if (toUserInfo != null) {
+                }
+                e.y(personalChatMessage);
+                personalChatMessage.setIsFriend(this.isFriend);
+                personalChatMessage.setFollowStatus(this.followStatus);
+                return personalChatMessage;
+            }
+        } catch (Exception e2) {
+            exc = e2;
+            j = 0;
+        }
+        if (!TextUtils.isEmpty(this.toUid)) {
+            personalChatMessage = new GroupChatMessage();
+            ((GroupChatMessage) personalChatMessage).setGroupId(this.gid);
+        } else {
+            personalChatMessage = new PersonalChatMessage();
+        }
+        personalChatMessage.setMsgId(this.mid);
+        personalChatMessage.setUserId(j2);
+        personalChatMessage.setToUserId(j3);
+        personalChatMessage.setRecordId(this.rid);
+        this.user_info_data = (UserData) OrmObject.objectWithJsonStr(this.user_info, UserData.class);
+        this.to_user_info_data = (UserData) OrmObject.objectWithJsonStr(this.to_user_info, UserData.class);
+        personalChatMessage.setUserInfo(this.user_info_data);
+        personalChatMessage.setToUserInfo(this.to_user_info_data);
+        personalChatMessage.setTime(this.create_time);
+        personalChatMessage.setMsgType((short) this.msg_type);
+        MsgLocalData msgLocalData2 = new MsgLocalData();
+        msgLocalData2.setStatus(Short.valueOf((short) this.msg_status));
+        personalChatMessage.setLocalData(msgLocalData2);
+        personalChatMessage.setContent(this.content);
+        userInfo = personalChatMessage.getUserInfo();
+        if (userInfo != null) {
+            if (k.isEmpty(userInfo.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
+                oldUserData2.setToUserData(userInfo);
+            }
+            try {
+                j4 = Long.parseLong(userInfo.getUserId());
+            } catch (Exception e3) {
+                j4 = 0;
+            }
+            personalChatMessage.setUserId(j4);
+        }
+        toUserInfo = personalChatMessage.getToUserInfo();
+        if (toUserInfo != null) {
+            if (k.isEmpty(toUserInfo.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
+                oldUserData.setToUserData(toUserInfo);
+            }
+            try {
+                j5 = Long.parseLong(toUserInfo.getUserId());
+            } catch (Exception e4) {
+            }
+            personalChatMessage.setToUserId(j5);
+        }
+        e.y(personalChatMessage);
+        personalChatMessage.setIsFriend(this.isFriend);
+        personalChatMessage.setFollowStatus(this.followStatus);
+        return personalChatMessage;
     }
 
     public String getGid() {
@@ -298,6 +418,14 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
 
     public void setIsFriend(int i) {
         this.isFriend = i;
+    }
+
+    public void setFollowStatus(int i) {
+        this.followStatus = i;
+    }
+
+    public int getFollowStatus() {
+        return this.followStatus;
     }
 
     public int getCustomGroupType() {

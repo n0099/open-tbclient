@@ -1,113 +1,30 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.x;
-import java.lang.ref.WeakReference;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.bf;
+import com.baidu.tbadk.core.data.bi;
 /* loaded from: classes.dex */
-public class v {
-    private String aiB = "bar_detail";
-    private a gpy;
+public class v extends bd {
+    public static final BdUniqueId gym = BdUniqueId.gen();
+    private bf gyn;
+    private bi gyo;
+    private boolean gyp = false;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void l(String str, long j);
-
-        void m(String str, long j);
+    @Override // com.baidu.tbadk.core.data.bd, com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return gym;
     }
 
-    public void setFrom(String str) {
-        this.aiB = str;
+    public boolean bvG() {
+        return this.gyp;
     }
 
-    public void a(a aVar) {
-        this.gpy = aVar;
+    public bf bvH() {
+        return this.gyn;
     }
 
-    public void s(String str, long j) {
-        new b(str, j, this.aiB, this.gpy).execute(new Integer[0]);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class b extends BdAsyncTask<Integer, Integer, Integer> {
-        private String aiB;
-        private WeakReference<a> gpz;
-        private long mForumId;
-        private String mForumName;
-        private x mNetwork = null;
-
-        public b(String str, long j, String str2, a aVar) {
-            this.mForumName = null;
-            this.mForumId = 0L;
-            this.gpz = null;
-            this.mForumName = str;
-            this.mForumId = j;
-            this.gpz = new WeakReference<>(aVar);
-            this.aiB = str2;
-            setPriority(3);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Integer doInBackground(Integer... numArr) {
-            int i;
-            try {
-                if (this.mForumId != 0 && this.mForumName != null) {
-                    this.mNetwork = new x(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
-                    this.mNetwork.n(ImageViewerConfig.FORUM_ID, String.valueOf(this.mForumId));
-                    this.mNetwork.n("kw", this.mForumName);
-                    this.mNetwork.n("favo_type", "1");
-                    this.mNetwork.n("st_type", this.aiB);
-                    this.mNetwork.uN().vK().mIsNeedTbs = true;
-                    this.mNetwork.up();
-                    if (this.mNetwork.uN().vL().isRequestSuccess()) {
-                        i = 1;
-                        return i;
-                    }
-                }
-                i = 0;
-                return i;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return 0;
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Integer num) {
-            super.onPostExecute((b) num);
-            if (this.gpz != null) {
-                com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
-                aVar.forumId = this.mForumId;
-                a aVar2 = this.gpz.get();
-                if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.uN().vL().isRequestSuccess()) {
-                        TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
-                        aVar2.l(this.mForumName, this.mForumId);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(this.mForumId)));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM_NAME, this.mForumName));
-                        aVar.isSuccess = true;
-                    } else {
-                        aVar2.m(this.mForumName, this.mForumId);
-                        aVar.isSuccess = false;
-                        if (this.mNetwork != null) {
-                            aVar.errorMessage = this.mNetwork.uQ() ? this.mNetwork.getErrorString() : this.mNetwork.uT();
-                        }
-                    }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM, aVar));
-                }
-            }
-        }
+    public bi bvI() {
+        return this.gyo;
     }
 }

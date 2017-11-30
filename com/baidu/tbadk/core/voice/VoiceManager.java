@@ -160,7 +160,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     int intExtra = intent.getIntExtra("com.baidu.msg.playElapsedTime", 0);
                     b playView2 = VoiceManager.this.getPlayView();
                     if (playView2 != null) {
-                        playView2.aR(intExtra);
+                        playView2.aS(intExtra);
                     }
                     if (VoiceManager.this.mCurPlayModel != null) {
                         VoiceManager.this.mCurPlayModel.elapse = intExtra;
@@ -199,7 +199,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                         }
                         b playView4 = VoiceManager.this.getPlayView();
                         if (playView4 != null) {
-                            playView4.lN();
+                            playView4.lQ();
                         }
                         MediaService.startPlay(context);
                         return;
@@ -233,7 +233,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     /* loaded from: classes.dex */
     public interface b {
-        void aR(int i);
+        void aS(int i);
 
         void b(VoiceData.VoiceModel voiceModel);
 
@@ -241,7 +241,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
         VoiceData.VoiceModel getVoiceModel();
 
-        void lN();
+        void lQ();
 
         void onShowErr(int i, String str);
     }
@@ -386,14 +386,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     }
                 };
             }
-            Object eu = com.baidu.tbadk.core.voice.a.eu(voiceModel.getId());
-            if (eu == null) {
+            Object ez = com.baidu.tbadk.core.voice.a.ez(voiceModel.getId());
+            if (ez == null) {
                 if (this.context != null && (this.context.getOrignalPage() instanceof com.baidu.adp.base.h)) {
                     bdUniqueId = ((com.baidu.adp.base.h) this.context.getOrignalPage()).getUniqueId();
                 }
-                eu = com.baidu.adp.lib.f.c.fJ().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
+                ez = com.baidu.adp.lib.f.c.fJ().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
             }
-            if (voiceModel.isLocal && eu == null) {
+            if (voiceModel.isLocal && ez == null) {
                 if (this.mPlayCall == null) {
                     this.mPlayCall = new d();
                 }
@@ -404,8 +404,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     jVar.h("from", voiceModel.from);
                 }
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "VoiceManager.setDownloading() error : record file not exists", jVar.toString());
-            } else if (eu != null) {
-                setPlaying(voiceModel, (String) eu);
+            } else if (ez != null) {
+                setPlaying(voiceModel, (String) ez);
             } else {
                 voiceModel.voice_status = 2;
                 b playView = getPlayView();
@@ -446,7 +446,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public void startPlay(b bVar) {
-        if (bVar != null && !ab.aO(this.context.getPageActivity()) && !ab.aL(null)) {
+        if (bVar != null && !ab.aQ(this.context.getPageActivity()) && !ab.aN(null)) {
             if (this.mHandle != null) {
                 this.mHandle.removeCallbacks(this.stopVoiceAndRePlayRunnable);
             }
@@ -545,7 +545,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         public void aA(int i) {
             b playView = VoiceManager.this.getPlayView();
             if (playView != null) {
-                playView.aR(i);
+                playView.aS(i);
             }
             if (VoiceManager.this.mCurPlayModel != null) {
                 VoiceManager.this.mCurPlayModel.elapse = i;

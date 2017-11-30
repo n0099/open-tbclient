@@ -2,18 +2,18 @@ package com.baidu.tieba.frs.entelechy;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tieba.frs.entelechy.a.t;
+import com.baidu.tieba.frs.entelechy.a.u;
 import com.baidu.tieba.frs.f;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tieba.frs.entelechy.b.a {
-    private a cDh;
+    private a cMk;
 
     public com.baidu.tieba.frs.entelechy.b.d z(f fVar) {
         return new com.baidu.tieba.frs.entelechy.c.a(fVar);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b ald() {
+    public com.baidu.tieba.frs.entelechy.b.b amZ() {
         return new d();
     }
 
@@ -22,13 +22,13 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
         if (fVar == null) {
             return null;
         }
-        this.cDh = new c(fVar, null, null, i);
-        this.cDh.a(fVar.ajc());
-        return this.cDh;
+        this.cMk = new c(fVar, null, null, i);
+        this.cMk.a(fVar.akW());
+        return this.cMk;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public t a(f fVar, BdTypeListView bdTypeListView, boolean z) {
+    public u a(f fVar, BdTypeListView bdTypeListView, boolean z) {
         return new com.baidu.tieba.frs.entelechy.a.b(fVar, bdTypeListView, z);
     }
 
@@ -36,7 +36,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
     @Override // com.baidu.tieba.frs.entelechy.b.a
     /* renamed from: a */
     public com.baidu.tieba.frs.g.d c(f fVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (fVar.ajE()) {
+        if (fVar.aly()) {
             return null;
         }
         return new com.baidu.tieba.frs.g.d(fVar, noPressedRelativeLayout);
@@ -47,9 +47,9 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
         return new com.baidu.tieba.frs.g.b(fVar, noPressedRelativeLayout);
     }
 
-    public c ale() {
-        if (this.cDh instanceof c) {
-            return (c) this.cDh;
+    public c ana() {
+        if (this.cMk instanceof c) {
+            return (c) this.cMk;
         }
         return null;
     }

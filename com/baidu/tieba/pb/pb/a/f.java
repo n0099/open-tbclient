@@ -1,75 +1,141 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.j;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadPendantView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.d;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.m;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.pb.pb.main.view.TriangleShapeView;
+import com.baidu.tieba.pb.pb.sub.SubPbLayout;
+import com.baidu.tieba.pb.view.PbGiftListView;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
 /* loaded from: classes.dex */
-public class f extends m<PostData, a> {
-    private View.OnClickListener baV;
+public class f extends j.a {
+    UserIconBox aov;
+    public TextView bWx;
+    public RelativeLayout bpX;
+    public UserIconBox dbM;
+    public View eQA;
+    public RelativeLayout eQB;
+    public TextView eQC;
+    public TextView eQD;
+    public TextView eQE;
+    public TextView eQF;
+    public TextView eQG;
+    public TriangleShapeView eQH;
+    public TextView eQI;
+    public View eQb;
+    public View eQc;
+    public View eQd;
+    public HeadPendantView eQe;
+    public HeadImageView eQf;
+    public ImageView eQg;
+    public ImageView eQh;
+    public TextView eQi;
+    public TextView eQj;
+    public TextView eQk;
+    public TbRichTextView eQl;
+    public FrsPraiseView eQm;
+    public ImageView eQn;
+    public PbGiftListView eQo;
+    public SubPbLayout eQp;
+    public RelativeLayout eQq;
+    public RelativeLayout eQr;
+    public View eQs;
+    public LinearLayout eQt;
+    public TextView eQu;
+    public LinearLayout eQv;
+    public Button eQw;
+    public LinearLayout eQx;
+    public TextView eQy;
+    public View eQz;
+    public int mSkinType;
 
-    public f(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
-    }
-
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.baV = onClickListener;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bn */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_load_more_item, viewGroup, false);
-        inflate.findViewById(d.g.tv_pb_reply_more).setOnClickListener(this.baV);
-        a aVar = new a(inflate);
-        aVar.AN();
-        return aVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, PostData postData, a aVar) {
-        aVar.setData(postData);
-        return aVar.getView();
-    }
-
-    /* loaded from: classes.dex */
-    public static class a extends j.a {
-        private TextView eIh;
-
-        public a(View view) {
-            super(view);
-            this.eIh = (TextView) view.findViewById(d.g.tv_pb_reply_more);
+    public f(View view, boolean z, int i, boolean z2) {
+        super(view);
+        this.mSkinType = 3;
+        this.eQd = view.findViewById(d.g.sub_pb_more);
+        this.eQq = (RelativeLayout) view.findViewById(d.g.user_head_layout);
+        this.eQr = (RelativeLayout) view.findViewById(d.g.pb_item_floor_layout);
+        this.eQf = (HeadImageView) view.findViewById(d.g.photo);
+        this.eQe = (HeadPendantView) view.findViewById(d.g.pendant_photo);
+        this.eQe.wk();
+        if (this.eQe.getHeadView() != null) {
+            this.eQe.getHeadView().setIsRound(true);
+            this.eQe.getHeadView().setDrawBorder(false);
         }
-
-        public void setData(PostData postData) {
-            if (postData != null) {
-                if (postData.gqM) {
-                    Drawable drawable = aj.getDrawable(d.f.icon_emotion_smallarrow_n);
-                    drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.eIh.setCompoundDrawables(null, null, drawable, null);
-                    return;
-                }
-                Drawable drawable2 = aj.getDrawable(d.f.icon_emotion_smallarrow_down);
-                drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.eIh.setCompoundDrawables(null, null, drawable2, null);
-            }
+        if (this.eQe.getPendantView() != null) {
+            this.eQe.getPendantView().setIsRound(true);
+            this.eQe.getPendantView().setDrawBorder(false);
         }
-
-        public void AN() {
-            aj.i(this.eIh, d.C0080d.cp_cont_d);
+        this.bWx = (TextView) view.findViewById(d.g.user_name);
+        this.eQg = (ImageView) view.findViewById(d.g.user_rank);
+        this.eQh = (ImageView) view.findViewById(d.g.user_bawu);
+        this.eQl = (TbRichTextView) view.findViewById(d.g.richText);
+        this.eQm = (FrsPraiseView) view.findViewById(d.g.pb_item_praise_view);
+        this.eQn = (ImageView) view.findViewById(d.g.pb_item_praise_bottomline);
+        this.eQo = (PbGiftListView) view.findViewById(d.g.gift_list_view);
+        this.eQB = (RelativeLayout) view.findViewById(d.g.pb_first_floor_location_container);
+        this.eQC = (TextView) view.findViewById(d.g.pb_item_first_floor_name);
+        this.eQD = (TextView) view.findViewById(d.g.pb_item_first_floor_reply_time);
+        this.eQE = (TextView) view.findViewById(d.g.pb_item_first_floor_location_address);
+        this.eQF = (TextView) view.findViewById(d.g.pb_reply_location_address);
+        this.eQk = (TextView) view.findViewById(d.g.floor_owner);
+        this.eQi = (TextView) view.findViewById(d.g.floor);
+        this.eQj = (TextView) view.findViewById(d.g.time);
+        this.bpX = (RelativeLayout) view.findViewById(d.g.pb_post_header_layout);
+        this.eQp = (SubPbLayout) view.findViewById(d.g.pb_post_footer_layout);
+        this.eQb = view;
+        this.eQc = view.findViewById(d.g.new_pb_list_item_blank_top);
+        this.eQs = view.findViewById(d.g.new_pb_list_item_line_full);
+        this.eQl.getLayoutStrategy().Jp();
+        this.eQl.getLayoutStrategy().cf(true);
+        int min = Math.min(((((l.ac(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.eQl.getPaddingLeft()) - this.eQl.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds60)), i);
+        this.eQl.getLayoutStrategy().fT(min);
+        this.eQl.getLayoutStrategy().fU((int) (min * 1.618f));
+        this.eQl.setTextSize(TbConfig.getContentSize());
+        ViewGroup.LayoutParams layoutParams = this.eQf.getLayoutParams();
+        layoutParams.width = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds60);
+        this.eQf.setLayoutParams(layoutParams);
+        this.eQf.setVisibility(0);
+        this.eQl.m(z, false);
+        this.eQl.setVoiceViewRes(d.h.voice_play_btn);
+        this.dbM = (UserIconBox) view.findViewById(d.g.user_icon_box);
+        this.aov = (UserIconBox) view.findViewById(d.g.user_tshow_icon_box);
+        this.eQt = (LinearLayout) view.findViewById(d.g.add_post_footer_layout);
+        if (z2) {
+            this.bpX.setVisibility(8);
+            this.eQl.setPadding(0, 0, 0, 0);
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.eQl.getLayoutParams();
+            layoutParams2.leftMargin = 0;
+            layoutParams2.rightMargin = 0;
+            layoutParams2.topMargin = 0;
+            layoutParams2.bottomMargin = 0;
+            this.eQl.setLayoutParams(layoutParams2);
+            view.findViewById(d.g.pb_list_item_layout).setPadding(0, 0, 0, 0);
+            this.eQv = (LinearLayout) view.findViewById(d.g.add_time_container);
+            this.eQu = (TextView) view.findViewById(d.g.add_time);
+            this.eQw = (Button) view.findViewById(d.g.manage_btn);
+            this.eQv.setVisibility(0);
         }
+        this.eQx = (LinearLayout) view.findViewById(d.g.addition_more_container);
+        this.eQy = (TextView) this.eQx.findViewById(d.g.addition_more);
+        this.eQz = this.eQx.findViewById(d.g.addition_divider1);
+        this.eQA = this.eQx.findViewById(d.g.addition_divider2);
+        this.eQG = (TextView) view.findViewById(d.g.pb_item_tail_content);
+        this.eQH = (TriangleShapeView) view.findViewById(d.g.triangle_view);
+        this.eQI = (TextView) view.findViewById(d.g.new_pb_recent_reply);
+        this.eQI.setVisibility(8);
     }
 }

@@ -6,7 +6,7 @@ public class e {
     private String appId = "";
     private String appName = "";
     private String packageName = "";
-    private boolean aqM = false;
+    private boolean are = false;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -24,11 +24,11 @@ public class e {
         return this.packageName;
     }
 
-    public boolean xO() {
-        return this.aqM;
+    public boolean xP() {
+        return this.are;
     }
 
     public void aQ(boolean z) {
-        this.aqM = z;
+        this.are = z;
     }
 }

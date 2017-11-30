@@ -15,18 +15,17 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.card.data.CardHListViewData;
 import com.baidu.tieba.card.data.CardHListViewNormalItemData;
 import com.baidu.tieba.card.v;
-import com.baidu.tieba.card.x;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> implements v, com.baidu.tieba.frs.e.c {
-    private x cEu;
+public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.e.c {
+    private v cNy;
     private String mForumName;
 
-    public static void bh(long j) {
-        if (j > 0 && cPx != null && !TextUtils.isEmpty(cPx.cPp)) {
+    public static void bp(long j) {
+        if (j > 0 && cYM != null && !TextUtils.isEmpty(cYM.cYE)) {
             ak akVar = new ak("c11958");
             akVar.f("tid", j);
-            akVar.ac(ImageViewerConfig.FORUM_ID, cPx.cPp);
+            akVar.ac(ImageViewerConfig.FORUM_ID, cYM.cYE);
             TiebaStatic.log(akVar);
         }
     }
@@ -34,9 +33,9 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cEu = new x<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
+        this.cNy = new v<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.x
+            @Override // com.baidu.tieba.card.v
             public void a(View view, CardHListViewData cardHListViewData, Object obj) {
                 if (h.this.mPageContext != null) {
                     if (view.getId() == d.g.hlistview_item_layout_root) {
@@ -44,9 +43,9 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
                             CardHListViewNormalItemData cardHListViewNormalItemData = (CardHListViewNormalItemData) obj;
                             PbActivityConfig createNormalCfg = new PbActivityConfig(h.this.mPageContext.getPageActivity()).createNormalCfg(String.valueOf(cardHListViewNormalItemData.threadId), null, "frs_page");
                             createNormalCfg.setForumId(String.valueOf(cardHListViewNormalItemData.forumId));
-                            createNormalCfg.setStartFrom(1);
+                            createNormalCfg.setStartFrom(3);
                             h.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
-                            h.bh(cardHListViewNormalItemData.threadId);
+                            h.bp(cardHListViewNormalItemData.threadId);
                         }
                     } else if (view.getId() == d.g.fourm_name && (obj instanceof CardHListViewNormalItemData)) {
                         h.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(h.this.mContext).createNormalCfg(String.valueOf(((CardHListViewNormalItemData) obj).forumName), FrsActivityConfig.FRS_TO_PB)));
@@ -59,9 +58,11 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: S */
+    /* renamed from: U */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a(new com.baidu.tieba.card.h(this.mPageContext));
+        com.baidu.tieba.card.h hVar = new com.baidu.tieba.card.h(this.mPageContext);
+        hVar.currentPageType = 3;
+        return new com.baidu.tieba.card.a.a(hVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -69,15 +70,15 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
     @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardHListViewData cardHListViewData, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.aaJ() == null) {
+        if (aVar == null || aVar.acs() == null) {
             return null;
         }
-        aVar.aaJ().a((com.baidu.tieba.card.a) cardHListViewData);
-        aVar.aaJ().b(this.cEu);
+        aVar.acs().a(cardHListViewData);
+        aVar.acs().b(this.cNy);
         return aVar.getView();
     }
 
-    @Override // com.baidu.tieba.card.v
+    @Override // com.baidu.tieba.card.u
     public void setForumName(String str) {
         this.mForumName = str;
     }

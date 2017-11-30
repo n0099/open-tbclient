@@ -106,7 +106,6 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.is_like == 1;
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.a
     public void setIsLike(boolean z) {
         this.is_like = z ? 1 : 0;
         this.mHadConcerned = z;

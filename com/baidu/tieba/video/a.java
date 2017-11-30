@@ -1,14 +1,14 @@
 package com.baidu.tieba.video;
 /* loaded from: classes2.dex */
 public class a {
-    public float gDu;
-    public float gDv;
-    public float gDw;
-    public float gDx;
-    public float gDy;
+    public float gMM;
+    public float gMN;
+    public float gMO;
+    public float gMP;
+    public float gMQ;
     public int level;
 
-    public static a uK(int i) {
+    public static a vb(int i) {
         switch (i) {
             case 0:
                 return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
@@ -30,11 +30,11 @@ public class a {
     private static a a(int i, float f, float f2, float f3, float f4, float f5) {
         a aVar = new a();
         aVar.level = i;
-        aVar.gDu = f;
-        aVar.gDv = f2;
-        aVar.gDw = f3;
-        aVar.gDx = f4;
-        aVar.gDy = f5;
+        aVar.gMM = f;
+        aVar.gMN = f2;
+        aVar.gMO = f3;
+        aVar.gMP = f4;
+        aVar.gMQ = f5;
         return aVar;
     }
 }

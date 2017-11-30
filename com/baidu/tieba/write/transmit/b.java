@@ -1,12 +1,10 @@
 package com.baidu.tieba.write.transmit;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.TextView;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.aj;
@@ -16,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private static int eCV = 3;
+    private static int eJj = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -54,7 +52,7 @@ public class b extends BaseAdapter {
             }
         }
         if (aVar != null) {
-            aVar.wB();
+            aVar.wE();
             aVar.b(this.mDataList.get(i));
         }
         return view;
@@ -62,54 +60,45 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public TextView bRT;
-        public CheckBox eCW;
-        public BarImageView eCX;
-        private Drawable eCY;
-        private Drawable gTO;
+        public TextView aoD;
+        public BarImageView eJl;
+        public View heI;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.bRT = (TextView) view.findViewById(d.g.transmit_forum_name);
-                this.eCW = (CheckBox) view.findViewById(d.g.transmit_check_box);
-                this.eCX = (BarImageView) view.findViewById(d.g.forum_avatar);
+                this.aoD = (TextView) view.findViewById(d.g.transmit_forum_name);
+                this.eJl = (BarImageView) view.findViewById(d.g.forum_avatar);
+                this.heI = view.findViewById(d.g.divider_line);
             }
         }
 
         public void b(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.bRT.setText(transmitForumData.forumName);
-                this.eCW.setChecked(transmitForumData.checked);
-                this.eCX.startLoad(transmitForumData.avatar, 10, false);
-                if (transmitForumData.aaB) {
-                    this.eCW.setButtonDrawable(this.gTO);
-                } else {
-                    this.eCW.setButtonDrawable(this.eCY);
-                }
+                this.aoD.setText(transmitForumData.forumName);
+                this.eJl.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
-        public void wB() {
-            if (b.eCV != this.mSkinType) {
-                aj.i(this.bRT, d.C0080d.cp_cont_b);
-                this.gTO = aj.getDrawable(d.f.icon_list_confirm_d);
-                this.eCY = aj.getDrawable(d.f.transmit_check_box);
+        public void wE() {
+            if (b.eJj != this.mSkinType) {
+                aj.i(this.aoD, d.C0082d.cp_cont_b);
+                aj.k(this.heI, d.C0082d.cp_bg_line_c);
             }
-            this.mSkinType = b.eCV;
+            this.mSkinType = b.eJj;
         }
     }
 
-    public void Z(List<TransmitForumData> list) {
+    public void al(List<TransmitForumData> list) {
         this.mDataList.clear();
         this.mDataList.addAll(list);
         notifyDataSetChanged();
     }
 
-    public void pk(int i) {
-        if (eCV != i) {
+    public void onChangeSkinType(int i) {
+        if (eJj != i) {
             notifyDataSetChanged();
         }
-        eCV = i;
+        eJj = i;
     }
 }

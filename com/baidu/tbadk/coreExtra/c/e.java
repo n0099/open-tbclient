@@ -1,329 +1,173 @@
 package com.baidu.tbadk.coreExtra.c;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import android.content.Context;
+import android.net.Uri;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.s;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbDomainConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.d;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class e {
-    private String atj;
-    private String atk;
-    private String atl;
-    private String atm;
-    private String atp;
-    private String atq;
-    private String atr;
-    private String ats;
-    private String att;
-    private String atu;
-    private int asN = 0;
-    private int asO = 0;
-    private int asP = 0;
-    private int asQ = 0;
-    private int asR = 0;
-    private int asS = 0;
-    private int asT = 0;
-    private int asU = 0;
-    private int asV = 0;
-    private int asW = 0;
-    private int asX = 0;
-    private int asY = 0;
-    private int asZ = 0;
-    private int ata = 0;
-    private int atb = 0;
-    private int atc = 0;
-    private int atd = 0;
-    private int ate = 0;
-    private int atf = 0;
-    private int atg = 0;
-    private boolean ath = true;
-    private boolean ati = true;
-    private HashMap<String, String> atn = new HashMap<>();
-    private HashMap<String, String> ato = new HashMap<>();
-    private String atv = null;
-    private String atw = null;
-    private List<b> atx = new ArrayList();
-    private List<a> aty = new ArrayList();
+    private a auM;
+    private b auN;
+    private String auO = TbadkCoreApplication.getInst().getContext().getString(d.j.share_tail);
+    private String auP = TbadkCoreApplication.getInst().getContext().getString(d.j.weibo_share_tail) + this.auO;
+    private final Context mContext;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public int atA;
-        public int atz;
-        public String content;
-        public String groupName;
-        public String title;
-        public int unReadCount;
-    }
-
-    /* loaded from: classes.dex */
-    public static class b {
-        public int atA;
-        public String atB;
-        public String atC;
-        public int atz;
-        public String content;
-        public String title;
-        public int unReadCount;
-        public int userType;
-    }
-
-    public void zR() {
-        HashMap<String, String> Ah = Ah();
-        Set<String> keySet = Ah.keySet();
-        if (keySet.size() != 1) {
-            eQ(null);
-        } else {
-            eQ(Ah.get(keySet.iterator().next()));
+    public e(Context context, a aVar) {
+        c cVar;
+        this.auM = null;
+        this.auN = null;
+        this.mContext = context;
+        this.auM = aVar;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG, c.class);
+        if (runTask.getData() != null && (cVar = (c) runTask.getData()) != null) {
+            this.auN = cVar.a(this.mContext, this.auM);
         }
     }
 
-    public void zS() {
-        HashMap<String, String> An = An();
-        Set<String> keySet = An.keySet();
-        if (keySet.size() != 1) {
-            eW(null);
-        } else {
-            eW(An.get(keySet.iterator().next()));
+    public static boolean aX(Context context) {
+        return AV();
+    }
+
+    public static boolean AV() {
+        return TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG);
+    }
+
+    public static String aj(String str, String str2) {
+        return m(str, "copy", str2);
+    }
+
+    public void b(d dVar) {
+        if (this.auN != null && dVar != null) {
+            dVar.content = a(dVar.content, 80, 20, this.auO);
+            this.auN.a(a(dVar, "weixin"), 3, false);
         }
     }
 
-    public int zT() {
-        return this.asN;
+    public void c(d dVar) {
+        if (this.auN != null && dVar != null) {
+            dVar.content = a(dVar.content, 80, 20, this.auO);
+            if (StringUtils.isNull(dVar.auD)) {
+                dVar.title = dVar.content;
+            } else {
+                dVar.title = dVar.auD;
+            }
+            this.auN.a(a(dVar, "weixin_timeline"), 2, false);
+        }
     }
 
-    public void dZ(int i) {
-        this.asN = i;
+    public void d(d dVar) {
+        if (this.auN != null && dVar != null) {
+            dVar.content = a(dVar.content, 80, 32, this.auO);
+            this.auN.a(a(dVar, "qqfriend"), 8, true);
+        }
     }
 
-    public int zU() {
-        return this.asQ;
+    public void e(d dVar) {
+        if (this.auN != null) {
+            dVar.content = a(dVar.content, 80, 32, this.auO);
+            this.auN.a(a(dVar, "qzone"), 4, true);
+        }
     }
 
-    public void ea(int i) {
-        this.asQ = i;
+    public void f(d dVar) {
+        if (this.auN != null) {
+            dVar.content = a(dVar.content, 140, 20, this.auO);
+            this.auN.a(a(dVar, "tencent_weibo"), 5, true);
+        }
     }
 
-    public int zV() {
-        return this.asR;
+    public void g(d dVar) {
+        if (this.auN != null) {
+            dVar.content = a(dVar.content, 140, 20, this.auP);
+            this.auN.a(a(dVar, "sina_weibo"), 6, true);
+        }
     }
 
-    public int zW() {
-        return this.asV;
+    public void h(d dVar) {
+        if (this.auN != null) {
+            dVar.content = a(dVar.content, 140, 20, this.auO);
+            this.auN.a(a(dVar, "renren"), 7, true);
+        }
     }
 
-    public void eb(int i) {
-        this.asV = i;
+    private String a(String str, int i, int i2, String str2) {
+        if (str != null) {
+            int min = Math.min((i - str2.length()) - i2, str.length());
+            if (min < str.length()) {
+                return str.substring(0, min - 1) + ("..." + str2);
+            }
+            return str + str2;
+        }
+        return str2;
     }
 
-    public int zX() {
-        return this.asZ;
+    private d a(d dVar, String str) {
+        if ((dVar.auz == null || dVar.auz.equals("")) && dVar.AU() == null) {
+            String str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
+            if (str.startsWith("weixin")) {
+                str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
+            }
+            dVar.auz = Uri.parse(str2);
+        }
+        if (dVar.auz != null && !dVar.auz.equals("")) {
+            String uri = dVar.auz.toString();
+            if (!fj(uri)) {
+                dVar.auz = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
+            } else {
+                dVar.auz = Uri.parse(uri);
+                ak(uri, "sfc=" + str);
+            }
+        }
+        dVar.linkUrl = m(dVar.linkUrl, str, dVar.tid);
+        return dVar;
     }
 
-    public void ec(int i) {
-        this.asZ = i;
+    private static String m(String str, String str2, String str3) {
+        String aS;
+        if (am.isEmpty(str)) {
+            str = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
+        }
+        String ak = ak(ak(ak(ak(str, "sfc=" + str2), "client_type=2"), "client_version=" + TbConfig.getVersion()), "st=" + (System.currentTimeMillis() / 1000));
+        if (str3 != null) {
+            if (com.baidu.adp.lib.b.d.eV().af("android_url_need_cuid") == 1) {
+                aS = s.aS(str3 + TbadkCoreApplication.getInst().getCuid() + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
+            } else {
+                aS = s.aS(str3 + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
+            }
+            return ak(ak, "unique=" + aS);
+        }
+        return ak;
     }
 
-    public int zY() {
-        return this.asY;
+    private static String ak(String str, String str2) {
+        if (am.isEmpty(Uri.parse(str).getQuery())) {
+            str = str + "?";
+        }
+        return str + "&" + str2;
     }
 
-    public void ed(int i) {
-        this.asY = i;
-    }
-
-    public int zZ() {
-        return this.asN;
-    }
-
-    public int Aa() {
-        return this.asP;
-    }
-
-    public void ee(int i) {
-        this.asP = i;
-    }
-
-    public boolean Ab() {
-        return this.ath;
-    }
-
-    public void bh(boolean z) {
-        this.ath = z;
-    }
-
-    public String Ac() {
-        return this.atj;
-    }
-
-    public void eP(String str) {
-        this.atj = str;
-    }
-
-    public String Ad() {
-        return this.atp;
-    }
-
-    public void eQ(String str) {
-        this.atp = str;
-    }
-
-    public void eR(String str) {
-        this.atq = str;
-    }
-
-    public int Ae() {
-        return this.asO;
-    }
-
-    public void ef(int i) {
-        this.asO = i;
-    }
-
-    public void eS(String str) {
-        this.atr = str;
-    }
-
-    public String Af() {
-        return this.att;
-    }
-
-    public String Ag() {
-        return this.atu;
-    }
-
-    public HashMap<String, String> Ah() {
-        return this.atn;
-    }
-
-    public int Ai() {
-        return this.asS;
-    }
-
-    public void eg(int i) {
-        this.asS = i;
-    }
-
-    public int Aj() {
-        return this.asW;
-    }
-
-    public void eh(int i) {
-        this.asW = i;
-    }
-
-    public int Ak() {
-        return this.ata;
-    }
-
-    public void ei(int i) {
-        this.ata = i;
-    }
-
-    public void eT(String str) {
-        this.atk = str;
-    }
-
-    public void eU(String str) {
-        this.atl = str;
-    }
-
-    public int Al() {
-        return this.asX;
-    }
-
-    public void ej(int i) {
-        this.asX = i;
-    }
-
-    public String Am() {
-        return this.atm;
-    }
-
-    public void eV(String str) {
-        this.atm = str;
-    }
-
-    public HashMap<String, String> An() {
-        return this.ato;
-    }
-
-    public String Ao() {
-        return this.ats;
-    }
-
-    public void eW(String str) {
-        this.ats = str;
-    }
-
-    public int Ap() {
-        return this.asT;
-    }
-
-    public int Aq() {
-        return this.asU;
-    }
-
-    public void ek(int i) {
-        this.asT = i;
-    }
-
-    public void el(int i) {
-        this.asU = i;
-    }
-
-    public void eX(String str) {
-        this.atv = str;
-    }
-
-    public void eY(String str) {
-        this.atw = str;
-    }
-
-    public int Ar() {
-        return this.atc;
-    }
-
-    public void em(int i) {
-        this.atc = i;
-    }
-
-    public int As() {
-        return this.atd;
-    }
-
-    public void en(int i) {
-        this.atd = i;
-    }
-
-    public int At() {
-        return this.ate;
-    }
-
-    public void eo(int i) {
-        this.ate = i;
-    }
-
-    public int Au() {
-        return this.atf;
-    }
-
-    public void ep(int i) {
-        this.atf = i;
-    }
-
-    public List<b> Av() {
-        return this.atx;
-    }
-
-    public List<a> Aw() {
-        return this.aty;
-    }
-
-    public int Ax() {
-        return this.atg;
-    }
-
-    public void eq(int i) {
-        this.atg = i;
+    private boolean fj(String str) {
+        String[] split = "jpg,jpeg,png,gif,bmp".split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        if (av.vL().ef(str)) {
+            if (split == null || split.length <= 0) {
+                return true;
+            }
+            for (String str2 : split) {
+                if (str2 != null && !str2.equals("") && (str.endsWith(str2) || str.endsWith(str2.toUpperCase()))) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

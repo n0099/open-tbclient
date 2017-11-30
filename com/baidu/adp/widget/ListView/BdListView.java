@@ -434,8 +434,9 @@ public class BdListView extends ListView implements com.baidu.adp.widget.ListVie
         initial();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
+    public void dispatchDraw(Canvas canvas) {
         try {
             super.dispatchDraw(canvas);
         } catch (NullPointerException e2) {
@@ -451,8 +452,9 @@ public class BdListView extends ListView implements com.baidu.adp.widget.ListVie
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ListView, android.widget.AbsListView
-    protected void layoutChildren() {
+    public void layoutChildren() {
         try {
             super.layoutChildren();
         } catch (NullPointerException e2) {

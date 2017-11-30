@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.data.c, com.baidu.tieba.person.b.b> {
-    private View.OnClickListener baV;
+    private View.OnClickListener bef;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -19,7 +19,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bD */
+    /* renamed from: by */
     public com.baidu.tieba.person.b.b onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tieba.person.b.b(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.user_pic_add_item, (ViewGroup) null));
     }
@@ -32,12 +32,12 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
         if (bVar == null || cVar == null) {
             return null;
         }
-        bVar.q(this.baV);
+        bVar.q(this.bef);
         bVar.c(cVar);
         return bVar.getView();
     }
 
     public void q(View.OnClickListener onClickListener) {
-        this.baV = onClickListener;
+        this.bef = onClickListener;
     }
 }

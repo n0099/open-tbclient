@@ -2,7 +2,6 @@ package com.baidu.audiorecorder.lib.voice;
 
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.adp.lib.voice.h;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a {
@@ -26,9 +25,9 @@ public class a {
                 case 3:
                     if (a.Io != null) {
                         if (com.baidu.adp.lib.util.f.gR()) {
-                            a.Io.f(message.what, h.getString(d.j.voice_err_create_file_fail));
+                            a.Io.f(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_create_file_fail));
                         } else {
-                            a.Io.f(message.what, h.getString(d.j.voice_err_sdcard_nospace));
+                            a.Io.f(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_sdcard_nospace));
                         }
                         com.baidu.adp.lib.voice.g unused2 = a.Io = null;
                         break;
@@ -36,7 +35,7 @@ public class a {
                     break;
                 case 2:
                     if (a.Io != null) {
-                        a.Io.f(message.what, h.getString(d.j.voice_err_file_fail));
+                        a.Io.f(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_file_fail));
                         com.baidu.adp.lib.voice.g unused3 = a.Io = null;
                         break;
                     }
@@ -49,28 +48,28 @@ public class a {
                     break;
                 case 5:
                     if (a.Io != null) {
-                        a.Io.f(message.what, h.getString(d.j.voice_err_load_lib_fail));
+                        a.Io.f(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_load_lib_fail));
                         com.baidu.adp.lib.voice.g unused4 = a.Io = null;
                         break;
                     }
                     break;
                 case 6:
                     if (a.Io != null) {
-                        a.Io.f(message.what, h.getString(d.j.voice_err_init_fail));
+                        a.Io.f(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_init_fail));
                         com.baidu.adp.lib.voice.g unused5 = a.Io = null;
                         break;
                     }
                     break;
                 case 7:
                     if (a.Io != null) {
-                        a.Io.f(message.what, h.getString(d.j.voice_record_timeout_tip));
+                        a.Io.f(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_record_timeout_tip));
                         com.baidu.adp.lib.voice.g unused6 = a.Io = null;
                         break;
                     }
                     break;
                 case 8:
                     if (a.Io != null) {
-                        a.Io.f(message.what, h.getString(d.j.voice_record_short_tip));
+                        a.Io.f(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_record_short_tip));
                         com.baidu.adp.lib.voice.g unused7 = a.Io = null;
                         break;
                     }
@@ -89,7 +88,7 @@ public class a {
                     break;
                 default:
                     if (a.Io != null) {
-                        a.Io.f(message.what, h.getString(d.j.voice_err_other));
+                        a.Io.f(message.what, com.baidu.adp.lib.voice.h.getString(d.j.voice_err_other));
                         com.baidu.adp.lib.voice.g unused8 = a.Io = null;
                         break;
                     }

@@ -1,26 +1,42 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class aw extends bh {
-    public static final BdUniqueId XO = BdUniqueId.gen();
-    private PhotoLiveCardData XP;
+public class aw {
+    private String uid = "";
+    private String uname = "";
+    private String portrait = "";
+    private String institute = "";
+    private int isLike = -1;
 
-    public PhotoLiveCardData qA() {
-        return this.XP;
+    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
+        if (schoolRecomUserInfo != null) {
+            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
+            this.uname = schoolRecomUserInfo.uname;
+            this.portrait = schoolRecomUserInfo.portrait;
+            this.institute = schoolRecomUserInfo.institute;
+            this.isLike = schoolRecomUserInfo.is_liked.intValue();
+        }
     }
 
-    public void a(PhotoLiveCardData photoLiveCardData) {
-        this.XP = photoLiveCardData;
+    public String getUid() {
+        return this.uid;
     }
 
-    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return XO;
+    public String qL() {
+        return this.uname;
     }
 
-    @Override // com.baidu.tbadk.core.data.bh
-    public String getTid() {
-        return this.XP != null ? String.valueOf(this.XP.getThreadId()) : super.getTid();
+    public String getPortrait() {
+        return this.portrait;
+    }
+
+    public String qM() {
+        return this.institute;
+    }
+
+    public int getIsLike() {
+        return this.isLike;
     }
 }

@@ -18,28 +18,31 @@ import java.net.URLEncoder;
 /* loaded from: classes2.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e aYz;
+    private static e bbK;
     private Context mContext;
     private Handler mHandler;
     private long mLastCheckTime = 0;
-    private boolean aWb = false;
-    private Handler.Callback aWv = new Handler.Callback() { // from class: com.baidu.tieba.VideoCacheClient.e.1
+    private boolean aZc = false;
+    private Handler.Callback aZy = new Handler.Callback() { // from class: com.baidu.tieba.VideoCacheClient.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 1) {
                 if (message.obj instanceof String) {
-                    e.this.hl((String) message.obj);
+                    e.this.ho((String) message.obj);
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    e.this.hr((String) message.obj);
+                    e.this.hu((String) message.obj);
                 }
             } else if (message.what == 3) {
-                d.au(e.TAG, "got MSG_CHECK");
-                e.this.LB();
+                d.av(e.TAG, "got MSG_CHECK");
+                e.this.Mc();
                 e.this.mHandler.sendMessageDelayed(e.this.mHandler.obtainMessage(3), TbConfig.NOTIFY_SOUND_INTERVAL);
             } else if (message.what == 4) {
-                e.this.LC();
+                e.this.Md();
+            } else if (message.what == 5 && (message.obj instanceof String)) {
+                int i = message.arg1;
+                e.this.J((String) message.obj, i);
             }
             return true;
         }
@@ -47,27 +50,27 @@ public class e {
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.VideoCacheClient.e.2
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            e.this.aWb = true;
-            com.baidu.adp.lib.g.e.fP().removeCallbacks(e.this.aWf);
+            e.this.aZc = true;
+            com.baidu.adp.lib.g.e.fP().removeCallbacks(e.this.aZj);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            File file = new File(c.aYl);
+            File file = new File(c.bbv);
             if (file.exists()) {
                 file.delete();
             }
-            b.Ly().LA();
-            e.this.aWb = false;
-            com.baidu.adp.lib.g.e.fP().postDelayed(e.this.aWf, 1000L);
+            b.LZ().Mb();
+            e.this.aZc = false;
+            com.baidu.adp.lib.g.e.fP().postDelayed(e.this.aZj, 1000L);
         }
     };
-    private Runnable aWf = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
+    private Runnable aZj = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
         @Override // java.lang.Runnable
         public void run() {
-            if (!e.this.aWb) {
-                e.this.KN();
-                com.baidu.adp.lib.g.e.fP().postDelayed(e.this.aWf, 1000L);
+            if (!e.this.aZc) {
+                e.this.Lj();
+                com.baidu.adp.lib.g.e.fP().postDelayed(e.this.aZj, 1000L);
             }
         }
     };
@@ -78,36 +81,43 @@ public class e {
         }
         HandlerThread handlerThread = new HandlerThread("video_cache_client_handler");
         handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aWv);
+        this.mHandler = new Handler(handlerThread.getLooper(), this.aZy);
         this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 
-    public static e bf(Context context) {
-        if (aYz == null) {
+    public static e bk(Context context) {
+        if (bbK == null) {
             synchronized (e.class) {
-                if (aYz == null) {
-                    aYz = new e(context);
+                if (bbK == null) {
+                    bbK = new e(context);
                 }
             }
         }
-        return aYz;
+        return bbK;
     }
 
-    public void hE(String str) {
+    public void I(String str, int i) {
+        Message obtainMessage = this.mHandler.obtainMessage(5);
+        obtainMessage.obj = str;
+        obtainMessage.arg1 = i;
+        this.mHandler.sendMessage(obtainMessage);
+    }
+
+    public void hH(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void hF(String str) {
+    public void hI(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    private void av(String str, String str2) {
+    private void aw(String str, String str2) {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + b.Ly().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str + str2)).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + b.LZ().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str + str2)).openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             inputStream.read();
             inputStream.close();
@@ -118,20 +128,25 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hl(String str) {
-        av(str, "?file_access=1");
+    public void J(String str, int i) {
+        aw(str, "?segment_postion=" + String.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hr(String str) {
-        av(str, "?stop_cache=1");
+    public void ho(String str) {
+        aw(str, "?file_access=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LB() {
+    public void hu(String str) {
+        aw(str, "?stop_cache=1");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Mc() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.mLastCheckTime >= 86400000) {
-            av("", "delete_expired_files");
+            aw("", "delete_expired_files");
             this.mLastCheckTime = currentTimeMillis;
         }
     }
@@ -141,11 +156,11 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LC() {
-        av("", "clear_cache");
+    public void Md() {
+        aw("", "clear_cache");
     }
 
-    public void KN() {
+    public void Lj() {
         try {
             this.mContext.bindService(new Intent(this.mContext, VideoCacheService.class), this.mServiceConnection, 1);
         } catch (Exception e) {

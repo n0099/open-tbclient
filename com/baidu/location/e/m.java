@@ -6,7 +6,6 @@ import com.baidu.location.Address;
 import com.baidu.location.Jni;
 import com.baidu.location.Poi;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,9 +17,9 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class m {
-    private static final double[] Ne = {45.0d, 135.0d, 225.0d, 315.0d};
-    private final d MA;
-    private final SQLiteDatabase Nf;
+    private static final double[] Nw = {45.0d, 135.0d, 225.0d, 315.0d};
+    private final d MS;
+    private final SQLiteDatabase Nx;
     private final int c;
     private int e = -1;
     private int f = -1;
@@ -51,7 +50,7 @@ public final class m {
         public static final b b = new o("ROAD", 1, "RGCROAD", "road", "addrv", 1000, 10000);
         public static final b c = new p("SITE", 2, "RGCSITE", "site", "addrv", 100, 50000);
         public static final b d = new q("POI", 3, "RGCPOI", "poi", "poiv", 1000, 5000);
-        private static final /* synthetic */ b[] Ng = {a, b, c, d};
+        private static final /* synthetic */ b[] Ny = {a, b, c, d};
 
         private b(String str, int i, String str2, String str3, String str4, int i2, int i3) {
             this.f = str2;
@@ -62,7 +61,7 @@ public final class m {
         }
 
         public static b[] a() {
-            return (b[]) Ng.clone();
+            return (b[]) Ny.clone();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -74,10 +73,10 @@ public final class m {
                 int i2 = 0;
                 while (true) {
                     int i3 = i2;
-                    if (i3 >= m.Ne.length) {
+                    if (i3 >= m.Nw.length) {
                         break;
                     }
-                    double[] b2 = m.b(d3, d2, d4, m.Ne[i3]);
+                    double[] b2 = m.b(d3, d2, d4, m.Nw[i3]);
                     hashSet.add(m.a(i, b2[1], b2[0]));
                     i2 = i3 + 1;
                 }
@@ -124,18 +123,18 @@ public final class m {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(d dVar, SQLiteDatabase sQLiteDatabase, int i) {
-        this.MA = dVar;
-        this.Nf = sQLiteDatabase;
+        this.MS = dVar;
+        this.Nx = sQLiteDatabase;
         this.c = i;
-        if (this.Nf == null || !this.Nf.isOpen()) {
+        if (this.Nx == null || !this.Nx.isOpen()) {
             return;
         }
         try {
-            this.Nf.execSQL("CREATE TABLE IF NOT EXISTS RGCAREA(gridkey VARCHAR(10) PRIMARY KEY, country VARCHAR(100),countrycode VARCHAR(100), province VARCHAR(100), city VARCHAR(100), citycode VARCHAR(100), district VARCHAR(100), timestamp INTEGER, version VARCHAR(50))");
-            this.Nf.execSQL("CREATE TABLE IF NOT EXISTS RGCROAD(_id INTEGER PRIMARY KEY AUTOINCREMENT, gridkey VARCHAR(10), street VARCHAR(100), x1 DOUBLE, y1 DOUBLE, x2 DOUBLE, y2 DOUBLE)");
-            this.Nf.execSQL("CREATE TABLE IF NOT EXISTS RGCSITE(_id INTEGER PRIMARY KEY AUTOINCREMENT, gridkey VARCHAR(10), street VARCHAR(100), streetnumber VARCHAR(100), x DOUBLE, y DOUBLE)");
-            this.Nf.execSQL("CREATE TABLE IF NOT EXISTS RGCPOI(pid VARCHAR(50) PRIMARY KEY , gridkey VARCHAR(10), name VARCHAR(100), type VARCHAR(50), x DOUBLE, y DOUBLE, rank INTEGER)");
-            this.Nf.execSQL("CREATE TABLE IF NOT EXISTS RGCUPDATE(gridkey VARCHAR(10), version VARCHAR(50), type INTEGER, timestamp INTEGER, PRIMARY KEY(gridkey, type))");
+            this.Nx.execSQL("CREATE TABLE IF NOT EXISTS RGCAREA(gridkey VARCHAR(10) PRIMARY KEY, country VARCHAR(100),countrycode VARCHAR(100), province VARCHAR(100), city VARCHAR(100), citycode VARCHAR(100), district VARCHAR(100), timestamp INTEGER, version VARCHAR(50))");
+            this.Nx.execSQL("CREATE TABLE IF NOT EXISTS RGCROAD(_id INTEGER PRIMARY KEY AUTOINCREMENT, gridkey VARCHAR(10), street VARCHAR(100), x1 DOUBLE, y1 DOUBLE, x2 DOUBLE, y2 DOUBLE)");
+            this.Nx.execSQL("CREATE TABLE IF NOT EXISTS RGCSITE(_id INTEGER PRIMARY KEY AUTOINCREMENT, gridkey VARCHAR(10), street VARCHAR(100), streetnumber VARCHAR(100), x DOUBLE, y DOUBLE)");
+            this.Nx.execSQL("CREATE TABLE IF NOT EXISTS RGCPOI(pid VARCHAR(50) PRIMARY KEY , gridkey VARCHAR(10), name VARCHAR(100), type VARCHAR(50), x DOUBLE, y DOUBLE, rank INTEGER)");
+            this.Nx.execSQL("CREATE TABLE IF NOT EXISTS RGCUPDATE(gridkey VARCHAR(10), version VARCHAR(50), type INTEGER, timestamp INTEGER, PRIMARY KEY(gridkey, type))");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -161,7 +160,7 @@ public final class m {
         int i3;
         if (100 > i2) {
             d = -0.1d;
-            i3 = GroupInfoActivityConfig.JOIN_BUTTON_DISABLE_MAX_DURATION;
+            i3 = 60000;
         } else if (500 > i2) {
             d = -0.75d;
             i3 = 55500;
@@ -244,11 +243,11 @@ public final class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONObject jSONObject) {
         b[] a2;
-        if (this.Nf == null || !this.Nf.isOpen()) {
+        if (this.Nx == null || !this.Nx.isOpen()) {
             return;
         }
         try {
-            this.Nf.beginTransaction();
+            this.Nx.beginTransaction();
             for (b bVar : b.a()) {
                 if (jSONObject.has(bVar.g)) {
                     String string = jSONObject.has(bVar.h) ? jSONObject.getString(bVar.h) : "";
@@ -257,25 +256,25 @@ public final class m {
                     arrayList.add(bVar.e(jSONObject2));
                     arrayList.addAll(bVar.a(jSONObject2, string, bVar.i));
                     for (String str : arrayList) {
-                        this.Nf.execSQL(str);
+                        this.Nx.execSQL(str);
                     }
                 }
             }
-            this.Nf.setTransactionSuccessful();
+            this.Nx.setTransactionSuccessful();
             this.e = -1;
             this.f = -1;
             try {
-                this.Nf.endTransaction();
+                this.Nx.endTransaction();
             } catch (Exception e) {
             }
         } catch (Exception e2) {
             try {
-                this.Nf.endTransaction();
+                this.Nx.endTransaction();
             } catch (Exception e3) {
             }
         } catch (Throwable th) {
             try {
-                this.Nf.endTransaction();
+                this.Nx.endTransaction();
             } catch (Exception e4) {
             }
             throw th;
@@ -286,9 +285,9 @@ public final class m {
     public boolean a() {
         Cursor cursor;
         Cursor cursor2 = null;
-        if (this.MA.mw().l() && this.f == -1 && this.e == -1 && this.Nf != null && this.Nf.isOpen()) {
+        if (this.MS.mz().l() && this.f == -1 && this.e == -1 && this.Nx != null && this.Nx.isOpen()) {
             try {
-                cursor = this.Nf.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
+                cursor = this.Nx.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
             } catch (Exception e) {
                 cursor = null;
             } catch (Throwable th) {
@@ -298,7 +297,7 @@ public final class m {
             try {
                 cursor.moveToFirst();
                 this.f = cursor.getInt(0);
-                cursor2 = this.Nf.rawQuery("SELECT COUNT(*) FROM RGCAREA;", null);
+                cursor2 = this.Nx.rawQuery("SELECT COUNT(*) FROM RGCAREA;", null);
                 cursor2.moveToFirst();
                 this.e = cursor2.getInt(0);
                 if (cursor != null) {
@@ -402,7 +401,7 @@ public final class m {
         double c;
         Cursor cursor6 = null;
         try {
-            cursor = this.Nf.rawQuery(b.c.b(this.c, d, d2), null);
+            cursor = this.Nx.rawQuery(b.c.b(this.c, d, d2), null);
             try {
                 try {
                     if (cursor.moveToFirst()) {
@@ -445,7 +444,7 @@ public final class m {
                                         if (str3 == null) {
                                         }
                                         cursor2 = null;
-                                        cursor2 = this.Nf.rawQuery(b.a.b(this.c, d, d2), null);
+                                        cursor2 = this.Nx.rawQuery(b.a.b(this.c, d, d2), null);
                                         if (cursor2.moveToFirst()) {
                                         }
                                         str14 = null;
@@ -513,7 +512,7 @@ public final class m {
                                 if (str3 == null) {
                                 }
                                 cursor2 = null;
-                                cursor2 = this.Nf.rawQuery(b.a.b(this.c, d, d2), null);
+                                cursor2 = this.Nx.rawQuery(b.a.b(this.c, d, d2), null);
                             }
                         }
                         str = str16;
@@ -556,7 +555,7 @@ public final class m {
                 }
                 if (str3 == null) {
                     try {
-                        cursor4 = this.Nf.rawQuery(b.b.b(this.c, d, d2), null);
+                        cursor4 = this.Nx.rawQuery(b.b.b(this.c, d, d2), null);
                         try {
                             try {
                                 if (cursor4.moveToFirst()) {
@@ -594,7 +593,7 @@ public final class m {
                                                     str4 = str15;
                                                 }
                                                 cursor2 = null;
-                                                cursor2 = this.Nf.rawQuery(b.a.b(this.c, d, d2), null);
+                                                cursor2 = this.Nx.rawQuery(b.a.b(this.c, d, d2), null);
                                                 if (cursor2.moveToFirst()) {
                                                 }
                                                 str14 = null;
@@ -623,7 +622,7 @@ public final class m {
                                             }
                                             str4 = str15;
                                             cursor2 = null;
-                                            cursor2 = this.Nf.rawQuery(b.a.b(this.c, d, d2), null);
+                                            cursor2 = this.Nx.rawQuery(b.a.b(this.c, d, d2), null);
                                             if (cursor2.moveToFirst()) {
                                             }
                                             str14 = null;
@@ -686,7 +685,7 @@ public final class m {
                     str4 = str15;
                 }
                 cursor2 = null;
-                cursor2 = this.Nf.rawQuery(b.a.b(this.c, d, d2), null);
+                cursor2 = this.Nx.rawQuery(b.a.b(this.c, d, d2), null);
                 if (cursor2.moveToFirst() || cursor2.isAfterLast()) {
                     str14 = null;
                     str13 = null;
@@ -801,7 +800,7 @@ public final class m {
                 }
                 return new Address.Builder().country(str9).countryCode(str10).province(str11).city(str12).cityCode(str13).district(str14).street(str4).streetNumber(str3 != null ? new String(com.baidu.location.b.a.b.a(str3.getBytes())) : str3).build();
             }
-            cursor2 = this.Nf.rawQuery(b.a.b(this.c, d, d2), null);
+            cursor2 = this.Nx.rawQuery(b.a.b(this.c, d, d2), null);
             if (cursor2.moveToFirst()) {
             }
             str14 = null;
@@ -848,13 +847,13 @@ public final class m {
         StringBuffer stringBuffer2 = new StringBuffer();
         int currentTimeMillis = (int) (System.currentTimeMillis() / 86400000);
         try {
-            if (this.Nf != null && this.Nf.isOpen()) {
+            if (this.Nx != null && this.Nx.isOpen()) {
                 JSONArray jSONArray = new JSONArray();
                 JSONArray jSONArray2 = new JSONArray();
                 JSONArray jSONArray3 = new JSONArray();
                 JSONArray jSONArray4 = new JSONArray();
-                cursor2 = this.Nf.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.MA.mw().p())), null);
-                cursor = this.Nf.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.MA.mw().q())), null);
+                cursor2 = this.Nx.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.MS.mz().p())), null);
+                cursor = this.Nx.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.MS.mz().q())), null);
                 if (cursor2.moveToFirst()) {
                     HashSet hashSet = new HashSet();
                     while (!cursor2.isAfterLast()) {
@@ -907,10 +906,10 @@ public final class m {
                 }
             }
             if (stringBuffer2.length() > 0) {
-                this.Nf.execSQL(String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 0, stringBuffer2.toString()));
+                this.Nx.execSQL(String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 0, stringBuffer2.toString()));
             }
             if (stringBuffer.length() > 0) {
-                this.Nf.execSQL(String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 1, stringBuffer.toString()));
+                this.Nx.execSQL(String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 1, stringBuffer.toString()));
             }
             if (cursor2 != null) {
                 try {
@@ -970,7 +969,7 @@ public final class m {
         Poi poi = null;
         int i = 0;
         try {
-            cursor = this.Nf.rawQuery(b.d.b(this.c, d, d2), null);
+            cursor = this.Nx.rawQuery(b.d.b(this.c, d, d2), null);
         } catch (Exception e) {
             cursor2 = null;
         } catch (Throwable th) {

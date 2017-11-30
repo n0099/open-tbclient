@@ -13,80 +13,98 @@ import android.widget.MediaController;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.plugin.api.PayPluginManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
+import com.baidu.tieba.i.e;
 import com.baidu.tieba.play.a.b;
-import com.baidu.tieba.play.c.a;
 import com.baidu.tieba.play.g;
-import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class QuickVideoView extends FrameLayout implements MediaController.MediaPlayerControl, com.baidu.tieba.play.d.c {
-    private static h fFW;
-    private static com.baidu.tieba.play.b.c fFX;
+public class QuickVideoView extends FrameLayout implements MediaController.MediaPlayerControl, com.baidu.tieba.play.b.c {
+    private static h fOH;
+    private static com.baidu.tieba.i.k fOI;
+    private static int fPd = 0;
+    private static int fPe = 1;
+    private static int fPf = 2;
+    private static int fPg = 1;
+    private static int fPh = 0;
     private Map<String, String> Am;
-    private String aMq;
-    private g.a aWi;
-    private g.InterfaceC0124g aWj;
-    private g.b aWk;
-    private g.c aWl;
-    private g.e aWm;
-    private g.h aWn;
-    private g.f aWo;
-    private g.j aWp;
-    private g.d aWq;
-    private g.i aWr;
-    private final CustomMessageListener aWz;
-    private b bSE;
-    private a fFJ;
-    private o fFT;
-    private String fFU;
-    private g fFV;
-    private com.baidu.tieba.play.b.b fFY;
-    private String fFZ;
-    private boolean fGa;
-    private d fGb;
-    private boolean fGc;
-    private int fGd;
-    private boolean fGe;
-    private int fGf;
-    private boolean fGg;
-    private SurfaceTexture fGh;
-    private boolean fGi;
-    private boolean fGj;
-    private com.baidu.tieba.play.d.a fGk;
-    private boolean fGl;
-    private boolean fGm;
-    private String fGn;
-    private com.baidu.tieba.play.c.a fGo;
-    private long fGp;
-    private a.InterfaceC0120a fGq;
-    private TextureView.SurfaceTextureListener fGr;
-    private g.InterfaceC0124g fGs;
-    private g.a fGt;
-    private g.h fGu;
-    private Runnable fGv;
-    private Runnable fGw;
+    private String aMR;
+    private final CustomMessageListener aZC;
+    private g.a aZm;
+    private g.f aZn;
+    private g.b aZo;
+    private g.c aZp;
+    private g.e aZq;
+    private g.InterfaceC0123g aZr;
+    private g.i aZs;
+    private g.d aZt;
+    private g.h aZu;
+    private int bdz;
+    private b blr;
+    private e.a eEh;
+    private o fOE;
+    private String fOF;
+    private g fOG;
+    private com.baidu.tieba.i.i fOJ;
+    private com.baidu.tieba.i.e fOK;
+    private String fOL;
+    private boolean fOM;
+    private d fON;
+    private boolean fOO;
+    private int fOP;
+    private boolean fOQ;
+    private int fOR;
+    private boolean fOS;
+    private SurfaceTexture fOT;
+    private boolean fOU;
+    private com.baidu.tieba.play.b.a fOV;
+    private boolean fOW;
+    private boolean fOX;
+    private String fOY;
+    private long fOZ;
+    private a fOu;
+    private boolean fPa;
+    private long fPb;
+    private long fPc;
+    private int fPi;
+    private int fPj;
+    private int fPk;
+    private int fPl;
+    private int fPm;
+    private int fPn;
+    private TextureView.SurfaceTextureListener fPo;
+    private g.f fPp;
+    private g.a fPq;
+    private g.InterfaceC0123g fPr;
+    private Runnable fPs;
+    private Runnable fPt;
+    private Runnable fPu;
+    private int fmN;
     private Context mContext;
     private Uri mUri;
     private PowerManager.WakeLock mWakeLock;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bhr();
+        void biU();
     }
 
     /* loaded from: classes.dex */
@@ -94,107 +112,62 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         void onSurfaceDestroyed();
     }
 
-    public void setIsVideoViewToTop(boolean z) {
-        this.fGj = z;
-    }
-
     static {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_QUICK_PLAYER_FACTORY, h.class);
         if (runTask != null) {
-            fFW = (h) runTask.getData();
+            fOH = (h) runTask.getData();
         }
-        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_MONITOR_FACTORY, com.baidu.tieba.play.b.c.class);
+        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, com.baidu.tieba.i.k.class);
         if (runTask2 != null) {
-            fFX = (com.baidu.tieba.play.b.c) runTask2.getData();
+            fOI = (com.baidu.tieba.i.k) runTask2.getData();
         }
+    }
+
+    public void setIsVideoViewToTop(boolean z) {
+        this.fOU = z;
     }
 
     public QuickVideoView(Context context) {
         super(context);
-        this.fGa = false;
-        this.fGc = false;
-        this.fGd = 0;
-        this.fGe = false;
-        this.fGf = -1;
-        this.fGg = false;
-        this.fGh = null;
-        this.fGj = true;
-        this.fGq = new a.InterfaceC0120a() { // from class: com.baidu.tieba.play.QuickVideoView.1
-            @Override // com.baidu.tieba.play.c.a.InterfaceC0120a
-            public void bN(String str, String str2) {
-                ak akVar = new ak("c12620");
-                akVar.r("obj_locate", 1);
-                akVar.ac("tid", str2);
-                TiebaStatic.log(akVar);
-                if (TextUtils.equals(str2, QuickVideoView.this.aMq) && QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.a(new com.baidu.tieba.play.b.a() { // from class: com.baidu.tieba.play.QuickVideoView.1.1
-                        @Override // com.baidu.tieba.play.b.a
-                        public void J(JSONObject jSONObject) throws JSONException {
-                        }
-
-                        @Override // com.baidu.tieba.play.b.a
-                        public void K(JSONObject jSONObject) throws JSONException {
-                        }
-
-                        @Override // com.baidu.tieba.play.b.a
-                        public void L(JSONObject jSONObject) throws JSONException {
-                            jSONObject.put("moov_bottom", 1);
-                        }
-                    });
-                }
-            }
-
-            @Override // com.baidu.tieba.play.c.a.InterfaceC0120a
-            public void j(String str, String str2, final boolean z) {
-                ak akVar = new ak("c12621");
-                akVar.r("obj_locate", 1);
-                akVar.r("obj_param1", z ? 1 : 0);
-                akVar.ac("tid", str2);
-                TiebaStatic.log(akVar);
-                if (TextUtils.equals(str2, QuickVideoView.this.aMq) && QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.a(new com.baidu.tieba.play.b.a() { // from class: com.baidu.tieba.play.QuickVideoView.1.2
-                        @Override // com.baidu.tieba.play.b.a
-                        public void J(JSONObject jSONObject) throws JSONException {
-                        }
-
-                        @Override // com.baidu.tieba.play.b.a
-                        public void K(JSONObject jSONObject) throws JSONException {
-                        }
-
-                        @Override // com.baidu.tieba.play.b.a
-                        public void L(JSONObject jSONObject) throws JSONException {
-                            jSONObject.put("moov_bottom_fix", z ? 1 : 0);
-                        }
-                    });
-                }
-            }
-        };
-        this.fGr = new TextureView.SurfaceTextureListener() { // from class: com.baidu.tieba.play.QuickVideoView.9
+        this.fOM = false;
+        this.fOO = false;
+        this.fOP = 0;
+        this.fOQ = false;
+        this.fOR = -1;
+        this.fOS = false;
+        this.fOT = null;
+        this.fOU = true;
+        this.fPb = 0L;
+        this.fPc = 0L;
+        this.fmN = fPh;
+        this.fPi = 0;
+        this.fPj = 0;
+        this.fPk = -1;
+        this.fPl = 0;
+        this.fPm = 0;
+        this.fPn = 0;
+        this.bdz = 0;
+        this.fPo = new TextureView.SurfaceTextureListener() { // from class: com.baidu.tieba.play.QuickVideoView.10
             @Override // android.view.TextureView.SurfaceTextureListener
             public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-                if (QuickVideoView.this.fGh != null && QuickVideoView.this.fGh != surfaceTexture) {
-                    QuickVideoView.this.fGh.release();
-                    QuickVideoView.this.fGh = null;
-                }
-                if (QuickVideoView.this.fGc) {
-                    QuickVideoView.this.fGc = false;
-                    if (QuickVideoView.this.fFV != null) {
-                        QuickVideoView.this.fFV.a(QuickVideoView.this.mContext, QuickVideoView.this.mUri, QuickVideoView.this.Am, surfaceTexture, QuickVideoView.this.mUri.getHost());
+                if (QuickVideoView.this.fOO) {
+                    QuickVideoView.this.fOO = false;
+                    if (QuickVideoView.this.fOG != null) {
+                        QuickVideoView.this.fOG.a(QuickVideoView.this.mContext, QuickVideoView.this.mUri, QuickVideoView.this.Am, surfaceTexture, QuickVideoView.this.mUri.getHost());
                     }
                     if (QuickVideoView.this.e(QuickVideoView.this.mUri) != null) {
-                        QuickVideoView.this.fFY.aMY();
+                        QuickVideoView.this.fOJ.aNO();
                     }
-                } else if (QuickVideoView.this.fFV != null && QuickVideoView.this.fGg) {
-                    QuickVideoView.this.fFV.a(QuickVideoView.this.mContext, QuickVideoView.this.mUri, QuickVideoView.this.Am, surfaceTexture, QuickVideoView.this.fGf);
-                    if (QuickVideoView.this.fFJ != null) {
-                        QuickVideoView.this.fFJ.bhr();
+                } else if (QuickVideoView.this.fOG != null && QuickVideoView.this.fOS) {
+                    QuickVideoView.this.fOG.a(QuickVideoView.this.mContext, QuickVideoView.this.mUri, QuickVideoView.this.Am, surfaceTexture, QuickVideoView.this.fOR);
+                    if (QuickVideoView.this.fOu != null) {
+                        QuickVideoView.this.fOu.biU();
                     }
                     if (QuickVideoView.this.e(QuickVideoView.this.mUri) != null) {
-                        QuickVideoView.this.fFY.aMZ();
+                        QuickVideoView.this.fOJ.aNP();
                     }
                 }
-                QuickVideoView.this.fGh = surfaceTexture;
-                QuickVideoView.this.fGi = false;
+                QuickVideoView.this.fOT = surfaceTexture;
             }
 
             @Override // android.view.TextureView.SurfaceTextureListener
@@ -203,62 +176,66 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
 
             @Override // android.view.TextureView.SurfaceTextureListener
             public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-                if (QuickVideoView.this.fFV != null) {
-                    QuickVideoView.this.fFV.release();
+                QuickVideoView.this.lW(false);
+                if (QuickVideoView.this.fOG != null) {
+                    QuickVideoView.this.fOG.release();
                 }
-                if (!QuickVideoView.this.fGc) {
-                    if (QuickVideoView.this.fGb != null) {
-                        QuickVideoView.this.fGb.onStop();
+                if (!QuickVideoView.this.fOO) {
+                    if (QuickVideoView.this.fON != null) {
+                        QuickVideoView.this.fON.onStop();
                     }
-                    if (QuickVideoView.this.bSE != null) {
-                        QuickVideoView.this.bSE.onSurfaceDestroyed();
+                    if (QuickVideoView.this.blr != null) {
+                        QuickVideoView.this.blr.onSurfaceDestroyed();
                     }
                 }
-                if (QuickVideoView.this.fGi) {
-                    QuickVideoView.this.fGh = null;
+                QuickVideoView.this.fOT = null;
+                if (QuickVideoView.this.fOJ != null && QuickVideoView.this.fOJ.pc(QuickVideoView.this.getLocateSource())) {
+                    QuickVideoView.this.fOJ = null;
                 }
-                if (QuickVideoView.this.fFY != null && QuickVideoView.this.fFY.oM(QuickVideoView.this.getLocateSource())) {
-                    QuickVideoView.this.fFY = null;
-                }
-                return QuickVideoView.this.fGi;
+                return false;
             }
 
             @Override // android.view.TextureView.SurfaceTextureListener
             public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
             }
         };
-        this.fGs = new g.InterfaceC0124g() { // from class: com.baidu.tieba.play.QuickVideoView.10
-            @Override // com.baidu.tieba.play.g.InterfaceC0124g
+        this.fPp = new g.f() { // from class: com.baidu.tieba.play.QuickVideoView.11
+            @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
                 int i;
-                if (QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.aNa();
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.aNQ();
                 }
-                if (QuickVideoView.this.aWj != null) {
-                    QuickVideoView.this.aWj.onPrepared(gVar);
+                if (QuickVideoView.this.aZn != null) {
+                    QuickVideoView.this.aZn.onPrepared(gVar);
                 }
-                if (QuickVideoView.this.fGb != null) {
-                    QuickVideoView.this.fGb.onPrepared();
+                if (QuickVideoView.this.fON != null) {
+                    QuickVideoView.this.fON.onPrepared();
+                    QuickVideoView.this.bjg();
+                    if (QuickVideoView.this.getPlayerType() == -200) {
+                        QuickVideoView.this.fON.bja();
+                        QuickVideoView.this.bjl();
+                    }
                 }
-                if (QuickVideoView.this.fGa) {
+                if (QuickVideoView.this.fOM) {
                     QuickVideoView.this.start();
                 }
-                if (QuickVideoView.this.fFT != null && gVar != null) {
-                    QuickVideoView.this.fFT.Y(gVar.getVideoWidth(), gVar.getVideoHeight(), QuickVideoView.this.fGd);
+                if (QuickVideoView.this.fOE != null && gVar != null) {
+                    QuickVideoView.this.fOE.X(gVar.getVideoWidth(), gVar.getVideoHeight(), QuickVideoView.this.fOP);
                 }
-                if (!TextUtils.isEmpty(QuickVideoView.this.fFU)) {
-                    TiebaStatic.log(new ak("c12199").ac("obj_param1", QuickVideoView.this.mUri == null ? "null" : QuickVideoView.this.mUri.toString()).ac("obj_param2", QuickVideoView.this.fFU).ac("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
+                if (!TextUtils.isEmpty(QuickVideoView.this.fOF)) {
+                    TiebaStatic.log(new ak("c12199").ac("obj_param1", QuickVideoView.this.mUri == null ? "null" : QuickVideoView.this.mUri.toString()).ac("obj_param2", QuickVideoView.this.fOF).ac("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
                     BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
                     Object[] objArr = new Object[6];
                     objArr[0] = "url";
                     objArr[1] = QuickVideoView.this.mUri == null ? "null" : QuickVideoView.this.mUri.toString();
                     objArr[2] = "dnsIP";
-                    objArr[3] = QuickVideoView.this.fFU;
+                    objArr[3] = QuickVideoView.this.fOF;
                     objArr[4] = "clientip";
                     objArr[5] = com.baidu.tbadk.core.util.d.getIp();
                     bdStatisticsManager.newDebug("videoplay", 0L, null, objArr);
                 }
-                if (QuickVideoView.this.fGk != null && QuickVideoView.this.fGk.bia()) {
+                if (QuickVideoView.this.fOV != null && QuickVideoView.this.fOV.bjH()) {
                     if (QuickVideoView.this.getPlayerType() == -100) {
                         i = 0;
                     } else {
@@ -268,187 +245,284 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                 }
             }
         };
-        this.fGt = new g.a() { // from class: com.baidu.tieba.play.QuickVideoView.11
+        this.fPq = new g.a() { // from class: com.baidu.tieba.play.QuickVideoView.12
             @Override // com.baidu.tieba.play.g.a
             public void onCompletion(g gVar) {
-                if (QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.oL(QuickVideoView.this.getLocateSource());
-                    QuickVideoView.this.fFY = null;
+                QuickVideoView.this.lW(true);
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.pb(QuickVideoView.this.getLocateSource());
+                    QuickVideoView.this.fOJ = null;
                 }
-                if (!QuickVideoView.this.fGe || QuickVideoView.this.fGb == null) {
-                    if (QuickVideoView.this.fGb != null) {
-                        QuickVideoView.this.fGb.onCompletion();
+                if (!QuickVideoView.this.fOQ || QuickVideoView.this.fON == null) {
+                    if (QuickVideoView.this.fON != null) {
+                        QuickVideoView.this.fON.onCompletion();
                     }
-                    QuickVideoView.this.fGa = false;
-                    if (QuickVideoView.this.aWi != null) {
-                        QuickVideoView.this.aWi.onCompletion(gVar);
+                    QuickVideoView.this.fOM = false;
+                    if (QuickVideoView.this.aZm != null) {
+                        QuickVideoView.this.aZm.onCompletion(gVar);
                         return;
                     }
                     return;
                 }
-                QuickVideoView.this.fFZ = null;
-                QuickVideoView.this.fGp = 0L;
-                QuickVideoView.this.setVideoPath(QuickVideoView.this.fGb.bhs());
+                QuickVideoView.this.fOL = null;
+                QuickVideoView.this.fOZ = 0L;
+                QuickVideoView.this.setVideoPath(QuickVideoView.this.fON.biV());
                 QuickVideoView.this.start();
             }
         };
-        this.aWl = new g.c() { // from class: com.baidu.tieba.play.QuickVideoView.12
+        this.aZp = new g.c() { // from class: com.baidu.tieba.play.QuickVideoView.13
             @Override // com.baidu.tieba.play.g.c
             public boolean a(g gVar, int i, int i2, int i3) {
                 int i4;
-                com.baidu.tieba.play.d.a.Z(i, i2, i3);
-                if (QuickVideoView.qV(QuickVideoView.this.mUri.toString())) {
-                    if (QuickVideoView.this.fGb != null && !StringUtils.isNull(QuickVideoView.this.fGb.bhs())) {
-                        String uri = QuickVideoView.this.mUri.toString();
-                        if (!uri.contains("http")) {
-                            File file = new File(uri);
-                            if (file.exists()) {
-                                QuickVideoView.this.setLocalVideoMd5(com.baidu.adp.lib.util.s.e(com.baidu.tbadk.core.util.k.q(file)));
+                com.baidu.tieba.play.b.a.Y(i, i2, i3);
+                if (QuickVideoView.this.fON != null && QuickVideoView.this.getCurrentPosition() > 0) {
+                    QuickVideoView.this.fPa = true;
+                    x.bjC().av(QuickVideoView.this.fON.biV(), QuickVideoView.this.getCurrentPosition());
+                }
+                if (com.baidu.adp.lib.util.j.hh()) {
+                    if (QuickVideoView.ro(QuickVideoView.this.mUri.toString())) {
+                        if (QuickVideoView.this.fON != null && !StringUtils.isNull(QuickVideoView.this.fON.biV())) {
+                            String uri = QuickVideoView.this.mUri.toString();
+                            if (!uri.contains("http")) {
+                                com.baidu.tieba.play.b.a.rw(uri);
                             }
-                            com.baidu.tieba.play.d.a.rd(uri);
+                            QuickVideoView.this.mUri = Uri.parse(QuickVideoView.this.fON.biV());
                         }
-                        QuickVideoView.this.mUri = Uri.parse(QuickVideoView.this.fGb.bhs());
+                    } else {
+                        QuickVideoView.this.bjj();
                     }
-                } else {
-                    QuickVideoView.this.bhB();
-                }
-                boolean z = false;
-                if (QuickVideoView.this.fGk != null) {
-                    z = QuickVideoView.this.fGk.a(gVar, i, i2, i3, QuickVideoView.this.mUri);
-                }
-                if (QuickVideoView.this.fFY != null && z) {
-                    QuickVideoView.this.fFZ = QuickVideoView.this.fFY.a(i, i2, i3, QuickVideoView.this.getLocateSource(), z, QuickVideoView.this.fGp);
-                    QuickVideoView.this.fFY = null;
-                }
-                QuickVideoView.this.fGp = 0L;
-                if (QuickVideoView.this.fGb != null && !QuickVideoView.this.fGm && !z && QuickVideoView.qV(QuickVideoView.this.fGb.hB(QuickVideoView.this.fGb.bhs())) && !QuickVideoView.qV(QuickVideoView.this.mUri.toString())) {
-                    z = true;
-                    QuickVideoView.this.fFV.forceUseSystemMediaPlayer(false);
-                    QuickVideoView.this.fGk.bia();
-                    QuickVideoView.this.fGm = true;
-                    if (QuickVideoView.this.fFY != null) {
-                        QuickVideoView.this.fFZ = QuickVideoView.this.fFY.a(i, i2, i3, QuickVideoView.this.getLocateSource(), true, QuickVideoView.this.fGp);
-                        QuickVideoView.this.fFY = null;
+                    boolean z = false;
+                    if (QuickVideoView.this.fOV != null) {
+                        z = QuickVideoView.this.fOV.a(gVar, i, i2, i3, QuickVideoView.this.mUri);
                     }
-                    QuickVideoView.this.fGp = 0L;
-                    QuickVideoView.this.setVideoPath(QuickVideoView.this.fGb.bhs());
-                    QuickVideoView.this.start();
-                }
-                if (QuickVideoView.this.fFY != null && !z) {
-                    QuickVideoView.this.fFZ = QuickVideoView.this.fFY.a(i, i2, i3, QuickVideoView.this.getLocateSource(), z, QuickVideoView.this.fGp);
-                    QuickVideoView.this.fFY = null;
-                }
-                QuickVideoView.this.fGp = 0L;
-                if (!z) {
-                    QuickVideoView.this.bhD();
-                    if (QuickVideoView.this.aWk == null || QuickVideoView.this.aWk.onError(gVar, i2, i3)) {
+                    if (QuickVideoView.this.fOJ != null && z) {
+                        QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(i, i2, i3, QuickVideoView.this.getLocateSource(), z, QuickVideoView.this.fOZ);
+                        QuickVideoView.this.fOJ = null;
+                    }
+                    QuickVideoView.this.fOZ = 0L;
+                    if (QuickVideoView.this.fON != null && !QuickVideoView.this.fOX && !z && QuickVideoView.ro(QuickVideoView.this.fON.hE(QuickVideoView.this.fON.biV())) && !QuickVideoView.ro(QuickVideoView.this.mUri.toString())) {
+                        z = true;
+                        QuickVideoView.this.fOG.forceUseSystemMediaPlayer(false);
+                        QuickVideoView.this.fOV.bjH();
+                        QuickVideoView.this.fOX = true;
+                        if (QuickVideoView.this.fOJ != null) {
+                            QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(i, i2, i3, QuickVideoView.this.getLocateSource(), true, QuickVideoView.this.fOZ);
+                            QuickVideoView.this.fOJ = null;
+                        }
+                        QuickVideoView.this.fOZ = 0L;
+                        QuickVideoView.this.setVideoPath(QuickVideoView.this.fON.biV());
+                        QuickVideoView.this.start();
+                    }
+                    if (QuickVideoView.this.fOJ != null && !z) {
+                        QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(i, i2, i3, QuickVideoView.this.getLocateSource(), z, QuickVideoView.this.fOZ);
+                        QuickVideoView.this.fOJ = null;
+                    }
+                    QuickVideoView.this.fOZ = 0L;
+                    if (!z) {
+                        QuickVideoView.this.bjm();
+                    } else {
+                        if (QuickVideoView.this.getPlayerType() == -100) {
+                            i4 = 0;
+                        } else {
+                            i4 = QuickVideoView.this.getPlayerType() == -200 ? 1 : 2;
+                        }
+                        TiebaStatic.log(new ak("c12493").r("obj_type", i4));
                         return true;
                     }
+                } else {
+                    if (QuickVideoView.this.fOJ != null) {
+                        QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(i, i2, i3, QuickVideoView.this.getLocateSource(), false, QuickVideoView.this.fOZ);
+                        QuickVideoView.this.fOJ = null;
+                    }
+                    QuickVideoView.this.fOZ = 0L;
+                }
+                if (QuickVideoView.this.aZo == null || QuickVideoView.this.aZo.onError(gVar, i2, i3)) {
                     return true;
                 }
-                if (QuickVideoView.this.getPlayerType() == -100) {
-                    i4 = 0;
-                } else {
-                    i4 = QuickVideoView.this.getPlayerType() == -200 ? 1 : 2;
-                }
-                TiebaStatic.log(new ak("c12493").r("obj_type", i4));
                 return true;
             }
         };
-        this.fGu = new g.h() { // from class: com.baidu.tieba.play.QuickVideoView.13
-            @Override // com.baidu.tieba.play.g.h
+        this.fPr = new g.InterfaceC0123g() { // from class: com.baidu.tieba.play.QuickVideoView.14
+            @Override // com.baidu.tieba.play.g.InterfaceC0123g
             public void a(g gVar) {
-                com.baidu.adp.lib.g.e.fP().removeCallbacks(QuickVideoView.this.fGv);
-                com.baidu.adp.lib.g.e.fP().postDelayed(QuickVideoView.this.fGv, 500L);
-                if (QuickVideoView.this.aWn != null) {
-                    QuickVideoView.this.aWn.a(gVar);
+                if (QuickVideoView.this.fPa) {
+                    QuickVideoView.this.fPa = false;
+                    return;
+                }
+                com.baidu.adp.lib.g.e.fP().removeCallbacks(QuickVideoView.this.fPs);
+                com.baidu.adp.lib.g.e.fP().postDelayed(QuickVideoView.this.fPs, 500L);
+                boolean z = QuickVideoView.this.getPlayerType() == -200;
+                if (QuickVideoView.this.fON != null && z) {
+                    QuickVideoView.this.fON.onSeekComplete();
+                }
+                if (QuickVideoView.this.aZr != null) {
+                    QuickVideoView.this.aZr.a(gVar);
                 }
             }
         };
-        this.aWm = new g.e() { // from class: com.baidu.tieba.play.QuickVideoView.14
+        this.aZq = new g.e() { // from class: com.baidu.tieba.play.QuickVideoView.15
             @Override // com.baidu.tieba.play.g.e
             public boolean a(g gVar, int i, int i2) {
                 if (i == 10001) {
-                    QuickVideoView.this.fGd = i2;
-                    if (QuickVideoView.this.fFT != null && gVar != null) {
-                        QuickVideoView.this.fFT.Y(gVar.getVideoWidth(), gVar.getVideoHeight(), QuickVideoView.this.fGd);
+                    QuickVideoView.this.fOP = i2;
+                    if (QuickVideoView.this.fOE != null && gVar != null) {
+                        QuickVideoView.this.fOE.X(gVar.getVideoWidth(), gVar.getVideoHeight(), QuickVideoView.this.fOP);
                         return true;
                     }
                     return true;
-                } else if ((i == 701 || i2 == 701) && QuickVideoView.this.fFY != null && !QuickVideoView.this.fGl) {
-                    QuickVideoView.this.fFY.aNb();
+                } else if ((i == 701 || i2 == 701) && QuickVideoView.this.fOJ != null && !QuickVideoView.this.fOW) {
+                    QuickVideoView.this.fOJ.aNR();
                     return true;
-                } else if ((i == 702 || i2 == 702) && QuickVideoView.this.fFY != null && !QuickVideoView.this.fGl) {
-                    QuickVideoView.this.fFY.aNc();
-                    QuickVideoView.this.fGl = false;
-                    com.baidu.adp.lib.g.e.fP().removeCallbacks(QuickVideoView.this.fGv);
+                } else if ((i == 702 || i2 == 702) && QuickVideoView.this.fOJ != null && !QuickVideoView.this.fOW) {
+                    QuickVideoView.this.fOJ.aNS();
+                    QuickVideoView.this.fOW = false;
+                    com.baidu.adp.lib.g.e.fP().removeCallbacks(QuickVideoView.this.fPs);
                     return true;
                 } else {
                     return true;
                 }
             }
         };
-        this.fGv = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.15
+        this.fPs = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.16
             @Override // java.lang.Runnable
             public void run() {
-                QuickVideoView.this.fGl = false;
+                QuickVideoView.this.fOW = false;
             }
         };
-        this.aWo = new g.f() { // from class: com.baidu.tieba.play.QuickVideoView.16
-            @Override // com.baidu.tieba.play.g.f
-            public void onReleaseFinished() {
-                QuickVideoView.this.fGi = true;
-            }
-        };
-        this.aWp = new g.j() { // from class: com.baidu.tieba.play.QuickVideoView.2
-            @Override // com.baidu.tieba.play.g.j
+        this.aZs = new g.i() { // from class: com.baidu.tieba.play.QuickVideoView.17
+            @Override // com.baidu.tieba.play.g.i
             public void onSubError(int i, int i2, String str) {
-                if (QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.f(i, i2, str);
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.g(i, i2, str);
                 }
             }
         };
-        this.aWq = new g.d() { // from class: com.baidu.tieba.play.QuickVideoView.3
+        this.aZt = new g.d() { // from class: com.baidu.tieba.play.QuickVideoView.2
             @Override // com.baidu.tieba.play.g.d
             public void onHandleOppoError(String str) {
-                if (QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.oN(str);
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.pd(str);
                 }
             }
         };
-        this.aWr = new g.i() { // from class: com.baidu.tieba.play.QuickVideoView.4
-            @Override // com.baidu.tieba.play.g.i
+        this.aZu = new g.h() { // from class: com.baidu.tieba.play.QuickVideoView.3
+            @Override // com.baidu.tieba.play.g.h
             public void onSpeed(long j) {
                 if (j != 0) {
-                    QuickVideoView.this.fGp = j;
+                    QuickVideoView.this.fOZ = j;
                 }
             }
         };
-        this.fGw = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.5
+        this.fPt = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.4
             @Override // java.lang.Runnable
             public void run() {
-                if (QuickVideoView.this.fGb != null && QuickVideoView.qV(QuickVideoView.this.fGb.hB(QuickVideoView.this.fGb.bhs()))) {
-                    QuickVideoView.this.fFV.forceUseSystemMediaPlayer(false);
-                    QuickVideoView.this.fGk.bia();
-                    QuickVideoView.this.fGm = true;
-                    if (QuickVideoView.this.fFY != null) {
-                        QuickVideoView.this.fFZ = QuickVideoView.this.fFY.a(QuickVideoView.this.getPlayerType(), -5000, -5000, QuickVideoView.this.getLocateSource(), true, QuickVideoView.this.fGp);
-                        QuickVideoView.this.fFY = null;
+                if (QuickVideoView.this.fON != null && QuickVideoView.ro(QuickVideoView.this.fON.hE(QuickVideoView.this.fON.biV()))) {
+                    QuickVideoView.this.fOG.forceUseSystemMediaPlayer(false);
+                    QuickVideoView.this.fOV.bjH();
+                    QuickVideoView.this.fOX = true;
+                    if (QuickVideoView.this.fOJ != null) {
+                        QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(QuickVideoView.this.getPlayerType(), -5000, -5000, QuickVideoView.this.getLocateSource(), true, QuickVideoView.this.fOZ);
+                        QuickVideoView.this.fOJ = null;
                     }
-                    QuickVideoView.this.fGp = 0L;
-                    QuickVideoView.this.setVideoPath(QuickVideoView.this.fGb.bhs());
+                    QuickVideoView.this.fOZ = 0L;
+                    QuickVideoView.this.setVideoPath(QuickVideoView.this.fON.biV());
                     QuickVideoView.this.start();
                 }
             }
         };
-        this.aWz = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.play.QuickVideoView.6
+        this.fPu = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.5
+            @Override // java.lang.Runnable
+            public void run() {
+                if ((QuickVideoView.this.getPlayerType() == -200) && QuickVideoView.this.fON != null && QuickVideoView.this.fON.biW() && QuickVideoView.this.fON.biX() && QuickVideoView.this.fON.biY() && QuickVideoView.this.fOG != null) {
+                    int Ln = QuickVideoView.this.fOG.Ln();
+                    int currentPosition = QuickVideoView.this.fOG.getCurrentPosition();
+                    int duration = QuickVideoView.this.fOG.getDuration();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    long j = currentTimeMillis - QuickVideoView.this.fPb;
+                    boolean z = currentPosition + Ln < duration;
+                    if (Ln < QuickVideoView.this.fON.biZ() * 1000 && j > TbConfig.NOTIFY_SOUND_INTERVAL && z) {
+                        QuickVideoView.this.fPb = currentTimeMillis;
+                        QuickVideoView.this.fON.sq(0);
+                    }
+                    if (QuickVideoView.this.bjh() && currentPosition == QuickVideoView.this.fPc && j > 500) {
+                        QuickVideoView.this.fPb = currentTimeMillis;
+                        QuickVideoView.this.fON.sq(0);
+                    }
+                    QuickVideoView.this.fPc = currentPosition;
+                    if (QuickVideoView.this.fmN == QuickVideoView.fPg) {
+                        QuickVideoView.this.bjl();
+                    }
+                }
+            }
+        };
+        this.aZC = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.play.QuickVideoView.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue() && QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.oK(QuickVideoView.this.getLocateSource());
-                    QuickVideoView.this.fFY = null;
+                if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue() && QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.pa(QuickVideoView.this.getLocateSource());
+                    QuickVideoView.this.fOJ = null;
                 }
+            }
+        };
+        this.eEh = new e.a() { // from class: com.baidu.tieba.play.QuickVideoView.9
+            @Override // com.baidu.tieba.i.e.a
+            public void pl(int i) {
+                if (i == 1) {
+                    ak akVar = new ak("c12620");
+                    akVar.r("obj_locate", 1);
+                    akVar.ac("tid", QuickVideoView.this.aMR);
+                    TiebaStatic.log(akVar);
+                    HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_MOOV_UPLOAD);
+                    httpMessage.addParam("thread_id", QuickVideoView.this.aMR);
+                    httpMessage.addParam("video_url", QuickVideoView.this.fOY);
+                    MessageManager.getInstance().sendMessage(httpMessage);
+                    if (QuickVideoView.this.fOJ != null) {
+                        QuickVideoView.this.fOJ.a(new com.baidu.tieba.i.b() { // from class: com.baidu.tieba.play.QuickVideoView.9.1
+                            @Override // com.baidu.tieba.i.b
+                            public void G(JSONObject jSONObject) throws JSONException {
+                            }
+
+                            @Override // com.baidu.tieba.i.b
+                            public void H(JSONObject jSONObject) throws JSONException {
+                            }
+
+                            @Override // com.baidu.tieba.i.b
+                            public void I(JSONObject jSONObject) throws JSONException {
+                                jSONObject.put("moov_bottom", 1);
+                            }
+                        });
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.i.e.a
+            public void onChange(final boolean z) {
+                ak akVar = new ak("c12621");
+                akVar.r("obj_locate", 1);
+                akVar.r("obj_param1", z ? 1 : 0);
+                akVar.ac("tid", QuickVideoView.this.aMR);
+                TiebaStatic.log(akVar);
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.a(new com.baidu.tieba.i.b() { // from class: com.baidu.tieba.play.QuickVideoView.9.2
+                        @Override // com.baidu.tieba.i.b
+                        public void G(JSONObject jSONObject) throws JSONException {
+                        }
+
+                        @Override // com.baidu.tieba.i.b
+                        public void H(JSONObject jSONObject) throws JSONException {
+                        }
+
+                        @Override // com.baidu.tieba.i.b
+                        public void I(JSONObject jSONObject) throws JSONException {
+                            jSONObject.put("moov_bottom_fix", z ? 1 : 0);
+                        }
+                    });
+                }
+            }
+
+            @Override // com.baidu.tieba.i.e.a
+            public void is(boolean z) {
             }
         };
         init(context);
@@ -456,90 +530,45 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
 
     public QuickVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fGa = false;
-        this.fGc = false;
-        this.fGd = 0;
-        this.fGe = false;
-        this.fGf = -1;
-        this.fGg = false;
-        this.fGh = null;
-        this.fGj = true;
-        this.fGq = new a.InterfaceC0120a() { // from class: com.baidu.tieba.play.QuickVideoView.1
-            @Override // com.baidu.tieba.play.c.a.InterfaceC0120a
-            public void bN(String str, String str2) {
-                ak akVar = new ak("c12620");
-                akVar.r("obj_locate", 1);
-                akVar.ac("tid", str2);
-                TiebaStatic.log(akVar);
-                if (TextUtils.equals(str2, QuickVideoView.this.aMq) && QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.a(new com.baidu.tieba.play.b.a() { // from class: com.baidu.tieba.play.QuickVideoView.1.1
-                        @Override // com.baidu.tieba.play.b.a
-                        public void J(JSONObject jSONObject) throws JSONException {
-                        }
-
-                        @Override // com.baidu.tieba.play.b.a
-                        public void K(JSONObject jSONObject) throws JSONException {
-                        }
-
-                        @Override // com.baidu.tieba.play.b.a
-                        public void L(JSONObject jSONObject) throws JSONException {
-                            jSONObject.put("moov_bottom", 1);
-                        }
-                    });
-                }
-            }
-
-            @Override // com.baidu.tieba.play.c.a.InterfaceC0120a
-            public void j(String str, String str2, final boolean z) {
-                ak akVar = new ak("c12621");
-                akVar.r("obj_locate", 1);
-                akVar.r("obj_param1", z ? 1 : 0);
-                akVar.ac("tid", str2);
-                TiebaStatic.log(akVar);
-                if (TextUtils.equals(str2, QuickVideoView.this.aMq) && QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.a(new com.baidu.tieba.play.b.a() { // from class: com.baidu.tieba.play.QuickVideoView.1.2
-                        @Override // com.baidu.tieba.play.b.a
-                        public void J(JSONObject jSONObject) throws JSONException {
-                        }
-
-                        @Override // com.baidu.tieba.play.b.a
-                        public void K(JSONObject jSONObject) throws JSONException {
-                        }
-
-                        @Override // com.baidu.tieba.play.b.a
-                        public void L(JSONObject jSONObject) throws JSONException {
-                            jSONObject.put("moov_bottom_fix", z ? 1 : 0);
-                        }
-                    });
-                }
-            }
-        };
-        this.fGr = new TextureView.SurfaceTextureListener() { // from class: com.baidu.tieba.play.QuickVideoView.9
+        this.fOM = false;
+        this.fOO = false;
+        this.fOP = 0;
+        this.fOQ = false;
+        this.fOR = -1;
+        this.fOS = false;
+        this.fOT = null;
+        this.fOU = true;
+        this.fPb = 0L;
+        this.fPc = 0L;
+        this.fmN = fPh;
+        this.fPi = 0;
+        this.fPj = 0;
+        this.fPk = -1;
+        this.fPl = 0;
+        this.fPm = 0;
+        this.fPn = 0;
+        this.bdz = 0;
+        this.fPo = new TextureView.SurfaceTextureListener() { // from class: com.baidu.tieba.play.QuickVideoView.10
             @Override // android.view.TextureView.SurfaceTextureListener
             public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-                if (QuickVideoView.this.fGh != null && QuickVideoView.this.fGh != surfaceTexture) {
-                    QuickVideoView.this.fGh.release();
-                    QuickVideoView.this.fGh = null;
-                }
-                if (QuickVideoView.this.fGc) {
-                    QuickVideoView.this.fGc = false;
-                    if (QuickVideoView.this.fFV != null) {
-                        QuickVideoView.this.fFV.a(QuickVideoView.this.mContext, QuickVideoView.this.mUri, QuickVideoView.this.Am, surfaceTexture, QuickVideoView.this.mUri.getHost());
+                if (QuickVideoView.this.fOO) {
+                    QuickVideoView.this.fOO = false;
+                    if (QuickVideoView.this.fOG != null) {
+                        QuickVideoView.this.fOG.a(QuickVideoView.this.mContext, QuickVideoView.this.mUri, QuickVideoView.this.Am, surfaceTexture, QuickVideoView.this.mUri.getHost());
                     }
                     if (QuickVideoView.this.e(QuickVideoView.this.mUri) != null) {
-                        QuickVideoView.this.fFY.aMY();
+                        QuickVideoView.this.fOJ.aNO();
                     }
-                } else if (QuickVideoView.this.fFV != null && QuickVideoView.this.fGg) {
-                    QuickVideoView.this.fFV.a(QuickVideoView.this.mContext, QuickVideoView.this.mUri, QuickVideoView.this.Am, surfaceTexture, QuickVideoView.this.fGf);
-                    if (QuickVideoView.this.fFJ != null) {
-                        QuickVideoView.this.fFJ.bhr();
+                } else if (QuickVideoView.this.fOG != null && QuickVideoView.this.fOS) {
+                    QuickVideoView.this.fOG.a(QuickVideoView.this.mContext, QuickVideoView.this.mUri, QuickVideoView.this.Am, surfaceTexture, QuickVideoView.this.fOR);
+                    if (QuickVideoView.this.fOu != null) {
+                        QuickVideoView.this.fOu.biU();
                     }
                     if (QuickVideoView.this.e(QuickVideoView.this.mUri) != null) {
-                        QuickVideoView.this.fFY.aMZ();
+                        QuickVideoView.this.fOJ.aNP();
                     }
                 }
-                QuickVideoView.this.fGh = surfaceTexture;
-                QuickVideoView.this.fGi = false;
+                QuickVideoView.this.fOT = surfaceTexture;
             }
 
             @Override // android.view.TextureView.SurfaceTextureListener
@@ -548,62 +577,66 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
 
             @Override // android.view.TextureView.SurfaceTextureListener
             public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-                if (QuickVideoView.this.fFV != null) {
-                    QuickVideoView.this.fFV.release();
+                QuickVideoView.this.lW(false);
+                if (QuickVideoView.this.fOG != null) {
+                    QuickVideoView.this.fOG.release();
                 }
-                if (!QuickVideoView.this.fGc) {
-                    if (QuickVideoView.this.fGb != null) {
-                        QuickVideoView.this.fGb.onStop();
+                if (!QuickVideoView.this.fOO) {
+                    if (QuickVideoView.this.fON != null) {
+                        QuickVideoView.this.fON.onStop();
                     }
-                    if (QuickVideoView.this.bSE != null) {
-                        QuickVideoView.this.bSE.onSurfaceDestroyed();
+                    if (QuickVideoView.this.blr != null) {
+                        QuickVideoView.this.blr.onSurfaceDestroyed();
                     }
                 }
-                if (QuickVideoView.this.fGi) {
-                    QuickVideoView.this.fGh = null;
+                QuickVideoView.this.fOT = null;
+                if (QuickVideoView.this.fOJ != null && QuickVideoView.this.fOJ.pc(QuickVideoView.this.getLocateSource())) {
+                    QuickVideoView.this.fOJ = null;
                 }
-                if (QuickVideoView.this.fFY != null && QuickVideoView.this.fFY.oM(QuickVideoView.this.getLocateSource())) {
-                    QuickVideoView.this.fFY = null;
-                }
-                return QuickVideoView.this.fGi;
+                return false;
             }
 
             @Override // android.view.TextureView.SurfaceTextureListener
             public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
             }
         };
-        this.fGs = new g.InterfaceC0124g() { // from class: com.baidu.tieba.play.QuickVideoView.10
-            @Override // com.baidu.tieba.play.g.InterfaceC0124g
+        this.fPp = new g.f() { // from class: com.baidu.tieba.play.QuickVideoView.11
+            @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
                 int i;
-                if (QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.aNa();
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.aNQ();
                 }
-                if (QuickVideoView.this.aWj != null) {
-                    QuickVideoView.this.aWj.onPrepared(gVar);
+                if (QuickVideoView.this.aZn != null) {
+                    QuickVideoView.this.aZn.onPrepared(gVar);
                 }
-                if (QuickVideoView.this.fGb != null) {
-                    QuickVideoView.this.fGb.onPrepared();
+                if (QuickVideoView.this.fON != null) {
+                    QuickVideoView.this.fON.onPrepared();
+                    QuickVideoView.this.bjg();
+                    if (QuickVideoView.this.getPlayerType() == -200) {
+                        QuickVideoView.this.fON.bja();
+                        QuickVideoView.this.bjl();
+                    }
                 }
-                if (QuickVideoView.this.fGa) {
+                if (QuickVideoView.this.fOM) {
                     QuickVideoView.this.start();
                 }
-                if (QuickVideoView.this.fFT != null && gVar != null) {
-                    QuickVideoView.this.fFT.Y(gVar.getVideoWidth(), gVar.getVideoHeight(), QuickVideoView.this.fGd);
+                if (QuickVideoView.this.fOE != null && gVar != null) {
+                    QuickVideoView.this.fOE.X(gVar.getVideoWidth(), gVar.getVideoHeight(), QuickVideoView.this.fOP);
                 }
-                if (!TextUtils.isEmpty(QuickVideoView.this.fFU)) {
-                    TiebaStatic.log(new ak("c12199").ac("obj_param1", QuickVideoView.this.mUri == null ? "null" : QuickVideoView.this.mUri.toString()).ac("obj_param2", QuickVideoView.this.fFU).ac("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
+                if (!TextUtils.isEmpty(QuickVideoView.this.fOF)) {
+                    TiebaStatic.log(new ak("c12199").ac("obj_param1", QuickVideoView.this.mUri == null ? "null" : QuickVideoView.this.mUri.toString()).ac("obj_param2", QuickVideoView.this.fOF).ac("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
                     BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
                     Object[] objArr = new Object[6];
                     objArr[0] = "url";
                     objArr[1] = QuickVideoView.this.mUri == null ? "null" : QuickVideoView.this.mUri.toString();
                     objArr[2] = "dnsIP";
-                    objArr[3] = QuickVideoView.this.fFU;
+                    objArr[3] = QuickVideoView.this.fOF;
                     objArr[4] = "clientip";
                     objArr[5] = com.baidu.tbadk.core.util.d.getIp();
                     bdStatisticsManager.newDebug("videoplay", 0L, null, objArr);
                 }
-                if (QuickVideoView.this.fGk != null && QuickVideoView.this.fGk.bia()) {
+                if (QuickVideoView.this.fOV != null && QuickVideoView.this.fOV.bjH()) {
                     if (QuickVideoView.this.getPlayerType() == -100) {
                         i = 0;
                     } else {
@@ -613,187 +646,284 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                 }
             }
         };
-        this.fGt = new g.a() { // from class: com.baidu.tieba.play.QuickVideoView.11
+        this.fPq = new g.a() { // from class: com.baidu.tieba.play.QuickVideoView.12
             @Override // com.baidu.tieba.play.g.a
             public void onCompletion(g gVar) {
-                if (QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.oL(QuickVideoView.this.getLocateSource());
-                    QuickVideoView.this.fFY = null;
+                QuickVideoView.this.lW(true);
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.pb(QuickVideoView.this.getLocateSource());
+                    QuickVideoView.this.fOJ = null;
                 }
-                if (!QuickVideoView.this.fGe || QuickVideoView.this.fGb == null) {
-                    if (QuickVideoView.this.fGb != null) {
-                        QuickVideoView.this.fGb.onCompletion();
+                if (!QuickVideoView.this.fOQ || QuickVideoView.this.fON == null) {
+                    if (QuickVideoView.this.fON != null) {
+                        QuickVideoView.this.fON.onCompletion();
                     }
-                    QuickVideoView.this.fGa = false;
-                    if (QuickVideoView.this.aWi != null) {
-                        QuickVideoView.this.aWi.onCompletion(gVar);
+                    QuickVideoView.this.fOM = false;
+                    if (QuickVideoView.this.aZm != null) {
+                        QuickVideoView.this.aZm.onCompletion(gVar);
                         return;
                     }
                     return;
                 }
-                QuickVideoView.this.fFZ = null;
-                QuickVideoView.this.fGp = 0L;
-                QuickVideoView.this.setVideoPath(QuickVideoView.this.fGb.bhs());
+                QuickVideoView.this.fOL = null;
+                QuickVideoView.this.fOZ = 0L;
+                QuickVideoView.this.setVideoPath(QuickVideoView.this.fON.biV());
                 QuickVideoView.this.start();
             }
         };
-        this.aWl = new g.c() { // from class: com.baidu.tieba.play.QuickVideoView.12
+        this.aZp = new g.c() { // from class: com.baidu.tieba.play.QuickVideoView.13
             @Override // com.baidu.tieba.play.g.c
             public boolean a(g gVar, int i, int i2, int i3) {
                 int i4;
-                com.baidu.tieba.play.d.a.Z(i, i2, i3);
-                if (QuickVideoView.qV(QuickVideoView.this.mUri.toString())) {
-                    if (QuickVideoView.this.fGb != null && !StringUtils.isNull(QuickVideoView.this.fGb.bhs())) {
-                        String uri = QuickVideoView.this.mUri.toString();
-                        if (!uri.contains("http")) {
-                            File file = new File(uri);
-                            if (file.exists()) {
-                                QuickVideoView.this.setLocalVideoMd5(com.baidu.adp.lib.util.s.e(com.baidu.tbadk.core.util.k.q(file)));
+                com.baidu.tieba.play.b.a.Y(i, i2, i3);
+                if (QuickVideoView.this.fON != null && QuickVideoView.this.getCurrentPosition() > 0) {
+                    QuickVideoView.this.fPa = true;
+                    x.bjC().av(QuickVideoView.this.fON.biV(), QuickVideoView.this.getCurrentPosition());
+                }
+                if (com.baidu.adp.lib.util.j.hh()) {
+                    if (QuickVideoView.ro(QuickVideoView.this.mUri.toString())) {
+                        if (QuickVideoView.this.fON != null && !StringUtils.isNull(QuickVideoView.this.fON.biV())) {
+                            String uri = QuickVideoView.this.mUri.toString();
+                            if (!uri.contains("http")) {
+                                com.baidu.tieba.play.b.a.rw(uri);
                             }
-                            com.baidu.tieba.play.d.a.rd(uri);
+                            QuickVideoView.this.mUri = Uri.parse(QuickVideoView.this.fON.biV());
                         }
-                        QuickVideoView.this.mUri = Uri.parse(QuickVideoView.this.fGb.bhs());
+                    } else {
+                        QuickVideoView.this.bjj();
                     }
-                } else {
-                    QuickVideoView.this.bhB();
-                }
-                boolean z = false;
-                if (QuickVideoView.this.fGk != null) {
-                    z = QuickVideoView.this.fGk.a(gVar, i, i2, i3, QuickVideoView.this.mUri);
-                }
-                if (QuickVideoView.this.fFY != null && z) {
-                    QuickVideoView.this.fFZ = QuickVideoView.this.fFY.a(i, i2, i3, QuickVideoView.this.getLocateSource(), z, QuickVideoView.this.fGp);
-                    QuickVideoView.this.fFY = null;
-                }
-                QuickVideoView.this.fGp = 0L;
-                if (QuickVideoView.this.fGb != null && !QuickVideoView.this.fGm && !z && QuickVideoView.qV(QuickVideoView.this.fGb.hB(QuickVideoView.this.fGb.bhs())) && !QuickVideoView.qV(QuickVideoView.this.mUri.toString())) {
-                    z = true;
-                    QuickVideoView.this.fFV.forceUseSystemMediaPlayer(false);
-                    QuickVideoView.this.fGk.bia();
-                    QuickVideoView.this.fGm = true;
-                    if (QuickVideoView.this.fFY != null) {
-                        QuickVideoView.this.fFZ = QuickVideoView.this.fFY.a(i, i2, i3, QuickVideoView.this.getLocateSource(), true, QuickVideoView.this.fGp);
-                        QuickVideoView.this.fFY = null;
+                    boolean z = false;
+                    if (QuickVideoView.this.fOV != null) {
+                        z = QuickVideoView.this.fOV.a(gVar, i, i2, i3, QuickVideoView.this.mUri);
                     }
-                    QuickVideoView.this.fGp = 0L;
-                    QuickVideoView.this.setVideoPath(QuickVideoView.this.fGb.bhs());
-                    QuickVideoView.this.start();
-                }
-                if (QuickVideoView.this.fFY != null && !z) {
-                    QuickVideoView.this.fFZ = QuickVideoView.this.fFY.a(i, i2, i3, QuickVideoView.this.getLocateSource(), z, QuickVideoView.this.fGp);
-                    QuickVideoView.this.fFY = null;
-                }
-                QuickVideoView.this.fGp = 0L;
-                if (!z) {
-                    QuickVideoView.this.bhD();
-                    if (QuickVideoView.this.aWk == null || QuickVideoView.this.aWk.onError(gVar, i2, i3)) {
+                    if (QuickVideoView.this.fOJ != null && z) {
+                        QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(i, i2, i3, QuickVideoView.this.getLocateSource(), z, QuickVideoView.this.fOZ);
+                        QuickVideoView.this.fOJ = null;
+                    }
+                    QuickVideoView.this.fOZ = 0L;
+                    if (QuickVideoView.this.fON != null && !QuickVideoView.this.fOX && !z && QuickVideoView.ro(QuickVideoView.this.fON.hE(QuickVideoView.this.fON.biV())) && !QuickVideoView.ro(QuickVideoView.this.mUri.toString())) {
+                        z = true;
+                        QuickVideoView.this.fOG.forceUseSystemMediaPlayer(false);
+                        QuickVideoView.this.fOV.bjH();
+                        QuickVideoView.this.fOX = true;
+                        if (QuickVideoView.this.fOJ != null) {
+                            QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(i, i2, i3, QuickVideoView.this.getLocateSource(), true, QuickVideoView.this.fOZ);
+                            QuickVideoView.this.fOJ = null;
+                        }
+                        QuickVideoView.this.fOZ = 0L;
+                        QuickVideoView.this.setVideoPath(QuickVideoView.this.fON.biV());
+                        QuickVideoView.this.start();
+                    }
+                    if (QuickVideoView.this.fOJ != null && !z) {
+                        QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(i, i2, i3, QuickVideoView.this.getLocateSource(), z, QuickVideoView.this.fOZ);
+                        QuickVideoView.this.fOJ = null;
+                    }
+                    QuickVideoView.this.fOZ = 0L;
+                    if (!z) {
+                        QuickVideoView.this.bjm();
+                    } else {
+                        if (QuickVideoView.this.getPlayerType() == -100) {
+                            i4 = 0;
+                        } else {
+                            i4 = QuickVideoView.this.getPlayerType() == -200 ? 1 : 2;
+                        }
+                        TiebaStatic.log(new ak("c12493").r("obj_type", i4));
                         return true;
                     }
+                } else {
+                    if (QuickVideoView.this.fOJ != null) {
+                        QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(i, i2, i3, QuickVideoView.this.getLocateSource(), false, QuickVideoView.this.fOZ);
+                        QuickVideoView.this.fOJ = null;
+                    }
+                    QuickVideoView.this.fOZ = 0L;
+                }
+                if (QuickVideoView.this.aZo == null || QuickVideoView.this.aZo.onError(gVar, i2, i3)) {
                     return true;
                 }
-                if (QuickVideoView.this.getPlayerType() == -100) {
-                    i4 = 0;
-                } else {
-                    i4 = QuickVideoView.this.getPlayerType() == -200 ? 1 : 2;
-                }
-                TiebaStatic.log(new ak("c12493").r("obj_type", i4));
                 return true;
             }
         };
-        this.fGu = new g.h() { // from class: com.baidu.tieba.play.QuickVideoView.13
-            @Override // com.baidu.tieba.play.g.h
+        this.fPr = new g.InterfaceC0123g() { // from class: com.baidu.tieba.play.QuickVideoView.14
+            @Override // com.baidu.tieba.play.g.InterfaceC0123g
             public void a(g gVar) {
-                com.baidu.adp.lib.g.e.fP().removeCallbacks(QuickVideoView.this.fGv);
-                com.baidu.adp.lib.g.e.fP().postDelayed(QuickVideoView.this.fGv, 500L);
-                if (QuickVideoView.this.aWn != null) {
-                    QuickVideoView.this.aWn.a(gVar);
+                if (QuickVideoView.this.fPa) {
+                    QuickVideoView.this.fPa = false;
+                    return;
+                }
+                com.baidu.adp.lib.g.e.fP().removeCallbacks(QuickVideoView.this.fPs);
+                com.baidu.adp.lib.g.e.fP().postDelayed(QuickVideoView.this.fPs, 500L);
+                boolean z = QuickVideoView.this.getPlayerType() == -200;
+                if (QuickVideoView.this.fON != null && z) {
+                    QuickVideoView.this.fON.onSeekComplete();
+                }
+                if (QuickVideoView.this.aZr != null) {
+                    QuickVideoView.this.aZr.a(gVar);
                 }
             }
         };
-        this.aWm = new g.e() { // from class: com.baidu.tieba.play.QuickVideoView.14
+        this.aZq = new g.e() { // from class: com.baidu.tieba.play.QuickVideoView.15
             @Override // com.baidu.tieba.play.g.e
             public boolean a(g gVar, int i, int i2) {
                 if (i == 10001) {
-                    QuickVideoView.this.fGd = i2;
-                    if (QuickVideoView.this.fFT != null && gVar != null) {
-                        QuickVideoView.this.fFT.Y(gVar.getVideoWidth(), gVar.getVideoHeight(), QuickVideoView.this.fGd);
+                    QuickVideoView.this.fOP = i2;
+                    if (QuickVideoView.this.fOE != null && gVar != null) {
+                        QuickVideoView.this.fOE.X(gVar.getVideoWidth(), gVar.getVideoHeight(), QuickVideoView.this.fOP);
                         return true;
                     }
                     return true;
-                } else if ((i == 701 || i2 == 701) && QuickVideoView.this.fFY != null && !QuickVideoView.this.fGl) {
-                    QuickVideoView.this.fFY.aNb();
+                } else if ((i == 701 || i2 == 701) && QuickVideoView.this.fOJ != null && !QuickVideoView.this.fOW) {
+                    QuickVideoView.this.fOJ.aNR();
                     return true;
-                } else if ((i == 702 || i2 == 702) && QuickVideoView.this.fFY != null && !QuickVideoView.this.fGl) {
-                    QuickVideoView.this.fFY.aNc();
-                    QuickVideoView.this.fGl = false;
-                    com.baidu.adp.lib.g.e.fP().removeCallbacks(QuickVideoView.this.fGv);
+                } else if ((i == 702 || i2 == 702) && QuickVideoView.this.fOJ != null && !QuickVideoView.this.fOW) {
+                    QuickVideoView.this.fOJ.aNS();
+                    QuickVideoView.this.fOW = false;
+                    com.baidu.adp.lib.g.e.fP().removeCallbacks(QuickVideoView.this.fPs);
                     return true;
                 } else {
                     return true;
                 }
             }
         };
-        this.fGv = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.15
+        this.fPs = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.16
             @Override // java.lang.Runnable
             public void run() {
-                QuickVideoView.this.fGl = false;
+                QuickVideoView.this.fOW = false;
             }
         };
-        this.aWo = new g.f() { // from class: com.baidu.tieba.play.QuickVideoView.16
-            @Override // com.baidu.tieba.play.g.f
-            public void onReleaseFinished() {
-                QuickVideoView.this.fGi = true;
-            }
-        };
-        this.aWp = new g.j() { // from class: com.baidu.tieba.play.QuickVideoView.2
-            @Override // com.baidu.tieba.play.g.j
+        this.aZs = new g.i() { // from class: com.baidu.tieba.play.QuickVideoView.17
+            @Override // com.baidu.tieba.play.g.i
             public void onSubError(int i, int i2, String str) {
-                if (QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.f(i, i2, str);
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.g(i, i2, str);
                 }
             }
         };
-        this.aWq = new g.d() { // from class: com.baidu.tieba.play.QuickVideoView.3
+        this.aZt = new g.d() { // from class: com.baidu.tieba.play.QuickVideoView.2
             @Override // com.baidu.tieba.play.g.d
             public void onHandleOppoError(String str) {
-                if (QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.oN(str);
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.pd(str);
                 }
             }
         };
-        this.aWr = new g.i() { // from class: com.baidu.tieba.play.QuickVideoView.4
-            @Override // com.baidu.tieba.play.g.i
+        this.aZu = new g.h() { // from class: com.baidu.tieba.play.QuickVideoView.3
+            @Override // com.baidu.tieba.play.g.h
             public void onSpeed(long j) {
                 if (j != 0) {
-                    QuickVideoView.this.fGp = j;
+                    QuickVideoView.this.fOZ = j;
                 }
             }
         };
-        this.fGw = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.5
+        this.fPt = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.4
             @Override // java.lang.Runnable
             public void run() {
-                if (QuickVideoView.this.fGb != null && QuickVideoView.qV(QuickVideoView.this.fGb.hB(QuickVideoView.this.fGb.bhs()))) {
-                    QuickVideoView.this.fFV.forceUseSystemMediaPlayer(false);
-                    QuickVideoView.this.fGk.bia();
-                    QuickVideoView.this.fGm = true;
-                    if (QuickVideoView.this.fFY != null) {
-                        QuickVideoView.this.fFZ = QuickVideoView.this.fFY.a(QuickVideoView.this.getPlayerType(), -5000, -5000, QuickVideoView.this.getLocateSource(), true, QuickVideoView.this.fGp);
-                        QuickVideoView.this.fFY = null;
+                if (QuickVideoView.this.fON != null && QuickVideoView.ro(QuickVideoView.this.fON.hE(QuickVideoView.this.fON.biV()))) {
+                    QuickVideoView.this.fOG.forceUseSystemMediaPlayer(false);
+                    QuickVideoView.this.fOV.bjH();
+                    QuickVideoView.this.fOX = true;
+                    if (QuickVideoView.this.fOJ != null) {
+                        QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(QuickVideoView.this.getPlayerType(), -5000, -5000, QuickVideoView.this.getLocateSource(), true, QuickVideoView.this.fOZ);
+                        QuickVideoView.this.fOJ = null;
                     }
-                    QuickVideoView.this.fGp = 0L;
-                    QuickVideoView.this.setVideoPath(QuickVideoView.this.fGb.bhs());
+                    QuickVideoView.this.fOZ = 0L;
+                    QuickVideoView.this.setVideoPath(QuickVideoView.this.fON.biV());
                     QuickVideoView.this.start();
                 }
             }
         };
-        this.aWz = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.play.QuickVideoView.6
+        this.fPu = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.5
+            @Override // java.lang.Runnable
+            public void run() {
+                if ((QuickVideoView.this.getPlayerType() == -200) && QuickVideoView.this.fON != null && QuickVideoView.this.fON.biW() && QuickVideoView.this.fON.biX() && QuickVideoView.this.fON.biY() && QuickVideoView.this.fOG != null) {
+                    int Ln = QuickVideoView.this.fOG.Ln();
+                    int currentPosition = QuickVideoView.this.fOG.getCurrentPosition();
+                    int duration = QuickVideoView.this.fOG.getDuration();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    long j = currentTimeMillis - QuickVideoView.this.fPb;
+                    boolean z = currentPosition + Ln < duration;
+                    if (Ln < QuickVideoView.this.fON.biZ() * 1000 && j > TbConfig.NOTIFY_SOUND_INTERVAL && z) {
+                        QuickVideoView.this.fPb = currentTimeMillis;
+                        QuickVideoView.this.fON.sq(0);
+                    }
+                    if (QuickVideoView.this.bjh() && currentPosition == QuickVideoView.this.fPc && j > 500) {
+                        QuickVideoView.this.fPb = currentTimeMillis;
+                        QuickVideoView.this.fON.sq(0);
+                    }
+                    QuickVideoView.this.fPc = currentPosition;
+                    if (QuickVideoView.this.fmN == QuickVideoView.fPg) {
+                        QuickVideoView.this.bjl();
+                    }
+                }
+            }
+        };
+        this.aZC = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.play.QuickVideoView.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue() && QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.oK(QuickVideoView.this.getLocateSource());
-                    QuickVideoView.this.fFY = null;
+                if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue() && QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.pa(QuickVideoView.this.getLocateSource());
+                    QuickVideoView.this.fOJ = null;
                 }
+            }
+        };
+        this.eEh = new e.a() { // from class: com.baidu.tieba.play.QuickVideoView.9
+            @Override // com.baidu.tieba.i.e.a
+            public void pl(int i) {
+                if (i == 1) {
+                    ak akVar = new ak("c12620");
+                    akVar.r("obj_locate", 1);
+                    akVar.ac("tid", QuickVideoView.this.aMR);
+                    TiebaStatic.log(akVar);
+                    HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_MOOV_UPLOAD);
+                    httpMessage.addParam("thread_id", QuickVideoView.this.aMR);
+                    httpMessage.addParam("video_url", QuickVideoView.this.fOY);
+                    MessageManager.getInstance().sendMessage(httpMessage);
+                    if (QuickVideoView.this.fOJ != null) {
+                        QuickVideoView.this.fOJ.a(new com.baidu.tieba.i.b() { // from class: com.baidu.tieba.play.QuickVideoView.9.1
+                            @Override // com.baidu.tieba.i.b
+                            public void G(JSONObject jSONObject) throws JSONException {
+                            }
+
+                            @Override // com.baidu.tieba.i.b
+                            public void H(JSONObject jSONObject) throws JSONException {
+                            }
+
+                            @Override // com.baidu.tieba.i.b
+                            public void I(JSONObject jSONObject) throws JSONException {
+                                jSONObject.put("moov_bottom", 1);
+                            }
+                        });
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.i.e.a
+            public void onChange(final boolean z) {
+                ak akVar = new ak("c12621");
+                akVar.r("obj_locate", 1);
+                akVar.r("obj_param1", z ? 1 : 0);
+                akVar.ac("tid", QuickVideoView.this.aMR);
+                TiebaStatic.log(akVar);
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.a(new com.baidu.tieba.i.b() { // from class: com.baidu.tieba.play.QuickVideoView.9.2
+                        @Override // com.baidu.tieba.i.b
+                        public void G(JSONObject jSONObject) throws JSONException {
+                        }
+
+                        @Override // com.baidu.tieba.i.b
+                        public void H(JSONObject jSONObject) throws JSONException {
+                        }
+
+                        @Override // com.baidu.tieba.i.b
+                        public void I(JSONObject jSONObject) throws JSONException {
+                            jSONObject.put("moov_bottom_fix", z ? 1 : 0);
+                        }
+                    });
+                }
+            }
+
+            @Override // com.baidu.tieba.i.e.a
+            public void is(boolean z) {
             }
         };
         init(context);
@@ -801,90 +931,45 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
 
     public QuickVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fGa = false;
-        this.fGc = false;
-        this.fGd = 0;
-        this.fGe = false;
-        this.fGf = -1;
-        this.fGg = false;
-        this.fGh = null;
-        this.fGj = true;
-        this.fGq = new a.InterfaceC0120a() { // from class: com.baidu.tieba.play.QuickVideoView.1
-            @Override // com.baidu.tieba.play.c.a.InterfaceC0120a
-            public void bN(String str, String str2) {
-                ak akVar = new ak("c12620");
-                akVar.r("obj_locate", 1);
-                akVar.ac("tid", str2);
-                TiebaStatic.log(akVar);
-                if (TextUtils.equals(str2, QuickVideoView.this.aMq) && QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.a(new com.baidu.tieba.play.b.a() { // from class: com.baidu.tieba.play.QuickVideoView.1.1
-                        @Override // com.baidu.tieba.play.b.a
-                        public void J(JSONObject jSONObject) throws JSONException {
-                        }
-
-                        @Override // com.baidu.tieba.play.b.a
-                        public void K(JSONObject jSONObject) throws JSONException {
-                        }
-
-                        @Override // com.baidu.tieba.play.b.a
-                        public void L(JSONObject jSONObject) throws JSONException {
-                            jSONObject.put("moov_bottom", 1);
-                        }
-                    });
-                }
-            }
-
-            @Override // com.baidu.tieba.play.c.a.InterfaceC0120a
-            public void j(String str, String str2, final boolean z) {
-                ak akVar = new ak("c12621");
-                akVar.r("obj_locate", 1);
-                akVar.r("obj_param1", z ? 1 : 0);
-                akVar.ac("tid", str2);
-                TiebaStatic.log(akVar);
-                if (TextUtils.equals(str2, QuickVideoView.this.aMq) && QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.a(new com.baidu.tieba.play.b.a() { // from class: com.baidu.tieba.play.QuickVideoView.1.2
-                        @Override // com.baidu.tieba.play.b.a
-                        public void J(JSONObject jSONObject) throws JSONException {
-                        }
-
-                        @Override // com.baidu.tieba.play.b.a
-                        public void K(JSONObject jSONObject) throws JSONException {
-                        }
-
-                        @Override // com.baidu.tieba.play.b.a
-                        public void L(JSONObject jSONObject) throws JSONException {
-                            jSONObject.put("moov_bottom_fix", z ? 1 : 0);
-                        }
-                    });
-                }
-            }
-        };
-        this.fGr = new TextureView.SurfaceTextureListener() { // from class: com.baidu.tieba.play.QuickVideoView.9
+        this.fOM = false;
+        this.fOO = false;
+        this.fOP = 0;
+        this.fOQ = false;
+        this.fOR = -1;
+        this.fOS = false;
+        this.fOT = null;
+        this.fOU = true;
+        this.fPb = 0L;
+        this.fPc = 0L;
+        this.fmN = fPh;
+        this.fPi = 0;
+        this.fPj = 0;
+        this.fPk = -1;
+        this.fPl = 0;
+        this.fPm = 0;
+        this.fPn = 0;
+        this.bdz = 0;
+        this.fPo = new TextureView.SurfaceTextureListener() { // from class: com.baidu.tieba.play.QuickVideoView.10
             @Override // android.view.TextureView.SurfaceTextureListener
             public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i22) {
-                if (QuickVideoView.this.fGh != null && QuickVideoView.this.fGh != surfaceTexture) {
-                    QuickVideoView.this.fGh.release();
-                    QuickVideoView.this.fGh = null;
-                }
-                if (QuickVideoView.this.fGc) {
-                    QuickVideoView.this.fGc = false;
-                    if (QuickVideoView.this.fFV != null) {
-                        QuickVideoView.this.fFV.a(QuickVideoView.this.mContext, QuickVideoView.this.mUri, QuickVideoView.this.Am, surfaceTexture, QuickVideoView.this.mUri.getHost());
+                if (QuickVideoView.this.fOO) {
+                    QuickVideoView.this.fOO = false;
+                    if (QuickVideoView.this.fOG != null) {
+                        QuickVideoView.this.fOG.a(QuickVideoView.this.mContext, QuickVideoView.this.mUri, QuickVideoView.this.Am, surfaceTexture, QuickVideoView.this.mUri.getHost());
                     }
                     if (QuickVideoView.this.e(QuickVideoView.this.mUri) != null) {
-                        QuickVideoView.this.fFY.aMY();
+                        QuickVideoView.this.fOJ.aNO();
                     }
-                } else if (QuickVideoView.this.fFV != null && QuickVideoView.this.fGg) {
-                    QuickVideoView.this.fFV.a(QuickVideoView.this.mContext, QuickVideoView.this.mUri, QuickVideoView.this.Am, surfaceTexture, QuickVideoView.this.fGf);
-                    if (QuickVideoView.this.fFJ != null) {
-                        QuickVideoView.this.fFJ.bhr();
+                } else if (QuickVideoView.this.fOG != null && QuickVideoView.this.fOS) {
+                    QuickVideoView.this.fOG.a(QuickVideoView.this.mContext, QuickVideoView.this.mUri, QuickVideoView.this.Am, surfaceTexture, QuickVideoView.this.fOR);
+                    if (QuickVideoView.this.fOu != null) {
+                        QuickVideoView.this.fOu.biU();
                     }
                     if (QuickVideoView.this.e(QuickVideoView.this.mUri) != null) {
-                        QuickVideoView.this.fFY.aMZ();
+                        QuickVideoView.this.fOJ.aNP();
                     }
                 }
-                QuickVideoView.this.fGh = surfaceTexture;
-                QuickVideoView.this.fGi = false;
+                QuickVideoView.this.fOT = surfaceTexture;
             }
 
             @Override // android.view.TextureView.SurfaceTextureListener
@@ -893,62 +978,66 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
 
             @Override // android.view.TextureView.SurfaceTextureListener
             public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-                if (QuickVideoView.this.fFV != null) {
-                    QuickVideoView.this.fFV.release();
+                QuickVideoView.this.lW(false);
+                if (QuickVideoView.this.fOG != null) {
+                    QuickVideoView.this.fOG.release();
                 }
-                if (!QuickVideoView.this.fGc) {
-                    if (QuickVideoView.this.fGb != null) {
-                        QuickVideoView.this.fGb.onStop();
+                if (!QuickVideoView.this.fOO) {
+                    if (QuickVideoView.this.fON != null) {
+                        QuickVideoView.this.fON.onStop();
                     }
-                    if (QuickVideoView.this.bSE != null) {
-                        QuickVideoView.this.bSE.onSurfaceDestroyed();
+                    if (QuickVideoView.this.blr != null) {
+                        QuickVideoView.this.blr.onSurfaceDestroyed();
                     }
                 }
-                if (QuickVideoView.this.fGi) {
-                    QuickVideoView.this.fGh = null;
+                QuickVideoView.this.fOT = null;
+                if (QuickVideoView.this.fOJ != null && QuickVideoView.this.fOJ.pc(QuickVideoView.this.getLocateSource())) {
+                    QuickVideoView.this.fOJ = null;
                 }
-                if (QuickVideoView.this.fFY != null && QuickVideoView.this.fFY.oM(QuickVideoView.this.getLocateSource())) {
-                    QuickVideoView.this.fFY = null;
-                }
-                return QuickVideoView.this.fGi;
+                return false;
             }
 
             @Override // android.view.TextureView.SurfaceTextureListener
             public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
             }
         };
-        this.fGs = new g.InterfaceC0124g() { // from class: com.baidu.tieba.play.QuickVideoView.10
-            @Override // com.baidu.tieba.play.g.InterfaceC0124g
+        this.fPp = new g.f() { // from class: com.baidu.tieba.play.QuickVideoView.11
+            @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
                 int i2;
-                if (QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.aNa();
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.aNQ();
                 }
-                if (QuickVideoView.this.aWj != null) {
-                    QuickVideoView.this.aWj.onPrepared(gVar);
+                if (QuickVideoView.this.aZn != null) {
+                    QuickVideoView.this.aZn.onPrepared(gVar);
                 }
-                if (QuickVideoView.this.fGb != null) {
-                    QuickVideoView.this.fGb.onPrepared();
+                if (QuickVideoView.this.fON != null) {
+                    QuickVideoView.this.fON.onPrepared();
+                    QuickVideoView.this.bjg();
+                    if (QuickVideoView.this.getPlayerType() == -200) {
+                        QuickVideoView.this.fON.bja();
+                        QuickVideoView.this.bjl();
+                    }
                 }
-                if (QuickVideoView.this.fGa) {
+                if (QuickVideoView.this.fOM) {
                     QuickVideoView.this.start();
                 }
-                if (QuickVideoView.this.fFT != null && gVar != null) {
-                    QuickVideoView.this.fFT.Y(gVar.getVideoWidth(), gVar.getVideoHeight(), QuickVideoView.this.fGd);
+                if (QuickVideoView.this.fOE != null && gVar != null) {
+                    QuickVideoView.this.fOE.X(gVar.getVideoWidth(), gVar.getVideoHeight(), QuickVideoView.this.fOP);
                 }
-                if (!TextUtils.isEmpty(QuickVideoView.this.fFU)) {
-                    TiebaStatic.log(new ak("c12199").ac("obj_param1", QuickVideoView.this.mUri == null ? "null" : QuickVideoView.this.mUri.toString()).ac("obj_param2", QuickVideoView.this.fFU).ac("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
+                if (!TextUtils.isEmpty(QuickVideoView.this.fOF)) {
+                    TiebaStatic.log(new ak("c12199").ac("obj_param1", QuickVideoView.this.mUri == null ? "null" : QuickVideoView.this.mUri.toString()).ac("obj_param2", QuickVideoView.this.fOF).ac("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
                     BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
                     Object[] objArr = new Object[6];
                     objArr[0] = "url";
                     objArr[1] = QuickVideoView.this.mUri == null ? "null" : QuickVideoView.this.mUri.toString();
                     objArr[2] = "dnsIP";
-                    objArr[3] = QuickVideoView.this.fFU;
+                    objArr[3] = QuickVideoView.this.fOF;
                     objArr[4] = "clientip";
                     objArr[5] = com.baidu.tbadk.core.util.d.getIp();
                     bdStatisticsManager.newDebug("videoplay", 0L, null, objArr);
                 }
-                if (QuickVideoView.this.fGk != null && QuickVideoView.this.fGk.bia()) {
+                if (QuickVideoView.this.fOV != null && QuickVideoView.this.fOV.bjH()) {
                     if (QuickVideoView.this.getPlayerType() == -100) {
                         i2 = 0;
                     } else {
@@ -958,187 +1047,284 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                 }
             }
         };
-        this.fGt = new g.a() { // from class: com.baidu.tieba.play.QuickVideoView.11
+        this.fPq = new g.a() { // from class: com.baidu.tieba.play.QuickVideoView.12
             @Override // com.baidu.tieba.play.g.a
             public void onCompletion(g gVar) {
-                if (QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.oL(QuickVideoView.this.getLocateSource());
-                    QuickVideoView.this.fFY = null;
+                QuickVideoView.this.lW(true);
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.pb(QuickVideoView.this.getLocateSource());
+                    QuickVideoView.this.fOJ = null;
                 }
-                if (!QuickVideoView.this.fGe || QuickVideoView.this.fGb == null) {
-                    if (QuickVideoView.this.fGb != null) {
-                        QuickVideoView.this.fGb.onCompletion();
+                if (!QuickVideoView.this.fOQ || QuickVideoView.this.fON == null) {
+                    if (QuickVideoView.this.fON != null) {
+                        QuickVideoView.this.fON.onCompletion();
                     }
-                    QuickVideoView.this.fGa = false;
-                    if (QuickVideoView.this.aWi != null) {
-                        QuickVideoView.this.aWi.onCompletion(gVar);
+                    QuickVideoView.this.fOM = false;
+                    if (QuickVideoView.this.aZm != null) {
+                        QuickVideoView.this.aZm.onCompletion(gVar);
                         return;
                     }
                     return;
                 }
-                QuickVideoView.this.fFZ = null;
-                QuickVideoView.this.fGp = 0L;
-                QuickVideoView.this.setVideoPath(QuickVideoView.this.fGb.bhs());
+                QuickVideoView.this.fOL = null;
+                QuickVideoView.this.fOZ = 0L;
+                QuickVideoView.this.setVideoPath(QuickVideoView.this.fON.biV());
                 QuickVideoView.this.start();
             }
         };
-        this.aWl = new g.c() { // from class: com.baidu.tieba.play.QuickVideoView.12
+        this.aZp = new g.c() { // from class: com.baidu.tieba.play.QuickVideoView.13
             @Override // com.baidu.tieba.play.g.c
             public boolean a(g gVar, int i2, int i22, int i3) {
                 int i4;
-                com.baidu.tieba.play.d.a.Z(i2, i22, i3);
-                if (QuickVideoView.qV(QuickVideoView.this.mUri.toString())) {
-                    if (QuickVideoView.this.fGb != null && !StringUtils.isNull(QuickVideoView.this.fGb.bhs())) {
-                        String uri = QuickVideoView.this.mUri.toString();
-                        if (!uri.contains("http")) {
-                            File file = new File(uri);
-                            if (file.exists()) {
-                                QuickVideoView.this.setLocalVideoMd5(com.baidu.adp.lib.util.s.e(com.baidu.tbadk.core.util.k.q(file)));
+                com.baidu.tieba.play.b.a.Y(i2, i22, i3);
+                if (QuickVideoView.this.fON != null && QuickVideoView.this.getCurrentPosition() > 0) {
+                    QuickVideoView.this.fPa = true;
+                    x.bjC().av(QuickVideoView.this.fON.biV(), QuickVideoView.this.getCurrentPosition());
+                }
+                if (com.baidu.adp.lib.util.j.hh()) {
+                    if (QuickVideoView.ro(QuickVideoView.this.mUri.toString())) {
+                        if (QuickVideoView.this.fON != null && !StringUtils.isNull(QuickVideoView.this.fON.biV())) {
+                            String uri = QuickVideoView.this.mUri.toString();
+                            if (!uri.contains("http")) {
+                                com.baidu.tieba.play.b.a.rw(uri);
                             }
-                            com.baidu.tieba.play.d.a.rd(uri);
+                            QuickVideoView.this.mUri = Uri.parse(QuickVideoView.this.fON.biV());
                         }
-                        QuickVideoView.this.mUri = Uri.parse(QuickVideoView.this.fGb.bhs());
+                    } else {
+                        QuickVideoView.this.bjj();
                     }
-                } else {
-                    QuickVideoView.this.bhB();
-                }
-                boolean z = false;
-                if (QuickVideoView.this.fGk != null) {
-                    z = QuickVideoView.this.fGk.a(gVar, i2, i22, i3, QuickVideoView.this.mUri);
-                }
-                if (QuickVideoView.this.fFY != null && z) {
-                    QuickVideoView.this.fFZ = QuickVideoView.this.fFY.a(i2, i22, i3, QuickVideoView.this.getLocateSource(), z, QuickVideoView.this.fGp);
-                    QuickVideoView.this.fFY = null;
-                }
-                QuickVideoView.this.fGp = 0L;
-                if (QuickVideoView.this.fGb != null && !QuickVideoView.this.fGm && !z && QuickVideoView.qV(QuickVideoView.this.fGb.hB(QuickVideoView.this.fGb.bhs())) && !QuickVideoView.qV(QuickVideoView.this.mUri.toString())) {
-                    z = true;
-                    QuickVideoView.this.fFV.forceUseSystemMediaPlayer(false);
-                    QuickVideoView.this.fGk.bia();
-                    QuickVideoView.this.fGm = true;
-                    if (QuickVideoView.this.fFY != null) {
-                        QuickVideoView.this.fFZ = QuickVideoView.this.fFY.a(i2, i22, i3, QuickVideoView.this.getLocateSource(), true, QuickVideoView.this.fGp);
-                        QuickVideoView.this.fFY = null;
+                    boolean z = false;
+                    if (QuickVideoView.this.fOV != null) {
+                        z = QuickVideoView.this.fOV.a(gVar, i2, i22, i3, QuickVideoView.this.mUri);
                     }
-                    QuickVideoView.this.fGp = 0L;
-                    QuickVideoView.this.setVideoPath(QuickVideoView.this.fGb.bhs());
-                    QuickVideoView.this.start();
-                }
-                if (QuickVideoView.this.fFY != null && !z) {
-                    QuickVideoView.this.fFZ = QuickVideoView.this.fFY.a(i2, i22, i3, QuickVideoView.this.getLocateSource(), z, QuickVideoView.this.fGp);
-                    QuickVideoView.this.fFY = null;
-                }
-                QuickVideoView.this.fGp = 0L;
-                if (!z) {
-                    QuickVideoView.this.bhD();
-                    if (QuickVideoView.this.aWk == null || QuickVideoView.this.aWk.onError(gVar, i22, i3)) {
+                    if (QuickVideoView.this.fOJ != null && z) {
+                        QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(i2, i22, i3, QuickVideoView.this.getLocateSource(), z, QuickVideoView.this.fOZ);
+                        QuickVideoView.this.fOJ = null;
+                    }
+                    QuickVideoView.this.fOZ = 0L;
+                    if (QuickVideoView.this.fON != null && !QuickVideoView.this.fOX && !z && QuickVideoView.ro(QuickVideoView.this.fON.hE(QuickVideoView.this.fON.biV())) && !QuickVideoView.ro(QuickVideoView.this.mUri.toString())) {
+                        z = true;
+                        QuickVideoView.this.fOG.forceUseSystemMediaPlayer(false);
+                        QuickVideoView.this.fOV.bjH();
+                        QuickVideoView.this.fOX = true;
+                        if (QuickVideoView.this.fOJ != null) {
+                            QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(i2, i22, i3, QuickVideoView.this.getLocateSource(), true, QuickVideoView.this.fOZ);
+                            QuickVideoView.this.fOJ = null;
+                        }
+                        QuickVideoView.this.fOZ = 0L;
+                        QuickVideoView.this.setVideoPath(QuickVideoView.this.fON.biV());
+                        QuickVideoView.this.start();
+                    }
+                    if (QuickVideoView.this.fOJ != null && !z) {
+                        QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(i2, i22, i3, QuickVideoView.this.getLocateSource(), z, QuickVideoView.this.fOZ);
+                        QuickVideoView.this.fOJ = null;
+                    }
+                    QuickVideoView.this.fOZ = 0L;
+                    if (!z) {
+                        QuickVideoView.this.bjm();
+                    } else {
+                        if (QuickVideoView.this.getPlayerType() == -100) {
+                            i4 = 0;
+                        } else {
+                            i4 = QuickVideoView.this.getPlayerType() == -200 ? 1 : 2;
+                        }
+                        TiebaStatic.log(new ak("c12493").r("obj_type", i4));
                         return true;
                     }
+                } else {
+                    if (QuickVideoView.this.fOJ != null) {
+                        QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(i2, i22, i3, QuickVideoView.this.getLocateSource(), false, QuickVideoView.this.fOZ);
+                        QuickVideoView.this.fOJ = null;
+                    }
+                    QuickVideoView.this.fOZ = 0L;
+                }
+                if (QuickVideoView.this.aZo == null || QuickVideoView.this.aZo.onError(gVar, i22, i3)) {
                     return true;
                 }
-                if (QuickVideoView.this.getPlayerType() == -100) {
-                    i4 = 0;
-                } else {
-                    i4 = QuickVideoView.this.getPlayerType() == -200 ? 1 : 2;
-                }
-                TiebaStatic.log(new ak("c12493").r("obj_type", i4));
                 return true;
             }
         };
-        this.fGu = new g.h() { // from class: com.baidu.tieba.play.QuickVideoView.13
-            @Override // com.baidu.tieba.play.g.h
+        this.fPr = new g.InterfaceC0123g() { // from class: com.baidu.tieba.play.QuickVideoView.14
+            @Override // com.baidu.tieba.play.g.InterfaceC0123g
             public void a(g gVar) {
-                com.baidu.adp.lib.g.e.fP().removeCallbacks(QuickVideoView.this.fGv);
-                com.baidu.adp.lib.g.e.fP().postDelayed(QuickVideoView.this.fGv, 500L);
-                if (QuickVideoView.this.aWn != null) {
-                    QuickVideoView.this.aWn.a(gVar);
+                if (QuickVideoView.this.fPa) {
+                    QuickVideoView.this.fPa = false;
+                    return;
+                }
+                com.baidu.adp.lib.g.e.fP().removeCallbacks(QuickVideoView.this.fPs);
+                com.baidu.adp.lib.g.e.fP().postDelayed(QuickVideoView.this.fPs, 500L);
+                boolean z = QuickVideoView.this.getPlayerType() == -200;
+                if (QuickVideoView.this.fON != null && z) {
+                    QuickVideoView.this.fON.onSeekComplete();
+                }
+                if (QuickVideoView.this.aZr != null) {
+                    QuickVideoView.this.aZr.a(gVar);
                 }
             }
         };
-        this.aWm = new g.e() { // from class: com.baidu.tieba.play.QuickVideoView.14
+        this.aZq = new g.e() { // from class: com.baidu.tieba.play.QuickVideoView.15
             @Override // com.baidu.tieba.play.g.e
             public boolean a(g gVar, int i2, int i22) {
                 if (i2 == 10001) {
-                    QuickVideoView.this.fGd = i22;
-                    if (QuickVideoView.this.fFT != null && gVar != null) {
-                        QuickVideoView.this.fFT.Y(gVar.getVideoWidth(), gVar.getVideoHeight(), QuickVideoView.this.fGd);
+                    QuickVideoView.this.fOP = i22;
+                    if (QuickVideoView.this.fOE != null && gVar != null) {
+                        QuickVideoView.this.fOE.X(gVar.getVideoWidth(), gVar.getVideoHeight(), QuickVideoView.this.fOP);
                         return true;
                     }
                     return true;
-                } else if ((i2 == 701 || i22 == 701) && QuickVideoView.this.fFY != null && !QuickVideoView.this.fGl) {
-                    QuickVideoView.this.fFY.aNb();
+                } else if ((i2 == 701 || i22 == 701) && QuickVideoView.this.fOJ != null && !QuickVideoView.this.fOW) {
+                    QuickVideoView.this.fOJ.aNR();
                     return true;
-                } else if ((i2 == 702 || i22 == 702) && QuickVideoView.this.fFY != null && !QuickVideoView.this.fGl) {
-                    QuickVideoView.this.fFY.aNc();
-                    QuickVideoView.this.fGl = false;
-                    com.baidu.adp.lib.g.e.fP().removeCallbacks(QuickVideoView.this.fGv);
+                } else if ((i2 == 702 || i22 == 702) && QuickVideoView.this.fOJ != null && !QuickVideoView.this.fOW) {
+                    QuickVideoView.this.fOJ.aNS();
+                    QuickVideoView.this.fOW = false;
+                    com.baidu.adp.lib.g.e.fP().removeCallbacks(QuickVideoView.this.fPs);
                     return true;
                 } else {
                     return true;
                 }
             }
         };
-        this.fGv = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.15
+        this.fPs = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.16
             @Override // java.lang.Runnable
             public void run() {
-                QuickVideoView.this.fGl = false;
+                QuickVideoView.this.fOW = false;
             }
         };
-        this.aWo = new g.f() { // from class: com.baidu.tieba.play.QuickVideoView.16
-            @Override // com.baidu.tieba.play.g.f
-            public void onReleaseFinished() {
-                QuickVideoView.this.fGi = true;
-            }
-        };
-        this.aWp = new g.j() { // from class: com.baidu.tieba.play.QuickVideoView.2
-            @Override // com.baidu.tieba.play.g.j
+        this.aZs = new g.i() { // from class: com.baidu.tieba.play.QuickVideoView.17
+            @Override // com.baidu.tieba.play.g.i
             public void onSubError(int i2, int i22, String str) {
-                if (QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.f(i2, i22, str);
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.g(i2, i22, str);
                 }
             }
         };
-        this.aWq = new g.d() { // from class: com.baidu.tieba.play.QuickVideoView.3
+        this.aZt = new g.d() { // from class: com.baidu.tieba.play.QuickVideoView.2
             @Override // com.baidu.tieba.play.g.d
             public void onHandleOppoError(String str) {
-                if (QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.oN(str);
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.pd(str);
                 }
             }
         };
-        this.aWr = new g.i() { // from class: com.baidu.tieba.play.QuickVideoView.4
-            @Override // com.baidu.tieba.play.g.i
+        this.aZu = new g.h() { // from class: com.baidu.tieba.play.QuickVideoView.3
+            @Override // com.baidu.tieba.play.g.h
             public void onSpeed(long j) {
                 if (j != 0) {
-                    QuickVideoView.this.fGp = j;
+                    QuickVideoView.this.fOZ = j;
                 }
             }
         };
-        this.fGw = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.5
+        this.fPt = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.4
             @Override // java.lang.Runnable
             public void run() {
-                if (QuickVideoView.this.fGb != null && QuickVideoView.qV(QuickVideoView.this.fGb.hB(QuickVideoView.this.fGb.bhs()))) {
-                    QuickVideoView.this.fFV.forceUseSystemMediaPlayer(false);
-                    QuickVideoView.this.fGk.bia();
-                    QuickVideoView.this.fGm = true;
-                    if (QuickVideoView.this.fFY != null) {
-                        QuickVideoView.this.fFZ = QuickVideoView.this.fFY.a(QuickVideoView.this.getPlayerType(), -5000, -5000, QuickVideoView.this.getLocateSource(), true, QuickVideoView.this.fGp);
-                        QuickVideoView.this.fFY = null;
+                if (QuickVideoView.this.fON != null && QuickVideoView.ro(QuickVideoView.this.fON.hE(QuickVideoView.this.fON.biV()))) {
+                    QuickVideoView.this.fOG.forceUseSystemMediaPlayer(false);
+                    QuickVideoView.this.fOV.bjH();
+                    QuickVideoView.this.fOX = true;
+                    if (QuickVideoView.this.fOJ != null) {
+                        QuickVideoView.this.fOL = QuickVideoView.this.fOJ.a(QuickVideoView.this.getPlayerType(), -5000, -5000, QuickVideoView.this.getLocateSource(), true, QuickVideoView.this.fOZ);
+                        QuickVideoView.this.fOJ = null;
                     }
-                    QuickVideoView.this.fGp = 0L;
-                    QuickVideoView.this.setVideoPath(QuickVideoView.this.fGb.bhs());
+                    QuickVideoView.this.fOZ = 0L;
+                    QuickVideoView.this.setVideoPath(QuickVideoView.this.fON.biV());
                     QuickVideoView.this.start();
                 }
             }
         };
-        this.aWz = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.play.QuickVideoView.6
+        this.fPu = new Runnable() { // from class: com.baidu.tieba.play.QuickVideoView.5
+            @Override // java.lang.Runnable
+            public void run() {
+                if ((QuickVideoView.this.getPlayerType() == -200) && QuickVideoView.this.fON != null && QuickVideoView.this.fON.biW() && QuickVideoView.this.fON.biX() && QuickVideoView.this.fON.biY() && QuickVideoView.this.fOG != null) {
+                    int Ln = QuickVideoView.this.fOG.Ln();
+                    int currentPosition = QuickVideoView.this.fOG.getCurrentPosition();
+                    int duration = QuickVideoView.this.fOG.getDuration();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    long j = currentTimeMillis - QuickVideoView.this.fPb;
+                    boolean z = currentPosition + Ln < duration;
+                    if (Ln < QuickVideoView.this.fON.biZ() * 1000 && j > TbConfig.NOTIFY_SOUND_INTERVAL && z) {
+                        QuickVideoView.this.fPb = currentTimeMillis;
+                        QuickVideoView.this.fON.sq(0);
+                    }
+                    if (QuickVideoView.this.bjh() && currentPosition == QuickVideoView.this.fPc && j > 500) {
+                        QuickVideoView.this.fPb = currentTimeMillis;
+                        QuickVideoView.this.fON.sq(0);
+                    }
+                    QuickVideoView.this.fPc = currentPosition;
+                    if (QuickVideoView.this.fmN == QuickVideoView.fPg) {
+                        QuickVideoView.this.bjl();
+                    }
+                }
+            }
+        };
+        this.aZC = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.play.QuickVideoView.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue() && QuickVideoView.this.fFY != null) {
-                    QuickVideoView.this.fFY.oK(QuickVideoView.this.getLocateSource());
-                    QuickVideoView.this.fFY = null;
+                if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue() && QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.pa(QuickVideoView.this.getLocateSource());
+                    QuickVideoView.this.fOJ = null;
                 }
+            }
+        };
+        this.eEh = new e.a() { // from class: com.baidu.tieba.play.QuickVideoView.9
+            @Override // com.baidu.tieba.i.e.a
+            public void pl(int i2) {
+                if (i2 == 1) {
+                    ak akVar = new ak("c12620");
+                    akVar.r("obj_locate", 1);
+                    akVar.ac("tid", QuickVideoView.this.aMR);
+                    TiebaStatic.log(akVar);
+                    HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_MOOV_UPLOAD);
+                    httpMessage.addParam("thread_id", QuickVideoView.this.aMR);
+                    httpMessage.addParam("video_url", QuickVideoView.this.fOY);
+                    MessageManager.getInstance().sendMessage(httpMessage);
+                    if (QuickVideoView.this.fOJ != null) {
+                        QuickVideoView.this.fOJ.a(new com.baidu.tieba.i.b() { // from class: com.baidu.tieba.play.QuickVideoView.9.1
+                            @Override // com.baidu.tieba.i.b
+                            public void G(JSONObject jSONObject) throws JSONException {
+                            }
+
+                            @Override // com.baidu.tieba.i.b
+                            public void H(JSONObject jSONObject) throws JSONException {
+                            }
+
+                            @Override // com.baidu.tieba.i.b
+                            public void I(JSONObject jSONObject) throws JSONException {
+                                jSONObject.put("moov_bottom", 1);
+                            }
+                        });
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.i.e.a
+            public void onChange(final boolean z) {
+                ak akVar = new ak("c12621");
+                akVar.r("obj_locate", 1);
+                akVar.r("obj_param1", z ? 1 : 0);
+                akVar.ac("tid", QuickVideoView.this.aMR);
+                TiebaStatic.log(akVar);
+                if (QuickVideoView.this.fOJ != null) {
+                    QuickVideoView.this.fOJ.a(new com.baidu.tieba.i.b() { // from class: com.baidu.tieba.play.QuickVideoView.9.2
+                        @Override // com.baidu.tieba.i.b
+                        public void G(JSONObject jSONObject) throws JSONException {
+                        }
+
+                        @Override // com.baidu.tieba.i.b
+                        public void H(JSONObject jSONObject) throws JSONException {
+                        }
+
+                        @Override // com.baidu.tieba.i.b
+                        public void I(JSONObject jSONObject) throws JSONException {
+                            jSONObject.put("moov_bottom_fix", z ? 1 : 0);
+                        }
+                    });
+                }
+            }
+
+            @Override // com.baidu.tieba.i.e.a
+            public void is(boolean z) {
             }
         };
         init(context);
@@ -1146,23 +1332,22 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
 
     private void init(Context context) {
         this.mContext = context;
-        this.fFT = new o(context);
-        this.fFT.setSurfaceTextureListener(this.fGr);
-        if (fFW != null) {
-            this.fFV = fFW.KQ();
+        this.fOE = new o(context);
+        this.fOE.setSurfaceTextureListener(this.fPo);
+        if (fOH != null) {
+            this.fOG = fOH.Lo();
         }
-        if (this.fFV != null) {
-            this.fFV.setOnPreparedListener(this.fGs);
-            this.fFV.setOnCompletionListener(this.fGt);
-            this.fFV.a(this.aWl);
-            this.fFV.setOnSeekCompleteListener(this.fGu);
-            this.fFV.a(this.aWm);
-            this.fFV.a(this.aWo);
-            this.fFV.a(this.aWp);
-            this.fFV.a(this.aWq);
-            this.fFV.a(this.aWr);
+        if (this.fOG != null) {
+            this.fOG.setOnPreparedListener(this.fPp);
+            this.fOG.setOnCompletionListener(this.fPq);
+            this.fOG.a(this.aZp);
+            this.fOG.setOnSeekCompleteListener(this.fPr);
+            this.fOG.a(this.aZq);
+            this.fOG.a(this.aZs);
+            this.fOG.a(this.aZt);
+            this.fOG.a(this.aZu);
         }
-        aj.k(this, d.C0080d.cp_bg_line_k);
+        aj.k(this, d.C0082d.cp_bg_line_k);
         try {
             PowerManager powerManager = (PowerManager) context.getSystemService("power");
             if (powerManager != null) {
@@ -1172,57 +1357,69 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         } catch (Exception e) {
             BdLog.e(e);
         }
-        this.fGk = new com.baidu.tieba.play.d.a(this);
-        MessageManager.getInstance().registerListener(this.aWz);
-        this.fGo = new com.baidu.tieba.play.c.a(this.fGq);
+        this.fOV = new com.baidu.tieba.play.b.a(this);
+        MessageManager.getInstance().registerListener(this.aZC);
     }
 
-    public void setVideoPath(String str) {
-        if (this.fFY != null) {
-            this.fFY.aNh();
-            this.fFY = null;
-        }
-        if (!am.isEmpty(str)) {
-            this.fGn = str;
-            if (e(Uri.parse(str)) != null) {
-                this.fFY.aMX();
-            }
-            if (this.fGb != null) {
-                str = this.fGb.hB(str);
-                if (this.fGb.getMediaProgressObserver() != null) {
-                    this.fGb.getMediaProgressObserver().setPlayer(this);
-                }
-                if (this.fGo != null) {
-                    if (com.baidu.tieba.play.c.a.rb(str)) {
-                        this.fGo.bP(str, this.aMq);
-                        this.fGo.bhW();
-                    } else {
-                        this.fGo.clearPath();
-                    }
-                }
-            }
-            setVideoURI(Uri.parse(str));
-        }
-    }
-
-    public void bM(String str, String str2) {
-        this.aMq = str2;
-        if (this.fGk != null) {
-            this.fGk.clear();
+    public void bQ(String str, String str2) {
+        this.aMR = str2;
+        if (this.fOV != null) {
+            this.fOV.clear();
+            this.fOV.bjH();
         }
         if (TextUtils.isEmpty(str)) {
             TiebaStatic.log(new ak("c12026").ac("tid", str2));
-            if (fFX != null) {
-                this.fFY = fFX.F(this.aMq, str, "");
-                if (this.fFY != null) {
-                    this.fFY.a(-300, -44399, -44399, getLocateSource(), false, this.fGp);
-                    this.fFY = null;
+            if (fOI != null) {
+                this.fOJ = fOI.F(this.aMR, str, "");
+                if (this.fOJ != null) {
+                    this.fOJ.a(-300, -44399, -44399, getLocateSource(), false, this.fOZ);
+                    this.fOJ = null;
                 }
             }
         }
-        this.fFZ = null;
-        this.fGp = 0L;
+        if (this.fOK != null) {
+            this.fOK.a(null);
+            this.fOK.aNH();
+            this.fOK = null;
+        }
+        this.fOL = null;
+        this.fOZ = 0L;
         setVideoPath(str);
+    }
+
+    public void setVideoPath(String str) {
+        if (this.fOJ != null) {
+            this.fOJ.aNU();
+            this.fOJ = null;
+        }
+        if (!am.isEmpty(str)) {
+            this.fOY = str;
+            if (e(Uri.parse(str)) != null) {
+                this.fOJ.aNN();
+            }
+            if (this.fON != null) {
+                str = this.fON.hE(str);
+                if (this.fON.getMediaProgressObserver() != null) {
+                    this.fON.getMediaProgressObserver().setPlayer(this);
+                }
+                if (fOI != null && rp(str)) {
+                    this.fOK = fOI.pf(str);
+                }
+                if (this.fOK != null) {
+                    this.fOK.a(this.eEh);
+                    this.fOK.aNG();
+                }
+                rn(str);
+            }
+            if (!com.baidu.adp.lib.util.j.hh() && !rp(str)) {
+                if (this.aZo != null) {
+                    this.aZo.onError(this.fOG, PayPluginManager.RESULT_CODE_UNKNOWN, PayPluginManager.RESULT_CODE_UNKNOWN);
+                    return;
+                }
+                return;
+            }
+            setVideoURI(Uri.parse(str));
+        }
     }
 
     private void setVideoURI(Uri uri) {
@@ -1231,28 +1428,28 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
 
     private void a(Uri uri, Map<String, String> map) {
         if (e(uri) != null) {
-            this.fFY.oI(uri.toString());
+            this.fOJ.oZ(uri.toString());
         }
-        bhy();
-        this.fGc = true;
+        bjf();
+        this.fOO = true;
         this.mUri = uri;
         this.Am = map;
-        this.fGd = 0;
-        removeView(this.fFT);
+        this.fOP = 0;
+        removeView(this.fOE);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2, 17);
-        if (this.fGj) {
-            addView(this.fFT, layoutParams);
+        if (this.fOU) {
+            addView(this.fOE, layoutParams);
         } else {
-            addView(this.fFT, 0, layoutParams);
+            addView(this.fOE, 0, layoutParams);
         }
-        aj.k(this, d.C0080d.cp_bg_line_k);
+        aj.k(this, d.C0082d.cp_bg_line_k);
     }
 
-    private void bhy() {
-        this.fGc = false;
-        this.fGa = false;
-        if (this.fFV != null) {
-            this.fFV.release();
+    private void bjf() {
+        this.fOO = false;
+        this.fOM = false;
+        if (this.fOG != null) {
+            this.fOG.release();
         }
         try {
             if (this.mWakeLock != null && this.mWakeLock.isHeld()) {
@@ -1261,49 +1458,139 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         } catch (Exception e) {
             BdLog.e(e);
         }
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fPu);
+    }
+
+    private void rn(String str) {
+        this.fPj = 0;
+        this.fPk = 0;
+        this.fPl = 0;
+        this.fPm = 0;
+        this.fPn = 0;
+        this.bdz = 0;
+        if (this.fON.biW()) {
+            this.fPi = fPe;
+            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.play.QuickVideoView.1
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                public Void doInBackground(Void... voidArr) {
+                    QuickVideoView.this.fPk = (int) t.rr(QuickVideoView.this.fOY);
+                    return null;
+                }
+            }.execute(new Void[0]);
+        } else if (this.fOY != null && this.fOY.equals(str)) {
+            this.fPi = fPd;
+        } else {
+            this.fPi = fPf;
+        }
+        this.fmN = fPg;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bjg() {
+        this.fmN = fPg;
+        if (this.fOG != null) {
+            this.fPj = this.fOG.getBitRate();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void lW(boolean z) {
+        if (this.fmN == fPg && this.fOG != null) {
+            this.fmN = fPh;
+            this.fPm = this.fOG.getDuration();
+            if (z) {
+                this.fPn = 0;
+                this.fPl = this.fPm;
+            } else {
+                this.fPl = this.fOG.getCurrentPosition();
+                this.fPn = this.fOG.getCachedSize();
+            }
+            if (this.fPl > 0) {
+                if (this.fPi == fPd) {
+                    this.fPk = (int) t.rr(this.fOY);
+                    if (this.fPj > 0) {
+                        long j = (this.fPj * (this.fPl / 1000)) / 8;
+                        if (this.fPn < 0) {
+                            this.fPn = 0;
+                        }
+                        long j2 = this.fPn + j;
+                        if (this.fPk > 0) {
+                            j2 += this.fPk;
+                        }
+                        a(j2, this.fPl, this.fPm, this.bdz);
+                    } else if (this.fPj == -1) {
+                        this.fPj = 603327;
+                        a((this.fPj * (this.fPl / 1000)) / 8, this.fPl, this.fPm, this.bdz);
+                    }
+                } else if (this.fPi == fPe) {
+                    if (this.fPj > 0) {
+                        long j3 = (this.fPj * (this.fPl / 1000)) / 8;
+                        if (this.fPn < 0) {
+                            this.fPn = 0;
+                        }
+                        long j4 = this.fPn + j3;
+                        if (this.fPk > 0) {
+                            j4 -= this.fPk;
+                        }
+                        a(j4, this.fPl, this.fPm, this.bdz);
+                    } else if (this.fPj == -1) {
+                        this.fPj = 603327;
+                        a((this.fPj * (this.fPl / 1000)) / 8, this.fPl, this.fPm, this.bdz);
+                    }
+                } else {
+                    a(0L, this.fPl, this.fPm, this.bdz);
+                }
+            }
+        }
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fPu);
     }
 
     public void stopPlayback() {
-        if (this.fGk != null) {
-            this.fGk.clear();
+        lW(false);
+        if (this.fOV != null) {
+            this.fOV.clear();
         }
-        this.fFU = null;
-        bhy();
-        this.fGe = false;
-        if (this.fGb != null) {
-            this.fGb.onStop();
+        this.fOF = null;
+        bjf();
+        this.fOQ = false;
+        if (this.fON != null) {
+            this.fON.onStop();
         }
-        com.baidu.tieba.play.a.b.bhV().a((b.InterfaceC0119b) null);
-        if (this.fFY != null && this.fFY.oM(getLocateSource())) {
-            this.fFY = null;
+        com.baidu.tieba.play.a.b.bjF().a((b.InterfaceC0120b) null);
+        if (this.fOJ != null && this.fOJ.pc(getLocateSource())) {
+            this.fOJ = null;
         }
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fPu);
     }
 
-    public void setOnPreparedListener(g.InterfaceC0124g interfaceC0124g) {
-        this.aWj = interfaceC0124g;
+    public void setOnPreparedListener(g.f fVar) {
+        this.aZn = fVar;
     }
 
     public void setOnCompletionListener(g.a aVar) {
-        this.aWi = aVar;
+        this.aZm = aVar;
     }
 
     public void setOnErrorListener(g.b bVar) {
-        this.aWk = bVar;
+        this.aZo = bVar;
     }
 
-    public void setOnSeekCompleteListener(g.h hVar) {
-        this.aWn = hVar;
+    public void setOnSeekCompleteListener(g.InterfaceC0123g interfaceC0123g) {
+        this.aZr = interfaceC0123g;
     }
 
-    @Override // com.baidu.tieba.play.d.c
+    @Override // com.baidu.tieba.play.b.c
     public void a(g gVar, int i, int i2, int i3, String str, int i4) {
-        if (getCurrentPosition() <= 0 || this.fFV == null || !this.fFV.isPlaying() || this.fGh == null) {
+        if (this.fOG != null) {
             try {
-                this.fFU = str;
+                this.fOG.release();
+                this.fOF = str;
                 URI uri = new URI(this.mUri.toString());
-                this.fFV.a(this.mContext, Uri.parse(new URI(uri.getScheme(), str, uri.getPath(), uri.getFragment()).toString()), this.Am, this.fGh, this.mUri.getHost());
+                this.fOG.a(this.mContext, Uri.parse(new URI(uri.getScheme(), str, uri.getPath(), uri.getFragment()).toString()), this.Am, this.fOT, this.mUri.getHost());
                 if (e(this.mUri) != null) {
-                    this.fFY.a(0, this.mUri.toString(), i, i2, i3, str, i4);
+                    this.fOJ.a(0, this.mUri.toString(), i, i2, i3, str, i4);
                 }
             } catch (URISyntaxException e) {
                 e.printStackTrace();
@@ -1311,49 +1598,51 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         }
     }
 
-    @Override // com.baidu.tieba.play.d.c
+    @Override // com.baidu.tieba.play.b.c
     public void a(g gVar, int i, int i2, int i3, int i4) {
-        if (this.mUri != null && !TextUtils.isEmpty(this.mUri.toString())) {
-            this.fFV.a(this.mContext, this.mUri, this.Am, this.fGh, this.mUri.getHost());
+        if (this.fOG != null && this.mUri != null && !TextUtils.isEmpty(this.mUri.toString())) {
+            this.fOG.release();
+            this.fOG.a(this.mContext, this.mUri, this.Am, this.fOT, this.mUri.getHost());
             if (e(this.mUri) != null) {
-                this.fFY.a(1, this.mUri.toString(), i, i2, i3, "", i4);
+                this.fOJ.a(1, this.mUri.toString(), i, i2, i3, "", i4);
             }
         }
     }
 
-    @Override // com.baidu.tieba.play.d.c
+    @Override // com.baidu.tieba.play.b.c
     public void b(g gVar, int i, int i2, int i3, int i4) {
-        if (this.mUri != null && !TextUtils.isEmpty(this.mUri.toString())) {
+        if (this.fOG != null && this.mUri != null && !TextUtils.isEmpty(this.mUri.toString())) {
             if (i == -200 || i == -300) {
-                this.fFV.forceUseSystemMediaPlayer(true);
+                this.fOG.forceUseSystemMediaPlayer(true);
             }
-            this.fFV.a(this.mContext, this.mUri, this.Am, this.fGh, this.mUri.getHost());
+            this.fOG.release();
+            this.fOG.a(this.mContext, this.mUri, this.Am, this.fOT, this.mUri.getHost());
             if (e(this.mUri) != null) {
-                this.fFY.a(2, this.mUri.toString(), i, i2, i3, "", i4);
+                this.fOJ.a(2, this.mUri.toString(), i, i2, i3, "", i4);
             }
         }
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void start() {
-        this.fGa = true;
-        if (this.fFV != null) {
-            if (this.fGh != null && this.fGg && !this.fFV.isExistInRemote()) {
-                this.fFV.a(this.mContext, this.mUri, this.Am, this.fGh, this.fGf);
-                if (this.fFJ != null) {
-                    this.fFJ.bhr();
+        this.fOM = true;
+        if (this.fOG != null) {
+            if (this.fOT != null && this.fOS && !this.fOG.isExistInRemote()) {
+                this.fOG.a(this.mContext, this.mUri, this.Am, this.fOT, this.fOR);
+                if (this.fOu != null) {
+                    this.fOu.biU();
                 }
                 if (e(this.mUri) != null) {
-                    this.fFY.aMZ();
+                    this.fOJ.aNP();
                     return;
                 }
                 return;
             }
-            this.fFV.start();
+            this.fOG.start();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_VEDIO_START_PLAY));
         }
-        if (this.fGb != null) {
-            this.fGb.onStart();
+        if (this.fON != null) {
+            this.fON.onStart();
         }
         try {
             if (this.mWakeLock != null && !this.mWakeLock.isHeld()) {
@@ -1363,19 +1652,19 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             BdLog.e(e);
         }
         if (e(this.mUri) != null) {
-            this.fFY.pb(this.fFV.getPlayerType());
+            this.fOJ.pm(this.fOG.getPlayerType());
         }
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void pause() {
-        if (this.fFV != null) {
-            this.fFV.pause();
+        if (this.fOG != null) {
+            this.fOG.pause();
         }
-        if (this.fGb != null) {
-            this.fGb.onPause();
+        if (this.fON != null) {
+            this.fON.onPause();
         }
-        this.fGa = false;
+        this.fOM = false;
         try {
             if (this.mWakeLock != null && this.mWakeLock.isHeld()) {
                 this.mWakeLock.release();
@@ -1383,67 +1672,76 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         } catch (Exception e) {
             BdLog.e(e);
         }
-        if (this.fFY != null) {
-            this.fFY.aNd();
+        if (this.fOJ != null) {
+            this.fOJ.aNT();
         }
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getDuration() {
-        if (this.fFV != null) {
-            return this.fFV.getDuration();
+        if (this.fOG != null) {
+            return this.fOG.getDuration();
         }
         return 0;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getCurrentPosition() {
-        if (this.fFV != null) {
-            return this.fFV.getCurrentPosition();
+        if (this.fOG != null) {
+            return this.fOG.getCurrentPosition();
         }
         return 0;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void seekTo(int i) {
-        this.fGl = true;
-        if (this.fFV != null) {
-            this.fFV.seekTo(i);
+        this.bdz = i;
+        ss(i);
+    }
+
+    public void ss(int i) {
+        this.fOW = true;
+        if (this.fOG != null) {
+            this.fOG.seekTo(i);
+        }
+        if (this.fON != null) {
+            this.fON.sq(0);
+            bjl();
         }
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public boolean isPlaying() {
-        if (this.fFV != null) {
-            return this.fFV.isPlaying();
+        if (this.fOG != null) {
+            return this.fOG.isPlaying();
         }
         return false;
     }
 
     public void setVolume(float f, float f2) {
-        if (this.fFV != null) {
-            this.fFV.setVolume(f, f2);
+        if (this.fOG != null) {
+            this.fOG.setVolume(f, f2);
         }
     }
 
     public void setRecoveryState(int i) {
-        this.fGf = i;
+        this.fOR = i;
     }
 
     public int getRecoveryState() {
-        return this.fGf;
+        return this.fOR;
     }
 
     public void setNeedRecovery(boolean z) {
-        this.fGg = z;
+        this.fOS = z;
     }
 
     public void setLooping(boolean z) {
-        this.fGe = z;
+        this.fOQ = z;
     }
 
-    public boolean bhz() {
-        return this.fGa;
+    public boolean bjh() {
+        return this.fOM;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
@@ -1467,17 +1765,17 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     }
 
     public void setOnSurfaceDestroyedListener(b bVar) {
-        this.bSE = bVar;
+        this.blr = bVar;
     }
 
     public void setBusiness(d dVar) {
-        this.fGb = dVar;
+        this.fON = dVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.fGe = false;
+        this.fOQ = false;
         try {
             if (this.mWakeLock != null && this.mWakeLock.isHeld()) {
                 this.mWakeLock.release();
@@ -1485,62 +1783,64 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         } catch (Exception e) {
             BdLog.e(e);
         }
-        if (this.fFV != null) {
-            this.fFV.Hi();
+        if (this.fOG != null) {
+            this.fOG.Hp();
         }
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fGv);
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fGw);
-        MessageManager.getInstance().unRegisterListener(this.aWz);
-        if (this.fGk != null) {
-            this.fGk.clear();
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fPs);
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fPt);
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fPu);
+        MessageManager.getInstance().unRegisterListener(this.aZC);
+        if (this.fOV != null) {
+            this.fOV.clear();
         }
-        if (this.fGo != null) {
-            this.fGo.clearPath();
+        if (this.fOK != null) {
+            this.fOK.a(null);
+            this.fOK.aNH();
         }
     }
 
     public g getPlayer() {
-        return this.fFV;
+        return this.fOG;
     }
 
     public int getPlayerType() {
-        if (this.fFV == null) {
+        if (this.fOG == null) {
             return -300;
         }
-        return this.fFV.getPlayerType();
+        return this.fOG.getPlayerType();
     }
 
-    public boolean bhA() {
+    public boolean bji() {
         int i;
         int i2 = 1;
         int i3 = 0;
-        if (this.fGm) {
-            if (this.fFY != null) {
-                this.fFZ = this.fFY.a(getPlayerType(), -4399, -4399, getLocateSource(), false, this.fGp);
-                this.fFY = null;
+        if (this.fOX) {
+            if (this.fOJ != null) {
+                this.fOL = this.fOJ.a(getPlayerType(), -4399, -4399, getLocateSource(), false, this.fOZ);
+                this.fOJ = null;
             }
-            this.fGp = 0L;
+            this.fOZ = 0L;
             if (getPlayerType() == -100) {
                 i = 0;
             } else {
                 i = getPlayerType() == -200 ? 1 : 2;
             }
             TiebaStatic.log(new ak("c12194").r("obj_type", i));
-            bhD();
+            bjm();
             return false;
-        } else if (this.fGk != null) {
-            boolean a2 = this.fGk.a(this.fFV, getPlayerType(), 0, -4399, this.mUri);
+        } else if (this.fOV != null) {
+            boolean a2 = this.fOV.a(this.fOG, getPlayerType(), 0, -4399, this.mUri);
             if (a2) {
                 if (getPlayerType() != -100) {
                     i3 = getPlayerType() == -200 ? 1 : 2;
                 }
                 TiebaStatic.log(new ak("c12493").r("obj_type", i3));
             }
-            if (this.fFY != null) {
-                this.fFZ = this.fFY.a(getPlayerType(), -4399, -4399, getLocateSource(), a2, this.fGp);
-                this.fFY = null;
+            if (this.fOJ != null) {
+                this.fOL = this.fOJ.a(getPlayerType(), -4399, -4399, getLocateSource(), a2, this.fOZ);
+                this.fOJ = null;
             }
-            this.fGp = 0L;
+            this.fOZ = 0L;
             return a2;
         } else {
             if (getPlayerType() == -100) {
@@ -1549,24 +1849,29 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                 i2 = 2;
             }
             TiebaStatic.log(new ak("c12194").r("obj_type", i2));
-            bhD();
+            bjm();
             return false;
         }
     }
 
-    public void bhB() {
-        if (this.fGb != null) {
-            this.fGb.bht();
+    public void bjj() {
+        if (this.fON != null) {
+            this.fON.bjb();
         }
     }
 
-    public void bhC() {
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fGw);
-        com.baidu.adp.lib.g.e.fP().postDelayed(this.fGw, TbConfig.NOTIFY_SOUND_INTERVAL);
+    public void bjk() {
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fPt);
+        com.baidu.adp.lib.g.e.fP().postDelayed(this.fPt, TbConfig.NOTIFY_SOUND_INTERVAL);
+    }
+
+    public void bjl() {
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fPu);
+        com.baidu.adp.lib.g.e.fP().postDelayed(this.fPu, 200L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bhD() {
+    public void bjm() {
         int i;
         int i2 = 2;
         if (getPlayerType() == -100) {
@@ -1589,84 +1894,90 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     }
 
     public void setOnRecoveryCallback(a aVar) {
-        this.fFJ = aVar;
+        this.fOu = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String getLocateSource() {
-        return (!(this.fGb instanceof n) || ((n) this.fGb).bhI() == null) ? "" : ((n) this.fGb).bhI().mLocate;
+        return (!(this.fON instanceof n) || ((n) this.fON).bjs() == null) ? "" : ((n) this.fON).bjs().mLocate;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.tieba.play.b.b e(Uri uri) {
+    public com.baidu.tieba.i.i e(Uri uri) {
         String uri2;
-        if (this.fFY != null) {
-            return this.fFY;
+        if (this.fOJ != null) {
+            return this.fOJ;
         }
-        if (!StringUtils.isNull(this.fGn)) {
-            uri2 = this.fGn;
-        } else if (fFX != null && this.fGb != null && !StringUtils.isNull(this.fGb.bhs())) {
-            uri2 = this.fGb.bhs();
+        if (!StringUtils.isNull(this.fOY)) {
+            uri2 = this.fOY;
+        } else if (fOI != null && this.fON != null && !StringUtils.isNull(this.fON.biV())) {
+            uri2 = this.fON.biV();
         } else {
-            uri2 = (fFX == null || uri == null) ? null : uri.toString();
+            uri2 = (fOI == null || uri == null) ? null : uri.toString();
         }
-        if (!StringUtils.isNull(uri2)) {
-            this.fFY = fFX.F(this.aMq, uri2, this.fFZ);
+        if (!StringUtils.isNull(uri2) && fOI != null) {
+            this.fOJ = fOI.F(this.aMR, uri2, this.fOL);
         }
-        this.fFZ = null;
-        this.fGp = 0L;
-        return this.fFY;
+        this.fOL = null;
+        this.fOZ = 0L;
+        return this.fOJ;
     }
 
-    public static boolean qV(String str) {
+    public static boolean ro(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
         return str.contains("127.0.0.1") || !str.contains("http");
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setLocalVideoMd5(final String str) {
-        if (this.fFY != null && !StringUtils.isNull(str)) {
-            this.fFY.a(new com.baidu.tieba.play.b.a() { // from class: com.baidu.tieba.play.QuickVideoView.7
-                @Override // com.baidu.tieba.play.b.a
-                public void J(JSONObject jSONObject) throws JSONException {
+    public void a(final long j, final long j2, final long j3, final long j4) {
+        if (this.fOJ != null) {
+            this.fOJ.a(new com.baidu.tieba.i.b() { // from class: com.baidu.tieba.play.QuickVideoView.7
+                @Override // com.baidu.tieba.i.b
+                public void G(JSONObject jSONObject) throws JSONException {
                 }
 
-                @Override // com.baidu.tieba.play.b.a
-                public void K(JSONObject jSONObject) throws JSONException {
+                @Override // com.baidu.tieba.i.b
+                public void H(JSONObject jSONObject) throws JSONException {
                 }
 
-                @Override // com.baidu.tieba.play.b.a
-                public void L(JSONObject jSONObject) throws JSONException {
-                    jSONObject.put("localVideoMd5", str);
+                @Override // com.baidu.tieba.i.b
+                public void I(JSONObject jSONObject) throws JSONException {
+                    jSONObject.put("flow_count", j);
+                    jSONObject.put("play_position", j2);
+                    jSONObject.put("video_duration", j3);
+                    jSONObject.put("play_seek_position", j4);
                 }
             });
         }
     }
 
     public void setPbLoadingTime(final long j) {
-        if (this.fFY != null) {
-            this.fFY.a(new com.baidu.tieba.play.b.a() { // from class: com.baidu.tieba.play.QuickVideoView.8
-                private long fGA = 0;
+        if (this.fOJ != null) {
+            this.fOJ.a(new com.baidu.tieba.i.b() { // from class: com.baidu.tieba.play.QuickVideoView.8
+                private long fPA = 0;
 
-                @Override // com.baidu.tieba.play.b.a
-                public void J(JSONObject jSONObject) throws JSONException {
+                @Override // com.baidu.tieba.i.b
+                public void G(JSONObject jSONObject) throws JSONException {
                 }
 
-                @Override // com.baidu.tieba.play.b.a
-                public void K(JSONObject jSONObject) throws JSONException {
-                    this.fGA = jSONObject.optLong("loadingTime");
+                @Override // com.baidu.tieba.i.b
+                public void H(JSONObject jSONObject) throws JSONException {
+                    this.fPA = jSONObject.optLong("loadingTime");
                 }
 
-                @Override // com.baidu.tieba.play.b.a
-                public void L(JSONObject jSONObject) throws JSONException {
-                    if (this.fGA != 0 && j != 0 && this.fGA <= 86400000 && j <= 86400000) {
+                @Override // com.baidu.tieba.i.b
+                public void I(JSONObject jSONObject) throws JSONException {
+                    if (this.fPA != 0 && j != 0 && this.fPA <= 86400000 && j <= 86400000) {
                         jSONObject.put("pbLoadingTime", j);
-                        jSONObject.put("pbVideoPreview", this.fGA + j);
+                        jSONObject.put("pbVideoPreview", this.fPA + j);
                     }
                 }
             });
         }
+    }
+
+    public static boolean rp(String str) {
+        return (StringUtils.isNull(str) || str.contains("http")) ? false : true;
     }
 }

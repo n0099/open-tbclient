@@ -1,82 +1,92 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ListAdapter;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
-import com.baidu.tieba.write.write.c;
+import java.util.List;
 /* loaded from: classes2.dex */
-public class d {
-    private TbPageContext abI;
-    private WriteImagesInfo flZ;
-    private WriteImageGridView gYx;
-    private c gYy;
-    private com.baidu.tbadk.img.b aCs = new com.baidu.tbadk.img.b();
-    private String aiB = AlbumActivityConfig.FROM_WRITE;
-    private String mForumId = "";
-    private c.a gYz = new c.a() { // from class: com.baidu.tieba.write.write.d.1
-        @Override // com.baidu.tieba.write.write.c.a
-        public void vw(int i) {
-            if (d.this.flZ != null && d.this.flZ.getChosedFiles() != null && i >= 0 && i < d.this.flZ.getChosedFiles().size()) {
-                ImageFileInfo remove = d.this.flZ.getChosedFiles().remove(i);
-                if (remove.isTempFile()) {
-                    com.baidu.adp.lib.Disk.d.dH().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+public class d extends BaseAdapter {
+    private c hhO;
+    private List<String> mDataList;
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (v.w(this.mDataList)) {
+            return 0;
+        }
+        return (int) Math.ceil(this.mDataList.size() / 2.0d);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    public String getItem(int i) {
+        return (String) v.c(this.mDataList, i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        if (view == null) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.pic_sticker_item, (ViewGroup) null);
+            aVar = new a();
+            aVar.gWi = (TbImageView) view.findViewById(d.g.top_sticker);
+            aVar.gWj = (TbImageView) view.findViewById(d.g.bottom_sticker);
+            view.setTag(aVar);
+        } else {
+            aVar = (a) view.getTag();
+        }
+        aVar.gWi.setAutoChangeStyle(false);
+        aVar.gWj.setAutoChangeStyle(false);
+        aVar.gWi.setGifIconSupport(false);
+        aVar.gWj.setGifIconSupport(false);
+        aVar.gWi.startLoad(this.mDataList.get(i * 2), 10, true);
+        aVar.gWi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                TbImageView tbImageView = (TbImageView) view2;
+                if (d.this.hhO != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().kK() != null) {
+                    d.this.hhO.d(tbImageView.getBdImage().kK(), false);
                 }
-                d.this.gYy.a(d.this.flZ);
-                d.this.gYy.notifyDataSetChanged();
             }
-        }
-
-        @Override // com.baidu.tieba.write.write.c.a
-        public void vK(int i) {
-            int u;
-            if (d.this.flZ != null && (u = v.u(d.this.flZ.getChosedFiles())) != 0 && i >= 0 && i < u) {
-                d.this.abI.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(d.this.abI.getPageActivity(), 12012, d.this.flZ, i)));
+        });
+        aVar.gWj.startLoad(this.mDataList.get((i * 2) + 1), 10, true);
+        aVar.gWj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                TbImageView tbImageView = (TbImageView) view2;
+                if (d.this.hhO != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().kK() != null) {
+                    d.this.hhO.d(tbImageView.getBdImage().kK(), true);
+                }
             }
-        }
-
-        @Override // com.baidu.tieba.write.write.c.a
-        public void bFn() {
-            if (d.this.flZ != null) {
-                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) d.this.abI.getPageActivity(), d.this.flZ.toJsonString(), true, true);
-                albumActivityConfig.getIntent().putExtra("forum_id", d.this.mForumId);
-                albumActivityConfig.getIntent().putExtra("from", d.this.aiB);
-                albumActivityConfig.setRequestCode(12002);
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
-            }
-        }
-    };
-
-    public d(TbPageContext tbPageContext, View view) {
-        this.abI = tbPageContext;
-        this.gYx = (WriteImageGridView) view.findViewById(d.g.write_image_grid_view);
-        this.gYy = new c(view.getContext(), this.aCs, null, this.gYz);
-        this.gYx.setAdapter((ListAdapter) this.gYy);
+        });
+        return view;
     }
 
-    public void a(WriteImagesInfo writeImagesInfo, String str, String str2) {
-        this.aiB = str;
-        this.mForumId = str2;
-        this.flZ = writeImagesInfo;
-        this.gYy.a(this.flZ);
-        this.gYy.notifyDataSetChanged();
+    public void b(c cVar) {
+        this.hhO = cVar;
     }
 
-    public void destroy() {
-        this.aCs.ED();
+    /* loaded from: classes2.dex */
+    public class a {
+        public TbImageView gWi;
+        public TbImageView gWj;
+
+        public a() {
+        }
     }
 
-    public void nI(boolean z) {
-        this.gYy.nI(z);
+    public void setData(List<String> list) {
+        if (!v.w(list)) {
+            this.mDataList = list;
+        }
     }
 }

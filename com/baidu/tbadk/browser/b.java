@@ -19,8 +19,8 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
         this.mContext = context;
     }
 
-    private String nZ() {
-        ax.aT(this.mContext);
+    private String og() {
+        ax.aV(this.mContext);
         JSResultData jSResultData = new JSResultData();
         jSResultData.setStatus(1);
         jSResultData.setErrorCode("0");
@@ -28,12 +28,12 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
         return OrmObject.jsonStrWithObject(jSResultData);
     }
 
-    private String oa() {
+    private String oh() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FINISH_THIS_PAGE));
         return "";
     }
 
-    private String ob() {
+    private String oi() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_PAGE_REFRESH));
         return "";
     }
@@ -47,7 +47,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             if ("startLoginModule".equals(str2)) {
                 try {
                     new JSONObject(str3);
-                    jsPromptResult.confirm(nZ());
+                    jsPromptResult.confirm(og());
                     return true;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -67,7 +67,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             }
             if ("personPageRefresh".equals(str2)) {
                 try {
-                    jsPromptResult.confirm(ob());
+                    jsPromptResult.confirm(oi());
                     return true;
                 } catch (Exception e3) {
                     e3.printStackTrace();
@@ -75,7 +75,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             }
             if ("finishThisPage".equals(str2)) {
                 try {
-                    jsPromptResult.confirm(oa());
+                    jsPromptResult.confirm(oh());
                     return true;
                 } catch (Exception e4) {
                     e4.printStackTrace();

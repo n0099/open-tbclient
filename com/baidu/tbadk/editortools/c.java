@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ImageView implements l {
-    private int aAW;
-    private boolean aAX;
+    private int aBx;
+    private boolean aBy;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -19,7 +19,7 @@ public class c extends ImageView implements l {
     public c(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.aAX = false;
+        this.aBy = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -28,8 +28,8 @@ public class c extends ImageView implements l {
     }
 
     public void setIcon(int i) {
-        this.aAW = i;
-        aj.b((ImageView) this, this.aAW, this.mSkinType);
+        this.aBx = i;
+        aj.b((ImageView) this, this.aBx, this.mSkinType);
     }
 
     public void setToolId(int i) {
@@ -42,17 +42,17 @@ public class c extends ImageView implements l {
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public void lG() {
+    public void lE() {
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void hide() {
-        CT();
+        Dc();
         setVisibility(8);
     }
 
-    public void fE(String str) {
+    public void fK(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -67,7 +67,7 @@ public class c extends ImageView implements l {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            aj.b(this.mTip, d.C0080d.cp_cont_g, 1, this.mSkinType);
+            aj.b(this.mTip, d.C0082d.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
@@ -83,7 +83,7 @@ public class c extends ImageView implements l {
         }
     }
 
-    public void CT() {
+    public void Dc() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,9 +98,9 @@ public class c extends ImageView implements l {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                CT();
+                Dc();
             } else if (aVar.data instanceof String) {
-                fE((String) aVar.data);
+                fK((String) aVar.data);
             }
         }
     }
@@ -108,9 +108,9 @@ public class c extends ImageView implements l {
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        aj.b((ImageView) this, this.aAW, i);
+        aj.b((ImageView) this, this.aBx, i);
         if (this.mTip != null) {
-            aj.b(this.mTip, d.C0080d.cp_cont_g, 1, i);
+            aj.b(this.mTip, d.C0082d.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
                 aj.d(this.mTip, d.f.icon_news_head_prompt_one, i);
             } else {
@@ -120,11 +120,11 @@ public class c extends ImageView implements l {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.aAX;
+        return this.aBy;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.aAX = z;
+        this.aBy = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.net.LocalServerSocket;
 import android.os.Handler;
 import android.text.TextUtils;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.pushservice.j.k;
 import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
@@ -27,7 +28,7 @@ public class g {
     private static String b = "PushSDK";
     private static g c = null;
     private static int d = 180000;
-    private static int e = 1800000;
+    private static int e = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
     private static final Object g = new Object();
     private static Object j = new Object();
     private Boolean i = false;

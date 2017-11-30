@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.h;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -26,7 +25,7 @@ public class h extends m {
         jSONObject.put("err_code", this.g);
         jSONObject.put("msg_result", this.i);
         if (!TextUtils.isEmpty(this.b)) {
-            jSONObject.put(PbActivityConfig.KEY_MSG_ID, this.b);
+            jSONObject.put("msg_id", this.b);
         }
         if (!TextUtils.isEmpty(this.c)) {
             jSONObject.put("msg_open_by", this.c);

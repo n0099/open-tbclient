@@ -20,19 +20,20 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.c;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.data.aq;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.data.ay;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.imageManager.TbFaceManager;
@@ -55,156 +56,159 @@ import tbclient.SubPostList;
 import tbclient.TPointPost;
 /* loaded from: classes.dex */
 public class PostData implements com.baidu.adp.widget.ListView.f, ae {
-    private SkinInfo ZF;
-    private String ZI;
-    private TbRichTextVoiceInfo aoa;
+    private SkinInfo ZY;
+    private OriginalThreadInfo aaI;
+    private String aab;
+    private TbRichTextVoiceInfo aok;
     @Deprecated
     private String authorId;
     private String bimg_url;
-    private String eGq;
-    private SmallTailInfo fbb;
-    private com.baidu.tbadk.data.a gqF;
-    private com.baidu.tbadk.data.i gqG;
-    private h gqJ;
-    private bc gqK;
-    public boolean gqM;
-    private com.baidu.tbadk.widget.richText.f gqN;
-    private String gqO;
-    private String gqP;
-    private TPointPost gqQ;
-    public int gqU;
-    private ArrayList<PostData> gqz;
+    private String eNZ;
+    private SmallTailInfo fhU;
+    private h gzC;
+    private ay gzD;
+    public boolean gzF;
+    private com.baidu.tbadk.widget.richText.f gzG;
+    private String gzH;
+    private String gzI;
+    private TPointPost gzJ;
+    public int gzN;
+    public AlaLiveInfoCoreData gzR;
+    private boolean gzT;
+    private ArrayList<PostData> gzr;
+    private com.baidu.tbadk.data.a gzy;
+    private com.baidu.tbadk.data.i gzz;
     private HashMap<String, MetaData> userMap;
-    public static final BdUniqueId gqm = BdUniqueId.gen();
-    public static final BdUniqueId gqn = BdUniqueId.gen();
-    public static final BdUniqueId gqo = BdUniqueId.gen();
-    public static final BdUniqueId ZG = BdUniqueId.gen();
-    public static final BdUniqueId gqp = BdUniqueId.gen();
-    public static final BdUniqueId Yr = BdUniqueId.gen();
-    public static final BdUniqueId gqq = BdUniqueId.gen();
-    public static final BdUniqueId gqr = BdUniqueId.gen();
-    public static final BdUniqueId gqs = BdUniqueId.gen();
-    public static final BdUniqueId gqt = BdUniqueId.gen();
-    public static boolean gqu = false;
-    private int gqv = 0;
-    private boolean gqA = false;
-    private ArrayList<PostData> gqB = null;
-    private TbRichText dVS = null;
-    private boolean gqE = false;
-    private boolean gqH = false;
-    private boolean gqI = false;
-    public boolean gqL = false;
-    public int Zh = 0;
-    private boolean gqR = false;
-    private long cCt = 0;
-    private boolean cCv = false;
-    public boolean gqS = false;
-    public boolean gqT = false;
-    public boolean gqV = false;
-    public boolean gqW = true;
-    public boolean cJv = false;
-    public boolean gqX = false;
-    private boolean gqY = false;
+    public static final BdUniqueId gze = BdUniqueId.gen();
+    public static final BdUniqueId gzf = BdUniqueId.gen();
+    public static final BdUniqueId gzg = BdUniqueId.gen();
+    public static final BdUniqueId ZZ = BdUniqueId.gen();
+    public static final BdUniqueId gzh = BdUniqueId.gen();
+    public static final BdUniqueId YJ = BdUniqueId.gen();
+    public static final BdUniqueId gzi = BdUniqueId.gen();
+    public static final BdUniqueId gzj = BdUniqueId.gen();
+    public static final BdUniqueId gzk = BdUniqueId.gen();
+    public static final BdUniqueId gzl = BdUniqueId.gen();
+    public static boolean gzm = false;
+    private int gzn = 0;
+    private boolean gzs = false;
+    private ArrayList<PostData> gzt = null;
+    private TbRichText gzu = null;
+    private boolean gzx = false;
+    private boolean gzA = false;
+    private boolean gzB = false;
+    public boolean gzE = false;
+    public int ZA = 0;
+    private boolean gzK = false;
+    private long cLx = 0;
+    private boolean cLz = false;
+    public boolean gzL = false;
+    public boolean gzM = false;
+    public boolean gzO = false;
+    public boolean gzP = true;
+    public boolean cSS = false;
+    public boolean gzQ = false;
+    private boolean gzS = false;
     private String id = null;
     private String title = null;
     private int floor_num = 0;
     private long time = 0;
     private String date = null;
-    private MetaData YJ = new MetaData();
-    private ArrayList<k> gqw = new ArrayList<>();
-    private ArrayList<k> gqx = new ArrayList<>();
-    private int gqy = 0;
-    private int Zr = 0;
-    private PraiseData YV = new PraiseData();
-    private aq gqC = new aq();
-    private c gqD = new c();
-    private ArrayList<com.baidu.tbadk.data.a> ZD = new ArrayList<>();
+    private MetaData Zc = new MetaData();
+    private ArrayList<k> gzo = new ArrayList<>();
+    private ArrayList<k> gzp = new ArrayList<>();
+    private int gzq = 0;
+    private int ZK = 0;
+    private PraiseData Zo = new PraiseData();
+    private am gzv = new am();
+    private c gzw = new c();
+    private ArrayList<com.baidu.tbadk.data.a> ZW = new ArrayList<>();
 
     public PostData() {
-        this.gqz = null;
-        this.gqU = 0;
-        this.gqz = new ArrayList<>();
-        this.gqU = 0;
+        this.gzr = null;
+        this.gzN = 0;
+        this.gzr = new ArrayList<>();
+        this.gzN = 0;
     }
 
-    public ArrayList<PostData> buz() {
-        return this.gqB;
+    public ArrayList<PostData> bwh() {
+        return this.gzt;
     }
 
-    public void buA() {
-        this.gqB.clear();
-        this.gqB = null;
-        this.gqA = false;
+    public void bwi() {
+        this.gzt.clear();
+        this.gzt = null;
+        this.gzs = false;
     }
 
     public void z(PostData postData) {
         if (postData != null) {
-            if (this.gqB == null) {
-                this.gqB = new ArrayList<>();
-                if (v.u(this.gqz) > 2) {
-                    this.gqB.addAll(v.a(this.gqz, 0, 2));
+            if (this.gzt == null) {
+                this.gzt = new ArrayList<>();
+                if (v.v(this.gzr) > 2) {
+                    this.gzt.addAll(v.a(this.gzr, 0, 2));
                 } else {
-                    this.gqB.addAll(this.gqz);
+                    this.gzt.addAll(this.gzr);
                 }
             }
-            this.gqB.add(postData);
+            this.gzt.add(postData);
         }
     }
 
     public void A(PostData postData) {
-        if (postData != null && this.gqz != null) {
-            this.gqz.add(postData);
-            buE();
+        if (postData != null && this.gzr != null) {
+            this.gzr.add(postData);
+            bwm();
         }
     }
 
-    public void sC(String str) {
-        if (this.gqB != null && !StringUtils.isNull(str)) {
-            Iterator<PostData> it = this.gqB.iterator();
+    public void sZ(String str) {
+        if (this.gzt != null && !StringUtils.isNull(str)) {
+            Iterator<PostData> it = this.gzt.iterator();
             while (it.hasNext()) {
                 PostData next = it.next();
                 if (next != null && str.equals(next.getId())) {
-                    this.gqB.remove(next);
+                    this.gzt.remove(next);
                     return;
                 }
             }
         }
     }
 
-    public void mC(boolean z) {
-        this.gqA = z;
+    public void mZ(boolean z) {
+        this.gzs = z;
     }
 
-    public boolean buB() {
-        return this.gqA;
+    public boolean bwj() {
+        return this.gzs;
     }
 
-    public c buC() {
-        return this.gqD;
+    public c bwk() {
+        return this.gzw;
     }
 
-    public ArrayList<PostData> buD() {
-        return this.gqz;
+    public ArrayList<PostData> bwl() {
+        return this.gzr;
     }
 
-    public void buE() {
-        this.gqy++;
+    public void bwm() {
+        this.gzq++;
     }
 
-    public void buF() {
-        this.gqy--;
+    public void bwn() {
+        this.gzq--;
     }
 
-    public void tU(int i) {
-        this.gqy = i;
+    public void uk(int i) {
+        this.gzq = i;
     }
 
     public boolean isGiftPost() {
-        return this.gqH;
+        return this.gzA;
     }
 
     public void setIsGiftPost(boolean z) {
-        this.gqH = z;
+        this.gzA = z;
     }
 
     public HashMap<String, MetaData> getUserMap() {
@@ -227,24 +231,24 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
         this.title = str;
     }
 
-    public String aPJ() {
-        return this.eGq;
+    public String aQU() {
+        return this.eNZ;
     }
 
-    public int buG() {
+    public int bwo() {
         return this.floor_num;
     }
 
-    public void tV(int i) {
+    public void ul(int i) {
         this.floor_num = i;
     }
 
-    public boolean buH() {
-        return this.gqI;
+    public boolean bwp() {
+        return this.gzB;
     }
 
-    public void mD(boolean z) {
-        this.gqI = z;
+    public void na(boolean z) {
+        this.gzB = z;
     }
 
     public long getTime() {
@@ -253,55 +257,55 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
 
     public void setTime(long j) {
         this.time = j;
-        this.date = am.r(j);
+        this.date = com.baidu.tbadk.core.util.am.r(j);
     }
 
-    public String buI() {
+    public String bwq() {
         return this.date;
     }
 
-    public MetaData rt() {
-        return this.YJ;
+    public MetaData rx() {
+        return this.Zc;
     }
 
     public void a(MetaData metaData) {
-        this.YJ = metaData;
+        this.Zc = metaData;
     }
 
     public void a(PraiseData praiseData) {
-        this.YV = praiseData;
+        this.Zo = praiseData;
     }
 
-    public TbRichText aEx() {
-        return this.dVS;
+    public TbRichText bwr() {
+        return this.gzu;
     }
 
-    public void g(TbRichText tbRichText) {
-        this.dVS = tbRichText;
+    public void d(TbRichText tbRichText) {
+        this.gzu = tbRichText;
     }
 
     public String getBimg_url() {
         return this.bimg_url;
     }
 
-    public SmallTailInfo aWX() {
-        return this.fbb;
+    public SmallTailInfo aXW() {
+        return this.fhU;
     }
 
     public void a(SmallTailInfo smallTailInfo) {
-        this.fbb = smallTailInfo;
+        this.fhU = smallTailInfo;
     }
 
-    public com.baidu.tbadk.data.i buJ() {
-        return this.gqG;
+    public com.baidu.tbadk.data.i bws() {
+        return this.gzz;
     }
 
-    public SkinInfo rP() {
-        return this.ZF;
+    public SkinInfo rT() {
+        return this.ZY;
     }
 
-    public void mE(boolean z) {
-        this.gqY = z;
+    public void nb(boolean z) {
+        this.gzS = z;
     }
 
     public void b(TbPageContext tbPageContext, boolean z) {
@@ -311,19 +315,19 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
         String str3;
         TbRichTextVoiceInfo tbRichTextVoiceInfo;
         TbRichTextData tbRichTextData;
-        if (tbPageContext != null && this.dVS != null && this.dVS.IT() != null) {
+        if (tbPageContext != null && this.gzu != null && this.gzu.Jq() != null) {
             final BdUniqueId uniqueId = tbPageContext.getUniqueId();
             if (z) {
                 str = " 楼主";
-            } else if (this.YJ != null && this.YJ.getIs_bawu() == 1 && "manager".equals(this.YJ.getBawu_type())) {
+            } else if (this.Zc != null && this.Zc.getIs_bawu() == 1 && "manager".equals(this.Zc.getBawu_type())) {
                 str = " 吧主";
-            } else if (this.YJ == null || this.YJ.getIs_bawu() != 1 || !"assist".equals(this.YJ.getBawu_type())) {
+            } else if (this.Zc == null || this.Zc.getIs_bawu() != 1 || !"assist".equals(this.Zc.getBawu_type())) {
                 str = "";
             } else {
                 str = " 小吧";
             }
             ArrayList arrayList = new ArrayList();
-            ArrayList<IconData> tShowInfoNew = rt().getTShowInfoNew();
+            ArrayList<IconData> tShowInfoNew = rx().getTShowInfoNew();
             if (tShowInfoNew != null) {
                 Iterator<IconData> it = tShowInfoNew.iterator();
                 while (it.hasNext()) {
@@ -338,10 +342,10 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
                                     /* JADX INFO: Access modifiers changed from: protected */
                                     @Override // com.baidu.adp.lib.f.b
                                     public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str4, int i) {
-                                        super.onLoaded((C01301) aVar2, str4, i);
+                                        super.onLoaded((C01291) aVar2, str4, i);
                                         if (aVar2 != null && aVar2.kL()) {
                                             cVar2.setDrawable(PostData.this.h(aVar2));
-                                            PostData.this.dVS.isChanged = true;
+                                            PostData.this.gzu.isChanged = true;
                                             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ADAPTER_CHANGE_CMD));
                                         }
                                     }
@@ -358,73 +362,73 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
             for (int i = 0; i < arrayList.size(); i++) {
                 sb.append(i);
             }
-            if (!StringUtils.isNull(this.YJ.getSealPrefix())) {
+            if (!StringUtils.isNull(this.Zc.getSealPrefix())) {
                 sb.append(" ");
-                sb.append(this.YJ.getSealPrefix());
+                sb.append(this.Zc.getSealPrefix());
             }
             if (sb.length() > 0) {
                 sb.append(" ");
             }
             String sb2 = sb.toString();
-            if (this.YJ == null) {
+            if (this.Zc == null) {
                 str2 = null;
                 spannableString = new SpannableString(sb2 + str + "：");
                 str3 = null;
             } else {
-                spannableString = new SpannableString(sb2 + this.YJ.getName_show() + str + "：");
-                str2 = this.YJ.getUserName();
-                str3 = this.YJ.getUserId();
+                spannableString = new SpannableString(sb2 + this.Zc.getName_show() + str + "：");
+                str2 = this.Zc.getUserName();
+                str3 = this.Zc.getUserId();
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 spannableString.setSpan(arrayList.get(i2), i2, i2 + 1, 17);
             }
-            if (!StringUtils.isNull(this.YJ.getSealPrefix())) {
-                Bitmap cQ = aj.cQ(d.f.pic_smalldot_title);
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(cQ);
-                if (cQ != null) {
-                    bitmapDrawable.setBounds(0, 0, cQ.getWidth(), cQ.getHeight());
+            if (!StringUtils.isNull(this.Zc.getSealPrefix())) {
+                Bitmap cR = aj.cR(d.f.pic_smalldot_title);
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(cR);
+                if (cR != null) {
+                    bitmapDrawable.setBounds(0, 0, cR.getWidth(), cR.getHeight());
                 }
                 com.baidu.tbadk.core.view.i iVar = new com.baidu.tbadk.core.view.i(bitmapDrawable);
                 iVar.setOffset(com.baidu.adp.lib.util.l.f(tbPageContext.getPageActivity(), d.e.ds2));
-                int size = arrayList.size() + this.YJ.getSealPrefix().length() + 1;
+                int size = arrayList.size() + this.Zc.getSealPrefix().length() + 1;
                 spannableString.setSpan(iVar, size, size + 1, 17);
             }
             spannableString.setSpan(new a(tbPageContext.getPageActivity(), str2, str3), 0, spannableString.length(), 18);
-            if (!StringUtils.isNull(str) && (z || (this.YJ != null && this.YJ.getIs_bawu() == 1))) {
-                CustomForegroundColorSpan customForegroundColorSpan = new CustomForegroundColorSpan(d.C0080d.cp_link_tip_a);
-                if (this.YJ != null) {
-                    spannableString.setSpan(customForegroundColorSpan, sb2.length() + this.YJ.getName_show().length() + 1, str.length() + sb2.length() + this.YJ.getName_show().length(), 17);
+            if (!StringUtils.isNull(str) && (z || (this.Zc != null && this.Zc.getIs_bawu() == 1))) {
+                CustomForegroundColorSpan customForegroundColorSpan = new CustomForegroundColorSpan(d.C0082d.cp_link_tip_a);
+                if (this.Zc != null) {
+                    spannableString.setSpan(customForegroundColorSpan, sb2.length() + this.Zc.getName_show().length() + 1, str.length() + sb2.length() + this.Zc.getName_show().length(), 17);
                 } else {
                     spannableString.setSpan(customForegroundColorSpan, sb2.length(), str.length() + sb2.length(), 17);
                 }
             }
-            ArrayList<TbRichTextData> IT = this.dVS.IT();
-            if (IT != null && IT.size() > 0) {
-                TbRichTextData tbRichTextData2 = IT.get(0);
-                if (tbRichTextData2 != null && tbRichTextData2.Ja() != null) {
-                    if (this.gqY) {
-                        int indexOf = tbRichTextData2.Ja().toString().indexOf("：");
+            ArrayList<TbRichTextData> Jq = this.gzu.Jq();
+            if (Jq != null && Jq.size() > 0) {
+                TbRichTextData tbRichTextData2 = Jq.get(0);
+                if (tbRichTextData2 != null && tbRichTextData2.Jx() != null) {
+                    if (this.gzS) {
+                        int indexOf = tbRichTextData2.Jx().toString().indexOf("：");
                         if (indexOf > 0) {
-                            tbRichTextData2.Ja().delete(0, indexOf + 1);
+                            tbRichTextData2.Jx().delete(0, indexOf + 1);
                         }
-                        this.gqY = false;
+                        this.gzS = false;
                     }
-                    tbRichTextData2.fU(sb.length());
-                    tbRichTextData2.Ja().insert(0, (CharSequence) spannableString);
+                    tbRichTextData2.gc(sb.length());
+                    tbRichTextData2.Jx().insert(0, (CharSequence) spannableString);
                     return;
                 }
                 int i3 = 0;
                 while (true) {
                     int i4 = i3;
-                    if (i4 >= IT.size()) {
+                    if (i4 >= Jq.size()) {
                         tbRichTextVoiceInfo = null;
                         break;
-                    } else if (IT.get(i4) == null || IT.get(i4).getType() != 512) {
+                    } else if (Jq.get(i4) == null || Jq.get(i4).getType() != 512) {
                         i3 = i4 + 1;
                     } else {
-                        TbRichTextVoiceInfo Jb = IT.get(i4).Jb();
-                        IT.remove(i4);
-                        tbRichTextVoiceInfo = Jb;
+                        TbRichTextVoiceInfo Jy = Jq.get(i4).Jy();
+                        Jq.remove(i4);
+                        tbRichTextVoiceInfo = Jy;
                         break;
                     }
                 }
@@ -434,9 +438,9 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
                 } else {
                     tbRichTextData = new TbRichTextData(1);
                 }
-                tbRichTextData.fU(sb.length());
+                tbRichTextData.gc(sb.length());
                 tbRichTextData.append(spannableString);
-                IT.add(0, tbRichTextData);
+                Jq.add(0, tbRichTextData);
             }
         }
     }
@@ -447,60 +451,60 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
         String str2;
         TbRichTextData tbRichTextData;
         TbRichTextVoiceInfo tbRichTextVoiceInfo = null;
-        if (tbPageContext != null && this.dVS != null && this.dVS.IT() != null) {
+        if (tbPageContext != null && this.gzu != null && this.gzu.Jq() != null) {
             String str3 = z ? " 楼主" : "";
             String sb = new StringBuilder().toString();
-            String name_show = this.YJ.getName_show();
-            if (com.baidu.adp.lib.util.k.aP(this.YJ.getName_show()) > 14) {
-                name_show = am.e(this.YJ.getName_show(), 14, "...");
+            String name_show = this.Zc.getName_show();
+            if (com.baidu.adp.lib.util.k.aP(this.Zc.getName_show()) > 14) {
+                name_show = com.baidu.tbadk.core.util.am.e(this.Zc.getName_show(), 14, "...");
             }
-            if (this.YJ != null) {
+            if (this.Zc != null) {
                 spannableString = new SpannableString(sb + name_show + str3 + "：");
-                str = this.YJ.getUserName();
-                str2 = this.YJ.getUserId();
+                str = this.Zc.getUserName();
+                str2 = this.Zc.getUserId();
             } else {
                 str = null;
                 spannableString = new SpannableString(sb + str3 + "：");
                 str2 = null;
             }
-            if (!StringUtils.isNull(this.YJ.getSealPrefix())) {
-                Bitmap cQ = aj.cQ(d.f.pic_smalldot_title);
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(cQ);
-                if (cQ != null) {
-                    bitmapDrawable.setBounds(0, 0, cQ.getWidth(), cQ.getHeight());
+            if (!StringUtils.isNull(this.Zc.getSealPrefix())) {
+                Bitmap cR = aj.cR(d.f.pic_smalldot_title);
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(cR);
+                if (cR != null) {
+                    bitmapDrawable.setBounds(0, 0, cR.getWidth(), cR.getHeight());
                 }
                 com.baidu.tbadk.core.view.i iVar = new com.baidu.tbadk.core.view.i(bitmapDrawable);
                 iVar.setOffset(com.baidu.adp.lib.util.l.f(tbPageContext.getPageActivity(), d.e.ds2));
-                int length = this.YJ.getSealPrefix().length() + 1;
+                int length = this.Zc.getSealPrefix().length() + 1;
                 spannableString.setSpan(iVar, length, length + 1, 17);
             }
             spannableString.setSpan(new a(tbPageContext.getPageActivity(), str, str2), 0, spannableString.length(), 18);
             if (z) {
                 AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(com.baidu.adp.lib.util.l.f(tbPageContext.getPageActivity(), d.e.ds28));
-                CustomForegroundColorSpan customForegroundColorSpan = new CustomForegroundColorSpan(d.C0080d.cp_link_tip_a);
-                if (this.YJ != null) {
-                    spannableString.setSpan(absoluteSizeSpan, sb.length() + this.YJ.getName_show().length() + 1, sb.length() + this.YJ.getName_show().length() + str3.length(), 17);
-                    spannableString.setSpan(customForegroundColorSpan, sb.length() + this.YJ.getName_show().length() + 1, str3.length() + sb.length() + this.YJ.getName_show().length(), 17);
+                CustomForegroundColorSpan customForegroundColorSpan = new CustomForegroundColorSpan(d.C0082d.cp_link_tip_a);
+                if (this.Zc != null) {
+                    spannableString.setSpan(absoluteSizeSpan, sb.length() + this.Zc.getName_show().length() + 1, sb.length() + this.Zc.getName_show().length() + str3.length(), 17);
+                    spannableString.setSpan(customForegroundColorSpan, sb.length() + this.Zc.getName_show().length() + 1, str3.length() + sb.length() + this.Zc.getName_show().length(), 17);
                 } else {
                     spannableString.setSpan(absoluteSizeSpan, sb.length(), sb.length() + str3.length(), 17);
                     spannableString.setSpan(customForegroundColorSpan, sb.length(), str3.length() + sb.length(), 17);
                 }
             }
-            ArrayList<TbRichTextData> IT = this.dVS.IT();
-            if (IT != null && IT.size() > 0) {
-                TbRichTextData tbRichTextData2 = IT.get(0);
-                if (tbRichTextData2.Ja() != null) {
-                    tbRichTextData2.Ja().insert(0, (CharSequence) spannableString);
+            ArrayList<TbRichTextData> Jq = this.gzu.Jq();
+            if (Jq != null && Jq.size() > 0) {
+                TbRichTextData tbRichTextData2 = Jq.get(0);
+                if (tbRichTextData2.Jx() != null) {
+                    tbRichTextData2.Jx().insert(0, (CharSequence) spannableString);
                     return;
                 }
                 int i = 0;
                 while (true) {
-                    if (i < IT.size()) {
-                        if (IT.get(i) == null || IT.get(i).getType() != 512) {
+                    if (i < Jq.size()) {
+                        if (Jq.get(i) == null || Jq.get(i).getType() != 512) {
                             i++;
                         } else {
-                            tbRichTextVoiceInfo = IT.get(i).Jb();
-                            IT.remove(i);
+                            tbRichTextVoiceInfo = Jq.get(i).Jy();
+                            Jq.remove(i);
                             break;
                         }
                     } else {
@@ -514,7 +518,7 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
                     tbRichTextData = new TbRichTextData(1);
                 }
                 tbRichTextData.append(spannableString);
-                IT.add(0, tbRichTextData);
+                Jq.add(0, tbRichTextData);
             }
         }
     }
@@ -529,20 +533,20 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
         return bitmapDrawable;
     }
 
-    public int buK() {
-        return this.gqy;
+    public int bwt() {
+        return this.gzq;
     }
 
-    public void bV(Context context) {
+    public void cd(Context context) {
         int type;
         int i;
         int i2;
-        if (this.gqw != null) {
+        if (this.gzo != null) {
             int i3 = -1;
-            int size = this.gqx.size();
+            int size = this.gzp.size();
             if (size > 0) {
                 try {
-                    i3 = this.gqx.get(size - 1).getType();
+                    i3 = this.gzp.get(size - 1).getType();
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     return;
@@ -550,21 +554,21 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
             }
             int i4 = 0;
             int i5 = i3;
-            while (i4 < this.gqw.size()) {
-                k kVar = this.gqw.get(i4);
-                if (k.bU(i5, kVar.getType())) {
-                    this.gqx.get(size - 1).b(kVar.bU(context));
+            while (i4 < this.gzo.size()) {
+                k kVar = this.gzo.get(i4);
+                if (k.bV(i5, kVar.getType())) {
+                    this.gzp.get(size - 1).b(kVar.cc(context));
                     i2 = size;
                     i = i5;
                 } else {
                     if (kVar.getType() == 3 || kVar.getType() == 2 || kVar.getType() == 11) {
-                        this.gqx.add(kVar);
+                        this.gzp.add(kVar);
                         type = kVar.getType();
                     } else {
                         k kVar2 = new k();
                         kVar2.setType(0);
-                        kVar2.b(kVar.bU(context));
-                        this.gqx.add(kVar2);
+                        kVar2.b(kVar.cc(context));
+                        this.gzp.add(kVar2);
                         type = 0;
                     }
                     i = type;
@@ -577,27 +581,27 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
         }
     }
 
-    public void bW(Context context) {
+    public void ce(Context context) {
         try {
-            if (this.dVS != null) {
+            if (this.gzu != null) {
                 ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService("clipboard");
-                clipboardManager.setText(this.dVS.toString());
+                clipboardManager.setText(this.gzu.toString());
                 if (clipboardManager.getText() != null) {
                 }
                 return;
             }
-            if (this.gqx == null || this.gqx.size() == 0) {
-                bV(context);
+            if (this.gzp == null || this.gzp.size() == 0) {
+                cd(context);
             }
-            ArrayList<k> arrayList = this.gqx;
+            ArrayList<k> arrayList = this.gzp;
             if (arrayList != null) {
                 StringBuilder sb = new StringBuilder();
                 Iterator<k> it = arrayList.iterator();
                 while (it.hasNext()) {
                     k next = it.next();
                     if (next.getType() == 0) {
-                        if (next.bus() != null) {
-                            sb.append((CharSequence) next.bus());
+                        if (next.bwa() != null) {
+                            sb.append((CharSequence) next.bwa());
                         }
                     } else if (next.getType() == 3) {
                         if (next.getLink() != null) {
@@ -606,14 +610,14 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
                     } else if (next.getType() == 6) {
                         sb.append(context.getString(d.j.voice_str));
                     } else if (next.getType() == 2) {
-                        String fI = TbFaceManager.Er().fI(next.getText());
-                        if (fI != null) {
+                        String fO = TbFaceManager.Ey().fO(next.getText());
+                        if (fO != null) {
                             sb.append("[");
-                            sb.append(fI);
+                            sb.append(fO);
                             sb.append("]");
                         }
-                    } else if (next.getType() == 11 && !am.isEmpty(next.bur())) {
-                        sb.append("[").append(next.bur()).append("]");
+                    } else if (next.getType() == 11 && !com.baidu.tbadk.core.util.am.isEmpty(next.bvZ())) {
+                        sb.append("[").append(next.bvZ()).append("]");
                     }
                 }
                 ClipboardManager clipboardManager2 = (ClipboardManager) context.getSystemService("clipboard");
@@ -638,20 +642,20 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
                 this.title = subPostList.title;
                 this.floor_num = subPostList.floor.intValue();
                 this.time = subPostList.time.intValue() * 1000;
-                this.date = am.r(this.time);
+                this.date = com.baidu.tbadk.core.util.am.r(this.time);
                 this.authorId = String.valueOf(subPostList.author_id);
-                this.gqH = subPostList.is_giftpost.intValue() == 1;
+                this.gzA = subPostList.is_giftpost.intValue() == 1;
                 MetaData metaData2 = new MetaData();
                 metaData2.parserProtobuf(subPostList.author);
                 if (this.authorId != null && this.authorId.length() > 0 && !this.authorId.equals("0") && (metaData = this.userMap.get(this.authorId)) != null) {
-                    this.YJ = metaData;
+                    this.Zc = metaData;
                 }
-                if ((this.YJ.getUserId() == null || this.YJ.getUserId().length() <= 0 || this.YJ.getUserId().equals("0")) && metaData2 != null) {
-                    this.YJ = metaData2;
+                if ((this.Zc.getUserId() == null || this.Zc.getUserId().length() <= 0 || this.Zc.getUserId().equals("0")) && metaData2 != null) {
+                    this.Zc = metaData2;
                 }
-                this.dVS = TbRichTextView.a(context, subPostList.content, z);
-                if (this.dVS != null) {
-                    this.dVS.setPostId(com.baidu.adp.lib.g.b.c(this.id, -1L));
+                this.gzu = TbRichTextView.a(context, subPostList.content, z);
+                if (this.gzu != null) {
+                    this.gzu.setPostId(com.baidu.adp.lib.g.b.c(this.id, -1L));
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -667,32 +671,32 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
                 this.title = post.title;
                 this.floor_num = post.floor.intValue();
                 this.time = post.time.intValue() * 1000;
-                this.date = am.r(this.time);
-                this.eGq = post.time_ex;
+                this.date = com.baidu.tbadk.core.util.am.r(this.time);
+                this.eNZ = post.time_ex;
                 this.authorId = String.valueOf(post.author_id);
                 if (this.authorId != null && this.authorId.length() > 0 && !this.authorId.equals("0") && (metaData = this.userMap.get(this.authorId)) != null) {
-                    this.YJ = metaData;
+                    this.Zc = metaData;
                 }
-                this.gqS = post.need_log.intValue() == 1;
-                this.gqT = post.img_num_abtest.intValue() == 1;
-                this.gqK = new bc();
-                this.gqK.parserProtobuf(post.from_forum);
-                if (this.YJ.getUserId() == null || this.YJ.getUserId().length() <= 0 || this.YJ.getUserId().equals("0")) {
-                    this.YJ.parserProtobuf(post.author);
+                this.gzL = post.need_log.intValue() == 1;
+                this.gzM = post.img_num_abtest.intValue() == 1;
+                this.gzD = new ay();
+                this.gzD.parserProtobuf(post.from_forum);
+                if (this.Zc.getUserId() == null || this.Zc.getUserId().length() <= 0 || this.Zc.getUserId().equals("0")) {
+                    this.Zc.parserProtobuf(post.author);
                 }
-                if (this.YJ != null && context != null) {
-                    this.gqO = this.YJ.getUserName() + context.getResources().getString(d.j.somebodys_portrait);
-                    this.gqP = String.format(TbadkCoreApplication.getInst().getString(d.j.degree_in_forum), Integer.valueOf(this.YJ.getLevel_id()));
+                if (this.Zc != null && context != null) {
+                    this.gzH = this.Zc.getUserName() + context.getResources().getString(d.j.somebodys_portrait);
+                    this.gzI = String.format(TbadkCoreApplication.getInst().getString(d.j.degree_in_forum), Integer.valueOf(this.Zc.getLevel_id()));
                 }
-                this.gqE = post.is_ntitle.intValue() == 1;
-                this.gqy = post.sub_post_number.intValue();
-                this.gqJ = new h(post.tpoint_post);
-                this.dVS = TbRichTextView.a(context, post.content, true);
-                if (this.dVS != null) {
-                    this.dVS.setPostId(com.baidu.adp.lib.g.b.c(this.id, -1L));
-                    this.dVS.fT(this.floor_num);
-                    if (this.YJ != null) {
-                        this.dVS.setAuthorId(this.YJ.getUserId());
+                this.gzx = post.is_ntitle.intValue() == 1;
+                this.gzq = post.sub_post_number.intValue();
+                this.gzC = new h(post.tpoint_post);
+                this.gzu = TbRichTextView.a(context, post.content, true);
+                if (this.gzu != null) {
+                    this.gzu.setPostId(com.baidu.adp.lib.g.b.c(this.id, -1L));
+                    this.gzu.gb(this.floor_num);
+                    if (this.Zc != null) {
+                        this.gzu.setAuthorId(this.Zc.getUserId());
                     }
                 }
                 SubPost subPost = post.sub_post_list;
@@ -702,67 +706,74 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
                         for (int i = 0; i < list.size(); i++) {
                             SubPostList subPostList = list.get(i);
                             PostData postData = new PostData();
-                            postData.gqH = subPostList.is_giftpost.intValue() == 1;
+                            postData.gzA = subPostList.is_giftpost.intValue() == 1;
                             postData.setUserMap(this.userMap);
                             postData.a(subPostList, context);
-                            this.gqz.add(postData);
+                            this.gzr.add(postData);
                         }
                     }
                 }
                 ActPost actPost = post.act_post;
                 if (actPost != null) {
-                    this.gqD.a(actPost);
+                    this.gzw.a(actPost);
                 }
                 this.bimg_url = post.bimg_url;
                 if (post.tail_info != null) {
-                    this.gqF = new com.baidu.tbadk.data.a();
-                    this.gqF.a(post.tail_info);
+                    this.gzy = new com.baidu.tbadk.data.a();
+                    this.gzy.a(post.tail_info);
                 }
                 if (post.lbs_info != null) {
-                    this.gqG = new com.baidu.tbadk.data.i();
-                    this.gqG.a(post.lbs_info);
+                    this.gzz = new com.baidu.tbadk.data.i();
+                    this.gzz.a(post.lbs_info);
                 }
-                this.Zr = post.storecount.intValue();
-                this.gqC.a(post.present);
-                this.YV.setUserMap(this.userMap);
-                this.YV.parserProtobuf(post.zan);
+                this.ZK = post.storecount.intValue();
+                this.gzv.a(post.present);
+                this.Zo.setUserMap(this.userMap);
+                this.Zo.parserProtobuf(post.zan);
                 if (post.signature != null) {
-                    this.fbb = new SmallTailInfo();
-                    this.fbb.id = post.signature.signature_id.intValue();
-                    this.fbb.color = post.signature.fontColor;
+                    this.fhU = new SmallTailInfo();
+                    this.fhU.id = post.signature.signature_id.intValue();
+                    this.fhU.color = post.signature.fontColor;
                     if (post.signature.content != null && post.signature.content.size() != 0) {
-                        this.fbb.content = new ArrayList();
+                        this.fhU.content = new ArrayList();
                         for (SignatureContent signatureContent : post.signature.content) {
-                            List<SmallTailInfo.SmallTailInfoContent> list2 = this.fbb.content;
+                            List<SmallTailInfo.SmallTailInfoContent> list2 = this.fhU.content;
                             SmallTailInfo smallTailInfo = new SmallTailInfo();
                             smallTailInfo.getClass();
                             list2.add(new SmallTailInfo.SmallTailInfoContent(signatureContent.text, signatureContent.type.intValue()));
                         }
                     }
-                    this.fbb.updateShowInfo();
+                    this.fhU.updateShowInfo();
                 }
                 if (post.ext_tails != null) {
                     for (int i2 = 0; i2 != post.ext_tails.size(); i2++) {
                         com.baidu.tbadk.data.a aVar = new com.baidu.tbadk.data.a();
                         aVar.a(post.ext_tails.get(i2));
-                        this.ZD.add(aVar);
+                        this.ZW.add(aVar);
                     }
                 }
-                this.ZF = post.skin_info;
-                this.ZI = post.lego_card;
-                this.gqQ = post.tpoint_post;
+                this.ZY = post.skin_info;
+                this.aab = post.lego_card;
+                this.gzJ = post.tpoint_post;
                 if (post.agree != null) {
-                    this.gqR = true;
-                    this.cCv = post.agree.has_agree.intValue() == 1;
+                    this.gzK = true;
+                    this.cLz = post.agree.has_agree.intValue() == 1;
                     if (post.agree.agree_num.longValue() >= 0) {
-                        this.cCt = post.agree.agree_num.longValue();
+                        this.cLx = post.agree.agree_num.longValue();
                     } else {
-                        this.cCt = 0L;
+                        this.cLx = 0L;
                     }
                 } else {
-                    this.gqR = false;
+                    this.gzK = false;
                 }
-                this.gqX = post.is_post_visible.intValue() == 1;
+                this.gzQ = post.is_post_visible.intValue() == 1;
+                if (post.origin_thread_info != null && !StringUtils.isNull(post.origin_thread_info.tid)) {
+                    this.aaI = new OriginalThreadInfo();
+                    this.aaI.parser(post.origin_thread_info);
+                } else {
+                    this.aaI = null;
+                }
+                this.gzT = post.is_fold.intValue() == 1;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -771,22 +782,22 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
 
     /* loaded from: classes.dex */
     public static class CustomForegroundColorSpan extends ForegroundColorSpan {
-        private int eZp;
+        private int fgi;
 
         public CustomForegroundColorSpan(int i) {
             super(aj.getColor(i));
-            this.eZp = i;
+            this.fgi = i;
         }
 
         @Override // android.text.style.ForegroundColorSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(aj.getColor(this.eZp));
+            textPaint.setColor(aj.getColor(this.fgi));
         }
     }
 
     /* loaded from: classes.dex */
     public static class a extends ClickableSpan {
-        private SoftReference<Context> gre;
+        private SoftReference<Context> gzZ;
         private String mId;
         private String mName;
 
@@ -795,37 +806,37 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
             this.mId = null;
             this.mName = str;
             this.mId = str2;
-            this.gre = new SoftReference<>(context);
+            this.gzZ = new SoftReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(aj.getColor(d.C0080d.cp_link_tip_c));
+            textPaint.setColor(aj.getColor(d.C0082d.cp_link_tip_c));
             textPaint.setUnderlineText(false);
             textPaint.setFakeBoldText(false);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (this.mName != null && this.mId != null && this.gre != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.gre.get(), this.mId, this.mName, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
+            if (this.mName != null && this.mId != null && this.gzZ != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.gzZ.get(), this.mId, this.mName, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
             }
         }
     }
 
-    public String bX(Context context) {
-        ArrayList<TbRichTextData> IT;
-        if (this.dVS == null || (IT = this.dVS.IT()) == null) {
+    public String cf(Context context) {
+        ArrayList<TbRichTextData> Jq;
+        if (this.gzu == null || (Jq = this.gzu.Jq()) == null) {
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer();
-        Iterator<TbRichTextData> it = IT.iterator();
+        Iterator<TbRichTextData> it = Jq.iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next.getType() == 1) {
-                stringBuffer.append(next.Ja().toString());
+                stringBuffer.append(next.Jx().toString());
             } else if (next.getType() == 17) {
-                String str = next.Je().mGifInfo.mSharpText;
+                String str = next.JB().mGifInfo.mSharpText;
                 if (str != null && str.startsWith("#(") && str.endsWith(")")) {
                     stringBuffer.append("[" + str.substring(2, str.length() - 1) + "]");
                 }
@@ -840,17 +851,17 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
         return stringBuffer.toString();
     }
 
-    public PreLoadImageInfo buL() {
-        ArrayList<TbRichTextData> IT;
-        if (this.dVS != null && (IT = this.dVS.IT()) != null) {
-            Iterator<TbRichTextData> it = IT.iterator();
+    public PreLoadImageInfo bwu() {
+        ArrayList<TbRichTextData> Jq;
+        if (this.gzu != null && (Jq = this.gzu.Jq()) != null) {
+            Iterator<TbRichTextData> it = Jq.iterator();
             while (it.hasNext()) {
                 TbRichTextData next = it.next();
                 if (next.getType() == 8) {
                     PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-                    preLoadImageInfo.width = next.IZ().getWidth();
-                    preLoadImageInfo.height = next.IZ().getHeight();
-                    preLoadImageInfo.imgUrl = next.IZ().Jn();
+                    preLoadImageInfo.width = next.Jw().getWidth();
+                    preLoadImageInfo.height = next.Jw().getHeight();
+                    preLoadImageInfo.imgUrl = next.Jw().JK();
                     preLoadImageInfo.procType = 17;
                     return preLoadImageInfo;
                 }
@@ -860,40 +871,40 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
         return null;
     }
 
-    public String buM() {
-        j buk;
-        PreLoadImageInfo buL = buL();
-        if (buL != null && !StringUtils.isNull(buL.imgUrl)) {
-            return buL.imgUrl;
+    public String bwv() {
+        j bvS;
+        PreLoadImageInfo bwu = bwu();
+        if (bwu != null && !StringUtils.isNull(bwu.imgUrl)) {
+            return bwu.imgUrl;
         }
-        if (this.gqJ != null && (buk = this.gqJ.buk()) != null && !StringUtils.isNull(buk.bup())) {
-            return buk.bup();
+        if (this.gzC != null && (bvS = this.gzC.bvS()) != null && !StringUtils.isNull(bvS.bvX())) {
+            return bvS.bvX();
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        ArrayList<TbRichTextData> IT;
-        if (this.dVS == null || (IT = this.dVS.IT()) == null) {
+        ArrayList<TbRichTextData> Jq;
+        if (this.gzu == null || (Jq = this.gzu.Jq()) == null) {
             return null;
         }
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
-        Iterator<TbRichTextData> it = IT.iterator();
+        Iterator<TbRichTextData> it = Jq.iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next.getType() == 8) {
                 PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-                preLoadImageInfo.width = next.IZ().getWidth();
-                preLoadImageInfo.height = next.IZ().getHeight();
-                preLoadImageInfo.imgUrl = next.IZ().Jn();
+                preLoadImageInfo.width = next.Jw().getWidth();
+                preLoadImageInfo.height = next.Jw().getHeight();
+                preLoadImageInfo.imgUrl = next.Jw().JK();
                 preLoadImageInfo.procType = 17;
                 arrayList.add(preLoadImageInfo);
-            } else if (next.Je() != null) {
+            } else if (next.JB() != null) {
                 PreLoadImageInfo preLoadImageInfo2 = new PreLoadImageInfo();
-                preLoadImageInfo2.width = next.Je().mGifInfo.mGifWidth;
-                preLoadImageInfo2.height = next.Je().mGifInfo.mGifHeight;
-                preLoadImageInfo2.bigEmotion = next.Je();
+                preLoadImageInfo2.width = next.JB().mGifInfo.mGifWidth;
+                preLoadImageInfo2.height = next.JB().mGifInfo.mGifHeight;
+                preLoadImageInfo2.bigEmotion = next.JB();
                 preLoadImageInfo2.procType = 20;
                 arrayList.add(preLoadImageInfo2);
             }
@@ -906,11 +917,11 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
             preLoadImageInfo3.procType = 19;
             arrayList.add(preLoadImageInfo3);
         }
-        if (this.YJ == null) {
+        if (this.Zc == null) {
             return arrayList;
         }
         PreLoadImageInfo preLoadImageInfo4 = new PreLoadImageInfo();
-        preLoadImageInfo4.imgUrl = this.YJ.getPortrait();
+        preLoadImageInfo4.imgUrl = this.Zc.getPortrait();
         preLoadImageInfo4.procType = 12;
         arrayList.add(preLoadImageInfo4);
         return arrayList;
@@ -918,123 +929,131 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ae {
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        if (this.gqv == 52) {
-            return gqs;
+        if (this.gzn == 52) {
+            return gzk;
         }
-        if (this.gqv == 2) {
-            return gqo;
+        if (this.gzn == 2) {
+            return gzg;
         }
-        if (this.gqv == 1) {
-            return ZG;
+        if (this.gzn == 1) {
+            return ZZ;
         }
-        if (this.gqv == 36) {
-            return gqp;
+        if (this.gzn == 36) {
+            return gzh;
         }
-        if (this.gqv == 40 || this.gqv == 50) {
-            return Yr;
+        if (this.gzn == 40 || this.gzn == 50) {
+            return YJ;
         }
-        if (this.gqv == 41) {
-            return gqq;
+        if (this.gzn == 41) {
+            return gzi;
         }
-        if (this.gqv == 53) {
-            return gqt;
+        if (this.gzn == 53) {
+            return gzl;
         }
-        if (buG() == 1) {
-            return gqm;
+        if (bwo() == 1) {
+            return gze;
         }
-        return gqn;
+        return gzf;
     }
 
     public void setPostType(int i) {
-        this.gqv = i;
+        this.gzn = i;
     }
 
-    public aq buN() {
-        return this.gqC;
+    public am bww() {
+        return this.gzv;
     }
 
-    public void a(aq aqVar) {
-        this.gqC = aqVar;
+    public void a(am amVar) {
+        this.gzv = amVar;
     }
 
-    public h buO() {
-        return this.gqJ;
+    public h bwx() {
+        return this.gzC;
     }
 
-    public com.baidu.tbadk.widget.richText.f Jd() {
-        if (this.gqN != null) {
-            return this.gqN;
+    public com.baidu.tbadk.widget.richText.f JA() {
+        if (this.gzG != null) {
+            return this.gzG;
         }
-        if (this.dVS != null && v.u(this.dVS.IT()) > 0) {
-            Iterator<TbRichTextData> it = this.dVS.IT().iterator();
+        if (this.gzu != null && v.v(this.gzu.Jq()) > 0) {
+            Iterator<TbRichTextData> it = this.gzu.Jq().iterator();
             while (it.hasNext()) {
                 TbRichTextData next = it.next();
                 if (next != null && next.getType() == 32) {
-                    this.gqN = next.Jd();
-                    return this.gqN;
+                    this.gzG = next.JA();
+                    return this.gzG;
                 }
             }
         }
         return null;
     }
 
-    public TbRichTextVoiceInfo Jb() {
-        if (this.aoa != null) {
-            return this.aoa;
+    public TbRichTextVoiceInfo Jy() {
+        if (this.aok != null) {
+            return this.aok;
         }
-        if (this.dVS != null && v.u(this.dVS.IT()) > 0) {
-            Iterator<TbRichTextData> it = this.dVS.IT().iterator();
+        if (this.gzu != null && v.v(this.gzu.Jq()) > 0) {
+            Iterator<TbRichTextData> it = this.gzu.Jq().iterator();
             while (it.hasNext()) {
                 TbRichTextData next = it.next();
                 if (next != null && next.getType() == 512) {
-                    this.aoa = next.Jb();
-                    return this.aoa;
+                    this.aok = next.Jy();
+                    return this.aok;
                 }
             }
         }
         return null;
     }
 
-    public ArrayList<com.baidu.tbadk.data.a> buP() {
-        return this.ZD;
+    public ArrayList<com.baidu.tbadk.data.a> bwy() {
+        return this.ZW;
     }
 
-    public String buQ() {
-        return this.gqO;
+    public String bwz() {
+        return this.gzH;
     }
 
-    public String buR() {
-        return this.gqP;
+    public String bwA() {
+        return this.gzI;
     }
 
-    public String sq() {
-        return this.ZI;
+    public String st() {
+        return this.aab;
     }
 
-    public void st() {
-        if (this.Zh == 0) {
-            this.Zh = 1;
+    public void sw() {
+        if (this.ZA == 0) {
+            this.ZA = 1;
         }
     }
 
-    public long buS() {
-        return this.cCt;
+    public long bwB() {
+        return this.cLx;
     }
 
-    public void cP(long j) {
-        this.cCt = j;
+    public void cW(long j) {
+        this.cLx = j;
     }
 
-    public boolean buT() {
-        return this.cCv;
+    public boolean bwC() {
+        return this.cLz;
     }
 
-    public void mF(boolean z) {
-        this.cCv = z;
+    public void nc(boolean z) {
+        this.cLz = z;
     }
 
-    public bc buU() {
-        return this.gqK;
+    public OriginalThreadInfo bwD() {
+        return this.aaI;
+    }
+
+    public void f(OriginalThreadInfo originalThreadInfo) {
+        this.aaI = originalThreadInfo;
+    }
+
+    public boolean bwE() {
+        return this.gzT;
     }
 
     public boolean equals(Object obj) {

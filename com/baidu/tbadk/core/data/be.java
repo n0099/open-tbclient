@@ -1,31 +1,19 @@
 package com.baidu.tbadk.core.data;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class be {
-    protected String img_url = null;
-    protected String link = null;
-    protected String Yi = null;
+public class be extends com.baidu.tieba.card.data.b {
+    public int aaL;
+    public int aaM;
+    public String stType;
+    public bd threadData;
 
-    public String pQ() {
-        return this.img_url;
+    public be(bd bdVar) {
+        this.threadData = bdVar;
     }
 
-    public void cF(String str) {
-        this.img_url = str;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String str) {
-        this.link = str;
-    }
-
-    public String qS() {
-        return this.Yi;
-    }
-
-    public void cG(String str) {
-        this.Yi = str;
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return null;
     }
 }

@@ -5,11 +5,11 @@ import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
-    private InterfaceC0140a gMZ;
+    private InterfaceC0138a gXN;
 
     /* renamed from: com.baidu.tieba.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0140a {
+    public interface InterfaceC0138a {
         void a(a aVar);
     }
 
@@ -17,18 +17,18 @@ public class a extends RelativeLayout {
         super(context);
     }
 
-    public InterfaceC0140a getListener() {
-        return this.gMZ;
+    public InterfaceC0138a getListener() {
+        return this.gXN;
     }
 
-    public void setListener(InterfaceC0140a interfaceC0140a) {
-        this.gMZ = interfaceC0140a;
+    public void setListener(InterfaceC0138a interfaceC0138a) {
+        this.gXN = interfaceC0138a;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1 && this.gMZ != null) {
-            this.gMZ.a(this);
+        if (motionEvent.getAction() == 1 && this.gXN != null) {
+            this.gXN.a(this);
         }
         return super.dispatchTouchEvent(motionEvent);
     }

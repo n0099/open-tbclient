@@ -106,19 +106,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             }
         }
     };
-    private IMediaPlayer.OnMediaReleaseFinishedListener mOnMediaReleaseFinishedListener = new IMediaPlayer.OnMediaReleaseFinishedListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.5
-        @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnMediaReleaseFinishedListener
-        public void onFinished() {
-            try {
-                if (QuickMediaPlayerBinder.this.mQuickMediaPlayerListener != null) {
-                    QuickMediaPlayerBinder.this.mQuickMediaPlayerListener.onReleaseFinished();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    };
-    private IMediaPlayer.OnSubErrorInfoListener mOnSubErrorInfoListener = new IMediaPlayer.OnSubErrorInfoListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.6
+    private IMediaPlayer.OnSubErrorInfoListener mOnSubErrorInfoListener = new IMediaPlayer.OnSubErrorInfoListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.5
         @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnSubErrorInfoListener
         public void onSubError(int i, int i2, String str) {
             try {
@@ -130,7 +118,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             }
         }
     };
-    private IMediaPlayer.OnHandleOppoErrorListener mOnHandleOppoErrorListener = new IMediaPlayer.OnHandleOppoErrorListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.7
+    private IMediaPlayer.OnHandleOppoErrorListener mOnHandleOppoErrorListener = new IMediaPlayer.OnHandleOppoErrorListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.6
         @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnHandleOppoErrorListener
         public void handleOppoError(String str) {
             try {
@@ -142,7 +130,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             }
         }
     };
-    private IMediaPlayer.OnSeekCompleteListener mOnSeekCompleteListener = new IMediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.8
+    private IMediaPlayer.OnSeekCompleteListener mOnSeekCompleteListener = new IMediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.7
         @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnSeekCompleteListener
         public void onSeekComplete(IMediaPlayer iMediaPlayer) {
             try {
@@ -154,7 +142,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             }
         }
     };
-    private IMediaPlayer.OnSpeedWhenInvokingErrorListener mOnSpeedWhenInvokingErrorListener = new IMediaPlayer.OnSpeedWhenInvokingErrorListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.9
+    private IMediaPlayer.OnSpeedWhenInvokingErrorListener mOnSpeedWhenInvokingErrorListener = new IMediaPlayer.OnSpeedWhenInvokingErrorListener() { // from class: com.baidu.tieba.QuickPlayer.QuickMediaPlayerBinder.8
         @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnSpeedWhenInvokingErrorListener
         public void onSpeed(long j) {
             try {
@@ -200,7 +188,6 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mMediaPlayer.setOnErrorListener(this.mOnErrorListener);
             this.mMediaPlayer.setOnInfoListener(this.mOnInfoListener);
             this.mMediaPlayer.setOnSeekCompleteListener(this.mOnSeekCompleteListener);
-            this.mMediaPlayer.setOnMediaReleaseFinishedListener(this.mOnMediaReleaseFinishedListener);
             this.mMediaPlayer.setOnSubErrorListener(this.mOnSubErrorInfoListener);
             this.mMediaPlayer.setOnHandleOppoErrorListener(this.mOnHandleOppoErrorListener);
             this.mMediaPlayer.setOnSpeedWhenInvokingErrorListener(this.mOnSpeedWhenInvokingErrorListener);
@@ -220,7 +207,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mCurrentState = -1;
             this.mTargetState = -1;
             if (this.mOnSubErrorInfoListener != null) {
-                this.mOnSubErrorInfoListener.onSubError(-24399, -24399, getExceptionDetailMsg(e));
+                this.mOnSubErrorInfoListener.onSubError(-24399, -24399, com.baidu.tieba.i.a.g(e));
             }
             if (this.mOnErrorListener != null) {
                 this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? -200 : -100, -24399, -24399);
@@ -230,7 +217,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mCurrentState = -1;
             this.mTargetState = -1;
             if (this.mOnSubErrorInfoListener != null) {
-                this.mOnSubErrorInfoListener.onSubError(-34399, -34399, getExceptionDetailMsg(e2));
+                this.mOnSubErrorInfoListener.onSubError(-34399, -34399, com.baidu.tieba.i.a.g(e2));
             }
             if (this.mOnErrorListener != null) {
                 IMediaPlayer.OnErrorListener onErrorListener = this.mOnErrorListener;
@@ -241,23 +228,6 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                 onErrorListener.onError(iMediaPlayer, i, -34399, -34399);
             }
         }
-    }
-
-    private String getExceptionDetailMsg(Throwable th) {
-        if (th == null) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder(th.toString());
-        StackTraceElement[] stackTrace = th.getStackTrace();
-        if (stackTrace != null) {
-            for (int i = 0; i < stackTrace.length; i++) {
-                StackTraceElement stackTraceElement = stackTrace[i];
-                if (stackTraceElement != null && i < 7) {
-                    sb.append(" ----> ").append(stackTraceElement.getClassName()).append(".").append(stackTraceElement.getMethodName()).append("()");
-                }
-            }
-        }
-        return sb.toString();
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
@@ -306,10 +276,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public int getCurrentPosition() throws RemoteException {
-        if (isInPlaybackState()) {
-            return (int) this.mMediaPlayer.getCurrentPosition();
-        }
-        return 0;
+        return (int) this.mMediaPlayer.getCurrentPosition();
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
@@ -416,5 +383,44 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public void setDebugParams(String str, String str2) throws RemoteException {
         this.mDebugParamsMap.put(str, str2);
+    }
+
+    @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+    public int getCachedPostion() throws RemoteException {
+        if (isInPlaybackState() && isIjkPlayer()) {
+            long audioCachedDuration = ((IjkMediaPlayer) this.mMediaPlayer).getAudioCachedDuration();
+            long videoCachedDuration = ((IjkMediaPlayer) this.mMediaPlayer).getVideoCachedDuration();
+            if (audioCachedDuration >= 0 && videoCachedDuration >= 0) {
+                if (audioCachedDuration <= videoCachedDuration) {
+                    videoCachedDuration = audioCachedDuration;
+                }
+                return (int) videoCachedDuration;
+            }
+        }
+        return -1;
+    }
+
+    @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+    public int getBitRate() throws RemoteException {
+        if (isInPlaybackState() && isIjkPlayer()) {
+            long bitRate = ((IjkMediaPlayer) this.mMediaPlayer).getBitRate();
+            if (bitRate > 2147483647L) {
+                return -1;
+            }
+            return (int) bitRate;
+        }
+        return -1;
+    }
+
+    @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+    public int getCachedSize() throws RemoteException {
+        if (isInPlaybackState() && isIjkPlayer()) {
+            long audioCachedBytes = ((IjkMediaPlayer) this.mMediaPlayer).getAudioCachedBytes();
+            long videoCachedBytes = ((IjkMediaPlayer) this.mMediaPlayer).getVideoCachedBytes();
+            if (audioCachedBytes >= 0 && videoCachedBytes >= 0) {
+                return (int) (videoCachedBytes + audioCachedBytes);
+            }
+        }
+        return -1;
     }
 }

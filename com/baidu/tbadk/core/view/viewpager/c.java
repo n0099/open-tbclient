@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.viewpager.b;
 import com.baidu.tbadk.core.view.viewpager.b.a;
 /* loaded from: classes.dex */
 public abstract class c<T extends f, V extends b.a> {
-    protected a<T, V> apj;
+    protected a<T, V> apC;
     protected Context mContext;
     protected BdUniqueId mType;
 
@@ -36,10 +36,10 @@ public abstract class c<T extends f, V extends b.a> {
     }
 
     public void setOnItemClickListener(a<T, V> aVar) {
-        this.apj = aVar;
+        this.apC = aVar;
     }
 
-    public a<T, V> wU() {
-        return this.apj;
+    public a<T, V> wV() {
+        return this.apC;
     }
 }

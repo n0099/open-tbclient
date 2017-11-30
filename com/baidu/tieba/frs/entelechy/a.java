@@ -4,7 +4,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.view.ExpandLayout;
@@ -13,68 +13,68 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a extends com.baidu.tieba.frs.view.b {
-    protected f cDc;
-    protected TextView cDd;
-    protected ViewGroup cDe;
-    protected ExpandLayout cDf;
-    protected com.baidu.tieba.frs.view.a cDg;
-    protected h cyX;
+    protected h cIc;
+    protected f cMf;
+    protected TextView cMg;
+    protected ViewGroup cMh;
+    protected ExpandLayout cMi;
+    protected com.baidu.tieba.frs.view.a cMj;
 
-    public void akZ() {
-        this.cDf = (ExpandLayout) this.cSp.findViewById(d.g.expandable_layout);
-        this.cDd = (TextView) this.cSp.findViewById(d.g.top_item_type);
-        this.cDd.setText(TbadkCoreApplication.getInst().getString(d.j.game));
-        this.cDc = new f(this.czk);
-        this.cDg = new com.baidu.tieba.frs.view.a(this.czk, this.cDf, this.cTd, this.cDc);
+    public void amV() {
+        this.cMi = (ExpandLayout) this.dbu.findViewById(d.g.expandable_layout);
+        this.cMg = (TextView) this.dbu.findViewById(d.g.top_item_type);
+        this.cMg.setText(TbadkCoreApplication.getInst().getString(d.j.game));
+        this.cMf = new f(this.cIp);
+        this.cMj = new com.baidu.tieba.frs.view.a(this.cIp, this.cMi, this.dcj, this.cMf);
     }
 
     public void a(h hVar) {
-        this.cyX = hVar;
+        this.cIc = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ala() {
-        if (this.czk != null && this.czk.ajB() != null && this.cDc != null) {
+    public void amW() {
+        if (this.cIp != null && this.cIp.alv() != null && this.cMf != null) {
             ArrayList arrayList = new ArrayList();
-            List<com.baidu.adp.widget.ListView.f> btM = this.czk.ajB().btM();
-            if (btM != null) {
-                for (int i = 0; i < v.u(btM); i++) {
-                    com.baidu.adp.widget.ListView.f fVar = (com.baidu.adp.widget.ListView.f) v.c(btM, i);
-                    if (fVar instanceof bh) {
-                        arrayList.add((bh) fVar);
+            List<com.baidu.adp.widget.ListView.f> bvu = this.cIp.alv().bvu();
+            if (bvu != null) {
+                for (int i = 0; i < v.v(bvu); i++) {
+                    com.baidu.adp.widget.ListView.f fVar = (com.baidu.adp.widget.ListView.f) v.c(bvu, i);
+                    if (fVar instanceof bd) {
+                        arrayList.add((bd) fVar);
                     }
                 }
             }
-            if (this.cDc instanceof com.baidu.tieba.frs.e.c) {
-                f fVar2 = this.cDc;
-                if (com.baidu.tieba.frs.e.c.cPx != null && this.czk.ajB() != null) {
-                    if (this.czk.ajB().gnK == 1) {
-                        com.baidu.tieba.frs.e.c.cPx.cPn = true;
+            if (this.cMf instanceof com.baidu.tieba.frs.e.c) {
+                f fVar2 = this.cMf;
+                if (com.baidu.tieba.frs.e.c.cYM != null && this.cIp.alv() != null) {
+                    if (this.cIp.alv().gwD == 1) {
+                        com.baidu.tieba.frs.e.c.cYM.cYC = true;
                     } else {
-                        com.baidu.tieba.frs.e.c.cPx.cPn = false;
+                        com.baidu.tieba.frs.e.c.cYM.cYC = false;
                     }
-                    if (this.czk.ajB().aPU() != null) {
-                        com.baidu.tieba.frs.e.c.cPx.cPp = this.czk.ajB().aPU().getId();
+                    if (this.cIp.alv().aRf() != null) {
+                        com.baidu.tieba.frs.e.c.cYM.cYE = this.cIp.alv().aRf().getId();
                     }
                 }
             }
-            this.cDg.c(this.cyX);
-            this.cDg.aZ(arrayList);
-            this.cDg.apa();
+            this.cMj.c(this.cIc);
+            this.cMj.bl(arrayList);
+            this.cMj.aqT();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void alb() {
-        if (this.cDc != null) {
-            this.cDc.notifyDataSetChanged();
+    public void amX() {
+        if (this.cMf != null) {
+            this.cMf.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.view.b
-    public void alc() {
-        if (this.cDc != null) {
-            this.cDc.notifyDataSetChanged();
+    public void amY() {
+        if (this.cMf != null) {
+            this.cMf.notifyDataSetChanged();
         }
     }
 }

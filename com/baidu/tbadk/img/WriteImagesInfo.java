@@ -16,14 +16,18 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     private LinkedList<ImageFileInfo> chosedFiles;
     private boolean isOriginalImg;
     private String lastAlbumId;
+    public boolean mIsFromIm;
     private int maxImagesAllowed;
 
     public WriteImagesInfo() {
+        this.mIsFromIm = false;
         this.isOriginalImg = false;
         this.maxImagesAllowed = 1;
+        this.mIsFromIm = false;
     }
 
     public WriteImagesInfo(int i) {
+        this.mIsFromIm = false;
         this.isOriginalImg = false;
         this.maxImagesAllowed = i;
     }
@@ -41,6 +45,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         imageFileInfo.setFilePath(str);
         imageFileInfo.setTempFile(true);
         imageFileInfo.setAlbumnId(null);
+        imageFileInfo.setIsFromCamera(true);
         addChooseFile(imageFileInfo);
     }
 
@@ -116,6 +121,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         if (writeImagesInfo != null) {
             this.lastAlbumId = writeImagesInfo.lastAlbumId;
             this.maxImagesAllowed = writeImagesInfo.maxImagesAllowed;
+            this.mIsFromIm = writeImagesInfo.mIsFromIm;
             this.chosedFiles = writeImagesInfo.chosedFiles;
         }
     }
@@ -148,6 +154,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.lastAlbumId = jSONObject.optString("lastAlbumId", null);
+            this.mIsFromIm = jSONObject.optBoolean("isIm", false);
             this.maxImagesAllowed = jSONObject.optInt("maxImagesAllowed");
             this.isOriginalImg = jSONObject.optBoolean("isOriginalImg");
             JSONArray optJSONArray = jSONObject.optJSONArray("chosedFiles");
@@ -171,10 +178,15 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
             if (this.lastAlbumId != null) {
                 jSONObject.put("lastAlbumId", this.lastAlbumId);
             }
+            jSONObject.put("isIm", this.mIsFromIm);
             if (this.chosedFiles != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < this.chosedFiles.size(); i++) {
-                    jSONArray.put(this.chosedFiles.get(i).toJson());
+                Iterator<ImageFileInfo> it = this.chosedFiles.iterator();
+                while (it.hasNext()) {
+                    ImageFileInfo next = it.next();
+                    if (next != null) {
+                        jSONArray.put(next.toJson());
+                    }
                 }
                 jSONObject.put("chosedFiles", jSONArray);
             }
@@ -188,11 +200,12 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     public void updateQuality() {
         LinkedList<ImageFileInfo> chosedFiles = getChosedFiles();
         if (chosedFiles != null && chosedFiles.size() != 0) {
-            for (int size = chosedFiles.size() - 1; size >= 0; size--) {
-                ImageFileInfo imageFileInfo = chosedFiles.get(size);
-                if (!imageFileInfo.isHasAddPostQualityAction()) {
-                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.K(an.vs().vy(), an.vs().vz()));
-                    imageFileInfo.setHasAddPostQualityAction(true);
+            Iterator<ImageFileInfo> descendingIterator = chosedFiles.descendingIterator();
+            while (descendingIterator.hasNext()) {
+                ImageFileInfo next = descendingIterator.next();
+                if (next != null && !next.isHasAddPostQualityAction()) {
+                    next.addPersistAction(com.baidu.tbadk.img.effect.d.I(an.vv().vB(), an.vv().vC()));
+                    next.setHasAddPostQualityAction(true);
                 }
             }
         }

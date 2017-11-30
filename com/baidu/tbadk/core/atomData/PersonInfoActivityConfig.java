@@ -35,4 +35,8 @@ public class PersonInfoActivityConfig extends IntentConfig {
         getIntent().putExtra("user_name", str2);
         getIntent().putExtra(FANS_NUM, i);
     }
+
+    public void setSourceTid(String str) {
+        getIntent().putExtra("thread_id", str);
+    }
 }

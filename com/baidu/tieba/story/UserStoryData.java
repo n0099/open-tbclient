@@ -1,7 +1,7 @@
 package com.baidu.tieba.story;
 
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bd;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,5 +17,5 @@ public class UserStoryData implements Serializable {
     public boolean isTimeout = false;
     public int otherUid = 0;
     public int storyUserType = 0;
-    public List<bh> storyList = new LinkedList();
+    public List<bd> storyList = new LinkedList();
 }

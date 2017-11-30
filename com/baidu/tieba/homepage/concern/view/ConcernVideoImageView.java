@@ -14,7 +14,7 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ConcernVideoImageView extends RelativeLayout {
-    private TbImageView dfz;
+    private TbImageView dof;
 
     public ConcernVideoImageView(Context context) {
         super(context);
@@ -33,17 +33,17 @@ public class ConcernVideoImageView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(d.h.concern_video_img_layout, (ViewGroup) this, true);
-        this.dfz = (TbImageView) findViewById(d.g.concern_video_img);
-        this.dfz.setDefaultBgResource(d.C0080d.cp_bg_line_e);
+        this.dof = (TbImageView) findViewById(d.g.concern_video_img);
+        this.dof.setDefaultBgResource(d.C0082d.cp_bg_line_e);
         int ac = l.ac(getContext()) - l.f(getContext(), d.e.ds68);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dfz.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dof.getLayoutParams();
         layoutParams.height = (ac * 9) / 16;
         layoutParams.width = ac;
     }
 
     public void setData(List<MediaData> list) {
-        if (!v.v(list) && !StringUtils.isNull(list.get(0).getPicUrl())) {
-            this.dfz.startLoad(list.get(0).getPicUrl(), 10, false);
+        if (!v.w(list) && !StringUtils.isNull(list.get(0).getPicUrl())) {
+            this.dof.startLoad(list.get(0).getPicUrl(), 10, false);
         }
     }
 }

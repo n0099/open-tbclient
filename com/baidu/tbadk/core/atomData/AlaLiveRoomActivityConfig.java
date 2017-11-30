@@ -22,6 +22,12 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_LIVE_BOTTOM_PANEL_FOLLOWED = "live_bottom_panel_followed";
     public static final String FROM_TYPE_LIVE_FRS_FOLLOWED_LIVE_TIP = "frs_followed_live_tip";
     public static final String FROM_TYPE_LIVE_FRS_HOT_LIVE_TIP = "frs_hot_live_tip";
+    public static final String FROM_TYPE_LIVE_FRS_INSERT_LIVE = "frs_five_floor_recommend";
+    public static final String FROM_TYPE_LIVE_LIVE_ROOM_LIVE_TAB = "live_room_live_tab";
+    public static final String FROM_TYPE_LIVE_PB_POST_RECOMMEND = "pb_recommend_live";
+    public static final String FROM_TYPE_LIVE_PK_SWITCH = "live_pk_switch";
+    public static final String FROM_TYPE_LIVE_RECENT_HISTORY_LIVING_TAB = "recent_history_living_tab";
+    public static final String FROM_TYPE_LIVE_RECENT_HISTORY_WHOLE_TAB = "recent_history_whole_tab";
     public static final String FROM_TYPE_LIVE_ROOM_RANK_LIST = "live_room_rank_list";
     public static final String FROM_TYPE_OUTSIDE = "safari_play";
     public static final String FROM_TYPE_PB_AUTO_PLAY = "pb_auto_play";
@@ -32,10 +38,12 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_SCAN_HISTORY = "scan_history";
     public static final String FROM_TYPE_SEARCH = "search";
     public static final String FROM_TYPE_SHARE_PLAY = "share_play";
+    public static final String FROM_TYPE_SQUARE_CATOGORY = "square_catogory";
     public static final String FROM_TYPE_SQUARE_DYNAMIC = "square_dynamic";
     public static final String FROM_TYPE_SQUARE_LIVE = "square_live";
     public static final String FROM_TYPE_SQUARE_LIVE_BANNER = "square_live_banner";
     public static final String FROM_TYPE_SQUARE_RECOMMEND = "square_recommend";
+    public static final String FROM_TYPE_SQUARE_RECOMMEND_TOP_CARD = "square_recommend_top_card";
     public static final String FROM_TYPE_SQUARE_SHOW_LIVE = "square_show_field";
     public static final String FROM_TYPE_SQUARE_SUB_LIVE = "square_sub_live";
     public static final String FROM_TYPE_TAIL_LIGHT = "tail_light_play";
@@ -76,6 +84,18 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         getIntent().putExtra(LIVE_INFO_LIST, alaLiveInfoListCoreData);
         getIntent().putExtra(LIVE_ENTRY_NAME, str3);
         getIntent().putExtra(LIVE_FROM_FORUM_ID, str4);
+    }
+
+    public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, AlaLiveInfoListCoreData alaLiveInfoListCoreData, String str, String str2, boolean z, String str3, String str4, String str5) {
+        super(context);
+        getIntent().putExtra("user_id", str2);
+        getIntent().putExtra(LIVE_IS_HOST, z);
+        getIntent().putExtra("live_info_core", alaLiveInfoCoreData);
+        getIntent().putExtra(LIVE_FROM_TYPE, str);
+        getIntent().putExtra(LIVE_INFO_LIST, alaLiveInfoListCoreData);
+        getIntent().putExtra(LIVE_ENTRY_NAME, str3);
+        getIntent().putExtra(LIVE_FROM_FORUM_ID, str4);
+        getIntent().putExtra("live_forum_name", str5);
     }
 
     public AlaLiveRoomActivityConfig(Context context, String str, String str2, String str3) {

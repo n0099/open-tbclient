@@ -7,71 +7,71 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private int aQh;
-    private int aQi;
-    private double aQj;
+    private int aTe;
+    private int aTf;
+    private double aTg;
 
     public f() {
-        this.aQh = 3;
-        this.aQi = this.aQh;
+        this.aTe = 3;
+        this.aTf = this.aTe;
     }
 
     public f(int i) {
-        this.aQh = 3;
-        this.aQi = this.aQh;
+        this.aTe = 3;
+        this.aTf = this.aTe;
         if (i > 0) {
-            this.aQi = i;
+            this.aTf = i;
         }
     }
 
     @Override // com.baidu.tbadk.widget.layout.c
-    public int fF(int i) {
+    public int fM(int i) {
         return 1;
     }
 
     @Override // com.baidu.tbadk.widget.layout.c
     public int a(b bVar, List<MediaData> list, int i, int i2) {
-        return v.u(list) <= 0 ? i2 : d(bVar, list, i2);
+        return v.v(list) <= 0 ? i2 : d(bVar, list, i2);
     }
 
     private int d(b bVar, List<MediaData> list, int i) {
         int i2;
-        if (bVar == null || v.v(list)) {
+        if (bVar == null || v.w(list)) {
             return i;
         }
-        int u = v.u(list);
-        if (u >= 2) {
-            bVar.setImageMaxChildCount(this.aQh);
+        int v = v.v(list);
+        if (v >= 2) {
+            bVar.setImageMaxChildCount(this.aTe);
         } else {
             bVar.setImageMaxChildCount(-1);
         }
-        int i3 = u - this.aQi;
+        int i3 = v - this.aTf;
         if (i3 > 0) {
-            i2 = this.aQi + i;
+            i2 = this.aTf + i;
             List<MediaData> a = v.a(list, i, i2);
             bVar.setExtraCenterText(TbadkCoreApplication.getInst().getString(d.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)}));
             bVar.a(a, i, true);
         } else {
-            bVar.f(v.a(list, i, u), i);
+            bVar.f(v.a(list, i, v), i);
             bVar.setExtraCenterText(null);
-            i2 = u;
+            i2 = v;
         }
-        bVar.setSingleImageRatio(fJ(u));
+        bVar.setSingleImageRatio(fQ(v));
         return i2;
     }
 
-    private double fJ(int i) {
+    private double fQ(int i) {
         TbadkCoreApplication.getInst();
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.aQj > 0.0d) {
-            return this.aQj;
+        if (this.aTg > 0.0d) {
+            return this.aTg;
         }
         return 0.6666666666666666d;
     }
 
     public void e(double d) {
-        this.aQj = d;
+        this.aTg = d;
     }
 }

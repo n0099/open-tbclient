@@ -10,8 +10,6 @@ import android.util.Base64;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.rp.Report;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -31,7 +29,7 @@ public final class d {
     public static String b;
     public static String c;
     public static boolean a = false;
-    public static MyReceiver PQ = null;
+    public static MyReceiver Qi = null;
 
     public static void a(Throwable th) {
         com.baidu.sofire.b.b(th);
@@ -313,9 +311,9 @@ public final class d {
             Report report = Report.getInstance(context);
             JSONObject jSONObject = new JSONObject();
             com.baidu.sofire.a.a an = com.baidu.sofire.a.a.an(context);
-            Map<Integer, String> nk = an.nk();
-            jSONObject.put("0", nk.keySet());
-            jSONObject.put("1", nk.values());
+            Map<Integer, String> nn = an.nn();
+            jSONObject.put("0", nn.keySet());
+            jSONObject.put("1", nn.values());
             jSONObject.toString();
             com.baidu.sofire.b.a();
             JSONObject jSONObject2 = new JSONObject();
@@ -364,13 +362,13 @@ public final class d {
                 if (e != null && e.length == 2 && !TextUtils.isEmpty(e[0]) && !TextUtils.isEmpty(e[1])) {
                     str2 = e[0];
                 } else {
-                    str2 = TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
+                    str2 = "3";
                 }
-                jSONObject2.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, str2);
+                jSONObject2.put("3", str2);
                 jSONObject2.put("4", 0);
                 jSONObject2.put("5", 0);
                 jSONObject2.put("6", 1);
-                jSONObject2.put(NewWriteModel.THREAD_TYPE_LBS, 0);
+                jSONObject2.put("7", 0);
                 jSONObject2.put("8", "sofire");
                 jSONObject2.put("9", "2.0.8");
                 jSONObject2.put("10", str);
@@ -469,10 +467,10 @@ public final class d {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (!(activeNetworkInfo != null && 1 == activeNetworkInfo.getType())) {
                 IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                if (PQ == null) {
-                    PQ = new MyReceiver().a();
+                if (Qi == null) {
+                    Qi = new MyReceiver().a();
                 }
-                context.getApplicationContext().registerReceiver(PQ, intentFilter);
+                context.getApplicationContext().registerReceiver(Qi, intentFilter);
                 a = true;
                 return false;
             }
@@ -512,8 +510,8 @@ public final class d {
                 }
                 new StringBuilder().append(z).toString();
                 com.baidu.sofire.b.a();
-                eVar.Qh.putBoolean("hac", z);
-                eVar.Qh.commit();
+                eVar.Qz.putBoolean("hac", z);
+                eVar.Qz.commit();
                 if (!z) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("0", packageName);
@@ -542,21 +540,21 @@ public final class d {
         long j = eVar.a.getLong("se_ae_fd", 0L);
         if (j == 0) {
             j = System.currentTimeMillis();
-            eVar.Qh.putLong("se_ae_fd", System.currentTimeMillis());
-            eVar.Qh.commit();
+            eVar.Qz.putLong("se_ae_fd", System.currentTimeMillis());
+            eVar.Qz.commit();
         }
         if (currentTimeMillis - j > 86400000) {
             HashMap hashMap = new HashMap();
             hashMap.put("0", Integer.valueOf(eVar.a.getInt("mo_ae_fa_ct", 0) + 1));
-            eVar.Qh.putInt("mo_ae_fa_ct", 0);
-            eVar.Qh.commit();
-            eVar.Qh.putLong("se_ae_fd", System.currentTimeMillis());
-            eVar.Qh.commit();
+            eVar.Qz.putInt("mo_ae_fa_ct", 0);
+            eVar.Qz.commit();
+            eVar.Qz.putLong("se_ae_fd", System.currentTimeMillis());
+            eVar.Qz.commit();
             a(context, "1003119", hashMap);
             return;
         }
-        eVar.Qh.putInt("mo_ae_fa_ct", eVar.a.getInt("mo_ae_fa_ct", 0) + 1);
-        eVar.Qh.commit();
+        eVar.Qz.putInt("mo_ae_fa_ct", eVar.a.getInt("mo_ae_fa_ct", 0) + 1);
+        eVar.Qz.commit();
     }
 
     public static boolean c(String str, String str2) {

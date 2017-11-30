@@ -1,27 +1,53 @@
 package com.baidu.tbadk.core.data;
-
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.LotteryRegular;
 /* loaded from: classes.dex */
 public class aj {
-    private String Xh;
-    private List<Integer> Xi;
+    private long XF;
+    private String XG;
+    private String content;
+    private String link;
+    private String stat;
+    private long taskId;
 
-    public String qg() {
-        return this.Xh;
+    public aj() {
+        this.XF = -1L;
+        this.link = null;
+        this.content = null;
+        this.XG = null;
+        this.stat = "";
+        this.taskId = -1L;
     }
 
-    public List<Integer> qh() {
-        return this.Xi;
+    public aj(long j, long j2, String str, String str2, String str3) {
+        this.XF = -1L;
+        this.link = null;
+        this.content = null;
+        this.XG = null;
+        this.stat = "";
+        this.taskId = -1L;
+        this.XF = j;
+        this.taskId = j2;
+        this.link = str;
+        this.content = str2;
+        this.stat = str3;
     }
 
-    public void a(LotteryRegular lotteryRegular) {
-        this.Xh = lotteryRegular.regular;
-        this.Xi = new ArrayList();
-        int size = lotteryRegular.chance.size();
-        for (int i = 0; i < size; i++) {
-            this.Xi.add(lotteryRegular.chance.get(i));
-        }
+    public String getStat() {
+        return this.stat;
+    }
+
+    public long qo() {
+        return this.XF;
+    }
+
+    public long getTaskId() {
+        return this.taskId;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public String getContent() {
+        return this.content;
     }
 }

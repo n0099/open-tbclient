@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static boolean nh(boolean z) {
+    public static boolean nG(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -99,7 +99,7 @@ public class a {
         Camera.Size size;
         boolean z;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0138a());
+        Collections.sort(supportedPreviewSizes, new C0137a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -117,22 +117,22 @@ public class a {
             }
         }
         if (!z) {
-            return supportedPreviewSizes.get(supportedPreviewSizes.size() / 2);
+            return supportedPreviewSizes.get(supportedPreviewSizes.size() - 1);
         }
         return size;
     }
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0138a implements Comparator<Camera.Size> {
-        private C0138a() {
+    private static class C0137a implements Comparator<Camera.Size> {
+        private C0137a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: b */
         public int compare(Camera.Size size, Camera.Size size2) {
-            return size.height != size2.height ? size.height - size2.height : size.width - size2.width;
+            return size.width != size2.width ? size.width - size2.width : size.height - size2.height;
         }
     }
 

@@ -15,35 +15,35 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.personCenter.b.b;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private b fis;
+    private b frp;
     private long userId;
     private boolean isSelf = true;
     @Deprecated
     private boolean isBigV = false;
-    private boolean fir = false;
-    private long eKA = 0;
+    private boolean fro = false;
+    private long eSf = 0;
 
     @Override // android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.mIsLogin = TbadkCoreApplication.isLogin();
         if (getArguments() != null) {
-            this.fir = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
+            this.fro = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        x(bundle);
+        w(bundle);
         View inflate = layoutInflater.inflate(d.h.fragment_my_tab_layout, (ViewGroup) null);
-        this.fis = new b(inflate, getPageContext(), getUniqueId());
-        this.fis.initView();
+        this.frp = new b(inflate, getPageContext(), getUniqueId());
+        this.frp.initView();
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
     public String getCurrentPageKey() {
-        if (this.fir) {
+        if (this.fro) {
             return null;
         }
         return "a011";
@@ -53,37 +53,37 @@ public class a extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.fis.refreshView();
-            this.fis.aYu();
+            this.frp.refreshView();
+            this.frp.aZW();
         } else {
-            this.fis.aYv();
+            this.frp.aZX();
         }
         if (isAdded()) {
-            com.baidu.tieba.j.a.bkh().bkn();
+            com.baidu.tieba.m.a.bmh().bmn();
         }
-        com.baidu.tieba.j.a.bkh().lK(isPrimary());
+        com.baidu.tieba.m.a.bmh().mj(isPrimary());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
         if (!this.isSelf && this.isBigV) {
-            this.eKA = System.currentTimeMillis();
+            this.eSf = System.currentTimeMillis();
         } else {
-            this.eKA = -1L;
+            this.eSf = -1L;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.eKA > 0) {
-            TiebaStatic.log(new ak("c12263").ac("obj_duration", String.valueOf((System.currentTimeMillis() - this.eKA) / 1000)).r("obj_type", 2));
-            this.eKA = 0L;
+        if (this.eSf > 0) {
+            TiebaStatic.log(new ak("c12263").ac("obj_duration", String.valueOf((System.currentTimeMillis() - this.eSf) / 1000)).r("obj_type", 2));
+            this.eSf = 0L;
         }
     }
 
-    private void x(Bundle bundle) {
+    private void w(Bundle bundle) {
         Intent intent = getActivity().getIntent();
         if (intent != null) {
             this.userId = intent.getLongExtra("user_id", com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
@@ -99,8 +99,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.fis != null) {
-            this.fis.onDestroy();
+        if (this.frp != null) {
+            this.frp.onDestroy();
         }
     }
 
@@ -117,8 +117,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.fis != null) {
-            this.fis.onChangeSkinType(i);
+        if (this.frp != null) {
+            this.frp.onChangeSkinType(i);
         }
     }
 }

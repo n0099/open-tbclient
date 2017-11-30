@@ -3,9 +3,9 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.ThreadExpressionActivityConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,27 +22,29 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     public static final String TYPE_GRAFFITI = "graffiti";
     public static final String TYPE_ZAN = "zan";
     private static final long serialVersionUID = -7837936115460478133L;
+    private String content;
+    private String fname;
     private long fromForumId;
     private int hideForumName;
     private boolean isAuthor;
     private int isFloor;
+    private boolean mIsShareThread;
     private boolean mIsStory;
+    private OriginalThreadInfo mOriginalThreadInfo;
     private String mPraiseItemType;
+    private String postFrom;
+    private String post_id;
+    private String quote_content;
     private String quote_pid;
-    private int mPraiseNum = 0;
-    private int mPraiseLiked = 0;
-    private List<LikeData> mPraiseList = null;
-    private int type = 0;
-    private long time = 0;
-    private String title = null;
-    private String fname = null;
-    private String content = null;
-    private String quote_content = null;
-    private String thread_id = null;
-    private String post_id = null;
+    private String thread_id;
+    private int thread_type;
+    private long time;
+    private String title;
+    private int type;
     private MetaData replyer = new MetaData();
     private MetaData quote_user = new MetaData();
-    private int thread_type = 0;
+    private int mPraiseNum = 0;
+    private List<LikeData> mPraiseList = null;
 
     public String getPraiseItemType() {
         return this.mPraiseItemType;
@@ -50,10 +52,6 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
 
     public int getPraiseNum() {
         return this.mPraiseNum;
-    }
-
-    public int getPraiseLiked() {
-        return this.mPraiseLiked;
     }
 
     public List<LikeData> getPraiseList() {
@@ -96,10 +94,6 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
         return this.replyer;
     }
 
-    public MetaData getQuote_user() {
-        return this.quote_user;
-    }
-
     public boolean getIsFloor() {
         return this.isFloor == 1;
     }
@@ -128,6 +122,18 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
         return this.mIsStory;
     }
 
+    public boolean isShareThread() {
+        return this.mIsShareThread;
+    }
+
+    public OriginalThreadInfo getOriginalThreadInfo() {
+        return this.mOriginalThreadInfo;
+    }
+
+    public String getPostFrom() {
+        return this.postFrom;
+    }
+
     public String toJson() {
         JSONArray jSONArray = new JSONArray();
         try {
@@ -146,6 +152,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             jSONObject.put("v_forum_id", this.fromForumId);
             jSONObject.put("hide_fname", this.hideForumName);
             jSONObject.put("is_story", this.mIsStory ? 1 : 0);
+            jSONObject.put("post_from", this.postFrom);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("id", this.replyer.getUserId());
             jSONObject2.put("name", this.replyer.getUserName());
@@ -158,6 +165,12 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             jSONObject3.put(IntentConfig.PORTRAIT, this.quote_user.getPortrait());
             jSONObject3.put("gender", this.quote_user.getGender());
             jSONObject.put("quote_user", jSONObject3);
+            jSONObject.put("is_share_thread", this.mIsShareThread ? 1 : 0);
+            if (this.mOriginalThreadInfo != null) {
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put(VrPlayerActivityConfig.TITLE, this.mOriginalThreadInfo.title);
+                jSONObject.put("origin_thread_info", jSONObject4);
+            }
             jSONArray.put(jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -183,9 +196,14 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.fromForumId = jSONObject.optLong("v_forum_id");
                 this.hideForumName = jSONObject.optInt("hide_fname");
                 this.mIsStory = jSONObject.optInt("is_story") == 1;
+                this.postFrom = jSONObject.optString("post_from");
+                this.mIsShareThread = jSONObject.optInt("is_share_thread") == 1;
+                if (this.mIsShareThread) {
+                    this.mOriginalThreadInfo = new OriginalThreadInfo();
+                    this.mOriginalThreadInfo.parserJson(jSONObject.optJSONObject("origin_thread_info"));
+                }
                 if (((!com.baidu.adp.lib.util.k.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                     this.mPraiseNum = optJSONObject.optInt("num");
-                    this.mPraiseLiked = optJSONObject.optInt(ThreadExpressionActivityConfig.IS_LIKED);
                     this.isAuthor = optJSONObject.optInt("consent_type") == 2;
                     JSONArray optJSONArray = optJSONObject.optJSONArray("liker_list");
                     if (optJSONArray != null) {
@@ -224,7 +242,6 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             this.fromForumId = replyList.v_forum_id.longValue();
             if (((!com.baidu.adp.lib.util.k.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
                 this.mPraiseNum = zan.num.intValue();
-                this.mPraiseLiked = zan.is_liked.intValue();
                 this.isAuthor = zan.consent_type.intValue() == 2;
                 List<User> list = zan.liker_list;
                 if (list != null) {
@@ -240,6 +257,12 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             this.quote_user.parserProtobuf(replyList.quote_user);
             this.thread_type = replyList.thread_type.intValue();
             this.mIsStory = replyList.is_story.intValue() == 1;
+            this.mIsShareThread = replyList.is_share_thread.intValue() == 1;
+            if (this.mIsShareThread) {
+                this.mOriginalThreadInfo = new OriginalThreadInfo();
+                this.mOriginalThreadInfo.parser(replyList.origin_thread_info);
+            }
+            this.postFrom = replyList.post_from;
         }
     }
 }

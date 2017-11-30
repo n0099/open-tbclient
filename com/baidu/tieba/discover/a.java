@@ -20,30 +20,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseFragment implements ai {
-    private b chd;
-    private boolean che;
+    private b cpK;
+    private boolean cpL;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean bne = true;
+    private boolean btK = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_HTML_LOADED) { // from class: com.baidu.tieba.discover.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.chd != null && a.this.chd.Pr() != null && a.this.chd.Pr().getUrl() != null) {
-                if (a.this.chd.Pr().getUrl().contains((String) customResponsedMessage.getData())) {
-                    a.this.chd.Nk();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.cpK != null && a.this.cpK.QA() != null && a.this.cpK.QA().getUrl() != null) {
+                if (a.this.cpK.QA().getUrl().contains((String) customResponsedMessage.getData())) {
+                    a.this.cpK.NO();
                 }
             }
         }
     };
-    private CustomMessageListener chf = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
+    private CustomMessageListener cpM = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    a.this.Ob();
+                    a.this.Pk();
                 } else {
-                    a.this.Oc();
+                    a.this.Pl();
                 }
             }
         }
@@ -51,33 +51,33 @@ public class a extends BaseFragment implements ai {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.chd = new b();
-        return this.chd.a(layoutInflater, viewGroup);
+        this.cpK = new b();
+        return this.cpK.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.chd.j(getPageContext());
+        this.cpK.j(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.chf);
-        z.a(this.chd.Pr(), getUniqueId());
+        registerListener(this.cpM);
+        z.a(this.cpK.QA(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.bne || StringUtils.isNull(this.chd.Pr().getUrl())) {
+        if (this.btK || StringUtils.isNull(this.cpK.QA().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.chd.loadUrl(iu(this.mUrl));
+                this.cpK.loadUrl(iB(this.mUrl));
             } else {
-                this.chd.loadUrl(this.mUrl);
+                this.cpK.loadUrl(this.mUrl);
             }
-            this.bne = false;
+            this.btK = false;
         }
     }
 
-    private String iu(String str) {
+    private String iB(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -97,8 +97,8 @@ public class a extends BaseFragment implements ai {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.chd != null) {
-            this.chd.onDestroy();
+        if (this.cpK != null) {
+            this.cpK.onDestroy();
         }
     }
 
@@ -124,32 +124,32 @@ public class a extends BaseFragment implements ai {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.bne) {
+        if (!this.btK) {
             if (i == 1) {
-                this.chd.loadUrl(iu(this.mUrl));
+                this.cpK.loadUrl(iB(this.mUrl));
             } else {
-                this.chd.loadUrl(this.mUrl);
+                this.cpK.loadUrl(this.mUrl);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void Oa() {
+    public void Pj() {
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void Ob() {
-        if (this.chd != null && !this.che) {
-            this.che = true;
-            this.chd.adZ();
+    public void Pk() {
+        if (this.cpK != null && !this.cpL) {
+            this.cpL = true;
+            this.cpK.afL();
         }
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void Oc() {
-        if (this.chd != null && this.che) {
-            this.che = false;
-            this.chd.aea();
+    public void Pl() {
+        if (this.cpK != null && this.cpL) {
+            this.cpL = false;
+            this.cpK.afM();
         }
     }
 
@@ -166,7 +166,7 @@ public class a extends BaseFragment implements ai {
     }
 
     @Override // com.baidu.tieba.frs.ai
-    public void wB() {
+    public void wE() {
     }
 
     @Override // com.baidu.tieba.frs.ai

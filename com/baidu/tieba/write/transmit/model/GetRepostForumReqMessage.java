@@ -1,5 +1,6 @@
 package com.baidu.tieba.write.transmit.model;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -9,11 +10,20 @@ import tbclient.GetRepostRecommendForum.GetRepostRecommendForumReqIdl;
 /* loaded from: classes2.dex */
 public class GetRepostForumReqMessage extends NetMessage {
     private long forumId;
+    private BdUniqueId mRequestId;
     private String threadContent;
     private String threadTitle;
 
     public GetRepostForumReqMessage() {
         super(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
+    }
+
+    public void setRequestId(BdUniqueId bdUniqueId) {
+        this.mRequestId = bdUniqueId;
+    }
+
+    public BdUniqueId getRequestId() {
+        return this.mRequestId;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

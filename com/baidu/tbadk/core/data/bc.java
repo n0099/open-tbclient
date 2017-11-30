@@ -1,31 +1,7 @@
 package com.baidu.tbadk.core.data;
-
-import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class bc {
-    private String avatar;
-    private String forumId;
-    private int forumLevel;
-    private String forumName;
-
-    public String getForumId() {
-        return this.forumId;
-    }
-
-    public String getForumName() {
-        return this.forumName;
-    }
-
-    public int qO() {
-        return this.forumLevel;
-    }
-
-    public void parserProtobuf(SimpleForum simpleForum) {
-        if (simpleForum != null) {
-            this.forumId = String.valueOf(simpleForum.id);
-            this.forumName = simpleForum.name;
-            this.avatar = simpleForum.avatar;
-            this.forumLevel = simpleForum.level_id.intValue();
-        }
-    }
+    public int YE;
+    public int errorCode;
+    public String errorMsg;
 }

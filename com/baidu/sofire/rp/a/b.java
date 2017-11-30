@@ -1,6 +1,5 @@
 package com.baidu.sofire.rp.a;
 
-import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class b {
@@ -16,7 +15,7 @@ public final class b {
             jSONObject.put("0", bVar.a);
             jSONObject.put("1", bVar.c);
             jSONObject.put("2", bVar.d);
-            jSONObject.put(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, bVar.e);
+            jSONObject.put("3", bVar.e);
             jSONObject.put("4", bVar.b);
         } catch (Throwable th) {
             com.baidu.sofire.rp.f.b.a();
@@ -31,7 +30,7 @@ public final class b {
             bVar.a = jSONObject.optString("0");
             bVar.c = jSONObject.optString("1");
             bVar.d = jSONObject.optString("2");
-            bVar.e = jSONObject.optString(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+            bVar.e = jSONObject.optString("3");
             bVar.b = jSONObject.optString("4");
             return bVar;
         } catch (Exception e) {

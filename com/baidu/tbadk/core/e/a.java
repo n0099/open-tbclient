@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface a {
-    void aE(Context context);
+    void aG(Context context);
 
     void c(Context context, int i, boolean z);
 
@@ -13,7 +13,7 @@ public interface a {
 
     void h(Context context, int i);
 
-    Class<?> tV();
+    Class<?> tY();
 
-    String tW();
+    String tZ();
 }

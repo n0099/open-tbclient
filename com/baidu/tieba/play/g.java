@@ -34,31 +34,28 @@ public interface g {
 
     /* loaded from: classes.dex */
     public interface f {
-        void onReleaseFinished();
+        void onPrepared(g gVar);
     }
 
     /* renamed from: com.baidu.tieba.play.g$g  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0124g {
-        void onPrepared(g gVar);
-    }
-
-    /* loaded from: classes.dex */
-    public interface h {
+    public interface InterfaceC0123g {
         void a(g gVar);
     }
 
     /* loaded from: classes.dex */
-    public interface i {
+    public interface h {
         void onSpeed(long j);
     }
 
     /* loaded from: classes.dex */
-    public interface j {
+    public interface i {
         void onSubError(int i, int i2, String str);
     }
 
-    void Hi();
+    void Hp();
+
+    int Ln();
 
     void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, int i2);
 
@@ -70,13 +67,15 @@ public interface g {
 
     void a(e eVar);
 
-    void a(f fVar);
+    void a(h hVar);
 
     void a(i iVar);
 
-    void a(j jVar);
-
     void forceUseSystemMediaPlayer(boolean z);
+
+    int getBitRate();
+
+    int getCachedSize();
 
     int getCurrentPosition();
 
@@ -102,9 +101,9 @@ public interface g {
 
     void setOnCompletionListener(a aVar);
 
-    void setOnPreparedListener(InterfaceC0124g interfaceC0124g);
+    void setOnPreparedListener(f fVar);
 
-    void setOnSeekCompleteListener(h hVar);
+    void setOnSeekCompleteListener(InterfaceC0123g interfaceC0123g);
 
     void setVolume(float f2, float f3);
 

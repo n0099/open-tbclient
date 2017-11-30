@@ -5,17 +5,22 @@ import android.content.DialogInterface;
 import android.util.Pair;
 import android.util.SparseArray;
 import android.view.View;
+import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.coreExtra.d.d;
+import com.baidu.tbadk.coreExtra.c.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ShareDialogConfig extends IntentConfig {
     public View.OnClickListener copyLinkListener;
+    public int hideMode;
     public boolean isCopyLink;
     public boolean isInsertBack;
     public boolean isLandscape;
     public boolean isSetCopyLink;
     public boolean isSupportNightMode;
+    public ArrayList<TransmitForumData> mForumList;
+    public boolean mIsAlaLive;
+    public boolean mIsShowTransmitShare;
     public SparseArray<String> mtjStatistics;
     public DialogInterface.OnDismissListener onDismissListener;
     public d shareItem;
@@ -27,8 +32,10 @@ public class ShareDialogConfig extends IntentConfig {
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
+        this.hideMode = 0;
         this.isLandscape = false;
         this.isSupportNightMode = true;
+        this.mIsShowTransmitShare = false;
         this.shareItem = dVar;
         this.showLocation = z;
     }
@@ -38,8 +45,10 @@ public class ShareDialogConfig extends IntentConfig {
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
+        this.hideMode = 0;
         this.isLandscape = false;
         this.isSupportNightMode = true;
+        this.mIsShowTransmitShare = false;
         this.shareItem = dVar;
         this.showLocation = z;
         this.mtjStatistics = sparseArray;
@@ -50,8 +59,10 @@ public class ShareDialogConfig extends IntentConfig {
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
+        this.hideMode = 0;
         this.isLandscape = false;
         this.isSupportNightMode = true;
+        this.mIsShowTransmitShare = false;
         this.shareItem = dVar;
         this.showLocation = z;
         this.isInsertBack = z2;
@@ -83,5 +94,21 @@ public class ShareDialogConfig extends IntentConfig {
             this.textViewList = new ArrayList<>();
         }
         this.textViewList.add(new Pair<>(Integer.valueOf(i), new Pair(Integer.valueOf(i2), onClickListener)));
+    }
+
+    public void setIsShowTransmitShare(boolean z) {
+        this.mIsShowTransmitShare = z;
+    }
+
+    public void setTransmitForumList(ArrayList<TransmitForumData> arrayList) {
+        this.mForumList = arrayList;
+    }
+
+    public void setIsAlaLive(boolean z) {
+        this.mIsAlaLive = z;
+    }
+
+    public void setHideMode(int i) {
+        this.hideMode = i;
     }
 }

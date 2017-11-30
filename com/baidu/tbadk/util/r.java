@@ -5,68 +5,68 @@ import android.view.View;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 public class r {
-    private View aME;
-    private int aMF;
-    private boolean aMG;
+    private View aNf;
+    private int aNg;
+    private boolean aNh;
     private final Handler mHandler;
 
-    public void Hg() {
+    public void Hn() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void Hh() {
+    public void Ho() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void Hi() {
+    public void Hp() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public void bZ(boolean z) {
-        if (this.aME != null) {
-            if (z || this.aME.getVisibility() != 8) {
-                Hh();
+    public void bY(boolean z) {
+        if (this.aNf != null) {
+            if (z || this.aNf.getVisibility() != 8) {
+                Ho();
             }
         }
     }
 
-    public void ca(boolean z) {
-        if (this.aME != null) {
-            if (z || this.aME.getVisibility() != 0) {
-                Hg();
+    public void bZ(boolean z) {
+        if (this.aNf != null) {
+            if (z || this.aNf.getVisibility() != 0) {
+                Hn();
             }
         }
     }
 
     public void a(AbsListView absListView, int i, int i2, int i3, int i4) {
-        if (this.aME != null) {
-            if (i != 0 && i2 > i && this.aME.getVisibility() != 8) {
+        if (this.aNf != null) {
+            if (i != 0 && i2 > i && this.aNf.getVisibility() != 8) {
+                bY(false);
+            } else if ((i == 0 || i2 < i) && this.aNf.getVisibility() != 0) {
                 bZ(false);
-            } else if ((i == 0 || i2 < i) && this.aME.getVisibility() != 0) {
-                ca(false);
             }
-            this.aMF = i;
+            this.aNg = i;
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (absListView != null && i == 0) {
             int firstVisiblePosition = absListView.getFirstVisiblePosition();
-            if (firstVisiblePosition > this.aMF) {
+            if (firstVisiblePosition > this.aNg) {
+                bY(true);
+            } else if (firstVisiblePosition < this.aNg) {
                 bZ(true);
-            } else if (firstVisiblePosition < this.aMF) {
-                ca(true);
-            } else if (firstVisiblePosition == this.aMF) {
-                if (firstVisiblePosition == 0 || !this.aMG) {
-                    ca(true);
-                } else {
+            } else if (firstVisiblePosition == this.aNg) {
+                if (firstVisiblePosition == 0 || !this.aNh) {
                     bZ(true);
+                } else {
+                    bY(true);
                 }
             }
         }

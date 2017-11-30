@@ -1,6 +1,5 @@
 package com.xiaomi.push.service;
 
-import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.xiaomi.push.service.XMPushService;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,7 +20,7 @@ public class ar {
             return 300000;
         }
         if (this.d > 4) {
-            return GroupInfoActivityConfig.JOIN_BUTTON_DISABLE_MAX_DURATION;
+            return 60000;
         }
         if (this.d > 1) {
             return 10000;

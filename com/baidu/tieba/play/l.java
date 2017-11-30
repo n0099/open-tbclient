@@ -12,11 +12,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class l {
     static {
-        bhw();
-        bhx();
+        bjd();
+        bje();
     }
 
-    private static void bhw() {
+    private static void bjd() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -24,7 +24,7 @@ public class l {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private static void bhx() {
+    private static void bje() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -32,39 +32,39 @@ public class l {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static void a(String str, String str2, String str3, x xVar) {
+    public static void a(String str, String str2, String str3, y yVar) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_PLAY_STATISTICS_CMD);
         httpMessage.addParam("video_md5", str);
         httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("obj_param2", str2);
         httpMessage.addParam("obj_type", str3);
-        a(httpMessage, xVar);
+        a(httpMessage, yVar);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public static void a(long j, String str, x xVar, String str2) {
+    public static void a(long j, String str, y yVar, String str2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS);
         httpMessage.addParam("obj_duration", j);
         httpMessage.addParam("obj_type", str);
-        if (xVar != null) {
-            httpMessage.addParam("video_md5", xVar.fHn);
+        if (yVar != null) {
+            httpMessage.addParam("video_md5", yVar.fQt);
         }
         httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("obj_param2", str2);
-        a(httpMessage, xVar);
+        a(httpMessage, yVar);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private static void a(HttpMessage httpMessage, x xVar) {
-        if (httpMessage != null && xVar != null) {
-            httpMessage.addParam("tid", xVar.aMq);
-            httpMessage.addParam(ImageViewerConfig.FORUM_ID, xVar.azM);
-            httpMessage.addParam("obj_to", xVar.fHj);
-            httpMessage.addParam("obj_id", xVar.Wo);
-            httpMessage.addParam("obj_param3", xVar.fHk);
-            httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, xVar.mSource);
-            httpMessage.addParam("obj_locate", xVar.mLocate);
-            httpMessage.addParam("obj_param1", xVar.fHl);
+    private static void a(HttpMessage httpMessage, y yVar) {
+        if (httpMessage != null && yVar != null) {
+            httpMessage.addParam("tid", yVar.aMR);
+            httpMessage.addParam(ImageViewerConfig.FORUM_ID, yVar.aAn);
+            httpMessage.addParam("obj_to", yVar.fQp);
+            httpMessage.addParam("obj_id", yVar.WL);
+            httpMessage.addParam("obj_param3", yVar.fQq);
+            httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, yVar.mSource);
+            httpMessage.addParam("obj_locate", yVar.mLocate);
+            httpMessage.addParam("obj_param1", yVar.fQr);
         }
     }
 }

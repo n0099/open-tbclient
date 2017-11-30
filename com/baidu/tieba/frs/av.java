@@ -4,40 +4,40 @@ import com.baidu.tieba.d;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
 public class av implements com.baidu.tbadk.widget.vote.a {
-    private int cBy = -1;
-    private String cBz = null;
-    private int aAp = 0;
-    private boolean cBA = false;
-    private int[] cBB = {d.f.icon_grade_vote_num1, d.f.icon_grade_vote_num2, d.f.icon_grade_vote_num3};
-    private int[] cBC = {d.f.icon_grade_vote_no1, d.f.icon_grade_vote_no2, d.f.icon_grade_vote_no3};
+    private int cKC = -1;
+    private String cKD = null;
+    private int aAQ = 0;
+    private boolean cKE = false;
+    private int[] cKF = {d.f.icon_grade_vote_num1, d.f.icon_grade_vote_num2, d.f.icon_grade_vote_num3};
+    private int[] cKG = {d.f.icon_grade_vote_no1, d.f.icon_grade_vote_no2, d.f.icon_grade_vote_no3};
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int CB() {
-        return this.cBy;
+    public int CK() {
+        return this.cKC;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cy() {
-        return this.cBz;
+    public String CH() {
+        return this.cKD;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cz() {
+    public String CI() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int CC() {
-        return this.aAp;
+    public int CL() {
+        return this.aAQ;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String CA() {
-        return this.aAp + "%";
+    public String CJ() {
+        return this.aAQ + "%";
     }
 
-    public void eN(boolean z) {
-        this.cBA = z;
+    public void fe(boolean z) {
+        this.cKE = z;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -46,31 +46,31 @@ public class av implements com.baidu.tbadk.widget.vote.a {
     }
 
     public void a(int i, PollOption pollOption, long j) {
-        int[] iArr = this.cBA ? this.cBB : this.cBC;
+        int[] iArr = this.cKE ? this.cKF : this.cKG;
         switch (i) {
             case 1:
-                this.cBy = iArr[0];
+                this.cKC = iArr[0];
                 break;
             case 2:
-                this.cBy = iArr[1];
+                this.cKC = iArr[1];
                 break;
             case 3:
-                this.cBy = iArr[2];
+                this.cKC = iArr[2];
                 break;
             default:
-                this.cBy = -1;
+                this.cKC = -1;
                 break;
         }
-        this.cBz = pollOption.text;
+        this.cKD = pollOption.text;
         if (j > 0) {
-            this.aAp = (int) ((pollOption.num.longValue() * 100) / j);
+            this.aAQ = (int) ((pollOption.num.longValue() * 100) / j);
         } else {
-            this.aAp = 0;
+            this.aAQ = 0;
         }
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String CD() {
+    public String CM() {
         return null;
     }
 

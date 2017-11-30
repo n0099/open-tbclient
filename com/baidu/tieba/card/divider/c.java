@@ -8,24 +8,24 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.card.a<b> {
-    private View bWh;
-    private View bWi;
+    private View ceE;
+    private View ceF;
     private TextView mTitle;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
         getView().setOnClickListener(this);
-        this.bWh = getView().findViewById(d.g.card_divider_top_margin);
+        this.ceE = getView().findViewById(d.g.card_divider_top_margin);
         this.mTitle = (TextView) getView().findViewById(d.g.card_divider_tv);
-        this.bWi = getView().findViewById(d.g.bottom_line);
+        this.ceF = getView().findViewById(d.g.bottom_line);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            aj.i(this.mTitle, d.C0080d.cp_cont_d);
-            aj.k(this.bWi, d.C0080d.cp_bg_line_b);
-            aj.k(this.bWh, d.C0080d.cp_bg_line_c);
+            aj.i(this.mTitle, d.C0082d.cp_cont_d);
+            aj.k(this.ceF, d.C0082d.cp_bg_line_b);
+            aj.k(this.ceE, d.C0082d.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
@@ -40,9 +40,9 @@ public class c extends com.baidu.tieba.card.a<b> {
     public void a(b bVar) {
         if (bVar != null) {
             if (bVar.needTopMargin) {
-                this.bWh.setVisibility(0);
+                this.ceE.setVisibility(0);
             } else {
-                this.bWh.setVisibility(8);
+                this.ceE.setVisibility(8);
             }
             this.mTitle.setText(bVar.title);
             d(null, TbadkCoreApplication.getInst().getSkinType());

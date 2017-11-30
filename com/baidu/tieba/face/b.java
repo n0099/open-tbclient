@@ -1,0 +1,264 @@
+package com.baidu.tieba.face;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
+import android.text.Editable;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ImageSpan;
+import android.view.KeyEvent;
+import android.widget.EditText;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.f.c;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.coreExtra.data.m;
+import com.baidu.tieba.d;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes.dex */
+public class b {
+    private static final KeyEvent cvd = new KeyEvent(0, 67);
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void b(SpannableStringBuilder spannableStringBuilder);
+    }
+
+    public static void a(final Context context, final m mVar, final EditText editText) {
+        if (mVar != null && !TextUtils.isEmpty(mVar.getName()) && !TextUtils.isEmpty(mVar.getUrl()) && editText != null) {
+            editText.getText().toString();
+            c.fJ().a(mVar.getUrl(), 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.1
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.adp.lib.f.b
+                public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+                    if (aVar != null) {
+                        int selectionStart = editText.getSelectionStart();
+                        if (selectionStart < 0) {
+                            selectionStart = 0;
+                        }
+                        b.a(context, editText, new SpannableStringBuilder(mVar.getName()), selectionStart, aVar, mVar.ya());
+                    }
+                }
+            }, 0, 0, BdUniqueId.gen(), new Object[0]);
+        }
+    }
+
+    public static void b(final Context context, m mVar, final EditText editText) {
+        if (mVar != null && editText != null && mVar.getName() != null) {
+            String name = mVar.getName();
+            final EmotionGroupType ya = mVar.ya();
+            if (ya == EmotionGroupType.LOCAL || ya == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
+                if (name != null) {
+                    final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
+                    c.fJ().a(name, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.2
+                        /* JADX DEBUG: Method merged with bridge method */
+                        /* JADX INFO: Access modifiers changed from: protected */
+                        @Override // com.baidu.adp.lib.f.b
+                        public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+                            super.onLoaded((AnonymousClass2) aVar, str, i);
+                            if (aVar != null) {
+                                int selectionStart = editText.getSelectionStart();
+                                if (selectionStart < 0) {
+                                    selectionStart = 0;
+                                }
+                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, ya);
+                            }
+                        }
+                    }, 0, 0, BdUniqueId.gen(), null, name, false, null);
+                    return;
+                }
+                return;
+            }
+            editText.getText().insert(editText.getSelectionStart(), name);
+        }
+    }
+
+    public static void a(Context context, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, com.baidu.adp.widget.a.a aVar, EmotionGroupType emotionGroupType) {
+        if (context != null && editText != null && !TextUtils.isEmpty(spannableStringBuilder) && aVar != null) {
+            Bitmap kK = aVar.kK();
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(kK);
+            int width = kK.getWidth();
+            if (emotionGroupType == EmotionGroupType.LOCAL) {
+                int i2 = (int) (width * 0.5d);
+                bitmapDrawable.setBounds(0, 0, i2, i2);
+            } else if (emotionGroupType == EmotionGroupType.USER_COLLECT || spannableStringBuilder.toString().startsWith("#(")) {
+                int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds80);
+                int width2 = (int) (kK.getWidth() * ((dimensionPixelSize * 1.0d) / kK.getHeight()));
+                if (width2 > editText.getMeasuredWidth()) {
+                    width2 = (int) (kK.getWidth() * 0.5d);
+                }
+                bitmapDrawable.setBounds(0, 0, width2, dimensionPixelSize);
+            }
+            bitmapDrawable.setGravity(119);
+            spannableStringBuilder.setSpan(new ImageSpan(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
+            editText.getText().insert(i, spannableStringBuilder);
+        }
+    }
+
+    public static void a(final Context context, String str, final a aVar) {
+        CustomResponsedMessage runTask;
+        if (context != null && !TextUtils.isEmpty(str) && aVar != null) {
+            final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+            final int[] iArr = {com.baidu.tieba.face.a.ks(str)};
+            if (iArr[0] <= 0) {
+                if (aVar != null) {
+                    aVar.b(spannableStringBuilder);
+                    return;
+                }
+                return;
+            }
+            Matcher matcher = com.baidu.tieba.face.a.cvb.matcher(spannableStringBuilder);
+            while (matcher.find()) {
+                String group = matcher.group();
+                final int start = matcher.start();
+                final int end = matcher.end();
+                if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_LOCAL) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+                    c.fJ().a(group, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.3
+                        /* JADX DEBUG: Method merged with bridge method */
+                        /* JADX INFO: Access modifiers changed from: protected */
+                        @Override // com.baidu.adp.lib.f.b
+                        public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str2, int i) {
+                            Bitmap kK;
+                            super.onLoaded((AnonymousClass3) aVar2, str2, i);
+                            if (aVar2 != null) {
+                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.kK());
+                                int width = (int) (0.5d * kK.getWidth());
+                                bitmapDrawable.setBounds(0, 0, width, width);
+                                bitmapDrawable.setGravity(119);
+                                spannableStringBuilder.setSpan(new com.baidu.adp.widget.b(bitmapDrawable, 1), start, end, 33);
+                                int[] iArr2 = iArr;
+                                int i2 = iArr2[0] - 1;
+                                iArr2[0] = i2;
+                                if (i2 == 0 && aVar != null) {
+                                    aVar.b(spannableStringBuilder);
+                                    return;
+                                }
+                                return;
+                            }
+                            spannableStringBuilder.setSpan("", start, end, 33);
+                            int[] iArr3 = iArr;
+                            int i3 = iArr3[0] - 1;
+                            iArr3[0] = i3;
+                            if (i3 == 0 && aVar != null) {
+                                aVar.b(spannableStringBuilder);
+                            }
+                        }
+                    }, 0, 0, BdUniqueId.gen(), null, group, false, null);
+                }
+            }
+            Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(spannableStringBuilder);
+            while (matcher2.find()) {
+                String group2 = matcher2.group();
+                String[] split = group2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                if (split != null && split.length == 5) {
+                    final int start2 = matcher2.start();
+                    final int end2 = matcher2.end();
+                    c.fJ().a(group2, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.4
+                        /* JADX DEBUG: Method merged with bridge method */
+                        /* JADX INFO: Access modifiers changed from: protected */
+                        @Override // com.baidu.adp.lib.f.b
+                        public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str2, int i) {
+                            Bitmap kK;
+                            super.onLoaded((AnonymousClass4) aVar2, str2, i);
+                            if (aVar2 != null) {
+                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.kK());
+                                int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds80);
+                                int width = (int) (kK.getWidth() * ((dimensionPixelSize * 1.0d) / kK.getHeight()));
+                                if (width > l.ac(context) * 0.6d) {
+                                    width = (int) (kK.getWidth() * 0.5d);
+                                }
+                                bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
+                                bitmapDrawable.setGravity(119);
+                                spannableStringBuilder.setSpan(new ImageSpan(bitmapDrawable, 0), start2, end2, 33);
+                                int[] iArr2 = iArr;
+                                int i2 = iArr2[0] - 1;
+                                iArr2[0] = i2;
+                                if (i2 == 0 && aVar != null) {
+                                    aVar.b(spannableStringBuilder);
+                                    return;
+                                }
+                                return;
+                            }
+                            spannableStringBuilder.setSpan("", start2, end2, 33);
+                            int[] iArr3 = iArr;
+                            int i3 = iArr3[0] - 1;
+                            iArr3[0] = i3;
+                            if (i3 == 0 && aVar != null) {
+                                aVar.b(spannableStringBuilder);
+                            }
+                        }
+                    }, 0, 0, BdUniqueId.gen(), null, group2, false, null);
+                }
+            }
+            Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(spannableStringBuilder);
+            while (matcher3.find()) {
+                String[] split2 = matcher3.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                if (split2 != null && split2.length == 6) {
+                    final int start3 = matcher3.start();
+                    final int end3 = matcher3.end();
+                    com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> bVar = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.5
+                        /* JADX DEBUG: Method merged with bridge method */
+                        /* JADX INFO: Access modifiers changed from: protected */
+                        @Override // com.baidu.adp.lib.f.b
+                        public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str2, int i) {
+                            Bitmap kK;
+                            super.onLoaded((AnonymousClass5) aVar2, str2, i);
+                            if (aVar2 != null) {
+                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.kK());
+                                int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds80);
+                                int width = (int) (kK.getWidth() * ((dimensionPixelSize * 1.0d) / kK.getHeight()));
+                                if (width > l.ac(context) * 0.6d) {
+                                    width = (int) (kK.getWidth() * 0.5d);
+                                }
+                                bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
+                                bitmapDrawable.setGravity(119);
+                                spannableStringBuilder.setSpan(new ImageSpan(bitmapDrawable, 0), start3, end3, 33);
+                                int[] iArr2 = iArr;
+                                int i2 = iArr2[0] - 1;
+                                iArr2[0] = i2;
+                                if (i2 == 0 && aVar != null) {
+                                    aVar.b(spannableStringBuilder);
+                                    return;
+                                }
+                                return;
+                            }
+                            spannableStringBuilder.setSpan("", start3, end3, 33);
+                            int[] iArr3 = iArr;
+                            int i3 = iArr3[0] - 1;
+                            iArr3[0] = i3;
+                            if (i3 == 0 && aVar != null) {
+                                aVar.b(spannableStringBuilder);
+                            }
+                        }
+                    };
+                    if (!TextUtils.isEmpty(split2[1])) {
+                        c.fJ().a(Uri.decode(split2[1].replace("net_", "")), 10, bVar, 0, 0, BdUniqueId.gen(), new Object[0]);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void b(EditText editText) {
+        Editable text;
+        if (editText != null && (text = editText.getText()) != null) {
+            int selectionStart = editText.getSelectionStart();
+            if (selectionStart - 1 > 0 && selectionStart - 1 < text.length() && text.charAt(selectionStart - 1) == 0) {
+                editText.onKeyDown(67, cvd);
+            }
+            editText.onKeyDown(67, cvd);
+            int selectionStart2 = editText.getSelectionStart();
+            if (text != null) {
+                editText.setSelection(selectionStart2);
+            }
+        }
+    }
+}

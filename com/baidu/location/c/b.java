@@ -4,13 +4,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class b {
-    private static b Lz = null;
+    private static b LR = null;
     private boolean a = false;
     private String b = null;
-    private a Ly = null;
+    private a LQ = null;
     private int e = -1;
 
     /* loaded from: classes.dex */
@@ -38,7 +37,7 @@ public class b {
                             break;
                         case 3:
                         case 4:
-                            b.this.b = TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
+                            b.this.b = "3";
                             break;
                         default:
                             b.this.b = null;
@@ -66,30 +65,30 @@ public class b {
     private b() {
     }
 
-    public static synchronized b mk() {
+    public static synchronized b mn() {
         b bVar;
         synchronized (b.class) {
-            if (Lz == null) {
-                Lz = new b();
+            if (LR == null) {
+                LR = new b();
             }
-            bVar = Lz;
+            bVar = LR;
         }
         return bVar;
     }
 
     public void b() {
-        this.Ly = new a();
-        com.baidu.location.f.getServiceContext().registerReceiver(this.Ly, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        this.LQ = new a();
+        com.baidu.location.f.getServiceContext().registerReceiver(this.LQ, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public void c() {
-        if (this.Ly != null) {
+        if (this.LQ != null) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.Ly);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.LQ);
             } catch (Exception e) {
             }
         }
-        this.Ly = null;
+        this.LQ = null;
     }
 
     public String d() {

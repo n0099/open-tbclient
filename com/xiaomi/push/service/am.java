@@ -1,12 +1,11 @@
 package com.xiaomi.push.service;
 
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 /* loaded from: classes2.dex */
 public abstract class am {
     public static String a = "1";
     public static String b = "2";
-    public static String c = TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
+    public static String c = "3";
     public static String d = "com.xiaomi.push.OPEN_CHANNEL";
     public static String e = "com.xiaomi.push.SEND_MESSAGE";
     public static String f = "com.xiaomi.push.SEND_IQ";

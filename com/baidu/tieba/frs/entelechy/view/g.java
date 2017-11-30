@@ -6,7 +6,7 @@ import android.view.ViewStub;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.widget.vote.VoteView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.av;
@@ -15,7 +15,7 @@ import java.util.List;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
 public class g extends i {
-    private VoteView cFQ;
+    private VoteView cPb;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -29,34 +29,34 @@ public class g extends i {
             findViewById = ((ViewStub) this.mRootView.findViewById(d.g.text_vote_view_stub)).inflate();
         }
         if (findViewById != null) {
-            this.cFQ = (VoteView) findViewById;
-            this.cFQ.setWidth(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds560));
-            this.cFQ.setProgressBarHeight(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds20));
-            this.cFQ.setDescTextColorResId(d.C0080d.cp_cont_b);
-            this.cFQ.setProgressBarTopMargin(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds8));
-            this.cFQ.setDescTopMargin(0);
+            this.cPb = (VoteView) findViewById;
+            this.cPb.setWidth(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds560));
+            this.cPb.setProgressBarHeight(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds20));
+            this.cPb.setDescTextColorResId(d.C0082d.cp_cont_b);
+            this.cPb.setProgressBarTopMargin(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds8));
+            this.cPb.setDescTopMargin(0);
             try {
-                ((ViewGroup.MarginLayoutParams) this.cGg.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.f(getContext(), d.e.ds38);
+                ((ViewGroup.MarginLayoutParams) this.cPr.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.f(getContext(), d.e.ds38);
             } catch (ClassCastException e) {
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
-    protected void jN(int i) {
-        if (this.cFQ != null) {
-            this.cFQ.onChangeSkinType(i);
+    protected void kl(int i) {
+        if (this.cPb != null) {
+            this.cPb.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
-    protected void H(bh bhVar) {
-        if (bhVar != null && bhVar.rf() != null) {
-            long longValue = bhVar.rf().total_poll.longValue();
+    protected void J(bd bdVar) {
+        if (bdVar != null && bdVar.rj() != null) {
+            long longValue = bdVar.rj().total_poll.longValue();
             if (longValue < 0) {
                 longValue = 0;
             }
-            List<PollOption> list = bhVar.rf().options;
+            List<PollOption> list = bdVar.rj().options;
             if (list != null && !list.isEmpty()) {
                 LinkedList linkedList = new LinkedList();
                 for (PollOption pollOption : list) {
@@ -65,18 +65,18 @@ public class g extends i {
                             break;
                         }
                         av avVar = new av();
-                        avVar.eN(true);
+                        avVar.fe(true);
                         avVar.a(linkedList.size() + 1, pollOption, longValue);
                         linkedList.add(avVar);
                     }
                 }
                 if (linkedList.size() > 0) {
-                    this.cFQ.setBoallotsForListView(linkedList);
-                    this.cFQ.onChangeSkinType(getSkinType());
-                    this.cFQ.setVisibility(0);
+                    this.cPb.setBoallotsForListView(linkedList);
+                    this.cPb.onChangeSkinType(getSkinType());
+                    this.cPb.setVisibility(0);
                     return;
                 }
-                this.cFQ.setVisibility(8);
+                this.cPb.setVisibility(8);
             }
         }
     }

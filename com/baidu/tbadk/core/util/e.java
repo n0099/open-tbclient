@@ -16,9 +16,9 @@ public class e {
         }
     };
     private static Toast yC;
-    private boolean aeL;
+    private boolean afh;
 
-    public static e uf() {
+    public static e ui() {
         return new e();
     }
 
@@ -26,7 +26,7 @@ public class e {
     }
 
     public void c(String str, int i, int i2) {
-        if (!this.aeL && str != null) {
+        if (!this.afh && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
@@ -69,12 +69,12 @@ public class e {
     }
 
     public void onPause() {
-        this.aeL = true;
+        this.afh = true;
         cancel();
     }
 
     public void onResume() {
-        this.aeL = false;
+        this.afh = false;
     }
 
     public static void cancel() {
