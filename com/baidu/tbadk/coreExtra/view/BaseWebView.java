@@ -141,7 +141,7 @@ public class BaseWebView extends WebView {
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");
         }
-        com.baidu.tbadk.browser.a.az(getContext());
+        com.baidu.tbadk.browser.a.aw(getContext());
     }
 
     public void initCommonJsBridge(Context context) {
@@ -296,7 +296,7 @@ public class BaseWebView extends WebView {
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 if (str != null) {
                     try {
-                        com.baidu.tbadk.browser.a.R(BaseWebView.this.mContext, str);
+                        com.baidu.tbadk.browser.a.Q(BaseWebView.this.mContext, str);
                     } catch (Exception e2) {
                         BdLog.e(e2.toString());
                     }

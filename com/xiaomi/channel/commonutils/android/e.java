@@ -6,6 +6,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 /* loaded from: classes2.dex */
 public class e {
     private static String a = null;
@@ -73,7 +74,7 @@ public class e {
         try {
             String str = (!g.a() || (a2 = com.xiaomi.channel.commonutils.reflect.a.a("miui.telephony.TelephonyManager", "getDefault", new Object[0])) == null || (a3 = com.xiaomi.channel.commonutils.reflect.a.a(a2, "getMiuiDeviceId", new Object[0])) == null || !(a3 instanceof String)) ? null : (String) String.class.cast(a3);
             if (str == null && h(context)) {
-                str = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                str = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId();
             }
             if (str != null) {
                 a = str;
@@ -101,7 +102,7 @@ public class e {
     }
 
     public static String f(Context context) {
-        return ((TelephonyManager) context.getSystemService("phone")).getSimOperatorName();
+        return ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimOperatorName();
     }
 
     public static String g(Context context) {

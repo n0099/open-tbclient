@@ -16,9 +16,9 @@ import java.util.List;
 import tbclient.T;
 /* loaded from: classes.dex */
 public class GetSugMatchWordsModel extends BdBaseModel {
-    private static List<String> dJd = new ArrayList();
-    private a fef;
-    private final HttpMessageListener feg;
+    private static List<String> dKh = new ArrayList();
+    private a ffg;
+    private final HttpMessageListener ffh;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -29,38 +29,38 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     public GetSugMatchWordsModel(e<T> eVar) {
         super(eVar);
-        this.feg = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
+        this.ffh = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.fef != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.ffg != null) {
                     GetSugMatchWordsResponseMessage getSugMatchWordsResponseMessage = (GetSugMatchWordsResponseMessage) httpResponsedMessage;
                     if (!v.w(getSugMatchWordsResponseMessage.getData())) {
-                        GetSugMatchWordsModel.this.fef.C(getSugMatchWordsResponseMessage.getData());
-                        GetSugMatchWordsModel.dJd.clear();
-                        GetSugMatchWordsModel.dJd.addAll(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.this.ffg.C(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.dKh.clear();
+                        GetSugMatchWordsModel.dKh.addAll(getSugMatchWordsResponseMessage.getData());
                         return;
                     }
-                    GetSugMatchWordsModel.this.fef.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
+                    GetSugMatchWordsModel.this.ffg.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
                 }
             }
         };
-        zK();
-        this.feg.setSelfListener(true);
-        registerListener(this.feg);
+        zL();
+        this.ffh.setSelfListener(true);
+        registerListener(this.ffh);
     }
 
-    private void zK() {
+    private void zL() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS, TbConfig.SERVER_ADDRESS + "c/e/meme/getSugKeyWords");
         tbHttpMessageTask.setResponsedClass(GetSugMatchWordsResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void b(a aVar) {
-        this.fef = aVar;
-        if (this.fef != null) {
-            if (!v.w(dJd)) {
-                this.fef.C(dJd);
+        this.ffg = aVar;
+        if (this.ffg != null) {
+            if (!v.w(dKh)) {
+                this.ffg.C(dKh);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS));
             }
@@ -74,7 +74,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.feg);
+        MessageManager.getInstance().unRegisterListener(this.ffh);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS);
         return true;
     }

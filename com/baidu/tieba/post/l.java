@@ -7,123 +7,123 @@ import java.util.HashMap;
 import java.util.UUID;
 /* loaded from: classes2.dex */
 public class l implements h {
-    private String eDq;
-    private String eDr;
-    private HashMap<String, f> fRV;
+    private String eEu;
+    private String eEv;
+    private HashMap<String, f> fSO;
 
     /* loaded from: classes2.dex */
     private static class a {
-        private static final h fRW = new l();
+        private static final h fSP = new l();
     }
 
-    public static h bkb() {
-        return a.fRW;
+    public static h bkj() {
+        return a.fSP;
     }
 
     private l() {
-        this.fRV = new HashMap<>();
+        this.fSO = new HashMap<>();
     }
 
     @Override // com.baidu.tieba.i.h
-    public void aNJ() {
-        this.eDq = UUID.randomUUID().toString();
+    public void aNS() {
+        this.eEu = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.i.h
     public void Q(int i, String str) {
-        bkc().i(this.eDq, i, str);
+        bkk().i(this.eEu, i, str);
     }
 
     @Override // com.baidu.tieba.i.h
     public void R(int i, String str) {
-        bkc().j(this.eDq, i, str);
+        bkk().j(this.eEu, i, str);
     }
 
     @Override // com.baidu.tieba.i.h
     public void S(int i, String str) {
-        bkc().k(this.eDq, i, str);
+        bkk().k(this.eEu, i, str);
     }
 
     @Override // com.baidu.tieba.i.h
-    public void aNK() {
-        bkc().oS(this.eDq);
+    public void aNT() {
+        bkk().oS(this.eEu);
     }
 
     @Override // com.baidu.tieba.i.h
     public void f(int i, int i2, String str) {
-        bkc().c(this.eDq, i, i2, str);
+        bkk().c(this.eEu, i, i2, str);
     }
 
     @Override // com.baidu.tieba.i.h
-    public void aNL() {
-        bkc().oT(this.eDq);
-        oU(this.eDq);
+    public void aNU() {
+        bkk().oT(this.eEu);
+        oU(this.eEu);
     }
 
     @Override // com.baidu.tieba.i.h
     public void T(int i, String str) {
-        bkc().l(this.eDq, i, str);
+        bkk().l(this.eEu, i, str);
     }
 
     @Override // com.baidu.tieba.i.h
     public void oX(String str) {
-        if (!StringUtils.isNull(this.eDr)) {
-            if (oV(this.eDr) || oW(this.eDr)) {
-                oU(this.eDr);
+        if (!StringUtils.isNull(this.eEv)) {
+            if (oV(this.eEv) || oW(this.eEv)) {
+                oU(this.eEv);
             } else {
-                com.baidu.tieba.i.d.oR(this.eDr);
-                this.fRV.remove(this.eDq);
+                com.baidu.tieba.i.d.oR(this.eEv);
+                this.fSO.remove(this.eEu);
             }
-            aNJ();
-            bkc().bz(this.eDr, str);
-            this.eDr = null;
+            aNS();
+            bkk().bA(this.eEv, str);
+            this.eEv = null;
         }
     }
 
     @Override // com.baidu.tieba.i.h
-    public void aNM() {
-        this.eDr = this.eDq;
+    public void aNV() {
+        this.eEv = this.eEu;
     }
 
     @Override // com.baidu.tieba.i.h
     public void oY(String str) {
-        bkc().bA(this.eDq, str);
-        if (oV(this.eDq) || oW(this.eDq)) {
-            oU(this.eDq);
+        bkk().bB(this.eEu, str);
+        if (oV(this.eEu) || oW(this.eEu)) {
+            oU(this.eEu);
         } else {
-            com.baidu.tieba.i.d.oR(this.eDq);
-            this.fRV.remove(this.eDq);
+            com.baidu.tieba.i.d.oR(this.eEu);
+            this.fSO.remove(this.eEu);
         }
-        this.eDq = null;
+        this.eEu = null;
     }
 
     public boolean oV(String str) {
-        return bkc().oV(str);
+        return bkk().oV(str);
     }
 
     public boolean oW(String str) {
-        return bkc().oW(str);
+        return bkk().oW(str);
     }
 
     public void oU(String str) {
-        f fVar = this.fRV.get(str);
+        f fVar = this.fSO.get(str);
         if (fVar != null) {
             fVar.oU(str);
-            this.fRV.remove(str);
+            this.fSO.remove(str);
         }
     }
 
-    private f bkc() {
-        f fVar = this.fRV.get(this.eDq);
+    private f bkk() {
+        f fVar = this.fSO.get(this.eEu);
         if (fVar == null) {
-            return bkd();
+            return bkl();
         }
         return fVar;
     }
 
-    private f bkd() {
-        k kVar = new k(this.eDq);
-        this.fRV.put(this.eDq, kVar);
+    private f bkl() {
+        k kVar = new k(this.eEu);
+        this.fSO.put(this.eEu, kVar);
         return kVar;
     }
 }

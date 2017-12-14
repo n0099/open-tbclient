@@ -55,6 +55,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     public static final int URL_NOT_FOUND_ERROR_CODE = -2;
     private z.a mCookieInfo;
     protected boolean mEnableJs;
+    protected boolean mFixTitle;
     protected boolean mIsShowNavBar;
     protected boolean mNeedCookie;
     private String mSource;
@@ -143,12 +144,15 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         initWebView();
         this.mView = new e(this);
         initData();
-        this.mView.or();
+        this.mView.op();
         this.mView.b(this.mOnRefreshClickListener);
         this.mView.ae(this.mIsLogin);
         this.mView.ae(isNeedShowMenuItem());
-        if (!this.mView.op() && UtilHelper.canUseStyleImmersiveSticky()) {
-            ax.b(this.mView.Sh, d.C0082d.cp_link_tip_b, false);
+        if (!StringUtils.isNull(this.mUrlTitle)) {
+            this.mView.cn(this.mUrlTitle);
+        }
+        if (!this.mView.on() && UtilHelper.canUseStyleImmersiveSticky()) {
+            ax.b(this.mView.Se, d.C0096d.cp_link_tip_b, false);
         }
         if (!this.mIsTranslucent) {
             adjustResizeForSoftInput();
@@ -195,6 +199,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             } else {
                 this.mUrlTitle = intent.getStringExtra(WebViewActivityConfig.TAG_TITLE);
                 this.mUrl = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
+                this.mFixTitle = intent.getBooleanExtra(WebViewActivityConfig.TAG_FIX_TITLE, false);
                 this.mUrl = parseWebViewUrl(this.mUrl);
                 this.mNeedCookie = intent.getBooleanExtra(WebViewActivityConfig.TAG_COOKIE, false);
                 this.mEnableJs = intent.getBooleanExtra(WebViewActivityConfig.TAG_ENABLE_JS, false);
@@ -292,7 +297,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         dismissAllPopupWindow();
         hideListMenu();
         if (this.mView != null) {
-            this.mView.ot();
+            this.mView.or();
         }
     }
 
@@ -424,7 +429,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             }
             String findSubString2 = findSubString(SHARE_IMG_START, SHARE_END);
             if (!StringUtils.isNull(findSubString2, true)) {
-                dVar.auz = Uri.parse(findSubString2);
+                dVar.auE = Uri.parse(findSubString2);
             }
             String findSubString3 = findSubString(SHARE_URL_START, SHARE_END);
             if (!StringUtils.isNull(findSubString3, true)) {
@@ -441,7 +446,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             dVar.content = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            dVar.auz = Uri.parse(str4);
+            dVar.auE = Uri.parse(str4);
         }
         return dVar;
     }
@@ -464,14 +469,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         super.onClick(view);
         int id = view.getId();
         if (id == d.g.webview_more_pop_item_share_friend_layout) {
-            this.mView.ot();
+            this.mView.or();
             loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
             this.mShareResultToFe = true;
         } else if (id == d.g.webview_more_pop_item_open_browser_layout) {
-            this.mView.ot();
-            com.baidu.tbadk.browser.a.R(getPageContext().getPageActivity(), this.mUrl);
+            this.mView.or();
+            com.baidu.tbadk.browser.a.Q(getPageContext().getPageActivity(), this.mUrl);
         } else if (id == d.g.webview_more_pop_item_copy_link_layout) {
-            this.mView.ot();
+            this.mView.or();
             com.baidu.adp.lib.util.a.aw(this.mUrl);
             l.showToast(view.getContext(), view.getResources().getString(d.j.copy_pb_url_success));
         } else if (id == d.g.root_view && isTranslucent()) {
@@ -591,14 +596,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str2;
         boolean z;
         String str3 = "";
-        a.b ct = com.baidu.tbadk.core.a.a.ph().ct(TbadkCoreApplication.getCurrentBduss());
+        a.b ct = com.baidu.tbadk.core.a.a.pf().ct(TbadkCoreApplication.getCurrentBduss());
         if (ct != null) {
-            if (ct.wt != null) {
-                str3 = ct.wt;
+            if (ct.wq != null) {
+                str3 = ct.wq;
             }
-            if (ct.TV != null) {
+            if (ct.TR != null) {
                 str = str3;
-                str2 = ct.TV;
+                str2 = ct.TR;
                 z.a aVar = new z.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

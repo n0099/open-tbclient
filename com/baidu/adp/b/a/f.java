@@ -1,16 +1,16 @@
 package com.baidu.adp.b.a;
 /* loaded from: classes.dex */
 public class f {
-    public static f Bu = new f();
+    public static f Bt = new f();
 
     private f() {
     }
 
     public static f iC() {
-        return Bu;
+        return Bt;
     }
 
-    public a aE(int i) {
+    public a aD(int i) {
         switch (i) {
             case 0:
                 return new c();

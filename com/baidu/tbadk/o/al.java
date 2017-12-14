@@ -2,12 +2,12 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class al extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
+    protected void W(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_share_switch";
+        return "android_im_window_open";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,9 +28,5 @@ public class al extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int eP() {
         return 10;
-    }
-
-    public static boolean fS() {
-        return com.baidu.adp.lib.b.d.eV().af("android_share_switch") == 1;
     }
 }

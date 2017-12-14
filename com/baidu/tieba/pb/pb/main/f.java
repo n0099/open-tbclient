@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.data.bd;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends as {
-    private TextView eRI;
+    private TextView eSL;
 
     public f(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.eRI = null;
+        this.eSL = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.as
     protected void a(d dVar) {
-        this.eRI = (TextView) this.mRootView.findViewById(d.g.icon_push);
-        this.eRI.setVisibility(8);
+        this.eSL = (TextView) this.mRootView.findViewById(d.g.icon_push);
+        this.eSL.setVisibility(8);
     }
 
-    public void jc(boolean z) {
-        if (this.eRI != null) {
+    public void jd(boolean z) {
+        if (this.eSL != null) {
             if (z) {
-                this.eRI.setText(d.j.push);
-                com.baidu.tbadk.core.util.aj.i(this.eRI, d.f.push_text_selector);
-                com.baidu.tbadk.core.util.aj.j(this.eRI, d.f.push_bg_selector);
-                this.eRI.setClickable(true);
+                this.eSL.setText(d.j.push);
+                com.baidu.tbadk.core.util.aj.i(this.eSL, d.f.push_text_selector);
+                com.baidu.tbadk.core.util.aj.j(this.eSL, d.f.push_bg_selector);
+                this.eSL.setClickable(true);
             } else {
-                this.eRI.setText(d.j.already_push);
-                com.baidu.tbadk.core.util.aj.j(this.eRI, d.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.aj.i(this.eRI, d.C0082d.cp_cont_d);
-                this.eRI.setClickable(false);
+                this.eSL.setText(d.j.already_push);
+                com.baidu.tbadk.core.util.aj.j(this.eSL, d.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.aj.i(this.eSL, d.C0096d.cp_cont_d);
+                this.eSL.setClickable(false);
             }
-            this.eRI.setVisibility(0);
+            this.eSL.setVisibility(0);
         }
     }
 
-    public void W(bd bdVar) {
-        if (bdVar != null && bdVar.rS() != null) {
-            int status = bdVar.rS().getStatus();
+    public void Y(bd bdVar) {
+        if (bdVar != null && bdVar.rQ() != null) {
+            int status = bdVar.rQ().getStatus();
             if (status == 1) {
-                jc(true);
+                jd(true);
             } else if (status == 2) {
-                jc(false);
+                jd(false);
             }
         }
     }
 
-    public TextView aSC() {
-        return this.eRI;
+    public TextView aSL() {
+        return this.eSL;
     }
 }

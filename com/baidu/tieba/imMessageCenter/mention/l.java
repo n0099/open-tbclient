@@ -1,7 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import android.text.TextUtils;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.util.o;
 import java.util.HashMap;
@@ -9,7 +8,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes2.dex */
 public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int dZU;
+    private int eaZ;
     private String ids;
     private int mPn = 1;
 
@@ -21,32 +20,32 @@ public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.dZU = 4;
+        this.eaZ = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.dZU = 1;
+        this.eaZ = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.dZU;
+        return this.eaZ;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Ff() {
+    public HashMap<String, Object> Fg() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+        hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
         hashMap.put("pn", String.valueOf(this.mPn));
-        if (this.dZU == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.eaZ == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object bL(boolean z) {
+    public Object bM(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.pn = Integer.valueOf(this.mPn);
@@ -68,12 +67,12 @@ public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Fc() {
+    public String Fd() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Fd() {
+    public boolean Fe() {
         return true;
     }
 

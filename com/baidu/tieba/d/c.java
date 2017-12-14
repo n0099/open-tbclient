@@ -20,11 +20,12 @@ import com.baidu.tieba.d.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class c implements a.InterfaceC0080a {
-    private a cjP;
-    private ShareDialogConfig cjQ;
+public class c implements a.InterfaceC0094a {
+    private a ckd;
+    private ShareDialogConfig cke;
     private ArrayList<TransmitForumData> mForumList;
     private TbPageContext mPageContext;
+    private int mPrivateThread;
 
     public c(Context context) {
         if (context instanceof BaseActivity) {
@@ -32,57 +33,59 @@ public class c implements a.InterfaceC0080a {
         } else if (context instanceof BaseFragmentActivity) {
             this.mPageContext = ((BaseFragmentActivity) context).getPageContext();
         }
-        adB();
+        adL();
     }
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        adB();
+        adL();
     }
 
-    private void adB() {
+    private void adL() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, this.mPageContext), a.class);
         if (runTask != null) {
-            this.cjP = (a) runTask.getData();
+            this.ckd = (a) runTask.getData();
         }
-        if (this.cjP != null) {
-            this.cjP.setUseCache(false);
-            this.cjP.a(this);
+        if (this.ckd != null) {
+            this.ckd.setUseCache(false);
+            this.ckd.a(this);
         }
     }
 
     public void a(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !g.isFastDoubleClick()) {
-            this.cjQ = shareDialogConfig;
+            this.cke = shareDialogConfig;
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.auA = adC();
+                shareDialogConfig.shareItem.auF = adM();
             }
-            if (TbadkCoreApplication.isLogin() && this.cjP != null && !shareDialogConfig.mIsAlaLive) {
-                this.cjP.aJ(null, null);
+            if (TbadkCoreApplication.isLogin() && this.ckd != null && !shareDialogConfig.mIsAlaLive) {
+                this.ckd.aK(null, null);
             } else {
-                wJ();
+                wH();
             }
         }
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0080a
-    public void e(List<TransmitForumData> list, boolean z) {
+    @Override // com.baidu.tieba.d.a.InterfaceC0094a
+    public void b(List<TransmitForumData> list, boolean z, int i) {
         if (list instanceof ArrayList) {
             this.mForumList = (ArrayList) list;
         }
-        wJ();
+        this.mPrivateThread = i;
+        wH();
     }
 
-    private void wJ() {
-        if (this.cjQ != null && this.cjQ.shareItem != null) {
-            this.cjQ.setIsShowTransmitShare(true);
-            this.cjQ.setTransmitForumList(this.mForumList);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, this.cjQ));
+    private void wH() {
+        if (this.cke != null && this.cke.shareItem != null) {
+            this.cke.setIsShowTransmitShare(true);
+            this.cke.setTransmitForumList(this.mForumList);
+            this.cke.setPrivateThread(this.mPrivateThread);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, this.cke));
         }
     }
 
-    private Location adC() {
-        if (ab.aK(this.mPageContext.getPageActivity())) {
+    private Location adM() {
+        if (ab.aH(this.mPageContext.getPageActivity())) {
             LocationManager locationManager = (LocationManager) this.mPageContext.getPageActivity().getApplication().getSystemService("location");
             Criteria criteria = new Criteria();
             criteria.setAccuracy(1);

@@ -3,5 +3,5 @@ package com.baidu.tbadk.core.flow.a;
 public interface a {
     String getPicUrl();
 
-    String pO();
+    String pM();
 }

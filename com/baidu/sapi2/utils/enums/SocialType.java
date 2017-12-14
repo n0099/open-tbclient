@@ -9,6 +9,7 @@ public enum SocialType {
     TENCENT_WEIBO(4, "腾讯微博"),
     QZONE(15, "QQ空间"),
     QQ(15, "QQ"),
+    QQ_SSO(-15, "QQ"),
     WEIXIN(42, "微信"),
     HUAWEI(45, "华为"),
     WANDA_FEIFAN(46, "万达飞凡"),

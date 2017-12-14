@@ -2,12 +2,12 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class ak extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
+    protected void W(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_im_window_open";
+        return "android_gif_autoplay";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,7 +17,7 @@ public class ak extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int eN() {
-        return 1;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,5 +28,9 @@ public class ak extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int eP() {
         return 10;
+    }
+
+    public static boolean fS() {
+        return com.baidu.adp.lib.b.d.eV().af("android_gif_autoplay") == 1;
     }
 }

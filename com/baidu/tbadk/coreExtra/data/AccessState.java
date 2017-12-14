@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
@@ -49,7 +48,7 @@ public class AccessState implements Serializable {
                 if (jSONObject2 != null) {
                     this.userInfo.strMobile = jSONObject2.optString("strMobile");
                     this.userInfo.strEmail = jSONObject2.optString("strEmail");
-                    this.userInfo.bduss = jSONObject2.optString(SapiAccountManager.SESSION_BDUSS);
+                    this.userInfo.bduss = jSONObject2.optString("bduss");
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

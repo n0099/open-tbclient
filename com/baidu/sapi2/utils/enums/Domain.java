@@ -1,11 +1,11 @@
 package com.baidu.sapi2.utils.enums;
 
-import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.SapiHost;
 /* loaded from: classes.dex */
 public enum Domain {
-    DOMAIN_ONLINE("http://passport.baidu.com", "http://wappass.baidu.com", "https://openapi.baidu.com", "http://wappass.bdimg.com", "https://gss0.bdstatic.com", "https://passport.baidu.com", "https://spk.baidu.com/echo.fcgi"),
-    DOMAIN_RD("http://passport.rdtest.baidu.com", "http://passport.rdtest.baidu.com:8000", "http://dbl-dev-rd23.vm.baidu.com:8080", "http://passport.rdtest.baidu.com:8000", "http://passport.rdtest.baidu.com:8000", "http://passport.baidu.com", "https://spk.baidu.com/echo.fcgi"),
-    DOMAIN_QA("http://passport.qatest.baidu.com", "http://wappass.qatest.baidu.com", "http://db-infbk-online-17.db01.baidu.com:8080", "http://wappass.qatest.baidu.com", "http://wappass.qatest.baidu.com", "http://passport.baidu.com", "https://spk.baidu.com/echo.fcgi");
+    DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", "aHR0cDovL3dhcHBhc3MuYmFpZHUuY29t", SapiHost.DOMAIN_ONLINE_DEVICE_URL, "aHR0cDovL3dhcHBhc3MuYmFpZHUuY29t", SapiHost.DOMAIN_ONLINE_CONFIG_HTTPS_URL, SapiHost.DOMAIN_ONLINE_PORTRAIT_URL, "aHR0cHM6Ly9zcGsuYmFpZHUuY29tL2VjaG8uZmNnaQ=="),
+    DOMAIN_RD(SapiHost.DOMAIN_RD_PASSPORT_URL, "aHR0cDovL3Bhc3Nwb3J0LnJkdGVzdC5iYWlkdS5jb206ODAwMA==", SapiHost.DOMAIN_RD_DEVICE_URL, "aHR0cDovL3Bhc3Nwb3J0LnJkdGVzdC5iYWlkdS5jb206ODAwMA==", "aHR0cDovL3Bhc3Nwb3J0LnJkdGVzdC5iYWlkdS5jb206ODAwMA==", "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", "aHR0cHM6Ly9zcGsuYmFpZHUuY29tL2VjaG8uZmNnaQ=="),
+    DOMAIN_QA(SapiHost.DOMAIN_QA_PASSPORT_URL, SapiHost.DOMAIN_QA_WAPPASS_URL, SapiHost.DOMAIN_QA_DEVICE_URL, SapiHost.DOMAIN_QA_CONFIG_URL, SapiHost.DOMAIN_QA_CONFIG_HTTPS_URL, "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", "aHR0cHM6Ly9zcGsuYmFpZHUuY29tL2VjaG8uZmNnaQ==");
     
     private String a;
     private String b;
@@ -17,21 +17,21 @@ public enum Domain {
     private boolean h;
 
     Domain(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = str4;
-        this.e = str5;
-        this.f = str6;
-        this.g = str7;
+        this.a = SapiHost.getHost(str);
+        this.b = SapiHost.getHost(str2);
+        this.c = SapiHost.getHost(str3);
+        this.d = SapiHost.getHost(str4);
+        this.e = SapiHost.getHost(str5);
+        this.f = SapiHost.getHost(str6);
+        this.g = SapiHost.getHost(str7);
     }
 
-    public String getURL() {
-        return (!(equals(DOMAIN_ONLINE) && SapiUtils.getDefaultHttpsEnabled()) && (equals(DOMAIN_ONLINE) || !this.h)) ? this.a : this.a.replace("http://", "https://");
+    public String getURL(boolean z) {
+        return (!(equals(DOMAIN_ONLINE) && z) && (equals(DOMAIN_ONLINE) || !this.h)) ? this.a : this.a.replace("http://", "https://");
     }
 
-    public String getWap() {
-        return (!(equals(DOMAIN_ONLINE) && SapiUtils.getDefaultHttpsEnabled()) && (equals(DOMAIN_ONLINE) || !this.h)) ? this.b : this.b.replace("http://", "https://");
+    public String getWap(boolean z) {
+        return (!(equals(DOMAIN_ONLINE) && z) && (equals(DOMAIN_ONLINE) || !this.h)) ? this.b : this.b.replace("http://", "https://");
     }
 
     public String getDeviceUrl() {

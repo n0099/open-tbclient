@@ -4,7 +4,6 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes2.dex */
 public class l {
     public String a;
@@ -63,7 +62,7 @@ public class l {
         this.a = intent.getStringExtra(PushConstants.EXTRA_METHOD);
         this.b = intent.getStringExtra("method_type");
         this.c = intent.getStringExtra("method_version");
-        this.h = intent.getStringExtra(SapiAccountManager.SESSION_BDUSS);
+        this.h = intent.getStringExtra("bduss");
         this.f = intent.getStringExtra("appid");
         this.j = intent.getStringExtra("is_baidu_internal_bind");
         this.k = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);

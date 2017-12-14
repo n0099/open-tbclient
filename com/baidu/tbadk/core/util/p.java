@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public abstract class p {
-    public static p afy = null;
+    public static p afs = null;
 
     public abstract com.baidu.tbadk.core.data.k getmCdnLogData();
 
@@ -16,17 +16,17 @@ public abstract class p {
     public abstract void setmCdnLogData(com.baidu.tbadk.core.data.k kVar);
 
     public static p getInstance() {
-        if (afy == null) {
+        if (afs == null) {
             synchronized (p.class) {
-                if (afy == null) {
+                if (afs == null) {
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, p.class);
                     if (runTask != null && runTask.getData() != null) {
-                        afy = (p) runTask.getData();
+                        afs = (p) runTask.getData();
                     }
-                    return afy;
+                    return afs;
                 }
             }
         }
-        return afy;
+        return afs;
     }
 }

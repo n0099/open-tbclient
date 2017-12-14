@@ -6,15 +6,15 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class al {
-    private static al ahu;
+    private static al aho;
 
-    public static synchronized al vp() {
+    public static synchronized al vm() {
         al alVar;
         synchronized (al.class) {
-            if (ahu == null) {
-                ahu = new al();
+            if (aho == null) {
+                aho = new al();
             }
-            alVar = ahu;
+            alVar = aho;
         }
         return alVar;
     }
@@ -52,7 +52,7 @@ public class al {
     }
 
     public boolean Z(String str, String str2) {
-        String str3 = k.xT + "/" + TbConfig.getTempDirName() + "/";
+        String str3 = k.xQ + "/" + TbConfig.getTempDirName() + "/";
         if (!k.dh(str3)) {
             k.dy(str3);
         }
@@ -73,12 +73,12 @@ public class al {
         }
     }
 
-    private void v(File file) {
+    private void u(File file) {
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    v(file2);
+                    u(file2);
                     file2.delete();
                 } else if (!file2.delete()) {
                 }
@@ -86,22 +86,22 @@ public class al {
         }
     }
 
-    public void vq() {
-        v(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
-        v(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
+    public void vn() {
+        u(new File(k.xQ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
+        u(new File(k.xQ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void vr() {
-        w(new File(k.xT + "/" + TbConfig.getTempDirName() + "/" + k.cD(3)));
+    public void vo() {
+        v(new File(k.xQ + "/" + TbConfig.getTempDirName() + "/" + k.cD(3)));
     }
 
-    private void w(File file) {
+    private void v(File file) {
         long currentTimeMillis = System.currentTimeMillis();
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    v(file2);
+                    u(file2);
                     file2.delete();
                 } else if (currentTimeMillis - file2.lastModified() >= -1702967296 && file2.delete()) {
                 }

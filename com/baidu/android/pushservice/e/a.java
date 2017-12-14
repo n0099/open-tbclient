@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.SapiAccountManager;
 import java.io.InputStream;
 import java.util.HashMap;
 import org.json.JSONException;
@@ -30,7 +29,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                 com.baidu.android.pushservice.g.b.c("AbstractProcessor", "netWorkConnect connectResult: " + a.this.c(), a.this.a);
             } else if (com.baidu.android.pushservice.j.a(a.this.a).c()) {
             } else {
-                a.this.a(IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND);
+                a.this.a(10002);
                 com.baidu.android.pushservice.j.p.b("RequetChannelListener#isGetChannelToken#isSucceed=false, errorcode=10002", a.this.a);
             }
         }
@@ -74,7 +73,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
         if (i > 0) {
             String b = com.baidu.android.pushservice.h.b(this.a, i == 1);
             if (b == null) {
-                return IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND;
+                return 10002;
             }
             if (this.c.startsWith("http://")) {
                 this.c = this.c.replace("http://", "");
@@ -134,7 +133,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                     }
                     if (a2 == null || b2 == 0) {
                         if (i >= 2) {
-                            a(IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND);
+                            a(10002);
                         }
                         i2 = 10002;
                     }
@@ -313,7 +312,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
         String str = this.b.a;
         if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase(PushConstants.METHOD_BIND)) {
             if (!TextUtils.isEmpty(this.b.h)) {
-                hashMap.put(SapiAccountManager.SESSION_BDUSS, this.b.h);
+                hashMap.put("bduss", this.b.h);
                 hashMap.put("appid", this.b.f);
             } else if (!TextUtils.isEmpty(this.b.d)) {
                 hashMap.put("access_token", this.b.d);
@@ -357,7 +356,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
             if (com.baidu.android.pushservice.a.b() > 0) {
                 com.baidu.android.pushservice.h.p.a(this.a, "039912");
             }
-            a(IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND);
+            a(10001);
             com.baidu.android.pushservice.j.o.a(this.a, new Intent());
             com.baidu.android.pushservice.g.a.b("AbstractProcessor", "startPushService BaseApiProcess");
         } else {

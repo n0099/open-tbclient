@@ -6,54 +6,58 @@ import com.baidu.appsearchlib.Info;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
+import com.baidu.sapi2.SapiContext;
+import com.baidu.sapi2.ServiceManager;
+import com.baidu.sapi2.base.debug.Log;
+import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class StatService {
-    private static final String a = "https://nsclick.baidu.com/v.gif";
-    private static final Map<String, String> b = new HashMap();
+    private static final Map<String, String> a = new HashMap();
 
     private StatService() {
     }
 
     static {
-        b.put(Info.kBaiduPIDKey, "111");
-        b.put("type", "1023");
-        b.put("device", "android");
+        a.put(Info.kBaiduPIDKey, "111");
+        a.put("type", "1023");
+        a.put("device", "android");
     }
 
     public static void onEvent(StatEvent statEvent) {
         if (statEvent != null && !TextUtils.isEmpty(statEvent.a)) {
             HashMap hashMap = new HashMap();
-            hashMap.put("di", e.b(statEvent.b));
-            a(statEvent.a, hashMap);
+            hashMap.put("di", SapiDeviceInfo.getDeviceInfo(statEvent.b));
+            hashMap.put("pis_di", SapiDeviceInfo.getPisDeviceInfo());
+            onEvent(statEvent.a, hashMap);
         }
     }
 
-    public static void a(String str, Map<String, String> map) {
-        a(str, map, true);
+    public static void onEvent(String str, Map<String, String> map) {
+        onEvent(str, map, true);
     }
 
-    public static void a(final String str, Map<String, String> map, boolean z) {
+    public static void onEvent(final String str, Map<String, String> map, boolean z) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                final SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+                ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
+                final SapiConfiguration confignation = isAccountManager.getConfignation();
                 if (z) {
-                    com.baidu.sapi2.c.a(sapiConfiguration.context).a(str, map);
+                    SapiContext.getInstance(confignation.context).addStatItem(str, map);
                 }
-                if (SapiUtils.hasActiveNetwork(sapiConfiguration.context)) {
+                if (SapiUtils.hasActiveNetwork(confignation.context)) {
                     HashMap hashMap = new HashMap();
-                    hashMap.putAll(b);
+                    hashMap.putAll(a);
                     hashMap.put("name", str);
-                    hashMap.put("tpl", sapiConfiguration.tpl);
+                    hashMap.put("tpl", confignation.tpl);
                     hashMap.put("clientfrom", "mobilesdk_enhanced");
-                    hashMap.put(Constants.EXTRA_KEY_APP_VERSION, SapiUtils.getVersionName(sapiConfiguration.context));
-                    hashMap.put("sdk_version", SapiAccountManager.VERSION_NAME);
-                    if (!TextUtils.isEmpty(sapiConfiguration.clientId)) {
-                        hashMap.put("cuid", sapiConfiguration.clientId);
+                    hashMap.put(Constants.EXTRA_KEY_APP_VERSION, SapiUtils.getVersionName(confignation.context));
+                    hashMap.put("sdk_version", isAccountManager.getVersionName());
+                    if (!TextUtils.isEmpty(confignation.clientId)) {
+                        hashMap.put("cuid", confignation.clientId);
                     }
                     hashMap.put("v", String.valueOf(System.currentTimeMillis()));
                     if (map != null) {
@@ -63,27 +67,27 @@ public final class StatService {
                             }
                         }
                     }
-                    new AsyncHttpClient().get(sapiConfiguration.context, a, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.utils.StatService.1
+                    new AsyncHttpClient().get(confignation.context, SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.utils.StatService.1
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                         public void onSuccess(int i, String str2) {
-                            com.baidu.sapi2.c.a(sapiConfiguration.context).g(str);
+                            SapiContext.getInstance(confignation.context).removeStatItem(str);
                         }
                     });
                 }
             } catch (Throwable th) {
-                L.e(th);
+                Log.e(th);
             }
         }
     }
 
-    public static void a() {
+    public static void replay() {
         try {
-            for (Map.Entry<String, Map<String, String>> entry : com.baidu.sapi2.c.a(SapiAccountManager.getInstance().getSapiConfiguration().context).u().entrySet()) {
-                a(entry.getKey(), entry.getValue());
+            for (Map.Entry<String, Map<String, String>> entry : SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getStatItems().entrySet()) {
+                onEvent(entry.getKey(), entry.getValue());
             }
         } catch (Throwable th) {
-            L.e(th);
+            Log.e(th);
         }
     }
 }

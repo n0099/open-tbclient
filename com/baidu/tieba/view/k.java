@@ -12,53 +12,53 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public final class k extends LinearLayout {
-    private LinearLayout aMp;
-    private TextView aWm;
-    private TextView axe;
-    private ShareFromPBMsgData dVf;
-    private EditText dcJ;
-    private TbImageView dzN;
+    private LinearLayout aMt;
+    private TextView aWo;
+    private TextView axj;
+    private TbImageView dAR;
+    private ShareFromPBMsgData dWk;
+    private EditText ddQ;
 
     public EditText getChatMsgView() {
-        return this.dcJ;
+        return this.ddQ;
     }
 
-    public void H(String str, boolean z) {
-        if (this.dzN != null) {
-            this.dzN.startLoad(str, z ? 17 : 18, false);
+    public void I(String str, boolean z) {
+        if (this.dAR != null) {
+            this.dAR.startLoad(str, z ? 17 : 18, false);
         }
     }
 
     public k(Context context) {
         super(context);
-        bw(context);
+        bt(context);
     }
 
-    private void bw(Context context) {
+    private void bt(Context context) {
         LayoutInflater.from(context).inflate(d.h.thread_to_group_share_view, this);
         setOrientation(1);
-        this.aMp = (LinearLayout) findViewById(d.g.share_content);
-        this.axe = (TextView) findViewById(d.g.share_title_view);
-        this.dcJ = (EditText) findViewById(d.g.chat_msg);
-        this.dzN = (TbImageView) findViewById(d.g.chat_group_img);
-        this.aWm = (TextView) findViewById(d.g.chat_group_desc);
-        aj.c(this.axe, d.C0082d.cp_cont_b, 1);
-        aj.c(this.dcJ, d.C0082d.cp_cont_b, 2);
-        aj.c(this.aWm, d.C0082d.cp_cont_f, 1);
-        this.dcJ.setHintTextColor(aj.getColor(d.C0082d.cp_cont_e));
-        this.dcJ.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
-        ard();
+        this.aMt = (LinearLayout) findViewById(d.g.share_content);
+        this.axj = (TextView) findViewById(d.g.share_title_view);
+        this.ddQ = (EditText) findViewById(d.g.chat_msg);
+        this.dAR = (TbImageView) findViewById(d.g.chat_group_img);
+        this.aWo = (TextView) findViewById(d.g.chat_group_desc);
+        aj.c(this.axj, d.C0096d.cp_cont_b, 1);
+        aj.c(this.ddQ, d.C0096d.cp_cont_b, 2);
+        aj.c(this.aWo, d.C0096d.cp_cont_f, 1);
+        this.ddQ.setHintTextColor(aj.getColor(d.C0096d.cp_cont_e));
+        this.ddQ.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
+        arn();
     }
 
-    public void ard() {
-        this.aMp.setFocusable(true);
-        this.aMp.setFocusableInTouchMode(true);
-        this.aMp.requestFocus();
+    public void arn() {
+        this.aMt.setFocusable(true);
+        this.aMt.setFocusableInTouchMode(true);
+        this.aMt.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.dcJ != null) {
-            return com.baidu.adp.lib.util.k.a(this.dcJ.getText(), null);
+        if (this.ddQ != null) {
+            return com.baidu.adp.lib.util.k.a(this.ddQ.getText(), null);
         }
         return null;
     }
@@ -71,15 +71,15 @@ public final class k extends LinearLayout {
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.dVf = shareFromPBMsgData;
-        wr();
+        this.dWk = shareFromPBMsgData;
+        wp();
     }
 
-    private void wr() {
-        this.axe.setText(this.dVf.getTitle());
-        BdLog.e("mData.getImageUrl()的图片URL" + this.dVf.getImageUrl());
-        this.dzN.setTag(this.dVf.getImageUrl());
-        BdLog.e("mData.getContent()的Content" + this.dVf.getContent());
-        this.aWm.setText(this.dVf.getContent());
+    private void wp() {
+        this.axj.setText(this.dWk.getTitle());
+        BdLog.e("mData.getImageUrl()的图片URL" + this.dWk.getImageUrl());
+        this.dAR.setTag(this.dWk.getImageUrl());
+        BdLog.e("mData.getContent()的Content" + this.dWk.getContent());
+        this.aWo.setText(this.dWk.getContent());
     }
 }

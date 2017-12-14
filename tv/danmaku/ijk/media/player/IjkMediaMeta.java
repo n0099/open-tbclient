@@ -2,6 +2,7 @@ package tv.danmaku.ijk.media.player;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.sapi2.base.network.Apn;
 import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -267,38 +268,38 @@ public class IjkMediaMeta {
             if (!TextUtils.isEmpty(this.mCodecName)) {
                 return this.mCodecName;
             }
-            return "N/A";
+            return Apn.APN_UNKNOWN;
         }
 
         public String getCodecShortNameInline() {
-            return !TextUtils.isEmpty(this.mCodecName) ? this.mCodecName : "N/A";
+            return !TextUtils.isEmpty(this.mCodecName) ? this.mCodecName : Apn.APN_UNKNOWN;
         }
 
         public String getResolutionInline() {
             if (this.mWidth <= 0 || this.mHeight <= 0) {
-                return "N/A";
+                return Apn.APN_UNKNOWN;
             }
             return (this.mSarNum <= 0 || this.mSarDen <= 0) ? String.format(Locale.US, "%d x %d", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight)) : String.format(Locale.US, "%d x %d [SAR %d:%d]", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight), Integer.valueOf(this.mSarNum), Integer.valueOf(this.mSarDen));
         }
 
         public String getFpsInline() {
-            return (this.mFpsNum <= 0 || this.mFpsDen <= 0) ? "N/A" : String.valueOf(this.mFpsNum / this.mFpsDen);
+            return (this.mFpsNum <= 0 || this.mFpsDen <= 0) ? Apn.APN_UNKNOWN : String.valueOf(this.mFpsNum / this.mFpsDen);
         }
 
         public String getBitrateInline() {
             if (this.mBitrate <= 0) {
-                return "N/A";
+                return Apn.APN_UNKNOWN;
             }
             return this.mBitrate < 1000 ? String.format(Locale.US, "%d bit/s", Long.valueOf(this.mBitrate)) : String.format(Locale.US, "%d kb/s", Long.valueOf(this.mBitrate / 1000));
         }
 
         public String getSampleRateInline() {
-            return this.mSampleRate <= 0 ? "N/A" : String.format(Locale.US, "%d Hz", Integer.valueOf(this.mSampleRate));
+            return this.mSampleRate <= 0 ? Apn.APN_UNKNOWN : String.format(Locale.US, "%d Hz", Integer.valueOf(this.mSampleRate));
         }
 
         public String getChannelLayoutInline() {
             if (this.mChannelLayout <= 0) {
-                return "N/A";
+                return Apn.APN_UNKNOWN;
             }
             if (this.mChannelLayout == 4) {
                 return "mono";

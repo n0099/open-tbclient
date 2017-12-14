@@ -41,7 +41,7 @@ public class e {
     private int o = 307200;
     private int p = 15;
     private int q = 1;
-    private double LA = 3.5d;
+    private double Lz = 3.5d;
     private double LY = 3.0d;
     private double LZ = 0.5d;
     private int u = 300;
@@ -60,7 +60,7 @@ public class e {
     private int Mf = 500;
     long a = 0;
     Location Mg = null;
-    Location Lv = null;
+    Location Lu = null;
     StringBuilder Mh = null;
     long e = 0;
     private byte[] Mj = new byte[4];
@@ -310,7 +310,7 @@ public class e {
                     this.q = jSONObject.getInt("chdron");
                 }
                 if (jSONObject.has("spsh")) {
-                    this.LA = jSONObject.getDouble("spsh");
+                    this.Lz = jSONObject.getDouble("spsh");
                 }
                 if (jSONObject.has("acsh")) {
                     this.LY = jSONObject.getDouble("acsh");
@@ -513,7 +513,7 @@ public class e {
                     return true;
                 }
             }
-        } else if (this.Mc >= this.LA || this.Md >= this.LY) {
+        } else if (this.Mc >= this.Lz || this.Md >= this.LY) {
             this.B = true;
             return true;
         } else if (this.w == 1 && System.currentTimeMillis() - this.Me > this.x * 1000) {
@@ -527,7 +527,7 @@ public class e {
         this.e = 0L;
         this.L = 0;
         this.Mg = null;
-        this.Lv = null;
+        this.Lu = null;
         this.Mc = 0.0f;
         this.Md = 0.0f;
     }
@@ -545,15 +545,15 @@ public class e {
         char c4 = latitude > 0 ? (char) 0 : (char) 1;
         int abs2 = Math.abs(latitude);
         if (this.L > 1) {
-            this.Lv = null;
-            this.Lv = this.Mg;
+            this.Lu = null;
+            this.Lu = this.Mg;
         }
         this.Mg = location;
-        if (this.Mg != null && this.Lv != null && this.Mg.getTime() > this.Lv.getTime() && this.Mg.getTime() - this.Lv.getTime() < TbConfig.NOTIFY_SOUND_INTERVAL) {
-            long time = this.Mg.getTime() - this.Lv.getTime();
+        if (this.Mg != null && this.Lu != null && this.Mg.getTime() > this.Lu.getTime() && this.Mg.getTime() - this.Lu.getTime() < TbConfig.NOTIFY_SOUND_INTERVAL) {
+            long time = this.Mg.getTime() - this.Lu.getTime();
             float[] fArr = new float[2];
-            Location.distanceBetween(this.Mg.getAltitude(), this.Mg.getLongitude(), this.Lv.getLatitude(), this.Lv.getLongitude(), fArr);
-            double speed = (2.0f * (fArr[0] - (this.Lv.getSpeed() * ((float) time)))) / ((float) (time * time));
+            Location.distanceBetween(this.Mg.getAltitude(), this.Mg.getLongitude(), this.Lu.getLatitude(), this.Lu.getLongitude(), fArr);
+            double speed = (2.0f * (fArr[0] - (this.Lu.getSpeed() * ((float) time)))) / ((float) (time * time));
             if (speed > this.Md) {
                 this.Md = (float) speed;
             }

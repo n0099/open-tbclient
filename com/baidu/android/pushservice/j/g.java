@@ -10,6 +10,7 @@ import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.loctp.str.BDLocManager;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.TbConfig;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -57,7 +58,7 @@ public class g {
     public static String a(Context context) {
         String bssid = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getBSSID();
         if (TextUtils.isEmpty(bssid)) {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
             CellLocation cellLocation = telephonyManager.getCellLocation();
             if (cellLocation instanceof GsmCellLocation) {
                 GsmCellLocation gsmCellLocation = (GsmCellLocation) telephonyManager.getCellLocation();

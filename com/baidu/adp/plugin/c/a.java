@@ -14,22 +14,22 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a CW = null;
-    private HashMap<String, ArrayList<Message<?>>> CV = null;
+    private static volatile a CV = null;
+    private HashMap<String, ArrayList<Message<?>>> CU = null;
 
     public static a ji() {
-        if (CW == null) {
+        if (CV == null) {
             synchronized (a.class) {
-                if (CW == null) {
-                    CW = new a();
+                if (CV == null) {
+                    CV = new a();
                 }
             }
         }
-        return CW;
+        return CV;
     }
 
     public void init() {
-        this.CV = new HashMap<>();
+        this.CU = new HashMap<>();
         jk();
         jj();
     }
@@ -43,13 +43,13 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.errNo == 0 && a.this.CV.size() > 0 && (arrayList = (ArrayList) a.this.CV.get(aVar.CU)) != null && arrayList.size() > 0) {
+                    if (aVar.errNo == 0 && a.this.CU.size() > 0 && (arrayList = (ArrayList) a.this.CU.get(aVar.CT)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.CV.remove(aVar.CU);
+                    a.this.CU.remove(aVar.CT);
                 }
             }
         });
@@ -62,17 +62,17 @@ public class a {
                 if (message == null) {
                     return false;
                 }
-                String aG = c.jU().aG(message.getCmd());
-                if (TextUtils.isEmpty(aG) || c.jU().bA(aG)) {
+                String aF = c.jU().aF(message.getCmd());
+                if (TextUtils.isEmpty(aF) || c.jU().bA(aF)) {
                     return false;
                 }
-                if (!PluginCenter.getInstance().hasInstance(aG)) {
-                    a.this.a(aG, message);
-                    return PluginCenter.getInstance().launch(aG).BJ;
-                } else if (PluginCenter.getInstance().isLoaded(aG)) {
+                if (!PluginCenter.getInstance().hasInstance(aF)) {
+                    a.this.a(aF, message);
+                    return PluginCenter.getInstance().launch(aF).BI;
+                } else if (PluginCenter.getInstance().isLoaded(aF)) {
                     return false;
                 } else {
-                    a.this.a(aG, message);
+                    a.this.a(aF, message);
                     return true;
                 }
             }
@@ -82,10 +82,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.CV.get(str);
+            ArrayList<Message<?>> arrayList = this.CU.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.CV.put(str, arrayList);
+                this.CU.put(str, arrayList);
             }
             arrayList.add(message);
         }

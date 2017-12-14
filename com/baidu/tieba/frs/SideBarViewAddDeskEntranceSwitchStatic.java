@@ -6,7 +6,7 @@ public class SideBarViewAddDeskEntranceSwitchStatic extends com.baidu.adp.lib.b.
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
+    protected void W(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a

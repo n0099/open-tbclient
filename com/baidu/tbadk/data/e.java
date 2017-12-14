@@ -8,14 +8,14 @@ import java.util.List;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId aAg = BdUniqueId.gen();
+    public static final BdUniqueId aAl = BdUniqueId.gen();
     private String fid;
     private String forumName;
     private List<AlaLiveInfoCoreData> list;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return aAg;
+        return aAl;
     }
 
     public List<AlaLiveInfoCoreData> getList() {

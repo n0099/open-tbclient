@@ -7,6 +7,8 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.sapi2.base.network.Apn;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -515,7 +517,7 @@ public class d {
     }
 
     public static boolean b(Context context) {
-        if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService("phone")).getSimCountryIso())) {
+        if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimCountryIso())) {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                 if (connectivityManager != null) {
@@ -523,7 +525,7 @@ public class d {
                         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                         if (activeNetworkInfo != null) {
                             String extraInfo = activeNetworkInfo.getExtraInfo();
-                            if (TextUtils.isEmpty(extraInfo) || extraInfo.length() < 3 || extraInfo.contains("ctwap")) {
+                            if (TextUtils.isEmpty(extraInfo) || extraInfo.length() < 3 || extraInfo.contains(Apn.APN_CTWAP)) {
                                 return false;
                             }
                             return extraInfo.regionMatches(true, extraInfo.length() - 3, "wap", 0, 3);
@@ -542,7 +544,7 @@ public class d {
     }
 
     public static boolean c(Context context) {
-        if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService("phone")).getSimCountryIso())) {
+        if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimCountryIso())) {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                 if (connectivityManager == null) {
@@ -557,7 +559,7 @@ public class d {
                     if (TextUtils.isEmpty(extraInfo) || extraInfo.length() < 3) {
                         return false;
                     }
-                    return extraInfo.contains("ctwap");
+                    return extraInfo.contains(Apn.APN_CTWAP);
                 } catch (Exception e) {
                     return false;
                 }

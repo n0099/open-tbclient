@@ -88,7 +88,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mFixedNavHeight = 0;
-        this.mBottomLineColor = d.C0082d.cp_bg_line_c;
+        this.mBottomLineColor = d.C0096d.cp_bg_line_c;
         this.mNavIsShow = true;
         this.mNavAnimatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -125,7 +125,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mFixedNavHeight = 0;
-        this.mBottomLineColor = d.C0082d.cp_bg_line_c;
+        this.mBottomLineColor = d.C0096d.cp_bg_line_c;
         this.mNavIsShow = true;
         this.mNavAnimatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -162,7 +162,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mFixedNavHeight = 0;
-        this.mBottomLineColor = d.C0082d.cp_bg_line_c;
+        this.mBottomLineColor = d.C0096d.cp_bg_line_c;
         this.mNavIsShow = true;
         this.mNavAnimatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -212,7 +212,7 @@ public class NavigationBar extends RelativeLayout {
         this.mCenterText = (TextView) this.mRootView.findViewById(d.g.center_text);
         this.mBottomLine = this.mRootView.findViewById(d.g.bottom_line);
         this.topCoverBgView = this.mRootView.findViewById(d.g.navigation_bar_view_cover_bg);
-        this.topCoverBgView.setBackgroundDrawable(aj.u(0, d.f.navigation_cover_top_bg));
+        this.topCoverBgView.setBackgroundDrawable(aj.v(0, d.f.navigation_cover_top_bg));
         this.barBgView = this.mRootView.findViewById(d.g.navigation_bar_view_bg);
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.NavigationBar);
@@ -449,7 +449,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public void setDefTextButtonColor(TextView textView) {
-        aj.i(textView, d.C0082d.navi_op_text);
+        aj.i(textView, d.C0096d.navi_op_text);
     }
 
     public TextView addTextButtonByDefTextColor(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
@@ -584,18 +584,18 @@ public class NavigationBar extends RelativeLayout {
         if (this.isAutoNight) {
             bitmapDrawable = new BitmapDrawable(aj.cS(d.f.s_navbar_bg));
         } else {
-            bitmapDrawable = new BitmapDrawable(aj.v(d.f.s_navbar_bg, i));
+            bitmapDrawable = new BitmapDrawable(aj.w(d.f.s_navbar_bg, i));
         }
         setBackgroundDrawable(bitmapDrawable);
         aj.e(this.mBottomLine, this.mBottomLineColor, i);
         onBackBtnOnChangeSkin(i);
-        aj.b(this.mTextTitle, d.C0082d.cp_cont_b, d.C0082d.s_navbar_title_color);
-        aj.b(this.mCenterText, d.C0082d.cp_cont_b, d.C0082d.s_navbar_title_color);
+        aj.b(this.mTextTitle, d.C0096d.cp_cont_b, d.C0096d.s_navbar_title_color);
+        aj.b(this.mCenterText, d.C0096d.cp_cont_b, d.C0096d.s_navbar_title_color);
         if (this.mRegisterView != null) {
-            aj.c(this.mRegisterView, d.C0082d.cp_cont_f, 1);
+            aj.c(this.mRegisterView, d.C0096d.cp_cont_f, 1);
         }
         if (this.mLoginView != null) {
-            aj.c(this.mLoginView, d.C0082d.cp_cont_f, 1);
+            aj.c(this.mLoginView, d.C0096d.cp_cont_f, 1);
         }
         initPadding();
         if (eVar instanceof TbPageContext) {

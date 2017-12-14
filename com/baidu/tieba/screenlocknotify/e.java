@@ -6,10 +6,10 @@ public class e {
     public String content;
     public int customGroupType;
     public int followStatus;
-    public boolean fxH;
-    public int gbI;
-    public String gbJ = "";
-    public long gbK;
+    public boolean fyy;
+    public int gep;
+    public String geq = "";
+    public long ger;
     public String groupId;
     public String groupName;
     public boolean isAcceptNotify;
@@ -35,7 +35,7 @@ public class e {
     }
 
     private static void e(e eVar) {
-        eVar.gbI = 0;
+        eVar.gep = 0;
         eVar.msgType = 4;
         eVar.customGroupType = 4;
         eVar.lastTime = System.currentTimeMillis();

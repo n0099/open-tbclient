@@ -14,18 +14,18 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class p extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tbadk.img.b aCV = new com.baidu.tbadk.img.b();
-    private LinkedList<ImageFileInfo> eVB = null;
-    private a eVC;
+    private com.baidu.tbadk.img.b aDa = new com.baidu.tbadk.img.b();
+    private LinkedList<ImageFileInfo> eWE = null;
+    private a eWF;
     private Context mContext;
     private int mScreenWidth;
     private int mWidth;
 
     /* loaded from: classes.dex */
     protected interface a {
-        void pR(int i);
+        void pY(int i);
 
-        void pS(int i);
+        void pZ(int i);
     }
 
     public p(Context context) {
@@ -37,19 +37,19 @@ public class p extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eVB == null) {
+        if (this.eWE == null) {
             return 0;
         }
-        return this.eVB.size();
+        return this.eWE.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.eVB == null) {
+        if (this.eWE == null) {
             return null;
         }
-        if (this.eVB.size() - 1 >= i) {
-            return this.eVB.get(i);
+        if (this.eWE.size() - 1 >= i) {
+            return this.eWE.get(i);
         }
         return 0;
     }
@@ -60,7 +60,7 @@ public class p extends BaseAdapter implements View.OnClickListener {
     }
 
     public void p(LinkedList<ImageFileInfo> linkedList) {
-        this.eVB = linkedList;
+        this.eWE = linkedList;
     }
 
     @Override // android.widget.Adapter
@@ -69,34 +69,34 @@ public class p extends BaseAdapter implements View.OnClickListener {
         if (view == null) {
             bVar = new b();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.pb_editor_imgs_item, (ViewGroup) null);
-            bVar.emc = (TbImageView) view.findViewById(d.g.iv_photo_live);
-            bVar.eVE = (LinearLayout) view.findViewById(d.g.layout_del);
-            bVar.eVF = (ImageView) view.findViewById(d.g.delete_photo_live);
-            bVar.emc.setOnClickListener(this);
-            bVar.eVE.setOnClickListener(this);
-            bVar.emc.setGifIconSupport(true);
-            bVar.emc.setLongIconSupport(true);
-            com.baidu.tbadk.core.util.aj.j(bVar.eVF, d.f.icon_delete_img);
-            bVar.emc.setTagPaddingDis(com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds16), com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds10));
-            ViewGroup.LayoutParams layoutParams = bVar.emc.getLayoutParams();
+            bVar.eni = (TbImageView) view.findViewById(d.g.iv_photo_live);
+            bVar.eWH = (LinearLayout) view.findViewById(d.g.layout_del);
+            bVar.eWI = (ImageView) view.findViewById(d.g.delete_photo_live);
+            bVar.eni.setOnClickListener(this);
+            bVar.eWH.setOnClickListener(this);
+            bVar.eni.setGifIconSupport(true);
+            bVar.eni.setLongIconSupport(true);
+            com.baidu.tbadk.core.util.aj.j(bVar.eWI, d.f.icon_delete_img);
+            bVar.eni.setTagPaddingDis(com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds16), com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds10));
+            ViewGroup.LayoutParams layoutParams = bVar.eni.getLayoutParams();
             layoutParams.width = this.mWidth;
             layoutParams.height = this.mWidth;
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
-        if (this.eVB != null && this.eVB.size() - 1 >= i) {
-            ImageFileInfo imageFileInfo = this.eVB.get(i);
+        if (this.eWE != null && this.eWE.size() - 1 >= i) {
+            ImageFileInfo imageFileInfo = this.eWE.get(i);
             if (imageFileInfo != null) {
-                ImageOperation I = com.baidu.tbadk.img.effect.d.I(this.mWidth, this.mWidth);
+                ImageOperation J = com.baidu.tbadk.img.effect.d.J(this.mWidth, this.mWidth);
                 imageFileInfo.clearPageActions();
-                imageFileInfo.addPageAction(I);
-                com.baidu.adp.widget.a.a a2 = this.aCV.a(imageFileInfo, true);
-                bVar.emc.setTag(imageFileInfo.toCachedKey(true));
+                imageFileInfo.addPageAction(J);
+                com.baidu.adp.widget.a.a a2 = this.aDa.a(imageFileInfo, true);
+                bVar.eni.setTag(imageFileInfo.toCachedKey(true));
                 if (a2 != null) {
-                    bVar.emc.invalidate();
+                    bVar.eni.invalidate();
                 } else {
-                    this.aCV.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.pb.pb.main.p.1
+                    this.aDa.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.pb.pb.main.p.1
                         @Override // com.baidu.tbadk.imageManager.b
                         public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
                             TbImageView tbImageView = (TbImageView) viewGroup.findViewWithTag(str);
@@ -106,12 +106,12 @@ public class p extends BaseAdapter implements View.OnClickListener {
                         }
                     }, true);
                 }
-                bVar.emc.setTagStr(this.mContext.getString(d.j.edit));
+                bVar.eni.setTagStr(this.mContext.getString(d.j.edit));
             }
-            bVar.emc.setTag(bVar.emc.getId(), Integer.valueOf(i));
+            bVar.eni.setTag(bVar.eni.getId(), Integer.valueOf(i));
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(d.e.ds8);
-            bVar.emc.setTagPaddingDis(dimensionPixelSize, dimensionPixelSize);
-            bVar.eVE.setTag(Integer.valueOf(i));
+            bVar.eni.setTagPaddingDis(dimensionPixelSize, dimensionPixelSize);
+            bVar.eWH.setTag(Integer.valueOf(i));
         }
         return view;
     }
@@ -120,23 +120,23 @@ public class p extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == d.g.layout_del && (view.getTag() instanceof Integer)) {
-            if (this.eVC != null) {
-                this.eVC.pR(((Integer) view.getTag()).intValue());
+            if (this.eWF != null) {
+                this.eWF.pY(((Integer) view.getTag()).intValue());
             }
-        } else if (id == d.g.iv_photo_live && (view.getTag(view.getId()) instanceof Integer) && this.eVC != null) {
-            this.eVC.pS(((Integer) view.getTag(view.getId())).intValue());
+        } else if (id == d.g.iv_photo_live && (view.getTag(view.getId()) instanceof Integer) && this.eWF != null) {
+            this.eWF.pZ(((Integer) view.getTag(view.getId())).intValue());
         }
     }
 
     public void a(a aVar) {
-        this.eVC = aVar;
+        this.eWF = aVar;
     }
 
     /* loaded from: classes.dex */
     class b {
-        public LinearLayout eVE;
-        private ImageView eVF;
-        public TbImageView emc;
+        public LinearLayout eWH;
+        private ImageView eWI;
+        public TbImageView eni;
 
         b() {
         }

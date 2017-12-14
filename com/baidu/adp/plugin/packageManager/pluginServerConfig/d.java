@@ -7,32 +7,32 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d DO;
-    private PluginNetConfigInfos DP = new PluginNetConfigInfos();
-    private b DQ;
+    private static volatile d DN;
+    private PluginNetConfigInfos DO = new PluginNetConfigInfos();
+    private b DP;
 
     public static d jO() {
-        if (DO == null) {
+        if (DN == null) {
             synchronized (d.class) {
-                if (DO == null) {
-                    DO = new d();
+                if (DN == null) {
+                    DN = new d();
                 }
             }
         }
-        return DO;
+        return DN;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, final a aVar) {
         c c = c(pluginSettings);
-        if (this.DQ != null) {
-            this.DQ.a(z, c, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
+        if (this.DP != null) {
+            this.DP.a(z, c, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
                 @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
                 public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos) {
                     if (z2) {
-                        d.this.DP = pluginNetConfigInfos;
+                        d.this.DO = pluginNetConfigInfos;
                     }
                     if (aVar != null) {
-                        aVar.a(z2, cVar, d.this.DP);
+                        aVar.a(z2, cVar, d.this.DO);
                     }
                 }
             });
@@ -55,10 +55,10 @@ public class d {
     }
 
     public PluginNetConfigInfos jP() {
-        return this.DP;
+        return this.DO;
     }
 
     public void a(b bVar) {
-        this.DQ = bVar;
+        this.DP = bVar;
     }
 }

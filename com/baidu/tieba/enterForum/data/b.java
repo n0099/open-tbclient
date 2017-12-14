@@ -10,16 +10,16 @@ import tbclient.ForumRecommend.DataRes;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class b {
-    private boolean BJ;
-    private List<com.baidu.tieba.enterForum.multiConcern.b> csG;
-    private HotSearchInfoData csH;
+    private boolean BI;
+    private List<com.baidu.tieba.enterForum.multiConcern.b> csP;
+    private HotSearchInfoData csQ;
     private int time = 0;
-    private g csE = new g();
-    private j csF = new j();
+    private g csN = new g();
+    private j csO = new j();
 
     public b() {
-        this.BJ = true;
-        this.BJ = false;
+        this.BI = true;
+        this.BI = false;
     }
 
     public void setTime(int i) {
@@ -27,7 +27,7 @@ public class b {
     }
 
     public HotSearchInfoData getHotSearchInfoData() {
-        return this.csH;
+        return this.csQ;
     }
 
     public void a(DataRes dataRes) {
@@ -42,20 +42,20 @@ public class b {
             try {
                 setTime(dataRes.time.intValue());
                 if (dataRes.like_forum != null) {
-                    this.csE.aB(dataRes.like_forum);
+                    this.csN.aB(dataRes.like_forum);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.csF.aC(dataRes.recommend_forum_info);
+                    this.csO.aC(dataRes.recommend_forum_info);
                 }
                 if (dataRes.hot_search != null) {
-                    this.csH = new HotSearchInfoData();
-                    this.csH.a(dataRes.hot_search);
+                    this.csQ = new HotSearchInfoData();
+                    this.csQ.a(dataRes.hot_search);
                 }
                 if (!v.w(dataRes.tag_recommend_forum)) {
-                    if (this.csG == null) {
-                        this.csG = new ArrayList();
+                    if (this.csP == null) {
+                        this.csP = new ArrayList();
                     } else {
-                        this.csG.clear();
+                        this.csP.clear();
                     }
                     int i2 = 0;
                     for (RecommendForumInfo recommendForumInfo : dataRes.tag_recommend_forum) {
@@ -70,7 +70,7 @@ public class b {
                                 bVar.followNum = recommendForumInfo.member_count.intValue();
                                 bVar.threadNum = recommendForumInfo.thread_count.intValue();
                                 bVar.isSelected = true;
-                                this.csG.add(bVar);
+                                this.csP.add(bVar);
                                 i = i2 + 1;
                             }
                             i2 = i;
@@ -80,46 +80,46 @@ public class b {
                     }
                     return;
                 }
-                this.csG = null;
+                this.csP = null;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public g agF() {
-        return this.csE;
+    public g agN() {
+        return this.csN;
     }
 
     public void a(g gVar) {
-        this.csE = gVar;
+        this.csN = gVar;
     }
 
     public void a(j jVar) {
-        this.csF = jVar;
+        this.csO = jVar;
     }
 
-    public List<com.baidu.tieba.enterForum.multiConcern.b> agG() {
-        return this.csG;
+    public List<com.baidu.tieba.enterForum.multiConcern.b> agO() {
+        return this.csP;
     }
 
     public void aA(List<com.baidu.tieba.enterForum.multiConcern.b> list) {
-        this.csG = list;
+        this.csP = list;
     }
 
     public void av(boolean z) {
-        this.BJ = z;
+        this.BI = z;
     }
 
     public boolean isSuccess() {
-        return this.BJ;
+        return this.BI;
     }
 
-    public boolean agH() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.b.azY.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.azY.longValue();
+    public boolean agP() {
+        return System.currentTimeMillis() / com.baidu.tbadk.data.b.aAd.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.aAd.longValue();
     }
 
     public void a(HotSearchInfoData hotSearchInfoData) {
-        this.csH = hotSearchInfoData;
+        this.csQ = hotSearchInfoData;
     }
 }

@@ -12,7 +12,6 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -36,7 +35,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class d {
-    public static boolean RY = true;
+    public static boolean RV = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new CustomMessageListener(0) { // from class: com.baidu.tbadk.browser.d.1
@@ -44,11 +43,11 @@ public class d {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
-                    a.az(TbadkCoreApplication.getInst());
+                    a.aw(TbadkCoreApplication.getInst());
                 }
             }
         });
-        av.vL().a(new av.c() { // from class: com.baidu.tbadk.browser.d.2
+        av.vI().a(new av.c() { // from class: com.baidu.tbadk.browser.d.2
             @Override // com.baidu.tbadk.core.util.av.c
             public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, av.d dVar, boolean z2) {
                 if (z2) {
@@ -59,16 +58,16 @@ public class d {
             }
         });
         com.baidu.adp.lib.b.d.eV().a(new com.baidu.adp.lib.b.b("switch_mbaidu_startup", 1, null));
+        oi();
         ok();
-        om();
-        on();
+        ol();
     }
 
-    private static void ok() {
-        av.vL().a(new av.a() { // from class: com.baidu.tbadk.browser.d.3
+    private static void oi() {
+        av.vI().a(new av.a() { // from class: com.baidu.tbadk.browser.d.3
             @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-                Bundle hc;
+                Bundle ha;
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
@@ -97,7 +96,7 @@ public class d {
                     UtilHelper.smsTo(tbPageContext.getPageActivity(), substring, str4);
                     return 0;
                 } else if (str.contains("jump=outer")) {
-                    a.R(tbPageContext.getPageActivity(), str);
+                    a.Q(tbPageContext.getPageActivity(), str);
                     return 1;
                 } else if ((str.contains("jump=finish_this_page") || str.startsWith("closewebview://")) && tbPageContext.getPageActivity() != null) {
                     tbPageContext.getPageActivity().finish();
@@ -124,7 +123,7 @@ public class d {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, z.as(str, "bindid=")));
                     tbPageContext.getPageActivity().finish();
                     return 1;
-                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (hc = z.hc(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(hc.getString("path"))) {
+                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (ha = z.ha(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(ha.getString("path"))) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
                     return 0;
                 } else {
@@ -215,7 +214,7 @@ public class d {
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
         String cf = cf(str);
-        if (!ci(cf) && ol() && ck("com.baidu.searchbox") && cj(cf) && RY) {
+        if (!ci(cf) && oj() && ck("com.baidu.searchbox") && cj(cf) && RV) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;
@@ -227,7 +226,7 @@ public class d {
         return WhiteListData.createBySP().checkUrl(str);
     }
 
-    private static boolean ol() {
+    private static boolean oj() {
         return com.baidu.adp.lib.b.d.eV().af("switch_mbaidu_startup") == 1;
     }
 
@@ -272,7 +271,7 @@ public class d {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    a.f(TbPageContext.this.getPageActivity(), str2, cg);
+                    a.e(TbPageContext.this.getPageActivity(), str2, cg);
                 }
             }, new a.b() { // from class: com.baidu.tbadk.browser.d.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -281,12 +280,12 @@ public class d {
                 }
             }, cg);
         } else {
-            a.f(tbPageContext.getPageActivity(), str2, cg);
+            a.e(tbPageContext.getPageActivity(), str2, cg);
         }
     }
 
-    private static void om() {
-        av.vL().a(new av.a() { // from class: com.baidu.tbadk.browser.d.6
+    private static void ok() {
+        av.vI().a(new av.a() { // from class: com.baidu.tbadk.browser.d.6
             @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 PbActivityConfig createNormalCfg;
@@ -318,7 +317,7 @@ public class d {
                     tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(queryParameter3, "lego")));
                     return 0;
                 } else if ("person".equalsIgnoreCase(parse.getAuthority())) {
-                    String queryParameter4 = parse.getQueryParameter(SapiAccountManager.SESSION_UID);
+                    String queryParameter4 = parse.getQueryParameter("uid");
                     String queryParameter5 = parse.getQueryParameter("uname");
                     if (queryParameter4 == null || queryParameter4.length() <= 0 || queryParameter5 == null || queryParameter5.length() <= 0) {
                         return 3;
@@ -344,8 +343,8 @@ public class d {
         });
     }
 
-    private static void on() {
-        av.vL().a(new av.a() { // from class: com.baidu.tbadk.browser.d.7
+    private static void ol() {
+        av.vI().a(new av.a() { // from class: com.baidu.tbadk.browser.d.7
             @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

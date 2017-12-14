@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.frs.ae;
+import com.baidu.tieba.frs.af;
 /* loaded from: classes.dex */
 public class AlaGameFrsLiveTabStatic {
     static {
@@ -14,13 +14,13 @@ public class AlaGameFrsLiveTabStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
-                    if (data instanceof ae) {
-                        ae aeVar = (ae) data;
+                    if (data instanceof af) {
+                        af afVar = (af) data;
                         c cVar = new c();
-                        cVar.setForumId(aeVar.getForumId());
-                        cVar.setForumName(aeVar.getForumName());
-                        cVar.setForumGameLabel(aeVar.getForumGameLabel());
-                        cVar.a(aeVar);
+                        cVar.setForumId(afVar.getForumId());
+                        cVar.setForumName(afVar.getForumName());
+                        cVar.setForumGameLabel(afVar.getForumGameLabel());
+                        cVar.a(afVar);
                     }
                 }
             }

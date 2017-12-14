@@ -1,4 +1,6 @@
 package com.xiaomi.xmpush.thrift;
+
+import com.baidu.sapi2.activity.BaseActivity;
 /* loaded from: classes2.dex */
 public enum e {
     UploadSwitch(1),
@@ -46,7 +48,7 @@ public enum e {
     CollectionDataPluginVersion(1001),
     CollectionPluginDownloadUrl(1002),
     CollectionPluginMd5(1003),
-    CollectionPluginForceStop(1004);
+    CollectionPluginForceStop(BaseActivity.FILECHOOSER_RESULTCODE);
     
     private final int U;
 

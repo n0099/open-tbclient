@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
-    private AlphaAnimation fjJ;
+    private AlphaAnimation fkH;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -34,17 +34,17 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
-    public void aM(boolean z) {
-        this.apk = z;
+    public void aN(boolean z) {
+        this.apn = z;
         if (z) {
             setVisibility(8);
             setClickable(false);
-            setText(this.api);
+            setText(this.apl);
             setPadding(0, 0, 0, 0);
         } else {
             setVisibility(0);
             setClickable(true);
-            setText(this.apj);
+            setText(this.apm);
             setPadding(getResources().getDimensionPixelSize(d.e.tbds18), 0, getResources().getDimensionPixelSize(d.e.tbds12), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -53,14 +53,14 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void i(boolean z, boolean z2) {
         if (z2) {
-            this.apk = z;
+            this.apn = z;
             if (getVisibility() != 8) {
                 if (z) {
-                    if (this.fjJ == null) {
-                        this.fjJ = new AlphaAnimation(1.0f, 0.0f);
-                        this.fjJ.setDuration(500L);
-                        this.fjJ.setFillAfter(true);
-                        this.fjJ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
+                    if (this.fkH == null) {
+                        this.fkH = new AlphaAnimation(1.0f, 0.0f);
+                        this.fkH.setDuration(500L);
+                        this.fkH.setFillAfter(true);
+                        this.fkH.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
                             @Override // android.view.animation.Animation.AnimationListener
                             public void onAnimationStart(Animation animation) {
                             }
@@ -76,27 +76,27 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                             }
                         });
                     } else {
-                        this.fjJ.cancel();
+                        this.fkH.cancel();
                     }
-                    startAnimation(this.fjJ);
+                    startAnimation(this.fkH);
                     return;
                 }
                 setVisibility(0);
                 setClickable(true);
-                setText(this.apj);
+                setText(this.apm);
                 setPadding(getResources().getDimensionPixelSize(d.e.tbds18), 0, getResources().getDimensionPixelSize(d.e.tbds12), 0);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             return;
         }
-        aM(z);
+        aN(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        aj.c(this, d.C0082d.cp_cont_g, 1);
-        if (this.apk) {
+        aj.c(this, d.C0096d.cp_cont_g, 1);
+        if (this.apn) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             setBackgroundDrawable(null);
             return;

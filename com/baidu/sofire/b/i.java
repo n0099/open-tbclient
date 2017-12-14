@@ -1,6 +1,7 @@
 package com.baidu.sofire.b;
 
 import android.accounts.NetworkErrorException;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Proxy;
 import android.net.TrafficStats;
@@ -35,6 +36,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.mime.MIME;
+@SuppressLint({"NewApi"})
 /* loaded from: classes.dex */
 public final class i {
     Context a;
@@ -61,13 +63,14 @@ public final class i {
         this.a = context;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00bf A[Catch: Throwable -> 0x0212, TRY_LEAVE, TryCatch #5 {Throwable -> 0x0212, blocks: (B:35:0x00a5, B:37:0x00bf, B:32:0x009b, B:30:0x0092), top: B:83:0x0092 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00bf A[Catch: Throwable -> 0x0229, TRY_LEAVE, TryCatch #6 {Throwable -> 0x0229, blocks: (B:35:0x00a5, B:37:0x00bf, B:30:0x0092, B:32:0x009b), top: B:88:0x0092 }] */
     /* JADX WARN: Removed duplicated region for block: B:40:0x00f9  */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x0092 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x012b  */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x0092 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private HttpURLConnection no() throws IOException {
+    private HttpURLConnection nm() throws IOException {
         String str;
         HttpURLConnection httpURLConnection;
         String[] e;
@@ -142,7 +145,10 @@ public final class i {
                 if (e == null) {
                 }
                 str2 = "3";
-                httpURLConnection.setRequestProperty("User-Agent", "eos/" + str2 + "/" + l.a(this.a) + "/2.0.8");
+                String str3 = "sofire";
+                if ("sofire".equals("sofire")) {
+                }
+                httpURLConnection.setRequestProperty("User-Agent", str3 + "/" + str2 + "/" + m.a(this.a) + "/3.0.6.1");
                 httpURLConnection.setRequestProperty("Pragma", "no-cache");
                 httpURLConnection.setRequestProperty("Accept", "*/*");
                 httpURLConnection.setRequestProperty(MIME.CONTENT_TYPE, "application/x-www-form-urlencoded");
@@ -183,7 +189,11 @@ public final class i {
         } else {
             str2 = "3";
         }
-        httpURLConnection.setRequestProperty("User-Agent", "eos/" + str2 + "/" + l.a(this.a) + "/2.0.8");
+        String str32 = "sofire";
+        if ("sofire".equals("sofire")) {
+            str32 = "eos";
+        }
+        httpURLConnection.setRequestProperty("User-Agent", str32 + "/" + str2 + "/" + m.a(this.a) + "/3.0.6.1");
         httpURLConnection.setRequestProperty("Pragma", "no-cache");
         httpURLConnection.setRequestProperty("Accept", "*/*");
         httpURLConnection.setRequestProperty(MIME.CONTENT_TYPE, "application/x-www-form-urlencoded");
@@ -282,57 +292,6 @@ public final class i {
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, IF, SGET, INVOKE, MOVE_EXCEPTION] complete} */
-    public final String g(String str, byte[] bArr) throws IOException, InterruptedException, NetworkErrorException {
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream = null;
-        try {
-            if (Build.VERSION.SDK_INT >= 15) {
-                TrafficStats.setThreadStatsTag(155648);
-            }
-        } catch (Throwable th) {
-            d.a(th);
-        }
-        try {
-            this.c = "POST";
-            this.d = str;
-            try {
-                httpURLConnection = no();
-                try {
-                    inputStream = a(bArr, httpURLConnection);
-                    String a2 = a(inputStream);
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    return a2;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                httpURLConnection = null;
-            }
-        } finally {
-            try {
-                if (Build.VERSION.SDK_INT >= 15) {
-                    TrafficStats.clearThreadStatsTag();
-                }
-            } catch (Throwable th4) {
-                d.a(th4);
-            }
-        }
-    }
-
     private static byte[] b(InputStream inputStream) throws IOException, InterruptedException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         byte[] bArr = new byte[1024];
@@ -346,234 +305,6 @@ public final class i {
                 return byteArray;
             }
         }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, IF, SGET, INVOKE, MOVE_EXCEPTION] complete} */
-    public final String a(String str) throws IOException, InterruptedException, NetworkErrorException {
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream = null;
-        try {
-            if (Build.VERSION.SDK_INT >= 15) {
-                TrafficStats.setThreadStatsTag(155648);
-            }
-        } catch (Throwable th) {
-            d.a(th);
-        }
-        try {
-            String str2 = "u=" + str;
-            com.baidu.sofire.b.a();
-            try {
-                this.c = "GET";
-                this.d = str;
-                httpURLConnection = no();
-                try {
-                    inputStream = a(null, httpURLConnection);
-                    String a2 = a(inputStream);
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    return a2;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                httpURLConnection = null;
-            }
-        } finally {
-            try {
-                if (Build.VERSION.SDK_INT >= 15) {
-                    TrafficStats.clearThreadStatsTag();
-                }
-            } catch (Throwable th4) {
-                d.a(th4);
-            }
-        }
-    }
-
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [501=7] */
-    public final boolean b(java.lang.String r7, java.io.File r8) {
-        /*
-            r6 = this;
-            r3 = 0
-            r0 = 0
-            r4 = 15
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L30
-            if (r1 < r4) goto Le
-            r1 = 155648(0x26000, float:2.1811E-40)
-            android.net.TrafficStats.setThreadStatsTag(r1)     // Catch: java.lang.Throwable -> L30
-        Le:
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Ld9
-            java.lang.String r2 = "u="
-            r1.<init>(r2)     // Catch: java.lang.Throwable -> Ld9
-            java.lang.StringBuilder r1 = r1.append(r7)     // Catch: java.lang.Throwable -> Ld9
-            r1.toString()     // Catch: java.lang.Throwable -> Ld9
-            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> Ld9
-            android.content.Context r1 = r6.a     // Catch: java.lang.Throwable -> Ld9
-            boolean r1 = com.baidu.sofire.b.d.d(r1)     // Catch: java.lang.Throwable -> Ld9
-            if (r1 != 0) goto L3a
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L35
-            if (r1 < r4) goto L2f
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L35
-        L2f:
-            return r0
-        L30:
-            r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
-            goto Le
-        L35:
-            r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
-            goto L2f
-        L3a:
-            boolean r1 = android.text.TextUtils.isEmpty(r7)     // Catch: java.lang.Throwable -> Ld9
-            if (r1 == 0) goto L4d
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L48
-            if (r1 < r4) goto L2f
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L48
-            goto L2f
-        L48:
-            r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
-            goto L2f
-        L4d:
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Ld9
-            java.lang.String r2 = "f= "
-            r1.<init>(r2)     // Catch: java.lang.Throwable -> Ld9
-            java.lang.StringBuilder r1 = r1.append(r8)     // Catch: java.lang.Throwable -> Ld9
-            r1.toString()     // Catch: java.lang.Throwable -> Ld9
-            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> Ld9
-            java.lang.String r1 = "GET"
-            r6.c = r1     // Catch: java.lang.Throwable -> L9b
-            r6.d = r7     // Catch: java.lang.Throwable -> L9b
-            java.net.HttpURLConnection r2 = r6.no()     // Catch: java.lang.Throwable -> L9b
-            java.io.InputStream r3 = r6.g(r2)     // Catch: java.lang.Throwable -> L104
-            boolean r1 = r6.b(r3, r8)     // Catch: java.lang.Throwable -> L104
-            if (r3 == 0) goto L77
-            r3.close()     // Catch: java.lang.Throwable -> L85
-        L77:
-            if (r2 == 0) goto L7c
-            r2.disconnect()     // Catch: java.lang.Throwable -> L85
-        L7c:
-            int r0 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L96
-            if (r0 < r4) goto L83
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L96
-        L83:
-            r0 = r1
-            goto L2f
-        L85:
-            r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)     // Catch: java.lang.Throwable -> Ld9
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L91
-            if (r1 < r4) goto L2f
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L91
-            goto L2f
-        L91:
-            r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
-            goto L2f
-        L96:
-            r0 = move-exception
-            com.baidu.sofire.b.d.a(r0)
-            goto L83
-        L9b:
-            r1 = move-exception
-            r2 = r3
-        L9d:
-            com.baidu.sofire.b.d.a(r1)     // Catch: java.lang.Throwable -> Lff
-            if (r3 == 0) goto La5
-            r3.close()     // Catch: java.lang.Throwable -> Lb9
-        La5:
-            if (r2 == 0) goto Laa
-            r2.disconnect()     // Catch: java.lang.Throwable -> Lb9
-        Laa:
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> Lb3
-            if (r1 < r4) goto L2f
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> Lb3
-            goto L2f
-        Lb3:
-            r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
-            goto L2f
-        Lb9:
-            r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)     // Catch: java.lang.Throwable -> Ld9
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> Lc6
-            if (r1 < r4) goto L2f
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> Lc6
-            goto L2f
-        Lc6:
-            r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
-            goto L2f
-        Lcc:
-            r1 = move-exception
-            r2 = r3
-        Lce:
-            if (r2 == 0) goto Ld3
-            r2.close()     // Catch: java.lang.Throwable -> Le2
-        Ld3:
-            if (r3 == 0) goto Ld8
-            r3.disconnect()     // Catch: java.lang.Throwable -> Le2
-        Ld8:
-            throw r1     // Catch: java.lang.Throwable -> Ld9
-        Ld9:
-            r0 = move-exception
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> Lf5
-            if (r1 < r4) goto Le1
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> Lf5
-        Le1:
-            throw r0
-        Le2:
-            r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)     // Catch: java.lang.Throwable -> Ld9
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> Lef
-            if (r1 < r4) goto L2f
-            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> Lef
-            goto L2f
-        Lef:
-            r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
-            goto L2f
-        Lf5:
-            r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
-            goto Le1
-        Lfa:
-            r1 = move-exception
-            r5 = r2
-            r2 = r3
-            r3 = r5
-            goto Lce
-        Lff:
-            r1 = move-exception
-            r5 = r2
-            r2 = r3
-            r3 = r5
-            goto Lce
-        L104:
-            r1 = move-exception
-            goto L9d
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.b.i.b(java.lang.String, java.io.File):boolean");
     }
 
     private boolean b(InputStream inputStream, File file) {
@@ -641,25 +372,22 @@ public final class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements X509TrustManager {
-        private X509TrustManager Qj;
+        private X509TrustManager Qm;
 
         a(X509TrustManager x509TrustManager) {
-            this.Qj = null;
-            this.Qj = x509TrustManager;
+            this.Qm = null;
+            this.Qm = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            com.baidu.sofire.b.a();
-            this.Qj.checkClientTrusted(x509CertificateArr, str);
+            this.Qm.checkClientTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            com.baidu.sofire.b.a();
             try {
-                this.Qj.checkServerTrusted(x509CertificateArr, str);
-                com.baidu.sofire.b.a();
+                this.Qm.checkServerTrusted(x509CertificateArr, str);
             } catch (CertificateException e) {
                 d.a(e);
                 for (Throwable th = e; th != null; th = th.getCause()) {
@@ -676,8 +404,276 @@ public final class i {
 
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
-            com.baidu.sofire.b.a();
-            return this.Qj.getAcceptedIssuers();
+            return this.Qm.getAcceptedIssuers();
         }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, IF, SGET, INVOKE, MOVE_EXCEPTION] complete} */
+    public final String g(String str, byte[] bArr) throws IOException, InterruptedException, NetworkErrorException {
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream = null;
+        try {
+            if (Build.VERSION.SDK_INT >= 15) {
+                TrafficStats.setThreadStatsTag(155648);
+            }
+        } catch (Throwable th) {
+            d.a(th);
+        }
+        try {
+            this.c = "POST";
+            this.d = str;
+            try {
+                httpURLConnection = nm();
+                try {
+                    inputStream = a(bArr, httpURLConnection);
+                    String a2 = a(inputStream);
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    return a2;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    throw th;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                httpURLConnection = null;
+            }
+        } finally {
+            try {
+                if (Build.VERSION.SDK_INT >= 15) {
+                    TrafficStats.clearThreadStatsTag();
+                }
+            } catch (Throwable th4) {
+                d.a(th4);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, IF, SGET, INVOKE, MOVE_EXCEPTION] complete} */
+    public final String a(String str) throws IOException, InterruptedException, NetworkErrorException {
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream = null;
+        try {
+            if (Build.VERSION.SDK_INT >= 15) {
+                TrafficStats.setThreadStatsTag(155648);
+            }
+        } catch (Throwable th) {
+            d.a(th);
+        }
+        try {
+            try {
+                this.c = "GET";
+                this.d = str;
+                httpURLConnection = nm();
+                try {
+                    inputStream = a(null, httpURLConnection);
+                    String a2 = a(inputStream);
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    return a2;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    throw th;
+                }
+            } finally {
+                try {
+                    if (Build.VERSION.SDK_INT >= 15) {
+                        TrafficStats.clearThreadStatsTag();
+                    }
+                } catch (Throwable th3) {
+                    d.a(th3);
+                }
+            }
+        } catch (Throwable th4) {
+            th = th4;
+            httpURLConnection = null;
+        }
+    }
+
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [508=4] */
+    public final boolean b(java.lang.String r7, java.io.File r8) {
+        /*
+            r6 = this;
+            r3 = 0
+            r0 = 0
+            r4 = 15
+            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L1e
+            if (r1 < r4) goto Le
+            r1 = 155648(0x26000, float:2.1811E-40)
+            android.net.TrafficStats.setThreadStatsTag(r1)     // Catch: java.lang.Throwable -> L1e
+        Le:
+            android.content.Context r1 = r6.a     // Catch: java.lang.Throwable -> Lbe
+            boolean r1 = com.baidu.sofire.b.d.d(r1)     // Catch: java.lang.Throwable -> Lbe
+            if (r1 != 0) goto L28
+            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L23
+            if (r1 < r4) goto L1d
+            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L23
+        L1d:
+            return r0
+        L1e:
+            r1 = move-exception
+            com.baidu.sofire.b.d.a(r1)
+            goto Le
+        L23:
+            r1 = move-exception
+            com.baidu.sofire.b.d.a(r1)
+            goto L1d
+        L28:
+            boolean r1 = android.text.TextUtils.isEmpty(r7)     // Catch: java.lang.Throwable -> Lbe
+            if (r1 == 0) goto L3b
+            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L36
+            if (r1 < r4) goto L1d
+            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L36
+            goto L1d
+        L36:
+            r1 = move-exception
+            com.baidu.sofire.b.d.a(r1)
+            goto L1d
+        L3b:
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lbe
+            java.lang.String r2 = "f= "
+            r1.<init>(r2)     // Catch: java.lang.Throwable -> Lbe
+            r1.append(r8)     // Catch: java.lang.Throwable -> Lbe
+            java.lang.String r1 = "GET"
+            r6.c = r1     // Catch: java.lang.Throwable -> L82
+            r6.d = r7     // Catch: java.lang.Throwable -> L82
+            java.net.HttpURLConnection r2 = r6.nm()     // Catch: java.lang.Throwable -> L82
+            java.io.InputStream r3 = r6.g(r2)     // Catch: java.lang.Throwable -> Le9
+            boolean r1 = r6.b(r3, r8)     // Catch: java.lang.Throwable -> Le9
+            if (r3 == 0) goto L5e
+            r3.close()     // Catch: java.lang.Throwable -> L6c
+        L5e:
+            if (r2 == 0) goto L63
+            r2.disconnect()     // Catch: java.lang.Throwable -> L6c
+        L63:
+            int r0 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L7d
+            if (r0 < r4) goto L6a
+            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L7d
+        L6a:
+            r0 = r1
+            goto L1d
+        L6c:
+            r1 = move-exception
+            com.baidu.sofire.b.d.a(r1)     // Catch: java.lang.Throwable -> Lbe
+            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L78
+            if (r1 < r4) goto L1d
+            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L78
+            goto L1d
+        L78:
+            r1 = move-exception
+            com.baidu.sofire.b.d.a(r1)
+            goto L1d
+        L7d:
+            r0 = move-exception
+            com.baidu.sofire.b.d.a(r0)
+            goto L6a
+        L82:
+            r1 = move-exception
+            r2 = r3
+        L84:
+            com.baidu.sofire.b.d.a(r1)     // Catch: java.lang.Throwable -> Le4
+            if (r3 == 0) goto L8c
+            r3.close()     // Catch: java.lang.Throwable -> L9e
+        L8c:
+            if (r2 == 0) goto L91
+            r2.disconnect()     // Catch: java.lang.Throwable -> L9e
+        L91:
+            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L99
+            if (r1 < r4) goto L1d
+            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> L99
+            goto L1d
+        L99:
+            r1 = move-exception
+            com.baidu.sofire.b.d.a(r1)
+            goto L1d
+        L9e:
+            r1 = move-exception
+            com.baidu.sofire.b.d.a(r1)     // Catch: java.lang.Throwable -> Lbe
+            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> Lab
+            if (r1 < r4) goto L1d
+            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> Lab
+            goto L1d
+        Lab:
+            r1 = move-exception
+            com.baidu.sofire.b.d.a(r1)
+            goto L1d
+        Lb1:
+            r1 = move-exception
+            r2 = r3
+        Lb3:
+            if (r2 == 0) goto Lb8
+            r2.close()     // Catch: java.lang.Throwable -> Lc7
+        Lb8:
+            if (r3 == 0) goto Lbd
+            r3.disconnect()     // Catch: java.lang.Throwable -> Lc7
+        Lbd:
+            throw r1     // Catch: java.lang.Throwable -> Lbe
+        Lbe:
+            r0 = move-exception
+            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> Lda
+            if (r1 < r4) goto Lc6
+            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> Lda
+        Lc6:
+            throw r0
+        Lc7:
+            r1 = move-exception
+            com.baidu.sofire.b.d.a(r1)     // Catch: java.lang.Throwable -> Lbe
+            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> Ld4
+            if (r1 < r4) goto L1d
+            android.net.TrafficStats.clearThreadStatsTag()     // Catch: java.lang.Throwable -> Ld4
+            goto L1d
+        Ld4:
+            r1 = move-exception
+            com.baidu.sofire.b.d.a(r1)
+            goto L1d
+        Lda:
+            r1 = move-exception
+            com.baidu.sofire.b.d.a(r1)
+            goto Lc6
+        Ldf:
+            r1 = move-exception
+            r5 = r2
+            r2 = r3
+            r3 = r5
+            goto Lb3
+        Le4:
+            r1 = move-exception
+            r5 = r2
+            r2 = r3
+            r3 = r5
+            goto Lb3
+        Le9:
+            r1 = move-exception
+            goto L84
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.b.i.b(java.lang.String, java.io.File):boolean");
     }
 }

@@ -8,22 +8,22 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class c {
-    private static c aFY = new c();
-    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> aFZ;
-    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> aGa;
-    private com.baidu.adp.lib.e.a<String, Bitmap> aGb;
-    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.a.a.a> aGc;
-    private com.baidu.tbadk.widget.a.c.b aGd;
+    private static c aGc = new c();
+    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> aGd;
+    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> aGe;
+    private com.baidu.adp.lib.e.a<String, Bitmap> aGf;
+    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.a.a.a> aGg;
+    private com.baidu.tbadk.widget.a.c.b aGh;
 
-    public static c Ez() {
-        return aFY;
+    public static c EA() {
+        return aGc;
     }
 
     private c() {
-        this.aFZ = null;
-        this.aGa = null;
-        this.aGb = null;
-        this.aFZ = new com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a>(0) { // from class: com.baidu.tbadk.imageManager.c.1
+        this.aGd = null;
+        this.aGe = null;
+        this.aGf = null;
+        this.aGd = new com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a>(0) { // from class: com.baidu.tbadk.imageManager.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.a
@@ -34,7 +34,7 @@ public class c {
                 }
             }
         };
-        this.aGa = new com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a>(0) { // from class: com.baidu.tbadk.imageManager.c.2
+        this.aGe = new com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a>(0) { // from class: com.baidu.tbadk.imageManager.c.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.a
@@ -59,7 +59,7 @@ public class c {
                 }
             }
         };
-        this.aGb = new com.baidu.adp.lib.e.a<String, Bitmap>(0) { // from class: com.baidu.tbadk.imageManager.c.3
+        this.aGf = new com.baidu.adp.lib.e.a<String, Bitmap>(0) { // from class: com.baidu.tbadk.imageManager.c.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.a
@@ -73,72 +73,72 @@ public class c {
     }
 
     public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.a.a.a> fc(int i) {
-        if (this.aGc != null && this.aGd != null) {
-            if (this.aGd.getBlockSize() == i) {
-                return this.aGc;
+        if (this.aGg != null && this.aGh != null) {
+            if (this.aGh.getBlockSize() == i) {
+                return this.aGg;
             }
-            this.aGd.fL(i);
-            this.aGc.clear();
+            this.aGh.fL(i);
+            this.aGg.clear();
         }
-        if (this.aGd == null) {
-            this.aGd = new com.baidu.tbadk.widget.a.c.b(i);
+        if (this.aGh == null) {
+            this.aGh = new com.baidu.tbadk.widget.a.c.b(i);
         }
-        if (this.aGc == null) {
-            this.aGc = new com.baidu.adp.lib.e.b<>(this.aGd, 6, 0);
+        if (this.aGg == null) {
+            this.aGg = new com.baidu.adp.lib.e.b<>(this.aGh, 6, 0);
         }
-        return this.aGc;
+        return this.aGg;
     }
 
-    public void EA() {
-        if (this.aGc != null) {
-            this.aGc.an(0);
-            this.aGc.am(0);
-            this.aGc.clear();
-            this.aGc = null;
+    public void EB() {
+        if (this.aGg != null) {
+            this.aGg.am(0);
+            this.aGg.al(0);
+            this.aGg.clear();
+            this.aGg = null;
         }
     }
 
-    public int EB() {
-        return this.aGa.getMaxSize();
+    public int EC() {
+        return this.aGe.getMaxSize();
     }
 
-    public void H(int i, int i2) {
+    public void I(int i, int i2) {
         fd(i);
         fe(i2);
         ff(30);
     }
 
     public void fd(int i) {
-        this.aFZ.aj(i);
+        this.aGd.ai(i);
     }
 
     public void fe(int i) {
-        this.aGa.aj(i);
+        this.aGe.ai(i);
     }
 
     public void ff(int i) {
-        this.aGb.aj(i);
+        this.aGf.ai(i);
     }
 
     public void b(String str, Bitmap bitmap) {
         if (!StringUtils.isNull(str) && bitmap != null) {
-            this.aGb.put(str, bitmap);
+            this.aGf.put(str, bitmap);
         }
     }
 
-    public Bitmap gn(String str) {
+    public Bitmap gm(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return this.aGb.get(str);
+        return this.aGf.get(str);
     }
 
-    public void go(String str) {
-        this.aGb.remove(str);
+    public void gn(String str) {
+        this.aGf.remove(str);
     }
 
-    public void EC() {
-        this.aGb.clear();
+    public void ED() {
+        this.aGf.clear();
     }
 
     public void b(String str, com.baidu.adp.widget.a.a aVar) {
@@ -146,20 +146,20 @@ public class c {
     }
 
     public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
-        if (aVar != null && this.aFZ != null) {
-            this.aFZ.put(str, aVar);
+        if (aVar != null && this.aGd != null) {
+            this.aGd.put(str, aVar);
         }
     }
 
     public boolean fg(int i) {
-        return this.aGa.ai(i);
+        return this.aGe.ah(i);
     }
 
     public void b(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
-        if (aVar != null && this.aGa != null) {
+        if (aVar != null && this.aGe != null) {
             if (BdLog.isDebugMode()) {
             }
-            this.aGa.put(str, aVar);
+            this.aGe.put(str, aVar);
         }
     }
 
@@ -167,32 +167,32 @@ public class c {
         b(str, aVar, false);
     }
 
-    public void gp(String str) {
-        this.aFZ.remove(str);
+    public void go(String str) {
+        this.aGd.remove(str);
     }
 
-    public void gq(String str) {
-        this.aGa.remove(str);
+    public void gp(String str) {
+        this.aGe.remove(str);
+    }
+
+    public com.baidu.adp.widget.a.a gq(String str) {
+        return this.aGd.get(str);
     }
 
     public com.baidu.adp.widget.a.a gr(String str) {
-        return this.aFZ.get(str);
+        return this.aGe.get(str);
     }
 
-    public com.baidu.adp.widget.a.a gt(String str) {
-        return this.aGa.get(str);
-    }
-
-    public void ED() {
-        this.aFZ.clear();
-        this.aGa.clear();
+    public void EE() {
+        this.aGd.clear();
+        this.aGe.clear();
     }
 
     public String toString() {
-        return "pic:" + this.aGa.toString() + "  photo:" + this.aFZ.toString();
+        return "pic:" + this.aGe.toString() + "  photo:" + this.aGd.toString();
     }
 
     public String ei() {
-        return this.aGa.size() + "/" + this.aGa.getMaxSize() + "/" + this.aGa.evictionCount() + "_" + this.aFZ.size() + "/" + this.aFZ.getMaxSize() + "/" + this.aFZ.evictionCount();
+        return this.aGe.size() + "/" + this.aGe.getMaxSize() + "/" + this.aGe.evictionCount() + "_" + this.aGd.size() + "/" + this.aGd.getMaxSize() + "/" + this.aGd.evictionCount();
     }
 }

@@ -21,36 +21,36 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b De;
-    private HashMap<String, String> Df = new HashMap<>();
-    private a Dg = null;
-    private boolean Dh = false;
+    private static volatile b Dd;
+    private HashMap<String, String> De = new HashMap<>();
+    private a Df = null;
+    private boolean Dg = false;
 
     public static b jn() {
-        if (De == null) {
+        if (Dd == null) {
             synchronized (b.class) {
-                if (De == null) {
-                    De = new b();
+                if (Dd == null) {
+                    Dd = new b();
                 }
             }
         }
-        return De;
+        return Dd;
     }
 
     private b() {
     }
 
     public void clear(boolean z) {
-        if (z && !this.Dh && this.Dg == null && jo()) {
-            this.Dg = new a();
-            this.Dg.execute(new Void[0]);
-            this.Dh = true;
+        if (z && !this.Dg && this.Df == null && jo()) {
+            this.Df = new a();
+            this.Df.execute(new Void[0]);
+            this.Dg = true;
         }
     }
 
     private boolean jo() {
         String[] split;
-        this.Df.clear();
+        this.De.clear();
         PluginSettings jR = com.baidu.adp.plugin.packageManager.pluginSettings.c.jU().jR();
         if (jR == null) {
             return false;
@@ -62,12 +62,12 @@ public class b {
         for (Map.Entry<String, PluginSetting> entry : plugins.entrySet()) {
             PluginSetting value = entry.getValue();
             if (!TextUtils.isEmpty(value.apkPath)) {
-                this.Df.put(new File(value.apkPath).getName(), "");
+                this.De.put(new File(value.apkPath).getName(), "");
             }
             if (!TextUtils.isEmpty(value.getAbandon_apk_path()) && (split = value.getAbandon_apk_path().split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str)) {
-                        this.Df.put(new File(str).getName(), "");
+                        this.De.put(new File(str).getName(), "");
                     }
                 }
             }
@@ -84,7 +84,6 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
         public Boolean doInBackground(Void... voidArr) {
             ArrayList<File> jp = jp();
             if (jp == null || jp.size() == 0) {
@@ -99,7 +98,7 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            b.this.Dg = null;
+            b.this.Df = null;
         }
 
         private ArrayList<File> jp() {
@@ -114,7 +113,7 @@ public class b {
                 StringBuilder sb2 = new StringBuilder();
                 StringBuilder sb3 = new StringBuilder();
                 try {
-                    for (Map.Entry entry : b.this.Df.entrySet()) {
+                    for (Map.Entry entry : b.this.De.entrySet()) {
                         if (sb.length() > 0) {
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                         }
@@ -131,7 +130,7 @@ public class b {
                         String name = file.getName();
                         if (!absolutePath.equals(jT) && !"plugin_settings".equals(file.getName()) && System.currentTimeMillis() - file.lastModified() >= 86400000) {
                             if (file.isDirectory()) {
-                                if (name.endsWith(".apk") || b.this.Df.get(name + ".apk") != null) {
+                                if (name.endsWith(".apk") || b.this.De.get(name + ".apk") != null) {
                                     if (sb2.length() < 10000) {
                                         if (sb2.length() > 0) {
                                             sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -150,7 +149,7 @@ public class b {
                                     }
                                 }
                             } else if (name.endsWith(".apk")) {
-                                if (b.this.Df.get(name) != null) {
+                                if (b.this.De.get(name) != null) {
                                     if (sb2.length() < 10000) {
                                         if (sb2.length() > 0) {
                                             sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);

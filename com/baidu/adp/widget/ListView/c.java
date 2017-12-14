@@ -8,9 +8,9 @@ import java.security.InvalidParameterException;
 public abstract class c {
     private Context mContext;
     private View mView = null;
-    private boolean Hd = true;
-    private int He = 0;
-    private int Hf = 0;
+    private boolean Hb = true;
+    private int Hc = 0;
+    private int Hd = 0;
 
     public abstract void T(boolean z);
 
@@ -45,8 +45,8 @@ public abstract class c {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
             q(this.mView);
-            this.He = this.mView.getMeasuredHeight();
-            this.Hf = this.mView.getMeasuredWidth();
+            this.Hc = this.mView.getMeasuredHeight();
+            this.Hd = this.mView.getMeasuredWidth();
         }
         return this.mView;
     }
@@ -58,11 +58,11 @@ public abstract class c {
     }
 
     public boolean lb() {
-        return this.Hd;
+        return this.Hb;
     }
 
     public void W(boolean z) {
-        this.Hd = z;
+        this.Hb = z;
     }
 
     private void q(View view) {
@@ -82,6 +82,6 @@ public abstract class c {
     }
 
     public int lc() {
-        return this.He;
+        return this.Hc;
     }
 }

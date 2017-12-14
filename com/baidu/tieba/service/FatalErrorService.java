@@ -10,7 +10,6 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.g;
 import com.baidu.adp.lib.util.n;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
@@ -144,7 +143,7 @@ public class FatalErrorService extends BdBaseService {
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
                                         this.mNetwork.n(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.mNetwork.uv();
+                                    this.mNetwork.us();
                                     if (byteArrayOutputStream2 != null) {
                                         byteArrayOutputStream2.close();
                                         byteArrayOutputStream3 = null;
@@ -180,9 +179,9 @@ public class FatalErrorService extends BdBaseService {
                                         fileInputStream2 = fileInputStream;
                                     }
                                     try {
-                                        if (this.mNetwork.uQ().vO().isRequestSuccess()) {
+                                        if (this.mNetwork.uN().vL().isRequestSuccess()) {
                                             if (z2) {
-                                                J(file);
+                                                I(file);
                                             }
                                             FileWriter fileWriter3 = new FileWriter(file, false);
                                             try {
@@ -326,7 +325,7 @@ public class FatalErrorService extends BdBaseService {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private void J(File file) {
+        private void I(File file) {
             BufferedReader bufferedReader;
             try {
                 bufferedReader = new BufferedReader(new FileReader(file));
@@ -388,7 +387,7 @@ public class FatalErrorService extends BdBaseService {
             try {
                 a(k.dk(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                 a(k.dk(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                bmF();
+                bnl();
                 if (!TbConfig.getVersion().equals(b.getInstance().getString("native_crash_dump_version", ""))) {
                     b.getInstance().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
@@ -397,7 +396,7 @@ public class FatalErrorService extends BdBaseService {
                 if (dk != null) {
                     for (File file : dk.listFiles()) {
                         if (file.length() >= IjkMediaMeta.AV_CH_SIDE_RIGHT && z) {
-                            K(file);
+                            J(file);
                             a(file, TbConfig.ERROR_UPLOAD_SERVER, FatalErrorService.ERROR_TYPE_NATIVE_C, true, true);
                         } else {
                             file.delete();
@@ -412,7 +411,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void bmF() {
+        private void bnl() {
             File dk = k.dk(TbConfig.FATAL_ERROR_ALERT_FILE);
             if (dk != null) {
                 try {
@@ -438,7 +437,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void K(File file) {
+        private void J(File file) {
             FileWriter fileWriter;
             if (file == null || !file.exists() || !file.isFile()) {
                 return;
@@ -449,14 +448,14 @@ public class FatalErrorService extends BdBaseService {
                         fileWriter = new FileWriter(file, true);
                         try {
                             fileWriter.append("\n##TIEBA_NATIVE##\n");
-                            a(fileWriter, am.vs(), null);
+                            a(fileWriter, am.vp(), null);
                             a(fileWriter, "version", TbConfig.getVersion());
                             a(fileWriter, "model", Build.MODEL);
                             a(fileWriter, "android_version", Build.VERSION.RELEASE);
                             a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
                             a(fileWriter, "from", TbConfig.getFrom());
                             a(fileWriter, "current_from", TbConfig.getCurrentFrom());
-                            a(fileWriter, SapiAccountManager.SESSION_UID, this.intent.getStringExtra(SapiAccountManager.SESSION_UID));
+                            a(fileWriter, "uid", this.intent.getStringExtra("uid"));
                             a(fileWriter, "client_id", TbadkCoreApplication.getClientId());
                             a(fileWriter, "imei", TbadkCoreApplication.getInst().getImei());
                             a(fileWriter, "uname", this.intent.getStringExtra("uname"));

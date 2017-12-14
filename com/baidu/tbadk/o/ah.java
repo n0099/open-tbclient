@@ -2,7 +2,7 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class ah extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
+    protected void W(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a

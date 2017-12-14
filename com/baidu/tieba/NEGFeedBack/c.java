@@ -15,11 +15,11 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends ImageView {
-    private int aEF;
-    private int aEG;
-    private long aYC;
-    d aYD;
-    private View.OnClickListener aYE;
+    private int aEK;
+    private int aEL;
+    private long aYE;
+    d aYF;
+    private View.OnClickListener aYG;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -34,16 +34,16 @@ public class c extends ImageView {
     public c(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.aYC = 0L;
-        this.aYE = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
+        this.aYE = 0L;
+        this.aYG = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c.this.Le();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - c.this.aYC > 500) {
+                if (currentTimeMillis - c.this.aYE > 500) {
                     c.this.Ld();
                 }
-                c.this.aYC = currentTimeMillis;
+                c.this.aYE = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -51,14 +51,14 @@ public class c extends ImageView {
     }
 
     private void g(TbPageContext tbPageContext) {
-        this.aYD = new d(tbPageContext, this);
-        setOnClickListener(this.aYE);
+        this.aYF = new d(tbPageContext, this);
+        setOnClickListener(this.aYG);
         aj.c(this, d.f.icon_home_feedback_selector);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.aYD.setUniqueId(bdUniqueId);
+        this.aYF.setUniqueId(bdUniqueId);
     }
 
     public void Lc() {
@@ -66,31 +66,31 @@ public class c extends ImageView {
     }
 
     public void setLeftPadding(int i) {
-        this.aEF = i;
-        setPadding(i, 0, this.aEG, 0);
+        this.aEK = i;
+        setPadding(i, 0, this.aEL, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ld() {
-        this.aYD.Ld();
+        this.aYF.Ld();
     }
 
     public void Le() {
-        this.aYD.Le();
+        this.aYF.Le();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.aYD.onDetachedFromWindow();
+        this.aYF.onDetachedFromWindow();
     }
 
     public void setData(ah ahVar) {
-        this.aYD.setData(ahVar);
+        this.aYF.setData(ahVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.aYD.setFirstRowSingleColumn(z);
+        this.aYF.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
@@ -98,11 +98,11 @@ public class c extends ImageView {
     }
 
     public void setEventCallback(a aVar) {
-        this.aYD.setEventCallback(aVar);
+        this.aYF.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.aYD.setDefaultReasonArray(strArr);
+        this.aYF.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

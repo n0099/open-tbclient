@@ -18,21 +18,21 @@ import java.net.URLEncoder;
 /* loaded from: classes2.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e bbK;
+    private static e bbL;
     private Context mContext;
     private Handler mHandler;
     private long mLastCheckTime = 0;
-    private boolean aZc = false;
-    private Handler.Callback aZy = new Handler.Callback() { // from class: com.baidu.tieba.VideoCacheClient.e.1
+    private boolean aZe = false;
+    private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCacheClient.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 1) {
                 if (message.obj instanceof String) {
-                    e.this.ho((String) message.obj);
+                    e.this.hm((String) message.obj);
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    e.this.hu((String) message.obj);
+                    e.this.hs((String) message.obj);
                 }
             } else if (message.what == 3) {
                 d.av(e.TAG, "got MSG_CHECK");
@@ -50,27 +50,27 @@ public class e {
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.VideoCacheClient.e.2
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            e.this.aZc = true;
-            com.baidu.adp.lib.g.e.fP().removeCallbacks(e.this.aZj);
+            e.this.aZe = true;
+            com.baidu.adp.lib.g.e.fP().removeCallbacks(e.this.aZl);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            File file = new File(c.bbv);
+            File file = new File(c.bbw);
             if (file.exists()) {
                 file.delete();
             }
             b.LZ().Mb();
-            e.this.aZc = false;
-            com.baidu.adp.lib.g.e.fP().postDelayed(e.this.aZj, 1000L);
+            e.this.aZe = false;
+            com.baidu.adp.lib.g.e.fP().postDelayed(e.this.aZl, 1000L);
         }
     };
-    private Runnable aZj = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
+    private Runnable aZl = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
         @Override // java.lang.Runnable
         public void run() {
-            if (!e.this.aZc) {
+            if (!e.this.aZe) {
                 e.this.Lj();
-                com.baidu.adp.lib.g.e.fP().postDelayed(e.this.aZj, 1000L);
+                com.baidu.adp.lib.g.e.fP().postDelayed(e.this.aZl, 1000L);
             }
         }
     };
@@ -81,19 +81,19 @@ public class e {
         }
         HandlerThread handlerThread = new HandlerThread("video_cache_client_handler");
         handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aZy);
+        this.mHandler = new Handler(handlerThread.getLooper(), this.mHandlerCallback);
         this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 
-    public static e bk(Context context) {
-        if (bbK == null) {
+    public static e bh(Context context) {
+        if (bbL == null) {
             synchronized (e.class) {
-                if (bbK == null) {
-                    bbK = new e(context);
+                if (bbL == null) {
+                    bbL = new e(context);
                 }
             }
         }
-        return bbK;
+        return bbL;
     }
 
     public void I(String str, int i) {
@@ -103,13 +103,13 @@ public class e {
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void hH(String str) {
+    public void hF(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void hI(String str) {
+    public void hG(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
@@ -133,12 +133,12 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ho(String str) {
+    public void hm(String str) {
         aw(str, "?file_access=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hu(String str) {
+    public void hs(String str) {
         aw(str, "?stop_cache=1");
     }
 

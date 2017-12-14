@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class at {
-    private static String ahX;
-    private static String ahY;
-    private static final HashMap<String, String> ahZ = new HashMap<>();
+    private static String ahR;
+    private static String ahS;
+    private static final HashMap<String, String> ahT = new HashMap<>();
 
     public static void dY(String str) {
-        ahY = str;
+        ahS = str;
         if (TextUtils.isEmpty(str)) {
-            ahX = str;
+            ahR = str;
             return;
         }
         int lastIndexOf = str.lastIndexOf(".");
@@ -19,17 +19,17 @@ public class at {
             str = str.substring(lastIndexOf + 1, str.length());
         }
         String str2 = "";
-        if (ahZ != null) {
-            str2 = ahZ.get(str);
+        if (ahT != null) {
+            str2 = ahT.get(str);
         }
         if (str2 == null) {
             str2 = dZ(str);
-            if (ahZ != null) {
-                ahZ.put(str, str2);
+            if (ahT != null) {
+                ahT.put(str, str2);
             }
         }
         if (str2 != null) {
-            ahX = str2 + System.currentTimeMillis();
+            ahR = str2 + System.currentTimeMillis();
         }
     }
 
@@ -44,11 +44,11 @@ public class at {
         return str;
     }
 
-    public static String vH() {
-        return ahX;
+    public static String vE() {
+        return ahR;
     }
 
-    public static String vI() {
-        return ahY;
+    public static String vF() {
+        return ahS;
     }
 }

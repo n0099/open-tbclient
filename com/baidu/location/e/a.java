@@ -32,7 +32,7 @@ public final class a {
     private boolean c = false;
     private boolean d = false;
     private double MG = 0.0d;
-    private double Lt = 0.0d;
+    private double Ls = 0.0d;
     private double MH = 0.0d;
     private double h = 0.0d;
     private double Mn = 0.0d;
@@ -42,11 +42,11 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class AsyncTaskC0027a extends AsyncTask<Boolean, Void, Boolean> {
-        private AsyncTaskC0027a() {
+    public class AsyncTaskC0028a extends AsyncTask<Boolean, Void, Boolean> {
+        private AsyncTaskC0028a() {
         }
 
-        /* synthetic */ AsyncTaskC0027a(a aVar, com.baidu.location.e.b bVar) {
+        /* synthetic */ AsyncTaskC0028a(a aVar, com.baidu.location.e.b bVar) {
             this();
         }
 
@@ -259,7 +259,7 @@ public final class a {
             try {
                 this.b = str;
                 if (rawQuery.moveToFirst()) {
-                    this.Lt = rawQuery.getDouble(1) - 1235.4323d;
+                    this.Ls = rawQuery.getDouble(1) - 1235.4323d;
                     this.MG = rawQuery.getDouble(2) - 4326.0d;
                     this.MH = rawQuery.getDouble(3) - 2367.3217d;
                     this.c = true;
@@ -432,7 +432,7 @@ public final class a {
                         if (i7 > 8 && i7 > i6) {
                             cursor.moveToNext();
                         } else if (this.c) {
-                            Location.distanceBetween(d6, d5, this.MH, this.Lt, new float[1]);
+                            Location.distanceBetween(d6, d5, this.MH, this.Ls, new float[1]);
                             if (fArr[0] > this.MG + 2000.0d) {
                                 cursor.moveToNext();
                             } else {
@@ -559,7 +559,7 @@ public final class a {
             z2 = true;
             z3 = true;
         } else if (this.c) {
-            d2 = this.Lt;
+            d2 = this.Ls;
             d = this.MH;
             d3 = this.MG;
             z2 = com.baidu.location.a.e.lX().g();
@@ -596,7 +596,7 @@ public final class a {
             boolean z = queryNumEntries > 10000;
             boolean z2 = queryNumEntries2 > 10000;
             if (z || z2) {
-                new AsyncTaskC0027a(this, null).execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+                new AsyncTaskC0028a(this, null).execute(Boolean.valueOf(z), Boolean.valueOf(z2));
             }
             sQLiteDatabase.close();
         } catch (Exception e2) {

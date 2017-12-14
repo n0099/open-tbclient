@@ -4,14 +4,14 @@ import android.view.View;
 import com.baidu.adp.base.e;
 /* loaded from: classes2.dex */
 public abstract class a extends com.baidu.adp.base.c {
-    protected e bkJ;
+    protected e bkK;
     protected View mRootView;
 
     protected abstract void initView();
 
     public a(e eVar) {
         super(eVar);
-        this.bkJ = eVar;
+        this.bkK = eVar;
         initView();
     }
 }

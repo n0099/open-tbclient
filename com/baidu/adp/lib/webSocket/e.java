@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 /* loaded from: classes.dex */
 public class e {
-    private static com.baidu.adp.lib.webSocket.b zn;
+    private static com.baidu.adp.lib.webSocket.b zk;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -35,8 +35,8 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(String str, int i, l lVar, boolean z) throws Exception {
-        if (zn != null) {
-            return zn.a(str, i, lVar);
+        if (zk != null) {
+            return zk.a(str, i, lVar);
         }
         if (z) {
             return new b(str, i, lVar);
@@ -48,43 +48,43 @@ public class e {
     static class c implements a {
         private byte[] mData;
         private OutputStream mOutputStream;
-        private long zp;
-        private String zq;
-        private String zr;
-        private String zs;
-        private Socket zt;
-        private InputStream zu;
+        private long zm;
+        private String zn;
+        private String zo;
+        private String zp;
+        private Socket zq;
+        private InputStream zr;
 
         public c(String str, int i, l lVar) throws Exception {
-            this.zt = null;
-            this.zu = null;
-            this.mOutputStream = null;
-            this.mData = null;
-            this.zp = 0L;
             this.zq = null;
             this.zr = null;
-            this.zs = null;
-            this.zt = new Socket();
+            this.mOutputStream = null;
+            this.mData = null;
+            this.zm = 0L;
+            this.zn = null;
+            this.zo = null;
+            this.zp = null;
+            this.zq = new Socket();
             long currentTimeMillis = System.currentTimeMillis();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
             if (inetSocketAddress.getAddress() != null) {
-                this.zq = inetSocketAddress.getAddress().getHostAddress();
-                this.zp = System.currentTimeMillis() - currentTimeMillis;
+                this.zn = inetSocketAddress.getAddress().getHostAddress();
+                this.zm = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.zt.connect(inetSocketAddress, lVar.io());
-            this.zt.setSoTimeout(lVar.in());
-            this.zt.setTcpNoDelay(lVar.getTcpNoDelay());
-            this.zu = this.zt.getInputStream();
-            this.mOutputStream = this.zt.getOutputStream();
+            this.zq.connect(inetSocketAddress, lVar.io());
+            this.zq.setSoTimeout(lVar.in());
+            this.zq.setTcpNoDelay(lVar.getTcpNoDelay());
+            this.zr = this.zq.getInputStream();
+            this.mOutputStream = this.zq.getOutputStream();
             this.mData = new byte[1024];
-            this.zr = com.baidu.adp.lib.util.l.hz();
-            this.zs = com.baidu.adp.lib.util.l.hA();
+            this.zo = com.baidu.adp.lib.util.l.hz();
+            this.zp = com.baidu.adp.lib.util.l.hA();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public void close() throws IOException {
             try {
-                this.zu.close();
+                this.zr.close();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -93,9 +93,9 @@ public class e {
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
-            if (this.zt != null) {
+            if (this.zq != null) {
                 try {
-                    this.zt.close();
+                    this.zq.close();
                 } catch (IOException e3) {
                     throw e3;
                 } catch (Throwable th) {
@@ -105,15 +105,15 @@ public class e {
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public boolean isConnected() {
-            if (this.zt != null) {
-                return this.zt.isConnected();
+            if (this.zq != null) {
+                return this.zq.isConnected();
             }
             return false;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int read(ByteBuffer byteBuffer) throws Exception {
-            int read = this.zu.read(this.mData);
+            int read = this.zr.read(this.mData);
             if (read > 0) {
                 byteBuffer.put(this.mData, 0, read);
             }
@@ -133,22 +133,22 @@ public class e {
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public String hQ() {
-            return this.zq;
+            return this.zn;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public long hR() {
-            return this.zp;
+            return this.zm;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public String hz() {
-            return this.zr;
+            return this.zo;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public String hA() {
-            return this.zs;
+            return this.zp;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
@@ -159,75 +159,75 @@ public class e {
 
     /* loaded from: classes.dex */
     static class b implements a {
-        private SocketChannel zo;
-        private long zp;
-        private String zq;
-        private String zr;
-        private String zs;
+        private SocketChannel zl;
+        private long zm;
+        private String zn;
+        private String zo;
+        private String zp;
 
         public b(String str, int i, l lVar) throws Exception {
+            this.zl = null;
+            this.zm = 0L;
+            this.zn = null;
             this.zo = null;
-            this.zp = 0L;
-            this.zq = null;
-            this.zr = null;
-            this.zs = null;
-            this.zo = SocketChannel.open();
+            this.zp = null;
+            this.zl = SocketChannel.open();
             long currentTimeMillis = System.currentTimeMillis();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
             if (inetSocketAddress.getAddress() != null) {
-                this.zq = inetSocketAddress.getAddress().getHostAddress();
-                this.zp = System.currentTimeMillis() - currentTimeMillis;
+                this.zn = inetSocketAddress.getAddress().getHostAddress();
+                this.zm = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.zo.socket().connect(inetSocketAddress, lVar.io());
-            this.zo.socket().setSoTimeout(lVar.in());
-            this.zo.socket().setTcpNoDelay(lVar.getTcpNoDelay());
-            this.zr = com.baidu.adp.lib.util.l.hz();
-            this.zs = com.baidu.adp.lib.util.l.hA();
+            this.zl.socket().connect(inetSocketAddress, lVar.io());
+            this.zl.socket().setSoTimeout(lVar.in());
+            this.zl.socket().setTcpNoDelay(lVar.getTcpNoDelay());
+            this.zo = com.baidu.adp.lib.util.l.hz();
+            this.zp = com.baidu.adp.lib.util.l.hA();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public void close() throws IOException {
-            if (this.zo != null) {
-                this.zo.close();
+            if (this.zl != null) {
+                this.zl.close();
             }
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public boolean isConnected() {
-            if (this.zo != null) {
-                return this.zo.isConnected();
+            if (this.zl != null) {
+                return this.zl.isConnected();
             }
             return false;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int read(ByteBuffer byteBuffer) throws Exception {
-            return this.zo.read(byteBuffer);
+            return this.zl.read(byteBuffer);
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int write(ByteBuffer byteBuffer) throws Exception {
-            return this.zo.write(byteBuffer);
+            return this.zl.write(byteBuffer);
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public String hQ() {
-            return this.zq;
+            return this.zn;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public long hR() {
-            return this.zp;
+            return this.zm;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public String hz() {
-            return this.zr;
+            return this.zo;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public String hA() {
-            return this.zs;
+            return this.zp;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a

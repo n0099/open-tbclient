@@ -15,26 +15,26 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-    private TbPageContext<?> acd;
-    private ArrayList<g> acx = new ArrayList<>();
+    private TbPageContext<?> abX;
+    private ArrayList<g> acr = new ArrayList<>();
 
     public f(TbPageContext<?> tbPageContext) {
-        this.acd = tbPageContext;
+        this.abX = tbPageContext;
     }
 
     public void setData(ArrayList<g> arrayList) {
-        this.acx = arrayList;
+        this.acr = arrayList;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.acx.size();
+        return this.acr.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.acx.get(i);
+        return this.acr.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,30 +45,30 @@ public class f extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        g gVar = this.acx.get(i);
+        g gVar = this.acr.get(i);
         if (gVar == null) {
             return null;
         }
         if (view == null) {
-            view = LayoutInflater.from(this.acd.getPageActivity()).inflate(d.h.dialog_rich_bdlist_item, viewGroup, false);
+            view = LayoutInflater.from(this.abX.getPageActivity()).inflate(d.h.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.acy = (TextView) view.findViewById(d.g.text_tip);
-            aVar2.acz = (TextView) view.findViewById(d.g.text_desc);
-            aVar2.acA = (CheckBox) view.findViewById(d.g.checked_icon);
+            aVar2.acs = (TextView) view.findViewById(d.g.text_tip);
+            aVar2.act = (TextView) view.findViewById(d.g.text_desc);
+            aVar2.acu = (CheckBox) view.findViewById(d.g.checked_icon);
             aVar2.divider = view.findViewById(d.g.line);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.acy.setText(gVar.tu());
+        aVar.acs.setText(gVar.tr());
         if (StringUtils.isNull(gVar.getDesc())) {
-            aVar.acz.setVisibility(8);
+            aVar.act.setVisibility(8);
         } else {
-            aVar.acz.setText(gVar.getDesc());
-            aVar.acz.setVisibility(0);
+            aVar.act.setText(gVar.getDesc());
+            aVar.act.setVisibility(0);
         }
-        aVar.acA.setChecked(gVar.isChecked());
-        aVar.acA.setButtonDrawable(gVar.isChecked() ? aj.getDrawable(d.f.icon_set_list_ok_s) : new ColorDrawable(d.C0082d.common_color_10022));
+        aVar.acu.setChecked(gVar.isChecked());
+        aVar.acu.setButtonDrawable(gVar.isChecked() ? aj.getDrawable(d.f.icon_set_list_ok_s) : new ColorDrawable(d.C0096d.common_color_10022));
         if (ct(i)) {
             aVar.divider.setVisibility(8);
             aj.j(view, d.f.dialog_single_button_bg_selector);
@@ -77,20 +77,20 @@ public class f extends BaseAdapter {
             aj.j(view, d.f.dialg_alert_btn_bg);
         }
         view.setTag(aVar);
-        this.acd.getLayoutMode().ag(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.acd.getLayoutMode().t(view);
+        this.abX.getLayoutMode().ag(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.abX.getLayoutMode().t(view);
         return view;
     }
 
     private boolean ct(int i) {
-        return this.acx != null && i == this.acx.size() + (-1);
+        return this.acr != null && i == this.acr.size() + (-1);
     }
 
     /* loaded from: classes.dex */
     private class a {
-        CheckBox acA;
-        TextView acy;
-        TextView acz;
+        TextView acs;
+        TextView act;
+        CheckBox acu;
         View divider;
 
         private a() {

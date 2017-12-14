@@ -18,32 +18,32 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c Cc = null;
+    private static volatile c Cb = null;
+    private Map<Class<?>, Class<?>> BV;
     private Map<Class<?>, Class<?>> BW;
     private Map<Class<?>, Class<?>> BX;
-    private Map<Class<?>, Class<?>> BY;
+    private int BY = 0;
     private int BZ = 0;
     private int Ca = 0;
-    private int Cb = 0;
 
     public static c iI() {
-        if (Cc == null) {
+        if (Cb == null) {
             synchronized (c.class) {
-                if (Cc == null) {
-                    Cc = new c();
+                if (Cb == null) {
+                    Cb = new c();
                 }
             }
         }
-        return Cc;
+        return Cb;
     }
 
     private c() {
+        this.BV = null;
         this.BW = null;
         this.BX = null;
-        this.BY = null;
+        this.BV = new HashMap();
         this.BW = new HashMap();
         this.BX = new HashMap();
-        this.BY = new HashMap();
     }
 
     public Class<?> g(Class<?> cls) {
@@ -51,16 +51,16 @@ public class c {
             return null;
         }
         if (PluginBaseSingleTaskActivity.class.isAssignableFrom(cls)) {
-            Class<?> cls2 = this.BW.get(cls);
+            Class<?> cls2 = this.BV.get(cls);
             if (cls2 == null) {
-                if (this.Ca == 20) {
+                if (this.BZ == 20) {
                     BdLog.e("can not find singletaskactivity,Has started 20 singletaskactivity");
                     return null;
                 }
-                this.Ca++;
+                this.BZ++;
                 try {
-                    cls2 = Class.forName("com.baidu.adp.plugin.proxy.activity.SingleTaskActivityProxy" + this.Ca);
-                    this.BW.put(cls, cls2);
+                    cls2 = Class.forName("com.baidu.adp.plugin.proxy.activity.SingleTaskActivityProxy" + this.BZ);
+                    this.BV.put(cls, cls2);
                     return cls2;
                 } catch (Exception e) {
                     BdLog.e(e);
@@ -69,16 +69,16 @@ public class c {
             }
             return cls2;
         } else if (PluginBaseRemoteSingleTaskActivity.class.isAssignableFrom(cls)) {
-            Class<?> cls3 = this.BX.get(cls);
+            Class<?> cls3 = this.BW.get(cls);
             if (cls3 == null) {
-                if (this.Cb == 10) {
+                if (this.Ca == 10) {
                     BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
                     return null;
                 }
-                this.Cb++;
+                this.Ca++;
                 try {
-                    cls3 = Class.forName("com.baidu.adp.plugin.proxy.activity.RemoteSingleTaskActivityProxy" + this.Cb);
-                    this.BX.put(cls, cls3);
+                    cls3 = Class.forName("com.baidu.adp.plugin.proxy.activity.RemoteSingleTaskActivityProxy" + this.Ca);
+                    this.BW.put(cls, cls3);
                     return cls3;
                 } catch (Exception e2) {
                     BdLog.e(e2);
@@ -90,16 +90,16 @@ public class c {
             return RemoteActivityProxy.class;
         } else {
             if (PluginBaseThirdSingleTaskActivity.class.isAssignableFrom(cls)) {
-                Class<?> cls4 = this.BY.get(cls);
+                Class<?> cls4 = this.BX.get(cls);
                 if (cls4 == null) {
-                    if (this.BZ == 10) {
+                    if (this.BY == 10) {
                         BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
                         return null;
                     }
-                    this.BZ++;
+                    this.BY++;
                     try {
-                        cls4 = Class.forName("com.baidu.adp.plugin.proxy.activity.ThirdSingleTaskActivityProxy" + this.BZ);
-                        this.BY.put(cls, cls4);
+                        cls4 = Class.forName("com.baidu.adp.plugin.proxy.activity.ThirdSingleTaskActivityProxy" + this.BY);
+                        this.BX.put(cls, cls4);
                         return cls4;
                     } catch (Exception e3) {
                         BdLog.e(e3);

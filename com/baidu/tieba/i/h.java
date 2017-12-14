@@ -9,13 +9,13 @@ public interface h {
 
     void T(int i, String str);
 
-    void aNJ();
+    void aNS();
 
-    void aNK();
+    void aNT();
 
-    void aNL();
+    void aNU();
 
-    void aNM();
+    void aNV();
 
     void f(int i, int i2, String str);
 

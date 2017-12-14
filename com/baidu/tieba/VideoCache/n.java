@@ -11,7 +11,7 @@ import java.net.Socket;
 /* loaded from: classes2.dex */
 public class n {
     private static final String TAG = n.class.getSimpleName();
-    private ServerSocket bbD;
+    private ServerSocket bbE;
     private Context mContext;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.VideoCache.n.1
         @Override // java.lang.Runnable
@@ -20,12 +20,12 @@ public class n {
             j.av(n.TAG, "run ...");
             n.this.LV();
             int i = 9000;
-            while (n.this.bbD == null && i < 10000) {
+            while (n.this.bbE == null && i < 10000) {
                 try {
-                    n.this.bbD = new ServerSocket(i);
+                    n.this.bbE = new ServerSocket(i);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    n.this.bbD = null;
+                    n.this.bbE = null;
                     i++;
                 }
             }
@@ -33,10 +33,10 @@ public class n {
             n.this.gt(i);
             e.LJ();
             k.LS();
-            while (!n.this.bbD.isClosed()) {
+            while (!n.this.bbE.isClosed()) {
                 try {
                     j.av(n.TAG, "accept start");
-                    Socket accept = n.this.bbD.accept();
+                    Socket accept = n.this.bbE.accept();
                     j.av(n.TAG, "accept end");
                     if (accept != null) {
                         j.av(n.TAG, "连接视频服务的client:" + accept);
@@ -53,8 +53,8 @@ public class n {
                         } else if (LN != null && LN.contains("?segment_postion=")) {
                             try {
                                 int indexOf = LN.indexOf("?segment_postion=", 0);
-                                b.hy(LN.substring(0, indexOf));
-                                j = com.baidu.adp.lib.g.b.c(LN.substring(indexOf + i.bbw), 0L);
+                                b.hw(LN.substring(0, indexOf));
+                                j = com.baidu.adp.lib.g.b.c(LN.substring(indexOf + i.bbx), 0L);
                             } catch (Exception e2) {
                                 j = 0;
                             }
@@ -85,11 +85,11 @@ public class n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void LV() {
-        File file = new File(i.bbp);
+        File file = new File(i.bbq);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(i.bbq);
+        File file2 = new File(i.bbr);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -101,11 +101,11 @@ public class n {
                 }
             }
         }
-        File file4 = new File(i.bbr);
+        File file4 = new File(i.bbs);
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(i.bbt);
+        File file5 = new File(i.bbu);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -128,7 +128,7 @@ public class n {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void gt(int i) {
-        BufferedWriter bufferedWriter = i.bbv;
+        BufferedWriter bufferedWriter = i.bbw;
         try {
             try {
                 bufferedWriter = new BufferedWriter(new FileWriter(new File((String) bufferedWriter)));
@@ -178,8 +178,8 @@ public class n {
 
     public void destroy() {
         try {
-            if (this.bbD != null) {
-                this.bbD.close();
+            if (this.bbE != null) {
+                this.bbE.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -193,7 +193,7 @@ public class n {
         if (LN != null) {
             LN = LN.replace("?stop_cache=1", "");
         }
-        e.LJ().hu(LN);
+        e.LJ().hs(LN);
         d(socket);
         j.av(TAG, "handleStopCache out");
     }
@@ -216,7 +216,7 @@ public class n {
         if (LN != null) {
             LN = LN.replace("?file_access=1", "");
         }
-        k.LS().ho(LN);
+        k.LS().hm(LN);
         d(socket);
         j.av(TAG, "handleFileAccess out");
     }

@@ -1,37 +1,34 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.TbPageContext;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private final TbPageContext<?> acd;
-    private final int arf;
-    private final int arg;
-    private final boolean arh;
+    private String appId = "";
+    private String appName = "";
+    private String packageName = "";
+    private boolean arj = false;
 
-    public f(TbPageContext<?> tbPageContext, int i, int i2, boolean z) {
-        this.acd = tbPageContext;
-        this.arf = i;
-        this.arg = i2;
-        this.arh = z;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.appId = jSONObject.optString("app_id", "");
+            this.appName = jSONObject.optString("app_name", "");
+            this.packageName = jSONObject.optString("package_name", "");
+        }
     }
 
-    public f(TbPageContext<?> tbPageContext, int i, int i2) {
-        this(tbPageContext, i, i2, false);
+    public String getAppId() {
+        return this.appId;
     }
 
-    public TbPageContext<?> xQ() {
-        return this.acd;
+    public String getPackageName() {
+        return this.packageName;
     }
 
-    public int xR() {
-        return this.arf;
+    public boolean xQ() {
+        return this.arj;
     }
 
-    public int xS() {
-        return this.arg;
-    }
-
-    public boolean isAvailable() {
-        return this.acd != null && this.arf > 0 && this.arg > 0;
+    public void aR(boolean z) {
+        this.arj = z;
     }
 }

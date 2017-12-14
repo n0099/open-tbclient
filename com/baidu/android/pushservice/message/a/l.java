@@ -1,6 +1,4 @@
 package com.baidu.android.pushservice.message.a;
-
-import com.baidu.sapi2.SapiSafeFacade;
 /* loaded from: classes2.dex */
 public enum l {
     MSG_TYPE_INVALID(-1),
@@ -16,9 +14,9 @@ public enum l {
     MSG_TYPE_ALARM_MESSAGE(13),
     MSG_TYPE_ALARM_AD_NOTIFICATION(14),
     MSG_TYPE_INNERBIND(101),
-    MSG_TYPE_ULTRON_COMMAND(SapiSafeFacade.SAPIWEBVIEW_BACK),
-    MSG_TYPE_LBS_APPLIST_COMMAND(SapiSafeFacade.SAPIWEBVIEW_FINISH),
-    MSG_TYPE_APPSTAT_COMMAND(SapiSafeFacade.SAPIWEBVIEW_AUTHORIZATION);
+    MSG_TYPE_ULTRON_COMMAND(102),
+    MSG_TYPE_LBS_APPLIST_COMMAND(103),
+    MSG_TYPE_APPSTAT_COMMAND(104);
     
     private int q;
 
@@ -52,11 +50,11 @@ public enum l {
                 return MSG_TYPE_ALARM_AD_NOTIFICATION;
             case 101:
                 return MSG_TYPE_INNERBIND;
-            case SapiSafeFacade.SAPIWEBVIEW_BACK /* 102 */:
+            case 102:
                 return MSG_TYPE_ULTRON_COMMAND;
-            case SapiSafeFacade.SAPIWEBVIEW_FINISH /* 103 */:
+            case 103:
                 return MSG_TYPE_LBS_APPLIST_COMMAND;
-            case SapiSafeFacade.SAPIWEBVIEW_AUTHORIZATION /* 104 */:
+            case 104:
                 return MSG_TYPE_APPSTAT_COMMAND;
             default:
                 return MSG_TYPE_INVALID;

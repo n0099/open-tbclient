@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static d tN = null;
+    private static d tK = null;
     private HashMap<String, c> mSwitchs;
 
     private d() {
@@ -18,10 +18,10 @@ public class d {
     public static synchronized d eV() {
         d dVar;
         synchronized (d.class) {
-            if (tN == null) {
-                tN = new d();
+            if (tK == null) {
+                tK = new d();
             }
-            dVar = tN;
+            dVar = tK;
         }
         return dVar;
     }
@@ -41,7 +41,7 @@ public class d {
     public boolean d(String str, int i) {
         c cVar;
         if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
-            return cVar.Y(i);
+            return cVar.X(i);
         }
         return false;
     }
@@ -59,9 +59,9 @@ public class d {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
-                    cVar.ab(0);
-                    edit.putInt(cVar.getName() + c.tI, 0);
-                    edit.putInt(cVar.getName() + c.tJ, cVar.eN());
+                    cVar.aa(0);
+                    edit.putInt(cVar.getName() + c.tF, 0);
+                    edit.putInt(cVar.getName() + c.tG, cVar.eN());
                 }
             }
             edit.commit();

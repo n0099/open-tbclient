@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class HeadImageView extends com.baidu.tbadk.widget.b {
-    private int akG;
-    private int akH;
-    public boolean akI;
-    public boolean akJ;
-    protected int akK;
-    private Drawable akL;
-    private int akM;
+    private int akD;
+    private int akE;
+    public boolean akF;
+    public boolean akG;
+    protected int akH;
+    private Drawable akI;
+    private int akJ;
     public boolean isBigV;
     private int mDefaultBgId;
     private int mDefaultId;
@@ -35,24 +35,24 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
 
     public HeadImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.akG = 0;
+        this.akD = 0;
         this.mIconWidth = 0;
-        this.akI = false;
+        this.akF = false;
         this.isBigV = false;
-        this.akJ = false;
-        this.akK = 0;
-        this.akL = null;
+        this.akG = false;
+        this.akH = 0;
+        this.akI = null;
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
         this.mDefaultId = d.f.transparent_bg;
-        this.mDefaultBgId = d.C0082d.cp_bg_line_e;
-        this.akM = d.f.pic_v_avatar;
+        this.mDefaultBgId = d.C0096d.cp_bg_line_e;
+        this.akJ = d.f.pic_v_avatar;
         init();
     }
 
     private void init() {
-        this.akH = l.f(getContext(), d.e.ds6);
+        this.akE = l.f(getContext(), d.e.ds6);
         this.mIconWidth = l.f(getContext(), d.e.tbds42);
         setDrawerType(1);
         setGifIconSupport(false);
@@ -96,8 +96,8 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.mPerfLog != null && this.mPerfLog.aKj) {
-            this.mPerfLog.Gt();
+        } else if (this.mPerfLog != null && this.mPerfLog.aKn) {
+            this.mPerfLog.Gu();
         }
     }
 
@@ -105,19 +105,19 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (canvas != null) {
-            if (this.akK != 0) {
+            if (this.akH != 0) {
                 Paint paint = new Paint();
-                paint.setColor(this.akK);
+                paint.setColor(this.akH);
                 canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, getWidth() / 2.0f, paint);
             }
             f(canvas);
-            if (this.akI && !this.isBigV) {
-                Drawable drawable = this.akL == null ? aj.getDrawable(d.f.pic_v_avatar) : this.akL;
+            if (this.akF && !this.isBigV) {
+                Drawable drawable = this.akI == null ? aj.getDrawable(d.f.pic_v_avatar) : this.akI;
                 if (drawable != null) {
                     int width = getWidth();
                     int height = getHeight();
-                    if (this.akI) {
-                        drawable.setBounds((width - this.mIconWidth) - this.akG, (height - this.mIconWidth) - this.akG, width - this.akG, height - this.akG);
+                    if (this.akF) {
+                        drawable.setBounds((width - this.mIconWidth) - this.akD, (height - this.mIconWidth) - this.akD, width - this.akD, height - this.akD);
                     }
                     drawable.draw(canvas);
                 }
@@ -126,28 +126,28 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     }
 
     public void setGodIconWidth(int i) {
-        this.akI = true;
+        this.akF = true;
         if (i < 0) {
-            this.akI = false;
+            this.akF = false;
             this.mIconWidth = 0;
         } else {
             this.mIconWidth = l.f(getContext(), i);
         }
         if (this.mIconWidth < 0) {
             this.mIconWidth = 0;
-            this.akI = false;
+            this.akF = false;
         }
         invalidate();
     }
 
     public void setGodIconMargin(int i) {
-        this.akI = true;
+        this.akF = true;
         setIsRound(true);
         if (i > 0) {
-            this.akG = l.f(getContext(), i);
+            this.akD = l.f(getContext(), i);
         }
         if (i < 0) {
-            this.akI = false;
+            this.akF = false;
         }
         invalidate();
     }
@@ -157,18 +157,18 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
             setGodIconMargin(0);
             return;
         }
-        this.akI = false;
+        this.akF = false;
         setIsRound(true);
-        this.akG = 0;
+        this.akD = 0;
         invalidate();
     }
 
     public void setMaskColor(int i) {
-        this.akK = i;
+        this.akH = i;
     }
 
     public void setCustomGodIcon(Drawable drawable) {
-        this.akL = drawable;
+        this.akI = drawable;
     }
 
     public void setIsBigV(boolean z) {
@@ -176,21 +176,21 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     }
 
     public void setShowV(boolean z) {
-        this.akJ = z;
+        this.akG = z;
     }
 
     public void f(Canvas canvas) {
         Drawable drawable;
-        if (this.akJ && (drawable = aj.getDrawable(this.akM)) != null) {
+        if (this.akG && (drawable = aj.getDrawable(this.akJ)) != null) {
             int width = getWidth();
             int height = getHeight();
-            drawable.setBounds((width - this.mIconWidth) - this.akG, (height - this.mIconWidth) - this.akG, width - this.akG, height - this.akG);
+            drawable.setBounds((width - this.mIconWidth) - this.akD, (height - this.mIconWidth) - this.akD, width - this.akD, height - this.akD);
             drawable.draw(canvas);
         }
     }
 
     public void setIconMargin(int i) {
-        this.akG = i;
+        this.akD = i;
     }
 
     public void setIconWidth(int i) {
@@ -198,6 +198,6 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     }
 
     public void setCustomBigViewIconId(int i) {
-        this.akM = i;
+        this.akJ = i;
     }
 }

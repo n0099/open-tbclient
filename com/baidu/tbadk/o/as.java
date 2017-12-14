@@ -2,17 +2,17 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class as extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
+    protected void W(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "both_video_download";
+        return "android_url_need_cuid";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] eM() {
-        return null;
+        return new String[0];
     }
 
     @Override // com.baidu.adp.lib.b.a

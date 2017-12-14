@@ -6,8 +6,11 @@ import android.os.Message;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class k {
-    private static k bbx;
-    private Handler.Callback aZy = new Handler.Callback() { // from class: com.baidu.tieba.VideoCache.k.1
+    private static k bby;
+    private b bbA;
+    private g bbz;
+    private Handler mHandler;
+    private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCache.k.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 1) {
@@ -20,44 +23,41 @@ public class k {
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    k.this.bby.setVideoUrl((String) message.obj);
-                    k.this.bby.run();
+                    k.this.bbz.setVideoUrl((String) message.obj);
+                    k.this.bbz.run();
                 }
             } else if (message.what == 3) {
-                if (k.this.bbz != null) {
-                    k.this.bbz.LD();
+                if (k.this.bbA != null) {
+                    k.this.bbA.LD();
                 }
             } else if (message.what == 4) {
                 if (message.obj instanceof String) {
-                    k.this.bbz.ho((String) message.obj);
+                    k.this.bbA.hm((String) message.obj);
                 }
-            } else if (message.what == 5 && k.this.bbz != null) {
-                k.this.bbz.clearCache();
+            } else if (message.what == 5 && k.this.bbA != null) {
+                k.this.bbA.clearCache();
             }
             return true;
         }
     };
-    private g bby;
-    private b bbz;
-    private Handler mHandler;
 
     private k() {
         HandlerThread handlerThread = new HandlerThread("video_cache_handler");
         handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aZy);
-        this.bby = new g();
-        this.bbz = new b();
+        this.mHandler = new Handler(handlerThread.getLooper(), this.mHandlerCallback);
+        this.bbz = new g();
+        this.bbA = new b();
     }
 
     public static k LS() {
-        if (bbx == null) {
+        if (bby == null) {
             synchronized (k.class) {
-                if (bbx == null) {
-                    bbx = new k();
+                if (bby == null) {
+                    bby = new k();
                 }
             }
         }
-        return bbx;
+        return bby;
     }
 
     public void h(InputStream inputStream) {
@@ -66,7 +66,7 @@ public class k {
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void hz(String str) {
+    public void hx(String str) {
         this.mHandler.removeMessages(2);
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
@@ -77,7 +77,7 @@ public class k {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
     }
 
-    public void ho(String str) {
+    public void hm(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(4);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);

@@ -30,9 +30,9 @@ public class r {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.US;
-        if (StringUtils.isNull(str) && advertAppInfo.Vd != null) {
-            str = advertAppInfo.Vd.userName;
+        String str = advertAppInfo.UL;
+        if (StringUtils.isNull(str) && advertAppInfo.UX != null) {
+            str = advertAppInfo.UX.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -48,20 +48,20 @@ public class r {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        a.CN().b(advertAppInfo);
-        String str2 = advertAppInfo.US;
+        a.CO().b(advertAppInfo);
+        String str2 = advertAppInfo.UL;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.c.a.blq().a(advertAppInfo.UW, advertAppInfo.UV, str2, i, com.baidu.tieba.recapp.c.a.rN(advertAppInfo.UW).intValue(), null, true, false, true, advertAppInfo.Vd.userPortrait, downloadStaticsData, advertAppInfo.Vd.userName);
+        com.baidu.tieba.recapp.c.a.blW().a(advertAppInfo.UQ, advertAppInfo.UO, str2, i, com.baidu.tieba.recapp.c.a.rR(advertAppInfo.UQ).intValue(), null, true, false, true, advertAppInfo.UX.userPortrait, downloadStaticsData, advertAppInfo.UX.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.c.a.blq().j(advertAppInfo.UV, advertAppInfo.UW, true);
+        com.baidu.tieba.recapp.c.a.blW().j(advertAppInfo.UO, advertAppInfo.UQ, true);
     }
 
-    public static final void am(Context context, String str) {
+    public static final void al(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, d.j.download_error);
             return;
@@ -104,14 +104,14 @@ public class r {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean aP = ab.aP(activity);
+        boolean aM = ab.aM(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return aP;
+        return aM;
     }
 
-    public static List<String> bZ(Context context) {
+    public static List<String> bY(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             return arrayList;
@@ -165,7 +165,7 @@ public class r {
             tbImageView.startLoad(str, 10, false);
             tbImageView.setEvent(new TbImageView.a() { // from class: com.baidu.tieba.recapp.r.1
                 @Override // com.baidu.tbadk.widget.TbImageView.a
-                public void q(String str2, boolean z) {
+                public void r(String str2, boolean z) {
                     ViewGroup.LayoutParams layoutParams = TbImageView.this.getLayoutParams();
                     if (layoutParams != null) {
                         layoutParams.height = i;
@@ -185,11 +185,11 @@ public class r {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        q.bll().sendFRS(z, str, str2, str3, list, str4);
+        q.blR().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        q.bll().a(z, str, str2, str3, str4, list, str5);
+        q.blR().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int h(TbPageContext tbPageContext, String str) {
@@ -208,14 +208,14 @@ public class r {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        i bli = q.bll().bli();
-        if (bli == null) {
+        i blO = q.blR().blO();
+        if (blO == null) {
             return false;
         }
-        if (bli.hO(str)) {
-            bli.a(tbPageContext.getPageActivity(), strArr, true);
+        if (blO.hM(str)) {
+            blO.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bli.d(tbPageContext.getPageActivity(), strArr);
+        return blO.b(tbPageContext.getPageActivity(), strArr);
     }
 }

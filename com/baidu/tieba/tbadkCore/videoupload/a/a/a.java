@@ -13,11 +13,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    private final long gBZ;
-    private final String gCa;
-    private final int gCb;
-    private final int gCc;
-    private e gCd;
+    private final long gEI;
+    private final String gEJ;
+    private final int gEK;
+    private final int gEL;
+    private e gEM;
     protected final String mFileName;
 
     public abstract d b(ArrayList<Integer> arrayList, String str, int i);
@@ -28,20 +28,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.gCc = i2;
-        this.gBZ = j;
-        this.gCa = str2;
-        this.gCb = i;
+        this.gEL = i2;
+        this.gEI = j;
+        this.gEJ = str2;
+        this.gEK = i;
     }
 
     public void a(e eVar) {
-        this.gCd = eVar;
+        this.gEM = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ux(int i) {
-        if (this.gCd != null) {
-            this.gCd.am(i / 100.0f);
+    public void uI(int i) {
+        if (this.gEM != null) {
+            this.gEM.am(i / 100.0f);
         }
     }
 
@@ -58,10 +58,10 @@ public abstract class a {
         } else {
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             xVar.n("chunk_no", String.valueOf(i));
-            xVar.n("chunk_sum", String.valueOf(this.gCc));
+            xVar.n("chunk_sum", String.valueOf(this.gEL));
             xVar.n("chunk_size", String.valueOf(a.length));
-            xVar.n("video_size", String.valueOf(this.gBZ));
-            xVar.n("video_md5", this.gCa);
+            xVar.n("video_size", String.valueOf(this.gEI));
+            xVar.n("video_md5", this.gEJ);
             xVar.n("video_len", String.valueOf(j));
             xVar.n("tbs", TbadkCoreApplication.getInst().getTbs());
             xVar.d("video_chunk", a);
@@ -69,21 +69,21 @@ public abstract class a {
             if (isCancelled()) {
                 return null;
             }
-            String uv = xVar.uv();
+            String us = xVar.us();
             if (isCancelled()) {
                 return null;
             }
             d dVar2 = new d();
-            if (xVar.uQ().vO().isRequestSuccess()) {
-                dVar2.videoUrl = tn(uv);
+            if (xVar.uN().vL().isRequestSuccess()) {
+                dVar2.videoUrl = ts(us);
                 return dVar2;
             }
-            if (xVar.uQ().vO().uT()) {
-                dVar2.errorNo = xVar.uQ().vO().aiw;
+            if (xVar.uN().vL().uQ()) {
+                dVar2.errorNo = xVar.uN().vL().aiq;
             } else {
-                dVar2.errorNo = xVar.uQ().vO().vp;
+                dVar2.errorNo = xVar.uN().vL().vm;
             }
-            dVar2.errorMessage = xVar.uQ().vO().mErrorString;
+            dVar2.errorMessage = xVar.uN().vL().mErrorString;
             return dVar2;
         }
     }
@@ -94,14 +94,14 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.gCc) {
-            i2 = (int) (this.gBZ - ((i - 1) * this.gCb));
+        if (i == this.gEL) {
+            i2 = (int) (this.gEI - ((i - 1) * this.gEK));
         } else {
-            i2 = this.gCb;
+            i2 = this.gEK;
         }
         byte[] bArr = new byte[i2];
         try {
-            randomAccessFile.seek((i - 1) * this.gCb);
+            randomAccessFile.seek((i - 1) * this.gEK);
             z = randomAccessFile.read(bArr, 0, i2) != -1;
         } catch (IOException e) {
             e.printStackTrace();
@@ -113,7 +113,7 @@ public abstract class a {
         return null;
     }
 
-    private String tn(String str) {
+    private String ts(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

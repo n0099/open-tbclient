@@ -1,24 +1,22 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import java.util.ArrayList;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private String arF;
-    private ArrayList<Object> arG;
+    private int arJ;
+    private String link;
+    private String title;
 
-    public p() {
-        m(new ArrayList<>());
-    }
-
-    public String yf() {
-        return this.arF;
-    }
-
-    public ArrayList<Object> yg() {
-        return this.arG;
-    }
-
-    public void m(ArrayList<Object> arrayList) {
-        this.arG = arrayList;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null && jSONObject != null) {
+            this.arJ = jSONObject.optInt("offline");
+            this.title = jSONObject.optString(VrPlayerActivityConfig.TITLE);
+            this.link = jSONObject.optString("link");
+            if (!TextUtils.isEmpty(this.link)) {
+                this.link = this.link.replaceFirst("webview:", "http://");
+            }
+        }
     }
 }

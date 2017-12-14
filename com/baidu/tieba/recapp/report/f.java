@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private TbHttpMessageTask fZc;
-    private HttpMessageListener bUU = new HttpMessageListener(CmdConfigHttp.CMD_AD_UPLOAD) { // from class: com.baidu.tieba.recapp.report.f.1
+    private TbHttpMessageTask gbI;
+    private HttpMessageListener bUY = new HttpMessageListener(CmdConfigHttp.CMD_AD_UPLOAD) { // from class: com.baidu.tieba.recapp.report.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -23,41 +23,41 @@ public class f implements c {
                 if (!(httpResponsedMessage.getError() == 0)) {
                     Message<?> orginalMessage = httpResponsedMessage.getOrginalMessage();
                     if (orginalMessage instanceof AdUploadHttpRequest) {
-                        f.this.dl(((AdUploadHttpRequest) orginalMessage).getDataArray());
+                        f.this.dk(((AdUploadHttpRequest) orginalMessage).getDataArray());
                     }
                 }
             }
         }
     };
-    private ArrayList<a> fZd = new ArrayList<>();
+    private ArrayList<a> gbJ = new ArrayList<>();
 
     public f() {
-        aMt();
-        MessageManager.getInstance().registerListener(this.bUU);
+        aMC();
+        MessageManager.getInstance().registerListener(this.bUY);
     }
 
-    private void aMt() {
-        this.fZc = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
-        this.fZc.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.fZc.setIsNeedAddCommenParam(true);
-        this.fZc.setResponsedClass(JsonHttpResponsedMessage.class);
+    private void aMC() {
+        this.gbI = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
+        this.gbI.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.gbI.setIsNeedAddCommenParam(true);
+        this.gbI.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.c
     public void b(a aVar) {
         if (aVar != null) {
-            com.baidu.tbadk.coreExtra.data.b adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-            if (!(adAdSense == null || adAdSense.xF())) {
-                this.fZc.setUrl("http://als.baidu.com/clog/clog");
+            com.baidu.tbadk.coreExtra.data.c adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+            if (!(adAdSense == null || adAdSense.xG())) {
+                this.gbI.setUrl("http://als.baidu.com/clog/clog");
             }
             d(aVar);
-            blY();
+            bmE();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.c
-    public void blX() {
-        blY();
+    public void bmD() {
+        bmE();
     }
 
     @Override // com.baidu.tieba.recapp.report.c
@@ -67,15 +67,15 @@ public class f implements c {
         }
     }
 
-    private void blY() {
-        if (v.v(this.fZd) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.fZd), this.fZc);
-            this.fZd.clear();
+    private void bmE() {
+        if (v.v(this.gbJ) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.gbJ), this.gbI);
+            this.gbJ.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dl(List<a> list) {
+    public void dk(List<a> list) {
         if (v.v(list) > 0) {
             for (a aVar : list) {
                 if (aVar != null) {
@@ -87,10 +87,10 @@ public class f implements c {
 
     private void d(a aVar) {
         if (aVar != null) {
-            if (v.v(this.fZd) >= 20) {
-                this.fZd.remove(0);
+            if (v.v(this.gbJ) >= 20) {
+                this.gbJ.remove(0);
             }
-            this.fZd.add(aVar);
+            this.gbJ.add(aVar);
         }
     }
 }

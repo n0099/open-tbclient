@@ -26,7 +26,7 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0 && jSONObject != null && jSONObject != null) {
             this.mData = new a();
             this.mData.aL(parseImageData(jSONObject.optJSONArray("memes")));
-            this.mData.cM(parseHotWordsData(jSONObject.optJSONArray("topwords")));
+            this.mData.cN(parseHotWordsData(jSONObject.optJSONArray("topwords")));
             this.mData.a(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
         }
     }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.card.data;
 
 import android.util.SparseArray;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -14,58 +13,58 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements ae {
-    private String cdi;
-    private int cdj;
-    private String cdk;
-    private String cdl;
-    private String cdn;
+    private String cdB;
+    private String cdw;
+    private int cdx;
+    private String cdy;
+    private String cdz;
     private String mSource;
     public String tid;
-    public int cdm = 0;
-    public SparseArray<String> XE = null;
+    public int cdA = 0;
+    public SparseArray<String> Xy = null;
 
     public void setWeight(String str) {
-        this.cdi = str;
+        this.cdw = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void iE(int i) {
-        this.cdj = i;
+    public void iG(int i) {
+        this.cdx = i;
     }
 
-    public void jU(String str) {
-        this.cdk = str;
+    public void jS(String str) {
+        this.cdy = str;
     }
 
-    public int abV() {
-        return this.cdj;
+    public int acf() {
+        return this.cdx;
     }
 
-    public String abW() {
-        return this.mSource + "#" + this.cdj + "#" + this.cdk;
+    public String acg() {
+        return this.mSource + "#" + this.cdx + "#" + this.cdy;
     }
 
     public String getWeight() {
-        return this.cdi;
+        return this.cdw;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String abX() {
-        return this.cdk;
+    public String ach() {
+        return this.cdy;
     }
 
-    public String abY() {
-        return this.cdl;
+    public String aci() {
+        return this.cdz;
     }
 
-    public void jV(String str) {
-        this.cdl = str;
+    public void jT(String str) {
+        this.cdz = str;
     }
 
     public bd Ox() {
@@ -77,47 +76,47 @@ public abstract class c extends b implements ae {
     }
 
     public void setExtra(String str) {
-        this.cdn = str;
+        this.cdB = str;
     }
 
     public String getExtra() {
-        return this.cdn;
+        return this.cdB;
     }
 
-    public ak jW(String str) {
-        return t(str, false);
+    public ak jU(String str) {
+        return u(str, false);
     }
 
-    public ak t(String str, boolean z) {
+    public ak u(String str, boolean z) {
         bd Ox = Ox();
         if (Ox == null) {
             return null;
         }
-        ak ac = new ak(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Ox.getFid())).ac("tid", String.valueOf(Ox.getTid())).ac("obj_id", getExtra()).ac("obj_param1", getWeight()).r("obj_param2", 1).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", abV()).ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.k.abH());
+        ak ac = new ak(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Ox.getFid())).ac("tid", String.valueOf(Ox.getTid())).ac("obj_id", getExtra()).ac("obj_param1", getWeight()).r("obj_param2", 1).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", acf()).ac("uid", TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.k.abK());
         if (!z) {
-            ac.r("obj_type", abZ());
+            ac.r("obj_type", acj());
         } else {
-            if (Ox.aaG > 0) {
+            if (Ox.aaA > 0) {
                 ac.r("midpageflag", 1);
             } else {
                 ac.r("midpageflag", 0);
             }
-            ac.ac("ab_tag", abX());
+            ac.ac("ab_tag", ach());
         }
-        if (Ox.sO() != null && Ox.sO().bwr() != null && Ox.sO().bwr().Jq() != null && Ox.sO().bwr().Jq().size() > 0) {
-            ac.r("obj_to", Ox.sO().gzM ? 2 : 1);
+        if (Ox.sM() != null && Ox.sM().bwY() != null && Ox.sM().bwY().Jr() != null && Ox.sM().bwY().Jr().size() > 0) {
+            ac.r("obj_to", Ox.sM().gCv ? 2 : 1);
         }
         return ac;
     }
 
-    public ak R(String str, int i) {
+    public ak S(String str, int i) {
         bd Ox = Ox();
         if (Ox == null) {
             return null;
         }
-        ak ac = new ak(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Ox.getFid())).ac("tid", String.valueOf(Ox.getTid())).r("obj_id", C(Ox)).r("obj_param2", 1).ac("obj_param1", getWeight()).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", abV()).ac("obj_name", abX()).ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.k.abH());
+        ak ac = new ak(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Ox.getFid())).ac("tid", String.valueOf(Ox.getTid())).r("obj_id", E(Ox)).r("obj_param2", 1).ac("obj_param1", getWeight()).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", acf()).ac("obj_name", ach()).ac("uid", TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.k.abK());
         if (i == 0) {
-            ac.r("obj_type", abZ());
+            ac.r("obj_type", acj());
         } else {
             ac.r("obj_type", i);
         }
@@ -125,18 +124,18 @@ public abstract class c extends b implements ae {
         return ac;
     }
 
-    private int abZ() {
+    private int acj() {
         int i;
         int i2 = 0;
         bd Ox = Ox();
         if (Ox == null) {
             return 0;
         }
-        ArrayList<MediaData> rI = Ox.rI();
-        if (rI == null) {
+        ArrayList<MediaData> rG = Ox.rG();
+        if (rG == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = rI.iterator();
+            Iterator<MediaData> it = rG.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -161,10 +160,10 @@ public abstract class c extends b implements ae {
         return null;
     }
 
-    private int C(bd bdVar) {
-        if (bdVar.sC() == null || bdVar.sC().channelId <= 0) {
+    private int E(bd bdVar) {
+        if (bdVar.sA() == null || bdVar.sA().channelId <= 0) {
             return 0;
         }
-        return (int) bdVar.sC().channelId;
+        return (int) bdVar.sA().channelId;
     }
 }

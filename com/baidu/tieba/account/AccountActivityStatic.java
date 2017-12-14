@@ -15,10 +15,10 @@ import com.baidu.tieba.account.appeal.AppealActivity;
 public class AccountActivityStatic {
     static {
         Mn();
-        zK();
+        zL();
     }
 
-    private static void zK() {
+    private static void zL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_ACCOUNT, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.account.AccountActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {

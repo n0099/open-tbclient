@@ -3,53 +3,53 @@ package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c DL;
-    private b DM;
+    private static volatile c DK;
+    private b DL;
 
     public static c jM() {
-        if (DL == null) {
+        if (DK == null) {
             synchronized (c.class) {
-                if (DL == null) {
-                    DL = new c();
+                if (DK == null) {
+                    DK = new c();
                 }
             }
         }
-        return DL;
+        return DK;
     }
 
     private c() {
     }
 
     public void a(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.DM != null) {
+        if (bdFileDownloadData != null && this.DL != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.DM.h(bdFileDownloadData);
+            this.DL.h(bdFileDownloadData);
         }
     }
 
     public void b(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.DM != null) {
+        if (bdFileDownloadData != null && this.DL != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.DM.b(bdFileDownloadData, 1);
+            this.DL.b(bdFileDownloadData, 1);
         }
     }
 
     public void bu(String str) {
-        if (this.DM != null) {
-            this.DM.bt(str);
+        if (this.DL != null) {
+            this.DL.bt(str);
         }
     }
 
     public void a(b bVar) {
-        this.DM = bVar;
+        this.DL = bVar;
     }
 
     public boolean br(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.DM != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.DM.jL()) {
+        if (this.DL != null) {
+            for (BdFileDownloadData bdFileDownloadData : this.DL.jL()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

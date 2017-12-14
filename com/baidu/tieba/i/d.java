@@ -56,7 +56,7 @@ public class d {
         }
     }
 
-    public static String C(File file) {
+    public static String B(File file) {
         FileInputStream fileInputStream;
         StringBuilder sb = new StringBuilder();
         try {
@@ -102,16 +102,16 @@ public class d {
         }
         File file = new File(str);
         if (file.exists()) {
-            String C = C(file);
-            String[] split = C.split("\n");
+            String B = B(file);
+            String[] split = B.split("\n");
             if (split.length > 0) {
                 for (String str2 : split) {
                     a(str2, jSONArray);
                 }
             } else {
-                a(C, jSONArray);
+                a(B, jSONArray);
             }
-            com.baidu.tbadk.core.util.k.s(file);
+            com.baidu.tbadk.core.util.k.deleteFile(file);
             return jSONArray;
         }
         return jSONArray;
@@ -132,7 +132,7 @@ public class d {
 
     public static void oR(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.k.r(new File(g.a.eDp + g.a.eDg + str));
+            com.baidu.tbadk.core.util.k.r(new File(g.a.eEt + g.a.eEk + str));
         }
     }
 }

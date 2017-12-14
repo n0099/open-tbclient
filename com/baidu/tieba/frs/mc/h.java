@@ -1,26 +1,26 @@
 package com.baidu.tieba.frs.mc;
 
-import com.baidu.tieba.frs.an;
+import com.baidu.tieba.frs.ao;
 /* loaded from: classes.dex */
 public class h {
-    protected final com.baidu.tieba.frs.i cHa;
-    protected final FrsModelController cHi;
-    protected final com.baidu.tieba.frs.g.f cHj;
-    protected final com.baidu.tieba.frs.entelechy.b.d cHk;
-    protected final com.baidu.tieba.frs.f cOm;
-    protected final an cYm;
-    protected final c cYn;
+    protected final com.baidu.tieba.frs.j cHi;
+    protected final FrsModelController cHq;
+    protected final com.baidu.tieba.frs.g.f cHr;
+    protected final com.baidu.tieba.frs.entelechy.b.d cHs;
+    protected final com.baidu.tieba.frs.g cOx;
+    protected final ao cYy;
+    protected final c cYz;
 
-    public h(com.baidu.tieba.frs.f fVar) {
-        if (fVar == null) {
+    public h(com.baidu.tieba.frs.g gVar) {
+        if (gVar == null) {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
-        this.cOm = fVar;
-        this.cHj = this.cOm.alb();
-        this.cHa = this.cOm.ale();
-        this.cHk = this.cOm.alc();
-        this.cHi = this.cOm.akZ();
-        this.cYm = this.cOm.ald();
-        this.cYn = this.cOm.ala();
+        this.cOx = gVar;
+        this.cHr = this.cOx.all();
+        this.cHi = this.cOx.alo();
+        this.cHs = this.cOx.alm();
+        this.cHq = this.cOx.alj();
+        this.cYy = this.cOx.aln();
+        this.cYz = this.cOx.alk();
     }
 }

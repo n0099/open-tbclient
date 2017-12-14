@@ -5,31 +5,31 @@ import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b<T> {
-    private int vB;
-    private int vC;
-    private LinkedList<T> vD;
-    private c<T> vE;
+    private LinkedList<T> vA;
+    private c<T> vB;
+    private int vy;
+    private int vz;
 
     public b(c<T> cVar, int i, int i2) {
-        this.vB = 10;
-        this.vC = 0;
-        this.vD = null;
-        this.vE = null;
+        this.vy = 10;
+        this.vz = 0;
+        this.vA = null;
+        this.vB = null;
         if (cVar == null || i <= 0 || i2 > i) {
             throw new InvalidParameterException("invalid params");
         }
-        this.vE = cVar;
-        this.vB = i;
-        this.vC = i2;
-        this.vD = new LinkedList<>();
-        al(this.vC);
+        this.vB = cVar;
+        this.vy = i;
+        this.vz = i2;
+        this.vA = new LinkedList<>();
+        ak(this.vz);
     }
 
-    private void ak(int i) {
+    private void aj(int i) {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    this.vE.n(this.vD.poll());
+                    this.vB.n(this.vA.poll());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -37,41 +37,41 @@ public class b<T> {
         }
     }
 
-    private void al(int i) {
+    private void ak(int i) {
         T t;
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    t = this.vE.o(this.vE.fI());
+                    t = this.vB.o(this.vB.fI());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t = null;
                 }
                 if (t != null) {
-                    this.vD.offer(t);
+                    this.vA.offer(t);
                 }
             }
         }
     }
 
-    public void am(int i) {
+    public void al(int i) {
         synchronized (this) {
-            int i2 = i < this.vC ? this.vC : i;
+            int i2 = i < this.vz ? this.vz : i;
             if (i2 <= 0) {
                 i2 = 1;
             }
-            this.vB = i2;
-            ak(this.vD.size() - this.vB);
+            this.vy = i2;
+            aj(this.vA.size() - this.vy);
         }
     }
 
-    public void an(int i) {
+    public void am(int i) {
         synchronized (this) {
-            if (i > this.vB) {
-                i = this.vB;
+            if (i > this.vy) {
+                i = this.vy;
             }
-            this.vC = i;
-            al(this.vC - this.vD.size());
+            this.vz = i;
+            ak(this.vz - this.vA.size());
         }
     }
 
@@ -79,12 +79,12 @@ public class b<T> {
         T t = null;
         synchronized (this) {
             try {
-                if (this.vD.size() > 0) {
-                    t = this.vE.o(this.vD.poll());
+                if (this.vA.size() > 0) {
+                    t = this.vB.o(this.vA.poll());
                 } else {
-                    t = this.vE.o(this.vE.fI());
+                    t = this.vB.o(this.vB.fI());
                 }
-                al(this.vC - this.vD.size());
+                ak(this.vz - this.vA.size());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -95,25 +95,25 @@ public class b<T> {
     public void m(T t) {
         T t2;
         synchronized (this) {
-            if (this.vD.size() < this.vB) {
+            if (this.vA.size() < this.vy) {
                 try {
-                    t2 = this.vE.p(t);
+                    t2 = this.vB.p(t);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t2 = null;
                 }
                 if (t2 != null) {
-                    this.vD.offer(t2);
+                    this.vA.offer(t2);
                 }
             } else {
-                this.vE.n(t);
+                this.vB.n(t);
             }
         }
     }
 
     public void clear() {
         synchronized (this) {
-            this.vD.clear();
+            this.vA.clear();
         }
     }
 }

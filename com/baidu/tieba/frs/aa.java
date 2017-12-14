@@ -1,8 +1,23 @@
 package com.baidu.tieba.frs;
 
-import java.util.List;
+import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class aa {
-    public int cJW;
-    public List<y> cJX;
+    private static aa cKf = new aa();
+    private SparseArray<ab> cKe = new SparseArray<>();
+
+    private aa() {
+    }
+
+    public static aa amx() {
+        return cKf;
+    }
+
+    public void a(int i, ab abVar) {
+        this.cKe.put(i, abVar);
+    }
+
+    public ab jV(int i) {
+        return this.cKe.get(i);
+    }
 }

@@ -3,11 +3,9 @@ package com.baidu.android.pushservice.e;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.v4.media.TransportMediator;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.e.a;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
@@ -157,7 +155,7 @@ public class x implements Runnable {
         int b2 = com.baidu.android.pushservice.j.m.b(this.a, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", -1);
         String a = com.baidu.android.pushservice.j.m.a(this.a, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE");
         if (b2 == 2) {
-            hashMap.put(SapiAccountManager.SESSION_BDUSS, com.baidu.android.pushservice.j.m.a(this.a, "com.baidu.android.pushservice.PushManager.BDUSS"));
+            hashMap.put("bduss", com.baidu.android.pushservice.j.m.a(this.a, "com.baidu.android.pushservice.PushManager.BDUSS"));
             hashMap.put("appid", a);
         } else if (b2 == 1) {
             hashMap.put("access_token", a);
@@ -171,7 +169,7 @@ public class x implements Runnable {
         jSONObject.put("screen_width", b3[1]);
         String str = Build.MODEL;
         if (str.length() > 128) {
-            str = str.substring(0, TransportMediator.KEYCODE_MEDIA_PAUSE);
+            str = str.substring(0, 127);
         }
         jSONObject.put("model", str);
         jSONObject.put("isroot", com.baidu.android.pushservice.j.p.a(this.a) ? 1 : 0);
@@ -179,7 +177,7 @@ public class x implements Runnable {
         jSONObject.put("push_sdk_version", (int) com.baidu.android.pushservice.a.a());
         String str2 = Build.MANUFACTURER;
         if (str2.length() > 128) {
-            str2 = str2.substring(0, TransportMediator.KEYCODE_MEDIA_PAUSE);
+            str2 = str2.substring(0, 127);
         }
         jSONObject.put("manufacturer", str2);
         hashMap.put(LoginActivityConfig.INFO, jSONObject.toString());

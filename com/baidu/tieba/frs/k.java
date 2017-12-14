@@ -1,21 +1,44 @@
 package com.baidu.tieba.frs;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class k implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId cIW = BdUniqueId.gen();
-    private int cIX;
+public class k extends e<l, m> {
+    private final int cJf;
 
-    public int ami() {
-        return this.cIX;
+    public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
+        this.cJf = (com.baidu.adp.lib.util.l.ae(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
     }
 
-    public void jS(int i) {
-        this.cIX = i;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: ag */
+    public m onCreateViewHolder(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_no_list_item_view, viewGroup, false);
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.cJf));
+        return new m(inflate);
     }
 
-    @Override // com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return cIW;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.e, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, l lVar, m mVar) {
+        super.onFillViewHolder(i, view, viewGroup, lVar, mVar);
+        if (lVar.amr() == 6) {
+            mVar.cJi.setText(d.j.attention_no_post_tip);
+        } else {
+            mVar.cJi.setText(d.j.no_data_text);
+        }
+        com.baidu.tbadk.core.util.aj.c(mVar.cJi, d.C0096d.cp_cont_d, 1);
+        return view;
     }
 }

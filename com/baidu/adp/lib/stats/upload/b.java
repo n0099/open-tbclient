@@ -31,7 +31,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b xh = null;
+    private static b xe = null;
     private CustomMessageListener mNetworkChangedListener = new CustomMessageListener(2000994) { // from class: com.baidu.adp.lib.stats.upload.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -42,56 +42,56 @@ public class b {
         }
     };
     private String mUploadUrl;
-    private com.baidu.adp.lib.stats.c xi;
-    private a xj;
+    private com.baidu.adp.lib.stats.c xf;
+    private a xg;
 
     public static b gF() {
-        if (xh == null) {
+        if (xe == null) {
             synchronized (b.class) {
-                if (xh == null) {
-                    xh = new b();
+                if (xe == null) {
+                    xe = new b();
                 }
             }
         }
-        return xh;
+        return xe;
     }
 
     public void a(com.baidu.adp.lib.stats.c cVar, String str) {
         this.mUploadUrl = str;
-        this.xi = cVar;
-        if (this.xi != null) {
-            this.xi.wr = Build.MODEL;
-            this.xi.wv = Build.VERSION.RELEASE;
-            this.xi.mNetType = d.getNetType(BdBaseApplication.getInst());
-            this.xi.wu = String.valueOf(j.hn());
+        this.xf = cVar;
+        if (this.xf != null) {
+            this.xf.wo = Build.MODEL;
+            this.xf.ws = Build.VERSION.RELEASE;
+            this.xf.mNetType = d.getNetType(BdBaseApplication.getInst());
+            this.xf.wr = String.valueOf(j.hn());
         }
         try {
             MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (this.xj == null) {
-            this.xj = new a();
+        if (this.xg == null) {
+            this.xg = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
-            BdBaseApplication.getInst().registerReceiver(this.xj, intentFilter);
+            BdBaseApplication.getInst().registerReceiver(this.xg, intentFilter);
         }
     }
 
     public void setUser(String str, String str2, String str3) {
-        if (this.xi.mUid != null || str != null) {
-            if (this.xi.mUid == null || !this.xi.mUid.equals(str)) {
-                this.xi.mUid = str;
-                this.xi.ws = str2;
-                this.xi.wt = str3;
+        if (this.xf.mUid != null || str != null) {
+            if (this.xf.mUid == null || !this.xf.mUid.equals(str)) {
+                this.xf.mUid = str;
+                this.xf.wp = str2;
+                this.xf.wq = str3;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gG() {
-        this.xi.mNetType = d.getNetType(BdBaseApplication.getInst());
-        this.xi.wu = String.valueOf(j.hn());
+        this.xf.mNetType = d.getNetType(BdBaseApplication.getInst());
+        this.xf.wr = String.valueOf(j.hn());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,26 +116,26 @@ public class b {
     /* renamed from: com.baidu.adp.lib.stats.upload.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0007b extends BdAsyncTask<Object, Integer, Void> {
-        private com.baidu.adp.lib.stats.base.a xk;
-        private String xl;
+        private com.baidu.adp.lib.stats.base.a xh;
+        private String xi;
 
         public C0007b(com.baidu.adp.lib.stats.base.a aVar, String str) {
-            this.xk = aVar;
-            this.xl = str;
+            this.xh = aVar;
+            this.xi = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Object... objArr) {
-            String a = com.baidu.adp.lib.stats.upload.c.a(this.xk, b.this.xi);
-            String str = this.xl;
+            String a = com.baidu.adp.lib.stats.upload.c.a(this.xh, b.this.xf);
+            String str = this.xi;
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
             BdLog.i("commonHeader = " + a);
             BdLog.i("cache = " + str);
-            this.xk.go();
-            b.this.a(this.xk, a, arrayList, null, true);
+            this.xh.go();
+            b.this.a(this.xh, a, arrayList, null, true);
             return null;
         }
     }
@@ -217,30 +217,30 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c extends BdAsyncTask<Object, Integer, Void> {
-        private com.baidu.adp.lib.stats.base.a xm;
-        private ArrayList<String> xn;
-        private boolean xo;
-        private boolean xp;
-        private boolean xq;
+        private com.baidu.adp.lib.stats.base.a xj;
+        private ArrayList<String> xk;
+        private boolean xl;
+        private boolean xm;
+        private boolean xn;
 
         public c(com.baidu.adp.lib.stats.base.a aVar, ArrayList<String> arrayList, boolean z, boolean z2, boolean z3) {
-            this.xm = null;
-            this.xn = null;
-            this.xo = false;
-            this.xp = false;
-            this.xq = false;
-            this.xm = aVar;
-            this.xn = arrayList;
-            this.xo = z;
-            this.xp = z2;
-            this.xq = z3;
+            this.xj = null;
+            this.xk = null;
+            this.xl = false;
+            this.xm = false;
+            this.xn = false;
+            this.xj = aVar;
+            this.xk = arrayList;
+            this.xl = z;
+            this.xm = z2;
+            this.xn = z3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Object... objArr) {
-            b(this.xm, this.xo, this.xp, this.xq);
+            b(this.xj, this.xl, this.xm, this.xn);
             return null;
         }
 
@@ -249,19 +249,19 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(Void r3) {
-            this.xm.I(false);
+            this.xj.I(false);
         }
 
         private void b(com.baidu.adp.lib.stats.base.a aVar, boolean z, boolean z2, boolean z3) {
             int i;
             try {
-                String a = com.baidu.adp.lib.stats.upload.c.a(aVar, b.this.xi);
+                String a = com.baidu.adp.lib.stats.upload.c.a(aVar, b.this.xf);
                 BdUploadingLogInfo a2 = com.baidu.adp.lib.stats.upload.a.a(aVar, z2);
                 int size = a2.size();
                 if (a2 != null && size > 0) {
                     if (!z) {
                         for (int i2 = 0; i2 < size; i2++) {
-                            ArrayList<String> logStringByIndex = a2.getLogStringByIndex(i2, this.xn);
+                            ArrayList<String> logStringByIndex = a2.getLogStringByIndex(i2, this.xk);
                             if (logStringByIndex != null && logStringByIndex.size() != 0) {
                                 if (!z2) {
                                     b.this.a(aVar, a, logStringByIndex, a2.get(i2), z3);
@@ -280,7 +280,7 @@ public class b {
                     }
                     int i4 = 0;
                     for (int i5 = size - 1; i5 >= 0; i5--) {
-                        ArrayList<String> logStringByIndex2 = a2.getLogStringByIndex(i5, this.xn);
+                        ArrayList<String> logStringByIndex2 = a2.getLogStringByIndex(i5, this.xk);
                         if (logStringByIndex2 != null && logStringByIndex2.size() != 0) {
                             if (j.hi()) {
                                 i = i4;
@@ -390,14 +390,14 @@ public class b {
                                 }
                                 eVar.fy().setUrl(str3);
                                 eVar.fy().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                                a2 = com.baidu.adp.lib.stats.upload.c.a(this.xi, z);
+                                a2 = com.baidu.adp.lib.stats.upload.c.a(this.xf, z);
                                 if (a2 != null) {
                                     eVar.fy().f(new ArrayList(a2.entrySet()));
                                 }
                                 eVar.fy().f(arrayList3);
                                 new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
                                 int i2 = eVar.fz().responseCode;
-                                bArr = eVar.fz().vr;
+                                bArr = eVar.fz().vo;
                                 if (bArr != null && i2 == 200) {
                                     try {
                                         if (new JSONObject(new String(bArr, "utf-8")).optInt("error_code", -1) == 0) {
@@ -414,11 +414,11 @@ public class b {
                                     sb = new StringBuilder();
                                     for (i = 0; i < fA.size(); i++) {
                                         com.baidu.adp.lib.network.http.d dVar = fA.get(i);
-                                        if (dVar != null && !TextUtils.isEmpty(dVar.uY)) {
+                                        if (dVar != null && !TextUtils.isEmpty(dVar.uV)) {
                                             if (sb.length() > 0) {
                                                 sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                                             }
-                                            sb.append(dVar.uY);
+                                            sb.append(dVar.uV);
                                         }
                                     }
                                     if (sb.length() > 0) {
@@ -433,7 +433,7 @@ public class b {
                     }
                     new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
                     int i22 = eVar.fz().responseCode;
-                    bArr = eVar.fz().vr;
+                    bArr = eVar.fz().vo;
                     if (bArr != null) {
                         if (new JSONObject(new String(bArr, "utf-8")).optInt("error_code", -1) == 0) {
                         }
@@ -458,7 +458,7 @@ public class b {
                 }
                 eVar.fy().setUrl(str3);
                 eVar.fy().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                a2 = com.baidu.adp.lib.stats.upload.c.a(this.xi, z);
+                a2 = com.baidu.adp.lib.stats.upload.c.a(this.xf, z);
                 if (a2 != null) {
                 }
                 eVar.fy().f(arrayList3);

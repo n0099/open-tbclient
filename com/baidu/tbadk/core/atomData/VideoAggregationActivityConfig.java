@@ -13,8 +13,8 @@ public class VideoAggregationActivityConfig extends IntentConfig {
 
     public VideoAggregationActivityConfig(Context context, String str, String str2, String str3, String str4) {
         super(context);
-        getIntent().putExtra(PARAM_ID, str);
-        getIntent().putExtra(PARAM_FROM, str2);
+        getIntent().putExtra("PARAM_FID", str);
+        getIntent().putExtra("PARAM_FROM", str2);
         getIntent().putExtra("st_type", str3);
         getIntent().putExtra("yuelaou_locate", str4);
     }

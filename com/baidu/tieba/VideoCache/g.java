@@ -14,10 +14,10 @@ import java.util.Collections;
 /* loaded from: classes2.dex */
 public class g implements Runnable {
     private static final String TAG = g.class.getSimpleName();
-    private String baH;
+    private String baI;
 
     public synchronized void setVideoUrl(String str) {
-        this.baH = str;
+        this.baI = str;
     }
 
     @Override // java.lang.Runnable
@@ -52,7 +52,7 @@ public class g implements Runnable {
         if (r10 == r14) goto L86;
      */
     /* JADX WARN: Code restructure failed: missing block: B:73:0x01a1, code lost:
-        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12027").ac("errormsg", "准备合并文件时文件片段错误").ac("url", r18.baH));
+        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12027").ac("errormsg", "准备合并文件时文件片段错误").ac("url", r18.baI));
      */
     /* JADX WARN: Code restructure failed: missing block: B:75:0x01cd, code lost:
         if (a(r12.getAbsolutePath(), r13) == false) goto L89;
@@ -67,22 +67,22 @@ public class g implements Runnable {
     */
     private synchronized void LL() {
         File file;
-        long hw;
+        long hu;
         File[] fileArr;
         int i;
         long j;
         long g;
         long j2;
         j.av(TAG, "merge ...");
-        String hC = m.hC(this.baH);
-        if (hC != null && !hC.isEmpty() && ((file = new File(i.bbu + hC + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.bbu + hC + "/completed.temp");
+        String hA = m.hA(this.baI);
+        if (hA != null && !hA.isEmpty() && ((file = new File(i.bbv + hA + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.bbv + hA + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.bbu + hC + "/segments");
+            File file3 = new File(i.bbv + hA + "/segments");
             if (file3 != null && file3.exists()) {
-                hw = hw(hC);
+                hu = hu(hA);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -129,7 +129,7 @@ public class g implements Runnable {
             }
             if (j + g == j2) {
             }
-        } else if (m.g(fileArr[i]) + j == hw) {
+        } else if (m.g(fileArr[i]) + j == hu) {
             i++;
         }
     }
@@ -181,7 +181,7 @@ public class g implements Runnable {
                 e = e3;
                 fileChannel = channel;
                 try {
-                    TiebaStatic.log(new ak("c12027").ac("errormsg", "合并文件出现异常").ac("error", e.getMessage()).ac("url", this.baH));
+                    TiebaStatic.log(new ak("c12027").ac("errormsg", "合并文件出现异常").ac("error", e.getMessage()).ac("url", this.baI));
                     e.printStackTrace();
                     if (fileChannel != null) {
                         try {
@@ -243,12 +243,12 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long hw(String str) {
+    private long hu(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.bbu + str + "/content_length");
+        File file = new File(i.bbv + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

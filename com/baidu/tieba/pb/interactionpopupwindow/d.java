@@ -7,23 +7,23 @@ import com.baidu.tieba.d;
 public class d extends a<e, CustomDialogData> {
     public d(TbPageContext tbPageContext, CustomDialogData customDialogData) {
         super(tbPageContext, new e(tbPageContext), customDialogData);
-        if (this.ePy instanceof e) {
-            ((e) this.ePy).a(this);
+        if (this.eQB instanceof e) {
+            ((e) this.eQB).a(this);
         }
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
-    public boolean aSf() {
+    public boolean aSo() {
         return true;
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
-    public boolean aSg() {
+    public boolean aSp() {
         return true;
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
-    public int tj() {
+    public int tg() {
         return l.f(this.mContext, d.e.ds90);
     }
 }

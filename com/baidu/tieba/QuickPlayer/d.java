@@ -12,40 +12,40 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class d {
-    private static d aZb;
-    private IQuickMediaPlayerService aZd;
-    private Set<a> aZf;
-    private Set<a> aZg;
+    private static d aZd;
+    private IQuickMediaPlayerService aZf;
     private Set<a> aZh;
-    private boolean aZi;
+    private Set<a> aZi;
+    private Set<a> aZj;
+    private boolean aZk;
     private Context mContext = TbadkCoreApplication.getInst();
-    private boolean aZc = false;
     private boolean aZe = false;
+    private boolean aZg = false;
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.QuickPlayer.d.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            d.this.aZc = true;
-            com.baidu.adp.lib.g.e.fP().removeCallbacks(d.this.aZj);
-            d.this.aZd = IQuickMediaPlayerService.Stub.asInterface(iBinder);
-            if (d.this.aZe) {
-                d.this.aZe = false;
+            d.this.aZe = true;
+            com.baidu.adp.lib.g.e.fP().removeCallbacks(d.this.aZl);
+            d.this.aZf = IQuickMediaPlayerService.Stub.asInterface(iBinder);
+            if (d.this.aZg) {
+                d.this.aZg = false;
                 d.this.Lk();
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            d.this.aZc = false;
-            d.this.aZe = true;
-            com.baidu.adp.lib.g.e.fP().postDelayed(d.this.aZj, 1000L);
+            d.this.aZe = false;
+            d.this.aZg = true;
+            com.baidu.adp.lib.g.e.fP().postDelayed(d.this.aZl, 1000L);
         }
     };
-    private Runnable aZj = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
+    private Runnable aZl = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
         @Override // java.lang.Runnable
         public void run() {
-            if (!d.this.aZc) {
+            if (!d.this.aZe) {
                 d.this.Lj();
-                com.baidu.adp.lib.g.e.fP().postDelayed(d.this.aZj, 1000L);
+                com.baidu.adp.lib.g.e.fP().postDelayed(d.this.aZl, 1000L);
             }
         }
     };
@@ -57,20 +57,20 @@ public class d {
 
     private d() {
         Lj();
-        this.aZf = new HashSet();
-        this.aZg = new HashSet();
         this.aZh = new HashSet();
+        this.aZi = new HashSet();
+        this.aZj = new HashSet();
     }
 
     public static d Li() {
-        if (aZb == null) {
+        if (aZd == null) {
             synchronized (d.class) {
-                if (aZb == null) {
-                    aZb = new d();
+                if (aZd == null) {
+                    aZd = new d();
                 }
             }
         }
-        return aZb;
+        return aZd;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -84,23 +84,23 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Lk() {
-        this.aZi = true;
-        for (a aVar : this.aZf) {
+        this.aZk = true;
+        for (a aVar : this.aZh) {
             if (aVar != null) {
                 aVar.Ll();
             }
         }
-        this.aZi = false;
-        this.aZf.addAll(this.aZh);
-        this.aZh.clear();
-        this.aZf.removeAll(this.aZg);
-        this.aZg.clear();
+        this.aZk = false;
+        this.aZh.addAll(this.aZj);
+        this.aZj.clear();
+        this.aZh.removeAll(this.aZi);
+        this.aZi.clear();
     }
 
     public IQuickMediaPlayer createPlayer() {
-        if (this.aZc && this.aZd != null) {
+        if (this.aZe && this.aZf != null) {
             try {
-                return this.aZd.createPlayer();
+                return this.aZf.createPlayer();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -109,18 +109,18 @@ public class d {
     }
 
     public void a(a aVar) {
-        if (this.aZi) {
-            this.aZh.add(aVar);
+        if (this.aZk) {
+            this.aZj.add(aVar);
         } else {
-            this.aZf.add(aVar);
+            this.aZh.add(aVar);
         }
     }
 
     public void b(a aVar) {
-        if (this.aZi) {
-            this.aZh.remove(aVar);
+        if (this.aZk) {
+            this.aZj.remove(aVar);
         } else {
-            this.aZf.remove(aVar);
+            this.aZh.remove(aVar);
         }
     }
 }

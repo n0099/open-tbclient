@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d {
-    protected final Paint aOP = new Paint();
-    protected final Paint aOQ = new Paint();
-    private int aOR;
-    private int aOS;
-    private int aOT;
+    protected final Paint aOS = new Paint();
+    protected final Paint aOT = new Paint();
     private int aOU;
     private int aOV;
     private int aOW;
     private int aOX;
+    private int aOY;
+    private int aOZ;
+    private int aPa;
     protected final View view;
 
     private Context getContext() {
@@ -27,26 +27,26 @@ public class d {
     }
 
     public d(View view) {
-        this.aOR = 16;
-        this.aOS = 16;
-        this.aOT = -1;
-        this.aOU = 1711276032;
-        this.aOV = 20;
-        this.aOW = 16;
-        this.aOX = 32;
+        this.aOU = 16;
+        this.aOV = 16;
+        this.aOW = -1;
+        this.aOX = 1711276032;
+        this.aOY = 20;
+        this.aOZ = 16;
+        this.aPa = 32;
         this.view = view;
-        this.aOU = getContext().getResources().getColor(d.C0082d.black_alpha40);
-        this.aOQ.setColor(this.aOU);
-        this.aOQ.setAntiAlias(true);
-        this.aOV = (int) getContext().getResources().getDimension(d.e.tbfontsize26);
-        this.aOT = getContext().getResources().getColor(d.C0082d.cp_cont_i);
-        this.aOP.setColor(this.aOT);
-        this.aOP.setTextSize(this.aOV);
-        this.aOP.setAntiAlias(true);
-        this.aOR = l.f(getContext(), d.e.tbds20);
-        this.aOS = l.f(getContext(), d.e.tbds20);
-        this.aOW = l.f(getContext(), d.e.ds16);
-        this.aOX = l.f(getContext(), d.e.tbds40);
+        this.aOX = getContext().getResources().getColor(d.C0096d.black_alpha40);
+        this.aOT.setColor(this.aOX);
+        this.aOT.setAntiAlias(true);
+        this.aOY = (int) getContext().getResources().getDimension(d.e.tbfontsize26);
+        this.aOW = getContext().getResources().getColor(d.C0096d.cp_cont_i);
+        this.aOS.setColor(this.aOW);
+        this.aOS.setTextSize(this.aOY);
+        this.aOS.setAntiAlias(true);
+        this.aOU = l.f(getContext(), d.e.tbds20);
+        this.aOV = l.f(getContext(), d.e.tbds20);
+        this.aOZ = l.f(getContext(), d.e.ds16);
+        this.aPa = l.f(getContext(), d.e.tbds40);
     }
 
     public void c(Canvas canvas, String str) {
@@ -60,14 +60,14 @@ public class d {
             int right = this.view.getRight();
             int top = this.view.getTop();
             int bottom = this.view.getBottom();
-            float measureText = this.aOP.measureText(str);
-            float f = this.aOX + measureText;
-            float f2 = this.aOV + this.aOW;
-            canvas.translate((((right - left) - paddingRight) - f) - this.aOS, (((bottom - top) - paddingBottom) - f2) - this.aOR);
+            float measureText = this.aOS.measureText(str);
+            float f = this.aPa + measureText;
+            float f2 = this.aOY + this.aOZ;
+            canvas.translate((((right - left) - paddingRight) - f) - this.aOV, (((bottom - top) - paddingBottom) - f2) - this.aOU);
             RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.aOQ);
-            Paint.FontMetrics fontMetrics = this.aOP.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.aOP);
+            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.aOT);
+            Paint.FontMetrics fontMetrics = this.aOS.getFontMetrics();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.aOS);
             canvas.restoreToCount(save);
         }
     }
@@ -79,33 +79,33 @@ public class d {
     }
 
     public void setTagPaddingDis(int i, int i2) {
-        this.aOS = i;
-        this.aOR = i2;
+        this.aOV = i;
+        this.aOU = i2;
         invalidate();
     }
 
     public void fz(int i) {
-        this.aOT = i;
-        this.aOP.setColor(i);
+        this.aOW = i;
+        this.aOS.setColor(i);
         invalidate();
     }
 
     public void setTagTextSize(int i) {
-        this.aOV = i;
-        this.aOP.setTextSize(i);
+        this.aOY = i;
+        this.aOS.setTextSize(i);
         invalidate();
     }
 
-    public float hf(String str) {
-        return l.b(this.aOP, str).height() + this.aOW;
+    public float hd(String str) {
+        return l.b(this.aOS, str).height() + this.aOZ;
     }
 
-    public float hg(String str) {
-        return l.a(this.aOP, str) + this.aOX;
+    public float he(String str) {
+        return l.a(this.aOS, str) + this.aPa;
     }
 
-    public void N(int i, int i2) {
-        this.aOX = i;
-        this.aOW = i2;
+    public void O(int i, int i2) {
+        this.aPa = i;
+        this.aOZ = i2;
     }
 }

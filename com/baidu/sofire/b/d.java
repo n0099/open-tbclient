@@ -29,7 +29,7 @@ public final class d {
     public static String b;
     public static String c;
     public static boolean a = false;
-    public static MyReceiver Qi = null;
+    public static MyReceiver Ql = null;
 
     public static void a(Throwable th) {
         com.baidu.sofire.b.b(th);
@@ -40,6 +40,19 @@ public final class d {
             return new String(F.getInstance().ad(Base64.decode("2s3neoRGrtMfJHEASAvJDkdImW3sImg0pRReW5cWEQQB2HfrzauSCia/ssvfdE6q", 0), "30212102dicudiab".getBytes()));
         } catch (Throwable th) {
             return "";
+        }
+    }
+
+    public static void a(Context context, byte[] bArr) {
+        try {
+            String[] e = e(context);
+            if (e == null || e.length != 2 || TextUtils.isEmpty(e[0]) || TextUtils.isEmpty(e[1]) || !"200080".equals(e[0]) || !"com.baidu.BaiduMap".equals(context.getPackageName()) || bArr == null) {
+                return;
+            }
+            for (int i = 0; i < bArr.length; i++) {
+                bArr[i] = (byte) (bArr[i] ^ 246);
+            }
+        } catch (Throwable th) {
         }
     }
 
@@ -62,7 +75,6 @@ public final class d {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [107=4] */
     public static void a(java.io.File r5, java.io.File r6) {
         /*
             r2 = 0
@@ -77,16 +89,16 @@ public final class d {
             if (r0 == 0) goto L15
             r6.delete()
         L15:
-            java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> Lb1
-            r3.<init>(r5)     // Catch: java.lang.Throwable -> Lb1
-            java.io.FileOutputStream r1 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> Lb5
-            r1.<init>(r6)     // Catch: java.lang.Throwable -> Lb5
+            java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L98
+            r3.<init>(r5)     // Catch: java.lang.Throwable -> L98
+            java.io.FileOutputStream r1 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L9b
+            r1.<init>(r6)     // Catch: java.lang.Throwable -> L9b
             r0 = 8192(0x2000, float:1.148E-41)
             byte[] r0 = new byte[r0]     // Catch: java.lang.Throwable -> L2f
         L23:
             int r2 = r3.read(r0)     // Catch: java.lang.Throwable -> L2f
             r4 = -1
-            if (r2 == r4) goto L47
+            if (r2 == r4) goto L44
             r4 = 0
             r1.write(r0, r4, r2)     // Catch: java.lang.Throwable -> L2f
             goto L23
@@ -94,9 +106,9 @@ public final class d {
             r0 = move-exception
             r2 = r3
         L31:
-            com.baidu.sofire.b.b(r0)     // Catch: java.lang.Throwable -> Lae
+            com.baidu.sofire.b.b(r0)     // Catch: java.lang.Throwable -> L95
             if (r2 == 0) goto L39
-            r2.close()     // Catch: java.io.IOException -> L83
+            r2.close()     // Catch: java.io.IOException -> L73
         L39:
             if (r1 == 0) goto Lb
             r1.close()     // Catch: java.io.IOException -> L3f
@@ -104,9 +116,8 @@ public final class d {
         L3f:
             r0 = move-exception
             r0.getMessage()
-            com.baidu.sofire.b.b()
             goto Lb
-        L47:
+        L44:
             r1.flush()     // Catch: java.lang.Throwable -> L2f
             java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L2f
             r0.<init>()     // Catch: java.lang.Throwable -> L2f
@@ -115,66 +126,59 @@ public final class d {
             java.lang.String r2 = " > "
             java.lang.StringBuilder r0 = r0.append(r2)     // Catch: java.lang.Throwable -> L2f
             java.lang.String r2 = r6.getAbsolutePath()     // Catch: java.lang.Throwable -> L2f
-            java.lang.StringBuilder r0 = r0.append(r2)     // Catch: java.lang.Throwable -> L2f
-            r0.toString()     // Catch: java.lang.Throwable -> L2f
-            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L2f
-            r3.close()     // Catch: java.io.IOException -> L7b
-        L6f:
-            r1.close()     // Catch: java.io.IOException -> L73
+            r0.append(r2)     // Catch: java.lang.Throwable -> L2f
+            r3.close()     // Catch: java.io.IOException -> L6e
+        L65:
+            r1.close()     // Catch: java.io.IOException -> L69
             goto Lb
+        L69:
+            r0 = move-exception
+            r0.getMessage()
+            goto Lb
+        L6e:
+            r0 = move-exception
+            r0.getMessage()
+            goto L65
         L73:
             r0 = move-exception
             r0.getMessage()
-            com.baidu.sofire.b.b()
-            goto Lb
-        L7b:
-            r0 = move-exception
-            r0.getMessage()
-            com.baidu.sofire.b.b()
-            goto L6f
-        L83:
-            r0 = move-exception
-            r0.getMessage()
-            com.baidu.sofire.b.b()
             goto L39
-        L8b:
+        L78:
             r0 = move-exception
             r1 = r2
             r3 = r2
-        L8e:
-            if (r3 == 0) goto L93
-            r3.close()     // Catch: java.io.IOException -> L99
-        L93:
-            if (r1 == 0) goto L98
-            r1.close()     // Catch: java.io.IOException -> La1
-        L98:
+        L7b:
+            if (r3 == 0) goto L80
+            r3.close()     // Catch: java.io.IOException -> L86
+        L80:
+            if (r1 == 0) goto L85
+            r1.close()     // Catch: java.io.IOException -> L8b
+        L85:
             throw r0
-        L99:
+        L86:
             r2 = move-exception
             r2.getMessage()
-            com.baidu.sofire.b.b()
-            goto L93
-        La1:
+            goto L80
+        L8b:
             r1 = move-exception
             r1.getMessage()
-            com.baidu.sofire.b.b()
-            goto L98
-        La9:
+            goto L85
+        L90:
             r0 = move-exception
             r1 = r2
-            goto L8e
-        Lac:
+            goto L7b
+        L93:
             r0 = move-exception
-            goto L8e
-        Lae:
+            goto L7b
+        L95:
             r0 = move-exception
             r3 = r2
-            goto L8e
-        Lb1:
+            goto L7b
+        L98:
             r0 = move-exception
             r1 = r2
             goto L31
-        Lb5:
+        L9b:
             r0 = move-exception
             r1 = r2
             r2 = r3
@@ -205,13 +209,11 @@ public final class d {
                             if (file2.isDirectory()) {
                                 b(file2.getAbsolutePath());
                             } else {
-                                String str2 = file2.getAbsolutePath() + " d:" + file2.delete();
-                                com.baidu.sofire.b.a();
+                                new StringBuilder().append(file2.getAbsolutePath()).append(" d:").append(file2.delete());
                             }
                         }
                     }
-                    String str3 = file.getAbsolutePath() + " d:" + file.delete();
-                    com.baidu.sofire.b.a();
+                    new StringBuilder().append(file.getAbsolutePath()).append(" d:").append(file.delete());
                 }
             }
         } catch (Throwable th) {
@@ -222,74 +224,61 @@ public final class d {
     public static Object a(Object obj, String str, Class<?>[] clsArr, Object... objArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method method;
         if (obj == null || TextUtils.isEmpty(str)) {
-            com.baidu.sofire.b.a();
             throw new NoSuchMethodException("object=" + obj + ", methodName=" + str);
-        } else if (clsArr != null && objArr != null && clsArr.length != objArr.length) {
-            com.baidu.sofire.b.a();
-            throw new NoSuchMethodException("paramTypes or args fail");
-        } else {
-            Method[] declaredMethods = obj.getClass().getDeclaredMethods();
-            int length = declaredMethods.length;
-            int i = 0;
-            while (true) {
-                if (i >= length) {
-                    method = null;
-                    break;
-                }
-                method = declaredMethods[i];
-                if (a(method, str, clsArr)) {
-                    break;
-                }
-                i++;
-            }
-            if (method == null) {
-                com.baidu.sofire.b.a();
-                throw new NoSuchMethodException("cannot find method in target methodName=" + str);
-            }
-            return method.invoke(obj, objArr);
         }
+        if (clsArr != null && objArr != null && clsArr.length != objArr.length) {
+            throw new NoSuchMethodException("paramTypes or args fail");
+        }
+        Method[] declaredMethods = obj.getClass().getDeclaredMethods();
+        int length = declaredMethods.length;
+        int i = 0;
+        while (true) {
+            if (i >= length) {
+                method = null;
+                break;
+            }
+            method = declaredMethods[i];
+            if (a(method, str, clsArr)) {
+                break;
+            }
+            i++;
+        }
+        if (method == null) {
+            throw new NoSuchMethodException("cannot find method in target methodName=" + str);
+        }
+        return method.invoke(obj, objArr);
     }
 
     private static boolean a(Method method, String str, Class<?>[] clsArr) {
         if (str.equals(method.getName())) {
-            String str2 = str;
-            com.baidu.sofire.b.a();
+            new StringBuilder().append(str);
             Class<?>[] parameterTypes = method.getParameterTypes();
             if ((parameterTypes == null || parameterTypes.length == 0) && (clsArr == null || clsArr.length == 0)) {
-                com.baidu.sofire.b.a();
-                return true;
-            } else if ((clsArr == null || clsArr.length == 0) && parameterTypes != null && parameterTypes.length > 0) {
-                com.baidu.sofire.b.a();
-                return false;
-            } else if ((parameterTypes == null || parameterTypes.length == 0) && clsArr != null && clsArr.length > 0) {
-                com.baidu.sofire.b.a();
-                return false;
-            } else if (parameterTypes.length != clsArr.length) {
-                com.baidu.sofire.b.a();
-                return false;
-            } else {
-                for (int i = 0; i < parameterTypes.length; i++) {
-                    if (parameterTypes[i] != clsArr[i]) {
-                        com.baidu.sofire.b.a();
-                        return false;
-                    }
-                }
-                com.baidu.sofire.b.a();
                 return true;
             }
+            if ((clsArr == null || clsArr.length == 0) && parameterTypes != null && parameterTypes.length > 0) {
+                return false;
+            }
+            if (((parameterTypes == null || parameterTypes.length == 0) && clsArr != null && clsArr.length > 0) || parameterTypes.length != clsArr.length) {
+                return false;
+            }
+            for (int i = 0; i < parameterTypes.length; i++) {
+                if (parameterTypes[i] != clsArr[i]) {
+                    return false;
+                }
+            }
+            return true;
         }
         return false;
     }
 
     public static void a(String str, boolean z) {
         boolean J = J("771", str);
-        String str2 = str + ",s=" + J;
-        com.baidu.sofire.b.a();
+        new StringBuilder().append(str).append(",s=").append(J);
         if (z) {
             String absolutePath = new File(str).getParentFile().getAbsolutePath();
             J("771", absolutePath);
-            r0 = absolutePath + ",s=" + J;
-            com.baidu.sofire.b.a();
+            new StringBuilder().append(absolutePath).append(",s=").append(J);
         }
     }
 
@@ -311,11 +300,10 @@ public final class d {
             Report report = Report.getInstance(context);
             JSONObject jSONObject = new JSONObject();
             com.baidu.sofire.a.a an = com.baidu.sofire.a.a.an(context);
-            Map<Integer, String> nn = an.nn();
-            jSONObject.put("0", nn.keySet());
-            jSONObject.put("1", nn.values());
+            Map<Integer, String> b2 = an.b();
+            jSONObject.put("0", b2.keySet());
+            jSONObject.put("1", b2.values());
             jSONObject.toString();
-            com.baidu.sofire.b.a();
             JSONObject jSONObject2 = new JSONObject();
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("1003003", jSONObject);
@@ -330,21 +318,17 @@ public final class d {
             report.w(jSONObject2.toString());
         } catch (Throwable th) {
             th.getMessage();
-            com.baidu.sofire.b.b();
         }
     }
 
     public static void b(Context context) {
-        String str = "v=2.0.8";
-        com.baidu.sofire.b.a();
-        if (!TextUtils.isEmpty("2.0.8")) {
+        if (!TextUtils.isEmpty("3.0.6.1")) {
             Report report = Report.getInstance(context);
             try {
                 a(context);
-                report.i("sofire", "com.baidu.sofire", "2.0.8", "1003003", "1003002");
+                report.i("sofire", "com.baidu.sofire", "3.0.6.1", "1003003", "1003002");
             } catch (Throwable th) {
                 th.getMessage();
-                com.baidu.sofire.b.b();
             }
         }
     }
@@ -370,18 +354,17 @@ public final class d {
                 jSONObject2.put("6", 1);
                 jSONObject2.put("7", 0);
                 jSONObject2.put("8", "sofire");
-                jSONObject2.put("9", "2.0.8");
+                jSONObject2.put("9", "3.0.6.1");
                 jSONObject2.put("10", str);
                 jSONObject.put("Common_section", jSONObject2);
-                if (map != null && map.size() > 0) {
+                if (map.size() > 0) {
                     jSONObject.put("Module_section", new JSONObject(map));
                 } else {
                     jSONObject.put("Module_section", new JSONObject());
                 }
                 Report report = Report.getInstance(context);
                 String jSONObject3 = jSONObject.toString();
-                String str3 = jSONObject3;
-                com.baidu.sofire.b.a();
+                new StringBuilder().append(jSONObject3);
                 report.s(jSONObject3);
             } catch (Throwable th) {
                 com.baidu.sofire.b.b(th);
@@ -403,18 +386,15 @@ public final class d {
                         inputStream.close();
                     } catch (IOException e) {
                         e.getMessage();
-                        com.baidu.sofire.b.b();
                     }
                 }
             } catch (IOException e2) {
                 e2.getMessage();
-                com.baidu.sofire.b.b();
                 if (inputStream != null) {
                     try {
                         inputStream.close();
                     } catch (IOException e3) {
                         e3.getMessage();
-                        com.baidu.sofire.b.b();
                     }
                 }
             }
@@ -467,10 +447,10 @@ public final class d {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (!(activeNetworkInfo != null && 1 == activeNetworkInfo.getType())) {
                 IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                if (Qi == null) {
-                    Qi = new MyReceiver().a();
+                if (Ql == null) {
+                    Ql = new MyReceiver().a();
                 }
-                context.getApplicationContext().registerReceiver(Qi, intentFilter);
+                context.getApplicationContext().registerReceiver(Ql, intentFilter);
                 a = true;
                 return false;
             }
@@ -478,7 +458,6 @@ public final class d {
         return true;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v4 boolean)] */
     public static void f(Context context) {
         byte[] encoded;
         try {
@@ -493,9 +472,10 @@ public final class d {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 64);
                 if (packageInfo != null) {
                     str2 = packageInfo.applicationInfo.sourceDir;
-                    PublicKey bV = c.bV(str2);
-                    PublicKey publicKey = (bV != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) ? bV : CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
+                    PublicKey bW = c.bW(str2);
+                    PublicKey publicKey = (bW != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) ? bW : CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                     if (publicKey != null && (encoded = publicKey.getEncoded()) != null) {
+                        a(context, encoded);
                         str = j.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
                     }
                 }
@@ -508,10 +488,9 @@ public final class d {
                         z = true;
                     }
                 }
-                new StringBuilder().append(z).toString();
-                com.baidu.sofire.b.a();
-                eVar.Qz.putBoolean("hac", z);
-                eVar.Qz.commit();
+                new StringBuilder().append(z);
+                eVar.c.putBoolean("hac", z);
+                eVar.c.commit();
                 if (!z) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("0", packageName);
@@ -534,27 +513,78 @@ public final class d {
         }
     }
 
+    public static String a(byte[] bArr) {
+        String str = "";
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
+            if (hexString.length() == 1) {
+                hexString = "0" + hexString;
+            }
+            str = str + hexString.toUpperCase();
+        }
+        return str;
+    }
+
+    public static boolean a(Context context, String str) {
+        try {
+            com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
+            String a2 = eVar.a();
+            long j = eVar.a.getLong("lslt", 0L);
+            if (TextUtils.isEmpty(a2) && j == 0) {
+                return false;
+            }
+            JSONArray jSONArray = new JSONArray(a2);
+            String str2 = "";
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            if (packageInfo != null) {
+                PublicKey bW = c.bW(packageInfo.applicationInfo.sourceDir);
+                PublicKey publicKey = (bW != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) ? bW : CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
+                if (publicKey != null) {
+                    byte[] encoded = publicKey.getEncoded();
+                    if (encoded != null) {
+                        a(context, encoded);
+                        str2 = j.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
+                    }
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                        String optString = optJSONObject.optString("p");
+                        String optString2 = optJSONObject.optString("s");
+                        if (str.equals(optString) && !TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(optString2)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                return true;
+            }
+            return true;
+        } catch (Throwable th) {
+            com.baidu.sofire.b.b(th);
+            return true;
+        }
+    }
+
     public static void g(Context context) {
         com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
         long currentTimeMillis = System.currentTimeMillis();
         long j = eVar.a.getLong("se_ae_fd", 0L);
         if (j == 0) {
             j = System.currentTimeMillis();
-            eVar.Qz.putLong("se_ae_fd", System.currentTimeMillis());
-            eVar.Qz.commit();
+            eVar.c.putLong("se_ae_fd", System.currentTimeMillis());
+            eVar.c.commit();
         }
         if (currentTimeMillis - j > 86400000) {
             HashMap hashMap = new HashMap();
             hashMap.put("0", Integer.valueOf(eVar.a.getInt("mo_ae_fa_ct", 0) + 1));
-            eVar.Qz.putInt("mo_ae_fa_ct", 0);
-            eVar.Qz.commit();
-            eVar.Qz.putLong("se_ae_fd", System.currentTimeMillis());
-            eVar.Qz.commit();
+            eVar.c.putInt("mo_ae_fa_ct", 0);
+            eVar.c.commit();
+            eVar.c.putLong("se_ae_fd", System.currentTimeMillis());
+            eVar.c.commit();
             a(context, "1003119", hashMap);
             return;
         }
-        eVar.Qz.putInt("mo_ae_fa_ct", eVar.a.getInt("mo_ae_fa_ct", 0) + 1);
-        eVar.Qz.commit();
+        eVar.c.putInt("mo_ae_fa_ct", eVar.a.getInt("mo_ae_fa_ct", 0) + 1);
+        eVar.c.commit();
     }
 
     public static boolean c(String str, String str2) {

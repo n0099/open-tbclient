@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.data;
 
 import android.content.Context;
-import com.baidu.sapi2.SapiSafeFacade;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
@@ -11,8 +10,8 @@ import tbclient.Post;
 /* loaded from: classes.dex */
 public class n {
     public String forum_top_list;
-    public final List<PostData> ePo = new ArrayList();
-    public final List<Long> ePp = new ArrayList();
+    public final List<PostData> eQr = new ArrayList();
+    public final List<Long> eQs = new ArrayList();
     private int count = 0;
 
     public int getCount() {
@@ -27,19 +26,19 @@ public class n {
         if (pbTopAgreePost.post_list != null && pbTopAgreePost.post_list.size() > 0) {
             for (Post post : pbTopAgreePost.post_list) {
                 PostData postData = new PostData();
-                postData.gzN = SapiSafeFacade.SAPIWEBVIEW_BACK;
+                postData.gCw = 102;
                 postData.a(post, context);
-                this.ePo.add(postData);
+                this.eQr.add(postData);
             }
         }
-        if (!v.w(this.ePo)) {
-            this.ePo.get(0).gzO = true;
-            setCount(this.ePo.size());
+        if (!v.w(this.eQr)) {
+            this.eQr.get(0).gCx = true;
+            setCount(this.eQr.size());
         }
         List<Long> list = pbTopAgreePost.post_id_list;
         if (list != null && list.size() > 0) {
             for (Long l : pbTopAgreePost.post_id_list) {
-                this.ePp.add(l);
+                this.eQs.add(l);
             }
         }
         this.forum_top_list = pbTopAgreePost.forum_top_list;

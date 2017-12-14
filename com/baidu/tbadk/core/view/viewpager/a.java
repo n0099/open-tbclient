@@ -28,7 +28,7 @@ public abstract class a extends PagerAdapter {
     public void startUpdate(ViewGroup viewGroup) {
     }
 
-    public final ArrayList<Fragment> wT() {
+    public final ArrayList<Fragment> wS() {
         return this.mFragments;
     }
 
@@ -138,7 +138,7 @@ public abstract class a extends PagerAdapter {
             for (String str : bundle.keySet()) {
                 if (str.startsWith("f")) {
                     int parseInt = Integer.parseInt(str.substring(1));
-                    Fragment fragment = this.mFragmentManager.getFragment(bundle, str);
+                    Fragment fragment = this.mFragmentManager.getFragments() != null ? this.mFragmentManager.getFragment(bundle, str) : null;
                     if (fragment != null) {
                         while (this.mFragments.size() <= parseInt) {
                             this.mFragments.add(null);

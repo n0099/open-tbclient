@@ -1,21 +1,13 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.util.s;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public interface ai {
-    void Pj();
+    void a(TbPageContext tbPageContext, View view, int i, boolean z, BdUniqueId bdUniqueId);
 
-    void Pk();
+    void changeSkinType(int i);
 
-    void Pl();
-
-    void setHeaderViewHeight(int i);
-
-    void setRecommendFrsNavigationAnimDispatcher(s sVar);
-
-    void setVideoThreadId(String str);
-
-    void showFloatingView();
-
-    void wE();
+    void hide();
 }

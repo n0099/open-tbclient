@@ -3,7 +3,7 @@ package com.baidu.tieba.i;
 public interface k {
     i F(String str, String str2, String str3);
 
-    h aOb();
+    h aOk();
 
     e pf(String str);
 }

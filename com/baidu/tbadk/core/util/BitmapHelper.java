@@ -875,7 +875,35 @@ public class BitmapHelper {
         return bitmap2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [864=6, 866=5, 868=5, 870=5, 871=5, 872=5] */
+    public static Bitmap decodeByteArray(byte[] bArr, int i, int i2) {
+        Bitmap bitmap;
+        if (bArr != null) {
+            try {
+                if (bArr.length != 0 && i > 0 && i2 > 0) {
+                    synchronized (lockForSyncImageDecoder) {
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inPreferredConfig = TbConfig.BitmapConfig;
+                        options.inJustDecodeBounds = true;
+                        BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                        if (options.mCancel || options.outWidth == -1 || options.outHeight == -1) {
+                            bitmap = null;
+                        } else {
+                            options.inSampleSize = Math.min(options.outWidth / i, options.outHeight / i2);
+                            options.inJustDecodeBounds = false;
+                            bitmap = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                        }
+                    }
+                    return bitmap;
+                }
+            } catch (Throwable th) {
+                return null;
+            }
+        }
+        bitmap = null;
+        return bitmap;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [887=6, 889=5, 891=5, 893=5, 894=5, 895=5] */
     public static Bitmap Bytes2NineBitmap(byte[] bArr, Rect rect, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;

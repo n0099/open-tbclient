@@ -12,9 +12,9 @@ import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FrsEntranceStoryListWrapperView extends LinearLayout {
-    private HTypeListView aFS;
-    private com.baidu.tieba.a.a aFT;
-    private TbPageContext acd;
+    private HTypeListView aFW;
+    private com.baidu.tieba.a.a aFX;
+    private TbPageContext abX;
     private View mRootView;
     private int mSkinType;
 
@@ -33,38 +33,38 @@ public class FrsEntranceStoryListWrapperView extends LinearLayout {
     }
 
     public void l(TbPageContext tbPageContext) {
-        this.acd = tbPageContext;
-        if (this.acd != null) {
-            this.aFS = (HTypeListView) this.mRootView.findViewById(d.g.listview_story_pic);
-            this.aFS.setSelector(d.f.transparent_bg);
-            this.aFT = new com.baidu.tieba.a.a(this.acd, this.aFS);
+        this.abX = tbPageContext;
+        if (this.abX != null) {
+            this.aFW = (HTypeListView) this.mRootView.findViewById(d.g.listview_story_pic);
+            this.aFW.setSelector(d.f.transparent_bg);
+            this.aFX = new com.baidu.tieba.a.a(this.abX, this.aFW);
         }
     }
 
     public void changeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.aFT != null) {
-                this.aFT.notifyDataSetChanged();
+            if (this.aFX != null) {
+                this.aFX.notifyDataSetChanged();
             }
-            aj.k(this.mRootView, d.C0082d.cp_bg_line_e);
-            aj.k(this.aFS, d.C0082d.cp_bg_line_d);
+            aj.k(this.mRootView, d.C0096d.cp_bg_line_e);
+            aj.k(this.aFW, d.C0096d.cp_bg_line_d);
         }
         this.mSkinType = i;
     }
 
     public void b(List<com.baidu.adp.widget.ListView.f> list, String str, String str2) {
-        com.baidu.tieba.story.l.brP().brS();
+        com.baidu.tieba.story.l.bsv().bsy();
         if (v.w(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        if (this.aFT != null) {
-            this.aFT.a(list, str, str2);
+        if (this.aFX != null) {
+            this.aFX.a(list, str, str2);
         }
     }
 
     public void setOnClick(View.OnClickListener onClickListener) {
-        this.aFT.setItemOnclickListener(onClickListener);
+        this.aFX.setItemOnclickListener(onClickListener);
     }
 }

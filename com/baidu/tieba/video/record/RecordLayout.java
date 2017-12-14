@@ -9,8 +9,8 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class RecordLayout extends RelativeLayout {
-    private float EP;
-    private a gVi;
+    private float EO;
+    private a gXU;
     private int mFlingDistance;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
@@ -18,9 +18,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bDn();
+        void bDW();
 
-        void bDo();
+        void bDX();
     }
 
     public RecordLayout(Context context) {
@@ -52,25 +52,25 @@ public class RecordLayout extends RelativeLayout {
         this.mVelocityTracker.addMovement(motionEvent);
         switch (motionEvent.getAction()) {
             case 0:
-                this.EP = motionEvent.getRawX();
+                this.EO = motionEvent.getRawX();
                 break;
             case 1:
             case 3:
-                if (this.gVi != null) {
+                if (this.gXU != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
-                    int rawX = (int) (motionEvent.getRawX() - this.EP);
+                    int rawX = (int) (motionEvent.getRawX() - this.EO);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.gVi.bDo();
+                            this.gXU.bDX();
                         } else {
-                            this.gVi.bDn();
+                            this.gXU.bDW();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.ac(getContext())) {
                         if (rawX > 0) {
-                            this.gVi.bDo();
+                            this.gXU.bDX();
                         } else {
-                            this.gVi.bDo();
+                            this.gXU.bDX();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.gVi = aVar;
+        this.gXU = aVar;
     }
 }

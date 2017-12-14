@@ -6,6 +6,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.s;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -115,8 +116,8 @@ public class a extends com.baidu.adp.framework.a.d {
         }
         String netType = h.getNetType();
         if (netType != null) {
-            if (com.baidu.tbadk.coreExtra.b.a.xs().xt()) {
-                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xs().xu()));
+            if (com.baidu.tbadk.coreExtra.b.a.xr().xs()) {
+                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xr().xt()));
             }
             if ("3".equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
@@ -140,7 +141,7 @@ public class a extends com.baidu.adp.framework.a.d {
             httpMessage.addParam("BDUSS", currentBduss);
             String d = e.d(TbadkCoreApplication.getCurrentAccountInfo());
             if (!StringUtils.isNull(d)) {
-                httpMessage.addParam("stoken", d);
+                httpMessage.addParam(ISapiAccount.SAPI_ACCOUNT_STOKEN, d);
             }
         }
     }
@@ -164,17 +165,17 @@ public class a extends com.baidu.adp.framework.a.d {
     }
 
     private void d(HttpMessage httpMessage) {
-        aa.a vb = aa.vb();
-        if (vb != null) {
-            httpMessage.addParam("stTime", String.valueOf(vb.mTime));
-            httpMessage.addParam("stSize", String.valueOf(vb.agH));
-            httpMessage.addParam("stTimesNum", String.valueOf(vb.agI));
-            httpMessage.addParam("stMode", String.valueOf(vb.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(vb.agG));
+        aa.a uY = aa.uY();
+        if (uY != null) {
+            httpMessage.addParam("stTime", String.valueOf(uY.mTime));
+            httpMessage.addParam("stSize", String.valueOf(uY.agB));
+            httpMessage.addParam("stTimesNum", String.valueOf(uY.agC));
+            httpMessage.addParam("stMode", String.valueOf(uY.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(uY.agA));
         }
         int cI = aa.cI(0);
-        if (cI == 0 && vb != null) {
-            cI = vb.agI;
+        if (cI == 0 && uY != null) {
+            cI = uY.agC;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(cI));
     }

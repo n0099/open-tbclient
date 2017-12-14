@@ -9,40 +9,40 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends d {
-    private ViewGroup ace;
-    private TextView acf;
-    private TextView acg;
-    private View.OnClickListener ach;
+    private ViewGroup abY;
+    private TextView abZ;
+    private TextView aca;
+    private View.OnClickListener acb;
     private TbPageContext<?> mPageContext;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
-        this.ace = (ViewGroup) ((ViewStub) getRootView().findViewById(d.g.yes_no_viewStub)).inflate();
-        this.acf = (TextView) this.ace.findViewById(d.g.yes);
-        this.acg = (TextView) this.ace.findViewById(d.g.no);
+        this.abY = (ViewGroup) ((ViewStub) getRootView().findViewById(d.g.yes_no_viewStub)).inflate();
+        this.abZ = (TextView) this.abY.findViewById(d.g.yes);
+        this.aca = (TextView) this.abY.findViewById(d.g.no);
     }
 
     public e a(int i, View.OnClickListener onClickListener) {
-        this.acf.setText(i);
-        this.acf.setOnClickListener(onClickListener);
-        this.ach = onClickListener;
+        this.abZ.setText(i);
+        this.abZ.setOnClickListener(onClickListener);
+        this.acb = onClickListener;
         return this;
     }
 
     public void setPositiveButtonEnable(boolean z) {
         if (z) {
-            aj.i(this.acf, d.C0082d.cp_link_tip_a);
-            this.acf.setOnClickListener(this.ach);
+            aj.i(this.abZ, d.C0096d.cp_link_tip_a);
+            this.abZ.setOnClickListener(this.acb);
             return;
         }
-        aj.i(this.acf, d.C0082d.cp_cont_e);
-        this.acf.setOnClickListener(null);
+        aj.i(this.abZ, d.C0096d.cp_cont_e);
+        this.abZ.setOnClickListener(null);
     }
 
     public e b(int i, View.OnClickListener onClickListener) {
-        this.acg.setText(i);
-        this.acg.setOnClickListener(onClickListener);
+        this.aca.setText(i);
+        this.aca.setOnClickListener(onClickListener);
         return this;
     }
 }

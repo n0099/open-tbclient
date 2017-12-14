@@ -24,7 +24,7 @@ public class PageDialogHelper {
             payForm = PayForm.NOT_SET;
         }
         if (payForm == PayForm.NOT_SET) {
-            com.baidu.tbadk.coreExtra.data.l consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
+            com.baidu.tbadk.coreExtra.data.m consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
             int intExtra = intent.getIntExtra("pay_type", i);
             if (consumePathData != null) {
                 z = consumePathData.j(intExtra, str);

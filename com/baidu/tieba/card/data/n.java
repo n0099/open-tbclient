@@ -6,78 +6,78 @@ import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class n extends c {
-    public static final BdUniqueId cdK = BdUniqueId.gen();
-    public static final BdUniqueId cdL = BdUniqueId.gen();
-    public static String cdM = "";
-    public static String cdN = "";
-    public static String cdO = "";
-    public static String cdP = "";
-    public static String cdQ = "";
-    public static String cdR = "";
-    public static String cdS = "";
-    public bd bjD;
-    public boolean cdF = false;
-    public boolean cdT = true;
+    public static final BdUniqueId cdY = BdUniqueId.gen();
+    public static final BdUniqueId cdZ = BdUniqueId.gen();
+    public static String cea = "";
+    public static String ceb = "";
+    public static String cec = "";
+    public static String ced = "";
+    public static String cee = "";
+    public static String cef = "";
+    public static String ceg = "";
+    public bd bjE;
+    public boolean cdT = false;
+    public boolean ceh = true;
     public int sourceType = 0;
 
     public n(bd bdVar) {
-        this.bjD = bdVar;
+        this.bjE = bdVar;
     }
 
-    public static boolean D(bd bdVar) {
-        return (bdVar == null || bdVar.rP() == null) ? false : true;
+    public static boolean F(bd bdVar) {
+        return (bdVar == null || bdVar.rN() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        if (this.bjD == null) {
-            return cdK;
+        if (this.bjE == null) {
+            return cdY;
         }
-        if (this.bjD.rB() || this.bjD.rC()) {
-            return cdL;
+        if (this.bjE.rz() || this.bjE.rA()) {
+            return cdZ;
         }
-        return cdK;
+        return cdY;
     }
 
     @Override // com.baidu.tieba.card.data.c
     public bd Ox() {
-        return this.bjD;
+        return this.bjE;
     }
 
-    public ak jY(String str) {
+    public ak jW(String str) {
         ak akVar = new ak(str);
-        if (this.bjD != null) {
-            akVar.f(ImageViewerConfig.FORUM_ID, this.bjD.getFid());
-            akVar.ac("tid", this.bjD.getTid());
+        if (this.bjE != null) {
+            akVar.f(ImageViewerConfig.FORUM_ID, this.bjE.getFid());
+            akVar.ac("tid", this.bjE.getTid());
             akVar.r("obj_type", 2);
-            if (this.bjD.rx() != null) {
-                akVar.ac("obj_id", this.bjD.rx().getUserId());
+            if (this.bjE.rv() != null) {
+                akVar.ac("obj_id", this.bjE.rv().getUserId());
             }
         }
         return akVar;
     }
 
-    public ak ace() {
-        ak t = t(cdP, true);
-        if (t != null && Ox() != null) {
+    public ak aco() {
+        ak u = u(ced, true);
+        if (u != null && Ox() != null) {
             bd Ox = Ox();
-            t.r("obj_name", Ox.sO() != null && (Ox.sO().bwr() != null || Ox.sO().Jy() != null) ? 1 : 0);
-            if (Ox.rx() != null) {
-                t.r("ab_type", Ox.rx().hadConcerned() ? 1 : 0);
+            u.r("obj_name", Ox.sM() != null && (Ox.sM().bwY() != null || Ox.sM().Jz() != null) ? 1 : 0);
+            if (Ox.rv() != null) {
+                u.r("ab_type", Ox.rv().hadConcerned() ? 1 : 0);
             }
         }
-        return t;
+        return u;
     }
 
-    public ak E(bd bdVar) {
-        return (bdVar.sC() == null || bdVar.sC().channelId <= 0) ? t(cdQ, true) : t(cdR, true);
+    public ak G(bd bdVar) {
+        return (bdVar.sA() == null || bdVar.sA().channelId <= 0) ? u(cee, true) : u(cef, true);
     }
 
-    public ak acg() {
-        return t(cdN, true);
+    public ak acq() {
+        return u(ceb, true);
     }
 
-    public ak F(bd bdVar) {
-        return (bdVar.sC() == null || bdVar.sC().channelId <= 0) ? t(cdM, true) : t(cdS, true);
+    public ak H(bd bdVar) {
+        return (bdVar.sA() == null || bdVar.sA().channelId <= 0) ? u(cea, true) : u(ceg, true);
     }
 }

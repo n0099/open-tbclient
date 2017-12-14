@@ -35,34 +35,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private static List<String> ctc = new ArrayList();
-    private b csR;
-    private ViewGroup csS;
-    private ImageView csT;
-    private TextView csU;
-    private View csV;
-    private NoNetworkView csW;
-    private PluginErrorTipView csX;
-    private RelativeLayout csY;
-    private ImageView csZ;
-    private ObservedChangeLinearLayout cta;
-    private RelativeLayout ctb;
-    final CustomMessageListener ctd = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tieba.enterForum.home.a.5
+    private static List<String> ctl = new ArrayList();
+    private b cta;
+    private ViewGroup ctb;
+    private ImageView ctc;
+    private TextView ctd;
+    private View cte;
+    private NoNetworkView ctf;
+    private PluginErrorTipView ctg;
+    private RelativeLayout cth;
+    private ImageView cti;
+    private ObservedChangeLinearLayout ctj;
+    private RelativeLayout ctk;
+    final CustomMessageListener ctm = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tieba.enterForum.home.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-                if (d.ahr()) {
-                    d.ahs();
+                if (d.ahz()) {
+                    d.ahA();
                 }
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!StringUtils.isNull(currentAccount)) {
-                    if (a.ctc.contains(currentAccount)) {
+                    if (a.ctl.contains(currentAccount)) {
                         a.this.e(false, null);
                         return;
                     }
                     com.baidu.tbadk.coreExtra.data.a activityPrizeData = TbadkCoreApplication.getInst().getActivityPrizeData();
-                    if (!activityPrizeData.xw()) {
+                    if (!activityPrizeData.xv()) {
                         a.this.e(false, null);
                         return;
                     } else if (!StringUtils.isNull(activityPrizeData.xC())) {
@@ -79,108 +79,108 @@ public class a extends BaseFragment {
     };
     private NavigationBar mNavigationBar;
 
-    public ObservedChangeLinearLayout agO() {
-        return this.cta;
+    public ObservedChangeLinearLayout agW() {
+        return this.ctj;
     }
 
-    private void ap(View view) {
-        this.csY = (RelativeLayout) view.findViewById(d.g.enter_root_layout);
-        aq(view);
-        this.csW = (NoNetworkView) view.findViewById(d.g.view_no_network);
-        this.csX = (PluginErrorTipView) view.findViewById(d.g.view_plugin_error_tip);
-        this.cta = (ObservedChangeLinearLayout) view.findViewById(d.g.tab_layout);
-        this.csR = new b(this);
-        this.csW.a(new NoNetworkView.a() { // from class: com.baidu.tieba.enterForum.home.a.1
+    private void aq(View view) {
+        this.cth = (RelativeLayout) view.findViewById(d.g.enter_root_layout);
+        ar(view);
+        this.ctf = (NoNetworkView) view.findViewById(d.g.view_no_network);
+        this.ctg = (PluginErrorTipView) view.findViewById(d.g.view_plugin_error_tip);
+        this.ctj = (ObservedChangeLinearLayout) view.findViewById(d.g.tab_layout);
+        this.cta = new b(this);
+        this.ctf.a(new NoNetworkView.a() { // from class: com.baidu.tieba.enterForum.home.a.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void aJ(boolean z) {
-                a.this.csR.ey(z);
+                a.this.cta.ez(z);
             }
         });
-        this.csY.addView(this.csR.getView(), 0);
+        this.cth.addView(this.cta.getView(), 0);
     }
 
-    private void agP() {
-        if (this.ctb == null) {
-            ((ViewStub) this.csY.findViewById(d.g.activity_prize_stub)).inflate();
-            this.ctb = (RelativeLayout) this.csY.findViewById(d.g.activity_root_view);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ctb.getLayoutParams();
+    private void agX() {
+        if (this.ctk == null) {
+            ((ViewStub) this.cth.findViewById(d.g.activity_prize_stub)).inflate();
+            this.ctk = (RelativeLayout) this.cth.findViewById(d.g.activity_root_view);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ctk.getLayoutParams();
             layoutParams.topMargin = this.mNavigationBar.getFixedNavHeight();
-            this.ctb.setLayoutParams(layoutParams);
-            com.baidu.tbadk.n.a.a(getPageContext(), this.ctb);
-            this.csS = (ViewGroup) this.ctb.findViewById(d.g.activity_root_view);
-            this.csT = (ImageView) this.ctb.findViewById(d.g.activity_close_view);
-            this.csU = (TextView) this.ctb.findViewById(d.g.activity_tip_view);
-            this.csT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.a.2
+            this.ctk.setLayoutParams(layoutParams);
+            com.baidu.tbadk.n.a.a(getPageContext(), this.ctk);
+            this.ctb = (ViewGroup) this.ctk.findViewById(d.g.activity_root_view);
+            this.ctc = (ImageView) this.ctk.findViewById(d.g.activity_close_view);
+            this.ctd = (TextView) this.ctk.findViewById(d.g.activity_tip_view);
+            this.ctc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TiebaStatic.log(new ak("c12596"));
-                    a.ctc.add(TbadkCoreApplication.getCurrentAccount());
+                    a.ctl.add(TbadkCoreApplication.getCurrentAccount());
                     a.this.e(false, null);
                 }
             });
-            this.csS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.a.3
+            this.ctb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     String xy = TbadkCoreApplication.getInst().getActivityPrizeData().xy();
                     if (!StringUtils.isNull(xy)) {
                         TiebaStatic.log(new ak("c12595"));
-                        av.vL().a(a.this.getPageContext(), new String[]{xy}, true);
+                        av.vI().a(a.this.getPageContext(), new String[]{xy}, true);
                     }
                 }
             });
         }
     }
 
-    private void aq(View view) {
+    private void ar(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(d.g.enter_forum_navigation_bar);
-        aj.k(this.mNavigationBar, d.C0082d.cp_bg_line_d);
+        aj.k(this.mNavigationBar, d.C0096d.cp_bg_line_d);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(d.j.enter_forum));
         this.mNavigationBar.showBottomLine();
-        this.csZ = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_nb_item_signall, new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.a.4
+        this.cti = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_nb_item_signall, new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (!a.this.agR()) {
+                if (!a.this.agZ()) {
                     if (!TbadkCoreApplication.isLogin()) {
-                        ax.aU(a.this.getPageContext().getPageActivity());
+                        ax.aR(a.this.getPageContext().getPageActivity());
                     } else if (TbadkCoreApplication.getInst().appResponseToIntentClass(SignAllForumActivityConfig.class)) {
                         a.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SignAllForumActivityConfig(a.this.getPageContext().getPageActivity())));
                     }
                 }
             }
         });
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.csZ.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cti.getLayoutParams();
         layoutParams.setMargins(0, 0, l.f(getPageContext().getPageActivity(), d.e.tbds44), 0);
-        this.csZ.setLayoutParams(layoutParams);
+        this.cti.setLayoutParams(layoutParams);
     }
 
-    public void agQ() {
-        agS();
-        if (this.csR != null) {
-            this.csR.Om();
-            if (this.csR.ahc()) {
-                this.csR.ahb();
+    public void agY() {
+        aha();
+        if (this.cta != null) {
+            this.cta.Om();
+            if (this.cta.ahk()) {
+                this.cta.ahj();
             }
         }
     }
 
-    public boolean agR() {
-        if (this.csR != null) {
-            return this.csR.ahc();
+    public boolean agZ() {
+        if (this.cta != null) {
+            return this.cta.ahk();
         }
         return false;
     }
 
-    private void agS() {
-        if (this.csR != null) {
-            this.csR.eA(true);
+    private void aha() {
+        if (this.cta != null) {
+            this.cta.eB(true);
         }
     }
 
-    public void agT() {
-        if (!agR()) {
-            aj.a(this.csZ, d.f.icon_sign_bg_s, d.f.icon_sign_bg);
+    public void ahb() {
+        if (!agZ()) {
+            aj.a(this.cti, d.f.icon_sign_bg_s, d.f.icon_sign_bg);
         } else {
-            aj.a(this.csZ, d.f.icon_topbar_sign_s, d.f.icon_topbar_sign_s);
+            aj.a(this.cti, d.f.icon_topbar_sign_s, d.f.icon_topbar_sign_s);
         }
     }
 
@@ -188,9 +188,9 @@ public class a extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            agQ();
-            if (this.csR != null) {
-                refreshImage(this.csR.getView());
+            agY();
+            if (this.cta != null) {
+                refreshImage(this.cta.getView());
             }
         }
     }
@@ -199,30 +199,30 @@ public class a extends BaseFragment {
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        aj.k(this.csY, d.C0082d.cp_bg_line_d);
-        if (this.csR != null) {
-            this.csR.onChangeSkinType(i);
+        aj.k(this.cth, d.C0096d.cp_bg_line_d);
+        if (this.cta != null) {
+            this.cta.onChangeSkinType(i);
         }
-        if (this.csW != null) {
-            this.csW.onChangeSkinType(getPageContext(), i);
+        if (this.ctf != null) {
+            this.ctf.onChangeSkinType(getPageContext(), i);
         }
-        if (this.csX != null) {
-            this.csX.onChangeSkinType(getPageContext(), i);
+        if (this.ctg != null) {
+            this.ctg.onChangeSkinType(getPageContext(), i);
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-            aj.k(this.mNavigationBar, d.C0082d.cp_bg_line_d);
+            aj.k(this.mNavigationBar, d.C0096d.cp_bg_line_d);
         }
-        if (this.ctb != null) {
-            com.baidu.tbadk.n.a.a(getPageContext(), this.ctb);
+        if (this.ctk != null) {
+            com.baidu.tbadk.n.a.a(getPageContext(), this.ctk);
         }
-        agT();
+        ahb();
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(d.h.fragment_enter_forum, viewGroup, false);
-        ap(inflate);
+        aq(inflate);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return inflate;
     }
@@ -230,14 +230,14 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ctd.setPriority(101);
-        registerListener(this.ctd);
+        this.ctm.setPriority(101);
+        registerListener(this.ctm);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.csR != null) {
-            this.csR.onDestroy();
+        if (this.cta != null) {
+            this.cta.onDestroy();
         }
         super.onDestroy();
     }
@@ -245,40 +245,42 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.csR != null) {
-            this.csR.onPause();
+        if (this.cta != null) {
+            this.cta.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.csW != null && this.csW.getVisibility() == 0 && j.hh()) {
-            this.csW.aI(false);
+        if (this.ctf != null && this.ctf.getVisibility() == 0 && j.hh()) {
+            this.ctf.aI(false);
         }
     }
 
-    public RelativeLayout agU() {
-        return this.csY;
+    public RelativeLayout ahc() {
+        return this.cth;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(boolean z, String str) {
         if (z) {
-            if (this.ctb == null) {
-                agP();
+            if (this.ctk == null) {
+                agX();
             }
-            this.csV = this.csR.agX();
-            this.csS.setVisibility(0);
-            this.csU.setText(str);
+            if (this.cte == null) {
+                this.cte = this.cta.ahf();
+            }
+            this.ctb.setVisibility(0);
+            this.ctd.setText(str);
             return;
         }
-        if (this.ctb != null) {
-            this.csS.setVisibility(8);
+        if (this.ctk != null) {
+            this.ctb.setVisibility(8);
         }
-        if (this.csV != null) {
-            this.csR.ar(this.csV);
-            this.csV = null;
+        if (this.cte != null) {
+            this.cta.as(this.cte);
+            this.cte = null;
         }
     }
 

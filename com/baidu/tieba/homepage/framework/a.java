@@ -3,30 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class a {
-    private static a dog = new a();
-    private long doh = 0;
-    private SparseArray<Long> doi = new SparseArray<>();
-    private SparseArray<Long> doj = new SparseArray<>();
-    private SparseArray<Long> dok = new SparseArray<>();
-    private SparseArray<Long> dol = new SparseArray<>();
+    private static a dpl = new a();
+    private long dpm = 0;
+    private SparseArray<Long> dpn = new SparseArray<>();
+    private SparseArray<Long> dpo = new SparseArray<>();
+    private SparseArray<Long> dpp = new SparseArray<>();
+    private SparseArray<Long> dpq = new SparseArray<>();
 
     private a() {
     }
 
-    public static a atG() {
-        return dog;
+    public static a atP() {
+        return dpl;
     }
 
     public long getCreateTime() {
-        return this.doh;
+        return this.dpm;
     }
 
     public void setCreateTime(long j) {
-        this.doh = j;
+        this.dpm = j;
     }
 
-    public long lD(int i) {
-        Long l = this.doj.get(i);
+    public long lK(int i) {
+        Long l = this.dpo.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void e(long j, int i) {
-        this.doj.put(i, Long.valueOf(j));
+        this.dpo.put(i, Long.valueOf(j));
     }
 
-    public long lE(int i) {
-        Long l = this.doi.get(i);
+    public long lL(int i) {
+        Long l = this.dpn.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void f(long j, int i) {
-        this.doi.put(i, Long.valueOf(j));
+        this.dpn.put(i, Long.valueOf(j));
     }
 
-    public long lF(int i) {
-        Long l = this.dok.get(i);
+    public long lM(int i) {
+        Long l = this.dpp.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void g(long j, int i) {
-        this.dok.put(i, Long.valueOf(j));
+        this.dpp.put(i, Long.valueOf(j));
     }
 
-    public long lG(int i) {
-        Long l = this.dol.get(i);
+    public long lN(int i) {
+        Long l = this.dpq.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void h(long j, int i) {
-        this.dol.put(i, Long.valueOf(j));
+        this.dpq.put(i, Long.valueOf(j));
     }
 }

@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f {
-    private String aVp;
-    private int aVq;
     private String aVr;
     private int aVs;
-    private int aVt;
+    private String aVt;
+    private int aVu;
+    private int aVv;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class f {
     public void b(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.aVp = pbContent.src;
+            this.aVr = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aVq = pbContent.e_type.intValue();
-            this.aVr = pbContent.text;
+            this.aVs = pbContent.e_type.intValue();
+            this.aVt = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aVs = pbContent.count.intValue();
-            this.aVt = pbContent.origin_size.intValue();
+            this.aVu = pbContent.count.intValue();
+            this.aVv = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class f {
     }
 
     public String getThumbUrl() {
-        return this.aVp;
+        return this.aVr;
     }
 
     public int getWidth() {
@@ -44,23 +44,23 @@ public class f {
         return this.height;
     }
 
-    public String Kc() {
-        return this.aVr;
+    public String Kd() {
+        return this.aVt;
     }
 
-    public boolean Kd() {
-        return this.aVq == 15;
+    public boolean Ke() {
+        return this.aVs == 15;
     }
 
     public boolean isAvaliable() {
         return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
     }
 
-    public int Ke() {
-        return this.aVs;
+    public int Kf() {
+        return this.aVu;
     }
 
     public void gh(int i) {
-        this.aVs = i;
+        this.aVu = i;
     }
 }

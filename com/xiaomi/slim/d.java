@@ -1,7 +1,6 @@
 package com.xiaomi.slim;
 
 import android.os.Build;
-import com.baidu.sapi2.SapiSafeFacade;
 import com.xiaomi.push.protobuf.b;
 import com.xiaomi.push.service.at;
 import java.io.BufferedOutputStream;
@@ -53,7 +52,7 @@ public class d {
 
     public void a() {
         b.e eVar = new b.e();
-        eVar.a(SapiSafeFacade.SAPIWEBVIEW_MODIFY_PWD);
+        eVar.a(106);
         eVar.a(Build.MODEL);
         eVar.b(Build.VERSION.INCREMENTAL);
         eVar.c(at.e());
@@ -64,7 +63,7 @@ public class d {
         eVar.c(Build.VERSION.SDK_INT);
         byte[] a = this.d.c().a();
         if (a != null) {
-            eVar.a(b.C0163b.b(a));
+            eVar.a(b.C0180b.b(a));
         }
         b bVar = new b();
         bVar.a(0);

@@ -50,6 +50,7 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String PHOTO_NAME = "photo_name";
     public static final String POST_WRITE_CALLBACK_DATA = "post_write_callback_data";
     public static final String PREFIX_DATA = "prefix_data";
+    public static final String PRIVATE_THREAD = "private_thread";
     public static final String REFRESH_PIC = "refresh_pic";
     public static final String REPLY_SUB_PB = "reply_sub_pb";
     public static final String SUB_USER_NAME = "sub_user_name";
@@ -169,6 +170,12 @@ public class WriteActivityConfig extends IntentConfig {
     public void setForumAvatar(String str) {
         if (getIntent() != null) {
             getIntent().putExtra("forum_avatar", str);
+        }
+    }
+
+    public void setPrivateThread(int i) {
+        if (getIntent() != null) {
+            getIntent().putExtra("private_thread", i);
         }
     }
 

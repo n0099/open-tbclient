@@ -6,119 +6,119 @@ import java.util.ArrayList;
 import tbclient.App;
 /* loaded from: classes.dex */
 public class l extends PostData {
-    public String Vf;
-    public String Vg;
-    public String cRU;
+    public String UZ;
+    public String Va;
+    public String cSf;
     public String forumId;
-    private AppData gzc;
-    public boolean gzd = false;
+    private AppData gBL;
+    public boolean gBM = false;
     public int pageNumber;
     public long threadId;
 
     public void c(App app) {
-        this.gzc = new AppData(app);
+        this.gBL = new AppData(app);
     }
 
-    public void sY(String str) {
-        this.gzc = new AppData(str);
+    public void td(String str) {
+        this.gBL = new AppData(str);
     }
 
-    public AppData bwd() {
-        return this.gzc;
+    public AppData bwK() {
+        return this.gBL;
     }
 
-    public AdvertAppInfo.ILegoAdvert bwe() {
-        if (this.gzc == null) {
+    public AdvertAppInfo.ILegoAdvert bwL() {
+        if (this.gBL == null) {
             return null;
         }
-        return this.gzc.legoCard;
+        return this.gBL.legoCard;
     }
 
     public String getAdId() {
-        return this.gzc == null ? "" : this.gzc.id;
+        return this.gBL == null ? "" : this.gBL.id;
     }
 
     public boolean isApp() {
-        if (this.gzc == null) {
+        if (this.gBL == null) {
             return false;
         }
-        return this.gzc.pz();
+        return this.gBL.px();
     }
 
-    public int bwf() {
-        if (this.gzc == null || this.gzc.goods == null) {
+    public int bwM() {
+        if (this.gBL == null || this.gBL.goods == null) {
             return -1;
         }
-        return this.gzc.goods.goods_style;
+        return this.gBL.goods.goods_style;
     }
 
     public int getPosition() {
-        if (this.gzc == null) {
+        if (this.gBL == null) {
             return 0;
         }
-        return com.baidu.adp.lib.g.b.g(this.gzc.pos_name, 0);
+        return com.baidu.adp.lib.g.b.g(this.gBL.pos_name, 0);
     }
 
-    public AdvertAppInfo bwg() {
+    public AdvertAppInfo bwN() {
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-        if (this.gzc != null) {
-            advertAppInfo.Vj = this.gzc;
-            advertAppInfo.UR = this.gzc.id;
-            advertAppInfo.US = this.gzc.name;
-            advertAppInfo.UT = this.gzc.url_type;
-            advertAppInfo.UU = this.gzc.url;
-            advertAppInfo.deepUrl = this.gzc.deepUrl;
-            advertAppInfo.UV = this.gzc.apk_url;
-            advertAppInfo.UW = this.gzc.apk_name;
-            advertAppInfo.adPosition = this.gzc.pos_name.trim();
-            advertAppInfo.UY = this.gzc.first_name;
-            advertAppInfo.UZ = this.gzc.second_name;
-            advertAppInfo.cpid = this.gzc.cpid;
-            advertAppInfo.abtest = this.gzc.abtest;
-            advertAppInfo.Va = this.gzc.plan_id;
-            advertAppInfo.userId = this.gzc.user_id;
-            advertAppInfo.Vb = this.gzc.verify;
-            advertAppInfo.price = this.gzc.price;
-            advertAppInfo.extensionInfo = this.gzc.ext_info;
-            advertAppInfo.Vc = this.gzc.app_time * 1000;
-            advertAppInfo.legoCard = this.gzc.legoCard;
-            if (this.gzc.goods != null) {
-                advertAppInfo.Vd.Vo = this.gzc.goods.pop_window_text;
-                advertAppInfo.Vd.Vk = this.gzc.goods.id;
-                advertAppInfo.Vd.Vn = this.gzc.goods.thread_pic;
-                advertAppInfo.Vd.Vp = this.gzc.goods.goods_style;
-                advertAppInfo.Vd.Vl = this.gzc.goods.thread_title;
-                advertAppInfo.Vd.Vm = this.gzc.goods.thread_content;
-                advertAppInfo.Vd.userName = this.gzc.goods.user_name;
-                advertAppInfo.Vd.userPortrait = this.gzc.goods.user_portrait;
-                advertAppInfo.Vd.buttonText = this.gzc.goods.button_text;
-                advertAppInfo.Vd.Vs = this.gzc.goods.button_url;
-                if (this.gzc.goods.thread_pic_list != null) {
-                    advertAppInfo.Vd.Vt = new ArrayList();
-                    advertAppInfo.Vd.Vt.addAll(this.gzc.goods.thread_pic_list);
+        if (this.gBL != null) {
+            advertAppInfo.Vd = this.gBL;
+            advertAppInfo.UK = this.gBL.id;
+            advertAppInfo.UL = this.gBL.name;
+            advertAppInfo.UM = this.gBL.url_type;
+            advertAppInfo.UN = this.gBL.url;
+            advertAppInfo.deepUrl = this.gBL.deepUrl;
+            advertAppInfo.UO = this.gBL.apk_url;
+            advertAppInfo.UQ = this.gBL.apk_name;
+            advertAppInfo.adPosition = this.gBL.pos_name.trim();
+            advertAppInfo.US = this.gBL.first_name;
+            advertAppInfo.UT = this.gBL.second_name;
+            advertAppInfo.cpid = this.gBL.cpid;
+            advertAppInfo.abtest = this.gBL.abtest;
+            advertAppInfo.UU = this.gBL.plan_id;
+            advertAppInfo.userId = this.gBL.user_id;
+            advertAppInfo.UV = this.gBL.verify;
+            advertAppInfo.price = this.gBL.price;
+            advertAppInfo.extensionInfo = this.gBL.ext_info;
+            advertAppInfo.UW = this.gBL.app_time * 1000;
+            advertAppInfo.legoCard = this.gBL.legoCard;
+            if (this.gBL.goods != null) {
+                advertAppInfo.UX.Vi = this.gBL.goods.pop_window_text;
+                advertAppInfo.UX.Ve = this.gBL.goods.id;
+                advertAppInfo.UX.Vh = this.gBL.goods.thread_pic;
+                advertAppInfo.UX.Vj = this.gBL.goods.goods_style;
+                advertAppInfo.UX.Vf = this.gBL.goods.thread_title;
+                advertAppInfo.UX.Vg = this.gBL.goods.thread_content;
+                advertAppInfo.UX.userName = this.gBL.goods.user_name;
+                advertAppInfo.UX.userPortrait = this.gBL.goods.user_portrait;
+                advertAppInfo.UX.buttonText = this.gBL.goods.button_text;
+                advertAppInfo.UX.Vm = this.gBL.goods.button_url;
+                if (this.gBL.goods.thread_pic_list != null) {
+                    advertAppInfo.UX.Vn = new ArrayList();
+                    advertAppInfo.UX.Vn.addAll(this.gBL.goods.thread_pic_list);
                 }
-                advertAppInfo.Vd.Vu = this.gzc.goods.video_info;
-                advertAppInfo.Vd.tagName = this.gzc.goods.tag_name;
-                advertAppInfo.Vd.adSource = this.gzc.goods.ad_source;
-                advertAppInfo.Vd.Vv = this.gzc.goods.tag_name_url;
-                advertAppInfo.Vd.tagRatio = this.gzc.goods.tagRatio;
-                advertAppInfo.Vd.lego_card = this.gzc.goods.lego_card;
+                advertAppInfo.UX.Vo = this.gBL.goods.video_info;
+                advertAppInfo.UX.tagName = this.gBL.goods.tag_name;
+                advertAppInfo.UX.adSource = this.gBL.goods.ad_source;
+                advertAppInfo.UX.Vp = this.gBL.goods.tag_name_url;
+                advertAppInfo.UX.tagRatio = this.gBL.goods.tagRatio;
+                advertAppInfo.UX.lego_card = this.gBL.goods.lego_card;
             }
-            advertAppInfo.Ut = "PB";
+            advertAppInfo.Un = "PB";
         }
         return advertAppInfo;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        if (!com.baidu.tbadk.core.h.pa().pg() && this.gzc != null && this.gzc.legoCard != null && !this.gzc.legoCard.isNoPicAd()) {
-            return AdvertAppInfo.UF;
+        if (!com.baidu.tbadk.core.h.oY().pe() && this.gBL != null && this.gBL.legoCard != null && !this.gBL.legoCard.isNoPicAd()) {
+            return AdvertAppInfo.Uy;
         }
-        if (bwf() == 1001 || bwf() == -1001) {
-            return AdvertAppInfo.UF;
+        if (bwM() == 1001 || bwM() == -1001) {
+            return AdvertAppInfo.Uy;
         }
-        if (bwe() != null) {
-            return AdvertAppInfo.UJ;
+        if (bwL() != null) {
+            return AdvertAppInfo.UD;
         }
         return null;
     }

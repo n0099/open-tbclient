@@ -15,14 +15,14 @@ public class PraiseModel extends BdBaseModel {
     public static final int UN_LIKE = 0;
     private static final String dataUrl = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
     private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, dataUrl);
-    private final HttpMessageListener bfQ;
-    private a gyj;
+    private final HttpMessageListener bfR;
+    private a gAS;
 
     /* loaded from: classes.dex */
     public interface a {
         void F(int i, String str);
 
-        void hY(String str);
+        void hW(String str);
     }
 
     static {
@@ -32,36 +32,36 @@ public class PraiseModel extends BdBaseModel {
 
     public PraiseModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.gyj = null;
-        this.bfQ = new HttpMessageListener(CmdConfigHttp.COMMON_PRAISE_Y_OR_N) { // from class: com.baidu.tieba.tbadkCore.PraiseModel.1
+        this.gAS = null;
+        this.bfR = new HttpMessageListener(CmdConfigHttp.COMMON_PRAISE_Y_OR_N) { // from class: com.baidu.tieba.tbadkCore.PraiseModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                        if (PraiseModel.this.gyj != null) {
-                            PraiseModel.this.gyj.F(statusCode, null);
+                        if (PraiseModel.this.gAS != null) {
+                            PraiseModel.this.gAS.F(statusCode, null);
                             return;
                         }
                         return;
                     }
                     PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                     if (praiseResponseMessage.getError() == 0) {
-                        PraiseModel.this.gyj.hY(praiseResponseMessage.getErrMsg());
-                    } else if (PraiseModel.this.gyj != null) {
-                        PraiseModel.this.gyj.F(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                        PraiseModel.this.gAS.hW(praiseResponseMessage.getErrMsg());
+                    } else if (PraiseModel.this.gAS != null) {
+                        PraiseModel.this.gAS.F(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }
                 }
             }
         };
-        this.gyj = aVar;
+        this.gAS = aVar;
     }
 
     public void registerListener() {
-        this.bfQ.setSelfListener(true);
-        this.bfQ.setTag(getUniqueId());
-        registerListener(this.bfQ);
+        this.bfR.setSelfListener(true);
+        this.bfR.setTag(getUniqueId());
+        registerListener(this.bfR);
     }
 
     public void a(String str, String str2, int i, String str3) {

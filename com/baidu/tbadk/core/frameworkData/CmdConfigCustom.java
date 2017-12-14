@@ -427,6 +427,7 @@ public class CmdConfigCustom {
     public static final int CMD_TDOU_PAY_BUNDING_PHONE = 2001359;
     public static final int CMD_TEXT_CHANGED = 2001357;
     public static final int CMD_THEME_CENTER_RES_TOOL = 2001358;
+    public static final int CMD_THREAD_MANAGE = 2921316;
     public static final int CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB = 2016553;
     public static final int CMD_TOGGLE_SHOW_VIDEO_VIEW = 2016475;
     public static final int CMD_TOPIC_SWITCH_TAB_FROM_POP_WINDOW = 2001433;
@@ -464,6 +465,7 @@ public class CmdConfigCustom {
     public static final int CMD_VALIDATE_MODEL = 2001299;
     public static final int CMD_VEDIO_START_PLAY = 2016517;
     public static final int CMD_VIDEO_CACHE_CLEAN = 2001404;
+    public static final int CMD_VIDEO_MIDDLE_PAGE_NAVIGATION_BAR_ICON = 2921317;
     public static final int CMD_VIDEO_WRITE_POST_SUCCESS = 2001374;
     public static final int CMD_VIEW_PAGER_END_AUTO_SCROLL = 2016319;
     public static final int CMD_VIEW_PAGER_START_AUTO_SCROLL = 2016318;

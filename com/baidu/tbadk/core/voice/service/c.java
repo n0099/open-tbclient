@@ -11,13 +11,13 @@ public interface c {
 
     boolean isPlaying();
 
-    void xf();
+    void xe();
+
+    void xi();
 
     void xj();
 
     void xk();
 
-    void xl();
-
-    boolean xm();
+    boolean xl();
 }

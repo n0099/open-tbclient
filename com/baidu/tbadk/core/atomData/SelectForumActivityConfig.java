@@ -11,6 +11,7 @@ public class SelectForumActivityConfig extends IntentConfig {
     public static final String EXTRA_KEY_FROM = "extra_key_from";
     public static final String EXTRA_KEY_LIVE_ID = "extra_key_live_id";
     public static final String EXTRA_KEY_ORIGINAL_THREAD = "extra_key_original_thread";
+    public static final String EXTRA_KEY_PRIVATE_THREAD = "extra_key_private_thread";
     public static final int FROM_ALA_SHARE = 1;
     public static final int FROM_TRANSMIT_SHARE = 2;
     public static final String KEY_INPUT_FORUM_LIST = "KEY_INTPUT_FORUM_LIST";
@@ -43,6 +44,12 @@ public class SelectForumActivityConfig extends IntentConfig {
     public void setOriginalThread(OriginalThreadInfo originalThreadInfo) {
         if (getIntent() != null) {
             getIntent().putExtra(EXTRA_KEY_ORIGINAL_THREAD, originalThreadInfo);
+        }
+    }
+
+    public void setPrivateThread(int i) {
+        if (getIntent() != null) {
+            getIntent().putExtra(EXTRA_KEY_PRIVATE_THREAD, i);
         }
     }
 }

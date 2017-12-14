@@ -56,6 +56,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
     private String tag_id;
     private bf top_code;
     private bg top_notice_data;
+    private String warning_msg;
     private bm yuleData;
     private String id = null;
     private String name = null;
@@ -94,6 +95,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
         this.mMemberShowIconData = new s();
         this.yuleData = new bm();
         this.mIsLiveGameForum = 0;
+        this.warning_msg = null;
     }
 
     public AnchorPower getAnchorPower() {
@@ -414,6 +416,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
                 this.mAcrossForumIcon = forumInfo.across_forum_show;
                 this.mIsLiveGameForum = forumInfo.is_live_game_forum.intValue();
                 this.forumGameLabel = forumInfo.forum_game_label;
+                this.warning_msg = forumInfo.warning_msg;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -478,6 +481,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
                 this.level_name = jSONObject.optString("level_name", null);
                 this.album_open_photo_frs = jSONObject.optInt("album_open_photo_frs", 0);
                 this.mIsLiveGameForum = jSONObject.optInt("is_live_game_forum", 0);
+                this.warning_msg = jSONObject.optString("warning_msg", null);
                 setFavo_type(jSONObject.optInt("favo_type", 0));
                 JSONArray optJSONArray = jSONObject.optJSONArray("managers");
                 if (optJSONArray != null) {
@@ -673,6 +677,10 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
 
     public boolean isGameForumType() {
         return this.mIsLiveGameForum == 1;
+    }
+
+    public String getWarningMsg() {
+        return this.warning_msg;
     }
 
     @Override // com.baidu.tbadk.core.util.ae

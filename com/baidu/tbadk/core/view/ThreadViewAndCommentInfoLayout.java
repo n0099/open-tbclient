@@ -13,40 +13,40 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
-    public int anM;
-    private TextView anq;
-    private TextView aoI;
-    private boolean aoJ;
-    private boolean aoK;
-    private boolean aoL;
+    public int anO;
+    private TextView ann;
+    private TextView aoL;
     private boolean aoM;
     private boolean aoN;
+    private boolean aoO;
+    private boolean aoP;
+    private boolean aoQ;
     private Context mContext;
 
     public ThreadViewAndCommentInfoLayout(Context context) {
         super(context);
-        this.aoJ = false;
-        this.aoK = false;
-        this.aoL = false;
         this.aoM = false;
         this.aoN = false;
+        this.aoO = false;
+        this.aoP = false;
+        this.aoQ = false;
         init(context);
     }
 
     public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aoJ = false;
-        this.aoK = false;
-        this.aoL = false;
         this.aoM = false;
         this.aoN = false;
+        this.aoO = false;
+        this.aoP = false;
+        this.aoQ = false;
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(d.h.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.aoI = (TextView) inflate.findViewById(d.g.thread_view_num);
-        this.anq = (TextView) inflate.findViewById(d.g.thread_comment_num);
+        this.aoL = (TextView) inflate.findViewById(d.g.thread_view_num);
+        this.ann = (TextView) inflate.findViewById(d.g.thread_comment_num);
         this.mContext = context;
     }
 
@@ -56,78 +56,78 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
             return;
         }
         setVisibility(0);
-        p(bdVar);
-        q(bdVar);
         r(bdVar);
         s(bdVar);
+        t(bdVar);
+        u(bdVar);
         f(bdVar);
     }
 
-    private void p(bd bdVar) {
-        if (this.aoI != null && bdVar != null && this.aoL && bdVar.rQ() != null && bdVar.sG()) {
-            this.aoI.setVisibility(0);
-            this.aoI.setText(String.format(this.mContext.getString(d.j.person_view_item_live_watch_num), am.u(bdVar.rQ().audience_count)));
-        }
-    }
-
-    private void q(bd bdVar) {
-        if (this.aoI != null && bdVar != null && this.aoJ) {
-            if (bdVar.rq() >= 0) {
-                this.aoI.setVisibility(0);
-                this.aoI.setText(String.format(this.mContext.getString(d.j.person_view_num), am.u(bdVar.rq())));
-                return;
-            }
-            this.aoI.setVisibility(8);
-        }
-    }
-
     private void r(bd bdVar) {
-        if (this.anq != null && bdVar != null && this.aoK) {
-            if (bdVar.rp() >= 0) {
-                this.anq.setVisibility(0);
-                this.anq.setText(String.format(this.mContext.getString(d.j.comment_num_tip), am.u(bdVar.rp())));
-                return;
-            }
-            this.anq.setVisibility(8);
+        if (this.aoL != null && bdVar != null && this.aoO && bdVar.rO() != null && bdVar.sE()) {
+            this.aoL.setVisibility(0);
+            this.aoL.setText(String.format(this.mContext.getString(d.j.person_view_item_live_watch_num), am.u(bdVar.rO().audience_count)));
         }
     }
 
     private void s(bd bdVar) {
-        if (this.anq != null && bdVar != null && this.aoM && bdVar.sG()) {
-            this.anq.setVisibility(0);
-            this.anq.setText(String.format(this.mContext.getString(d.j.person_view_item_live_zan_num), am.u(bdVar.sL())));
+        if (this.aoL != null && bdVar != null && this.aoM) {
+            if (bdVar.ro() >= 0) {
+                this.aoL.setVisibility(0);
+                this.aoL.setText(String.format(this.mContext.getString(d.j.person_view_num), am.u(bdVar.ro())));
+                return;
+            }
+            this.aoL.setVisibility(8);
+        }
+    }
+
+    private void t(bd bdVar) {
+        if (this.ann != null && bdVar != null && this.aoN) {
+            if (bdVar.rn() >= 0) {
+                this.ann.setVisibility(0);
+                this.ann.setText(String.format(this.mContext.getString(d.j.comment_num_tip), am.u(bdVar.rn())));
+                return;
+            }
+            this.ann.setVisibility(8);
+        }
+    }
+
+    private void u(bd bdVar) {
+        if (this.ann != null && bdVar != null && this.aoP && bdVar.sE()) {
+            this.ann.setVisibility(0);
+            this.ann.setText(String.format(this.mContext.getString(d.j.person_view_item_live_zan_num), am.u(bdVar.sJ())));
         }
     }
 
     private void f(bd bdVar) {
-        if (this.anq != null && bdVar != null && this.aoN && bdVar.sG()) {
-            this.anq.setVisibility(0);
-            this.anq.setText(String.format(this.mContext.getString(d.j.person_view_item_live_share_num), am.u((bdVar.rQ() == null || bdVar.rQ().share_info == null) ? 0 : bdVar.rQ().share_info.share_count)));
+        if (this.ann != null && bdVar != null && this.aoQ && bdVar.sE()) {
+            this.ann.setVisibility(0);
+            this.ann.setText(String.format(this.mContext.getString(d.j.person_view_item_live_share_num), am.u((bdVar.rO() == null || bdVar.rO().share_info == null) ? 0 : bdVar.rO().share_info.share_count)));
         }
     }
 
     public void setIsShowReadNum(boolean z) {
-        this.aoJ = z;
-    }
-
-    public void setIsShowReplayNum(boolean z) {
-        this.aoK = z;
-    }
-
-    public void setIsShowAudienceNum(boolean z) {
-        this.aoL = z;
-    }
-
-    public void setIsShowZanNum(boolean z) {
         this.aoM = z;
     }
 
-    public void setIsShowShareNum(boolean z) {
+    public void setIsShowReplayNum(boolean z) {
         this.aoN = z;
     }
 
+    public void setIsShowAudienceNum(boolean z) {
+        this.aoO = z;
+    }
+
+    public void setIsShowZanNum(boolean z) {
+        this.aoP = z;
+    }
+
+    public void setIsShowShareNum(boolean z) {
+        this.aoQ = z;
+    }
+
     public void onChangeSkinType() {
-        aj.i(this.aoI, d.C0082d.cp_cont_d);
-        aj.i(this.anq, d.C0082d.cp_cont_d);
+        aj.i(this.aoL, d.C0096d.cp_cont_d);
+        aj.i(this.ann, d.C0096d.cp_cont_d);
     }
 }

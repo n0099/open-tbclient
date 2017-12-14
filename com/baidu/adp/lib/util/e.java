@@ -4,9 +4,9 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class e {
     public static int ac(Context context) {
-        if (!l.yy) {
+        if (!l.yv) {
             l.ad(context);
         }
-        return l.yA;
+        return l.yx;
     }
 }

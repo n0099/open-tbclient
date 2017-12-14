@@ -9,14 +9,14 @@ import android.widget.FrameLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class GridLayout extends ViewGroup {
-    private int aSV;
-    private int aSW;
-    private int aSX;
     private int aSY;
-    private boolean aSZ;
-    private boolean aTa;
+    private int aSZ;
+    private int aTa;
     private int aTb;
-    private int aTc;
+    private boolean aTc;
+    private boolean aTd;
+    private int aTe;
+    private int aTf;
 
     public GridLayout(Context context) {
         this(context, null);
@@ -28,23 +28,23 @@ public class GridLayout extends ViewGroup {
 
     public GridLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aSV = -1;
-        this.aSW = -1;
-        this.aSX = 0;
-        this.aSY = 0;
-        this.aSZ = true;
-        this.aTa = false;
+        this.aSY = -1;
+        this.aSZ = -1;
+        this.aTa = 0;
+        this.aTb = 0;
+        this.aTc = true;
+        this.aTd = false;
         b(context, attributeSet, i);
     }
 
     private void b(Context context, AttributeSet attributeSet, int i) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.GridLayout);
         try {
-            this.aSX = obtainStyledAttributes.getDimensionPixelSize(d.l.GridLayout_gridHorizontalSpacing, 0);
-            this.aSY = obtainStyledAttributes.getDimensionPixelSize(d.l.GridLayout_gridVerticalSpacing, 0);
-            this.aSV = obtainStyledAttributes.getInteger(d.l.GridLayout_gridHorizontalNum, -1);
-            this.aSW = obtainStyledAttributes.getInteger(d.l.GridLayout_gridVerticalNum, -1);
-            this.aSZ = obtainStyledAttributes.getInteger(d.l.GridLayout_gridMainOrientation, 0) == 0;
+            this.aTa = obtainStyledAttributes.getDimensionPixelSize(d.l.GridLayout_gridHorizontalSpacing, 0);
+            this.aTb = obtainStyledAttributes.getDimensionPixelSize(d.l.GridLayout_gridVerticalSpacing, 0);
+            this.aSY = obtainStyledAttributes.getInteger(d.l.GridLayout_gridHorizontalNum, -1);
+            this.aSZ = obtainStyledAttributes.getInteger(d.l.GridLayout_gridVerticalNum, -1);
+            this.aTc = obtainStyledAttributes.getInteger(d.l.GridLayout_gridMainOrientation, 0) == 0;
         } finally {
             obtainStyledAttributes.recycle();
         }
@@ -60,7 +60,7 @@ public class GridLayout extends ViewGroup {
         View.MeasureSpec.getSize(i);
         View.MeasureSpec.getSize(i2);
         View[] needLayoutChild = getNeedLayoutChild();
-        if (this.aTa) {
+        if (this.aTd) {
             for (int i5 = 0; i5 < getChildCount(); i5++) {
                 measureChild(getChildAt(i5), i, i2);
             }
@@ -77,8 +77,8 @@ public class GridLayout extends ViewGroup {
             for (int i8 = 0; i8 < needLayoutChild.length; i8++) {
                 View view2 = needLayoutChild[i8];
                 a aVar = (a) view2.getLayoutParams();
-                i6 = i6 + this.aSX + view2.getMeasuredWidth() + aVar.leftMargin + aVar.rightMargin;
-                if ((i8 + 1) % this.aTc == 0 || i8 + 1 == needLayoutChild.length) {
+                i6 = i6 + this.aTa + view2.getMeasuredWidth() + aVar.leftMargin + aVar.rightMargin;
+                if ((i8 + 1) % this.aTf == 0 || i8 + 1 == needLayoutChild.length) {
                     i7 = Math.max(getMeasuredWidth(), i6);
                     i6 = getPaddingRight() + getPaddingLeft();
                 }
@@ -94,7 +94,7 @@ public class GridLayout extends ViewGroup {
                 View view3 = needLayoutChild[i10];
                 a aVar2 = (a) view3.getLayoutParams();
                 i9 = Math.max(i9, aVar2.bottomMargin + view3.getMeasuredHeight() + aVar2.topMargin);
-                if ((i10 + 1) % this.aTc == 0 || i10 + 1 == needLayoutChild.length) {
+                if ((i10 + 1) % this.aTf == 0 || i10 + 1 == needLayoutChild.length) {
                     i4 += i9;
                     i9 = getPaddingBottom() + getPaddingTop();
                 }
@@ -103,10 +103,10 @@ public class GridLayout extends ViewGroup {
             i4 = getMeasuredHeight();
         }
         setMeasuredDimension(i3, i4);
-        int measuredWidth = (((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) - (this.aSV * this.aSX)) + this.aSX;
-        int measuredHeight = (((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) - (this.aSW * this.aSY)) + this.aSY;
-        int i11 = measuredWidth / this.aSV;
-        int i12 = measuredHeight / this.aSW;
+        int measuredWidth = (((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) - (this.aSY * this.aTa)) + this.aTa;
+        int measuredHeight = (((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) - (this.aSZ * this.aTb)) + this.aTb;
+        int i11 = measuredWidth / this.aSY;
+        int i12 = measuredHeight / this.aSZ;
         for (View view4 : needLayoutChild) {
             a aVar3 = (a) view4.getLayoutParams();
             int measuredWidth2 = view4.getMeasuredWidth();
@@ -123,10 +123,10 @@ public class GridLayout extends ViewGroup {
         int i5;
         int i6;
         View[] needLayoutChild = getNeedLayoutChild();
-        int measuredWidth = (((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) - (this.aSV * this.aSX)) + this.aSX;
-        int measuredHeight = (((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) - (this.aSW * this.aSY)) + this.aSY;
-        int i7 = measuredWidth / this.aSV;
-        int i8 = measuredHeight / this.aSW;
+        int measuredWidth = (((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) - (this.aSY * this.aTa)) + this.aTa;
+        int measuredHeight = (((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) - (this.aSZ * this.aTb)) + this.aTb;
+        int i7 = measuredWidth / this.aSY;
+        int i8 = measuredHeight / this.aSZ;
         int i9 = 0;
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
@@ -162,10 +162,10 @@ public class GridLayout extends ViewGroup {
                         break;
                 }
                 view.layout(paddingLeft + i5, paddingTop + i6, i5 + measuredWidth2 + paddingLeft, i6 + paddingTop + measuredHeight2);
-                paddingLeft += this.aSX + i7;
-                if ((i10 + 1) % this.aTc == 0 || i10 + 1 == needLayoutChild.length) {
+                paddingLeft += this.aTa + i7;
+                if ((i10 + 1) % this.aTf == 0 || i10 + 1 == needLayoutChild.length) {
                     paddingLeft = getPaddingLeft();
-                    paddingTop += this.aSY + i8;
+                    paddingTop += this.aTb + i8;
                 }
                 i9 = i10 + 1;
             } else {
@@ -176,8 +176,8 @@ public class GridLayout extends ViewGroup {
 
     private View[] getNeedLayoutChild() {
         int i = 0;
-        this.aTc = this.aSV;
-        this.aTb = this.aSW;
+        this.aTf = this.aSY;
+        this.aTe = this.aSZ;
         int childCount = getChildCount();
         int childCount2 = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
@@ -186,26 +186,26 @@ public class GridLayout extends ViewGroup {
                 childCount2--;
             }
         }
-        if (this.aTc > 0 && this.aTb > 0) {
-            childCount = this.aTc * this.aTb;
-        } else if (this.aTc > 0) {
-            if (childCount % this.aTc == 0) {
-                this.aTb = childCount / this.aTc;
+        if (this.aTf > 0 && this.aTe > 0) {
+            childCount = this.aTf * this.aTe;
+        } else if (this.aTf > 0) {
+            if (childCount % this.aTf == 0) {
+                this.aTe = childCount / this.aTf;
             } else {
-                this.aTb = (childCount / this.aTc) + 1;
+                this.aTe = (childCount / this.aTf) + 1;
             }
-        } else if (this.aTb > 0) {
-            if (childCount % this.aTb == 0) {
-                this.aTc = childCount / this.aTb;
+        } else if (this.aTe > 0) {
+            if (childCount % this.aTe == 0) {
+                this.aTf = childCount / this.aTe;
             } else {
-                this.aTc = (childCount / this.aTb) + 1;
+                this.aTf = (childCount / this.aTe) + 1;
             }
-        } else if (this.aSZ) {
-            this.aTc = childCount;
-            this.aTb = 1;
+        } else if (this.aTc) {
+            this.aTf = childCount;
+            this.aTe = 1;
         } else {
-            this.aTc = 1;
-            this.aTb = childCount;
+            this.aTf = 1;
+            this.aTe = childCount;
         }
         View[] viewArr = new View[Math.min(childCount, childCount2)];
         for (int i3 = 0; i3 < getChildCount(); i3++) {
@@ -226,7 +226,7 @@ public class GridLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: IY */
+    /* renamed from: IZ */
     public a generateDefaultLayoutParams() {
         return new a(-1, -1);
     }
@@ -247,59 +247,14 @@ public class GridLayout extends ViewGroup {
     }
 
     public void setMeasureAllChild(boolean z) {
-        this.aTa = z;
+        this.aTd = z;
     }
 
     public int getHorNum() {
-        return this.aSV;
-    }
-
-    public void setHorNum(int i) {
-        boolean z = false;
-        if (this.aSV != i) {
-            z = true;
-        }
-        this.aSV = i;
-        if (z) {
-            forceLayout();
-        }
-    }
-
-    public int getVerNum() {
-        return this.aSW;
-    }
-
-    public void setVerNum(int i) {
-        boolean z = false;
-        if (this.aSW != i) {
-            z = true;
-        }
-        this.aSW = i;
-        if (z) {
-            forceLayout();
-        }
-    }
-
-    public int getHorSpace() {
-        return this.aSX;
-    }
-
-    public void setHorSpace(int i) {
-        boolean z = false;
-        if (this.aSX != i) {
-            z = true;
-        }
-        this.aSX = i;
-        if (z) {
-            forceLayout();
-        }
-    }
-
-    public int getVerSpace() {
         return this.aSY;
     }
 
-    public void setVerSpace(int i) {
+    public void setHorNum(int i) {
         boolean z = false;
         if (this.aSY != i) {
             z = true;
@@ -310,8 +265,53 @@ public class GridLayout extends ViewGroup {
         }
     }
 
+    public int getVerNum() {
+        return this.aSZ;
+    }
+
+    public void setVerNum(int i) {
+        boolean z = false;
+        if (this.aSZ != i) {
+            z = true;
+        }
+        this.aSZ = i;
+        if (z) {
+            forceLayout();
+        }
+    }
+
+    public int getHorSpace() {
+        return this.aTa;
+    }
+
+    public void setHorSpace(int i) {
+        boolean z = false;
+        if (this.aTa != i) {
+            z = true;
+        }
+        this.aTa = i;
+        if (z) {
+            forceLayout();
+        }
+    }
+
+    public int getVerSpace() {
+        return this.aTb;
+    }
+
+    public void setVerSpace(int i) {
+        boolean z = false;
+        if (this.aTb != i) {
+            z = true;
+        }
+        this.aTb = i;
+        if (z) {
+            forceLayout();
+        }
+    }
+
     public void setOrientionHor(boolean z) {
-        this.aSZ = z;
+        this.aTc = z;
     }
 
     /* loaded from: classes.dex */

@@ -8,6 +8,7 @@ import tbclient.SimpleForum;
 /* loaded from: classes2.dex */
 public class GetRepostForumSocketResMessage extends SocketResponsedMessage {
     private List<SimpleForum> forumList;
+    private int privateThread;
     private String recommendExt;
 
     public GetRepostForumSocketResMessage() {
@@ -29,6 +30,7 @@ public class GetRepostForumSocketResMessage extends SocketResponsedMessage {
             if (getRepostRecommendForumResIdl.data != null) {
                 this.forumList = getRepostRecommendForumResIdl.data.recommend_forum_list;
                 this.recommendExt = getRepostRecommendForumResIdl.data.recommend_ext;
+                this.privateThread = getRepostRecommendForumResIdl.data.priv_thread.intValue();
             }
         }
     }
@@ -39,5 +41,9 @@ public class GetRepostForumSocketResMessage extends SocketResponsedMessage {
 
     public String getRecommendExtension() {
         return this.recommendExt;
+    }
+
+    public int getPrivateThread() {
+        return this.privateThread;
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.pb.godreply;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.sapi2.SapiSafeFacade;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.squareup.wire.Wire;
@@ -31,7 +30,7 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
             for (Post post : list) {
                 PostData postData = new PostData();
                 postData.a(post, TbadkCoreApplication.getInst());
-                postData.gzN = SapiSafeFacade.SAPIWEBVIEW_BACK;
+                postData.gCw = 102;
                 this.list.add(postData);
             }
         }

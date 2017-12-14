@@ -13,11 +13,11 @@ import java.io.InputStream;
 /* loaded from: classes.dex */
 public class c extends DynamicDrawableSpan {
     private Drawable Gs;
-    private Uri Hx;
-    private int Hy;
-    private a Hz;
+    private Uri Hv;
+    private int Hw;
+    private a Hx;
     private Context mContext;
-    private Rect ru;
+    private Rect rt;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -30,23 +30,23 @@ public class c extends DynamicDrawableSpan {
 
     public c(a aVar, int i, int i2) {
         super(i2);
-        this.ru = new Rect();
-        this.Hy = i;
-        this.Hz = aVar;
+        this.rt = new Rect();
+        this.Hw = i;
+        this.Hx = aVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.Gs != null || this.Hz == null) {
+        if (this.Gs != null || this.Hx == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
-            fontMetricsInt.ascent = -this.ru.bottom;
+            fontMetricsInt.ascent = -this.rt.bottom;
             fontMetricsInt.descent = 0;
             fontMetricsInt.top = fontMetricsInt.ascent;
             fontMetricsInt.bottom = 0;
         }
-        return this.ru.right;
+        return this.rt.right;
     }
 
     @Override // android.text.style.DynamicDrawableSpan
@@ -54,15 +54,15 @@ public class c extends DynamicDrawableSpan {
         Drawable drawable = null;
         if (this.Gs != null) {
             drawable = this.Gs;
-        } else if (this.Hz != null) {
-            drawable = this.Hz.a(this);
+        } else if (this.Hx != null) {
+            drawable = this.Hx.a(this);
         }
         if (drawable != null) {
             return drawable;
         }
-        if (this.Hx != null) {
+        if (this.Hv != null) {
             try {
-                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.Hx);
+                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.Hv);
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
                 try {
                     bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
@@ -76,7 +76,7 @@ public class c extends DynamicDrawableSpan {
             }
         }
         try {
-            Drawable drawable2 = this.mContext.getResources().getDrawable(this.Hy);
+            Drawable drawable2 = this.mContext.getResources().getDrawable(this.Hw);
             try {
                 drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
                 return drawable2;
@@ -104,6 +104,6 @@ public class c extends DynamicDrawableSpan {
     }
 
     public void c(int i, int i2, int i3, int i4) {
-        this.ru.set(i, i2, i3, i4);
+        this.rt.set(i, i2, i3, i4);
     }
 }

@@ -1,71 +1,8 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ab extends SparseArray<aj> {
-    public BdUniqueId aSv = null;
-
-    public void a(al alVar) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                aj valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(alVar);
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
-
-    public void init() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                aj valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
-
-    public void destory() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                aj valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(null);
-                    valueAt.QJ();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
-
-    public void a(int i, aj ajVar) {
-        if (i > 100) {
-            i = 100;
-        }
-        put(i, ajVar);
-    }
-
-    public aj jU(int i) {
-        if (i > 100) {
-            i = 100;
-        }
-        return get(i);
-    }
+public class ab {
+    public int cKg;
+    public List<z> cKh;
 }

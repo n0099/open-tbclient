@@ -11,8 +11,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.SapiSafeFacade;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.searchbox.plugin.api.PayPluginManager;
 import com.baidu.tbadk.TbConfig;
@@ -29,18 +27,18 @@ import com.baidu.tieba.i.l;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener bbO = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener bbP = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.p.e.bAt().bAo();
-            com.baidu.tieba.p.b.bAn().bAo();
+            com.baidu.tieba.p.e.bBa().bAV();
+            com.baidu.tieba.p.b.bAU().bAV();
         }
     };
 
     static {
         Mf();
-        MessageManager.getInstance().registerListener(bbO);
+        MessageManager.getInstance().registerListener(bbP);
         Mg();
     }
 
@@ -75,7 +73,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static int hJ(String str) {
+    public static int hH(String str) {
         if (str.contains("127.0.0.1")) {
             return 1;
         }
@@ -172,7 +170,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String hK(String str) {
+    public static String hI(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }
@@ -211,9 +209,9 @@ public class VideoPlatformStatic {
             jSONObject.put("osType", "AND");
             jSONObject.put("osVer", Build.VERSION.RELEASE);
             if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                jSONObject.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
             } else {
-                jSONObject.put(SapiAccountManager.SESSION_UID, "");
+                jSONObject.put("uid", "");
             }
             StringBuilder sb = new StringBuilder();
             if (com.baidu.adp.lib.d.a.fc().D(false) != null) {
@@ -257,17 +255,17 @@ public class VideoPlatformStatic {
         switch (i) {
             case 101:
                 return TbadkCoreApplication.getInst().getString(d.j.post_error_compress_success);
-            case SapiSafeFacade.SAPIWEBVIEW_BACK /* 102 */:
+            case 102:
                 return TbadkCoreApplication.getInst().getString(d.j.post_error_compress_not_do);
-            case SapiSafeFacade.SAPIWEBVIEW_FINISH /* 103 */:
+            case 103:
                 return TbadkCoreApplication.getInst().getString(d.j.post_error_compress_failed);
-            case SapiSafeFacade.SAPIWEBVIEW_AUTHORIZATION /* 104 */:
+            case 104:
                 return TbadkCoreApplication.getInst().getString(d.j.post_error_compress_abort);
             case 105:
                 return TbadkCoreApplication.getInst().getString(d.j.post_error_compress_too_slow);
-            case SapiSafeFacade.SAPIWEBVIEW_MODIFY_PWD /* 106 */:
+            case 106:
                 return TbadkCoreApplication.getInst().getString(d.j.post_error_compress_file_not_exists);
-            case SapiSafeFacade.SAPIWEBVIEW_LOGIN /* 107 */:
+            case 107:
                 return TbadkCoreApplication.getInst().getString(d.j.post_error_compress_filename_not_exists);
             default:
                 return TbadkCoreApplication.getInst().getString(d.j.error_not_record) + i;

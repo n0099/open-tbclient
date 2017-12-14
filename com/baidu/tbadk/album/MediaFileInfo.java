@@ -8,15 +8,15 @@ public abstract class MediaFileInfo extends OrmObject implements Serializable {
     public static final int TYPE_IMAGE = 0;
     public static final int TYPE_VIDEO = 1;
     public static final int TYPE_VIEW_COUNT = 3;
-    private int sortTime;
+    private long sortTime;
 
     public abstract int getType();
 
-    public int getSortTime() {
+    public long getSortTime() {
         return this.sortTime;
     }
 
-    public void setSortTime(int i) {
-        this.sortTime = i;
+    public void setSortTime(long j) {
+        this.sortTime = j;
     }
 }

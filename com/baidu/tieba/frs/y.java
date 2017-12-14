@@ -1,6 +1,12 @@
 package com.baidu.tieba.frs;
+
+import android.view.View;
+import com.baidu.adp.widget.ListView.j;
 /* loaded from: classes.dex */
-public class y {
-    public int cJT;
-    public String name;
+public class y extends j.a {
+    public com.baidu.tbadk.j.f cKc;
+
+    public y(View view) {
+        super(view);
+    }
 }

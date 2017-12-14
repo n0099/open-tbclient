@@ -16,16 +16,16 @@ public class k extends l {
         this.threadData = bdVar;
     }
 
-    public static boolean D(bd bdVar) {
+    public static boolean F(bd bdVar) {
         return bdVar != null && bdVar.getThreadType() == 49;
     }
 
-    public ak jX(String str) {
-        ak jY = jY(str);
-        jY.dO("obj_type");
-        jY.dO("obj_type");
-        jY.r("obj_type", 3);
-        return jY;
+    public ak jV(String str) {
+        ak jW = jW(str);
+        jW.dO("obj_type");
+        jW.dO("obj_type");
+        jW.r("obj_type", 3);
+        return jW;
     }
 
     @Override // com.baidu.tieba.card.data.l, com.baidu.tieba.card.data.c

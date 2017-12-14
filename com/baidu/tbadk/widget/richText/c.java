@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String aVm;
-    private int aVn;
+    private String aVo;
+    private int aVp;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -45,7 +45,7 @@ public class c extends ClickableSpan {
     }
 
     public void gd(int i) {
-        this.aVn = i;
+        this.aVp = i;
     }
 
     public void setColor(int i) {
@@ -60,8 +60,8 @@ public class c extends ClickableSpan {
         this.urlType = i;
     }
 
-    public void hh(String str) {
-        this.aVm = str;
+    public void hf(String str) {
+        this.aVo = str;
     }
 
     public String getLink() {
@@ -78,14 +78,14 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.aVn == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.aVp == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textPaint.bgColor = aj.getColor(d.C0082d.cp_bg_line_c);
+                textPaint.bgColor = aj.getColor(d.C0096d.cp_bg_line_c);
             } else {
-                textPaint.bgColor = aj.getColor(d.C0082d.cp_bg_line_z);
+                textPaint.bgColor = aj.getColor(d.C0096d.cp_bg_line_z);
             }
-        } else if (this.aVn == 2) {
-            textPaint.bgColor = aj.getColor(d.C0082d.transparent);
+        } else if (this.aVp == 2) {
+            textPaint.bgColor = aj.getColor(d.C0096d.transparent);
         }
     }
 
@@ -93,7 +93,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aVm));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aVo));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -114,28 +114,28 @@ public class c extends ClickableSpan {
             Activity pageActivity = tbPageContext.getPageActivity();
             switch (i) {
                 case 2:
-                    eVar.W(pageActivity, str);
-                    return;
-                case 16:
                     eVar.V(pageActivity, str);
                     return;
+                case 16:
+                    eVar.U(pageActivity, str);
+                    return;
                 case 18:
-                    eVar.W(pageActivity, str);
+                    eVar.V(pageActivity, str);
                     return;
                 case 32:
-                    eVar.X(pageActivity, str);
+                    eVar.W(pageActivity, str);
                     return;
                 case 64:
-                    eVar.Y(pageActivity, str);
+                    eVar.X(pageActivity, str);
                     return;
                 case 128:
-                    eVar.Z(pageActivity, str);
+                    eVar.Y(pageActivity, str);
                     return;
                 case 256:
-                    eVar.g(pageActivity, str, str2);
+                    eVar.f(pageActivity, str, str2);
                     return;
                 case 1024:
-                    eVar.aa(pageActivity, str);
+                    eVar.Z(pageActivity, str);
                     return;
                 default:
                     return;

@@ -15,12 +15,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class av {
-    private static av aia = new av() { // from class: com.baidu.tbadk.core.util.av.1
+    private static av ahU = new av() { // from class: com.baidu.tbadk.core.util.av.1
     };
-    private static final Pattern aie = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final List<a> aib;
-    private final ConcurrentHashMap<String, b> aic;
-    private c aid;
+    private static final Pattern ahY = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private final List<a> ahV;
+    private final ConcurrentHashMap<String, b> ahW;
+    private c ahX;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -42,14 +42,14 @@ public class av {
     }
 
     private av() {
-        this.aib = new LinkedList();
-        this.aic = new ConcurrentHashMap<>();
-        this.aid = null;
+        this.ahV = new LinkedList();
+        this.ahW = new ConcurrentHashMap<>();
+        this.ahX = null;
     }
 
-    public static SpannableString S(Context context, String str) {
+    public static SpannableString R(Context context, String str) {
         int start;
-        Matcher matcher = aie.matcher(str);
+        Matcher matcher = ahY.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -63,8 +63,8 @@ public class av {
         return spannableString;
     }
 
-    public static av vL() {
-        return aia;
+    public static av vI() {
+        return ahU;
     }
 
     public void a(final a aVar) {
@@ -82,13 +82,13 @@ public class av {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a aVar) {
-        if (!this.aib.contains(aVar)) {
-            this.aib.add(aVar);
+        if (!this.ahV.contains(aVar)) {
+            this.ahV.add(aVar);
         }
     }
 
     public void a(c cVar) {
-        this.aid = cVar;
+        this.ahX = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -101,12 +101,12 @@ public class av {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.aic.get(ee(str));
+        b bVar = this.ahW.get(ee(str));
         if (bVar != null) {
             bVar.a(tbPageContext, ed(ec(str)));
             return 0;
         }
-        for (a aVar : this.aib) {
+        for (a aVar : this.ahV) {
             if (aVar != null && (a2 = aVar.a(tbPageContext, strArr)) != 3) {
                 return a2;
             }
@@ -121,12 +121,12 @@ public class av {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.aic.get(ee(str2));
+        b bVar = this.ahW.get(ee(str2));
         if (bVar != null) {
             bVar.a(tbPageContext, ed(ec(str2)));
             return true;
         }
-        Iterator<a> it = this.aib.iterator();
+        Iterator<a> it = this.ahV.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z3 = false;
@@ -138,7 +138,7 @@ public class av {
                 break;
             }
         }
-        if (!z3 && this.aid != null) {
+        if (!z3 && this.ahX != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -239,8 +239,8 @@ public class av {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (aie.matcher(str2).find()) {
-            this.aid.a(tbPageContext, str, str2, z, dVar, z2);
+        if (ahY.matcher(str2).find()) {
+            this.ahX.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
@@ -248,12 +248,12 @@ public class av {
         if (!StringUtils.isNull(str) && bVar != null) {
             String ee = ee(str);
             if (!StringUtils.isNull(ee)) {
-                this.aic.put(ee, bVar);
+                this.ahW.put(ee, bVar);
             }
         }
     }
 
     public boolean ef(String str) {
-        return aie.matcher(str).find();
+        return ahY.matcher(str).find();
     }
 }

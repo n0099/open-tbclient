@@ -1,86 +1,15 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.j;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
-import com.baidu.tieba.pb.ThreadSkinView;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
 public class m extends j.a {
-    public TextView anm;
-    public TextView ann;
-    public UserIconBox aov;
-    public UserIconBox aow;
-    public int apA;
-    public ThreadSkinView bvL;
-    public int cIZ;
-    public TextView cIl;
-    public TextView cIm;
-    public FrameLayout cJa;
-    public LinearLayout cJb;
-    public RelativeLayout cJc;
-    public TextView cJd;
-    public PlayVoiceBnt cJe;
-    public FrsCommonImageLayout cJf;
-    public TextView cJg;
-    public HeadImageView cJh;
     public TextView cJi;
-    public TextView cJj;
-    public RelativeLayout cJk;
-    public LinearLayout cJl;
-    public LinearLayout cJm;
-    public LinearLayout cJn;
-    public View cJo;
-    public TbImageView cJp;
-    public RelativeLayout cJq;
-    public TbImageView cJr;
-    public TextView cJs;
-    public TbImageView ccC;
-    public TextView mTitle;
 
-    public m(View view, int i) {
+    public m(View view) {
         super(view);
-        this.apA = 3;
-        this.cIZ = 0;
-        this.cIZ = i;
-        this.cJa = (FrameLayout) view.findViewById(d.g.frs_list);
-        this.cJk = (RelativeLayout) view.findViewById(d.g.frs_item_user_info_view);
-        this.cJl = (LinearLayout) view.findViewById(d.g.frs_item_base_user_info);
-        this.cJb = (LinearLayout) view.findViewById(d.g.frs_list_item_top_linear_layout);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.cJb.getLayoutParams();
-        layoutParams.topMargin = i;
-        this.cJb.setLayoutParams(layoutParams);
-        this.cJc = (RelativeLayout) view.findViewById(d.g.frs_list_item_top_card);
-        this.ccC = (TbImageView) view.findViewById(d.g.frs_normal_item_theme_card);
-        this.cJh = (HeadImageView) view.findViewById(d.g.frs_photo);
-        this.aov = (UserIconBox) view.findViewById(d.g.frs_user_tshow_icon_box);
-        this.aow = (UserIconBox) view.findViewById(d.g.frs_user_icon_box);
-        this.cJg = (TextView) view.findViewById(d.g.frs_lv_author);
-        this.anm = (TextView) view.findViewById(d.g.frs_lv_reply_time);
-        this.mTitle = (TextView) view.findViewById(d.g.frs_lv_title);
-        this.cJd = (TextView) view.findViewById(d.g.abstract_text);
-        this.cJe = (PlayVoiceBnt) view.findViewById(d.g.abstract_voice);
-        this.cJf = (FrsCommonImageLayout) view.findViewById(d.g.abstract_img_layout);
-        this.ann = (TextView) view.findViewById(d.g.frs_praise_num);
-        this.cJi = (TextView) view.findViewById(d.g.action_button);
-        this.cIm = (TextView) view.findViewById(d.g.frs_reply_num);
-        this.cJj = (TextView) view.findViewById(d.g.frs_more_abstract);
-        this.cJm = (LinearLayout) view.findViewById(d.g.frs_item_num);
-        this.cJn = (LinearLayout) view.findViewById(d.g.frs_item_loc_view);
-        this.cIl = (TextView) view.findViewById(d.g.frs_item_location_address);
-        this.cJo = view.findViewById(d.g.frs_item_location_sep);
-        this.cJp = (TbImageView) view.findViewById(d.g.game_activity_banner);
-        this.cJr = (TbImageView) view.findViewById(d.g.app_code_banner);
-        this.cJs = (TextView) view.findViewById(d.g.app_code_btn);
-        this.cJq = (RelativeLayout) view.findViewById(d.g.app_code_wrapper);
-        this.bvL = (ThreadSkinView) view.findViewById(d.g.frs_thread_skin);
+        this.cJi = (TextView) view.findViewById(d.g.no_data_tips);
     }
 }

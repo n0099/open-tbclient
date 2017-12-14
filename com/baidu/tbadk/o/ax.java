@@ -2,12 +2,17 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class ax extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
+    protected void W(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "baidu_wallet_enable";
+        return "movideo_split";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] eM() {
+        return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -21,12 +26,7 @@ public class ax extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eM() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected int eP() {
-        return 10;
+        return 0;
     }
 }

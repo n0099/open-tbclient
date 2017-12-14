@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes;
 
-import com.baidu.sapi2.SapiSafeFacade;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
@@ -9,16 +8,16 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     public static final String TYPE = "cslg";
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_9 = null;
     int compositionOffsetToDisplayOffsetShift;
     int displayEndTime;
     int displayStartTime;
@@ -40,7 +39,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getDisplayStartTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "", "", "", "int"), 90);
         ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setDisplayStartTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "displayStartTime", "", "void"), 94);
         ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getDisplayEndTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "", "", "", "int"), 98);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setDisplayEndTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "displayEndTime", "", "void"), SapiSafeFacade.SAPIWEBVIEW_BACK);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setDisplayEndTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "displayEndTime", "", "void"), 102);
     }
 
     public CompositionShiftLeastGreatestAtom() {
@@ -78,7 +77,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setCompositionOffsetToDisplayOffsetShift(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.xY(i)));
         this.compositionOffsetToDisplayOffsetShift = i;
     }
 
@@ -88,7 +87,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setLeastDisplayOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.xY(i)));
         this.leastDisplayOffset = i;
     }
 
@@ -98,7 +97,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setGreatestDisplayOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.xY(i)));
         this.greatestDisplayOffset = i;
     }
 
@@ -108,7 +107,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setDisplayStartTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.xY(i)));
         this.displayStartTime = i;
     }
 
@@ -118,7 +117,7 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     }
 
     public void setDisplayEndTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.xY(i)));
         this.displayEndTime = i;
     }
 }

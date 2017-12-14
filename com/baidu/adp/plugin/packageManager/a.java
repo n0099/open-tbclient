@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a CY;
-    private c CZ;
-    private ArrayList<b> Da = new ArrayList<>();
-    private C0009a Db;
+    private static a CX;
+    private c CY;
+    private ArrayList<b> CZ = new ArrayList<>();
+    private C0009a Da;
 
     /* loaded from: classes.dex */
     public interface c {
@@ -22,25 +22,25 @@ public class a {
     }
 
     public static a jl() {
-        if (CY == null) {
+        if (CX == null) {
             synchronized (a.class) {
-                if (CY == null) {
-                    CY = new a();
+                if (CX == null) {
+                    CX = new a();
                 }
             }
         }
-        return CY;
+        return CX;
     }
 
     public void a(ArrayList<b> arrayList, c cVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.CZ = cVar;
+            this.CY = cVar;
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<b> it2 = this.Da.iterator();
+                    Iterator<b> it2 = this.CZ.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -51,7 +51,7 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.Da.add(next);
+                        this.CZ.add(next);
                     }
                 }
             }
@@ -61,9 +61,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void jm() {
-        if (this.Da.size() != 0 && this.Db == null) {
-            this.Db = new C0009a(this.Da.get(0));
-            this.Db.execute(new String[0]);
+        if (this.CZ.size() != 0 && this.Da == null) {
+            this.Da = new C0009a(this.CZ.get(0));
+            this.Da.execute(new String[0]);
         }
     }
 
@@ -71,18 +71,18 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.packageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0009a extends BdAsyncTask<String, Integer, Boolean> {
-        private b Dc;
+        private b Db;
 
         public C0009a(b bVar) {
-            this.Dc = bVar;
+            this.Db = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.Dc != null) {
-                return Boolean.valueOf(bg(this.Dc.apkPath));
+            if (this.Db != null) {
+                return Boolean.valueOf(bg(this.Db.apkPath));
             }
             return false;
         }
@@ -92,22 +92,22 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((C0009a) bool);
-            a.this.Db = null;
-            if (a.this.Da.size() > 0) {
-                Iterator it = a.this.Da.iterator();
+            a.this.Da = null;
+            if (a.this.CZ.size() > 0) {
+                Iterator it = a.this.CZ.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.a(this.Dc, bVar)) {
-                        a.this.Da.remove(bVar);
+                    if (a.this.a(this.Db, bVar)) {
+                        a.this.CZ.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.CZ != null) {
-                a.this.CZ.C(this.Dc.packageName, this.Dc.apkPath);
+            if (bool != null && bool.booleanValue() && a.this.CY != null) {
+                a.this.CY.C(this.Db.packageName, this.Db.apkPath);
             }
             a.this.jm();
         }

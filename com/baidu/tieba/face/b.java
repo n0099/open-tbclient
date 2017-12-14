@@ -17,24 +17,24 @@ import com.baidu.adp.lib.f.c;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tbadk.coreExtra.data.m;
+import com.baidu.tbadk.coreExtra.data.n;
 import com.baidu.tieba.d;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    private static final KeyEvent cvd = new KeyEvent(0, 67);
+    private static final KeyEvent cvm = new KeyEvent(0, 67);
 
     /* loaded from: classes.dex */
     public interface a {
         void b(SpannableStringBuilder spannableStringBuilder);
     }
 
-    public static void a(final Context context, final m mVar, final EditText editText) {
-        if (mVar != null && !TextUtils.isEmpty(mVar.getName()) && !TextUtils.isEmpty(mVar.getUrl()) && editText != null) {
+    public static void a(final Context context, final n nVar, final EditText editText) {
+        if (nVar != null && !TextUtils.isEmpty(nVar.getName()) && !TextUtils.isEmpty(nVar.getUrl()) && editText != null) {
             editText.getText().toString();
-            c.fJ().a(mVar.getUrl(), 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.1
+            c.fJ().a(nVar.getUrl(), 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
@@ -44,18 +44,18 @@ public class b {
                         if (selectionStart < 0) {
                             selectionStart = 0;
                         }
-                        b.a(context, editText, new SpannableStringBuilder(mVar.getName()), selectionStart, aVar, mVar.ya());
+                        b.a(context, editText, new SpannableStringBuilder(nVar.getName()), selectionStart, aVar, nVar.yb());
                     }
                 }
             }, 0, 0, BdUniqueId.gen(), new Object[0]);
         }
     }
 
-    public static void b(final Context context, m mVar, final EditText editText) {
-        if (mVar != null && editText != null && mVar.getName() != null) {
-            String name = mVar.getName();
-            final EmotionGroupType ya = mVar.ya();
-            if (ya == EmotionGroupType.LOCAL || ya == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
+    public static void b(final Context context, n nVar, final EditText editText) {
+        if (nVar != null && editText != null && nVar.getName() != null) {
+            String name = nVar.getName();
+            final EmotionGroupType yb = nVar.yb();
+            if (yb == EmotionGroupType.LOCAL || yb == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
                 if (name != null) {
                     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
                     c.fJ().a(name, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.2
@@ -69,7 +69,7 @@ public class b {
                                 if (selectionStart < 0) {
                                     selectionStart = 0;
                                 }
-                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, ya);
+                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, yb);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, name, false, null);
@@ -107,7 +107,7 @@ public class b {
         CustomResponsedMessage runTask;
         if (context != null && !TextUtils.isEmpty(str) && aVar != null) {
             final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            final int[] iArr = {com.baidu.tieba.face.a.ks(str)};
+            final int[] iArr = {com.baidu.tieba.face.a.kq(str)};
             if (iArr[0] <= 0) {
                 if (aVar != null) {
                     aVar.b(spannableStringBuilder);
@@ -115,7 +115,7 @@ public class b {
                 }
                 return;
             }
-            Matcher matcher = com.baidu.tieba.face.a.cvb.matcher(spannableStringBuilder);
+            Matcher matcher = com.baidu.tieba.face.a.cvk.matcher(spannableStringBuilder);
             while (matcher.find()) {
                 String group = matcher.group();
                 final int start = matcher.start();
@@ -252,9 +252,9 @@ public class b {
         if (editText != null && (text = editText.getText()) != null) {
             int selectionStart = editText.getSelectionStart();
             if (selectionStart - 1 > 0 && selectionStart - 1 < text.length() && text.charAt(selectionStart - 1) == 0) {
-                editText.onKeyDown(67, cvd);
+                editText.onKeyDown(67, cvm);
             }
-            editText.onKeyDown(67, cvd);
+            editText.onKeyDown(67, cvm);
             int selectionStart2 = editText.getSelectionStart();
             if (text != null) {
                 editText.setSelection(selectionStart2);

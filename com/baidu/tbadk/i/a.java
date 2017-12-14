@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.view.HeadImageViewGroup;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends j.a {
-    public HeadImageViewGroup aFP;
-    private f aFQ;
+    public HeadImageViewGroup aFT;
+    private f aFU;
     public TextView mName;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
@@ -21,27 +21,27 @@ public class a extends j.a {
         this.mSkinType = 3;
         View findViewById = view.findViewById(d.g.add_pic_root);
         this.mName = (TextView) findViewById.findViewById(d.g.name_tv);
-        this.aFP = (HeadImageViewGroup) findViewById.findViewById(d.g.img);
+        this.aFT = (HeadImageViewGroup) findViewById.findViewById(d.g.img);
     }
 
     public void c(f fVar) {
         if (fVar instanceof com.baidu.tbadk.data.c) {
-            this.aFQ = fVar;
-            this.aFP.getInnerImg().setIsRound(true);
-            this.aFP.getInnerImg().setVisibility(0);
-            this.aFP.getInnerImg().setTag(null);
-            this.aFP.getInnerImg().setImageResource(d.f.btn_story_release);
-            this.aFP.setOuterColor(d.C0082d.cp_link_tip_g);
+            this.aFU = fVar;
+            this.aFT.getInnerImg().setIsRound(true);
+            this.aFT.getInnerImg().setVisibility(0);
+            this.aFT.getInnerImg().setTag(null);
+            this.aFT.getInnerImg().setImageResource(d.f.btn_story_release);
+            this.aFT.setOuterColor(d.C0096d.cp_link_tip_g);
             this.mName.setText(((com.baidu.tbadk.data.c) fVar).getName());
-            this.aFP.setOnClickListener(this.mOnClickListener);
+            this.aFT.setOnClickListener(this.mOnClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            aj.c(this.mName, d.C0082d.cp_cont_f, 1);
-            this.aFP.onChangeSkinType(i);
+            aj.c(this.mName, d.C0096d.cp_cont_f, 1);
+            this.aFT.onChangeSkinType(i);
             this.mSkinType = i;
         }
     }

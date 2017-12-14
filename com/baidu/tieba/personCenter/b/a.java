@@ -3,16 +3,16 @@ package com.baidu.tieba.personCenter.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.personCenter.a.d;
 import com.baidu.tieba.personCenter.data.e;
-import com.baidu.tieba.personCenter.data.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.d frw;
-    private com.baidu.tieba.personCenter.a.a frx;
-    private com.baidu.tieba.personCenter.a.b fry;
-    private com.baidu.tieba.personCenter.a.c frz;
+    private com.baidu.tieba.personCenter.a.c fsl;
+    private d fsw;
+    private com.baidu.tieba.personCenter.a.a fsx;
+    private com.baidu.tieba.personCenter.a.b fsy;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -22,14 +22,14 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.frw = new com.baidu.tieba.personCenter.a.d(tbPageContext, f.fse);
-        this.frx = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.a.frM);
-        this.fry = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.b.frN);
-        this.frz = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.fsd);
-        this.mAdapters.add(this.frw);
-        this.mAdapters.add(this.frx);
-        this.mAdapters.add(this.fry);
-        this.mAdapters.add(this.frz);
+        this.fsw = new d(tbPageContext, e.fsZ);
+        this.fsx = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.a.fsL);
+        this.fsy = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.b.fsM);
+        this.fsl = new com.baidu.tieba.personCenter.a.c(tbPageContext, com.baidu.tieba.personCenter.data.d.fsY);
+        this.mAdapters.add(this.fsw);
+        this.mAdapters.add(this.fsx);
+        this.mAdapters.add(this.fsy);
+        this.mAdapters.add(this.fsl);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -39,11 +39,11 @@ public class a {
         }
     }
 
-    public void aZU() {
-        this.frx.aZU();
+    public void bad() {
+        this.fsx.bad();
     }
 
-    public void aZV() {
-        this.frx.destroy();
+    public void bae() {
+        this.fsx.destroy();
     }
 }

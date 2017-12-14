@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.a;
 
 import android.database.Cursor;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.data.AccountData;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class b {
     public static void b(AccountData accountData) {
         if (accountData != null && accountData.getAccount() != null) {
             if (accountData.getIsActive() == 1) {
-                pj();
+                ph();
             }
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (!cv(accountData.getAccount()) || !a(accountData, mainDBDatabaseManager)) {
@@ -31,16 +32,16 @@ public class b {
         }
     }
 
-    public static void pj() {
+    public static void ph() {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().y("update account_data set isactive=0 where isactive=1");
     }
 
     public static void c(AccountData accountData) {
-        pj();
+        ph();
         TiebaDatabase.getInstance().getMainDBDatabaseManager().a("update account_data set isactive=1 where account=?", new String[]{accountData.getAccount()});
     }
 
-    public static int pk() {
+    public static int pi() {
         Cursor cursor;
         Exception exc;
         Cursor cursor2 = null;
@@ -89,7 +90,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v34, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData pl() {
+    public static AccountData pj() {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -114,7 +115,7 @@ public class b {
                                     accountData2.setPortrait(rawQuery.getString(7));
                                     accountData2.setSex(rawQuery.getInt(9));
                                     accountData2.setMemberIconUrl(rawQuery.getString(10));
-                                    accountData2.setStoken(rawQuery.getString(rawQuery.getColumnIndex("stoken")));
+                                    accountData2.setStoken(rawQuery.getString(rawQuery.getColumnIndex(ISapiAccount.SAPI_ACCOUNT_STOKEN)));
                                     cursor2 = accountData2;
                                 } catch (Exception e) {
                                     cursor2 = accountData2;
@@ -187,7 +188,7 @@ public class b {
                                 accountData2.setPortrait(rawQuery.getString(7));
                                 accountData2.setSex(rawQuery.getInt(9));
                                 accountData2.setMemberIconUrl(rawQuery.getString(10));
-                                accountData2.setStoken(rawQuery.getString(rawQuery.getColumnIndex("stoken")));
+                                accountData2.setStoken(rawQuery.getString(rawQuery.getColumnIndex(ISapiAccount.SAPI_ACCOUNT_STOKEN)));
                                 cursor2 = accountData2;
                             } catch (Exception e) {
                                 cursor2 = accountData2;
@@ -230,7 +231,7 @@ public class b {
         return accountData;
     }
 
-    public static ArrayList<AccountData> pm() {
+    public static ArrayList<AccountData> pk() {
         Cursor cursor;
         Throwable th;
         Exception exc;
@@ -253,7 +254,7 @@ public class b {
                         accountData.setPortrait(cursor2.getString(7));
                         accountData.setSex(cursor2.getInt(9));
                         accountData.setMemberIconUrl(cursor2.getString(10));
-                        accountData.setStoken(cursor2.getString(cursor2.getColumnIndex("stoken")));
+                        accountData.setStoken(cursor2.getString(cursor2.getColumnIndex(ISapiAccount.SAPI_ACCOUNT_STOKEN)));
                         arrayList.add(accountData);
                     } catch (Exception e) {
                         cursor = cursor2;

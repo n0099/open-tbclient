@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        if (a.GP() != null) {
-            return a.GP().onBind(intent);
+        if (a.GQ() != null) {
+            return a.GQ().onBind(intent);
         }
         return null;
     }
@@ -21,58 +21,58 @@ public class GameCenterDownloadService extends Service {
     public void onCreate() {
         super.onCreate();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PROXY_GAME_DOWNLOAD_SERVICE_READY, this));
-        if (a.GP() != null) {
-            a.GP().onCreate();
+        if (a.GQ() != null) {
+            a.GQ().onCreate();
         }
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (a.GP() != null) {
-            a.GP().onStart(intent, i);
+        if (a.GQ() != null) {
+            a.GQ().onStart(intent, i);
         }
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
-        return a.GP() != null ? a.GP().onStartCommand(intent, i, i2) : super.onStartCommand(intent, i, i2);
+        return a.GQ() != null ? a.GQ().onStartCommand(intent, i, i2) : super.onStartCommand(intent, i, i2);
     }
 
     @Override // android.app.Service
     public void onRebind(Intent intent) {
         super.onRebind(intent);
-        if (a.GP() != null) {
-            a.GP().onRebind(intent);
+        if (a.GQ() != null) {
+            a.GQ().onRebind(intent);
         }
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        return a.GP() != null ? a.GP().onUnbind(intent) : super.onUnbind(intent);
+        return a.GQ() != null ? a.GQ().onUnbind(intent) : super.onUnbind(intent);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        if (a.GP() != null) {
-            a.GP().onDestroy();
+        if (a.GQ() != null) {
+            a.GQ().onDestroy();
         }
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onLowMemory() {
         super.onLowMemory();
-        if (a.GP() != null) {
-            a.GP().onLowMemory();
+        if (a.GQ() != null) {
+            a.GQ().onLowMemory();
         }
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (a.GP() != null) {
-            a.GP().onConfigurationChanged(configuration);
+        if (a.GQ() != null) {
+            a.GQ().onConfigurationChanged(configuration);
         }
     }
 }

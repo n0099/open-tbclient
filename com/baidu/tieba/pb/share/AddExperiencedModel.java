@@ -22,16 +22,16 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        zK();
+        zL();
     }
 
-    private void zK() {
+    private void zL() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_EXPERIENCED, TbConfig.SERVER_ADDRESS + TbConfig.URL_ADD_EXPERIENCED);
         tbHttpMessageTask.setResponsedClass(AddExperiencedResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bJ(String str, String str2) {
+    public void bK(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
@@ -45,7 +45,7 @@ public class AddExperiencedModel extends BdBaseModel {
     public static boolean ql(String str) {
         String str2;
         boolean z;
-        l<String> N = a.tg().N("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
+        l<String> N = a.td().N("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
         if (N != null) {
             String str3 = N.get(str);
             String currentDay = UtilHelper.getCurrentDay();

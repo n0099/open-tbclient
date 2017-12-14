@@ -4,59 +4,60 @@ import android.os.Debug;
 import android.os.Process;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.activity.BaseActivity;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class r {
-    private static String aKR = "tb_perfor_samllflow_time";
-    private static volatile r aKU;
-    private long aKT;
-    private boolean aKP = false;
-    private long aKS = 86400;
-    private long aKQ = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aKR, 0);
+    private static String aKV = "tb_perfor_samllflow_time";
+    private static volatile r aKY;
+    private long aKX;
+    private boolean aKT = false;
+    private long aKW = 86400;
+    private long aKU = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aKV, 0);
 
-    public static r GA() {
-        if (aKU == null) {
+    public static r GB() {
+        if (aKY == null) {
             synchronized (r.class) {
-                if (aKU == null) {
-                    aKU = new r();
+                if (aKY == null) {
+                    aKY = new r();
                 }
             }
         }
-        return aKU;
+        return aKY;
     }
 
     private r() {
-        this.aKT = 0L;
-        this.aKT = this.aKS;
+        this.aKX = 0L;
+        this.aKX = this.aKW;
     }
 
-    public boolean GB() {
-        if (!this.aKP || (System.currentTimeMillis() - this.aKQ) / 1000 <= this.aKT) {
-            return this.aKP;
+    public boolean GC() {
+        if (!this.aKT || (System.currentTimeMillis() - this.aKU) / 1000 <= this.aKX) {
+            return this.aKT;
         }
         return false;
     }
 
-    public void bT(boolean z) {
+    public void bU(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aKQ || currentTimeMillis - this.aKQ >= this.aKT) {
-                this.aKQ = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKR, this.aKQ);
+            if (0 == this.aKU || currentTimeMillis - this.aKU >= this.aKX) {
+                this.aKU = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKV, this.aKU);
             }
         } else {
-            this.aKQ = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKR, this.aKQ);
+            this.aKU = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKV, this.aKU);
         }
-        this.aKP = z;
+        this.aKT = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            s.GG().GH();
+            s.GH().GI();
         }
     }
 
-    public String GC() {
+    public String GD() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -70,7 +71,7 @@ public class r {
         }
     }
 
-    public final String GD() {
+    public final String GE() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
@@ -118,7 +119,7 @@ public class r {
     }
 
     public q ft(int i) {
-        if (GB()) {
+        if (GC()) {
             switch (i) {
                 case 1000:
                     t tVar = new t();
@@ -136,11 +137,11 @@ public class r {
                     p pVar = new p();
                     pVar.subType = "native_live";
                     return pVar;
-                case 1004:
+                case BaseActivity.FILECHOOSER_RESULTCODE /* 1004 */:
                     t tVar3 = new t();
                     tVar3.subType = "photo_live";
                     return tVar3;
-                case 1005:
+                case BaseActivity.FILECHOOSER_RESULTCODE_FOR_ANDROID_5 /* 1005 */:
                     h hVar = new h();
                     hVar.subType = "home_page";
                     return hVar;
@@ -153,7 +154,7 @@ public class r {
 
     public void V(long j) {
         if (j > 0) {
-            this.aKT = j;
+            this.aKX = j;
         }
     }
 
@@ -166,7 +167,7 @@ public class r {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int GE() {
+    public int GF() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

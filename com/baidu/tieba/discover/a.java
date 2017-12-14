@@ -14,28 +14,28 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.util.s;
 import com.baidu.tbadk.util.z;
-import com.baidu.tieba.frs.ai;
+import com.baidu.tieba.frs.aj;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a extends BaseFragment implements ai {
-    private b cpK;
-    private boolean cpL;
+public class a extends BaseFragment implements aj {
+    private b cpT;
+    private boolean cpU;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean btK = true;
+    private boolean btL = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_HTML_LOADED) { // from class: com.baidu.tieba.discover.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.cpK != null && a.this.cpK.QA() != null && a.this.cpK.QA().getUrl() != null) {
-                if (a.this.cpK.QA().getUrl().contains((String) customResponsedMessage.getData())) {
-                    a.this.cpK.NO();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.cpT != null && a.this.cpT.QA() != null && a.this.cpT.QA().getUrl() != null) {
+                if (a.this.cpT.QA().getUrl().contains((String) customResponsedMessage.getData())) {
+                    a.this.cpT.NO();
                 }
             }
         }
     };
-    private CustomMessageListener cpM = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
+    private CustomMessageListener cpV = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -51,33 +51,33 @@ public class a extends BaseFragment implements ai {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.cpK = new b();
-        return this.cpK.a(layoutInflater, viewGroup);
+        this.cpT = new b();
+        return this.cpT.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.cpK.j(getPageContext());
+        this.cpT.j(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.cpM);
-        z.a(this.cpK.QA(), getUniqueId());
+        registerListener(this.cpV);
+        z.a(this.cpT.QA(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.btK || StringUtils.isNull(this.cpK.QA().getUrl())) {
+        if (this.btL || StringUtils.isNull(this.cpT.QA().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.cpK.loadUrl(iB(this.mUrl));
+                this.cpT.loadUrl(iz(this.mUrl));
             } else {
-                this.cpK.loadUrl(this.mUrl);
+                this.cpT.loadUrl(this.mUrl);
             }
-            this.btK = false;
+            this.btL = false;
         }
     }
 
-    private String iB(String str) {
+    private String iz(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -97,8 +97,8 @@ public class a extends BaseFragment implements ai {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.cpK != null) {
-            this.cpK.onDestroy();
+        if (this.cpT != null) {
+            this.cpT.onDestroy();
         }
     }
 
@@ -124,52 +124,52 @@ public class a extends BaseFragment implements ai {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.btK) {
+        if (!this.btL) {
             if (i == 1) {
-                this.cpK.loadUrl(iB(this.mUrl));
+                this.cpT.loadUrl(iz(this.mUrl));
             } else {
-                this.cpK.loadUrl(this.mUrl);
+                this.cpT.loadUrl(this.mUrl);
             }
         }
     }
 
-    @Override // com.baidu.tieba.frs.ai
+    @Override // com.baidu.tieba.frs.aj
     public void Pj() {
     }
 
-    @Override // com.baidu.tieba.frs.ai
+    @Override // com.baidu.tieba.frs.aj
     public void Pk() {
-        if (this.cpK != null && !this.cpL) {
-            this.cpL = true;
-            this.cpK.afL();
+        if (this.cpT != null && !this.cpU) {
+            this.cpU = true;
+            this.cpT.afT();
         }
     }
 
-    @Override // com.baidu.tieba.frs.ai
+    @Override // com.baidu.tieba.frs.aj
     public void Pl() {
-        if (this.cpK != null && this.cpL) {
-            this.cpL = false;
-            this.cpK.afM();
+        if (this.cpT != null && this.cpU) {
+            this.cpU = false;
+            this.cpT.afU();
         }
     }
 
-    @Override // com.baidu.tieba.frs.ai
+    @Override // com.baidu.tieba.frs.aj
     public void setHeaderViewHeight(int i) {
     }
 
-    @Override // com.baidu.tieba.frs.ai
+    @Override // com.baidu.tieba.frs.aj
     public void setRecommendFrsNavigationAnimDispatcher(s sVar) {
     }
 
-    @Override // com.baidu.tieba.frs.ai
+    @Override // com.baidu.tieba.frs.aj
     public void showFloatingView() {
     }
 
-    @Override // com.baidu.tieba.frs.ai
-    public void wE() {
+    @Override // com.baidu.tieba.frs.aj
+    public void wC() {
     }
 
-    @Override // com.baidu.tieba.frs.ai
+    @Override // com.baidu.tieba.frs.aj
     public void setVideoThreadId(String str) {
     }
 }

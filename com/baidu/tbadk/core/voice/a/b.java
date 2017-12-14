@@ -10,7 +10,7 @@ public class b {
         if (str == null) {
             aVar.error_code = 6;
             aVar.error_msg = a.dO(aVar.error_code);
-        } else if (!k.dh(k.um() + "voice")) {
+        } else if (!k.dh(k.uj() + "voice")) {
             aVar.error_code = 7;
             aVar.error_msg = a.dO(aVar.error_code);
         } else {
@@ -36,9 +36,9 @@ public class b {
         return k.ab(str, k.b(str2, 1, true));
     }
 
-    public static synchronized void xc() {
+    public static synchronized void xb() {
         synchronized (b.class) {
-            File file = new File(k.um() + "voice");
+            File file = new File(k.uj() + "voice");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

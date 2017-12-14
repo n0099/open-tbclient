@@ -13,100 +13,100 @@ import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 /* loaded from: classes2.dex */
 public class LocalVideoInfoView extends RelativeLayout {
-    public static final Object gRU = new Object();
-    private static long gRV = 3600000;
-    private TextView axT;
-    private ImageView axY;
-    private TextView gRT;
-    private SimpleDateFormat gRW;
-    private SimpleDateFormat gRX;
-    private boolean gRY;
+    public static final Object gUD = new Object();
+    private static long gUE = 3600000;
+    private TextView axY;
+    private ImageView ayd;
+    private TextView gUC;
+    private SimpleDateFormat gUF;
+    private SimpleDateFormat gUG;
+    private boolean gUH;
     private Context mContext;
     private View mRootView;
     private String videoPath;
 
     public LocalVideoInfoView(Context context) {
         super(context);
-        this.gRY = false;
+        this.gUH = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gRY = false;
+        this.gUH = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gRY = false;
+        this.gUH = false;
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(d.h.local_video_info_view, (ViewGroup) null);
-        this.axY = (ImageView) this.mRootView.findViewById(d.g.local_video_selet_thumb);
-        this.axY.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.axT = (TextView) this.mRootView.findViewById(d.g.local_video_select_duration);
-        this.gRT = (TextView) this.mRootView.findViewById(d.g.no_video_title);
+        this.ayd = (ImageView) this.mRootView.findViewById(d.g.local_video_selet_thumb);
+        this.ayd.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.axY = (TextView) this.mRootView.findViewById(d.g.local_video_select_duration);
+        this.gUC = (TextView) this.mRootView.findViewById(d.g.no_video_title);
         addView(this.mRootView, -1, -1);
-        this.gRX = new SimpleDateFormat("mm:ss");
-        this.gRW = new SimpleDateFormat("HH:mm:ss");
+        this.gUG = new SimpleDateFormat("mm:ss");
+        this.gUF = new SimpleDateFormat("HH:mm:ss");
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.gRX.setTimeZone(timeZone);
-        this.gRW.setTimeZone(timeZone);
+        this.gUG.setTimeZone(timeZone);
+        this.gUF.setTimeZone(timeZone);
     }
 
     public void setDataToView(d dVar) {
-        if (!this.gRY) {
+        if (!this.gUH) {
             if (dVar != null) {
                 if (dVar.getVideoPath().equals(this.videoPath)) {
-                    this.axY.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    this.axY.setImageBitmap(dVar.bCm());
-                    this.axT.setText(db(dVar.getDuration()));
+                    this.ayd.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    this.ayd.setImageBitmap(dVar.bCS());
+                    this.axY.setText(dc(dVar.getDuration()));
                     return;
                 }
                 return;
             }
-            this.axY.setScaleType(ImageView.ScaleType.CENTER);
-            this.axY.setImageBitmap(null);
-            this.axY.setImageResource(d.f.img_default_100);
-            this.axY.setBackgroundColor(getResources().getColor(d.C0082d.common_color_10304));
-            this.axT.setText("");
+            this.ayd.setScaleType(ImageView.ScaleType.CENTER);
+            this.ayd.setImageBitmap(null);
+            this.ayd.setImageResource(d.f.img_default_100);
+            this.ayd.setBackgroundColor(getResources().getColor(d.C0096d.common_color_10304));
+            this.axY.setText("");
         }
     }
 
-    public void lI(boolean z) {
-        this.gRY = true;
+    public void lJ(boolean z) {
+        this.gUH = true;
         if (z) {
-            this.axY.setScaleType(ImageView.ScaleType.CENTER);
-            this.axY.setImageBitmap(null);
-            this.axY.setImageResource(0);
-            this.axY.setBackgroundColor(getResources().getColor(d.C0082d.cp_bg_line_d));
-            this.gRT.setVisibility(0);
+            this.ayd.setScaleType(ImageView.ScaleType.CENTER);
+            this.ayd.setImageBitmap(null);
+            this.ayd.setImageResource(0);
+            this.ayd.setBackgroundColor(getResources().getColor(d.C0096d.cp_bg_line_d));
+            this.gUC.setVisibility(0);
             return;
         }
-        this.axY.setScaleType(ImageView.ScaleType.CENTER);
-        this.axY.setImageResource(0);
-        this.axY.setImageBitmap(null);
-        this.axY.setBackgroundColor(getResources().getColor(d.C0082d.white_alpha50));
-        this.axT.setText("");
-        this.gRT.setVisibility(8);
+        this.ayd.setScaleType(ImageView.ScaleType.CENTER);
+        this.ayd.setImageResource(0);
+        this.ayd.setImageBitmap(null);
+        this.ayd.setBackgroundColor(getResources().getColor(d.C0096d.white_alpha50));
+        this.axY.setText("");
+        this.gUC.setVisibility(8);
     }
 
     public void a(d dVar) {
-        this.gRY = false;
-        this.gRT.setVisibility(8);
+        this.gUH = false;
+        this.gUC.setVisibility(8);
         this.videoPath = dVar.getVideoPath();
-        if (dVar != null && dVar.bCn()) {
+        if (dVar != null && dVar.bCT()) {
             setDataToView(dVar);
         } else {
             setDataToView(null);
         }
     }
 
-    private String db(long j) {
-        return j > gRV ? this.gRW.format(Long.valueOf(j)) : this.gRX.format(Long.valueOf(j));
+    private String dc(long j) {
+        return j > gUE ? this.gUF.format(Long.valueOf(j)) : this.gUG.format(Long.valueOf(j));
     }
 }

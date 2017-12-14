@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes.dex */
 public class f extends b {
-    public static BdUniqueId cdp = BdUniqueId.gen();
-    public static BdUniqueId cdq = BdUniqueId.gen();
-    public MetaData Zc;
+    public static BdUniqueId cdD = BdUniqueId.gen();
+    public static BdUniqueId cdE = BdUniqueId.gen();
+    public MetaData YW;
     public int type = 0;
     public int rank = 1;
 
@@ -14,11 +14,11 @@ public class f extends b {
     public BdUniqueId getType() {
         switch (this.type) {
             case 0:
-                return cdp;
+                return cdD;
             case 1:
-                return cdq;
+                return cdE;
             default:
-                return cdp;
+                return cdD;
         }
     }
 }

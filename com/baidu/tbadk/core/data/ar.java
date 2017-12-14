@@ -8,40 +8,40 @@ import tbclient.LabelInfo;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class ar extends bd {
-    public static final BdUniqueId Yd = BdUniqueId.gen();
-    private List<PhotoLiveCardData> Ye;
-    private int Yf = 0;
+    public static final BdUniqueId XX = BdUniqueId.gen();
+    private List<PhotoLiveCardData> XY;
+    private int XZ = 0;
     private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
 
     public void s(List<PhotoLiveCardData> list) {
-        this.Ye = list;
+        this.XY = list;
     }
 
     public void a(bd bdVar, int i) {
         if (bdVar != null) {
-            a(bdVar.rx());
+            a(bdVar.rv());
             setTitle(bdVar.getTitle());
             setPhotoLiveCover(bdVar.getPhotoLiveCover());
-            cH(bdVar.rD());
+            cH(bdVar.rB());
             cD(bdVar.getTid());
-            m(bdVar.rr());
+            m(bdVar.rp());
             setAddress(bdVar.getAddress());
             setId(bdVar.getId());
             setThreadType(bdVar.getThreadType());
-            a(bdVar.rm());
-            bQ(bdVar.rp());
+            a(bdVar.rk());
+            bQ(bdVar.rn());
             setPost_num(bdVar.getPost_num());
             cI(bdVar.getAbstract());
             cD(bdVar.getTid());
-            setExpressionDatas(bdVar.rR());
-            setShowExpressionViewIndexList(bdVar.rR());
+            setExpressionDatas(bdVar.rP());
+            setShowExpressionViewIndexList(bdVar.rP());
             setId(bdVar.getId());
-            a(bdVar.qn());
-            this.aam = bdVar.rU();
-            this.aan = bdVar.rV();
-            this.aao = bdVar.rW();
+            a(bdVar.ql());
+            this.aag = bdVar.rS();
+            this.aah = bdVar.rT();
+            this.aai = bdVar.rU();
             if (getShowStyle() < 0) {
-                this.Yf = getRandom(3, i);
+                this.XZ = getRandom(3, i);
             }
         }
     }
@@ -67,7 +67,7 @@ public class ar extends bd {
             setPost_num(zhiBoInfoTW.post_num.intValue());
             setTitle(zhiBoInfoTW.title);
             setShowExpressionViewIndexList(t(zhiBoInfoTW.labelInfo));
-            this.Yf = getRandom(3, i);
+            this.XZ = getRandom(3, i);
             cD(String.valueOf(zhiBoInfoTW.thread_id));
             setId(String.valueOf(zhiBoInfoTW.thread_id));
             setThreadType(33);
@@ -140,11 +140,11 @@ public class ar extends bd {
     }
 
     public int getShowStyle() {
-        return this.Yf;
+        return this.XZ;
     }
 
     @Override // com.baidu.tbadk.core.data.bd, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return Yd;
+        return XX;
     }
 }

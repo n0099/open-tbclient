@@ -12,56 +12,56 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.base.c {
-    private Resources fXC;
-    private a gOv;
-    private HorizontalListView gRm;
-    private com.baidu.tieba.video.editvideo.a.b gRn;
-    private com.baidu.tieba.video.editvideo.b.a gRo;
+    private a gRd;
+    private HorizontalListView gTV;
+    private com.baidu.tieba.video.editvideo.a.b gTW;
+    private com.baidu.tieba.video.editvideo.b.a gTX;
+    private Resources gai;
     private View mRootView;
 
     public c(e eVar, a aVar) {
         super(eVar);
-        this.gOv = aVar;
+        this.gRd = aVar;
         this.mRootView = LayoutInflater.from(eVar.getPageActivity()).inflate(d.h.edit_filter_layout, (ViewGroup) null);
-        this.fXC = this.mRootView.getResources();
+        this.gai = this.mRootView.getResources();
         initView();
     }
 
     public void a(com.baidu.tieba.video.editvideo.b.a aVar) {
-        this.gRo = aVar;
+        this.gTX = aVar;
     }
 
     private void initView() {
-        this.gRm = (HorizontalListView) this.mRootView.findViewById(d.g.edit_filter_horizontal_list);
-        this.gRn = new com.baidu.tieba.video.editvideo.a.b();
-        dP(com.baidu.tieba.video.editvideo.b.a.ch(this.mRootView.getContext()));
-        this.gRm.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.video.editvideo.view.c.1
+        this.gTV = (HorizontalListView) this.mRootView.findViewById(d.g.edit_filter_horizontal_list);
+        this.gTW = new com.baidu.tieba.video.editvideo.a.b();
+        dO(com.baidu.tieba.video.editvideo.b.a.cg(this.mRootView.getContext()));
+        this.gTV.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.video.editvideo.view.c.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tieba.video.editvideo.data.a aVar = (com.baidu.tieba.video.editvideo.data.a) c.this.gRn.getItem(i);
-                if (c.this.gRo != null) {
-                    c.this.gRo.a(aVar);
+                com.baidu.tieba.video.editvideo.data.a aVar = (com.baidu.tieba.video.editvideo.data.a) c.this.gTW.getItem(i);
+                if (c.this.gTX != null) {
+                    c.this.gTX.a(aVar);
                 }
-                if (c.this.gOv != null && c.this.gOv.bBL() != null) {
-                    c.this.gOv.bBL().setFilter(aVar);
+                if (c.this.gRd != null && c.this.gRd.bCr() != null) {
+                    c.this.gRd.bCr().setFilter(aVar);
                 }
             }
         });
     }
 
-    public void dP(List<com.baidu.tieba.video.editvideo.data.a> list) {
-        this.gRn.setData(list);
-        this.gRm.setAdapter((ListAdapter) this.gRn);
+    public void dO(List<com.baidu.tieba.video.editvideo.data.a> list) {
+        this.gTW.setData(list);
+        this.gTV.setAdapter((ListAdapter) this.gTW);
     }
 
-    public void bI(View view) {
+    public void bL(View view) {
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public void nD(boolean z) {
+    public void nF(boolean z) {
     }
 
     public void onPause() {

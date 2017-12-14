@@ -1,31 +1,49 @@
 package com.baidu.tbadk.coreExtra.data;
+
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.UserData;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    private long ari;
-    private int arj;
-    private String mMd5;
+    private ArrayList<String> Xs;
+    private UserData mUser;
 
-    public String xU() {
-        return this.mMd5;
+    public h() {
+        this.mUser = null;
+        this.Xs = null;
+        this.mUser = new UserData();
+        this.Xs = new ArrayList<>(3);
     }
 
-    public void eG(String str) {
-        this.mMd5 = str;
+    public UserData getUser() {
+        return this.mUser;
     }
 
-    public long getTotalLength() {
-        return this.ari;
+    public ArrayList<String> xU() {
+        return this.Xs;
     }
 
-    public void Q(long j) {
-        this.ari = j;
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
-    public int xV() {
-        return this.arj;
-    }
-
-    public void dS(int i) {
-        this.arj = i;
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.mUser.parserJson(jSONObject.optJSONObject("user"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.Xs.add(optJSONArray.optString(i, null));
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

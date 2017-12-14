@@ -34,7 +34,8 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler {
         this.mAllowedContentTypes = strArr;
     }
 
-    protected void onFailure(Throwable th, byte[] bArr) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onFailure(Throwable th, byte[] bArr) {
     }
 
     protected void onSuccess(byte[] bArr) {

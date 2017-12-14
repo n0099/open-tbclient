@@ -1,65 +1,125 @@
 package com.baidu.sapi2.utils;
 
 import android.content.Context;
-import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.android.common.util.DeviceId;
+import com.baidu.sapi2.base.debug.Log;
 import java.io.FileInputStream;
+import java.net.NetworkInterface;
 import java.net.URLEncoder;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.util.Collections;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes.dex */
 public class SapiDeviceUtils {
-    public static void checkHosts(Context context) {
-        if (context != null) {
+    static String a = "js52je)927!hsm^%3m";
+    static String b = "AES/CBC/NoPadding";
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [57=4, 58=4, 60=4, 61=4] */
+    public static boolean checkHosts(Context context) {
+        FileInputStream fileInputStream;
+        if (context == null) {
+            return false;
+        }
+        try {
+            fileInputStream = new FileInputStream("/system/etc/hosts");
             try {
-                FileInputStream fileInputStream = new FileInputStream("/system/etc/hosts");
                 byte[] bArr = new byte[fileInputStream.available()];
                 fileInputStream.read(bArr);
                 String str = new String(bArr);
-                if (!TextUtils.isEmpty(str) && str.contains("passport.baidu.com")) {
-                    com.baidu.sapi2.c.a(context).b(true);
-                } else {
-                    com.baidu.sapi2.c.a(context).b(false);
+                if (!TextUtils.isEmpty(str)) {
+                    if (str.contains("passport.baidu.com")) {
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception e) {
+                                Log.e(Log.TAG, e.toString());
+                            }
+                        }
+                        return true;
+                    }
                 }
-                fileInputStream.close();
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                        return false;
+                    } catch (Exception e2) {
+                        Log.e(Log.TAG, e2.toString());
+                        return false;
+                    }
+                }
+                return false;
             } catch (Throwable th) {
-                com.baidu.sapi2.c.a(context).b(false);
-                L.e(th);
+                th = th;
+                try {
+                    Log.e(Log.TAG, th.toString());
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                            return false;
+                        } catch (Exception e3) {
+                            Log.e(Log.TAG, e3.toString());
+                            return false;
+                        }
+                    }
+                    return false;
+                } catch (Throwable th2) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e4) {
+                            Log.e(Log.TAG, e4.toString());
+                        }
+                    }
+                    throw th2;
+                }
             }
+        } catch (Throwable th3) {
+            th = th3;
+            fileInputStream = null;
         }
     }
 
     public static String getIMEI(Context context) {
-        String str;
-        if (context == null) {
-            return null;
-        }
+        String str = "";
         try {
-            str = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-        } catch (Exception e) {
-            L.e(e);
-            str = null;
+            str = DeviceId.getIMEI(context);
+        } catch (Throwable th) {
+            Log.e(th);
         }
-        return str;
+        return str != null ? str : "";
     }
 
     public static String getMac(Context context) {
-        if (context == null) {
-            return null;
-        }
         try {
-            WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
-            return TextUtils.isEmpty(connectionInfo.getMacAddress()) ? "" : connectionInfo.getMacAddress();
         } catch (Exception e) {
-            return "";
+            Log.e(e);
         }
+        if (Build.VERSION.SDK_INT >= 23) {
+            for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+                if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
+                    byte[] hardwareAddress = networkInterface.getHardwareAddress();
+                    if (hardwareAddress == null) {
+                        return "";
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    int length = hardwareAddress.length;
+                    for (int i = 0; i < length; i++) {
+                        sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
+                    }
+                    if (sb.length() > 0) {
+                        sb.deleteCharAt(sb.length() - 1);
+                    }
+                    return sb.toString().toLowerCase();
+                }
+            }
+            return "02:00:00:00:00:00";
+        }
+        return ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
     }
 
     public static String getOSVersion() {
@@ -101,25 +161,6 @@ public class SapiDeviceUtils {
         private static final String c = "UTF-8";
         private static final int d = 16;
         private static final int e = 16;
-
-        private static byte[] a(String str) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance(a);
-                messageDigest.update(str.getBytes());
-                return messageDigest.digest();
-            } catch (NoSuchAlgorithmException e2) {
-                L.e(e2);
-                return null;
-            }
-        }
-
-        public static String getHexString(byte[] bArr) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
-                sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
-            }
-            return sb.toString();
-        }
 
         public static String base64Encode(byte[] bArr) {
             int i;
@@ -163,39 +204,26 @@ public class SapiDeviceUtils {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
+            String str2 = SapiDeviceUtils.a;
             try {
                 String base64Encode = base64Encode(str.getBytes(c));
-                return AES128Encrypt(base64Encode + "." + getHexString(a(base64Encode + f.z)), f.z);
+                return encryptAes128(base64Encode + "." + MD5Util.toMd5((base64Encode + str2).getBytes(), false), str2);
             } catch (Exception e2) {
-                L.e(e2);
+                Log.e(Log.TAG, e2.toString());
                 return null;
             }
         }
 
-        public static String AES128Encrypt(String str, String str2) {
+        public static String encryptAes128(String str, String str2) {
             try {
-                String hexString = getHexString(a(str2.trim()));
-                String substring = hexString.substring(0, 16);
-                String stringBuffer = new StringBuffer(hexString.substring(0, 16)).reverse().toString();
-                Cipher cipher = Cipher.getInstance(f.A);
+                String md5 = MD5Util.toMd5(str2.trim().getBytes(), false);
+                String substring = md5.substring(0, 16);
+                String stringBuffer = new StringBuffer(md5.substring(0, 16)).reverse().toString();
+                Cipher cipher = Cipher.getInstance(SapiDeviceUtils.b);
                 cipher.init(1, new SecretKeySpec(substring.getBytes(c), "AES"), new IvParameterSpec(stringBuffer.getBytes(c)));
                 return base64Encode(cipher.doFinal(a(str.getBytes(c))));
             } catch (Exception e2) {
-                L.e(e2);
-                return null;
-            }
-        }
-
-        public static String AES128Decrypt(String str, String str2) {
-            try {
-                String hexString = getHexString(a(str2.trim()));
-                String substring = hexString.substring(0, 16);
-                String stringBuffer = new StringBuffer(hexString.substring(0, 16)).reverse().toString();
-                Cipher cipher = Cipher.getInstance(f.A);
-                cipher.init(2, new SecretKeySpec(substring.getBytes(c), "AES"), new IvParameterSpec(stringBuffer.getBytes(c)));
-                return base64Encode(cipher.doFinal(a(str.getBytes(c))));
-            } catch (Exception e2) {
-                L.e(e2);
+                Log.e(Log.TAG, e2.toString());
                 return null;
             }
         }

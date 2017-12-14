@@ -65,7 +65,7 @@ public class z {
         return str3;
     }
 
-    public static Bundle hc(String str) {
+    public static Bundle ha(String str) {
         URL url;
         String query;
         String[] split;
@@ -95,17 +95,17 @@ public class z {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aNr;
+        public String aNu;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aNr = "";
+            this.aNu = "";
             this.BDUSS = str;
-            this.aNr = str2;
+            this.aNu = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aNr != null ? this.aNr.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aNu != null ? this.aNu.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -121,7 +121,7 @@ public class z {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aNr == null ? aVar.aNr == null : this.aNr.equals(aVar.aNr);
+                return this.aNu == null ? aVar.aNu == null : this.aNu.equals(aVar.aNu);
             }
             return false;
         }

@@ -10,6 +10,7 @@ import android.net.wifi.WifiManager;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.push.service.ah;
 import com.xiaomi.xmpush.thrift.ae;
@@ -90,7 +91,7 @@ public class d extends f.a {
 
     private List<com.xiaomi.xmpush.thrift.b> f() {
         try {
-            List neighboringCellInfo = ((TelephonyManager) this.g.getSystemService("phone")).getNeighboringCellInfo();
+            List neighboringCellInfo = ((TelephonyManager) this.g.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getNeighboringCellInfo();
             int i = 0;
             ArrayList arrayList = null;
             while (i < neighboringCellInfo.size()) {

@@ -11,45 +11,45 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private static String auc;
-    private static Map<String, String> aud;
-    private static boolean aue;
-    private static int auf;
-    private static int aug;
-    private static boolean auh;
-    private static String aui;
+    private static String auh;
+    private static Map<String, String> aui;
+    private static boolean auj;
+    private static int auk;
+    private static int aul;
+    private static boolean aum;
+    private static String aun;
     private static Map<String, String> mDebugParamsMap;
-    private static boolean atY = false;
-    private static boolean atZ = false;
-    private static int aua = 8;
-    private static int aub = 16;
+    private static boolean aud = false;
+    private static boolean aue = false;
+    private static int auf = 8;
+    private static int aug = 16;
     private static boolean isInit = false;
 
     public static void parserJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             isInit = true;
-            aue = jSONObject.optInt("switch", 1) != 0;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("video_report_config_switch", aue);
-            auf = jSONObject.optInt("upload_type", 0);
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("video_report_config_upload_type", auf);
-            aug = jSONObject.optInt("upload_number", 5);
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("video_report_config_upload_number", aug);
-            auh = jSONObject.optInt("moov_check", 0) != 0;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("video_report_config_moov_check", auh);
-            aui = jSONObject.optString("android_debug_type");
-            if (!StringUtils.isNull(aui)) {
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("video_report_config_debug_type", aui);
-                fe(aui);
+            auj = jSONObject.optInt("switch", 1) != 0;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("video_report_config_switch", auj);
+            auk = jSONObject.optInt("upload_type", 0);
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("video_report_config_upload_type", auk);
+            aul = jSONObject.optInt("upload_number", 5);
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("video_report_config_upload_number", aul);
+            aum = jSONObject.optInt("moov_check", 0) != 0;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("video_report_config_moov_check", aum);
+            aun = jSONObject.optString("android_debug_type");
+            if (!StringUtils.isNull(aun)) {
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("video_report_config_debug_type", aun);
+                fd(aun);
             }
-            auc = jSONObject.optString("step_cache_strategy");
-            if (!StringUtils.isNull(auc)) {
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("video_report_config_step_cache_strategy", auc);
-                ff(auc);
+            auh = jSONObject.optString("step_cache_strategy");
+            if (!StringUtils.isNull(auh)) {
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("video_report_config_step_cache_strategy", auh);
+                fe(auh);
             }
         }
     }
 
-    private static void fe(String str) {
+    private static void fd(String str) {
         if (!StringUtils.isNull(str)) {
             if (mDebugParamsMap == null) {
                 mDebugParamsMap = new HashMap();
@@ -65,42 +65,65 @@ public class f {
         }
     }
 
-    private static void ff(String str) {
+    private static void fe(String str) {
         if (!StringUtils.isNull(str)) {
-            if (aud == null) {
-                aud = new HashMap();
+            if (aui == null) {
+                aui = new HashMap();
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                aud.put("step_cache_force_use_proxy", jSONObject.optString("step_cache_force_use_proxy"));
-                aud.put("step_cache_switch", jSONObject.optString("step_cache_switch"));
-                aud.put("step_cache_rush_hour", jSONObject.optString("step_cache_rush_hour"));
-                aud.put("step_cache_rush_hour_cache_duration", jSONObject.optString("step_cache_rush_hour_cache_duration"));
-                aud.put("step_cache_normol_cache_duration", jSONObject.optString("step_cache_normol_cache_duration"));
+                aui.put("step_cache_force_use_proxy", jSONObject.optString("step_cache_force_use_proxy"));
+                aui.put("step_cache_switch", jSONObject.optString("step_cache_switch"));
+                aui.put("step_cache_rush_hour", jSONObject.optString("step_cache_rush_hour"));
+                aui.put("step_cache_rush_hour_cache_duration", jSONObject.optString("step_cache_rush_hour_cache_duration"));
+                aui.put("step_cache_normol_cache_duration", jSONObject.optString("step_cache_normol_cache_duration"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static boolean AC() {
-        return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("video_report_config_switch", true) : aue;
+    public static boolean AD() {
+        return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("video_report_config_switch", true) : auj;
     }
 
     public static int getReportType() {
-        return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("video_report_config_upload_type", 0) : auf;
+        return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("video_report_config_upload_type", 0) : auk;
     }
 
-    public static int AD() {
-        return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("video_report_config_upload_number", 5) : aug;
+    public static int AE() {
+        return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("video_report_config_upload_number", 5) : aul;
     }
 
-    public static boolean AE() {
-        return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("video_report_config_moov_check", false) : auh;
+    public static boolean AF() {
+        return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("video_report_config_moov_check", false) : aum;
     }
 
-    public static String AF() {
+    public static String AG() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("video_report_config_debug_type", "");
+        if (StringUtils.isNull(string)) {
+            return "";
+        }
+        fd(string);
+        return string;
+    }
+
+    public static Map<String, String> AH() {
+        if (!isInit) {
+            AG();
+        }
+        return mDebugParamsMap;
+    }
+
+    public static String AI() {
+        if (!isInit) {
+            AG();
+        }
+        return mDebugParamsMap == null ? "0" : mDebugParamsMap.get("debug_avformat_open_input");
+    }
+
+    private static String AJ() {
+        String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("video_report_config_step_cache_strategy", "");
         if (StringUtils.isNull(string)) {
             return "";
         }
@@ -108,97 +131,74 @@ public class f {
         return string;
     }
 
-    public static Map<String, String> AG() {
-        if (!isInit) {
-            AF();
-        }
-        return mDebugParamsMap;
-    }
-
-    public static String AH() {
-        if (!isInit) {
-            AF();
-        }
-        return mDebugParamsMap == null ? "0" : mDebugParamsMap.get("debug_avformat_open_input");
-    }
-
-    private static String AI() {
-        String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("video_report_config_step_cache_strategy", "");
-        if (StringUtils.isNull(string)) {
-            return "";
-        }
-        ff(string);
-        return string;
-    }
-
-    public static boolean AJ() {
-        if (!isInit) {
-            AI();
-        }
-        if (aud == null) {
-            return false;
-        }
-        String str = aud.get("step_cache_force_use_proxy");
-        if (StringUtils.isNull(str)) {
-            return false;
-        }
-        atY = "1".equals(str);
-        return atY;
-    }
-
     public static boolean AK() {
         if (!isInit) {
-            AI();
+            AJ();
         }
-        if (aud == null) {
+        if (aui == null) {
             return false;
         }
-        String str = aud.get("step_cache_switch");
+        String str = aui.get("step_cache_force_use_proxy");
         if (StringUtils.isNull(str)) {
             return false;
         }
-        atZ = "1".equals(str);
-        return atZ;
+        aud = "1".equals(str);
+        return aud;
     }
 
-    public static int AL() {
+    public static boolean AL() {
         if (!isInit) {
-            AI();
+            AJ();
         }
-        if (aud == null) {
-            return 8;
+        if (aui == null) {
+            return false;
         }
-        String str = aud.get("step_cache_rush_hour_cache_duration");
+        String str = aui.get("step_cache_switch");
         if (StringUtils.isNull(str)) {
-            return 8;
+            return false;
         }
-        aua = com.baidu.adp.lib.g.b.g(str, 8);
-        return aua;
+        aue = "1".equals(str);
+        return aue;
     }
 
     public static int AM() {
         if (!isInit) {
-            AI();
+            AJ();
         }
-        if (aud == null) {
+        if (aui == null) {
+            return 8;
+        }
+        String str = aui.get("step_cache_rush_hour_cache_duration");
+        if (StringUtils.isNull(str)) {
+            return 8;
+        }
+        auf = com.baidu.adp.lib.g.b.g(str, 8);
+        return auf;
+    }
+
+    public static int AN() {
+        if (!isInit) {
+            AJ();
+        }
+        if (aui == null) {
             return 16;
         }
-        String str = aud.get("step_cache_normol_cache_duration");
+        String str = aui.get("step_cache_normol_cache_duration");
         if (StringUtils.isNull(str)) {
             return 16;
         }
-        aub = com.baidu.adp.lib.g.b.g(str, 16);
-        return aub;
+        aug = com.baidu.adp.lib.g.b.g(str, 16);
+        return aug;
     }
 
-    public static boolean AN() {
+    public static boolean AO() {
         if (!isInit) {
-            AI();
+            AJ();
         }
-        if (aud == null) {
+        if (aui == null) {
             return ai("18:00", "01:00");
         }
-        String str = aud.get("step_cache_rush_hour");
+        String str = aui.get("step_cache_rush_hour");
         if (StringUtils.isNull(str)) {
             return ai("18:00", "01:00");
         }

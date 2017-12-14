@@ -1,21 +1,21 @@
 package com.baidu.adp.lib.network.http;
 /* loaded from: classes.dex */
 public class d {
-    public long uS = -1;
-    public long uT = -1;
+    public long uP = -1;
+    public long uQ = -1;
     public long connectTime = -1;
+    public long uR = -1;
+    public int uS = 0;
+    public long uT = -1;
     public long uU = -1;
-    public int uV = 0;
-    public long uW = -1;
-    public long uX = -1;
-    public String uY = "";
-    public int uZ = -1;
+    public String uV = "";
+    public int uW = -1;
     public int errorCode = 0;
-    public int va = 0;
-    public String vb = null;
-    public String vc = null;
+    public int uX = 0;
+    public String uY = null;
+    public String uZ = null;
     public String url = null;
-    public String vd = null;
-    public String ve = null;
-    public int vf = 0;
+    public String va = null;
+    public String vb = null;
+    public int vc = 0;
 }

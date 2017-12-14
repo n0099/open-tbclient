@@ -39,14 +39,14 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClickListener {
-    private boolean ajn;
-    private TextView aof;
-    private PlayVoiceBntNew aog;
-    private FrameLayout aoh;
-    private LinearLayout aoi;
-    private TextView aoj;
-    private TbRichTextVoiceInfo aok;
-    private boolean aol;
+    private boolean ajh;
+    private TextView aoh;
+    private PlayVoiceBntNew aoi;
+    private FrameLayout aoj;
+    private LinearLayout aok;
+    private TextView aol;
+    private TbRichTextVoiceInfo aom;
+    private boolean aon;
     private Context mContext;
     private List<TbRichTextImageInfo> mImageList;
     private RelativeLayout mRootView;
@@ -71,10 +71,10 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         this.mContext = context;
         this.mView = LayoutInflater.from(context).inflate(d.h.thread_god_reply_layout, (ViewGroup) this, true);
         this.mRootView = (RelativeLayout) this.mView.findViewById(d.g.god_comment_layout);
-        this.aof = (TextView) this.mView.findViewById(d.g.god_reply_content);
-        this.aog = (PlayVoiceBntNew) this.mView.findViewById(d.g.god_reply_voice_btn);
-        this.aog.setVisibility(8);
-        this.aoh = (FrameLayout) this.mView.findViewById(d.g.god_reply_image_layout);
+        this.aoh = (TextView) this.mView.findViewById(d.g.god_reply_content);
+        this.aoi = (PlayVoiceBntNew) this.mView.findViewById(d.g.god_reply_voice_btn);
+        this.aoi.setVisibility(8);
+        this.aoj = (FrameLayout) this.mView.findViewById(d.g.god_reply_image_layout);
         int ac = l.ac(getContext());
         int f = l.f(getContext(), d.e.tbds20);
         int f2 = ((ac - (l.f(getContext(), d.e.tbds44) * 2)) - (f * 7)) / 5;
@@ -83,22 +83,22 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f2, f2);
             layoutParams.leftMargin = (f2 + f) * i;
-            this.aoh.addView(tbImageView, layoutParams);
+            this.aoj.addView(tbImageView, layoutParams);
             tbImageView.setTag(d.g.god_reply_image_layout, Integer.valueOf(i));
             tbImageView.setTagTextSize((int) getResources().getDimension(d.e.tbfontsize26));
             tbImageView.setTagPaddingDis(l.f(getContext(), d.e.tbds6), l.f(getContext(), d.e.tbds6));
             tbImageView.setOnClickListener(this);
         }
-        this.aoh.setVisibility(8);
-        this.aoi = (LinearLayout) this.mView.findViewById(d.g.god_reply_img_multi_layout);
-        this.aoi.setVisibility(8);
-        this.aoi.bringToFront();
-        this.aoi.setClickable(false);
-        this.aoj = (TextView) this.mView.findViewById(d.g.god_reply_img_num);
+        this.aoj.setVisibility(8);
+        this.aok = (LinearLayout) this.mView.findViewById(d.g.god_reply_img_multi_layout);
+        this.aok.setVisibility(8);
+        this.aok.bringToFront();
+        this.aok.setClickable(false);
+        this.aol = (TextView) this.mView.findViewById(d.g.god_reply_img_num);
     }
 
     public void setFromCDN(boolean z) {
-        this.ajn = z;
+        this.ajh = z;
     }
 
     public void setData(PostData postData) {
@@ -109,20 +109,20 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         setVisibility(0);
         a(postData);
         b(postData);
-        if ((this.mImageList != null && this.mImageList.size() > 0) || (this.aok != null && this.aok.Kk() != null)) {
-            this.aol = true;
+        if ((this.mImageList != null && this.mImageList.size() > 0) || (this.aom != null && this.aom.Kl() != null)) {
+            this.aon = true;
             this.mRootView.setPadding(0, 0, 0, l.f(getContext(), d.e.tbds30));
         } else {
-            this.aol = false;
+            this.aon = false;
             this.mRootView.setPadding(0, 0, 0, l.f(getContext(), d.e.tbds25));
         }
         a(postData, 2);
-        if (!G(this.aof) && !G(this.aoh) && !G(this.aog)) {
+        if (!H(this.aoh) && !H(this.aoj) && !H(this.aoi)) {
             setVisibility(8);
         }
     }
 
-    private boolean G(View view) {
+    private boolean H(View view) {
         return view != null && view.getVisibility() == 0;
     }
 
@@ -132,51 +132,51 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         Drawable drawable = aj.getDrawable(d.f.icon_popular_reply_n);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         spannableStringBuilder2.append((CharSequence) "tag");
-        spannableStringBuilder2.setSpan(new a(drawable, this.aof, l.f(getContext(), d.e.tbds4)), 0, spannableStringBuilder2.length(), 33);
-        if (postData.bwB() >= 0) {
+        spannableStringBuilder2.setSpan(new a(drawable, this.aoh, l.f(getContext(), d.e.tbds4)), 0, spannableStringBuilder2.length(), 33);
+        if (postData.bxi() >= 0) {
             int length = spannableStringBuilder2.length();
-            spannableStringBuilder2.append((CharSequence) (" " + am.v(postData.bwB()) + getResources().getString(d.j.zan)));
-            spannableStringBuilder2.setSpan(new ForegroundColorSpan(aj.getColor(d.C0082d.cp_cont_h)), length, spannableStringBuilder2.length(), 33);
+            spannableStringBuilder2.append((CharSequence) (" " + am.v(postData.bxi()) + getResources().getString(d.j.zan)));
+            spannableStringBuilder2.setSpan(new ForegroundColorSpan(aj.getColor(d.C0096d.cp_cont_h)), length, spannableStringBuilder2.length(), 33);
         }
         spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
-        SpannableStringBuilder a2 = a(postData.bwr());
+        SpannableStringBuilder a2 = a(postData.bwY());
         if (a2 != null && !TextUtils.isEmpty(a2.toString())) {
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder("  |  ");
             int f = l.f(getContext(), d.e.tbds42);
             int f2 = l.f(this.mContext, d.e.tbds34);
-            spannableStringBuilder3.setSpan(new b(f2, aj.getColor(d.C0082d.cp_cont_d), f - f2), 0, spannableStringBuilder3.length(), 33);
+            spannableStringBuilder3.setSpan(new b(f2, aj.getColor(d.C0096d.cp_cont_d), f - f2), 0, spannableStringBuilder3.length(), 33);
             spannableStringBuilder.append((CharSequence) spannableStringBuilder3);
             spannableStringBuilder.append((CharSequence) a2);
-            this.aof.setVisibility(0);
-            this.aof.setMaxLines(Integer.MAX_VALUE);
-            this.aof.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
-            if (i >= 3 && this.aof.getLineCount() > i) {
-                spannableStringBuilder = (SpannableStringBuilder) spannableStringBuilder.subSequence(0, this.aof.getLayout().getLineEnd(i - 1) - 3);
+            this.aoh.setVisibility(0);
+            this.aoh.setMaxLines(Integer.MAX_VALUE);
+            this.aoh.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+            if (i >= 3 && this.aoh.getLineCount() > i) {
+                spannableStringBuilder = (SpannableStringBuilder) spannableStringBuilder.subSequence(0, this.aoh.getLayout().getLineEnd(i - 1) - 3);
                 spannableStringBuilder.append((CharSequence) "...");
             }
-            this.aof.setMaxLines(i);
-            this.aof.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
-        } else if (!this.aol) {
-            this.aof.setVisibility(8);
+            this.aoh.setMaxLines(i);
+            this.aoh.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+        } else if (!this.aon) {
+            this.aoh.setVisibility(8);
         } else {
-            this.aof.setVisibility(0);
-            this.aof.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+            this.aoh.setVisibility(0);
+            this.aoh.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
         }
     }
 
     private SpannableStringBuilder a(TbRichText tbRichText) {
-        ArrayList<TbRichTextData> Jq;
-        if (tbRichText == null || (Jq = tbRichText.Jq()) == null) {
+        ArrayList<TbRichTextData> Jr;
+        if (tbRichText == null || (Jr = tbRichText.Jr()) == null) {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        Iterator<TbRichTextData> it = Jq.iterator();
+        Iterator<TbRichTextData> it = Jr.iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next.getType() == 1) {
-                spannableStringBuilder.append((CharSequence) next.Jx());
+                spannableStringBuilder.append((CharSequence) next.Jy());
             } else if (next.getType() == 17) {
-                String str = next.JB().mGifInfo.mSharpText;
+                String str = next.JC().mGifInfo.mSharpText;
                 if (str != null && str.startsWith("#(") && str.endsWith(")")) {
                     spannableStringBuilder.append((CharSequence) "[表情]");
                 }
@@ -201,38 +201,38 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         } else {
             this.mImageList.clear();
         }
-        if (!com.baidu.tbadk.core.h.pa().pg()) {
-            this.aoh.setVisibility(8);
-            this.aoi.setVisibility(8);
+        if (!com.baidu.tbadk.core.h.oY().pe()) {
+            this.aoj.setVisibility(8);
+            this.aok.setVisibility(8);
             return;
         }
-        TbRichText bwr = postData.bwr();
-        if (bwr == null || bwr.Jq() == null) {
-            this.aoh.setVisibility(8);
-            this.aoi.setVisibility(8);
+        TbRichText bwY = postData.bwY();
+        if (bwY == null || bwY.Jr() == null) {
+            this.aoj.setVisibility(8);
+            this.aok.setVisibility(8);
             return;
         }
-        Iterator<TbRichTextData> it = bwr.Jq().iterator();
+        Iterator<TbRichTextData> it = bwY.Jr().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next.getType() == 8) {
-                this.mImageList.add(next.Jw());
+                this.mImageList.add(next.Jx());
             }
         }
         if (this.mImageList.size() == 0) {
-            this.aoh.setVisibility(8);
-            this.aoi.setVisibility(8);
+            this.aoj.setVisibility(8);
+            this.aok.setVisibility(8);
             return;
         }
-        this.aoh.setVisibility(0);
+        this.aoj.setVisibility(0);
         int i = 0;
-        for (int i2 = 0; i2 < this.aoh.getChildCount(); i2++) {
-            View childAt = this.aoh.getChildAt(i2);
+        for (int i2 = 0; i2 < this.aoj.getChildCount(); i2++) {
+            View childAt = this.aoj.getChildAt(i2);
             if (childAt != null && (childAt instanceof TbImageView)) {
                 if (i < this.mImageList.size()) {
                     TbRichTextImageInfo tbRichTextImageInfo = this.mImageList.get(i);
-                    if (tbRichTextImageInfo != null && !TextUtils.isEmpty(tbRichTextImageInfo.JK())) {
-                        ((TbImageView) childAt).startLoad(tbRichTextImageInfo.JK(), this.ajn ? 13 : 14, false);
+                    if (tbRichTextImageInfo != null && !TextUtils.isEmpty(tbRichTextImageInfo.JL())) {
+                        ((TbImageView) childAt).startLoad(tbRichTextImageInfo.JL(), this.ajh ? 13 : 14, false);
                         childAt.setVisibility(0);
                         i++;
                     } else {
@@ -245,32 +245,32 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             i = i;
         }
         if (this.mImageList.size() > 5) {
-            this.aoi.setVisibility(0);
-            this.aoj.setText("" + this.mImageList.size());
+            this.aok.setVisibility(0);
+            this.aol.setText("" + this.mImageList.size());
             return;
         }
-        this.aoi.setVisibility(8);
+        this.aok.setVisibility(8);
     }
 
     public void b(PostData postData) {
-        this.aok = postData.Jy();
-        if (this.aok == null) {
-            this.aog.setVisibility(8);
+        this.aom = postData.Jz();
+        if (this.aom == null) {
+            this.aoi.setVisibility(8);
             return;
         }
-        this.aog.setVisibility(0);
-        this.aog.setTag(this.aok);
+        this.aoi.setVisibility(0);
+        this.aoi.setTag(this.aom);
     }
 
     public void onChangeSkinType() {
-        aj.k(this.mRootView, d.C0082d.cp_bg_line_e);
-        aj.k(this.aof, d.C0082d.cp_bg_line_e);
-        aj.i(this.aof, d.C0082d.cp_cont_j);
-        this.aog.blz();
+        aj.k(this.mRootView, d.C0096d.cp_bg_line_e);
+        aj.k(this.aoh, d.C0096d.cp_bg_line_e);
+        aj.i(this.aoh, d.C0096d.cp_cont_j);
+        this.aoi.bmf();
     }
 
     public TextView getGodReplyContent() {
-        return this.aof;
+        return this.aoh;
     }
 
     @Override // android.view.View.OnClickListener
@@ -279,7 +279,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             int intValue = ((Integer) view.getTag(d.g.god_reply_image_layout)).intValue();
             ArrayList<String> arrayList = new ArrayList<>();
             for (TbRichTextImageInfo tbRichTextImageInfo : this.mImageList) {
-                arrayList.add(tbRichTextImageInfo.JH());
+                arrayList.add(tbRichTextImageInfo.JI());
             }
             ImageViewerConfig createConfig = new ImageViewerConfig(getContext()).createConfig(arrayList, intValue, null, "", "", true, arrayList.get(0), true);
             createConfig.getIntent().putExtra("from", ImageViewerConfig.FROM_DISCOVER_BEAUTY);
@@ -290,13 +290,13 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends ReplacementSpan {
-        private int aoo;
+        private int aoq;
         private int fontSize;
         private int mColor;
 
         public b(int i, int i2, int i3) {
             this.fontSize = i;
-            this.aoo = i3;
+            this.aoq = i3;
             this.mColor = i2;
         }
 
@@ -310,7 +310,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             CharSequence subSequence = charSequence.subSequence(i, i2);
             TextPaint a = a(paint);
             a.setColor(this.mColor);
-            canvas.drawText(subSequence.toString(), f, i4 - (this.aoo / 2), a);
+            canvas.drawText(subSequence.toString(), f, i4 - (this.aoq / 2), a);
         }
 
         private TextPaint a(Paint paint) {
@@ -323,20 +323,20 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends com.baidu.tbadk.widget.e {
-        private int aom;
-        private TextView aon;
+        private int aoo;
+        private TextView aop;
 
         public a(Drawable drawable, TextView textView, int i) {
             super(drawable);
-            this.aom = 0;
-            this.aon = textView;
-            this.aom = i;
+            this.aoo = 0;
+            this.aop = textView;
+            this.aoo = i;
         }
 
         @Override // com.baidu.tbadk.widget.e, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
         public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-            if (getDrawable() != null && (this.aon.getLineCount() > 1 || Build.VERSION.SDK_INT < 21)) {
-                setVerticalOffset(this.aom);
+            if (getDrawable() != null && (this.aop.getLineCount() > 1 || Build.VERSION.SDK_INT < 21)) {
+                setVerticalOffset(this.aoo);
                 super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
                 return;
             }

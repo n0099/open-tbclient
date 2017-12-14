@@ -12,18 +12,18 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class b extends c<StrangerListActivity> {
-    private NoNetworkView blt;
-    private BdListView buZ;
-    private StrangerListActivity dYA;
-    private StrangerListAdapter dYG;
-    private ImageView dYH;
+    private NoNetworkView blu;
+    private BdListView bva;
+    private StrangerListActivity dZF;
+    private StrangerListAdapter dZL;
+    private ImageView dZM;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
 
     public b(StrangerListActivity strangerListActivity) {
         super(strangerListActivity.getPageContext());
         strangerListActivity.setContentView(d.h.officialbar_msg_activity);
-        this.dYA = strangerListActivity;
+        this.dZF = strangerListActivity;
         f(strangerListActivity);
         g(strangerListActivity);
     }
@@ -33,33 +33,33 @@ public class b extends c<StrangerListActivity> {
         this.mNavigationBar.setCenterTextTitle(strangerListActivity.getPageContext().getString(d.j.stranger_list_activity_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.dYH = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.stranger_delete, this.dYA);
-        aj.a(this.dYH, d.f.icon_tabbar_delete_bg_s, d.f.icon_tabbar_delete_bg);
+        this.dZM = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.stranger_delete, this.dZF);
+        aj.a(this.dZM, d.f.icon_tabbar_delete_bg_s, d.f.icon_tabbar_delete_bg);
         this.mRootView = (ViewGroup) strangerListActivity.findViewById(d.g.root_view);
-        this.blt = (NoNetworkView) this.mRootView.findViewById(d.g.no_network_view);
+        this.blu = (NoNetworkView) this.mRootView.findViewById(d.g.no_network_view);
     }
 
     public void onChangeSkinType(int i) {
-        this.dYA.getLayoutMode().ag(i == 1);
-        this.dYA.getLayoutMode().t(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.dYA.getPageContext(), i);
-        this.blt.onChangeSkinType(this.dYA.getPageContext(), i);
-        aj.a(this.dYH, d.f.icon_tabbar_delete_bg_s, d.f.icon_tabbar_delete_bg);
+        this.dZF.getLayoutMode().ag(i == 1);
+        this.dZF.getLayoutMode().t(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.dZF.getPageContext(), i);
+        this.blu.onChangeSkinType(this.dZF.getPageContext(), i);
+        aj.a(this.dZM, d.f.icon_tabbar_delete_bg_s, d.f.icon_tabbar_delete_bg);
     }
 
     private void g(StrangerListActivity strangerListActivity) {
-        this.buZ = (BdListView) strangerListActivity.findViewById(d.g.msg_list);
-        this.buZ.setOnItemClickListener(strangerListActivity);
-        this.buZ.setOnItemLongClickListener(strangerListActivity);
-        this.dYG = new StrangerListAdapter(strangerListActivity);
-        this.buZ.setAdapter((ListAdapter) this.dYG);
+        this.bva = (BdListView) strangerListActivity.findViewById(d.g.msg_list);
+        this.bva.setOnItemClickListener(strangerListActivity);
+        this.bva.setOnItemLongClickListener(strangerListActivity);
+        this.dZL = new StrangerListAdapter(strangerListActivity);
+        this.bva.setAdapter((ListAdapter) this.dZL);
     }
 
-    public StrangerListAdapter aEv() {
-        return this.dYG;
+    public StrangerListAdapter aEE() {
+        return this.dZL;
     }
 
-    public View aEw() {
-        return this.dYH;
+    public View aEF() {
+        return this.dZM;
     }
 }

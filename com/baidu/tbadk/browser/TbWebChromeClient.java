@@ -93,4 +93,12 @@ public class TbWebChromeClient extends WebChromeClient {
         }
         return true;
     }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedTitle(WebView webView, String str) {
+        super.onReceivedTitle(webView, str);
+        if (this.mActivity != null) {
+            this.mActivity.refreshTitle(str);
+        }
+    }
 }

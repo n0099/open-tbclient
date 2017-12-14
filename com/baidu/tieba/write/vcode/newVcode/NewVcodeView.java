@@ -13,22 +13,21 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.a;
-import com.baidu.tbadk.core.view.c;
+import com.baidu.tbadk.core.view.d;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.write.vcode.newVcode.a.b;
 /* loaded from: classes2.dex */
 public class NewVcodeView {
-    private b heZ;
+    private b hhR;
     private BaseActivity mContext;
     private float mRatio;
     private BaseWebView mWebView = null;
     private View mBlackBackLayout = null;
     private View mPostThreadLoadingView = null;
-    private a mWebLoadingDialog = null;
+    private com.baidu.tbadk.core.view.b mWebLoadingDialog = null;
     private TextView mPostThreadLoadingText = null;
-    private c mVcodeToast = null;
+    private d mVcodeToast = null;
     private boolean onPageFinishHasBeenCalled = false;
     private Runnable mShowWebViewRunnable = new Runnable() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.1
         @Override // java.lang.Runnable
@@ -47,7 +46,7 @@ public class NewVcodeView {
     }
 
     public void setPresenter(b bVar) {
-        this.heZ = bVar;
+        this.hhR = bVar;
         this.onPageFinishHasBeenCalled = false;
     }
 
@@ -65,15 +64,15 @@ public class NewVcodeView {
         this.mBlackBackLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NewVcodeView.this.heZ.onPostThreadCancle();
+                NewVcodeView.this.hhR.onPostThreadCancle();
                 NewVcodeView.this.mContext.finish();
             }
         });
         this.mPostThreadLoadingView = newVcodeActivity.findViewById(d.g.post_thread_loading_view);
         this.mPostThreadLoadingText = (TextView) this.mPostThreadLoadingView.findViewById(d.g.custom_loading_text);
         this.mPostThreadLoadingText.setText(newVcodeActivity.getResources().getString(d.j.sending));
-        this.mVcodeToast = new c();
-        this.mVcodeToast.alo = 1000L;
+        this.mVcodeToast = new com.baidu.tbadk.core.view.d();
+        this.mVcodeToast.alk = 1000L;
         if (this.mWebView == null) {
             try {
                 this.mWebView = (BaseWebView) newVcodeActivity.findViewById(d.g.new_vcode_webview);
@@ -90,12 +89,12 @@ public class NewVcodeView {
                         if (!NewVcodeView.this.onPageFinishHasBeenCalled) {
                             NewVcodeView.this.onPageFinishHasBeenCalled = true;
                             e.fP().postDelayed(NewVcodeView.this.mShowWebViewRunnable, 500L);
-                            if (NewVcodeView.this.heZ != null) {
-                                NewVcodeView.this.heZ.onPageFinished(webView, str);
+                            if (NewVcodeView.this.hhR != null) {
+                                NewVcodeView.this.hhR.onPageFinished(webView, str);
                             }
                         }
-                        if (NewVcodeView.this.heZ != null) {
-                            return NewVcodeView.this.heZ.onUrlLoad(webView, str);
+                        if (NewVcodeView.this.hhR != null) {
+                            return NewVcodeView.this.hhR.onUrlLoad(webView, str);
                         }
                         return false;
                     }
@@ -104,8 +103,8 @@ public class NewVcodeView {
                     public void onPageFinished(WebView webView, String str) {
                         super.onPageFinished(webView, str);
                         NewVcodeView.this.onPageFinishHasBeenCalled = true;
-                        if (NewVcodeView.this.heZ != null) {
-                            NewVcodeView.this.heZ.onPageFinished(webView, str);
+                        if (NewVcodeView.this.hhR != null) {
+                            NewVcodeView.this.hhR.onPageFinished(webView, str);
                         }
                     }
 
@@ -182,7 +181,7 @@ public class NewVcodeView {
     /* JADX INFO: Access modifiers changed from: private */
     public void showWebLoadingView(boolean z) {
         if (this.mWebLoadingDialog == null) {
-            this.mWebLoadingDialog = new a(this.mContext.getPageContext());
+            this.mWebLoadingDialog = new com.baidu.tbadk.core.view.b(this.mContext.getPageContext());
             this.mWebLoadingDialog.c(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.4
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {

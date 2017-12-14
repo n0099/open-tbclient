@@ -10,26 +10,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class e {
-    public SharedPreferences.Editor Qz;
     public SharedPreferences a;
+    public SharedPreferences b;
+    public SharedPreferences.Editor c;
+    public SharedPreferences.Editor d;
 
     public e(Context context) {
         try {
             this.a = context.getSharedPreferences("leroadcfg", 4);
-            this.Qz = this.a.edit();
+            this.c = this.a.edit();
+            this.b = context.getSharedPreferences("leroadcfg", 4);
+            this.d = this.b.edit();
         } catch (Throwable th) {
             th.getMessage();
-            b.b();
         }
     }
 
     public final void a(String str, long j) {
-        String str2 = str;
-        b.a();
+        new StringBuilder().append(str);
         try {
-            this.Qz.putString("lsl", Base64.encodeToString(F.getInstance().ae(str.getBytes(), Base64.decode("MzAyMTIxMDJkaWN1ZGlhYg==", 0)), 0));
-            this.Qz.putLong("lslt", j);
-            this.Qz.commit();
+            this.c.putString("lsl", Base64.encodeToString(F.getInstance().ae(str.getBytes(), Base64.decode("MzAyMTIxMDJkaWN1ZGlhYg==", 0)), 0));
+            this.c.putLong("lslt", j);
+            this.c.commit();
         } catch (Throwable th) {
             com.baidu.sofire.b.d.a(th);
         }
@@ -38,8 +40,7 @@ public final class e {
     public final String a() {
         try {
             String str = new String(F.getInstance().ad(Base64.decode(this.a.getString("lsl", ""), 0), Base64.decode("MzAyMTIxMDJkaWN1ZGlhYg==", 0)));
-            String str2 = str;
-            b.a();
+            new StringBuilder().append(str);
             return str;
         } catch (Throwable th) {
             return "";
@@ -56,7 +57,6 @@ public final class e {
                     arrayList.add(Integer.valueOf(Integer.parseInt(str)));
                 } catch (NumberFormatException e) {
                     e.getMessage();
-                    b.b();
                 }
             }
         }
@@ -65,7 +65,7 @@ public final class e {
 
     public final void e(int... iArr) {
         if (iArr == null || iArr.length == 0) {
-            this.Qz.putString("hcpk", "");
+            this.c.putString("hcpk", "");
         } else {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < iArr.length; i++) {
@@ -74,9 +74,9 @@ public final class e {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 }
             }
-            this.Qz.putString("hcpk", sb.toString());
+            this.c.putString("hcpk", sb.toString());
         }
-        this.Qz.commit();
+        this.c.commit();
     }
 
     public final List<Integer> c() {
@@ -89,7 +89,6 @@ public final class e {
                     arrayList.add(Integer.valueOf(Integer.parseInt(str)));
                 } catch (NumberFormatException e) {
                     e.getMessage();
-                    b.b();
                 }
             }
         }
@@ -97,8 +96,8 @@ public final class e {
     }
 
     public final void a(List<Integer> list) {
-        if (list == null || list.size() == 0) {
-            this.Qz.putString("glspk", "");
+        if (list.size() == 0) {
+            this.c.putString("glspk", "");
         } else {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < list.size(); i++) {
@@ -107,17 +106,17 @@ public final class e {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 }
             }
-            this.Qz.putString("glspk", sb.toString());
+            this.c.putString("glspk", sb.toString());
         }
-        this.Qz.commit();
+        this.c.commit();
     }
 
     public final void a(long j) {
         String str;
         try {
             if (j == 0) {
-                this.Qz.putString("pdcgts", "");
-                this.Qz.commit();
+                this.c.putString("pdcgts", "");
+                this.c.commit();
                 return;
             }
             String string = this.a.getString("pdcgts", "");
@@ -128,10 +127,9 @@ public final class e {
             } else {
                 return;
             }
-            String str2 = str;
-            b.a();
-            this.Qz.putString("pdcgts", str);
-            this.Qz.commit();
+            new StringBuilder().append(str);
+            this.c.putString("pdcgts", str);
+            this.c.commit();
         } catch (Throwable th) {
             com.baidu.sofire.b.d.a(th);
         }
@@ -148,8 +146,8 @@ public final class e {
                 break;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.Qz.putInt(str + i2, i3);
-            this.Qz.commit();
+            this.c.putInt(str + i2, i3);
+            this.c.commit();
         }
     }
 

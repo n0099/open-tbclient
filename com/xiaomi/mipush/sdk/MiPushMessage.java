@@ -57,7 +57,7 @@ public class MiPushMessage implements PushMessageHandler.a {
         miPushMessage.notifyId = bundle.getInt(KEY_NOTIFY_ID);
         miPushMessage.notifyType = bundle.getInt(KEY_NOTIFY_TYPE);
         miPushMessage.category = bundle.getString(KEY_CATEGORY);
-        miPushMessage.extra = (HashMap) bundle.getSerializable(KEY_EXTRA);
+        miPushMessage.extra = (HashMap) bundle.getSerializable("extra");
         return miPushMessage;
     }
 
@@ -212,7 +212,7 @@ public class MiPushMessage implements PushMessageHandler.a {
             bundle.putString(KEY_CATEGORY, this.category);
         }
         if (this.extra != null) {
-            bundle.putSerializable(KEY_EXTRA, this.extra);
+            bundle.putSerializable("extra", this.extra);
         }
         return bundle;
     }

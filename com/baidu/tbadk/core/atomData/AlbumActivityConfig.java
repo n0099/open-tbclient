@@ -97,4 +97,8 @@ public class AlbumActivityConfig extends IntentConfig {
             getIntent().putExtra(IntentConfig.KEY_FROM_IM, z);
         }
     }
+
+    public void setCallFrom(String str) {
+        getIntent().putExtra("KEY_CALL_FROM", str);
+    }
 }

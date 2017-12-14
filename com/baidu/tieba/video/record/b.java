@@ -5,9 +5,9 @@ import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 /* loaded from: classes2.dex */
 class b {
-    private float gTG;
-    private int gTH;
-    private j gTI;
+    private float gWp;
+    private int gWq;
+    private j gWr;
     private Camera mCamera;
     private int mode = 0;
 
@@ -16,11 +16,11 @@ class b {
     }
 
     public void setRecordController(j jVar) {
-        this.gTI = jVar;
+        this.gWr = jVar;
     }
 
     public boolean e(MotionEvent motionEvent) {
-        if (this.gTI == null || !this.gTI.isRecording()) {
+        if (this.gWr == null || !this.gWr.isRecording()) {
             switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
                 case 0:
                     this.mode = 0;
@@ -28,21 +28,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float m = m(motionEvent);
-                        int i = (int) ((m - this.gTG) / 10.0f);
+                        int i = (int) ((m - this.gWp) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.gTH;
+                            int i2 = i + this.gWq;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.gTG = m;
+                            this.gWp = m;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.gTG = m(motionEvent);
+                    this.gWp = m(motionEvent);
                     break;
             }
         }
@@ -78,7 +78,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.gTH = i;
+                this.gWq = i;
             }
         }
     }

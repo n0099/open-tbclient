@@ -1,7 +1,11 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public interface ak {
-    NavigationBar alu();
+    void QJ();
+
+    void a(int i, int i2, ap apVar);
+
+    void a(am amVar);
+
+    void init();
 }

@@ -14,6 +14,7 @@ import com.baidu.tieba.d;
 public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_COOKIE = "tag_cookie";
     public static final String TAG_ENABLE_JS = "tag_enable_js";
+    public static final String TAG_FIX_TITLE = "tag_fix_title";
     public static final String TAG_NAV_BAR = "tag_navigation_bar";
     public static final String TAG_NEED_STYLE_IMMERSIVE_STICKY = "tag_style_immersive_sticky";
     public static final String TAG_TITLE = "tag_title";
@@ -68,6 +69,12 @@ public class WebViewActivityConfig extends IntentConfig {
             return false;
         }
         return true;
+    }
+
+    public void setFixTitle(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra(TAG_FIX_TITLE, z);
+        }
     }
 
     public static String addTiebaParams(String str) {

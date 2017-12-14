@@ -1,8 +1,7 @@
 package com.coremedia.iso.boxes.h264;
 
 import android.support.v4.media.TransportMediator;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.SapiSafeFacade;
+import com.baidu.tbadk.TbConfig;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -24,35 +23,35 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public final class AvcConfigurationBox extends AbstractBox {
     public static final String TYPE = "avcC";
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_20 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_21 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_22 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_23 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_24 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_25 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_26 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_27 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_28 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_20 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_21 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_22 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_23 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_24 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_25 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_26 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_27 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_28 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_9 = null;
     public AVCDecoderConfigurationRecord avcDecoderConfigurationRecord;
 
     static {
@@ -65,9 +64,9 @@ public final class AvcConfigurationBox extends AbstractBox {
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getAvcProfileIndication", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "int"), 58);
         ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "setAvcLevelIndication", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "int", "avcLevelIndication", "", "void"), 94);
         ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setLengthSizeMinusOne", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "int", "lengthSizeMinusOne", "", "void"), 98);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "setSequenceParameterSets", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "java.util.List", "sequenceParameterSets", "", "void"), SapiSafeFacade.SAPIWEBVIEW_BACK);
-        ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setPictureParameterSets", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "java.util.List", "pictureParameterSets", "", "void"), SapiSafeFacade.SAPIWEBVIEW_MODIFY_PWD);
-        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "getChromaFormat", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "int"), 110);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "setSequenceParameterSets", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "java.util.List", "sequenceParameterSets", "", "void"), 102);
+        ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setPictureParameterSets", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "java.util.List", "pictureParameterSets", "", "void"), 106);
+        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "getChromaFormat", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "int"), TbConfig.BIG_PHOTO_MAX_SIZE);
         ajc$tjp_15 = bVar.a("method-execution", bVar.b("1", "setChromaFormat", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "int", "chromaFormat", "", "void"), 114);
         ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "getBitDepthLumaMinus8", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "int"), 118);
         ajc$tjp_17 = bVar.a("method-execution", bVar.b("1", "setBitDepthLumaMinus8", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "int", "bitDepthLumaMinus8", "", "void"), 122);
@@ -75,7 +74,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         ajc$tjp_19 = bVar.a("method-execution", bVar.b("1", "setBitDepthChromaMinus8", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "int", "bitDepthChromaMinus8", "", "void"), TransportMediator.KEYCODE_MEDIA_RECORD);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getProfileCompatibility", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "int"), 62);
         ajc$tjp_20 = bVar.a("method-execution", bVar.b("1", "getSequenceParameterSetExts", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "java.util.List"), 134);
-        ajc$tjp_21 = bVar.a("method-execution", bVar.b("1", "setSequenceParameterSetExts", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "java.util.List", "sequenceParameterSetExts", "", "void"), SapiAccountManager.VERSION_CODE);
+        ajc$tjp_21 = bVar.a("method-execution", bVar.b("1", "setSequenceParameterSetExts", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "java.util.List", "sequenceParameterSetExts", "", "void"), 138);
         ajc$tjp_22 = bVar.a("method-execution", bVar.b("1", "hasExts", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "boolean"), 142);
         ajc$tjp_23 = bVar.a("method-execution", bVar.b("1", "setHasExts", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "boolean", "hasExts", "", "void"), 146);
         ajc$tjp_24 = bVar.a("method-execution", bVar.b("1", "getContentSize", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "long"), 157);
@@ -133,27 +132,27 @@ public final class AvcConfigurationBox extends AbstractBox {
     }
 
     public void setConfigurationVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.xY(i)));
         this.avcDecoderConfigurationRecord.configurationVersion = i;
     }
 
     public void setAvcProfileIndication(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.xY(i)));
         this.avcDecoderConfigurationRecord.avcProfileIndication = i;
     }
 
     public void setProfileCompatibility(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.xY(i)));
         this.avcDecoderConfigurationRecord.profileCompatibility = i;
     }
 
     public void setAvcLevelIndication(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.xY(i)));
         this.avcDecoderConfigurationRecord.avcLevelIndication = i;
     }
 
     public void setLengthSizeMinusOne(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.xY(i)));
         this.avcDecoderConfigurationRecord.lengthSizeMinusOne = i;
     }
 
@@ -173,7 +172,7 @@ public final class AvcConfigurationBox extends AbstractBox {
     }
 
     public void setChromaFormat(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.xY(i)));
         this.avcDecoderConfigurationRecord.chromaFormat = i;
     }
 
@@ -183,7 +182,7 @@ public final class AvcConfigurationBox extends AbstractBox {
     }
 
     public void setBitDepthLumaMinus8(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.xY(i)));
         this.avcDecoderConfigurationRecord.bitDepthLumaMinus8 = i;
     }
 
@@ -193,7 +192,7 @@ public final class AvcConfigurationBox extends AbstractBox {
     }
 
     public void setBitDepthChromaMinus8(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.xY(i)));
         this.avcDecoderConfigurationRecord.bitDepthChromaMinus8 = i;
     }
 
@@ -213,7 +212,7 @@ public final class AvcConfigurationBox extends AbstractBox {
     }
 
     public void setHasExts(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.oM(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.oN(z)));
         this.avcDecoderConfigurationRecord.hasExts = z;
     }
 

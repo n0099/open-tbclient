@@ -8,33 +8,33 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class x {
-    private static x fQm = null;
-    private HashMap<String, a> fQn = new HashMap<>();
+    private static x fRf = null;
+    private HashMap<String, a> fRg = new HashMap<>();
 
     private x() {
     }
 
-    public static x bjC() {
-        if (fQm == null) {
+    public static x bjK() {
+        if (fRf == null) {
             synchronized (x.class) {
-                if (fQm == null) {
-                    fQm = new x();
+                if (fRf == null) {
+                    fRf = new x();
                 }
             }
         }
-        return fQm;
+        return fRf;
     }
 
-    public void av(String str, int i) {
-        a aVar = this.fQn.get(str);
+    public void aw(String str, int i) {
+        a aVar = this.fRg.get(str);
         if (aVar == null) {
-            this.fQn.put(str, new a(i, System.currentTimeMillis()));
+            this.fRg.put(str, new a(i, System.currentTimeMillis()));
         } else {
             aVar.lastUpdateTime = System.currentTimeMillis();
             aVar.position = i;
         }
-        if (this.fQn.size() > 20) {
-            ArrayList arrayList = new ArrayList(this.fQn.entrySet());
+        if (this.fRg.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.fRg.entrySet());
             Collections.sort(arrayList, new Comparator<Map.Entry<String, a>>() { // from class: com.baidu.tieba.play.x.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -47,7 +47,7 @@ public class x {
             while (true) {
                 int i3 = i2;
                 if (i3 < 10) {
-                    this.fQn.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    this.fRg.remove(((Map.Entry) arrayList.get(i3)).getKey());
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -58,12 +58,12 @@ public class x {
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.fQn.remove(str);
+            this.fRg.remove(str);
         }
     }
 
     public int rs(String str) {
-        a aVar = this.fQn.get(str);
+        a aVar = this.fRg.get(str);
         if (aVar != null) {
             return aVar.position;
         }

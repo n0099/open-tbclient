@@ -10,4 +10,5 @@ public final class a {
     public int g;
     public int h;
     public int i;
+    public String j;
 }

@@ -7,7 +7,7 @@ import org.json.JSONObject;
 import tbclient.FrsPage.YuleActivity;
 /* loaded from: classes.dex */
 public class bl {
-    private long Vz;
+    private long Vt;
     private String activity_all_icon;
     private String activity_half_icon;
     private int activity_type;
@@ -17,17 +17,17 @@ public class bl {
         return this.activity_url;
     }
 
-    public String ta() {
+    public String sX() {
         return this.activity_all_icon;
     }
 
-    public String tb() {
+    public String sY() {
         return this.activity_half_icon;
     }
 
     public void a(YuleActivity yuleActivity) {
         if (yuleActivity != null) {
-            this.Vz = yuleActivity.activity_id.longValue();
+            this.Vt = yuleActivity.activity_id.longValue();
             this.activity_type = yuleActivity.activity_type.intValue();
             this.activity_url = yuleActivity.activity_url;
             this.activity_all_icon = yuleActivity.activity_all_icon;
@@ -38,7 +38,7 @@ public class bl {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Vz = jSONObject.optLong(GroupActivityActivityConfig.ACTIVITY_ID);
+                this.Vt = jSONObject.optLong(GroupActivityActivityConfig.ACTIVITY_ID);
                 this.activity_type = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.activity_url = jSONObject.optString("activity_url");
                 this.activity_all_icon = jSONObject.optString("activity_all_icon");

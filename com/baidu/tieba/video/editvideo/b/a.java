@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a gOQ;
-    private b gOR;
-    b.a gOS;
+    private b gRA;
+    b.a gRB;
+    private com.baidu.tieba.video.editvideo.data.a gRz;
     private Context mContext;
 
     public a(Context context) {
@@ -20,49 +20,49 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.gOQ = aVar;
+        this.gRz = aVar;
     }
 
-    public boolean bBa() {
-        return (this.gOQ == null || "normal".equalsIgnoreCase(this.gOQ.value)) ? false : true;
+    public boolean bBH() {
+        return (this.gRz == null || "normal".equalsIgnoreCase(this.gRz.value)) ? false : true;
     }
 
-    public void tY(String str) {
-        if ((this.gOR == null || !this.gOR.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String bBd = bBd();
+    public void ud(String str) {
+        if ((this.gRA == null || !this.gRA.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String bBK = bBK();
             String str2 = "normal";
-            if (this.gOQ != null) {
-                str2 = this.gOQ.value;
+            if (this.gRz != null) {
+                str2 = this.gRz.value;
             }
-            this.gOR = new b(this.mContext, str, bBd, str2);
-            if (this.gOS != null) {
-                this.gOR.a(this.gOS);
+            this.gRA = new b(this.mContext, str, bBK, str2);
+            if (this.gRB != null) {
+                this.gRA.a(this.gRB);
             }
-            this.gOR.bBe();
+            this.gRA.bBL();
         }
     }
 
-    public boolean bBb() {
-        if (this.gOR != null) {
-            return this.gOR.isRunning();
+    public boolean bBI() {
+        if (this.gRA != null) {
+            return this.gRA.isRunning();
         }
         return false;
     }
 
-    public void bBc() {
-        if (this.gOR != null) {
-            this.gOR.bBf();
+    public void bBJ() {
+        if (this.gRA != null) {
+            this.gRA.bBM();
         }
     }
 
     public void a(b.a aVar) {
-        this.gOS = aVar;
-        if (this.gOR != null) {
-            this.gOR.a(this.gOS);
+        this.gRB = aVar;
+        if (this.gRA != null) {
+            this.gRA.a(this.gRB);
         }
     }
 
-    public static List<com.baidu.tieba.video.editvideo.data.a> ch(Context context) {
+    public static List<com.baidu.tieba.video.editvideo.data.a> cg(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             context = TbadkCoreApplication.getInst();
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String bBd() {
-        return com.baidu.tieba.video.b.gMT + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String bBK() {
+        return com.baidu.tieba.video.b.gPB + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

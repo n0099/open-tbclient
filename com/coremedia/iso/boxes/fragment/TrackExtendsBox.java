@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes.fragment;
 
-import com.baidu.sapi2.SapiSafeFacade;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -11,17 +10,17 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class TrackExtendsBox extends AbstractFullBox {
     public static final String TYPE = "trex";
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_9 = null;
     private long defaultSampleDescriptionIndex;
     private long defaultSampleDuration;
     private SampleFlags defaultSampleFlags;
@@ -43,8 +42,8 @@ public class TrackExtendsBox extends AbstractFullBox {
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getDefaultSampleFlagsStr", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "java.lang.String"), 92);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "setTrackId", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "trackId", "", "void"), 96);
         ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "defaultSampleDescriptionIndex", "", "void"), 100);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "defaultSampleDuration", "", "void"), SapiSafeFacade.SAPIWEBVIEW_AUTHORIZATION);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "defaultSampleSize", "", "void"), SapiSafeFacade.SAPIWEBVIEW_SMS_LOGIN);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "defaultSampleDuration", "", "void"), 104);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "defaultSampleSize", "", "void"), 108);
     }
 
     public TrackExtendsBox() {
@@ -107,22 +106,22 @@ public class TrackExtendsBox extends AbstractFullBox {
     }
 
     public void setTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.dY(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.dZ(j)));
         this.trackId = j;
     }
 
     public void setDefaultSampleDescriptionIndex(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.dY(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.dZ(j)));
         this.defaultSampleDescriptionIndex = j;
     }
 
     public void setDefaultSampleDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.dY(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.dZ(j)));
         this.defaultSampleDuration = j;
     }
 
     public void setDefaultSampleSize(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.dY(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.dZ(j)));
         this.defaultSampleSize = j;
     }
 

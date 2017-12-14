@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
-    private a gYc;
+    private a haO;
     private int mDuration;
     private Runnable mHideTipRunnable;
     private TranslateAnimation mTipInAnimation;
@@ -53,8 +53,8 @@ public class CommonTipView extends TextView {
                 if (viewGroup != null) {
                     viewGroup.removeView(CommonTipView.this);
                 }
-                if (CommonTipView.this.gYc != null) {
-                    CommonTipView.this.gYc.onTipCompleted();
+                if (CommonTipView.this.haO != null) {
+                    CommonTipView.this.haO.onTipCompleted();
                 }
             }
 
@@ -114,8 +114,8 @@ public class CommonTipView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        aj.d(this, d.C0082d.common_color_10260, i);
-        aj.b(this, d.C0082d.cp_cont_g, 1, i);
+        aj.d(this, d.C0096d.common_color_10260, i);
+        aj.b(this, d.C0096d.cp_cont_g, 1, i);
     }
 
     public void onDestroy() {

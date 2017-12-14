@@ -10,8 +10,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.view.l;
 /* loaded from: classes.dex */
 public class d {
-    public TextView fim;
-    public TextView fin;
+    public TextView fjl;
+    public TextView fjm;
     public View mRootView;
     public TextView mTitleView;
 
@@ -19,26 +19,26 @@ public class d {
         if (view != null) {
             this.mRootView = view;
             this.mTitleView = (TextView) this.mRootView.findViewById(d.g.view_video_title);
-            this.fim = (TextView) this.mRootView.findViewById(d.g.pb_video_replay_num);
-            this.fin = (TextView) this.mRootView.findViewById(d.g.pb_video_play_count);
+            this.fjl = (TextView) this.mRootView.findViewById(d.g.pb_video_replay_num);
+            this.fjm = (TextView) this.mRootView.findViewById(d.g.pb_video_play_count);
         }
     }
 
-    public void Y(bd bdVar) {
-        if (bdVar != null && bdVar.rP() != null) {
-            bdVar.sh();
-            this.mTitleView.setOnTouchListener(new l(bdVar.rX()));
-            this.mTitleView.setText(bdVar.rX());
-            this.mTitleView.setLinkTextColor(aj.getColor(d.C0082d.cp_link_tip_c));
-            this.fim.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_replay_num), am.w(bdVar.rp())));
-            this.fin.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_play_count), am.w(bdVar.rP().play_count.intValue())));
-            AX();
+    public void aa(bd bdVar) {
+        if (bdVar != null && bdVar.rN() != null) {
+            bdVar.sf();
+            this.mTitleView.setOnTouchListener(new l(bdVar.rV()));
+            this.mTitleView.setText(bdVar.rV());
+            this.mTitleView.setLinkTextColor(aj.getColor(d.C0096d.cp_link_tip_c));
+            this.fjl.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_replay_num), am.w(bdVar.rn())));
+            this.fjm.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_play_count), am.w(bdVar.rN().play_count.intValue())));
+            AY();
         }
     }
 
-    public void AX() {
-        aj.c(this.mTitleView, d.C0082d.cp_cont_b, 1);
-        aj.c(this.fim, d.C0082d.cp_cont_f, 1);
-        aj.c(this.fin, d.C0082d.cp_cont_f, 1);
+    public void AY() {
+        aj.c(this.mTitleView, d.C0096d.cp_cont_b, 1);
+        aj.c(this.fjl, d.C0096d.cp_cont_f, 1);
+        aj.c(this.fjm, d.C0096d.cp_cont_f, 1);
     }
 }

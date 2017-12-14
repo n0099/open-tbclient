@@ -18,28 +18,28 @@ import java.util.Collections;
 /* loaded from: classes2.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private String baH;
-    private long baI;
+    private String baI;
     private long baJ;
     private long baK;
     private long baL;
     private long baM;
-    private FileInputStream baQ;
-    private String baW;
-    private long baY;
+    private long baN;
+    private FileInputStream baR;
+    private String baX;
+    private long baZ;
     private Context mContext;
-    private long baN = 0;
-    private long baO = -1;
-    private boolean baP = false;
-    private boolean baR = false;
-    private String baS = "";
+    private long baO = 0;
+    private long baP = -1;
+    private boolean baQ = false;
+    private boolean baS = false;
+    private String baT = "";
     private Object mLock = new Object();
-    private boolean baT = false;
-    private long baU = -1;
-    boolean baV = false;
-    private Object baZ = new Object();
-    private long ari = 0;
-    private Runnable bba = new Runnable() { // from class: com.baidu.tieba.VideoCache.c.1
+    private boolean baU = false;
+    private long baV = -1;
+    boolean baW = false;
+    private Object bba = new Object();
+    private long arn = 0;
+    private Runnable bbb = new Runnable() { // from class: com.baidu.tieba.VideoCache.c.1
         @Override // java.lang.Runnable
         public void run() {
             long j;
@@ -55,7 +55,7 @@ public class c {
             long parseInt;
             j.av(c.TAG, "test run in " + c.this);
             while (e.LJ().y(c.this)) {
-                e.LJ().hs(c.this.baH);
+                e.LJ().hq(c.this.baI);
                 try {
                     j.av(c.TAG, "mDownloadRunnable sleep in..." + c.this);
                     Thread.sleep(100L);
@@ -63,30 +63,30 @@ public class c {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                if (c.this.baR) {
+                if (c.this.baS) {
                     break;
                 }
             }
-            if (!c.this.baR) {
+            if (!c.this.baS) {
                 e.LJ().w(c.this);
             }
             while (true) {
-                if (c.this.baR) {
+                if (c.this.baS) {
                     break;
                 }
                 j.av(c.TAG, "download in " + c.this);
                 if (c.this.LF()) {
                     break;
                 }
-                c.this.baU = -1L;
-                File file2 = new File(c.this.baS);
-                long j6 = c.this.baK;
-                long j7 = c.this.baJ;
+                c.this.baV = -1L;
+                File file2 = new File(c.this.baT);
+                long j6 = c.this.baL;
+                long j7 = c.this.baK;
                 File[] listFiles = file2.listFiles();
                 ArrayList arrayList = new ArrayList();
                 if (listFiles != null) {
                     for (File file3 : listFiles) {
-                        if (c.this.baR) {
+                        if (c.this.baS) {
                             break;
                         }
                         if (file3 != null && file3.exists()) {
@@ -104,7 +104,7 @@ public class c {
                         }
                     }
                 }
-                if (c.this.baR) {
+                if (c.this.baS) {
                     break;
                 }
                 Collections.sort(arrayList, new StartPositionComparator());
@@ -128,7 +128,7 @@ public class c {
                     int i3 = 0;
                     while (true) {
                         if (i3 < fileArr.length) {
-                            if (c.this.baR) {
+                            if (c.this.baS) {
                                 j = 0;
                                 j5 = j6;
                                 j3 = 0;
@@ -141,7 +141,7 @@ public class c {
                                 long g = m.g(file4);
                                 j.av(c.TAG, "file size " + g);
                                 long j8 = (parseInt2 + g) - 1;
-                                if (c.this.baK >= parseInt2 && c.this.baK <= j8) {
+                                if (c.this.baL >= parseInt2 && c.this.baL <= j8) {
                                     j3 = g;
                                     file = file4;
                                     j = parseInt2;
@@ -162,7 +162,7 @@ public class c {
                     int i4 = 0;
                     while (true) {
                         if (i4 < fileArr.length) {
-                            if (!c.this.baR) {
+                            if (!c.this.baS) {
                                 try {
                                     parseInt = Integer.parseInt(fileArr[i4].getName());
                                 } catch (Exception e4) {
@@ -186,19 +186,19 @@ public class c {
                         }
                     }
                 }
-                if (c.this.baR) {
+                if (c.this.baS) {
                     break;
                 }
-                j.av(c.TAG, "total range is " + c.this.baK + Constants.ACCEPT_TIME_SEPARATOR_SERVER + c.this.baJ + " " + c.this);
+                j.av(c.TAG, "total range is " + c.this.baL + Constants.ACCEPT_TIME_SEPARATOR_SERVER + c.this.baK + " " + c.this);
                 j.av(c.TAG, "download range is " + j6 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + j2 + " " + c.this);
                 boolean z2 = false;
                 if (file == null) {
-                    String str3 = c.this.baS + "/" + c.this.baK;
+                    String str3 = c.this.baT + "/" + c.this.baL;
                     try {
                         new File(str3).createNewFile();
                         str = str3;
                     } catch (IOException e5) {
-                        TiebaStatic.log(new ak("c12027").ac("errormsg", "创建缓存文件出现异常").ac("name", str3).ac("error", e5.getMessage()).ac("url", c.this.baH));
+                        TiebaStatic.log(new ak("c12027").ac("errormsg", "创建缓存文件出现异常").ac("name", str3).ac("error", e5.getMessage()).ac("url", c.this.baI));
                         e5.printStackTrace();
                         str = null;
                     }
@@ -229,41 +229,41 @@ public class c {
                 }
                 if (str2 != null) {
                     try {
-                        c.this.baQ = new FileInputStream(str2);
+                        c.this.baR = new FileInputStream(str2);
                     } catch (FileNotFoundException e6) {
                         e6.printStackTrace();
                     }
                 } else {
-                    c.this.baQ = null;
+                    c.this.baR = null;
                 }
                 if (file != null) {
                     try {
-                        if (c.this.baQ != null) {
-                            c.this.baQ.skip(c.this.baK - j);
+                        if (c.this.baR != null) {
+                            c.this.baR.skip(c.this.baL - j);
                         }
-                        j.av(c.TAG, "skip: " + (c.this.baK - j) + " " + c.this);
+                        j.av(c.TAG, "skip: " + (c.this.baL - j) + " " + c.this);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                     }
                 }
                 if (file != null) {
                     j.av(c.TAG, "hit file: rangeStart " + j + " rangeEnd " + ((j + j3) - 1) + " " + c.this);
-                    c.this.baM = j + j3;
+                    c.this.baN = j + j3;
                 } else {
                     j.av(c.TAG, "hit file: null " + c.this);
                 }
-                j.av(c.TAG, "first mReadPosition " + c.this.baL + " first writeposition " + c.this.baM + " " + c.this);
-                c.this.baT = true;
+                j.av(c.TAG, "first mReadPosition " + c.this.baM + " first writeposition " + c.this.baN + " " + c.this);
+                c.this.baU = true;
                 synchronized (c.this.mLock) {
                     c.this.mLock.notify();
                 }
-                if (file == null || j6 <= c.this.baJ) {
-                    if (c.this.baR) {
+                if (file == null || j6 <= c.this.baK) {
+                    if (c.this.baS) {
                         break;
                     }
                     j.av(c.TAG, "download range is " + j6 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + j4);
                     if (j6 > j4 || z2) {
-                        c.this.baU = (j + j3) - 1;
+                        c.this.baV = (j + j3) - 1;
                     } else {
                         try {
                             j.av(c.TAG, "download start waitting ...... ");
@@ -273,12 +273,12 @@ public class c {
                                 } catch (InterruptedException e8) {
                                     e8.printStackTrace();
                                 }
-                                if (c.this.baR) {
+                                if (c.this.baS) {
                                     break;
                                 }
                             }
-                            c.this.baO = -1L;
-                            URL url = new URL(c.this.baH);
+                            c.this.baP = -1L;
+                            URL url = new URL(c.this.baI);
                             j.av(c.TAG, "url opt 1 " + c.this);
                             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                             j.av(c.TAG, "url opt 2 " + c.this);
@@ -289,7 +289,7 @@ public class c {
                             InputStream inputStream = httpURLConnection.getInputStream();
                             while (inputStream == null) {
                                 j.av(c.TAG, "conn input is null " + c.this);
-                                if (c.this.baR) {
+                                if (c.this.baS) {
                                     break;
                                 }
                                 try {
@@ -310,87 +310,87 @@ public class c {
                             j.av(c.TAG, "read start ..." + c.this);
                             while (true) {
                                 try {
-                                    int read = inputStream.read(c.this.baX);
+                                    int read = inputStream.read(c.this.baY);
                                     if (read == -1) {
                                         break;
                                     }
                                     j.av(c.TAG, "read length " + read + " " + c.this);
-                                    if (c.this.baR) {
+                                    if (c.this.baS) {
                                         break;
                                     }
                                     if (str2 != null) {
-                                        fileOutputStream.write(c.this.baX, 0, read);
+                                        fileOutputStream.write(c.this.baY, 0, read);
                                     } else {
-                                        c.this.baY = read;
+                                        c.this.baZ = read;
                                     }
-                                    c.this.baM += read;
+                                    c.this.baN += read;
                                     i5 += read;
                                     synchronized (c.this.mLock) {
                                         c.this.mLock.notify();
                                     }
                                     if (str2 == null) {
-                                        while (c.this.baY != 0) {
-                                            synchronized (c.this.baZ) {
+                                        while (c.this.baZ != 0) {
+                                            synchronized (c.this.bba) {
                                                 try {
-                                                    c.this.baZ.wait(100L);
+                                                    c.this.bba.wait(100L);
                                                 } catch (InterruptedException e10) {
                                                     e10.printStackTrace();
                                                 }
                                             }
-                                            if (c.this.baR) {
+                                            if (c.this.baS) {
                                                 break;
                                             }
                                         }
-                                        if (c.this.baR) {
+                                        if (c.this.baS) {
                                             break;
                                         }
                                     }
                                 } catch (Exception e11) {
-                                    TiebaStatic.log(new ak("c12027").ac("errormsg", "下载文件出现异常，网络文件流读取数据出现异常").ac("error", e11.getMessage()).r("dsize", i5).ac("url", c.this.baH));
+                                    TiebaStatic.log(new ak("c12027").ac("errormsg", "下载文件出现异常，网络文件流读取数据出现异常").ac("error", e11.getMessage()).r("dsize", i5).ac("url", c.this.baI));
                                     e11.printStackTrace();
                                     c.p(c.this);
                                 }
                             }
-                            c.this.baN = 0L;
-                            w.j(c.this.baH, i5, (int) c.this.ari);
+                            c.this.baO = 0L;
+                            w.j(c.this.baI, i5, (int) c.this.arn);
                             j.av(c.TAG, "read end ..." + c.this);
                             if (str2 != null) {
                                 fileOutputStream.close();
                             }
                             k.LS().h(inputStream);
-                            c.this.baU = j4;
+                            c.this.baV = j4;
                         } catch (Exception e12) {
-                            TiebaStatic.log(new ak("c12027").ac("errormsg", "连接中断，文件下载出现异常").ac("error", e12.getMessage()).ac("url", c.this.baH));
+                            TiebaStatic.log(new ak("c12027").ac("errormsg", "连接中断，文件下载出现异常").ac("error", e12.getMessage()).ac("url", c.this.baI));
                             j.av(c.TAG, "download exception " + c.this);
                             e12.printStackTrace();
                         }
                     }
                     j.av(c.TAG, "download out " + c.this);
-                    while (c.this.baL < c.this.baM && !c.this.baR) {
+                    while (c.this.baM < c.this.baN && !c.this.baS) {
                         try {
                             Thread.sleep(10L);
                         } catch (InterruptedException e13) {
                             e13.printStackTrace();
                         }
-                        if (c.this.baR) {
+                        if (c.this.baS) {
                             break;
                         }
                     }
-                    if (c.this.baN > 0 && c.this.baN <= 3) {
-                        j.av(c.TAG, "exception  want mLastRequestRangeEnd =  " + c.this.baU);
-                        c.this.baU = c.this.baL - 1;
-                        j.av(c.TAG, "exception  but mLastRequestRangeEnd =  " + c.this.baU);
+                    if (c.this.baO > 0 && c.this.baO <= 3) {
+                        j.av(c.TAG, "exception  want mLastRequestRangeEnd =  " + c.this.baV);
+                        c.this.baV = c.this.baM - 1;
+                        j.av(c.TAG, "exception  but mLastRequestRangeEnd =  " + c.this.baV);
                     }
-                    if (c.this.baR) {
+                    if (c.this.baS) {
                         break;
                     }
-                    long j9 = c.this.baL;
+                    long j9 = c.this.baM;
                     int i6 = 0;
-                    for (int i7 = 0; i7 < fileArr.length && !c.this.baR; i7++) {
+                    for (int i7 = 0; i7 < fileArr.length && !c.this.baS; i7++) {
                         int length2 = (fileArr.length - 1) - i7;
                         File file5 = fileArr[length2];
                         if (file5 != null && file5.exists()) {
-                            if (c.this.baV) {
+                            if (c.this.baW) {
                                 if (length2 != 0) {
                                     file5.delete();
                                     j.av(c.TAG, "release some cached slices " + c.this);
@@ -398,7 +398,7 @@ public class c {
                             } else {
                                 long g2 = m.g(file5);
                                 if ((Integer.parseInt(file5.getName()) + g2) - 1 < j9 && (i6 = (int) (i6 + g2)) > 31457280) {
-                                    c.this.baV = true;
+                                    c.this.baW = true;
                                     if (length2 != 0) {
                                         file5.delete();
                                         j.av(c.TAG, "release some cached slices " + c.this);
@@ -407,19 +407,19 @@ public class c {
                             }
                         }
                     }
-                    j.av(c.TAG, "mLastRequestRangeEnd " + c.this.baU + " mReadPosition " + c.this.baL + "  " + c.this);
-                    if (c.this.baU == -1 || c.this.baL <= c.this.baU || c.this.baU >= c.this.baJ) {
+                    j.av(c.TAG, "mLastRequestRangeEnd " + c.this.baV + " mReadPosition " + c.this.baM + "  " + c.this);
+                    if (c.this.baV == -1 || c.this.baM <= c.this.baV || c.this.baV >= c.this.baK) {
                         break;
                     }
                     try {
-                        if (c.this.baQ != null) {
-                            c.this.baQ.close();
+                        if (c.this.baR != null) {
+                            c.this.baR.close();
                         }
                     } catch (Exception e14) {
                         e14.printStackTrace();
                     }
-                    c.this.baT = false;
-                    c.this.baK = c.this.baU + 1;
+                    c.this.baU = false;
+                    c.this.baL = c.this.baV + 1;
                     j.av(c.TAG, "continue to download... " + c.this);
                 } else {
                     j.av(c.TAG, "do not download, return " + c.this);
@@ -430,11 +430,11 @@ public class c {
             j.av(c.TAG, "test run out ***************************************************************" + c.this);
         }
     };
-    private byte[] baX = new byte[10240];
+    private byte[] baY = new byte[10240];
 
     static /* synthetic */ long p(c cVar) {
-        long j = cVar.baN;
-        cVar.baN = 1 + j;
+        long j = cVar.baO;
+        cVar.baO = 1 + j;
         return j;
     }
 
@@ -443,21 +443,21 @@ public class c {
     }
 
     public void setVideoUrl(String str) {
-        this.baH = str;
+        this.baI = str;
     }
 
     public void Q(long j) {
-        this.ari = j;
+        this.arn = j;
     }
 
     public void b(long j, long j2) {
         j.av(TAG, "open *************************************************************" + this);
-        if (this.baH != null) {
-            this.baI = j;
-            this.baJ = j2;
-            this.baW = m.hC(this.baH);
-            if (this.baW != null) {
-                File file = new File(i.bbu + this.baW);
+        if (this.baI != null) {
+            this.baJ = j;
+            this.baK = j2;
+            this.baX = m.hA(this.baI);
+            if (this.baX != null) {
+                File file = new File(i.bbv + this.baX);
                 File file2 = new File(file.getAbsolutePath() + "/segments");
                 if (file != null && file2 != null) {
                     if (!file.exists()) {
@@ -466,29 +466,29 @@ public class c {
                     if (!file2.exists()) {
                         file2.mkdir();
                     }
-                    this.baS = file2.getAbsolutePath();
-                    this.baM = this.baI;
-                    this.baL = this.baI;
-                    this.baK = this.baI;
-                    this.baR = false;
-                    this.baT = false;
-                    this.baU = -1L;
-                    this.baV = false;
-                    l.LT().e(this.bba);
+                    this.baT = file2.getAbsolutePath();
+                    this.baN = this.baJ;
+                    this.baM = this.baJ;
+                    this.baL = this.baJ;
+                    this.baS = false;
+                    this.baU = false;
+                    this.baV = -1L;
+                    this.baW = false;
+                    l.LT().e(this.bbb);
                 }
             }
         }
     }
 
     public String getVideoUrl() {
-        return this.baH;
+        return this.baI;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean LF() {
-        if (m.hB(this.baW) > this.ari) {
-            m.z(new File(i.bbu + this.baW + "/segments"));
-            TiebaStatic.log(new ak("c12028").ac("errormsg", "校验到缓存文件片段大小有异常").ac("url", this.baH));
+        if (m.hz(this.baX) > this.arn) {
+            m.y(new File(i.bbv + this.baX + "/segments"));
+            TiebaStatic.log(new ak("c12028").ac("errormsg", "校验到缓存文件片段大小有异常").ac("url", this.baI));
             j.av(TAG, "cache error !");
             return true;
         }
@@ -498,16 +498,16 @@ public class c {
     public void at(long j) {
         if (j == -1) {
             j.av(TAG, "notifyDownloadSegment  mStepByStepDownload = true ###### " + this);
-            this.baP = true;
-        } else if (j == 0 && this.baP) {
+            this.baQ = true;
+        } else if (j == 0 && this.baQ) {
             j.av(TAG, "notifyDownloadSegment  mNextSemgmentEndPosition = 0 ------ " + this);
-            this.baO = 0L;
+            this.baP = 0L;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean LG() {
-        if (!this.baP || this.baO != -1) {
+        if (!this.baQ || this.baP != -1) {
             return false;
         }
         return true;
@@ -515,37 +515,37 @@ public class c {
 
     public void close() {
         j.av(TAG, "close ***********************************************************************" + this);
-        this.baR = true;
+        this.baS = true;
         synchronized (this.mLock) {
             this.mLock.notify();
         }
         try {
-            if (this.baQ != null) {
-                this.baQ.close();
+            if (this.baR != null) {
+                this.baR.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        File file = new File(i.bbu + this.baW + "/completed");
-        if (this.baV) {
+        File file = new File(i.bbv + this.baX + "/completed");
+        if (this.baW) {
             return;
         }
         if (file == null || !file.exists()) {
-            k.LS().hz(this.baH);
+            k.LS().hx(this.baI);
         }
     }
 
     public boolean canRead() {
-        return !this.baR && this.baL <= this.baJ;
+        return !this.baS && this.baM <= this.baK;
     }
 
     public int read(byte[] bArr, int i) {
         int read;
-        if (this.baR) {
+        if (this.baS) {
             return 0;
         }
         do {
-            if (this.baL == this.baM || !this.baT) {
+            if (this.baM == this.baN || !this.baU) {
                 synchronized (this.mLock) {
                     try {
                         this.mLock.wait(1000L);
@@ -554,24 +554,24 @@ public class c {
                     }
                 }
             } else {
-                int i2 = (int) (this.baL + ((long) i) < this.baM ? i : this.baM - this.baL);
+                int i2 = (int) (this.baM + ((long) i) < this.baN ? i : this.baN - this.baM);
                 try {
-                    if (this.baQ == null) {
-                        if (this.baY > 0) {
-                            System.arraycopy(this.baX, 0, bArr, 0, (int) this.baY);
-                            read = (int) this.baY;
-                            this.baY = 0L;
-                            synchronized (this.baZ) {
-                                this.baZ.notify();
+                    if (this.baR == null) {
+                        if (this.baZ > 0) {
+                            System.arraycopy(this.baY, 0, bArr, 0, (int) this.baZ);
+                            read = (int) this.baZ;
+                            this.baZ = 0L;
+                            synchronized (this.bba) {
+                                this.bba.notify();
                             }
                         } else {
                             read = 0;
                         }
                     } else {
-                        read = this.baQ.read(bArr, 0, i2);
+                        read = this.baR.read(bArr, 0, i2);
                     }
                     if (read >= 0) {
-                        this.baL += read;
+                        this.baM += read;
                         return read;
                     }
                 } catch (Exception e2) {
@@ -579,7 +579,7 @@ public class c {
                 }
                 return 0;
             }
-        } while (!this.baR);
+        } while (!this.baS);
         return 0;
     }
 }

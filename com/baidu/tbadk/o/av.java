@@ -2,12 +2,12 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class av extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
+    protected void W(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "movideo_split";
+        return "video_list_weaklock_android";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -27,6 +27,6 @@ public class av extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int eP() {
-        return 0;
+        return 10;
     }
 }

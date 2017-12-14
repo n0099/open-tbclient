@@ -3,33 +3,56 @@ package com.baidu.sapi2;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.sapi2.utils.L;
+import com.baidu.sapi2.base.debug.Log;
+import com.baidu.sapi2.callback.GetTplStokenCallback;
+import com.baidu.sapi2.callback.GetUserInfoCallback;
+import com.baidu.sapi2.passhost.framework.PluginFacade;
+import com.baidu.sapi2.passhost.pluginsdk.callback.IGetUserInfoCallback;
+import com.baidu.sapi2.passhost.pluginsdk.result.IGetUserInfoResult;
+import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService;
+import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.sapi2.result.GetUserInfoResult;
+import com.baidu.sapi2.service.interfaces.ISAccountManager;
+import com.baidu.sapi2.service.interfaces.ISAccountService;
+import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
-import com.baidu.sapi2.utils.e;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class SapiAccountManager {
+public final class SapiAccountManager implements ISapiAccountManagerService, ISAccountManager {
     public static final String SESSION_BDUSS = "bduss";
     public static final String SESSION_DISPLAYNAME = "displayname";
     public static final String SESSION_UID = "uid";
-    public static final int VERSION_CODE = 138;
-    public static final String VERSION_NAME = "6.16.32";
+    public static final int VERSION_CODE = 127;
+    public static final String VERSION_NAME = "8.2.1";
     private static SapiAccountManager a;
     private static SapiConfiguration b;
     private static SapiAccountService c;
-    private static SilentShareListener d;
-    private static ReceiveShareListener e;
-    private static GlobalAuthorizationListener f;
-    private static final List<String> g = new ArrayList();
+    private static ServiceManager d;
+    private static SilentShareListener e;
+    private static ReceiveShareListener f;
+    private static GlobalAuthorizationListener g;
+    private static SharedPreferences.OnSharedPreferenceChangeListener h = new SharedPreferences.OnSharedPreferenceChangeListener() { // from class: com.baidu.sapi2.SapiAccountManager.1
+        @Override // android.content.SharedPreferences.OnSharedPreferenceChangeListener
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String str) {
+            PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_SP_CHANGE, IEventCenterService.EventResult.PHASE.SUCCESS, str);
+        }
+    };
+    private static final List<String> i = new ArrayList();
+    private static HashSet<String> j;
 
     /* loaded from: classes.dex */
     public interface ReceiveShareListener {
@@ -42,7 +65,16 @@ public final class SapiAccountManager {
     }
 
     static {
-        g.addAll(Arrays.asList(SESSION_UID, SESSION_DISPLAYNAME, SESSION_BDUSS));
+        i.addAll(Arrays.asList("uid", "displayname", "bduss"));
+        j = new HashSet<>();
+        j.add("com.baidu.sapi2.passhost.pluginsdk.AbsPassPi");
+        j.add("com.baidu.sapi2.base.network.Apn");
+        j.add("com.baidu.sapi2.base.utils.EncodeUtils");
+        j.add("com.baidu.sapi2.utils.SapiDataEncryptor");
+        j.add("com.baidu.sapi2.utils.enums.Domain");
+        j.add("com.baidu.sapi2.utils.MD5");
+        j.add("com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService");
+        j.add("com.baidu.cloudsdk.common.http.AsyncHttpClient");
     }
 
     public static synchronized SapiAccountManager getInstance() {
@@ -57,6 +89,19 @@ public final class SapiAccountManager {
     }
 
     private SapiAccountManager() {
+        d();
+    }
+
+    private void d() {
+        try {
+            Iterator<String> it = j.iterator();
+            while (it.hasNext()) {
+                Class.forName(it.next());
+            }
+        } catch (Throwable th) {
+            Log.e(th);
+            throw new RuntimeException("proguard error. Please check groguard file in your project.");
+        }
     }
 
     public synchronized void init(final SapiConfiguration sapiConfiguration) {
@@ -66,37 +111,67 @@ public final class SapiAccountManager {
         if (b == null) {
             b = sapiConfiguration;
             c = new SapiAccountService(sapiConfiguration.context);
+            d = ServiceManager.getInstance();
+            d.setIsAccountManager(this);
             if (c(sapiConfiguration.context)) {
-                new Thread(new Runnable() { // from class: com.baidu.sapi2.SapiAccountManager.1
+                new Thread(new Runnable() { // from class: com.baidu.sapi2.SapiAccountManager.2
                     @Override // java.lang.Runnable
                     public void run() {
+                        boolean z;
                         int versionCode = SapiUtils.getVersionCode(sapiConfiguration.context);
-                        if (sapiConfiguration.silentShareOnUpgrade && versionCode > c.a(sapiConfiguration.context).x()) {
+                        if (sapiConfiguration.silentShareOnUpgrade && versionCode > SapiContext.getInstance(sapiConfiguration.context).getAppVersionCode()) {
                             SapiUtils.resetSilentShareStatus(sapiConfiguration.context);
                         }
-                        if (versionCode > c.a(sapiConfiguration.context).x()) {
+                        if (versionCode > SapiContext.getInstance(sapiConfiguration.context).getAppVersionCode()) {
                             SapiUtils.webLogin(sapiConfiguration.context, SapiUtils.getCookieBduss(), "");
                         }
-                        c.a(sapiConfiguration.context).a(versionCode);
+                        SapiContext.getInstance(sapiConfiguration.context).setAppVersionCode(versionCode);
+                        SapiContext.getInstance(sapiConfiguration.context).registerOnSharedPreferenceChangeListener(SapiAccountManager.h);
                         sapiConfiguration.clientId = SapiUtils.getClientId(sapiConfiguration.context);
                         sapiConfiguration.clientIp = SapiUtils.getLocalIpAddress();
-                        com.baidu.sapi2.share.a.b();
+                        com.baidu.sapi2.share.a.c();
                         if (sapiConfiguration.syncCacheOnInit) {
                             SapiCache.init(sapiConfiguration.context);
+                        } else {
+                            List<String> initialCachePackagesWhiteList = SapiOptions.getInitialCachePackagesWhiteList();
+                            String packageName = sapiConfiguration.context.getPackageName();
+                            Iterator<String> it = initialCachePackagesWhiteList.iterator();
+                            while (true) {
+                                if (!it.hasNext()) {
+                                    z = true;
+                                    break;
+                                } else if (packageName.matches(it.next())) {
+                                    z = false;
+                                    break;
+                                }
+                            }
+                            if (z) {
+                                SapiCache.init(sapiConfiguration.context);
+                            }
                         }
-                        if (!TextUtils.isEmpty(sapiConfiguration.deviceLoginSignKey)) {
-                            SapiAccountManager.c.deviceLoginCheck();
-                        }
-                        StatService.a();
-                        SapiDeviceUtils.checkHosts(sapiConfiguration.context);
+                        StatService.replay();
+                        SapiContext.getInstance(sapiConfiguration.context).setHostsHijacked(SapiDeviceUtils.checkHosts(sapiConfiguration.context));
+                        SapiAccountManager.getInstance().getAccountService().faceLoginEnable(sapiConfiguration.context);
                     }
                 }).start();
             }
         } else {
-            L.d(getClass().getSimpleName() + " had already been initialized", new Object[0]);
+            Log.d(getClass().getSimpleName() + " had already been initialized", new Object[0]);
         }
     }
 
+    @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService, com.baidu.sapi2.service.interfaces.ISAccountManager
+    public String getVersionName() {
+        return VERSION_NAME;
+    }
+
+    @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService
+    public int getVersionCode() {
+        return 127;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService
     public SapiConfiguration getSapiConfiguration() {
         a();
         return b;
@@ -112,13 +187,15 @@ public final class SapiAccountManager {
         return SapiSafeFacade.a();
     }
 
+    @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService
     public boolean isLogin() {
         a();
-        return c.a(b.context).d() != null;
+        return SapiContext.getInstance(b.context).getCurrentAccount() != null;
     }
 
     public void logout() {
-        StatService.a("logout", Collections.singletonMap("di", e.b("sdk_api_logout")));
+        StatService.onEvent("logout", Collections.singletonMap("di", SapiDeviceInfo.getDeviceInfo("sdk_api_logout")));
+        StatService.onEvent("logout", Collections.singletonMap("pis_di", SapiDeviceInfo.getPisDeviceInfo()));
         removeLoginAccount(getSession());
     }
 
@@ -137,13 +214,17 @@ public final class SapiAccountManager {
         return getSession(str, null);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService, com.baidu.sapi2.service.interfaces.ISAccountManager
     public SapiAccount getSession() {
         a();
-        return c.a(b.context).d();
+        return SapiContext.getInstance(b.context).getCurrentAccount();
     }
 
-    public boolean validate(SapiAccount sapiAccount) {
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
+    public boolean validate(ISapiAccount iSapiAccount) {
         a();
+        SapiAccount sapiAccount = (SapiAccount) iSapiAccount;
         if (!SapiUtils.isValidAccount(sapiAccount)) {
             return false;
         }
@@ -151,35 +232,98 @@ public final class SapiAccountManager {
         return true;
     }
 
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
+    public void invalidate(SapiAccount sapiAccount) {
+        a();
+        com.baidu.sapi2.share.a.a().b(sapiAccount);
+    }
+
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
     public List<SapiAccount> getShareAccounts() {
         a();
         ArrayList arrayList = new ArrayList();
         if (b.loginShareStrategy() == LoginShareStrategy.DISABLED) {
             return arrayList;
         }
-        for (SapiAccount sapiAccount : c.a(b.context).e()) {
+        for (SapiAccount sapiAccount : SapiContext.getInstance(b.context).getShareAccounts()) {
             if (SapiUtils.isValidAccount(sapiAccount)) {
                 arrayList.add(sapiAccount);
             } else {
-                c.a(b.context).d(sapiAccount);
+                SapiContext.getInstance(b.context).removeShareAccount(sapiAccount);
             }
         }
         Collections.reverse(arrayList);
         return arrayList;
     }
 
+    @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService
+    public int getShareAccountsSize() {
+        return getInstance().getShareAccounts().size();
+    }
+
+    @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService
+    public List<String> buildShareUidList() {
+        List<SapiAccount> shareAccounts = getInstance().getShareAccounts();
+        ArrayList arrayList = new ArrayList();
+        for (SapiAccount sapiAccount : shareAccounts) {
+            arrayList.add(sapiAccount.uid);
+        }
+        return arrayList;
+    }
+
+    @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService
+    public List<String> getPackageList() {
+        return SapiUtils.getPackageList(b.context);
+    }
+
     public void removeLoginAccount(SapiAccount sapiAccount) {
         a();
-        c.a(b.context).e(sapiAccount);
+        SapiAccount currentAccount = SapiContext.getInstance(b.context).getCurrentAccount();
+        SapiContext.getInstance(b.context).removeLoginAccount(sapiAccount);
+        if (currentAccount != null && !TextUtils.isEmpty(sapiAccount.uid) && sapiAccount.uid.equals(currentAccount.uid)) {
+            if (getGlobalAuthorizationListener() != null) {
+                try {
+                    getGlobalAuthorizationListener().onLogoutSuccess(sapiAccount);
+                } catch (Throwable th) {
+                    Log.e(th);
+                }
+            }
+            getInstance().getAccountService().faceLoginEnable(b.context);
+        }
     }
 
     public List<SapiAccount> getLoginAccounts() {
         a();
-        return c.a(b.context).f();
+        return SapiContext.getInstance(b.context).getLoginAccounts();
+    }
+
+    public void preFetchStoken(SapiAccount sapiAccount, boolean z) {
+        List<String> preFetchTplList = SapiContext.getInstance(b.context).getSapiOptions().getPreFetchTplList();
+        if (sapiAccount != null && preFetchTplList != null && !preFetchTplList.isEmpty() && !getInstance().getAccountService().a(sapiAccount, preFetchTplList)) {
+            getInstance().getAccountService().a(new GetTplStokenCallback() { // from class: com.baidu.sapi2.SapiAccountManager.3
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onSuccess(GetTplStokenResult getTplStokenResult) {
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onFailure(GetTplStokenResult getTplStokenResult) {
+                }
+
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onStart() {
+                }
+
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onFinish() {
+                }
+            }, sapiAccount.bduss, preFetchTplList, z);
+        }
     }
 
     boolean a(String str) {
-        return !TextUtils.isEmpty(str) && g.contains(str);
+        return !TextUtils.isEmpty(str) && i.contains(str);
     }
 
     void a() {
@@ -195,39 +339,39 @@ public final class SapiAccountManager {
     }
 
     public static void registerSilentShareListener(SilentShareListener silentShareListener) {
-        d = silentShareListener;
+        e = silentShareListener;
     }
 
     public static void unregisterSilentShareListener() {
-        d = null;
-    }
-
-    public static SilentShareListener getSilentShareListener() {
-        return d;
-    }
-
-    public static void registerReceiveShareListener(ReceiveShareListener receiveShareListener) {
-        e = receiveShareListener;
-    }
-
-    public static void unregisterReceiveShareListener() {
         e = null;
     }
 
-    public static ReceiveShareListener getReceiveShareListener() {
+    public static SilentShareListener getSilentShareListener() {
         return e;
     }
 
-    public static void registerGlobalAuthorizationListener(GlobalAuthorizationListener globalAuthorizationListener) {
-        f = globalAuthorizationListener;
+    public static void registerReceiveShareListener(ReceiveShareListener receiveShareListener) {
+        f = receiveShareListener;
     }
 
-    public static void unregisterGlobalAuthorizationListener() {
+    public static void unregisterReceiveShareListener() {
         f = null;
     }
 
-    public static GlobalAuthorizationListener getGlobalAuthorizationListener() {
+    public static ReceiveShareListener getReceiveShareListener() {
         return f;
+    }
+
+    public static void registerGlobalAuthorizationListener(GlobalAuthorizationListener globalAuthorizationListener) {
+        g = globalAuthorizationListener;
+    }
+
+    public static void unregisterGlobalAuthorizationListener() {
+        g = null;
+    }
+
+    public static GlobalAuthorizationListener getGlobalAuthorizationListener() {
+        return g;
     }
 
     @TargetApi(3)
@@ -240,7 +384,7 @@ public final class SapiAccountManager {
                 }
             }
         } catch (Throwable th) {
-            L.e(th);
+            Log.e(th);
         }
         return "";
     }
@@ -249,14 +393,83 @@ public final class SapiAccountManager {
         try {
             return context.getPackageManager().getApplicationInfo(context.getPackageName(), 128).processName;
         } catch (Throwable th) {
-            L.e(th);
+            Log.e(th);
             return "";
         }
     }
 
+    @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService
+    public boolean isAppProcess() {
+        return c(getSapiConfiguration().context);
+    }
+
     static boolean c(Context context) {
         String a2 = a(context);
+        if (TextUtils.isEmpty(a2)) {
+            return false;
+        }
         String b2 = b(context);
-        return TextUtils.isEmpty(a2) || TextUtils.isEmpty(b2) || a2.equals(b2);
+        if (TextUtils.isEmpty(b2)) {
+            return false;
+        }
+        return a2.equals(b2) || a2.equals(b.processName);
+    }
+
+    @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService
+    public void getUserInfo(final IGetUserInfoCallback iGetUserInfoCallback) {
+        final IGetUserInfoResult iGetUserInfoResult = new IGetUserInfoResult();
+        getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.sapi2.SapiAccountManager.4
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.LoginStatusAware
+            public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
+                iGetUserInfoCallback.onBdussExpired(iGetUserInfoResult);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onSuccess(GetUserInfoResult getUserInfoResult) {
+                SapiAccount session = SapiAccountManager.getInstance().getSession();
+                try {
+                    if (!session.username.equals(getUserInfoResult.username) || !session.uid.equals(getUserInfoResult.uid) || !session.displayname.equals(getUserInfoResult.displayname) || !session.email.equals(getUserInfoResult.secureEmail) || !session.phone.equals(getUserInfoResult.secureMobile)) {
+                        session.username = getUserInfoResult.username;
+                        session.uid = getUserInfoResult.uid;
+                        session.displayname = getUserInfoResult.displayname;
+                        session.email = getUserInfoResult.secureEmail;
+                        session.phone = getUserInfoResult.secureMobile;
+                        SapiContext.getInstance(SapiAccountManager.b.context).setCurrentAccount(session);
+                        com.baidu.sapi2.share.a.a().a(session);
+                    }
+                } catch (Exception e2) {
+                    Log.e(e2);
+                }
+                iGetUserInfoCallback.onSuccess(iGetUserInfoResult);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onFailure(GetUserInfoResult getUserInfoResult) {
+                iGetUserInfoCallback.onFailure(iGetUserInfoResult);
+            }
+
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onStart() {
+                iGetUserInfoCallback.onStart();
+            }
+
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onFinish() {
+                iGetUserInfoCallback.onFinish();
+            }
+        }, getSession().bduss);
+    }
+
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
+    public ISAccountService getIsAccountService() {
+        return getAccountService();
+    }
+
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
+    public SapiConfiguration getConfignation() {
+        return b;
     }
 }

@@ -5,18 +5,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class a extends c<byte[]> {
-    private String sC;
+    private String sz;
 
     public a(com.baidu.adp.base.a.b bVar, String str) {
         super(bVar);
-        this.sC = str;
+        this.sz = str;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public String J(String str) {
-        this.sD.y("CREATE TABLE IF NOT EXISTS " + this.sC + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
-        this.sD.y("CREATE INDEX if not exists idx_mi_ns ON " + this.sC + "(m_ns)");
-        return this.sC;
+        this.sA.y("CREATE TABLE IF NOT EXISTS " + this.sz + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.sA.y("CREATE INDEX if not exists idx_mi_ns ON " + this.sz + "(m_ns)");
+        return this.sz;
     }
 
     @Override // com.baidu.adp.lib.cache.c
@@ -35,7 +35,7 @@ public class a extends c<byte[]> {
         Throwable th;
         g<byte[]> gVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.sE + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.sB + " where m_key = ?", new String[]{str});
         } catch (Throwable th2) {
             cursor = null;
             th = th2;
@@ -43,11 +43,11 @@ public class a extends c<byte[]> {
         try {
             if (cursor.moveToNext()) {
                 gVar = new g<>();
-                gVar.sP = cursor.getString(0);
-                gVar.sQ = cursor.getString(1);
-                gVar.sR = cursor.getLong(2);
-                gVar.sS = cursor.getLong(3);
-                gVar.sT = cursor.getLong(4);
+                gVar.sM = cursor.getString(0);
+                gVar.sN = cursor.getString(1);
+                gVar.sO = cursor.getLong(2);
+                gVar.sP = cursor.getLong(3);
+                gVar.sQ = cursor.getLong(4);
                 gVar.value = cursor.getBlob(5);
                 com.baidu.adp.lib.g.a.e(cursor);
             } else {
@@ -64,27 +64,27 @@ public class a extends c<byte[]> {
     @Override // com.baidu.adp.lib.cache.c
     protected ContentValues a(g<byte[]> gVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", gVar.sP);
-        contentValues.put("m_ns", gVar.sQ);
+        contentValues.put("m_key", gVar.sM);
+        contentValues.put("m_ns", gVar.sN);
         contentValues.put("m_value", gVar.value);
-        contentValues.put("saveTime", Long.valueOf(gVar.sR));
-        contentValues.put("lastHitTime", Long.valueOf(gVar.sS));
-        contentValues.put("timeToExpire", Long.valueOf(gVar.sT));
+        contentValues.put("saveTime", Long.valueOf(gVar.sO));
+        contentValues.put("lastHitTime", Long.valueOf(gVar.sP));
+        contentValues.put("timeToExpire", Long.valueOf(gVar.sQ));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.sE + " where m_ns = ?", new String[]{str});
+        return sQLiteDatabase.rawQuery("select * from " + this.sB + " where m_ns = ?", new String[]{str});
     }
 
     @Override // com.baidu.adp.lib.cache.c
     protected boolean K(String str) {
         try {
-            this.sD.ch().delete(this.sE, "m_ns = ?", new String[]{str});
+            this.sA.ch().delete(this.sB, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.sD.a(th, "failed to clear from " + str);
+            this.sA.a(th, "failed to clear from " + str);
             return false;
         }
     }

@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.TbConfig;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -145,7 +146,7 @@ public class g {
         synchronized (g.class) {
             if (TextUtils.isEmpty(e)) {
                 try {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
                     if (telephonyManager != null) {
                         e = telephonyManager.getSubscriberId();
                     }

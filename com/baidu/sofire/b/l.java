@@ -1,15 +1,15 @@
 package com.baidu.sofire.b;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
+import android.os.Process;
 /* loaded from: classes.dex */
 public final class l {
-    public static String a(Context context) {
+    public static boolean a(Context context) {
         try {
-            return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            d.a(e);
-            return null;
+            return context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) != -1;
+        } catch (Throwable th) {
+            d.a(th);
+            return false;
         }
     }
 }

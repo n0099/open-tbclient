@@ -14,7 +14,7 @@ public final class c {
         try {
             BufferedInputStream bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
             do {
-            } while (bufferedInputStream.read(bArr, 0, bArr.length) != -1);
+            } while (bufferedInputStream.read(bArr, 0, 8192) != -1);
             bufferedInputStream.close();
             if (jarEntry != null) {
                 return jarEntry.getCertificates();
@@ -26,16 +26,19 @@ public final class c {
         } catch (RuntimeException e2) {
             d.a(e2);
             return null;
+        } catch (Throwable th) {
+            d.a(th);
+            return null;
         }
     }
 
-    public static PublicKey bV(String str) {
+    public static PublicKey bW(String str) {
         boolean z;
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        byte[] bArr = new byte[8192];
         try {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            byte[] bArr = new byte[8192];
             JarFile jarFile = new JarFile(str);
             Enumeration<JarEntry> entries = jarFile.entries();
             Certificate[] certificateArr = null;

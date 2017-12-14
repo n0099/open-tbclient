@@ -26,7 +26,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends Service implements LLSInterface {
-    static HandlerC0028a a = null;
+    static HandlerC0029a a = null;
     private static long f = 0;
     private Looper c;
     private HandlerThread d;
@@ -35,8 +35,8 @@ public class a extends Service implements LLSInterface {
 
     /* renamed from: com.baidu.location.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class HandlerC0028a extends Handler {
-        public HandlerC0028a(Looper looper) {
+    public class HandlerC0029a extends Handler {
+        public HandlerC0029a(Looper looper) {
             super(looper);
         }
 
@@ -157,7 +157,7 @@ public class a extends Service implements LLSInterface {
         f = System.currentTimeMillis();
         this.d = i.mh();
         this.c = this.d.getLooper();
-        a = new HandlerC0028a(this.c);
+        a = new HandlerC0029a(this.c);
         this.b = new Messenger(a);
         a.sendEmptyMessage(0);
         Log.d("baidu_location_service", "baidu location service start1 ..." + Process.myPid());

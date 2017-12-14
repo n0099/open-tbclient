@@ -4,11 +4,11 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import tbclient.ActivitySponsor;
 /* loaded from: classes.dex */
 public class ActivitySponsorData extends OrmObject {
-    private Integer azT;
-    private String azU;
+    private Integer azY;
+    private String azZ;
 
     public void a(ActivitySponsor activitySponsor) {
-        this.azT = activitySponsor.is_sponsor;
-        this.azU = activitySponsor.sponsor_url;
+        this.azY = activitySponsor.is_sponsor;
+        this.azZ = activitySponsor.sponsor_url;
     }
 }

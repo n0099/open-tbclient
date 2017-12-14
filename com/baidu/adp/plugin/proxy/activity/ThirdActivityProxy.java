@@ -13,15 +13,15 @@ public class ThirdActivityProxy extends ActivityProxy {
         if (stringExtra != null) {
             aVar = d.iJ().aX(stringExtra);
         }
-        if (aVar == null || aVar.Cf == null) {
+        if (aVar == null || aVar.Ce == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
         } else if (d.iJ().iK() == 1) {
             d.iJ().aY(stringExtra);
-            aVar.Cf.stopSelf();
+            aVar.Ce.stopSelf();
             return true;
         } else {
-            aVar.Cf.onDestroy();
+            aVar.Ce.onDestroy();
             d.iJ().aY(stringExtra);
             return true;
         }

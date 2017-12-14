@@ -14,20 +14,20 @@ import com.baidu.tieba.card.v;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.h, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f>> {
-    public BdUniqueId aSv;
-    private v<com.baidu.tieba.card.data.h> cLp;
-    private com.baidu.tieba.card.f dqL;
+    public BdUniqueId aSy;
+    private v<com.baidu.tieba.card.data.h> cLz;
+    private com.baidu.tieba.card.f drQ;
     private TbPageContext<?> mPageContext;
 
     public g(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.h.TYPE);
-        this.cLp = new v<com.baidu.tieba.card.data.h>() { // from class: com.baidu.tieba.homepage.personalize.a.g.1
+        this.cLz = new v<com.baidu.tieba.card.data.h>() { // from class: com.baidu.tieba.homepage.personalize.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, com.baidu.tieba.card.data.h hVar) {
-                if (view != null && g.this.dqL != null && g.this.dqL.bZA != null && g.this.dqL.bZA.bZF != null && g.this.dqL.bZA.bZD != null && g.this.dqL.bZA.getView() != null) {
-                    if (view.getId() != g.this.dqL.bZA.bZF.getId() || !(view.getTag() instanceof MetaData)) {
-                        if ((view.getId() == g.this.dqL.bZA.getView().getId() || view.getId() == g.this.dqL.bZA.bZD.getId()) && (view.getTag(d.g.rec_god_item_root) instanceof String)) {
+                if (view != null && g.this.drQ != null && g.this.drQ.bZE != null && g.this.drQ.bZE.bZJ != null && g.this.drQ.bZE.bZH != null && g.this.drQ.bZE.getView() != null) {
+                    if (view.getId() != g.this.drQ.bZE.bZJ.getId() || !(view.getTag() instanceof MetaData)) {
+                        if ((view.getId() == g.this.drQ.bZE.getView().getId() || view.getId() == g.this.drQ.bZE.bZH.getId()) && (view.getTag(d.g.rec_god_item_root) instanceof String)) {
                             TiebaStatic.log(new ak("c11005").ac("obj_id", (String) view.getTag(d.g.rec_god_item_root)));
                         }
                     } else if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
@@ -44,8 +44,8 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: U */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.dqL = new com.baidu.tieba.card.f(this.mPageContext, this.aSv);
-        return new com.baidu.tieba.card.a.a(this.dqL);
+        this.drQ = new com.baidu.tieba.card.f(this.mPageContext, this.aSy);
+        return new com.baidu.tieba.card.a.a(this.drQ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,17 +53,17 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> aVar) {
-        this.dqL = aVar.acs();
-        aVar.acs().a(hVar);
-        aVar.acs().b(this.cLp);
-        aVar.acs().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        s.abU().a(new ak("c11006"));
+        this.drQ = aVar.acC();
+        aVar.acC().a(hVar);
+        aVar.acC().b(this.cLz);
+        aVar.acC().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        s.abX().a(new ak("c11006"));
         return aVar.getView();
     }
 
-    public void lW(int i) {
-        if (this.dqL != null) {
-            this.dqL.d(this.mPageContext, i);
+    public void md(int i) {
+        if (this.drQ != null) {
+            this.drQ.d(this.mPageContext, i);
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes;
 
-import com.baidu.sapi2.SapiSafeFacade;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -14,9 +13,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class EditListBox extends AbstractFullBox {
     public static final String TYPE = "elst";
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_2 = null;
     private List<Entry> entries;
 
     static {
@@ -27,7 +26,7 @@ public class EditListBox extends AbstractFullBox {
         b bVar = new b("EditListBox.java", EditListBox.class);
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.coremedia.iso.boxes.EditListBox", "", "", "", "java.util.List"), 68);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.EditListBox", "java.util.List", "entries", "", "void"), 72);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.EditListBox", "", "", "", "java.lang.String"), SapiSafeFacade.SAPIWEBVIEW_SMS_LOGIN);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.EditListBox", "", "", "", "java.lang.String"), 108);
     }
 
     public EditListBox() {

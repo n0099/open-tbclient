@@ -13,22 +13,22 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class b implements i {
     public static final String TAG = b.class.getSimpleName();
-    private static b bbI;
-    private int bbJ = 0;
+    private static b bbJ;
+    private int bbK = 0;
 
     private b() {
         a.LW();
     }
 
     public static b LZ() {
-        if (bbI == null) {
+        if (bbJ == null) {
             synchronized (b.class) {
-                if (bbI == null) {
-                    bbI = new b();
+                if (bbJ == null) {
+                    bbJ = new b();
                 }
             }
         }
-        return bbI;
+        return bbJ;
     }
 
     private static long LU() {
@@ -50,55 +50,55 @@ public class b implements i {
         return LU() > 314572800 && getPort() > 0;
     }
 
-    public void bi(Context context) {
+    public void bf(Context context) {
         if (context != null) {
-            e.bk(context).Lj();
+            e.bh(context).Lj();
         }
     }
 
     @Override // com.baidu.tieba.play.i
-    public String hE(String str) {
+    public String hC(String str) {
         if (Ma()) {
-            String hF = hF(str);
-            if (hF == null) {
-                String hC = hC(str);
-                if (hC != null && new File(c.bbu + hC + "/header_downloaded").exists()) {
+            String hD = hD(str);
+            if (hD == null) {
+                String hA = hA(str);
+                if (hA != null && new File(c.bbv + hA + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
             }
-            return hF;
+            return hD;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.i
-    public String r(String str, boolean z) {
+    public String s(String str, boolean z) {
         if (Ma()) {
-            String hF = hF(str);
-            if (hF == null) {
-                String hC = hC(str);
-                if (hC != null) {
+            String hD = hD(str);
+            if (hD == null) {
+                String hA = hA(str);
+                if (hA != null) {
                     if (z) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
-                    if (new File(c.bbu + hC + "/header_downloaded").exists()) {
+                    if (new File(c.bbv + hA + "/header_downloaded").exists()) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
                     return str;
                 }
                 return str;
             }
-            return hF;
+            return hD;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.i
-    public String hF(String str) {
-        String hC;
+    public String hD(String str) {
+        String hA;
         File file;
-        if (str == null || !str.contains("/") || (hC = hC(str)) == null || (file = new File(c.bbu + hC + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (hA = hA(str)) == null || (file = new File(c.bbv + hA + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -106,30 +106,30 @@ public class b implements i {
 
     @Override // com.baidu.tieba.play.i
     public void f(Context context, String str, int i) {
-        e.bk(context).I(str, i);
+        e.bh(context).I(str, i);
+    }
+
+    @Override // com.baidu.tieba.play.i
+    public void aa(Context context, String str) {
+        e.bh(context).hF(str);
     }
 
     @Override // com.baidu.tieba.play.i
     public void ab(Context context, String str) {
-        e.bk(context).hH(str);
+        e.bh(context).hG(str);
     }
 
     @Override // com.baidu.tieba.play.i
-    public void ac(Context context, String str) {
-        e.bk(context).hI(str);
+    public void hE(String str) {
+        a.LW().hB(str);
     }
 
     @Override // com.baidu.tieba.play.i
-    public void hG(String str) {
-        a.LW().hD(str);
+    public void bg(Context context) {
+        e.bh(context).clearCache();
     }
 
-    @Override // com.baidu.tieba.play.i
-    public void bj(Context context) {
-        e.bk(context).clearCache();
-    }
-
-    public static String hC(String str) {
+    public static String hA(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -151,8 +151,8 @@ public class b implements i {
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        if (this.bbJ == 0) {
-            File file = new File(c.bbv);
+        if (this.bbK == 0) {
+            File file = new File(c.bbw);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -196,7 +196,7 @@ public class b implements i {
                                         e5.printStackTrace();
                                     }
                                 }
-                                return this.bbJ;
+                                return this.bbK;
                             } catch (Throwable th) {
                                 th = th;
                                 fileInputStream = fileInputStream2;
@@ -242,10 +242,10 @@ public class b implements i {
                 }
             }
         }
-        return this.bbJ;
+        return this.bbK;
     }
 
     public void Mb() {
-        this.bbJ = 0;
+        this.bbK = 0;
     }
 }

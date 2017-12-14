@@ -8,125 +8,125 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class y extends com.baidu.tbadk.core.dialog.b {
-    private TbPageContext<?> acd;
-    private View.OnClickListener cFn;
-    private TextView eYf;
-    private TextView eYg;
-    private TextView eYh;
-    private TextView eYi;
-    private TextView eYj;
-    private TextView eYk;
-    private boolean eYl;
-    private boolean eYm;
+    private TbPageContext<?> abX;
+    private View.OnClickListener cFv;
+    private TextView eZi;
+    private TextView eZj;
+    private TextView eZk;
+    private TextView eZl;
+    private TextView eZm;
+    private TextView eZn;
+    private boolean eZo;
+    private boolean eZp;
 
     public y(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext.getPageActivity());
-        this.eYm = false;
-        this.acd = tbPageContext;
-        this.cFn = onClickListener;
-        aUX();
+        this.eZp = false;
+        this.abX = tbPageContext;
+        this.cFv = onClickListener;
+        aVg();
     }
 
-    public TextView aUR() {
-        return this.eYf;
+    public TextView aVa() {
+        return this.eZi;
     }
 
-    public TextView aUS() {
-        return this.eYg;
+    public TextView aVb() {
+        return this.eZj;
     }
 
-    public TextView aUT() {
-        return this.eYh;
+    public TextView aVc() {
+        return this.eZk;
     }
 
-    public TextView aUU() {
-        return this.eYi;
+    public TextView aVd() {
+        return this.eZl;
     }
 
-    public TextView aUV() {
-        return this.eYk;
+    public TextView aVe() {
+        return this.eZn;
     }
 
-    public TextView aUW() {
-        return this.eYj;
+    public TextView aVf() {
+        return this.eZm;
     }
 
-    private void aUX() {
-        a(new CharSequence[]{this.acd.getString(d.j.reply_current_floor), this.acd.getString(d.j.no_interesting), this.acd.getString(d.j.mark), this.acd.getString(d.j.mute), this.acd.getString(d.j.report_text), this.acd.getString(d.j.delete)}, new b.InterfaceC0047b() { // from class: com.baidu.tieba.pb.pb.main.y.1
-            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0047b
+    private void aVg() {
+        a(new CharSequence[]{this.abX.getString(d.j.reply_current_floor), this.abX.getString(d.j.no_interesting), this.abX.getString(d.j.mark), this.abX.getString(d.j.mute), this.abX.getString(d.j.report_text), this.abX.getString(d.j.delete)}, new b.InterfaceC0061b() { // from class: com.baidu.tieba.pb.pb.main.y.1
+            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0061b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 if (bVar != null && view != null) {
                     bVar.dismiss();
-                    y.this.cFn.onClick(view);
+                    y.this.cFv.onClick(view);
                 }
             }
         });
-        d(this.acd);
-        this.eYj = bg(cl(0));
-        this.eYk = bg(cl(1));
-        this.eYf = bg(cl(2));
-        this.eYg = bg(cl(3));
-        this.eYh = bg(cl(4));
-        this.eYi = bg(cl(5));
+        d(this.abX);
+        this.eZm = bj(cl(0));
+        this.eZn = bj(cl(1));
+        this.eZi = bj(cl(2));
+        this.eZj = bj(cl(3));
+        this.eZk = bj(cl(4));
+        this.eZl = bj(cl(5));
     }
 
     public void showDialog() {
-        to();
+        tl();
     }
 
-    private TextView bg(View view) {
+    private TextView bj(View view) {
         return (TextView) view.findViewById(d.g.dialog_item_btn);
     }
 
-    private View bh(View view) {
+    private View bk(View view) {
         if (view == null) {
             return null;
         }
         return view.findViewById(d.g.line);
     }
 
-    public void jy(boolean z) {
-        this.eYh.setVisibility(z ? 0 : 8);
+    public void jz(boolean z) {
+        this.eZk.setVisibility(z ? 0 : 8);
     }
 
     public View getView() {
         return getRootView();
     }
 
-    public void jz(boolean z) {
-        this.eYl = z;
-    }
-
-    public boolean aUY() {
-        return this.eYm;
-    }
-
     public void jA(boolean z) {
-        this.eYm = z;
+        this.eZo = z;
+    }
+
+    public boolean aVh() {
+        return this.eZp;
+    }
+
+    public void jB(boolean z) {
+        this.eZp = z;
     }
 
     public void refreshUI() {
         View view;
-        TextView bg;
+        TextView bj;
         int itemCount = getItemCount();
         ArrayList arrayList = new ArrayList();
         boolean z = true;
         for (int i = itemCount - 1; i >= 0; i--) {
             View cl = cl(i);
             if (cl != null) {
-                TextView bg2 = bg(cl(i));
-                View bh = bh(cl(i));
-                if (bg2 != null) {
-                    if (bg2.getVisibility() == 8) {
-                        bh.setVisibility(8);
+                TextView bj2 = bj(cl(i));
+                View bk = bk(cl(i));
+                if (bj2 != null) {
+                    if (bj2.getVisibility() == 8) {
+                        bk.setVisibility(8);
                     } else {
                         arrayList.add(cl);
                         if (z) {
-                            bh.setVisibility(8);
+                            bk.setVisibility(8);
                             com.baidu.tbadk.core.util.aj.j(cl, d.f.dialog_single_button_bg_selector);
                             z = false;
                         } else {
-                            bh.setVisibility(0);
+                            bk.setVisibility(0);
                         }
                     }
                 }
@@ -138,7 +138,7 @@ public class y extends com.baidu.tbadk.core.dialog.b {
                 break;
             }
             View cl2 = cl(i2);
-            if (cl2 == null || (bg = bg(cl(i2))) == null || bg.getVisibility() != 0) {
+            if (cl2 == null || (bj = bj(cl(i2))) == null || bj.getVisibility() != 0) {
                 i2++;
             } else {
                 com.baidu.tbadk.core.util.aj.j(cl2, d.f.dialog_single_button_first_bg_selector);

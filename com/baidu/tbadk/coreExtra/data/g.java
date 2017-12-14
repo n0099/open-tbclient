@@ -1,49 +1,37 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class g {
-    private ArrayList<String> Xy;
-    private UserData mUser;
+    private final TbPageContext<?> abX;
+    private final int ark;
+    private final int arl;
+    private final boolean arm;
 
-    public g() {
-        this.mUser = null;
-        this.Xy = null;
-        this.mUser = new UserData();
-        this.Xy = new ArrayList<>(3);
+    public g(TbPageContext<?> tbPageContext, int i, int i2, boolean z) {
+        this.abX = tbPageContext;
+        this.ark = i;
+        this.arl = i2;
+        this.arm = z;
     }
 
-    public UserData getUser() {
-        return this.mUser;
+    public g(TbPageContext<?> tbPageContext, int i, int i2) {
+        this(tbPageContext, i, i2, false);
     }
 
-    public ArrayList<String> xT() {
-        return this.Xy;
+    public TbPageContext<?> xR() {
+        return this.abX;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public int xS() {
+        return this.ark;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.mUser.parserJson(jSONObject.optJSONObject("user"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.Xy.add(optJSONArray.optString(i, null));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public int xT() {
+        return this.arl;
+    }
+
+    public boolean isAvailable() {
+        return this.abX != null && this.ark > 0 && this.arl > 0;
     }
 }

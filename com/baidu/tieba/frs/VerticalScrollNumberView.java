@@ -8,8 +8,8 @@ import com.baidu.tbadk.widget.ScrollTextView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class VerticalScrollNumberView extends LinearLayout {
-    private int cKH;
-    private int cKI;
+    private int cKR;
+    private int cKS;
     private Context mContext;
     private int mTextHeight;
     private int mTextWidth;
@@ -36,8 +36,8 @@ public class VerticalScrollNumberView extends LinearLayout {
         this.mContext = context;
         this.mTextWidth = com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds30);
         this.mTextHeight = com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds40);
-        this.cKH = com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds2);
-        this.cKI = com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds8);
+        this.cKR = com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds2);
+        this.cKS = com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds8);
     }
 
     public void setData(int i) {
@@ -47,17 +47,17 @@ public class VerticalScrollNumberView extends LinearLayout {
         int i2 = i < 0 ? 0 : i;
         String valueOf = String.valueOf(i2 <= 999999999 ? i2 : 999999999);
         for (int i3 = 0; i3 != valueOf.length(); i3++) {
-            le(StringUtils.string("0\n", Character.valueOf(valueOf.charAt(i3))));
+            ld(StringUtils.string("0\n", Character.valueOf(valueOf.charAt(i3))));
         }
         int i4 = 0;
         for (int childCount = getChildCount() - 1; childCount != 0; childCount--) {
             if (getChildAt(childCount) instanceof ScrollTextView) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 if (i4 == 2) {
-                    layoutParams.setMargins(this.cKI, 0, 0, 0);
+                    layoutParams.setMargins(this.cKS, 0, 0, 0);
                     i4 = 0;
                 } else {
-                    layoutParams.setMargins(this.cKH, 0, 0, 0);
+                    layoutParams.setMargins(this.cKR, 0, 0, 0);
                     i4++;
                 }
                 getChildAt(childCount).setLayoutParams(layoutParams);
@@ -65,12 +65,12 @@ public class VerticalScrollNumberView extends LinearLayout {
         }
     }
 
-    private void le(String str) {
+    private void ld(String str) {
         ScrollTextView scrollTextView = new ScrollTextView(this.mContext);
         scrollTextView.setText(str);
         scrollTextView.setGravity(17);
         com.baidu.tbadk.core.util.aj.j(scrollTextView, d.f.lottery_number_bg);
-        com.baidu.tbadk.core.util.aj.i(scrollTextView, d.C0082d.cp_cont_g);
+        com.baidu.tbadk.core.util.aj.i(scrollTextView, d.C0096d.cp_cont_g);
         scrollTextView.setTextSize(0, getResources().getDimension(d.e.ds28));
         scrollTextView.setTypeface(null, 1);
         scrollTextView.setMinLines(1);

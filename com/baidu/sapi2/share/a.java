@@ -12,7 +12,8 @@ import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
-import com.baidu.sapi2.utils.L;
+import com.baidu.sapi2.SapiContext;
+import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
@@ -26,35 +27,62 @@ public final class a {
     static final String c = "RELOGIN_CREDENTIALS";
     static final String d = "RUNTIME_ENVIRONMENT";
     static final String e = "SDK_VERSION";
-    static final String f = "baidu.intent.action.account.SHARE_SERVICE";
-    private static final a i = new a();
-    private static SapiConfiguration g = SapiAccountManager.getInstance().getSapiConfiguration();
-    private static com.baidu.sapi2.c h = com.baidu.sapi2.c.a(g.context);
+    static final String f = "EXTRA_OTHER_INFO";
+    static final String g = "IQIYI_TOKEN";
+    static final String h = "FACE_LOGIN_UID";
+    static final String i = "baidu.intent.action.account.SHARE_SERVICE";
+    private static final a l = new a();
+    private static SapiConfiguration j = SapiAccountManager.getInstance().getSapiConfiguration();
+    private static SapiContext k = SapiContext.getInstance(j.context);
 
     public static a a() {
-        return i;
+        return l;
     }
 
     private a() {
     }
 
+    public void b() {
+        List<Intent> a2 = c.a(j.context);
+        ArrayList arrayList = new ArrayList();
+        int i2 = 0;
+        while (true) {
+            int i3 = i2;
+            if (i3 >= a2.size()) {
+                break;
+            }
+            Intent intent = a2.get(i3);
+            if (a(intent.getComponent().getPackageName())) {
+                arrayList.add(intent);
+            }
+            i2 = i3 + 1;
+        }
+        if (arrayList.size() != 0) {
+            a(null, arrayList, true);
+        }
+    }
+
     public void a(SapiAccount sapiAccount) {
         if (SapiUtils.isValidAccount(sapiAccount)) {
-            b.a().d(sapiAccount);
+            ShareAccountAccessor.getAccessor().updatePtoken(sapiAccount);
             if (TextUtils.isEmpty(sapiAccount.app)) {
-                sapiAccount.app = SapiUtils.getAppName(g.context);
+                sapiAccount.app = SapiUtils.getAppName(j.context);
             }
-            h.a(sapiAccount);
-            h.a(sapiAccount, false);
-            h.c(sapiAccount);
-            h.d(sapiAccount);
-            if (g.loginShareStrategy() != LoginShareStrategy.DISABLED && sapiAccount.getAccountType() != AccountType.INCOMPLETE_USER && !c()) {
-                HandlerThread handlerThread = new HandlerThread("ValidateThread");
-                handlerThread.start();
-                Handler handler = new Handler(handlerThread.getLooper());
-                handler.post(new AnonymousClass1(d.a(g.context), handler, sapiAccount, handlerThread));
+            k.setCurrentAccount(sapiAccount);
+            SapiAccountManager.getInstance().preFetchStoken(sapiAccount, false);
+            k.addLoginAccount(sapiAccount);
+            k.removeShareAccount(sapiAccount);
+            if (j.loginShareStrategy() != LoginShareStrategy.DISABLED && sapiAccount.getAccountType() != AccountType.INCOMPLETE_USER && !e() && !f()) {
+                a(sapiAccount, c.a(j.context), false);
             }
         }
+    }
+
+    void a(SapiAccount sapiAccount, List<Intent> list, boolean z) {
+        HandlerThread handlerThread = new HandlerThread("ValidateThread");
+        handlerThread.start();
+        Handler handler = new Handler(handlerThread.getLooper());
+        handler.post(new AnonymousClass1(list, handler, sapiAccount, z, handlerThread));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -64,20 +92,22 @@ public final class a {
         final /* synthetic */ List a;
         final /* synthetic */ Handler b;
         final /* synthetic */ SapiAccount c;
-        final /* synthetic */ HandlerThread d;
+        final /* synthetic */ boolean d;
+        final /* synthetic */ HandlerThread e;
 
-        AnonymousClass1(List list, Handler handler, SapiAccount sapiAccount, HandlerThread handlerThread) {
+        AnonymousClass1(List list, Handler handler, SapiAccount sapiAccount, boolean z, HandlerThread handlerThread) {
             this.a = list;
             this.b = handler;
             this.c = sapiAccount;
-            this.d = handlerThread;
+            this.d = z;
+            this.e = handlerThread;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (!this.a.isEmpty()) {
                 try {
-                    a.g.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.1.1
+                    a.j.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.1.1
                         @Override // android.content.ServiceConnection
                         public void onServiceConnected(ComponentName componentName, final IBinder iBinder) {
                             AnonymousClass1.this.b.post(new Runnable() { // from class: com.baidu.sapi2.share.a.1.1.1
@@ -85,20 +115,24 @@ public final class a {
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     try {
-                                        iBinder.transact(0, a.a(new ShareModel(ShareEvent.VALIDATE, AnonymousClass1.this.c, Collections.singletonList(AnonymousClass1.this.c))), Parcel.obtain(), 0);
+                                        ShareModel shareModel = new ShareModel(ShareEvent.VALIDATE, AnonymousClass1.this.c, Collections.singletonList(AnonymousClass1.this.c));
+                                        if (AnonymousClass1.this.d) {
+                                            shareModel = new ShareModel(ShareEvent.VALIDATE);
+                                        }
+                                        iBinder.transact(0, a.a(shareModel, AnonymousClass1.this.d), Parcel.obtain(), 0);
                                     } catch (Throwable th) {
                                         try {
-                                            L.e(th);
+                                            Log.e(th);
                                             try {
-                                                a.g.context.unbindService(this);
+                                                a.j.context.unbindService(this);
                                             } catch (Throwable th2) {
-                                                L.e(th2);
+                                                Log.e(th2);
                                             }
                                         } finally {
                                             try {
-                                                a.g.context.unbindService(this);
+                                                a.j.context.unbindService(this);
                                             } catch (Throwable th3) {
-                                                L.e(th3);
+                                                Log.e(th3);
                                             }
                                         }
                                     }
@@ -106,7 +140,7 @@ public final class a {
                                     if (!AnonymousClass1.this.a.isEmpty()) {
                                         AnonymousClass1.this.b.post(this);
                                     } else {
-                                        AnonymousClass1.this.d.quit();
+                                        AnonymousClass1.this.e.quit();
                                     }
                                 }
                             });
@@ -117,28 +151,27 @@ public final class a {
                         }
                     }, 1);
                 } catch (Throwable th) {
-                    L.e(th);
+                    Log.e(th);
                 }
             }
         }
     }
 
     public void b(SapiAccount sapiAccount) {
-        if (sapiAccount != null && g.loginShareStrategy() != LoginShareStrategy.DISABLED) {
-            h.d(sapiAccount);
-            if (!c()) {
+        if (sapiAccount != null && j.loginShareStrategy() != LoginShareStrategy.DISABLED) {
+            k.removeShareAccount(sapiAccount);
+            if (!e() && !f()) {
                 HandlerThread handlerThread = new HandlerThread("InvalidateThread");
                 handlerThread.start();
                 Handler handler = new Handler(handlerThread.getLooper());
-                handler.post(new AnonymousClass2(d.a(g.context), handler, sapiAccount, handlerThread));
+                handler.post(new AnonymousClass2(c.a(j.context), handler, sapiAccount, handlerThread));
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.share.a$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public class AnonymousClass2 implements Runnable {
+    class AnonymousClass2 implements Runnable {
         final /* synthetic */ List a;
         final /* synthetic */ Handler b;
         final /* synthetic */ SapiAccount c;
@@ -155,7 +188,7 @@ public final class a {
         public void run() {
             if (!this.a.isEmpty()) {
                 try {
-                    a.g.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.2.1
+                    a.j.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.2.1
                         @Override // android.content.ServiceConnection
                         public void onServiceConnected(ComponentName componentName, final IBinder iBinder) {
                             AnonymousClass2.this.b.post(new Runnable() { // from class: com.baidu.sapi2.share.a.2.1.1
@@ -163,20 +196,20 @@ public final class a {
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     try {
-                                        iBinder.transact(0, a.a(new ShareModel(ShareEvent.INVALIDATE, null, Collections.singletonList(AnonymousClass2.this.c))), Parcel.obtain(), 0);
+                                        iBinder.transact(0, a.a(new ShareModel(ShareEvent.INVALIDATE, null, Collections.singletonList(AnonymousClass2.this.c)), false), Parcel.obtain(), 0);
                                     } catch (Throwable th) {
                                         try {
-                                            L.e(th);
+                                            Log.e(th);
                                             try {
-                                                a.g.context.unbindService(this);
+                                                a.j.context.unbindService(this);
                                             } catch (Throwable th2) {
-                                                L.e(th2);
+                                                Log.e(th2);
                                             }
                                         } finally {
                                             try {
-                                                a.g.context.unbindService(this);
+                                                a.j.context.unbindService(this);
                                             } catch (Throwable th3) {
-                                                L.e(th3);
+                                                Log.e(th3);
                                             }
                                         }
                                     }
@@ -195,28 +228,28 @@ public final class a {
                         }
                     }, 1);
                 } catch (Throwable th) {
-                    L.e(th);
+                    Log.e(th);
                 }
             }
         }
     }
 
-    public static void b() {
-        if (h.g()) {
-            if (g.loginShareStrategy() != LoginShareStrategy.DISABLED) {
-                f();
+    public static void c() {
+        if (k.isFirstLaunch()) {
+            if (j.loginShareStrategy() != LoginShareStrategy.DISABLED) {
+                i();
             }
-        } else if (!h.h() && g.loginShareStrategy() == LoginShareStrategy.SILENT) {
-            f();
+        } else if (!k.isLoginStatusChanged() && j.loginShareStrategy() == LoginShareStrategy.SILENT) {
+            i();
         }
     }
 
-    private static void f() {
-        if (!c()) {
+    private static void i() {
+        if (!f()) {
             HandlerThread handlerThread = new HandlerThread("SyncThread");
             handlerThread.start();
             Handler handler = new Handler(handlerThread.getLooper());
-            handler.post(new AnonymousClass3(d.a(g.context), handler, handlerThread));
+            handler.post(new AnonymousClass3(c.a(j.context), handler, handlerThread));
         }
     }
 
@@ -238,7 +271,7 @@ public final class a {
         public void run() {
             if (!this.a.isEmpty()) {
                 try {
-                    a.g.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.3.1
+                    a.j.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.3.1
                         @Override // android.content.ServiceConnection
                         public void onServiceConnected(ComponentName componentName, final IBinder iBinder) {
                             AnonymousClass3.this.b.post(new Runnable() { // from class: com.baidu.sapi2.share.a.3.1.1
@@ -246,29 +279,29 @@ public final class a {
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     try {
-                                        Parcel a = a.a(new ShareModel(ShareEvent.SYNC_REQ));
+                                        Parcel a = a.a(new ShareModel(ShareEvent.SYNC_REQ), false);
                                         Parcel obtain = Parcel.obtain();
                                         if (iBinder.transact(0, a, obtain, 0)) {
                                             a.b(obtain);
                                         }
                                     } catch (Throwable th) {
                                         try {
-                                            L.e(th);
+                                            Log.e(th);
                                             try {
-                                                a.g.context.unbindService(this);
+                                                a.j.context.unbindService(this);
                                             } catch (Throwable th2) {
-                                                L.e(th2);
+                                                Log.e(th2);
                                             }
                                         } finally {
                                             try {
-                                                a.g.context.unbindService(this);
+                                                a.j.context.unbindService(this);
                                             } catch (Throwable th3) {
-                                                L.e(th3);
+                                                Log.e(th3);
                                             }
                                         }
                                     }
                                     AnonymousClass3.this.a.remove(0);
-                                    if (!AnonymousClass3.this.a.isEmpty() && a.h.e().size() < 5) {
+                                    if (!AnonymousClass3.this.a.isEmpty() && a.k.getShareAccounts().size() < 5) {
                                         AnonymousClass3.this.b.post(this);
                                     } else {
                                         AnonymousClass3.this.c.quit();
@@ -282,7 +315,7 @@ public final class a {
                         }
                     }, 1);
                 } catch (Throwable th) {
-                    L.e(th);
+                    Log.e(th);
                 }
             }
         }
@@ -293,32 +326,73 @@ public final class a {
         if (parcel != null) {
             try {
                 Bundle readBundle = parcel.readBundle(ShareModel.class.getClassLoader());
-                d.b(g.context, readBundle.getString(c));
-                d.a(g.context, g.loginShareStrategy(), (ShareModel) readBundle.getParcelable(b), readBundle.getInt(e));
+                c.b(j.context, readBundle.getString(c));
+                c.a(j.context, j.loginShareStrategy(), (ShareModel) readBundle.getParcelable(b), readBundle.getInt(e), null, false);
+                String string = readBundle.getString(h);
+                if (!TextUtils.isEmpty(string) && TextUtils.isEmpty(SapiContext.getInstance(j.context).getFaceLoginUid())) {
+                    SapiContext.getInstance(j.context).setFaceLoginUid(string);
+                }
             } catch (Throwable th) {
-                L.e(th);
+                Log.e(th);
             }
         }
     }
 
-    static Parcel a(ShareModel shareModel) {
+    static Parcel a(ShareModel shareModel, boolean z) {
         Parcel obtain = Parcel.obtain();
         Bundle bundle = new Bundle();
-        d.a(g.context, g.loginShareStrategy(), shareModel);
-        bundle.putParcelable(b, shareModel);
-        if (h.s() != null) {
-            bundle.putString(c, c.a(g.context, h.s().toString()));
+        if (z) {
+            bundle.putBoolean(f, true);
+            bundle.putString(g, SapiContext.getInstance(j.context).getIqiyiAccesstoken());
+        } else if (k.getReloginCredentials() != null) {
+            bundle.putString(c, b.a(j.context, k.getReloginCredentials().toString()));
         }
-        bundle.putSerializable(d, g.environment);
-        bundle.putInt(e, SapiAccountManager.VERSION_CODE);
+        if (SapiContext.getInstance(j.context).shareLivingunameEnable()) {
+            bundle.putString(h, SapiContext.getInstance(j.context).getFaceLoginUid());
+        }
+        c.a(j.context, j.loginShareStrategy(), shareModel);
+        bundle.putParcelable(b, shareModel);
+        bundle.putSerializable(d, j.environment);
+        bundle.putInt(e, 127);
         obtain.writeBundle(bundle);
         return obtain;
     }
 
-    static boolean c() {
+    public static boolean d() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("tv.pps.mobile");
+        arrayList.add("com.qiyi.video");
+        arrayList.add("com.baidu.sapi2.demo.standard");
+        return arrayList.contains(j.context.getPackageName());
+    }
+
+    public static boolean a(String str) {
+        ArrayList<String> arrayList = new ArrayList();
+        arrayList.add("com.baidu.searchbox(.*)");
+        arrayList.add("com.baidu.sapi2.(.*)");
+        for (String str2 : arrayList) {
+            if (str.matches(str2)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean e() {
+        if (j.enableShare) {
+            return false;
+        }
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("tv.pps.mobile");
+        arrayList.add("com.qiyi.video");
+        return arrayList.contains(j.context.getPackageName());
+    }
+
+    static boolean f() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("com.baidu.input_huawei");
         arrayList.add("com.baidu.input_yijia");
-        return arrayList.contains(g.context.getPackageName());
+        arrayList.add("com.baidu.browser.apps");
+        return arrayList.contains(j.context.getPackageName());
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends g<com.baidu.tbadk.data.f, com.baidu.tbadk.i.d> {
-    private com.baidu.tbadk.i.d beh;
+    private com.baidu.tbadk.i.d bei;
     private View.OnClickListener mClickListener;
     private BdUniqueId mId;
     private TbPageContext mPageContext;
@@ -23,12 +23,12 @@ public class f extends g<com.baidu.tbadk.data.f, com.baidu.tbadk.i.d> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: i */
     public com.baidu.tbadk.i.d onCreateViewHolder(ViewGroup viewGroup) {
-        this.beh = new com.baidu.tbadk.i.d(LayoutInflater.from(this.mContext).inflate(d.h.entrance_story_pics_layout, viewGroup, false), this.mPageContext);
-        if (this.mId != null && this.beh.aFT != null) {
-            this.beh.aFT.i(this.mId);
-            this.beh.aFT.setItemOnclickListener(this.mClickListener);
+        this.bei = new com.baidu.tbadk.i.d(LayoutInflater.from(this.mContext).inflate(d.h.entrance_story_pics_layout, viewGroup, false), this.mPageContext);
+        if (this.mId != null && this.bei.aFX != null) {
+            this.bei.aFX.i(this.mId);
+            this.bei.aFX.setItemOnclickListener(this.mClickListener);
         }
-        return this.beh;
+        return this.bei;
     }
 
     public void j(BdUniqueId bdUniqueId) {
@@ -41,7 +41,7 @@ public class f extends g<com.baidu.tbadk.data.f, com.baidu.tbadk.i.d> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.f fVar, com.baidu.tbadk.i.d dVar) {
         if (fVar != null && dVar != null) {
-            dVar.Ex();
+            dVar.Ey();
             dVar.a(fVar);
         }
         return view;
