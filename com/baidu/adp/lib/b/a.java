@@ -4,18 +4,20 @@ import com.baidu.adp.lib.b.b;
 /* loaded from: classes.dex */
 public abstract class a {
     protected String mName;
-    protected String[] tA;
-    protected int tB = 0;
-    protected int tC = 1;
-    protected int tD = 10;
-    protected b.a tE = new b.a() { // from class: com.baidu.adp.lib.b.a.1
+
+    /* renamed from: tv  reason: collision with root package name */
+    protected String[] f0tv;
+    protected int tw = 0;
+    protected int tz = 1;
+    protected int tA = 10;
+    protected b.a tB = new b.a() { // from class: com.baidu.adp.lib.b.a.1
         @Override // com.baidu.adp.lib.b.b.a
         public void a(String str, int i, boolean z) {
-            a.this.X(i);
+            a.this.W(i);
         }
     };
 
-    protected abstract void X(int i);
+    protected abstract void W(int i);
 
     protected abstract String[] eM();
 
@@ -32,8 +34,8 @@ public abstract class a {
     }
 
     protected void eR() {
-        b bVar = new b(this.mName, this.tB, this.tE);
-        bVar.a(this.tD, this.tA, this.tC);
+        b bVar = new b(this.mName, this.tw, this.tB);
+        bVar.a(this.tA, this.f0tv, this.tz);
         bVar.g(eQ());
         d.eV().a(bVar);
     }
@@ -45,9 +47,9 @@ public abstract class a {
 
     protected void initData() {
         this.mName = getName();
-        this.tA = eM();
-        this.tB = eN();
-        this.tC = eO();
-        this.tD = eP();
+        this.f0tv = eM();
+        this.tw = eN();
+        this.tz = eO();
+        this.tA = eP();
     }
 }

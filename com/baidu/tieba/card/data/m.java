@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class m extends c {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public bd bjD;
-    private ak cdG;
-    private ak cdH;
-    private ak cdI;
-    private ak cdJ;
+    public bd bjE;
+    private ak cdU;
+    private ak cdV;
+    private ak cdW;
+    private ak cdX;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
@@ -19,51 +19,51 @@ public class m extends c {
     }
 
     public m(bd bdVar) {
-        this.bjD = bdVar;
+        this.bjE = bdVar;
     }
 
-    public static boolean D(bd bdVar) {
+    public static boolean F(bd bdVar) {
         return bdVar != null && bdVar.getThreadType() == 33;
     }
 
     @Override // com.baidu.tieba.card.data.c
     public bd Ox() {
-        return this.bjD;
+        return this.bjE;
     }
 
-    public int ack() {
-        return (this.bjD == null || StringUtils.isNull(this.bjD.getPhotoLiveCover())) ? 0 : 1;
+    public int acu() {
+        return (this.bjE == null || StringUtils.isNull(this.bjE.getPhotoLiveCover())) ? 0 : 1;
     }
 
     public void b(ak akVar) {
-        this.cdG = akVar;
+        this.cdU = akVar;
     }
 
     public void c(ak akVar) {
-        this.cdH = akVar;
+        this.cdV = akVar;
     }
 
     public void d(ak akVar) {
-        this.cdI = akVar;
+        this.cdW = akVar;
     }
 
     public void e(ak akVar) {
-        this.cdJ = akVar;
+        this.cdX = akVar;
     }
 
-    public ak acl() {
-        return this.cdG != null ? this.cdG.ac("obj_param3", com.baidu.tieba.card.k.abH()) : this.cdG;
+    public ak acv() {
+        return this.cdU != null ? this.cdU.ac("obj_param3", com.baidu.tieba.card.k.abK()) : this.cdU;
     }
 
-    public ak acm() {
-        return this.cdH != null ? this.cdH.ac("obj_param3", com.baidu.tieba.card.k.abH()) : this.cdH;
+    public ak acw() {
+        return this.cdV != null ? this.cdV.ac("obj_param3", com.baidu.tieba.card.k.abK()) : this.cdV;
     }
 
-    public ak acn() {
-        return this.cdJ != null ? this.cdJ.ac("obj_param3", com.baidu.tieba.card.k.abH()) : this.cdJ;
+    public ak acx() {
+        return this.cdX != null ? this.cdX.ac("obj_param3", com.baidu.tieba.card.k.abK()) : this.cdX;
     }
 
-    public ak aco() {
-        return this.cdI != null ? this.cdI.ac("obj_param3", com.baidu.tieba.card.k.abH()) : this.cdI;
+    public ak acy() {
+        return this.cdW != null ? this.cdW.ac("obj_param3", com.baidu.tieba.card.k.abK()) : this.cdW;
     }
 }

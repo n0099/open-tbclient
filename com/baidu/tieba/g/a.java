@@ -3,60 +3,60 @@ package com.baidu.tieba.g;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String dgZ;
-    private String dha;
-    private String dhb;
-    private String dhc;
-    private String dhd;
-    private String dhe;
+    private String die;
+    private String dif;
+    private String dig;
+    private String dih;
+    private String dii;
+    private String dij;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.dgZ = String.valueOf(esportRank.rank);
-            this.dha = esportRank.text;
-            this.dhe = esportRank.url;
+            this.die = String.valueOf(esportRank.rank);
+            this.dif = esportRank.text;
+            this.dij = esportRank.url;
             if (esportRank.user != null) {
-                this.dhb = esportRank.user.steam_name;
-                this.dhc = esportRank.user.steam_portrait;
+                this.dig = esportRank.user.steam_name;
+                this.dih = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String ash() {
+    public String asr() {
         return this.mTitle;
     }
 
-    public String asi() {
-        return this.dgZ;
+    public String ass() {
+        return this.die;
     }
 
-    public String asj() {
-        return this.dha;
+    public String ast() {
+        return this.dif;
     }
 
-    public String ask() {
-        return this.dhb;
+    public String asu() {
+        return this.dig;
     }
 
-    public String asl() {
-        return this.dhc;
+    public String asv() {
+        return this.dih;
     }
 
-    public String asm() {
-        return this.dhd;
+    public String asw() {
+        return this.dii;
     }
 
     public void lO(String str) {
-        this.dhd = str;
+        this.dii = str;
     }
 
-    public String asn() {
-        return this.dhe;
+    public String asx() {
+        return this.dij;
     }
 
     public void lP(String str) {
-        this.dhe = str;
+        this.dij = str;
     }
 }

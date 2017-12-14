@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.view.HeadImageViewGroup;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends j.a {
-    public HeadImageViewGroup aFU;
+    public HeadImageViewGroup aFY;
     public TextView mName;
     public View mRootView;
     private int mSkinType;
@@ -20,36 +20,36 @@ public class e extends j.a {
         this.mStatus = 0;
         this.mRootView = view.findViewById(d.g.rootview);
         this.mName = (TextView) view.findViewById(d.g.name_txt);
-        this.aFU = (HeadImageViewGroup) view.findViewById(d.g.img_group);
+        this.aFY = (HeadImageViewGroup) view.findViewById(d.g.img_group);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            Ew();
-            this.aFU.onChangeSkinType(i);
+            Ex();
+            this.aFY.onChangeSkinType(i);
             this.mSkinType = i;
         }
     }
 
     public void setStatus(int i) {
         this.mStatus = i;
-        Ew();
+        Ex();
     }
 
-    private void Ew() {
+    private void Ex() {
         switch (this.mStatus) {
             case 0:
-                aj.c(this.mName, d.C0082d.cp_cont_f, 1);
+                aj.c(this.mName, d.C0096d.cp_cont_f, 1);
                 return;
             case 1:
             default:
-                aj.c(this.mName, d.C0082d.cp_cont_f, 1);
+                aj.c(this.mName, d.C0096d.cp_cont_f, 1);
                 return;
             case 2:
-                aj.c(this.mName, d.C0082d.cp_cont_d, 1);
+                aj.c(this.mName, d.C0096d.cp_cont_d, 1);
                 return;
             case 3:
-                aj.c(this.mName, d.C0082d.cp_cont_r, 1);
+                aj.c(this.mName, d.C0096d.cp_cont_r, 1);
                 return;
         }
     }

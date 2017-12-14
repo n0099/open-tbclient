@@ -25,91 +25,91 @@ import java.nio.ByteBuffer;
 @TargetApi(18)
 /* loaded from: classes2.dex */
 public class c {
-    private static final int[] hus = {1, 0, 5, 7, 6};
-    private h gAg;
-    private com.faceunity.a.b htT;
-    private com.faceunity.gles.e htY;
-    private com.faceunity.gles.a htZ;
-    private com.faceunity.gles.c hua;
-    private int hub;
-    private com.faceunity.a.d huc;
-    private com.faceunity.a.a hud;
-    private volatile d hue;
-    private int huf;
-    private InterfaceC0150c hug;
-    private int huj;
-    private int huk;
-    private b hul;
-    private final Object hum;
-    private boolean hun;
-    private final Object huo;
-    private boolean hup;
-    private boolean huq;
-    private boolean hur;
-    private long hut;
+    private static final int[] hxj = {1, 0, 5, 7, 6};
+    private h gCP;
+    private com.faceunity.a.b hwK;
+    private com.faceunity.gles.e hwP;
+    private com.faceunity.gles.a hwQ;
+    private com.faceunity.gles.c hwR;
+    private int hwS;
+    private com.faceunity.a.d hwT;
+    private com.faceunity.a.a hwU;
+    private volatile d hwV;
+    private int hwW;
+    private InterfaceC0167c hwX;
+    private int hxa;
+    private int hxb;
+    private b hxc;
+    private final Object hxd;
+    private boolean hxe;
+    private final Object hxf;
+    private boolean hxg;
+    private boolean hxh;
+    private boolean hxi;
+    private long hxk;
     private int mHeight;
     private boolean mReady;
     private boolean mRunning;
     private int mTextureId;
     private int mWidth;
     private Object mReadyFence = new Object();
-    private long huh = 0;
-    private long hui = 0;
+    private long hwY = 0;
+    private long hwZ = 0;
 
     /* renamed from: com.faceunity.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0150c {
-        void bLL();
+    public interface InterfaceC0167c {
+        void bDU();
 
-        void bLM();
+        void bDV();
     }
 
-    public boolean wR(int i) {
-        return this.huf == i;
+    public boolean xe(int i) {
+        return this.hwW == i;
     }
 
     public c() {
-        this.huf = 4;
+        this.hwW = 4;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, k.class);
         k kVar = runTask != null ? (k) runTask.getData() : null;
         if (kVar != null) {
-            this.gAg = kVar.aOb();
+            this.gCP = kVar.aOk();
         }
-        this.hul = null;
-        this.hum = new Object();
-        this.hun = false;
-        this.huo = new Object();
-        this.hup = false;
-        this.huq = false;
-        this.hur = false;
-        this.hut = 0L;
-        this.huf = 2;
+        this.hxc = null;
+        this.hxd = new Object();
+        this.hxe = false;
+        this.hxf = new Object();
+        this.hxg = false;
+        this.hxh = false;
+        this.hxi = false;
+        this.hxk = 0L;
+        this.hwW = 2;
     }
 
     /* loaded from: classes2.dex */
     public static class b {
-        final int fPj;
-        final File gNl;
-        final long huh;
-        final EGLContext huv;
+        final int fQc;
+        final File gPT;
+        final long hwY;
+        final EGLContext hxm;
         final int mHeight;
         final int mWidth;
 
         public b(File file, int i, int i2, int i3, EGLContext eGLContext, long j) {
-            this.gNl = file;
+            this.gPT = file;
             this.mWidth = i;
             this.mHeight = i2;
-            this.fPj = i3;
+            this.fQc = i3;
             if (eGLContext != null) {
-                this.huv = eGLContext;
+                this.hxm = eGLContext;
             } else {
-                this.huv = EGL14.eglGetCurrentContext();
+                this.hxm = EGL14.eglGetCurrentContext();
             }
-            this.huh = j;
+            this.hwY = j;
         }
 
         public String toString() {
-            return "EncoderConfig: " + this.mWidth + "x" + this.mHeight + " @" + this.fPj + " to '" + this.gNl.toString() + "' ctxt=" + this.huv;
+            return "EncoderConfig: " + this.mWidth + "x" + this.mHeight + " @" + this.fQc + " to '" + this.gPT.toString() + "' ctxt=" + this.hxm;
         }
     }
 
@@ -118,19 +118,19 @@ public class c {
         this.mHeight = bVar.mHeight;
         int[] iArr = new int[1];
         GLES20.glGenTextures(1, iArr, 0);
-        this.huj = iArr[0];
-        GLES20.glBindTexture(3553, this.huj);
+        this.hxa = iArr[0];
+        GLES20.glBindTexture(3553, this.hxa);
         GLES20.glTexParameteri(3553, 10241, 9729);
         GLES20.glTexParameteri(3553, 10240, 9729);
         GLES20.glTexImage2D(3553, 0, 6408, this.mWidth, this.mHeight, 0, 6408, 5121, null);
         GLES20.glBindTexture(3553, 0);
         int[] iArr2 = new int[1];
         GLES20.glGenFramebuffers(1, iArr2, 0);
-        this.huk = iArr2[0];
+        this.hxb = iArr2[0];
         Log.d("TextureMovieEncoder", "Encoder: startRecording()");
-        this.huf = 5;
-        this.huh = bVar.huh;
-        this.hui = System.nanoTime();
+        this.hwW = 5;
+        this.hwY = bVar.hwY;
+        this.hwZ = System.nanoTime();
         synchronized (this.mReadyFence) {
             if (this.mRunning) {
                 Log.w("TextureMovieEncoder", "Encoder thread already running");
@@ -145,18 +145,18 @@ public class c {
                 } catch (InterruptedException e2) {
                 }
             }
-            this.hue.sendMessage(this.hue.obtainMessage(0, bVar));
+            this.hwV.sendMessage(this.hwV.obtainMessage(0, bVar));
         }
     }
 
     public void stopRecording() {
-        GLES20.glDeleteFramebuffers(1, new int[]{this.huk}, 0);
-        GLES20.glDeleteTextures(1, new int[]{this.huj}, 0);
-        this.huk = 0;
-        this.huj = 0;
-        this.huf = 4;
-        this.hue.sendMessage(this.hue.obtainMessage(1));
-        this.hue.sendMessage(this.hue.obtainMessage(5));
+        GLES20.glDeleteFramebuffers(1, new int[]{this.hxb}, 0);
+        GLES20.glDeleteTextures(1, new int[]{this.hxa}, 0);
+        this.hxb = 0;
+        this.hxa = 0;
+        this.hwW = 4;
+        this.hwV.sendMessage(this.hwV.obtainMessage(1));
+        this.hwV.sendMessage(this.hwV.obtainMessage(5));
     }
 
     public void d(SurfaceTexture surfaceTexture) {
@@ -168,18 +168,18 @@ public class c {
                 if (timestamp == 0) {
                     Log.w("TextureMovieEncoder", "HEY: got SurfaceTexture with timestamp of zero");
                 } else {
-                    this.hue.sendMessage(this.hue.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
+                    this.hwV.sendMessage(this.hwV.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
                 }
             }
         }
     }
 
     public void a(com.faceunity.gles.c cVar, int i, float[] fArr) {
-        if (this.huj != 0) {
+        if (this.hxa != 0) {
             int[] iArr = new int[4];
             GLES20.glGetIntegerv(2978, iArr, 0);
-            GLES20.glBindFramebuffer(36160, this.huk);
-            GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.huj, 0);
+            GLES20.glBindFramebuffer(36160, this.hxb);
+            GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.hxa, 0);
             GLES20.glViewport(0, 0, this.mWidth, this.mHeight);
             if (cVar != null) {
                 cVar.drawFrame(i, fArr);
@@ -188,7 +188,7 @@ public class c {
             GLES20.glViewport(iArr[0], iArr[1], iArr[2], iArr[3]);
             synchronized (this.mReadyFence) {
                 if (this.mReady) {
-                    this.hue.sendMessage(this.hue.obtainMessage(3, this.huj, 0, null));
+                    this.hwV.sendMessage(this.hwV.obtainMessage(3, this.hxa, 0, null));
                 }
             }
         }
@@ -204,7 +204,7 @@ public class c {
         public void run() {
             Looper.prepare();
             synchronized (c.this.mReadyFence) {
-                c.this.hue = new d(c.this);
+                c.this.hwV = new d(c.this);
                 c.this.mReady = true;
                 c.this.mReadyFence.notify();
             }
@@ -212,7 +212,7 @@ public class c {
             Log.d("TextureMovieEncoder", "Encoder thread exiting");
             synchronized (c.this.mReadyFence) {
                 c.this.mReady = c.this.mRunning = false;
-                c.this.hue = null;
+                c.this.hwV = null;
             }
         }
     }
@@ -239,19 +239,19 @@ public class c {
                         cVar.handleStopRecording();
                         return;
                     case 2:
-                        if (cVar.huq) {
+                        if (cVar.hxh) {
                             cVar.a((float[]) obj, (message.arg1 << 32) | (message.arg2 & 4294967295L));
                             return;
                         }
                         return;
                     case 3:
-                        if (cVar.huq) {
-                            cVar.wS(message.arg1);
+                        if (cVar.hxh) {
+                            cVar.xf(message.arg1);
                             return;
                         }
                         return;
                     case 4:
-                        if (cVar.huq) {
+                        if (cVar.hxh) {
                             cVar.handleUpdateSharedContext((EGLContext) message.obj);
                             return;
                         }
@@ -270,30 +270,30 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(b bVar) {
         Log.d("TextureMovieEncoder", "handleStartRecording " + bVar);
-        this.hul = bVar;
-        this.hub = 0;
-        a(bVar.huv, bVar.mWidth, bVar.mHeight, bVar.fPj, bVar.gNl);
-        this.hur = false;
-        if (this.hug != null) {
-            this.hug.bLL();
+        this.hxc = bVar;
+        this.hwS = 0;
+        a(bVar.hxm, bVar.mWidth, bVar.mHeight, bVar.fQc, bVar.gPT);
+        this.hxi = false;
+        if (this.hwX != null) {
+            this.hwX.bDU();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float[] fArr, long j) {
-        if (this.huj != 0) {
+        if (this.hxa != 0) {
             try {
-                this.huc.oB(false);
+                this.hwT.oC(false);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            GLES20.glViewport(0, 0, this.hul.mWidth, this.hul.mHeight);
+            GLES20.glViewport(0, 0, this.hxc.mWidth, this.hxc.mHeight);
             synchronized (c.class) {
-                this.hua.drawFrame(this.mTextureId, fArr);
+                this.hwR.drawFrame(this.mTextureId, fArr);
             }
-            if (this.htY != null) {
-                this.htY.setPresentationTime(bLJ() * 1000);
-                this.htY.swapBuffers();
+            if (this.hwP != null) {
+                this.hwP.setPresentationTime(bMv() * 1000);
+                this.hwP.swapBuffers();
             }
         }
     }
@@ -302,98 +302,98 @@ public class c {
     public void handleStopRecording() {
         Log.d("TextureMovieEncoder", "handleStopRecording");
         try {
-            this.huc.oB(true);
+            this.hwT.oC(true);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        this.hur = true;
+        this.hxi = true;
         releaseEncoder();
         Log.e("TextureMovieEncoder", "handleStopRecording before stop success");
-        while (!this.hup) {
-            synchronized (this.huo) {
+        while (!this.hxg) {
+            synchronized (this.hxf) {
                 try {
-                    this.huo.wait();
+                    this.hxf.wait();
                 } catch (InterruptedException e3) {
                     e3.printStackTrace();
                 }
             }
         }
-        this.hup = false;
-        if (this.hug != null) {
-            this.hug.bLM();
+        this.hxg = false;
+        if (this.hwX != null) {
+            this.hwX.bDV();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wS(int i) {
+    public void xf(int i) {
         this.mTextureId = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleUpdateSharedContext(EGLContext eGLContext) {
         Log.d("TextureMovieEncoder", "handleUpdatedSharedContext " + eGLContext);
-        if (this.htY != null) {
-            this.htY.releaseEglSurface();
+        if (this.hwP != null) {
+            this.hwP.releaseEglSurface();
         }
-        this.hua.release(false);
-        if (this.htZ != null) {
-            this.htZ.release();
+        this.hwR.release(false);
+        if (this.hwQ != null) {
+            this.hwQ.release();
         }
-        this.htZ = new com.faceunity.gles.a(eGLContext, 1);
-        if (this.htY != null) {
-            this.htY.a(this.htZ);
-            this.htY.makeCurrent();
+        this.hwQ = new com.faceunity.gles.a(eGLContext, 1);
+        if (this.hwP != null) {
+            this.hwP.a(this.hwQ);
+            this.hwP.makeCurrent();
         }
-        this.hua = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+        this.hwR = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
     }
 
     private void a(EGLContext eGLContext, int i, int i2, int i3, File file) {
         try {
-            this.htT = new com.faceunity.a.b(file.toString());
-            this.huc = new com.faceunity.a.d(i, i2, i3, this.htT);
-            this.hud = new com.faceunity.a.a(this.htT);
-            this.huq = true;
-            synchronized (this.hum) {
-                this.hun = true;
-                this.hum.notify();
+            this.hwK = new com.faceunity.a.b(file.toString());
+            this.hwT = new com.faceunity.a.d(i, i2, i3, this.hwK);
+            this.hwU = new com.faceunity.a.a(this.hwK);
+            this.hxh = true;
+            synchronized (this.hxd) {
+                this.hxe = true;
+                this.hxd.notify();
             }
         } catch (IOException e2) {
-            if (this.gAg != null) {
-                this.gAg.Q(12, com.baidu.tieba.i.a.g(e2));
+            if (this.gCP != null) {
+                this.gCP.Q(12, com.baidu.tieba.i.a.g(e2));
             }
         } catch (IllegalStateException e3) {
-            this.huq = false;
-            if (this.gAg != null) {
-                this.gAg.Q(13, com.baidu.tieba.i.a.g(e3));
+            this.hxh = false;
+            if (this.gCP != null) {
+                this.gCP.Q(13, com.baidu.tieba.i.a.g(e3));
                 return;
             }
             return;
         }
-        this.htZ = new com.faceunity.gles.a(eGLContext, 1);
-        this.htY = new com.faceunity.gles.e(this.htZ, this.huc.getInputSurface(), true);
-        this.htY.makeCurrent();
-        this.hua = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+        this.hwQ = new com.faceunity.gles.a(eGLContext, 1);
+        this.hwP = new com.faceunity.gles.e(this.hwQ, this.hwT.getInputSurface(), true);
+        this.hwP.makeCurrent();
+        this.hwR = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
     }
 
     private void releaseEncoder() {
         try {
-            this.huc.release();
-            if (this.htY != null) {
-                this.htY.release();
-                this.htY = null;
+            this.hwT.release();
+            if (this.hwP != null) {
+                this.hwP.release();
+                this.hwP = null;
             }
-            if (this.hua != null) {
-                this.hua.release(false);
-                this.hua = null;
+            if (this.hwR != null) {
+                this.hwR.release(false);
+                this.hwR = null;
             }
-            if (this.htZ != null) {
-                this.htZ.release();
-                this.htZ = null;
+            if (this.hwQ != null) {
+                this.hwQ.release();
+                this.hwQ = null;
             }
         } catch (Exception e2) {
             e2.printStackTrace();
-            if (this.gAg != null) {
-                this.gAg.Q(14, com.baidu.tieba.i.a.g(e2));
+            if (this.gCP != null) {
+                this.gCP.Q(14, com.baidu.tieba.i.a.g(e2));
             }
         }
     }
@@ -407,23 +407,23 @@ public class c {
         public void run() {
             AudioRecord audioRecord;
             Process.setThreadPriority(-19);
-            synchronized (c.this.hum) {
-                while (!c.this.hun) {
+            synchronized (c.this.hxd) {
+                while (!c.this.hxe) {
                     try {
-                        c.this.hum.wait();
+                        c.this.hxd.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             }
-            c.this.hun = false;
+            c.this.hxe = false;
             try {
                 int minBufferSize = AudioRecord.getMinBufferSize(48000, 16, 2);
                 int i = 49152;
                 if (49152 < minBufferSize) {
                     i = ((minBufferSize / 2048) + 1) * 2048 * 2;
                 }
-                int[] iArr = c.hus;
+                int[] iArr = c.hxj;
                 int length = iArr.length;
                 int i2 = 0;
                 AudioRecord audioRecord2 = null;
@@ -438,8 +438,8 @@ public class c {
                             audioRecord2 = null;
                         }
                     } catch (Exception e2) {
-                        if (c.this.gAg != null) {
-                            c.this.gAg.Q(15, com.baidu.tieba.i.a.g(e2));
+                        if (c.this.gCP != null) {
+                            c.this.gCP.Q(15, com.baidu.tieba.i.a.g(e2));
                         }
                         audioRecord2 = null;
                     }
@@ -452,53 +452,57 @@ public class c {
                 if (audioRecord != null) {
                     ByteBuffer allocateDirect = ByteBuffer.allocateDirect(2048);
                     audioRecord.startRecording();
-                    c.this.huf = 1;
-                    while (!c.this.hur) {
+                    c.this.hwW = 1;
+                    while (!c.this.hxi) {
                         allocateDirect.clear();
                         int read = audioRecord.read(allocateDirect, 2048);
                         if (read > 0) {
                             allocateDirect.position(read);
                             allocateDirect.flip();
-                            c.this.hud.a(allocateDirect, read, c.this.bLJ());
-                            c.this.hud.bLI();
+                            c.this.hwU.a(allocateDirect, read, c.this.bMv());
+                            c.this.hwU.bMu();
                         }
                     }
-                    c.this.hud.a(null, 0, c.this.bLJ());
+                    c.this.hwU.a(null, 0, c.this.bMv());
                     audioRecord.stop();
                     audioRecord.release();
-                    c.this.hud.release();
+                    c.this.hwU.release();
                 } else {
                     Log.e("TextureMovieEncoder", "failed to initialize AudioRecord");
                 }
             } catch (Exception e3) {
                 Log.e("TextureMovieEncoder", "AudioThread#run", e3);
-                if (c.this.gAg != null) {
-                    c.this.gAg.Q(16, com.baidu.tieba.i.a.g(e3));
+                if (c.this.gCP != null) {
+                    c.this.gCP.Q(16, com.baidu.tieba.i.a.g(e3));
                 }
             }
-            synchronized (c.this.huo) {
-                c.this.hup = true;
-                c.this.huo.notify();
+            synchronized (c.this.hxf) {
+                c.this.hxg = true;
+                c.this.hxf.notify();
             }
         }
     }
 
-    protected long bLJ() {
+    protected long bMv() {
         long nanoTime = System.nanoTime();
-        if (this.huh != 0) {
-            if (this.hui == 0) {
-                this.hui = nanoTime;
+        if (this.hwY != 0) {
+            if (this.hwZ == 0) {
+                this.hwZ = nanoTime;
             }
-            nanoTime = (nanoTime - this.hui) + this.huh;
+            nanoTime = (nanoTime - this.hwZ) + this.hwY;
         }
         long j = nanoTime / 1000;
-        if (j < this.hut) {
-            j += this.hut - j;
+        if (j < this.hxk) {
+            j += this.hxk - j;
         }
-        if (j == this.hut) {
+        if (j == this.hxk) {
             j += 100;
         }
-        this.hut = j;
+        this.hxk = j;
         return j;
+    }
+
+    public void setOnEncoderStatusUpdateListener(InterfaceC0167c interfaceC0167c) {
+        this.hwX = interfaceC0167c;
     }
 }

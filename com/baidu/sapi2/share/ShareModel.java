@@ -124,14 +124,14 @@ public class ShareModel implements Parcelable {
     public void a(Context context) {
         ArrayList arrayList = new ArrayList();
         for (SapiAccount sapiAccount : a()) {
-            arrayList.add(c.a(context, sapiAccount));
+            arrayList.add(b.a(context, sapiAccount));
         }
         a(arrayList);
         if (this.a != null) {
-            this.a = c.a(context, this.a);
+            this.a = b.a(context, this.a);
         }
         if (!TextUtils.isEmpty(this.d)) {
-            this.d = c.a(context, this.d);
+            this.d = b.a(context, this.d);
         }
     }
 
@@ -139,14 +139,14 @@ public class ShareModel implements Parcelable {
     public void b(Context context) {
         ArrayList arrayList = new ArrayList();
         for (SapiAccount sapiAccount : a()) {
-            arrayList.add(c.b(context, sapiAccount));
+            arrayList.add(b.b(context, sapiAccount));
         }
         a(arrayList);
         if (this.a != null) {
-            this.a = c.b(context, this.a);
+            this.a = b.b(context, this.a);
         }
         if (!TextUtils.isEmpty(this.d)) {
-            this.d = c.b(context, this.d);
+            this.d = b.b(context, this.d);
         }
     }
 

@@ -38,21 +38,21 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.card.a<l> {
-    private boolean ajn;
-    private final View.OnClickListener anO;
-    private final View.OnClickListener aob;
-    private HeadPendantClickableView bZa;
-    private View bZd;
-    private l bZe;
-    private View.OnClickListener bZf;
-    public ThreadCommentAndPraiseInfoLayout bvH;
-    protected LinearLayout bvK;
-    public PlayVoiceBntNew caI;
-    private TextView caK;
-    private ConstrainImageGroup caL;
-    private final View.OnClickListener caO;
-    public ConcernThreadUserInfoLayout dnH;
-    private View dnK;
+    private boolean ajh;
+    private final View.OnClickListener anQ;
+    private final View.OnClickListener aod;
+    private HeadPendantClickableView bZe;
+    private View bZh;
+    private l bZi;
+    private View.OnClickListener bZj;
+    public ThreadCommentAndPraiseInfoLayout bvI;
+    protected LinearLayout bvL;
+    public PlayVoiceBntNew caM;
+    private TextView caO;
+    private ConstrainImageGroup caP;
+    private final View.OnClickListener caS;
+    public ConcernThreadUserInfoLayout doN;
+    private View doQ;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
     private TextView mTitle;
@@ -60,114 +60,114 @@ public class b extends com.baidu.tieba.card.a<l> {
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.ajn = true;
-        this.bZf = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.b.3
+        this.ajh = true;
+        this.bZj = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.abs() != null) {
-                    b.this.abs().a(view, b.this.bZe);
+                if (b.this.abt() != null) {
+                    b.this.abt().a(view, b.this.bZi);
                 }
-                b.this.abK();
+                b.this.abN();
             }
         };
-        this.caO = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.b.4
+        this.caS = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                v<l> abs = b.this.abs();
-                if (abs != null) {
+                v<l> abt = b.this.abt();
+                if (abt != null) {
                     view.setTag("2");
-                    abs.a(view, b.this.bZe);
+                    abt.a(view, b.this.bZi);
                 }
             }
         };
-        this.aob = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.b.5
+        this.aod = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.b.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.abs() != null) {
-                    b.this.abs().a(view, b.this.bZe);
+                if (b.this.abt() != null) {
+                    b.this.abt().a(view, b.this.bZi);
                 }
             }
         };
-        this.anO = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.b.6
+        this.anQ = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.b.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.abs() != null) {
-                    b.this.abs().a(view, b.this.bZe);
+                if (b.this.abt() != null) {
+                    b.this.abt().a(view, b.this.bZi);
                 }
             }
         };
         View view = getView();
         this.mPageContext = tbPageContext;
         this.currentPageType = 1;
-        this.bZa = (HeadPendantClickableView) view.findViewById(d.g.card_concern_normal_thread_user_pendant_header);
-        if (this.bZa.getHeadView() != null) {
-            this.bZa.getHeadView().setIsRound(true);
-            this.bZa.getHeadView().setDrawBorder(false);
-            this.bZa.getHeadView().setDefaultResource(17170445);
-            this.bZa.getHeadView().setDefaultErrorResource(d.f.icon_default_avatar100);
-            this.bZa.getHeadView().setDefaultBgResource(d.C0082d.cp_bg_line_e);
-            this.bZa.getHeadView().setRadius(com.baidu.adp.lib.util.l.f(this.mPageContext.getPageActivity(), d.e.ds60));
+        this.bZe = (HeadPendantClickableView) view.findViewById(d.g.card_concern_normal_thread_user_pendant_header);
+        if (this.bZe.getHeadView() != null) {
+            this.bZe.getHeadView().setIsRound(true);
+            this.bZe.getHeadView().setDrawBorder(false);
+            this.bZe.getHeadView().setDefaultResource(17170445);
+            this.bZe.getHeadView().setDefaultErrorResource(d.f.icon_default_avatar100);
+            this.bZe.getHeadView().setDefaultBgResource(d.C0096d.cp_bg_line_e);
+            this.bZe.getHeadView().setRadius(com.baidu.adp.lib.util.l.f(this.mPageContext.getPageActivity(), d.e.ds60));
         }
-        if (this.bZa.getPendantView() != null) {
-            this.bZa.getPendantView().setIsRound(true);
-            this.bZa.getPendantView().setDrawBorder(false);
+        if (this.bZe.getPendantView() != null) {
+            this.bZe.getPendantView().setIsRound(true);
+            this.bZe.getPendantView().setDrawBorder(false);
         }
         this.mTitle = (TextView) view.findViewById(d.g.card_concern_normal_thread_title);
-        this.caI = (PlayVoiceBntNew) view.findViewById(d.g.card_concern_normal_thread_abstract_voice);
-        this.caI.setAfterClickListener(this.caO);
-        this.caK = (TextView) view.findViewById(d.g.card_concern_normal_thread_abstract);
-        this.caK.setVisibility(8);
-        this.caL = (ConstrainImageGroup) view.findViewById(d.g.card_concern_normal_thread_img_layout);
-        this.bZd = view.findViewById(d.g.divider_line);
+        this.caM = (PlayVoiceBntNew) view.findViewById(d.g.card_concern_normal_thread_abstract_voice);
+        this.caM.setAfterClickListener(this.caS);
+        this.caO = (TextView) view.findViewById(d.g.card_concern_normal_thread_abstract);
+        this.caO.setVisibility(8);
+        this.caP = (ConstrainImageGroup) view.findViewById(d.g.card_concern_normal_thread_img_layout);
+        this.bZh = view.findViewById(d.g.divider_line);
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds16);
-        this.caL.setChildClickListener(this.bZf);
-        this.caL.setImageMargin(dimensionPixelSize);
+        this.caP.setChildClickListener(this.bZj);
+        this.caP.setImageMargin(dimensionPixelSize);
         com.baidu.tbadk.widget.layout.f fVar = new com.baidu.tbadk.widget.layout.f(3);
         fVar.e(1.0d);
-        this.caL.setImageProcessor(fVar);
-        this.bvH = (ThreadCommentAndPraiseInfoLayout) view.findViewById(d.g.card_concern_normal_thread_info_layout);
-        this.dnH = (ConcernThreadUserInfoLayout) view.findViewById(d.g.card_concern_normal_thread_user_info_layout);
-        if (this.bvH.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bvH.getLayoutParams();
+        this.caP.setImageProcessor(fVar);
+        this.bvI = (ThreadCommentAndPraiseInfoLayout) view.findViewById(d.g.card_concern_normal_thread_info_layout);
+        this.doN = (ConcernThreadUserInfoLayout) view.findViewById(d.g.card_concern_normal_thread_user_info_layout);
+        if (this.bvI.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bvI.getLayoutParams();
             layoutParams.rightMargin = 0;
-            this.bvH.setLayoutParams(layoutParams);
+            this.bvI.setLayoutParams(layoutParams);
         }
-        this.bvH.setOnClickListener(this.bZf);
-        this.bvH.setReplyTimeVisible(false);
-        this.bvH.setIsBarViewVisible(false);
-        this.bvH.setShowPraiseNum(true);
-        this.bvH.setNeedAddPraiseIcon(true);
-        this.bvH.setNeedAddReplyIcon(true);
-        this.bvH.setShareVisible(true);
-        this.bvH.setShareReportFrom(4);
-        this.bvH.anM = this.currentPageType;
-        this.bvH.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.b.1
+        this.bvI.setOnClickListener(this.bZj);
+        this.bvI.setReplyTimeVisible(false);
+        this.bvI.setIsBarViewVisible(false);
+        this.bvI.setShowPraiseNum(true);
+        this.bvI.setNeedAddPraiseIcon(true);
+        this.bvI.setNeedAddReplyIcon(true);
+        this.bvI.setShareVisible(true);
+        this.bvI.setShareReportFrom(4);
+        this.bvI.anO = this.currentPageType;
+        this.bvI.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.abs() != null) {
-                    b.this.abs().a(view2, b.this.bZe);
+                if (b.this.abt() != null) {
+                    b.this.abt().a(view2, b.this.bZi);
                 }
             }
         });
-        this.bvK = (LinearLayout) view.findViewById(d.g.card_concern_normal_thread_content_layout);
-        this.dnK = view.findViewById(d.g.no_image_divider_line);
+        this.bvL = (LinearLayout) view.findViewById(d.g.card_concern_normal_thread_content_layout);
+        this.doQ = view.findViewById(d.g.no_image_divider_line);
     }
 
     public void setSingleImageRatio(double d) {
-        if (this.caL != null) {
-            this.caL.setSingleImageRatio(d);
+        if (this.caP != null) {
+            this.caP.setSingleImageRatio(d);
         }
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.b> bVar) {
-        if (this.caL != null) {
-            this.caL.setConstrainLayoutPool(bVar);
+        if (this.caP != null) {
+            this.caP.setConstrainLayoutPool(bVar);
         }
     }
 
     public void setConstrainImagePool(com.baidu.adp.lib.e.b<TbImageView> bVar) {
-        if (this.caL != null) {
-            this.caL.setImageViewPool(bVar);
+        if (this.caP != null) {
+            this.caP.setImageViewPool(bVar);
         }
     }
 
@@ -175,10 +175,10 @@ public class b extends com.baidu.tieba.card.a<l> {
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             aj.j(getView(), d.f.addresslist_item_bg);
-            this.caL.onChangeSkinType();
-            this.bvH.onChangeSkinType();
-            this.dnH.onChangeSkinType();
-            aj.k(this.bZd, d.C0082d.cp_bg_line_e);
+            this.caP.onChangeSkinType();
+            this.bvI.onChangeSkinType();
+            this.doN.onChangeSkinType();
+            aj.k(this.bZh, d.C0096d.cp_bg_line_e);
         }
         this.mSkinType = i;
     }
@@ -199,107 +199,107 @@ public class b extends com.baidu.tieba.card.a<l> {
             }
             return;
         }
-        this.bZe = lVar;
+        this.bZi = lVar;
         if (getView() != null) {
             getView().setVisibility(0);
-            getView().setOnClickListener(this.bZf);
+            getView().setOnClickListener(this.bZj);
         }
-        this.dnH.setData(lVar.threadData);
+        this.doN.setData(lVar.threadData);
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (!abw() && k.jR(this.bZe.threadData.getId())) {
-            k.a(this.mTitle, this.bZe.Ox().getId(), d.C0082d.cp_cont_b, d.C0082d.cp_cont_d);
-            k.a(this.caK, this.bZe.threadData.getId(), d.C0082d.cp_cont_f, d.C0082d.cp_cont_d);
+        if (!abx() && k.jP(this.bZi.threadData.getId())) {
+            k.a(this.mTitle, this.bZi.Ox().getId(), d.C0096d.cp_cont_b, d.C0096d.cp_cont_d);
+            k.a(this.caO, this.bZi.threadData.getId(), d.C0096d.cp_cont_f, d.C0096d.cp_cont_d);
         }
-        this.dnH.setUserAfterClickListener(this.aob);
-        this.bvH.setData(lVar.threadData);
-        this.bvH.setStType(k.rn());
+        this.doN.setUserAfterClickListener(this.aod);
+        this.bvI.setData(lVar.threadData);
+        this.bvI.setStType(k.rl());
         final bd Ox = lVar.Ox();
-        if (this.dnH.getHeaderImg() != null) {
-            if (this.dnH.getIsSimpleThread()) {
-                this.dnH.getHeaderImg().setVisibility(8);
-                this.bZa.setVisibility(8);
-            } else if (Ox.rx() == null || Ox.rx().getPendantData() == null || StringUtils.isNull(Ox.rx().getPendantData().pT())) {
-                this.bZa.setVisibility(8);
-                this.dnH.getHeaderImg().setVisibility(0);
-                this.dnH.getHeaderImg().setData(Ox);
+        if (this.doN.getHeaderImg() != null) {
+            if (this.doN.getIsSimpleThread()) {
+                this.doN.getHeaderImg().setVisibility(8);
+                this.bZe.setVisibility(8);
+            } else if (Ox.rv() == null || Ox.rv().getPendantData() == null || StringUtils.isNull(Ox.rv().getPendantData().pR())) {
+                this.bZe.setVisibility(8);
+                this.doN.getHeaderImg().setVisibility(0);
+                this.doN.getHeaderImg().setData(Ox);
             } else {
-                this.dnH.getHeaderImg().setVisibility(4);
+                this.doN.getHeaderImg().setVisibility(4);
             }
         }
-        z(Ox);
-        ArrayList<VoiceData.VoiceModel> rM = lVar.threadData.rM();
-        if (com.baidu.tbadk.core.util.v.w(rM)) {
-            this.caI.setVisibility(8);
-            dR(false);
+        B(Ox);
+        ArrayList<VoiceData.VoiceModel> rK = lVar.threadData.rK();
+        if (com.baidu.tbadk.core.util.v.w(rK)) {
+            this.caM.setVisibility(8);
+            dS(false);
             z = false;
         } else {
-            this.caI.setVisibility(0);
-            dR(true);
-            VoiceData.VoiceModel voiceModel = rM.get(0);
-            this.caI.setVoiceModel(voiceModel);
-            this.caI.setTag(voiceModel);
-            this.caI.blz();
+            this.caM.setVisibility(0);
+            dS(true);
+            VoiceData.VoiceModel voiceModel = rK.get(0);
+            this.caM.setVoiceModel(voiceModel);
+            this.caM.setTag(voiceModel);
+            this.caM.bmf();
             if (voiceModel != null) {
-                this.caI.nM(voiceModel.voice_status.intValue());
+                this.caM.nT(voiceModel.voice_status.intValue());
             }
             z = true;
         }
-        if (this.bZe.cdF && z) {
-            this.caL.setVisibility(8);
-            this.dnK.setVisibility(0);
+        if (this.bZi.cdT && z) {
+            this.caP.setVisibility(8);
+            this.doQ.setVisibility(0);
         } else {
-            ArrayList<MediaData> rI = lVar.threadData.rI();
-            if (h.pa().pg() && com.baidu.tbadk.core.util.v.v(rI) != 0) {
+            ArrayList<MediaData> rG = lVar.threadData.rG();
+            if (h.oY().pe() && com.baidu.tbadk.core.util.v.v(rG) != 0) {
                 final LinkedList linkedList = new LinkedList();
-                for (int i = 0; i < rI.size(); i++) {
-                    MediaData mediaData = (MediaData) com.baidu.tbadk.core.util.v.c(rI, i);
+                for (int i = 0; i < rG.size(); i++) {
+                    MediaData mediaData = (MediaData) com.baidu.tbadk.core.util.v.c(rG, i);
                     if (mediaData != null && mediaData.getType() == 3) {
                         linkedList.add(mediaData);
                     }
                 }
                 if (com.baidu.tbadk.core.util.v.v(linkedList) > 0) {
-                    this.caL.setVisibility(0);
-                    this.dnK.setVisibility(8);
-                    this.caL.setFromCDN(this.ajn);
-                    this.caL.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.homepage.concern.view.b.2
+                    this.caP.setVisibility(0);
+                    this.doQ.setVisibility(8);
+                    this.caP.setFromCDN(this.ajh);
+                    this.caP.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.homepage.concern.view.b.2
                         @Override // com.baidu.tbadk.widget.layout.d
                         public void c(View view, int i2, boolean z2) {
-                            v<l> abs = b.this.abs();
-                            if (abs != null) {
+                            v<l> abt = b.this.abt();
+                            if (abt != null) {
                                 view.setTag("1");
-                                abs.a(view, b.this.bZe);
+                                abt.a(view, b.this.bZi);
                             }
                             if (z2) {
-                                b.this.abK();
+                                b.this.abN();
                             } else {
                                 b.this.a(view, linkedList, i2, Ox);
                             }
                         }
                     });
-                    this.caL.setImageMediaList(linkedList);
+                    this.caP.setImageMediaList(linkedList);
                 } else {
-                    this.caL.setVisibility(8);
-                    this.dnK.setVisibility(0);
+                    this.caP.setVisibility(8);
+                    this.doQ.setVisibility(0);
                 }
             } else {
-                this.caL.setVisibility(8);
-                this.dnK.setVisibility(0);
+                this.caP.setVisibility(8);
+                this.doQ.setVisibility(0);
             }
         }
-        abJ();
+        abM();
         setPageUniqueId(getTag());
-        anV();
+        aoe();
     }
 
-    private void dR(boolean z) {
-        if (this.caL != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.caL.getLayoutParams();
+    private void dS(boolean z) {
+        if (this.caP != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.caP.getLayoutParams();
             if (z) {
                 layoutParams.topMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds16);
             } else {
                 layoutParams.topMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds10);
             }
-            this.caL.setLayoutParams(layoutParams);
+            this.caP.setLayoutParams(layoutParams);
         }
     }
 
@@ -316,7 +316,7 @@ public class b extends com.baidu.tieba.card.a<l> {
                 arrayList.add(mediaData.getSrc_pic());
                 if (!TextUtils.isEmpty(mediaData.getPicUrl())) {
                     ImageUrlData imageUrlData = new ImageUrlData();
-                    imageUrlData.urlType = this.ajn ? 13 : 14;
+                    imageUrlData.urlType = this.ajh ? 13 : 14;
                     imageUrlData.imageUrl = mediaData.getPicUrl();
                     imageUrlData.originalUrl = mediaData.getOriginalUrl();
                     imageUrlData.originalSize = mediaData.getOriginalSize();
@@ -335,7 +335,7 @@ public class b extends com.baidu.tieba.card.a<l> {
                 }
             }
         }
-        ImageViewerConfig createConfig = new ImageViewerConfig(this.mPageContext.getPageActivity()).createConfig(arrayList, i, bdVar.rD(), String.valueOf(bdVar.getFid()), bdVar.getTid(), this.ajn, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
+        ImageViewerConfig createConfig = new ImageViewerConfig(this.mPageContext.getPageActivity()).createConfig(arrayList, i, bdVar.rB(), String.valueOf(bdVar.getFid()), bdVar.getTid(), this.ajh, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
         createConfig.getIntent().putExtra("from", "frs");
         Rect rect = new Rect();
         view.getGlobalVisibleRect(rect);
@@ -343,17 +343,17 @@ public class b extends com.baidu.tieba.card.a<l> {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
     }
 
-    private void abJ() {
-        if (!this.bZe.aDh) {
-            this.caI.setClickable(false);
+    private void abM() {
+        if (!this.bZi.aDm) {
+            this.caM.setClickable(false);
         } else {
-            this.caI.setClickable(true);
+            this.caM.setClickable(true);
         }
-        int childCount = this.caL.getChildCount();
+        int childCount = this.caP.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            View childAt = this.caL.getChildAt(i);
+            View childAt = this.caP.getChildAt(i);
             if (childAt != null) {
-                if (!this.bZe.aDh) {
+                if (!this.bZi.aDm) {
                     childAt.setClickable(false);
                 } else {
                     childAt.setClickable(true);
@@ -370,53 +370,53 @@ public class b extends com.baidu.tieba.card.a<l> {
 
     private void setPageUniqueId(BdUniqueId bdUniqueId) {
         setTag(bdUniqueId);
-        if (this.caL != null) {
-            this.caL.setPageUniqueId(bdUniqueId);
+        if (this.caP != null) {
+            this.caP.setPageUniqueId(bdUniqueId);
         }
-        if (this.dnH != null) {
-            this.dnH.setPageUniqueId(bdUniqueId);
+        if (this.doN != null) {
+            this.doN.setPageUniqueId(bdUniqueId);
         }
     }
 
     public ClickableHeaderImageView getHeaderImg() {
-        if (this.dnH != null) {
-            return this.dnH.getHeaderImg();
+        if (this.doN != null) {
+            return this.doN.getHeaderImg();
         }
         return null;
     }
 
-    public View abv() {
-        if (this.dnH != null) {
-            return this.dnH.anX;
+    public View abw() {
+        if (this.doN != null) {
+            return this.doN.anZ;
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abK() {
-        if (this.bZe != null && this.bZe.threadData != null) {
-            if (!abw()) {
-                k.jQ(this.bZe.threadData.getId());
-                k.a(this.mTitle, this.bZe.Ox().getId(), d.C0082d.cp_cont_b, d.C0082d.cp_cont_d);
-                k.a(this.caK, this.bZe.threadData.getId(), d.C0082d.cp_cont_f, d.C0082d.cp_cont_d);
+    public void abN() {
+        if (this.bZi != null && this.bZi.threadData != null) {
+            if (!abx()) {
+                k.jO(this.bZi.threadData.getId());
+                k.a(this.mTitle, this.bZi.Ox().getId(), d.C0096d.cp_cont_b, d.C0096d.cp_cont_d);
+                k.a(this.caO, this.bZi.threadData.getId(), d.C0096d.cp_cont_f, d.C0096d.cp_cont_d);
             }
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(this.bZe.threadData, null, k.rn(), 18005, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(this.bZe.threadData.getFid()));
-            createFromThreadCfg.setForumName(this.bZe.threadData.rD());
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(this.bZi.threadData, null, k.rl(), 18005, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(this.bZi.threadData.getFid()));
+            createFromThreadCfg.setForumName(this.bZi.threadData.rB());
             createFromThreadCfg.setStartFrom(this.currentPageType);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
 
-    private boolean abw() {
-        return this.bZe.cdF && !this.bZe.aDh;
+    private boolean abx() {
+        return this.bZi.cdT && !this.bZi.aDm;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
     }
 
-    private boolean z(bd bdVar) {
+    private boolean B(bd bdVar) {
         SpannableStringBuilder g = bdVar.g(false, true);
         if (g == null || StringUtils.isNull(g.toString())) {
             this.mTitle.setVisibility(8);
@@ -424,20 +424,20 @@ public class b extends com.baidu.tieba.card.a<l> {
             this.mTitle.setVisibility(0);
             this.mTitle.setOnTouchListener(new com.baidu.tieba.view.l(g));
             this.mTitle.setText(g);
-            k.a(this.mTitle, bdVar.getId(), d.C0082d.cp_cont_b, d.C0082d.cp_cont_d);
+            k.a(this.mTitle, bdVar.getId(), d.C0096d.cp_cont_b, d.C0096d.cp_cont_d);
         }
         return true;
     }
 
-    private void anV() {
-        if (this.mTitle != null && this.caI != null && this.caL != null && this.mContext != null && this.mTitle.getVisibility() == 8) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.caI.getLayoutParams();
+    private void aoe() {
+        if (this.mTitle != null && this.caM != null && this.caP != null && this.mContext != null && this.mTitle.getVisibility() == 8) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.caM.getLayoutParams();
             layoutParams.topMargin = this.mContext.getResources().getDimensionPixelSize(d.e.ds24);
-            this.caI.setLayoutParams(layoutParams);
-            if (this.caI.getVisibility() == 8) {
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.caL.getLayoutParams();
+            this.caM.setLayoutParams(layoutParams);
+            if (this.caM.getVisibility() == 8) {
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.caP.getLayoutParams();
                 layoutParams2.topMargin = this.mContext.getResources().getDimensionPixelSize(d.e.ds10);
-                this.caL.setLayoutParams(layoutParams2);
+                this.caP.setLayoutParams(layoutParams2);
             }
         }
     }

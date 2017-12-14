@@ -10,51 +10,51 @@ import android.support.v4.view.ViewCompat;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class h extends k {
+    private final Paint Bv = new Paint();
     private final Paint Bw = new Paint();
-    private final Paint Bx = new Paint();
+    private final Rect Bx = new Rect(0, 0, 0, 0);
     private final Rect By = new Rect(0, 0, 0, 0);
-    private final Rect Bz = new Rect(0, 0, 0, 0);
 
     public h() {
-        this.Bw.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.Bw.setStyle(Paint.Style.FILL);
-        this.Bw.setAntiAlias(true);
-        this.Bx.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        this.Bv.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.Bv.setStyle(Paint.Style.FILL);
+        this.Bv.setAntiAlias(true);
+        this.Bw.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
     @Override // com.baidu.adp.b.a.c, com.baidu.adp.b.a.a
     public void b(Canvas canvas, d dVar, ImageView imageView) {
-        if (this.AX != null) {
-            canvas.concat(this.AX);
+        if (this.AW != null) {
+            canvas.concat(this.AW);
         }
         if (dVar.iA()) {
-            Bitmap bitmap = dVar.Bh.getBitmap();
-            if (this.BD) {
+            Bitmap bitmap = dVar.Bg.getBitmap();
+            if (this.BC) {
                 a(canvas, bitmap);
                 return;
             }
-            this.Bz.set(0, 0, dVar.getWidth(), dVar.getHeight());
-            dVar.Bi.a(canvas, this.Bz, this.AY, this.mPaint);
+            this.By.set(0, 0, dVar.getWidth(), dVar.getHeight());
+            dVar.Bh.a(canvas, this.By, this.AX, this.mPaint);
         } else if (dVar.iB()) {
-            if (this.BD) {
-                a(canvas, dVar.Bi.kK());
+            if (this.BC) {
+                a(canvas, dVar.Bh.kK());
                 return;
             }
-            this.Bz.set(0, 0, dVar.getWidth(), dVar.getHeight());
-            dVar.Bi.a(canvas, this.Bz, this.AY, this.mPaint);
+            this.By.set(0, 0, dVar.getWidth(), dVar.getHeight());
+            dVar.Bh.a(canvas, this.By, this.AX, this.mPaint);
         } else {
-            this.Bz.set(0, 0, dVar.getWidth(), dVar.getHeight());
-            dVar.Bi.a(canvas, this.Bz, this.AY, this.mPaint);
+            this.By.set(0, 0, dVar.getWidth(), dVar.getHeight());
+            dVar.Bh.a(canvas, this.By, this.AX, this.mPaint);
         }
     }
 
     protected void a(Canvas canvas, Bitmap bitmap) {
-        this.Bz.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-        this.By.set(0, 0, (int) this.AY.width(), (int) this.AY.height());
+        this.By.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        this.Bx.set(0, 0, (int) this.AX.width(), (int) this.AX.height());
         canvas.save();
         canvas.drawARGB(0, 0, 0, 0);
-        canvas.drawPath(this.BA, this.Bw);
-        canvas.drawBitmap(bitmap, this.Bz, this.AY, this.Bx);
+        canvas.drawPath(this.Bz, this.Bv);
+        canvas.drawBitmap(bitmap, this.By, this.AX, this.Bw);
         canvas.restore();
     }
 }

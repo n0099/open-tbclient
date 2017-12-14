@@ -12,7 +12,7 @@ public class c {
         }
         switch (iBaseDialogData.getType()) {
             case 1:
-                ak akVar = new ak(b.a.eMm);
+                ak akVar = new ak(b.a.eNp);
                 int i = 0;
                 switch (iBaseDialogData.getFrom()) {
                     case 0:

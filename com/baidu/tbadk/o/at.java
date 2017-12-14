@@ -2,7 +2,12 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class at extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
+    protected void W(int i) {
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return "both_video_download";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -16,17 +21,12 @@ public class at extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eP() {
-        return 10;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "android_video_http_dns_open";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected int eO() {
         return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eP() {
+        return 10;
     }
 }

@@ -1,6 +1,5 @@
 package com.xiaomi.xmpush.thrift;
 
-import com.baidu.sapi2.SapiSafeFacade;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.BitSet;
@@ -352,7 +351,7 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
                         org.apache.thrift.protocol.h.a(eVar, i.b);
                         break;
                     }
-                case SapiSafeFacade.SAPIWEBVIEW_BACK /* 102 */:
+                case 102:
                     if (i.b == 11) {
                         this.w = eVar.w();
                         break;

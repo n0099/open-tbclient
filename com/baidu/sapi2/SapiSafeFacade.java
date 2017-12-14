@@ -1,23 +1,26 @@
 package com.baidu.sapi2;
 
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import android.util.Pair;
+import com.baidu.sapi2.base.debug.Log;
+import com.baidu.sapi2.callback.SafeBindDeviceCallback;
 import com.baidu.sapi2.callback.SafeFacadeCallback;
+import com.baidu.sapi2.passhost.framework.PluginFacade;
+import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
+import com.baidu.sapi2.passhost.pluginsdk.AbsPassPiSafe;
+import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
+import com.baidu.sapi2.result.SafeBindDeviceResult;
 import com.baidu.sapi2.result.SafeFacadeResult;
-import org.json.JSONObject;
+import com.baidu.sapi2.result.SapiResult;
+import com.baidu.sofire.ac.Callback;
+import com.baidu.sofire.ac.FH;
 /* loaded from: classes.dex */
 public final class SapiSafeFacade {
-    public static final int SAPIWEBVIEW_AUTHORIZATION = 104;
-    public static final int SAPIWEBVIEW_BACK = 102;
-    public static final int SAPIWEBVIEW_BIND_WIDGET = 111;
-    public static final int SAPIWEBVIEW_FAST_REG = 110;
-    public static final int SAPIWEBVIEW_FINISH = 103;
-    public static final int SAPIWEBVIEW_INITED = 101;
-    public static final int SAPIWEBVIEW_LOGIN = 107;
-    public static final int SAPIWEBVIEW_MODIFY_PWD = 106;
-    public static final int SAPIWEBVIEW_REALNAME_AUTHENTICATE = 105;
-    public static final int SAPIWEBVIEW_REG = 109;
-    public static final int SAPIWEBVIEW_SMS_LOGIN = 108;
-    public static final int SOFIRE_MODULE_ID = 1;
-    private static SapiSafeFacade a;
+    private static final String a = "SapiSafeFacade";
+    private static SapiSafeFacade b;
 
     private SapiSafeFacade() {
     }
@@ -26,80 +29,226 @@ public final class SapiSafeFacade {
     public static synchronized SapiSafeFacade a() {
         SapiSafeFacade sapiSafeFacade;
         synchronized (SapiSafeFacade.class) {
-            if (a == null) {
-                a = new SapiSafeFacade();
+            if (b == null) {
+                b = new SapiSafeFacade();
             }
-            sapiSafeFacade = a;
+            sapiSafeFacade = b;
         }
         return sapiSafeFacade;
     }
 
     public void checkSafeAsync(String str, String str2, int i, SafeFacadeCallback safeFacadeCallback) {
-        if (str == null) {
-            throw new IllegalArgumentException("uid can't be null");
-        }
         if (safeFacadeCallback == null) {
             throw new IllegalArgumentException(SafeFacadeResult.class.getSimpleName() + " can't be null");
         }
         SafeFacadeResult safeFacadeResult = new SafeFacadeResult();
-        safeFacadeCallback.onStart();
-        safeFacadeResult.safeItems = null;
-        safeFacadeResult.setResultCode(-1);
-        safeFacadeCallback.onFailure(safeFacadeResult);
-        safeFacadeCallback.onFinish();
+        ThreadPoolService.getInstance().runInUiThread(new TPRunnable(new AnonymousClass1(safeFacadeCallback, SapiAccountManager.getInstance().getSapiConfiguration(), safeFacadeResult, str, str2, i)));
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: com.baidu.sapi2.SapiSafeFacade$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static class a {
-        static final String a = "0";
-        static final String b = "1";
-        static final String c = "2";
-        static final String d = "3";
-        static final String e = "4";
-        static final String f = "5";
-        static final String g = "6";
-        static final String h = "7";
-        static final String i = "8";
-        static final String j = "9";
-        static final String k = "10";
-        static final String l = "11";
-        static final String m = "12";
-        static final String n = "13";
-        public String A;
-        public String B;
-        public String o;
-        public String p;
-        public String q;
-        public String r;
-        public String s;
-        public String t;
-        public String u;
-        public String v;
-        public String w;
-        public String x;
-        public String y;
-        public String z;
+    public class AnonymousClass1 implements Runnable {
+        final /* synthetic */ SafeFacadeCallback a;
+        final /* synthetic */ SapiConfiguration b;
+        final /* synthetic */ SafeFacadeResult c;
+        final /* synthetic */ String d;
+        final /* synthetic */ String e;
+        final /* synthetic */ int f;
 
-        public static a a(JSONObject jSONObject) {
-            if (jSONObject == null) {
-                return null;
-            }
-            a aVar = new a();
-            aVar.o = jSONObject.optString("0");
-            aVar.p = jSONObject.optString("1");
-            aVar.q = jSONObject.optString("2");
-            aVar.r = jSONObject.optString("3");
-            aVar.s = jSONObject.optString(e);
-            aVar.t = jSONObject.optString(f);
-            aVar.u = jSONObject.optString(g);
-            aVar.v = jSONObject.optString(h);
-            aVar.w = jSONObject.optString(i);
-            aVar.x = jSONObject.optString(j);
-            aVar.y = jSONObject.optString(k);
-            aVar.z = jSONObject.optString(l);
-            aVar.A = jSONObject.optString(m);
-            aVar.B = jSONObject.optString(n);
-            return aVar;
+        AnonymousClass1(SafeFacadeCallback safeFacadeCallback, SapiConfiguration sapiConfiguration, SafeFacadeResult safeFacadeResult, String str, String str2, int i) {
+            this.a = safeFacadeCallback;
+            this.b = sapiConfiguration;
+            this.c = safeFacadeResult;
+            this.d = str;
+            this.e = str2;
+            this.f = i;
         }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            this.a.onStart();
+            if (!SapiContext.getInstance(this.b.context).getSofireSdkEnabled()) {
+                this.c.safeItems = null;
+                this.c.setResultCode(-1);
+                this.a.onFailure(this.c);
+                this.a.onFinish();
+                return;
+            }
+            ThreadPoolService.getInstance().runImport(new TPRunnable(new RunnableC00321()));
+        }
+
+        /* renamed from: com.baidu.sapi2.SapiSafeFacade$1$1  reason: invalid class name and collision with other inner class name */
+        /* loaded from: classes.dex */
+        class RunnableC00321 implements Runnable {
+            RunnableC00321() {
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                try {
+                    AbsPassPiSafe absPassPiSafe = PluginFacade.getAbsPassPiSafe();
+                    if (absPassPiSafe == null) {
+                        Log.e(SapiSafeFacade.a, "checkSafeAsync() no absPassSafe");
+                        ThreadPoolService.getInstance().runInUiThread(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiSafeFacade.1.1.1
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                AnonymousClass1.this.c.safeItems = null;
+                                AnonymousClass1.this.c.setResultCode(-2);
+                                AnonymousClass1.this.a.onFailure(AnonymousClass1.this.c);
+                                AnonymousClass1.this.a.onFinish();
+                            }
+                        }));
+                    } else {
+                        Log.d(SapiSafeFacade.a, "checkSafeAsync() do check");
+                        absPassPiSafe.checkSafeAsync(AnonymousClass1.this.d, AnonymousClass1.this.e, AnonymousClass1.this.f, new AbsPassPiSafe.ISafeCallback() { // from class: com.baidu.sapi2.SapiSafeFacade.1.1.2
+                            @Override // com.baidu.sapi2.passhost.pluginsdk.AbsPassPiSafe.ISafeCallback
+                            public void onFinished(Pair<Integer, Object> pair, final Pair<Integer, Object> pair2) {
+                                if (pair2 == null) {
+                                    ThreadPoolService.getInstance().runInUiThread(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiSafeFacade.1.1.2.1
+                                        @Override // java.lang.Runnable
+                                        public void run() {
+                                            AnonymousClass1.this.c.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                                            AnonymousClass1.this.a.onFailure(AnonymousClass1.this.c);
+                                            AnonymousClass1.this.a.onFinish();
+                                        }
+                                    }));
+                                    return;
+                                }
+                                AnonymousClass1.this.c.setResultCode(((Integer) pair2.first).intValue());
+                                AnonymousClass1.this.c.safeItems = pair2;
+                                ThreadPoolService.getInstance().runInUiThread(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiSafeFacade.1.1.2.2
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        if (((Integer) pair2.first).intValue() == 0) {
+                                            AnonymousClass1.this.a.onSuccess(AnonymousClass1.this.c);
+                                        } else {
+                                            AnonymousClass1.this.a.onFailure(AnonymousClass1.this.c);
+                                        }
+                                        AnonymousClass1.this.a.onFinish();
+                                    }
+                                }));
+                            }
+                        });
+                        Log.d(SapiSafeFacade.a, "checkSafeAsync() do check end");
+                    }
+                } catch (Throwable th) {
+                    Log.e(SapiSafeFacade.a, "checkSafeAsync()", th.toString());
+                    ThreadPoolService.getInstance().runInUiThread(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiSafeFacade.1.1.3
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            AnonymousClass1.this.c.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                            AnonymousClass1.this.a.onFailure(AnonymousClass1.this.c);
+                            AnonymousClass1.this.a.onFinish();
+                        }
+                    }));
+                }
+            }
+        }
+    }
+
+    public void bindDeviceAsync(String str, int i, String str2, int i2, SafeBindDeviceCallback safeBindDeviceCallback) {
+        if (TextUtils.isEmpty(str)) {
+            throw new IllegalArgumentException("uid can't be null or empty");
+        }
+        if (safeBindDeviceCallback == null) {
+            throw new IllegalArgumentException(SafeBindDeviceCallback.class.getSimpleName() + " can't be null");
+        }
+        SafeBindDeviceResult safeBindDeviceResult = new SafeBindDeviceResult();
+        SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+        SapiContext.getInstance(sapiConfiguration.context).setSofireZidInited(false);
+        new Handler(Looper.getMainLooper()).post(new AnonymousClass2(safeBindDeviceCallback, sapiConfiguration, safeBindDeviceResult, str2, i2, str, i));
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: com.baidu.sapi2.SapiSafeFacade$2  reason: invalid class name */
+    /* loaded from: classes.dex */
+    public class AnonymousClass2 implements Runnable {
+        final /* synthetic */ SafeBindDeviceCallback a;
+        final /* synthetic */ SapiConfiguration b;
+        final /* synthetic */ SafeBindDeviceResult c;
+        final /* synthetic */ String d;
+        final /* synthetic */ int e;
+        final /* synthetic */ String f;
+        final /* synthetic */ int g;
+
+        AnonymousClass2(SafeBindDeviceCallback safeBindDeviceCallback, SapiConfiguration sapiConfiguration, SafeBindDeviceResult safeBindDeviceResult, String str, int i, String str2, int i2) {
+            this.a = safeBindDeviceCallback;
+            this.b = sapiConfiguration;
+            this.c = safeBindDeviceResult;
+            this.d = str;
+            this.e = i;
+            this.f = str2;
+            this.g = i2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            this.a.onStart();
+            if (!SapiContext.getInstance(this.b.context).getSofireSdkEnabled()) {
+                this.c.setResultCode(-1);
+                this.c.sofireZid = null;
+                this.a.onFailure(this.c);
+                this.a.onFinish();
+                return;
+            }
+            try {
+                final Callback callback = new Callback() { // from class: com.baidu.sapi2.SapiSafeFacade.2.1
+                    @Override // com.baidu.sofire.ac.Callback
+                    public Object onEnd(final Object... objArr) {
+                        new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.SapiSafeFacade.2.1.1
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                if ((objArr[0] instanceof String) && !TextUtils.isEmpty(String.valueOf(objArr))) {
+                                    AnonymousClass2.this.c.sofireZid = String.valueOf(objArr[0]);
+                                    AnonymousClass2.this.c.setResultCode(0);
+                                    SapiContext.getInstance(AnonymousClass2.this.b.context).setSofireZidInited(true);
+                                    AnonymousClass2.this.a.onSuccess(AnonymousClass2.this.c);
+                                } else {
+                                    AnonymousClass2.this.c.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                                    AnonymousClass2.this.a.onFailure(AnonymousClass2.this.c);
+                                }
+                                AnonymousClass2.this.a.onFinish();
+                            }
+                        });
+                        return super.onEnd(objArr);
+                    }
+
+                    @Override // com.baidu.sofire.ac.Callback
+                    public Object onError(Object... objArr) {
+                        AnonymousClass2.this.c.setResultCode(Integer.parseInt(String.valueOf(objArr[0])));
+                        new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.SapiSafeFacade.2.1.2
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                AnonymousClass2.this.a.onFailure(AnonymousClass2.this.c);
+                                AnonymousClass2.this.a.onFinish();
+                            }
+                        });
+                        return super.onError(objArr);
+                    }
+                };
+                ThreadPoolService.getInstance().runImport(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiSafeFacade.2.2
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        FH.call(1, AnonymousClass2.this.d, callback, new Class[]{Integer.TYPE, String.class, Integer.TYPE}, Integer.valueOf(AnonymousClass2.this.e), AnonymousClass2.this.f, Integer.valueOf(AnonymousClass2.this.g));
+                    }
+                }));
+            } catch (Throwable th) {
+                Log.e(th);
+                new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.SapiSafeFacade.2.3
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        AnonymousClass2.this.c.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                        AnonymousClass2.this.a.onFailure(AnonymousClass2.this.c);
+                        AnonymousClass2.this.a.onFinish();
+                    }
+                });
+            }
+        }
+    }
+
+    public String getCurrentZid(Context context) {
+        String gz = FH.gz(context);
+        return TextUtils.isEmpty(gz) ? "NoZidYet" : gz;
     }
 }

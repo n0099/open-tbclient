@@ -24,11 +24,11 @@ import com.baidu.tieba.im.data.InviteMsgData;
 import com.baidu.tieba.im.memorycache.b;
 /* loaded from: classes.dex */
 public final class Invite2GroupView extends LinearLayout {
-    private TextView axe;
-    private TbImageView dVp;
-    private TextView dVq;
-    private TextView dVr;
-    private InviteMsgData dVs;
+    private TextView axj;
+    private TbImageView dWu;
+    private TextView dWv;
+    private TextView dWw;
+    private InviteMsgData dWx;
 
     public Invite2GroupView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -43,11 +43,11 @@ public final class Invite2GroupView extends LinearLayout {
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(d.h.invite_to_group_view, this);
         setOrientation(1);
-        this.axe = (TextView) findViewById(d.g.chat_title);
-        this.dVp = (TbImageView) findViewById(d.g.chat_group_img);
-        this.dVq = (TextView) findViewById(d.g.chat_group_desc);
-        this.dVr = (TextView) findViewById(d.g.invite_btn);
-        this.dVp.setIsRound(false);
+        this.axj = (TextView) findViewById(d.g.chat_title);
+        this.dWu = (TbImageView) findViewById(d.g.chat_group_img);
+        this.dWv = (TextView) findViewById(d.g.chat_group_desc);
+        this.dWw = (TextView) findViewById(d.g.invite_btn);
+        this.dWu.setIsRound(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,29 +58,29 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     public void a(TbPageContext<?> tbPageContext, InviteMsgData inviteMsgData) {
-        this.dVs = inviteMsgData;
+        this.dWx = inviteMsgData;
         o(tbPageContext);
     }
 
     private void o(final TbPageContext<?> tbPageContext) {
-        this.dVr.setEnabled(true);
-        this.dVr.setTag(String.valueOf(this.dVs.getGroupId()));
-        this.dVr.setText(d.j.i_want_attent);
-        this.dVr.setTextColor(getContext().getResources().getColor(d.C0082d.cp_bg_line_d));
-        this.dVr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.1
+        this.dWw.setEnabled(true);
+        this.dWw.setTag(String.valueOf(this.dWx.getGroupId()));
+        this.dWw.setText(d.j.i_want_attent);
+        this.dWw.setTextColor(getContext().getResources().getColor(d.C0096d.cp_bg_line_d));
+        this.dWw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new ApplyJoinGroupActivityConfig(Invite2GroupView.this.dVr.getContext(), "" + Invite2GroupView.this.dVs.getGroupId(), Invite2GroupView.this.dVs.getFromUid(), Invite2GroupView.this.dVs.getText())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new ApplyJoinGroupActivityConfig(Invite2GroupView.this.dWw.getContext(), "" + Invite2GroupView.this.dWx.getGroupId(), Invite2GroupView.this.dWx.getFromUid(), Invite2GroupView.this.dWx.getText())));
             }
         });
-        this.axe.setText(this.dVs.getTitle());
-        this.dVp.setTag(this.dVs.getPortrait());
-        this.dVp.startLoad(this.dVs.getPortrait(), 10, false);
-        this.dVq.setText(this.dVs.getNotice());
+        this.axj.setText(this.dWx.getTitle());
+        this.dWu.setTag(this.dWx.getPortrait());
+        this.dWu.startLoad(this.dWx.getPortrait(), 10, false);
+        this.dWv.setText(this.dWx.getNotice());
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(Invite2GroupView.this.getContext(), Invite2GroupView.this.dVs.getGroupId(), 7, Invite2GroupView.this.dVs.getText(), Invite2GroupView.this.dVs.getFromUid());
+                GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(Invite2GroupView.this.getContext(), Invite2GroupView.this.dWx.getGroupId(), 7, Invite2GroupView.this.dWx.getText(), Invite2GroupView.this.dWx.getFromUid());
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, groupInfoActivityConfig));
                 } else if (tbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
@@ -88,14 +88,14 @@ public final class Invite2GroupView extends LinearLayout {
                 }
             }
         });
-        if (b.aBG().ah(String.valueOf(this.dVs.getGroupId()), 1) != null) {
-            if (String.valueOf(this.dVs.getGroupId()).equals(this.dVr.getTag())) {
-                this.dVr.setText(d.j.i_want_talk);
-                this.dVr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.3
+        if (b.aBP().ai(String.valueOf(this.dWx.getGroupId()), 1) != null) {
+            if (String.valueOf(this.dWx.getGroupId()).equals(this.dWw.getTag())) {
+                this.dWw.setText(d.j.i_want_talk);
+                this.dWw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (Invite2GroupView.this.getContext() instanceof Activity) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig((Activity) Invite2GroupView.this.getContext(), Invite2GroupView.this.dVs.getGroupId(), Invite2GroupView.this.dVs.getGroupName(), Invite2GroupView.this.dVs.getGroupOwnerId(), "invite add group")));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig((Activity) Invite2GroupView.this.getContext(), Invite2GroupView.this.dWx.getGroupId(), Invite2GroupView.this.dWx.getGroupName(), Invite2GroupView.this.dWx.getGroupOwnerId(), "invite add group")));
                         }
                     }
                 });
@@ -103,7 +103,7 @@ public final class Invite2GroupView extends LinearLayout {
             }
             return;
         }
-        com.baidu.tieba.im.settingcache.b.aCX().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.dVs.getGroupId()), 60000L, new h<Boolean>() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.4
+        com.baidu.tieba.im.settingcache.b.aDg().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.dWx.getGroupId()), 60000L, new h<Boolean>() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.h
             public void onReturnDataInUI(Boolean bool) {
@@ -111,8 +111,8 @@ public final class Invite2GroupView extends LinearLayout {
                     bool = false;
                 }
                 if (!bool.booleanValue()) {
-                    Invite2GroupView.this.dVr.setTextColor(Invite2GroupView.this.getContext().getResources().getColor(d.C0082d.common_color_10228));
-                    Invite2GroupView.this.dVr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.4.1
+                    Invite2GroupView.this.dWw.setTextColor(Invite2GroupView.this.getContext().getResources().getColor(d.C0096d.common_color_10228));
+                    Invite2GroupView.this.dWw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.4.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             if (Invite2GroupView.this.getContext() instanceof Activity) {

@@ -10,10 +10,10 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.story.StoryHeaderOutView;
 /* loaded from: classes.dex */
 public class HeadImageEntranceStoryAlaViewGroup extends FrameLayout {
-    public StoryHeaderOutView akC;
-    private HeadImageView akD;
-    private HeadImageView akE;
-    private ImageView akF;
+    private HeadImageView akA;
+    private HeadImageView akB;
+    private ImageView akC;
+    public StoryHeaderOutView akz;
     private View mRootView;
 
     public HeadImageEntranceStoryAlaViewGroup(Context context, AttributeSet attributeSet) {
@@ -29,40 +29,40 @@ public class HeadImageEntranceStoryAlaViewGroup extends FrameLayout {
     private void init() {
         this.mRootView = View.inflate(getContext(), d.h.head_story_ala_live_group, null);
         addView(this.mRootView);
-        this.akC = (StoryHeaderOutView) findViewById(d.g.out_img);
-        this.akC.setIsRound(true);
-        this.akC.setVisibility(0);
-        this.akD = (HeadImageView) findViewById(d.g.front_img);
-        this.akE = (HeadImageView) findViewById(d.g.back_img);
-        this.akD.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.akD.setDrawBorder(false);
-        this.akE.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.akE.setDrawBorder(false);
-        this.akF = (ImageView) findViewById(d.g.ala_live_ing_img);
+        this.akz = (StoryHeaderOutView) findViewById(d.g.out_img);
+        this.akz.setIsRound(true);
+        this.akz.setVisibility(0);
+        this.akA = (HeadImageView) findViewById(d.g.front_img);
+        this.akB = (HeadImageView) findViewById(d.g.back_img);
+        this.akA.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.akA.setDrawBorder(false);
+        this.akB.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.akB.setDrawBorder(false);
+        this.akC = (ImageView) findViewById(d.g.ala_live_ing_img);
     }
 
     public void setLiveIngImgVisible(boolean z) {
-        this.akF.setVisibility(z ? 0 : 8);
+        this.akC.setVisibility(z ? 0 : 8);
     }
 
     public HeadImageView getFrontImg() {
-        return this.akD;
+        return this.akA;
     }
 
     public HeadImageView getBackImg() {
-        return this.akE;
+        return this.akB;
     }
 
     public void setOuterColor(int i) {
-        this.akC.setColor(i);
+        this.akz.setColor(i);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.akC != null) {
-            this.akC.onChangeSkinType(i);
+        if (this.akz != null) {
+            this.akz.onChangeSkinType(i);
         }
-        if (this.akF != null) {
-            aj.b(this.akF, d.f.btn_story_live, i);
+        if (this.akC != null) {
+            aj.b(this.akC, d.f.btn_story_live, i);
         }
     }
 }

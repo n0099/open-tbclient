@@ -14,8 +14,8 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    private final c dnG = new c();
-    private final int bmQ = b.getInstance().getInt("home_page_max_thread_count", 300);
+    private final c doM = new c();
+    private final int bmR = b.getInstance().getInt("home_page_max_thread_count", 300);
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -39,7 +39,7 @@ public class a {
                     l lVar = new l();
                     lVar.threadData = bdVar;
                     linkedList.add(lVar);
-                } else if (n.D(bdVar)) {
+                } else if (n.F(bdVar)) {
                     n nVar = new n(bdVar);
                     if (nVar != null) {
                         nVar.tid = bdVar.getTid();
@@ -47,11 +47,11 @@ public class a {
                     if (nVar != null && nVar.isValid()) {
                         linkedList.add(nVar);
                     }
-                } else if (k.D(bdVar)) {
+                } else if (k.F(bdVar)) {
                     k kVar = new k(bdVar);
                     if (kVar != null) {
                         kVar.tid = bdVar.getTid();
-                        kVar.jV("3");
+                        kVar.jT("3");
                     }
                     if (kVar != null && kVar.isValid()) {
                         linkedList.add(kVar);
@@ -60,7 +60,7 @@ public class a {
                     l lVar2 = new l();
                     if (lVar2 != null) {
                         lVar2.threadData = bdVar;
-                        lVar2.jV(lVar2.threadData.isLinkThread() ? "4" : "1");
+                        lVar2.jT(lVar2.threadData.isLinkThread() ? "4" : "1");
                         lVar2.isLinkThread = false;
                     }
                     if (lVar2.threadData != null && lVar2.isValid() && !StringUtils.isNull(lVar2.threadData.getId()) && !"0".equals(lVar2.threadData.getTid())) {
@@ -69,8 +69,8 @@ public class a {
                 }
             }
         }
-        this.dnG.aXC = linkedList;
-        return this.dnG;
+        this.doM.aXE = linkedList;
+        return this.doM;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -97,7 +97,7 @@ public class a {
                     }
                 }
             }
-            this.dnG.drw = v.v(list) - v;
+            this.doM.dsB = v.v(list) - v;
         }
     }
 

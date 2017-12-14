@@ -2,8 +2,8 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class ae extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
-        com.baidu.tbadk.k.r.GA().bT(1 == i);
+    protected void W(int i) {
+        com.baidu.tbadk.k.r.GB().bU(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a

@@ -13,6 +13,7 @@ public class ForumWriteData implements Serializable {
     public String mFrom;
     public int mem_type;
     public final PostPrefixData prefixData;
+    public int privateThread;
     public PostTopicData topicData;
     public String writeCallFrom;
     public int categoryId = -1;
@@ -43,5 +44,9 @@ public class ForumWriteData implements Serializable {
 
     public void setAvatar(String str) {
         this.avatar = str;
+    }
+
+    public void setPrivateThread(int i) {
+        this.privateThread = i;
     }
 }

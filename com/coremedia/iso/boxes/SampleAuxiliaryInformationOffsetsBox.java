@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes;
 
-import com.baidu.sapi2.SapiSafeFacade;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -15,12 +14,12 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
     public static final String TYPE = "saio";
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_5 = null;
     private String auxInfoType;
     private String auxInfoTypeParameter;
     private List<Long> offsets;
@@ -31,7 +30,7 @@ public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SampleAuxiliaryInformationOffsetsBox.java", SampleAuxiliaryInformationOffsetsBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getAuxInfoType", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "", "", "", "java.lang.String"), SapiSafeFacade.SAPIWEBVIEW_REG);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getAuxInfoType", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "", "", "", "java.lang.String"), 109);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setAuxInfoType", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "java.lang.String", "auxInfoType", "", "void"), 113);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getAuxInfoTypeParameter", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "", "", "", "java.lang.String"), 117);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setAuxInfoTypeParameter", "com.coremedia.iso.boxes.SampleAuxiliaryInformationOffsetsBox", "java.lang.String", "auxInfoTypeParameter", "", "void"), 121);

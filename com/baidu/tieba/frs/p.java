@@ -1,21 +1,22 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class p extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId cJx = BdUniqueId.gen();
-    private long cJy;
+public class p extends j.a {
+    public int apD;
+    public TextView cJE;
+    public PhotoLiveCardView cJF;
+    public View cJG;
 
-    @Override // com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return cJx;
-    }
-
-    public long aml() {
-        return this.cJy;
-    }
-
-    public void bn(long j) {
-        this.cJy = j;
+    public p(View view) {
+        super(view);
+        this.apD = 3;
+        this.cJE = (TextView) view.findViewById(d.g.more_live_list);
+        this.cJF = (PhotoLiveCardView) view.findViewById(d.g.photo_live_card);
+        this.cJG = view.findViewById(d.g.make_headlines);
     }
 }

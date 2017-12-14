@@ -74,6 +74,7 @@ public class UserData extends MetaData {
     private PersonPrivateData personPrivate;
     private String position;
     private int posts_num;
+    private int privateThread;
     private int sex;
     private UserTbVipInfoData tbVipInfo;
     private String tb_age;
@@ -163,6 +164,14 @@ public class UserData extends MetaData {
 
     public boolean getIsSelectTail() {
         return this.mIsSelectTail;
+    }
+
+    public int getPrivateThread() {
+        return this.privateThread;
+    }
+
+    public void setPrivateThread(int i) {
+        this.privateThread = i;
     }
 
     public UserData() {
@@ -258,17 +267,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             l lVar = new l();
-            lVar.fB(getPortraitH());
-            lVar.fC(getPortrait());
-            lVar.bq(true);
+            lVar.fA(getPortraitH());
+            lVar.fB(getPortrait());
+            lVar.br(true);
             this.mPhotoAlbum.add(lVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         l lVar2 = new l();
-                        lVar2.fB(userPics.big);
-                        lVar2.fC(userPics.small);
-                        lVar2.bq(false);
+                        lVar2.fA(userPics.big);
+                        lVar2.fB(userPics.small);
+                        lVar2.br(false);
                         this.mPhotoAlbum.add(lVar2);
                     }
                 }
@@ -379,6 +388,7 @@ public class UserData extends MetaData {
                 }
             }
             this.isGodInvited = user.is_invited.intValue() == 1;
+            this.privateThread = user.priv_thread.intValue();
         }
     }
 
@@ -463,9 +473,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 l lVar = new l();
-                lVar.fB(getPortraitH());
-                lVar.fC(getPortrait());
-                lVar.bq(true);
+                lVar.fA(getPortraitH());
+                lVar.fB(getPortrait());
+                lVar.br(true);
                 this.mPhotoAlbum.add(lVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -474,9 +484,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             l lVar2 = new l();
-                            lVar2.fB(jSONObject2.optString("big"));
-                            lVar2.fC(jSONObject2.optString("small"));
-                            lVar2.bq(false);
+                            lVar2.fA(jSONObject2.optString("big"));
+                            lVar2.fB(jSONObject2.optString("small"));
+                            lVar2.br(false);
                             this.mPhotoAlbum.add(lVar2);
                         }
                     }

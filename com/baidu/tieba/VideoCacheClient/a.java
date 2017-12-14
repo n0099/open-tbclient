@@ -16,12 +16,12 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a bbF;
+    private static a bbG;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean bbG = false;
+    private boolean bbH = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable aHk = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable aHo = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         @Override // java.lang.Runnable
         public void run() {
             Socket socket;
@@ -31,7 +31,7 @@ public class a {
             int i;
             long j;
             String readLine;
-            while (!a.this.bbG) {
+            while (!a.this.bbH) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -39,10 +39,10 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.bbG) {
+                if (!a.this.bbH) {
                     String LX = a.this.LX();
                     if (LX != null && !LX.isEmpty()) {
-                        File file = new File(c.bbu + b.hC(LX) + "/header_downloaded");
+                        File file = new File(c.bbv + b.hA(LX) + "/header_downloaded");
                         if (file.exists()) {
                             d.av(a.TAG, "header exists " + LX);
                         } else {
@@ -241,21 +241,21 @@ public class a {
             }
         }
     };
-    private Thread mThread = new Thread(this.aHk);
+    private Thread mThread = new Thread(this.aHo);
 
     private a() {
         this.mThread.start();
     }
 
     public static a LW() {
-        if (bbF == null) {
+        if (bbG == null) {
             synchronized (a.class) {
-                if (bbF == null) {
-                    bbF = new a();
+                if (bbG == null) {
+                    bbG = new a();
                 }
             }
         }
-        return bbF;
+        return bbG;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -263,7 +263,7 @@ public class a {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void hD(String str) {
+    public synchronized void hB(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

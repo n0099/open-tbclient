@@ -1,225 +1,154 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.graphics.Rect;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.TbPageContext;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
-public class f extends LinearLayout {
-    private TbImageView alL;
-    private TextView alM;
-    private TextView alN;
-    private TextView alO;
-    private TextView alP;
-    private TextView alQ;
-    private TextView alR;
-    private String alS;
-    private String alT;
-    private View alU;
-    private NoDataViewFactory.ImgType alV;
-    private int alW;
-    private Context mContext;
-    private View mRootView;
+public class f {
+    private View alv;
+    private int alw;
+    private ViewGroup.LayoutParams alx;
+    private Runnable aly;
+    private FrameLayout alz;
+    private int mScreenHeight;
+    private int mSkinType = 3;
+    private int alA = d.C0096d.cp_bg_line_d;
+    private boolean alB = false;
+    private ViewTreeObserver.OnGlobalLayoutListener alC = null;
+    private int alD = 0;
 
-    public f(Context context) {
-        super(context);
-        this.mContext = context;
-        init(context, null);
+    public static f u(Activity activity) {
+        return new f(activity);
     }
 
-    private void init(Context context, AttributeSet attributeSet) {
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(d.h.no_data_view, this);
-        this.alL = (TbImageView) this.mRootView.findViewById(d.g.iv_no_data_img);
-        this.alL.setDefaultBgResource(0);
-        this.alL.setDefaultResource(0);
-        this.alL.setDefaultErrorResource(0);
-        this.alM = (TextView) this.mRootView.findViewById(d.g.tv_text_reamrk);
-        this.alN = (TextView) this.mRootView.findViewById(d.g.tv_subtitle);
-        this.alO = (TextView) this.mRootView.findViewById(d.g.tv_title);
-        this.alP = (TextView) this.mRootView.findViewById(d.g.btn_func);
-        this.alU = (LinearLayout) this.mRootView.findViewById(d.g.two_button_layout);
+    public static f a(Activity activity, boolean z) {
+        return new f(activity, z);
     }
 
-    public void a(NoDataViewFactory.b bVar, NoDataViewFactory.c cVar, NoDataViewFactory.d dVar) {
-        setButtonOption(bVar);
-        setImgOption(cVar);
-        setTextOption(dVar);
+    public static f a(Activity activity, int i, boolean z) {
+        return new f(activity, i, z);
     }
 
-    public void onChangeSkinType(com.baidu.adp.base.e<?> eVar, int i) {
-        if (eVar instanceof TbPageContext) {
-            ((TbPageContext) eVar).getLayoutMode().ag(i == 1);
-            ((TbPageContext) eVar).getLayoutMode().t(this);
-        }
-        if (this.alV == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.alL.setImageBitmap(aj.cT(d.f.pic_emotion08));
-        } else if (this.alV == NoDataViewFactory.ImgType.NODATA) {
-            this.alL.setImageBitmap(aj.cT(d.f.no_data_image));
-        } else if (this.alV == NoDataViewFactory.ImgType.LOCAL) {
-            this.alL.setImageBitmap(aj.cT(this.alW));
-        } else if (i == 1) {
-            this.alL.startLoad(this.alT, 29, false);
-        } else {
-            this.alL.startLoad(this.alS, 29, false);
-        }
+    private f(Activity activity) {
+        b(activity, d.C0096d.cp_bg_line_d, true);
     }
 
-    public void setTextOption(NoDataViewFactory.d dVar) {
-        if (dVar != null) {
-            if (!TextUtils.isEmpty(dVar.mTitle)) {
-                this.alO.setText(dVar.mTitle);
-                this.alO.setVisibility(0);
-            } else {
-                this.alO.setVisibility(8);
+    private f(Activity activity, boolean z) {
+        b(activity, d.C0096d.cp_bg_line_d, z);
+    }
+
+    private f(Activity activity, int i, boolean z) {
+        b(activity, i, z);
+    }
+
+    public void dj(int i) {
+        if (this.alB) {
+            if (i != this.mSkinType && this.alz != null) {
+                aj.k(this.alz, this.alA);
             }
-            if (!TextUtils.isEmpty(dVar.Wv)) {
-                this.alN.setText(dVar.Wv);
-                if (TextUtils.isEmpty(dVar.mTitle)) {
-                    this.alN.setTextSize(0, getResources().getDimension(d.e.fontsize28));
-                    if (dVar.amg >= 0) {
-                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.alN.getLayoutParams();
-                        layoutParams.topMargin = dVar.amg;
-                        this.alN.setLayoutParams(layoutParams);
+            this.mSkinType = i;
+        }
+    }
+
+    public void onDestory() {
+        if (this.aly != null) {
+            com.baidu.adp.lib.g.e.fP().removeCallbacks(this.aly);
+            this.aly = null;
+        }
+        if (this.alv != null) {
+            this.alv.getViewTreeObserver().removeGlobalOnLayoutListener(this.alC);
+            this.alv.getViewTreeObserver().addOnGlobalLayoutListener(null);
+            this.alC = null;
+        }
+        this.alv = null;
+        this.alz = null;
+    }
+
+    private void b(Activity activity, int i, boolean z) {
+        this.alA = i;
+        this.alB = z;
+        this.alz = (FrameLayout) activity.findViewById(16908290);
+        if (z) {
+            aj.k(this.alz, i);
+        } else {
+            aj.e(this.alz, i, 0);
+        }
+        this.alv = this.alz.getChildAt(0);
+        if (this.alv != null) {
+            this.alC = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.core.view.f.1
+                @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+                public void onGlobalLayout() {
+                    f.this.wj();
+                }
+            };
+            this.alv.getViewTreeObserver().addOnGlobalLayoutListener(this.alC);
+            this.alx = this.alv.getLayoutParams();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void wj() {
+        if (this.alv != null) {
+            int height = this.alv.getHeight();
+            if (height > this.mScreenHeight) {
+                this.mScreenHeight = height;
+            }
+            int wk = wk();
+            if (this.alD > 0 && this.alD <= this.alx.height) {
+                wk -= this.alD;
+            }
+            if (wk != this.alw) {
+                int i = this.mScreenHeight;
+                int i2 = i - wk;
+                if (i2 == 0) {
+                    this.alx.height = i;
+                    wl();
+                } else {
+                    this.alx.height = i - i2;
+                    dk(200);
+                    if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i2) && i2 < (this.mScreenHeight * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i2) {
+                        TbadkCoreApplication.getInst().setKeyboardHeight(i2);
                     }
                 }
-                if (dVar.amh != 0) {
-                    setSubTitleCompoundDrawable(dVar.amh);
-                }
-            } else {
-                this.alN.setVisibility(8);
-            }
-            if (!TextUtils.isEmpty(dVar.amf)) {
-                this.alM.setText(dVar.amf);
-                this.alM.setVisibility(0);
-                return;
-            }
-            this.alM.setVisibility(8);
-        }
-    }
-
-    public void setImgOption(NoDataViewFactory.c cVar) {
-        if (cVar != null) {
-            this.alV = cVar.amc;
-            this.alW = cVar.alW;
-            switch (cVar.amc) {
-                case CREATE:
-                    this.alS = com.baidu.tbadk.util.b.Ha().gL("pic_emotion03.png");
-                    this.alT = com.baidu.tbadk.util.b.Ha().gL("pic_emotion03_1.png");
-                    break;
-                case NODATA:
-                    this.alS = com.baidu.tbadk.util.b.Ha().gL("pic_emotion05.png");
-                    this.alT = com.baidu.tbadk.util.b.Ha().gL("pic_emotion05_1.png");
-                    break;
-                case FINDBAR:
-                    this.alS = com.baidu.tbadk.util.b.Ha().gL("pic_emotion01.png");
-                    this.alT = com.baidu.tbadk.util.b.Ha().gL("pic_emotion01_1.png");
-                    break;
-                case EMOTION:
-                    this.alS = com.baidu.tbadk.util.b.Ha().gL("pic_emotion02.png");
-                    this.alT = com.baidu.tbadk.util.b.Ha().gL("pic_emotion02_1.png");
-                    break;
-                case GIFT:
-                    this.alS = com.baidu.tbadk.util.b.Ha().gL("pic_emotion07.png");
-                    this.alT = com.baidu.tbadk.util.b.Ha().gL("pic_emotion07_1.png");
-                    break;
-                case SINGALL:
-                    this.alS = com.baidu.tbadk.util.b.Ha().gL("pic_emotion06.png");
-                    this.alT = com.baidu.tbadk.util.b.Ha().gL("pic_emotion06_1.png");
-                    break;
-                case WEBVIEW:
-                    this.alS = com.baidu.tbadk.util.b.Ha().gL("pic_emotion08.png");
-                    this.alT = com.baidu.tbadk.util.b.Ha().gL("pic_emotion08_1.png");
-                    break;
-            }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.alL.getLayoutParams();
-            if (cVar.amd >= 0) {
-                layoutParams.setMargins(0, cVar.amd, 0, 0);
-            }
-            if (cVar.mHeight > 0 && cVar.mWidth > 0) {
-                layoutParams.height = cVar.mHeight;
-                layoutParams.width = cVar.mWidth;
-            }
-            this.alL.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void setButtonOption(NoDataViewFactory.b bVar) {
-        if (bVar == null) {
-            this.alP.setVisibility(8);
-            this.alU.setVisibility(8);
-            return;
-        }
-        NoDataViewFactory.a aVar = bVar.alZ;
-        NoDataViewFactory.a aVar2 = bVar.ama;
-        if (aVar2 == null && aVar != null) {
-            this.alP.setOnClickListener(aVar.alY);
-            this.alP.setText(aVar.afi);
-            this.alP.setVisibility(0);
-            if (bVar.amb >= 0) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.alP.getLayoutParams();
-                layoutParams.topMargin = bVar.amb;
-                this.alP.setLayoutParams(layoutParams);
+                this.alw = wk;
             }
         }
-        if (aVar2 != null && aVar != null) {
-            this.alQ = (TextView) this.alU.findViewById(d.g.btn_left);
-            this.alR = (TextView) this.alU.findViewById(d.g.btn_right);
-            this.alQ.setOnClickListener(aVar.alY);
-            this.alQ.setText(aVar.afi);
-            this.alR.setOnClickListener(aVar2.alY);
-            this.alR.setText(aVar2.afi);
-            this.alU.setVisibility(0);
+    }
+
+    private int wk() {
+        Rect rect = new Rect();
+        this.alv.getWindowVisibleDisplayFrame(rect);
+        return rect.bottom;
+    }
+
+    public void setExcludeHeight(int i) {
+        this.alD = i;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void wl() {
+        this.alv.requestLayout();
+    }
+
+    private void dk(int i) {
+        if (this.aly != null) {
+            com.baidu.adp.lib.g.e.fP().removeCallbacks(this.aly);
+            this.aly = null;
         }
-    }
-
-    public void e(com.baidu.adp.base.e<?> eVar) {
-        onChangeSkinType(eVar, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public void onActivityStop() {
-        this.alL.setImageDrawable(null);
-        this.alL.startLoad(null, 10, false);
-    }
-
-    public void setTitleTextColor(int i) {
-        if (this.alO != null) {
-            aj.c(this.alO, i, 1);
-        }
-    }
-
-    public void setSubTitleTextColor(int i) {
-        if (this.alN != null) {
-            aj.c(this.alN, i, 1);
-        }
-    }
-
-    public void setRemarkTextColor(int i) {
-        if (this.alM != null) {
-            aj.c(this.alM, i, 1);
-        }
-    }
-
-    public void setSubTitleCompoundDrawable(int i) {
-        Drawable drawable = aj.getDrawable(i);
-        int f = l.f(this.mContext, d.e.ds32);
-        int f2 = l.f(this.mContext, d.e.ds8);
-        drawable.setBounds(0, 0, f, f);
-        this.alN.setCompoundDrawablePadding(f2);
-        this.alN.setCompoundDrawables(drawable, null, null, null);
-    }
-
-    public TextView getSuTextView() {
-        return this.alN;
+        this.aly = new Runnable() { // from class: com.baidu.tbadk.core.view.f.2
+            @Override // java.lang.Runnable
+            public void run() {
+                f.this.wl();
+            }
+        };
+        com.baidu.adp.lib.g.e.fP().postDelayed(this.aly, i);
     }
 }

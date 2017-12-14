@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class WrapLineLayout extends ViewGroup {
-    private List<List<View>> apg;
-    private List<Integer> aph;
+    private List<List<View>> apj;
+    private List<Integer> apk;
 
     public WrapLineLayout(Context context) {
         super(context);
-        this.apg = new ArrayList();
-        this.aph = new ArrayList();
+        this.apj = new ArrayList();
+        this.apk = new ArrayList();
     }
 
     public WrapLineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.apg = new ArrayList();
-        this.aph = new ArrayList();
+        this.apj = new ArrayList();
+        this.apk = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -91,8 +91,8 @@ public class WrapLineLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.apg.clear();
-        this.aph.clear();
+        this.apj.clear();
+        this.apk.clear();
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
@@ -105,8 +105,8 @@ public class WrapLineLayout extends ViewGroup {
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
             if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i6 > width) {
-                this.aph.add(Integer.valueOf(i5));
-                this.apg.add(arrayList);
+                this.apk.add(Integer.valueOf(i5));
+                this.apj.add(arrayList);
                 i6 = 0;
                 arrayList = new ArrayList();
             }
@@ -117,17 +117,17 @@ public class WrapLineLayout extends ViewGroup {
             i5 = max;
             i6 = i8;
         }
-        this.aph.add(Integer.valueOf(i5));
-        this.apg.add(arrayList);
+        this.apk.add(Integer.valueOf(i5));
+        this.apj.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.apg.size();
+        int size = this.apj.size();
         int i9 = 0;
         int i10 = paddingTop;
         int i11 = paddingLeft;
         while (i9 < size) {
-            List<View> list = this.apg.get(i9);
-            int intValue = this.aph.get(i9).intValue();
+            List<View> list = this.apj.get(i9);
+            int intValue = this.apk.get(i9).intValue();
             int i12 = 0;
             while (true) {
                 int i13 = i12;

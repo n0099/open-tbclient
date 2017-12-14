@@ -7,17 +7,17 @@ import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
     private ByteBuffer mBuffer;
-    private final int zk;
-    private final int zl;
+    private final int zh;
+    private final int zi;
 
     public a() {
         this(131072, 65536);
     }
 
     public a(int i, int i2) {
-        this.zk = i;
-        this.zl = i2;
-        this.mBuffer = ByteBuffer.allocateDirect(this.zk);
+        this.zh = i;
+        this.zi = i2;
+        this.mBuffer = ByteBuffer.allocateDirect(this.zh);
         this.mBuffer.clear();
     }
 
@@ -37,11 +37,11 @@ public class a extends OutputStream {
         return this.mBuffer.remaining();
     }
 
-    public synchronized void aD(int i) {
+    public synchronized void aC(int i) {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
-            this.mBuffer = ByteBuffer.allocateDirect(((i / this.zl) + 1) * this.zl);
+            this.mBuffer = ByteBuffer.allocateDirect(((i / this.zi) + 1) * this.zi);
             byteBuffer.clear();
             this.mBuffer.clear();
             this.mBuffer.put(byteBuffer);
@@ -52,7 +52,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(int i) throws IOException {
         if (this.mBuffer.position() + 1 > this.mBuffer.capacity()) {
-            aD(this.mBuffer.capacity() + 1);
+            aC(this.mBuffer.capacity() + 1);
         }
         this.mBuffer.put((byte) i);
     }
@@ -60,7 +60,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
         if (this.mBuffer.position() + i2 > this.mBuffer.capacity()) {
-            aD(this.mBuffer.capacity() + i2);
+            aC(this.mBuffer.capacity() + i2);
         }
         this.mBuffer.put(bArr, i, i2);
     }

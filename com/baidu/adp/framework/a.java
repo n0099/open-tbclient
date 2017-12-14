@@ -6,23 +6,23 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a nz;
-    private SparseArray<String> nA;
+    private static volatile a ny;
+    private SparseArray<String> nz;
 
     public static a cp() {
-        if (nz == null) {
+        if (ny == null) {
             synchronized (a.class) {
-                if (nz == null) {
-                    nz = new a();
+                if (ny == null) {
+                    ny = new a();
                 }
             }
         }
-        return nz;
+        return ny;
     }
 
     private a() {
-        this.nA = null;
-        this.nA = new SparseArray<>();
+        this.nz = null;
+        this.nz = new SparseArray<>();
     }
 
     public void e(List<String> list) {
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.nA.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.nA.get(i) + " 重复");
+                    if (this.nz.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.nz.get(i) + " 重复");
                     }
-                    this.nA.put(i, name);
+                    this.nz.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +59,8 @@ public class a {
         }
     }
 
-    public String G(int i) {
-        String str = this.nA.get(i);
+    public String F(int i) {
+        String str = this.nz.get(i);
         if (str != null) {
             return str;
         }

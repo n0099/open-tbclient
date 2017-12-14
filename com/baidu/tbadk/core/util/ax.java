@@ -20,10 +20,10 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ax {
-    private static int aij = -1;
-    private static int aik = -1;
-    private static boolean ail = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> aim = new com.baidu.adp.lib.e.a<>(500);
+    private static int aid = -1;
+    private static int aie = -1;
+    private static boolean aif = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> aig = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -31,15 +31,15 @@ public class ax {
         boolean w(View view);
     }
 
-    public static void aS(Context context) {
+    public static void aP(Context context) {
         mAppContext = context;
-        ail = true;
+        aif = true;
     }
 
-    private static void vM() {
+    private static void vJ() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            aik = mAppContext.getResources().getColor(d.C0082d.common_color_10097);
-            aij = mAppContext.getResources().getColor(d.C0082d.common_color_10004);
+            aie = mAppContext.getResources().getColor(d.C0096d.common_color_10097);
+            aid = mAppContext.getResources().getColor(d.C0096d.common_color_10004);
         }
     }
 
@@ -49,11 +49,11 @@ public class ax {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int aC(boolean z) {
-        if (ail) {
-            ail = false;
-            vM();
+        if (aif) {
+            aif = false;
+            vJ();
         }
-        return z ? aij : aik;
+        return z ? aid : aie;
     }
 
     public static void y(View view) {
@@ -64,16 +64,16 @@ public class ax {
 
     public static void z(View view) {
         if (view != null) {
-            aim.remove(Integer.valueOf(System.identityHashCode(view)));
+            aig.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void a(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = aim.get(Integer.valueOf(identityHashCode));
+        Integer num = aig.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             b(viewGroup, i);
-            aim.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            aig.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -172,17 +172,17 @@ public class ax {
         }
     }
 
-    public static void aT(Context context) {
+    public static void aQ(Context context) {
         if (context != null) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RegisterActivityConfig(context, 3, true)));
         }
     }
 
-    public static void aU(Context context) {
+    public static void aR(Context context) {
         if (context != null) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            if (com.baidu.tbadk.coreExtra.a.a.aqB != null && com.baidu.tbadk.coreExtra.a.a.aqB == Domain.DOMAIN_QA) {
+            if (com.baidu.tbadk.coreExtra.a.a.aqE != null && com.baidu.tbadk.coreExtra.a.a.aqE == Domain.DOMAIN_QA) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new QALoginActivityConfig(context, true)));
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, 3, true)));
@@ -190,10 +190,10 @@ public class ax {
         }
     }
 
-    public static boolean aV(Context context) {
+    public static boolean aS(Context context) {
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (!isLogin) {
-            aU(context);
+            aR(context);
         }
         return isLogin;
     }

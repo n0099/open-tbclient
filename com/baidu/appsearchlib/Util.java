@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 /* loaded from: classes.dex */
 public class Util {
     public static String openudid = null;
@@ -42,7 +43,7 @@ public class Util {
         }
         StringBuilder sb = new StringBuilder();
         try {
-            deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+            deviceId = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId();
         } catch (Exception e) {
             e.printStackTrace();
         }

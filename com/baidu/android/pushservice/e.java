@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.Set;
 import org.json.JSONArray;
-import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes2.dex */
 public final class e {
     private static int c = -1;
@@ -269,7 +268,7 @@ public final class e {
                         if (h.c().equals(e.this.p)) {
                             e.this.a("030301", i);
                         } else {
-                            e.this.a("030303", (int) IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND);
+                            e.this.a("030303", 10002);
                         }
                         if (e.c == -2) {
                             String a2 = h.a(e.this.l, e.this.m);

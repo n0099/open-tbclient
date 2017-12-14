@@ -11,10 +11,10 @@ import com.baidu.tieba.imMessageCenter.mention.g;
 /* loaded from: classes2.dex */
 public class ImMessageCenterFragmentStatic {
     static {
-        aDK();
+        aDT();
     }
 
-    private static void aDK() {
+    private static void aDT() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT, new CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFragmentConfig>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterFragmentStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Fragment> run(CustomMessage<InvokeNewImMessageCenterFragmentConfig> customMessage) {

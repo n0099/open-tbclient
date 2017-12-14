@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.view.HeadImageViewGroup;
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener, HeadImageViewGroup.a {
-    private int eYe;
+    private int eZh;
     private long forumId;
     private String forumName;
     private TbPageContext mPageContext;
 
     public g(TbPageContext tbPageContext, int i, long j, String str) {
         this.mPageContext = tbPageContext;
-        this.eYe = i;
+        this.eZh = i;
         this.forumId = j;
         this.forumName = str;
     }
@@ -27,8 +27,8 @@ public class g implements View.OnClickListener, HeadImageViewGroup.a {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
-            TiebaStatic.log(new ak("c12358").f(ImageViewerConfig.FORUM_ID, this.forumId).r("obj_locate", this.eYe == 1 ? 1 : 2).r("obj_type", 1));
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RecordStoryActivityConfig(this.mPageContext.getPageActivity(), this.eYe, this.forumId, this.forumName)));
+            TiebaStatic.log(new ak("c12358").f(ImageViewerConfig.FORUM_ID, this.forumId).r("obj_locate", this.eZh == 1 ? 1 : 2).r("obj_type", 1));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RecordStoryActivityConfig(this.mPageContext.getPageActivity(), this.eZh, this.forumId, this.forumName)));
         }
     }
 }

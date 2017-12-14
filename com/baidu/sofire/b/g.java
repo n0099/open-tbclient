@@ -1,5 +1,6 @@
 package com.baidu.sofire.b;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.sofire.core.ApkInfo;
@@ -14,7 +15,7 @@ public final class g {
 
     public static String a(Context context, String str, String str2) {
         char c;
-        ApkInfo bX;
+        ApkInfo bY;
         String[] split;
         try {
             if (str.contains(a[0])) {
@@ -24,13 +25,15 @@ public final class g {
             }
             switch (c) {
                 case 1:
-                    String str3 = str + "\r\n{libpath=" + bX.libPath + "}";
-                    for (String str4 : com.baidu.sofire.core.e.nq().bX(str2).libPath.split(":")) {
+                    String str3 = str + "\r\n{libpath=" + bY.libPath + "}";
+                    for (String str4 : com.baidu.sofire.core.e.no().bY(str2).libPath.split(":")) {
                         if (str4.startsWith("/data/data/")) {
                             File file = new File(str4);
                             if (!file.exists()) {
                                 str3 = str3 + "\r\nsubLibPathFile " + str4 + " not exists";
-                            } else if (file.isDirectory()) {
+                            } else if (!file.isDirectory()) {
+                                str3 = str3 + "\r\nsubLibPathFile " + str4 + " not a dir";
+                            } else {
                                 File[] listFiles = file.listFiles();
                                 int length = listFiles.length;
                                 int i = 0;
@@ -39,8 +42,6 @@ public final class g {
                                     i++;
                                     str3 = str3 + "\r\n{" + file2.getAbsolutePath() + ":" + j.a(file2) + "}\r\n";
                                 }
-                            } else {
-                                str3 = str3 + "\r\nsubLibPathFile " + str4 + " not a dir";
                             }
                         }
                     }
@@ -56,6 +57,7 @@ public final class g {
         }
     }
 
+    @SuppressLint({"NewApi"})
     private static String a(Context context, String str) {
         String str2;
         File[] listFiles;

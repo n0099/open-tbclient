@@ -29,7 +29,7 @@ public class c implements e<a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(diskFileOperate);
-            aVar.vF = dVar;
+            aVar.vC = dVar;
         }
         diskFileOperate.dI();
         if (!diskFileOperate.isSuccess()) {
@@ -54,11 +54,11 @@ public class c implements e<a> {
         a aVar2 = new a();
         i iVar = new i();
         if (aVar != null) {
-            aVar.vF = iVar;
+            aVar.vC = iVar;
         }
         String str4 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
         byte[] ej = iVar.ej(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
-        if (!iVar.vW()) {
+        if (!iVar.vT()) {
             aVar2.error_code = 3;
             aVar2.error_msg = h.getString(d.j.neterror);
             return aVar2;
@@ -80,13 +80,13 @@ public class c implements e<a> {
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.c.d dVar = new com.baidu.tbadk.core.util.c.d();
                     dVar.f(diskFileOperate);
-                    aVar.vF = dVar;
+                    aVar.vC = dVar;
                 }
                 diskFileOperate.dI();
                 if (diskFileOperate.isSuccess() && diskFileOperate.dV() != null) {
                     str5 = diskFileOperate.dV().getAbsolutePath();
                     i3 = 0;
-                } else if (k.uo() < ej.length) {
+                } else if (k.ul() < ej.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;

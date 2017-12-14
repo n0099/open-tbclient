@@ -10,6 +10,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteData extends OrmObject implements Serializable {
     public static final String CALL_FROM_ONE = "1";
+    public static final String CALL_FROM_OTHER = "0";
     public static final String CALL_FROM_PERSON = "3";
     public static final String CALL_FROM_TWO = "2";
     public static final int NEW = 0;

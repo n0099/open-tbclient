@@ -5,19 +5,19 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.io.File;
 /* loaded from: classes.dex */
 public class t {
-    public static final String bbp = Environment.getExternalStorageDirectory() + "/tieba";
-    public static final String bbq = bbp + "/.tieba_video_cache";
-    public static final String bbr = bbq + "/v2";
-    public static final String bbs = bbr + "/";
-    public static final String bbt = bbr + "/files";
-    public static final String bbu = bbt + "/";
+    public static final String bbq = Environment.getExternalStorageDirectory() + "/tieba";
+    public static final String bbr = bbq + "/.tieba_video_cache";
+    public static final String bbs = bbr + "/v2";
+    public static final String bbt = bbs + "/";
+    public static final String bbu = bbs + "/files";
+    public static final String bbv = bbu + "/";
 
-    private static long hB(String str) {
+    private static long hz(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(bbu + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(bbv + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -27,7 +27,7 @@ public class t {
         return j;
     }
 
-    private static String hC(String str) {
+    private static String hA(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -40,11 +40,11 @@ public class t {
 
     public static long rr(String str) {
         try {
-            String hC = hC(str);
-            if (StringUtils.isNULL(hC)) {
+            String hA = hA(str);
+            if (StringUtils.isNULL(hA)) {
                 return 0L;
             }
-            return hB(hC);
+            return hz(hA);
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;

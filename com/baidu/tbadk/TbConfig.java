@@ -417,6 +417,7 @@ public class TbConfig {
     public static final int UPLOAD_IMAGE_QUALITY_MID = 2;
     public static final String URL_ADD_EXPERIENCED = "c/c/forum/share";
     public static final String URL_APPLY_COPY_THREAD = "c/c/livegroup/applycopythread";
+    public static final String URL_BAIDU_SINGKIL = "https://jing.baidu.com/h5/bdcard.html?channel=7&from=singlemessage&isappinstalled=0";
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
     public static final String URL_CHECK_BIG_V = "c/u/user/getvuserinfo";
     public static final String URL_CHECK_REAL_NAME = "c/s/checkRealName";
@@ -425,6 +426,7 @@ public class TbConfig {
     public static final String URL_CONCERN_PAGE = "c/f/concern/userlike";
     public static final String URL_CONCERN_UNREAD_TIP = "c/f/excellent/unreadtip";
     public static final String URL_DELETE_GRAFFITTI = "c/c/graffiti/remove";
+    public static final String URL_FEED_BACK = "https://tieba.baidu.com/mo/q/feedback/form?qid=1";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final String URL_GET_CONSENTLIST = "c/u/feed/getConsentList";
     public static final String URL_GET_GRAFFITI_LIST = "c/f/pb/graffiti";
@@ -679,7 +681,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.Ez().fd(i);
+            c.EA().fd(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -720,7 +722,7 @@ public class TbConfig {
                 return;
             }
             FRIEND_PHOTO_ADDRESS = PHOTO_BIG_ADDRESS;
-            FRIEND_PHOTO_MAX_SIZE = 110;
+            FRIEND_PHOTO_MAX_SIZE = BIG_PHOTO_MAX_SIZE;
         }
     }
 

@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.view.userLike;
 import android.view.View;
 /* loaded from: classes.dex */
 public interface b {
-    void I(View view);
+    void J(View view);
 
-    void aM(boolean z);
+    void aN(boolean z);
 
     void c(View.OnClickListener onClickListener);
 

@@ -1,7 +1,6 @@
 package com.coremedia.iso.boxes;
 
-import android.support.v4.media.TransportMediator;
-import com.baidu.sapi2.SapiSafeFacade;
+import com.baidu.tbadk.TbConfig;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -17,17 +16,17 @@ import org.aspectj.lang.a;
 public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE = "saiz";
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_9 = null;
     private String auxInfoType;
     private String auxInfoTypeParameter;
     private int defaultSampleInfoSize;
@@ -37,14 +36,14 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SampleAuxiliaryInformationSizesBox.java", SampleAuxiliaryInformationSizesBox.class);
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getAuxInfoType", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "", "", "", "java.lang.String"), 98);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setAuxInfoType", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "java.lang.String", "auxInfoType", "", "void"), SapiSafeFacade.SAPIWEBVIEW_BACK);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setAuxInfoType", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "java.lang.String", "auxInfoType", "", "void"), 102);
         ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "", "", "", "java.lang.String"), 140);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getAuxInfoTypeParameter", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "", "", "", "java.lang.String"), SapiSafeFacade.SAPIWEBVIEW_MODIFY_PWD);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setAuxInfoTypeParameter", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "java.lang.String", "auxInfoTypeParameter", "", "void"), 110);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getAuxInfoTypeParameter", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "", "", "", "java.lang.String"), 106);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setAuxInfoTypeParameter", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "java.lang.String", "auxInfoTypeParameter", "", "void"), TbConfig.BIG_PHOTO_MAX_SIZE);
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getDefaultSampleInfoSize", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "", "", "", "int"), 114);
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleInfoSize", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "int", "defaultSampleInfoSize", "", "void"), 118);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getSampleInfoSizes", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "", "", "", "java.util.List"), 123);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setSampleInfoSizes", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "java.util.List", "sampleInfoSizes", "", "void"), TransportMediator.KEYCODE_MEDIA_PAUSE);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setSampleInfoSizes", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "java.util.List", "sampleInfoSizes", "", "void"), 127);
         ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getSampleCount", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "", "", "", "int"), 131);
         ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setSampleCount", "com.coremedia.iso.boxes.SampleAuxiliaryInformationSizesBox", "int", "sampleCount", "", "void"), 135);
     }
@@ -129,7 +128,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     }
 
     public void setDefaultSampleInfoSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.xY(i)));
         if (!$assertionsDisabled && i > 255) {
             throw new AssertionError();
         }
@@ -152,7 +151,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     }
 
     public void setSampleCount(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.xL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.xY(i)));
         this.sampleCount = i;
     }
 

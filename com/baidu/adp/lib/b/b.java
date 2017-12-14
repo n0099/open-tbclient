@@ -4,12 +4,12 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class b {
     private String mName;
-    private int tB;
-    private a tE;
-    private int tD = 0;
-    private String[] tG = null;
-    private int tC = 0;
-    private String[] tH = null;
+    private a tB;
+    private int tw;
+    private int tA = 0;
+    private String[] tD = null;
+    private int tz = 0;
+    private String[] tE = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,28 +18,28 @@ public class b {
 
     public b(String str, int i, a aVar) {
         this.mName = null;
-        this.tE = null;
-        this.tB = 0;
+        this.tB = null;
+        this.tw = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.tE = aVar;
-        this.tB = i;
+        this.tB = aVar;
+        this.tw = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.tD = i;
-        this.tG = strArr;
-        this.tC = i2;
+        this.tA = i;
+        this.tD = strArr;
+        this.tz = i2;
     }
 
     public void g(String[] strArr) {
-        this.tH = strArr;
+        this.tE = strArr;
     }
 
     public String[] eQ() {
-        return this.tH;
+        return this.tE;
     }
 
     public String getName() {
@@ -47,24 +47,24 @@ public class b {
     }
 
     public int eP() {
-        return this.tD;
+        return this.tA;
     }
 
     public String[] eS() {
-        return this.tG;
+        return this.tD;
     }
 
     public int eO() {
-        return this.tC;
+        return this.tz;
     }
 
     public int eN() {
-        return this.tB;
+        return this.tw;
     }
 
     public void c(int i, boolean z) {
-        if (this.tE != null) {
-            this.tE.a(this.mName, i, z);
+        if (this.tB != null) {
+            this.tB.a(this.mName, i, z);
         }
     }
 }

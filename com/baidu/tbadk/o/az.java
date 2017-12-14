@@ -1,23 +1,13 @@
 package com.baidu.tbadk.o;
-
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class az extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_XIAOMI_PUSH_SWITCH_CHANGE));
+    protected void W(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "switch_xiaomipush_sdk";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] eM() {
-        return null;
+        return "baidu_wallet_enable";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,6 +18,11 @@ public class az extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int eO() {
         return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] eM() {
+        return null;
     }
 
     @Override // com.baidu.adp.lib.b.a

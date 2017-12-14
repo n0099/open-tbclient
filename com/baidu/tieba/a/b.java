@@ -23,15 +23,15 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, com.baidu.tbadk.i.b> {
-    private final long bdO;
     private final long bdP;
-    private List<com.baidu.adp.widget.ListView.f> bdQ;
+    private final long bdQ;
+    private List<com.baidu.adp.widget.ListView.f> bdR;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.d.aAb, bdUniqueId);
-        this.bdO = TbConfig.NOTIFY_SOUND_INTERVAL;
-        this.bdP = 2000L;
+        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.d.aAg, bdUniqueId);
+        this.bdP = TbConfig.NOTIFY_SOUND_INTERVAL;
+        this.bdQ = 2000L;
         this.mPageContext = tbPageContext;
     }
 
@@ -39,7 +39,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
         if (list == null) {
             list = new LinkedList<>();
         }
-        this.bdQ = list;
+        this.bdR = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,22 +63,22 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
     }
 
     private void a(com.baidu.tbadk.i.b bVar, final com.baidu.tbadk.data.d dVar, int i) {
-        if (bVar != null && dVar != null && dVar.aAc.userInfo != null && !StringUtils.isNull(dVar.aAc.userInfo.portrait)) {
-            bVar.mName.setText(dVar.aAc.userInfo.userName);
-            bVar.aFR.setLiveIngImgVisible(true);
-            bVar.aFR.getFrontImg().setIsRound(true);
-            bVar.aFR.getFrontImg().startLoad(dVar.aAc.userInfo.portrait, 25, false);
-            bVar.aFR.setOuterColor(d.C0082d.cp_link_tip_g);
-            if (!dVar.aAd) {
-                if (!v.w(this.bdQ)) {
-                    bVar.aFR.getFrontImg().startAnimation(gy(i));
-                    dVar.aAd = true;
-                    dVar.aAe = System.currentTimeMillis();
+        if (bVar != null && dVar != null && dVar.aAh.userInfo != null && !StringUtils.isNull(dVar.aAh.userInfo.portrait)) {
+            bVar.mName.setText(dVar.aAh.userInfo.userName);
+            bVar.aFV.setLiveIngImgVisible(true);
+            bVar.aFV.getFrontImg().setIsRound(true);
+            bVar.aFV.getFrontImg().startLoad(dVar.aAh.userInfo.portrait, 25, false);
+            bVar.aFV.setOuterColor(d.C0096d.cp_link_tip_g);
+            if (!dVar.aAi) {
+                if (!v.w(this.bdR)) {
+                    bVar.aFV.getFrontImg().startAnimation(gy(i));
+                    dVar.aAi = true;
+                    dVar.aAj = System.currentTimeMillis();
                 } else {
                     return;
                 }
             }
-            bVar.aFR.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.b.1
+            bVar.aFV.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.b.1
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     if (motionEvent.getAction() == 0) {
@@ -91,11 +91,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
                     return view.onTouchEvent(motionEvent);
                 }
             });
-            bVar.aFR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.b.2
+            bVar.aFV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData;
-                    if (dVar != null && (alaLiveInfoCoreData = dVar.aAc) != null) {
+                    if (dVar != null && (alaLiveInfoCoreData = dVar.aAh) != null) {
                         TiebaStatic.log(new ak("c12546").ac("obj_param1", alaLiveInfoCoreData.userName));
                         AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(b.this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_CONCERN_TAB, TbadkCoreApplication.getCurrentAccount(), false, "");
                         alaLiveRoomActivityConfig.setIsForbidVerticalChangeLiveRoom(true);
@@ -112,7 +112,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
         long j;
         float f;
         float f2;
-        if (i == com.baidu.tbadk.data.d.aAf) {
+        if (i == com.baidu.tbadk.data.d.aAk) {
             j = 0;
             f = 1.4f;
             f2 = 1.0f;
@@ -120,19 +120,19 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
             Object obj = null;
             Object obj2 = null;
             if (i > 0) {
-                obj = (com.baidu.adp.widget.ListView.f) this.bdQ.get(i - 1);
+                obj = (com.baidu.adp.widget.ListView.f) this.bdR.get(i - 1);
             }
-            if (i < this.bdQ.size() - 1) {
-                obj2 = (com.baidu.adp.widget.ListView.f) this.bdQ.get(i + 1);
+            if (i < this.bdR.size() - 1) {
+                obj2 = (com.baidu.adp.widget.ListView.f) this.bdR.get(i + 1);
             }
             if (obj != null && (obj instanceof com.baidu.tbadk.data.d)) {
                 com.baidu.tbadk.data.d dVar = (com.baidu.tbadk.data.d) obj;
-                if (dVar.aAd) {
-                    currentTimeMillis = dVar.aAe;
+                if (dVar.aAi) {
+                    currentTimeMillis = dVar.aAj;
                 } else if (obj2 != null && (obj2 instanceof com.baidu.tbadk.data.d)) {
                     com.baidu.tbadk.data.d dVar2 = (com.baidu.tbadk.data.d) obj2;
-                    if (dVar2.aAd) {
-                        currentTimeMillis = dVar2.aAe;
+                    if (dVar2.aAi) {
+                        currentTimeMillis = dVar2.aAj;
                     } else {
                         currentTimeMillis = System.currentTimeMillis();
                     }

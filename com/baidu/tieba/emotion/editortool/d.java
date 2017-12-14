@@ -4,31 +4,31 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class d {
     private int column;
-    private EmotionGroupType csg;
-    private int csh;
-    private int csi;
-    private com.baidu.tbadk.editortools.emotiontool.c csj;
-    private int csk;
-    private int csl;
+    private EmotionGroupType csp;
+    private int csq;
+    private int csr;
+    private com.baidu.tbadk.editortools.emotiontool.c css;
+    private int cst;
+    private int csu;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.csj = cVar;
+        this.css = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c agq() {
-        return this.csj;
+    public com.baidu.tbadk.editortools.emotiontool.c agy() {
+        return this.css;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.csg = emotionGroupType;
+        this.csp = emotionGroupType;
     }
 
-    public EmotionGroupType agr() {
-        return this.csg;
+    public EmotionGroupType agz() {
+        return this.csp;
     }
 
     public void fa(int i) {
@@ -43,39 +43,39 @@ public class d {
         this.column = i;
     }
 
-    public int ags() {
+    public int agA() {
         return this.column;
     }
 
-    public void jf(int i) {
-        this.csl = i;
-    }
-
-    public int agt() {
-        return this.csl;
-    }
-
-    public void jg(int i) {
-        this.csk = i;
-    }
-
-    public int agu() {
-        return this.csk;
-    }
-
     public void jh(int i) {
-        this.csh = i;
+        this.csu = i;
     }
 
-    public int agv() {
-        return this.csh;
+    public int agB() {
+        return this.csu;
     }
 
     public void ji(int i) {
+        this.cst = i;
+    }
+
+    public int agC() {
+        return this.cst;
+    }
+
+    public void jj(int i) {
+        this.csq = i;
+    }
+
+    public int agD() {
+        return this.csq;
+    }
+
+    public void jk(int i) {
         this.startIndex = i;
     }
 
-    public int agw() {
+    public int agE() {
         return this.startIndex;
     }
 
@@ -91,11 +91,11 @@ public class d {
         return this.index;
     }
 
-    public void jj(int i) {
-        this.csi = i;
+    public void jl(int i) {
+        this.csr = i;
     }
 
-    public int agx() {
-        return this.csi;
+    public int agF() {
+        return this.csr;
     }
 }

@@ -25,6 +25,7 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String KEY_WRITE_LEVEL = "key_write_level";
     public static final String POST_WRITE_CALLBACK_DATA = "post_write_callback_data";
     public static final String PREFIX_DATA = "prefix_data";
+    public static final String PRIVATE_THREAD = "private_thread";
     public static final String THREAD_ID = "thread_id";
     public static final String TITLE = "write_title";
     public static final String TYPE = "type";
@@ -74,6 +75,12 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
     public void setForumLevel(int i) {
         if (getIntent() != null) {
             getIntent().putExtra("key_write_level", i);
+        }
+    }
+
+    public void setPrivateThread(int i) {
+        if (getIntent() != null) {
+            getIntent().putExtra("private_thread", i);
         }
     }
 }

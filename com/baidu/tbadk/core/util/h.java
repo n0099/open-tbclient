@@ -4,7 +4,6 @@ import android.database.Cursor;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
@@ -46,7 +45,7 @@ public class h {
         }
     }
 
-    public static void uj() {
+    public static void ug() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.h.1
             @Override // java.lang.Runnable
             public void run() {
@@ -66,7 +65,7 @@ public class h {
                                 mainDBDatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.e(cursor);
                                 ak akVar = new ak("c12232");
-                                akVar.ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                                akVar.ac("uid", TbadkCoreApplication.getCurrentAccount());
                                 akVar.r("obj_param1", i);
                                 TiebaStatic.log(akVar);
                             } catch (Throwable th3) {
@@ -82,7 +81,7 @@ public class h {
                     i = 0;
                 }
                 ak akVar2 = new ak("c12232");
-                akVar2.ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                akVar2.ac("uid", TbadkCoreApplication.getCurrentAccount());
                 akVar2.r("obj_param1", i);
                 TiebaStatic.log(akVar2);
             }

@@ -1,31 +1,35 @@
 package com.baidu.sofire.rp.d.a;
 
 import android.content.Context;
-import android.os.Handler;
 import android.text.TextUtils;
+import com.baidu.sofire.b.d;
+import com.baidu.sofire.b.f;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a {
-    protected com.baidu.sofire.rp.d.a QJ;
-    protected Context b;
-    private Handler c = null;
+public final class a {
+    public Context a;
 
     public a(Context context) {
-        this.QJ = new com.baidu.sofire.rp.d.a(context);
-        this.b = context;
+        this.a = context;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final String g(String str, byte[] bArr) throws Exception {
+    public final boolean a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
-            return null;
+            return true;
         }
-        return this.QJ.g(str, bArr);
-    }
-
-    public final String a(String str) throws Exception {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        String str3 = null;
+        try {
+            if (!TextUtils.isEmpty(str2)) {
+                str3 = "&topic=" + str2;
+            }
+            String a = f.a(this.a, d.a() + "plugin/v1/report", str, false, false, str3);
+            if (TextUtils.isEmpty(a)) {
+                return false;
+            }
+            return new JSONObject(a).getInt("response") == 1;
+        } catch (Throwable th) {
+            d.a(th);
+            return true;
         }
-        return this.QJ.a(str);
     }
 }

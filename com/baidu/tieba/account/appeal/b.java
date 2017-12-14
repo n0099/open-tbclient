@@ -9,30 +9,30 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private static final String bcK = TbConfig.SERVER_ADDRESS + "c/u/user/getreason";
+    private static final String bcL = TbConfig.SERVER_ADDRESS + "c/u/user/getreason";
 
     /* renamed from: com.baidu.tieba.account.appeal.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0074b {
+    public interface InterfaceC0088b {
         void a(ForbidReasonData forbidReasonData);
 
         void b(ForbidReasonData forbidReasonData);
     }
 
-    public static void a(String str, String str2, InterfaceC0074b interfaceC0074b) {
-        new a(str, str2, interfaceC0074b).execute(new String[0]);
+    public static void a(String str, String str2, InterfaceC0088b interfaceC0088b) {
+        new a(str, str2, interfaceC0088b).execute(new String[0]);
     }
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidReasonData> {
-        private String bcF;
         private String bcG;
-        private WeakReference<InterfaceC0074b> bcJ;
+        private String bcH;
+        private WeakReference<InterfaceC0088b> bcK;
 
-        public a(String str, String str2, InterfaceC0074b interfaceC0074b) {
-            this.bcF = str;
-            this.bcG = str2;
-            this.bcJ = new WeakReference<>(interfaceC0074b);
+        public a(String str, String str2, InterfaceC0088b interfaceC0088b) {
+            this.bcG = str;
+            this.bcH = str2;
+            this.bcK = new WeakReference<>(interfaceC0088b);
             setPriority(3);
         }
 
@@ -41,13 +41,13 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: r */
         public ForbidReasonData doInBackground(String... strArr) {
-            x xVar = new x(b.bcK);
-            xVar.n("forum_id", this.bcF);
-            xVar.n("user_id", this.bcG);
-            String us = xVar.us();
-            if (xVar.uQ().vO().isRequestSuccess()) {
+            x xVar = new x(b.bcL);
+            xVar.n("forum_id", this.bcG);
+            xVar.n("user_id", this.bcH);
+            String up = xVar.up();
+            if (xVar.uN().vL().isRequestSuccess()) {
                 try {
-                    ForbidReasonData forbidReasonData = (ForbidReasonData) OrmObject.objectWithJsonStr(us, ForbidReasonData.class);
+                    ForbidReasonData forbidReasonData = (ForbidReasonData) OrmObject.objectWithJsonStr(up, ForbidReasonData.class);
                     forbidReasonData.reason = forbidReasonData.reason.replaceAll("\\\\n", "\n");
                     return forbidReasonData;
                 } catch (Exception e) {
@@ -58,7 +58,7 @@ public class b {
                 }
             }
             ForbidReasonData forbidReasonData3 = new ForbidReasonData();
-            forbidReasonData3.error.errno = xVar.uU();
+            forbidReasonData3.error.errno = xVar.uR();
             forbidReasonData3.error.errMsg = xVar.getErrorString();
             return forbidReasonData3;
         }
@@ -69,12 +69,12 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidReasonData forbidReasonData) {
             super.onPostExecute(forbidReasonData);
-            InterfaceC0074b interfaceC0074b = this.bcJ.get();
-            if (interfaceC0074b != null) {
+            InterfaceC0088b interfaceC0088b = this.bcK.get();
+            if (interfaceC0088b != null) {
                 if (forbidReasonData.error.errno == 0 && am.isEmpty(forbidReasonData.error.errMsg)) {
-                    interfaceC0074b.a(forbidReasonData);
+                    interfaceC0088b.a(forbidReasonData);
                 } else {
-                    interfaceC0074b.b(forbidReasonData);
+                    interfaceC0088b.b(forbidReasonData);
                 }
             }
         }

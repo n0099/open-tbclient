@@ -133,10 +133,10 @@ public class IndicatorView extends View {
                 return;
             }
             IndicatorView.this.setWillNotDraw(false);
-            IndicatorView.this.setMeasuredDimension(aK(i), aL(i2));
+            IndicatorView.this.setMeasuredDimension(aJ(i), aK(i2));
         }
 
-        private int aK(int i) {
+        private int aJ(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
             int max = (IndicatorView.this.Gq * (IndicatorView.this.mCount - 1)) + (Math.max(IndicatorView.this.Gs.getIntrinsicWidth(), IndicatorView.this.mSelector.getIntrinsicWidth()) * IndicatorView.this.mCount);
@@ -160,7 +160,7 @@ public class IndicatorView extends View {
             }
         }
 
-        private int aL(int i) {
+        private int aK(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
             int max = Math.max(IndicatorView.this.Gs.getIntrinsicHeight(), IndicatorView.this.mSelector.getIntrinsicHeight());

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.sharedPref.b;
 /* loaded from: classes2.dex */
 public class PushStatic {
-    private static CustomMessageListener hlb = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
+    private static CustomMessageListener hnT = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -22,22 +22,22 @@ public class PushStatic {
                     @Override // java.lang.Runnable
                     public void run() {
                         Log.e("BaiduYunPush", "push static init " + System.currentTimeMillis());
-                        PushStatic.bII();
+                        PushStatic.bJv();
                     }
                 }).start();
             }
         }
     };
 
-    private static void bIG() {
-        cn(TbadkApplication.getInst());
+    private static void bJt() {
+        cm(TbadkApplication.getInst());
     }
 
-    private static void bIH() {
-        co(TbadkCoreApplication.getInst());
+    private static void bJu() {
+        cn(TbadkCoreApplication.getInst());
     }
 
-    private static void cn(Context context) {
+    private static void cm(Context context) {
         Log.e("BaiduYunPush", "start push");
         Log.e("BaiduYunPush", "start push1");
         PushManager.enableHuaweiProxy(context, true);
@@ -48,7 +48,7 @@ public class PushStatic {
         Log.e("BaiduYunPush", "start push4 ");
     }
 
-    private static void co(Context context) {
+    private static void cn(Context context) {
         Log.e("BaiduYunPush", "stop push");
         if (b.getInstance().getBoolean(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
             Log.e("BaiduYunPush", "stop push pushservice is working");
@@ -57,20 +57,20 @@ public class PushStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bII() {
+    public static void bJv() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (TbadkCoreApplication.getInst().isBaiduYunPushAvailable()) {
                 Log.e("BaiduYunPush", "switch available");
-                bIG();
+                bJt();
                 return;
             }
             Log.e("BaiduYunPush", "switch close");
-            bIH();
+            bJu();
         }
     }
 
     static {
         Log.e("BaiduYunPush", "push static init load static " + System.currentTimeMillis());
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, hlb);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, hnT);
     }
 }

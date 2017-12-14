@@ -19,93 +19,93 @@ import com.baidu.tieba.card.k;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.concern.b.b> {
-    private final View.OnClickListener aob;
-    private com.baidu.tbadk.core.view.userLike.c bZG;
-    protected bd bkp;
-    public ThreadUserInfoLayout bvD;
-    public ThreadCommentAndPraiseInfoLayout bvH;
-    protected LinearLayout bvK;
-    private TextView dnN;
-    public ConcernUserLikeButton dnO;
-    private View dnP;
-    private View dnQ;
-    public LinearLayout dnR;
-    protected com.baidu.tieba.homepage.concern.b.b dnS;
-    protected boolean dnT;
-    private View.OnClickListener dnU;
-    protected View.OnClickListener dnV;
+    private final View.OnClickListener aod;
+    private com.baidu.tbadk.core.view.userLike.c bZK;
+    protected bd bkq;
+    public ThreadUserInfoLayout bvE;
+    public ThreadCommentAndPraiseInfoLayout bvI;
+    protected LinearLayout bvL;
+    private TextView doT;
+    public ConcernUserLikeButton doU;
+    private View doV;
+    private View doW;
+    public LinearLayout doX;
+    protected com.baidu.tieba.homepage.concern.b.b doY;
+    protected boolean doZ;
+    private View.OnClickListener dpa;
+    protected View.OnClickListener dpb;
     protected TbPageContext<?> mPageContext;
     private int mSkinType;
     protected TextView mTitle;
 
-    protected abstract void U(bd bdVar);
+    protected abstract void W(bd bdVar);
 
-    protected abstract void ae(View view);
+    protected abstract void af(View view);
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.dnT = true;
-        this.dnU = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.d.1
+        this.doZ = true;
+        this.dpa = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.abs() != null) {
-                    d.this.abs().a(view, d.this.dnS);
+                if (d.this.abt() != null) {
+                    d.this.abt().a(view, d.this.doY);
                 }
-                if (d.this.dnS != null && !StringUtils.isNull(d.this.dnS.dnA.getName()) && !StringUtils.isNull(d.this.dnS.dnA.getUserId())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(d.this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(d.this.dnS.dnA.getUserId(), 0L), false, d.this.dnS.dnA.isGod())));
+                if (d.this.doY != null && !StringUtils.isNull(d.this.doY.doG.getName()) && !StringUtils.isNull(d.this.doY.doG.getUserId())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(d.this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(d.this.doY.doG.getUserId(), 0L), false, d.this.doY.doG.isGod())));
                 }
             }
         };
-        this.dnV = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.d.2
+        this.dpb = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.abs() != null) {
-                    d.this.abs().a(view, d.this.dnS);
+                if (d.this.abt() != null) {
+                    d.this.abt().a(view, d.this.doY);
                 }
-                d.this.abK();
+                d.this.abN();
             }
         };
-        this.aob = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.d.3
+        this.aod = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.abs() != null) {
-                    d.this.abs().a(view, d.this.dnS);
+                if (d.this.abt() != null) {
+                    d.this.abt().a(view, d.this.doY);
                 }
             }
         };
         View view = getView();
         this.currentPageType = 1;
         this.mPageContext = tbPageContext;
-        this.dnN = (TextView) view.findViewById(d.g.card_recommend_god_reason);
-        this.dnO = (ConcernUserLikeButton) view.findViewById(d.g.card_recommend_god_user_like_btn);
-        this.bvD = (ThreadUserInfoLayout) view.findViewById(d.g.card_rec_god_user_info);
-        this.bZG = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.dnO);
-        this.bvD.setTShowVisible(false);
-        this.bvD.getHeaderImg().setAfterClickListener(this.aob);
-        this.dnO.setAfterOnClickListener(this.aob);
-        this.dnP = view.findViewById(d.g.card_recommend_god_divide_line);
-        this.dnQ = view.findViewById(d.g.divider_line);
-        this.dnR = (LinearLayout) view.findViewById(d.g.card_recommend_god_content);
-        this.dnR.setOnClickListener(this.dnU);
+        this.doT = (TextView) view.findViewById(d.g.card_recommend_god_reason);
+        this.doU = (ConcernUserLikeButton) view.findViewById(d.g.card_recommend_god_user_like_btn);
+        this.bvE = (ThreadUserInfoLayout) view.findViewById(d.g.card_rec_god_user_info);
+        this.bZK = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.doU);
+        this.bvE.setTShowVisible(false);
+        this.bvE.getHeaderImg().setAfterClickListener(this.aod);
+        this.doU.setAfterOnClickListener(this.aod);
+        this.doV = view.findViewById(d.g.card_recommend_god_divide_line);
+        this.doW = view.findViewById(d.g.divider_line);
+        this.doX = (LinearLayout) view.findViewById(d.g.card_recommend_god_content);
+        this.doX.setOnClickListener(this.dpa);
         this.mTitle = (TextView) view.findViewById(d.g.card_recommend_god_therad_title);
-        this.bvH = (ThreadCommentAndPraiseInfoLayout) view.findViewById(d.g.card_recommend_god_therad_info_layout);
-        this.bvH.setOnClickListener(this.dnV);
-        this.bvH.setReplyTimeVisible(false);
-        this.bvH.setIsBarViewVisible(false);
-        this.bvH.setShowPraiseNum(true);
-        this.bvH.setNeedAddPraiseIcon(true);
-        this.bvH.setNeedAddReplyIcon(true);
-        this.bvH.setShareVisible(true);
-        this.bvH.anM = this.currentPageType;
-        this.bvK = (LinearLayout) view.findViewById(d.g.card_recommend_god_therad_content_layout);
-        ae(view);
+        this.bvI = (ThreadCommentAndPraiseInfoLayout) view.findViewById(d.g.card_recommend_god_therad_info_layout);
+        this.bvI.setOnClickListener(this.dpb);
+        this.bvI.setReplyTimeVisible(false);
+        this.bvI.setIsBarViewVisible(false);
+        this.bvI.setShowPraiseNum(true);
+        this.bvI.setNeedAddPraiseIcon(true);
+        this.bvI.setNeedAddReplyIcon(true);
+        this.bvI.setShareVisible(true);
+        this.bvI.anO = this.currentPageType;
+        this.bvL = (LinearLayout) view.findViewById(d.g.card_recommend_god_therad_content_layout);
+        af(view);
     }
 
     public void k(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
             setPageUniqueId(bdUniqueId);
-            this.bZG.h(bdUniqueId);
+            this.bZK.h(bdUniqueId);
         }
     }
 
@@ -113,11 +113,11 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             aj.j(getView(), d.f.addresslist_item_bg);
-            aj.i(this.dnN, d.C0082d.cp_cont_d);
-            aj.k(this.dnP, d.C0082d.cp_bg_line_e);
-            aj.k(this.dnQ, d.C0082d.cp_bg_line_e);
-            this.dnO.onChangeSkinType(i);
-            this.bvH.onChangeSkinType();
+            aj.i(this.doT, d.C0096d.cp_cont_d);
+            aj.k(this.doV, d.C0096d.cp_bg_line_e);
+            aj.k(this.doW, d.C0096d.cp_bg_line_e);
+            this.doU.onChangeSkinType(i);
+            this.bvI.onChangeSkinType();
         }
         this.mSkinType = i;
     }
@@ -125,59 +125,59 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.homepage.concern.b.b bVar) {
-        if (bVar != null && bVar.dnA != null && !StringUtils.isNull(bVar.dnA.getName()) && !StringUtils.isNull(bVar.dnA.getUserId()) && !StringUtils.isNull(bVar.cBr.getTid())) {
-            this.dnS = bVar;
-            if (this.bvD != null) {
-                this.bvD.setData(bVar.cBr);
-                if (this.bvD.getHeaderImg() != null) {
-                    this.bvD.getHeaderImg().setData(bVar.metaData);
+        if (bVar != null && bVar.doG != null && !StringUtils.isNull(bVar.doG.getName()) && !StringUtils.isNull(bVar.doG.getUserId()) && !StringUtils.isNull(bVar.cBz.getTid())) {
+            this.doY = bVar;
+            if (this.bvE != null) {
+                this.bvE.setData(bVar.cBz);
+                if (this.bvE.getHeaderImg() != null) {
+                    this.bvE.getHeaderImg().setData(bVar.metaData);
                 }
-                this.bvD.onChangeSkinType();
+                this.bvE.onChangeSkinType();
             }
-            this.bZG.a(this.dnS.metaData);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dnR.getLayoutParams();
-            String atF = this.dnS.dnA.atF();
-            if (StringUtils.isNull(atF)) {
-                this.dnN.setVisibility(8);
+            this.bZK.a(this.doY.metaData);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.doX.getLayoutParams();
+            String atO = this.doY.doG.atO();
+            if (StringUtils.isNull(atO)) {
+                this.doT.setVisibility(8);
             } else {
-                this.dnN.setVisibility(0);
-                this.dnN.setText(atF);
+                this.doT.setVisibility(0);
+                this.doT.setText(atO);
             }
-            this.bkp = bVar.cBr;
-            if (k.jR(this.bkp.getId())) {
-                abx();
+            this.bkq = bVar.cBz;
+            if (k.jP(this.bkq.getId())) {
+                aby();
             }
-            this.bvH.setData(this.bkp);
-            k.b(this.bkp, this.mTitle);
-            this.dnT = true;
-            if ((StringUtils.isNull(this.bkp.getTitle()) && (this.bkp.rv() == null || this.bkp.rv().size() == 0)) || this.bkp.rN() == 1) {
-                this.bkp.e(false, true);
-                if (this.bkp.rX() == null || StringUtils.isNull(this.bkp.rX().toString())) {
-                    this.dnT = false;
+            this.bvI.setData(this.bkq);
+            k.b(this.bkq, this.mTitle);
+            this.doZ = true;
+            if ((StringUtils.isNull(this.bkq.getTitle()) && (this.bkq.rt() == null || this.bkq.rt().size() == 0)) || this.bkq.rL() == 1) {
+                this.bkq.e(false, true);
+                if (this.bkq.rV() == null || StringUtils.isNull(this.bkq.rV().toString())) {
+                    this.doZ = false;
                 }
             }
-            U(this.bkp);
+            W(this.bkq);
         }
     }
 
     private void setPageUniqueId(BdUniqueId bdUniqueId) {
         setTag(bdUniqueId);
-        if (this.dnO != null) {
-            this.dnO.setTag(bdUniqueId);
+        if (this.doU != null) {
+            this.doU.setTag(bdUniqueId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void abx() {
-        k.a(this.mTitle, this.bkp.getId(), d.C0082d.cp_cont_b, d.C0082d.cp_cont_d);
+    public void aby() {
+        k.a(this.mTitle, this.bkq.getId(), d.C0096d.cp_cont_b, d.C0096d.cp_cont_d);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void abK() {
-        if (this.dnS != null && this.bkp != null) {
-            k.jQ(this.bkp.getId());
-            abx();
-            PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.mPageContext.getPageActivity()).createCfgForPersonCenter(this.bkp.getId(), this.bkp.rO(), k.rn(), 18005);
+    public void abN() {
+        if (this.doY != null && this.bkq != null) {
+            k.jO(this.bkq.getId());
+            aby();
+            PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.mPageContext.getPageActivity()).createCfgForPersonCenter(this.bkq.getId(), this.bkq.rM(), k.rl(), 18005);
             createCfgForPersonCenter.setStartFrom(this.currentPageType);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createCfgForPersonCenter));
         }

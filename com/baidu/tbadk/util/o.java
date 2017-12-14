@@ -6,7 +6,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import java.lang.reflect.Field;
@@ -57,7 +56,7 @@ public class o {
                 if (z3) {
                     builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
                 }
-                builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+                builder.pversion = "1.0.3";
                 builder.lego_lib_version = TbConfig.getLegoLibVersion();
                 if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("android_safe_sdk_open", 0) == 1) {
                     builder.z_id = FH.gz(TbadkCoreApplication.getInst());

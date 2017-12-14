@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
-    private static int dnl;
-    private static int dnm;
+    private static int dor;
+    private static int dos;
 
     public f(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.dnt);
-        dnl = l.f(context, d.e.tbds102);
-        dnm = l.f(context, d.e.tbds166);
+        super(context, com.baidu.tieba.homepage.concern.b.a.doz);
+        dor = l.f(context, d.e.tbds102);
+        dos = l.f(context, d.e.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,37 +38,37 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        aVar2.dnn.setText(aVar.ajK);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.dnn.getLayoutParams();
-        if (aVar.dnw) {
-            layoutParams.height = dnm;
-            aVar2.cOi.setVisibility(0);
-        } else if (aVar.dnx) {
-            layoutParams.height = dnl;
+        aVar2.dot.setText(aVar.ajH);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.dot.getLayoutParams();
+        if (aVar.doC) {
+            layoutParams.height = dos;
+            aVar2.cOt.setVisibility(0);
+        } else if (aVar.doD) {
+            layoutParams.height = dor;
         }
-        ((a) this.viewholder).dnn.setLayoutParams(layoutParams);
+        ((a) this.viewholder).dot.setLayoutParams(layoutParams);
         aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar2.getView();
     }
 
     /* loaded from: classes.dex */
     public class a extends j.a {
-        private int apA;
-        public View cOi;
-        public TextView dnn;
+        private int apD;
+        public View cOt;
+        public TextView dot;
 
         public a(View view) {
             super(view);
-            this.apA = 3;
-            this.dnn = (TextView) view.findViewById(d.g.concern_tip_txt);
-            this.cOi = view.findViewById(d.g.concern_tip_top_line);
+            this.apD = 3;
+            this.dot = (TextView) view.findViewById(d.g.concern_tip_txt);
+            this.cOt = view.findViewById(d.g.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.apA != i) {
-                aj.k(getView(), d.C0082d.cp_bg_line_e);
-                aj.i(this.dnn, d.C0082d.cp_cont_d);
-                aj.j(this.cOi, d.C0082d.cp_bg_line_e);
+            if (this.apD != i) {
+                aj.k(getView(), d.C0096d.cp_bg_line_e);
+                aj.i(this.dot, d.C0096d.cp_cont_d);
+                aj.j(this.cOt, d.C0096d.cp_bg_line_e);
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.baidu.sofire.b;
 
+import com.baidu.sapi2.utils.SapiEnv;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -10,7 +11,7 @@ import javax.crypto.spec.SecretKeySpec;
 public final class a {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.f.x);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, SapiEnv.SHARE_ALGORITHM);
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {
@@ -18,11 +19,23 @@ public final class a {
             }
             cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
             byte[] doFinal = cipher.doFinal(bArr2);
-            byte[] a = j.a(bArr2);
-            byte[] bArr4 = new byte[doFinal.length + a.length];
+            byte[] b = j.b(bArr2);
+            byte[] bArr4 = new byte[doFinal.length + b.length];
             System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-            System.arraycopy(a, 0, bArr4, doFinal.length, a.length);
+            System.arraycopy(b, 0, bArr4, doFinal.length, b.length);
             return bArr4;
+        } catch (Throwable th) {
+            d.a(th);
+            return null;
+        }
+    }
+
+    public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
+        try {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), SapiEnv.SHARE_ALGORITHM);
+            Cipher cipher = Cipher.getInstance(SapiEnv.SHARE_AES_MODE);
+            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
+            return cipher.doFinal(bArr);
         } catch (Throwable th) {
             d.a(th);
             return null;
@@ -31,7 +44,7 @@ public final class a {
 
     public static byte[] a(byte[] bArr, byte[] bArr2, boolean z) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.f.x);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, SapiEnv.SHARE_ALGORITHM);
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {
@@ -50,41 +63,38 @@ public final class a {
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r6v0 int)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0043: ARRAY_LENGTH  (r7v0 int A[REMOVE]) = (r2v7 byte[]))] */
     public static int a(File file, File file2, byte[] bArr) {
         byte[] bArr2;
-        if (file == null || !file.exists()) {
-            return -1;
-        }
-        try {
-            FileInputStream fileInputStream = new FileInputStream(file);
-            FileOutputStream fileOutputStream = new FileOutputStream(file2);
-            byte[] bArr3 = new byte[8192];
-            while (true) {
-                int read = fileInputStream.read(bArr3);
-                if (read != -1) {
-                    new StringBuilder().append(read).toString();
-                    com.baidu.sofire.b.a();
-                    if (read < bArr3.length) {
+        int i = 0;
+        if (file.exists()) {
+            try {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                FileOutputStream fileOutputStream = new FileOutputStream(file2);
+                byte[] bArr3 = new byte[8192];
+                while (true) {
+                    int read = fileInputStream.read(bArr3);
+                    if (read == -1) {
+                        break;
+                    }
+                    new StringBuilder().append(read);
+                    if (read < 8192) {
                         bArr2 = new byte[read];
                         System.arraycopy(bArr3, 0, bArr2, 0, read);
                     } else {
                         bArr2 = bArr3;
                     }
                     byte[] a = a(bArr, bArr2, false);
-                    new StringBuilder().append(a.length).toString();
-                    com.baidu.sofire.b.a();
+                    new StringBuilder().append(a.length);
                     fileOutputStream.write(a);
-                } else {
-                    fileInputStream.close();
-                    fileOutputStream.close();
-                    return 0;
                 }
+                fileInputStream.close();
+                fileOutputStream.close();
+            } catch (Throwable th) {
+                d.a(th);
+                i = -1;
             }
-        } catch (Throwable th) {
-            d.a(th);
-            return -1;
+            return i;
         }
+        return -1;
     }
 }

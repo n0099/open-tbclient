@@ -17,6 +17,7 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.CharArrayWriter;
@@ -42,8 +43,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
-    private static volatile b LL;
-    private PublicKey LK;
+    private static volatile b LK;
+    private PublicKey LJ;
     private final Context a;
     private int b = 0;
 
@@ -81,7 +82,7 @@ public final class c {
             this();
         }
 
-        public static b bL(String str) {
+        public static b bM(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -250,7 +251,7 @@ public final class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.LK);
+                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.LJ);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.location.b.a.d.a(a2))) {
                                                 aVar.c = true;
                                             }
@@ -280,7 +281,7 @@ public final class c {
             th = th;
         }
         try {
-            this.LK = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+            this.LJ = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
             if (byteArrayInputStream != null) {
                 try {
                     byteArrayInputStream.close();
@@ -390,16 +391,16 @@ public final class c {
     }
 
     private static b al(Context context) {
-        if (LL == null) {
+        if (LK == null) {
             synchronized (b.class) {
-                if (LL == null) {
+                if (LK == null) {
                     SystemClock.uptimeMillis();
-                    LL = new c(context).mj();
+                    LK = new c(context).mj();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return LL;
+        return LK;
     }
 
     public static String b(Context context) {
@@ -454,7 +455,7 @@ public final class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private b bK(String str) {
+    private b bL(String str) {
         String str2;
         String[] split;
         boolean z = false;
@@ -591,7 +592,7 @@ public final class c {
         String str2;
         TelephonyManager telephonyManager;
         try {
-            telephonyManager = (TelephonyManager) this.a.getSystemService("phone");
+            telephonyManager = (TelephonyManager) this.a.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
         } catch (Exception e) {
             Log.e("DeviceId", "Read IMEI failed", e);
         }
@@ -636,8 +637,8 @@ public final class c {
             z = z3;
         }
         File file = new File(this.a.getFilesDir(), "libcuid.so");
-        b bL = file.exists() ? b.bL(f(a(file))) : null;
-        if (bL == null) {
+        b bM = file.exists() ? b.bM(f(a(file))) : null;
+        if (bM == null) {
             this.b |= 16;
             List<a> a3 = a(new Intent("com.baidu.intent.action.GALAXY"), z);
             if (a3 != null) {
@@ -652,21 +653,21 @@ public final class c {
                     if (!aVar2.d) {
                         File file2 = new File(new File(aVar2.a.dataDir, str2), "libcuid.so");
                         if (file2.exists()) {
-                            bVar = b.bL(f(a(file2)));
+                            bVar = b.bM(f(a(file2)));
                             if (bVar != null) {
                                 break;
                             }
                         } else {
-                            bVar = bL;
+                            bVar = bM;
                         }
-                        bL = bVar;
+                        bM = bVar;
                     }
                 }
             }
         }
-        bVar = bL;
+        bVar = bM;
         if (bVar == null) {
-            bVar = b.bL(f(b("com.baidu.deviceid.v2")));
+            bVar = b.bM(f(b("com.baidu.deviceid.v2")));
         }
         boolean c = c("android.permission.READ_EXTERNAL_STORAGE");
         if (bVar == null && c) {
@@ -682,7 +683,7 @@ public final class c {
         if (bVar2 == null && c) {
             this.b |= 1;
             str = h("");
-            bVar2 = bK(str);
+            bVar2 = bL(str);
             z2 = true;
         } else {
             str = null;
@@ -762,7 +763,7 @@ public final class c {
             String a2 = a(file);
             if (!TextUtils.isEmpty(a2)) {
                 try {
-                    return b.bL(new String(com.baidu.location.b.a.a.b("30212102dicudiab", "30212102dicudiab", com.baidu.location.b.a.b.a(a2.getBytes()))));
+                    return b.bM(new String(com.baidu.location.b.a.a.b("30212102dicudiab", "30212102dicudiab", com.baidu.location.b.a.b.a(a2.getBytes()))));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.mc;
 public interface j {
     void OI();
 
-    FrsModelController akZ();
+    FrsModelController alj();
 
-    c ala();
+    c alk();
 
-    com.baidu.tieba.frs.g.f alb();
+    com.baidu.tieba.frs.g.f all();
 
-    com.baidu.tieba.frs.i ale();
+    com.baidu.tieba.frs.j alo();
 }

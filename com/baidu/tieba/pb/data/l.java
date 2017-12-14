@@ -11,68 +11,68 @@ import tbclient.PbPage.DataRes;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class l implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId eOZ = BdUniqueId.gen();
-    public long cLy;
-    private long ePa;
-    private boolean ePb;
-    private ArrayList<MuteUser> ePc;
-    public int eOX = -1;
-    private boolean ePd = false;
-    private int ePe = 1;
+    public static final BdUniqueId eQc = BdUniqueId.gen();
+    public long cLI;
+    private long eQd;
+    private boolean eQe;
+    private ArrayList<MuteUser> eQf;
+    public int eQa = -1;
+    private boolean eQg = false;
+    private int eQh = 1;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return eOZ;
+        return eQc;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (dataRes.thread != null && dataRes.thread.agree != null) {
-                this.ePa = dataRes.thread.agree.agree_num.longValue();
-                this.ePb = dataRes.thread.agree.has_agree.intValue() == 1;
-                this.eOX = dataRes.thread.agree.agree_type.intValue();
+                this.eQd = dataRes.thread.agree.agree_num.longValue();
+                this.eQe = dataRes.thread.agree.has_agree.intValue() == 1;
+                this.eQa = dataRes.thread.agree.agree_type.intValue();
             }
-            if (this.ePc == null) {
-                this.ePc = new ArrayList<>();
+            if (this.eQf == null) {
+                this.eQf = new ArrayList<>();
             }
-            this.ePc.clear();
+            this.eQf.clear();
             if (dataRes.new_agree_user != null && dataRes.new_agree_user.size() > 0) {
                 for (SimpleUser simpleUser : dataRes.new_agree_user) {
                     if (simpleUser != null) {
                         MuteUser muteUser = new MuteUser();
                         muteUser.parserProtobuf(simpleUser);
-                        this.ePc.add(muteUser);
+                        this.eQf.add(muteUser);
                     }
                 }
             }
             if (dataRes.thread != null) {
-                this.cLy = dataRes.thread.share_num.longValue();
+                this.cLI = dataRes.thread.share_num.longValue();
             }
         }
     }
 
-    public long aRM() {
-        return this.ePa;
+    public long aRV() {
+        return this.eQd;
     }
 
-    public boolean aRN() {
-        return this.ePb;
+    public boolean aRW() {
+        return this.eQe;
     }
 
-    public ArrayList<MuteUser> aRO() {
-        return this.ePc;
+    public ArrayList<MuteUser> aRX() {
+        return this.eQf;
     }
 
-    public void pD(int i) {
-        if (!this.ePb) {
-            pF(i);
+    public void pK(int i) {
+        if (!this.eQe) {
+            pM(i);
             return;
         }
-        this.eOX = i;
-        this.ePb = true;
+        this.eQa = i;
+        this.eQe = true;
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
         if (currentAccountName != null) {
-            Iterator<MuteUser> it = this.ePc.iterator();
+            Iterator<MuteUser> it = this.eQf.iterator();
             while (it.hasNext()) {
                 MuteUser next = it.next();
                 if (currentAccountName.equals(next.getUserName())) {
@@ -83,15 +83,15 @@ public class l implements com.baidu.adp.widget.ListView.f {
         }
     }
 
-    public void pE(int i) {
-        this.ePe = i;
+    public void pL(int i) {
+        this.eQh = i;
     }
 
-    public int aRP() {
-        return this.ePe;
+    public int aRY() {
+        return this.eQh;
     }
 
-    public void pF(int i) {
+    public void pM(int i) {
         if (TbadkCoreApplication.isLogin()) {
             MuteUser muteUser = new MuteUser();
             muteUser.setUserId(TbadkCoreApplication.getCurrentAccount());
@@ -100,35 +100,35 @@ public class l implements com.baidu.adp.widget.ListView.f {
                 muteUser.setNickName(TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow());
             }
             muteUser.agreeType = i;
-            if (this.ePc == null) {
-                this.ePc = new ArrayList<>();
+            if (this.eQf == null) {
+                this.eQf = new ArrayList<>();
             }
-            this.ePc.add(0, muteUser);
-            if (this.ePa < 0) {
-                this.ePa = 0L;
+            this.eQf.add(0, muteUser);
+            if (this.eQd < 0) {
+                this.eQd = 0L;
             }
-            this.ePa++;
-            this.ePb = true;
-            this.eOX = i;
+            this.eQd++;
+            this.eQe = true;
+            this.eQa = i;
         }
     }
 
-    public void aRQ() {
+    public void aRZ() {
         if (TbadkCoreApplication.isLogin()) {
-            this.ePa--;
-            if (this.ePa < 0) {
-                this.ePa = 0L;
+            this.eQd--;
+            if (this.eQd < 0) {
+                this.eQd = 0L;
             }
-            this.ePb = false;
-            this.eOX = -1;
-            if (!v.w(this.ePc)) {
+            this.eQe = false;
+            this.eQa = -1;
+            if (!v.w(this.eQf)) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!StringUtils.isNull(currentAccount)) {
-                    Iterator<MuteUser> it = this.ePc.iterator();
+                    Iterator<MuteUser> it = this.eQf.iterator();
                     while (it.hasNext()) {
                         MuteUser next = it.next();
                         if (next != null && currentAccount.equals(next.getUserId())) {
-                            this.ePc.remove(next);
+                            this.eQf.remove(next);
                             return;
                         }
                     }
@@ -137,11 +137,11 @@ public class l implements com.baidu.adp.widget.ListView.f {
         }
     }
 
-    public void iW(boolean z) {
-        this.ePd = z;
+    public void iX(boolean z) {
+        this.eQg = z;
     }
 
-    public boolean aRR() {
-        return this.ePd;
+    public boolean aSa() {
+        return this.eQg;
     }
 }

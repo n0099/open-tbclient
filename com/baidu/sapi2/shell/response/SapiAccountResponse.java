@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class SapiAccountResponse extends SapiResponse {
+    public String actionType;
     public String authSid;
     public boolean newReg;
     public String bduss = "";

@@ -1,34 +1,61 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import android.text.TextUtils;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private String appId = "";
-    private String appName = "";
-    private String packageName = "";
-    private boolean are = false;
+    private List<f> arh = new ArrayList();
+    private String ari;
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.appId = jSONObject.optString("app_id", "");
-            this.appName = jSONObject.optString("app_name", "");
-            this.packageName = jSONObject.optString("package_name", "");
+    public void parserJson(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
+        if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("applist")) != null && optJSONArray.length() != 0) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    f fVar = new f();
+                    fVar.parserJson(jSONObject2);
+                    this.arh.add(fVar);
+                }
+            }
         }
     }
 
-    public String getAppId() {
-        return this.appId;
+    public String xO() {
+        if (TextUtils.isEmpty(this.ari)) {
+            StringBuilder sb = new StringBuilder();
+            int i = 0;
+            Iterator<f> it = this.arh.iterator();
+            while (true) {
+                int i2 = i;
+                if (!it.hasNext()) {
+                    break;
+                }
+                f next = it.next();
+                if (next.xQ()) {
+                    if (i2 == 0) {
+                        sb.append(next.getAppId());
+                    } else {
+                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        sb.append(next.getAppId());
+                    }
+                    i = i2 + 1;
+                } else {
+                    i = i2;
+                }
+            }
+            this.ari = sb.toString();
+        }
+        return this.ari;
     }
 
-    public String getPackageName() {
-        return this.packageName;
-    }
-
-    public boolean xP() {
-        return this.are;
-    }
-
-    public void aQ(boolean z) {
-        this.are = z;
+    public List<f> xP() {
+        return this.arh;
     }
 }

@@ -7,21 +7,21 @@ public interface i {
 
     void a(b bVar);
 
-    void aNN();
+    void aNW();
 
-    void aNO();
+    void aNX();
 
-    void aNP();
+    void aNY();
 
-    void aNQ();
+    void aNZ();
 
-    void aNR();
+    void aOa();
 
-    void aNS();
+    void aOb();
 
-    void aNT();
+    void aOc();
 
-    void aNU();
+    void aOd();
 
     void g(int i, int i2, String str);
 
@@ -35,5 +35,5 @@ public interface i {
 
     void pd(String str);
 
-    void pm(int i);
+    void pt(int i);
 }

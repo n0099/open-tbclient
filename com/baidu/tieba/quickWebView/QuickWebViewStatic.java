@@ -9,7 +9,7 @@ import com.baidu.tieba.quickWebView.message.WebViewCacheResSocketMsg;
 public class QuickWebViewStatic {
     static {
         com.baidu.tieba.tbadkCore.a.a.a(309485, WebViewCacheResSocketMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, com.baidu.tieba.tbadkCore.a.a.aF("c/s/getWebviewCacheInfo", 309485));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, com.baidu.tieba.tbadkCore.a.a.aG("c/s/getWebviewCacheInfo", 309485));
         tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

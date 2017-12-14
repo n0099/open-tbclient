@@ -10,6 +10,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import com.baidu.appsearchlib.Info;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.TbConfig;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -202,7 +203,7 @@ public class BDLocManager {
         this.b = context.getApplicationContext();
         String packageName = this.b.getPackageName();
         try {
-            this.c = (TelephonyManager) this.b.getSystemService("phone");
+            this.c = (TelephonyManager) this.b.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
             str = this.c.getDeviceId();
         } catch (Exception e2) {
             str = null;

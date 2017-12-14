@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a dpu;
-    public BdUniqueId aSv;
-    public int dps = -1;
-    public boolean dpt = false;
+    private static a dqz;
+    public BdUniqueId aSy;
+    public int dqx = -1;
+    public boolean dqy = false;
     private CustomMessageListener mAttentionListener = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.framework.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -19,32 +19,32 @@ public class a {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.isSucc() && !updateAttentionMessage.isAttention() && updateAttentionMessage.isGod()) {
-                    a.this.dpt = true;
+                    a.this.dqy = true;
                 }
             }
         }
     };
 
-    public static synchronized a atU() {
+    public static synchronized a aud() {
         a aVar;
         synchronized (a.class) {
-            if (dpu == null) {
-                dpu = new a();
+            if (dqz == null) {
+                dqz = new a();
             }
-            aVar = dpu;
+            aVar = dqz;
         }
         return aVar;
     }
 
     public void onDestory() {
-        if (this.aSv != null) {
-            MessageManager.getInstance().unRegisterListener(this.aSv);
+        if (this.aSy != null) {
+            MessageManager.getInstance().unRegisterListener(this.aSy);
         }
     }
 
     public void n(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.aSv = bdUniqueId;
+            this.aSy = bdUniqueId;
             this.mAttentionListener.setTag(bdUniqueId);
             MessageManager.getInstance().registerListener(this.mAttentionListener);
         }

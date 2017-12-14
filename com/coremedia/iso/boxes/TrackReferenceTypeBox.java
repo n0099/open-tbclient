@@ -11,8 +11,8 @@ import org.aspectj.lang.a;
 public class TrackReferenceTypeBox extends AbstractBox {
     public static final String TYPE1 = "hint";
     public static final String TYPE2 = "cdsc";
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_1 = null;
     private long[] trackIds;
 
     static {

@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes;
 
-import com.baidu.sapi2.SapiSafeFacade;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractBox;
@@ -11,12 +10,12 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public final class BitRateBox extends AbstractBox {
     public static final String TYPE = "btrt";
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_5 = null;
     private long avgBitrate;
     private long bufferSizeDb;
     private long maxBitrate;
@@ -31,7 +30,7 @@ public final class BitRateBox extends AbstractBox {
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "long", "bufferSizeDb", "", "void"), 82);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 90);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "maxBitrate", "", "void"), 98);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), SapiSafeFacade.SAPIWEBVIEW_MODIFY_PWD);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 106);
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "avgBitrate", "", "void"), 114);
     }
 
@@ -64,7 +63,7 @@ public final class BitRateBox extends AbstractBox {
     }
 
     public void setBufferSizeDb(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dY(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dZ(j)));
         this.bufferSizeDb = j;
     }
 
@@ -74,7 +73,7 @@ public final class BitRateBox extends AbstractBox {
     }
 
     public void setMaxBitrate(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.dY(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.dZ(j)));
         this.maxBitrate = j;
     }
 
@@ -84,7 +83,7 @@ public final class BitRateBox extends AbstractBox {
     }
 
     public void setAvgBitrate(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.dY(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.dZ(j)));
         this.avgBitrate = j;
     }
 }

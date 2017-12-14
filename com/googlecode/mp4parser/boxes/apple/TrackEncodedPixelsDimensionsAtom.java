@@ -10,10 +10,10 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class TrackEncodedPixelsDimensionsAtom extends AbstractFullBox {
     public static final String TYPE = "enof";
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0168a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_3 = null;
     double height;
     double width;
 

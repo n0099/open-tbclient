@@ -1,37 +1,23 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.TbPageContext;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class h {
-    private com.baidu.tieba.frs.mc.j cIn;
+public class h extends j.a {
+    public TextView anj;
+    public TextView ank;
+    public int apD;
+    public TextView cIu;
+    public TextView cIv;
 
-    public h(TbPageContext tbPageContext, com.baidu.tieba.frs.mc.j jVar) {
-        this.cIn = jVar;
-    }
-
-    public void b(com.baidu.tieba.InjectPlugin.b bVar) {
-        if (this.cIn != null && this.cIn.akZ() != null && this.cIn.akZ().aoz() != null && this.cIn.ale() != null && bVar != null && this.cIn.ale().getListView() != null && this.cIn.alb() != null) {
-            BdTypeListView listView = this.cIn.ale().getListView();
-            switch (bVar.what) {
-                case 2:
-                    if (bVar.getView() != null) {
-                        listView.removeHeaderView(bVar.getView());
-                        listView.addHeaderView(bVar.getView(), listView.getHeaderViewsCount() - 1);
-                        this.cIn.alb().la(8);
-                        return;
-                    }
-                    return;
-                case 3:
-                    if (bVar.getView() != null) {
-                        listView.removeHeaderView(bVar.getView());
-                        this.cIn.alb().la(0);
-                        return;
-                    }
-                    return;
-                default:
-                    return;
-            }
-        }
+    public h(View view) {
+        super(view);
+        this.apD = 3;
+        this.anj = (TextView) getView().findViewById(d.g.frs_god_lv_reply_time);
+        this.ank = (TextView) getView().findViewById(d.g.frs_god_praise_num);
+        this.cIv = (TextView) getView().findViewById(d.g.frs_god_reply_num);
+        this.cIu = (TextView) getView().findViewById(d.g.frs_god_item_location_address);
     }
 }

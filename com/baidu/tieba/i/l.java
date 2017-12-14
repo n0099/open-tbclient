@@ -12,7 +12,7 @@ public class l implements k {
     }
 
     @Override // com.baidu.tieba.i.k
-    public h aOb() {
-        return com.baidu.tieba.post.l.bkb();
+    public h aOk() {
+        return com.baidu.tieba.post.l.bkj();
     }
 }

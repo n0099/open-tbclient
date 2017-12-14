@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TextLineView extends TextView {
-    private int dAJ;
-    private int fgd;
-    private int fge;
-    private int fgf;
-    private int fgg;
-    private int fgh;
+    private int dBN;
+    private int fhb;
+    private int fhc;
+    private int fhd;
+    private int fhe;
+    private int fhf;
     private Paint mPaint;
 
     public TextLineView(Context context) {
@@ -27,58 +27,58 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.TextLineView);
-        this.dAJ = obtainStyledAttributes.getDimensionPixelSize(d.l.TextLineView_bottom_line_height, 0);
-        this.fgd = obtainStyledAttributes.getDimensionPixelSize(d.l.TextLineView_bottom_line_top_margin, 0);
-        this.fge = obtainStyledAttributes.getDimensionPixelSize(d.l.TextLineView_bottom_line_bottom_margin, 0);
-        this.fgg = obtainStyledAttributes.getColor(d.l.TextLineView_text_selected_color, aj.getColor(d.C0082d.cp_cont_b));
-        this.fgf = obtainStyledAttributes.getColor(d.l.TextLineView_text_unselected_color, aj.getColor(d.C0082d.cp_cont_j));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.fgd + this.dAJ + this.fge);
-        setTextColor(this.fgg);
-        this.fgh = l.f(context, d.e.ds56);
+        this.dBN = obtainStyledAttributes.getDimensionPixelSize(d.l.TextLineView_bottom_line_height, 0);
+        this.fhb = obtainStyledAttributes.getDimensionPixelSize(d.l.TextLineView_bottom_line_top_margin, 0);
+        this.fhc = obtainStyledAttributes.getDimensionPixelSize(d.l.TextLineView_bottom_line_bottom_margin, 0);
+        this.fhe = obtainStyledAttributes.getColor(d.l.TextLineView_text_selected_color, aj.getColor(d.C0096d.cp_cont_b));
+        this.fhd = obtainStyledAttributes.getColor(d.l.TextLineView_text_unselected_color, aj.getColor(d.C0096d.cp_cont_j));
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.fhb + this.dBN + this.fhc);
+        setTextColor(this.fhe);
+        this.fhf = l.f(context, d.e.ds56);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        aXj();
-        int measuredWidth = (getMeasuredWidth() - this.fgh) / 2;
-        canvas.drawRoundRect(new RectF(measuredWidth + 0, (getMeasuredHeight() - this.fge) - this.dAJ, getMeasuredWidth() - measuredWidth, getMeasuredHeight() - this.fge), l.f(getContext(), d.e.ds4), l.f(getContext(), d.e.ds4), this.mPaint);
+        aXr();
+        int measuredWidth = (getMeasuredWidth() - this.fhf) / 2;
+        canvas.drawRoundRect(new RectF(measuredWidth + 0, (getMeasuredHeight() - this.fhc) - this.dBN, getMeasuredWidth() - measuredWidth, getMeasuredHeight() - this.fhc), l.f(getContext(), d.e.ds4), l.f(getContext(), d.e.ds4), this.mPaint);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            setTextColor(this.fgg);
+            setTextColor(this.fhe);
         } else {
-            setTextColor(this.fgf);
+            setTextColor(this.fhd);
         }
         invalidate();
     }
 
-    private void aXj() {
+    private void aXr() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
         if (isSelected()) {
-            this.mPaint.setColor(aj.getColor(d.C0082d.cp_cont_f));
+            this.mPaint.setColor(aj.getColor(d.C0096d.cp_cont_f));
         } else {
-            this.mPaint.setColor(aj.getColor(d.C0082d.transparent));
+            this.mPaint.setColor(aj.getColor(d.C0096d.transparent));
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.fgg = aj.getColor(d.C0082d.cp_cont_b);
-        this.fgf = aj.getColor(d.C0082d.cp_cont_j);
+        this.fhe = aj.getColor(d.C0096d.cp_cont_b);
+        this.fhd = aj.getColor(d.C0096d.cp_cont_j);
         if (isSelected()) {
-            setTextColor(this.fgg);
+            setTextColor(this.fhe);
         } else {
-            setTextColor(this.fgf);
+            setTextColor(this.fhd);
         }
-        aXj();
+        aXr();
         invalidate();
     }
 }

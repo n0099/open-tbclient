@@ -10,15 +10,15 @@ public class e {
             return null;
         }
         a aVar = new a();
-        aVar.sK(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
-        aVar.sJ(i);
-        aVar.rZ(advertAppInfo.price);
-        aVar.rX(advertAppInfo.extensionInfo);
+        aVar.sV(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
+        aVar.sU(i);
+        aVar.sd(advertAppInfo.price);
+        aVar.sb(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.sb(advertAppInfo.Vf);
-        aVar.sc(advertAppInfo.Vg);
-        aVar.sd(advertAppInfo.Vh);
-        aVar.se(advertAppInfo.Ut);
+        aVar.sf(advertAppInfo.UZ);
+        aVar.sg(advertAppInfo.Va);
+        aVar.sh(advertAppInfo.Vb);
+        aVar.si(advertAppInfo.Un);
         return aVar;
     }
 
@@ -27,15 +27,15 @@ public class e {
             return null;
         }
         a aVar = new a();
-        aVar.sK(advertAppInfo.UX);
-        aVar.sJ(i);
-        aVar.rZ(advertAppInfo.price);
-        aVar.rX(advertAppInfo.extensionInfo);
+        aVar.sV(advertAppInfo.UR);
+        aVar.sU(i);
+        aVar.sd(advertAppInfo.price);
+        aVar.sb(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.sb(advertAppInfo.Vf);
-        aVar.sc(advertAppInfo.Vg);
-        aVar.sd(advertAppInfo.Vh);
-        aVar.se(advertAppInfo.Ut);
+        aVar.sf(advertAppInfo.UZ);
+        aVar.sg(advertAppInfo.Va);
+        aVar.sh(advertAppInfo.Vb);
+        aVar.si(advertAppInfo.Un);
         return aVar;
     }
 
@@ -45,48 +45,48 @@ public class e {
         }
         a aVar = new a();
         aVar.setDownloadStaticsData(downloadStaticsData);
-        aVar.sJ(i);
+        aVar.sU(i);
         aVar.setPageNumber(i2);
         return aVar;
     }
 
     public static a Z(int i, int i2, int i3) {
         a aVar = new a();
-        aVar.sJ(i);
-        aVar.sK(i2);
+        aVar.sU(i);
+        aVar.sV(i2);
         aVar.setPageNumber(i3);
         return aVar;
     }
 
     public static a c(l lVar, int i) {
-        if (lVar == null || lVar.bwd() == null) {
+        if (lVar == null || lVar.bwK() == null) {
             return null;
         }
-        AppData bwd = lVar.bwd();
+        AppData bwK = lVar.bwK();
         a aVar = new a();
-        aVar.sK(com.baidu.adp.lib.g.b.g(bwd.pos_name, 0));
-        aVar.rX(bwd.ext_info);
+        aVar.sV(com.baidu.adp.lib.g.b.g(bwK.pos_name, 0));
+        aVar.sb(bwK.ext_info);
         aVar.setPageNumber(lVar.pageNumber);
-        aVar.sJ(i);
-        aVar.rZ(bwd.price);
-        aVar.sb(lVar.Vf);
-        aVar.sc(lVar.Vg);
-        aVar.sd(lVar.forumId);
-        aVar.se("PB");
+        aVar.sU(i);
+        aVar.sd(bwK.price);
+        aVar.sf(lVar.UZ);
+        aVar.sg(lVar.Va);
+        aVar.sh(lVar.forumId);
+        aVar.si("PB");
         return aVar;
     }
 
     public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4, int i5, int i6) {
         a c = c(advertAppInfo, i, i2);
-        c.sL(i3);
-        c.sM(i5);
-        c.sN(i4);
+        c.sW(i3);
+        c.sX(i5);
+        c.sY(i4);
         if (i6 != -1 && i == 32) {
-            c.sO(i6);
+            c.sZ(i6);
         }
-        c.se(advertAppInfo.Ut);
+        c.si(advertAppInfo.Un);
         if (i == 2) {
-            c.sa("video");
+            c.se("video");
         }
         return c;
     }
@@ -97,23 +97,23 @@ public class e {
 
     public static a b(String str, int i, String str2, String str3) {
         a aVar = new a();
-        aVar.sJ(i);
-        aVar.rY(str2);
-        aVar.se("HOMEPAGE");
-        aVar.rX(str);
-        aVar.sf(str3);
+        aVar.sU(i);
+        aVar.sc(str2);
+        aVar.si("HOMEPAGE");
+        aVar.sb(str);
+        aVar.sj(str3);
         return aVar;
     }
 
     public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
         a c = c(advertAppInfo, i, i2);
-        c.sL(i3);
+        c.sW(i3);
         return c;
     }
 
     public static a b(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
         a d = d(advertAppInfo, i, i2);
-        d.sL(i3);
+        d.sW(i3);
         return d;
     }
 }

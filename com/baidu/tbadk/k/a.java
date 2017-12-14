@@ -10,37 +10,37 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.a.a {
-    private b aJr;
-    private InterfaceC0061a aJs = null;
+    private b aJv;
+    private InterfaceC0075a aJw = null;
     private WindowManager mWindowManager;
 
     /* renamed from: com.baidu.tbadk.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0061a {
+    public interface InterfaceC0075a {
         void fo(int i);
     }
 
     public a(Context context) {
-        this.aJr = null;
+        this.aJv = null;
         this.mWindowManager = null;
-        this.aJr = new b(context);
+        this.aJv = new b(context);
         this.mWindowManager = (WindowManager) context.getSystemService("window");
     }
 
-    private void Ge() {
+    private void Gf() {
         try {
-            this.mWindowManager.removeView(this.aJr);
+            this.mWindowManager.removeView(this.aJv);
         } catch (Throwable th) {
         }
     }
 
-    private void Gf() {
+    private void Gg() {
         try {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-2, -2, 2006, 0, -3);
             layoutParams.gravity = 51;
             layoutParams.height = 1;
             layoutParams.width = 1;
-            this.mWindowManager.addView(this.aJr, layoutParams);
+            this.mWindowManager.addView(this.aJv, layoutParams);
         } catch (Throwable th) {
         }
     }
@@ -48,20 +48,20 @@ public class a extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        Ge();
+        Gf();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
         super.start();
-        Ge();
         Gf();
+        Gg();
         new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tbadk.k.a.1
             @Override // java.lang.Runnable
             public void run() {
                 if (a.this.ck()) {
-                    a.this.aJr.invalidate();
-                    a.this.aJr.post(this);
+                    a.this.aJv.invalidate();
+                    a.this.aJv.post(this);
                 }
             }
         });
@@ -70,14 +70,14 @@ public class a extends com.baidu.adp.a.a.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b extends ImageView {
-        private int aJu;
+        private int aJy;
         private final Paint mPaint;
         private long mStartTime;
 
         public b(Context context) {
             super(context);
             this.mStartTime = -1L;
-            this.aJu = 0;
+            this.aJy = 0;
             this.mPaint = new Paint();
             this.mPaint.setColor(0);
             this.mPaint.setAlpha(0);
@@ -89,26 +89,26 @@ public class a extends com.baidu.adp.a.a.a {
         public void draw(Canvas canvas) {
             if (this.mStartTime == -1) {
                 this.mStartTime = SystemClock.elapsedRealtime();
-                this.aJu = 0;
+                this.aJy = 0;
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
             super.draw(canvas);
             if (elapsedRealtime - this.mStartTime > 1000) {
                 this.mStartTime = elapsedRealtime;
-                if (a.this.aJs != null) {
-                    a.this.aJs.fo(this.aJu);
+                if (a.this.aJw != null) {
+                    a.this.aJw.fo(this.aJy);
                 } else {
-                    com.baidu.adp.a.a.d.F(this.aJu);
+                    com.baidu.adp.a.a.d.E(this.aJy);
                 }
-                this.aJu = 0;
+                this.aJy = 0;
             }
-            this.aJu++;
+            this.aJy++;
         }
     }
 
-    public void a(InterfaceC0061a interfaceC0061a) {
-        if (this.aJs == null) {
-            this.aJs = interfaceC0061a;
+    public void a(InterfaceC0075a interfaceC0075a) {
+        if (this.aJw == null) {
+            this.aJw = interfaceC0075a;
         }
     }
 }

@@ -1,20 +1,19 @@
 package com.baidu.tieba.play;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class y {
-    public String WL;
-    public String aAn;
-    public String aMR;
-    public String fQp;
-    public String fQq;
-    public String fQr;
-    public String fQs;
-    public String fQt;
+    public String WF;
+    public String aAs;
+    public String aMU;
+    public String fRi;
+    public String fRj;
+    public String fRk;
+    public String fRl;
+    public String fRm;
     public String mLocate;
     public String mSource;
     public String mType;
@@ -25,51 +24,51 @@ public class y {
             if (!StringUtils.isNull(this.mLocate)) {
                 akVar.ac("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.aMR)) {
-                akVar.ac("tid", this.aMR);
+            if (!StringUtils.isNull(this.aMU)) {
+                akVar.ac("tid", this.aMU);
             }
-            if (!StringUtils.isNull(this.aAn)) {
-                akVar.ac(ImageViewerConfig.FORUM_ID, this.aAn);
+            if (!StringUtils.isNull(this.aAs)) {
+                akVar.ac(ImageViewerConfig.FORUM_ID, this.aAs);
             }
             if (!StringUtils.isNull(this.mUid)) {
-                akVar.ac(SapiAccountManager.SESSION_UID, this.mUid);
+                akVar.ac("uid", this.mUid);
             }
             if (!StringUtils.isNull(this.mSource)) {
                 akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
             }
-            if (!StringUtils.isNull(this.fQp)) {
-                akVar.ac("obj_param1", this.fQp);
+            if (!StringUtils.isNull(this.fRi)) {
+                akVar.ac("obj_param1", this.fRi);
             }
-            if (!StringUtils.isNull(this.fQq)) {
-                akVar.ac("obj_param2", this.fQq);
+            if (!StringUtils.isNull(this.fRj)) {
+                akVar.ac("obj_param2", this.fRj);
             }
-            if (!StringUtils.isNull(this.fQr)) {
-                akVar.ac("obj_param3", this.fQr);
+            if (!StringUtils.isNull(this.fRk)) {
+                akVar.ac("obj_param3", this.fRk);
             }
-            if (!StringUtils.isNull(this.WL)) {
-                akVar.ac("obj_id", this.WL);
+            if (!StringUtils.isNull(this.WF)) {
+                akVar.ac("obj_id", this.WF);
             }
-            if (!StringUtils.isNull(this.fQs)) {
-                akVar.ac("ab_tag", this.fQs);
+            if (!StringUtils.isNull(this.fRl)) {
+                akVar.ac("ab_tag", this.fRl);
             }
         }
         return akVar;
     }
 
-    public y bjD() {
+    public y bjL() {
         y yVar = new y();
         yVar.mLocate = this.mLocate;
         yVar.mType = this.mType;
-        yVar.aMR = this.aMR;
-        yVar.aAn = this.aAn;
+        yVar.aMU = this.aMU;
+        yVar.aAs = this.aAs;
         yVar.mUid = this.mUid;
         yVar.mSource = this.mSource;
-        yVar.fQp = this.fQp;
-        yVar.fQq = this.fQq;
-        yVar.fQr = this.fQr;
-        yVar.WL = this.WL;
-        yVar.fQs = this.fQs;
-        yVar.fQt = this.fQt;
+        yVar.fRi = this.fRi;
+        yVar.fRj = this.fRj;
+        yVar.fRk = this.fRk;
+        yVar.WF = this.WF;
+        yVar.fRl = this.fRl;
+        yVar.fRm = this.fRm;
         return yVar;
     }
 }

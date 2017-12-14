@@ -40,7 +40,7 @@ public final class d extends DexClassLoader {
         return findLoadedClass;
     }
 
-    public final Class<?> bW(String str) throws ClassNotFoundException {
+    public final Class<?> bX(String str) throws ClassNotFoundException {
         Class<?> findLoadedClass = findLoadedClass(str);
         if (findLoadedClass == null) {
             try {

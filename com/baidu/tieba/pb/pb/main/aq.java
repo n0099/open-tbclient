@@ -15,7 +15,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
 public class aq {
-    public static Intent ad(Context context, String str) {
+    public static Intent ac(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
@@ -28,13 +28,13 @@ public class aq {
     }
 
     public static boolean k(PostData postData) {
-        if (postData == null || postData.bwx() == null) {
+        if (postData == null || postData.bxe() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.h bwx = postData.bwx();
-        if (bwx.gyN) {
-            int bvW = bwx.bvW();
-            return bvW == 2 || bvW == 1 || bvW == 3;
+        com.baidu.tieba.tbadkCore.data.h bxe = postData.bxe();
+        if (bxe.gBw) {
+            int bwD = bxe.bwD();
+            return bwD == 2 || bwD == 1 || bwD == 3;
         }
         return false;
     }
@@ -43,8 +43,8 @@ public class aq {
         if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.h.user_like_success_dialog, (ViewGroup) null);
-            com.baidu.tbadk.core.util.aj.i((TextView) inflate.findViewById(d.g.dialog_title), d.C0082d.cp_cont_b);
-            com.baidu.tbadk.core.util.aj.i((TextView) inflate.findViewById(d.g.dialog_message), d.C0082d.cp_cont_j);
+            com.baidu.tbadk.core.util.aj.i((TextView) inflate.findViewById(d.g.dialog_title), d.C0096d.cp_cont_b);
+            com.baidu.tbadk.core.util.aj.i((TextView) inflate.findViewById(d.g.dialog_message), d.C0096d.cp_cont_j);
             aVar.a(d.j.know, new a.b() { // from class: com.baidu.tieba.pb.pb.main.aq.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -63,7 +63,7 @@ public class aq {
             });
             aVar.v(inflate);
             aVar.ao(false);
-            aVar.b(tbPageContext).tk();
+            aVar.b(tbPageContext).th();
         }
     }
 }

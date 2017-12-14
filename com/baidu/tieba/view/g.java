@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 public interface g {
     void a(Context context, NavigationBar navigationBar);
 
-    void bba();
+    void bbi();
 
     void c(float f, boolean z);
 
-    void d(UserData userData);
+    void e(UserData userData);
 
     void onChangeSkinType(int i);
 

@@ -1,6 +1,6 @@
 package com.xiaomi.smack;
 
-import com.baidu.sapi2.SapiSafeFacade;
+import com.baidu.tbadk.TbConfig;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
@@ -16,12 +16,15 @@ public class c {
             return 105;
         }
         if (!(a instanceof SocketException)) {
-            return a instanceof UnknownHostException ? SapiSafeFacade.SAPIWEBVIEW_LOGIN : th instanceof l ? 399 : 0;
+            if (a instanceof UnknownHostException) {
+                return 107;
+            }
+            return th instanceof l ? 399 : 0;
         } else if (message.indexOf("Network is unreachable") != -1) {
-            return SapiSafeFacade.SAPIWEBVIEW_BACK;
+            return 102;
         } else {
             if (message.indexOf("Connection refused") != -1) {
-                return SapiSafeFacade.SAPIWEBVIEW_FINISH;
+                return 103;
             }
             if (message.indexOf("Connection timed out") != -1) {
                 return 105;
@@ -30,18 +33,15 @@ public class c {
                 return 101;
             }
             if (message.indexOf("Connection reset by peer") != -1) {
-                return SapiSafeFacade.SAPIWEBVIEW_REG;
+                return 109;
             }
             if (message.indexOf("Broken pipe") != -1) {
-                return 110;
+                return TbConfig.BIG_PHOTO_MAX_SIZE;
             }
             if (message.indexOf("No route to host") != -1) {
-                return SapiSafeFacade.SAPIWEBVIEW_AUTHORIZATION;
+                return 104;
             }
-            if (message.endsWith("EINVAL (Invalid argument)")) {
-                return SapiSafeFacade.SAPIWEBVIEW_MODIFY_PWD;
-            }
-            return 199;
+            return message.endsWith("EINVAL (Invalid argument)") ? 106 : 199;
         }
     }
 }

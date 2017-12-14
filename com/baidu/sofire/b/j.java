@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 public final class j {
     private static final String[] a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
 
-    private static String t(byte[] bArr) {
+    private static String c(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();
         for (int i : bArr) {
             if (i < 0) {
@@ -32,12 +32,24 @@ public final class j {
             th = th;
         }
         try {
-            return t(MessageDigest.getInstance("MD5").digest(str2.getBytes()));
+            return c(MessageDigest.getInstance("MD5").digest(str2.getBytes()));
         } catch (Throwable th2) {
             str3 = str2;
             th = th2;
             d.a(th);
             return str3;
+        }
+    }
+
+    public static String a(byte[] bArr) {
+        if (bArr == null || bArr.length <= 0) {
+            return null;
+        }
+        try {
+            return c(MessageDigest.getInstance("MD5").digest(bArr));
+        } catch (Throwable th) {
+            d.a(th);
+            return null;
         }
     }
 
@@ -57,7 +69,7 @@ public final class j {
                         }
                         messageDigest.update(bArr, 0, read);
                     }
-                    str = c(messageDigest.digest());
+                    str = t(messageDigest.digest());
                     try {
                         fileInputStream.close();
                     } catch (IOException e) {
@@ -86,7 +98,7 @@ public final class j {
         return str;
     }
 
-    private static String c(byte[] bArr) {
+    private static String t(byte[] bArr) {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         char[] cArr2 = new char[bArr.length * 2];
         for (int i = 0; i < bArr.length; i++) {
@@ -97,7 +109,7 @@ public final class j {
         return new String(cArr2);
     }
 
-    public static byte[] a(byte[] bArr) {
+    public static byte[] b(byte[] bArr) {
         if (bArr == null || bArr.length <= 0) {
             return null;
         }

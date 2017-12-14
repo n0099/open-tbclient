@@ -11,11 +11,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class am {
-    private PbActivity eUm;
-    private com.baidu.tieba.d.b fal;
+    private PbActivity eVp;
+    private com.baidu.tieba.d.b fbo;
 
     public am(PbActivity pbActivity) {
-        this.eUm = pbActivity;
+        this.eVp = pbActivity;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
         tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -24,33 +24,33 @@ public class am {
 
     public void a(View view, String str, String str2, String str3) {
         if (view != null && !StringUtils.isNull(str) && view.getVisibility() == 0 && view.getAlpha() >= 0.4d) {
-            if (this.fal == null) {
-                this.fal = new com.baidu.tieba.d.b(this.eUm.getPageContext(), view);
-                this.fal.iS(d.f.bg_tip_blue_up_left);
-                this.fal.iR(16);
-                this.fal.ef(true);
-                this.fal.iV(57);
-                this.fal.iW(-10);
+            if (this.fbo == null) {
+                this.fbo = new com.baidu.tieba.d.b(this.eVp.getPageContext(), view);
+                this.fbo.iU(d.f.bg_tip_blue_up_left);
+                this.fbo.iT(16);
+                this.fbo.eg(true);
+                this.fbo.iX(57);
+                this.fbo.iY(-10);
             }
-            this.fal.iT(5000);
-            this.fal.kf(str);
-            bH(str2, str3);
+            this.fbo.iV(5000);
+            this.fbo.kd(str);
+            bI(str2, str3);
             TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12504"));
         }
     }
 
     public void destroy() {
-        if (this.fal != null) {
-            this.fal.adz();
+        if (this.fbo != null) {
+            this.fbo.adJ();
         }
     }
 
-    private void bH(String str, String str2) {
+    private void bI(String str, String str2) {
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP);
             httpMessage.addParam("thread_user_id", str);
             httpMessage.addParam("thread_id", str2);
-            this.eUm.sendMessage(httpMessage);
+            this.eVp.sendMessage(httpMessage);
         }
     }
 }

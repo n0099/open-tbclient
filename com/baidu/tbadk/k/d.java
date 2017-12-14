@@ -12,48 +12,48 @@ import com.baidu.tbadk.k.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends k {
-    private static CustomMessageTask aJO = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new CustomMessageTask.CustomRunnable<a>() { // from class: com.baidu.tbadk.k.d.3
+    private static CustomMessageTask aJS = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new CustomMessageTask.CustomRunnable<a>() { // from class: com.baidu.tbadk.k.d.3
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<a> customMessage) {
             if (customMessage == null) {
                 return null;
             }
             a data = customMessage.getData();
-            data.aJQ = r.GA().GC();
-            data.aJR = r.GA().GE();
+            data.aJU = r.GB().GD();
+            data.aJV = r.GB().GF();
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PERF_SAMPLE, data);
         }
     });
-    private ArrayList<String> aJD;
-    private ArrayList<String> aJE;
-    private ArrayList<String> aJF;
-    private e aJJ;
-    private com.baidu.tbadk.k.a aJK;
-    private int aJL;
-    private int aJG = 0;
-    private int aJH = 3;
-    private int aJI = 0;
+    private ArrayList<String> aJH;
+    private ArrayList<String> aJI;
+    private ArrayList<String> aJJ;
+    private e aJN;
+    private com.baidu.tbadk.k.a aJO;
+    private int aJP;
+    private int aJK = 0;
+    private int aJL = 3;
     private int aJM = 0;
-    private e.a aJN = new e.a() { // from class: com.baidu.tbadk.k.d.1
+    private int aJQ = 0;
+    private e.a aJR = new e.a() { // from class: com.baidu.tbadk.k.d.1
         @Override // com.baidu.tbadk.k.e.a
         public void fo(int i) {
-            d.this.aJJ.a((e.a) null);
-            d.this.aJJ.stop();
-            d.this.aJL = i;
-            t tVar = (t) r.GA().ft(d.this.mSubType);
+            d.this.aJN.a((e.a) null);
+            d.this.aJN.stop();
+            d.this.aJP = i;
+            t tVar = (t) r.GB().ft(d.this.mSubType);
             if (tVar != null) {
                 tVar.h(d.this);
             }
         }
     };
-    private a.InterfaceC0061a aJs = new a.InterfaceC0061a() { // from class: com.baidu.tbadk.k.d.2
-        @Override // com.baidu.tbadk.k.a.InterfaceC0061a
+    private a.InterfaceC0075a aJw = new a.InterfaceC0075a() { // from class: com.baidu.tbadk.k.d.2
+        @Override // com.baidu.tbadk.k.a.InterfaceC0075a
         public void fo(int i) {
-            d.this.aJM++;
-            if (d.this.aJH == d.this.aJM) {
-                d.this.aJK.a((a.InterfaceC0061a) null);
-                d.this.aJK.stop();
-                d.this.Go();
+            d.this.aJQ++;
+            if (d.this.aJL == d.this.aJQ) {
+                d.this.aJO.a((a.InterfaceC0075a) null);
+                d.this.aJO.stop();
+                d.this.Gp();
             }
             d.this.fp(i);
         }
@@ -64,52 +64,52 @@ public class d extends k {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             a aVar;
             if (customResponsedMessage != null && (aVar = (a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == d.this.mId) {
-                d.this.aJI++;
-                d.this.gI(aVar.aJQ);
-                d.this.fq(aVar.aJR);
-                d.this.Go();
+                d.this.aJM++;
+                d.this.gH(aVar.aJU);
+                d.this.fq(aVar.aJV);
+                d.this.Gp();
             }
         }
     };
 
     public d() {
-        Gi();
+        Gj();
     }
 
     public void onDestroy() {
-        if (this.aJJ != null) {
-            this.aJJ.a((e.a) null);
+        if (this.aJN != null) {
+            this.aJN.a((e.a) null);
         }
-        if (this.aJK != null) {
-            this.aJK.a((a.InterfaceC0061a) null);
+        if (this.aJO != null) {
+            this.aJO.a((a.InterfaceC0075a) null);
         }
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public void Gh() {
-        if (this.aJG < this.aJH) {
-            this.aJG++;
-            Gj();
-            if (this.aJJ == null) {
-                this.aJJ = new e();
-                this.aJJ.a(this.aJN);
-                this.aJJ.start();
+    public void Gi() {
+        if (this.aJK < this.aJL) {
+            this.aJK++;
+            Gk();
+            if (this.aJN == null) {
+                this.aJN = new e();
+                this.aJN.a(this.aJR);
+                this.aJN.start();
             }
-            if (this.aJK == null) {
-                this.aJK = new com.baidu.tbadk.k.a(TbadkCoreApplication.getInst().getContext());
-                this.aJK.a(this.aJs);
-                this.aJK.start();
+            if (this.aJO == null) {
+                this.aJO = new com.baidu.tbadk.k.a(TbadkCoreApplication.getInst().getContext());
+                this.aJO.a(this.aJw);
+                this.aJO.start();
             }
         }
     }
 
-    private void Gi() {
+    private void Gj() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void Gj() {
+    private void Gk() {
         CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_PERF_SAMPLE, new a());
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
@@ -118,45 +118,45 @@ public class d extends k {
     /* JADX INFO: Access modifiers changed from: private */
     public void fp(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aJD == null) {
-            this.aJD = new ArrayList<>();
+        if (this.aJH == null) {
+            this.aJH = new ArrayList<>();
         }
-        this.aJD.add(valueOf);
+        this.aJH.add(valueOf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gI(String str) {
-        if (this.aJE == null) {
-            this.aJE = new ArrayList<>();
+    public void gH(String str) {
+        if (this.aJI == null) {
+            this.aJI = new ArrayList<>();
         }
         if (str != null) {
-            this.aJE.add(str);
+            this.aJI.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fq(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aJF == null) {
-            this.aJF = new ArrayList<>();
+        if (this.aJJ == null) {
+            this.aJJ = new ArrayList<>();
         }
-        this.aJF.add(valueOf);
-    }
-
-    public String Gk() {
-        return r(this.aJD);
+        this.aJJ.add(valueOf);
     }
 
     public String Gl() {
-        return String.valueOf(this.aJL);
+        return r(this.aJH);
     }
 
     public String Gm() {
-        return r(this.aJE);
+        return String.valueOf(this.aJP);
     }
 
     public String Gn() {
-        return r(this.aJF);
+        return r(this.aJI);
+    }
+
+    public String Go() {
+        return r(this.aJJ);
     }
 
     private String r(ArrayList<String> arrayList) {
@@ -179,22 +179,22 @@ public class d extends k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Go() {
+    public void Gp() {
         t tVar;
-        if (this.aJI == this.aJH && this.aJH == this.aJM && (tVar = (t) r.GA().ft(this.mSubType)) != null) {
+        if (this.aJM == this.aJL && this.aJL == this.aJQ && (tVar = (t) r.GB().ft(this.mSubType)) != null) {
             tVar.g(this);
         }
     }
 
     static {
-        aJO.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        MessageManager.getInstance().registerTask(aJO);
+        aJS.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        MessageManager.getInstance().registerTask(aJS);
     }
 
     /* loaded from: classes.dex */
     public class a {
-        public String aJQ;
-        public int aJR;
+        public String aJU;
+        public int aJV;
 
         public a() {
         }

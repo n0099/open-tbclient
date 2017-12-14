@@ -20,9 +20,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static Pattern aie = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern ahY = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
-    public static String J(String str, boolean z) {
+    public static String K(String str, boolean z) {
         String str2 = null;
         if (str == null) {
             return null;
@@ -194,7 +194,7 @@ public class e {
             if (nl == null) {
                 return null;
             }
-            Matcher matcher = aie.matcher(nl);
+            Matcher matcher = ahY.matcher(nl);
             while (matcher.find()) {
                 String group = matcher.group();
                 nl = nl.replace(group, group.replace("#(", "[").replace(")", "]"));
@@ -475,7 +475,7 @@ public class e {
             return null;
         }
         com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
-        dVar.dIa = split[0];
+        dVar.dJd = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

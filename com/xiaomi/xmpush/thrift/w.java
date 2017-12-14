@@ -1,5 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -50,7 +51,7 @@ public class w implements Serializable, Cloneable, org.apache.thrift.a<w, a> {
     private static final org.apache.thrift.protocol.b M = new org.apache.thrift.protocol.b("imeiMd5", (byte) 11, 20);
     private static final org.apache.thrift.protocol.b N = new org.apache.thrift.protocol.b("deviceId", (byte) 11, 21);
     private static final org.apache.thrift.protocol.b O = new org.apache.thrift.protocol.b("passThrough", (byte) 8, 22);
-    private static final org.apache.thrift.protocol.b P = new org.apache.thrift.protocol.b("extra", (byte) 13, 23);
+    private static final org.apache.thrift.protocol.b P = new org.apache.thrift.protocol.b(ISapiAccount.SAPI_ACCOUNT_EXTRA, (byte) 13, 23);
     private BitSet Q = new BitSet(5);
     public boolean k = false;
 
@@ -75,7 +76,7 @@ public class w implements Serializable, Cloneable, org.apache.thrift.a<w, a> {
         IMEI_MD5(20, "imeiMd5"),
         DEVICE_ID(21, "deviceId"),
         PASS_THROUGH(22, "passThrough"),
-        EXTRA(23, "extra");
+        EXTRA(23, ISapiAccount.SAPI_ACCOUNT_EXTRA);
         
         private static final Map<String, a> u = new HashMap();
         private final short v;
@@ -120,7 +121,7 @@ public class w implements Serializable, Cloneable, org.apache.thrift.a<w, a> {
         enumMap.put((EnumMap) a.IMEI_MD5, (a) new org.apache.thrift.meta_data.b("imeiMd5", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.DEVICE_ID, (a) new org.apache.thrift.meta_data.b("deviceId", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.PASS_THROUGH, (a) new org.apache.thrift.meta_data.b("passThrough", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
-        enumMap.put((EnumMap) a.EXTRA, (a) new org.apache.thrift.meta_data.b("extra", (byte) 2, new org.apache.thrift.meta_data.e((byte) 13, new org.apache.thrift.meta_data.c((byte) 11), new org.apache.thrift.meta_data.c((byte) 11))));
+        enumMap.put((EnumMap) a.EXTRA, (a) new org.apache.thrift.meta_data.b(ISapiAccount.SAPI_ACCOUNT_EXTRA, (byte) 2, new org.apache.thrift.meta_data.e((byte) 13, new org.apache.thrift.meta_data.c((byte) 11), new org.apache.thrift.meta_data.c((byte) 11))));
         u = Collections.unmodifiableMap(enumMap);
         org.apache.thrift.meta_data.b.a(w.class, u);
     }

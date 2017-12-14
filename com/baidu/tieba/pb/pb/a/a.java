@@ -8,13 +8,13 @@ public interface a {
 
     void b(com.baidu.tieba.pb.data.f fVar);
 
-    void iX(boolean z);
-
     void iY(boolean z);
 
     void iZ(boolean z);
 
-    void pH(int i);
+    void ja(boolean z);
+
+    void pO(int i);
 
     void setCommonClickListener(View.OnClickListener onClickListener);
 
@@ -22,7 +22,7 @@ public interface a {
 
     void setHostId(String str);
 
-    void setOnImageClickListener(TbRichTextView.f fVar);
+    void setOnImageClickListener(TbRichTextView.g gVar);
 
     void setOnLongClickListener(View.OnLongClickListener onLongClickListener);
 }

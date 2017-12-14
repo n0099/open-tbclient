@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static boolean nG(boolean z) {
+    public static boolean nI(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -68,7 +68,7 @@ public class a {
         return i2;
     }
 
-    public static int h(Activity activity, int i) {
+    public static int i(Activity activity, int i) {
         if (Build.VERSION.SDK_INT <= 8) {
             return 0;
         }
@@ -99,7 +99,7 @@ public class a {
         Camera.Size size;
         boolean z;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0137a());
+        Collections.sort(supportedPreviewSizes, new C0152a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -124,8 +124,8 @@ public class a {
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0137a implements Comparator<Camera.Size> {
-        private C0137a() {
+    private static class C0152a implements Comparator<Camera.Size> {
+        private C0152a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

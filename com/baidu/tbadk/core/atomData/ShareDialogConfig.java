@@ -21,6 +21,7 @@ public class ShareDialogConfig extends IntentConfig {
     public ArrayList<TransmitForumData> mForumList;
     public boolean mIsAlaLive;
     public boolean mIsShowTransmitShare;
+    public int mPrivateThread;
     public SparseArray<String> mtjStatistics;
     public DialogInterface.OnDismissListener onDismissListener;
     public d shareItem;
@@ -102,6 +103,10 @@ public class ShareDialogConfig extends IntentConfig {
 
     public void setTransmitForumList(ArrayList<TransmitForumData> arrayList) {
         this.mForumList = arrayList;
+    }
+
+    public void setPrivateThread(int i) {
+        this.mPrivateThread = i;
     }
 
     public void setIsAlaLive(boolean z) {

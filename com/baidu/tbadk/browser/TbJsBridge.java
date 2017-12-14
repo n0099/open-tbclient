@@ -43,7 +43,7 @@ public class TbJsBridge {
         dVar.content = str2;
         dVar.linkUrl = str4;
         if (!am.isEmpty(str3)) {
-            dVar.auz = Uri.parse(str3);
+            dVar.auE = Uri.parse(str3);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), dVar, true)));
     }

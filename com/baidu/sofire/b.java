@@ -7,16 +7,7 @@ import java.net.UnknownHostException;
 public final class b {
     public static boolean a = false;
 
-    public static void a() {
-    }
-
-    public static void b() {
-    }
-
     public static String a(Throwable th) {
-        if (th == null) {
-            return "";
-        }
         for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {
             if (th2 instanceof UnknownHostException) {
                 return "";

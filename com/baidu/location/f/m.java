@@ -9,7 +9,7 @@ public class m {
     private String d;
     private boolean c = false;
     private boolean e = false;
-    private double Lt = 0.0d;
+    private double Ls = 0.0d;
     private double MH = 0.0d;
     public int b = 0;
 
@@ -45,7 +45,7 @@ public class m {
             }
             if (!split[2].equals("") && !split[split.length - 3].equals("") && !split[split.length - 2].equals("") && !split[split.length - 1].equals("")) {
                 try {
-                    this.Lt = Double.valueOf(split[split.length - 3]).doubleValue();
+                    this.Ls = Double.valueOf(split[split.length - 3]).doubleValue();
                     this.MH = Double.valueOf(split[split.length - 2]).doubleValue();
                 } catch (Exception e) {
                 }
@@ -60,7 +60,7 @@ public class m {
     }
 
     public double b() {
-        return this.Lt;
+        return this.Ls;
     }
 
     public double c() {

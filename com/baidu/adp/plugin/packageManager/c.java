@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c Dl;
-    private ArrayList<String> Da = new ArrayList<>();
-    private a Dm;
+    private static volatile c Dk;
+    private ArrayList<String> CZ = new ArrayList<>();
+    private a Dl;
 
     public static c jq() {
-        if (Dl == null) {
+        if (Dk == null) {
             synchronized (c.class) {
-                if (Dl == null) {
-                    Dl = new c();
+                if (Dk == null) {
+                    Dk = new c();
                 }
             }
         }
-        return Dl;
+        return Dk;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.Da.iterator();
+            Iterator<String> it = this.CZ.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,7 +45,7 @@ public class c {
                 }
             }
             if (!z) {
-                this.Da.add(pluginSetting.packageName);
+                this.CZ.add(pluginSetting.packageName);
             }
             jm();
         }
@@ -53,9 +53,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void jm() {
-        if (this.Da.size() > 0 && this.Dm == null) {
-            this.Dm = new a(this.Da.get(0));
-            this.Dm.execute(new String[0]);
+        if (this.CZ.size() > 0 && this.Dl == null) {
+            this.Dl = new a(this.CZ.get(0));
+            this.Dl.execute(new String[0]);
         }
     }
 
@@ -83,16 +83,16 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.Dm = null;
-            if (c.this.Da.size() > 0) {
-                Iterator it = c.this.Da.iterator();
+            c.this.Dl = null;
+            if (c.this.CZ.size() > 0) {
+                Iterator it = c.this.CZ.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.Da.remove(str);
+                        c.this.CZ.remove(str);
                         break;
                     }
                 }

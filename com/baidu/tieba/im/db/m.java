@@ -5,61 +5,61 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.n;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.o.an;
+import com.baidu.tbadk.o.ao;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m {
-    private static int dIs = TbConfig.POST_IMAGE_SMALL;
-    private static int dIt = 500;
+    private static int dJv = TbConfig.POST_IMAGE_SMALL;
+    private static int dJw = 500;
 
-    public static void azy() {
-        if (!an.fS()) {
+    public static void azH() {
+        if (!ao.fS()) {
             com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
             return;
         }
         try {
-            g.azm().azn();
-            String azA = azA();
-            if (!TextUtils.isEmpty(azA)) {
-                com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + mM(azA), new Object[0]);
+            g.azv().azw();
+            String azJ = azJ();
+            if (!TextUtils.isEmpty(azJ)) {
+                com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + mM(azJ), new Object[0]);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            g.azm().endTransaction();
+            g.azv().endTransaction();
         }
     }
 
-    public static void nc(int i) {
-        if (i < dIt) {
-            i = dIt;
+    public static void nj(int i) {
+        if (i < dJw) {
+            i = dJw;
         }
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_max_stranger", i);
     }
 
-    private static int azz() {
-        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_max_stranger", dIs);
+    private static int azI() {
+        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_max_stranger", dJv);
     }
 
-    private static String azA() {
-        List<String> azB;
+    private static String azJ() {
+        List<String> azK;
         StringBuilder sb = new StringBuilder();
         try {
-            azB = azB();
+            azK = azK();
         } catch (Exception e) {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getStrangeData", new Object[0]);
         }
-        if (azB == null || azB.size() == 0) {
+        if (azK == null || azK.size() == 0) {
             return null;
         }
-        int azz = azz();
-        com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + azB.size() + " max is " + azz, new Object[0]);
-        if (azB.size() > azz) {
+        int azI = azI();
+        com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + azK.size() + " max is " + azI, new Object[0]);
+        if (azK.size() > azI) {
             boolean z = true;
-            for (String str : azB.subList(0, 2000 >= azB.size() - azz ? azB.size() - azz : 2000)) {
+            for (String str : azK.subList(0, 2000 >= azK.size() - azI ? azK.size() - azI : 2000)) {
                 if (z) {
                     z = false;
                 } else {
@@ -71,11 +71,11 @@ public class m {
         return sb.toString();
     }
 
-    private static List<String> azB() {
+    private static List<String> azK() {
         Cursor cursor = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = g.azm().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
+            cursor = g.azv().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));
@@ -92,7 +92,7 @@ public class m {
 
     private static boolean mM(String str) {
         try {
-            return g.azm().mL("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
+            return g.azv().mL("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
         } catch (Exception e) {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteStrange", new Object[0]);

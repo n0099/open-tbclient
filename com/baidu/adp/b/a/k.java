@@ -7,10 +7,10 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class k extends c {
-    private a BC;
-    protected Path BA = new Path();
-    protected Paint BB = null;
-    protected boolean BD = false;
+    private a BB;
+    protected Path Bz = new Path();
+    protected Paint BA = null;
+    protected boolean BC = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,15 +23,15 @@ public abstract class k extends c {
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a2;
         super.a(dVar, imageView, scaleType);
-        if (this.BC != null && (a2 = this.BC.a(iy())) != null) {
-            this.BA.set(a2);
-            if (this.BB == null) {
-                this.BB = new Paint();
-                this.BB.setStyle(Paint.Style.STROKE);
-                this.BB.setAntiAlias(true);
-                this.BB.setColor(637534208);
-                this.BB.setDither(true);
-                this.BB.setStrokeWidth(2.0f);
+        if (this.BB != null && (a2 = this.BB.a(iy())) != null) {
+            this.Bz.set(a2);
+            if (this.BA == null) {
+                this.BA = new Paint();
+                this.BA.setStyle(Paint.Style.STROKE);
+                this.BA.setAntiAlias(true);
+                this.BA.setColor(637534208);
+                this.BA.setDither(true);
+                this.BA.setStrokeWidth(2.0f);
             }
             iD();
         }
@@ -40,10 +40,10 @@ public abstract class k extends c {
     @Override // com.baidu.adp.b.a.a
     public void a(Canvas canvas, d dVar, ImageView imageView) {
         super.a(canvas, dVar, imageView);
-        if (this.BD) {
-            canvas.drawPath(this.BA, this.BB);
-            if (this.BC != null) {
-                this.BC.d(canvas);
+        if (this.BC) {
+            canvas.drawPath(this.Bz, this.BA);
+            if (this.BB != null) {
+                this.BB.d(canvas);
             }
         }
     }
@@ -55,10 +55,10 @@ public abstract class k extends c {
     }
 
     public void a(a aVar) {
-        this.BC = aVar;
+        this.BB = aVar;
     }
 
     public void L(boolean z) {
-        this.BD = z;
+        this.BC = z;
     }
 }

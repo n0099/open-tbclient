@@ -8,18 +8,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.widget.richText.a {
-    private static double eRE = 0.5d;
+    private static double eSH = 0.5d;
 
     public b(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
-        cf(true);
-        Jp();
+        cg(true);
+        Jq();
         setLineSpacing(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds15), 1.0f);
         fX(0);
         fY(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds30));
         fZ(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds12));
-        R(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48));
-        S(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds30), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds10));
+        S(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48));
+        T(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds30), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds10));
         ga(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds14));
         this.mOnDrawListener = new TbImageView.b() { // from class: com.baidu.tieba.pb.pb.main.b.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
@@ -54,18 +54,18 @@ public class b extends com.baidu.tbadk.widget.richText.a {
         if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
             return null;
         }
-        if (!this.aUu || aUe <= 1.0f) {
+        if (!this.aUx || aUh <= 1.0f) {
             i3 = i;
         } else {
-            if (i * aUe <= i3 * eRE) {
-                i3 = (int) (i * aUe);
+            if (i * aUh <= i3 * eSH) {
+                i3 = (int) (i * aUh);
             }
             i2 = (i3 * i2) / i;
             if (i2 > 4096) {
-                this.aUs = ImageView.ScaleType.MATRIX;
+                this.aUv = ImageView.ScaleType.MATRIX;
                 i2 = 4096;
             } else {
-                this.aUs = ImageView.ScaleType.CENTER_CROP;
+                this.aUv = ImageView.ScaleType.CENTER_CROP;
             }
         }
         return new int[]{i3, i2};

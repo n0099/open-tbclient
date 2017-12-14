@@ -1,43 +1,44 @@
 package com.baidu.tieba.play.b;
 
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d implements b {
-    public final int fQG;
-    public final int fQH;
+    public final int fRA;
+    public final int fRz;
     public final String msg;
     public final int what;
 
     public d(int i, int i2, int i3) {
-        this.fQG = i;
+        this.fRz = i;
         this.what = i2;
-        this.fQH = i3;
+        this.fRA = i3;
         this.msg = "";
     }
 
     public d(int i, int i2, int i3, String str) {
-        this.fQG = i;
+        this.fRz = i;
         this.what = i2;
-        this.fQH = i3;
+        this.fRA = i3;
         this.msg = str;
     }
 
     @Override // com.baidu.tieba.play.b.b
-    public JSONObject bjI() {
+    public JSONObject bjQ() {
         String str;
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.fQG == -100) {
+            if (this.fRz == -100) {
                 str = "system";
-            } else if (this.fQG == -200) {
+            } else if (this.fRz == -200) {
                 str = "ijkplayer";
             } else {
                 str = "unknown";
             }
             jSONObject.put("player", str);
             jSONObject.put("what", this.what);
-            jSONObject.put("extra", this.fQH);
+            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_EXTRA, this.fRA);
             jSONObject.put(AddFriendActivityConfig.MSG, this.msg);
         } catch (Exception e) {
             e.printStackTrace();

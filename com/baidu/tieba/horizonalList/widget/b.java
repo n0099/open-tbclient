@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class b {
-    private static ArrayList<b> dsW = new ArrayList<>(5);
-    public int dta;
-    public int dtb;
-    int dtc;
+    private static ArrayList<b> dub = new ArrayList<>(5);
+    public int duf;
+    public int dug;
+    int duh;
     public int type;
 
     private void Lg() {
-        this.dta = 0;
-        this.dtb = 0;
-        this.dtc = 0;
+        this.duf = 0;
+        this.dug = 0;
+        this.duh = 0;
         this.type = 0;
     }
 
@@ -21,30 +21,30 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long auD() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.dta, this.dtb) : ExpandableListView.getPackedPositionForGroup(this.dta);
+    public long auM() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.duf, this.dug) : ExpandableListView.getPackedPositionForGroup(this.duf);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b mi(int i) {
+    public static b mp(int i) {
         return r(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b r(int i, int i2, int i3, int i4) {
-        b auE = auE();
-        auE.type = i;
-        auE.dta = i2;
-        auE.dtb = i3;
-        auE.dtc = i4;
-        return auE;
+        b auN = auN();
+        auN.type = i;
+        auN.duf = i2;
+        auN.dug = i3;
+        auN.duh = i4;
+        return auN;
     }
 
-    private static b auE() {
+    private static b auN() {
         b bVar;
-        synchronized (dsW) {
-            if (dsW.size() > 0) {
-                bVar = dsW.remove(0);
+        synchronized (dub) {
+            if (dub.size() > 0) {
+                bVar = dub.remove(0);
                 bVar.Lg();
             } else {
                 bVar = new b();
@@ -54,9 +54,9 @@ class b {
     }
 
     public void recycle() {
-        synchronized (dsW) {
-            if (dsW.size() < 5) {
-                dsW.add(this);
+        synchronized (dub) {
+            if (dub.size() < 5) {
+                dub.add(this);
             }
         }
     }

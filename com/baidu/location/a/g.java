@@ -17,7 +17,7 @@ import java.net.URL;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g extends com.baidu.location.h.f {
-    private static g Lu = null;
+    private static g Lt = null;
     String a = null;
     String b = null;
     String c = null;
@@ -191,10 +191,10 @@ public class g extends com.baidu.location.h.f {
     }
 
     public static g md() {
-        if (Lu == null) {
-            Lu = new g();
+        if (Lt == null) {
+            Lt = new g();
         }
-        return Lu;
+        return Lt;
     }
 
     private Handler me() {

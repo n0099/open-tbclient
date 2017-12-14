@@ -44,7 +44,7 @@ public abstract class TransportPerformer {
             case TransportMediator.KEYCODE_MEDIA_PLAY /* 126 */:
                 onStart();
                 break;
-            case TransportMediator.KEYCODE_MEDIA_PAUSE /* 127 */:
+            case 127:
                 onPause();
                 break;
         }
@@ -59,7 +59,7 @@ public abstract class TransportPerformer {
         int i2 = 0;
         switch (i) {
             case -1:
-                i2 = TransportMediator.KEYCODE_MEDIA_PAUSE;
+                i2 = 127;
                 break;
         }
         if (i2 != 0) {

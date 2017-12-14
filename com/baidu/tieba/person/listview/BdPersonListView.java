@@ -17,18 +17,18 @@ public class BdPersonListView extends BdTypeListView {
     private View GN;
     private float GP;
     private float GQ;
-    private boolean GS;
-    private float GT;
+    private boolean GT;
     private float GU;
-    private final int GV;
+    private float GV;
     private final int GW;
-    private final Scroller frh;
-    private View fri;
-    private b frj;
-    private b frk;
-    public a frl;
-    private boolean frm;
-    private boolean frn;
+    private final int GX;
+    private final Scroller fsc;
+    private View fsd;
+    private b fse;
+    private b fsf;
+    public a fsg;
+    private boolean fsh;
+    private boolean fsi;
     private final Context mContext;
     private final Scroller mScroller;
     public static int ExpandListView_expandDistance = 1;
@@ -45,15 +45,15 @@ public class BdPersonListView extends BdTypeListView {
 
     public BdPersonListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.GS = false;
-        this.frm = true;
-        this.frn = false;
+        this.GT = false;
+        this.fsh = true;
+        this.fsi = false;
         this.mContext = context;
         this.mScroller = new Scroller(this.mContext);
-        this.frh = new Scroller(this.mContext);
-        this.GV = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.fsc = new Scroller(this.mContext);
+        this.GW = ViewConfiguration.get(context).getScaledTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.ExpandListView);
-        this.GW = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
+        this.GX = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
         obtainStyledAttributes.recycle();
     }
 
@@ -62,12 +62,12 @@ public class BdPersonListView extends BdTypeListView {
     }
 
     public void setOuterExpandView(View view) {
-        this.fri = view;
+        this.fsd = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.GN == null || !this.frm) {
+        if (this.GN == null || !this.fsh) {
             return super.dispatchTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction();
@@ -77,54 +77,54 @@ public class BdPersonListView extends BdTypeListView {
                 case 0:
                     int height = this.GN.getHeight();
                     this.GP = this.GQ;
-                    this.GT = this.GU;
-                    this.frj = new b(0, height, 0, this.GW + height);
-                    int height2 = this.fri.getHeight();
-                    this.frk = new b(0, height2, 0, this.GW + height2);
+                    this.GU = this.GV;
+                    this.fse = new b(0, height, 0, this.GX + height);
+                    int height2 = this.fsd.getHeight();
+                    this.fsf = new b(0, height2, 0, this.GX + height2);
                     break;
                 case 1:
                 case 3:
-                    if (this.GS) {
+                    if (this.GT) {
                         kT();
-                        if (this.frn) {
+                        if (this.fsi) {
                             return true;
                         }
                     } else {
-                        this.frl.kV();
+                        this.fsg.kV();
                         break;
                     }
                     break;
                 case 2:
-                    float f = this.GU - this.GT;
+                    float f = this.GV - this.GU;
                     float f2 = this.GQ - this.GP;
-                    this.GT = this.GU;
-                    if (this.GN.getParent() == this && this.frj != null && this.GN.isShown() && this.GN.getTop() >= 0 && Math.abs(f2) >= this.GV && Math.abs(f) < this.GV) {
-                        int w = this.frj.w(this.GQ - this.GP);
-                        if (w > this.frj.Ha && w <= this.frj.Hc) {
-                            this.GS = true;
+                    this.GU = this.GV;
+                    if (this.GN.getParent() == this && this.fse != null && this.GN.isShown() && this.GN.getTop() >= 0 && Math.abs(f2) >= this.GW && Math.abs(f) < this.GW) {
+                        int w = this.fse.w(this.GQ - this.GP);
+                        if (w > this.fse.startY && w <= this.fse.Ha) {
+                            this.GT = true;
                             this.GN.setLayoutParams(new AbsListView.LayoutParams(this.GN.getWidth(), w));
-                            if (this.fri != null) {
-                                int w2 = this.frk.w(this.GQ - this.GP);
-                                ViewGroup.LayoutParams layoutParams = this.fri.getLayoutParams();
+                            if (this.fsd != null) {
+                                int w2 = this.fsf.w(this.GQ - this.GP);
+                                ViewGroup.LayoutParams layoutParams = this.fsd.getLayoutParams();
                                 if (layoutParams != null) {
                                     layoutParams.height = w2;
-                                    this.fri.setLayoutParams(layoutParams);
+                                    this.fsd.setLayoutParams(layoutParams);
                                 }
                             }
-                            u(w - this.frj.Ha);
+                            u(w - this.fse.startY);
                             break;
-                        } else if (w <= this.frj.Ha) {
-                            this.GS = false;
+                        } else if (w <= this.fse.startY) {
+                            this.GT = false;
                             break;
-                        } else if (w > this.frj.Hc) {
-                            this.GS = true;
+                        } else if (w > this.fse.Ha) {
+                            this.GT = true;
                             break;
                         } else {
-                            this.GS = false;
+                            this.GT = false;
                             break;
                         }
                     } else {
-                        this.GS = false;
+                        this.GT = false;
                         break;
                     }
                     break;
@@ -136,7 +136,7 @@ public class BdPersonListView extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.GS) {
+        if (this.GT) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -144,34 +144,34 @@ public class BdPersonListView extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.GS) {
+        if (this.GT) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
     private void kT() {
-        if (this.frj != null) {
-            if (this.GN.getHeight() >= this.frj.Hc - (this.GW / 2)) {
+        if (this.fse != null) {
+            if (this.GN.getHeight() >= this.fse.Ha - (this.GX / 2)) {
                 kU();
             } else {
-                this.frl.kV();
+                this.fsg.kV();
             }
-            this.mScroller.startScroll(0, this.GN.getHeight(), 0, this.frj.Ha - this.GN.getHeight(), 200);
-            this.frh.startScroll(0, this.fri.getHeight(), 0, this.frk.Ha - this.fri.getHeight(), 200);
+            this.mScroller.startScroll(0, this.GN.getHeight(), 0, this.fse.startY - this.GN.getHeight(), 200);
+            this.fsc.startScroll(0, this.fsd.getHeight(), 0, this.fsf.startY - this.fsd.getHeight(), 200);
             invalidate();
-            this.GS = false;
+            this.GT = false;
         }
     }
 
     public void kU() {
-        if (this.frl != null) {
-            this.frl.kW();
+        if (this.fsg != null) {
+            this.fsg.kW();
         }
     }
 
     public void setPersonListRefreshListener(a aVar) {
-        this.frl = aVar;
+        this.fsg = aVar;
     }
 
     @Override // android.view.View
@@ -182,35 +182,35 @@ public class BdPersonListView extends BdTypeListView {
         } else {
             super.computeScroll();
         }
-        if (this.frh.computeScrollOffset()) {
-            int currY = this.frh.getCurrY();
-            if (this.fri != null && (layoutParams = this.fri.getLayoutParams()) != null) {
+        if (this.fsc.computeScrollOffset()) {
+            int currY = this.fsc.getCurrY();
+            if (this.fsd != null && (layoutParams = this.fsd.getLayoutParams()) != null) {
                 layoutParams.height = currY;
-                this.fri.setLayoutParams(layoutParams);
+                this.fsd.setLayoutParams(layoutParams);
             }
         }
     }
 
     private void u(float f) {
-        this.frl.v(360.0f - ((f * 360.0f) / this.GW));
+        this.fsg.v(360.0f - ((f * 360.0f) / this.GX));
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        public int GZ;
         public int Ha;
-        public int Hb;
-        public int Hc;
+        public int endX;
+        public int startX;
+        public int startY;
 
         public b(int i, int i2, int i3, int i4) {
-            this.GZ = i;
-            this.Ha = i2;
-            this.Hb = i3;
-            this.Hc = i4;
+            this.startX = i;
+            this.startY = i2;
+            this.endX = i3;
+            this.Ha = i4;
         }
 
         public int w(float f) {
-            return (int) (this.Ha + (f / 2.5f));
+            return (int) (this.startY + (f / 2.5f));
         }
     }
 }

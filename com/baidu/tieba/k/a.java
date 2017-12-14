@@ -24,13 +24,13 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public final class a {
-    private static final String adb = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> eEj = new HashSet();
-    private static final boolean eEk = ph(System.getProperty("java.vm.version"));
+    private static final String acV = "code_cache" + File.separator + "secondary-dexes";
+    private static final Set<String> eFn = new HashSet();
+    private static final boolean eFo = ph(System.getProperty("java.vm.version"));
 
-    public static void bM(Context context) {
+    public static void bJ(Context context) {
         Log.i("MultiDex", "install");
-        if (eEk) {
+        if (eFo) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -38,11 +38,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = eEj;
-                    synchronized (eEj) {
+                    Set<String> set = eFn;
+                    synchronized (eFn) {
                         String str = applicationInfo.sourceDir;
-                        if (!eEj.contains(str)) {
-                            eEj.add(str);
+                        if (!eFn.contains(str)) {
+                            eFn.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }
@@ -52,15 +52,15 @@ public final class a {
                                     Log.e("MultiDex", "Context class loader is null. Must be running in test mode. Skip patching.");
                                     return;
                                 }
-                                bN(context);
-                                File file = new File(applicationInfo.dataDir, adb);
+                                bK(context);
+                                File file = new File(applicationInfo.dataDir, acV);
                                 List<File> a = com.baidu.tieba.k.b.a(context, applicationInfo, file, false);
-                                if (cx(a)) {
+                                if (cy(a)) {
                                     a(classLoader, file, a);
                                 } else {
                                     Log.w("MultiDex", "Files were not valid zip files.  Forcing a reload.");
                                     List<File> a2 = com.baidu.tieba.k.b.a(context, applicationInfo, file, true);
-                                    if (!cx(a2)) {
+                                    if (!cy(a2)) {
                                         throw new RuntimeException("Zip files were not valid.");
                                     }
                                     a(classLoader, file, a2);
@@ -119,7 +119,7 @@ public final class a {
                     c.a(classLoader, list);
                     return;
                 } else {
-                    C0104a.a(classLoader, list, file);
+                    C0119a.a(classLoader, list, file);
                     return;
                 }
             }
@@ -127,9 +127,9 @@ public final class a {
         }
     }
 
-    private static boolean cx(List<File> list) {
+    private static boolean cy(List<File> list) {
         for (File file : list) {
-            if (!com.baidu.tieba.k.b.G(file)) {
+            if (!com.baidu.tieba.k.b.F(file)) {
                 return false;
             }
         }
@@ -176,7 +176,7 @@ public final class a {
         g.set(obj, objArr3);
     }
 
-    private static void bN(Context context) throws Exception {
+    private static void bK(Context context) throws Exception {
         File file = new File(context.getFilesDir(), "secondary-dexes");
         if (file.isDirectory()) {
             Log.i("MultiDex", "Clearing old secondary dex dir (" + file.getPath() + ").");
@@ -235,7 +235,7 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0104a {
+    public static final class C0119a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void a(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             Object obj = a.g(classLoader, "pathList").get(classLoader);

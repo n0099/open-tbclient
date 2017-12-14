@@ -1,24 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes.dex */
 public class ab {
-    public String eYY;
-    public boolean eYZ;
-    public boolean eZa;
-    public boolean eYJ = false;
-    public boolean eYK = false;
-    public boolean ePm = false;
-    public boolean eYL = false;
-    public boolean eYM = false;
-    public boolean eYN = false;
-    public boolean eYO = false;
-    public boolean eYP = false;
-    public boolean eYQ = false;
-    public boolean eYR = false;
-    public boolean eYS = false;
-    public boolean eYT = false;
-    public boolean eYU = false;
-    public boolean eYV = false;
-    public boolean eYW = false;
-    public boolean eYX = false;
+    public String fab;
+    public boolean fac;
+    public boolean fad;
+    public boolean eZM = false;
+    public boolean eZN = false;
+    public boolean eQp = false;
+    public boolean eZO = false;
+    public boolean eZP = false;
+    public boolean eZQ = false;
+    public boolean eZR = false;
+    public boolean eZS = false;
+    public boolean eZT = false;
+    public boolean eZU = false;
+    public boolean eZV = false;
+    public boolean eZW = false;
+    public boolean eZX = false;
+    public boolean eZY = false;
+    public boolean eZZ = false;
+    public boolean faa = false;
     public boolean isHostOnly = false;
 }

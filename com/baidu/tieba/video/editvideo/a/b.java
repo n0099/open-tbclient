@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tieba.video.editvideo.data.a gOK;
+    private com.baidu.tieba.video.editvideo.data.a gRt;
     private List<com.baidu.tieba.video.editvideo.data.a> mList = new ArrayList();
 
     public void setData(List<com.baidu.tieba.video.editvideo.data.a> list) {
         if (list != null) {
             this.mList = list;
             if (this.mList.size() > 0) {
-                this.gOK = this.mList.get(0);
+                this.gRt = this.mList.get(0);
             }
         }
     }
@@ -50,15 +50,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.list_item_filter, (ViewGroup) null);
-            aVar.gOL = (TbImageView) view.findViewById(d.g.iv_effect);
-            aVar.gOL.setIsRound(true);
-            aVar.gOL.setDrawerType(1);
-            aVar.gOL.setDefaultBgResource(d.C0082d.transparent);
-            aVar.gOL.setBorderWidth(l.f(viewGroup.getContext(), d.e.ds4));
-            aVar.gOL.setBorderColor(aj.getColor(d.C0082d.cp_link_tip_a));
-            aVar.eWk = (TextView) view.findViewById(d.g.tv_name);
-            aj.i(aVar.eWk, d.C0082d.cp_cont_j);
-            aVar.eWk = (TextView) view.findViewById(d.g.tv_name);
+            aVar.gRu = (TbImageView) view.findViewById(d.g.iv_effect);
+            aVar.gRu.setIsRound(true);
+            aVar.gRu.setDrawerType(1);
+            aVar.gRu.setDefaultBgResource(d.C0096d.transparent);
+            aVar.gRu.setBorderWidth(l.f(viewGroup.getContext(), d.e.ds4));
+            aVar.gRu.setBorderColor(aj.getColor(d.C0096d.cp_link_tip_a));
+            aVar.eXn = (TextView) view.findViewById(d.g.tv_name);
+            aj.i(aVar.eXn, d.C0096d.cp_cont_j);
+            aVar.eXn = (TextView) view.findViewById(d.g.tv_name);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -66,15 +66,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (i >= 0 && i < this.mList.size()) {
             com.baidu.tieba.video.editvideo.data.a aVar2 = this.mList.get(i);
             if (aVar2 != null) {
-                aVar.gOL.setTag(aVar2);
-                aVar.gOL.setOnClickListener(this);
-                aVar.gOL.startLoad(String.valueOf(aVar2.gPo), 24, false);
-                aVar.eWk.setText(aVar2.name);
+                aVar.gRu.setTag(aVar2);
+                aVar.gRu.setOnClickListener(this);
+                aVar.gRu.startLoad(String.valueOf(aVar2.gRX), 24, false);
+                aVar.eXn.setText(aVar2.name);
             }
-            if (!TextUtils.isEmpty(aVar2.name) && this.gOK != null && TextUtils.equals(aVar2.name, this.gOK.name)) {
-                aVar.gOL.setDrawBorder(true);
+            if (!TextUtils.isEmpty(aVar2.name) && this.gRt != null && TextUtils.equals(aVar2.name, this.gRt.name)) {
+                aVar.gRu.setDrawBorder(true);
             } else {
-                aVar.gOL.setDrawBorder(false);
+                aVar.gRu.setDrawBorder(false);
             }
         }
         return view;
@@ -83,15 +83,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == d.g.iv_effect && (view.getTag() instanceof com.baidu.tieba.video.editvideo.data.a)) {
-            this.gOK = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
+            this.gRt = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
             notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes2.dex */
     class a {
-        TextView eWk;
-        TbImageView gOL;
+        TextView eXn;
+        TbImageView gRu;
 
         a() {
         }

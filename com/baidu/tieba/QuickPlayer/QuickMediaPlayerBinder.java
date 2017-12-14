@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import android.view.Surface;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -178,7 +177,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                 } else if (MODEL_MX4.equals(Build.MODEL)) {
                     i2 = 2;
                 }
-                TiebaStatic.log(new ak("c12200").r("obj_type", i2).ac(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new ak("c12200").r("obj_type", i2).ac("uid", TbadkCoreApplication.getCurrentAccount()));
             }
             if (this.mContext instanceof a) {
                 ((a) this.mContext).addPlayer(this.mMediaPlayer);

@@ -635,7 +635,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     }
 
     public float getVideoDecodeFramesPerSecond() {
-        return _getPropertyFloat(PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND, 0.0f);
+        return _getPropertyFloat(10001, 0.0f);
     }
 
     public long getVideoCachedDuration() {
@@ -805,7 +805,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         return;
                     }
                 case IjkMediaPlayer.MEDIA_ERROR_LOG /* 400 */:
-                    a.bJ(message.arg1, message.arg2);
+                    a.bK(message.arg1, message.arg2);
                     ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:
@@ -821,7 +821,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         return;
                     }
                     return;
-                case IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND /* 10001 */:
+                case 10001:
                     ijkMediaPlayer.mVideoSarNum = message.arg1;
                     ijkMediaPlayer.mVideoSarDen = message.arg2;
                     ijkMediaPlayer.notifyOnVideoSizeChanged(ijkMediaPlayer.mVideoWidth, ijkMediaPlayer.mVideoHeight, ijkMediaPlayer.mVideoSarNum, ijkMediaPlayer.mVideoSarDen);

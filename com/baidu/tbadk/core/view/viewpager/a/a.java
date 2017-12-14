@@ -4,14 +4,14 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.f;
 /* loaded from: classes.dex */
 public abstract class a implements f {
-    public static final BdUniqueId apK = BdUniqueId.gen();
+    public static final BdUniqueId apN = BdUniqueId.gen();
 
     public abstract String getImageUrl();
 
-    public abstract Object xa();
+    public abstract Object wZ();
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return apK;
+        return apN;
     }
 }

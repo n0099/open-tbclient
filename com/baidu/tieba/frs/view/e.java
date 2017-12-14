@@ -1,92 +1,99 @@
 package com.baidu.tieba.frs.view;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.LayoutInflater;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.tbadkCore.i;
 /* loaded from: classes.dex */
-public class e implements View.OnClickListener {
-    private i dcO;
-    private ForumData dcP;
-    private ViewGroup dcQ;
-    private View dcR;
-    private TextView dcS;
-    private Context mContext;
-    TbPageContext<FrsActivity> mTbPageContext;
+public class e extends LinearLayout {
+    private LinearLayout aMt;
+    private TextView aWS;
+    private Context context;
+    private EditText ddQ;
+    private HeadImageView ddR;
+    private TextView ddS;
+    private TextView ddT;
+    private ShareFromFrsMsgData ddU;
 
-    public e(TbPageContext<FrsActivity> tbPageContext, View view) {
-        this.dcQ = null;
-        this.dcR = null;
-        this.dcS = null;
-        this.mContext = view.getContext().getApplicationContext();
-        this.mTbPageContext = tbPageContext;
-        this.dcR = view.findViewById(d.g.frs_header_divider_ticket);
-        this.dcQ = (ViewGroup) view.findViewById(d.g.frs_header_ticket);
-        this.dcS = (TextView) view.findViewById(d.g.frs_header_ticket_text);
-        this.dcQ.setOnClickListener(this);
+    public EditText getChatMsgView() {
+        return this.ddQ;
     }
 
-    public void changeSkinType(int i) {
-        aj.j(this.dcQ, d.f.frs_top_item_bg);
-    }
-
-    public void a(i iVar, ForumData forumData) {
-        boolean z;
-        boolean z2 = true;
-        this.dcO = iVar;
-        this.dcP = forumData;
-        String string = this.mContext.getString(d.j.frs_star_ticket_name);
-        if (iVar != null) {
-            z = iVar.bva();
-            if (com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("FRS_STARTICKET_LAST_CLICK_TIME" + forumData.getId() + TbadkCoreApplication.getCurrentAccount(), 0L) >= iVar.bvb()) {
-                z2 = false;
-            }
-        } else {
-            z = true;
-        }
-        if (forumData != null && forumData.getName() != null) {
-            string = forumData.getName() + this.mContext.getString(d.j.forum) + this.mContext.getString(d.j.frs_star_ticket_name);
-        }
-        if (z) {
-            this.dcR.setVisibility(0);
-            this.dcQ.setVisibility(0);
-            fG(z2);
-            this.dcS.setText(string);
-            TiebaStatic.log("ticket_show");
-        } else {
-            this.dcR.setVisibility(8);
-            this.dcQ.setVisibility(8);
-        }
-        this.dcR.setVisibility(8);
-        this.dcQ.setVisibility(8);
-    }
-
-    private void fG(boolean z) {
-        if (z) {
-            this.dcS.setCompoundDrawablesWithIntrinsicBounds(0, 0, d.f.icon_news_down_bar_one, 0);
-        } else {
-            this.dcS.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+    public void I(String str, boolean z) {
+        if (this.ddR != null) {
+            this.ddR.startLoad(str, 15, false);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.dcQ) {
-            if ((this.mTbPageContext == null || ax.aV(this.mTbPageContext.getPageActivity())) && this.dcO != null && this.dcP != null) {
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("FRS_STARTICKET_LAST_CLICK_TIME" + this.dcP.getId() + TbadkCoreApplication.getCurrentAccount(), this.dcO.bvb());
-                fG(false);
-                com.baidu.tbadk.browser.a.a(this.dcQ.getContext(), k.a(this.dcS.getText(), this.mContext.getString(d.j.frs_star_ticket_name)), com.baidu.tbadk.browser.a.appendVersionCode(com.baidu.tbadk.browser.a.appendCuidParam(this.dcO.bvc())), true, false, true);
-            }
+    public e(Context context) {
+        super(context);
+        this.context = context;
+        bt(context);
+    }
+
+    public void setPageId(BdUniqueId bdUniqueId) {
+        this.ddR.setPageId(bdUniqueId);
+    }
+
+    private void bt(Context context) {
+        LayoutInflater.from(context).inflate(d.h.frs_share_card_view, this);
+        setOrientation(1);
+        this.aMt = (LinearLayout) findViewById(d.g.share_content);
+        this.aWS = (TextView) findViewById(d.g.frs_card_name);
+        this.ddQ = (EditText) findViewById(d.g.chat_msg);
+        this.ddR = (HeadImageView) findViewById(d.g.frs_card_img);
+        this.ddT = (TextView) findViewById(d.g.frs_card_member_num);
+        this.ddS = (TextView) findViewById(d.g.frs_card_post_num);
+        aj.c(this.aWS, d.C0096d.cp_cont_b, 1);
+        aj.c(this.ddQ, d.C0096d.cp_cont_b, 2);
+        this.ddQ.setHintTextColor(aj.getColor(d.C0096d.cp_cont_e));
+        this.ddQ.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
+        arn();
+    }
+
+    public void arn() {
+        this.aMt.setFocusable(true);
+        this.aMt.setFocusableInTouchMode(true);
+        this.aMt.requestFocus();
+    }
+
+    public String getLeaveMsg() {
+        if (this.ddQ != null) {
+            return k.a(this.ddQ.getText(), null);
         }
+        return null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.widget.LinearLayout, android.view.ViewGroup
+    public LinearLayout.LayoutParams generateDefaultLayoutParams() {
+        return new LinearLayout.LayoutParams(-1, -2);
+    }
+
+    public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
+        this.ddU = shareFromFrsMsgData;
+        wp();
+    }
+
+    private void wp() {
+        this.aWS.setText(dZ(this.ddU.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.ddU.getImageUrl());
+        this.ddR.startLoad(this.ddU.getImageUrl(), 15, false);
+        this.ddT.setText(am.y(this.ddU.getMemberNum()));
+        this.ddS.setText(am.y(this.ddU.getPostNum()));
+    }
+
+    private String dZ(String str) {
+        return am.j(str, 18) + this.context.getString(d.j.forum);
     }
 }

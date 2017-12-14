@@ -24,9 +24,9 @@ public final class PushConstants {
         switch (i) {
             case 0:
                 return "Success";
-            case IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND /* 10001 */:
+            case 10001:
                 return "Network Problem";
-            case IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND /* 10002 */:
+            case 10002:
                 return "Service not available";
             case IjkMediaPlayer.FFP_PROP_FLOAT_PLAYBACK_RATE /* 10003 */:
                 return "Service not available temporary";

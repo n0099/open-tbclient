@@ -23,6 +23,6 @@ public class GetTplStokenResult extends SapiResult {
     }
 
     public GetTplStokenResult() {
-        this.msgMap.put(ERROR_CODE_BDUSS_NOT_EXIST, ERROR_MSG_BDUSS_NOT_EXIST);
+        this.msgMap.put(-301, ERROR_MSG_BDUSS_NOT_EXIST);
     }
 }

@@ -7,30 +7,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.bd;
 import com.baidu.tieba.card.v;
 import com.baidu.tieba.d;
+import com.baidu.tieba.frs.e;
 import com.baidu.tieba.frs.entelechy.view.CardFrsGodAutoVideoView;
 import com.baidu.tieba.play.y;
 /* loaded from: classes.dex */
-public class g extends com.baidu.adp.widget.ListView.a<bd, a<CardFrsGodAutoVideoView>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.e.c {
-    private v<bd> buV;
+public class g extends e<bd, a<CardFrsGodAutoVideoView>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.e.c {
+    private v<bd> buW;
     private String forumName;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
-        this.buV = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.g.1
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
+        this.buW = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, bd bdVar) {
                 if (view != null && bdVar != null) {
                     if (view.getId() == d.g.frame_video) {
-                        com.baidu.tieba.frs.e.b.aqn().a(com.baidu.tieba.frs.e.c.cYM, bdVar, 4);
+                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 4);
                     } else if (view.getId() == d.g.layout_root) {
-                        com.baidu.tieba.frs.e.b.aqn().a(com.baidu.tieba.frs.e.c.cYM, bdVar, 1);
+                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 1);
                     } else if (view.getId() == d.g.image_user) {
-                        com.baidu.tieba.frs.e.b.aqn().a(com.baidu.tieba.frs.e.c.cYM, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 2);
                     } else if (view.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.cYM, bdVar.rW());
+                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.cYY, bdVar.rU());
                     }
                 }
             }
@@ -49,34 +50,35 @@ public class g extends com.baidu.adp.widget.ListView.a<bd, a<CardFrsGodAutoVideo
         return new a(aVar);
     }
 
-    private y G(bd bdVar) {
+    private y I(bd bdVar) {
         if (bdVar == null) {
             return null;
         }
         y yVar = new y();
-        yVar.mLocate = bdVar.ss() ? "3" : "2";
-        yVar.aAn = cYM.cYE;
-        yVar.aMR = bdVar.getTid();
-        yVar.fQs = bdVar.aal;
-        if (bdVar.rP() != null) {
-            yVar.fQt = bdVar.rP().video_md5;
+        yVar.mLocate = bdVar.sq() ? "3" : "2";
+        yVar.aAs = cYY.cYQ;
+        yVar.aMU = bdVar.getTid();
+        yVar.fRl = bdVar.aaf;
+        if (bdVar.rN() != null) {
+            yVar.fRm = bdVar.rN().video_md5;
         }
-        bdVar.sw();
+        bdVar.su();
         return yVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bd bdVar, a aVar) {
-        if (aVar == null || aVar.acs() == null) {
+        if (aVar == null || aVar.acC() == null) {
             return null;
         }
-        aVar.acs().setVideoStatsData(G(bdVar));
-        aVar.acs().a(bdVar);
-        aVar.acs().b(this.buV);
-        com.baidu.tieba.frs.e.b.aqn().a(cYM, bdVar);
+        com.baidu.tieba.frs.d.a(aVar.acC().abY(), this.cGO);
+        aVar.acC().setVideoStatsData(I(bdVar));
+        aVar.acC().a(bdVar);
+        aVar.acC().b(this.buW);
+        com.baidu.tieba.frs.e.b.aqw().a(cYY, bdVar);
         return aVar.getView();
     }
 

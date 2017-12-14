@@ -16,16 +16,17 @@ import com.baidu.tieba.card.data.CardHListViewData;
 import com.baidu.tieba.card.data.CardHListViewNormalItemData;
 import com.baidu.tieba.card.v;
 import com.baidu.tieba.d;
+import com.baidu.tieba.frs.e;
 /* loaded from: classes.dex */
-public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.e.c {
-    private v cNy;
+public class h extends e<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.e.c {
+    private v cNJ;
     private String mForumName;
 
     public static void bp(long j) {
-        if (j > 0 && cYM != null && !TextUtils.isEmpty(cYM.cYE)) {
+        if (j > 0 && cYY != null && !TextUtils.isEmpty(cYY.cYQ)) {
             ak akVar = new ak("c11958");
             akVar.f("tid", j);
-            akVar.ac(ImageViewerConfig.FORUM_ID, cYM.cYE);
+            akVar.ac(ImageViewerConfig.FORUM_ID, cYY.cYQ);
             TiebaStatic.log(akVar);
         }
     }
@@ -33,7 +34,7 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cNy = new v<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
+        this.cNJ = new v<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, CardHListViewData cardHListViewData, Object obj) {
@@ -67,14 +68,14 @@ public class h extends com.baidu.tieba.frs.d<CardHListViewData, com.baidu.tieba.
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardHListViewData cardHListViewData, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.acs() == null) {
+        if (aVar == null || aVar.acC() == null) {
             return null;
         }
-        aVar.acs().a(cardHListViewData);
-        aVar.acs().b(this.cNy);
+        aVar.acC().a(cardHListViewData);
+        aVar.acC().b(this.cNJ);
         return aVar.getView();
     }
 

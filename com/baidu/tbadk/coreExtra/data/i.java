@@ -1,40 +1,31 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class i {
-    private h ark;
-    private int mErrorCode;
-    private String mErrorString;
-    private boolean ri;
+    private long arn;
+    private int aro;
+    private String mMd5;
 
-    public h xW() {
-        return this.ark;
+    public String xV() {
+        return this.mMd5;
     }
 
-    public void b(h hVar) {
-        this.ark = hVar;
+    public void eG(String str) {
+        this.mMd5 = str;
     }
 
-    public boolean isSuccess() {
-        return this.ri;
+    public long getTotalLength() {
+        return this.arn;
     }
 
-    public void av(boolean z) {
-        this.ri = z;
+    public void Q(long j) {
+        this.arn = j;
     }
 
-    public int getErrorCode() {
-        return this.mErrorCode;
+    public int xW() {
+        return this.aro;
     }
 
-    public void setErrorCode(int i) {
-        this.mErrorCode = i;
-    }
-
-    public String getErrorString() {
-        return this.mErrorString;
-    }
-
-    public void setErrorString(String str) {
-        this.mErrorString = str;
+    public void dS(int i) {
+        this.aro = i;
     }
 }

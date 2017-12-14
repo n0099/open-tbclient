@@ -1,17 +1,18 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.f;
 /* loaded from: classes.dex */
-public class c implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId fqP = BdUniqueId.gen();
-    private int fqQ = 0;
+public class c implements f {
+    public static final BdUniqueId frN = BdUniqueId.gen();
+    private int frO = 0;
 
-    public int aZR() {
-        return this.fqQ;
+    public int aZZ() {
+        return this.frO;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return fqP;
+        return frN;
     }
 }

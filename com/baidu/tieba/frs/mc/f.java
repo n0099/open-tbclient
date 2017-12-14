@@ -17,65 +17,65 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class f extends h {
-    private final CustomMessageListener anU;
-    private boolean cRh;
-    private String cRi;
-    private bd cYj;
-    private PraiseModel cYk;
+    private final CustomMessageListener anW;
+    private boolean cRs;
+    private String cRt;
+    private bd cYv;
+    private PraiseModel cYw;
 
-    public f(com.baidu.tieba.frs.f fVar) {
-        super(fVar);
-        this.anU = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.f.2
+    public f(com.baidu.tieba.frs.g gVar) {
+        super(gVar);
+        this.anW = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bd)) {
                     bd bdVar = (bd) customResponsedMessage.getData();
-                    f.this.cRi = bdVar.getId();
-                    if (!TextUtils.isEmpty(f.this.cRi) && bdVar.rm() != null) {
-                        f.this.kn(bdVar.rm().getIsLike());
+                    f.this.cRt = bdVar.getId();
+                    if (!TextUtils.isEmpty(f.this.cRt) && bdVar.rk() != null) {
+                        f.this.kp(bdVar.rk().getIsLike());
                     }
                 }
             }
         };
-        this.cOm.registerListener(this.anU);
-        this.cYk = apY();
+        this.cOx.registerListener(this.anW);
+        this.cYw = aqh();
     }
 
-    public final PraiseModel apY() {
-        if (this.cYk == null) {
-            this.cYk = new PraiseModel(this.cOm.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.f.1
+    public final PraiseModel aqh() {
+        if (this.cYw == null) {
+            this.cYw = new PraiseModel(this.cOx.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.f.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
-                public void hY(String str) {
+                public void hW(String str) {
                     int i = 1;
-                    if (f.this.cRh) {
-                        if (f.this.cYj != null && f.this.cYj.rm().getIsLike() == 1) {
+                    if (f.this.cRs) {
+                        if (f.this.cYv != null && f.this.cYv.rk().getIsLike() == 1) {
                             i = 0;
                         }
-                        f.this.kn(i);
+                        f.this.kp(i);
                     }
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
                 }
 
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void F(int i, String str) {
-                    if (f.this.cOm != null && f.this.cOm.getPageContext() != null && f.this.cRh && !TextUtils.isEmpty(str)) {
-                        if (AntiHelper.uq(i)) {
-                            AntiHelper.an(f.this.cOm.getPageContext().getPageActivity(), str);
+                    if (f.this.cOx != null && f.this.cOx.getPageContext() != null && f.this.cRs && !TextUtils.isEmpty(str)) {
+                        if (AntiHelper.uB(i)) {
+                            AntiHelper.am(f.this.cOx.getPageContext().getPageActivity(), str);
                         } else {
-                            f.this.cOm.showToast(str);
+                            f.this.cOx.showToast(str);
                         }
                     }
                 }
             });
         }
-        return this.cYk;
+        return this.cYw;
     }
 
-    public void kn(int i) {
+    public void kp(int i) {
         ArrayList<com.baidu.adp.widget.ListView.f> threadList;
-        k alv = this.cOm.alv();
-        if (alv != null && this.cHa != null && (threadList = alv.getThreadList()) != null) {
+        k alF = this.cOx.alF();
+        if (alF != null && this.cHi != null && (threadList = alF.getThreadList()) != null) {
             Iterator<com.baidu.adp.widget.ListView.f> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -84,33 +84,33 @@ public class f extends h {
                 com.baidu.adp.widget.ListView.f next = it.next();
                 if (next instanceof bd) {
                     bd bdVar = (bd) next;
-                    if (bdVar == this.cYj) {
+                    if (bdVar == this.cYv) {
                         c(bdVar, i);
-                        this.cYj = null;
+                        this.cYv = null;
                         break;
-                    } else if (bdVar.getId() != null && bdVar.getId().equals(this.cRi)) {
+                    } else if (bdVar.getId() != null && bdVar.getId().equals(this.cRt)) {
                         c(bdVar, i);
-                        this.cRi = null;
+                        this.cRt = null;
                         break;
                     }
                 }
             }
-            this.cHa.alV().b(threadList, alv);
-            this.cHa.alV().notifyDataSetChanged();
+            this.cHi.ame().b(threadList, alF);
+            this.cHi.ame().notifyDataSetChanged();
         }
     }
 
     public void c(bd bdVar, int i) {
         if (bdVar != null) {
             if (i == 1) {
-                PraiseData rm = bdVar.rm();
+                PraiseData rk = bdVar.rk();
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
                     MetaData metaData = new MetaData();
                     metaData.setName_show(currentAccountObj.getAccount());
                     metaData.setPortrait(currentAccountObj.getPortrait());
                     metaData.setUserId(currentAccountObj.getID());
-                    if (rm == null) {
+                    if (rk == null) {
                         PraiseData praiseData = new PraiseData();
                         praiseData.setIsLike(i);
                         praiseData.setNum(1L);
@@ -118,20 +118,20 @@ public class f extends h {
                         bdVar.a(praiseData);
                         return;
                     }
-                    bdVar.rm().getUser().add(0, metaData);
-                    bdVar.rm().setNum(bdVar.rm().getNum() + 1);
-                    bdVar.rm().setIsLike(i);
+                    bdVar.rk().getUser().add(0, metaData);
+                    bdVar.rk().setNum(bdVar.rk().getNum() + 1);
+                    bdVar.rk().setIsLike(i);
                 }
-            } else if (bdVar.rm() != null) {
-                bdVar.rm().setIsLike(i);
-                bdVar.rm().setNum(bdVar.rm().getNum() - 1);
-                ArrayList<MetaData> user = bdVar.rm().getUser();
+            } else if (bdVar.rk() != null) {
+                bdVar.rk().setIsLike(i);
+                bdVar.rk().setNum(bdVar.rk().getNum() - 1);
+                ArrayList<MetaData> user = bdVar.rk().getUser();
                 if (user != null) {
                     Iterator<MetaData> it = user.iterator();
                     while (it.hasNext()) {
                         MetaData next = it.next();
                         if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
-                            bdVar.rm().getUser().remove(next);
+                            bdVar.rk().getUser().remove(next);
                             return;
                         }
                     }
@@ -140,7 +140,7 @@ public class f extends h {
         }
     }
 
-    public void fy(boolean z) {
-        this.cRh = z;
+    public void fz(boolean z) {
+        this.cRs = z;
     }
 }

@@ -4,9 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.text.TextUtils;
+import android.util.Pair;
 import com.baidu.appsearchlib.Info;
 import com.baidu.sofire.a.a;
-import com.baidu.sofire.b;
 import com.baidu.sofire.b.d;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.c;
@@ -34,161 +34,154 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public String p(String str) {
-        return e.nq().e(str);
+        try {
+            ApkInfo apkInfo = e.no().a.get(str);
+            if (apkInfo == null) {
+                return null;
+            }
+            return apkInfo.pkgPath;
+        } catch (Throwable th) {
+            d.a(th);
+            return "";
+        }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: boolean : 0x006e: INVOKE  (r1v7 boolean A[REMOVE]) = (r8v0 android.content.IntentFilter), ("android.intent.action.BOOT_COMPLETED") type: VIRTUAL call: android.content.IntentFilter.hasAction(java.lang.String):boolean)] */
     @Override // com.baidu.sofire.ac.FI
     public void r(String str, IntentFilter intentFilter, String str2, String str3) {
-        String str4 = str + ", " + intentFilter + ", " + str2 + ", " + str3;
-        b.a();
-        if (!TextUtils.isEmpty(str) && intentFilter != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            e nq = e.nq();
-            String str5 = "h=" + nq;
-            b.a();
-            if (nq != null) {
-                nq.a(new f(str, intentFilter, str2, str3));
-                new StringBuilder().append(intentFilter.hasAction("android.intent.action.BOOT_COMPLETED")).toString();
-                b.a();
-                if (intentFilter.hasAction("android.intent.action.BOOT_COMPLETED")) {
-                    a aVar = a.Qe;
-                    String str6 = "d=" + aVar;
-                    b.a();
-                    if (aVar != null) {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("r", (Integer) 1);
-                        contentValues.put("b", str2);
-                        contentValues.put(Info.kBaiduTimeKey, str3);
-                        try {
-                            aVar.Qd.update("pgn", contentValues, "p=?", new String[]{str});
-                        } catch (Throwable th) {
-                            d.a(th);
+        try {
+            new StringBuilder().append(str).append(", ").append(intentFilter).append(", ").append(str2).append(", ").append(str3);
+            if (!TextUtils.isEmpty(str) && intentFilter != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                e no = e.no();
+                new StringBuilder("h=").append(no);
+                if (no != null) {
+                    no.a(new f(str, intentFilter, str2, str3));
+                    new StringBuilder().append(intentFilter.hasAction("android.intent.action.BOOT_COMPLETED"));
+                    if (intentFilter.hasAction("android.intent.action.BOOT_COMPLETED")) {
+                        a aVar = a.Qh;
+                        new StringBuilder("d=").append(aVar);
+                        if (aVar != null) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("r", (Integer) 1);
+                            contentValues.put("b", str2);
+                            contentValues.put(Info.kBaiduTimeKey, str3);
+                            aVar.Qg.update("pgn", contentValues, "p=?", new String[]{str});
                         }
                     }
                 }
             }
+        } catch (Throwable th) {
+            d.a(th);
         }
     }
 
     @Override // com.baidu.sofire.ac.FI
     public void ur(String str, IntentFilter intentFilter, String str2, String str3) {
-        e nq;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && (nq = e.nq()) != null) {
-            nq.b(new f(str, intentFilter, str2, str3));
+        e no;
+        try {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && (no = e.no()) != null) {
+                no.b(new f(str, intentFilter, str2, str3));
+            }
+        } catch (Throwable th) {
+            d.a(th);
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v21 java.lang.Object)] */
     @Override // com.baidu.sofire.ac.FI
     public void cm(String str, String str2, String str3, Callback callback, Class<?>[] clsArr, Object... objArr) {
-        String str4 = str + ", " + str2 + ", " + str3 + ", " + callback;
-        b.a();
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-            if (callback != null) {
-                callback.onEnd(new Object[0]);
-                return;
-            }
-            return;
-        }
-        e nq = e.nq();
-        if (nq == null) {
-            if (callback != null) {
-                callback.onEnd(new Object[0]);
-                return;
-            }
-            return;
-        }
-        ApkInfo bX = nq.bX(str2);
-        if (nq.bX(str) == null || bX == null) {
-            if (callback != null) {
-                callback.onEnd(new Object[0]);
-                return;
-            }
-            return;
-        }
         try {
-            Class<?> bW = ((com.baidu.sofire.core.d) bX.classLoader).bW("com.baidu.sofire.engine.EngineImpl");
-            Object a = d.a(bW.getDeclaredMethod("getInstance", Context.class).invoke(bW, null), str3, clsArr, objArr);
-            new StringBuilder().append(a).toString();
-            b.a();
-            if (callback != null) {
-                callback.onEnd(a);
+            new StringBuilder().append(str).append(", ").append(str2).append(", ").append(str3).append(", ").append(callback);
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                if (callback != null) {
+                    callback.onEnd(new Object[0]);
+                }
+            } else {
+                e no = e.no();
+                if (no == null) {
+                    if (callback != null) {
+                        callback.onEnd(new Object[0]);
+                    }
+                } else {
+                    ApkInfo bY = no.bY(str2);
+                    if (no.bY(str) == null || bY == null) {
+                        if (callback != null) {
+                            callback.onEnd(new Object[0]);
+                        }
+                    } else {
+                        Class<?> bX = ((com.baidu.sofire.core.d) bY.classLoader).bX("com.baidu.sofire.engine.EngineImpl");
+                        Object a = d.a(bX.getDeclaredMethod("getInstance", Context.class).invoke(bX, null), str3, clsArr, objArr);
+                        new StringBuilder().append(a);
+                        if (callback != null) {
+                            callback.onEnd(a);
+                        }
+                    }
+                }
             }
         } catch (Throwable th) {
-            th.getMessage();
-            b.b();
-            if (callback != null) {
-                callback.onEnd(new Object[0]);
-            }
+            d.a(th);
         }
     }
 
     @Override // com.baidu.sofire.ac.FI
     public void u(String str) {
-        c.np().a(str);
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public void s(int i, boolean z) {
-        a aVar = a.Qe;
-        if (aVar != null) {
-            int i2 = z ? 1 : 0;
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("s", Integer.valueOf(i2));
-            try {
-                aVar.Qd.update("pgn", contentValues, "k=" + i + " and n=1", null);
-            } catch (Throwable th) {
-                d.a(th);
-            }
+        try {
+            c nn = c.nn();
+            new StringBuilder().append(str);
+            new c.AnonymousClass4(str).start();
+        } catch (Throwable th) {
+            d.a(th);
         }
     }
 
     @Override // com.baidu.sofire.ac.FI
     public byte[] ae(byte[] bArr, byte[] bArr2) {
-        if (bArr2 == null || bArr2.length <= 0 || bArr == null || bArr.length <= 0) {
-            return null;
-        }
-        byte[] a = com.baidu.sofire.b.a.a(bArr2, bArr);
-        if (a == null || a.length <= 0) {
-            if (sAsc == null) {
-                sAsc = new Asc();
-            }
+        if (bArr2 != null) {
             try {
-                return sAsc.ac(bArr, bArr2);
+                if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
+                    byte[] a = com.baidu.sofire.b.a.a(bArr2, bArr);
+                    if (a == null || a.length <= 0) {
+                        if (sAsc == null) {
+                            sAsc = new Asc();
+                        }
+                        return sAsc.ac(bArr, bArr2);
+                    }
+                    return a;
+                }
             } catch (Throwable th) {
                 d.a(th);
                 return null;
             }
         }
-        return a;
+        return null;
     }
 
     @Override // com.baidu.sofire.ac.FI
     public byte[] ad(byte[] bArr, byte[] bArr2) {
-        if (bArr2 == null || bArr2.length <= 0 || bArr == null || bArr.length <= 0) {
-            return null;
-        }
-        byte[] a = com.baidu.sofire.b.a.a(bArr2, bArr, true);
-        if (a == null || a.length <= 0) {
-            if (sAsc == null) {
-                sAsc = new Asc();
-            }
+        if (bArr2 != null) {
             try {
-                return sAsc.dc(bArr, bArr2);
+                if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
+                    byte[] a = com.baidu.sofire.b.a.a(bArr2, bArr, true);
+                    if (a == null || a.length <= 0) {
+                        if (sAsc == null) {
+                            sAsc = new Asc();
+                        }
+                        return sAsc.dc(bArr, bArr2);
+                    }
+                    return a;
+                }
             } catch (Throwable th) {
                 d.a(th);
                 return null;
             }
         }
-        return a;
+        return null;
     }
 
     @Override // com.baidu.sofire.ac.FI
     public byte[] re(byte[] bArr, byte[] bArr2) {
-        if (sAsc == null) {
-            sAsc = new Asc();
-        }
         try {
+            if (sAsc == null) {
+                sAsc = new Asc();
+            }
             return sAsc.ar(bArr, bArr2);
         } catch (Throwable th) {
             d.a(th);
@@ -198,10 +191,10 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public byte[] rd(byte[] bArr, byte[] bArr2) {
-        if (sAsc == null) {
-            sAsc = new Asc();
-        }
         try {
+            if (sAsc == null) {
+                sAsc = new Asc();
+            }
             return sAsc.dr(bArr, bArr2);
         } catch (Throwable th) {
             d.a(th);
@@ -210,32 +203,71 @@ public class F implements FI {
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public void sp(String str, boolean z) {
-        a aVar = a.Qe;
-        if (aVar != null) {
-            int i = z ? 1 : 0;
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("s", Integer.valueOf(i));
-            try {
-                aVar.Qd.update("pgn", contentValues, "p=? and n=1", new String[]{str});
-            } catch (Throwable th) {
-                d.a(th);
-            }
-        }
-    }
-
-    @Override // com.baidu.sofire.ac.FI
     public void rf(Context context) {
-        new U(context.getApplicationContext(), 5, true).start();
+        try {
+            new U(context.getApplicationContext(), 5, true).start();
+        } catch (Throwable th) {
+            d.a(th);
+        }
     }
 
     @Override // com.baidu.sofire.ac.FI
     public String gs(String str) {
-        ApkInfo bX;
-        e nq = e.nq();
-        if (nq != null && (bX = nq.bX(str)) != null) {
-            return bX.libPath;
+        ApkInfo bY;
+        try {
+            e no = e.no();
+            if (no != null && (bY = no.bY(str)) != null) {
+                return bY.libPath;
+            }
+            return "";
+        } catch (Throwable th) {
+            d.a(th);
+            return "";
         }
-        return "";
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public boolean chh(Context context, String str) {
+        try {
+            return d.a(context, str);
+        } catch (Throwable th) {
+            d.a(th);
+            return false;
+        }
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public Pair<Integer, Object> cmsi(int i, String str, Class<?>[] clsArr, Object... objArr) {
+        return FH.callSync(i, str, clsArr, objArr);
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public void s(int i, boolean z) {
+        try {
+            a aVar = a.Qh;
+            if (aVar != null) {
+                int i2 = z ? 1 : 0;
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("s", Integer.valueOf(i2));
+                aVar.Qg.update("pgn", contentValues, "k=" + i + " and n=1", null);
+            }
+        } catch (Throwable th) {
+            d.a(th);
+        }
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public void sp(String str, boolean z) {
+        try {
+            a aVar = a.Qh;
+            if (aVar != null) {
+                int i = z ? 1 : 0;
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("s", Integer.valueOf(i));
+                aVar.Qg.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+            }
+        } catch (Throwable th) {
+            d.a(th);
+        }
     }
 }

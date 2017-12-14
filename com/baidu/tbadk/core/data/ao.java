@@ -7,39 +7,39 @@ import java.util.List;
 import tbclient.PbPage.RecommendBook;
 /* loaded from: classes.dex */
 public class ao extends PostData {
-    public static final BdUniqueId XQ = BdUniqueId.gen();
-    public int VU;
-    public String Wg;
-    public String Wh;
-    public String Wi;
-    public String XR;
-    public String XS;
-    public String XT;
-    public List<String> XU;
-    public String XV;
-    public String XW;
+    public static final BdUniqueId XK = BdUniqueId.gen();
+    public int VO;
+    public String Wa;
+    public String Wb;
+    public String Wc;
+    public String XL;
+    public String XM;
+    public String XN;
+    public List<String> XO;
+    public String XP;
+    public String XQ;
 
     public void a(RecommendBook recommendBook) {
         if (recommendBook != null) {
-            this.XR = recommendBook.recommend_text;
-            this.XS = recommendBook.suggest_text;
-            this.XT = recommendBook.suggest_url;
-            this.Wg = recommendBook.book_id;
-            this.VU = recommendBook.book_type.intValue();
-            this.Wi = recommendBook.book_cover;
-            this.Wh = recommendBook.book_title;
-            this.XU = recommendBook.book_tips;
-            this.XV = recommendBook.botton_text;
-            this.XW = recommendBook.subscript_icon;
+            this.XL = recommendBook.recommend_text;
+            this.XM = recommendBook.suggest_text;
+            this.XN = recommendBook.suggest_url;
+            this.Wa = recommendBook.book_id;
+            this.VO = recommendBook.book_type.intValue();
+            this.Wc = recommendBook.book_cover;
+            this.Wb = recommendBook.book_title;
+            this.XO = recommendBook.book_tips;
+            this.XP = recommendBook.botton_text;
+            this.XQ = recommendBook.subscript_icon;
         }
     }
 
     public boolean hasData() {
-        return (this == null || StringUtils.isNull(this.Wg)) ? false : true;
+        return (this == null || StringUtils.isNull(this.Wa)) ? false : true;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return XQ;
+        return XK;
     }
 }

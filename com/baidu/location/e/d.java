@@ -18,10 +18,10 @@ public final class d {
     private static volatile d MJ;
     private static Context c;
     private final File MK;
-    private final k ML;
-    private final e MM;
-    private final m MN;
-    private final h MO;
+    private final k MM;
+    private final e MN;
+    private final m MO;
+    private final h MP;
     static final String b = "com.baidu.lbs.offlinelocationprovider";
     static final String a = "http://loc.map.baidu.com/offline_loc";
 
@@ -60,10 +60,10 @@ public final class d {
             file = null;
         }
         this.MK = file;
-        this.MM = new e(this);
-        this.ML = new k(this.MM.mB());
-        this.MO = new h(this, this.MM.mB());
-        this.MN = new m(this, this.MM.mB(), this.MO.n());
+        this.MN = new e(this);
+        this.MM = new k(this.MN.mB());
+        this.MP = new h(this, this.MN.mB());
+        this.MO = new m(this, this.MN.mB(), this.MP.n());
     }
 
     public static void a(Context context) {
@@ -74,7 +74,7 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final Uri bM(String str) {
+    public static final Uri bN(String str) {
         return Uri.parse(String.format("content://%s/", str));
     }
 
@@ -123,7 +123,7 @@ public final class d {
     }
 
     private void q() {
-        this.MO.g();
+        this.MP.g();
     }
 
     private boolean r() {
@@ -131,7 +131,7 @@ public final class d {
         String packageName = c.getPackageName();
         ProviderInfo resolveContentProvider = c.getPackageManager().resolveContentProvider(b, 0);
         if (resolveContentProvider == null) {
-            String[] mF = this.MO.mF();
+            String[] mF = this.MP.mF();
             providerInfo = resolveContentProvider;
             for (int i = 0; i < mF.length && (providerInfo = c.getPackageManager().resolveContentProvider(mF[i], 0)) == null; i++) {
             }
@@ -145,7 +145,7 @@ public final class d {
         String d;
         int i;
         if (bVar == b.IS_MIX_MODE) {
-            i = this.MO.a();
+            i = this.MP.a();
             d = com.baidu.location.h.c.mX().d() + "&mixMode=1";
         } else {
             d = com.baidu.location.h.c.mX().d();
@@ -158,8 +158,8 @@ public final class d {
         return bDLocation2;
     }
 
-    public long bN(String str) {
-        return this.MO.bN(str);
+    public long bO(String str) {
+        return this.MP.bO(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -168,32 +168,32 @@ public final class d {
     }
 
     public boolean d() {
-        return this.MO.h();
+        return this.MP.h();
     }
 
     public boolean e() {
-        return this.MO.i();
+        return this.MP.i();
     }
 
     public boolean f() {
-        return this.MO.j();
+        return this.MP.j();
     }
 
     public boolean g() {
-        return this.MO.k();
+        return this.MP.k();
     }
 
     public boolean h() {
-        return this.MO.m();
+        return this.MP.m();
     }
 
     public void i() {
-        this.ML.a();
+        this.MM.a();
     }
 
     public void m() {
         if (r()) {
-            this.MM.b();
+            this.MN.b();
         }
     }
 
@@ -203,17 +203,17 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k mx() {
-        return this.ML;
+        return this.MM;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m my() {
-        return this.MN;
+        return this.MO;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h mz() {
-        return this.MO;
+        return this.MP;
     }
 
     public void n() {
@@ -238,19 +238,19 @@ public final class d {
             }
         }
         if (cVar == c.NETWORK_UNKNOWN) {
-            return this.MO.b();
+            return this.MP.b();
         }
         if (cVar == c.NETWORK_WIFI) {
-            return this.MO.c();
+            return this.MP.c();
         }
         if (cVar == c.NETWORK_2G) {
-            return this.MO.mC();
+            return this.MP.mC();
         }
         if (cVar == c.NETWORK_3G) {
-            return this.MO.mD();
+            return this.MP.mD();
         }
         if (cVar == c.NETWORK_4G) {
-            return this.MO.mE();
+            return this.MP.mE();
         }
         return 0.0d;
     }

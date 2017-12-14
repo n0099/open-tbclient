@@ -43,7 +43,7 @@ public class TransportMediator extends TransportController {
             case 90:
             case 91:
             case KEYCODE_MEDIA_PLAY /* 126 */:
-            case KEYCODE_MEDIA_PAUSE /* 127 */:
+            case 127:
             case KEYCODE_MEDIA_RECORD /* 130 */:
                 return true;
             default:

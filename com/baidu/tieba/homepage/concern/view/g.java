@@ -13,9 +13,9 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes.dex */
 public class g extends LinearLayout implements View.OnClickListener {
-    private ImageView dnZ;
-    private TextView doa;
-    private TextView dob;
+    private ImageView dpf;
+    private TextView dpg;
+    private TextView dph;
     private Context mContext;
 
     public g(Context context) {
@@ -26,24 +26,24 @@ public class g extends LinearLayout implements View.OnClickListener {
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(d.h.concern_not_login_layout, (ViewGroup) this, true);
         this.mContext = context;
-        this.dnZ = (ImageView) inflate.findViewById(d.g.iv_concern_not_login_emotion_pic);
-        this.doa = (TextView) inflate.findViewById(d.g.tv_concern_you_not_login);
-        this.dob = (TextView) inflate.findViewById(d.g.tv_concern_login_and_see_more);
-        this.dob.setOnClickListener(this);
+        this.dpf = (ImageView) inflate.findViewById(d.g.iv_concern_not_login_emotion_pic);
+        this.dpg = (TextView) inflate.findViewById(d.g.tv_concern_you_not_login);
+        this.dph = (TextView) inflate.findViewById(d.g.tv_concern_login_and_see_more);
+        this.dph.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == d.g.tv_concern_login_and_see_more) {
-            ax.aV(this.mContext);
-            HomePageStatic.dmm = true;
+            ax.aS(this.mContext);
+            HomePageStatic.dnr = true;
         }
     }
 
     public void onChangeSkinType(int i) {
-        aj.c(this.dnZ, d.f.pic_jinba_login);
-        aj.i(this.doa, d.C0082d.cp_cont_b);
-        aj.i(this.dob, d.C0082d.cp_cont_i);
-        aj.j(this.dob, d.f.btn_all_blue);
+        aj.c(this.dpf, d.f.pic_jinba_login);
+        aj.i(this.dpg, d.C0096d.cp_cont_b);
+        aj.i(this.dph, d.C0096d.cp_cont_i);
+        aj.j(this.dph, d.f.btn_all_blue);
     }
 }

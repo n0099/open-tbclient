@@ -5,99 +5,99 @@ import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends g {
-    private Object aXB;
-    private List<f> aXC;
-    private List<f> aXD;
-    private List<Object> aXE;
-    private boolean aXF;
-    private boolean aXG;
-    private int aXH;
+    private Object aXD;
+    private List<f> aXE;
+    private List<f> aXF;
+    private List<Object> aXG;
+    private boolean aXH;
     private boolean aXI;
-    private String aXJ;
-    private String aXK;
+    private int aXJ;
+    private boolean aXK;
     private String aXL;
-    private int apA;
+    private String aXM;
+    private String aXN;
+    private int apD;
     private String forumId;
     private int pageNum;
 
     public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
         super(bVar, i);
-        this.aXF = false;
-        this.aXG = false;
-        this.aXH = 0;
+        this.aXH = false;
         this.aXI = false;
+        this.aXJ = 0;
+        this.aXK = false;
     }
 
     public Object KF() {
-        return this.aXB;
-    }
-
-    public void setExtraData(Object obj) {
-        this.aXB = obj;
-    }
-
-    public List<f> getThreadList() {
-        return this.aXC;
-    }
-
-    public void O(List<f> list) {
-        this.aXC = list;
-    }
-
-    public List<Object> KG() {
-        return this.aXE;
-    }
-
-    public void P(List<Object> list) {
-        this.aXE = list;
-    }
-
-    public List<f> KH() {
         return this.aXD;
     }
 
-    public void Q(List<f> list) {
-        this.aXD = list;
+    public void setExtraData(Object obj) {
+        this.aXD = obj;
     }
 
-    public boolean KI() {
-        return this.aXF;
+    public List<f> getThreadList() {
+        return this.aXE;
     }
 
-    public void ci(boolean z) {
-        this.aXF = z;
+    public void O(List<f> list) {
+        this.aXE = list;
     }
 
-    public boolean isRefresh() {
+    public List<Object> KG() {
         return this.aXG;
     }
 
-    public void cj(boolean z) {
-        this.aXG = z;
+    public void P(List<Object> list) {
+        this.aXG = list;
     }
 
-    public int KJ() {
+    public List<f> KH() {
+        return this.aXF;
+    }
+
+    public void Q(List<f> list) {
+        this.aXF = list;
+    }
+
+    public boolean KI() {
         return this.aXH;
     }
 
-    public void bY(int i) {
-        this.aXH = i;
+    public void cj(boolean z) {
+        this.aXH = z;
     }
 
-    public int getSkinType() {
-        return this.apA;
-    }
-
-    public void setSkinType(int i) {
-        this.apA = i;
-    }
-
-    public boolean KK() {
+    public boolean isRefresh() {
         return this.aXI;
     }
 
     public void ck(boolean z) {
         this.aXI = z;
+    }
+
+    public int KJ() {
+        return this.aXJ;
+    }
+
+    public void bY(int i) {
+        this.aXJ = i;
+    }
+
+    public int getSkinType() {
+        return this.apD;
+    }
+
+    public void setSkinType(int i) {
+        this.apD = i;
+    }
+
+    public boolean KK() {
+        return this.aXK;
+    }
+
+    public void cl(boolean z) {
+        this.aXK = z;
     }
 
     public int getPageNum() {
@@ -117,26 +117,26 @@ public class b extends g {
     }
 
     public String KL() {
-        return this.aXJ;
-    }
-
-    public void hj(String str) {
-        this.aXJ = str;
-    }
-
-    public String KM() {
-        return this.aXK;
-    }
-
-    public void hk(String str) {
-        this.aXK = str;
-    }
-
-    public String KN() {
         return this.aXL;
     }
 
-    public void hl(String str) {
+    public void hh(String str) {
         this.aXL = str;
+    }
+
+    public String KM() {
+        return this.aXM;
+    }
+
+    public void hi(String str) {
+        this.aXM = str;
+    }
+
+    public String KN() {
+        return this.aXN;
+    }
+
+    public void hj(String str) {
+        this.aXN = str;
     }
 }

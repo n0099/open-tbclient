@@ -5,63 +5,63 @@ import java.util.List;
 import tbclient.SeniorLottery;
 /* loaded from: classes.dex */
 public class ax {
-    private ag Ys;
-    private List<e> Yt;
-    private String Yu;
-    private List<f> Yv;
-    private String Yw;
-    private List<af> Yx;
+    private ag Ym;
+    private List<e> Yn;
+    private String Yo;
+    private List<f> Yp;
+    private String Yq;
+    private List<af> Yr;
 
-    public ag qN() {
-        return this.Ys;
+    public ag qL() {
+        return this.Ym;
     }
 
-    public List<e> qO() {
-        return this.Yt;
+    public List<e> qM() {
+        return this.Yn;
+    }
+
+    public String qN() {
+        return this.Yo;
+    }
+
+    public List<f> qO() {
+        return this.Yp;
     }
 
     public String qP() {
-        return this.Yu;
+        return this.Yq;
     }
 
-    public List<f> qQ() {
-        return this.Yv;
-    }
-
-    public String qR() {
-        return this.Yw;
-    }
-
-    public List<af> qS() {
-        return this.Yx;
+    public List<af> qQ() {
+        return this.Yr;
     }
 
     public void a(SeniorLottery seniorLottery) {
         if (seniorLottery != null) {
-            this.Ys = new ag();
-            this.Ys.a(seniorLottery.theme);
-            this.Yt = new ArrayList();
+            this.Ym = new ag();
+            this.Ym.a(seniorLottery.theme);
+            this.Yn = new ArrayList();
             int size = seniorLottery.award_info.size();
             for (int i = 0; i < size; i++) {
                 e eVar = new e();
                 eVar.a(seniorLottery.award_info.get(i));
-                this.Yt.add(eVar);
+                this.Yn.add(eVar);
             }
-            this.Yu = seniorLottery.myaward;
-            this.Yv = new ArrayList();
+            this.Yo = seniorLottery.myaward;
+            this.Yp = new ArrayList();
             int size2 = seniorLottery.luck_users.size();
             for (int i2 = 0; i2 < size2; i2++) {
                 f fVar = new f();
                 fVar.a(seniorLottery.luck_users.get(i2));
-                this.Yv.add(fVar);
+                this.Yp.add(fVar);
             }
-            this.Yw = seniorLottery.act_desc;
-            this.Yx = new ArrayList();
+            this.Yq = seniorLottery.act_desc;
+            this.Yr = new ArrayList();
             int size3 = seniorLottery.act_regular.size();
             for (int i3 = 0; i3 < size3; i3++) {
                 af afVar = new af();
                 afVar.a(seniorLottery.act_regular.get(i3));
-                this.Yx.add(afVar);
+                this.Yr.add(afVar);
             }
         }
     }

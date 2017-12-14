@@ -3,10 +3,11 @@ package com.baidu.location.h;
 import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c {
-    private static c Od = null;
+    private static c Oe = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -22,10 +23,10 @@ public class c {
     }
 
     public static c mX() {
-        if (Od == null) {
-            Od = new c();
+        if (Oe == null) {
+            Oe = new c();
         }
-        return Od;
+        return Oe;
     }
 
     public String a(boolean z) {
@@ -106,7 +107,7 @@ public class c {
             return;
         }
         try {
-            this.a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+            this.a = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId();
         } catch (Exception e2) {
             this.a = "NULL";
         }

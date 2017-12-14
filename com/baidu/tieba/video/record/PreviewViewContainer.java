@@ -10,48 +10,48 @@ import android.widget.FrameLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class PreviewViewContainer extends FrameLayout {
-    private b gUD;
-    private View gUK;
+    private b gXm;
+    private View gXt;
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gUK = null;
+        this.gXt = null;
     }
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gUK = null;
+        this.gXt = null;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.gUD != null) {
-            this.gUD.e(motionEvent);
+        if (this.gXm != null) {
+            this.gXm.e(motionEvent);
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setZoomHelper(b bVar) {
         if (bVar != null) {
-            this.gUD = bVar;
+            this.gXm = bVar;
         }
     }
 
-    public void bDi() {
+    public void bDP() {
         setFaceFailIdentifyLayoutVisiable(true);
     }
 
-    public void bDj() {
+    public void bDQ() {
         setFaceFailIdentifyLayoutVisiable(false);
     }
 
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
-        if (this.gUK == null) {
-            this.gUK = LayoutInflater.from(getContext()).inflate(d.h.camera_face_fail_identify, (ViewGroup) null);
+        if (this.gXt == null) {
+            this.gXt = LayoutInflater.from(getContext()).inflate(d.h.camera_face_fail_identify, (ViewGroup) null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.gUK, layoutParams);
+            addView(this.gXt, layoutParams);
         }
-        this.gUK.setVisibility(z ? 0 : 8);
+        this.gXt.setVisibility(z ? 0 : 8);
     }
 }

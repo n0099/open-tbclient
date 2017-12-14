@@ -13,9 +13,9 @@ import org.json.JSONObject;
 public class q {
     private int cur_score;
     private String fid;
-    private int gxW;
-    private int gxX;
-    private List<FeedForumData> gxY = new ArrayList();
+    private int gAF;
+    private int gAG;
+    private List<FeedForumData> gAH = new ArrayList();
     private int is_like;
     private String level_name;
     private int levelup_score;
@@ -24,8 +24,8 @@ public class q {
 
     public q() {
         setLike(0);
-        this.gxW = 0;
-        this.gxX = 0;
+        this.gAF = 0;
+        this.gAG = 0;
         this.user_level = 0;
         setLevelName("");
         setCurScore(0);
@@ -64,8 +64,8 @@ public class q {
         if (jSONObject != null) {
             try {
                 setLike(jSONObject.optInt("is_like", 0));
-                this.gxW = jSONObject.optInt("is_black", 0);
-                this.gxX = jSONObject.optInt("like_num", 0);
+                this.gAF = jSONObject.optInt("is_black", 0);
+                this.gAG = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLevelName(jSONObject.optString("level_name", ""));
                 setLevelupScore(jSONObject.optInt("levelup_score", 0));
@@ -99,7 +99,7 @@ public class q {
                     feedForumData.setReason(jSONObject.getString("reason"));
                     feedForumData.setIsLike(Integer.parseInt(jSONObject.getString("is_like")));
                     feedForumData.setPos(Integer.parseInt(jSONObject.getString("pos")));
-                    this.gxY.add(feedForumData);
+                    this.gAH.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -143,8 +143,8 @@ public class q {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> buh() {
-        return this.gxY;
+    public List<FeedForumData> buN() {
+        return this.gAH;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {

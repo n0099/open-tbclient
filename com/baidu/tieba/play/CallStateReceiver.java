@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.telephony.TelephonyManager;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 /* loaded from: classes.dex */
 public class CallStateReceiver extends BroadcastReceiver {
     public void register(Context context) {
@@ -24,7 +25,7 @@ public class CallStateReceiver extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
         if (telephonyManager == null) {
             return;
         }

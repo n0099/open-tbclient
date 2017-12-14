@@ -8,16 +8,16 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
 
     /* loaded from: classes.dex */
     public class a {
-        private int asm = 0;
-        private int asn = 0;
-        private int aso = 0;
-        private int asq = 0;
-        private int asp = 0;
         private int asr = 0;
-        private int aAy = 0;
-        private int aAz = 0;
         private int ass = 0;
-        private int aAA = 0;
+        private int ast = 0;
+        private int asv = 0;
+        private int asu = 0;
+        private int asw = 0;
+        private int aAD = 0;
+        private int aAE = 0;
+        private int asx = 0;
+        private int aAF = 0;
 
         public a() {
         }
@@ -31,91 +31,91 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public NewsNotifyMessage(int i, int i2, int i3, int i4, int i5, int i6) {
         super(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
         this.mData = new a();
-        this.mData.asm = i;
-        this.mData.asn = i2;
-        this.mData.aso = i3;
-        this.mData.asp = i4;
-        this.mData.asr = i5;
-        this.mData.aAy = i6;
+        this.mData.asr = i;
+        this.mData.ass = i2;
+        this.mData.ast = i3;
+        this.mData.asu = i4;
+        this.mData.asw = i5;
+        this.mData.aAD = i6;
     }
 
     public int getMsgReplyme() {
-        return this.mData.asm;
-    }
-
-    public void setMsgReplyme(int i) {
-        this.mData.asm = i;
-    }
-
-    public int getMsgAtme() {
-        return this.mData.asn;
-    }
-
-    public void setMsgAtme(int i) {
-        this.mData.asn = i;
-    }
-
-    public int getMsgChat() {
-        return this.mData.aso;
-    }
-
-    public void setMsgChat(int i) {
-        this.mData.aso = i;
-    }
-
-    public void setMsgFans(int i) {
-        this.mData.asq = i;
-    }
-
-    public int getMsgFans() {
-        return this.mData.asq;
-    }
-
-    public int getMsgBookmark() {
-        return this.mData.asp;
-    }
-
-    public void setMsgBookmark(int i) {
-        this.mData.asp = i;
-    }
-
-    public int getMsgGiftNum() {
         return this.mData.asr;
     }
 
-    public void setMsgGiftNum(int i) {
+    public void setMsgReplyme(int i) {
         this.mData.asr = i;
     }
 
-    public void setMsgPrivateChat(int i) {
-        this.mData.aAy = i;
-    }
-
-    public int getMsgPrivateChat() {
-        return this.mData.aAy;
-    }
-
-    public void setMsgStrangerChat(int i) {
-        this.mData.aAz = i;
-    }
-
-    public int getMsgStrangerChat() {
-        return this.mData.aAz;
-    }
-
-    public void setMsgLiveVip(int i) {
-        this.mData.ass = i;
-    }
-
-    public int getMsgLiveVip() {
+    public int getMsgAtme() {
         return this.mData.ass;
     }
 
+    public void setMsgAtme(int i) {
+        this.mData.ass = i;
+    }
+
+    public int getMsgChat() {
+        return this.mData.ast;
+    }
+
+    public void setMsgChat(int i) {
+        this.mData.ast = i;
+    }
+
+    public void setMsgFans(int i) {
+        this.mData.asv = i;
+    }
+
+    public int getMsgFans() {
+        return this.mData.asv;
+    }
+
+    public int getMsgBookmark() {
+        return this.mData.asu;
+    }
+
+    public void setMsgBookmark(int i) {
+        this.mData.asu = i;
+    }
+
+    public int getMsgGiftNum() {
+        return this.mData.asw;
+    }
+
+    public void setMsgGiftNum(int i) {
+        this.mData.asw = i;
+    }
+
+    public void setMsgPrivateChat(int i) {
+        this.mData.aAD = i;
+    }
+
+    public int getMsgPrivateChat() {
+        return this.mData.aAD;
+    }
+
+    public void setMsgStrangerChat(int i) {
+        this.mData.aAE = i;
+    }
+
+    public int getMsgStrangerChat() {
+        return this.mData.aAE;
+    }
+
+    public void setMsgLiveVip(int i) {
+        this.mData.asx = i;
+    }
+
+    public int getMsgLiveVip() {
+        return this.mData.asx;
+    }
+
     public void setMsgOfficialMerge(int i) {
-        this.mData.aAA = i;
+        this.mData.aAF = i;
     }
 
     public int getMsgOfficialMerge() {
-        return this.mData.aAA;
+        return this.mData.aAF;
     }
 }

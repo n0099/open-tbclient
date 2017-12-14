@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.android.pushservice.j.k;
 import com.baidu.android.pushservice.k.e;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -234,7 +235,7 @@ public class b {
     public static JSONObject d(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
             if (telephonyManager != null) {
                 jSONObject.put("type", telephonyManager.getNetworkType());
                 jSONObject.put("operator", telephonyManager.getNetworkOperatorName());
@@ -299,7 +300,7 @@ public class b {
             jSONObject.put("cpu_feature", d());
             jSONObject.put("screen_density", String.valueOf(a2[2]));
             jSONObject.put("sdk_int", String.valueOf(Build.VERSION.SDK_INT));
-            if (((TelephonyManager) context.getSystemService("phone")) != null) {
+            if (((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)) != null) {
                 jSONObject.put("wise_cuid", e.a(context));
             }
             String string = context.getSharedPreferences("pst", 0).getString("push_mac_id", null);

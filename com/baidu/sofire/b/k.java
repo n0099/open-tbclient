@@ -19,33 +19,24 @@ public final class k {
     public static Map<String, String> a = new HashMap();
 
     public static void a(Context context) {
-        String str;
-        String str2;
         PublicKey publicKey;
         try {
-            String str3 = d.a() + "plugin/v1/product";
-            String[] e = d.e(context);
-            if (e != null && e.length == 2 && !TextUtils.isEmpty(e[0]) && !TextUtils.isEmpty(e[1])) {
-                str = e[0];
-                str2 = e[1];
-            } else {
-                str = "3";
-                str2 = "925fc15df8a49bed0b3eca8d2b44cb7b";
-            }
+            String str = d.a() + "plugin/v1/product";
             JSONObject jSONObject = new JSONObject();
             String packageName = context.getPackageName();
             jSONObject.put("pk", packageName);
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 64);
             if (packageInfo != null) {
-                PublicKey bV = c.bV(packageInfo.applicationInfo.sourceDir);
-                if (bV != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) {
-                    publicKey = bV;
+                PublicKey bW = c.bW(packageInfo.applicationInfo.sourceDir);
+                if (bW != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) {
+                    publicKey = bW;
                 } else {
                     publicKey = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                 }
                 if (publicKey != null) {
                     byte[] encoded = publicKey.getEncoded();
                     if (encoded != null) {
+                        d.a(context, encoded);
                         jSONObject.put("sm", j.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", "")));
                     }
                 } else {
@@ -54,14 +45,11 @@ public final class k {
             } else {
                 jSONObject.put("sm", "");
             }
-            String jSONObject2 = jSONObject.toString();
-            com.baidu.sofire.b.a();
-            String a2 = f.a(context, str3, jSONObject2, str, str2, false);
-            String str4 = a2;
-            com.baidu.sofire.b.a();
-            JSONObject jSONObject3 = new JSONObject(a2);
-            JSONArray optJSONArray = jSONObject3.optJSONArray("product");
-            long optLong = jSONObject3.optLong("pt");
+            String a2 = f.a(context, str, jSONObject.toString(), false, false, "");
+            new StringBuilder().append(a2);
+            JSONObject jSONObject2 = new JSONObject(a2);
+            JSONArray optJSONArray = jSONObject2.optJSONArray("product");
+            long optLong = jSONObject2.optLong("pt");
             if (optJSONArray != null && optLong > 0) {
                 new com.baidu.sofire.e(context).a(optJSONArray.toString(), optLong);
             }
@@ -77,8 +65,6 @@ public final class k {
         try {
             a.clear();
             String a2 = new com.baidu.sofire.e(context).a();
-            String str = "157:" + a2;
-            com.baidu.sofire.b.a();
             if (!TextUtils.isEmpty(a2)) {
                 JSONArray jSONArray = new JSONArray(a2);
                 HashMap hashMap = new HashMap();
@@ -86,45 +72,33 @@ public final class k {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     String optString = optJSONObject.optString("p");
                     String optString2 = optJSONObject.optString("s");
-                    String str2 = "167:" + optString + "_" + optString2;
-                    com.baidu.sofire.b.a();
+                    new StringBuilder("167:").append(optString).append("_").append(optString2);
                     hashMap.put(optString, optString2);
                 }
                 for (PackageInfo packageInfo : context.getPackageManager().getInstalledPackages(64)) {
-                    String str3 = packageInfo.packageName;
-                    String str4 = "174:" + str3;
-                    com.baidu.sofire.b.a();
-                    if (hashMap.keySet().contains(str3) && !str3.equals(context.getPackageName())) {
-                        String str5 = (String) hashMap.get(str3);
-                        String str6 = "179:" + str5;
-                        com.baidu.sofire.b.a();
-                        String str7 = packageInfo.applicationInfo.sourceDir;
-                        String str8 = "181:" + str7;
-                        com.baidu.sofire.b.a();
-                        PublicKey bV = c.bV(str7);
-                        String str9 = "183:" + (bV == null);
-                        com.baidu.sofire.b.a();
-                        if (bV == null && packageInfo.signatures != null && packageInfo.signatures.length > 0 && packageInfo.signatures[0] != null) {
-                            bV = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
+                    String str = packageInfo.packageName;
+                    if (hashMap.keySet().contains(str) && !str.equals(context.getPackageName())) {
+                        String str2 = (String) hashMap.get(str);
+                        PublicKey bW = c.bW(packageInfo.applicationInfo.sourceDir);
+                        new StringBuilder("183:").append(bW == null);
+                        if (bW == null && packageInfo.signatures != null && packageInfo.signatures.length > 0 && packageInfo.signatures[0] != null) {
+                            bW = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                         }
-                        String str10 = "194:" + (bV == null);
-                        com.baidu.sofire.b.a();
-                        if (bV != null) {
-                            byte[] encoded = bV.getEncoded();
-                            String str11 = "197:" + (encoded == null);
-                            com.baidu.sofire.b.a();
+                        new StringBuilder("194:").append(bW == null);
+                        if (bW != null) {
+                            byte[] encoded = bW.getEncoded();
+                            new StringBuilder("197:").append(encoded == null);
                             if (encoded != null) {
+                                d.a(context, encoded);
                                 String a3 = j.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
-                                String str12 = "201:" + a3;
-                                com.baidu.sofire.b.a();
-                                if (!TextUtils.isEmpty(a3) && a3.equals(str5)) {
+                                if (!TextUtils.isEmpty(a3) && a3.equals(str2)) {
                                     JSONObject jSONObject = new JSONObject();
-                                    jSONObject.put("pk", str3);
+                                    jSONObject.put("pk", str);
                                     jSONObject.put("av", packageInfo.versionName);
                                     jSONObject.put("sm", a3);
                                     jSONObject.put("dm", Build.MODEL);
                                     jSONObject.put("al", String.valueOf(Build.VERSION.SDK_INT));
-                                    a.put(str3, jSONObject.toString());
+                                    a.put(str, jSONObject.toString());
                                 }
                             }
                         }

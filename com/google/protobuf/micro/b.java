@@ -152,17 +152,17 @@ public final class b {
         }
     }
 
-    public a bMa() {
+    public a bMK() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return a.J(wU(j));
+            return a.J(xh(j));
         }
         a l = a.l(this.a, this.d, j);
         this.d = j + this.d;
         return l;
     }
 
-    public byte bMb() {
+    public byte bML() {
         if (this.d == this.b) {
             a(true);
         }
@@ -236,7 +236,7 @@ public final class b {
     public String g() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return new String(wU(j), "UTF-8");
+            return new String(xh(j), "UTF-8");
         }
         String str = new String(this.a, this.d, j, "UTF-8");
         this.d = j + this.d;
@@ -248,31 +248,31 @@ public final class b {
     }
 
     public int j() {
-        byte bMb = bMb();
-        if (bMb >= 0) {
-            return bMb;
+        byte bML = bML();
+        if (bML >= 0) {
+            return bML;
         }
-        int i = bMb & Byte.MAX_VALUE;
-        byte bMb2 = bMb();
-        if (bMb2 >= 0) {
-            return i | (bMb2 << 7);
+        int i = bML & Byte.MAX_VALUE;
+        byte bML2 = bML();
+        if (bML2 >= 0) {
+            return i | (bML2 << 7);
         }
-        int i2 = i | ((bMb2 & Byte.MAX_VALUE) << 7);
-        byte bMb3 = bMb();
-        if (bMb3 >= 0) {
-            return i2 | (bMb3 << 14);
+        int i2 = i | ((bML2 & Byte.MAX_VALUE) << 7);
+        byte bML3 = bML();
+        if (bML3 >= 0) {
+            return i2 | (bML3 << 14);
         }
-        int i3 = i2 | ((bMb3 & Byte.MAX_VALUE) << 14);
-        byte bMb4 = bMb();
-        if (bMb4 >= 0) {
-            return i3 | (bMb4 << 21);
+        int i3 = i2 | ((bML3 & Byte.MAX_VALUE) << 14);
+        byte bML4 = bML();
+        if (bML4 >= 0) {
+            return i3 | (bML4 << 21);
         }
-        int i4 = i3 | ((bMb4 & Byte.MAX_VALUE) << 21);
-        byte bMb5 = bMb();
-        int i5 = i4 | (bMb5 << 28);
-        if (bMb5 < 0) {
+        int i4 = i3 | ((bML4 & Byte.MAX_VALUE) << 21);
+        byte bML5 = bML();
+        int i5 = i4 | (bML5 << 28);
+        if (bML5 < 0) {
             for (int i6 = 0; i6 < 5; i6++) {
-                if (bMb() >= 0) {
+                if (bML() >= 0) {
                     return i5;
                 }
             }
@@ -284,9 +284,9 @@ public final class b {
     public long k() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
-            byte bMb = bMb();
-            j |= (bMb & Byte.MAX_VALUE) << i;
-            if ((bMb & 128) == 0) {
+            byte bML = bML();
+            j |= (bML & Byte.MAX_VALUE) << i;
+            if ((bML & 128) == 0) {
                 return j;
             }
         }
@@ -294,20 +294,20 @@ public final class b {
     }
 
     public int l() {
-        return (bMb() & 255) | ((bMb() & 255) << 8) | ((bMb() & 255) << 16) | ((bMb() & 255) << 24);
+        return (bML() & 255) | ((bML() & 255) << 8) | ((bML() & 255) << 16) | ((bML() & 255) << 24);
     }
 
     public long m() {
-        byte bMb = bMb();
-        byte bMb2 = bMb();
-        return ((bMb2 & 255) << 8) | (bMb & 255) | ((bMb() & 255) << 16) | ((bMb() & 255) << 24) | ((bMb() & 255) << 32) | ((bMb() & 255) << 40) | ((bMb() & 255) << 48) | ((bMb() & 255) << 56);
+        byte bML = bML();
+        byte bML2 = bML();
+        return ((bML2 & 255) << 8) | (bML & 255) | ((bML() & 255) << 16) | ((bML() & 255) << 24) | ((bML() & 255) << 32) | ((bML() & 255) << 40) | ((bML() & 255) << 48) | ((bML() & 255) << 56);
     }
 
     public boolean n() {
         return this.d == this.b && !a(false);
     }
 
-    public byte[] wU(int i) {
+    public byte[] xh(int i) {
         if (i < 0) {
             throw d.b();
         }

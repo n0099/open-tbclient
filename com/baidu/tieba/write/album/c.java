@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c extends PagerAdapter {
-    private LayoutInflater hcE;
-    private Map<Integer, Boolean> hcF = new HashMap();
-    private AlbumActivity hcu;
+    private AlbumActivity hfk;
+    private LayoutInflater hfu;
+    private Map<Integer, Boolean> hfv = new HashMap();
     private List<ImageFileInfo> mList;
 
     public c(AlbumActivity albumActivity) {
-        this.hcu = albumActivity;
-        this.hcE = LayoutInflater.from(this.hcu.getPageContext().getPageActivity());
+        this.hfk = albumActivity;
+        this.hfu = LayoutInflater.from(this.hfk.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -44,20 +44,20 @@ public class c extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo pv(int i) {
+    public ImageFileInfo pC(int i) {
         return (ImageFileInfo) v.c(this.mList, i);
     }
 
-    public boolean vH(int i) {
-        if (this.hcF.get(Integer.valueOf(i)) == null) {
+    public boolean vT(int i) {
+        if (this.hfv.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.hcF.get(Integer.valueOf(i)).booleanValue();
+        return this.hfv.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = this.hcE.inflate(d.h.album_big_image_item, (ViewGroup) null);
+        View inflate = this.hfu.inflate(d.h.album_big_image_item, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(d.g.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultBgResource(0);
@@ -65,13 +65,13 @@ public class c extends PagerAdapter {
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setGifIconSupport(false);
         tbImageView.setLongIconSupport(false);
-        ImageFileInfo pv = pv(i);
-        if (pv != null) {
-            tbImageView.startLoad(pv.getFilePath(), 36, false);
-            this.hcF.put(Integer.valueOf(i), true);
+        ImageFileInfo pC = pC(i);
+        if (pC != null) {
+            tbImageView.startLoad(pC.getFilePath(), 36, false);
+            this.hfv.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
-        aj.k(inflate, d.C0082d.cp_bg_line_d);
+        aj.k(inflate, d.C0096d.cp_bg_line_d);
         return inflate;
     }
 }

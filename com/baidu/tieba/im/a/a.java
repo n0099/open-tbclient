@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.a;
 /* loaded from: classes.dex */
 public class a {
-    public static int ny(int i) {
+    public static int nF(int i) {
         switch (i) {
             case 1:
                 return -2;

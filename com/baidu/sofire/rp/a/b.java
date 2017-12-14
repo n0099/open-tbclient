@@ -1,5 +1,6 @@
 package com.baidu.sofire.rp.a;
 
+import com.baidu.sofire.b.d;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class b {
@@ -18,7 +19,7 @@ public final class b {
             jSONObject.put("3", bVar.e);
             jSONObject.put("4", bVar.b);
         } catch (Throwable th) {
-            com.baidu.sofire.rp.f.b.a();
+            d.a(th);
         }
         return jSONObject.toString();
     }
@@ -34,7 +35,7 @@ public final class b {
             bVar.b = jSONObject.optString("4");
             return bVar;
         } catch (Exception e) {
-            com.baidu.sofire.rp.f.b.a();
+            d.a(e);
             return null;
         }
     }

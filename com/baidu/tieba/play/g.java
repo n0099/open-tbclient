@@ -39,7 +39,7 @@ public interface g {
 
     /* renamed from: com.baidu.tieba.play.g$g  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0123g {
+    public interface InterfaceC0138g {
         void a(g gVar);
     }
 
@@ -53,7 +53,7 @@ public interface g {
         void onSubError(int i, int i2, String str);
     }
 
-    void Hp();
+    void Hq();
 
     int Ln();
 
@@ -103,7 +103,7 @@ public interface g {
 
     void setOnPreparedListener(f fVar);
 
-    void setOnSeekCompleteListener(InterfaceC0123g interfaceC0123g);
+    void setOnSeekCompleteListener(InterfaceC0138g interfaceC0138g);
 
     void setVolume(float f2, float f3);
 

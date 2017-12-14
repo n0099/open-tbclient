@@ -3,25 +3,30 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private boolean aqH;
-    private String aqI;
-    private String aqJ;
-    private String aqK;
+    private boolean aqK;
     private String aqL;
-    private boolean aqM;
-    private boolean aqN;
+    private String aqM;
+    private String aqN;
+    private String aqO;
+    private boolean aqP;
+    private boolean aqQ;
+    private String aqR;
     private String h5Url;
 
+    public boolean xv() {
+        return this.aqK;
+    }
+
+    public void aQ(boolean z) {
+        this.aqK = z;
+    }
+
     public boolean xw() {
-        return this.aqH;
+        return this.aqQ;
     }
 
-    public void aP(boolean z) {
-        this.aqH = z;
-    }
-
-    public boolean xx() {
-        return this.aqN;
+    public String xx() {
+        return this.aqR;
     }
 
     public String xy() {
@@ -29,36 +34,37 @@ public class a {
     }
 
     public boolean xz() {
-        return this.aqM;
+        return this.aqP;
     }
 
     public String xA() {
-        return this.aqL;
+        return this.aqO;
     }
 
     public String xB() {
-        return this.aqK;
+        return this.aqN;
     }
 
     public String xC() {
-        return this.aqJ;
+        return this.aqM;
     }
 
     public String xD() {
-        return this.aqI;
+        return this.aqL;
     }
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            aP(jSONObject.optInt("switch") == 1);
-            this.aqI = jSONObject.optString("feed_text");
-            this.aqJ = jSONObject.optString("enter_forum_text");
-            this.aqK = jSONObject.optString("my_tab_text");
+            aQ(jSONObject.optInt("switch") == 1);
+            this.aqL = jSONObject.optString("feed_text");
+            this.aqM = jSONObject.optString("enter_forum_text");
+            this.aqN = jSONObject.optString("my_tab_text");
             long optLong = jSONObject.optLong("dot_timestamp");
-            this.aqL = optLong == 0 ? "" : optLong + "";
-            this.aqM = jSONObject.optInt("user_satisfy") == 1;
+            this.aqO = optLong == 0 ? "" : optLong + "";
+            this.aqP = jSONObject.optInt("user_satisfy") == 1;
             this.h5Url = jSONObject.optString("h5_url");
-            this.aqN = jSONObject.optInt("person_item_switch") == 1;
+            this.aqQ = jSONObject.optInt("person_item_switch") == 1;
+            this.aqR = jSONObject.optString("person_item_text");
         }
     }
 }

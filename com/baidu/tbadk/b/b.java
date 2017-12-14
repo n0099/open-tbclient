@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> RT = null;
-    protected static boolean RV = false;
-    protected String RQ = "183322726";
-    protected boolean RU = true;
-    protected transient List<String> RR = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> RP = null;
+    protected static boolean RR = false;
+    protected String RK = "183322726";
+    protected boolean RQ = true;
+    protected transient List<String> RL = new ArrayList(5);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -33,7 +33,13 @@ public abstract class b {
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nQ();
+    public abstract void nO();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void nU();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void nV();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void nW();
@@ -43,12 +49,6 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void nY();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nZ();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void oa();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static b b(BaseFragmentActivity baseFragmentActivity) {
@@ -70,33 +70,33 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (RT == null) {
-            RT = new WeakReference<>(tbPageContext);
+        if (RP == null) {
+            RP = new WeakReference<>(tbPageContext);
             return;
         }
-        RT.clear();
-        RT = null;
-        RT = new WeakReference<>(tbPageContext);
+        RP.clear();
+        RP = null;
+        RP = new WeakReference<>(tbPageContext);
     }
 
-    public boolean nV() {
-        return RV;
+    public boolean nT() {
+        return RR;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ac(boolean z) {
-        this.RU = z;
+        this.RQ = z;
     }
 
-    public boolean nP() {
-        return this.RU;
+    public boolean nN() {
+        return this.RQ;
     }
 
-    public void nR() {
-        if (RT != null) {
-            RT.get();
-            RT.clear();
-            RT = null;
+    public void nP() {
+        if (RP != null) {
+            RP.get();
+            RP.clear();
+            RP = null;
         }
     }
 }

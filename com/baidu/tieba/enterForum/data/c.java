@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.data;
 /* loaded from: classes.dex */
 public class c {
-    public static final int[] csI = {0, 1, 2, 3};
+    public static final int[] csR = {0, 1, 2, 3};
     private int mType = 4;
 
     public void setType(int i) {

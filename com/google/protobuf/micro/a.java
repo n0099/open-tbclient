@@ -1,7 +1,7 @@
 package com.google.protobuf.micro;
 /* loaded from: classes2.dex */
 public final class a {
-    public static final a hvt = new a(new byte[0]);
+    public static final a hym = new a(new byte[0]);
     private final byte[] b;
     private volatile int c = 0;
 

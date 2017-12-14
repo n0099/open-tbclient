@@ -9,6 +9,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -158,7 +159,7 @@ public class f extends d {
 
     private String f() {
         try {
-            String simOperator = ((TelephonyManager) this.a.getSystemService("phone")).getSimOperator();
+            String simOperator = ((TelephonyManager) this.a.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimOperator();
             if (simOperator != null) {
                 if (simOperator.equals("46000") || simOperator.equals("46002") || simOperator.equals("46007")) {
                     return "cm";
@@ -179,7 +180,7 @@ public class f extends d {
     private String g() {
         try {
             if (p.t(this.a, "android.permission.READ_PHONE_STATE")) {
-                return ((TelephonyManager) this.a.getSystemService("phone")).getSubscriberId();
+                return ((TelephonyManager) this.a.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
             }
         } catch (Exception e) {
             com.baidu.android.pushservice.g.a.a("MessageHandler", e);

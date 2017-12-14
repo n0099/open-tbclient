@@ -33,7 +33,7 @@ public class y {
             case 4:
                 return com.baidu.adp.lib.util.j.hi();
             case 5:
-                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.o.r.GU() && com.baidu.adp.lib.util.j.hi() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
+                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.o.r.GV() && com.baidu.adp.lib.util.j.hi() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
             default:
                 if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != -1) {
                     return (com.baidu.adp.lib.util.j.hj() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.j.hi() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
@@ -46,7 +46,7 @@ public class y {
     }
 
     public static boolean q(int i, String str) {
-        if (!am.isEmpty(com.baidu.tieba.play.s.hF(str))) {
+        if (!am.isEmpty(com.baidu.tieba.play.s.hD(str))) {
             if (TbadkCoreApplication.getInst().getVideoAutoPlay() == 1) {
                 return false;
             }

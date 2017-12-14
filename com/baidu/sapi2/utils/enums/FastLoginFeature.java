@@ -8,7 +8,7 @@ public enum FastLoginFeature {
     SINA_WEIBO_WEBVIEW("tsina"),
     TX_WEIBO_WEBVIEW("tqq"),
     TX_QQ_WEBVIEW("qzone"),
-    DEVICE_LOGIN("device_login"),
+    TX_QQ_SSO("qzone"),
     QR_LOGIN("qr_app_login"),
     NM_LOGIN("nuomi_login"),
     VOICE_LOGIN("voice_login"),

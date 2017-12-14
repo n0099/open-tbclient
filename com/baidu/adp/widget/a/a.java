@@ -115,6 +115,23 @@ public class a {
         kH();
     }
 
+    public a(b bVar, Bitmap bitmap, boolean z) {
+        this.FZ = null;
+        this.isGif = false;
+        this.Ga = true;
+        this.Gb = null;
+        this.Gc = -1;
+        this.Gd = -1;
+        this.Ge = new AtomicBoolean(false);
+        this.Gg = false;
+        this.timeStamp = -1L;
+        this.Gi = false;
+        this.Gk = new C0014a();
+        this.Gf = bVar;
+        this.FZ = bitmap;
+        this.isGif = z;
+    }
+
     public a(b bVar) {
         this.FZ = null;
         this.isGif = false;

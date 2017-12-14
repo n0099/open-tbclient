@@ -5,53 +5,53 @@ import android.view.View;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
-    private Fragment[] blX;
-    private String hcs;
-    private String hct;
-    private AlbumActivity hcu;
-    private String[] hcv;
-    private k hcw;
-    private b hcx;
+    private Fragment[] blY;
+    private String hfi;
+    private String hfj;
+    private AlbumActivity hfk;
+    private String[] hfl;
+    private k hfm;
+    private b hfn;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.hcs = "tag_image";
-        this.hct = "tag_b_image";
-        this.hcu = albumActivity;
+        this.hfi = "tag_image";
+        this.hfj = "tag_b_image";
+        this.hfk = albumActivity;
     }
 
-    public void aPI() {
-        this.blX = new Fragment[2];
-        this.hcv = new String[2];
-        this.hcw = new k();
-        this.blX[0] = this.hcw;
-        this.hcv[0] = this.hcs;
-        this.hcx = new b();
-        this.blX[1] = this.hcx;
-        this.hcv[1] = this.hct;
+    public void aPR() {
+        this.blY = new Fragment[2];
+        this.hfl = new String[2];
+        this.hfm = new k();
+        this.blY[0] = this.hfm;
+        this.hfl[0] = this.hfi;
+        this.hfn = new b();
+        this.blY[1] = this.hfn;
+        this.hfl[1] = this.hfj;
     }
 
-    public Fragment vF(int i) {
+    public Fragment vR(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.blX[i];
+        return this.blY[i];
     }
 
-    public String vG(int i) {
+    public String vS(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.hcv[i];
+        return this.hfl[i];
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.blX.length) {
-                if (this.blX[i3] != null && (this.blX[i3] instanceof k)) {
-                    ((k) this.blX[i3]).onChangeSkinType(i);
+            if (i3 < this.blY.length) {
+                if (this.blY[i3] != null && (this.blY[i3] instanceof k)) {
+                    ((k) this.blY[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -60,89 +60,89 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView bFs() {
-        if (this.hcw == null) {
+    public TbCameraView bGe() {
+        if (this.hfm == null) {
             return null;
         }
-        return this.hcw.bFs();
+        return this.hfm.bGe();
     }
 
     public void stopCamera() {
-        TbCameraView bFs = bFs();
-        if (bFs != null) {
-            bFs.stopCamera();
-            bFs.setVisibility(4);
+        TbCameraView bGe = bGe();
+        if (bGe != null) {
+            bGe.stopCamera();
+            bGe.setVisibility(4);
         }
     }
 
-    public void bFr() {
-        TbCameraView bFs = bFs();
-        if (bFs != null) {
-            bFs.setVisibility(0);
-            bFs.mS(false);
+    public void bGd() {
+        TbCameraView bGe = bGe();
+        if (bGe != null) {
+            bGe.setVisibility(0);
+            bGe.mU(false);
         }
-        if (this.hcw != null && this.hcw.bFQ() != null) {
-            this.hcw.bFQ().bFR();
+        if (this.hfm != null && this.hfm.bGC() != null) {
+            this.hfm.bGC().bGD();
         }
     }
 
-    public View bFt() {
-        if (this.hcw == null) {
+    public View bGf() {
+        if (this.hfm == null) {
             return null;
         }
-        return this.hcw.boh();
+        return this.hfm.boN();
     }
 
-    public View bFu() {
-        if (this.hcw == null) {
+    public View bGg() {
+        if (this.hfm == null) {
             return null;
         }
-        return this.hcw.bFP();
+        return this.hfm.bGB();
     }
 
-    public View bFv() {
-        if (this.hcx == null) {
+    public View bGh() {
+        if (this.hfn == null) {
             return null;
         }
-        return this.hcx.boh();
+        return this.hfn.boN();
     }
 
-    public View bFw() {
-        if (this.hcx == null) {
+    public View bGi() {
+        if (this.hfn == null) {
             return null;
         }
-        return this.hcx.bFB();
+        return this.hfn.bGn();
     }
 
-    public View bFx() {
-        if (this.hcx == null) {
+    public View bGj() {
+        if (this.hfn == null) {
             return null;
         }
-        return this.hcx.bFx();
+        return this.hfn.bGj();
     }
 
-    public View bFy() {
-        if (this.hcw == null) {
+    public View bGk() {
+        if (this.hfm == null) {
             return null;
         }
-        return this.hcw.bFx();
+        return this.hfm.bGj();
     }
 
     public void onDestroy() {
     }
 
-    public void nW(boolean z) {
-        if (this.hcx != null) {
-            this.hcx.nW(z);
+    public void nX(boolean z) {
+        if (this.hfn != null) {
+            this.hfn.nX(z);
         }
-        if (this.hcw != null) {
-            this.hcw.nW(z);
+        if (this.hfm != null) {
+            this.hfm.nX(z);
         }
     }
 
     public void a(l lVar) {
-        if (this.hcw != null) {
-            this.hcw.a(lVar);
+        if (this.hfm != null) {
+            this.hfm.a(lVar);
         }
     }
 }

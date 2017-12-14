@@ -11,7 +11,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.j.p;
-import com.baidu.tbadk.core.atomData.SocialLoginActivityConfig;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -163,7 +162,7 @@ public class PublicMsg implements Parcelable {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("msgid", str);
-            jSONObject.put(SocialLoginActivityConfig.RESULT_CODE, i);
+            jSONObject.put("result_code", i);
         } catch (JSONException e) {
             com.baidu.android.pushservice.g.b.b(TAG, e.getMessage(), context.getApplicationContext());
         }
