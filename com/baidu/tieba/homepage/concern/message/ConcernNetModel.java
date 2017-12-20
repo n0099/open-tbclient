@@ -59,7 +59,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                                 dataRes = ((ConcernPageHttpResMessage) responsedMessage).getResultData();
                             }
                             ConcernNetModel.this.doI.b(dataRes, z);
-                            l.bsv().bsy();
+                            l.bsu().bsx();
                             return;
                         }
                     }
@@ -96,7 +96,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         };
         setUniqueId(bdUniqueId);
         aac();
-        adp();
+        ado();
         registerListener(this.mNetMessageListener);
         registerListener(this.doK);
     }
@@ -135,7 +135,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    private void adp() {
+    private void ado() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309474);
         bVar.setResponsedClass(ConcernPageSocketResMessage.class);
         bVar.m(true);

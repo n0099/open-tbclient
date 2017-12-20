@@ -82,7 +82,7 @@ public class h extends com.baidu.tieba.card.a<CardHListViewData> {
                 if (cardHListViewData.showTopDivider) {
                     this.bZN.z(!TextUtils.isEmpty(cardHListViewData.title) ? cardHListViewData.title : this.bZQ, true);
                 } else {
-                    this.bZN.acB();
+                    this.bZN.acA();
                 }
             }
             if (this.bZO != null) {

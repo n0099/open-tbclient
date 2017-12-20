@@ -141,7 +141,7 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
         this.feO = "";
     }
 
-    public void and() {
+    public void anc() {
         if (this.feN != null) {
             this.feN.cancelLoadData();
         }
@@ -196,7 +196,7 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public boolean ahP() {
+    public boolean ahO() {
         return true;
     }
 
@@ -206,12 +206,12 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void ahS() {
+    public void ahR() {
         this.mHandler.removeCallbacks(this.feR);
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void ahT() {
+    public void ahS() {
         this.mHandler.removeCallbacks(this.feR);
         this.mHandler.postDelayed(this.feR, TbConfig.NOTIFY_SOUND_INTERVAL);
     }

@@ -21,19 +21,19 @@ public class i {
     private long gAv = 0;
     private String gAw = null;
 
-    public int bvG() {
+    public int bvF() {
         return this.gAj;
     }
 
-    public boolean bvH() {
+    public boolean bvG() {
         return this.gAu;
     }
 
-    public long bvI() {
+    public long bvH() {
         return this.gAv;
     }
 
-    public String bvJ() {
+    public String bvI() {
         return this.gAw;
     }
 

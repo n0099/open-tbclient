@@ -55,11 +55,11 @@ public class b extends c<StrangerListActivity> {
         this.bva.setAdapter((ListAdapter) this.dZL);
     }
 
-    public StrangerListAdapter aEE() {
+    public StrangerListAdapter aED() {
         return this.dZL;
     }
 
-    public View aEF() {
+    public View aEE() {
         return this.dZM;
     }
 }

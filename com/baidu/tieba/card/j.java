@@ -131,10 +131,10 @@ public class j extends a<n> implements View.OnClickListener {
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 202:
-                        j.this.abE();
+                        j.this.abD();
                         return;
                     case 203:
-                        j.this.abF();
+                        j.this.abE();
                         return;
                     default:
                         return;
@@ -229,7 +229,7 @@ public class j extends a<n> implements View.OnClickListener {
         };
         this.caF = new j.a() { // from class: com.baidu.tieba.card.j.6
             @Override // com.baidu.tieba.play.j.a
-            public void abJ() {
+            public void abI() {
                 if (j.this.caq != null && j.this.caq.bjE != null && j.this.caq.bjE.rN() != null) {
                     j.this.abB();
                 }
@@ -335,23 +335,26 @@ public class j extends a<n> implements View.OnClickListener {
             if (abt() != null) {
                 abt().a(view, this.caq);
             }
-            this.abX.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoAggregationActivityConfig(this.abX.getPageActivity(), this.caq.bjE.getTid(), VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD, k.rl(), this.caq.acg())));
+            this.abX.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoAggregationActivityConfig(this.abX.getPageActivity(), this.caq.bjE.getTid(), VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD, k.rl(), this.caq.acf())));
             return;
         }
         if (view == this.bvv || view == this.bZf) {
-            ai(view);
+            aj(view);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.HOT_TOPIC_CUSTOM, null));
         }
         if (view == this.caj) {
             if (UtilHelper.isGotoVideoMiddlePage()) {
-                abC();
+                ai(getView());
             } else {
-                ai(view);
+                aj(getView());
             }
         }
     }
 
-    private void abC() {
+    private void ai(View view) {
+        if (abt() != null) {
+            abt().a(view, this.caq);
+        }
         if (!com.baidu.adp.lib.util.j.hh()) {
             com.baidu.adp.lib.util.l.showToast(this.abX.getPageActivity(), d.j.no_network_guide);
         } else if (!com.baidu.adp.lib.util.j.hi()) {
@@ -361,7 +364,7 @@ public class j extends a<n> implements View.OnClickListener {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    j.this.abD();
+                    j.this.abC();
                 }
             });
             aVar.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.card.j.12
@@ -373,18 +376,18 @@ public class j extends a<n> implements View.OnClickListener {
             aVar.ao(true);
             aVar.b(this.mTbPageContext).th();
         } else {
-            abD();
+            abC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abD() {
+    public void abC() {
         if (this.caq != null && this.caq.bjE != null && this.caq.bjE.getId() != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoMiddlePageActivityConfig(this.abX.getPageActivity(), "index", this.caq.bjE.getTid(), k.rl(), this.caq.acg())));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoMiddlePageActivityConfig(this.abX.getPageActivity(), "index", this.caq.bjE.getTid(), k.rl(), this.caq.acf())));
         }
     }
 
-    private void ai(View view) {
+    private void aj(View view) {
         if (abt() != null) {
             abt().a(view, this.caq);
         }
@@ -393,7 +396,7 @@ public class j extends a<n> implements View.OnClickListener {
                 k.jO(this.caq.bjE.getId());
                 k.a(this.mTextTitle, this.caq.bjE.getId(), d.C0096d.cp_cont_b, d.C0096d.cp_cont_d);
             }
-            PbActivityConfig addLocateParam = new PbActivityConfig(this.abX.getPageActivity()).createFromThreadCfg(this.caq.bjE, null, k.rl(), 18003, true, false, false).addLocateParam(this.caq.acg());
+            PbActivityConfig addLocateParam = new PbActivityConfig(this.abX.getPageActivity()).createFromThreadCfg(this.caq.bjE, null, k.rl(), 18003, true, false, false).addLocateParam(this.caq.acf());
             addLocateParam.setVideo_source(this.caq.sourceType == 0 ? "index" : "hot_juhe");
             addLocateParam.setForumId(String.valueOf(this.caq.bjE.getFid()));
             addLocateParam.setForumName(this.caq.bjE.rB());
@@ -422,7 +425,7 @@ public class j extends a<n> implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abE() {
+    public void abD() {
         this.cay.removeMessages(202);
         if (this.caj.getCurrentPosition() > 0) {
             f(true, 3);
@@ -433,7 +436,7 @@ public class j extends a<n> implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abF() {
+    public void abE() {
         if (getView().getParent() == null) {
             stopPlay();
             return;
@@ -515,7 +518,7 @@ public class j extends a<n> implements View.OnClickListener {
             return;
         }
         this.bvv.setVisibility(0);
-        abI();
+        abH();
         if (!abx() && k.jP(this.caq.bjE.getId())) {
             k.a(this.mTextTitle, this.caq.bjE.getId(), d.C0096d.cp_cont_b, d.C0096d.cp_cont_d);
             k.a(this.bZf.getGodReplyContent(), this.caq.Ox().getId(), d.C0096d.cp_cont_f, d.C0096d.cp_cont_d);
@@ -581,19 +584,19 @@ public class j extends a<n> implements View.OnClickListener {
         }
     }
 
-    private void abG() {
+    private void abF() {
         this.cay.removeMessages(202);
         this.cay.removeMessages(203);
     }
 
-    private void abH() {
+    private void abG() {
         com.baidu.adp.lib.g.e.fP().removeCallbacks(this.caA);
         com.baidu.adp.lib.g.e.fP().removeCallbacks(this.caB);
     }
 
-    private void abI() {
-        abH();
+    private void abH() {
         abG();
+        abF();
         if (this.cab != null && this.cai != null && this.caj != null) {
             if (com.baidu.tbadk.core.h.oY().pe() && this.caq != null && this.caq.bjE != null && this.caq.bjE.rN() != null) {
                 this.cab.setDefaultBgResource(d.f.pic_bg_video_frs);
@@ -604,8 +607,8 @@ public class j extends a<n> implements View.OnClickListener {
                 if (StringUtils.isNull(this.caq.bjE.rN().video_url)) {
                     f(true, 4);
                 }
-                if (this.bln != null && this.bln.bjy() != null) {
-                    this.bln.bjy().d(this.caq.bjE.rN());
+                if (this.bln != null && this.bln.bjx() != null) {
+                    this.bln.bjx().d(this.caq.bjE.rN());
                     return;
                 }
                 return;
@@ -687,8 +690,8 @@ public class j extends a<n> implements View.OnClickListener {
     }
 
     public void stopPlay() {
-        abH();
         abG();
+        abF();
         f(true, 1);
         if (this.caj != null) {
             this.caj.stopPlayback();

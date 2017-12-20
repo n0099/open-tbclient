@@ -51,15 +51,15 @@ public class l implements com.baidu.adp.widget.ListView.f {
         }
     }
 
-    public long aRV() {
+    public long aRU() {
         return this.eQd;
     }
 
-    public boolean aRW() {
+    public boolean aRV() {
         return this.eQe;
     }
 
-    public ArrayList<MuteUser> aRX() {
+    public ArrayList<MuteUser> aRW() {
         return this.eQf;
     }
 
@@ -87,7 +87,7 @@ public class l implements com.baidu.adp.widget.ListView.f {
         this.eQh = i;
     }
 
-    public int aRY() {
+    public int aRX() {
         return this.eQh;
     }
 
@@ -113,7 +113,7 @@ public class l implements com.baidu.adp.widget.ListView.f {
         }
     }
 
-    public void aRZ() {
+    public void aRY() {
         if (TbadkCoreApplication.isLogin()) {
             this.eQd--;
             if (this.eQd < 0) {
@@ -141,7 +141,7 @@ public class l implements com.baidu.adp.widget.ListView.f {
         this.eQg = z;
     }
 
-    public boolean aSa() {
+    public boolean aRZ() {
         return this.eQg;
     }
 }

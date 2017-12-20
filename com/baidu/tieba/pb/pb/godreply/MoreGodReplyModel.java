@@ -30,9 +30,9 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
             @Override // com.baidu.tieba.pb.pb.main.z.a
             public void C(List<PostData> list) {
                 MoreGodReplyModel.this.isLoading = false;
-                n aRA = MoreGodReplyModel.this.eSc.getPbData().aRA();
-                if (aRA != null) {
-                    List<PostData> list2 = aRA.eQr;
+                n aRz = MoreGodReplyModel.this.eSc.getPbData().aRz();
+                if (aRz != null) {
+                    List<PostData> list2 = aRz.eQr;
                     int size = list2.size();
                     if (!v.w(list)) {
                         for (PostData postData : list) {
@@ -60,28 +60,28 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
             }
         };
         this.eSc = pbModel;
-        this.eSc.aUO().b(this.eSg);
+        this.eSc.aUN().b(this.eSg);
     }
 
-    public boolean aSw() {
-        n aRA;
+    public boolean aSv() {
+        n aRz;
         f pbData = this.eSc.getPbData();
-        if (pbData == null || (aRA = pbData.aRA()) == null) {
+        if (pbData == null || (aRz = pbData.aRz()) == null) {
             return false;
         }
         if (this.eSe < 0) {
-            this.eSe = aRA.getCount();
+            this.eSe = aRz.getCount();
         }
-        List<Long> list = aRA.eQs;
+        List<Long> list = aRz.eQs;
         int size = list.size();
         int i = this.eSe;
-        if (size <= i || aRA.eQr.size() >= 100) {
+        if (size <= i || aRz.eQr.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
         this.eSd = min;
         this.isLoading = true;
-        this.eSc.aUO().cK(list.subList(i, min));
+        this.eSc.aUN().cK(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
@@ -90,18 +90,18 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return this.isLoading;
     }
 
-    public PbModel aSx() {
+    public PbModel aSw() {
         return this.eSc;
     }
 
-    public List<com.baidu.adp.widget.ListView.f> aSy() {
+    public List<com.baidu.adp.widget.ListView.f> aSx() {
         f pbData = this.eSc.getPbData();
-        if (pbData == null || pbData.aRA() == null || v.w(pbData.aRA().eQr)) {
+        if (pbData == null || pbData.aRz() == null || v.w(pbData.aRz().eQr)) {
             return null;
         }
-        n aRA = pbData.aRA();
+        n aRz = pbData.aRz();
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = aRA.eQr;
+        List<PostData> list = aRz.eQr;
         int size = list.size();
         int i = 0;
         while (i < size) {
@@ -132,14 +132,14 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean ZR() {
-        n aRA;
+        n aRz;
         f pbData = this.eSc.getPbData();
-        if (pbData == null || (aRA = pbData.aRA()) == null) {
+        if (pbData == null || (aRz = pbData.aRz()) == null) {
             return false;
         }
         if (this.eSe < 0) {
-            this.eSe = aRA.getCount();
+            this.eSe = aRz.getCount();
         }
-        return aRA.eQs.size() > this.eSe && aRA.eQr.size() < 100;
+        return aRz.eQs.size() > this.eSe && aRz.eQr.size() < 100;
     }
 }

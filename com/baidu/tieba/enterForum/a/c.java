@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.a;
 /* loaded from: classes.dex */
 public interface c {
-    void adg();
+    void adf();
 
     void as(int i, int i2);
 

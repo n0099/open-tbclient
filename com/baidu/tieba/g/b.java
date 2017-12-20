@@ -40,11 +40,11 @@ public class b implements f {
         }
     }
 
-    public int asy() {
+    public int asx() {
         return this.cdx;
     }
 
-    public List<a> asz() {
+    public List<a> asy() {
         return this.dil;
     }
 

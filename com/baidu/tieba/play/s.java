@@ -10,7 +10,7 @@ public class s {
     private static boolean fRb = true;
     private static boolean fRc = true;
 
-    private static i bjG() {
+    private static i bjF() {
         if (fRa == null) {
             fRb = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, i.class);
@@ -23,51 +23,51 @@ public class s {
 
     public static String U(String str, boolean z) {
         if (z) {
-            if (fRc && bjG() != null) {
-                return bjG().s(str, true);
+            if (fRc && bjF() != null) {
+                return bjF().s(str, true);
             }
             return str;
-        } else if (fRc && fRb && bjG() != null) {
-            return bjG().hC(str);
+        } else if (fRc && fRb && bjF() != null) {
+            return bjF().hC(str);
         } else {
             return str;
         }
     }
 
     public static String hD(String str) {
-        if (bjG() != null) {
-            return bjG().hD(str);
+        if (bjF() != null) {
+            return bjF().hD(str);
         }
         return null;
     }
 
     public static void f(Context context, String str, int i) {
-        if (bjG() != null) {
-            bjG().f(context, str, i);
+        if (bjF() != null) {
+            bjF().f(context, str, i);
         }
     }
 
     public static void aa(Context context, String str) {
-        if (bjG() != null) {
-            bjG().aa(context, str);
+        if (bjF() != null) {
+            bjF().aa(context, str);
         }
     }
 
     public static void ab(Context context, String str) {
-        if (fRc && fRb && bjG() != null) {
-            bjG().ab(context, str);
+        if (fRc && fRb && bjF() != null) {
+            bjF().ab(context, str);
         }
     }
 
     public static void hE(String str) {
-        if (fRc && fRb && bjG() != null) {
-            bjG().hE(str);
+        if (fRc && fRb && bjF() != null) {
+            bjF().hE(str);
         }
     }
 
     public static void bg(Context context) {
-        if (bjG() != null) {
-            bjG().bg(context);
+        if (bjF() != null) {
+            bjF().bg(context);
         }
     }
 
@@ -75,7 +75,7 @@ public class s {
         fRb = z;
     }
 
-    public static void bjH() {
+    public static void bjG() {
         fRc = com.baidu.adp.lib.b.d.eV().af("android_video_cache_open") == 1;
     }
 }

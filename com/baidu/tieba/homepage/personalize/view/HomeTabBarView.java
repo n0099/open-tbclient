@@ -126,9 +126,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    public boolean atZ() {
+    public boolean atY() {
         if (this.dsY != null) {
-            return this.dsY.atZ();
+            return this.dsY.atY();
         }
         return false;
     }

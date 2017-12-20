@@ -57,11 +57,11 @@ public class n extends c {
         return akVar;
     }
 
-    public ak aco() {
+    public ak acn() {
         ak u = u(ced, true);
         if (u != null && Ox() != null) {
             bd Ox = Ox();
-            u.r("obj_name", Ox.sM() != null && (Ox.sM().bwY() != null || Ox.sM().Jz() != null) ? 1 : 0);
+            u.r("obj_name", Ox.sM() != null && (Ox.sM().bwX() != null || Ox.sM().Jz() != null) ? 1 : 0);
             if (Ox.rv() != null) {
                 u.r("ab_type", Ox.rv().hadConcerned() ? 1 : 0);
             }
@@ -73,7 +73,7 @@ public class n extends c {
         return (bdVar.sA() == null || bdVar.sA().channelId <= 0) ? u(cee, true) : u(cef, true);
     }
 
-    public ak acq() {
+    public ak acp() {
         return u(ceb, true);
     }
 

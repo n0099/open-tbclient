@@ -31,7 +31,7 @@ public class af {
         return false;
     }
 
-    public List<FrsTabInfo> amA() {
+    public List<FrsTabInfo> amz() {
         return this.cKm;
     }
 
@@ -46,7 +46,7 @@ public class af {
         }
     }
 
-    public void amB() {
+    public void amA() {
         boolean z;
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
@@ -81,7 +81,7 @@ public class af {
         return this.mContext;
     }
 
-    public List<com.baidu.tbadk.mainTab.b> amC() {
+    public List<com.baidu.tbadk.mainTab.b> amB() {
         return this.cKn;
     }
 

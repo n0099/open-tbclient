@@ -176,19 +176,22 @@ public class c extends com.baidu.tieba.card.a<n> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.bvv || view == this.bZf) {
-            ai(view);
+            aj(view);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.HOT_TOPIC_CUSTOM, null));
         }
         if (view == this.cai) {
             if (UtilHelper.isGotoVideoMiddlePage()) {
-                az(this.cai);
+                aA(getView());
             } else {
-                ai(this.cai);
+                aj(getView());
             }
         }
     }
 
-    private void az(View view) {
+    private void aA(View view) {
+        if (abt() != null) {
+            abt().a(view, this.caq);
+        }
         if (!j.hh()) {
             l.showToast(this.abX.getPageActivity(), d.j.no_network_guide);
         } else if (!j.hi()) {
@@ -198,7 +201,7 @@ public class c extends com.baidu.tieba.card.a<n> {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    c.this.abD();
+                    c.this.abC();
                 }
             });
             aVar.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.homepage.concern.view.c.3
@@ -210,14 +213,14 @@ public class c extends com.baidu.tieba.card.a<n> {
             aVar.ao(true);
             aVar.b(this.mTbPageContext).th();
         } else {
-            abD();
+            abC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abD() {
+    public void abC() {
         if (this.caq != null && this.caq.bjE != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoMiddlePageActivityConfig(this.abX.getPageActivity(), VideoMiddlePageActivityConfig.FROM_CONCERN_TAB, this.caq.bjE.getTid(), k.rl(), this.caq.acg())));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoMiddlePageActivityConfig(this.abX.getPageActivity(), VideoMiddlePageActivityConfig.FROM_CONCERN_TAB, this.caq.bjE.getTid(), k.rl(), this.caq.acf())));
         }
     }
 
@@ -225,7 +228,7 @@ public class c extends com.baidu.tieba.card.a<n> {
         return this.caq.cdT && !this.caq.ceh;
     }
 
-    private void ai(View view) {
+    private void aj(View view) {
         if (abt() != null) {
             abt().a(view, this.caq);
         }
@@ -234,7 +237,7 @@ public class c extends com.baidu.tieba.card.a<n> {
                 k.jO(this.caq.bjE.getId());
                 k.a(this.mTextTitle, this.caq.bjE.getId(), d.C0096d.cp_cont_b, d.C0096d.cp_cont_d);
             }
-            PbActivityConfig addLocateParam = new PbActivityConfig(this.abX.getPageActivity()).createFromThreadCfg(this.caq.bjE, null, k.rl(), 18003, true, false, false).addLocateParam(this.caq.acg());
+            PbActivityConfig addLocateParam = new PbActivityConfig(this.abX.getPageActivity()).createFromThreadCfg(this.caq.bjE, null, k.rl(), 18003, true, false, false).addLocateParam(this.caq.acf());
             addLocateParam.setVideo_source(VideoMiddlePageActivityConfig.FROM_CONCERN_TAB);
             addLocateParam.setForumId(String.valueOf(this.caq.bjE.getFid()));
             addLocateParam.setForumName(this.caq.bjE.rB());
@@ -252,7 +255,7 @@ public class c extends com.baidu.tieba.card.a<n> {
             return;
         }
         this.bvv.setVisibility(0);
-        abI();
+        abH();
         if (!abx() && k.jP(this.caq.bjE.getId())) {
             k.a(this.mTextTitle, this.caq.bjE.getId(), d.C0096d.cp_cont_b, d.C0096d.cp_cont_d);
             k.a(this.bZf.getGodReplyContent(), this.caq.Ox().getId(), d.C0096d.cp_cont_f, d.C0096d.cp_cont_d);
@@ -289,7 +292,7 @@ public class c extends com.baidu.tieba.card.a<n> {
         }
     }
 
-    private void abI() {
+    private void abH() {
         if (this.cab != null && this.cai != null) {
             if (h.oY().pe() && this.caq != null && this.caq.bjE != null && this.caq.bjE.rN() != null) {
                 this.cab.setDefaultBgResource(d.f.pic_bg_video_frs);

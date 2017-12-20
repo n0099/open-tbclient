@@ -111,7 +111,7 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
             public void onSuccess() {
                 com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_success", 0, "", new Object[0]);
-                SapiFastRegActivity.this.aQu();
+                SapiFastRegActivity.this.aQt();
             }
 
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -146,7 +146,7 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQu() {
+    public void aQt() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
@@ -168,8 +168,8 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
             finish();
             return;
         }
-        aQs();
-        aQq();
+        aQr();
+        aQp();
     }
 
     private void initData(Bundle bundle) {
@@ -213,7 +213,7 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
         this.mNavigationBar.onChangeSkinType(getPageContext(), 0);
     }
 
-    private void aQq() {
+    private void aQp() {
         int i = 1;
         com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.getInst().onUserChanged();
@@ -234,7 +234,7 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
         finish();
     }
 
-    private void aQs() {
+    private void aQr() {
         if (this.mFrom == 3 && TbadkCoreApplication.getInst().getIsFirstUse()) {
             h.fQ().c(new Runnable() { // from class: com.baidu.tieba.passaccount.app.SapiFastRegActivity.5
                 @Override // java.lang.Runnable

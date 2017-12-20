@@ -273,7 +273,7 @@ public abstract class j extends com.baidu.tieba.card.a<bd> implements u {
         this.cNQ = z;
     }
 
-    public ThreadCommentAndPraiseInfoLayout abY() {
+    public ThreadCommentAndPraiseInfoLayout abX() {
         return this.bvI;
     }
 }

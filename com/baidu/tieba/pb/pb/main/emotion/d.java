@@ -99,7 +99,7 @@ public class d extends BaseAdapter {
     private void a(EmotionView emotionView, EmotionImageData emotionImageData) {
         if (emotionView != null && emotionImageData != null) {
             emotionView.setTag(emotionView.getId(), emotionImageData);
-            emotionView.ahO();
+            emotionView.ahN();
             emotionView.a(emotionImageData);
             if (this.eJZ != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
                 if (v.w(this.feW) || !this.feW.contains(emotionImageData.getThumbUrl())) {
@@ -127,7 +127,7 @@ public class d extends BaseAdapter {
         }
     }
 
-    public void aPP() {
+    public void aPO() {
         new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.pb.pb.main.emotion.d.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

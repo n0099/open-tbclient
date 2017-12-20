@@ -26,7 +26,7 @@ public class c {
         this.bmS = BdCacheService.eE().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static synchronized c buK() {
+    public static synchronized c buJ() {
         c cVar;
         synchronized (c.class) {
             if (gyF == null) {

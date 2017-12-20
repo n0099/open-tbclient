@@ -28,9 +28,9 @@ public class j extends e<bd, com.baidu.tieba.card.a.a<k>> implements com.baidu.t
             public void a(View view, bd bdVar) {
                 if (view != null && bdVar != null) {
                     if (view.getId() == d.g.card_home_page_normal_thread_user_name || (view instanceof HeadImageView) || (view instanceof HeadPendantView)) {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 2);
                     } else {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 7);
+                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 7);
                     }
                 }
             }
@@ -57,14 +57,14 @@ public class j extends e<bd, com.baidu.tieba.card.a.a<k>> implements com.baidu.t
     @Override // com.baidu.tieba.frs.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bd bdVar, com.baidu.tieba.card.a.a<k> aVar) {
-        if (aVar == null || aVar.acC() == null) {
+        if (aVar == null || aVar.acB() == null) {
             return null;
         }
-        com.baidu.tieba.frs.d.a(aVar.acC().abY(), this.cGO);
-        aVar.acC().a(bdVar);
-        aVar.acC().setForumName(this.mForumName);
-        aVar.acC().b(this.buT);
-        com.baidu.tieba.frs.e.b.aqw().a(cYY, bdVar);
+        com.baidu.tieba.frs.d.a(aVar.acB().abX(), this.cGO);
+        aVar.acB().a(bdVar);
+        aVar.acB().setForumName(this.mForumName);
+        aVar.acB().b(this.buT);
+        com.baidu.tieba.frs.e.b.aqv().a(cYY, bdVar);
         if (bdVar != null) {
             bdVar.su();
         }

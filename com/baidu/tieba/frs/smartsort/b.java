@@ -33,7 +33,7 @@ public class b {
         }
     }
 
-    public void aqp() {
+    public void aqo() {
         if (this.cYH && this.cYI >= 0) {
             kL(this.cYI);
         }
@@ -52,9 +52,9 @@ public class b {
 
     private void kL(int i) {
         String string;
-        com.baidu.tieba.frs.entelechy.b.d alm = this.cOx.alm();
-        j alo = this.cOx.alo();
-        if (alo != null && alm != null && alm.anT() != null && (alo.WQ() instanceof NoPressedRelativeLayout)) {
+        com.baidu.tieba.frs.entelechy.b.d all = this.cOx.all();
+        j aln = this.cOx.aln();
+        if (aln != null && all != null && all.anS() != null && (aln.WQ() instanceof NoPressedRelativeLayout)) {
             if (this.cUT == null && this.cOx.getPageContext() != null) {
                 this.cUT = new TextView(this.cOx.getPageContext().getPageActivity());
                 this.cUT.setTextSize(0, this.cOx.getResources().getDimensionPixelSize(d.e.fontsize28));
@@ -68,36 +68,36 @@ public class b {
                 }
                 this.cUT.setText(string);
             }
-            View anT = alm.anT();
-            BdTypeListView listView = alo.getListView();
-            if (anT != null && listView != null) {
+            View anS = all.anS();
+            BdTypeListView listView = aln.getListView();
+            if (anS != null && listView != null) {
                 aj.j(this.cUT, d.C0096d.common_color_10260);
                 aj.i(this.cUT, d.C0096d.cp_cont_g);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.f(TbadkCoreApplication.getInst(), d.e.ds56));
                 layoutParams.addRule(6, d.g.frs_list_content);
-                if (alo.alL() != null && alo.alL().getLayoutParams() != null) {
-                    layoutParams.topMargin = alo.alL().getLayoutParams().height;
+                if (aln.alK() != null && aln.alK().getLayoutParams() != null) {
+                    layoutParams.topMargin = aln.alK().getLayoutParams().height;
                 } else {
                     layoutParams.topMargin = 0;
                 }
                 if (this.bmJ == null) {
                     this.bmJ = new at();
                 }
-                this.bmJ.a(this.cUT, (NoPressedRelativeLayout) alo.WQ(), layoutParams, 2000);
+                this.bmJ.a(this.cUT, (NoPressedRelativeLayout) aln.WQ(), layoutParams, 2000);
                 this.cYI = -1;
             }
         }
     }
 
-    public void aqq() {
+    public void aqp() {
         if (this.cUT != null && this.cUT.getVisibility() == 0) {
-            com.baidu.tieba.frs.entelechy.b.d alm = this.cOx.alm();
-            j alo = this.cOx.alo();
-            if (alo != null && alm != null && alm.anT() != null && (alo.WQ() instanceof NoPressedRelativeLayout)) {
-                BdTypeListView listView = alo.getListView();
-                View anT = alm.anT();
+            com.baidu.tieba.frs.entelechy.b.d all = this.cOx.all();
+            j aln = this.cOx.aln();
+            if (aln != null && all != null && all.anS() != null && (aln.WQ() instanceof NoPressedRelativeLayout)) {
+                BdTypeListView listView = aln.getListView();
+                View anS = all.anS();
                 if (listView != null) {
-                    boolean z = listView.indexOfChild(anT) >= 0;
+                    boolean z = listView.indexOfChild(anS) >= 0;
                     if (this.bmJ != null && !z && this.cUT.getTop() <= this.cyv) {
                         this.bmJ.hideTip();
                     }

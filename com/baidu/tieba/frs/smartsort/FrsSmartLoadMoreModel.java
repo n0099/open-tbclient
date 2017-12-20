@@ -46,7 +46,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         this.mSortType = i;
     }
 
-    public int alp() {
+    public int alo() {
         return this.bOj;
     }
 
@@ -101,12 +101,12 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
             if (z2) {
                 P(arrayList2);
             }
-            this.cOx.alF().a(this.cOx, true, arrayList2, this.mThreadList, this.cOx.alj().aqe());
+            this.cOx.alE().a(this.cOx, true, arrayList2, this.mThreadList, this.cOx.ali().aqd());
             if (z2) {
                 if (this.cIe != null) {
                     this.cIe.a(this.mSortType, z2, i2, z, arrayList2, z3);
                 }
-                aqo();
+                aqn();
                 k(this.mThreadList, arrayList2);
                 bj(arrayList2);
                 O(arrayList3);
@@ -151,7 +151,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void aqo() {
+    public void aqn() {
         if (!v.w(this.mThreadList)) {
             ArrayList arrayList = new ArrayList();
             Iterator<com.baidu.adp.widget.ListView.f> it = this.mThreadList.iterator();
@@ -251,7 +251,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
 
     private void k(List<com.baidu.adp.widget.ListView.f> list, List<com.baidu.adp.widget.ListView.f> list2) {
         if (!v.w(list) && !v.w(list2)) {
-            long lz = a.aqk().lz(this.cOx.getForumName());
+            long lz = a.aqj().lz(this.cOx.getForumName());
             q qVar = new q();
             if (lz > 0) {
                 qVar.bn(lz);
@@ -259,7 +259,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 qVar.bn(System.currentTimeMillis());
             }
             list2.add(qVar);
-            a.aqk().m(this.cOx.getForumName(), System.currentTimeMillis());
+            a.aqj().m(this.cOx.getForumName(), System.currentTimeMillis());
         }
     }
 }

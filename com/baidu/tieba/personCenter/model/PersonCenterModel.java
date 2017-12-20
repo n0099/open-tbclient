@@ -105,7 +105,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
         this.fte = new c();
     }
 
-    public c baj() {
+    public c bai() {
         return this.fte;
     }
 

@@ -97,29 +97,29 @@ public class SubPbLayout extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        ArrayList<PostData> bwS;
-        if (this.eQS == null || this.fiE == null || this.fiE.bwS() == null) {
+        ArrayList<PostData> bwR;
+        if (this.eQS == null || this.fiE == null || this.fiE.bwR() == null) {
             setMeasuredDimension(0, 0);
             return;
         }
         int size = View.MeasureSpec.getSize(i);
-        if (this.fiE.bwQ()) {
-            bwS = this.fiE.bwO();
+        if (this.fiE.bwP()) {
+            bwR = this.fiE.bwN();
         } else {
-            bwS = this.fiE.bwS();
+            bwR = this.fiE.bwR();
         }
-        setMeasuredDimension(size, bw(v.v(bwS), size) + n(bwS, size) + 0 + getPaddingBottom() + getPaddingTop());
+        setMeasuredDimension(size, bw(v.v(bwR), size) + n(bwR, size) + 0 + getPaddingBottom() + getPaddingTop());
     }
 
     private int n(List<PostData> list, int i) {
         SparseArray sparseArray;
-        if (this.fiE.bxl()) {
+        if (this.fiE.bxk()) {
             this.fiD = 0;
             return 0;
         } else if (v.v(list) != 0) {
             int v = v.v(list);
             this.fiD = v;
-            if (!this.fiE.bwQ()) {
+            if (!this.fiE.bwP()) {
                 if (v <= 2) {
                     this.fiD = v;
                 } else {
@@ -159,7 +159,7 @@ public class SubPbLayout extends ViewGroup {
                     sparseArray.put(d.g.tag_photo_userid, list.get(i2).rv().getUserId());
                     sparseArray.put(d.g.tag_clip_board, list.get(i2));
                 }
-                this.eQS.a((d.b) sparseArray.get(d.g.tag_holder), list.get(i2), this.fiE.bxa() > list.size() || list.size() - i2 > 1, i2 == 0, false);
+                this.eQS.a((d.b) sparseArray.get(d.g.tag_holder), list.get(i2), this.fiE.bwZ() > list.size() || list.size() - i2 > 1, i2 == 0, false);
                 view.measure(((i - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
                 i2++;
                 i3 += view.getMeasuredHeight();
@@ -171,8 +171,8 @@ public class SubPbLayout extends ViewGroup {
     }
 
     private int bw(int i, int i2) {
-        if (i > 0 && (this.fiE.bxl() || this.fiE.bxa() > this.fiD)) {
-            this.fiH.setText(String.format(TbadkCoreApplication.getInst().getApp().getString(d.j.sub_pb_load_more), Integer.valueOf(this.fiE.bxa())));
+        if (i > 0 && (this.fiE.bxk() || this.fiE.bwZ() > this.fiD)) {
+            this.fiH.setText(String.format(TbadkCoreApplication.getInst().getApp().getString(d.j.sub_pb_load_more), Integer.valueOf(this.fiE.bwZ())));
             this.fiG.setOnClickListener(this.fiy);
             SparseArray sparseArray = (SparseArray) this.fiG.getTag();
             if (sparseArray == null) {
@@ -195,7 +195,7 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5;
-        if (this.fiE != null && this.fiE.bwS() != null) {
+        if (this.fiE != null && this.fiE.bwR() != null) {
             int size = this.fiF.size();
             for (int i6 = 0; i6 < size; i6++) {
                 a poll = this.fiF.poll();
@@ -244,7 +244,7 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
-        if (this.fiE != null && this.fiE.bwS() != null) {
+        if (this.fiE != null && this.fiE.bwR() != null) {
             int i = this.fiD;
             for (int i2 = 0; i2 < i; i2++) {
                 if (i < getChildCount()) {
@@ -265,7 +265,7 @@ public class SubPbLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: aXP */
+    /* renamed from: aXO */
     public ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
         return new ViewGroup.MarginLayoutParams(-2, -2);
     }

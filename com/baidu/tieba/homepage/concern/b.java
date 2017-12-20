@@ -69,7 +69,7 @@ public class b extends BaseFragment implements aj {
     @SuppressLint({"ValidFragment"})
     public b(Context context) {
         this.dnE = new c(context);
-        this.dnE.aoZ();
+        this.dnE.aoY();
         registerListener(this.bpP);
     }
 
@@ -83,7 +83,7 @@ public class b extends BaseFragment implements aj {
         }
         this.dnE.setPageUniqueId(getUniqueId());
         if (this.dnG) {
-            this.dnE.aoZ();
+            this.dnE.aoY();
             this.dnG = false;
         }
         return this.dnE;
@@ -149,14 +149,14 @@ public class b extends BaseFragment implements aj {
         if (isPrimary()) {
             if (!this.cCm) {
                 if (this.dnE != null) {
-                    this.dnE.atz();
+                    this.dnE.aty();
                 }
                 this.cCm = true;
             }
-            this.dnE.atC();
+            this.dnE.atB();
             return;
         }
-        this.dnE.atE();
+        this.dnE.atD();
         completePullRefresh();
     }
 
@@ -183,9 +183,9 @@ public class b extends BaseFragment implements aj {
         }
     }
 
-    public void aty() {
+    public void atx() {
         if (this.dnE != null) {
-            this.dnE.atz();
+            this.dnE.aty();
             this.cCm = true;
         }
     }

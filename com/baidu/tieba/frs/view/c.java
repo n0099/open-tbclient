@@ -129,7 +129,7 @@ public abstract class c {
                     return;
                 }
                 av.vI().c(c.this.abX, new String[]{url});
-                a.C0143a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", fVar.buM(), c.this.cIy.getForumId(), c.this.cIy.getForumName(), null);
+                a.C0143a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", fVar.buL(), c.this.cIy.getForumId(), c.this.cIy.getForumName(), null);
                 b.cg("obj_url", fVar.getUrl());
                 b.save();
             }
@@ -138,7 +138,7 @@ public abstract class c {
 
     public abstract void a(ForumData forumData, k kVar);
 
-    public abstract void anv();
+    public abstract void anu();
 
     public abstract void changeSkinType(int i);
 
@@ -154,7 +154,7 @@ public abstract class c {
         ddn.put(5, "c0127");
     }
 
-    public boolean arg() {
+    public boolean arf() {
         return this.ddg;
     }
 
@@ -204,7 +204,7 @@ public abstract class c {
         });
     }
 
-    public boolean arh() {
+    public boolean arg() {
         int[] iArr = new int[2];
         try {
             this.dcQ.getLocationOnScreen(iArr);
@@ -218,23 +218,23 @@ public abstract class c {
         return this.beq;
     }
 
-    public View ari() {
+    public View arh() {
         return this.dcB;
     }
 
-    public BarImageView arj() {
+    public BarImageView ari() {
         return this.dcS;
     }
 
-    public TextView ark() {
+    public TextView arj() {
         return this.mTitleText;
     }
 
-    public TextView arl() {
+    public TextView ark() {
         return this.cGz;
     }
 
-    public boolean aqW() {
+    public boolean aqV() {
         return this.ddk;
     }
 
@@ -247,7 +247,7 @@ public abstract class c {
         }
     }
 
-    public boolean aqX() {
+    public boolean aqW() {
         return this.ddl;
     }
 
@@ -257,16 +257,16 @@ public abstract class c {
     }
 
     public void onStop() {
-        arm();
+        arl();
     }
 
     public void fB(boolean z) {
         if (!z) {
-            arm();
+            arl();
         }
     }
 
-    private void arm() {
+    private void arl() {
         if (this.dcR != null && this.dcR.isShowing()) {
             this.dcR.dismiss();
         }
@@ -293,13 +293,13 @@ public abstract class c {
         this.dds.setVisibility(8);
         this.ddt.setVisibility(0);
         if (z && !this.ddp) {
-            anw();
+            anv();
             this.ddp = true;
         }
         c(false, f);
     }
 
-    protected void anw() {
+    protected void anv() {
     }
 
     public void li(int i) {
@@ -319,25 +319,25 @@ public abstract class c {
         if (i == 0) {
             this.ddk = false;
             this.dcy.setText(d.j.sign);
-            anr();
+            anq();
             return;
         }
         this.ddk = true;
         this.dcy.setText(d.j.signed);
-        anq();
-    }
-
-    protected void anr() {
+        anp();
     }
 
     protected void anq() {
+    }
+
+    protected void anp() {
     }
 
     public void setMemberType(int i) {
         this.mMemberType = i;
     }
 
-    public void anx() {
+    public void anw() {
         if (this.mMemberType != 0) {
             aj.c(this.dcQ, d.f.icon_speed_orange);
         } else {
@@ -376,7 +376,7 @@ public abstract class c {
     public void c(boolean z, float f) {
     }
 
-    public void anh() {
+    public void ang() {
     }
 
     public void p(int i, int i2, int i3, int i4) {

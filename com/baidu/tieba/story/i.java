@@ -14,7 +14,7 @@ public class i {
     private static i gro;
     private SQLiteDatabase grp = new j(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
 
-    public static synchronized i bst() {
+    public static synchronized i bss() {
         i iVar;
         synchronized (i.class) {
             if (gro == null) {

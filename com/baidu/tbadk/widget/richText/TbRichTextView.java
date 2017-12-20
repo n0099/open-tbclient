@@ -343,7 +343,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.b.a.i 
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean a(View view, MotionEvent motionEvent) {
                 if (TbRichTextView.this.aVH != null) {
-                    TbRichTextView.this.aVH.ba(view);
+                    TbRichTextView.this.aVH.bb(view);
                     return TbRichTextView.this.aVH.onDoubleTap(motionEvent);
                 }
                 return false;
@@ -518,7 +518,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.b.a.i 
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean a(View view, MotionEvent motionEvent) {
                 if (TbRichTextView.this.aVH != null) {
-                    TbRichTextView.this.aVH.ba(view);
+                    TbRichTextView.this.aVH.bb(view);
                     return TbRichTextView.this.aVH.onDoubleTap(motionEvent);
                 }
                 return false;
@@ -1372,7 +1372,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.b.a.i 
         }
         if (this.aVU) {
             if (tbRichTextData.JH()) {
-                textView.setMovementMethod(com.baidu.tieba.view.d.bEK());
+                textView.setMovementMethod(com.baidu.tieba.view.d.bEJ());
             } else {
                 textView.setMovementMethod(LinkMovementMethod.getInstance());
             }

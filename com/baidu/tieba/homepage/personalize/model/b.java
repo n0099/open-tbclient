@@ -30,7 +30,7 @@ public class b {
                 if ((fVar instanceof r) && (fVar2 instanceof r)) {
                     r rVar = (r) fVar;
                     r rVar2 = (r) fVar2;
-                    if (rVar.ack()) {
+                    if (rVar.acj()) {
                         rVar2.dW(false);
                         if (rVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
                             rVar.dX(false);

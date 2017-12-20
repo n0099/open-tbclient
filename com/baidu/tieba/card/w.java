@@ -120,7 +120,7 @@ public class w extends com.baidu.tieba.person.e {
         this.ccZ = new b.c() { // from class: com.baidu.tieba.card.w.7
             @Override // com.baidu.tieba.view.b.c
             public void iF(int i) {
-                w.this.abZ();
+                w.this.abY();
                 if (i != 0) {
                     if (!com.baidu.adp.lib.util.j.hh()) {
                         com.baidu.adp.lib.util.l.showToast(w.this.mContext, d.j.network_not_available);
@@ -129,9 +129,9 @@ public class w extends com.baidu.tieba.person.e {
                     if (i == 1) {
                         w.this.lD();
                     } else if (i == 2) {
-                        w.this.acc();
+                        w.this.acb();
                     } else if (i == 3) {
-                        w.this.ace();
+                        w.this.acd();
                     } else if (i == 4) {
                         w.this.y(w.this.ccV, true);
                     }
@@ -147,7 +147,7 @@ public class w extends com.baidu.tieba.person.e {
         this.ccS.a(this.ccZ);
         this.cbH = new ForumManageModel(this.mPageContext);
         this.cbH.setLoadDataCallBack(this.cbL);
-        setContentView(this.ccS.bEJ());
+        setContentView(this.ccS.bEI());
     }
 
     public void onChangeSkinType() {
@@ -170,7 +170,7 @@ public class w extends com.baidu.tieba.person.e {
             if (!UtilHelper.isCurrentAccount(str)) {
                 this.ccU.add(new b.a(2, getString(d.j.thread_forbid, new Object[0]), this.ccS));
             }
-            if (com.baidu.tieba.frs.d.alb()) {
+            if (com.baidu.tieba.frs.d.ala()) {
                 this.ccU.add(new b.a(3, getString(this.bkq.rq() == 1 ? d.j.cancel_top : d.j.top, new Object[0]), this.ccS));
                 this.ccU.add(new b.a(4, getString(this.bkq.rr() == 1 ? d.j.cancel_good : d.j.commit_good, new Object[0]), this.ccS));
             }
@@ -192,19 +192,19 @@ public class w extends com.baidu.tieba.person.e {
         createView();
     }
 
-    public void abZ() {
+    public void abY() {
         if (isShowing()) {
             dismiss();
         }
     }
 
-    public void aca() {
+    public void abZ() {
         if (this.cbz != null && this.cbz.isShowing()) {
             this.cbz.dismiss();
         }
     }
 
-    public void acb() {
+    public void aca() {
         if (this.ccT != null && this.ccT.isShowing()) {
             this.ccT.dismiss();
         }
@@ -212,7 +212,7 @@ public class w extends com.baidu.tieba.person.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void lD() {
-        aca();
+        abZ();
         if (this.mPageContext != null) {
             if (this.cbz == null) {
                 this.cbz = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
@@ -226,7 +226,7 @@ public class w extends com.baidu.tieba.person.e {
                         if (!com.baidu.adp.lib.util.j.gV()) {
                             com.baidu.adp.lib.util.l.showToast(w.this.mContext, d.j.neterror);
                         } else {
-                            w.this.acd();
+                            w.this.acc();
                         }
                     }
                 });
@@ -384,7 +384,7 @@ public class w extends com.baidu.tieba.person.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void acc() {
+    public void acb() {
         if (this.mContext != null && this.bkq != null && this.bkq.rv() != null) {
             String userId = this.bkq.rv().getUserId();
             String userName = this.bkq.rv().getUserName();
@@ -395,7 +395,7 @@ public class w extends com.baidu.tieba.person.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void acd() {
+    public void acc() {
         if (this.cbH != null && this.bkq != null && this.bkq.rv() != null) {
             String userId = this.bkq.rv().getUserId();
             String id = this.bkq.getId();
@@ -422,7 +422,7 @@ public class w extends com.baidu.tieba.person.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ace() {
+    public void acd() {
         int i;
         if (this.bkq != null && this.cbH != null) {
             if (this.bkq.rq() == 1) {
@@ -437,9 +437,9 @@ public class w extends com.baidu.tieba.person.e {
     }
 
     public void dismissAllDialog() {
-        aca();
-        acb();
         abZ();
+        aca();
+        abY();
     }
 
     public void destory() {

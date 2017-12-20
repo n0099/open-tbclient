@@ -88,7 +88,7 @@ public final class Invite2GroupView extends LinearLayout {
                 }
             }
         });
-        if (b.aBP().ai(String.valueOf(this.dWx.getGroupId()), 1) != null) {
+        if (b.aBO().ai(String.valueOf(this.dWx.getGroupId()), 1) != null) {
             if (String.valueOf(this.dWx.getGroupId()).equals(this.dWw.getTag())) {
                 this.dWw.setText(d.j.i_want_talk);
                 this.dWw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.3
@@ -103,7 +103,7 @@ public final class Invite2GroupView extends LinearLayout {
             }
             return;
         }
-        com.baidu.tieba.im.settingcache.b.aDg().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.dWx.getGroupId()), 60000L, new h<Boolean>() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.4
+        com.baidu.tieba.im.settingcache.b.aDf().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.dWx.getGroupId()), 60000L, new h<Boolean>() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.h
             public void onReturnDataInUI(Boolean bool) {

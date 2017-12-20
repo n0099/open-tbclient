@@ -65,11 +65,11 @@ public class c {
         this.hiz = new com.baidu.tieba.write.b();
         this.hiz.vM(d.C0096d.cp_cont_i);
         this.hiz.vN(d.C0096d.cp_cont_h_alpha85);
-        bHc();
+        bHb();
         initView();
     }
 
-    private void bHc() {
+    private void bHb() {
         this.bvv = (RelativeLayout) this.hit.findViewById(d.g.layout_root);
         this.mNavigationBar = (NavigationBar) this.hit.findViewById(d.g.navigation_bar);
         this.hiv = (EditText) this.hit.findViewById(d.g.edit_content);
@@ -174,10 +174,10 @@ public class c {
                     c.this.hiA.setVisibility(0);
                     c.this.hiy.setVisibility(8);
                 }
-                long bHd = c.his - c.this.bHd();
-                if (bHd >= 0) {
+                long bHc = c.his - c.this.bHc();
+                if (bHc >= 0) {
                     aj.i(c.this.hiy, d.C0096d.cp_cont_e);
-                    c.this.hiy.setText(String.valueOf(bHd));
+                    c.this.hiy.setText(String.valueOf(bHc));
                     return;
                 }
                 c.this.hiy.setText("0");
@@ -189,7 +189,7 @@ public class c {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (c.this.hiz != null) {
-                    if (!c.this.hiz.bFH()) {
+                    if (!c.this.hiz.bFG()) {
                         c.this.ob(false);
                     }
                     c.this.hiz.nU(false);
@@ -296,18 +296,18 @@ public class c {
         return this.hiv.getText().toString();
     }
 
-    public long bHd() {
+    public long bHc() {
         if (this.hiv.getText() == null || this.hiv.getText().toString() == null) {
             return 0L;
         }
         return this.hiv.getText().length();
     }
 
-    public WriteLocationView bHe() {
+    public WriteLocationView bHd() {
         return this.hix;
     }
 
-    public View bHf() {
+    public View bHe() {
         return this.hiu;
     }
 
@@ -315,11 +315,11 @@ public class c {
         return this.eva;
     }
 
-    public EditText bHg() {
+    public EditText bHf() {
         return this.hiv;
     }
 
-    public StateSwitchView bHh() {
+    public StateSwitchView bHg() {
         return this.hiw;
     }
 
@@ -357,7 +357,7 @@ public class c {
         }
     }
 
-    public void bCO() {
+    public void bCN() {
         if (this.gUO != null) {
             this.gUO.resume();
             this.gUO.seekTo(this.gUY);
@@ -365,7 +365,7 @@ public class c {
         }
     }
 
-    public void amM() {
+    public void amL() {
         this.gUY = this.gUO.getCurrentPosition();
         if (this.gUO != null) {
             this.gUO.stopPlayback();
@@ -375,21 +375,21 @@ public class c {
     public void uP(String str) {
         if (StringUtils.isNull(str)) {
             this.mNavigationBar.setCenterTextTitle(this.hit.getResources().getString(d.j.post_to_home_page));
-            bHi();
+            bHh();
             return;
         }
         this.mNavigationBar.setCenterTextTitle(this.hit.getResources().getString(d.j.post_to) + str);
-        bHj();
+        bHi();
     }
 
-    private void bHi() {
+    private void bHh() {
         this.hiw = new StateSwitchView(this.hit);
         this.hiw.cq(this.hit.getString(d.j.public_to_all), this.hit.getString(d.j.public_to_me));
         this.hiw.setBackgroundId(d.f.state_switch_bg);
         this.hiw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.video.c.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.hiw.bGM();
+                c.this.hiw.bGL();
             }
         });
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -399,14 +399,14 @@ public class c {
         this.bvv.addView(this.hiw, layoutParams);
     }
 
-    private void bHj() {
+    private void bHi() {
         this.hiw = new StateSwitchView(this.hit);
         this.hiw.cq(this.hit.getString(d.j.display_to_home_page), this.hit.getString(d.j.display_to_home_page));
         this.hiw.ch(d.f.icon_share_home_select_ok, d.f.icon_share_home_select);
         this.hiw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.video.c.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.hiw.bGM();
+                c.this.hiw.bGL();
             }
         });
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -417,7 +417,7 @@ public class c {
         this.bvv.addView(this.hiw, layoutParams);
     }
 
-    public void bHk() {
+    public void bHj() {
         this.hiz.aC(null);
         this.hiz.nT(false);
     }
@@ -426,7 +426,7 @@ public class c {
         if (postWriteCallBackData != null) {
             this.hiz.aC(postWriteCallBackData.getSensitiveWords());
             this.hiz.uB(postWriteCallBackData.getErrorString());
-            if (!v.w(this.hiz.bFE())) {
+            if (!v.w(this.hiz.bFD())) {
                 ob(true);
             }
         }
@@ -439,18 +439,18 @@ public class c {
             if (b != null) {
                 this.hiz.nU(true);
                 this.hiv.setText(b);
-                if (z && this.hiz.bFF() >= 0) {
+                if (z && this.hiz.bFE() >= 0) {
                     this.hiv.requestFocus();
-                    this.hiv.setSelection(this.hiz.bFF());
+                    this.hiv.setSelection(this.hiz.bFE());
                 } else {
                     this.hiv.setSelection(selectionEnd);
                 }
-                this.hiz.nT(this.hiz.bFF() >= 0);
+                this.hiz.nT(this.hiz.bFE() >= 0);
             }
         }
     }
 
-    public com.baidu.tieba.write.b bHl() {
+    public com.baidu.tieba.write.b bHk() {
         return this.hiz;
     }
 

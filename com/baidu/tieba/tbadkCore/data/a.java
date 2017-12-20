@@ -13,7 +13,7 @@ public class a {
     private String mTitle;
     private int mWidth;
 
-    public String bwr() {
+    public String bwq() {
         return this.gBg;
     }
 
@@ -25,7 +25,7 @@ public class a {
         return this.mHeight;
     }
 
-    public String bws() {
+    public String bwr() {
         return this.gBh;
     }
 

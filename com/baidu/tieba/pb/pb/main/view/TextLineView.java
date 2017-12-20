@@ -41,7 +41,7 @@ public class TextLineView extends TextView {
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        aXr();
+        aXq();
         int measuredWidth = (getMeasuredWidth() - this.fhf) / 2;
         canvas.drawRoundRect(new RectF(measuredWidth + 0, (getMeasuredHeight() - this.fhc) - this.dBN, getMeasuredWidth() - measuredWidth, getMeasuredHeight() - this.fhc), l.f(getContext(), d.e.ds4), l.f(getContext(), d.e.ds4), this.mPaint);
     }
@@ -57,7 +57,7 @@ public class TextLineView extends TextView {
         invalidate();
     }
 
-    private void aXr() {
+    private void aXq() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
@@ -78,7 +78,7 @@ public class TextLineView extends TextView {
         } else {
             setTextColor(this.fhd);
         }
-        aXr();
+        aXq();
         invalidate();
     }
 }

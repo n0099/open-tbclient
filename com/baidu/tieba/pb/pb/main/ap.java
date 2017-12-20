@@ -33,7 +33,7 @@ public class ap extends com.baidu.tbadk.core.view.userLike.c {
         this.aMU = str;
     }
 
-    private int aVH() {
+    private int aVG() {
         String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
         if (fromPageKey == null) {
             return 3;
@@ -63,7 +63,7 @@ public class ap extends com.baidu.tbadk.core.view.userLike.c {
     public void onClick(View view) {
         int i;
         int i2 = 2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12408").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, aVH()).ac("obj_id", this.aps != null ? this.aps.getUserId() : "").ac("tid", this.aMU));
+        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12408").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, aVG()).ac("obj_id", this.aps != null ? this.aps.getUserId() : "").ac("tid", this.aMU));
         if (this.fbA == 1) {
             i = 3;
         } else {

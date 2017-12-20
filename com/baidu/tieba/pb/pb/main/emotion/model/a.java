@@ -121,11 +121,11 @@ public class a {
                 this.aDE.setWriteData(pbModel.fS(null));
             }
             if (this.aDE.getWriteData() != null) {
-                if (fVar.aRq().sI()) {
+                if (fVar.aRp().sI()) {
                     this.aDE.getWriteData().setCanNoForum(true);
-                    if (fVar.aRo() != null) {
-                        this.aDE.getWriteData().setVForumId(fVar.aRo().getId());
-                        this.aDE.getWriteData().setVForumName(fVar.aRo().getName());
+                    if (fVar.aRn() != null) {
+                        this.aDE.getWriteData().setVForumId(fVar.aRn().getId());
+                        this.aDE.getWriteData().setVForumName(fVar.aRn().getName());
                     }
                 } else {
                     this.aDE.getWriteData().setCanNoForum(false);

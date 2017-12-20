@@ -16,7 +16,7 @@ public class l implements h {
         private static final h fSP = new l();
     }
 
-    public static h bkj() {
+    public static h bki() {
         return a.fSP;
     }
 
@@ -25,44 +25,44 @@ public class l implements h {
     }
 
     @Override // com.baidu.tieba.i.h
-    public void aNS() {
+    public void aNR() {
         this.eEu = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.i.h
     public void Q(int i, String str) {
-        bkk().i(this.eEu, i, str);
+        bkj().i(this.eEu, i, str);
     }
 
     @Override // com.baidu.tieba.i.h
     public void R(int i, String str) {
-        bkk().j(this.eEu, i, str);
+        bkj().j(this.eEu, i, str);
     }
 
     @Override // com.baidu.tieba.i.h
     public void S(int i, String str) {
-        bkk().k(this.eEu, i, str);
+        bkj().k(this.eEu, i, str);
     }
 
     @Override // com.baidu.tieba.i.h
-    public void aNT() {
-        bkk().oS(this.eEu);
+    public void aNS() {
+        bkj().oS(this.eEu);
     }
 
     @Override // com.baidu.tieba.i.h
     public void f(int i, int i2, String str) {
-        bkk().c(this.eEu, i, i2, str);
+        bkj().c(this.eEu, i, i2, str);
     }
 
     @Override // com.baidu.tieba.i.h
-    public void aNU() {
-        bkk().oT(this.eEu);
+    public void aNT() {
+        bkj().oT(this.eEu);
         oU(this.eEu);
     }
 
     @Override // com.baidu.tieba.i.h
     public void T(int i, String str) {
-        bkk().l(this.eEu, i, str);
+        bkj().l(this.eEu, i, str);
     }
 
     @Override // com.baidu.tieba.i.h
@@ -74,20 +74,20 @@ public class l implements h {
                 com.baidu.tieba.i.d.oR(this.eEv);
                 this.fSO.remove(this.eEu);
             }
-            aNS();
-            bkk().bA(this.eEv, str);
+            aNR();
+            bkj().bA(this.eEv, str);
             this.eEv = null;
         }
     }
 
     @Override // com.baidu.tieba.i.h
-    public void aNV() {
+    public void aNU() {
         this.eEv = this.eEu;
     }
 
     @Override // com.baidu.tieba.i.h
     public void oY(String str) {
-        bkk().bB(this.eEu, str);
+        bkj().bB(this.eEu, str);
         if (oV(this.eEu) || oW(this.eEu)) {
             oU(this.eEu);
         } else {
@@ -98,11 +98,11 @@ public class l implements h {
     }
 
     public boolean oV(String str) {
-        return bkk().oV(str);
+        return bkj().oV(str);
     }
 
     public boolean oW(String str) {
-        return bkk().oW(str);
+        return bkj().oW(str);
     }
 
     public void oU(String str) {
@@ -113,15 +113,15 @@ public class l implements h {
         }
     }
 
-    private f bkk() {
+    private f bkj() {
         f fVar = this.fSO.get(this.eEu);
         if (fVar == null) {
-            return bkl();
+            return bkk();
         }
         return fVar;
     }
 
-    private f bkl() {
+    private f bkk() {
         k kVar = new k(this.eEu);
         this.fSO.put(this.eEu, kVar);
         return kVar;

@@ -67,7 +67,7 @@ public class b extends com.baidu.tieba.card.a<l> {
                 if (b.this.abt() != null) {
                     b.this.abt().a(view, b.this.bZi);
                 }
-                b.this.abN();
+                b.this.abM();
             }
         };
         this.caS = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.b.4
@@ -238,7 +238,7 @@ public class b extends com.baidu.tieba.card.a<l> {
             VoiceData.VoiceModel voiceModel = rK.get(0);
             this.caM.setVoiceModel(voiceModel);
             this.caM.setTag(voiceModel);
-            this.caM.bmf();
+            this.caM.bme();
             if (voiceModel != null) {
                 this.caM.nT(voiceModel.voice_status.intValue());
             }
@@ -270,7 +270,7 @@ public class b extends com.baidu.tieba.card.a<l> {
                                 abt.a(view, b.this.bZi);
                             }
                             if (z2) {
-                                b.this.abN();
+                                b.this.abM();
                             } else {
                                 b.this.a(view, linkedList, i2, Ox);
                             }
@@ -286,9 +286,9 @@ public class b extends com.baidu.tieba.card.a<l> {
                 this.doQ.setVisibility(0);
             }
         }
-        abM();
+        abL();
         setPageUniqueId(getTag());
-        aoe();
+        aod();
     }
 
     private void dS(boolean z) {
@@ -343,7 +343,7 @@ public class b extends com.baidu.tieba.card.a<l> {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
     }
 
-    private void abM() {
+    private void abL() {
         if (!this.bZi.aDm) {
             this.caM.setClickable(false);
         } else {
@@ -393,7 +393,7 @@ public class b extends com.baidu.tieba.card.a<l> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abN() {
+    public void abM() {
         if (this.bZi != null && this.bZi.threadData != null) {
             if (!abx()) {
                 k.jO(this.bZi.threadData.getId());
@@ -429,7 +429,7 @@ public class b extends com.baidu.tieba.card.a<l> {
         return true;
     }
 
-    private void aoe() {
+    private void aod() {
         if (this.mTitle != null && this.caM != null && this.caP != null && this.mContext != null && this.mTitle.getVisibility() == 8) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.caM.getLayoutParams();
             layoutParams.topMargin = this.mContext.getResources().getDimensionPixelSize(d.e.ds24);

@@ -52,7 +52,7 @@ public class f extends i {
             a(this.cPj, f2, f3, f4);
             a(this.cPk, f2, f3, f4);
             a(this.cPl, f2, f3, f4);
-            aod();
+            aoc();
         }
     }
 
@@ -66,13 +66,13 @@ public class f extends i {
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
     protected void kn(int i) {
-        aod();
+        aoc();
         this.cPj.onChangeSkinType(i);
         this.cPk.onChangeSkinType(i);
         this.cPl.onChangeSkinType(i);
     }
 
-    private void aod() {
+    private void aoc() {
         this.cPj.setGrade(aj.getDrawable(d.f.pic_grade_vote_num1));
         this.cPk.setGrade(aj.getDrawable(d.f.pic_grade_vote_num2));
         this.cPl.setGrade(aj.getDrawable(d.f.pic_grade_vote_num3));

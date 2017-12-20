@@ -67,15 +67,15 @@ public class LocationModel extends BdBaseModel {
                     return;
                 }
                 TbadkCoreApplication.getInst().setLocationShared(true);
-                LocationModel.this.bxF();
+                LocationModel.this.bxE();
             }
         };
     }
 
-    public void bxF() {
-        if (bxH()) {
+    public void bxE() {
+        if (bxG()) {
             if (this.gDW != null) {
-                this.gDW.a(c.bxD().getLocationData());
+                this.gDW.a(c.bxC().getLocationData());
             }
         } else if (j.hh()) {
             if (ab.aG(this.gDY.getActivity())) {
@@ -165,27 +165,27 @@ public class LocationModel extends BdBaseModel {
             return;
         }
         d(aVar);
-        c.bxD().cN(System.currentTimeMillis());
-        c.bxD().b(aVar);
+        c.bxC().cN(System.currentTimeMillis());
+        c.bxC().b(aVar);
         if (this.gDW != null) {
             this.gDW.a(aVar);
         }
     }
 
     private void d(com.baidu.tieba.tbadkCore.location.a aVar) {
-        List<a.C0145a> bxA;
+        List<a.C0145a> bxz;
         int i;
         int i2;
-        if (aVar != null && (bxA = aVar.bxA()) != null && !bxA.isEmpty()) {
-            int size = bxA.size();
+        if (aVar != null && (bxz = aVar.bxz()) != null && !bxz.isEmpty()) {
+            int size = bxz.size();
             int i3 = 0;
             while (i3 < size) {
                 String str = null;
-                if (bxA.get(i3) != null) {
-                    str = bxA.get(i3).getName();
+                if (bxz.get(i3) != null) {
+                    str = bxz.get(i3).getName();
                 }
                 if (StringUtils.isNull(str)) {
-                    bxA.remove(i3);
+                    bxz.remove(i3);
                     i = size - 1;
                     i2 = i3 - 1;
                 } else {
@@ -195,46 +195,46 @@ public class LocationModel extends BdBaseModel {
                 i3 = i2 + 1;
                 size = i;
             }
-            if (StringUtils.isNull(aVar.bxz())) {
-                if (bxA.size() >= 1) {
-                    aVar.tf(bxA.get(0).getName());
-                    aVar.tg(bxA.get(0).bxB());
+            if (StringUtils.isNull(aVar.bxy())) {
+                if (bxz.size() >= 1) {
+                    aVar.tf(bxz.get(0).getName());
+                    aVar.tg(bxz.get(0).bxA());
                     return;
                 }
                 return;
             }
-            for (a.C0145a c0145a : bxA) {
-                if (aVar.bxz().equals(c0145a.getName())) {
-                    aVar.tg(c0145a.bxB());
+            for (a.C0145a c0145a : bxz) {
+                if (aVar.bxy().equals(c0145a.getName())) {
+                    aVar.tg(c0145a.bxA());
                     return;
                 }
             }
         }
     }
 
-    public boolean bxG() {
-        return System.currentTimeMillis() - c.bxD().getTimeStamp() > ReportUserInfoModel.TIME_INTERVAL;
+    public boolean bxF() {
+        return System.currentTimeMillis() - c.bxC().getTimeStamp() > ReportUserInfoModel.TIME_INTERVAL;
     }
 
-    public boolean bxH() {
-        com.baidu.tieba.tbadkCore.location.a locationData = c.bxD().getLocationData();
-        return (bxG() || locationData == null || StringUtils.isNull(locationData.bxz())) ? false : true;
+    public boolean bxG() {
+        com.baidu.tieba.tbadkCore.location.a locationData = c.bxC().getLocationData();
+        return (bxF() || locationData == null || StringUtils.isNull(locationData.bxy())) ? false : true;
     }
 
     public void ng(boolean z) {
-        c.bxD().nf(z);
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("no_longer_show_address", c.bxD().bxE());
+        c.bxC().nf(z);
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("no_longer_show_address", c.bxC().bxD());
     }
 
     public void ci(String str, String str2) {
-        com.baidu.tieba.tbadkCore.location.a locationData = c.bxD().getLocationData();
+        com.baidu.tieba.tbadkCore.location.a locationData = c.bxC().getLocationData();
         if (locationData != null) {
             locationData.tf(str);
             locationData.tg(str2);
         }
     }
 
-    public static void bxI() {
+    public static void bxH() {
         com.baidu.tieba.tbadkCore.a.a.a(303017, LocationSocketResponsedMessage.class, false, false);
     }
 
@@ -245,7 +245,7 @@ public class LocationModel extends BdBaseModel {
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             BdLog.i("canDoLocationRequest:location setting is not shared!");
             return false;
-        } else if (c.bxD().bxE()) {
+        } else if (c.bxC().bxD()) {
             BdLog.i("canDoLocationRequest:no longer show address!");
             return false;
         } else {

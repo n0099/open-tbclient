@@ -37,12 +37,12 @@ class d extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            bBQ();
-            if (bBS()) {
+            bBP();
+            if (bBR()) {
                 com.baidu.adp.lib.g.e.fP().post(new Runnable() { // from class: com.baidu.tieba.video.editvideo.b.d.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        d.this.bBP();
+                        d.this.bBO();
                     }
                 });
             }
@@ -50,7 +50,7 @@ class d extends Thread {
         }
     }
 
-    public void bBP() {
+    public void bBO() {
     }
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0170: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:98:0x016d */
@@ -62,7 +62,7 @@ class d extends Thread {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void bBQ() throws Exception {
+    private void bBP() throws Exception {
         MediaExtractor mediaExtractor;
         MediaExtractor mediaExtractor2;
         MediaCodec mediaCodec;
@@ -79,7 +79,7 @@ class d extends Thread {
         try {
             if (ue != null) {
                 try {
-                    mediaExtractor3 = bBR();
+                    mediaExtractor3 = bBQ();
                     try {
                         trackFormat = mediaExtractor3.getTrackFormat(b(mediaExtractor3));
                         MediaFormat mediaFormat = new MediaFormat();
@@ -258,7 +258,7 @@ class d extends Thread {
         }
     }
 
-    private MediaExtractor bBR() throws IOException {
+    private MediaExtractor bBQ() throws IOException {
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(this.gRC);
         return mediaExtractor;
@@ -311,8 +311,8 @@ class d extends Thread {
         MediaFormat mediaFormat2 = null;
         ByteBuffer[] byteBufferArr2 = outputBuffers2;
         boolean z7 = false;
-        while (!z4 && bBS()) {
-            if (z7 || !((mediaFormat2 == null || this.gRF.isStarted()) && bBS())) {
+        while (!z4 && bBR()) {
+            if (z7 || !((mediaFormat2 == null || this.gRF.isStarted()) && bBR())) {
                 z = z7;
             } else {
                 int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L);
@@ -330,7 +330,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (!z6 && i3 == -1 && ((mediaFormat2 == null || this.gRF.isStarted()) && bBS() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L)) != -1)) {
+            if (!z6 && i3 == -1 && ((mediaFormat2 == null || this.gRF.isStarted()) && bBR() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L)) != -1)) {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = mediaCodec.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
@@ -344,7 +344,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (i3 == -1 || !bBS()) {
+            if (i3 == -1 || !bBR()) {
                 i = i3;
                 z2 = z6;
             } else {
@@ -374,7 +374,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (z4 || !((mediaFormat2 == null || this.gRF.isStarted()) && bBS())) {
+            if (z4 || !((mediaFormat2 == null || this.gRF.isStarted()) && bBR())) {
                 mediaFormat = mediaFormat2;
                 byteBufferArr = byteBufferArr2;
             } else {
@@ -420,7 +420,7 @@ class d extends Thread {
                 z3 = true;
             }
             if (!this.gRF.isStarted() && z3) {
-                this.gRF.bBU();
+                this.gRF.bBT();
                 if (!this.gRF.start()) {
                     synchronized (this.gRF) {
                         while (!this.gRF.isStarted()) {
@@ -450,7 +450,7 @@ class d extends Thread {
         }
     }
 
-    private boolean bBS() {
+    private boolean bBR() {
         return !Thread.currentThread().isInterrupted();
     }
 

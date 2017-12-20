@@ -19,11 +19,11 @@ public class e {
 
     private e() {
         if (f.dG()) {
-            bAZ();
+            bAY();
         }
     }
 
-    private void bAZ() {
+    private void bAY() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.p.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -39,11 +39,11 @@ public class e {
         }.execute(new Void[0]);
     }
 
-    public static e bBa() {
+    public static e bAZ() {
         return gPn;
     }
 
-    public void bAV() {
+    public void bAU() {
         if (f.dG()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.p.e.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -98,19 +98,19 @@ public class e {
     public synchronized void c(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             this.gPl.add(jSONObject.toString());
-            String aOl = aOl();
+            String aOk = aOk();
             if (f.dG()) {
-                b(jSONObject, aOl);
+                b(jSONObject, aOk);
             }
             if (this.gPl.size() >= com.baidu.tbadk.coreExtra.model.f.AE() || z) {
-                a(new d(this.gPl, aOl));
+                a(new d(this.gPl, aOk));
                 this.gPl.clear();
                 this.gPk = null;
             }
         }
     }
 
-    private String aOl() {
+    private String aOk() {
         if (StringUtils.isNull(this.gPk)) {
             if (f.dG()) {
                 this.gPk = String.valueOf(System.currentTimeMillis());

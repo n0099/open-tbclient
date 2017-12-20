@@ -22,9 +22,9 @@ public class NavigationBarCoverTip extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void bEL();
+        void bEK();
 
-        void bEM();
+        void bEL();
     }
 
     public NavigationBarCoverTip(Context context) {
@@ -56,17 +56,17 @@ public class NavigationBarCoverTip extends LinearLayout {
                 NavigationBarCoverTip.this.hideTip();
             }
         });
-        bmM();
+        bmL();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void bmM() {
+    private void bmL() {
         this.daI = AnimationUtils.loadAnimation(getContext(), d.a.in_from_top);
         this.daI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
                 if (NavigationBarCoverTip.this.hbl != null) {
-                    NavigationBarCoverTip.this.hbl.bEL();
+                    NavigationBarCoverTip.this.hbl.bEK();
                 }
                 if (NavigationBarCoverTip.this.mActivity != null) {
                     UtilHelper.changeStatusBarIconAndTextColor(true, NavigationBarCoverTip.this.mActivity);
@@ -90,7 +90,7 @@ public class NavigationBarCoverTip extends LinearLayout {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 if (NavigationBarCoverTip.this.hbl != null) {
-                    NavigationBarCoverTip.this.hbl.bEM();
+                    NavigationBarCoverTip.this.hbl.bEL();
                 }
                 NavigationBarCoverTip.this.release();
             }

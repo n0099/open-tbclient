@@ -7,7 +7,7 @@ public class a {
     private static a gQL = null;
     private SparseArray<CloudMusicData.MusicTagList.MusicList> gQM = new SparseArray<>();
 
-    public static synchronized a bBs() {
+    public static synchronized a bBr() {
         a aVar;
         synchronized (a.class) {
             if (gQL == null) {
@@ -25,7 +25,7 @@ public class a {
         this.gQM.put(4096, musicList);
     }
 
-    public CloudMusicData.MusicTagList.MusicList bBt() {
+    public CloudMusicData.MusicTagList.MusicList bBs() {
         return this.gQM.get(4096);
     }
 

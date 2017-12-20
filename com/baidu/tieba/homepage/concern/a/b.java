@@ -29,7 +29,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         this.cNG = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.layout.b>() { // from class: com.baidu.tieba.homepage.concern.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: anM */
+            /* renamed from: anL */
             public com.baidu.tbadk.widget.layout.b fI() {
                 return new com.baidu.tbadk.widget.layout.b(b.this.mPageContext.getPageActivity());
             }
@@ -110,7 +110,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                     } else {
                         akVar.r("obj_locate", 1);
                     }
-                    akVar.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.atN());
+                    akVar.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.atM());
                     TiebaStatic.log(akVar);
                 }
             }
@@ -142,10 +142,10 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (bVar.doG == null || aVar == null || StringUtils.isNull(bVar.doG.getName()) || StringUtils.isNull(bVar.doG.getUserId())) {
             return null;
         }
-        aVar.acC().a(bVar);
-        aVar.acC().b(this.dof);
-        aVar.acC().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        s.abX().a(new ak("c12353").f("uid", TbadkCoreApplication.getCurrentAccountId()).ac("obj_id", bVar.doG.getUserId()).r("obj_type", 1).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.atN()).ac("tid", bVar.cBz.getTid()));
+        aVar.acB().a(bVar);
+        aVar.acB().b(this.dof);
+        aVar.acB().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        s.abW().a(new ak("c12353").f("uid", TbadkCoreApplication.getCurrentAccountId()).ac("obj_id", bVar.doG.getUserId()).r("obj_type", 1).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.atM()).ac("tid", bVar.cBz.getTid()));
         return aVar.getView();
     }
 }

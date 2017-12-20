@@ -75,7 +75,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
     /* loaded from: classes.dex */
     public interface c {
-        com.baidu.adp.lib.e.b<TbImageView> akR();
+        com.baidu.adp.lib.e.b<TbImageView> akQ();
     }
 
     public void setDrawNum(boolean z) {
@@ -272,7 +272,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         Resources resources = getResources();
         this.gyW = resources.getString(d.j.frs_item_common_image_canvas_text1) + this.gyP + resources.getString(d.j.frs_item_common_image_canvas_text2);
         if (this.gyR == null && (eVar.getOrignalPage() instanceof c)) {
-            this.gyR = ((c) eVar.getOrignalPage()).akR();
+            this.gyR = ((c) eVar.getOrignalPage()).akQ();
         }
         if (this.gyR != null) {
             if (this.gyM == null || this.gyM.length <= 0) {
@@ -363,7 +363,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                 tbImageView.setDefaultResource(d.f.pic_video);
                 tbImageView.setDefaultErrorResource(d.f.pic_bg_video_h5);
             }
-            if (buL() && i == getChildCount() - 1) {
+            if (buK() && i == getChildCount() - 1) {
                 tbImageView.setGifIconSupport(false);
                 tbImageView.setLongIconSupport(false);
             } else {
@@ -390,14 +390,14 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     drawChild(canvas, (TbImageView) getChildAt(i2), drawingTime);
                     i = i2 + 1;
                 }
-                if (buL()) {
+                if (buK()) {
                     D(canvas);
                 }
             }
         }
     }
 
-    private boolean buL() {
+    private boolean buK() {
         return this.gyP > 3 && this.gyQ;
     }
 

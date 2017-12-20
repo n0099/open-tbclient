@@ -38,16 +38,16 @@ public class c {
         this.fXE.setOnClickPendingIntent(d.g.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public RemoteViews blZ() {
+    public RemoteViews blY() {
         return this.fXE;
     }
 
-    public void bma() {
+    public void blZ() {
         this.fXE.setTextViewText(d.g.download_status_text, TbadkCoreApplication.getInst().getResources().getString(d.j.on_downloading));
         this.fXE.setImageViewResource(d.g.download_btn, d.f.notify_pause_bg);
     }
 
-    public void bmb() {
+    public void bma() {
         this.fXE.setTextViewText(d.g.download_status_text, TbadkCoreApplication.getInst().getResources().getString(d.j.downloading_app_paused));
         this.fXE.setImageViewResource(d.g.download_btn, d.f.notify_start_bg);
     }

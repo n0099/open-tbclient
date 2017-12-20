@@ -63,7 +63,7 @@ public class c implements com.baidu.tbadk.core.view.userLike.a {
         return this.portrait;
     }
 
-    public String atO() {
+    public String atN() {
         return this.recom_reason;
     }
 

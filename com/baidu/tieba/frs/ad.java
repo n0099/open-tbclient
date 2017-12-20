@@ -10,7 +10,7 @@ public class ad {
     private ad() {
     }
 
-    public static ad amy() {
+    public static ad amx() {
         return cKj;
     }
 

@@ -54,7 +54,7 @@ public class a extends c<PbActivity> {
         }
     }
 
-    public void bEO() {
+    public void bEN() {
         if (this.hbH != null) {
             this.hbH.setPadding(0, 0, 0, 0);
         }
@@ -87,9 +87,9 @@ public class a extends c<PbActivity> {
                         }
                         l.showToast(TbadkCoreApplication.getInst(), string);
                     } else if (responsedMessage instanceof AddVoteHttpProtoResponse) {
-                        a.this.bEQ();
+                        a.this.bEP();
                     } else if (responsedMessage instanceof AddVoteSocketResponse) {
-                        a.this.bEQ();
+                        a.this.bEP();
                     }
                 }
             }
@@ -131,15 +131,15 @@ public class a extends c<PbActivity> {
     }
 
     public void a(View view, f fVar) {
-        if (fVar != null && fVar.aRo() != null && fVar.aRq() != null && view != null) {
-            this.mForumId = com.baidu.adp.lib.g.b.c(fVar.aRo().getId(), 0L);
-            this.mThreadId = com.baidu.adp.lib.g.b.c(fVar.aRq().getId(), 0L);
-            if (fVar.aRq().sh() && fVar.aRq().rh() != null) {
+        if (fVar != null && fVar.aRn() != null && fVar.aRp() != null && view != null) {
+            this.mForumId = com.baidu.adp.lib.g.b.c(fVar.aRn().getId(), 0L);
+            this.mThreadId = com.baidu.adp.lib.g.b.c(fVar.aRp().getId(), 0L);
+            if (fVar.aRp().sh() && fVar.aRp().rh() != null) {
                 if (this.hbG == null) {
                     this.hbG = ((ViewStub) view.findViewById(d.g.vote_card_layout)).inflate();
                     this.hbM = (TextView) this.hbG.findViewById(d.g.btn_pb_vote);
-                    this.hbN = fVar.aRn();
-                    b((PostData) v.c(fVar.aRs(), 0), this.hbG);
+                    this.hbN = fVar.aRm();
+                    b((PostData) v.c(fVar.aRr(), 0), this.hbG);
                     a(this.hbN, false);
                 }
                 if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
@@ -160,8 +160,8 @@ public class a extends c<PbActivity> {
         this.hbL = (TextView) view.findViewById(d.g.pb_item_vote_location_address);
         i iVar = null;
         if (postData != null) {
-            this.hbK.setText(postData.bwX());
-            iVar = postData.bwZ();
+            this.hbK.setText(postData.bwW());
+            iVar = postData.bwY();
         }
         if (iVar != null && !TextUtils.isEmpty(iVar.getName()) && !TextUtils.isEmpty(iVar.getName().trim())) {
             final String name = iVar.getName();
@@ -196,12 +196,12 @@ public class a extends c<PbActivity> {
                     }
                 }
             }
-            bca();
+            bbZ();
             if (this.hbN.getVoteType() == 1) {
                 if (this.hbN.getStatus() == 2 || this.hbN.getIsPolled() == 1) {
                     nQ(z);
                 } else {
-                    bEP();
+                    bEO();
                 }
             } else if (this.hbN.getVoteType() == 2) {
                 if (this.hbN.getStatus() == 2 || this.hbN.getIsPolled() == 1) {
@@ -223,15 +223,15 @@ public class a extends c<PbActivity> {
         }
     }
 
-    private void bca() {
+    private void bbZ() {
         if (this.hbG != null && this.hbN != null) {
             ((TextView) this.hbG.findViewById(d.g.tv_vote_endtime)).setText(this.hbN.getTips());
             ((TextView) this.hbG.findViewById(d.g.vote_num)).setText(getPageContext().getPageActivity().getString(d.j.pb_vote_num, new Object[]{Long.valueOf(this.hbN.getTotalNum())}));
-            bER();
+            bEQ();
         }
     }
 
-    private void bEP() {
+    private void bEO() {
         if (this.hbG != null && this.hbN != null) {
             this.hbI = (VoteTextGroupView) this.hbG.findViewById(d.g.textvote_view);
             this.hbI.setOnVoteCheckedChangedListener(this.aWw);
@@ -257,7 +257,7 @@ public class a extends c<PbActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bEQ() {
+    public void bEP() {
         if (this.hbN != null) {
             if (this.hbQ != null && this.eVp != null) {
                 this.hbQ.c(this.eVp.getActivity().getString(d.j.vote_succ));
@@ -292,10 +292,10 @@ public class a extends c<PbActivity> {
         if (this.hbG != null) {
             com.baidu.tbadk.n.a.a(this.eVp.getPageContext(), this.hbG);
         }
-        bER();
+        bEQ();
     }
 
-    private void bER() {
+    private void bEQ() {
         if (this.hbM != null && this.hbN != null) {
             if (this.hbN.getStatus() == 2) {
                 aj.j(this.hbM, d.f.bg_gray_circle);

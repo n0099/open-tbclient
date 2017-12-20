@@ -315,7 +315,7 @@ public class e extends SQLiteOpenHelper {
                 try {
                     sQLiteDatabase.beginTransaction();
                     f.dJk.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
-                    j.azE();
+                    j.azD();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();

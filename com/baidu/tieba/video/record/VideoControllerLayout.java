@@ -43,9 +43,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
 
     /* loaded from: classes2.dex */
     public interface a {
+        void bDY();
+
         void bDZ();
 
-        void bEa();
+        void bEj();
 
         void bEk();
 
@@ -60,8 +62,6 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         void bEp();
 
         void bEq();
-
-        void bEr();
     }
 
     public VideoControllerLayout(Context context) {
@@ -131,7 +131,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void vH(int i) {
         this.gWr.setStatus(i);
         if (this.gZm != null) {
-            this.gZm.bEr();
+            this.gZm.bEq();
         }
         if (i == 1) {
             this.gZf.setVisibility(8);
@@ -156,13 +156,13 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void onClick(View view) {
         if (view == this.gZf) {
             if (this.gZm != null) {
-                this.gZm.bEq();
+                this.gZm.bEp();
             }
             int status = this.gWr.getStatus();
             if (this.gWr != null && this.gWr.getVideoDuration() > 0 && status > 2) {
                 if (status == 5) {
                     TiebaStatic.log("c12299");
-                    this.gWr.bDT();
+                    this.gWr.bDS();
                     dS(this.gZo);
                     dS(this.gZp);
                     dS(this.gZq);
@@ -174,16 +174,16 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                         return;
                     }
                 }
-                this.gWr.bDS();
+                this.gWr.bDR();
                 vH(5);
             }
         } else if (view == this.gZi) {
             TiebaStatic.log("c12300");
             if (this.gWr != null && this.gWr.getStatus() > 2 && this.gZm != null) {
                 if (this.gWr.getVideoDuration() >= 3000.0f) {
-                    this.gZm.bEa();
+                    this.gZm.bDZ();
                 } else {
-                    this.gZm.bEp();
+                    this.gZm.bEo();
                 }
             }
         }
@@ -199,7 +199,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void nM(final boolean z) {
         if (this.gWr.getProgress() >= 100) {
             if (this.gZm != null) {
-                this.gZm.bEa();
+                this.gZm.bDZ();
                 return;
             }
             return;
@@ -230,12 +230,12 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             this.gWr.startRecord();
         }
         if (this.gZm != null) {
-            this.gZm.bEk();
+            this.gZm.bEj();
         }
     }
 
     public void stopRecord() {
-        bEu();
+        bEt();
         int status = this.gWr.getStatus();
         if (this.gWr != null) {
             if (this.gWr.getStatus() != 6 && this.gWr.isRecording()) {
@@ -250,9 +250,9 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             }
         }
         if (this.gZm != null) {
-            this.gZm.bDZ();
+            this.gZm.bDY();
             if (status == 6) {
-                this.gZm.bEm();
+                this.gZm.bEl();
             }
         }
     }
@@ -282,7 +282,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public void bEu() {
+    public void bEt() {
         if (this.gWr == null || this.gWr.isRecording() || this.gWr.getStatus() == 6) {
             if (this.gYt != null && this.gYt.isRunning()) {
                 this.gYt.cancel();
@@ -296,7 +296,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             this.gZi.setVisibility(0);
             this.gYu.start();
             if (this.gWr.getStatus() != 7 && this.gWr.getStatus() != 6) {
-                this.gZh.bEu();
+                this.gZh.bEt();
                 return;
             }
             this.gZh.getTvTip().setVisibility(8);
@@ -324,7 +324,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         switch (motionEvent.getAction()) {
             case 0:
                 if (this.gZm != null) {
-                    this.gZm.bEq();
+                    this.gZm.bEp();
                 }
                 if (this.gWr.getStatus() != 7 && this.gWr.getStatus() != 6) {
                     final long currentTimeMillis = System.currentTimeMillis();
@@ -370,8 +370,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 if (this.gWr.getStatus() == 6) {
                     this.gWr.setStatus(1);
                     if (this.gZm != null) {
-                        this.gZm.bEm();
-                        this.gZm.bDZ();
+                        this.gZm.bEl();
+                        this.gZm.bDY();
                     }
                     this.gZh.getTvTip().setText("");
                     this.gZh.getTvTip().setVisibility(8);
@@ -380,21 +380,21 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                     a((o) null);
                     return;
                 } else if (this.gZm != null) {
-                    this.gZm.bEl();
-                    this.gZh.bEE();
+                    this.gZm.bEk();
+                    this.gZh.bED();
                     return;
                 } else {
                     return;
                 }
             case 1:
-                this.gZh.bEF();
+                this.gZh.bEE();
                 return;
             default:
                 return;
         }
     }
 
-    public void bEf() {
+    public void bEe() {
         if (this.gZs.getVisibility() == 0) {
             a((o) null);
         }
@@ -403,11 +403,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         this.gZh.getTvTip().setText(getResources().getText(d.j.video_record_button_cancel));
         this.gZh.getTvTip().setVisibility(0);
         if (this.gZm != null) {
-            this.gZm.bEk();
+            this.gZm.bEj();
         }
     }
 
-    public void bEv() {
+    public void bEu() {
         if (this.gWr.getStatus() == 6) {
             if (this.goF == 2) {
                 vH(7);
@@ -423,60 +423,60 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             }
             this.gZh.getTvTip().setVisibility(8);
             if (this.gZm != null) {
-                this.gZm.bEl();
+                this.gZm.bEk();
             }
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void bEg() {
-        if (bEy() && this.gZs.getCurrentEffectLayout() == 3) {
+    public void bEf() {
+        if (bEx() && this.gZs.getCurrentEffectLayout() == 3) {
             a((o) null);
             return;
         }
-        if (!bEy()) {
-            bEx();
+        if (!bEx()) {
+            bEw();
+        }
+        this.gZs.bEf();
+    }
+
+    @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
+    public void bEg() {
+        if (bEx() && this.gZs.getCurrentEffectLayout() == 0) {
+            a((o) null);
+            return;
+        }
+        if (!bEx()) {
+            bEw();
         }
         this.gZs.bEg();
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
     public void bEh() {
-        if (bEy() && this.gZs.getCurrentEffectLayout() == 0) {
+        if (bEx() && this.gZs.getCurrentEffectLayout() == 1) {
             a((o) null);
             return;
         }
-        if (!bEy()) {
-            bEx();
+        if (!bEx()) {
+            bEw();
         }
         this.gZs.bEh();
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
     public void bEi() {
-        if (bEy() && this.gZs.getCurrentEffectLayout() == 1) {
+        if (bEx() && this.gZs.getCurrentEffectLayout() == 2) {
             a((o) null);
             return;
         }
-        if (!bEy()) {
-            bEx();
+        if (!bEx()) {
+            bEw();
         }
         this.gZs.bEi();
     }
 
-    @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void bEj() {
-        if (bEy() && this.gZs.getCurrentEffectLayout() == 2) {
-            a((o) null);
-            return;
-        }
-        if (!bEy()) {
-            bEx();
-        }
-        this.gZs.bEj();
-    }
-
-    private void bEw() {
+    private void bEv() {
         if (v.w(this.gZl)) {
             this.gZl = new ArrayList();
             this.gZl.add(ObjectAnimator.ofFloat(this.gZs, "translationY", 1000.0f, 0.0f));
@@ -494,11 +494,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    private void bEx() {
+    private void bEw() {
         int i = 0;
         if (this.gZs.getVisibility() != 0) {
             this.gZs.setVisibility(0);
-            bEw();
+            bEv();
             this.gZi.setEnabled(false);
             this.gZf.setEnabled(false);
             while (true) {
@@ -514,7 +514,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                                 @Override // com.baidu.tieba.video.record.o, android.animation.Animator.AnimatorListener
                                 public void onAnimationStart(Animator animator) {
                                     if (VideoControllerLayout.this.gZm != null) {
-                                        VideoControllerLayout.this.gZm.bEn();
+                                        VideoControllerLayout.this.gZm.bEm();
                                     }
                                 }
                             });
@@ -531,7 +531,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
 
     public void a(final o oVar) {
         if (this.gZs.getVisibility() != 8) {
-            bEw();
+            bEv();
             this.gZi.setEnabled(true);
             this.gZf.setEnabled(true);
             if (this.gWr.getStatus() == 6 || this.gWr.isRecording()) {
@@ -556,7 +556,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                                     if (!this.hag) {
                                         VideoControllerLayout.this.gZs.setVisibility(8);
                                         if (VideoControllerLayout.this.gZm != null) {
-                                            VideoControllerLayout.this.gZm.bEo();
+                                            VideoControllerLayout.this.gZm.bEn();
                                         }
                                         if (oVar != null) {
                                             oVar.onAnimationEnd(animator);
@@ -599,7 +599,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public boolean bEy() {
+    public boolean bEx() {
         return this.gZs.getVisibility() == 0;
     }
 
@@ -621,9 +621,9 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public boolean bEz() {
+    public boolean bEy() {
         if (this.gZs != null) {
-            return this.gZs.bEz();
+            return this.gZs.bEy();
         }
         return false;
     }
@@ -660,15 +660,15 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void n(String str, int i, String str2) {
     }
 
-    public void bEA() {
+    public void bEz() {
         if (this.gZs != null) {
-            this.gZs.bEA();
+            this.gZs.bEz();
         }
     }
 
-    public void bDq() {
+    public void bDp() {
         if (this.gZs != null) {
-            this.gZs.bDq();
+            this.gZs.bDp();
         }
     }
 }

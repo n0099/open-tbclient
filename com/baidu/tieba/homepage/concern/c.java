@@ -89,7 +89,7 @@ public class c extends FrameLayout {
         this.mSkinType = 3;
         this.dnN = new d.a() { // from class: com.baidu.tieba.homepage.concern.c.1
             @Override // com.baidu.tieba.homepage.concern.d.a
-            public void atF() {
+            public void atE() {
                 if (c.this.dnJ == null) {
                     if (c.this.dnL != null) {
                         c.this.dnL.setVisibility(8);
@@ -98,9 +98,9 @@ public class c extends FrameLayout {
                     c.this.x(false, false);
                     return;
                 }
-                boolean atA = c.this.atA();
+                boolean atz = c.this.atz();
                 c.this.Pr();
-                if (atA) {
+                if (atz) {
                     c.this.g(true, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds520));
                 }
                 c.this.dnJ.onPullToRefresh();
@@ -185,7 +185,7 @@ public class c extends FrameLayout {
                         } else {
                             list.add(1, gVar);
                         }
-                        c.this.dnK.atH();
+                        c.this.dnK.atG();
                     }
                 }
             }
@@ -240,7 +240,7 @@ public class c extends FrameLayout {
         }
     }
 
-    public void aoZ() {
+    public void aoY() {
         this.dnK.a(this.dnN);
         this.mPullView.a(new h.b() { // from class: com.baidu.tieba.homepage.concern.c.2
             @Override // com.baidu.tbadk.core.view.h.b
@@ -282,9 +282,9 @@ public class c extends FrameLayout {
         this.dnK.a(z, dataRes, 0, null);
     }
 
-    public void atz() {
+    public void aty() {
         if (!TbadkCoreApplication.isLogin()) {
-            atB();
+            atA();
         } else if (this.dnK != null) {
             g(true, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds520));
             this.dnK.update();
@@ -323,7 +323,7 @@ public class c extends FrameLayout {
 
     public void onResume() {
         setTabInForeBackgroundState(false);
-        atD();
+        atC();
     }
 
     public void W(String str, int i) {
@@ -373,14 +373,14 @@ public class c extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean atA() {
+    public boolean atz() {
         if (this.refreshView != null) {
             return this.refreshView.EO();
         }
         return false;
     }
 
-    private void atB() {
+    private void atA() {
         if (this.dnL == null) {
             this.dnL = new g(getContext());
             this.dnL.onChangeSkinType(this.mSkinType);
@@ -412,7 +412,7 @@ public class c extends FrameLayout {
         }
     }
 
-    public void atC() {
+    public void atB() {
         setViewForeground(false);
         if (this.dnK != null) {
             this.dnK.eX(false);
@@ -448,13 +448,13 @@ public class c extends FrameLayout {
         this.aXy.setRecyclerListener(null);
     }
 
-    public void atD() {
+    public void atC() {
         if (this.dnI != null) {
             this.dnI.notifyDataSetChanged();
         }
     }
 
-    public void atE() {
+    public void atD() {
         if (this.dnK != null) {
             this.dnK.eX(true);
         }

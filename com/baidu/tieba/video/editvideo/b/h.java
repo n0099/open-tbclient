@@ -66,7 +66,7 @@ class h implements SurfaceTexture.OnFrameAvailableListener {
         faceunity.fuOnDeviceLost();
     }
 
-    public void bBW() {
+    public void bBV() {
         this.mSurfaceTexture.updateTexImage();
         this.mSurfaceTexture.getTransformMatrix(this.mSTMatrix);
         faceunity.fuItemSetParam(mFacebeautyItem, "filter_name", this.gRT);
@@ -77,7 +77,7 @@ class h implements SurfaceTexture.OnFrameAvailableListener {
         return this.mSurface;
     }
 
-    public void bBX() {
+    public void bBW() {
         synchronized (this.gRR) {
             do {
                 if (!this.gRS) {

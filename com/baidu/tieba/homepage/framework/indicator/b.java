@@ -14,19 +14,19 @@ public class b {
         this.dqg = -1;
         this.dqh = -1;
         this.dqi = -1;
-        int aua = aua();
+        int atZ = atZ();
         int i = 0;
-        if ((aua & 4) > 0) {
+        if ((atZ & 4) > 0) {
             this.dqf = 0;
             i = 1;
         }
         this.dqg = i;
         int i2 = i + 1;
-        if ((aua & 8) > 0) {
+        if ((atZ & 8) > 0) {
             this.dqh = i2;
             i2++;
         }
-        if ((aua & 1) > 0) {
+        if ((atZ & 1) > 0) {
             this.dqi = i2;
         }
     }
@@ -62,7 +62,7 @@ public class b {
         return -1;
     }
 
-    private int aua() {
+    private int atZ() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("recommend_tab_show", 7);
     }
 

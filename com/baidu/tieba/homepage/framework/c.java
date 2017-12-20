@@ -97,14 +97,14 @@ public class c {
         return this.uniqueId;
     }
 
-    public TbPageContext<BaseFragmentActivity> atS() {
+    public TbPageContext<BaseFragmentActivity> atR() {
         return this.dpE;
     }
 
     public void a(com.baidu.tieba.lego.model.a aVar) {
     }
 
-    public com.baidu.tieba.lego.model.a atT() {
+    public com.baidu.tieba.lego.model.a atS() {
         return null;
     }
 
@@ -112,7 +112,7 @@ public class c {
         this.dnp = aVar;
     }
 
-    public a atU() {
+    public a atT() {
         return this.dnp;
     }
 }

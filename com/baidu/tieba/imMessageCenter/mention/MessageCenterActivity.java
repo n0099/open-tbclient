@@ -29,11 +29,11 @@ public class MessageCenterActivity extends BaseFragmentActivity {
 
     private void initView() {
         setContentView(d.h.message_center_activity);
-        anb();
+        ana();
         getSupportFragmentManager().beginTransaction().add(d.g.fragment_container, new g()).commit();
     }
 
-    private void anb() {
+    private void ana() {
         this.dkJ = (NavigationBar) findViewById(d.g.navigation_bar);
         this.dkJ.setCenterTextTitle(getResources().getString(d.j.my_message));
         this.dkJ.showBottomLine();

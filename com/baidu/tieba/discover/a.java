@@ -141,7 +141,7 @@ public class a extends BaseFragment implements aj {
     public void Pk() {
         if (this.cpT != null && !this.cpU) {
             this.cpU = true;
-            this.cpT.afT();
+            this.cpT.afS();
         }
     }
 
@@ -149,7 +149,7 @@ public class a extends BaseFragment implements aj {
     public void Pl() {
         if (this.cpT != null && this.cpU) {
             this.cpU = false;
-            this.cpT.afU();
+            this.cpT.afT();
         }
     }
 

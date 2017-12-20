@@ -150,7 +150,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
             } else {
                 TiebaPrepareImageService.StartService(this.requestCode, null, an.vs().vy(), this.mDisplaySize, stringExtra);
             }
-            awL();
+            awK();
         } else {
             initUI();
             initData();
@@ -164,10 +164,10 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
             this.hml.cancel();
         }
         this.mImage.setImageDrawable(null);
-        baz();
+        bay();
     }
 
-    private void baz() {
+    private void bay() {
         synchronized (this.hmp) {
             if (this.fuu != null) {
                 for (Map.Entry<String, ImageView> entry : this.fuu.entrySet()) {
@@ -771,7 +771,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         }
     }
 
-    private void awL() {
+    private void awK() {
         this.hmn = new c();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionImageResized());

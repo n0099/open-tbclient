@@ -95,7 +95,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         return eVar;
     }
 
-    private void bEB() {
+    private void bEA() {
         if (this.gZK == null) {
             this.gZK = new ArrayList();
             a("No", com.baidu.tieba.video.a.vm(0));
@@ -111,7 +111,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         this.gZK.add(c(0, 1, str, aVar));
     }
 
-    private void bEC() {
+    private void bEB() {
         if (this.gZL == null) {
             this.gZL = new ArrayList();
             k(d.f.filter_icon_avatar_default, getString(d.j.filter_nature), "nature");
@@ -146,13 +146,13 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void bEg() {
+    public void bEf() {
         this.gZW = 3;
         j(this.gZM, this.gZO);
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void bEh() {
+    public void bEg() {
         this.gZW = 0;
         this.gZH.setAdapter((ListAdapter) this.gZJ);
         this.gZJ.notifyDataSetChanged();
@@ -166,16 +166,16 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void bEi() {
+    public void bEh() {
         this.gZW = 1;
-        bEB();
+        bEA();
         j(this.gZK, this.gZN);
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void bEj() {
+    public void bEi() {
         this.gZW = 2;
-        bEC();
+        bEB();
         j(this.gZL, this.avy);
     }
 
@@ -284,7 +284,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                 runnable.run();
                 nO(false);
             } else {
-                bED();
+                bEC();
                 this.mHandler.postDelayed(runnable, 250L);
             }
         }
@@ -316,7 +316,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         return this.gZS;
     }
 
-    private void bED() {
+    private void bEC() {
         if (this.gZU != null && this.gZU.isRunning()) {
             this.gZU.cancel();
         }
@@ -414,23 +414,23 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         this.gZM.addAll(list);
     }
 
-    public boolean bEz() {
+    public boolean bEy() {
         if (v.w(this.mStickerItems)) {
             return true;
         }
         return this.mStickerItems.size() == 1 && this.mStickerItems.get(0).id == -1;
     }
 
-    public void bEA() {
+    public void bEz() {
         if (this.gZI != null) {
-            this.gZI.bDp();
+            this.gZI.bDo();
             this.gZO = TbadkCoreApplication.getInst().getString(d.j.music_normal);
         }
     }
 
-    public void bDq() {
+    public void bDp() {
         if (this.gZI != null) {
-            this.gZI.bDq();
+            this.gZI.bDp();
         }
     }
 }

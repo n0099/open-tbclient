@@ -19,13 +19,13 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.hh() && b.this.gbE != null) {
-                b.this.gbE.bmD();
+                b.this.gbE.bmC();
             }
         }
     };
     private c gbE = new f();
 
-    public static b bmB() {
+    public static b bmA() {
         if (gbD == null) {
             synchronized (b.class) {
                 if (gbD == null) {
@@ -36,7 +36,7 @@ public class b {
         return gbD;
     }
 
-    private boolean bmC() {
+    private boolean bmB() {
         return com.baidu.adp.lib.b.d.eV().af("ad_log_open") != 0;
     }
 
@@ -45,7 +45,7 @@ public class b {
     }
 
     public void a(a aVar) {
-        if (bmC() && aVar != null && this.gbE != null) {
+        if (bmB() && aVar != null && this.gbE != null) {
             if (j.hh()) {
                 this.gbE.b(aVar);
             } else {

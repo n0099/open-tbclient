@@ -9,11 +9,11 @@ public class a {
         this.hnZ = str;
     }
 
-    public EncryptAlgorithm bJw() {
+    public EncryptAlgorithm bJv() {
         return this.hnY;
     }
 
-    public String bJx() {
+    public String bJw() {
         return this.hnZ;
     }
 }

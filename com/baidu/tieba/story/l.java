@@ -15,7 +15,7 @@ public class l {
     private l() {
     }
 
-    public static l bsv() {
+    public static l bsu() {
         if (grB == null) {
             synchronized (l.class) {
                 if (grB == null) {
@@ -34,7 +34,7 @@ public class l {
         this.grA = metaData;
     }
 
-    public MetaData bsw() {
+    public MetaData bsv() {
         return this.grA;
     }
 
@@ -69,11 +69,11 @@ public class l {
         return true;
     }
 
-    public int bsx() {
+    public int bsw() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), 0);
     }
 
-    public void bsy() {
+    public void bsx() {
         tV(0);
     }
 

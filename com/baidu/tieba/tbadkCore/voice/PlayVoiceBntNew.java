@@ -87,23 +87,23 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             this.mProgress.setVisibility(4);
         }
         this.mContext = context;
-        bxY();
+        bxX();
     }
 
-    private void bxY() {
+    private void bxX() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         aj.j(this.gFc, d.f.btn_audio_frame_n);
         aj.c(this.gFa, d.C0096d.cp_cont_f, 1);
         if (this.play_type == 0) {
-            byb();
+            bya();
             this.dWl.setPadding(l.dip2px(getContext(), 8.0f), 0, 0, 0);
         }
         this.gFd.onChangeSkinType(skinType);
     }
 
-    private void byb() {
+    private void bya() {
         if (this.dWl != null) {
-            if (bya()) {
+            if (bxZ()) {
                 aj.c(this.dWl, d.f.icon_voice_stop);
             } else {
                 aj.c(this.dWl, d.f.icon_voice_play);
@@ -226,7 +226,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             }
             this.play_type = tbRichTextVoiceInfo.Kk();
             setVoiceModel(voiceModel);
-            bxY();
+            bxX();
             obj = voiceModel;
         }
         super.setTag(obj);
@@ -245,7 +245,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void aR(int i) {
-        if (!bya()) {
+        if (!bxZ()) {
             nT(1);
             return;
         }
@@ -255,7 +255,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    private boolean bya() {
+    private boolean bxZ() {
         if (this.dWp == null) {
             return false;
         }
@@ -273,8 +273,8 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         return this.dWp;
     }
 
-    public void bmf() {
-        bxY();
+    public void bme() {
+        bxX();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b

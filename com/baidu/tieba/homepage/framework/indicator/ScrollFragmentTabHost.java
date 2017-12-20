@@ -149,9 +149,9 @@ public class ScrollFragmentTabHost extends FrameLayout {
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 if (i == 0 && ScrollFragmentTabHost.this.getCurrentTabType() == 0) {
-                    boolean atZ = ScrollFragmentTabHost.this.atZ();
-                    TiebaStatic.log(new ak("c12350").r("obj_type", atZ ? 1 : 0));
-                    if (atZ && ScrollFragmentTabHost.this.dqo != null) {
+                    boolean atY = ScrollFragmentTabHost.this.atY();
+                    TiebaStatic.log(new ak("c12350").r("obj_type", atY ? 1 : 0));
+                    if (atY && ScrollFragmentTabHost.this.dqo != null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RECOMMEND_FRS_TIP_SHOW, 0));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CONCERN_RED_TIP_SHOW));
                         ScrollFragmentTabHost.this.dqo.lT(0);
@@ -187,12 +187,12 @@ public class ScrollFragmentTabHost extends FrameLayout {
         }
     }
 
-    public void aty() {
+    public void atx() {
         if (this.dqo != null) {
-            this.dqo.aty();
+            this.dqo.atx();
         }
         if (this.dqo != null && this.aev != null && this.aev.getCurrentItem() == 0) {
-            this.dqo.atX();
+            this.dqo.atW();
         }
     }
 
@@ -214,7 +214,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
         }
     }
 
-    public boolean aub() {
+    public boolean aua() {
         return this.dqo != null && this.dqo.getCount() > 0;
     }
 
@@ -281,13 +281,13 @@ public class ScrollFragmentTabHost extends FrameLayout {
         com.baidu.tbadk.core.util.aj.k(this.ban, d.C0096d.cp_bg_line_c);
     }
 
-    public void atY() {
+    public void atX() {
         int currentTabType = getCurrentTabType();
         if (currentTabType == 0 && TbadkCoreApplication.isLogin() && this.dqo != null) {
-            this.dqo.atY();
+            this.dqo.atX();
         }
         if ((currentTabType == 1 || currentTabType == 3) && this.dqo != null) {
-            this.dqo.atY();
+            this.dqo.atX();
         }
     }
 
@@ -318,7 +318,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
         }
     }
 
-    public void auc() {
+    public void aub() {
         this.dqo.a(this.dqs);
     }
 
@@ -333,16 +333,16 @@ public class ScrollFragmentTabHost extends FrameLayout {
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.dqm != null && this.dqo.atW()) {
+        if (this.dqm != null && this.dqo.atV()) {
             this.dqm.setShowConcernRedTip(z);
         }
     }
 
-    public boolean atZ() {
-        if (this.dqm == null || !this.dqo.atW()) {
+    public boolean atY() {
+        if (this.dqm == null || !this.dqo.atV()) {
             return false;
         }
-        return this.dqm.atZ();
+        return this.dqm.atY();
     }
 
     public void setVideoThreadId(String str) {

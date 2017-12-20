@@ -40,7 +40,7 @@ public class n extends SurfaceView implements Camera.PreviewCallback, SurfaceHol
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, com.baidu.tieba.i.k.class);
         com.baidu.tieba.i.k kVar = runTask != null ? (com.baidu.tieba.i.k) runTask.getData() : null;
         if (kVar != null) {
-            this.gCP = kVar.aOk();
+            this.gCP = kVar.aOj();
         }
         this.gWA = iVar;
         getHolder().addCallback(this);
@@ -49,18 +49,18 @@ public class n extends SurfaceView implements Camera.PreviewCallback, SurfaceHol
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         this.mSurfaceHolder = surfaceHolder;
-        bDw();
+        bDv();
         this.hab = true;
     }
 
-    private void bDw() {
+    private void bDv() {
         Handler mainHandler = this.gWA.getMainHandler();
         mainHandler.sendMessage(mainHandler.obtainMessage(1));
     }
 
     public void onResume() {
         if (this.hab) {
-            bDw();
+            bDv();
         }
     }
 
@@ -139,7 +139,7 @@ public class n extends SurfaceView implements Camera.PreviewCallback, SurfaceHol
             if (!com.baidu.tbadk.core.util.k.dh(file.getAbsolutePath())) {
                 file.mkdirs();
             }
-            this.gxU.setOutputFile(this.gWA.bDz());
+            this.gxU.setOutputFile(this.gWA.bDy());
             try {
                 this.gxU.prepare();
                 this.gxU.start();

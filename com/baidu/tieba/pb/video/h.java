@@ -34,7 +34,7 @@ public class h {
         }
     }
 
-    public View aYr() {
+    public View aYq() {
         if (this.fjN == null) {
             return null;
         }
@@ -52,7 +52,7 @@ public class h {
         }
     }
 
-    public View aYs() {
+    public View aYr() {
         if (this.fjO == null) {
             return null;
         }
@@ -62,7 +62,7 @@ public class h {
     public void ae(bd bdVar) {
         if (this.fjO != null && bdVar != null && bdVar.sA() != null && bdVar.sA().aaS == 2) {
             if (this.fjP == null) {
-                this.fjP = new com.baidu.tieba.d.b(this.byB.getPageContext(), this.fjO.aYo());
+                this.fjP = new com.baidu.tieba.d.b(this.byB.getPageContext(), this.fjO.aYn());
                 this.fjP.iV(5000);
             }
             this.fjP.g(this.byB.getResources().getString(d.j.pb_order_channel_tip), "pb_show_order_channel_tip", true);
@@ -97,12 +97,12 @@ public class h {
     }
 
     public void onDestroy() {
-        aYt();
+        aYs();
     }
 
-    public void aYt() {
+    public void aYs() {
         if (this.fjP != null) {
-            this.fjP.adJ();
+            this.fjP.adI();
         }
     }
 }

@@ -318,7 +318,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.gzl = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.e.a.bmw().sa(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.e.a.bmv().sa(dataRes.asp_shown_info);
                 this.gzU = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i6 = 0; i6 < dataRes.card_shipin_new.size(); i6++) {
@@ -364,7 +364,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         }
     }
 
-    public List<com.baidu.adp.widget.ListView.f> buO() {
+    public List<com.baidu.adp.widget.ListView.f> buN() {
         return this.gAa;
     }
 
@@ -372,7 +372,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gAa = list;
     }
 
-    public AgreeBanner buP() {
+    public AgreeBanner buO() {
         return this.gzZ;
     }
 
@@ -380,7 +380,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzZ = agreeBanner;
     }
 
-    public ForumHeadIcon buQ() {
+    public ForumHeadIcon buP() {
         return this.gAe;
     }
 
@@ -388,7 +388,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gAe = forumHeadIcon;
     }
 
-    public List<RecmForumInfo> buR() {
+    public List<RecmForumInfo> buQ() {
         return this.recm_forum_list;
     }
 
@@ -423,7 +423,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
                 if (bdVar.getThreadType() == 33 && !bdVar.rW()) {
                     ar arVar = new ar();
                     arVar.a(bdVar, 0);
-                    arVar.s(bve());
+                    arVar.s(bvd());
                     if (appResponseToIntentClass) {
                         this.threadList.add(arVar);
                     }
@@ -438,7 +438,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         }
     }
 
-    public int buS() {
+    public int buR() {
         return this.alaLiveCount;
     }
 
@@ -469,11 +469,11 @@ public class h implements com.baidu.tbadk.mvc.b.c {
     public void a(Message message) {
     }
 
-    public ForumData aRo() {
+    public ForumData aRn() {
         return this.ePl;
     }
 
-    public int buT() {
+    public int buS() {
         return this.gzS;
     }
 
@@ -481,7 +481,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzS = i;
     }
 
-    public int buU() {
+    public int buT() {
         return this.gzT;
     }
 
@@ -517,7 +517,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.eaH = alVar;
     }
 
-    public i buV() {
+    public i buU() {
         return this.gzn;
     }
 
@@ -525,7 +525,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzn = iVar;
     }
 
-    public com.baidu.tbadk.core.data.o buW() {
+    public com.baidu.tbadk.core.data.o buV() {
         return this.gzA;
     }
 
@@ -533,7 +533,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzA = oVar;
     }
 
-    public boolean buX() {
+    public boolean buW() {
         return this.gzo;
     }
 
@@ -541,7 +541,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzo = z;
     }
 
-    public String buY() {
+    public String buX() {
         return this.gzp;
     }
 
@@ -549,7 +549,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzp = str;
     }
 
-    public l buZ() {
+    public l buY() {
         return this.gzq;
     }
 
@@ -565,7 +565,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.ePs = userData;
     }
 
-    public List<Long> bva() {
+    public List<Long> buZ() {
         return this.gzm;
     }
 
@@ -573,7 +573,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzm = list;
     }
 
-    public b bvb() {
+    public b bva() {
         return this.gzr;
     }
 
@@ -581,7 +581,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzr = bVar;
     }
 
-    public boolean bvc() {
+    public boolean bvb() {
         return this.gzs;
     }
 
@@ -597,7 +597,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gameName = str;
     }
 
-    public List<f> bvd() {
+    public List<f> bvc() {
         return this.gzt;
     }
 
@@ -613,7 +613,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.userMap = hashMap;
     }
 
-    public int aRC() {
+    public int aRB() {
         return this.gzu;
     }
 
@@ -621,11 +621,11 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzu = i;
     }
 
-    public List<PhotoLiveCardData> bve() {
+    public List<PhotoLiveCardData> bvd() {
         return this.gzv;
     }
 
-    public String bvf() {
+    public String bve() {
         return this.gzy;
     }
 
@@ -633,7 +633,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzy = str;
     }
 
-    public List<FrsTabInfo> bvg() {
+    public List<FrsTabInfo> bvf() {
         return this.gzB;
     }
 
@@ -645,11 +645,11 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzv = list;
     }
 
-    public boolean bvh() {
+    public boolean bvg() {
         return this.gzx != null;
     }
 
-    public PhotoLiveCardData bvi() {
+    public PhotoLiveCardData bvh() {
         return this.gzx;
     }
 
@@ -657,7 +657,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzx = photoLiveCardData;
     }
 
-    public int bvj() {
+    public int bvi() {
         return this.gzw;
     }
 
@@ -665,7 +665,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzw = i;
     }
 
-    public List<FeedForumData> bvk() {
+    public List<FeedForumData> bvj() {
         return this.gzE;
     }
 
@@ -684,7 +684,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         }
     }
 
-    public List<CategoryInfo> bvl() {
+    public List<CategoryInfo> bvk() {
         return this.gzF;
     }
 
@@ -696,11 +696,11 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzG = str;
     }
 
-    public String bvm() {
+    public String bvl() {
         return this.gzG;
     }
 
-    public bd bvn() {
+    public bd bvm() {
         return this.gzN;
     }
 
@@ -708,7 +708,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzN = bdVar;
     }
 
-    public int bvo() {
+    public int bvn() {
         return this.gzD;
     }
 
@@ -716,7 +716,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzD = i;
     }
 
-    public com.baidu.tbadk.core.data.v bvp() {
+    public com.baidu.tbadk.core.data.v bvo() {
         return this.gzH;
     }
 
@@ -724,7 +724,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzH = vVar;
     }
 
-    public com.baidu.tbadk.core.data.p bvq() {
+    public com.baidu.tbadk.core.data.p bvp() {
         return this.gzJ;
     }
 
@@ -732,7 +732,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzJ = pVar;
     }
 
-    public com.baidu.tbadk.core.data.r bvr() {
+    public com.baidu.tbadk.core.data.r bvq() {
         return this.gzM;
     }
 
@@ -740,7 +740,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzM = rVar;
     }
 
-    public int bvs() {
+    public int bvr() {
         return this.gzP;
     }
 
@@ -748,7 +748,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzP = i;
     }
 
-    public au bvt() {
+    public au bvs() {
         return this.gzO;
     }
 
@@ -756,7 +756,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzO = auVar;
     }
 
-    public NavTabInfo bvu() {
+    public NavTabInfo bvt() {
         return this.gzC;
     }
 
@@ -764,7 +764,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzC = navTabInfo;
     }
 
-    public com.baidu.tbadk.core.data.l bvv() {
+    public com.baidu.tbadk.core.data.l bvu() {
         return this.gzQ;
     }
 
@@ -772,7 +772,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzQ = lVar;
     }
 
-    public Integer bvw() {
+    public Integer bvv() {
         return this.gzK;
     }
 
@@ -780,7 +780,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzK = num;
     }
 
-    public List<Integer> bvx() {
+    public List<Integer> bvw() {
         return this.gzU;
     }
 
@@ -788,7 +788,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzU = list;
     }
 
-    public List<com.baidu.adp.widget.ListView.f> bvy() {
+    public List<com.baidu.adp.widget.ListView.f> bvx() {
         return this.gzV;
     }
 
@@ -796,7 +796,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzV = list;
     }
 
-    public com.baidu.tieba.g.b bvz() {
+    public com.baidu.tieba.g.b bvy() {
         return this.gzY;
     }
 
@@ -804,7 +804,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gzY = bVar;
     }
 
-    public AlaLiveNotify bvA() {
+    public AlaLiveNotify bvz() {
         return this.gAb;
     }
 
@@ -812,7 +812,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gAb = alaLiveNotify;
     }
 
-    public List<FrsTabInfo> bvB() {
+    public List<FrsTabInfo> bvA() {
         return this.gAc;
     }
 
@@ -824,7 +824,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gAd = i;
     }
 
-    public int bvC() {
+    public int bvB() {
         return this.gAd;
     }
 
@@ -832,11 +832,11 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gAf = rVar;
     }
 
-    public com.baidu.tieba.frs.r bvD() {
+    public com.baidu.tieba.frs.r bvC() {
         return this.gAf;
     }
 
-    public j bvE() {
+    public j bvD() {
         return this.gAg;
     }
 
@@ -844,7 +844,7 @@ public class h implements com.baidu.tbadk.mvc.b.c {
         this.gAg = jVar;
     }
 
-    public e bvF() {
+    public e bvE() {
         return this.gzW;
     }
 

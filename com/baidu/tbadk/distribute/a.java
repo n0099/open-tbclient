@@ -349,7 +349,7 @@ public class a {
         }
         com.baidu.tieba.recapp.report.a a = e.a(downloadStaticsData, 101, 0);
         a.bW("dl", IntentConfig.START);
-        b.bmB().a(a);
+        b.bmA().a(a);
         if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
             downloadStaticsData.setDa_range_nt("0");
         }
@@ -380,7 +380,7 @@ public class a {
                 return;
             }
             a.bW("dl", str2);
-            b.bmB().a(a);
+            b.bmA().a(a);
         }
     }
 
@@ -390,7 +390,7 @@ public class a {
             com.baidu.tieba.recapp.report.a a = e.a(downloadStaticsData, 101, 0);
             a.setDownloadStaticsData(null);
             a.bW("dl", WriteImageActivityConfig.DELET_FLAG);
-            b.bmB().a(a);
+            b.bmA().a(a);
         }
     }
 

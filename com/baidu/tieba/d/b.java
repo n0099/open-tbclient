@@ -36,7 +36,7 @@ public class b {
         @Override // java.lang.Runnable
         public void run() {
             if (b.this.cjK == null && !StringUtils.isNull(b.this.mMessage)) {
-                if (!b.this.cjY || b.this.adK()) {
+                if (!b.this.cjY || b.this.adJ()) {
                     com.baidu.adp.lib.guide.d dVar = new com.baidu.adp.lib.guide.d();
                     dVar.o(b.this.ju).ac(0).A(true).B(true);
                     dVar.a(new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.d.b.1.1
@@ -81,7 +81,7 @@ public class b {
                     b.this.cjK.y(false);
                     b.this.cjK.j(b.this.mPageContext.getPageActivity());
                     b.this.cjL = true;
-                    b.this.adI();
+                    b.this.adH();
                     b.this.mHandler.postDelayed(b.this.cka, b.this.cjR);
                 }
             }
@@ -114,7 +114,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adI() {
+    public void adH() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(this.cjM, this.cjO + 1);
     }
 
@@ -129,7 +129,7 @@ public class b {
             this.cjO = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
             if (this.cjO < this.cjP) {
                 if (z) {
-                    adI();
+                    adH();
                     this.cjL = true;
                 }
                 if (this.mHandler == null) {
@@ -150,7 +150,7 @@ public class b {
         }
     }
 
-    public void adJ() {
+    public void adI() {
         if (this.cjK != null) {
             this.cjK.dismiss();
             this.cjK = null;
@@ -202,7 +202,7 @@ public class b {
         this.cjY = z;
     }
 
-    public boolean adK() {
+    public boolean adJ() {
         return this.ju != null && this.ju.getVisibility() == 0 && ((double) this.ju.getAlpha()) >= 0.4d;
     }
 }

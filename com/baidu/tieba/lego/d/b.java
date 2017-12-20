@@ -13,7 +13,7 @@ public class b implements a {
     private b() {
     }
 
-    public static a aIk() {
+    public static a aIj() {
         a aVar = emS.get();
         return aVar == null ? emT : aVar;
     }

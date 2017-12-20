@@ -9,7 +9,7 @@ public class PhotoLiveLinearLayout extends LinearLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bHq();
+        void bHp();
     }
 
     public PhotoLiveLinearLayout(Context context) {
@@ -31,7 +31,7 @@ public class PhotoLiveLinearLayout extends LinearLayout {
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (this.hiS != null) {
-            this.hiS.bHq();
+            this.hiS.bHp();
         }
     }
 

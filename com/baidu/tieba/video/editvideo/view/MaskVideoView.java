@@ -140,7 +140,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void pause() {
-        bCz();
+        bCy();
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
@@ -301,13 +301,13 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         }
     }
 
-    public void bCz() {
+    public void bCy() {
         if (this.bdg.isPlaying()) {
             this.bdg.pause();
         }
     }
 
-    public void bCA() {
+    public void bCz() {
         this.bdg.start();
         this.bdg.seekTo(0);
     }
@@ -347,10 +347,10 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-            bCB();
+            bCA();
         }
 
-        private void bCB() {
+        private void bCA() {
             this.gRV = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
             this.gRW = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
             this.mTextureId = this.gRW.createTextureObject();
@@ -373,7 +373,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         public void onDrawFrame(GL10 gl10) {
             if (!this.gTL) {
                 if (this.gRV == null) {
-                    bCB();
+                    bCA();
                     this.bdg.setSurface(this.mSurface);
                 }
                 this.mSurfaceTexture.updateTexImage();

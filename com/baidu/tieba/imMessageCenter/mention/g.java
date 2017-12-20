@@ -34,7 +34,7 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
                 }
                 MentionActivityConfig.newJumpIn = true;
                 if (g.this.eav != null) {
-                    g.this.eav.anW();
+                    g.this.eav.anV();
                     g.this.eav.D(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
@@ -76,7 +76,7 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         if (getActivity() != null && Q(getActivity().getIntent())) {
             this.eav.onNewIntent(getActivity().getIntent());
         } else {
-            this.eav.anW();
+            this.eav.anV();
         }
         super.onViewCreated(view, bundle);
     }

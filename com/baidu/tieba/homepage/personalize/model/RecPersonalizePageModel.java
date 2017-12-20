@@ -82,7 +82,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
         };
         setUniqueId(bdUniqueId);
         aac();
-        adp();
+        ado();
         registerListener(this.mNetMessageListener);
     }
 
@@ -113,7 +113,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    private void adp() {
+    private void ado() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309264);
         bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
         bVar.m(true);
@@ -144,15 +144,15 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void a(int i, boolean z, ResponsedMessage<?> responsedMessage) {
-        if (r.GB().GC() && com.baidu.tieba.homepage.framework.a.atP().getCreateTime() > 0) {
-            long lM = com.baidu.tieba.homepage.framework.a.atP().lM(1);
-            long createTime = com.baidu.tieba.homepage.framework.a.atP().getCreateTime();
-            g gVar = new g(BaseActivity.FILECHOOSER_RESULTCODE_FOR_ANDROID_5, z, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.atP().lL(1), false, lM + createTime);
+        if (r.GB().GC() && com.baidu.tieba.homepage.framework.a.atO().getCreateTime() > 0) {
+            long lM = com.baidu.tieba.homepage.framework.a.atO().lM(1);
+            long createTime = com.baidu.tieba.homepage.framework.a.atO().getCreateTime();
+            g gVar = new g(BaseActivity.FILECHOOSER_RESULTCODE_FOR_ANDROID_5, z, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.atO().lL(1), false, lM + createTime);
             if (gVar != null) {
                 gVar.pageType = i;
                 gVar.Gw();
             }
-            com.baidu.tieba.homepage.framework.a.atP().setCreateTime(0L);
+            com.baidu.tieba.homepage.framework.a.atO().setCreateTime(0L);
         }
     }
 }

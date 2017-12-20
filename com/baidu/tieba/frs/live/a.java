@@ -57,10 +57,10 @@ public class a {
                 a.this.cXo = frsLiveTipResponseMessage.infoCoreData;
                 a.this.cXp = frsLiveTipResponseMessage.listCoreData;
                 if (a.this.bmJ != null) {
-                    a.this.bmJ.amJ();
+                    a.this.bmJ.amI();
                 }
                 if (a.this.cXm != 0) {
-                    a.this.apE();
+                    a.this.apD();
                 }
             }
         }
@@ -73,17 +73,17 @@ public class a {
             }
         }
     };
-    private int cXl = apJ();
+    private int cXl = apI();
 
     public a(g gVar, int i) {
         this.cIy = gVar;
         this.mForumId = i;
     }
 
-    public void apD() {
+    public void apC() {
         if (this.cIy != null && this.cIy.isAdded()) {
-            if (System.currentTimeMillis() - apM() >= 1800000) {
-                if (this.cIy.alw() && isFirst()) {
+            if (System.currentTimeMillis() - apL() >= 1800000) {
+                if (this.cIy.alv() && isFirst()) {
                     this.isFirst = false;
                     return;
                 }
@@ -96,25 +96,25 @@ public class a {
         }
     }
 
-    public void apE() {
+    public void apD() {
         if (!StringUtils.isNull(this.cXn) && this.cXo != null) {
-            if (this.cXm != 2 || apJ() < 3) {
+            if (this.cXm != 2 || apI() < 3) {
                 bs(this.cIy.getPageContext().getPageActivity());
                 if (this.cUT != null) {
                     this.cUT.setText(this.cXn);
                 }
                 onChangeSkinType();
                 PL();
-                apL();
+                apK();
             }
         }
     }
 
-    public void apF() {
+    public void apE() {
         if (this.cIy != null) {
-            d alm = this.cIy.alm();
-            if ((alm instanceof com.baidu.tieba.frs.entelechy.c.a) && ((com.baidu.tieba.frs.entelechy.c.a) alm).anY() != null) {
-                ((com.baidu.tieba.frs.entelechy.c.a) alm).anY().kQ(49);
+            d all = this.cIy.all();
+            if ((all instanceof com.baidu.tieba.frs.entelechy.c.a) && ((com.baidu.tieba.frs.entelechy.c.a) all).anX() != null) {
+                ((com.baidu.tieba.frs.entelechy.c.a) all).anX().kQ(49);
             }
         }
     }
@@ -132,7 +132,7 @@ public class a {
             this.cXj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.live.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.apG();
+                    a.this.apF();
                 }
             });
             this.cUT = (TextView) this.cXj.findViewById(d.g.frs_hot_live_tip_content);
@@ -140,7 +140,7 @@ public class a {
             this.cXk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.live.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.apH();
+                    a.this.apG();
                 }
             });
             onChangeSkinType();
@@ -149,23 +149,23 @@ public class a {
 
     private void PL() {
         if (this.cIy != null) {
-            com.baidu.tieba.frs.entelechy.b.d alm = this.cIy.alm();
-            j alo = this.cIy.alo();
-            if (alo != null && alm != null && alm.anT() != null && (alo.WQ() instanceof NoPressedRelativeLayout)) {
-                View anT = alm.anT();
-                BdTypeListView listView = alo.getListView();
-                if (anT != null && listView != null) {
+            com.baidu.tieba.frs.entelechy.b.d all = this.cIy.all();
+            j aln = this.cIy.aln();
+            if (aln != null && all != null && all.anS() != null && (aln.WQ() instanceof NoPressedRelativeLayout)) {
+                View anS = all.anS();
+                BdTypeListView listView = aln.getListView();
+                if (anS != null && listView != null) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.f(TbadkCoreApplication.getInst(), d.e.ds56));
                     layoutParams.addRule(6, d.g.frs_list_content);
-                    if (alo.alL() != null && alo.alL().getLayoutParams() != null) {
-                        layoutParams.topMargin = alo.alL().getLayoutParams().height;
+                    if (aln.alK() != null && aln.alK().getLayoutParams() != null) {
+                        layoutParams.topMargin = aln.alK().getLayoutParams().height;
                     } else {
                         layoutParams.topMargin = 0;
                     }
                     if (this.bmJ == null) {
                         this.bmJ = new at();
                     }
-                    NoPressedRelativeLayout noPressedRelativeLayout = (NoPressedRelativeLayout) alo.WQ();
+                    NoPressedRelativeLayout noPressedRelativeLayout = (NoPressedRelativeLayout) aln.WQ();
                     if (this.cXm == 2) {
                         this.bmJ.a(this.cXj, noPressedRelativeLayout, layoutParams, 5000);
                     } else if (this.cXm == 1) {
@@ -178,8 +178,8 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void apG() {
-        apK();
+    public void apF() {
+        apJ();
         if (this.cXo != null && this.cIy != null && this.cIy.isAdded()) {
             boolean equals = TextUtils.equals(getUserId(), String.valueOf(this.cXo.userID));
             String str = "";
@@ -194,7 +194,7 @@ public class a {
                 TiebaStatic.log(new ak("c12331"));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(this.cIy.getPageContext().getPageActivity(), this.cXo, this.cXp, str, getUserId(), equals, null, null)));
-            if (this.cIy.alF().aRo().isGameForumType()) {
+            if (this.cIy.alE().aRn().isGameForumType()) {
                 CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GAME_FRS_JUMP_TO_LIVE_TAB);
                 customMessage.setTag(this.cIy.getBaseFragmentActivity().getUniqueId());
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRS_JUMP_TO_LIVE_TAB);
@@ -205,41 +205,41 @@ public class a {
             e.fP().post(new Runnable() { // from class: com.baidu.tieba.frs.live.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.apF();
+                    a.this.apE();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void apH() {
+    public void apG() {
         if (this.cXm == 2) {
-            apI();
+            apH();
         }
         if (this.bmJ != null) {
             this.bmJ.hideTip();
         }
     }
 
-    private void apI() {
+    private void apH() {
         this.cXl++;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), this.cXl);
     }
 
-    private int apJ() {
+    private int apI() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), 0);
     }
 
-    private void apK() {
+    private void apJ() {
         this.cXl = 0;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), this.cXl);
     }
 
-    private void apL() {
+    private void apK() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("FRS_HOT_LIVE_TIP_LAST_SHOWTIME" + getUserId(), System.currentTimeMillis());
     }
 
-    private long apM() {
+    private long apL() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("FRS_HOT_LIVE_TIP_LAST_SHOWTIME" + getUserId(), 0L);
     }
 
@@ -260,7 +260,7 @@ public class a {
 
     public void onDestory() {
         if (this.bmJ != null) {
-            this.bmJ.amJ();
+            this.bmJ.amI();
         }
         e.fP().removeCallbacks(this.cXs);
         if (this.cXq != null) {

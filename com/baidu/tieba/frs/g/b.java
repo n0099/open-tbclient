@@ -35,12 +35,12 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
             if (b.this.cIy != null) {
                 if (view == b.this.dau) {
                     TiebaStatic.eventStat(b.this.cIy.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
-                    if (!b.this.cIy.alG() && b.this.cIy.alo() != null) {
+                    if (!b.this.cIy.alF() && b.this.cIy.aln() != null) {
                         TiebaStatic.log(new ak("c11752").ac(ImageViewerConfig.FORUM_ID, b.this.cIy.getFid()).ac("obj_locate", "3"));
-                        b.this.cIy.alo().startPullRefresh();
+                        b.this.cIy.aln().startPullRefresh();
                     }
-                } else if (view == b.this.dav && b.this.cIy.alo() != null && b.this.cIy.alo().getListView() != null) {
-                    b.this.cIy.alo().getListView().smoothScrollToPosition(0);
+                } else if (view == b.this.dav && b.this.cIy.aln() != null && b.this.cIy.aln().getListView() != null) {
+                    b.this.cIy.aln().getListView().smoothScrollToPosition(0);
                 }
             }
         }
@@ -52,7 +52,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         this.dav = null;
         this.cIy = gVar;
         this.dam = noPressedRelativeLayout;
-        aqH();
+        aqG();
         this.das = (LinearLayout) this.dam.findViewById(d.g.frs_stick_bottom_holder);
         this.dav = (EntelechyPullUpRefreshView) this.dam.findViewById(d.g.frs_stick_bottom_goto_top);
         this.dau = (EntelechyPullUpRefreshView) this.dam.findViewById(d.g.frs_stick_bottom_reload);
@@ -61,7 +61,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         onChangeSkinType(this.mSkinType);
     }
 
-    private void aqH() {
+    private void aqG() {
         this.dan = new TbImageView(this.cIy.getPageContext().getPageActivity());
         int f = l.f(this.cIy.getPageContext().getPageActivity(), d.e.ds68);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(f, f);
@@ -79,12 +79,12 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
             this.aDx = z;
             if (z) {
                 if (z2) {
-                    aqK();
+                    aqJ();
                 } else {
                     this.das.setVisibility(0);
                 }
             } else if (z2) {
-                aqM();
+                aqL();
             } else {
                 this.das.setVisibility(8);
             }
@@ -92,31 +92,31 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public boolean anO() {
+    public boolean anN() {
         if (this.dau == null) {
             return false;
         }
         return this.aDx;
     }
 
-    private void aqI() {
+    private void aqH() {
         if (this.cIy.isAdded()) {
             this.dao = AnimationUtils.loadAnimation(this.cIy.getPageContext().getPageActivity(), d.a.frs_pull_up_refresh_out);
             this.dao.setAnimationListener(new a(this.das));
         }
     }
 
-    private void aqJ() {
+    private void aqI() {
         if (this.cIy.isAdded()) {
             this.dap = AnimationUtils.loadAnimation(this.cIy.getPageContext().getPageActivity(), d.a.frs_pull_up_refresh_in);
             this.dap.setAnimationListener(new animation.Animation$AnimationListenerC0103b(this.das));
         }
     }
 
-    private void aqK() {
-        aqL();
+    private void aqJ() {
+        aqK();
         if (this.dap == null) {
-            aqJ();
+            aqI();
         }
         if (this.dap != null) {
             this.das.setVisibility(0);
@@ -124,21 +124,21 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         }
     }
 
-    private void aqL() {
+    private void aqK() {
         if (this.das != null) {
             this.das.clearAnimation();
         }
     }
 
-    private boolean aw(View view) {
+    private boolean ax(View view) {
         Animation animation;
         return (view == null || (animation = view.getAnimation()) == null || !animation.hasStarted() || animation.hasEnded()) ? false : true;
     }
 
-    private void aqM() {
-        aqL();
+    private void aqL() {
+        aqK();
         if (this.dao == null) {
-            aqI();
+            aqH();
         }
         if (this.dao != null) {
             this.das.startAnimation(this.dao);
@@ -146,16 +146,16 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public void anQ() {
-        if (this.dau != null && !aw(this.dau)) {
-            this.dau.ajM();
+    public void anP() {
+        if (this.dau != null && !ax(this.dau)) {
+            this.dau.ajL();
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public void anP() {
-        if (this.dau != null && !aw(this.dau)) {
-            this.dau.ajL();
+    public void anO() {
+        if (this.dau != null && !ax(this.dau)) {
+            this.dau.ajK();
         }
     }
 
@@ -177,9 +177,9 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         this.daq = z;
         if (this.dau != null) {
             if (z) {
-                aqM();
+                aqL();
             } else {
-                aqK();
+                aqJ();
             }
         }
     }
@@ -203,7 +203,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     }
 
     @Override // com.baidu.tieba.frs.tab.c
-    public void aqA() {
+    public void aqz() {
         if (this.dan != null) {
             this.dan.clearAnimation();
             this.dan.setImageDrawable(null);

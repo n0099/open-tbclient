@@ -31,7 +31,7 @@ public class m extends c {
         return this.bjE;
     }
 
-    public int acu() {
+    public int act() {
         return (this.bjE == null || StringUtils.isNull(this.bjE.getPhotoLiveCover())) ? 0 : 1;
     }
 
@@ -51,19 +51,19 @@ public class m extends c {
         this.cdX = akVar;
     }
 
+    public ak acu() {
+        return this.cdU != null ? this.cdU.ac("obj_param3", com.baidu.tieba.card.k.abJ()) : this.cdU;
+    }
+
     public ak acv() {
-        return this.cdU != null ? this.cdU.ac("obj_param3", com.baidu.tieba.card.k.abK()) : this.cdU;
+        return this.cdV != null ? this.cdV.ac("obj_param3", com.baidu.tieba.card.k.abJ()) : this.cdV;
     }
 
     public ak acw() {
-        return this.cdV != null ? this.cdV.ac("obj_param3", com.baidu.tieba.card.k.abK()) : this.cdV;
+        return this.cdX != null ? this.cdX.ac("obj_param3", com.baidu.tieba.card.k.abJ()) : this.cdX;
     }
 
     public ak acx() {
-        return this.cdX != null ? this.cdX.ac("obj_param3", com.baidu.tieba.card.k.abK()) : this.cdX;
-    }
-
-    public ak acy() {
-        return this.cdW != null ? this.cdW.ac("obj_param3", com.baidu.tieba.card.k.abK()) : this.cdW;
+        return this.cdW != null ? this.cdW.ac("obj_param3", com.baidu.tieba.card.k.abJ()) : this.cdW;
     }
 }

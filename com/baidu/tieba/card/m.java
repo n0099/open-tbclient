@@ -145,7 +145,7 @@ public class m extends com.baidu.tieba.card.a<com.baidu.tieba.card.data.m> {
         String string = this.mPageContext.getResources().getString(d.j.photo_live_tips);
         new SpannableStringBuilder(string + this.caW.bjE.getTitle()).setSpan(new ForegroundColorSpan(aj.getColor(d.C0096d.cp_link_tip_a)), 0, string.length(), 17);
         this.caX.bZU.setText(e(this.caW.bjE.getTitle()));
-        this.anP = "feed#" + this.caW.acf();
+        this.anP = "feed#" + this.caW.ace();
         this.caX.cbd.setIsSimpleThread(false);
         this.caX.cbd.setUserAfterClickListener(this.aod);
         this.caX.cbd.wK();
@@ -182,11 +182,11 @@ public class m extends com.baidu.tieba.card.a<com.baidu.tieba.card.data.m> {
             if (abt() != null) {
                 abt().a(this.caX.mRootView, this.caW);
             }
-            abP();
+            abO();
         }
     }
 
-    public void abO() {
+    public void abN() {
         this.caX.bZg = new com.baidu.tieba.NEGFeedBack.c(this.mPageContext);
         this.caX.bZg.Lc();
         this.caX.cbd.addView(this.caX.bZg);
@@ -197,14 +197,14 @@ public class m extends com.baidu.tieba.card.a<com.baidu.tieba.card.data.m> {
         }
     }
 
-    private void abP() {
+    private void abO() {
         if (this.caW != null && this.caW.bjE != null) {
             k.jO(this.caW.bjE.getId());
-            if (!abQ()) {
+            if (!abP()) {
                 UtilHelper.showToast(this.mPageContext.getPageActivity(), d.j.plugin_config_not_found);
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.mPageContext.getPageActivity(), this.caW.bjE.getTid()).cx(this.caW.bjE.rM()).cA(this.caW.acg()).cy(k.rl()).pn()));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.mPageContext.getPageActivity(), this.caW.bjE.getTid()).cx(this.caW.bjE.rM()).cA(this.caW.acf()).cy(k.rl()).pn()));
             jQ(this.caW.bjE.getTid());
         }
     }
@@ -234,7 +234,7 @@ public class m extends com.baidu.tieba.card.a<com.baidu.tieba.card.data.m> {
         }
     }
 
-    private boolean abQ() {
+    private boolean abP() {
         return TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class);
     }
 
@@ -291,7 +291,7 @@ public class m extends com.baidu.tieba.card.a<com.baidu.tieba.card.data.m> {
         return null;
     }
 
-    public View abR() {
+    public View abQ() {
         return this.caX.ani;
     }
 

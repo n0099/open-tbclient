@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    public static String aSl() {
+    public static String aSk() {
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize == 0) {
             return TbadkCoreApplication.getInst().getString(d.j.toast_font_size_xlarge);
@@ -22,7 +22,7 @@ public class b {
         return TbadkCoreApplication.getInst().getString(d.j.toast_font_size_small);
     }
 
-    public static void aSm() {
+    public static void aSl() {
         int i = 1;
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize != 0) {
@@ -36,10 +36,10 @@ public class b {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
         }
-        BdToast.a(TbadkCoreApplication.getInst(), aSl(), d.f.icon_word_t_size, 0).tq();
+        BdToast.a(TbadkCoreApplication.getInst(), aSk(), d.f.icon_word_t_size, 0).tq();
     }
 
-    public static void aSn() {
+    public static void aSm() {
         int i = 1;
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize == 0) {
@@ -53,7 +53,7 @@ public class b {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
         }
-        BdToast.a(TbadkCoreApplication.getInst(), aSl(), d.f.icon_word_t_size, 0).tq();
+        BdToast.a(TbadkCoreApplication.getInst(), aSk(), d.f.icon_word_t_size, 0).tq();
     }
 
     public static void pN(int i) {

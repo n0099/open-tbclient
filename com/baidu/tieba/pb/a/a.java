@@ -20,7 +20,7 @@ public class a implements View.OnTouchListener {
                 a.this.eQu = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
                 if (a.this.eQv != null) {
-                    a.this.eQv.amp();
+                    a.this.eQv.amo();
                 }
                 a.this.count = 0;
                 a.this.eQt = 0L;
@@ -32,9 +32,9 @@ public class a implements View.OnTouchListener {
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0126a {
-        void amp();
+        void amo();
 
-        void amq();
+        void amp();
     }
 
     public a(InterfaceC0126a interfaceC0126a) {
@@ -55,7 +55,7 @@ public class a implements View.OnTouchListener {
             } else if (this.count == 2) {
                 this.eQu = System.currentTimeMillis();
                 if (this.eQu - this.eQt < this.eQw) {
-                    this.eQv.amq();
+                    this.eQv.amp();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

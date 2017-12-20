@@ -33,12 +33,12 @@ public class d implements com.baidu.tieba.frs.entelechy.b.e {
             this.daE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.g.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!d.this.apB()) {
+                    if (!d.this.apA()) {
                         if (d.this.cWK == null) {
                             d.this.cWK = new com.baidu.tieba.write.c(d.this.cIy.getPageContext(), d.this.dam, "frs");
                             d.this.cWK.uC("2");
                         }
-                        d.this.cWK.a(d.this.cIy.alI());
+                        d.this.cWK.a(d.this.cIy.alH());
                         d.this.cWK.nV(false);
                     }
                 }
@@ -55,10 +55,14 @@ public class d implements com.baidu.tieba.frs.entelechy.b.e {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.e
-    public void anU() {
+    public void anT() {
         if (this.cWK != null) {
             this.cWK.onDestroy();
         }
+    }
+
+    @Override // com.baidu.tieba.frs.entelechy.b.e
+    public void anU() {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.e
@@ -66,15 +70,11 @@ public class d implements com.baidu.tieba.frs.entelechy.b.e {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.e
-    public void anW() {
-    }
-
-    @Override // com.baidu.tieba.frs.entelechy.b.e
-    public boolean alT() {
+    public boolean alS() {
         if (this.cWK == null || !this.cWK.isShowing()) {
             return false;
         }
-        this.cWK.bFL();
+        this.cWK.bFK();
         return true;
     }
 
@@ -87,12 +87,12 @@ public class d implements com.baidu.tieba.frs.entelechy.b.e {
         aj.c(this.daE, d.f.icon_tabbar_add_n);
     }
 
-    public boolean apB() {
-        k alF;
+    public boolean apA() {
+        k alE;
         String fixedText;
-        if (this.cIy != null && (alF = this.cIy.alF()) != null) {
+        if (this.cIy != null && (alE = this.cIy.alE()) != null) {
             if (ax.aS(this.cIy.getPageContext().getPageActivity())) {
-                AntiData qg = alF.qg();
+                AntiData qg = alE.qg();
                 if (qg != null) {
                     if (a(qg.getBlock_stat(), qg.mFrsForbidenDialogInfo)) {
                         return true;
@@ -152,7 +152,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.e {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.e
-    public boolean anX() {
+    public boolean anW() {
         if (this.cWK == null) {
             return false;
         }

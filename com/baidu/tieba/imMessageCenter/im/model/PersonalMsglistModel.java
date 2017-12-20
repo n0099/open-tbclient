@@ -65,7 +65,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001146) {
                         boolean processHistory = PersonalMsglistModel.this.processHistory(customResponsedMessage);
                         if ((customResponsedMessage.getOrginalMessage() instanceof LoadHistoryMessage) && processHistory && (callback = ((LoadHistoryMessage) customResponsedMessage.getOrginalMessage()).getCallback()) != null) {
-                            callback.axl();
+                            callback.axk();
                         }
                     }
                 }
@@ -88,7 +88,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001146) {
                         boolean processHistory = PersonalMsglistModel.this.processHistory(customResponsedMessage);
                         if ((customResponsedMessage.getOrginalMessage() instanceof LoadHistoryMessage) && processHistory && (callback = ((LoadHistoryMessage) customResponsedMessage.getOrginalMessage()).getCallback()) != null) {
-                            callback.axl();
+                            callback.axk();
                         }
                     }
                 }
@@ -206,7 +206,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.u
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(l.azG().be(String.valueOf(PersonalMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(l.azF().be(String.valueOf(PersonalMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -220,7 +220,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.u
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(l.azG().bd(String.valueOf(PersonalMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(l.azF().bd(String.valueOf(PersonalMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -240,11 +240,11 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected boolean onAfterLoadFromDb() {
         ImMessageCenterPojo ai;
-        if (getUser() == null || (ai = b.aBP().ai(getUser().getUserId(), 2)) == null) {
+        if (getUser() == null || (ai = b.aBO().ai(getUser().getUserId(), 2)) == null) {
             return false;
         }
         bZ(ai.getRead_msgId());
-        aEA();
+        aEz();
         return true;
     }
 
@@ -273,7 +273,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                 }
                 processMsgFromServerCommon(linkedList);
                 if (ChatStatusManager.getInst().getIsOpen(0)) {
-                    aEy();
+                    aEx();
                 }
             }
         }
@@ -314,7 +314,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         this.followStatus = i;
     }
 
-    public String aEx() {
+    public String aEw() {
         return this.dZa;
     }
 
@@ -333,14 +333,14 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return cacheInfo;
     }
 
-    public void aEy() {
+    public void aEx() {
         if (this.dZd) {
-            aEA();
+            aEz();
             this.dZd = false;
         }
     }
 
-    public CardStatus aEz() {
+    public CardStatus aEy() {
         return this.dZb;
     }
 
@@ -348,14 +348,14 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         this.dZb = cardStatus;
     }
 
-    private void aEA() {
+    private void aEz() {
         ImMessageCenterPojo ai;
         if (getUser() != null) {
             long userIdLong = getUser().getUserIdLong();
-            if (userIdLong != 0 && (ai = b.aBP().ai(getUser().getUserId(), 2)) != null) {
-                long aEB = aEB();
-                if (aEB > ai.getSent_msgId()) {
-                    RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(com.baidu.tieba.im.util.d.bY(aEB), userIdLong);
+            if (userIdLong != 0 && (ai = b.aBO().ai(getUser().getUserId(), 2)) != null) {
+                long aEA = aEA();
+                if (aEA > ai.getSent_msgId()) {
+                    RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(com.baidu.tieba.im.util.d.bY(aEA), userIdLong);
                     if (!MessageManager.getInstance().getSocketClient().a(requestPersonalMsgReadMessage)) {
                         MessageManager.getInstance().sendMessage(requestPersonalMsgReadMessage);
                     }
@@ -364,7 +364,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         }
     }
 
-    private long aEB() {
+    private long aEA() {
         if (this.mDatas == null || this.mDatas.getChatMessages() == null || this.mDatas.getChatMessages().size() == 0) {
             return -1L;
         }
@@ -381,9 +381,9 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         v.b(new u<CommonMsgPojo>() { // from class: com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
-            /* renamed from: aEC */
+            /* renamed from: aEB */
             public CommonMsgPojo doInBackground() {
-                return l.azG().ag(PersonalMsglistModel.this.getUser().getUserId(), 23);
+                return l.azF().ag(PersonalMsglistModel.this.getUser().getUserId(), 23);
             }
         }, new h<CommonMsgPojo>() { // from class: com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel.5
             /* JADX DEBUG: Method merged with bridge method */
@@ -402,7 +402,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                         /* JADX WARN: Can't rename method to resolve collision */
                         @Override // com.baidu.tbadk.util.u
                         public Boolean doInBackground() {
-                            return Boolean.valueOf(l.azG().a(e.r(personalChatMessage), linkedList, false));
+                            return Boolean.valueOf(l.azF().a(e.r(personalChatMessage), linkedList, false));
                         }
                     }, new h<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel.5.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -422,6 +422,6 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected long getMaxMid() {
-        return b.aBP().am(String.valueOf(com.baidu.tieba.im.sendmessage.a.dUh), -1);
+        return b.aBO().am(String.valueOf(com.baidu.tieba.im.sendmessage.a.dUh), -1);
     }
 }

@@ -108,7 +108,7 @@ public class e {
         }
     }
 
-    public void and() {
+    public void anc() {
         if (this.gPM != null) {
             this.gPM.cancelLoadData();
         }

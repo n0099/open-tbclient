@@ -11,7 +11,7 @@ public class e {
         this.acr = arrayList;
     }
 
-    public boolean baa() {
+    public boolean aZZ() {
         return this.frW;
     }
 
@@ -19,7 +19,7 @@ public class e {
         this.frW = z;
     }
 
-    public ArrayList<f> bab() {
+    public ArrayList<f> baa() {
         return this.acr;
     }
 }

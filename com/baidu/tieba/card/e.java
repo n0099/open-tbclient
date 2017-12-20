@@ -137,7 +137,7 @@ public class e extends b<com.baidu.tieba.card.data.g> {
             gVar.getDataList().clear();
             gVar.getDataList().addAll(arrayList.subList(0, 10));
         }
-        this.bZz = gVar.acm();
+        this.bZz = gVar.acl();
         this.stType = gVar.getStType();
         if (!h(gVar.getDataList(), this.bZu)) {
             boolean z = com.baidu.tbadk.core.util.v.v(gVar.getDataList()) != com.baidu.tbadk.core.util.v.v(this.bZu);
@@ -235,7 +235,7 @@ public class e extends b<com.baidu.tieba.card.data.g> {
                             String valueOf = String.valueOf(view.getTag(d.g.tag_forum_id));
                             if (am.aL(str)) {
                                 e.this.bZt.ce(str, valueOf);
-                                TiebaStatic.log(new ak(e.this.bZw).ac(ImageViewerConfig.FORUM_ID, valueOf).ac("obj_param3", k.abK()));
+                                TiebaStatic.log(new ak(e.this.bZw).ac(ImageViewerConfig.FORUM_ID, valueOf).ac("obj_param3", k.abJ()));
                             }
                         }
                     } else if (view.getTag(d.g.tag_forum_name) != null) {
@@ -243,9 +243,9 @@ public class e extends b<com.baidu.tieba.card.data.g> {
                         String valueOf2 = String.valueOf(view.getTag(d.g.tag_forum_id));
                         if (am.aL(str2)) {
                             if (view.getId() == d.g.m_forum_name_textview) {
-                                TiebaStatic.log(new ak(e.this.bZy).ac(ImageViewerConfig.FORUM_ID, valueOf2).ac("obj_param3", k.abK()));
+                                TiebaStatic.log(new ak(e.this.bZy).ac(ImageViewerConfig.FORUM_ID, valueOf2).ac("obj_param3", k.abJ()));
                             } else {
-                                TiebaStatic.log(new ak(e.this.bZx).ac(ImageViewerConfig.FORUM_ID, valueOf2).ac("obj_param3", k.abK()));
+                                TiebaStatic.log(new ak(e.this.bZx).ac(ImageViewerConfig.FORUM_ID, valueOf2).ac("obj_param3", k.abJ()));
                             }
                             if (!StringUtils.isNull(e.this.stType) && !StringUtils.isNull(e.this.bZz)) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(e.this.getView().getContext()).createCfgForpersonalized(str2, e.this.stType, e.this.bZz)));

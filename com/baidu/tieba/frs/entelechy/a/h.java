@@ -71,11 +71,11 @@ public class h extends e<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.t
     @Override // com.baidu.tieba.frs.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardHListViewData cardHListViewData, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.acC() == null) {
+        if (aVar == null || aVar.acB() == null) {
             return null;
         }
-        aVar.acC().a(cardHListViewData);
-        aVar.acC().b(this.cNJ);
+        aVar.acB().a(cardHListViewData);
+        aVar.acB().b(this.cNJ);
         return aVar.getView();
     }
 

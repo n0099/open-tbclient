@@ -264,7 +264,7 @@ public class e extends ViewGroup {
         this.fmd.start();
     }
 
-    public boolean auL() {
+    public boolean auK() {
         return this.flV;
     }
 
@@ -276,7 +276,7 @@ public class e extends ViewGroup {
         return this.flN / this.flO;
     }
 
-    public void aYI() {
+    public void aYH() {
         int i;
         int i2;
         int i3 = 0;
@@ -316,13 +316,13 @@ public class e extends ViewGroup {
 
     public void bx(int i, int i2) {
         if (!this.flV) {
-            aYK();
+            aYJ();
             return;
         }
         Rect rect = new Rect();
         getGlobalVisibleRect(rect);
         if (!rect.contains(i, i2)) {
-            aYJ();
+            aYI();
             return;
         }
         int i3 = 0;
@@ -338,7 +338,7 @@ public class e extends ViewGroup {
                     return;
                 }
             } else {
-                aYJ();
+                aYI();
                 return;
             }
         }
@@ -346,7 +346,7 @@ public class e extends ViewGroup {
 
     public void f(ImageView imageView) {
         if (imageView != null && this.flW != imageView && !this.fma) {
-            aYK();
+            aYJ();
             this.flW = imageView;
             float size = (((this.flT - this.flS) / (this.flX.size() - 1)) * this.flX.indexOf(imageView)) + this.flS;
             float zoomInScale = getZoomInScale();
@@ -388,7 +388,7 @@ public class e extends ViewGroup {
         }
     }
 
-    public void aYJ() {
+    public void aYI() {
         if (this.flW != null && !this.fma) {
             ImageView imageView = this.flW;
             float zoomInScale = getZoomInScale();
@@ -436,13 +436,13 @@ public class e extends ViewGroup {
 
     public int by(int i, int i2) {
         if (!this.flV) {
-            aYK();
+            aYJ();
             return -1;
         }
         Rect rect = new Rect();
         getGlobalVisibleRect(rect);
         if (!rect.contains(i, i2)) {
-            aYJ();
+            aYI();
             return -1;
         }
         int i3 = 0;
@@ -455,13 +455,13 @@ public class e extends ViewGroup {
             if (!rect.contains(i, i2)) {
                 i3 = i4 + 1;
             } else {
-                aYJ();
+                aYI();
                 return i4 + 1;
             }
         }
     }
 
-    public void aYK() {
+    public void aYJ() {
         if (this.fmd != null && this.fmd.isStarted()) {
             this.fmd.cancel();
             this.fmd = null;

@@ -33,7 +33,7 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bIT();
+        void bIS();
 
         void wf(int i);
 
@@ -112,7 +112,7 @@ public class e extends BaseAdapter {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (e.this.hms != null) {
-                        e.this.hms.bIT();
+                        e.this.hms.bIS();
                     }
                 }
             });

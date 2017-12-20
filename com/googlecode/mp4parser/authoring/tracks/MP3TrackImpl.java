@@ -156,7 +156,7 @@ public class MP3TrackImpl extends AbstractTrack {
         a() {
         }
 
-        int bMW() {
+        int bMV() {
             return ((this.hyX * 144) / this.gVm) + this.padding;
         }
     }
@@ -171,7 +171,7 @@ public class MP3TrackImpl extends AbstractTrack {
                     aVar = readMP3Header;
                 }
                 dataSource.position(position);
-                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.bMW());
+                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.bMV());
                 dataSource.read(allocate);
                 allocate.rewind();
                 this.samples.add(new SampleImpl(allocate));

@@ -64,9 +64,9 @@ public class PbFakeFloorModel extends DataModel {
                     } else if (responsedMessage instanceof SubPbSocketResponseMessage) {
                         mVar = ((SubPbSocketResponseMessage) responsedMessage).pbFloorData;
                     }
-                    if (mVar != null && mVar.aSg() != null) {
-                        PostData postData = (PostData) v.c(mVar.aSg(), mVar.aSg().size() - 1);
-                        if (postData != null && PbFakeFloorModel.this.fgl != null && PbFakeFloorModel.this.fgl.aSc() != null) {
+                    if (mVar != null && mVar.aSf() != null) {
+                        PostData postData = (PostData) v.c(mVar.aSf(), mVar.aSf().size() - 1);
+                        if (postData != null && PbFakeFloorModel.this.fgl != null && PbFakeFloorModel.this.fgl.aSb() != null) {
                             if (PbFakeFloorModel.this.fgl.Ox() != null && PbFakeFloorModel.this.fgl.Ox().rv() != null && postData.rv() != null && (userId = PbFakeFloorModel.this.fgl.Ox().rv().getUserId()) != null && userId.equals(postData.rv().getUserId())) {
                                 z = true;
                             }
@@ -95,19 +95,19 @@ public class PbFakeFloorModel extends DataModel {
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public WriteData fS(String str) {
-        if (this.fgl == null || this.fgl.aSj() == null || this.fgl.Ox() == null || this.fgl.aSc() == null) {
+        if (this.fgl == null || this.fgl.aSi() == null || this.fgl.Ox() == null || this.fgl.aSb() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
         boolean sI = this.fgl.Ox().sI();
         if (sI) {
-            writeData.setVForumId(this.fgl.aSj().getId());
-            writeData.setVForumName(this.fgl.aSj().getName());
+            writeData.setVForumId(this.fgl.aSi().getId());
+            writeData.setVForumName(this.fgl.aSi().getName());
         } else {
-            writeData.setForumName(this.fgl.aSj().getName());
-            writeData.setForumId(this.fgl.aSj().getId());
+            writeData.setForumName(this.fgl.aSi().getName());
+            writeData.setForumId(this.fgl.aSi().getId());
         }
-        writeData.setFloor(this.fgl.aSc().getId());
+        writeData.setFloor(this.fgl.aSb().getId());
         writeData.setType(2);
         writeData.setCanNoForum(sI);
         writeData.setThreadId(this.fgl.Ox().getId());
@@ -119,10 +119,10 @@ public class PbFakeFloorModel extends DataModel {
         this.fgl = mVar;
     }
 
-    public void aXh() {
+    public void aXg() {
         if (!this.fgm) {
             cancelMessage();
-            this.fgn = aXi();
+            this.fgn = aXh();
             if (this.fgn != null) {
                 sendMessage(this.fgn);
             }
@@ -131,14 +131,14 @@ public class PbFakeFloorModel extends DataModel {
 
     public void m(PostData postData) {
         if (postData != null) {
-            this.fgl.aSc().z(postData);
-            this.fgl.aSc().A(postData);
-            this.fgl.aSc().nb(true);
+            this.fgl.aSb().z(postData);
+            this.fgl.aSb().A(postData);
+            this.fgl.aSb().nb(true);
         }
     }
 
-    private SubPbRequestMessage aXi() {
-        if (this.fgl == null || this.fgl.Ox() == null || this.fgl.Ox().getId() == null || this.fgl.aSc() == null || this.fgl.aSc().getId() == null) {
+    private SubPbRequestMessage aXh() {
+        if (this.fgl == null || this.fgl.Ox() == null || this.fgl.Ox().getId() == null || this.fgl.aSb() == null || this.fgl.aSb().getId() == null) {
             this.fgm = false;
             return null;
         }
@@ -146,13 +146,13 @@ public class PbFakeFloorModel extends DataModel {
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         int ac = l.ac(TbadkCoreApplication.getInst().getApp());
         int ae = l.ae(TbadkCoreApplication.getInst().getApp());
-        long c = com.baidu.adp.lib.g.b.c(this.fgl.aSc().getId(), 0L);
+        long c = com.baidu.adp.lib.g.b.c(this.fgl.aSb().getId(), 0L);
         return new SubPbRequestMessage(this.mPageContext.getPageActivity(), com.baidu.adp.lib.g.b.c(this.fgl.Ox().getId(), 0L), c, 0L, 1, ac, ae, f, "", 1);
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public boolean Dx() {
-        aXh();
+        aXg();
         return true;
     }
 

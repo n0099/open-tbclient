@@ -179,11 +179,11 @@ public class QuickWebView extends BaseWebView {
         try {
             url = new URL(str);
             path = url.getPath();
-            rN = d.blz().rN(path);
+            rN = d.bly().rN(path);
         } catch (MalformedURLException e) {
         }
         if (rN != null && !rN.fWf) {
-            String uj = c.bls().uj();
+            String uj = c.blr().uj();
             String str3 = uj + path + ".html";
             File file = new File(str3);
             if (!str3.contains("/android_asset/") && !file.exists()) {

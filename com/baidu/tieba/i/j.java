@@ -54,7 +54,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public void aNW() {
+    public void aNV() {
         this.eED = System.currentTimeMillis();
         this.eEy.add(new com.baidu.tieba.l.a(3));
         this.mCurrentState = 0;
@@ -77,13 +77,13 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public void aNX() {
+    public void aNW() {
         this.eEy.add(new com.baidu.tieba.l.a(2));
         this.mCurrentState = 2;
     }
 
     @Override // com.baidu.tieba.i.i
-    public void aNY() {
+    public void aNX() {
         if (this.mCurrentState != 2) {
             this.eED = System.currentTimeMillis();
             this.eEy.add(new com.baidu.tieba.l.a(101));
@@ -100,7 +100,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public void aNZ() {
+    public void aNY() {
         if (this.mCurrentState != 4 && this.mCurrentState != 5 && this.mCurrentState != 7 && this.mCurrentState != 8) {
             long currentTimeMillis = System.currentTimeMillis() - this.eED;
             if (currentTimeMillis > 86400000) {
@@ -117,7 +117,7 @@ public class j implements i {
     @Override // com.baidu.tieba.i.i
     public void pt(int i) {
         if (this.mCurrentState == 5) {
-            aOe();
+            aOd();
         } else if (this.mCurrentState == 3) {
             this.eEw = i;
             this.eEy.add(new com.baidu.tieba.l.a(200));
@@ -126,7 +126,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public void aOa() {
+    public void aNZ() {
         if (this.eEE != 0) {
             long currentTimeMillis = System.currentTimeMillis();
             this.eEF += currentTimeMillis - this.eEE;
@@ -138,7 +138,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public void aOb() {
+    public void aOa() {
         this.eEE = System.currentTimeMillis();
         if (this.eEI != 0) {
             this.eEH += System.currentTimeMillis() - this.eEI;
@@ -147,7 +147,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public void aOc() {
+    public void aOb() {
         if (this.mCurrentState == 4 || this.mCurrentState == 3) {
             if (this.eEE != 0) {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -159,7 +159,7 @@ public class j implements i {
         }
     }
 
-    public void aOe() {
+    public void aOd() {
         if (this.mCurrentState == 5) {
             this.eEE = System.currentTimeMillis();
             this.eEy.add(new com.baidu.tieba.l.a(204));
@@ -172,10 +172,10 @@ public class j implements i {
         if (this.mCurrentState != 8 && this.mCurrentState != 7 && this.mCurrentState != 6 && this.mCurrentState != -1) {
             this.eEK = true;
             this.mSource = VideoPlatformStatic.hI(str);
-            aOg();
+            aOf();
             this.eEy.add(new com.baidu.tieba.l.a(205));
             this.mCurrentState = 8;
-            aOd();
+            aOc();
         }
     }
 
@@ -186,11 +186,11 @@ public class j implements i {
         }
         this.eEK = true;
         this.mSource = VideoPlatformStatic.hI(str);
-        aOg();
+        aOf();
         this.eEz.put("stallDuration", Long.valueOf(this.eEH));
         this.eEy.add(new com.baidu.tieba.l.a(206));
         this.mCurrentState = 6;
-        aOd();
+        aOc();
         return this.eEu;
     }
 
@@ -201,10 +201,10 @@ public class j implements i {
         }
         this.eEK = true;
         this.mSource = VideoPlatformStatic.hI(str);
-        aOg();
+        aOf();
         this.eEy.add(new com.baidu.tieba.l.a(207));
         this.mCurrentState = 7;
-        aOd();
+        aOc();
         return true;
     }
 
@@ -252,23 +252,23 @@ public class j implements i {
         this.eEL = z;
         this.mError = i3;
         this.mSource = VideoPlatformStatic.hI(str);
-        aOg();
+        aOf();
         if (!v.w(this.eEC)) {
             int size = this.eEC.size();
             for (int i4 = 0; i4 < size; i4++) {
                 com.baidu.tieba.i.a.c cVar = this.eEC.get(i4);
                 if (cVar != null) {
-                    cVar.aOp();
+                    cVar.aOo();
                 }
             }
         }
-        this.eEy.add(new com.baidu.tieba.l.b(i, i2, i3, j, aOf()));
+        this.eEy.add(new com.baidu.tieba.l.b(i, i2, i3, j, aOe()));
         this.mCurrentState = -1;
-        aOd();
+        aOc();
         return this.eEu;
     }
 
-    private com.baidu.tieba.i.a.e[] aOf() {
+    private com.baidu.tieba.i.a.e[] aOe() {
         if (this.eEC == null || this.eEC.size() == 0) {
             return null;
         }
@@ -279,7 +279,7 @@ public class j implements i {
             if (i2 >= this.eEC.size()) {
                 return eVarArr;
             }
-            eVarArr[i2] = this.eEC.get(i2).aOn();
+            eVarArr[i2] = this.eEC.get(i2).aOm();
             i = i2 + 1;
         }
     }
@@ -289,7 +289,7 @@ public class j implements i {
         this.eEN = str;
     }
 
-    private void aOg() {
+    private void aOf() {
         if (this.eEE != 0) {
             this.eEF += System.currentTimeMillis() - this.eEE;
         }
@@ -308,7 +308,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public void aOd() {
+    public void aOc() {
         if (!this.eEM) {
             int reportType = com.baidu.tbadk.coreExtra.model.f.getReportType();
             if ((com.baidu.tbadk.coreExtra.model.f.AD() || !this.eEK) && reportType != 3) {
@@ -322,19 +322,19 @@ public class j implements i {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("baseInfo", j.this.Mh());
-                            jSONObject.put("kpiInfo", j.this.aOh());
+                            jSONObject.put("kpiInfo", j.this.aOg());
                             if (reportType2 == 0 || (reportType2 == 4 && j.this.eEK)) {
-                                JSONObject aOi = j.this.aOi();
-                                aOi.put("running", j.this.aOj());
-                                jSONObject.put("debugInfo", aOi);
+                                JSONObject aOh = j.this.aOh();
+                                aOh.put("running", j.this.aOi());
+                                jSONObject.put("debugInfo", aOh);
                             } else if (reportType2 == 2) {
-                                jSONObject.put("debugInfo", j.this.aOi());
+                                jSONObject.put("debugInfo", j.this.aOh());
                             } else if (reportType2 == 1) {
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        com.baidu.tieba.p.e.bBa().c(jSONObject, j.this.eEK ? false : true);
+                        com.baidu.tieba.p.e.bAZ().c(jSONObject, j.this.eEK ? false : true);
                         if (j.this.eEO != null) {
                             j.this.eEO.clear();
                             return null;
@@ -363,7 +363,7 @@ public class j implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject aOh() {
+    public JSONObject aOg() {
         JSONObject jSONObject = new JSONObject();
         try {
             for (Map.Entry<String, Long> entry : this.eEz.entrySet()) {
@@ -398,7 +398,7 @@ public class j implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject aOi() {
+    public JSONObject aOh() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UserBox.TYPE, this.eEu);
@@ -427,14 +427,14 @@ public class j implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONArray aOj() {
+    public JSONArray aOi() {
         JSONArray jSONArray = new JSONArray();
         if (this.eEy == null) {
             return jSONArray;
         }
         int size = this.eEy.size();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(this.eEy.get(i).bjQ());
+            jSONArray.put(this.eEy.get(i).bjP());
         }
         return jSONArray;
     }

@@ -66,20 +66,20 @@ public class CardGroupDividerView extends LinearLayout {
         this.mTitle.setTextSize(i, f);
     }
 
-    public void acz() {
+    public void acy() {
         if (this.ceS.getVisibility() != 8) {
             this.ceS.setVisibility(8);
         }
     }
 
-    public void acA() {
+    public void acz() {
         if (this.ceS.getVisibility() != 0) {
             this.ceS.setVisibility(0);
         }
     }
 
-    public void acB() {
-        acz();
+    public void acA() {
+        acy();
         if (this.mTitle.getVisibility() != 8) {
             this.mTitle.setVisibility(8);
         }
@@ -91,9 +91,9 @@ public class CardGroupDividerView extends LinearLayout {
 
     public void z(String str, boolean z) {
         if (z) {
-            acA();
-        } else {
             acz();
+        } else {
+            acy();
         }
         if (TextUtils.isEmpty(str)) {
             this.mTitle.setVisibility(8);

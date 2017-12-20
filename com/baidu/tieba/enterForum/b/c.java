@@ -57,10 +57,10 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.a
     public void D(com.baidu.tieba.enterForum.data.a aVar) {
         super.D(aVar);
         if (aVar != null) {
-            a(aVar.agL(), true);
-            a(aVar.agM(), false);
-            b(aVar.agL(), true);
-            b(aVar.agM(), false);
+            a(aVar.agK(), true);
+            a(aVar.agL(), false);
+            b(aVar.agK(), true);
+            b(aVar.agL(), false);
             aj.k(this.cuQ, d.C0096d.cp_bg_line_c);
             aj.k(this.cuR, d.C0096d.cp_bg_line_c);
             aj.j(this.cuK, d.f.icon_ba_sign_n);
@@ -93,7 +93,7 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.a
                     if (eVar instanceof com.baidu.tieba.enterForum.data.f) {
                         com.baidu.tieba.enterForum.data.f fVar = (com.baidu.tieba.enterForum.data.f) eVar;
                         textView.setText(fVar.getName());
-                        imageView.setVisibility(fVar.agR() == 0 ? 8 : 0);
+                        imageView.setVisibility(fVar.agQ() == 0 ? 8 : 0);
                         if (fVar.getLevel() == 0) {
                             imageView2.setVisibility(8);
                         } else {

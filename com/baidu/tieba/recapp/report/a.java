@@ -92,7 +92,7 @@ public class a {
         }
     }
 
-    public JSONObject bmA() {
+    public JSONObject bmz() {
         if (this.gbp != null) {
             return this.gbp;
         }

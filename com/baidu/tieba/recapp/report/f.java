@@ -32,11 +32,11 @@ public class f implements c {
     private ArrayList<a> gbJ = new ArrayList<>();
 
     public f() {
-        aMC();
+        aMB();
         MessageManager.getInstance().registerListener(this.bUY);
     }
 
-    private void aMC() {
+    private void aMB() {
         this.gbI = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
         this.gbI.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         this.gbI.setIsNeedAddCommenParam(true);
@@ -51,13 +51,13 @@ public class f implements c {
                 this.gbI.setUrl("http://als.baidu.com/clog/clog");
             }
             d(aVar);
-            bmE();
+            bmD();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.c
-    public void bmD() {
-        bmE();
+    public void bmC() {
+        bmD();
     }
 
     @Override // com.baidu.tieba.recapp.report.c
@@ -67,7 +67,7 @@ public class f implements c {
         }
     }
 
-    private void bmE() {
+    private void bmD() {
         if (v.v(this.gbJ) > 0) {
             MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.gbJ), this.gbI);
             this.gbJ.clear();

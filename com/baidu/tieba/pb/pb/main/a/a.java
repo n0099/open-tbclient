@@ -60,8 +60,8 @@ public class a {
                 if (a.this.eVp.checkUpIsLogin()) {
                     av.vI().c(a.this.eVp.getPageContext(), new String[]{str5});
                 }
-            } else if (str3 != null && a.this.eVp.aSx() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.eVp.getPageContext().getPageActivity(), str3, str2, a.this.eVp.aSx().aUm(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+            } else if (str3 != null && a.this.eVp.aSw() != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.eVp.getPageContext().getPageActivity(), str3, str2, a.this.eVp.aSw().aUl(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     };

@@ -21,7 +21,7 @@ public abstract class a extends com.baidu.tieba.frs.view.c {
     protected ExpandLayout cMt;
     protected com.baidu.tieba.frs.view.a cMu;
 
-    public void ane() {
+    public void and() {
         this.cMt = (ExpandLayout) this.dcB.findViewById(d.g.expandable_layout);
         this.cMr = (TextView) this.dcB.findViewById(d.g.top_item_type);
         this.cMr.setText(TbadkCoreApplication.getInst().getString(d.j.game));
@@ -34,13 +34,13 @@ public abstract class a extends com.baidu.tieba.frs.view.c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void anf() {
-        if (this.cIy != null && this.cIy.alF() != null && this.cMq != null) {
+    public void ane() {
+        if (this.cIy != null && this.cIy.alE() != null && this.cMq != null) {
             ArrayList arrayList = new ArrayList();
-            List<f> bwb = this.cIy.alF().bwb();
-            if (bwb != null) {
-                for (int i = 0; i < v.v(bwb); i++) {
-                    f fVar = (f) v.c(bwb, i);
+            List<f> bwa = this.cIy.alE().bwa();
+            if (bwa != null) {
+                for (int i = 0; i < v.v(bwa); i++) {
+                    f fVar = (f) v.c(bwa, i);
                     if (fVar instanceof bd) {
                         arrayList.add((bd) fVar);
                     }
@@ -48,32 +48,32 @@ public abstract class a extends com.baidu.tieba.frs.view.c {
             }
             if (this.cMq instanceof com.baidu.tieba.frs.e.c) {
                 g gVar = this.cMq;
-                if (com.baidu.tieba.frs.e.c.cYY != null && this.cIy.alF() != null) {
-                    if (this.cIy.alF().gzl == 1) {
+                if (com.baidu.tieba.frs.e.c.cYY != null && this.cIy.alE() != null) {
+                    if (this.cIy.alE().gzl == 1) {
                         com.baidu.tieba.frs.e.c.cYY.cYO = true;
                     } else {
                         com.baidu.tieba.frs.e.c.cYY.cYO = false;
                     }
-                    if (this.cIy.alF().aRo() != null) {
-                        com.baidu.tieba.frs.e.c.cYY.cYQ = this.cIy.alF().aRo().getId();
+                    if (this.cIy.alE().aRn() != null) {
+                        com.baidu.tieba.frs.e.c.cYY.cYQ = this.cIy.alE().aRn().getId();
                     }
                 }
             }
             this.cMu.c(this.cIl);
             this.cMu.bl(arrayList);
-            this.cMu.ard();
+            this.cMu.arc();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ang() {
+    public void anf() {
         if (this.cMq != null) {
             this.cMq.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.view.c
-    public void anh() {
+    public void ang() {
         if (this.cMq != null) {
             this.cMq.notifyDataSetChanged();
         }

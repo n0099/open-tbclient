@@ -141,9 +141,9 @@ public class d extends FrameLayout {
                     d.this.NO();
                     return;
                 }
-                boolean atA = d.this.atA();
+                boolean atz = d.this.atz();
                 d.this.Pr();
-                if (atA) {
+                if (atz) {
                     d.this.g(true, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds520));
                 }
                 d.this.dqV.aP(i, i2);
@@ -188,7 +188,7 @@ public class d extends FrameLayout {
                         com.baidu.adp.lib.g.e.fP().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.d.2.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                d.this.atD();
+                                d.this.atC();
                             }
                         }, TimeUnit.SECONDS.toMillis(2L));
                     }
@@ -248,7 +248,7 @@ public class d extends FrameLayout {
         MessageManager.getInstance().registerListener(this.cIn);
     }
 
-    public void aoZ() {
+    public void aoY() {
         this.dqU.a(this.drb);
         this.dqW.a(this.drc);
         this.dqX.a(this);
@@ -262,8 +262,8 @@ public class d extends FrameLayout {
             @Override // com.baidu.tbadk.core.view.h.c
             public void aL(boolean z) {
                 if (d.this.dqW != null) {
-                    if (d.this.dqW.alM() != null) {
-                        d.this.dqW.alM().avu();
+                    if (d.this.dqW.alL() != null) {
+                        d.this.dqW.alL().avt();
                     }
                     d.this.dqW.gb(false);
                 }
@@ -288,7 +288,7 @@ public class d extends FrameLayout {
             public void b(View view, boolean z) {
                 if (d.this.dqW != null) {
                     d.this.dqW.gb(true);
-                    d.this.dqW.auk();
+                    d.this.dqW.auj();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CURRENT_PAGE_FINISH_REFRESH, true));
             }
@@ -297,11 +297,11 @@ public class d extends FrameLayout {
             @Override // android.widget.AbsListView.RecyclerListener
             public void onMovedToScrapHeap(View view) {
                 if (view != null) {
-                    if (d.this.dqW != null && d.this.dqW.alM() != null) {
-                        d.this.dqW.alM().aT(view);
+                    if (d.this.dqW != null && d.this.dqW.alL() != null) {
+                        d.this.dqW.alL().aU(view);
                     }
                     if (view.getTag() instanceof com.baidu.tieba.homepage.personalize.a.d) {
-                        ((com.baidu.tieba.homepage.personalize.a.d) view.getTag()).acC().stopPlay();
+                        ((com.baidu.tieba.homepage.personalize.a.d) view.getTag()).acB().stopPlay();
                     }
                 }
             }
@@ -360,9 +360,9 @@ public class d extends FrameLayout {
         }
     }
 
-    public void aug() {
+    public void auf() {
         if (this.dqW != null) {
-            this.dqW.aug();
+            this.dqW.auf();
         }
     }
 
@@ -429,12 +429,12 @@ public class d extends FrameLayout {
             this.aXy.setNextPage(this.blv);
         }
         if (this.dqV != null) {
-            this.dqV.atQ();
+            this.dqV.atP();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean atA() {
+    public boolean atz() {
         if (this.refreshView != null) {
             return this.refreshView.EO();
         }
@@ -461,7 +461,7 @@ public class d extends FrameLayout {
         }
     }
 
-    public void atC() {
+    public void atB() {
         setViewForeground(false);
         if (this.dqW != null) {
             this.dqW.eX(false);
@@ -480,7 +480,7 @@ public class d extends FrameLayout {
         }
     }
 
-    public void aty() {
+    public void atx() {
         if (this.dqW != null) {
             g(true, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds520));
             this.dqW.update();
@@ -492,8 +492,8 @@ public class d extends FrameLayout {
             showFloatingView();
             this.aXy.setSelection(0);
             if (this.aXy.isRefreshDone()) {
-                if (this.dqW != null && this.dqW.alM() != null) {
-                    this.dqW.alM().avu();
+                if (this.dqW != null && this.dqW.alL() != null) {
+                    this.dqW.alL().avt();
                     this.dqW.gb(false);
                 }
                 this.aXy.startPullRefresh();
@@ -530,25 +530,25 @@ public class d extends FrameLayout {
             reload();
             this.cHN = false;
         }
-        atD();
+        atC();
     }
 
-    public void atD() {
+    public void atC() {
         if (this.dqU != null) {
             this.dqU.notifyDataSetChanged();
         }
     }
 
-    public void atE() {
+    public void atD() {
         if (this.dqW != null) {
             this.dqW.eX(true);
         }
-        com.baidu.tieba.card.s.abX().cC(false);
+        com.baidu.tieba.card.s.abW().cC(false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
     }
 
-    public void aue() {
-        this.dqW.auq();
+    public void aud() {
+        this.dqW.aup();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

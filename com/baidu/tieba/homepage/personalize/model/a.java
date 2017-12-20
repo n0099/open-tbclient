@@ -21,7 +21,7 @@ public class a {
     private final c doM = new c();
     private final int bmR = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
-    public int auw() {
+    public int auv() {
         return this.bmR;
     }
 

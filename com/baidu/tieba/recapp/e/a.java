@@ -21,7 +21,7 @@ public class a {
     private a() {
     }
 
-    public static a bmw() {
+    public static a bmv() {
         if (gbj == null) {
             synchronized (c.class) {
                 if (gbj == null) {
@@ -44,7 +44,7 @@ public class a {
         this.sO = j;
     }
 
-    private String bmx() {
+    private String bmw() {
         if (TextUtils.isEmpty(this.gbh)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
@@ -64,13 +64,13 @@ public class a {
         this.gbi = str;
     }
 
-    public void bmy() {
+    public void bmx() {
         b.getInstance().putString("asp_shown_info", this.gbi);
     }
 
-    public AppPosInfo bmz() {
+    public AppPosInfo bmy() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = bmx();
+        builder.ap_mac = bmw();
         builder.ap_connected = Boolean.valueOf(j.hi());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;

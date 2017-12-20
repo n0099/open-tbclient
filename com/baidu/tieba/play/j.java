@@ -20,7 +20,7 @@ public class j {
                 int duration = j.this.bds.getDuration();
                 if (currentPosition < j.this.fPr) {
                     if (j.this.caF != null) {
-                        j.this.caF.abJ();
+                        j.this.caF.abI();
                     }
                 } else if (currentPosition == j.this.fPr && j.this.fPs != null) {
                     j.this.fPs.OT();
@@ -29,14 +29,14 @@ public class j {
                     j.this.fPt.bJ(duration, currentPosition);
                 }
                 j.this.fPr = currentPosition;
-                j.this.bjl();
+                j.this.bjk();
             }
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void abJ();
+        void abI();
     }
 
     /* loaded from: classes.dex */
@@ -61,7 +61,7 @@ public class j {
 
     public void start() {
         this.fPr = 0;
-        bjl();
+        bjk();
     }
 
     public void stop() {
@@ -69,7 +69,7 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bjl() {
+    public void bjk() {
         this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.fPq);
     }
 

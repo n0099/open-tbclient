@@ -39,7 +39,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                     }
                     ak akVar = new ak("c11824");
                     akVar.ac("uid", TbadkCoreApplication.getCurrentAccount());
-                    akVar.ac("ab_tag", kVar.ach());
+                    akVar.ac("ab_tag", kVar.acg());
                     akVar.f("liveid", j);
                     akVar.r("obj_type", i);
                     akVar.ac("tid", str);
@@ -91,7 +91,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             akVar.r("obj_type", i2);
             akVar.ac("obj_param3", str);
             akVar.ac("tid", tid);
-            akVar.ac("ab_tag", kVar.ach());
+            akVar.ac("ab_tag", kVar.acg());
             akVar.f("liveid", j);
             akVar.f(ImageViewerConfig.FORUM_ID, kVar.Ox().getFid());
             akVar.ac("uid", TbadkCoreApplication.getCurrentAccount());

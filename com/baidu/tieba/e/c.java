@@ -35,22 +35,22 @@ public class c {
 
     /* loaded from: classes.dex */
     public interface b {
-        void al(View view);
+        void am(View view);
     }
 
     /* renamed from: com.baidu.tieba.e.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0099c {
-        void am(View view);
-
         void an(View view);
 
         void ao(View view);
 
         void ap(View view);
+
+        void aq(View view);
     }
 
-    public MotionEvent agp() {
+    public MotionEvent ago() {
         return this.crm;
     }
 
@@ -145,7 +145,7 @@ public class c {
                     MotionEvent obtain = MotionEvent.obtain(motionEvent);
                     if (this.mIsDoubleTapping) {
                         if (!this.crj) {
-                            agr();
+                            agq();
                         }
                     } else if (this.mInLongPress) {
                         this.crn.removeMessages(3);
@@ -176,7 +176,7 @@ public class c {
     }
 
     private void cancel() {
-        agq();
+        agp();
         lj();
         this.mIsDoubleTapping = false;
         this.mStillDown = false;
@@ -187,7 +187,7 @@ public class c {
         }
     }
 
-    private void agq() {
+    private void agp() {
         this.crn.removeMessages(1);
         this.crn.removeMessages(2);
         this.crn.removeMessages(3);
@@ -197,7 +197,7 @@ public class c {
         this.mIsDoubleTapping = false;
         this.mStillDown = false;
         this.mInLongPress = false;
-        agq();
+        agp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -224,9 +224,9 @@ public class c {
         return false;
     }
 
-    public boolean agr() {
+    public boolean agq() {
         if (this.crk != null) {
-            this.crk.al(this.mView);
+            this.crk.am(this.mView);
             this.crm = null;
             return true;
         }
@@ -283,10 +283,10 @@ public class c {
                 if (Math.abs(yVelocity) > 200.0f && abs2 > abs && abs2 > 30.0f) {
                     if (f2 > 0.0f) {
                         if (this.crl != null) {
-                            this.crl.am(this.mView);
+                            this.crl.an(this.mView);
                         }
                     } else if (this.crl != null) {
-                        this.crl.an(this.mView);
+                        this.crl.ao(this.mView);
                     }
                     this.crj = true;
                     this.mLastMotionX = x;
@@ -295,10 +295,10 @@ public class c {
                 } else if (abs3 > 200.0f && abs > abs2 && abs > 30.0f) {
                     if (f > 0.0f) {
                         if (this.crl != null) {
-                            this.crl.ap(this.mView);
+                            this.crl.aq(this.mView);
                         }
                     } else if (this.crl != null) {
-                        this.crl.ao(this.mView);
+                        this.crl.ap(this.mView);
                     }
                     this.mLastMotionX = x;
                     this.mLastMotionY = y;

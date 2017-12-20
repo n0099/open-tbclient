@@ -41,8 +41,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void aOr() {
-        if (!this.bHI && isMainProcess() && aOt()) {
+    public void aOq() {
+        if (!this.bHI && isMainProcess() && aOs()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -56,7 +56,7 @@ public class c {
                     public void run() {
                         if (c.this.eFr != null) {
                             ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.eFr);
-                            c.this.aOs();
+                            c.this.aOr();
                         }
                     }
                 };
@@ -84,7 +84,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOs() {
+    public void aOr() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacks(this.eFt);
             this.mHandler.removeCallbacks(this.eFu);
@@ -149,7 +149,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean aOt() {
+    private boolean aOs() {
         List<String> bL = bL(this.mContext);
         if (bL == null || bL.size() == 0) {
             return false;

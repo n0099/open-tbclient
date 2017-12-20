@@ -58,7 +58,7 @@ public class o extends e<com.baidu.tbadk.core.data.as, p> implements View.OnClic
         if (asVar != null) {
             asVar.su();
         }
-        com.baidu.tieba.frs.e.b.aqw().a(cYY, asVar);
+        com.baidu.tieba.frs.e.b.aqv().a(cYY, asVar);
         return view;
     }
 
@@ -79,14 +79,14 @@ public class o extends e<com.baidu.tbadk.core.data.as, p> implements View.OnClic
             }
             TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c10178").ac(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())));
         }
-        com.baidu.tieba.frs.e.b.aqw().a(cYY, this.cJD, 2);
+        com.baidu.tieba.frs.e.b.aqv().a(cYY, this.cJD, 2);
     }
 
-    public int ams() {
+    public int amr() {
         return d.g.more_live_list;
     }
 
-    public int amt() {
+    public int ams() {
         return d.g.make_headlines;
     }
 }

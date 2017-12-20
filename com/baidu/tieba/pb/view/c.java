@@ -49,7 +49,7 @@ public class c extends RelativeLayout {
         this.fkZ = new Runnable() { // from class: com.baidu.tieba.pb.view.c.1
             @Override // java.lang.Runnable
             public void run() {
-                c.this.aYG();
+                c.this.aYF();
             }
         };
         init();
@@ -66,10 +66,10 @@ public class c extends RelativeLayout {
         this.fkQ = (TextView) findViewById(d.g.pb_video_floating_huaji_tip);
         this.fkQ.setX((SCREEN_WIDTH - fkJ) / 2);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        aYF();
+        aYE();
     }
 
-    private void aYF() {
+    private void aYE() {
         this.fkR = new AnimatorSet();
         Drawable drawable = aj.getDrawable(d.f.icon_floor_bigpraised_floating);
         int intrinsicWidth = (SCREEN_WIDTH - drawable.getIntrinsicWidth()) / 2;
@@ -151,7 +151,7 @@ public class c extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aYG() {
+    public void aYF() {
         this.fkY = false;
         ViewGroup viewGroup = (ViewGroup) ((Activity) getContext()).getWindow().getDecorView();
         if (getParent() != null && getParent() == viewGroup) {
@@ -165,7 +165,7 @@ public class c extends RelativeLayout {
 
     public void stopAnimation() {
         if (this.fkY) {
-            aYG();
+            aYF();
             this.fkR.cancel();
             this.fkS.cancel();
             this.fkT.cancel();

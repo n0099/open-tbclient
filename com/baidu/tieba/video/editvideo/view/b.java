@@ -57,27 +57,27 @@ public class b extends com.baidu.adp.base.c {
             }
         });
         this.gTR.setAdapter((ListAdapter) this.gTS);
-        this.gTS.setData(bCC());
+        this.gTS.setData(bCB());
         this.gTP.setOnProgressChanged(new CoverSeekBar.a() { // from class: com.baidu.tieba.video.editvideo.view.b.2
             @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
             public void onProgress(int i) {
-                long duration = (b.this.gRd.bCr().getDuration() * i) / 1000;
+                long duration = (b.this.gRd.bCq().getDuration() * i) / 1000;
                 b.this.gTP.cc(i, (int) duration);
-                b.this.gRd.bCr().seekTo((int) duration);
+                b.this.gRd.bCq().seekTo((int) duration);
+            }
+
+            @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
+            public void bCl() {
             }
 
             @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
             public void bCm() {
-            }
-
-            @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.a
-            public void bCn() {
                 TiebaStatic.log("c12304");
             }
         });
     }
 
-    private List<PendantData> bCC() {
+    private List<PendantData> bCB() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(0, new PendantData(0));
         arrayList.add(1, new PendantData(1));
@@ -90,17 +90,17 @@ public class b extends com.baidu.adp.base.c {
         if (list == null) {
             list = new ArrayList<>();
         }
-        list.addAll(0, bCC());
+        list.addAll(0, bCB());
         this.gTS.setData(list);
     }
 
-    public void bCD() {
-        this.gTT.setVideoSize(this.gRd.bCr().getWidth(), this.gRd.bCr().getHeight());
-        this.gTT.i(this.gRd.bCr().getLeft(), this.gRd.bCr().getTop(), this.gRd.bCr().getRight(), this.gRd.bCr().getBottom());
+    public void bCC() {
+        this.gTT.setVideoSize(this.gRd.bCq().getWidth(), this.gRd.bCq().getHeight());
+        this.gTT.i(this.gRd.bCq().getLeft(), this.gRd.bCq().getTop(), this.gRd.bCq().getRight(), this.gRd.bCq().getBottom());
     }
 
-    public void bkv() {
-        this.gTT.bkv();
+    public void bku() {
+        this.gTT.bku();
     }
 
     public String getText() {
@@ -108,13 +108,13 @@ public class b extends com.baidu.adp.base.c {
     }
 
     public Bitmap j(Bitmap bitmap) {
-        this.gTT.bkv();
+        this.gTT.bku();
         String text = this.gTT.getText();
         if (bitmap == null || TextUtils.isEmpty(text)) {
             return null;
         }
-        int width = this.gRd.bCr().getWidth();
-        int height = this.gRd.bCr().getHeight();
+        int width = this.gRd.bCq().getWidth();
+        int height = this.gRd.bCq().getHeight();
         int width2 = bitmap.getWidth();
         int height2 = bitmap.getHeight();
         Bitmap createBitmap = Bitmap.createBitmap(width2, height2, Bitmap.Config.ARGB_8888);
@@ -124,7 +124,7 @@ public class b extends com.baidu.adp.base.c {
         if (tempBitmap != null) {
             Matrix matrix = new Matrix();
             matrix.postScale(width2 / width, height2 / height);
-            Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.gRd.bCr().getLeft(), this.gRd.bCr().getTop(), width, height, matrix, true);
+            Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.gRd.bCq().getLeft(), this.gRd.bCq().getTop(), width, height, matrix, true);
             if (createBitmap2 != null) {
                 canvas.drawBitmap(createBitmap2, 0.0f, 0.0f, (Paint) null);
             }
@@ -148,7 +148,7 @@ public class b extends com.baidu.adp.base.c {
         aj.k(this.mRootView, d.C0096d.cp_bg_line_d);
     }
 
-    public void bL(View view) {
+    public void bM(View view) {
         this.gTT = (CoverPendantDragView) view.findViewById(d.g.cover_pendant_view);
         this.gTT.setParentViewController(this);
         this.gTQ = (LinearLayout) view.findViewById(d.g.cover_tips);
@@ -184,7 +184,7 @@ public class b extends com.baidu.adp.base.c {
             @Override // java.lang.Runnable
             public void run() {
                 b.this.gTP.seekTo(b.this.gTP.getCurrentPosition());
-                b.this.gRd.bCt();
+                b.this.gRd.bCs();
             }
         }, 500L);
     }

@@ -10,8 +10,8 @@ public class d<T extends com.baidu.tieba.card.j> extends com.baidu.tieba.card.a.
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
-    /* renamed from: aut */
-    public T acC() {
+    /* renamed from: aus */
+    public T acB() {
         return (T) this.ceX;
     }
 

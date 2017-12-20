@@ -36,7 +36,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
                 if (AtMessageActivity.this.eah != null) {
-                    AtMessageActivity.this.eah.adq();
+                    AtMessageActivity.this.eah.adp();
                 }
             }
         }
@@ -57,16 +57,16 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         }
         this.eag.Qv();
         FQ().addEventDelegate(this);
-        this.eah.adq();
+        this.eah.adp();
     }
 
     @Override // com.baidu.tbadk.core.view.h.b
     public void onListPullRefresh(boolean z) {
-        this.eah.aEG();
+        this.eah.aEF();
     }
 
     public void PF() {
-        this.eah.adr();
+        this.eah.adq();
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
@@ -172,8 +172,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return this.eai;
     }
 
-    public void aEI() {
-        this.eag.aEI();
+    public void aEH() {
+        this.eag.aEH();
     }
 
     public void b(com.baidu.tbadk.mvc.d.b bVar) {
@@ -184,8 +184,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         this.eag.a(aVar);
     }
 
-    public void aEJ() {
-        this.eag.aEJ();
+    public void aEI() {
+        this.eag.aEI();
     }
 
     public void a(ErrorData errorData) {

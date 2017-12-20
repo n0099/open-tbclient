@@ -104,10 +104,10 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return atV();
+        return atU();
     }
 
-    private int atV() {
+    private int atU() {
         int i = 0;
         if (this.dpY.lX(0) != -1 && this.dpO != null) {
             i = 1;
@@ -127,11 +127,11 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     @Override // com.baidu.tbadk.core.view.viewpager.a, android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (obj != null && com.baidu.tieba.homepage.framework.a.a.aud().dqx != i) {
+        if (obj != null && com.baidu.tieba.homepage.framework.a.a.auc().dqx != i) {
             if (this.dpS instanceof BaseFragment) {
                 ((BaseFragment) this.dpS).setPrimary(false);
             }
-            com.baidu.tieba.homepage.framework.a.a.aud().dqx = i;
+            com.baidu.tieba.homepage.framework.a.a.auc().dqx = i;
             VoiceManager cf = com.baidu.tieba.tbadkCore.voice.b.cf(this.mContext);
             if (cf != null) {
                 cf.stopPlay();
@@ -219,7 +219,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
     }
 
-    public boolean atW() {
+    public boolean atV() {
         return this.dpO != null;
     }
 
@@ -238,15 +238,15 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
     }
 
-    public void aty() {
+    public void atx() {
         if (this.dpP != null) {
-            this.dpP.aty();
+            this.dpP.atx();
         }
     }
 
-    public void atX() {
+    public void atW() {
         if (this.dpO != null) {
-            this.dpO.aty();
+            this.dpO.atx();
         }
     }
 
@@ -268,7 +268,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
     }
 
-    public void atY() {
+    public void atX() {
         if (this.dpS != null) {
             this.dpS.Pj();
         }
@@ -287,7 +287,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     }
 
     public void Qo() {
-        switch (lQ(com.baidu.tieba.homepage.framework.a.a.aud().dqx)) {
+        switch (lQ(com.baidu.tieba.homepage.framework.a.a.auc().dqx)) {
             case 0:
                 if (this.dpO != null) {
                     this.dpO.Qo();
@@ -307,12 +307,12 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
 
     public void lU(int i) {
         if (i == 1 && this.dpP != null) {
-            this.dpP.aue();
+            this.dpP.aud();
         }
     }
 
     public void lV(int i) {
-        if (com.baidu.tieba.homepage.framework.a.a.aud().dqx == i) {
+        if (com.baidu.tieba.homepage.framework.a.a.auc().dqx == i) {
             this.dpW = -1;
         } else {
             this.dpW = i;

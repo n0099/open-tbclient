@@ -23,7 +23,7 @@ public class s {
         this.eXh = pbFakeFloorModel;
     }
 
-    public void aUb() {
+    public void aUa() {
         if (this.eXg != null) {
             this.eXg.Ea();
             if (StringUtils.isNull(this.eXi)) {
@@ -33,14 +33,14 @@ public class s {
         }
     }
 
-    private void aUc() {
+    private void aUb() {
         if (this.cth != null && this.eXg == null) {
             this.eXg = (com.baidu.tbadk.editortools.pb.h) new com.baidu.tbadk.editortools.pb.i().aV(this.mPageContext.getPageActivity());
             this.eXg.a(this.mPageContext);
             this.eXg.b(this.eXh);
             this.eXg.De().by(true);
             this.eXg.e(this.mPageContext);
-            aUe();
+            aUd();
             this.eXg.b(this.eXj);
         }
     }
@@ -48,7 +48,7 @@ public class s {
     public void bH(String str, String str2) {
         this.eXi = str2;
         if (this.eXg == null) {
-            aUc();
+            aUb();
         } else {
             this.eXg.b(this.eXh);
             if (StringUtils.isNull(this.eXi)) {
@@ -62,11 +62,11 @@ public class s {
         }
     }
 
-    public com.baidu.tbadk.editortools.pb.h aUd() {
+    public com.baidu.tbadk.editortools.pb.h aUc() {
         return this.eXg;
     }
 
-    private void aUe() {
+    private void aUd() {
         if (this.cth != null && this.eXg != null && this.eXg.De() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
@@ -100,7 +100,7 @@ public class s {
         }
     }
 
-    public com.baidu.tbadk.editortools.pb.h aUf() {
+    public com.baidu.tbadk.editortools.pb.h aUe() {
         return this.eXg;
     }
 }

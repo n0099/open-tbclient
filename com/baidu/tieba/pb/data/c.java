@@ -15,11 +15,11 @@ public class c {
         this.ePh = dataRes.status_msg;
     }
 
-    public b aRk() {
+    public b aRj() {
         return this.ePj;
     }
 
-    public LotteryUserChanceInfo aRl() {
+    public LotteryUserChanceInfo aRk() {
         return this.ePi;
     }
 

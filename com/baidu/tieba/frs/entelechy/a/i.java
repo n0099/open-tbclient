@@ -100,12 +100,12 @@ public class i extends e<bd, a<com.baidu.tieba.frs.entelechy.view.d>> implements
     @Override // com.baidu.tieba.frs.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bd bdVar, a aVar) {
-        if (aVar == null || aVar.acC() == null) {
+        if (aVar == null || aVar.acB() == null) {
             return null;
         }
-        aVar.acC().setVideoStatsData(I(bdVar));
-        aVar.acC().a(bdVar);
-        aVar.acC().b(this.buW);
+        aVar.acB().setVideoStatsData(I(bdVar));
+        aVar.acB().a(bdVar);
+        aVar.acB().b(this.buW);
         return aVar.getView();
     }
 

@@ -15,7 +15,7 @@ public class q implements p {
     public static final AtomicReference<p> fWT = new AtomicReference<>(null);
     private static final p fWU = new q();
 
-    public static p blR() {
+    public static p blQ() {
         p pVar = fWT.get();
         return pVar == null ? fWU : pVar;
     }
@@ -49,13 +49,13 @@ public class q implements p {
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public k blL() {
+    public k blK() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public m blM() {
+    public m blL() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
@@ -67,25 +67,25 @@ public class q implements p {
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public com.baidu.tieba.n.a blN() {
+    public com.baidu.tieba.n.a blM() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public i blO() {
+    public i blN() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public List<AppData> blP() {
+    public List<AppData> blO() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public void blQ() {
+    public void blP() {
         BdLog.e("recapp plugin install failed!");
     }
 }

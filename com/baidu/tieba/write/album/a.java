@@ -20,7 +20,7 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         this.hfk = albumActivity;
     }
 
-    public void aPR() {
+    public void aPQ() {
         this.blY = new Fragment[2];
         this.hfl = new String[2];
         this.hfm = new k();
@@ -60,72 +60,72 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView bGe() {
+    public TbCameraView bGd() {
         if (this.hfm == null) {
             return null;
         }
-        return this.hfm.bGe();
+        return this.hfm.bGd();
     }
 
     public void stopCamera() {
-        TbCameraView bGe = bGe();
-        if (bGe != null) {
-            bGe.stopCamera();
-            bGe.setVisibility(4);
+        TbCameraView bGd = bGd();
+        if (bGd != null) {
+            bGd.stopCamera();
+            bGd.setVisibility(4);
         }
     }
 
-    public void bGd() {
-        TbCameraView bGe = bGe();
-        if (bGe != null) {
-            bGe.setVisibility(0);
-            bGe.mU(false);
+    public void bGc() {
+        TbCameraView bGd = bGd();
+        if (bGd != null) {
+            bGd.setVisibility(0);
+            bGd.mU(false);
         }
-        if (this.hfm != null && this.hfm.bGC() != null) {
-            this.hfm.bGC().bGD();
+        if (this.hfm != null && this.hfm.bGB() != null) {
+            this.hfm.bGB().bGC();
         }
+    }
+
+    public View bGe() {
+        if (this.hfm == null) {
+            return null;
+        }
+        return this.hfm.boM();
     }
 
     public View bGf() {
         if (this.hfm == null) {
             return null;
         }
-        return this.hfm.boN();
+        return this.hfm.bGA();
     }
 
     public View bGg() {
-        if (this.hfm == null) {
+        if (this.hfn == null) {
             return null;
         }
-        return this.hfm.bGB();
+        return this.hfn.boM();
     }
 
     public View bGh() {
         if (this.hfn == null) {
             return null;
         }
-        return this.hfn.boN();
+        return this.hfn.bGm();
     }
 
     public View bGi() {
         if (this.hfn == null) {
             return null;
         }
-        return this.hfn.bGn();
+        return this.hfn.bGi();
     }
 
     public View bGj() {
-        if (this.hfn == null) {
-            return null;
-        }
-        return this.hfn.bGj();
-    }
-
-    public View bGk() {
         if (this.hfm == null) {
             return null;
         }
-        return this.hfm.bGj();
+        return this.hfm.bGi();
     }
 
     public void onDestroy() {

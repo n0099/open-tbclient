@@ -1,15 +1,15 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes.dex */
 public interface e {
-    boolean alT();
+    boolean alS();
+
+    void anT();
 
     void anU();
 
     void anV();
 
-    void anW();
-
-    boolean anX();
+    boolean anW();
 
     void eS(boolean z);
 

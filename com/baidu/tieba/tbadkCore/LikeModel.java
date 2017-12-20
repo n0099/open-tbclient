@@ -51,7 +51,7 @@ public class LikeModel extends BdBaseModel {
         return this.mBlockPopInfoData;
     }
 
-    public void bwi() {
+    public void bwh() {
         if (this.gAC != null) {
             this.gAC.cancel();
             this.gAC = null;
@@ -73,7 +73,7 @@ public class LikeModel extends BdBaseModel {
         }
     }
 
-    public boolean bwj() {
+    public boolean bwi() {
         return this.gAC != null;
     }
 

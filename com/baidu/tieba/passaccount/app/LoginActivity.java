@@ -69,7 +69,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bc)) {
                 bc bcVar = (bc) customResponsedMessage.getData();
                 if (bcVar.Yy == 0) {
-                    LoginActivity.this.aQp();
+                    LoginActivity.this.aQo();
                 } else {
                     LoginActivity.this.pw(bcVar.errorMsg);
                 }
@@ -98,11 +98,11 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 return;
             }
             q(accountData);
-            LoginActivity.this.aQs();
+            LoginActivity.this.aQr();
             if (LoginActivity.this.mFrom == 4) {
                 LoginActivity.this.Mp();
             } else {
-                LoginActivity.this.aQq();
+                LoginActivity.this.aQp();
             }
         }
 
@@ -170,7 +170,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
                 public void onSuccess() {
                     com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_success", 0, "", new Object[0]);
-                    LoginActivity.this.aQr();
+                    LoginActivity.this.aQq();
                 }
 
                 @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -234,15 +234,15 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         this.eLV.onAuthorizedResult(i, i2, intent);
         if (i == 230012 || i == 230016) {
             if (i2 == 230013) {
-                aQp();
+                aQo();
             } else if (i2 == 230014 && intent != null) {
                 pw(intent.getStringExtra("result_msg"));
             }
         } else if (i == 230015) {
             if (i2 == -1) {
                 TiebaStatic.log("c10015");
-                aQs();
-                aQq();
+                aQr();
+                aQp();
             }
         } else if (i2 == -1 && i == 11038) {
             String str = "";
@@ -257,7 +257,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQp() {
+    public void aQo() {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_third_result", 0, "", "uname", session.username);
@@ -266,7 +266,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 return;
             }
             TiebaStatic.log("c10015");
-            aQr();
+            aQq();
         }
     }
 
@@ -279,7 +279,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQq() {
+    public void aQp() {
         int i = 1;
         com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.getInst().onUserChanged(getIntent());
@@ -300,7 +300,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQr() {
+    public void aQq() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
@@ -320,8 +320,8 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 public void j(AccountData accountData2) {
                     b.b(accountData2);
                     TbadkCoreApplication.setCurrentAccount(accountData2, LoginActivity.this.getPageContext().getPageActivity());
-                    LoginActivity.this.aQs();
-                    LoginActivity.this.aQq();
+                    LoginActivity.this.aQr();
+                    LoginActivity.this.aQp();
                 }
             });
         }
@@ -339,7 +339,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQs() {
+    public void aQr() {
         if (this.mFrom == 3 && TbadkCoreApplication.getInst().getIsFirstUse()) {
             h.fQ().c(new Runnable() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.7
                 @Override // java.lang.Runnable
@@ -365,14 +365,14 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         if (this.mRootLayout != null) {
             this.mRootLayout.removeAllViews();
         }
-        aQt();
+        aQs();
         if (this.bbX != null) {
             this.bbX.cancel();
         }
         super.onDestroy();
     }
 
-    public void aQt() {
+    public void aQs() {
         if (this.eMb != null) {
             this.eMb.removeCallbacksAndMessages(null);
         }

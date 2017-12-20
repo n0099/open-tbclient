@@ -48,12 +48,12 @@ public class a extends RelativeLayout implements s {
         layoutParams.rightMargin = getResources().getDimensionPixelSize(d.e.ds16);
         this.hgS.setLocationClickListener(new b.a() { // from class: com.baidu.tieba.write.editor.a.1
             @Override // com.baidu.tieba.write.editor.b.a
-            public void bGK() {
+            public void bGJ() {
                 a.this.b(new com.baidu.tbadk.editortools.a(18, -1, null));
             }
 
             @Override // com.baidu.tieba.write.editor.b.a
-            public void bGL() {
+            public void bGK() {
                 a.this.b(new com.baidu.tbadk.editortools.a(20, -1, null));
                 a.this.hgS.hide();
             }
@@ -78,7 +78,7 @@ public class a extends RelativeLayout implements s {
                 } else {
                     a.this.b(new com.baidu.tbadk.editortools.a(53, -1, null));
                 }
-                a.this.hgT.bGM();
+                a.this.hgT.bGL();
             }
         });
         addView(this.hgT);
@@ -99,7 +99,7 @@ public class a extends RelativeLayout implements s {
                         TiebaStatic.log(new ak("c12608").r("obj_locate", 5));
                     }
                 }
-                a.this.hgU.bGM();
+                a.this.hgU.bGL();
                 if ("2".equals(a.this.gRk)) {
                     c.aM(a.this.mForumId, a.this.hgU.getState() == 0 ? 0 : 1);
                 }
@@ -121,13 +121,13 @@ public class a extends RelativeLayout implements s {
         return (this.hgU == null || this.hgU.getState() != 0) && this.hgU != null && this.hgU.getState() == 1;
     }
 
-    public void aWp() {
+    public void aWo() {
         if (this.hgU != null) {
             this.hgU.hideTip();
         }
     }
 
-    public void bGI() {
+    public void bGH() {
         if (this.hgT != null) {
             this.hgT.setVisibility(8);
         }
@@ -193,7 +193,7 @@ public class a extends RelativeLayout implements s {
         }
     }
 
-    private void bGJ() {
+    private void bGI() {
         String string;
         String sharedPrefKeyWithAccount;
         if (this.hgU != null) {
@@ -217,7 +217,7 @@ public class a extends RelativeLayout implements s {
             b(new com.baidu.tbadk.editortools.a(18, -1, "first"));
         }
         setVisibility(0);
-        bGJ();
+        bGI();
     }
 
     @Override // com.baidu.tbadk.editortools.s
@@ -227,7 +227,7 @@ public class a extends RelativeLayout implements s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void hide() {
-        aWp();
+        aWo();
         setVisibility(8);
     }
 

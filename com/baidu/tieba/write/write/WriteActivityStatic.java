@@ -63,7 +63,7 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SelectForumActivityConfig.class, SelectForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(HotTopicChangeActivityConfig.class, HotTopicChangeFourmActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteUrlActivityConfig.class, WriteUrlActivity.class);
-        LocationModel.bxI();
+        LocationModel.bxH();
         av.vI().a("feedback:", new av.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
             @Override // com.baidu.tbadk.core.util.av.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {

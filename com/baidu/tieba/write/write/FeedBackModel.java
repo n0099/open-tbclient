@@ -27,7 +27,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<bd> bHV() {
+    public ArrayList<bd> bHU() {
         return this.hko;
     }
 

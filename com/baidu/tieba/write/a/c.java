@@ -60,7 +60,7 @@ public class c {
         }
     }
 
-    public ArrayList<MetaData> bGH() {
+    public ArrayList<MetaData> bGG() {
         return this.hgR;
     }
 }

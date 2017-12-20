@@ -216,7 +216,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.yuelaou_locate = this.anP;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.e.a.bmw().bmz();
+        builder.app_pos = com.baidu.tieba.recapp.e.a.bmv().bmy();
         builder.load_type = Integer.valueOf(this.mLoadType);
         builder.obj_locate = this.gzj;
         builder.obj_source = this.gzk;

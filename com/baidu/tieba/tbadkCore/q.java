@@ -143,7 +143,7 @@ public class q {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> buN() {
+    public List<FeedForumData> buM() {
         return this.gAH;
     }
 

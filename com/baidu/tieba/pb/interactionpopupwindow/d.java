@@ -13,12 +13,12 @@ public class d extends a<e, CustomDialogData> {
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
-    public boolean aSo() {
+    public boolean aSn() {
         return true;
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
-    public boolean aSp() {
+    public boolean aSo() {
         return true;
     }
 

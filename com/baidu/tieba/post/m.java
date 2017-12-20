@@ -39,35 +39,35 @@ public class m {
         this.eEu = str;
     }
 
-    public void bkn() {
+    public void bkm() {
         this.isSuccess = false;
     }
 
-    public void bko() {
+    public void bkn() {
         this.isSuccess = true;
     }
 
-    public void bkp() {
+    public void bko() {
         this.fSQ++;
     }
 
-    public boolean bkq() {
+    public boolean bkp() {
         return this.fSQ > 0;
     }
 
-    public void bkr() {
+    public void bkq() {
         this.fSe = true;
     }
 
-    public boolean bks() {
+    public boolean bkr() {
         return this.fSe;
     }
 
     public void a(c cVar) {
         this.fSR.add(cVar);
-        bku();
-        b(cVar);
         bkt();
+        b(cVar);
+        bks();
     }
 
     private void b(c cVar) {
@@ -81,7 +81,7 @@ public class m {
                     if (nVarArr != null && nVarArr.length == 1 && nVarArr[0] != null) {
                         n nVar = nVarArr[0];
                         synchronized ("debug") {
-                            com.baidu.tieba.i.d.a(new File(g.a.eEt + g.a.eEk + nVar.eER + g.a.eEk + "debug"), nVar.fSU.bjQ().toString() + "\n", true);
+                            com.baidu.tieba.i.d.a(new File(g.a.eEt + g.a.eEk + nVar.eER + g.a.eEk + "debug"), nVar.fSU.bjP().toString() + "\n", true);
                         }
                     }
                     return null;
@@ -90,7 +90,7 @@ public class m {
         }
     }
 
-    private void bkt() {
+    private void bks() {
         if (f.dG()) {
             new BdAsyncTask<d, Void, Void>() { // from class: com.baidu.tieba.post.m.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -110,7 +110,7 @@ public class m {
         }
     }
 
-    private void bku() {
+    private void bkt() {
         if (f.dG()) {
             File file = new File(g.a.eEt + g.a.eEk + this.eEu + g.a.eEk);
             if (!file.exists()) {
@@ -119,7 +119,7 @@ public class m {
         }
     }
 
-    public JSONObject aOh() {
+    public JSONObject aOg() {
         return a(this.isSuccess, this.fSQ, this.fSe);
     }
 
@@ -135,14 +135,14 @@ public class m {
         return jSONObject;
     }
 
-    public JSONObject aOi() {
+    public JSONObject aOh() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
             if (!v.w(this.fSR)) {
                 int size = this.fSR.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.fSR.get(i).bjQ());
+                    jSONArray.put(this.fSR.get(i).bjP());
                 }
             }
             jSONObject.put("running", jSONArray);

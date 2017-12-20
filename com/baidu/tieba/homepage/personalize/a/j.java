@@ -33,9 +33,9 @@ public class j extends com.baidu.adp.widget.ListView.a<q, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, q qVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.acC().a(qVar);
-        aVar.acC().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        s.abX().a(new ak("c10718").ac("obj_id", String.valueOf(qVar.ceJ)));
+        aVar.acB().a(qVar);
+        aVar.acB().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        s.abW().a(new ak("c10718").ac("obj_id", String.valueOf(qVar.ceJ)));
         return aVar.getView();
     }
 }

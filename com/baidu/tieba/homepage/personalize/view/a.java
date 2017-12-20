@@ -60,7 +60,7 @@ public class a extends RelativeLayout {
 
     public void setData(e eVar) {
         if (eVar != null) {
-            if (!eVar.auv()) {
+            if (!eVar.auu()) {
                 setVisibility(8);
                 return;
             }

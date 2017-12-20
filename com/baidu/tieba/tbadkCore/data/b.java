@@ -11,7 +11,7 @@ public class b {
         return this.mDescription;
     }
 
-    public String bws() {
+    public String bwr() {
         return this.gBh;
     }
 

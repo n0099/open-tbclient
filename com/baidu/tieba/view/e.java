@@ -57,13 +57,13 @@ public class e implements g {
     private Runnable fgT = new Runnable() { // from class: com.baidu.tieba.view.e.6
         @Override // java.lang.Runnable
         public void run() {
-            e.this.aXq();
+            e.this.aXp();
         }
     };
     private View.OnClickListener fgU = new View.OnClickListener() { // from class: com.baidu.tieba.view.e.7
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e.this.aXp();
+            e.this.aXo();
         }
     };
 
@@ -99,7 +99,7 @@ public class e implements g {
     }
 
     @Override // com.baidu.tieba.view.g
-    public void bbi() {
+    public void bbh() {
         this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
         if (this.mFrom == 1) {
             if (this.haZ != null && this.haZ.getParent() == null) {
@@ -128,7 +128,7 @@ public class e implements g {
                         TiebaStatic.log(new ak("c12502").ac("obj_locate", "1"));
                     }
                     e.this.z(6, false);
-                    com.baidu.tieba.m.a.bmN().c(6, false, true);
+                    com.baidu.tieba.m.a.bmM().c(6, false, true);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new DressupCenterActivityConfig(e.this.mContext)));
                 }
             });
@@ -145,7 +145,7 @@ public class e implements g {
                     e.this.z(5, false);
                     TiebaStatic.log(new ak("c12502").ac("obj_locate", "2"));
                     e.this.z(5, false);
-                    com.baidu.tieba.m.a.bmN().c(5, false, true);
+                    com.baidu.tieba.m.a.bmM().c(5, false, true);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MORE, new IntentConfig(view.getContext())));
                 }
             });
@@ -258,7 +258,7 @@ public class e implements g {
         }
     }
 
-    public void bbK() {
+    public void bbJ() {
         if (!this.hbi) {
             this.hbi = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_person_tab_feedback_tips", false);
             if (!this.hbi) {
@@ -277,14 +277,14 @@ public class e implements g {
         }
     }
 
-    public void aXp() {
+    public void aXo() {
         this.mHandler.removeCallbacks(this.fgS);
         this.mHandler.removeCallbacks(this.fgT);
-        aXq();
+        aXp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXq() {
+    public void aXp() {
         com.baidu.adp.lib.g.g.a(this.fgO);
     }
 

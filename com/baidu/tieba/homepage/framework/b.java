@@ -5,5 +5,5 @@ public interface b {
 
     void aP(int i, int i2);
 
-    void atQ();
+    void atP();
 }

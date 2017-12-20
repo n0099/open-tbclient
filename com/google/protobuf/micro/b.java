@@ -152,7 +152,7 @@ public final class b {
         }
     }
 
-    public a bMK() {
+    public a bMJ() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
             return a.J(xh(j));
@@ -162,7 +162,7 @@ public final class b {
         return l;
     }
 
-    public byte bML() {
+    public byte bMK() {
         if (this.d == this.b) {
             a(true);
         }
@@ -248,31 +248,31 @@ public final class b {
     }
 
     public int j() {
-        byte bML = bML();
-        if (bML >= 0) {
-            return bML;
+        byte bMK = bMK();
+        if (bMK >= 0) {
+            return bMK;
         }
-        int i = bML & Byte.MAX_VALUE;
-        byte bML2 = bML();
-        if (bML2 >= 0) {
-            return i | (bML2 << 7);
+        int i = bMK & Byte.MAX_VALUE;
+        byte bMK2 = bMK();
+        if (bMK2 >= 0) {
+            return i | (bMK2 << 7);
         }
-        int i2 = i | ((bML2 & Byte.MAX_VALUE) << 7);
-        byte bML3 = bML();
-        if (bML3 >= 0) {
-            return i2 | (bML3 << 14);
+        int i2 = i | ((bMK2 & Byte.MAX_VALUE) << 7);
+        byte bMK3 = bMK();
+        if (bMK3 >= 0) {
+            return i2 | (bMK3 << 14);
         }
-        int i3 = i2 | ((bML3 & Byte.MAX_VALUE) << 14);
-        byte bML4 = bML();
-        if (bML4 >= 0) {
-            return i3 | (bML4 << 21);
+        int i3 = i2 | ((bMK3 & Byte.MAX_VALUE) << 14);
+        byte bMK4 = bMK();
+        if (bMK4 >= 0) {
+            return i3 | (bMK4 << 21);
         }
-        int i4 = i3 | ((bML4 & Byte.MAX_VALUE) << 21);
-        byte bML5 = bML();
-        int i5 = i4 | (bML5 << 28);
-        if (bML5 < 0) {
+        int i4 = i3 | ((bMK4 & Byte.MAX_VALUE) << 21);
+        byte bMK5 = bMK();
+        int i5 = i4 | (bMK5 << 28);
+        if (bMK5 < 0) {
             for (int i6 = 0; i6 < 5; i6++) {
-                if (bML() >= 0) {
+                if (bMK() >= 0) {
                     return i5;
                 }
             }
@@ -284,9 +284,9 @@ public final class b {
     public long k() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
-            byte bML = bML();
-            j |= (bML & Byte.MAX_VALUE) << i;
-            if ((bML & 128) == 0) {
+            byte bMK = bMK();
+            j |= (bMK & Byte.MAX_VALUE) << i;
+            if ((bMK & 128) == 0) {
                 return j;
             }
         }
@@ -294,13 +294,13 @@ public final class b {
     }
 
     public int l() {
-        return (bML() & 255) | ((bML() & 255) << 8) | ((bML() & 255) << 16) | ((bML() & 255) << 24);
+        return (bMK() & 255) | ((bMK() & 255) << 8) | ((bMK() & 255) << 16) | ((bMK() & 255) << 24);
     }
 
     public long m() {
-        byte bML = bML();
-        byte bML2 = bML();
-        return ((bML2 & 255) << 8) | (bML & 255) | ((bML() & 255) << 16) | ((bML() & 255) << 24) | ((bML() & 255) << 32) | ((bML() & 255) << 40) | ((bML() & 255) << 48) | ((bML() & 255) << 56);
+        byte bMK = bMK();
+        byte bMK2 = bMK();
+        return ((bMK2 & 255) << 8) | (bMK & 255) | ((bMK() & 255) << 16) | ((bMK() & 255) << 24) | ((bMK() & 255) << 32) | ((bMK() & 255) << 40) | ((bMK() & 255) << 48) | ((bMK() & 255) << 56);
     }
 
     public boolean n() {

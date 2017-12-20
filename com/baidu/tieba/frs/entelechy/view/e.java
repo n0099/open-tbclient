@@ -105,7 +105,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements u {
                 if (e.this.abt() != null) {
                     e.this.abt().a(view, e.this.ajJ);
                 }
-                e.this.abN();
+                e.this.abM();
             }
         };
         this.cPg = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.e.5
@@ -114,7 +114,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements u {
                 if (e.this.abt() != null) {
                     e.this.abt().a(view, e.this.ajJ);
                 }
-                e.this.abN();
+                e.this.abM();
             }
         };
         this.caS = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.e.6
@@ -213,7 +213,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements u {
         }
     }
 
-    public ThreadCommentAndPraiseInfoLayout abY() {
+    public ThreadCommentAndPraiseInfoLayout abX() {
         return this.cPc;
     }
 
@@ -378,7 +378,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements u {
             VoiceData.VoiceModel voiceModel = rK.get(0);
             this.caM.setVoiceModel(voiceModel);
             this.caM.setTag(voiceModel);
-            this.caM.bmf();
+            this.caM.bme();
             if (voiceModel != null) {
                 this.caM.nT(voiceModel.voice_status.intValue());
             }
@@ -416,7 +416,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements u {
                                     abt.aXD = true;
                                     abt.a(view, e.this.ajJ);
                                 }
-                                e.this.abN();
+                                e.this.abM();
                                 return;
                             }
                             if (abt != null) {
@@ -463,7 +463,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements u {
                 this.cJC.setVisibility(8);
             }
         }
-        abM();
+        abL();
         b.a(this.ajJ, this.bZN);
         D(bdVar);
     }
@@ -547,7 +547,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements u {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
     }
 
-    private void abM() {
+    private void abL() {
         this.caM.setClickable(true);
         this.cPc.setBarNameClickEnabled(true);
         int childCount = this.caP.getChildCount();
@@ -570,7 +570,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements u {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abN() {
+    public void abM() {
         PbActivityConfig createFromThreadCfg;
         if (this.ajJ != null) {
             com.baidu.tieba.card.k.jO(this.ajJ.getId());
@@ -606,7 +606,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements u {
             } else {
                 t.gW(this.ajJ.getId());
                 boolean z = this.ajJ.getType() != bd.YA;
-                if (this.ajJ.rS() > 0 && com.baidu.tieba.tbadkCore.util.f.bxV()) {
+                if (this.ajJ.rS() > 0 && com.baidu.tieba.tbadkCore.util.f.bxU()) {
                     createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createHistoryCfg(this.ajJ.getTid(), String.valueOf(this.ajJ.rS()), false, z, "frs_page");
                 } else {
                     createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(this.ajJ, this.mForumName, "frs_page", 18003, z, false, false);

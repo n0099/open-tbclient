@@ -11,10 +11,10 @@ public class HomePageStatic {
     public static boolean dnr = false;
 
     static {
-        atw();
+        atv();
     }
 
-    private static void atw() {
+    private static void atv() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=303111");
         tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);

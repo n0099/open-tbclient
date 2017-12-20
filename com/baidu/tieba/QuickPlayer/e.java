@@ -129,7 +129,7 @@ public class e implements d.a, com.baidu.tieba.play.g {
                     this.aZn.setDebugParams(entry.getKey(), entry.getValue());
                 }
             }
-            this.aZn.forceUseSystemMediaPlayer((CustomPlayerSwitchStatic.biQ() == 0) | this.aZz);
+            this.aZn.forceUseSystemMediaPlayer((CustomPlayerSwitchStatic.biP() == 0) | this.aZz);
             this.aZn.setListener(new PlayerListener(this.aZx));
             this.aZn.openVideo(this.aZy.getUri(), new Surface(this.aZy.getSurfaceTexture()), this.aZy.getHost());
         } catch (Exception e) {
@@ -164,7 +164,7 @@ public class e implements d.a, com.baidu.tieba.play.g {
                     this.aZn.setDebugParams(entry.getKey(), entry.getValue());
                 }
             }
-            this.aZn.forceUseSystemMediaPlayer((CustomPlayerSwitchStatic.biQ() == 0) | this.aZz);
+            this.aZn.forceUseSystemMediaPlayer((CustomPlayerSwitchStatic.biP() == 0) | this.aZz);
             this.aZn.setListener(new PlayerListener(this.aZx));
             this.aZn.openVideo(this.aZy.getUri(), new Surface(this.aZy.getSurfaceTexture()), this.aZy.getHost());
             if (i == 3) {

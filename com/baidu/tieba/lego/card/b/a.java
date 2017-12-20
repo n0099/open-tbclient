@@ -33,7 +33,7 @@ public interface a {
             return (TextUtils.isEmpty(this.picUrl) || this.rect.isEmpty()) ? false : true;
         }
 
-        public boolean aGG() {
+        public boolean aGF() {
             return (TextUtils.isEmpty(this.ehh) || this.ehi.isEmpty()) ? false : true;
         }
 

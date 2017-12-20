@@ -45,15 +45,15 @@ public class b implements c.a {
                     b.a aVar = bVar.gdF.get(2);
                     b.a aVar2 = bVar.gdF.get(3);
                     b.a aVar3 = bVar.gdF.get(9);
-                    if (b.this.fsz.baj() != null) {
+                    if (b.this.fsz.bai() != null) {
                         if (aVar2 != null) {
-                            b.this.fsz.baj().kB(aVar2.enN);
+                            b.this.fsz.bai().kB(aVar2.enN);
                         }
                         if (aVar != null) {
-                            b.this.fsz.baj().kD(aVar.enN);
+                            b.this.fsz.bai().kD(aVar.enN);
                         }
                         if (aVar3 != null) {
-                            b.this.fsz.baj().kC(aVar3.enN);
+                            b.this.fsz.bai().kC(aVar3.enN);
                         }
                     }
                     b.a aVar4 = bVar.gdF.get(5);
@@ -74,7 +74,7 @@ public class b implements c.a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                com.baidu.tieba.m.a.bmN().ml(false);
+                com.baidu.tieba.m.a.bmM().ml(false);
             }
         }
     };
@@ -84,8 +84,8 @@ public class b implements c.a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             k kVar;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof k) && (kVar = (k) customResponsedMessage.getData()) != null) {
-                if (b.this.fsz.baj() != null) {
-                    b.this.fsz.baj().setUserPendantData(kVar);
+                if (b.this.fsz.bai() != null) {
+                    b.this.fsz.bai().setUserPendantData(kVar);
                     b.this.fsA.notifyDataSetChanged();
                     return;
                 }
@@ -99,7 +99,7 @@ public class b implements c.a {
         this.fsA.a(this);
         this.fsz = new PersonCenterModel(tbPageContext, bdUniqueId);
         this.fsz.a(this.fsB);
-        com.baidu.tieba.m.a.bmN();
+        com.baidu.tieba.m.a.bmM();
         this.fsC.setTag(bdUniqueId);
         this.bbY.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.fsC);
@@ -125,16 +125,16 @@ public class b implements c.a {
         this.fsA.onChangeSkinType(i);
     }
 
+    public void bae() {
+        this.fsA.bac();
+    }
+
     public void baf() {
         this.fsA.bad();
     }
 
-    public void bag() {
-        this.fsA.bae();
-    }
-
     @Override // com.baidu.tieba.personCenter.view.c.a
-    public void bt(View view) {
+    public void bu(View view) {
         this.fsz.LoadData();
     }
 }

@@ -249,7 +249,7 @@ public class ProgressView extends View {
         return this.gXC.getLast().intValue();
     }
 
-    public boolean bDR() {
+    public boolean bDQ() {
         return this.gXC.isEmpty();
     }
 

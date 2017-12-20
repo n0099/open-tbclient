@@ -59,11 +59,11 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
         return this.gBD;
     }
 
-    public String bwE() {
+    public String bwD() {
         return this.gBC;
     }
 
-    public String bwF() {
+    public String bwE() {
         return this.gBE;
     }
 }

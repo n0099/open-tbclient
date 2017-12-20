@@ -62,7 +62,7 @@ public class QALoginActivity extends BaseActivity {
             if (QALoginActivity.this.mFrom == 4) {
                 QALoginActivity.this.Mp();
             } else {
-                QALoginActivity.this.aQq();
+                QALoginActivity.this.aQp();
             }
         }
 
@@ -143,7 +143,7 @@ public class QALoginActivity extends BaseActivity {
                         }
                     }
                     if (QALoginActivity.this.wq != null && QALoginActivity.this.wq.length() > 0) {
-                        QALoginActivity.this.aQr();
+                        QALoginActivity.this.aQq();
                         return;
                     }
                     QALoginActivity.this.showToast("登录失败");
@@ -156,7 +156,7 @@ public class QALoginActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQr() {
+    public void aQq() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         if (this.bbX != null) {
             this.bbX.cancel();
@@ -183,7 +183,7 @@ public class QALoginActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQq() {
+    public void aQp() {
         int i = 1;
         com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.getInst().onUserChanged();

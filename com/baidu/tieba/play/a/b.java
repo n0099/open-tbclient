@@ -27,7 +27,7 @@ public class b {
     private b() {
     }
 
-    public static b bjN() {
+    public static b bjM() {
         if (fRq == null) {
             synchronized (b.class) {
                 if (fRq == null) {
@@ -46,16 +46,16 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (rv(str) && this.fRp.bjM().size() > this.fRs) {
+        if (rv(str) && this.fRp.bjL().size() > this.fRs) {
             if (this.fRr != null) {
                 InterfaceC0135b interfaceC0135b = this.fRr;
-                List<String> bjM = this.fRp.bjM();
+                List<String> bjL = this.fRp.bjL();
                 int i = this.fRs;
                 this.fRs = i + 1;
-                interfaceC0135b.bS(bjM.get(i), str);
+                interfaceC0135b.bS(bjL.get(i), str);
             }
             return true;
-        } else if (this.fRp != null && this.fRp.bjM() != null && this.fRp.bjM().size() <= this.fRs) {
+        } else if (this.fRp != null && this.fRp.bjL() != null && this.fRp.bjL().size() <= this.fRs) {
             this.fRs = 0;
             this.fRp = null;
             return false;
@@ -70,7 +70,7 @@ public class b {
     }
 
     private boolean rv(String str) {
-        return (this.fRp == null || TextUtils.isEmpty(str) || !str.equals(this.fRp.getHost()) || v.w(this.fRp.bjM()) || this.fRp.cJ(System.currentTimeMillis()) || this.fRp.bjM().size() <= this.fRs) ? false : true;
+        return (this.fRp == null || TextUtils.isEmpty(str) || !str.equals(this.fRp.getHost()) || v.w(this.fRp.bjL()) || this.fRp.cJ(System.currentTimeMillis()) || this.fRp.bjL().size() <= this.fRs) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -260,8 +260,8 @@ public class b {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.zV)) {
                 b.this.fRp = aVarArr[0];
-                if (!v.w(aVarArr[0].bjM()) && b.this.fRr != null) {
-                    b.this.fRr.bS(aVarArr[0].bjM().get(0), aVarArr[0].getHost());
+                if (!v.w(aVarArr[0].bjL()) && b.this.fRr != null) {
+                    b.this.fRr.bS(aVarArr[0].bjL().get(0), aVarArr[0].getHost());
                     return;
                 }
             }

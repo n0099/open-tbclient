@@ -6,11 +6,11 @@ public class l {
     private boolean gAA;
     private String menu_name;
 
-    public boolean bwe() {
+    public boolean bwd() {
         return this.gAA;
     }
 
-    public String bwf() {
+    public String bwe() {
         return this.menu_name;
     }
 

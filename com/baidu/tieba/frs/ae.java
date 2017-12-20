@@ -10,7 +10,7 @@ public class ae {
     private ae() {
     }
 
-    public static ae amz() {
+    public static ae amy() {
         return cKl;
     }
 

@@ -52,7 +52,7 @@ public class k {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                k.this.anB();
+                k.this.anA();
                 if (k.this.drV != null) {
                     k.this.ae(k.this.drV);
                 }
@@ -105,13 +105,13 @@ public class k {
     private void bu(Context context) {
         this.drW = new a(this.mPageContext);
         this.drX = new j(this.mPageContext);
-        this.cRh = q.blR().c(this.mPageContext, AdvertAppInfo.Uz);
-        this.dsh = q.blR().c(this.mPageContext, AdvertAppInfo.UD);
-        this.dsi = q.blR().c(this.mPageContext, AdvertAppInfo.UE);
-        this.dsj = q.blR().c(this.mPageContext, AdvertAppInfo.UF);
-        this.dsk = q.blR().c(this.mPageContext, AdvertAppInfo.UG);
-        this.dsl = q.blR().c(this.mPageContext, AdvertAppInfo.UH);
-        this.dsm = q.blR().c(this.mPageContext, AdvertAppInfo.UI);
+        this.cRh = q.blQ().c(this.mPageContext, AdvertAppInfo.Uz);
+        this.dsh = q.blQ().c(this.mPageContext, AdvertAppInfo.UD);
+        this.dsi = q.blQ().c(this.mPageContext, AdvertAppInfo.UE);
+        this.dsj = q.blQ().c(this.mPageContext, AdvertAppInfo.UF);
+        this.dsk = q.blQ().c(this.mPageContext, AdvertAppInfo.UG);
+        this.dsl = q.blQ().c(this.mPageContext, AdvertAppInfo.UH);
+        this.dsm = q.blQ().c(this.mPageContext, AdvertAppInfo.UI);
         this.drY = new f(this.mPageContext, l.TYPE);
         this.drZ = new e(this.mPageContext, l.YB);
         this.dsa = new i(this.mPageContext, n.cdY);
@@ -140,7 +140,7 @@ public class k {
         this.dns.add(new com.baidu.tieba.homepage.personalize.b.b(this.mPageContext, com.baidu.tieba.homepage.personalize.b.c.TYPE));
         this.dns.add(this.dsc);
         this.dns.add(this.dse);
-        anA();
+        anz();
     }
 
     public void b(com.baidu.tieba.homepage.personalize.model.e eVar) {
@@ -248,21 +248,21 @@ public class k {
         }
     }
 
-    private void anA() {
-        this.dso = anB();
+    private void anz() {
+        this.dso = anA();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean anB() {
+    public boolean anA() {
         if (this.cNb == null || this.cNb.size() <= 0) {
             this.cNb = new ArrayList();
-            ArrayList<BdUniqueId> bwg = p.bwg();
-            if (bwg == null || bwg.size() <= 0) {
+            ArrayList<BdUniqueId> bwf = p.bwf();
+            if (bwf == null || bwf.size() <= 0) {
                 return false;
             }
-            int size = bwg.size();
+            int size = bwf.size();
             for (int i = 0; i < size; i++) {
-                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.aIk().a(this.mPageContext, bwg.get(i), 2);
+                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.aIj().a(this.mPageContext, bwf.get(i), 2);
                 if (this.dsn) {
                     a.setBusinessType(3);
                 }

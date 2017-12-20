@@ -51,11 +51,11 @@ public class r implements com.baidu.adp.widget.ListView.f {
         return this.cJK;
     }
 
-    public String amv() {
+    public String amu() {
         return this.cJL;
     }
 
-    public boolean amw() {
+    public boolean amv() {
         return this.cJM;
     }
 

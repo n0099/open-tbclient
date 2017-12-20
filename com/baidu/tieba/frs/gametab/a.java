@@ -13,7 +13,7 @@ public class a {
         return this.tabId;
     }
 
-    public boolean apt() {
+    public boolean aps() {
         return 1 == this.cWF;
     }
 }

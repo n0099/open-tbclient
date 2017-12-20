@@ -14,7 +14,7 @@ public class g implements com.baidu.adp.widget.ListView.f {
         return gzd;
     }
 
-    public List<FeedForumData> buN() {
+    public List<FeedForumData> buM() {
         return this.cQM;
     }
 

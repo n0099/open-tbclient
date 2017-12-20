@@ -61,18 +61,18 @@ public class a extends GridView implements AdapterView.OnItemLongClickListener {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         this.cur = (int) motionEvent.getRawX();
         this.cus = (int) motionEvent.getRawY();
-        if (com.baidu.tieba.enterForum.model.a.ahl().ahm()) {
+        if (com.baidu.tieba.enterForum.model.a.ahk().ahl()) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
                     com.baidu.adp.lib.g.e.fP().removeCallbacks(this.cuv);
-                    com.baidu.tieba.enterForum.model.a.ahl().ahp();
+                    com.baidu.tieba.enterForum.model.a.ahk().aho();
                     this.cut.jm(-1);
-                    this.cut.adg();
+                    this.cut.adf();
                     break;
                 case 2:
                     this.mOffset = com.baidu.tieba.enterForum.model.b.a(motionEvent.getY(), this.cuu, getHeight());
-                    com.baidu.tieba.enterForum.model.a.ahl().at(this.cur, this.cus - this.mOffset);
+                    com.baidu.tieba.enterForum.model.a.ahk().at(this.cur, this.cus - this.mOffset);
                     av((int) motionEvent.getX(), ((int) motionEvent.getY()) - this.mOffset);
                     break;
             }
@@ -85,9 +85,9 @@ public class a extends GridView implements AdapterView.OnItemLongClickListener {
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         TiebaStatic.eventStat(getContext(), "list_drag_order", null);
         this.cuq = i;
-        com.baidu.tieba.enterForum.model.a.ahl().a(getContext(), view, this.cur, this.cus);
+        com.baidu.tieba.enterForum.model.a.ahk().a(getContext(), view, this.cur, this.cus);
         this.cut.jm(i);
-        this.cut.adg();
+        this.cut.adf();
         this.cuu = view.getHeight();
         com.baidu.adp.lib.g.e.fP().postDelayed(this.cuv, 200L);
         return true;

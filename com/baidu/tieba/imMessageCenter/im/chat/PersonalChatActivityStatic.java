@@ -47,7 +47,7 @@ public class PersonalChatActivityStatic {
                         @Override // com.baidu.tbadk.util.u
                         /* renamed from: MI */
                         public Void doInBackground() {
-                            return l.azG().l(linkedList);
+                            return l.azF().l(linkedList);
                         }
                     }, new h<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -96,7 +96,7 @@ public class PersonalChatActivityStatic {
         });
     }
 
-    public static e aDL() {
+    public static e aDK() {
         return dWX;
     }
 

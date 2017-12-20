@@ -62,9 +62,9 @@ public class b {
         if (this.gDj) {
             this.gDj = false;
             this.gDl = null;
+            this.gDh.bxt();
             this.gDh.bxu();
-            this.gDh.bxv();
-            this.gDf.bxx();
+            this.gDf.bxw();
             this.gDf.invalidate();
         }
     }
@@ -109,7 +109,7 @@ public class b {
                     this.aRA = x;
                     this.gDl.rect.offset((int) (x - this.aRA), 0);
                     a(this.gDl);
-                    bxq();
+                    bxp();
                     break;
             }
             return true;
@@ -117,17 +117,17 @@ public class b {
         return false;
     }
 
-    public void bxq() {
+    public void bxp() {
         this.mTempRect.set(this.gDl.rect);
         this.gDf.offsetRectIntoDescendantCoords((View) this.gDh, this.mTempRect);
         this.gDh.j(this.mTempRect);
         this.gDf.invalidate();
         if (this.gDl.gDR) {
-            this.gDh.bxs();
+            this.gDh.bxr();
         } else if (this.gDl.gDS) {
-            this.gDh.bxt();
+            this.gDh.bxs();
         } else {
-            this.gDh.bxu();
+            this.gDh.bxt();
         }
     }
 

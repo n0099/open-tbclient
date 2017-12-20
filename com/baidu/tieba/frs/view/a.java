@@ -66,7 +66,7 @@ public class a {
         }
     }
 
-    public void ard() {
+    public void arc() {
         if (this.cMt != null) {
             if (!v.w(this.bzh)) {
                 if (this.dbP != null) {

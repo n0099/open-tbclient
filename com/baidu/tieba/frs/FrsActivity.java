@@ -130,17 +130,17 @@ public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c,
         }
     }
 
-    public g akQ() {
+    public g akP() {
         if (this.cGF == null) {
             return null;
         }
-        return this.cGF.akQ();
+        return this.cGF.akP();
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.e.b<TbImageView> akR() {
+    public com.baidu.adp.lib.e.b<TbImageView> akQ() {
         if (this.cGF != null) {
-            return this.cGF.akR();
+            return this.cGF.akQ();
         }
         return null;
     }

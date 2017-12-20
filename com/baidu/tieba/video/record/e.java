@@ -24,7 +24,7 @@ public class e<T> {
         this.mName = str;
     }
 
-    public int bDr() {
+    public int bDq() {
         return this.gWx;
     }
 

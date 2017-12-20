@@ -28,7 +28,7 @@ public class p extends j.a {
 
     public void a(q qVar) {
         if (qVar != null) {
-            String format = String.format(this.mContext.getResources().getString(d.j.smart_frs_read_progress_tip), am.s(qVar.amu()));
+            String format = String.format(this.mContext.getResources().getString(d.j.smart_frs_read_progress_tip), am.s(qVar.amt()));
             String string = this.mContext.getResources().getString(d.j.click_to_refresh);
             SpannableString spannableString = new SpannableString(format);
             UtilHelper.setSpan(spannableString, format, string, new ForegroundColorSpan(aj.getColor(d.C0096d.cp_link_tip_a)));

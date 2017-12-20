@@ -42,8 +42,8 @@ public class c extends com.baidu.adp.base.c {
                 if (c.this.gTX != null) {
                     c.this.gTX.a(aVar);
                 }
-                if (c.this.gRd != null && c.this.gRd.bCr() != null) {
-                    c.this.gRd.bCr().setFilter(aVar);
+                if (c.this.gRd != null && c.this.gRd.bCq() != null) {
+                    c.this.gRd.bCq().setFilter(aVar);
                 }
             }
         });
@@ -54,7 +54,7 @@ public class c extends com.baidu.adp.base.c {
         this.gTV.setAdapter((ListAdapter) this.gTW);
     }
 
-    public void bL(View view) {
+    public void bM(View view) {
     }
 
     public View getRootView() {

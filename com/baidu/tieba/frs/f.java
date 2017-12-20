@@ -20,7 +20,7 @@ public class f implements com.baidu.adp.widget.ListView.f {
         this.height = i;
     }
 
-    public int ale() {
+    public int ald() {
         return this.cGV;
     }
 

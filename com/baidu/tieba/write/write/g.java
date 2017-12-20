@@ -129,7 +129,7 @@ public class g {
                             g.this.hmD.getRootView().setVisibility(8);
                             if (v.w(g.this.mUrlList)) {
                                 if (g.this.hmI != null) {
-                                    g.this.hmI.bIa();
+                                    g.this.hmI.bHZ();
                                     break;
                                 }
                             } else {
@@ -145,7 +145,7 @@ public class g {
                                 break;
                             } else {
                                 if (g.this.hmF != null) {
-                                    g.this.hmF.aPX();
+                                    g.this.hmF.aPW();
                                 }
                                 g.this.hmB.getRootView().setVisibility(8);
                                 g.this.hmC.getRootView().setVisibility(0);
@@ -154,7 +154,7 @@ public class g {
                             }
                         case 2:
                             if (g.this.hmF != null) {
-                                g.this.hmF.aPX();
+                                g.this.hmF.aPW();
                             }
                             g.this.hmB.getRootView().setVisibility(8);
                             g.this.hmC.getRootView().setVisibility(0);
@@ -181,7 +181,7 @@ public class g {
         }
     }
 
-    public void bIW() {
+    public void bIV() {
         if (this.hkz == null) {
             this.hkz = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
             this.hkz.cd(d.j.orginal_conflict_tip);
@@ -226,8 +226,8 @@ public class g {
         this.hmB.dY(list);
     }
 
-    public void bHr() {
-        this.hmB.bHr();
+    public void bHq() {
+        this.hmB.bHq();
     }
 
     public void d(WriteImagesInfo writeImagesInfo) {

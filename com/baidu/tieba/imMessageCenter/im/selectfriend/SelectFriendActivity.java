@@ -217,7 +217,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         aVar.a(d.j.share, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.5
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                long an = com.baidu.tieba.im.memorycache.b.aBP().an(String.valueOf(j), 2);
+                long an = com.baidu.tieba.im.memorycache.b.aBO().an(String.valueOf(j), 2);
                 MessageUtils.createPersonalChatMessage(an, 9, shareFromPBMsgData.toChatMessageContent(), j, str, str2);
                 MessageUtils.createPersonalChatMessage(an + 1, 1, bVar.getLeaveMsg(), j, str, str2);
                 aVar2.dismiss();
@@ -250,7 +250,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         aVar.a(d.j.share, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.7
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                long an = com.baidu.tieba.im.memorycache.b.aBP().an(String.valueOf(j), 2);
+                long an = com.baidu.tieba.im.memorycache.b.aBO().an(String.valueOf(j), 2);
                 MessageUtils.createPersonalChatMessage(an, 9, shareFromGameCenterMsgData.toChatMessageContent(), j, str, str2);
                 MessageUtils.createPersonalChatMessage(an + 1, 1, bVar.getLeaveMsg(), j, str, str2);
                 aVar2.dismiss();

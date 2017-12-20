@@ -144,17 +144,17 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == getView().getId()) {
-                bak();
+                baj();
             } else {
-                bu(view);
+                bv(view);
             }
         }
     }
 
-    private void bak() {
+    private void baj() {
         switch (this.ftE.type) {
             case 10:
-                com.baidu.tieba.m.a.bmN().c(1, false, true);
+                com.baidu.tieba.m.a.bmM().c(1, false, true);
                 TiebaStatic.log(new ak("c12523").r("obj_locate", 13));
                 if (this.mUserData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mTbPageContext.getPageActivity(), this.mUserData.getUserId(), this.mUserData.getUserName(), this.mUserData.getName_show(), this.mUserData.getSex(), "iowner_gift")));
@@ -169,7 +169,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                 }
                 return;
             case 12:
-                com.baidu.tieba.m.a.bmN().c(7, false, true);
+                com.baidu.tieba.m.a.bmM().c(7, false, true);
                 TiebaStatic.log(new ak("c12523").r("obj_locate", 12));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MembercenterActivityConfig(this.mTbPageContext.getPageActivity())));
                 return;
@@ -192,7 +192,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                 return;
             case 16:
                 TiebaStatic.log(new ak("c12523").r("obj_locate", 9));
-                com.baidu.tieba.m.a.bmN().c(3, false, true);
+                com.baidu.tieba.m.a.bmM().c(3, false, true);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.LEFT_NAV_COLLECTION_CLICK));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_EDITMARK, new IntentConfig(this.mTbPageContext.getPageActivity())));
                 return;
@@ -249,7 +249,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                     String xy = activityPrizeData.xy();
                     if (!StringUtils.isNull(xy)) {
                         TiebaStatic.log(new ak("c12598"));
-                        com.baidu.tieba.m.a.bmN().c(9, false, true);
+                        com.baidu.tieba.m.a.bmM().c(9, false, true);
                         av.vI().a(abs(), new String[]{xy}, true);
                         return;
                     }
@@ -262,7 +262,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
         }
     }
 
-    private void bu(View view) {
+    private void bv(View view) {
         if (view == this.ftD) {
             BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(this.mTbPageContext.getPageActivity(), 0L);
             buyTBeanActivityConfig.setReferPageAndClickZone("personal_center_V8.9", "T_recharge_V8.9");

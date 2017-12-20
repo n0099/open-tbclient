@@ -15,7 +15,7 @@ public class c implements d.a {
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
-    public void bBo() {
+    public void bBn() {
         this.gQu.nC(true);
         this.gQt.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.c.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public class c implements d.a {
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
-    public void and() {
+    public void anc() {
         this.gQt.cancelLoadData();
     }
 }

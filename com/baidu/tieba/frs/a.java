@@ -15,7 +15,7 @@ public class a implements ah {
     private a() {
     }
 
-    public static ah akP() {
+    public static ah akO() {
         ah ahVar = cGD.get();
         return ahVar == null ? cGE : ahVar;
     }

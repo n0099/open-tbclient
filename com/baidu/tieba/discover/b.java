@@ -111,13 +111,13 @@ public class b {
         }
     }
 
-    public void afT() {
+    public void afS() {
         if (this.cpX != null) {
             this.cpX.loadUrl("javascript:__js_bridge_discovery_enter_action()");
         }
     }
 
-    public void afU() {
+    public void afT() {
         if (this.cpX != null) {
             this.cpX.loadUrl("javascript:__js_bridge_discovery_leave_action()");
         }
@@ -197,7 +197,7 @@ public class b {
                     if (j.hh()) {
                         b.this.QC();
                         b.this.xX = true;
-                        b.this.afT();
+                        b.this.afS();
                     }
                 }
             });

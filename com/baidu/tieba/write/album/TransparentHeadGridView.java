@@ -36,7 +36,7 @@ public class TransparentHeadGridView extends GridView {
 
     /* loaded from: classes2.dex */
     public interface b {
-        void buh();
+        void bug();
 
         void vX(int i);
     }
@@ -77,7 +77,7 @@ public class TransparentHeadGridView extends GridView {
                     TransparentHeadGridView.this.setVisibility(8);
                 }
                 if (TransparentHeadGridView.this.hgs != null) {
-                    TransparentHeadGridView.this.hgs.buh();
+                    TransparentHeadGridView.this.hgs.bug();
                 }
             }
         };
@@ -151,7 +151,7 @@ public class TransparentHeadGridView extends GridView {
                     TransparentHeadGridView.this.setVisibility(8);
                 }
                 if (TransparentHeadGridView.this.hgs != null) {
-                    TransparentHeadGridView.this.hgs.buh();
+                    TransparentHeadGridView.this.hgs.bug();
                 }
             }
         };
@@ -225,7 +225,7 @@ public class TransparentHeadGridView extends GridView {
                     TransparentHeadGridView.this.setVisibility(8);
                 }
                 if (TransparentHeadGridView.this.hgs != null) {
-                    TransparentHeadGridView.this.hgs.buh();
+                    TransparentHeadGridView.this.hgs.bug();
                 }
             }
         };
@@ -309,7 +309,7 @@ public class TransparentHeadGridView extends GridView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void bGD() {
+    public void bGC() {
         setPadding(0, (int) ((10.0f - this.gQX) / 2.0f), 0, 0);
         this.mState = 0;
         this.gQX = 0.0f;

@@ -117,9 +117,9 @@ public class b extends NoPressedLinearLayout implements s, EmotionTabContentView
         this.csg = z;
     }
 
-    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> agx() {
+    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> agw() {
         ArrayList<com.baidu.tbadk.editortools.emotiontool.c> arrayList = new ArrayList<>();
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = g.agH().agJ().iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = g.agG().agI().iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (next.Dt() != EmotionGroupType.BIG_EMOTION || this.csf) {
@@ -133,11 +133,11 @@ public class b extends NoPressedLinearLayout implements s, EmotionTabContentView
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setup() {
-        this.csc = g.agH().agJ();
+        this.csc = g.agG().agI();
         if (!this.csf || !this.csg) {
-            this.csd = agx();
+            this.csd = agw();
             if (!this.csg && this.csc != null) {
-                this.csc = new ArrayList<>(g.agH().agJ());
+                this.csc = new ArrayList<>(g.agG().agI());
                 int i = 0;
                 while (true) {
                     if (i < this.csc.size()) {
@@ -153,11 +153,11 @@ public class b extends NoPressedLinearLayout implements s, EmotionTabContentView
                 }
             }
         } else {
-            this.csd = g.agH().agJ();
+            this.csd = g.agG().agI();
         }
         if ((this.csc == null || this.csc.size() <= 0) && this.csh < 3) {
             this.csh++;
-            g.agH().agI();
+            g.agG().agH();
             return;
         }
         this.csa.setDatas(this.csc);

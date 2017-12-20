@@ -148,7 +148,7 @@ public class f extends d {
             VoiceData.VoiceModel voiceModel = rK.get(0);
             this.caM.setVoiceModel(voiceModel);
             this.caM.setTag(voiceModel);
-            this.caM.bmf();
+            this.caM.bme();
             if (voiceModel != null) {
                 this.caM.nT(voiceModel.voice_status.intValue());
             }
@@ -182,7 +182,7 @@ public class f extends d {
                         if (!z) {
                             f.this.a(view, linkedList, i3, f.this.bkq);
                         } else {
-                            f.this.abN();
+                            f.this.abM();
                         }
                     }
                 });
@@ -193,7 +193,7 @@ public class f extends d {
                 this.dpd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.f.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        f.this.abN();
+                        f.this.abM();
                     }
                 });
                 this.dpd.setData(linkedList2);

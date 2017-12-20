@@ -23,9 +23,9 @@ public class c extends com.baidu.adp.widget.ListView.a<ar, com.baidu.tieba.card.
             public void a(View view, bd bdVar) {
                 if (view != null && c.this.cNo != null && c.this.cNo.getView() != null && c.this.cNo.cPo != null && bdVar != null && !StringUtils.isNull(bdVar.getTid())) {
                     if (view.getId() == d.g.card_root_view) {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 1);
+                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 1);
                     } else if (view.getId() == d.g.avatar) {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 2);
                     } else if (view.getId() == d.g.card_divider_tv) {
                         com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.cYY, bdVar.rU());
                     }
@@ -50,12 +50,12 @@ public class c extends com.baidu.adp.widget.ListView.a<ar, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ar arVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.acC() == null) {
+        if (aVar == null || aVar.acB() == null) {
             return null;
         }
-        aVar.acC().a(arVar);
-        aVar.acC().b(this.buW);
-        com.baidu.tieba.frs.e.b.aqw().a(cYY, arVar);
+        aVar.acB().a(arVar);
+        aVar.acB().b(this.buW);
+        com.baidu.tieba.frs.e.b.aqv().a(cYY, arVar);
         return aVar.getView();
     }
 }

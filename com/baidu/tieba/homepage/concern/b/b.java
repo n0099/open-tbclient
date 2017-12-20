@@ -14,7 +14,7 @@ public class b extends com.baidu.tieba.card.data.b implements f {
     public boolean isLinkThread = false;
     public MetaData metaData;
 
-    public void atM() {
+    public void atL() {
         this.metaData = new MetaData();
         this.metaData.setPortrait(this.doG.getPortrait());
         this.metaData.setName_show(this.doG.getName());
@@ -29,7 +29,7 @@ public class b extends com.baidu.tieba.card.data.b implements f {
         return this.isLinkThread ? doF : doE;
     }
 
-    public int atN() {
+    public int atM() {
         return this.doH;
     }
 

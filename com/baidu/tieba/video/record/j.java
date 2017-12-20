@@ -48,26 +48,26 @@ public class j {
         @Override // com.baidu.tieba.video.record.ProgressView.a
         public void vC(int i) {
             i iVar;
-            final h bDx;
+            final h bDw;
             j.this.mProgress = i;
-            if (i == 100 && j.this.gWY != null && (iVar = j.this.gWY.gWA) != null && (bDx = iVar.bDx()) != null) {
-                if (bDx instanceof g) {
-                    bDx.setOnEncoderStatusUpdateListener(new c.InterfaceC0167c() { // from class: com.baidu.tieba.video.record.j.1.1
+            if (i == 100 && j.this.gWY != null && (iVar = j.this.gWY.gWA) != null && (bDw = iVar.bDw()) != null) {
+                if (bDw instanceof g) {
+                    bDw.setOnEncoderStatusUpdateListener(new c.InterfaceC0167c() { // from class: com.baidu.tieba.video.record.j.1.1
                         @Override // com.faceunity.a.c.InterfaceC0167c
-                        public void bDU() {
+                        public void bDT() {
                         }
 
                         @Override // com.faceunity.a.c.InterfaceC0167c
-                        public void bDV() {
+                        public void bDU() {
                             com.baidu.adp.lib.g.e.fP().post(new Runnable() { // from class: com.baidu.tieba.video.record.j.1.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     if (j.this.gWY != null) {
-                                        j.this.gWY.bEa();
+                                        j.this.gWY.bDZ();
                                     }
                                 }
                             });
-                            bDx.setOnEncoderStatusUpdateListener(null);
+                            bDw.setOnEncoderStatusUpdateListener(null);
                         }
                     });
                     j.this.stopRecord();
@@ -75,7 +75,7 @@ public class j {
                 }
                 j.this.stopRecord();
                 if (j.this.gWY != null) {
-                    j.this.gWY.bEa();
+                    j.this.gWY.bDZ();
                 }
             }
         }
@@ -120,24 +120,24 @@ public class j {
         }
     }
 
-    public void bDS() {
+    public void bDR() {
         if (!this.gXP && this.gXN != null) {
             this.gXN.setCurrentState(ProgressView.State.ROLLBACK);
         }
     }
 
-    public void bDT() {
+    public void bDS() {
         if (this.gXN != null) {
             this.gXN.setCurrentState(ProgressView.State.DELETE);
         }
         this.gXM = this.gXN.getLastProgress();
         if (this.gWY.gWA != null) {
-            this.gWY.gWA.bDA();
+            this.gWY.gWA.bDz();
         }
     }
 
     public boolean onBackPressed() {
-        return this.gXN.bDR();
+        return this.gXN.bDQ();
     }
 
     public int getStatus() {

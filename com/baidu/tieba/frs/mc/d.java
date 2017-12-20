@@ -50,12 +50,12 @@ public class d extends h {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                     String str = (String) customResponsedMessage.getData();
-                    if (!StringUtils.isNull(str) && d.this.cOx.alF() != null) {
-                        k alF = d.this.cOx.alF();
-                        alF.al(alF.sV(str));
-                        d.this.cHi.a(alF.getThreadList(), alF);
-                        if (com.baidu.tieba.tbadkCore.c.buK() != null) {
-                            com.baidu.tieba.tbadkCore.c.buK().Z(d.this.cOx.getForumName(), false);
+                    if (!StringUtils.isNull(str) && d.this.cOx.alE() != null) {
+                        k alE = d.this.cOx.alE();
+                        alE.al(alE.sV(str));
+                        d.this.cHi.a(alE.getThreadList(), alE);
+                        if (com.baidu.tieba.tbadkCore.c.buJ() != null) {
+                            com.baidu.tieba.tbadkCore.c.buJ().Z(d.this.cOx.getForumName(), false);
                         }
                     }
                 }
@@ -68,24 +68,24 @@ public class d extends h {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 ForumManageModel.e eVar;
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e) && d.this.cOx != null && d.this.cHi != null && d.this.cHr != null && (eVar = (ForumManageModel.e) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(eVar.threadId) && d.this.cOx.alF() != null) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e) && d.this.cOx != null && d.this.cHi != null && d.this.cHr != null && (eVar = (ForumManageModel.e) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(eVar.threadId) && d.this.cOx.alE() != null) {
                     String str = eVar.threadId;
                     String str2 = eVar.forumId;
                     String str3 = eVar.forumName;
                     if (eVar.gEj == 4) {
-                        k alF = d.this.cOx.alF();
-                        bd sV = alF.sV(str);
-                        alF.al(sV);
-                        List<com.baidu.adp.widget.ListView.f> bwb = alF.bwb();
-                        if (bwb == null) {
-                            bwb = new ArrayList<>();
+                        k alE = d.this.cOx.alE();
+                        bd sV = alE.sV(str);
+                        alE.al(sV);
+                        List<com.baidu.adp.widget.ListView.f> bwa = alE.bwa();
+                        if (bwa == null) {
+                            bwa = new ArrayList<>();
                         }
-                        bwb.add(0, sV);
-                        d.this.cHi.a(alF.getThreadList(), alF);
-                        d.this.cHr.g(alF);
+                        bwa.add(0, sV);
+                        d.this.cHi.a(alE.getThreadList(), alE);
+                        d.this.cHr.g(alE);
                     }
                     if (TextUtils.equals(d.this.cOx.getForumName(), str3)) {
-                        com.baidu.tieba.tbadkCore.c.buK().Z(d.this.cOx.getForumName(), false);
+                        com.baidu.tieba.tbadkCore.c.buJ().Z(d.this.cOx.getForumName(), false);
                     }
                 }
             }
@@ -129,23 +129,23 @@ public class d extends h {
             this.cOx.showToast(str);
             return;
         }
-        k alF = this.cOx.alF();
-        if (alF != null && alF.aRo() != null && getMyPostResIdl != null && this.cHi != null && this.cHq != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
+        k alE = this.cOx.alE();
+        if (alE != null && alE.aRn() != null && getMyPostResIdl != null && this.cHi != null && this.cHq != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
             ai aiVar = new ai();
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
             a(builder2, getMyPostResIdl.data.user_info);
             builder.author = builder2.build(true);
             builder.cheak_repeat = 1;
-            builder.fname = alF.aRo().getName();
+            builder.fname = alE.aRn().getName();
             aiVar.a(builder.build(true));
             aiVar.bY(3);
             this.cHq.a(aiVar);
-            ArrayList<com.baidu.adp.widget.ListView.f> a = this.cYz.a(false, true, alF.getThreadList(), null);
+            ArrayList<com.baidu.adp.widget.ListView.f> a = this.cYz.a(false, true, alE.getThreadList(), null);
             if (a != null) {
-                alF.aA(a);
-                alF.bvN();
-                this.cHi.a(a, alF);
+                alE.aA(a);
+                alE.bvM();
+                this.cHi.a(a, alE);
                 this.cHi.jT(0);
             }
         }
@@ -169,12 +169,12 @@ public class d extends h {
 
     public void d(PostWriteCallBackData postWriteCallBackData) {
         if (this.cHq != null) {
-            if (this.cHq.aqb() == 2 || this.cHq.aqb() == 3 || this.cHq.aqb() == 7) {
-                int apT = this.cHq.apT();
-                if (aa.amx().jV(1) == null) {
-                    apT = 0;
+            if (this.cHq.aqa() == 2 || this.cHq.aqa() == 3 || this.cHq.aqa() == 7) {
+                int apS = this.cHq.apS();
+                if (aa.amw().jV(1) == null) {
+                    apS = 0;
                 }
-                if (apT == 0 && postWriteCallBackData != null) {
+                if (apS == 0 && postWriteCallBackData != null) {
                     final long c = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getPostId(), 0L);
                     final long c2 = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getThreadId(), 0L);
                     final long c3 = com.baidu.adp.lib.g.b.c(this.cOx.getForumId(), 0L);

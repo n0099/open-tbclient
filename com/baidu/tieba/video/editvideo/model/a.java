@@ -17,7 +17,7 @@ public class a {
     /* renamed from: com.baidu.tieba.video.editvideo.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0148a {
-        void bBm();
+        void bBl();
 
         void cn(String str, String str2);
 
@@ -27,7 +27,7 @@ public class a {
     private a() {
     }
 
-    public static a bBZ() {
+    public static a bBY() {
         if (gRY == null) {
             synchronized (a.class) {
                 if (gRY == null) {
@@ -45,7 +45,7 @@ public class a {
         }
         if (this.gRZ == null) {
             this.gRZ = new HashMap<>();
-            bCa();
+            bBZ();
             if (this.gRZ.size() > 0) {
                 return this.gRZ.get(dX);
             }
@@ -54,7 +54,7 @@ public class a {
         return this.gRZ.get(dX);
     }
 
-    public void bCa() {
+    public void bBZ() {
         if (this.gRZ == null) {
             this.gRZ = new HashMap<>();
         } else {
@@ -98,7 +98,7 @@ public class a {
                             a.this.gSa = null;
                         }
                         if (interfaceC0148a != null) {
-                            interfaceC0148a.bBm();
+                            interfaceC0148a.bBl();
                         }
                     }
                 }
@@ -145,7 +145,7 @@ public class a {
         }
     }
 
-    public void bCb() {
+    public void bCa() {
         if (this.gSa != null) {
             e.CW().p(this.gSa.getUrl(), true);
         }

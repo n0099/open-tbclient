@@ -51,7 +51,7 @@ public class d extends LinkMovementMethod {
         return super.onTouchEvent(textView, spannable, motionEvent);
     }
 
-    public static d bEK() {
+    public static d bEJ() {
         if (haS == null) {
             haS = new d();
         }

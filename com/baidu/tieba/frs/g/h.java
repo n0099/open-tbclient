@@ -48,7 +48,7 @@ public class h extends com.baidu.tieba.frs.mc.h {
                             return;
                         }
                     } else {
-                        h.this.cOx.alr();
+                        h.this.cOx.alq();
                     }
                     TiebaStatic.log(new ak("c11749").ac(ImageViewerConfig.FORUM_ID, h.this.cOx.getFid()).ac("obj_locate", "1"));
                 }
@@ -58,14 +58,14 @@ public class h extends com.baidu.tieba.frs.mc.h {
             @Override // com.baidu.tbadk.core.view.h.c
             public void aL(boolean z) {
                 if (h.this.cHi != null && h.this.cYy != null && h.this.cHr != null && h.this.cOx != null && h.this.cOx.isAdded()) {
-                    if (h.this.cHi != null && h.this.cHi.alM() != null) {
-                        h.this.cHi.alM().avu();
+                    if (h.this.cHi != null && h.this.cHi.alL() != null) {
+                        h.this.cHi.alL().avt();
                     }
                     h.this.cOx.eR(false);
                     com.baidu.adp.lib.g.e.fP().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.g.h.3.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (h.this.cHi.alJ() != null && h.this.cYy != null && h.this.cHi.alJ().getVisibility() != 0) {
+                            if (h.this.cHi.alI() != null && h.this.cYy != null && h.this.cHi.alI().getVisibility() != 0) {
                                 h.this.cYy.Ho();
                             }
                         }
@@ -77,17 +77,17 @@ public class h extends com.baidu.tieba.frs.mc.h {
             @Override // com.baidu.tbadk.core.view.h.a
             public void b(View view, boolean z) {
                 if (h.this.cOx != null && h.this.cOx.isAdded()) {
-                    if (h.this.cHu != null && h.this.cOx.alo() != null && h.this.cOx.alo().alO() != null && !h.this.cOx.alo().alO().anX()) {
-                        h.this.cHu.aqp();
+                    if (h.this.cHu != null && h.this.cOx.aln() != null && h.this.cOx.aln().alN() != null && !h.this.cOx.aln().alN().anW()) {
+                        h.this.cHu.aqo();
                     }
                     if (h.this.cHi != null && h.this.cYy != null && h.this.cHr != null && h.this.cHu != null) {
-                        h.this.cOx.alv();
+                        h.this.cOx.alu();
                         h.this.cOx.eR(true);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
-                        if (h.this.cOx.alo() != null) {
-                            h.this.cOx.alo().ck(false);
+                        if (h.this.cOx.aln() != null) {
+                            h.this.cOx.aln().ck(false);
                         }
-                        if (!TbadkCoreApplication.isLogin() || h.this.cOx.getListView().getVisibility() != 0 || v.w(h.this.cOx.alF().getThreadList())) {
+                        if (!TbadkCoreApplication.isLogin() || h.this.cOx.getListView().getVisibility() != 0 || v.w(h.this.cOx.alE().getThreadList())) {
                         }
                     }
                 }
@@ -96,46 +96,46 @@ public class h extends com.baidu.tieba.frs.mc.h {
         this.dbg = new BdExpandListView.a() { // from class: com.baidu.tieba.frs.g.h.5
             @Override // com.baidu.tieba.view.BdExpandListView.a
             public void v(float f) {
-                if (h.this.cHi != null && (h.this.cHi.alN() instanceof com.baidu.tieba.frs.tab.c)) {
-                    ((com.baidu.tieba.frs.tab.c) h.this.cHi.alN()).u(f);
+                if (h.this.cHi != null && (h.this.cHi.alM() instanceof com.baidu.tieba.frs.tab.c)) {
+                    ((com.baidu.tieba.frs.tab.c) h.this.cHi.alM()).u(f);
                 }
             }
 
             @Override // com.baidu.tieba.view.BdExpandListView.a
             public void kV() {
-                if (h.this.cHi != null && (h.this.cHi.alN() instanceof com.baidu.tieba.frs.tab.c)) {
-                    ((com.baidu.tieba.frs.tab.c) h.this.cHi.alN()).aqA();
+                if (h.this.cHi != null && (h.this.cHi.alM() instanceof com.baidu.tieba.frs.tab.c)) {
+                    ((com.baidu.tieba.frs.tab.c) h.this.cHi.alM()).aqz();
                 }
             }
 
             @Override // com.baidu.tieba.view.BdExpandListView.a
             public void kW() {
-                if (h.this.cHi != null && h.this.cHi.alM() != null) {
-                    h.this.cHi.alM().avu();
+                if (h.this.cHi != null && h.this.cHi.alL() != null) {
+                    h.this.cHi.alL().avt();
                 }
-                s.abX().dU(false);
-                k alF = h.this.cOx.alF();
-                if (h.this.cHi != null && alF != null && h.this.cHq != null) {
+                s.abW().dU(false);
+                k alE = h.this.cOx.alE();
+                if (h.this.cHi != null && alE != null && h.this.cHq != null) {
                     if (j.hh()) {
-                        if (h.this.cHi.alN() instanceof com.baidu.tieba.frs.tab.c) {
-                            if (!(h.this.cHi.getListView() instanceof BdExpandListView) || !((BdExpandListView) h.this.cHi.getListView()).bwc()) {
-                                ((com.baidu.tieba.frs.tab.c) h.this.cHi.alN()).kU();
+                        if (h.this.cHi.alM() instanceof com.baidu.tieba.frs.tab.c) {
+                            if (!(h.this.cHi.getListView() instanceof BdExpandListView) || !((BdExpandListView) h.this.cHi.getListView()).bwb()) {
+                                ((com.baidu.tieba.frs.tab.c) h.this.cHi.alM()).kU();
                             }
                             h.this.cHi.ck(true);
                         }
                         TiebaStatic.eventStat(h.this.cOx.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
-                        if (alF.aRo() != null && alF.gzl == 1) {
-                            com.baidu.tieba.frs.e.b.a(alF, h.this.cHq.aqb(), 1);
+                        if (alE.aRn() != null && alE.gzl == 1) {
+                            com.baidu.tieba.frs.e.b.a(alE, h.this.cHq.aqa(), 1);
                         }
                         h.this.cOx.refresh();
-                    } else if (h.this.cHi.alN() instanceof com.baidu.tieba.frs.tab.c) {
-                        ((com.baidu.tieba.frs.tab.c) h.this.cHi.alN()).aqA();
+                    } else if (h.this.cHi.alM() instanceof com.baidu.tieba.frs.tab.c) {
+                        ((com.baidu.tieba.frs.tab.c) h.this.cHi.alM()).aqz();
                     }
                     TiebaStatic.log(new ak("c11749").ac(ImageViewerConfig.FORUM_ID, h.this.cOx.getFid()).ac("obj_locate", "1"));
                 }
             }
         };
-        this.cHu = gVar.ali();
+        this.cHu = gVar.alh();
         gVar.registerListener(this.dbf);
     }
 

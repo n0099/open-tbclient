@@ -35,8 +35,8 @@ public class a implements com.baidu.tieba.d.a {
     private boolean mUseCache = true;
     private a.InterfaceC0159a hdU = new a.InterfaceC0159a() { // from class: com.baidu.tieba.write.a.1
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0159a
-        public void bFD() {
-            a.this.bFC();
+        public void bFC() {
+            a.this.bFB();
         }
 
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0159a
@@ -44,29 +44,29 @@ public class a implements com.baidu.tieba.d.a {
             a.this.hdN = true;
             a.this.hdQ = list;
             a.this.mPrivateThread = i;
-            a.this.bFB();
+            a.this.bFA();
         }
     };
     private a.InterfaceC0121a bzj = new a.InterfaceC0121a() { // from class: com.baidu.tieba.write.a.2
         @Override // com.baidu.tieba.likedForum.a.InterfaceC0121a
         public void a(boolean z, int i, String str, List<ForumInfo> list) {
             if (!z) {
-                a.this.bFC();
+                a.this.bFB();
                 return;
             }
             a.this.hdO = true;
             a.this.hdR = list;
-            a.this.bFB();
+            a.this.bFA();
         }
     };
     private DialogInterface.OnCancelListener hdV = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.a.3
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             if (a.this.hdK != null) {
-                a.this.hdK.and();
+                a.this.hdK.anc();
             }
             if (a.this.hdL != null) {
-                a.this.hdL.and();
+                a.this.hdL.anc();
             }
         }
     };
@@ -87,10 +87,10 @@ public class a implements com.baidu.tieba.d.a {
         this.hdL.setRequestId(gen);
         this.hdM = new com.baidu.tbadk.core.view.b(this.mPageContext);
         this.hdM.c(this.hdV);
-        bFA();
+        bFz();
     }
 
-    private void bFA() {
+    private void bFz() {
         if (this.mData != null) {
             String str = null;
             Intent intent = this.mPageContext.getPageActivity().getIntent();
@@ -109,7 +109,7 @@ public class a implements com.baidu.tieba.d.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFB() {
+    public void bFA() {
         if (this.hdN && this.hdO) {
             this.hdM.aE(false);
             ArrayList arrayList = new ArrayList();
@@ -141,7 +141,7 @@ public class a implements com.baidu.tieba.d.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFC() {
+    public void bFB() {
         if (!this.hdT) {
             if (this.hdS != null) {
                 this.hdM.aE(false);

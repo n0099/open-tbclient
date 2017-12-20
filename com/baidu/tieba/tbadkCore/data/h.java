@@ -56,7 +56,7 @@ public class h {
         }
     }
 
-    public j bwz() {
+    public j bwy() {
         return (j) v.c(this.gBz, 0);
     }
 
@@ -64,19 +64,19 @@ public class h {
         return this.templateId;
     }
 
-    public ArrayList<g> bwA() {
+    public ArrayList<g> bwz() {
         return this.gBy;
     }
 
-    public ArrayList<j> bwB() {
+    public ArrayList<j> bwA() {
         return this.gBz;
     }
 
-    public i bwC() {
+    public i bwB() {
         return this.gBA;
     }
 
-    public int bwD() {
+    public int bwC() {
         return this.gBx;
     }
 

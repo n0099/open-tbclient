@@ -80,7 +80,7 @@ public class p {
                 p.this.cbG.a(p.this.cbI);
                 p.this.cbG.LoadData();
             }
-            p.this.abS();
+            p.this.abR();
         }
     };
     private b.InterfaceC0156b cbK = new b.InterfaceC0156b() { // from class: com.baidu.tieba.card.p.5
@@ -91,10 +91,10 @@ public class p {
                 return;
             }
             if (p.this.cbB != null && p.this.cbH != null) {
-                p.this.abT();
+                p.this.abS();
                 p.this.cbz.th();
             }
-            p.this.abS();
+            p.this.abR();
         }
     };
     private com.baidu.adp.base.d cbL = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.card.p.6
@@ -108,7 +108,7 @@ public class p {
     private b.InterfaceC0156b cbM = new b.InterfaceC0156b() { // from class: com.baidu.tieba.card.p.7
         @Override // com.baidu.tieba.view.b.InterfaceC0156b
         public void onClick() {
-            p.this.abS();
+            p.this.abR();
         }
     };
     private com.baidu.tieba.person.e cbx;
@@ -154,7 +154,7 @@ public class p {
             this.cbF.a(this.cbM);
             this.cbC.add(this.cbF);
             this.cby.dT(this.cbC);
-            this.cbx = new com.baidu.tieba.person.e(this.mContext, this.cby.bEJ());
+            this.cbx = new com.baidu.tieba.person.e(this.mContext, this.cby.bEI());
         }
     }
 
@@ -179,14 +179,14 @@ public class p {
         }
     }
 
-    public void abS() {
+    public void abR() {
         if (this.cbx != null && this.cbx.isShowing()) {
             this.cbx.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abT() {
+    public void abS() {
         if (this.cbz == null) {
             this.cbz = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
             this.cbz.cd(d.j.del_thread_confirm);

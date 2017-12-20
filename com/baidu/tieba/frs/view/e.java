@@ -57,10 +57,10 @@ public class e extends LinearLayout {
         aj.c(this.ddQ, d.C0096d.cp_cont_b, 2);
         this.ddQ.setHintTextColor(aj.getColor(d.C0096d.cp_cont_e));
         this.ddQ.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
-        arn();
+        arm();
     }
 
-    public void arn() {
+    public void arm() {
         this.aMt.setFocusable(true);
         this.aMt.setFocusableInTouchMode(true);
         this.aMt.requestFocus();

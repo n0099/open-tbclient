@@ -25,7 +25,7 @@ public class c extends e {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.e
-    public void bfR() {
+    public void bfQ() {
         int i;
         Long l;
         synchronized (this) {

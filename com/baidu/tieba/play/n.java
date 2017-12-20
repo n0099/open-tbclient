@@ -33,7 +33,7 @@ public class n implements d {
     private Runnable fQK = new Runnable() { // from class: com.baidu.tieba.play.n.2
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.fQF && n.this.fQG && n.this.bje() && n.this.bjz()) {
+            if (n.this.fQF && n.this.fQG && n.this.bjd() && n.this.bjy()) {
                 s.f(n.this.mContext, n.this.fQx, -1);
             }
         }
@@ -41,7 +41,7 @@ public class n implements d {
     private Runnable fQL = new Runnable() { // from class: com.baidu.tieba.play.n.3
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.bjz()) {
+            if (n.this.bjy()) {
                 s.aa(n.this.mContext, n.this.fQx);
             } else if (!n.this.fQy) {
                 s.hE(n.this.fQx);
@@ -77,40 +77,40 @@ public class n implements d {
         this.fQx = str;
         this.bdh = this.fQy ? this.fQx : s.U(str, this.fQF);
         if (this.fQD != null) {
-            w.a("start_play", this.fQx, bjz(), (int) this.fQD.bjI(), this.fQD.getDuration());
+            w.a("start_play", this.fQx, bjy(), (int) this.fQD.bjH(), this.fQD.getDuration());
         }
         this.fQA = System.currentTimeMillis();
         return this.bdh;
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean bje() {
+    public boolean bjd() {
         return !StringUtils.isNull(this.bdh) && this.bdh.contains("127.0.0.1");
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean bjf() {
+    public boolean bje() {
         return this.fQF;
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean bjg() {
+    public boolean bjf() {
         return this.fQG;
     }
 
     @Override // com.baidu.tieba.play.d
-    public int bjh() {
+    public int bjg() {
         return com.baidu.tbadk.coreExtra.model.f.AO() ? this.fQH : this.fQI;
     }
 
     @Override // com.baidu.tieba.play.d
-    public String bjd() {
+    public String bjc() {
         return this.fQx;
     }
 
     @Override // com.baidu.tieba.play.d
-    public void bji() {
-        if (this.fQF && this.fQG && bje() && bjz()) {
+    public void bjh() {
+        if (this.fQF && this.fQG && bjd() && bjy()) {
             s.f(this.mContext, this.fQx, -1);
         }
     }
@@ -118,7 +118,7 @@ public class n implements d {
     @Override // com.baidu.tieba.play.d
     public void cI(long j) {
         this.fQJ = j;
-        bjr();
+        bjq();
         if (this.fQA > 0) {
             this.fQB = System.currentTimeMillis() - this.fQA;
         }
@@ -161,12 +161,12 @@ public class n implements d {
     public void onStop() {
         com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fQL);
         com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fQK);
-        bjk();
+        bjj();
         if (this.mStartTime > 0) {
             this.fQz += System.currentTimeMillis() - this.mStartTime;
             this.mStartTime = 0L;
         }
-        bjv();
+        bju();
         this.fQE = false;
         if (this.blm != null) {
             this.blm.stop();
@@ -175,16 +175,16 @@ public class n implements d {
             ak akVar = new ak("c11685");
             akVar.ac("service_ip", this.zV);
             akVar.ac("video_url", this.fQx);
-            akVar.f("video_size", this.fQD.bjI());
+            akVar.f("video_size", this.fQD.bjH());
             akVar.r("video_duration", this.fQD.getDuration());
-            akVar.ac("video_resolution", this.fQD.bjJ());
+            akVar.ac("video_resolution", this.fQD.bjI());
             akVar.r("loading_count", this.fQC);
             akVar.f("user_watch_time", this.fQz / 1000);
             akVar.f("start_play_time", this.fQB);
             TiebaStatic.log(akVar);
         }
         if (this.fQD != null && this.fQB > 0) {
-            w.a("stop_play", this.fQx, bjz(), (int) this.fQD.bjI(), this.fQD.getDuration());
+            w.a("stop_play", this.fQx, bjy(), (int) this.fQD.bjH(), this.fQD.getDuration());
         }
         this.fQB = 0L;
         this.fQz = 0L;
@@ -193,7 +193,7 @@ public class n implements d {
         this.mStartTime = 0L;
     }
 
-    private void bjv() {
+    private void bju() {
         if (this.fQz >= 0 && this.fQz < 86400000) {
             if (this.fQz > 0) {
                 ak akVar = new ak("c11244");
@@ -227,11 +227,11 @@ public class n implements d {
         }
     }
 
-    public boolean bjw() {
+    public boolean bjv() {
         return s.hD(this.fQx) != null;
     }
 
-    public void bjx() {
+    public void bjw() {
         this.fQy = true;
     }
 
@@ -244,11 +244,11 @@ public class n implements d {
         return this.blm;
     }
 
-    public v bjy() {
+    public v bjx() {
         return this.fQD;
     }
 
-    public void bjr() {
+    public void bjq() {
         if (!this.fQF) {
             com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fQL);
             com.baidu.adp.lib.g.e.fP().postDelayed(this.fQL, 100L);
@@ -256,7 +256,7 @@ public class n implements d {
     }
 
     @Override // com.baidu.tieba.play.d
-    public void bjj() {
+    public void bji() {
         if (!this.fQF) {
             com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fQL);
             com.baidu.adp.lib.g.e.fP().post(this.fQL);
@@ -265,7 +265,7 @@ public class n implements d {
 
     @Override // com.baidu.tieba.play.d
     public void sx(int i) {
-        if (bjz()) {
+        if (bjy()) {
             s.f(this.mContext, this.fQx, i);
         }
     }
@@ -277,14 +277,14 @@ public class n implements d {
     }
 
     @Override // com.baidu.tieba.play.d
-    public void bjk() {
-        if (bjz()) {
+    public void bjj() {
+        if (bjy()) {
             s.ab(this.mContext, this.fQx);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bjz() {
+    public boolean bjy() {
         return (this.fQy || this.bdh == null || this.bdh.equals(this.fQx)) ? false : true;
     }
 
@@ -292,7 +292,7 @@ public class n implements d {
         this.fQv = yVar;
     }
 
-    public y bjA() {
+    public y bjz() {
         return this.fQv;
     }
 }

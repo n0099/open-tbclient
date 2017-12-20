@@ -20,19 +20,19 @@ public class CoreSearchRequestStatic {
     private static EnterForumModel csZ;
 
     static {
-        agU();
+        agT();
     }
 
-    private static void agU() {
-        c.bxp();
+    private static void agT() {
+        c.bxo();
         if (csZ == null) {
             csZ = new EnterForumModel(null);
             csZ.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1
                 @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
                 public void a(EnterForumModel.a aVar) {
-                    g agN = aVar.ctX.agN();
+                    g agM = aVar.ctX.agM();
                     ArrayList arrayList = new ArrayList();
-                    Iterator<f> it = agN.agS().iterator();
+                    Iterator<f> it = agM.agR().iterator();
                     while (it.hasNext()) {
                         arrayList.add(it.next().getName());
                     }

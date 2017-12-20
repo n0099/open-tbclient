@@ -55,11 +55,11 @@ public class g {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == g.this.fjC) {
-                g.this.bq(view);
-            } else if (view == g.this.fjx || view == g.this.fjy || view == g.this.fjD) {
                 g.this.br(view);
+            } else if (view == g.this.fjx || view == g.this.fjy || view == g.this.fjD) {
+                g.this.bs(view);
             } else if (view == g.this.fjA) {
-                g.this.aYp();
+                g.this.aYo();
             }
         }
     };
@@ -70,7 +70,7 @@ public class g {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof k) && g.this.fjL != null && g.this.fjL.getId() != null) {
                 k kVar = (k) customResponsedMessage.getData();
                 if (!TextUtils.isEmpty(kVar.pid) && kVar.pid.equals(g.this.fjL.rM())) {
-                    g.this.a(kVar.eQa == 0, kVar.eQb.aRV());
+                    g.this.a(kVar.eQa == 0, kVar.eQb.aRU());
                 }
             }
         }
@@ -112,14 +112,14 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bq(View view) {
+    public void br(View view) {
         if (this.fjJ != null) {
             this.fjJ.onClick(view);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void br(View view) {
+    public void bs(View view) {
         if (this.fjF) {
             if (this.boZ != null) {
                 this.abX.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(this.abX.getPageActivity(), this.boZ.channelId, 2)));
@@ -130,7 +130,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aYp() {
+    public void aYo() {
         if (this.fjF) {
             if (!l.hy()) {
                 this.abX.showToast(d.j.no_network_guide);
@@ -146,7 +146,7 @@ public class g {
 
     public void a(PostData postData, bd bdVar, com.baidu.tieba.pb.data.l lVar) {
         this.fjL = bdVar;
-        a(lVar.aRW(), lVar.aRV());
+        a(lVar.aRV(), lVar.aRU());
         if (bdVar.sA() != null) {
             this.fjF = true;
             this.fjE.setVisibility(8);
@@ -218,7 +218,7 @@ public class g {
         this.fjz.setAlpha(f);
     }
 
-    public View aYq() {
+    public View aYp() {
         return this.fjz;
     }
 

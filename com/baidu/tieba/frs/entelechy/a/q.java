@@ -29,7 +29,7 @@ public class q extends e<com.baidu.tieba.frs.r, a> {
         this.cOg = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<com.baidu.tieba.frs.view.h>() { // from class: com.baidu.tieba.frs.entelechy.a.q.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: anN */
+            /* renamed from: anM */
             public com.baidu.tieba.frs.view.h fI() {
                 return new com.baidu.tieba.frs.view.h(q.this.mContext);
             }
@@ -73,16 +73,16 @@ public class q extends e<com.baidu.tieba.frs.r, a> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.r rVar, a aVar) {
         if (rVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            aVar.cOk.setText(rVar.amv());
+            aVar.cOk.setText(rVar.amu());
             aVar.cOj.setPageContext(this.mPageContext);
             aVar.cOj.setData(rVar.getUserInfo());
             aVar.cOi.setMaxOverScrollDistance(aVar.cOj.getChildItemWidth());
             aVar.cOk.setTextColor(aj.getColor(skinType, d.C0096d.cp_cont_b));
             aVar.aMt.setBackgroundColor(aj.getColor(skinType, d.C0096d.cp_bg_line_e));
-            if (!rVar.amw()) {
+            if (!rVar.amv()) {
                 for (MetaData metaData : rVar.getUserInfo()) {
                     if (metaData != null && !am.isEmpty(metaData.getUserId())) {
-                        com.baidu.tieba.card.s.abX().a(new ak("c12530").ac("obj_id", metaData.getUserId()));
+                        com.baidu.tieba.card.s.abW().a(new ak("c12530").ac("obj_id", metaData.getUserId()));
                     }
                 }
                 rVar.fb(true);

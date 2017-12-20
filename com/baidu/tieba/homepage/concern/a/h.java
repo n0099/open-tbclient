@@ -65,7 +65,7 @@ public class h extends com.baidu.adp.widget.ListView.a<n, a> {
             return null;
         }
         nVar.iG(i + 1);
-        s.abX().a(nVar.jW("c12351"));
+        s.abW().a(nVar.jW("c12351"));
         aVar.doy.a(nVar);
         aVar.doy.b(this.dof);
         return aVar.getView();

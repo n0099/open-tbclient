@@ -76,7 +76,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private C0115a aEa() {
+    private C0115a aDZ() {
         C0115a c0115a = new C0115a();
         c0115a.rootView = LayoutInflater.from(this.dYm.getPageContext().getContext()).inflate(d.h.im_black_list_item, (ViewGroup) null);
         c0115a.dYo = (HeadImageView) c0115a.rootView.findViewById(d.g.header_view);
@@ -91,11 +91,11 @@ public class a extends BaseAdapter {
     private C0115a a(Object obj, BlackListItemData blackListItemData) {
         C0115a c0115a;
         if (obj == null) {
-            c0115a = aEa();
+            c0115a = aDZ();
         } else {
             c0115a = (C0115a) obj;
         }
-        a(c0115a, blackListItemData.azh());
+        a(c0115a, blackListItemData.azg());
         c0115a.bWB.setText(blackListItemData.getUserName());
         c0115a.dYp.setTag(blackListItemData);
         this.dYm.getLayoutMode().t(c0115a.rootView);

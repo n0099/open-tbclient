@@ -20,7 +20,7 @@ public class h {
     private h() {
     }
 
-    public static synchronized h axN() {
+    public static synchronized h axM() {
         h hVar;
         synchronized (h.class) {
             if (dGY == null) {

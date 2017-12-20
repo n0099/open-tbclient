@@ -9,7 +9,7 @@ import java.util.Map;
 public class aw {
     private static aw feH = null;
 
-    public static aw aXa() {
+    public static aw aWZ() {
         if (feH == null) {
             synchronized (aw.class) {
                 if (feH == null) {

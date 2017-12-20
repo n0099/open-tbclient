@@ -25,11 +25,11 @@ public class g extends e<bd, a<CardFrsGodAutoVideoView>> implements com.baidu.ti
             public void a(View view, bd bdVar) {
                 if (view != null && bdVar != null) {
                     if (view.getId() == d.g.frame_video) {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 4);
+                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 4);
                     } else if (view.getId() == d.g.layout_root) {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 1);
+                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 1);
                     } else if (view.getId() == d.g.image_user) {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 2);
                     } else if (view.getId() == d.g.card_divider_tv) {
                         com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.cYY, bdVar.rU());
                     }
@@ -71,14 +71,14 @@ public class g extends e<bd, a<CardFrsGodAutoVideoView>> implements com.baidu.ti
     @Override // com.baidu.tieba.frs.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bd bdVar, a aVar) {
-        if (aVar == null || aVar.acC() == null) {
+        if (aVar == null || aVar.acB() == null) {
             return null;
         }
-        com.baidu.tieba.frs.d.a(aVar.acC().abY(), this.cGO);
-        aVar.acC().setVideoStatsData(I(bdVar));
-        aVar.acC().a(bdVar);
-        aVar.acC().b(this.buW);
-        com.baidu.tieba.frs.e.b.aqw().a(cYY, bdVar);
+        com.baidu.tieba.frs.d.a(aVar.acB().abX(), this.cGO);
+        aVar.acB().setVideoStatsData(I(bdVar));
+        aVar.acB().a(bdVar);
+        aVar.acB().b(this.buW);
+        com.baidu.tieba.frs.e.b.aqv().a(cYY, bdVar);
         return aVar.getView();
     }
 

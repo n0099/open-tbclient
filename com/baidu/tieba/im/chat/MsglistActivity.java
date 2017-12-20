@@ -13,11 +13,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     protected abstract boolean o(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.d
-    public void axl() {
-        awN();
+    public void axk() {
+        awM();
     }
 
-    public void awN() {
+    public void awM() {
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -32,10 +32,10 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (this.dEH != null) {
             this.dEH.setImageUploadUIProgressCallback(this.dEN);
         }
-        axr();
+        axq();
         if (a((d) this)) {
             loadDraft();
-            awL();
+            awK();
             j.dEF = com.baidu.tbadk.util.i.Hf();
         }
     }
@@ -53,7 +53,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(d.C0096d.common_color_10022, false);
-        axr();
+        axq();
         if (a((d) this)) {
             loadDraft();
         }
@@ -73,12 +73,12 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         super.onResume();
         if (this.dEG != null) {
             this.dEG.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            awI();
+            awH();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void awI() {
+    public void awH() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
             this.dEG.showReceiver();
         } else {
@@ -94,14 +94,14 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        awM();
+        awL();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void awK() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void awL() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void awM() {
     }
 }

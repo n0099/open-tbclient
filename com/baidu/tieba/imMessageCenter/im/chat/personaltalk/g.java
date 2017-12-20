@@ -76,9 +76,9 @@ public class g {
 
     public void e(f fVar) {
         if (fVar != null) {
-            h(fVar.aDW(), fVar.aDV().sex.intValue());
-            hp(fVar.aDU());
-            a(fVar.aDV());
+            h(fVar.aDV(), fVar.aDU().sex.intValue());
+            hp(fVar.aDT());
+            a(fVar.aDU());
             f(fVar);
         }
     }
@@ -112,7 +112,7 @@ public class g {
 
     public void f(f fVar) {
         String str;
-        if (fVar != null && fVar.aDV() != null && (str = fVar.aDV().portrait) != null && str.length() > 0) {
+        if (fVar != null && fVar.aDU() != null && (str = fVar.aDU().portrait) != null && str.length() > 0) {
             this.cJr.setImageResource(0);
             this.cJr.startLoad(str, 12, false);
         }

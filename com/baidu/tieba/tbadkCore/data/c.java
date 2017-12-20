@@ -11,15 +11,15 @@ public class c {
     private ArrayList<a> gBk = new ArrayList<>();
     private ArrayList<b> gBl = new ArrayList<>();
 
-    public String bwt() {
+    public String bws() {
         return this.gBj;
     }
 
-    public List<a> bwu() {
+    public List<a> bwt() {
         return this.gBk;
     }
 
-    public List<b> bwv() {
+    public List<b> bwu() {
         return this.gBl;
     }
 

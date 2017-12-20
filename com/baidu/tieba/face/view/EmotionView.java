@@ -34,11 +34,11 @@ public class EmotionView extends TbImageView {
 
     /* loaded from: classes.dex */
     public interface a {
-        boolean ahP();
+        boolean ahO();
+
+        void ahR();
 
         void ahS();
-
-        void ahT();
 
         boolean canClick();
     }
@@ -119,7 +119,7 @@ public class EmotionView extends TbImageView {
         this.mClickListener = onClickListener;
     }
 
-    public void ahO() {
+    public void ahN() {
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.face.view.EmotionView.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -131,7 +131,7 @@ public class EmotionView extends TbImageView {
                         EmotionView.this.mCurrentX = EmotionView.this.EO;
                         EmotionView.this.mCurrentY = EmotionView.this.bKv;
                         EmotionView.this.cvF = System.currentTimeMillis();
-                        if (EmotionView.this.ahP()) {
+                        if (EmotionView.this.ahO()) {
                             EmotionView.this.postDelayed(new b(EmotionView.this.cvF), 500L);
                             break;
                         }
@@ -161,8 +161,8 @@ public class EmotionView extends TbImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ahP() {
-        return this.cvK == null || this.cvK.ahP();
+    public boolean ahO() {
+        return this.cvK == null || this.cvK.ahO();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -180,14 +180,14 @@ public class EmotionView extends TbImageView {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (EmotionView.this.cvG && this.cvM == EmotionView.this.cvF && EmotionView.this.ahQ()) {
-                EmotionView.this.ahR();
+            if (EmotionView.this.cvG && this.cvM == EmotionView.this.cvF && EmotionView.this.ahP()) {
+                EmotionView.this.ahQ();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ahQ() {
+    public boolean ahP() {
         return Math.abs(this.mCurrentX - this.EO) < this.cvI && Math.abs(this.mCurrentY - this.bKv) < this.cvI;
     }
 
@@ -196,10 +196,10 @@ public class EmotionView extends TbImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahR() {
-        if (!this.cvH && ahP() && this.cvC != null && !TextUtils.isEmpty(this.cvC.getPicUrl())) {
+    public void ahQ() {
+        if (!this.cvH && ahO() && this.cvC != null && !TextUtils.isEmpty(this.cvC.getPicUrl())) {
             if (this.cvK != null) {
-                this.cvK.ahS();
+                this.cvK.ahR();
             }
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
@@ -231,7 +231,7 @@ public class EmotionView extends TbImageView {
     public void stopPreview() {
         if (this.cvD != null && this.cvH) {
             if (this.cvK != null) {
-                this.cvK.ahT();
+                this.cvK.ahS();
             }
             if (this.cvD.getParent() != null && this.cvD.getParent() == this.cvE) {
                 this.cvE.removeView(this.cvD);

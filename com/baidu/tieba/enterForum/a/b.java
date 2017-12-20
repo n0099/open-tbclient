@@ -30,7 +30,7 @@ public class b extends d<f, com.baidu.tbadk.mvc.d.b, e> implements c {
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void adg() {
+    public void adf() {
         notifyDataSetChanged();
     }
 

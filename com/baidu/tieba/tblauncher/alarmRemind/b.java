@@ -49,9 +49,9 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001356 && b.this.byW()) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001356 && b.this.byV()) {
                 b.this.nq(true);
-                b.this.byV();
+                b.this.byU();
             }
         }
     };
@@ -59,8 +59,8 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.hh() && b.this.byW()) {
-                b.this.byV();
+            if (customResponsedMessage != null && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.hh() && b.this.byV()) {
+                b.this.byU();
             }
         }
     };
@@ -68,14 +68,14 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.byW()) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.byV()) {
                 b.this.nq(true);
-                b.this.byV();
+                b.this.byU();
             }
         }
     };
 
-    public static b byU() {
+    public static b byT() {
         if (gGO == null) {
             synchronized (b.class) {
                 if (gGO == null) {
@@ -97,31 +97,31 @@ public class b {
         baseFragmentActivity.registerListener(this.cXg);
         this.gGM = new ClientConfigModel(baseFragmentActivity, this.SG);
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("tieba_last_active_time", System.currentTimeMillis());
-        if (byW()) {
+        if (byV()) {
             nq(true);
-            byV();
+            byU();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byV() {
+    public void byU() {
         if (!com.baidu.tieba.tblauncher.alarmRemind.a.O(TbadkSettings.getInst().loadLong(tA("remind_recommend_data_time"), 0L))) {
-            byX();
+            byW();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean byW() {
+    public boolean byV() {
         if (!TbadkCoreApplication.isLogin()) {
             nq(false);
             return false;
-        } else if (!com.baidu.tieba.tblauncher.alarmRemind.a.byT()) {
+        } else if (!com.baidu.tieba.tblauncher.alarmRemind.a.byS()) {
             nq(false);
             return false;
         } else if (!com.baidu.tbadk.coreExtra.messageCenter.b.zk().zD()) {
             nq(false);
             return false;
-        } else if (!com.baidu.tieba.tblauncher.alarmRemind.a.bnb()) {
+        } else if (!com.baidu.tieba.tblauncher.alarmRemind.a.bna()) {
             nq(false);
             return false;
         } else {
@@ -133,7 +133,7 @@ public class b {
         return TbadkCoreApplication.getCurrentAccount() + str;
     }
 
-    private void byX() {
+    private void byW() {
         if (this.gGM != null && !this.gGP) {
             this.gGP = true;
             this.gGM.co("local_dialog");
@@ -145,7 +145,7 @@ public class b {
         AlarmManager alarmManager = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService("alarm");
         PendingIntent broadcast = PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 0, new Intent(TbadkCoreApplication.getInst().getApp(), AlarmReceiver.class), 134217728);
         if (z) {
-            alarmManager.setRepeating(0, com.baidu.tieba.tblauncher.alarmRemind.a.byS() + 86400000, 86400000L, broadcast);
+            alarmManager.setRepeating(0, com.baidu.tieba.tblauncher.alarmRemind.a.byR() + 86400000, 86400000L, broadcast);
         } else {
             alarmManager.cancel(broadcast);
         }
@@ -163,9 +163,9 @@ public class b {
             Boolean data;
             if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null && !data.booleanValue()) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("tieba_last_active_time", System.currentTimeMillis());
-                if (b.this.byW()) {
+                if (b.this.byV()) {
                     b.this.nq(true);
-                    b.this.byV();
+                    b.this.byU();
                 }
             }
         }

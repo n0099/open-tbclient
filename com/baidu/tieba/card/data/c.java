@@ -39,11 +39,11 @@ public abstract class c extends b implements ae {
         this.cdy = str;
     }
 
-    public int acf() {
+    public int ace() {
         return this.cdx;
     }
 
-    public String acg() {
+    public String acf() {
         return this.mSource + "#" + this.cdx + "#" + this.cdy;
     }
 
@@ -55,11 +55,11 @@ public abstract class c extends b implements ae {
         return this.mSource;
     }
 
-    public String ach() {
+    public String acg() {
         return this.cdy;
     }
 
-    public String aci() {
+    public String ach() {
         return this.cdz;
     }
 
@@ -92,18 +92,18 @@ public abstract class c extends b implements ae {
         if (Ox == null) {
             return null;
         }
-        ak ac = new ak(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Ox.getFid())).ac("tid", String.valueOf(Ox.getTid())).ac("obj_id", getExtra()).ac("obj_param1", getWeight()).r("obj_param2", 1).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", acf()).ac("uid", TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.k.abK());
+        ak ac = new ak(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Ox.getFid())).ac("tid", String.valueOf(Ox.getTid())).ac("obj_id", getExtra()).ac("obj_param1", getWeight()).r("obj_param2", 1).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", ace()).ac("uid", TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.k.abJ());
         if (!z) {
-            ac.r("obj_type", acj());
+            ac.r("obj_type", aci());
         } else {
             if (Ox.aaA > 0) {
                 ac.r("midpageflag", 1);
             } else {
                 ac.r("midpageflag", 0);
             }
-            ac.ac("ab_tag", ach());
+            ac.ac("ab_tag", acg());
         }
-        if (Ox.sM() != null && Ox.sM().bwY() != null && Ox.sM().bwY().Jr() != null && Ox.sM().bwY().Jr().size() > 0) {
+        if (Ox.sM() != null && Ox.sM().bwX() != null && Ox.sM().bwX().Jr() != null && Ox.sM().bwX().Jr().size() > 0) {
             ac.r("obj_to", Ox.sM().gCv ? 2 : 1);
         }
         return ac;
@@ -114,9 +114,9 @@ public abstract class c extends b implements ae {
         if (Ox == null) {
             return null;
         }
-        ak ac = new ak(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Ox.getFid())).ac("tid", String.valueOf(Ox.getTid())).r("obj_id", E(Ox)).r("obj_param2", 1).ac("obj_param1", getWeight()).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", acf()).ac("obj_name", ach()).ac("uid", TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.k.abK());
+        ak ac = new ak(str).ac(ImageViewerConfig.FORUM_ID, String.valueOf(Ox.getFid())).ac("tid", String.valueOf(Ox.getTid())).r("obj_id", E(Ox)).r("obj_param2", 1).ac("obj_param1", getWeight()).ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", ace()).ac("obj_name", acg()).ac("uid", TbadkCoreApplication.getCurrentAccount()).ac("obj_param3", com.baidu.tieba.card.k.abJ());
         if (i == 0) {
-            ac.r("obj_type", acj());
+            ac.r("obj_type", aci());
         } else {
             ac.r("obj_type", i);
         }
@@ -124,7 +124,7 @@ public abstract class c extends b implements ae {
         return ac;
     }
 
-    private int acj() {
+    private int aci() {
         int i;
         int i2 = 0;
         bd Ox = Ox();

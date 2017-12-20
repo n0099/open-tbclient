@@ -21,7 +21,7 @@ public class j implements com.baidu.tbadk.mvc.b.j {
     protected al eaH = new al();
     protected h eaI = new h();
 
-    public ArrayList<FeedData> aEQ() {
+    public ArrayList<FeedData> aEP() {
         return this.eaG;
     }
 

@@ -95,14 +95,14 @@ public class a {
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/input_focus")) {
             this.heP.A(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-            if (this.heP.bFT() != this.heP.bm()) {
-                this.heP.setRatio(this.heP.bFT());
-                this.heP.bFU();
+            if (this.heP.bFS() != this.heP.bm()) {
+                this.heP.setRatio(this.heP.bFS());
+                this.heP.bFT();
             }
             this.heP.getWebView().setVisibility(0);
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/valid_success")) {
-            bFR();
+            bFQ();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/feedback") || str.equals("https://tieba.baidu.com/account/access/feedback")) {
             this.heP.getContext().finish();
@@ -113,7 +113,7 @@ public class a {
         }
     }
 
-    public void bFQ() {
+    public void bFP() {
         if (this.heP != null) {
             this.heP.showWebViewDelay(500);
         }
@@ -133,7 +133,7 @@ public class a {
         }
     }
 
-    private void bFR() {
+    private void bFQ() {
         this.heT = false;
         if (this.heP != null && this.heS != null) {
             if (!l.hy()) {
@@ -146,7 +146,7 @@ public class a {
         }
     }
 
-    public boolean bFS() {
+    public boolean bFR() {
         return this.heT;
     }
 }

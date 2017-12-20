@@ -127,7 +127,7 @@ public class ForumManageModel extends BdBaseModel {
         this.gEd.execute(new String[0]);
     }
 
-    public boolean bxJ() {
+    public boolean bxI() {
         return (this.gEd == null && this.gEe == null && this.gEf == null) ? false : true;
     }
 

@@ -27,13 +27,13 @@ public class at {
             if (b != null) {
                 this.feC.nU(true);
                 this.feE.setText(b);
-                if (z && this.feC.bFF() >= 0) {
+                if (z && this.feC.bFE() >= 0) {
                     this.feE.requestFocus();
-                    this.feE.setSelection(this.feC.bFF());
+                    this.feE.setSelection(this.feC.bFE());
                 } else {
                     this.feE.setSelection(selectionEnd);
                 }
-                this.feC.nT(this.feC.bFF() >= 0);
+                this.feC.nT(this.feC.bFE() >= 0);
             }
         }
     }
@@ -45,24 +45,24 @@ public class at {
             if (b != null) {
                 this.feD.nU(true);
                 this.feF.setText(b);
-                if (z && this.feD.bFF() >= 0) {
+                if (z && this.feD.bFE() >= 0) {
                     this.feF.requestFocus();
-                    this.feF.setSelection(this.feD.bFF());
+                    this.feF.setSelection(this.feD.bFE());
                 } else {
                     this.feF.setSelection(selectionEnd);
                 }
-                this.feD.nT(this.feD.bFF() >= 0);
+                this.feD.nT(this.feD.bFE() >= 0);
             }
         }
     }
 
-    public void aWU() {
+    public void aWT() {
         this.feD.uB(null);
         this.feD.aC(null);
         this.feD.nT(false);
     }
 
-    public void aWV() {
+    public void aWU() {
         this.feC.uB(null);
         this.feC.aC(null);
         this.feC.nT(false);
@@ -72,7 +72,7 @@ public class at {
         if (postWriteCallBackData != null) {
             this.feC.aC(postWriteCallBackData.getSensitiveWords());
             this.feC.uB(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.w(this.feC.bFE())) {
+            if (!com.baidu.tbadk.core.util.v.w(this.feC.bFD())) {
                 ka(true);
                 this.eXA = postWriteCallBackData;
             }
@@ -83,7 +83,7 @@ public class at {
         if (postWriteCallBackData != null) {
             this.feD.aC(postWriteCallBackData.getSensitiveWords());
             this.feD.uB(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.w(this.feD.bFE())) {
+            if (!com.baidu.tbadk.core.util.v.w(this.feD.bFD())) {
                 kb(true);
             }
         }
@@ -105,27 +105,27 @@ public class at {
     public void onChangeSkinType() {
         this.feC.onChangeSkinType();
         this.feD.onChangeSkinType();
-        if (this.feC.bFG()) {
+        if (this.feC.bFF()) {
             ka(false);
         }
-        if (this.feD.bFG()) {
+        if (this.feD.bFF()) {
             kb(false);
         }
     }
 
-    public com.baidu.tieba.write.b aWW() {
+    public com.baidu.tieba.write.b aWV() {
         return this.feC;
     }
 
-    public com.baidu.tieba.write.b aWX() {
+    public com.baidu.tieba.write.b aWW() {
         return this.feD;
     }
 
-    public EditText aWY() {
+    public EditText aWX() {
         return this.feF;
     }
 
-    public PostWriteCallBackData aWZ() {
+    public PostWriteCallBackData aWY() {
         return this.eXA;
     }
 }

@@ -36,7 +36,7 @@ public class a implements View.OnClickListener {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (a.this.dai != null) {
-                            a.this.aqG();
+                            a.this.aqF();
                         }
                     }
                 }, 3000L);
@@ -49,7 +49,7 @@ public class a implements View.OnClickListener {
         this.dah = z;
     }
 
-    public void aE(View view) {
+    public void aF(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.aYR = view;
@@ -86,10 +86,10 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        aqG();
+        aqF();
     }
 
-    public void aqG() {
+    public void aqF() {
         if (this.dai != null) {
             this.dai.dismiss();
             this.dai = null;
@@ -98,6 +98,6 @@ public class a implements View.OnClickListener {
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        aqG();
+        aqF();
     }
 }

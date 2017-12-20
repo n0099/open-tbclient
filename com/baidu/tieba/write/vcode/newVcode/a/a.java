@@ -154,7 +154,7 @@ public class a implements b {
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
-    public boolean bFS() {
+    public boolean bFR() {
         return this.heT;
     }
 

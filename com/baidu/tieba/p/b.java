@@ -15,21 +15,21 @@ import org.json.JSONObject;
 public class b {
     private static b gPg = new b();
 
-    public static b bAU() {
+    public static b bAT() {
         return gPg;
     }
 
-    public void bAV() {
+    public void bAU() {
         if (f.dG()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.p.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List bAX = b.bAX();
-                    int size = bAX.size();
+                    List bAW = b.bAW();
+                    int size = bAW.size();
                     for (int i = 0; i < size; i++) {
-                        a aVar = (a) bAX.get(i);
+                        a aVar = (a) bAW.get(i);
                         b.this.d(aVar.eER, aVar.gbp);
                     }
                     return null;
@@ -38,7 +38,7 @@ public class b {
         }
     }
 
-    private static File[] bAW() {
+    private static File[] bAV() {
         File file = new File(g.a.eEt);
         if (file.exists()) {
             return file.listFiles();
@@ -47,11 +47,11 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<a> bAX() {
+    public static List<a> bAW() {
         ArrayList arrayList = new ArrayList();
-        File[] bAW = bAW();
-        if (bAW != null) {
-            for (File file : bAW) {
+        File[] bAV = bAV();
+        if (bAV != null) {
+            for (File file : bAV) {
                 String name = file.getName();
                 JSONObject tO = tO(file.getAbsolutePath() + g.a.eEk + "kpi");
                 if (tO == null) {
@@ -120,7 +120,7 @@ public class b {
             }
         }
         if (!z) {
-            jSONArray.put(new com.baidu.tieba.l.d(502, "unknown", -4399, "").bjQ());
+            jSONArray.put(new com.baidu.tieba.l.d(502, "unknown", -4399, "").bjP());
             return jSONArray;
         }
         return jSONArray;

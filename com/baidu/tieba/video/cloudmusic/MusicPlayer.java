@@ -24,13 +24,13 @@ public class MusicPlayer {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bBn();
+        void bBm();
     }
 
     private MusicPlayer() {
     }
 
-    public static synchronized MusicPlayer bBp() {
+    public static synchronized MusicPlayer bBo() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
             if (gQx == null) {
@@ -55,7 +55,7 @@ public class MusicPlayer {
                 this.gQw.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
-                        com.baidu.tieba.video.cloudmusic.data.a.bBs().a(musicList);
+                        com.baidu.tieba.video.cloudmusic.data.a.bBr().a(musicList);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ON_CLOUD_MUSIC_PLAY));
                         MusicPlayer.this.gQw.setLooping(true);
                         MusicPlayer.this.gQw.start();
@@ -66,20 +66,20 @@ public class MusicPlayer {
                 e.printStackTrace();
                 this.gQy = MusicPlayerState.ERROR;
                 if (aVar != null) {
-                    aVar.bBn();
+                    aVar.bBm();
                 }
             }
         }
     }
 
-    public void bBq() {
+    public void bBp() {
         if (this.gQw != null && this.gQw.isPlaying()) {
             this.gQw.pause();
         }
         this.gQy = MusicPlayerState.PAUSE;
     }
 
-    public void bBr() {
+    public void bBq() {
         if (this.gQw != null) {
             this.gQw.start();
             this.gQw.seekTo(0);
@@ -87,7 +87,7 @@ public class MusicPlayer {
         this.gQy = MusicPlayerState.RESUME;
     }
 
-    public void bjo() {
+    public void bjn() {
         if (this.gQw != null) {
             if (this.gQw.isPlaying()) {
                 this.gQw.stop();

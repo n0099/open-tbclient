@@ -74,21 +74,21 @@ abstract class f implements org.aspectj.lang.c {
         return this.name;
     }
 
-    public Class bSN() {
+    public Class bSM() {
         if (this.hNd == null) {
             this.hNd = yb(2);
         }
         return this.hNd;
     }
 
-    public String bSO() {
+    public String bSN() {
         if (this.hNc == null) {
-            this.hNc = bSN().getName();
+            this.hNc = bSM().getName();
         }
         return this.hNc;
     }
 
-    private ClassLoader bSP() {
+    private ClassLoader bSO() {
         if (this.hMR == null) {
             this.hMR = getClass().getClassLoader();
         }
@@ -119,7 +119,7 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Class yb(int i) {
-        return org.aspectj.a.b.b.b(xZ(i), bSP());
+        return org.aspectj.a.b.b.b(xZ(i), bSO());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,7 +128,7 @@ abstract class f implements org.aspectj.lang.c {
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), bSP());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), bSO());
         }
         return clsArr;
     }
@@ -139,32 +139,32 @@ abstract class f implements org.aspectj.lang.c {
         private SoftReference hNh;
 
         public b() {
-            bSR();
+            bSQ();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String yd(int i) {
-            String[] bSQ = bSQ();
-            if (bSQ == null) {
+            String[] bSP = bSP();
+            if (bSP == null) {
                 return null;
             }
-            return bSQ[i];
+            return bSP[i];
         }
 
         @Override // org.aspectj.a.b.f.a
         public void ar(int i, String str) {
-            String[] bSQ = bSQ();
-            if (bSQ == null) {
-                bSQ = bSR();
+            String[] bSP = bSP();
+            if (bSP == null) {
+                bSP = bSQ();
             }
-            bSQ[i] = str;
+            bSP[i] = str;
         }
 
-        private String[] bSQ() {
+        private String[] bSP() {
             return (String[]) this.hNh.get();
         }
 
-        private String[] bSR() {
+        private String[] bSQ() {
             String[] strArr = new String[3];
             this.hNh = new SoftReference(strArr);
             return strArr;

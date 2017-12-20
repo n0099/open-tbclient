@@ -29,7 +29,7 @@ public class c extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
                     boolean z = view == c.this.doj.getHeaderImg();
                     ak akVar = new ak("c12352");
                     akVar.r("obj_locate", z ? 1 : 2);
-                    akVar.ac("obj_type", kVar.aci());
+                    akVar.ac("obj_type", kVar.ach());
                     akVar.ac("tid", kVar.threadData.getTid());
                     akVar.f(ImageViewerConfig.FORUM_ID, kVar.threadData.getFid());
                     akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
@@ -57,13 +57,13 @@ public class c extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a> aVar) {
-        if (kVar == null || aVar == null || aVar.acC() == null) {
+        if (kVar == null || aVar == null || aVar.acB() == null) {
             return null;
         }
         kVar.iG(i + 1);
-        s.abX().a(kVar.jV("c12351"));
-        aVar.acC().a(kVar);
-        aVar.acC().b(this.dof);
+        s.abW().a(kVar.jV("c12351"));
+        aVar.acB().a(kVar);
+        aVar.acB().b(this.dof);
         return aVar.getView();
     }
 }

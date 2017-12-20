@@ -27,7 +27,7 @@ public class e extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, l lVar) {
-                s.abX().cC(true);
+                s.abW().cC(true);
                 if (view != null && e.this.drL != null && e.this.drL.getView() != null && lVar != null && lVar.Ox() != null && !StringUtils.isNull(lVar.Ox().getTid())) {
                     if (view.getId() != e.this.drL.getView().getId()) {
                         if (e.this.drL.getHeaderImg() == null || view.getId() != e.this.drL.getHeaderImg().getId()) {
@@ -39,7 +39,7 @@ public class e extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
                                     }
                                     return;
                                 }
-                                TiebaStatic.log(lVar.acq());
+                                TiebaStatic.log(lVar.acp());
                                 return;
                             }
                             TiebaStatic.log(lVar.jY("c12191"));
@@ -53,7 +53,7 @@ public class e extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
             }
         };
         this.mPageContext = tbPageContext;
-        auu();
+        aut();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,18 +75,18 @@ public class e extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, l lVar, com.baidu.tieba.card.a.a<o> aVar) {
-        if (lVar == null || aVar == null || aVar.acC() == null) {
+        if (lVar == null || aVar == null || aVar.acB() == null) {
             return null;
         }
         lVar.iG(i + 1);
-        s.abX().a(lVar.jX("c12190"));
-        aVar.acC().a(lVar);
-        aVar.acC().b(this.dof);
-        aVar.acC().a(this.aYP);
+        s.abW().a(lVar.jX("c12190"));
+        aVar.acB().a(lVar);
+        aVar.acB().b(this.dof);
+        aVar.acB().a(this.aYP);
         return aVar.getView();
     }
 
-    private void auu() {
+    private void aut() {
         l.cdG = "c10705";
         l.cdH = "c10730";
         l.cdI = "c10731";

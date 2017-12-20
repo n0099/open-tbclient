@@ -15,9 +15,9 @@ public class b extends g implements r {
             this.dsq = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(acm() + cardForum.position.intValue());
+                setYuelaouLocate(acl() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(acm() + 0);
+                setYuelaouLocate(acl() + 0);
             }
             if (v.v(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
@@ -43,7 +43,7 @@ public class b extends g implements r {
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean ack() {
+    public boolean acj() {
         return true;
     }
 

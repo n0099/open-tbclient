@@ -35,7 +35,7 @@ public class a extends LinearLayout {
         this.mScroller = new Scroller(context);
     }
 
-    public void bH(View view) {
+    public void bI(View view) {
         this.view = view;
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();

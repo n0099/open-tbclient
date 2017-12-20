@@ -38,7 +38,7 @@ public class b {
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.bxR();
+        com.baidu.tieba.tbadkCore.util.a.bxQ();
     }
 
     public void zl() {

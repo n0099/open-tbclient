@@ -47,7 +47,7 @@ public class PostCategoryView extends TextView {
         this.cZC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PostCategoryView.this.bHt();
+                PostCategoryView.this.bHs();
             }
         });
     }
@@ -60,7 +60,7 @@ public class PostCategoryView extends TextView {
         this.cZQ.setOnItemClickCallBack(aVar);
     }
 
-    public void bHs() {
+    public void bHr() {
         if (this.hiZ) {
             setCompoundDrawables(null, null, this.hjb, null);
             this.hiZ = false;
@@ -96,7 +96,7 @@ public class PostCategoryView extends TextView {
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     if (postCategoryView != null) {
-                        postCategoryView.bHs();
+                        postCategoryView.bHr();
                     }
                 }
             });
@@ -114,7 +114,7 @@ public class PostCategoryView extends TextView {
         }
     }
 
-    public void bHt() {
+    public void bHs() {
         if (this.Sn != null) {
             this.Sn.dismiss();
         }

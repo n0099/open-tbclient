@@ -42,11 +42,11 @@ public class k {
         return this.text;
     }
 
-    public String bwG() {
+    public String bwF() {
         return this.c;
     }
 
-    public SpannableStringBuilder bwH() {
+    public SpannableStringBuilder bwG() {
         return this.gBI;
     }
 

@@ -50,7 +50,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bAR() {
+    public void bAQ() {
         HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.mContext, 25005, this.mForumList);
         hotTopicChangeActivityConfig.setUseOriginList(true);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotTopicChangeActivityConfig));
@@ -74,7 +74,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                 }
                 TiebaStatic.log(new ak("c12053"));
                 if (!v.w(d.this.mForumList)) {
-                    d.this.bAR();
+                    d.this.bAQ();
                     return;
                 }
                 d.this.bzg = new com.baidu.tieba.likedForum.a(d.this.mPageId);
@@ -102,7 +102,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                     }
                     if (d.this.mForumList == null) {
                         d.this.mForumList = arrayList;
-                        d.this.bAR();
+                        d.this.bAQ();
                     }
                 }
             }

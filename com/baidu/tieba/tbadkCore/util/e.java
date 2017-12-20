@@ -18,7 +18,7 @@ public class e {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
                 if (this.gEw.size() >= this.gEv) {
-                    bfR();
+                    bfQ();
                 }
                 this.gEu++;
                 this.gEw.put(valueOf, Integer.valueOf(this.gEu));
@@ -28,7 +28,7 @@ public class e {
         }
     }
 
-    public void bfR() {
+    public void bfQ() {
         int i;
         Long l;
         synchronized (this) {
@@ -77,7 +77,7 @@ public class e {
         }
     }
 
-    public void bxS() {
+    public void bxR() {
         synchronized (this) {
             this.gEw.clear();
         }

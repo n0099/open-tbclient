@@ -10,11 +10,13 @@ import java.util.List;
 public interface u {
     void a(com.baidu.tieba.frs.b bVar);
 
-    int amt();
+    int ams();
 
-    HashMap<Integer, bd> anD();
+    HashMap<Integer, bd> anC();
 
-    void anE();
+    void anD();
+
+    int anE();
 
     int anF();
 
@@ -22,9 +24,7 @@ public interface u {
 
     int anH();
 
-    int anI();
-
-    void anJ();
+    void anI();
 
     void b(ArrayList<com.baidu.adp.widget.ListView.f> arrayList, k kVar);
 

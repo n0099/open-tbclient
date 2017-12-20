@@ -94,8 +94,8 @@ public class a extends LinearLayout implements EmotionView.a {
                 if (editable != null) {
                     String trim = editable.toString().trim();
                     if (TextUtils.isEmpty(trim)) {
-                        if (a.this.mData != null && !v.w(a.this.mData.ahN())) {
-                            a.this.ffv.setData(a.this.mData.ahN());
+                        if (a.this.mData != null && !v.w(a.this.mData.ahM())) {
+                            a.this.ffv.setData(a.this.mData.ahM());
                             a.this.ffv.notifyDataSetChanged();
                             return;
                         }
@@ -112,8 +112,8 @@ public class a extends LinearLayout implements EmotionView.a {
         this.cvw = new SearchEmotionModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.a.4
             @Override // com.baidu.tieba.face.SearchEmotionModel.a
             public void a(String str, com.baidu.tieba.face.data.a aVar) {
-                if (aVar != null && !v.w(aVar.ahN()) && a.this.cvN.getText().toString().trim().equals(str)) {
-                    a.this.ffv.setData(aVar.ahN());
+                if (aVar != null && !v.w(aVar.ahM()) && a.this.cvN.getText().toString().trim().equals(str)) {
+                    a.this.ffv.setData(aVar.ahM());
                     a.this.ffv.notifyDataSetChanged();
                 }
             }
@@ -187,10 +187,10 @@ public class a extends LinearLayout implements EmotionView.a {
     }
 
     public void a(RelativeLayout relativeLayout, com.baidu.tieba.pb.pb.main.emotion.a.a aVar, boolean z) {
-        if (aVar != null && aVar.ahN() != null && !aVar.ahN().isEmpty()) {
+        if (aVar != null && aVar.ahM() != null && !aVar.ahM().isEmpty()) {
             this.mParent = relativeLayout;
             this.mData = aVar;
-            this.ffv.setData(aVar.ahN());
+            this.ffv.setData(aVar.ahM());
             qp(this.ffy);
             qq(this.ffx);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -421,7 +421,7 @@ public class a extends LinearLayout implements EmotionView.a {
                 @Override // com.baidu.tieba.pb.pb.main.emotion.b.a.InterfaceC0131a
                 public void a(String str, List<String> list, List<String> list2) {
                     if (a.this.mData != null) {
-                        interfaceC0131a.a(a.this.cvN.getText().toString(), a.this.mData.aXd(), list2);
+                        interfaceC0131a.a(a.this.cvN.getText().toString(), a.this.mData.aXc(), list2);
                         TiebaStatic.log("c12177");
                     }
                 }
@@ -435,7 +435,7 @@ public class a extends LinearLayout implements EmotionView.a {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public boolean ahP() {
+    public boolean ahO() {
         return this.ffD;
     }
 
@@ -445,11 +445,11 @@ public class a extends LinearLayout implements EmotionView.a {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void ahS() {
+    public void ahR() {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void ahT() {
+    public void ahS() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -469,14 +469,14 @@ public class a extends LinearLayout implements EmotionView.a {
 
     public void onDestroy() {
         if (this.ffv != null) {
-            this.ffv.aPP();
+            this.ffv.aPO();
         }
-        and();
+        anc();
     }
 
-    public void and() {
+    public void anc() {
         if (this.ffF != null) {
-            this.ffF.and();
+            this.ffF.anc();
         }
     }
 
