@@ -64,7 +64,7 @@ public class d {
                 d.this.aNl.onScrollStateChanged(absListView, i);
             }
             if (i == 0) {
-                s.abX().NQ();
+                s.abW().NQ();
                 this.doa = false;
                 return;
             }
@@ -133,7 +133,7 @@ public class d {
 
     /* loaded from: classes.dex */
     public interface a {
-        void atF();
+        void atE();
 
         void lW(String str);
 
@@ -176,9 +176,9 @@ public class d {
 
     public void update() {
         if (this.mDataList.size() == 0 && !this.dnT) {
-            atJ();
+            atI();
         } else {
-            atG();
+            atF();
         }
     }
 
@@ -209,7 +209,7 @@ public class d {
         if (this.dnR != null) {
             this.dnR.y(z, false);
         }
-        atK();
+        atJ();
     }
 
     public void fU(boolean z) {
@@ -218,9 +218,9 @@ public class d {
         }
     }
 
-    private void atG() {
+    private void atF() {
         if (this.dnR != null) {
-            this.dnR.atF();
+            this.dnR.atE();
         }
     }
 
@@ -235,10 +235,10 @@ public class d {
                 }
                 return;
             }
-            atG();
+            atF();
             return;
         }
-        atG();
+        atF();
     }
 
     private List<f> a(boolean z, DataRes.Builder builder, boolean z2) {
@@ -309,7 +309,7 @@ public class d {
         bVar.doG.b(userList);
         bVar.cBz = new bd();
         bVar.cBz.a(userList.thread_info);
-        bVar.atM();
+        bVar.atL();
         if (bVar.cBz.isLinkThread()) {
             bVar.isLinkThread = true;
         }
@@ -323,7 +323,7 @@ public class d {
         return this.mDataList;
     }
 
-    public void atH() {
+    public void atG() {
         this.dnU.ae(this.mDataList);
     }
 
@@ -343,7 +343,7 @@ public class d {
         if (dataRes.req_unix != null) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_data_res_request_time"), dataRes.req_unix.longValue());
         }
-        if (dataRes.top_user_info != null && atI()) {
+        if (dataRes.top_user_info != null && atH()) {
             if (!am.isEmpty(builder.top_tips)) {
                 com.baidu.tieba.homepage.concern.b.a aVar = new com.baidu.tieba.homepage.concern.b.a();
                 aVar.ajH = builder.top_tips;
@@ -395,11 +395,11 @@ public class d {
             this.dnS.user_tips = dataRes.user_tips;
         }
         this.dnU.ae(this.mDataList);
-        this.dnU.atx();
+        this.dnU.atw();
         return true;
     }
 
-    private boolean atI() {
+    private boolean atH() {
         if (TbadkCoreApplication.isLogin()) {
             if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_top_user_user_like_time"), 0L) > 86400000) {
                 return true;
@@ -408,11 +408,11 @@ public class d {
         return false;
     }
 
-    private void atJ() {
+    private void atI() {
         com.baidu.tbadk.util.v.a(new u<DataRes>() { // from class: com.baidu.tieba.homepage.concern.d.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
-            /* renamed from: atL */
+            /* renamed from: atK */
             public DataRes doInBackground() {
                 l<byte[]> M = com.baidu.tbadk.core.c.a.td().M("tb.concern_page", TbadkCoreApplication.getCurrentAccount());
                 if (M == null) {
@@ -439,7 +439,7 @@ public class d {
         });
     }
 
-    private void atK() {
+    private void atJ() {
         if (this.dnS != null) {
             DataRes.Builder builder = new DataRes.Builder(this.dnS.build(true));
             if (builder.thread_info != null && builder.thread_info.size() > 30) {
@@ -509,7 +509,7 @@ public class d {
                     ConcernData concernData = this.dnS.thread_info.get(i2);
                     if (concernData != null && (threadInfo = concernData.thread_list) != null && threadInfo.tid != null && threadInfo.tid.longValue() == c) {
                         this.dnS.thread_info.remove(i2);
-                        atK();
+                        atJ();
                         return;
                     }
                 }

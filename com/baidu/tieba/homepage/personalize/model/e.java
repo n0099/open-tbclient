@@ -17,10 +17,10 @@ public class e {
     public void o(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
         aac();
-        adp();
+        ado();
     }
 
-    private void adp() {
+    private void ado() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309277);
         bVar.setResponsedClass(RealTimeSocketResponse.class);
         bVar.m(true);

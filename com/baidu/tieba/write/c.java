@@ -118,7 +118,7 @@ public class c {
             this.heu = (GridLayout) this.heg.findViewById(d.g.type_container);
             this.heu.setMeasureAllChild(true);
             this.heu.setVerNum(1);
-            bFJ();
+            bFI();
             this.eQT.add(this.hek);
             this.eQT.add(this.heh);
             this.eQT.add(this.hen);
@@ -126,7 +126,7 @@ public class c {
             this.heg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.bO(c.this.heu);
+                    c.this.bP(c.this.heu);
                 }
             });
             this.hel.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.2
@@ -135,7 +135,7 @@ public class c {
                     int i;
                     String str;
                     int i2;
-                    c.this.bFM();
+                    c.this.bFL();
                     String str2 = "0";
                     String str3 = null;
                     PostPrefixData postPrefixData = null;
@@ -168,7 +168,7 @@ public class c {
             this.hei.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.bFM();
+                    c.this.bFL();
                     TiebaStatic.log(new ak("c12611").ac("obj_locate", c.this.heE).r("obj_type", 2));
                     if (c.this.gYz == null) {
                         c.this.gYz = new ForumWriteData("0", null, null, null);
@@ -184,7 +184,7 @@ public class c {
                     int i;
                     String str;
                     int i2;
-                    c.this.bFM();
+                    c.this.bFL();
                     String str2 = "0";
                     String str3 = null;
                     PostPrefixData postPrefixData = null;
@@ -218,7 +218,7 @@ public class c {
             this.her.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.c.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.bFM();
+                    c.this.bFL();
                     MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
                     String str = "0";
                     String str2 = null;
@@ -243,7 +243,7 @@ public class c {
         }
     }
 
-    private void bFJ() {
+    private void bFI() {
         int ac = (int) (0.15555556f * l.ac(this.abX.getPageActivity()));
         a(this.hel, ac);
         a(this.hei, ac);
@@ -307,12 +307,12 @@ public class c {
             this.hef.startAnimation(this.heC);
             this.het.setVisibility(0);
             this.het.startAnimation(this.heA);
-            bFK();
+            bFJ();
             TiebaStatic.log(new ak("c12052").ac("obj_locate", this.heE));
         }
     }
 
-    private void bFK() {
+    private void bFJ() {
         clearAnimation();
         final int size = this.eQT.size();
         this.hey = false;
@@ -348,12 +348,12 @@ public class c {
         }
     }
 
-    public void bFL() {
-        bO(this.heu);
+    public void bFK() {
+        bP(this.heu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bO(View view) {
+    public void bP(View view) {
         if (this.hey && this.hez) {
             if (this.hev != null) {
                 com.baidu.adp.lib.g.e.fP().removeCallbacks(this.hev);
@@ -362,14 +362,14 @@ public class c {
             this.hef.startAnimation(this.heD);
             this.het.clearAnimation();
             this.het.startAnimation(this.heB);
-            bFN();
+            bFM();
             this.hev = new a(view);
             com.baidu.adp.lib.g.e.fP().postDelayed(this.hev, 500L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFM() {
+    public void bFL() {
         this.hey = true;
         this.hez = true;
         if (this.hev != null) {
@@ -381,7 +381,7 @@ public class c {
         com.baidu.adp.lib.g.e.fP().postDelayed(this.hev, 500L);
     }
 
-    private void bFN() {
+    private void bFM() {
         clearAnimation();
         int size = this.eQT.size();
         this.hex = size;

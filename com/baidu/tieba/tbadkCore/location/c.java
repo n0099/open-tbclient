@@ -6,7 +6,7 @@ public class c {
     private boolean gDV = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("no_longer_show_address", false);
     private a mLocationData;
 
-    public static c bxD() {
+    public static c bxC() {
         if (gDU == null) {
             synchronized (c.class) {
                 if (gDU == null) {
@@ -33,7 +33,7 @@ public class c {
         this.mLocationData = aVar;
     }
 
-    public boolean bxE() {
+    public boolean bxD() {
         return this.gDV;
     }
 

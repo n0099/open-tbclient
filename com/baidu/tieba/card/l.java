@@ -263,7 +263,7 @@ public class l extends a<com.baidu.tieba.card.data.l> {
             VoiceData.VoiceModel voiceModel = rK.get(0);
             this.caM.setVoiceModel(voiceModel);
             this.caM.setTag(voiceModel);
-            this.caM.bmf();
+            this.caM.bme();
             if (voiceModel != null) {
                 this.caM.nT(voiceModel.voice_status.intValue());
             }
@@ -293,7 +293,7 @@ public class l extends a<com.baidu.tieba.card.data.l> {
                                 abt.a(view, l.this.bZi);
                             }
                             if (z2) {
-                                l.this.abN();
+                                l.this.abM();
                             } else {
                                 l.this.a(view, linkedList, i2, Ox);
                             }
@@ -307,12 +307,12 @@ public class l extends a<com.baidu.tieba.card.data.l> {
                 this.caP.setVisibility(8);
             }
         }
+        abK();
         abL();
-        abM();
         setPageUniqueId(getTag());
     }
 
-    private void abL() {
+    private void abK() {
         if (this.caN != null && this.caP != null && this.bZf != null) {
             if (this.caP.getVisibility() == 8 && this.bZf.getVisibility() == 8) {
                 this.caN.setVisibility(0);
@@ -362,7 +362,7 @@ public class l extends a<com.baidu.tieba.card.data.l> {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
     }
 
-    private void abM() {
+    private void abL() {
         if (!this.bZi.aDm) {
             this.caM.setClickable(false);
         } else {
@@ -429,7 +429,7 @@ public class l extends a<com.baidu.tieba.card.data.l> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abN() {
+    public void abM() {
         dO(false);
     }
 
@@ -442,7 +442,7 @@ public class l extends a<com.baidu.tieba.card.data.l> {
                 k.a(this.caO, this.bZi.threadData.getId(), d.C0096d.cp_cont_f, d.C0096d.cp_cont_d);
                 k.a(this.bZf.getGodReplyContent(), this.bZi.threadData.getId(), d.C0096d.cp_cont_f, d.C0096d.cp_cont_d);
             }
-            PbActivityConfig addLocateParam = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(this.bZi.threadData, null, k.rl(), 18003, true, false, false).addLocateParam(this.bZi.acg());
+            PbActivityConfig addLocateParam = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(this.bZi.threadData, null, k.rl(), 18003, true, false, false).addLocateParam(this.bZi.acf());
             addLocateParam.setForumId(String.valueOf(this.bZi.threadData.getFid()));
             addLocateParam.setForumName(this.bZi.threadData.rB());
             addLocateParam.setStartFrom(this.currentPageType);

@@ -36,7 +36,7 @@ public class a {
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (!a.this.eRW.wA()) {
-                a.this.eRW.aSw();
+                a.this.eRW.aSv();
             }
         }
     };
@@ -49,9 +49,9 @@ public class a {
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            if (!pP(this.eSa) && pP(i) && a.this.eRN != null && a.this.eRN.aSR() != null) {
-                a.this.eRN.aSR().aVO();
-                a.this.eRN.aSR().aWE();
+            if (!pP(this.eSa) && pP(i) && a.this.eRN != null && a.this.eRN.aSQ() != null) {
+                a.this.eRN.aSQ().aVN();
+                a.this.eRN.aSQ().aWD();
             }
             this.eSa = i;
         }
@@ -70,19 +70,19 @@ public class a {
 
         @Override // com.baidu.tieba.pb.pb.main.z.a
         public void C(List<PostData> list) {
-            a.this.aSu();
+            a.this.aSt();
         }
     };
     private PbActivity.a eRY = new PbActivity.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.8
         @Override // com.baidu.tieba.pb.pb.main.PbActivity.a
         public boolean onBackPressed() {
-            a.this.aSr();
+            a.this.aSq();
             return true;
         }
     };
 
     public a(PbActivity pbActivity, ar arVar, ViewStub viewStub) {
-        this.eRW = new MoreGodReplyModel(pbActivity.getPageContext(), pbActivity.aSx());
+        this.eRW = new MoreGodReplyModel(pbActivity.getPageContext(), pbActivity.aSw());
         this.eRW.a(this.eRX);
         this.eRQ = arVar;
         this.eRN = pbActivity;
@@ -93,21 +93,21 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void j(final Runnable runnable) {
         this.eRW.cancelLoadData();
-        this.eRN.aTE();
+        this.eRN.aTD();
         if (!isActive() && runnable != null) {
             runnable.run();
-        } else if (isActive() && !this.eRP.aSz()) {
+        } else if (isActive() && !this.eRP.aSy()) {
             this.eRO.l(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.4
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.eRO.hide();
                     a.this.eRM = false;
                     if (a.this.eRN != null) {
-                        if (a.this.eRN.aSR() != null) {
-                            a.this.eRN.aSR().jW(false);
-                            h aWe = a.this.eRN.aSR().aWe();
-                            aWe.a(a.this.eRN.aSx().getPbData(), true);
-                            aWe.notifyDataSetChanged();
+                        if (a.this.eRN.aSQ() != null) {
+                            a.this.eRN.aSQ().jW(false);
+                            h aWd = a.this.eRN.aSQ().aWd();
+                            aWd.a(a.this.eRN.aSw().getPbData(), true);
+                            aWd.notifyDataSetChanged();
                         }
                         a.this.eRN.b(a.this.eRY);
                     }
@@ -119,31 +119,31 @@ public class a {
         }
     }
 
-    void aSr() {
+    void aSq() {
         j(null);
     }
 
     private void Yl() {
-        boolean aSC = this.eRO.aSC();
+        boolean aSB = this.eRO.aSB();
         this.eRO.show();
-        if (!aSC) {
-            this.eRO.aSD().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.5
+        if (!aSB) {
+            this.eRO.aSC().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.aSr();
+                    a.this.aSq();
                 }
             });
-            this.eRO.aSE().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.6
+            this.eRO.aSD().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.aSr();
+                    a.this.aSq();
                 }
             });
-            this.eRO.aSG().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.7
+            this.eRO.aSF().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (!a.this.eRW.wA()) {
-                        a.this.eRW.aSw();
+                        a.this.eRW.aSv();
                     }
                 }
             });
@@ -151,14 +151,14 @@ public class a {
         }
     }
 
-    public void aSs() {
+    public void aSr() {
         if (!isActive()) {
-            this.eRN.aTE();
+            this.eRN.aTD();
             this.eRM = true;
             this.eRP.setFullscreen(false);
             this.eRP.jb(true);
             Yl();
-            aSu();
+            aSt();
             this.eRO.m(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.9
                 @Override // java.lang.Runnable
                 public void run() {
@@ -166,30 +166,30 @@ public class a {
                 }
             });
             this.eRN.a(this.eRY);
-            this.eRW.aSw();
+            this.eRW.aSv();
         }
-        this.eRN.aSR().aWE();
+        this.eRN.aSQ().aWD();
     }
 
-    public void aSt() {
+    public void aSs() {
         if (isActive()) {
-            aSu();
+            aSt();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSu() {
-        List<f> aSy = this.eRW.aSy();
-        if (aSy != null) {
-            com.baidu.tieba.pb.data.f pbData = this.eRW.aSx().getPbData();
+    public void aSt() {
+        List<f> aSx = this.eRW.aSx();
+        if (aSx != null) {
+            com.baidu.tieba.pb.data.f pbData = this.eRW.aSw().getPbData();
             this.eRO.show();
             this.eRO.getListView().setOnSrollToBottomListener(this.bsL);
             BdTypeListView listView = this.eRO.getListView();
             this.eRP.wB();
             e(listView);
             c(pbData);
-            listView.setData(new ArrayList(aSy));
-            this.eRO.alE().setCenterTextTitle(String.format(this.eRN.getResources().getString(d.j.more_god_reply_count), am.y(pbData.aRA().eQs.size())));
+            listView.setData(new ArrayList(aSx));
+            this.eRO.alD().setCenterTextTitle(String.format(this.eRN.getResources().getString(d.j.more_god_reply_count), am.y(pbData.aRz().eQs.size())));
             this.eRO.jc(this.eRW.ZR());
             if (listView.getAdapter() instanceof com.baidu.adp.widget.ListView.d) {
                 ((com.baidu.adp.widget.ListView.d) listView.getAdapter()).notifyDataSetChanged();
@@ -209,10 +209,10 @@ public class a {
 
     private void c(com.baidu.tieba.pb.data.f fVar) {
         this.eRR.b(fVar);
-        h aWe = this.eRQ.aWe();
-        this.eRR.setFromCDN(aWe.isFromCDN());
-        this.eRR.setHostId(fVar.aRq().rv().getUserId());
-        this.eRR.iY(aWe.aTW());
+        h aWd = this.eRQ.aWd();
+        this.eRR.setFromCDN(aWd.isFromCDN());
+        this.eRR.setHostId(fVar.aRp().rv().getUserId());
+        this.eRR.iY(aWd.aTV());
         this.eRR.setCommonClickListener(this.eRS);
         this.eRR.D(this.eRT);
         this.eRR.setOnImageClickListener(this.eRU);
@@ -248,7 +248,7 @@ public class a {
         return this.eRM;
     }
 
-    public d aSv() {
+    public d aSu() {
         return this.eRO;
     }
 }

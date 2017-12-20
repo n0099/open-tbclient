@@ -25,7 +25,7 @@ public class a {
         }
     };
 
-    public static synchronized a aud() {
+    public static synchronized a auc() {
         a aVar;
         synchronized (a.class) {
             if (dqz == null) {

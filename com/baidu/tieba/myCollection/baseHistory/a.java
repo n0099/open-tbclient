@@ -177,7 +177,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String aPf() {
+    public String aPe() {
         return this.threadName;
     }
 
@@ -209,7 +209,7 @@ public class a implements f {
         this.postID = str;
     }
 
-    public boolean aPg() {
+    public boolean aPf() {
         return this.isHostOnly;
     }
 
@@ -217,7 +217,7 @@ public class a implements f {
         this.isHostOnly = z;
     }
 
-    public boolean aPh() {
+    public boolean aPg() {
         return this.isSquence;
     }
 

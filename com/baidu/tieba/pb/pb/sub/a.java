@@ -12,7 +12,7 @@ public class a extends View {
     /* renamed from: com.baidu.tieba.pb.pb.sub.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0133a {
-        void apg();
+        void apf();
     }
 
     public void setScrollCallBack(InterfaceC0133a interfaceC0133a) {
@@ -23,7 +23,7 @@ public class a extends View {
         super(context);
     }
 
-    public void apk() {
+    public void apj() {
         if (this.mScroller == null) {
             this.mScroller = new Scroller(getContext());
         }
@@ -46,7 +46,7 @@ public class a extends View {
                     setLayoutParams(layoutParams);
                 }
             } else if (this.fhh != null) {
-                this.fhh.apg();
+                this.fhh.apf();
             }
         }
     }

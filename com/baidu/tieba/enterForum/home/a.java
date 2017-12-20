@@ -52,8 +52,8 @@ public class a extends BaseFragment {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-                if (d.ahz()) {
-                    d.ahA();
+                if (d.ahy()) {
+                    d.ahz();
                 }
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!StringUtils.isNull(currentAccount)) {
@@ -79,13 +79,13 @@ public class a extends BaseFragment {
     };
     private NavigationBar mNavigationBar;
 
-    public ObservedChangeLinearLayout agW() {
+    public ObservedChangeLinearLayout agV() {
         return this.ctj;
     }
 
-    private void aq(View view) {
+    private void ar(View view) {
         this.cth = (RelativeLayout) view.findViewById(d.g.enter_root_layout);
-        ar(view);
+        as(view);
         this.ctf = (NoNetworkView) view.findViewById(d.g.view_no_network);
         this.ctg = (PluginErrorTipView) view.findViewById(d.g.view_plugin_error_tip);
         this.ctj = (ObservedChangeLinearLayout) view.findViewById(d.g.tab_layout);
@@ -99,7 +99,7 @@ public class a extends BaseFragment {
         this.cth.addView(this.cta.getView(), 0);
     }
 
-    private void agX() {
+    private void agW() {
         if (this.ctk == null) {
             ((ViewStub) this.cth.findViewById(d.g.activity_prize_stub)).inflate();
             this.ctk = (RelativeLayout) this.cth.findViewById(d.g.activity_root_view);
@@ -131,7 +131,7 @@ public class a extends BaseFragment {
         }
     }
 
-    private void ar(View view) {
+    private void as(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(d.g.enter_forum_navigation_bar);
         aj.k(this.mNavigationBar, d.C0096d.cp_bg_line_d);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(d.j.enter_forum));
@@ -139,7 +139,7 @@ public class a extends BaseFragment {
         this.cti = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_nb_item_signall, new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (!a.this.agZ()) {
+                if (!a.this.agY()) {
                     if (!TbadkCoreApplication.isLogin()) {
                         ax.aR(a.this.getPageContext().getPageActivity());
                     } else if (TbadkCoreApplication.getInst().appResponseToIntentClass(SignAllForumActivityConfig.class)) {
@@ -153,31 +153,31 @@ public class a extends BaseFragment {
         this.cti.setLayoutParams(layoutParams);
     }
 
-    public void agY() {
-        aha();
+    public void agX() {
+        agZ();
         if (this.cta != null) {
             this.cta.Om();
-            if (this.cta.ahk()) {
-                this.cta.ahj();
+            if (this.cta.ahj()) {
+                this.cta.ahi();
             }
         }
     }
 
-    public boolean agZ() {
+    public boolean agY() {
         if (this.cta != null) {
-            return this.cta.ahk();
+            return this.cta.ahj();
         }
         return false;
     }
 
-    private void aha() {
+    private void agZ() {
         if (this.cta != null) {
             this.cta.eB(true);
         }
     }
 
-    public void ahb() {
-        if (!agZ()) {
+    public void aha() {
+        if (!agY()) {
             aj.a(this.cti, d.f.icon_sign_bg_s, d.f.icon_sign_bg);
         } else {
             aj.a(this.cti, d.f.icon_topbar_sign_s, d.f.icon_topbar_sign_s);
@@ -188,7 +188,7 @@ public class a extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            agY();
+            agX();
             if (this.cta != null) {
                 refreshImage(this.cta.getView());
             }
@@ -216,13 +216,13 @@ public class a extends BaseFragment {
         if (this.ctk != null) {
             com.baidu.tbadk.n.a.a(getPageContext(), this.ctk);
         }
-        ahb();
+        aha();
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(d.h.fragment_enter_forum, viewGroup, false);
-        aq(inflate);
+        ar(inflate);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return inflate;
     }
@@ -258,7 +258,7 @@ public class a extends BaseFragment {
         }
     }
 
-    public RelativeLayout ahc() {
+    public RelativeLayout ahb() {
         return this.cth;
     }
 
@@ -266,10 +266,10 @@ public class a extends BaseFragment {
     public void e(boolean z, String str) {
         if (z) {
             if (this.ctk == null) {
-                agX();
+                agW();
             }
             if (this.cte == null) {
-                this.cte = this.cta.ahf();
+                this.cte = this.cta.ahe();
             }
             this.ctb.setVisibility(0);
             this.ctd.setText(str);
@@ -279,7 +279,7 @@ public class a extends BaseFragment {
             this.ctb.setVisibility(8);
         }
         if (this.cte != null) {
-            this.cta.as(this.cte);
+            this.cta.at(this.cte);
             this.cte = null;
         }
     }

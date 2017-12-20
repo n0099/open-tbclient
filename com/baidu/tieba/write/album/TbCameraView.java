@@ -40,7 +40,7 @@ public class TbCameraView extends TextureView {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bus();
+        void bur();
     }
 
     /* loaded from: classes2.dex */
@@ -50,14 +50,14 @@ public class TbCameraView extends TextureView {
 
     /* loaded from: classes2.dex */
     public interface c {
-        boolean bur();
+        boolean buq();
     }
 
     /* loaded from: classes2.dex */
     public interface d {
-        void buu();
+        void but();
 
-        void buv();
+        void buu();
     }
 
     public TbCameraView(Context context, AttributeSet attributeSet) {
@@ -72,7 +72,7 @@ public class TbCameraView extends TextureView {
             public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
                 TbCameraView.this.mSurfaceTexture = surfaceTexture;
                 if (!TbCameraView.this.hgi) {
-                    TbCameraView.this.hgi = TbCameraView.this.hfK != null && TbCameraView.this.hfK.bur();
+                    TbCameraView.this.hgi = TbCameraView.this.hfK != null && TbCameraView.this.hfK.buq();
                 }
                 if (TbCameraView.this.hgi) {
                     new Thread(TbCameraView.this.hgj).start();
@@ -119,7 +119,7 @@ public class TbCameraView extends TextureView {
                     }
                     TbCameraView.this.gxP = false;
                     if (TbCameraView.this.hge != null) {
-                        TbCameraView.this.hge.buu();
+                        TbCameraView.this.hge.but();
                     }
                 }
             }
@@ -128,7 +128,7 @@ public class TbCameraView extends TextureView {
             @Override // java.lang.Runnable
             public void run() {
                 if (TbCameraView.this.hge != null) {
-                    TbCameraView.this.hge.buv();
+                    TbCameraView.this.hge.buu();
                 }
             }
         };
@@ -177,7 +177,7 @@ public class TbCameraView extends TextureView {
                     th.printStackTrace();
                     stopCamera();
                     if (this.hfL == null) {
-                        this.hfL.bus();
+                        this.hfL.bur();
                         return;
                     }
                     return;

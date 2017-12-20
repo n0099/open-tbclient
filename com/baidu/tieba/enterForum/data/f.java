@@ -23,7 +23,7 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
         this.csV = i;
     }
 
-    public int agR() {
+    public int agQ() {
         return this.csV;
     }
 

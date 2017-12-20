@@ -9,15 +9,15 @@ public class r extends bd {
     private boolean gAJ;
     private l gAK;
 
-    public boolean bwk() {
+    public boolean bwj() {
         return this.gAJ;
     }
 
-    public String bwl() {
+    public String bwk() {
         return this.fortune_desc;
     }
 
-    public l bwm() {
+    public l bwl() {
         return this.gAK;
     }
 

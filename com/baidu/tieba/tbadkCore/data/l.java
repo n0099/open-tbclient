@@ -23,11 +23,11 @@ public class l extends PostData {
         this.gBL = new AppData(str);
     }
 
-    public AppData bwK() {
+    public AppData bwJ() {
         return this.gBL;
     }
 
-    public AdvertAppInfo.ILegoAdvert bwL() {
+    public AdvertAppInfo.ILegoAdvert bwK() {
         if (this.gBL == null) {
             return null;
         }
@@ -45,7 +45,7 @@ public class l extends PostData {
         return this.gBL.px();
     }
 
-    public int bwM() {
+    public int bwL() {
         if (this.gBL == null || this.gBL.goods == null) {
             return -1;
         }
@@ -59,7 +59,7 @@ public class l extends PostData {
         return com.baidu.adp.lib.g.b.g(this.gBL.pos_name, 0);
     }
 
-    public AdvertAppInfo bwN() {
+    public AdvertAppInfo bwM() {
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
         if (this.gBL != null) {
             advertAppInfo.Vd = this.gBL;
@@ -114,10 +114,10 @@ public class l extends PostData {
         if (!com.baidu.tbadk.core.h.oY().pe() && this.gBL != null && this.gBL.legoCard != null && !this.gBL.legoCard.isNoPicAd()) {
             return AdvertAppInfo.Uy;
         }
-        if (bwM() == 1001 || bwM() == -1001) {
+        if (bwL() == 1001 || bwL() == -1001) {
             return AdvertAppInfo.Uy;
         }
-        if (bwL() != null) {
+        if (bwK() != null) {
             return AdvertAppInfo.UD;
         }
         return null;

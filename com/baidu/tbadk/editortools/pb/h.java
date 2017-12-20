@@ -244,7 +244,7 @@ public class h extends com.baidu.tbadk.editortools.f {
                 this.aDE.getWriteData().setVoice(null);
                 this.aDE.getWriteData().setVoiceDuringTime(-1);
             }
-            if (!this.aDE.byd()) {
+            if (!this.aDE.byc()) {
                 xR().showToast(d.j.write_img_limit);
             } else if (this.aDM == null || !this.aDM.DA()) {
                 if (this.aDL != null) {

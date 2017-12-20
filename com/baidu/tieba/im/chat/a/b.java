@@ -76,7 +76,7 @@ public abstract class b extends BaseAdapter {
         }
         if (aVar == null) {
             view = LayoutInflater.from(this.mContext).inflate(d.h.chat_list_item, viewGroup, false);
-            aVar = aK(view);
+            aVar = aL(view);
             view.setTag(aVar);
         }
         aj.j(view, d.f.list_selector);
@@ -203,7 +203,7 @@ public abstract class b extends BaseAdapter {
         aj.c(aVar.dFd, d.C0096d.common_color_10225, 1);
     }
 
-    public boolean axz() {
+    public boolean axy() {
         return this.dEX;
     }
 
@@ -212,7 +212,7 @@ public abstract class b extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a aK(View view) {
+    public a aL(View view) {
         a aVar = new a();
         aVar.dEY = (ViewGroup) view.findViewById(d.g.chat_item);
         aVar.dEZ = (HeadImageView) view.findViewById(d.g.chat_head);

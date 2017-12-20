@@ -248,8 +248,8 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ag)) {
                     ag agVar = (ag) customResponsedMessage.getData();
                     ArrayList arrayList = new ArrayList();
-                    if (agVar.amC() != null) {
-                        for (com.baidu.tbadk.mainTab.b bVar : agVar.amC()) {
+                    if (agVar.amB() != null) {
+                        for (com.baidu.tbadk.mainTab.b bVar : agVar.amB()) {
                             if (bVar.Fa().aHG != null) {
                                 arrayList.add(bVar.Fa().aHG);
                             }

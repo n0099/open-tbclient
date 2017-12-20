@@ -18,14 +18,14 @@ public class a {
         }
     }
 
-    public int btT() {
+    public int btS() {
         if (this.gvs == null) {
             return 0;
         }
         return this.gvs.getWidth();
     }
 
-    public int btU() {
+    public int btT() {
         if (this.gvs == null) {
             return 0;
         }
@@ -36,7 +36,7 @@ public class a {
         return this.mMatrix;
     }
 
-    public Bitmap btV() {
+    public Bitmap btU() {
         return this.gvs;
     }
 }

@@ -8,7 +8,7 @@ public class f {
         this.status = i;
     }
 
-    public String bwy() {
+    public String bwx() {
         return this.gBu;
     }
 

@@ -91,7 +91,7 @@ public class a {
         this.dnC.aSy = bdUniqueId;
     }
 
-    public void atx() {
+    public void atw() {
         if (!this.dnD) {
             this.dnD = true;
             this.dnt.j(this.mId);

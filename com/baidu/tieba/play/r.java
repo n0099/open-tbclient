@@ -6,19 +6,19 @@ public class r {
     private boolean fQY = false;
     private boolean fQZ = true;
 
-    public int bjC() {
+    public int bjB() {
         return this.eKV;
     }
 
-    public int bjD() {
+    public int bjC() {
         return this.fQX;
     }
 
-    public boolean bjE() {
+    public boolean bjD() {
         return this.fQY;
     }
 
-    public boolean bjF() {
+    public boolean bjE() {
         return this.fQZ;
     }
 

@@ -60,11 +60,11 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
         this.aDh = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
             @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.a
             public void N(View view) {
-                if (!MultiImgToolView.this.aCW.bxw()) {
-                    MultiImgToolView.this.bH(view);
-                    int bI = MultiImgToolView.this.aCW.bI(view);
-                    if (bI >= 0 && bI < MultiImgToolView.this.aCZ.getChosedFiles().size()) {
-                        ImageFileInfo remove = MultiImgToolView.this.aCZ.getChosedFiles().remove(bI);
+                if (!MultiImgToolView.this.aCW.bxv()) {
+                    MultiImgToolView.this.bI(view);
+                    int bJ = MultiImgToolView.this.aCW.bJ(view);
+                    if (bJ >= 0 && bJ < MultiImgToolView.this.aCZ.getChosedFiles().size()) {
+                        ImageFileInfo remove = MultiImgToolView.this.aCZ.getChosedFiles().remove(bJ);
                         if (remove.isTempFile()) {
                             com.baidu.adp.lib.Disk.d.dH().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                         }
@@ -104,11 +104,11 @@ public class MultiImgToolView extends com.baidu.tieba.tbadkCore.imgView.a implem
         this.aDh = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
             @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.a
             public void N(View view) {
-                if (!MultiImgToolView.this.aCW.bxw()) {
-                    MultiImgToolView.this.bH(view);
-                    int bI = MultiImgToolView.this.aCW.bI(view);
-                    if (bI >= 0 && bI < MultiImgToolView.this.aCZ.getChosedFiles().size()) {
-                        ImageFileInfo remove = MultiImgToolView.this.aCZ.getChosedFiles().remove(bI);
+                if (!MultiImgToolView.this.aCW.bxv()) {
+                    MultiImgToolView.this.bI(view);
+                    int bJ = MultiImgToolView.this.aCW.bJ(view);
+                    if (bJ >= 0 && bJ < MultiImgToolView.this.aCZ.getChosedFiles().size()) {
+                        ImageFileInfo remove = MultiImgToolView.this.aCZ.getChosedFiles().remove(bJ);
                         if (remove.isTempFile()) {
                             com.baidu.adp.lib.Disk.d.dH().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                         }

@@ -130,7 +130,7 @@ public class a extends BaseFragment implements BdListView.f, a.b, e.b {
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.e.b
-    public void bBl() {
+    public void bBk() {
         if (this.blv != null) {
             if (this.blv.getView().getParent() == null) {
                 this.bva.setNextPage(this.blv);
@@ -178,16 +178,16 @@ public class a extends BaseFragment implements BdListView.f, a.b, e.b {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.gQg.bkP();
+        this.gQg.bkO();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
         if (this.gQg != null) {
-            this.gQg.and();
+            this.gQg.anc();
         }
-        com.baidu.tieba.video.cloudmusic.data.a.bBs().onDestroy();
+        com.baidu.tieba.video.cloudmusic.data.a.bBr().onDestroy();
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.a.a.b

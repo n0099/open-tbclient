@@ -71,7 +71,7 @@ public class b {
         MessageManager.getInstance().registerListener(this.TF);
     }
 
-    public static b aqw() {
+    public static b aqv() {
         if (cYU == null) {
             synchronized (s.class) {
                 if (cYU == null) {
@@ -82,7 +82,7 @@ public class b {
         return cYU;
     }
 
-    private boolean aqx() {
+    private boolean aqw() {
         if (this.cYS == null) {
             this.cYS = new a();
         }
@@ -126,7 +126,7 @@ public class b {
             akVar.ac("obj_param1", bdVar.aai);
             akVar.r("obj_locate", 1);
             akVar.ac("tid", bdVar.getTid());
-            s.abX().a(akVar);
+            s.abW().a(akVar);
         }
     }
 
@@ -135,7 +135,7 @@ public class b {
             if (this.cYT == null) {
                 this.cYT = new HashSet<>();
             }
-            if (!this.cYT.contains(bdVar.getTid()) && !aqx()) {
+            if (!this.cYT.contains(bdVar.getTid()) && !aqw()) {
                 this.cYT.add(bdVar.getTid());
                 ak akVar = new ak("c11439");
                 akVar.ac(ImageViewerConfig.FORUM_ID, aVar.cYQ);
@@ -148,13 +148,13 @@ public class b {
                 akVar.r("obj_id", E(bdVar));
                 akVar.ac("uid", TbadkCoreApplication.getCurrentAccount());
                 akVar.f("exposure_time", System.currentTimeMillis());
-                boolean z = (bdVar.sM() == null || (bdVar.sM().bwY() == null && bdVar.sM().Jz() == null)) ? false : true;
-                if (z && bdVar.sM().bwY() != null && bdVar.sM().bwY().Jr() != null && bdVar.sM().bwY().Jr().size() > 0) {
+                boolean z = (bdVar.sM() == null || (bdVar.sM().bwX() == null && bdVar.sM().Jz() == null)) ? false : true;
+                if (z && bdVar.sM().bwX() != null && bdVar.sM().bwX().Jr() != null && bdVar.sM().bwX().Jr().size() > 0) {
                     akVar.r("obj_name", bdVar.sM().gCv ? 3 : 2);
                 } else {
                     akVar.r("obj_name", z ? 1 : 0);
                 }
-                s.abX().a(akVar);
+                s.abW().a(akVar);
                 if (bdVar.si()) {
                     ak akVar2 = new ak("c12099");
                     akVar2.ac(ImageViewerConfig.FORUM_ID, aVar.cYQ);
@@ -166,7 +166,7 @@ public class b {
                     akVar2.ac("obj_param3", bdVar.aai);
                     akVar2.r("obj_id", E(bdVar));
                     akVar2.ac("uid", TbadkCoreApplication.getCurrentAccount());
-                    s.abX().a(akVar2);
+                    s.abW().a(akVar2);
                 }
             }
         }
@@ -174,7 +174,7 @@ public class b {
 
     public void a(com.baidu.tieba.frs.e.a aVar, bd bdVar, int i) {
         if (aVar != null && aVar.cYO && bdVar != null && bdVar.getTid() != null) {
-            s.abX().dU(true);
+            s.abW().dU(true);
             ak akVar = new ak("c11438");
             akVar.ac(ImageViewerConfig.FORUM_ID, aVar.cYQ);
             akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bdVar.aad);
@@ -205,8 +205,8 @@ public class b {
     }
 
     public static void a(k kVar, int i, int i2) {
-        if (kVar != null && kVar.aRo() != null && kVar.gzl == 1) {
-            TiebaStatic.log(new ak("c11440").ac(ImageViewerConfig.FORUM_ID, kVar.aRo().getId()).r("obj_locate", i).r("obj_type", i2));
+        if (kVar != null && kVar.aRn() != null && kVar.gzl == 1) {
+            TiebaStatic.log(new ak("c11440").ac(ImageViewerConfig.FORUM_ID, kVar.aRn().getId()).r("obj_locate", i).r("obj_type", i2));
         }
     }
 

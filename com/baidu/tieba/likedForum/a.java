@@ -66,7 +66,7 @@ public class a {
         return false;
     }
 
-    public void and() {
+    public void anc() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, this.mBdUniqueId);
         MessageManager.getInstance().removeMessage(309440, this.mBdUniqueId);
     }

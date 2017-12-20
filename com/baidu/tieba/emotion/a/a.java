@@ -59,20 +59,20 @@ public class a implements e<com.baidu.adp.widget.a.a> {
         if (valueOf == null || valueOf2 == null || valueOf3 == null) {
             return null;
         }
-        ArrayList<com.baidu.tbadk.editortools.emotiontool.c> agJ = g.agH().agJ();
-        if (g.agH().km(valueOf2) && valueOf3.booleanValue() && !new File(g.agH().F(valueOf2, true)).exists()) {
+        ArrayList<com.baidu.tbadk.editortools.emotiontool.c> agI = g.agG().agI();
+        if (g.agG().km(valueOf2) && valueOf3.booleanValue() && !new File(g.agG().F(valueOf2, true)).exists()) {
             valueOf3 = false;
         }
         boolean booleanValue = valueOf3.booleanValue();
-        if (g.agH().ko(valueOf2) && valueOf3.booleanValue()) {
-            String F = g.agH().F(valueOf2, true);
-            valueOf = g.agH().kn(valueOf2);
+        if (g.agG().ko(valueOf2) && valueOf3.booleanValue()) {
+            String F = g.agG().F(valueOf2, true);
+            valueOf = g.agG().kn(valueOf2);
             if (!new File(k.xQ + "/" + TbConfig.getTempDirName() + "/.emotions/" + valueOf + "/" + F).exists()) {
                 valueOf3 = false;
                 str3 = valueOf;
                 if (!valueOf3.booleanValue()) {
-                    String F2 = g.agH().F(valueOf2, true);
-                    Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = agJ.iterator();
+                    String F2 = g.agG().F(valueOf2, true);
+                    Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = agI.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             aVar2 = null;
@@ -91,11 +91,11 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                         aVar2 = a(str3, F2, aVar);
                     }
                 } else {
-                    String F3 = g.agH().F(valueOf2, false);
-                    if (booleanValue && g.agH().ko(valueOf2)) {
+                    String F3 = g.agG().F(valueOf2, false);
+                    if (booleanValue && g.agG().ko(valueOf2)) {
                         F3.replaceFirst("s_", "d_");
                     }
-                    Iterator<com.baidu.tbadk.editortools.emotiontool.c> it2 = agJ.iterator();
+                    Iterator<com.baidu.tbadk.editortools.emotiontool.c> it2 = agI.iterator();
                     com.baidu.adp.widget.a.a aVar4 = null;
                     while (true) {
                         if (!it2.hasNext()) {
@@ -147,7 +147,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
             return null;
         }
         synchronized (BitmapHelper.lockForSyncImageDecoder) {
-            String F = g.agH().F(valueOf2, valueOf3.booleanValue());
+            String F = g.agG().F(valueOf2, valueOf3.booleanValue());
             String str3 = ".emotions/" + valueOf;
             if (valueOf3.booleanValue()) {
                 com.baidu.adp.lib.Disk.ops.a aVar3 = new com.baidu.adp.lib.Disk.ops.a(str3, F, DiskFileOperate.Action.WRITE);
@@ -160,7 +160,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                     dVar.f(aVar3);
                     aVar.vC = dVar;
                 }
-                Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = g.agH().agJ().iterator();
+                Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = g.agG().agI().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         aVar2 = null;

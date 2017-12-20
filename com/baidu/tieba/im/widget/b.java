@@ -49,10 +49,10 @@ public class b extends LinearLayout {
         this.ddQ.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
         this.dVV = (TextView) findViewById(d.g.game_to_group_share);
         aj.c(this.dVV, d.C0096d.cp_cont_c, 1);
-        arn();
+        arm();
     }
 
-    public void arn() {
+    public void arm() {
         this.aMt.setFocusable(true);
         this.aMt.setFocusableInTouchMode(true);
         this.aMt.requestFocus();

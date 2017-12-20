@@ -32,7 +32,7 @@ public class a implements f {
     private boolean cau = false;
     private j.a caF = new j.a() { // from class: com.baidu.tieba.card.ala.a.1
         @Override // com.baidu.tieba.play.j.a
-        public void abJ() {
+        public void abI() {
             a.this.abB();
         }
     };
@@ -58,8 +58,8 @@ public class a implements f {
             if (this.bvG != null && this.bkq.rO() != null) {
                 this.cdt = this.bkq.rO();
                 this.bvG.setVideoThumbnail(this.cdt.cover);
-                if (this.bln != null && this.bln.bjy() != null) {
-                    this.bln.bjy().b(this.cdt);
+                if (this.bln != null && this.bln.bjx() != null) {
+                    this.bln.bjx().b(this.cdt);
                 }
                 if (z) {
                     this.bvG.setTitle(this.bkq.getTitle());

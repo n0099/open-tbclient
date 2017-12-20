@@ -11,7 +11,7 @@ public class q extends com.baidu.tieba.card.data.b {
         return cJH;
     }
 
-    public long amu() {
+    public long amt() {
         return this.cJI;
     }
 

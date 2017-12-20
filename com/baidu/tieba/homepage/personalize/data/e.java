@@ -10,7 +10,7 @@ public class e {
     public String dsv;
     public int dsw;
 
-    public boolean auv() {
+    public boolean auu() {
         return this.dss > 0;
     }
 

@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes.dex */
 public interface c {
-    boolean anO();
+    boolean anN();
+
+    void anO();
 
     void anP();
-
-    void anQ();
 
     void fl(boolean z);
 

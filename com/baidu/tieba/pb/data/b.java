@@ -19,7 +19,7 @@ public class b {
         }
     }
 
-    public int aRh() {
+    public int aRg() {
         return this.ePe;
     }
 
@@ -27,11 +27,11 @@ public class b {
         return this.mLink;
     }
 
-    public String aRi() {
+    public String aRh() {
         return this.ePf;
     }
 
-    public String aRj() {
+    public String aRi() {
         return this.ePg;
     }
 

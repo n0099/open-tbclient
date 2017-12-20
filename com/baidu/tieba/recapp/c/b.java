@@ -48,7 +48,7 @@ public class b {
     private b() {
     }
 
-    public static b blY() {
+    public static b blX() {
         return fXB;
     }
 

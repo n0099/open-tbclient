@@ -15,7 +15,7 @@ public class b extends a {
     private b() {
     }
 
-    public static b aDg() {
+    public static b aDf() {
         return dUL;
     }
 
@@ -43,7 +43,7 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void azq() {
+    public void azp() {
         super.m(GroupSettingItemData.class);
     }
 
@@ -82,7 +82,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> aDf() {
+    protected l<String> aDe() {
         return com.baidu.tbadk.core.c.a.td().cP("tb.im_group_setting");
     }
 
@@ -98,13 +98,13 @@ public class b extends a {
                 }
                 return;
             }
-            l<String> aDf = aDf();
+            l<String> aDe = aDe();
             String str = uid + "@" + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
             synchronized (this.dUI) {
                 this.dUI.put(str, groupSettingItemData);
             }
-            aDf.e(str, jsonStrWithObject);
+            aDe.e(str, jsonStrWithObject);
         }
     }
 
@@ -129,7 +129,7 @@ public class b extends a {
                 @Override // com.baidu.tbadk.util.u
                 /* renamed from: MI */
                 public Void doInBackground() {
-                    b.this.aDf().e(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.aDe().e(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, hVar);
@@ -147,7 +147,7 @@ public class b extends a {
                 @Override // com.baidu.tbadk.util.u
                 /* renamed from: MI */
                 public Void doInBackground() {
-                    b.this.aDf().remove(str3);
+                    b.this.aDe().remove(str3);
                     return null;
                 }
             }, hVar);

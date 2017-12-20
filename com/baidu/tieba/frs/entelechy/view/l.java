@@ -158,7 +158,7 @@ public class l extends com.baidu.tieba.card.a<bd> implements u {
         this.bvL = (LinearLayout) view.findViewById(d.g.card_home_page_normal_thread_content_layout);
     }
 
-    public ThreadCommentAndPraiseInfoLayout abY() {
+    public ThreadCommentAndPraiseInfoLayout abX() {
         return this.bvI;
     }
 
@@ -250,7 +250,7 @@ public class l extends com.baidu.tieba.card.a<bd> implements u {
             VoiceData.VoiceModel voiceModel = rK.get(0);
             this.caM.setVoiceModel(voiceModel);
             this.caM.setTag(voiceModel);
-            this.caM.bmf();
+            this.caM.bme();
             if (voiceModel != null) {
                 this.caM.nT(voiceModel.voice_status.intValue());
             }
@@ -295,13 +295,13 @@ public class l extends com.baidu.tieba.card.a<bd> implements u {
         } else {
             this.caP.setVisibility(8);
         }
+        abK();
         abL();
-        abM();
         D(bdVar);
-        aoe();
+        aod();
     }
 
-    private void abL() {
+    private void abK() {
         if (this.caN != null && this.caP != null && this.bZf != null) {
             if (this.caP.getVisibility() == 8 && this.bZf.getVisibility() == 8) {
                 this.caN.setVisibility(0);
@@ -387,7 +387,7 @@ public class l extends com.baidu.tieba.card.a<bd> implements u {
         return picUrl;
     }
 
-    private void abM() {
+    private void abL() {
         this.caM.setClickable(true);
         int childCount = this.caP.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -489,7 +489,7 @@ public class l extends com.baidu.tieba.card.a<bd> implements u {
         return true;
     }
 
-    private void aoe() {
+    private void aod() {
         if (this.mTitle != null && this.caM != null && this.caP != null && this.mContext != null && this.mTitle.getVisibility() == 8) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.caM.getLayoutParams();
             layoutParams.topMargin = this.mContext.getResources().getDimensionPixelSize(d.e.tbds20);

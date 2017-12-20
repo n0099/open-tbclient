@@ -24,15 +24,15 @@ public class d extends r {
         }
     }
 
-    public void aWp() {
+    public void aWo() {
         if (this.aBT instanceof a) {
-            ((a) this.aBT).aWp();
+            ((a) this.aBT).aWo();
         }
     }
 
-    public void bGI() {
+    public void bGH() {
         if (this.aBT instanceof a) {
-            ((a) this.aBT).bGI();
+            ((a) this.aBT).bGH();
         }
     }
 }

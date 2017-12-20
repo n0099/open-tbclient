@@ -27,7 +27,7 @@ public class e {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 111) {
-                e.this.aqO();
+                e.this.aqN();
                 return true;
             }
             return false;
@@ -58,7 +58,7 @@ public class e {
         this.cUU = new Runnable() { // from class: com.baidu.tieba.frs.g.e.3
             @Override // java.lang.Runnable
             public void run() {
-                e.this.aqP();
+                e.this.aqO();
             }
         };
         initView();
@@ -69,9 +69,9 @@ public class e {
         this.daH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.g.e.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.aqP();
-                if (e.this.cXx != null && !e.this.cXx.alG() && e.this.cXx.alo() != null) {
-                    e.this.cXx.alo().startPullRefresh();
+                e.this.aqO();
+                if (e.this.cXx != null && !e.this.cXx.alF() && e.this.cXx.aln() != null) {
+                    e.this.cXx.aln().startPullRefresh();
                 }
             }
         });
@@ -85,7 +85,7 @@ public class e {
         aj.i(this.daH, d.C0096d.cp_link_tip_a);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
-        layoutParams.topMargin = this.cXx.alE().getBottom() + l.f(TbadkCoreApplication.getInst(), d.e.ds8);
+        layoutParams.topMargin = this.cXx.alD().getBottom() + l.f(TbadkCoreApplication.getInst(), d.e.ds8);
         this.daH.setLayoutParams(layoutParams);
     }
 
@@ -107,7 +107,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqO() {
+    public void aqN() {
         if (this.daH.getParent() == null) {
             this.dam.addView(this.daH);
             this.daH.clearAnimation();
@@ -118,7 +118,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqP() {
+    public void aqO() {
         if (this.daH.getParent() != null) {
             this.cIp = -1;
             this.daL = -1;

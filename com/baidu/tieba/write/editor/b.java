@@ -19,9 +19,9 @@ public class b extends LinearLayout implements View.OnClickListener {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bGK();
+        void bGJ();
 
-        void bGL();
+        void bGK();
     }
 
     public b(Context context) {
@@ -87,9 +87,9 @@ public class b extends LinearLayout implements View.OnClickListener {
     public void onClick(View view) {
         if (this.hgY != null) {
             if (view == this.hgX) {
-                this.hgY.bGL();
-            } else if (view == this) {
                 this.hgY.bGK();
+            } else if (view == this) {
+                this.hgY.bGJ();
             }
         }
     }

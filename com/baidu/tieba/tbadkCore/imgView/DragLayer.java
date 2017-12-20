@@ -55,7 +55,7 @@ public class DragLayer extends FrameLayout {
         return this.gDP;
     }
 
-    public void bxx() {
+    public void bxw() {
         if (this.gDP != null) {
             if (this.gDP.aOs != null) {
                 this.gDP.aOs.recycle();
@@ -81,6 +81,6 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bxx();
+        bxw();
     }
 }

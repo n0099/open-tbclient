@@ -36,7 +36,7 @@ public class b extends BaseFragment implements VoiceManager.c, aj {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (b.this.isPrimary()) {
-                b.this.auf();
+                b.this.aue();
             }
         }
     };
@@ -67,7 +67,7 @@ public class b extends BaseFragment implements VoiceManager.c, aj {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                b.this.dqJ.aug();
+                b.this.dqJ.auf();
             }
         }
     };
@@ -78,7 +78,7 @@ public class b extends BaseFragment implements VoiceManager.c, aj {
     @SuppressLint({"ValidFragment"})
     public b(Context context) {
         this.dqJ = new d(context);
-        this.dqJ.aoZ();
+        this.dqJ.aoY();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -91,7 +91,7 @@ public class b extends BaseFragment implements VoiceManager.c, aj {
         }
         this.dqJ.setPageUniqueId(getUniqueId());
         if (this.dnG) {
-            this.dqJ.aoZ();
+            this.dqJ.aoY();
             this.dnG = false;
         }
         return this.dqJ;
@@ -157,7 +157,7 @@ public class b extends BaseFragment implements VoiceManager.c, aj {
     public void onPause() {
         super.onPause();
         if (this.dqJ != null) {
-            this.dqJ.atE();
+            this.dqJ.atD();
             this.dqJ.onPause();
             this.dqJ.setTabInForeBackgroundState(true);
         }
@@ -193,19 +193,19 @@ public class b extends BaseFragment implements VoiceManager.c, aj {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.dqJ.atC();
-            auf();
+            this.dqJ.atB();
+            aue();
             return;
         }
-        this.dqJ.atE();
+        this.dqJ.atD();
     }
 
     public void Qo() {
         this.dqJ.setViewForeground(true);
     }
 
-    public void aue() {
-        this.dqJ.aue();
+    public void aud() {
+        this.dqJ.aud();
     }
 
     public void completePullRefresh() {
@@ -225,8 +225,8 @@ public class b extends BaseFragment implements VoiceManager.c, aj {
         this.dqJ.W(str, i);
     }
 
-    public void aty() {
-        this.dqJ.aty();
+    public void atx() {
+        this.dqJ.atx();
     }
 
     public void d(DataRes dataRes, boolean z, boolean z2) {
@@ -290,7 +290,7 @@ public class b extends BaseFragment implements VoiceManager.c, aj {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auf() {
+    public void aue() {
         if (TbadkCoreApplication.getInst().isFirstTimeMotivate() && !com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_recommend_label", false)) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LabelRecommendActivityConfig(getPageContext().getPageActivity(), 1)));
         }

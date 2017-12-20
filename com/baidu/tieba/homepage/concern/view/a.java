@@ -57,7 +57,7 @@ public class a extends com.baidu.tieba.card.a<k> {
                 if (a.this.abt() != null) {
                     a.this.abt().a(view, a.this.bZY);
                 }
-                a.this.abU();
+                a.this.abT();
             }
         };
         this.aod = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.a.3
@@ -174,7 +174,7 @@ public class a extends com.baidu.tieba.card.a<k> {
         this.doN.setUserAfterClickListener(this.aod);
         this.bvI.setData(kVar.threadData);
         this.mStType = com.baidu.tieba.card.k.rl();
-        this.anP = "feed#" + kVar.acf();
+        this.anP = "feed#" + kVar.ace();
         bd Ox = kVar.Ox();
         if (this.doN.getHeaderImg() != null) {
             if (this.doN.getIsSimpleThread()) {
@@ -217,7 +217,7 @@ public class a extends com.baidu.tieba.card.a<k> {
         return null;
     }
 
-    public void abU() {
+    public void abT() {
         if (this.mPageContext != null && this.bZY != null && this.bZY.threadData != null && this.bZY.threadData.rv() != null && this.bZY.threadData.rO() != null) {
             boolean z = false;
             String str = "";

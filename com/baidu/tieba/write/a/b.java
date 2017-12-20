@@ -49,11 +49,11 @@ public class b {
         }
     }
 
-    public ArrayList<MetaData> bGF() {
+    public ArrayList<MetaData> bGE() {
         return this.hgP;
     }
 
-    public HashMap<String, String> bGG() {
+    public HashMap<String, String> bGF() {
         return this.hgQ;
     }
 }

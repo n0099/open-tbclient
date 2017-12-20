@@ -55,7 +55,7 @@ public class a {
                 bVar.dismiss();
                 return;
             }
-            z zVar = (z) v.c(a.this.cOJ.aoc(), i);
+            z zVar = (z) v.c(a.this.cOJ.aob(), i);
             if (zVar != null) {
                 if (a.this.cOK != zVar.cKd) {
                     a.this.cOL = true;
@@ -66,21 +66,21 @@ public class a {
                         akVar.ac(ImageViewerConfig.FORUM_ID, a.this.aAs);
                         TiebaStatic.log(akVar);
                     }
-                    if (a.this.cIy.alj() != null) {
-                        a.this.cIy.alj().kJ(a.this.cOK);
+                    if (a.this.cIy.ali() != null) {
+                        a.this.cIy.ali().kJ(a.this.cOK);
                         a.this.cOK = zVar.cKd;
                         bVar.dismiss();
                         if (a.this.cOK != 7) {
                             t.Hu();
-                            f.bxU();
-                        } else {
                             f.bxT();
+                        } else {
+                            f.bxS();
                         }
-                        if (a.this.cIy.alj() != null && a.this.cIy.alo() != null) {
-                            a.this.cIy.alj().kI(zVar.cKd);
-                            a.this.cIy.alo().startPullRefresh();
-                            a.this.cIy.alj().fy(true);
-                            com.baidu.tieba.frs.smartsort.d.aqr().h(a.this.cIy.alj().getForumName(), zVar.cKd, zVar.name);
+                        if (a.this.cIy.ali() != null && a.this.cIy.aln() != null) {
+                            a.this.cIy.ali().kI(zVar.cKd);
+                            a.this.cIy.aln().startPullRefresh();
+                            a.this.cIy.ali().fy(true);
+                            com.baidu.tieba.frs.smartsort.d.aqq().h(a.this.cIy.ali().getForumName(), zVar.cKd, zVar.name);
                             return;
                         }
                         return;
@@ -99,7 +99,7 @@ public class a {
         this.aAs = str;
     }
 
-    public TextView anZ() {
+    public TextView anY() {
         return this.cOH;
     }
 
@@ -140,9 +140,9 @@ public class a {
 
     public void setData(List<FrsTabInfo> list, int i) {
         if (v.w(list)) {
-            aob();
-        } else if (this.cIy != null && this.cIy.alj() != null && this.cIy.alj().apW()) {
             aoa();
+        } else if (this.cIy != null && this.cIy.ali() != null && this.cIy.ali().apV()) {
+            anZ();
             ArrayList arrayList = new ArrayList(list);
             Iterator<FrsTabInfo> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -171,7 +171,7 @@ public class a {
                 kl(i);
             }
         } else {
-            aob();
+            aoa();
         }
     }
 
@@ -184,8 +184,8 @@ public class a {
             if (zVar3 != null) {
                 kk(zVar3.cKd);
                 li(zVar3.name);
-                if (this.cIy != null && this.cIy.alj() != null) {
-                    this.cIy.alj().kI(zVar3.cKd);
+                if (this.cIy != null && this.cIy.ali() != null) {
+                    this.cIy.ali().kI(zVar3.cKd);
                     return;
                 }
                 return;
@@ -219,15 +219,15 @@ public class a {
             if (zVar4 != null) {
                 kk(zVar4.cKd);
                 li(zVar4.name);
-                if (this.cIy != null && this.cIy.alj() != null) {
-                    this.cIy.alj().kI(zVar4.cKd);
+                if (this.cIy != null && this.cIy.ali() != null) {
+                    this.cIy.ali().kI(zVar4.cKd);
                 }
             }
         } else if (zVar != null) {
             kk(zVar.cKd);
             li(zVar.name);
-            if (this.cIy != null && this.cIy.alj() != null) {
-                this.cIy.alj().kI(zVar.cKd);
+            if (this.cIy != null && this.cIy.ali() != null) {
+                this.cIy.ali().kI(zVar.cKd);
             }
         }
     }
@@ -243,13 +243,13 @@ public class a {
         return true;
     }
 
-    public void aoa() {
+    public void anZ() {
         if (this.cOH != null) {
             this.cOH.setVisibility(0);
         }
     }
 
-    public void aob() {
+    public void aoa() {
         if (this.cOH != null) {
             this.cOH.setVisibility(8);
         }

@@ -55,7 +55,7 @@ public class b extends BaseAdapter {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.list_item_pb_emotion_bar, (ViewGroup) null);
             aVar.eKh = (EmotionView) view.findViewById(d.g.iv_emotion);
-            aVar.eKh.ahO();
+            aVar.eKh.ahN();
             aVar.eKh.setController(this.feJ);
             aVar.eKh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.b.1
                 @Override // android.view.View.OnClickListener
@@ -137,7 +137,7 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void aPP() {
+    public void aPO() {
         new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.b.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

@@ -9,7 +9,7 @@ public class aa {
     private aa() {
     }
 
-    public static aa amx() {
+    public static aa amw() {
         return cKf;
     }
 

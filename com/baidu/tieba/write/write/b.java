@@ -46,15 +46,15 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
     public interface a {
         void J(int i, boolean z);
 
-        void bHZ();
+        void bHY();
+
+        void bIa();
 
         void bIb();
 
         void bIc();
 
-        void bId();
-
-        boolean bIe();
+        boolean bId();
     }
 
     public b(WriteMultiImgsActivity writeMultiImgsActivity, ViewPager viewPager, LinkedList<ImageFileInfo> linkedList, int i, a aVar, g gVar, boolean z) {
@@ -97,7 +97,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
         return (this.hku == null || this.aES >= this.hku.length || this.hku[this.aES] == null || this.hks == null || this.aES >= this.hks.length || this.hks[this.aES] == null) ? false : true;
     }
 
-    public boolean bHW() {
+    public boolean bHV() {
         if (this.aES >= this.hks.length || this.hks[this.aES] == null || !this.hks[this.aES].isGif() || this.hks[this.aES].mCount > 0) {
             return false;
         }
@@ -107,7 +107,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void I(int i, boolean z) {
-        if (bHW()) {
+        if (bHV()) {
             if (this.hkt != null) {
                 this.hkt.J(i, z);
             }
@@ -116,9 +116,9 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
         } else if (checkValid()) {
             C0165b c0165b = this.hku[this.aES];
             ImageFileInfo imageFileInfo = this.hks[this.aES];
-            if (c0165b.bIf()) {
+            if (c0165b.bIe()) {
                 imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.e.fh(i));
-                this.hkr.bIU();
+                this.hkr.bIT();
                 if (i == 0 || i == 1) {
                     imageFileInfo.setRotateType(imageFileInfo.getRotateType() + 1);
                 }
@@ -150,12 +150,12 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
                     }
                     b.this.hky.hmF.a(new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.b.1.1
                         @Override // com.baidu.tieba.write.write.sticker.a.c
-                        public void bHY() {
+                        public void bHX() {
                         }
 
                         @Override // com.baidu.tieba.write.write.sticker.a.c
-                        public void bHZ() {
-                            b.this.hkt.bHZ();
+                        public void bHY() {
+                            b.this.hkt.bHY();
                         }
 
                         @Override // com.baidu.tieba.write.write.sticker.a.c
@@ -164,7 +164,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
                         }
 
                         @Override // com.baidu.tieba.write.write.sticker.a.c
-                        public void bIa() {
+                        public void bHZ() {
                         }
                     });
                     b.this.I(i, false);
@@ -187,13 +187,13 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
     public void fk(String str) {
         if (checkValid()) {
             if (str != null && !str.equals("normal")) {
-                this.hkr.bIU();
+                this.hkr.bIT();
                 ImageFileInfo cloneWithoutFilterAction = this.hks[this.aES].cloneWithoutFilterAction(false);
                 cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gx(str));
                 this.hku[this.aES].i(cloneWithoutFilterAction);
                 return;
             }
-            this.hkr.bIV();
+            this.hkr.bIU();
             this.hku[this.aES].i(this.hks[this.aES]);
         }
     }
@@ -215,10 +215,10 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         this.aES = i;
-        bHX();
+        bHW();
     }
 
-    private void bHX() {
+    private void bHW() {
         if (this.aES >= 0 && this.aES < this.hku.length && this.aES < this.hks.length && this.hks[this.aES] != null) {
             if (this.hku != null) {
                 for (int i = 0; i < this.hku.length; i++) {
@@ -312,11 +312,11 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
                 if (!z && this.mIsFromIm) {
                     z(this.mBitmap);
                 }
-            } else if (this.hkt != null && this.hkt.bIe() && this.hky != null && this.hky.hmF != null) {
-                this.hky.hmF.aPX();
+            } else if (this.hkt != null && this.hkt.bId() && this.hky != null && this.hky.hmF != null) {
+                this.hky.hmF.aPW();
                 TbImageView tbImageView = this.hku[this.aES].aWC;
                 try {
-                    bitmap2 = this.hky.hmF.btZ();
+                    bitmap2 = this.hky.hmF.btY();
                 } catch (OutOfMemoryError e) {
                     bitmap = null;
                 }
@@ -393,7 +393,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (b.this.hkt != null) {
-                        b.this.hkt.bIb();
+                        b.this.hkt.bIa();
                     }
                 }
             });
@@ -443,7 +443,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
                         C0165b.this.og(true);
                         C0165b.this.c(imageFileInfo, aVar);
                         if (b.this.hky != null) {
-                            b.this.hky.bHr();
+                            b.this.hky.bHq();
                         }
                     }
                 }, false);
@@ -459,7 +459,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
             }
         }
 
-        public boolean bIf() {
+        public boolean bIe() {
             return this.fFK.getVisibility() != 0;
         }
 
@@ -468,14 +468,14 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
             if (z) {
                 if (this.fFK.getVisibility() != 8) {
                     if (b.this.hkt != null) {
-                        b.this.hkt.bId();
+                        b.this.hkt.bIc();
                     }
                     this.fFK.setVisibility(8);
                     b.this.hkv[this.index].setCanbeClick(true);
                 }
             } else if (this.fFK.getVisibility() != 0) {
                 if (b.this.hkt != null) {
-                    b.this.hkt.bIc();
+                    b.this.hkt.bIb();
                 }
                 this.fFK.setVisibility(0);
                 b.this.hkv[this.index].setCanbeClick(false);

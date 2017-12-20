@@ -124,7 +124,7 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    public boolean ahU() {
+    public boolean ahT() {
         return this.cvN.requestFocus();
     }
 }

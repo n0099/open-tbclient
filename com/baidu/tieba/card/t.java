@@ -247,7 +247,7 @@ public class t extends a<be> {
         }
     }
 
-    public ThreadCommentAndPraiseInfoLayout abY() {
+    public ThreadCommentAndPraiseInfoLayout abX() {
         return this.bvI;
     }
 
@@ -265,7 +265,7 @@ public class t extends a<be> {
         this.aoH = z;
     }
 
-    private void abN() {
+    private void abM() {
         if (this.ccI != null && this.ccI.threadData != null) {
             bd bdVar = this.ccI.threadData;
             k.jO(bdVar.getId());
@@ -313,7 +313,7 @@ public class t extends a<be> {
             abt().a(view, this.ccI);
         }
         if (view == getView()) {
-            abN();
+            abM();
         }
     }
 

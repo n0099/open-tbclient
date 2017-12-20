@@ -25,7 +25,7 @@ public class a {
         return this.mHasMore;
     }
 
-    public ArrayList<e> bni() {
+    public ArrayList<e> bnh() {
         return this.ges;
     }
 }

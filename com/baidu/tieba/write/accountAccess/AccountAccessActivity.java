@@ -41,7 +41,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
             }
             this.heQ = new a(this.heP, this.aDE);
             this.heP.c(this.heQ);
-            this.heQ.start(bFP());
+            this.heQ.start(bFO());
         }
     }
 
@@ -61,14 +61,14 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         if (this.mWriteData != null && this.mWriteData.getIsStory() == 1) {
             bk bkVar = new bk();
             bkVar.aaT = this.mWriteData;
-            bkVar.aaW = this.heQ.bFS();
+            bkVar.aaW = this.heQ.bFR();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_VCODE_CHECK_INFO, bkVar));
         }
         super.onDestroy();
         this.heP.onDestory();
     }
 
-    public String bFP() {
+    public String bFO() {
         if (this.heR == null || this.heR.getUserInfo() == null) {
             return null;
         }

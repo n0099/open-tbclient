@@ -63,7 +63,7 @@ public class LocalVideoInfoView extends RelativeLayout {
             if (dVar != null) {
                 if (dVar.getVideoPath().equals(this.videoPath)) {
                     this.ayd.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    this.ayd.setImageBitmap(dVar.bCS());
+                    this.ayd.setImageBitmap(dVar.bCR());
                     this.axY.setText(dc(dVar.getDuration()));
                     return;
                 }
@@ -99,7 +99,7 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.gUH = false;
         this.gUC.setVisibility(8);
         this.videoPath = dVar.getVideoPath();
-        if (dVar != null && dVar.bCT()) {
+        if (dVar != null && dVar.bCS()) {
             setDataToView(dVar);
         } else {
             setDataToView(null);

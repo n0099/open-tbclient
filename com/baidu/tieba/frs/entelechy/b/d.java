@@ -16,13 +16,13 @@ public interface d {
 
     void a(ak akVar);
 
-    TabData anR();
+    TabData anQ();
+
+    View anR();
 
     View anS();
 
-    View anT();
-
-    void ay(View view);
+    void az(View view);
 
     void b(BdListView bdListView);
 

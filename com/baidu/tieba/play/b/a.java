@@ -85,15 +85,15 @@ public class a {
     }
 
     private boolean a(g gVar, int i, int i2, int i3, Uri uri, int i4) {
-        if (!bjO() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost())) {
+        if (!bjN() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost())) {
             return false;
         }
-        com.baidu.tieba.play.a.b.bjN().a(new C0136a(this.mHandler, this.fRv, i, uri, gVar, i2, i3, i4));
-        return com.baidu.tieba.play.a.b.bjN().ru(uri.getHost());
+        com.baidu.tieba.play.a.b.bjM().a(new C0136a(this.mHandler, this.fRv, i, uri, gVar, i2, i3, i4));
+        return com.baidu.tieba.play.a.b.bjM().ru(uri.getHost());
     }
 
-    private boolean bjO() {
-        return (com.baidu.adp.lib.b.d.eV().af("android_video_http_dns_open") == 0 || !j.hh() || CustomPlayerSwitchStatic.biQ() == 0) ? false : true;
+    private boolean bjN() {
+        return (com.baidu.adp.lib.b.d.eV().af("android_video_http_dns_open") == 0 || !j.hh() || CustomPlayerSwitchStatic.biP() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -139,7 +139,7 @@ public class a {
         }
     }
 
-    public boolean bjP() {
+    public boolean bjO() {
         boolean z = this.fRw > 0 || this.fRx > 0;
         this.fRw = 0;
         this.fRx = 0;

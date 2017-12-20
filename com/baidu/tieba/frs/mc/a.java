@@ -34,17 +34,17 @@ public class a extends h {
 
     public a(com.baidu.tieba.frs.g gVar) {
         super(gVar);
-        this.cHB = this.cOx.alh();
+        this.cHB = this.cOx.alg();
     }
 
-    private void apN() {
+    private void apM() {
         if (this.cHB == null) {
-            this.cHB = this.cOx.alh();
+            this.cHB = this.cOx.alg();
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        apN();
+        apM();
         if (i2 == -1) {
             c(i, intent);
         } else if (i2 == 0) {
@@ -63,7 +63,7 @@ public class a extends h {
     private void c(int i, Intent intent) {
         bd sV;
         PostWriteCallBackData postWriteCallBackData;
-        k alF = this.cOx.alF();
+        k alE = this.cOx.alE();
         switch (i) {
             case 11001:
                 this.cOx.jO(0);
@@ -72,23 +72,23 @@ public class a extends h {
                 this.cHr.fD(true);
                 return;
             case IEventCenterService.EventId.EventMode.SAPIWEBVIEW_REG /* 11011 */:
-                com.baidu.tieba.frs.f.h.a(this.cOx, this.cOx.getThreadId(), this.cOx.bkq, this.cOx.alq());
+                com.baidu.tieba.frs.f.h.a(this.cOx, this.cOx.getThreadId(), this.cOx.bkq, this.cOx.alp());
                 return;
             case IEventCenterService.EventId.EventMode.SAPIWEBVIEW_FAST_REG /* 11012 */:
-                com.baidu.tieba.frs.f.h.b(this.cOx, this.cOx.getThreadId(), this.cOx.bkq, this.cOx.alq());
+                com.baidu.tieba.frs.f.h.b(this.cOx, this.cOx.getThreadId(), this.cOx.bkq, this.cOx.alp());
                 return;
             case 11014:
-                this.cHr.aqZ();
+                this.cHr.aqY();
                 return;
             case 11016:
-                this.cHi.alW();
+                this.cHi.alV();
                 return;
             case 11033:
             case 24007:
             default:
                 return;
             case 11036:
-                this.cHr.aqY();
+                this.cHr.aqX();
                 return;
             case 13003:
                 if (intent != null) {
@@ -105,9 +105,9 @@ public class a extends h {
                 }
                 return;
             case 18003:
-                this.cHi.ame().notifyDataSetChanged();
+                this.cHi.amd().notifyDataSetChanged();
                 if (this.cHr != null) {
-                    this.cHr.anh();
+                    this.cHr.ang();
                 }
                 int intExtra = intent.getIntExtra("type", -1);
                 if (intExtra == 4) {
@@ -115,21 +115,21 @@ public class a extends h {
                     return;
                 }
                 String stringExtra = intent.getStringExtra("tid");
-                if (stringExtra != null && (sV = alF.sV(stringExtra)) != null) {
+                if (stringExtra != null && (sV = alE.sV(stringExtra)) != null) {
                     if (intExtra == 2) {
                         sV.bT(intent.getIntExtra("good_data", 0));
                         sV.sd();
                     }
-                    a(alF, intent, stringExtra);
+                    a(alE, intent, stringExtra);
                     return;
                 }
                 return;
             case 18004:
-                com.baidu.tieba.frs.f.h.a(this.cOx.getPageContext(), alF);
+                com.baidu.tieba.frs.f.h.a(this.cOx.getPageContext(), alE);
                 return;
             case 23003:
-                if (intent != null && alF != null) {
-                    com.baidu.tieba.frs.f.d.a(this.cOx, alF, intent.getIntExtra("group_id", 0), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
+                if (intent != null && alE != null) {
+                    com.baidu.tieba.frs.f.d.a(this.cOx, alE, intent.getIntExtra("group_id", 0), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
                     return;
                 }
                 return;
@@ -162,7 +162,7 @@ public class a extends h {
         ArrayList<com.baidu.adp.widget.ListView.f> dataList;
         if (kVar != null && intent != null && !TextUtils.isEmpty(str) && this.cHq != null) {
             int intExtra = intent.getIntExtra("KEY_SMART_FRS_POSITION", -1);
-            if (this.cHq.aqf()) {
+            if (this.cHq.aqe()) {
                 Serializable serializableExtra = intent.getSerializableExtra("guess_like_data");
                 if ((serializableExtra instanceof CardHListViewData) && (dataList = this.cYz.getDataList()) != null) {
                     CardHListViewData cardHListViewData = (CardHListViewData) serializableExtra;
@@ -187,7 +187,7 @@ public class a extends h {
         }
     }
 
-    private ShareFromPBMsgData apO() {
+    private ShareFromPBMsgData apN() {
         com.baidu.tbadk.coreExtra.c.d shareItem = TbadkCoreApplication.getInst().getShareItem();
         if (shareItem == null) {
             return null;
@@ -203,7 +203,7 @@ public class a extends h {
     }
 
     private void K(Intent intent) {
-        a(apO(), intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L), intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME), intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT));
+        a(apN(), intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L), intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME), intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT));
     }
 
     private void a(final ShareFromPBMsgData shareFromPBMsgData, final long j, final String str, final String str2) {
@@ -247,7 +247,7 @@ public class a extends h {
         if (this.cXB == null) {
             this.cXB = new com.baidu.tieba.d.d(this.cOx.getPageContext(), (NavigationBarCoverTip) this.cOx.getView().findViewById(d.g.navigation_cover_tip));
         }
-        if (this.cOx.alF() != null && this.cOx.alF().aRo() != null && this.cOx.alF().aRo().isLike() == 1) {
+        if (this.cOx.alE() != null && this.cOx.alE().aRn() != null && this.cOx.alE().aRn().isLike() == 1) {
             this.cXB.eh(true);
         } else {
             this.cXB.eh(false);

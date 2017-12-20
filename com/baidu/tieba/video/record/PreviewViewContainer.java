@@ -37,11 +37,11 @@ public class PreviewViewContainer extends FrameLayout {
         }
     }
 
-    public void bDP() {
+    public void bDO() {
         setFaceFailIdentifyLayoutVisiable(true);
     }
 
-    public void bDQ() {
+    public void bDP() {
         setFaceFailIdentifyLayoutVisiable(false);
     }
 

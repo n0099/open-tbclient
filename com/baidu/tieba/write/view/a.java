@@ -56,13 +56,13 @@ public class a extends PopupWindow {
                 if (a.this.hiL != null) {
                     a.this.hiL.a(i, item);
                 }
-                a.this.ajn();
+                a.this.ajm();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.ajn();
+                a.this.ajm();
             }
         };
         this.hiJ = albumActivity;
@@ -135,35 +135,35 @@ public class a extends PopupWindow {
         return -1;
     }
 
-    public void av(View view) {
+    public void aw(View view) {
         this.mListView.setSelection(this.czU);
         if (Build.VERSION.SDK_INT < 24) {
             if (g.showPopupWindowAsDropDown(this, view)) {
-                ajp();
+                ajo();
                 return;
             }
             return;
         }
-        if (g.showPopupWindowAtLocation(this, view, 0, 0, ((this.hiJ.alK() == null || this.hiJ.alK().getVisibility() != 0) ? 0 : this.hiJ.alK().getHeight()) + view.getHeight())) {
-            ajp();
+        if (g.showPopupWindowAtLocation(this, view, 0, 0, ((this.hiJ.alJ() == null || this.hiJ.alJ().getVisibility() != 0) ? 0 : this.hiJ.alJ().getHeight()) + view.getHeight())) {
+            ajo();
         }
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        ajn();
+        ajm();
     }
 
-    public void ajn() {
-        ajq();
+    public void ajm() {
+        ajp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajo() {
+    public void ajn() {
         super.dismiss();
     }
 
-    private void ajp() {
+    private void ajo() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
@@ -174,7 +174,7 @@ public class a extends PopupWindow {
         this.czS.startAnimation(alphaAnimation);
     }
 
-    private void ajq() {
+    private void ajp() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setFillAfter(true);
@@ -193,7 +193,7 @@ public class a extends PopupWindow {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                a.this.ajo();
+                a.this.ajn();
             }
         });
         this.mListView.startAnimation(translateAnimation);

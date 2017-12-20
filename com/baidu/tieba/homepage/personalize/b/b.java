@@ -45,7 +45,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        s.abX().a(new ak("c11272"));
+        s.abW().a(new ak("c11272"));
         aVar.dsL.a(cVar);
         return aVar.getView();
     }

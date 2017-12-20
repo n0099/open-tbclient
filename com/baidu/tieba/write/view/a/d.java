@@ -47,7 +47,7 @@ public class d extends a {
         }
     }
 
-    public void bHr() {
+    public void bHq() {
         this.hiY.notifyDataSetChanged();
     }
 }

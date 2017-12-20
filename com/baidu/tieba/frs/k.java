@@ -33,7 +33,7 @@ public class k extends e<l, m> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, l lVar, m mVar) {
         super.onFillViewHolder(i, view, viewGroup, lVar, mVar);
-        if (lVar.amr() == 6) {
+        if (lVar.amq() == 6) {
             mVar.cJi.setText(d.j.attention_no_post_tip);
         } else {
             mVar.cJi.setText(d.j.no_data_text);

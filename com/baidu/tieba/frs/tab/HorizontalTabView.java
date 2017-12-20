@@ -73,7 +73,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.horizonalScrollLis
         boolean kj(int i);
     }
 
-    public void aqy() {
+    public void aqx() {
         final av avVar;
         if (this.cyd != null) {
             ArrayList arrayList = new ArrayList();
@@ -212,7 +212,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.horizonalScrollLis
                     }
                 }
                 if (this.cZd.getState() == TabItemView.cZv || this.cZd.getState() == TabItemView.cZx) {
-                    this.cZb.aqB();
+                    this.cZb.aqA();
                     boolean z2 = this.cZd.getState() == TabItemView.cZv;
                     this.cZd.setState(TabItemView.cZw);
                     d kO = kO(this.cZd.getTabId());
@@ -288,7 +288,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.horizonalScrollLis
                             if (HorizontalTabView.this.cZm != null) {
                                 HorizontalTabView.this.cZm.a(HorizontalTabView.this.kN(1));
                             }
-                            HorizontalTabView.this.aqy();
+                            HorizontalTabView.this.aqx();
                             return;
                         } else if (((TabItemView) view).getTabId() == 302) {
                             Iterator it = HorizontalTabView.this.mData.iterator();
@@ -373,7 +373,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.horizonalScrollLis
                             if (HorizontalTabView.this.cZm != null) {
                                 HorizontalTabView.this.cZm.a(HorizontalTabView.this.kN(1));
                             }
-                            HorizontalTabView.this.aqy();
+                            HorizontalTabView.this.aqx();
                             return;
                         } else if (((TabItemView) view).getTabId() == 302) {
                             Iterator it = HorizontalTabView.this.mData.iterator();
@@ -457,7 +457,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.horizonalScrollLis
                             if (HorizontalTabView.this.cZm != null) {
                                 HorizontalTabView.this.cZm.a(HorizontalTabView.this.kN(1));
                             }
-                            HorizontalTabView.this.aqy();
+                            HorizontalTabView.this.aqx();
                             return;
                         } else if (((TabItemView) view).getTabId() == 302) {
                             Iterator it = HorizontalTabView.this.mData.iterator();

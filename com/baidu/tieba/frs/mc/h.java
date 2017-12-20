@@ -16,11 +16,11 @@ public class h {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
         this.cOx = gVar;
-        this.cHr = this.cOx.all();
-        this.cHi = this.cOx.alo();
-        this.cHs = this.cOx.alm();
-        this.cHq = this.cOx.alj();
-        this.cYy = this.cOx.aln();
-        this.cYz = this.cOx.alk();
+        this.cHr = this.cOx.alk();
+        this.cHi = this.cOx.aln();
+        this.cHs = this.cOx.all();
+        this.cHq = this.cOx.ali();
+        this.cYy = this.cOx.alm();
+        this.cYz = this.cOx.alj();
     }
 }

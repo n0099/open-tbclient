@@ -26,28 +26,28 @@ public class b {
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e bxo;
-        if (this.gCU != null && (bxo = bxo()) != null) {
+        e bxn;
+        if (this.gCU != null && (bxn = bxn()) != null) {
             if (z) {
-                if (bxo.gDc != null) {
-                    bxo.gDc.num++;
+                if (bxn.gDc != null) {
+                    bxn.gDc.num++;
                     if (z2) {
-                        bxo.gDc.gCZ += j2;
-                        bxo.gDc.size += j;
+                        bxn.gDc.gCZ += j2;
+                        bxn.gDc.size += j;
                     } else {
-                        bxo.gDc.gDa++;
+                        bxn.gDc.gDa++;
                     }
                 } else {
                     return;
                 }
-            } else if (bxo.gDd != null) {
-                bxo.gDd.num++;
+            } else if (bxn.gDd != null) {
+                bxn.gDd.num++;
                 if (z2) {
-                    bxo.gDd.gCZ += j3;
-                    bxo.gDd.size += j;
+                    bxn.gDd.gCZ += j3;
+                    bxn.gDd.size += j;
                     j2 = j3;
                 } else {
-                    bxo.gDd.gDa++;
+                    bxn.gDd.gDa++;
                     j2 = j3;
                 }
             } else {
@@ -55,7 +55,7 @@ public class b {
             }
             this.gCU = null;
             if (z2) {
-                c.a(bxo, 10);
+                c.a(bxn, 10);
             }
             if (this.gCX == "frsStat") {
                 if (!z2 || j2 > 3000) {
@@ -74,19 +74,19 @@ public class b {
     }
 
     public void destory() {
-        e bxo;
-        if (this.gCU != null && (bxo = bxo()) != null && bxo.gDe != null) {
+        e bxn;
+        if (this.gCU != null && (bxn = bxn()) != null && bxn.gDe != null) {
             long fU = this.gCU.fU();
             if (fU > 3000) {
-                d dVar = bxo.gDe;
+                d dVar = bxn.gDe;
                 dVar.gCZ = fU + dVar.gCZ;
-                bxo.gDe.num++;
-                c.a(bxo, 10);
+                bxn.gDe.num++;
+                c.a(bxn, 10);
             }
         }
     }
 
-    private e bxo() {
+    private e bxn() {
         return c.l(this.gCX, getNetType(), this.aiP);
     }
 

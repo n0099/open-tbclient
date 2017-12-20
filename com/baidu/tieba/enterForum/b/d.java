@@ -35,16 +35,16 @@ public class d extends LinearLayout {
         init();
     }
 
-    public void ahK() {
+    public void ahJ() {
         if (this.cuY == null) {
-            ahL();
+            ahK();
         }
         if (this.cuY.getParent() == null) {
             addView(this.cuY);
         }
     }
 
-    private void ahL() {
+    private void ahK() {
         this.cuY = new a(getContext());
         this.cuY.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
         this.cuY.setNumColumns(2);

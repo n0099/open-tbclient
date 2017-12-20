@@ -34,13 +34,13 @@ public class f extends e<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entele
     @Override // com.baidu.tieba.frs.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bd bdVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.c> aVar) {
-        if (aVar == null || aVar.acC() == null) {
+        if (aVar == null || aVar.acB() == null) {
             return null;
         }
-        com.baidu.tieba.frs.d.a(aVar.acC().abY(), this.cGO);
-        aVar.acC().a(bdVar);
-        aVar.acC().b(this.buT);
-        com.baidu.tieba.frs.e.b.aqw().a(cYY, bdVar);
+        com.baidu.tieba.frs.d.a(aVar.acB().abX(), this.cGO);
+        aVar.acB().a(bdVar);
+        aVar.acB().b(this.buT);
+        com.baidu.tieba.frs.e.b.aqv().a(cYY, bdVar);
         return aVar.getView();
     }
 

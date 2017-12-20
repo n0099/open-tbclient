@@ -16,7 +16,7 @@ public class b implements c {
     private b() {
     }
 
-    public static synchronized b aQw() {
+    public static synchronized b aQv() {
         b bVar;
         synchronized (b.class) {
             if (eMr == null) {

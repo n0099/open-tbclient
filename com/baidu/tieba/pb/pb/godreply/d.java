@@ -40,7 +40,7 @@ public class d {
         if (this.rootView != null) {
             this.eSu = (PbLandscapeListView) this.rootView.findViewById(d.g.more_god_reply_list);
             this.contentView = this.rootView.findViewById(d.g.more_god_reply_list_content);
-            apl();
+            apk();
             this.eSw = this.rootView.findViewById(d.g.more_god_reply_back_curtain);
             this.eSt = (NoNetworkView) this.rootView.findViewById(d.g.more_god_reply_view_no_network);
             this.eSv = new b(this.eRN.getPageContext());
@@ -48,7 +48,7 @@ public class d {
         }
     }
 
-    private void apl() {
+    private void apk() {
         this.bfX = (NavigationBar) this.rootView.findViewById(d.g.more_god_reply_nav_bar);
         this.dTZ = this.bfX.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         ImageView backImageView = this.bfX.getBackImageView();
@@ -70,11 +70,11 @@ public class d {
     }
 
     public boolean isVisible() {
-        return aSC() && this.rootView.getVisibility() == 0;
+        return aSB() && this.rootView.getVisibility() == 0;
     }
 
-    private void aSB() {
-        if (!aSC()) {
+    private void aSA() {
+        if (!aSB()) {
             this.rootView = this.eOu.inflate();
             init();
             if (this.eSr != this.eSs) {
@@ -83,12 +83,12 @@ public class d {
         }
     }
 
-    public boolean aSC() {
+    public boolean aSB() {
         return this.rootView != null;
     }
 
     public void show() {
-        aSB();
+        aSA();
         if (!isVisible() && this.rootView != null) {
             this.rootView.setVisibility(0);
         }
@@ -97,14 +97,14 @@ public class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void jc(boolean z) {
         if (z) {
-            this.eSv.aiY();
+            this.eSv.aiX();
         } else {
             this.eSv.ww();
         }
     }
 
     public void hide() {
-        if (aSC()) {
+        if (aSB()) {
             this.rootView.setVisibility(8);
             this.bfX.setStatusBarVisibility(8);
         }
@@ -112,7 +112,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void k(final Runnable runnable) {
-        if (aSC()) {
+        if (aSB()) {
             this.bfX.setStatusBarVisibility(0);
             this.contentView.animate().translationY(0.0f).setDuration(300L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.d.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -134,14 +134,14 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void l(Runnable runnable) {
-        if (aSC()) {
+        if (aSB()) {
             a(this.contentView.getHeight(), 0.0f, runnable);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void m(Runnable runnable) {
-        if (aSC()) {
+        if (aSB()) {
             this.contentView.setTranslationY(l.ag(this.eRN)[1]);
             this.eSw.setAlpha(0.0f);
             a(eSq, 1.0f, runnable);
@@ -149,7 +149,7 @@ public class d {
     }
 
     private void a(float f, float f2, final Runnable runnable) {
-        if (aSC()) {
+        if (aSB()) {
             this.contentView.animate().translationY(f).setDuration(300L).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.d.2
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
@@ -171,7 +171,7 @@ public class d {
 
     public void onChangeSkinType(int i) {
         this.eSs = i;
-        if (aSC()) {
+        if (aSB()) {
             pQ(i);
         }
     }
@@ -188,19 +188,19 @@ public class d {
         return this.eSu;
     }
 
-    public NavigationBar alE() {
+    public NavigationBar alD() {
         return this.bfX;
     }
 
-    public View aSD() {
+    public View aSC() {
         return this.dTZ;
     }
 
-    public View aSE() {
+    public View aSD() {
         return this.eSw;
     }
 
-    public boolean aSF() {
+    public boolean aSE() {
         if (this.eSu == null || this.eSu.getChildCount() <= 0) {
             return true;
         }
@@ -211,7 +211,7 @@ public class d {
         return false;
     }
 
-    public b aSG() {
+    public b aSF() {
         return this.eSv;
     }
 }

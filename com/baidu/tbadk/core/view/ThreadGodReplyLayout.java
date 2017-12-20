@@ -133,13 +133,13 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         spannableStringBuilder2.append((CharSequence) "tag");
         spannableStringBuilder2.setSpan(new a(drawable, this.aoh, l.f(getContext(), d.e.tbds4)), 0, spannableStringBuilder2.length(), 33);
-        if (postData.bxi() >= 0) {
+        if (postData.bxh() >= 0) {
             int length = spannableStringBuilder2.length();
-            spannableStringBuilder2.append((CharSequence) (" " + am.v(postData.bxi()) + getResources().getString(d.j.zan)));
+            spannableStringBuilder2.append((CharSequence) (" " + am.v(postData.bxh()) + getResources().getString(d.j.zan)));
             spannableStringBuilder2.setSpan(new ForegroundColorSpan(aj.getColor(d.C0096d.cp_cont_h)), length, spannableStringBuilder2.length(), 33);
         }
         spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
-        SpannableStringBuilder a2 = a(postData.bwY());
+        SpannableStringBuilder a2 = a(postData.bwX());
         if (a2 != null && !TextUtils.isEmpty(a2.toString())) {
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder("  |  ");
             int f = l.f(getContext(), d.e.tbds42);
@@ -206,13 +206,13 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             this.aok.setVisibility(8);
             return;
         }
-        TbRichText bwY = postData.bwY();
-        if (bwY == null || bwY.Jr() == null) {
+        TbRichText bwX = postData.bwX();
+        if (bwX == null || bwX.Jr() == null) {
             this.aoj.setVisibility(8);
             this.aok.setVisibility(8);
             return;
         }
-        Iterator<TbRichTextData> it = bwY.Jr().iterator();
+        Iterator<TbRichTextData> it = bwX.Jr().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next.getType() == 8) {
@@ -266,7 +266,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         aj.k(this.mRootView, d.C0096d.cp_bg_line_e);
         aj.k(this.aoh, d.C0096d.cp_bg_line_e);
         aj.i(this.aoh, d.C0096d.cp_cont_j);
-        this.aoi.bmf();
+        this.aoi.bme();
     }
 
     public TextView getGodReplyContent() {

@@ -22,7 +22,7 @@ public class f {
         String str2;
         String str3;
         if (forumWriteData != null) {
-            if (bFO()) {
+            if (bFN()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RecordVideoActivityConfig(tbPageContext.getPageActivity(), 1, forumWriteData, null, str)));
             } else if (XiaoyingUtil.isXiaoyingInstalled()) {
                 if (XiaoyingUtil.isXiaoyingForbidden()) {
@@ -138,7 +138,7 @@ public class f {
         return cVar;
     }
 
-    public static boolean bFO() {
+    public static boolean bFN() {
         return com.baidu.adp.lib.b.d.eV().af("add_video_thread_switch") != 1;
     }
 }

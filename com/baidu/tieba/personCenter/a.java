@@ -54,14 +54,14 @@ public class a extends BaseFragment {
         super.onPrimary();
         if (isPrimary()) {
             this.fss.refreshView();
-            this.fss.baf();
+            this.fss.bae();
         } else {
-            this.fss.bag();
+            this.fss.baf();
         }
         if (isAdded()) {
-            com.baidu.tieba.m.a.bmN().bmT();
+            com.baidu.tieba.m.a.bmM().bmS();
         }
-        com.baidu.tieba.m.a.bmN().ml(isPrimary());
+        com.baidu.tieba.m.a.bmM().ml(isPrimary());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment

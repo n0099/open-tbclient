@@ -26,7 +26,7 @@ public class ag {
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> amC() {
+    public List<com.baidu.tbadk.mainTab.b> amB() {
         return this.cKn;
     }
 

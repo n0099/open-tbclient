@@ -26,11 +26,11 @@ public class b {
 
     /* loaded from: classes.dex */
     public interface a {
+        void aoZ();
+
         void apa();
 
-        void apb();
-
-        boolean apc();
+        boolean apb();
     }
 
     public b(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
@@ -55,7 +55,7 @@ public class b {
         this.bHL.a(new a.InterfaceC0097a() { // from class: com.baidu.tieba.pb.pb.sub.b.3
             @Override // com.baidu.tieba.e.a.InterfaceC0097a
             public void ag(int i, int i2) {
-                if (b.this.fhj != null && b.this.fhj.apc() && Math.abs(i2) > b.TOUCH_SLOP) {
+                if (b.this.fhj != null && b.this.fhj.apb() && Math.abs(i2) > b.TOUCH_SLOP) {
                     if (b.this.fhi != null) {
                         b.this.fhi.setBackgroundResource(d.C0096d.transparent);
                     }
@@ -65,7 +65,7 @@ public class b {
 
             @Override // com.baidu.tieba.e.a.InterfaceC0097a
             public void ah(int i, int i2) {
-                b.this.apd();
+                b.this.apc();
             }
 
             @Override // com.baidu.tieba.e.a.InterfaceC0097a
@@ -74,24 +74,24 @@ public class b {
         });
     }
 
-    public void bo(View view) {
+    public void bp(View view) {
         if (view != null) {
             view.setOnTouchListener(this.cVJ);
         }
     }
 
-    public void apd() {
+    public void apc() {
         if (this.cVI && this.mNavigationBar != null && this.fhi != null && this.fhi.getVisibility() == 0) {
             this.mNavigationBar.setStatusBarVisibility(0);
             this.byB.setExcludeHeight(0);
             if (this.fhj != null) {
-                this.fhj.apa();
+                this.fhj.aoZ();
             }
-            this.fhi.apk();
+            this.fhi.apj();
         }
     }
 
-    public void ape() {
+    public void apd() {
         ViewGroup viewGroup;
         if (!this.cVI && (viewGroup = (ViewGroup) this.byB.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
             this.fhi = new com.baidu.tieba.pb.pb.sub.a(this.byB.getPageContext().getPageActivity());
@@ -106,13 +106,13 @@ public class b {
             });
             this.fhi.setScrollCallBack(new a.InterfaceC0133a() { // from class: com.baidu.tieba.pb.pb.sub.b.5
                 @Override // com.baidu.tieba.pb.pb.sub.a.InterfaceC0133a
-                public void apg() {
+                public void apf() {
                     if (b.this.fhi != null) {
                         b.this.fhi.setVisibility(8);
                     }
                     b.this.cVI = false;
                     if (b.this.fhj != null) {
-                        b.this.fhj.apb();
+                        b.this.fhj.apa();
                     }
                 }
             });
@@ -125,7 +125,7 @@ public class b {
         this.fhj = aVar;
     }
 
-    public boolean apf() {
+    public boolean ape() {
         return this.cVI;
     }
 

@@ -35,7 +35,7 @@ public class c {
         this.cvw = aVar;
     }
 
-    public void and() {
+    public void anc() {
         if (this.ffN != null) {
             this.ffN.cancelLoadData();
         }

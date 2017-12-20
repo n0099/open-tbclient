@@ -111,10 +111,10 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 202:
-                        a.this.abE();
+                        a.this.abD();
                         return;
                     case 203:
-                        a.this.abF();
+                        a.this.abE();
                         return;
                     default:
                         return;
@@ -138,7 +138,7 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
         this.aZq = new g.b() { // from class: com.baidu.tieba.frs.entelechy.view.a.10
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(com.baidu.tieba.play.g gVar, int i, int i2) {
-                a.this.abG();
+                a.this.abF();
                 a.this.f(true, 4);
                 return true;
             }
@@ -179,7 +179,7 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
         this.caB = new Runnable() { // from class: com.baidu.tieba.frs.entelechy.view.a.2
             @Override // java.lang.Runnable
             public void run() {
-                a.this.abG();
+                a.this.abF();
                 a.this.f(true, 4);
             }
         };
@@ -218,7 +218,7 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
         };
         this.caF = new j.a() { // from class: com.baidu.tieba.frs.entelechy.view.a.7
             @Override // com.baidu.tieba.play.j.a
-            public void abJ() {
+            public void abI() {
                 a.this.abB();
             }
         };
@@ -339,55 +339,65 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.bvv || view == this.bvI.getCommentNumView() || view == this.cOR) {
-            ai(this.bvv);
+            aj(this.bvv);
         } else if (view == this.cai) {
             if (UtilHelper.isGotoVideoMiddlePage()) {
-                az(this.cai);
+                aA(this.cai);
             } else {
-                ai(this.cai);
+                aj(this.cai);
             }
         } else if (view == this.bZf) {
-            ai(this.bZf);
+            aj(this.bZf);
         }
         if (this.ajJ != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_AD_FRS_THREAD_CLICKED, this.ajJ));
         }
     }
 
-    private void az(View view) {
-        if (view == this.cai) {
-            if (!com.baidu.adp.lib.util.j.hh()) {
-                com.baidu.adp.lib.util.l.showToast(this.abX.getPageActivity(), d.j.no_network_guide);
-            } else if (!com.baidu.adp.lib.util.j.hi()) {
-                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.abX.getPageActivity());
-                aVar.cS(this.abX.getString(d.j.enter_video_center_page_no_wifi_tip));
-                aVar.a(d.j.continue_forward, new a.b() { // from class: com.baidu.tieba.frs.entelechy.view.a.14
-                    @Override // com.baidu.tbadk.core.dialog.a.b
-                    public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        aVar2.dismiss();
-                        a.this.abD();
-                    }
-                });
-                aVar.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.frs.entelechy.view.a.15
-                    @Override // com.baidu.tbadk.core.dialog.a.b
-                    public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        aVar2.dismiss();
-                    }
-                });
-                aVar.ao(true);
-                aVar.b(this.mTbPageContext).th();
-            } else {
-                abD();
+    private void aA(View view) {
+        if (this.ajJ != null) {
+            ak akVar = new ak("c11100");
+            akVar.ac("tid", this.ajJ.getId());
+            akVar.ac(ImageViewerConfig.FORUM_ID, this.ajJ.getFid() + "");
+            TiebaStatic.log(akVar);
+            if (this.ajJ.rv() != null && this.ajJ.rv().getGodUserData() != null && this.ajJ.rv().getGodUserData().getType() == 2) {
+                TiebaStatic.log(new ak("c10806").r("obj_locate", 3).ac("tid", this.ajJ.getId()));
             }
+        }
+        if (abt() != null) {
+            abt().a(view, this.ajJ);
+        }
+        if (!com.baidu.adp.lib.util.j.hh()) {
+            com.baidu.adp.lib.util.l.showToast(this.abX.getPageActivity(), d.j.no_network_guide);
+        } else if (!com.baidu.adp.lib.util.j.hi()) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.abX.getPageActivity());
+            aVar.cS(this.abX.getString(d.j.enter_video_center_page_no_wifi_tip));
+            aVar.a(d.j.continue_forward, new a.b() { // from class: com.baidu.tieba.frs.entelechy.view.a.14
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    aVar2.dismiss();
+                    a.this.abC();
+                }
+            });
+            aVar.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.frs.entelechy.view.a.15
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    aVar2.dismiss();
+                }
+            });
+            aVar.ao(true);
+            aVar.b(this.mTbPageContext).th();
+        } else {
+            abC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abD() {
+    public void abC() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoMiddlePageActivityConfig(this.abX.getPageActivity(), "frs", this.ajJ.getTid(), com.baidu.tieba.card.k.rl(), "")));
     }
 
-    private void ai(View view) {
+    private void aj(View view) {
         if (this.ajJ != null) {
             if (this.ajJ.sq()) {
                 TiebaStatic.log(new ak("c10242").ac(ImageViewerConfig.FORUM_ID, String.valueOf(this.ajJ.getFid())).r("obj_type", 2));
@@ -408,7 +418,7 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
             com.baidu.tieba.card.k.jO(this.ajJ.getId());
             aj.c(this.mTextTitle, d.C0096d.cp_cont_d, 1);
             t.gW(this.ajJ.getId());
-            if (this.ajJ.rS() > 0 && com.baidu.tieba.tbadkCore.util.f.bxV()) {
+            if (this.ajJ.rS() > 0 && com.baidu.tieba.tbadkCore.util.f.bxU()) {
                 PbActivityConfig createHistoryCfg = new PbActivityConfig(this.abX.getPageActivity()).createHistoryCfg(this.ajJ.getTid(), String.valueOf(this.ajJ.rS()), false, true, "frs_page");
                 createHistoryCfg.setVideo_source(this.ajJ.sq() ? "floor5" : "frs");
                 createHistoryCfg.setFromSmartFrs(this.ajJ.sz());
@@ -448,7 +458,7 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abE() {
+    public void abD() {
         this.cay.removeMessages(202);
         if (this.caj.getCurrentPosition() > 0) {
             f(true, 3);
@@ -459,7 +469,7 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abF() {
+    public void abE() {
         if (getView().getParent() == null) {
             stopPlay();
             return;
@@ -534,7 +544,7 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
             return;
         }
         this.bvv.setVisibility(0);
-        abI();
+        abH();
         this.ajJ.e(false, true);
         this.mTextTitle.setOnTouchListener(new com.baidu.tieba.view.l(this.ajJ.rV()));
         this.mTextTitle.setText(this.ajJ.rV());
@@ -577,19 +587,19 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abG() {
+    public void abF() {
         this.cay.removeMessages(202);
         this.cay.removeMessages(203);
     }
 
-    private void abH() {
+    private void abG() {
         com.baidu.adp.lib.g.e.fP().removeCallbacks(this.caA);
         com.baidu.adp.lib.g.e.fP().removeCallbacks(this.caB);
     }
 
-    private void abI() {
-        abH();
+    private void abH() {
         abG();
+        abF();
         if (this.cab != null && this.cai != null && this.caj != null) {
             if (com.baidu.tbadk.core.h.oY().pe() && this.ajJ != null && this.ajJ.rN() != null) {
                 this.cai.setVisibility(0);
@@ -601,8 +611,8 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
                     f(true, 4);
                     TiebaStatic.log(new ak("c12026").ac("tid", this.ajJ.getId()));
                 }
-                if (this.cdm != null && this.cdm.bjy() != null) {
-                    this.cdm.bjy().d(this.ajJ.rN());
+                if (this.cdm != null && this.cdm.bjx() != null) {
+                    this.cdm.bjx().d(this.ajJ.rN());
                     return;
                 }
                 return;
@@ -684,8 +694,8 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
     }
 
     public void stopPlay() {
-        abH();
         abG();
+        abF();
         f(true, 1);
         if (this.caj != null) {
             this.caj.stopPlayback();
@@ -696,7 +706,7 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
         this.cau = false;
     }
 
-    public ThreadCommentAndPraiseInfoLayout abY() {
+    public ThreadCommentAndPraiseInfoLayout abX() {
         return this.bvI;
     }
 

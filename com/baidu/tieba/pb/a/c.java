@@ -84,7 +84,7 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
         return false;
     }
 
-    public void ba(View view) {
+    public void bb(View view) {
         this.eQz = view;
     }
 }

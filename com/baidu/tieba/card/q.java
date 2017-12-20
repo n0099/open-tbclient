@@ -123,7 +123,7 @@ public class q extends a<CardPersonDynamicThreadData> {
                 if (q.this.cbB.cer != 33) {
                     if (q.this.cbB.cer != 60) {
                         if ((q.this.cbB.cer != 40 || q.this.cbB.ceu != 2) && !q.this.ccq) {
-                            q.this.abN();
+                            q.this.abM();
                             return;
                         } else {
                             BdToast.b(q.this.getContext(), q.this.getContext().getString(d.j.video_check_click_msg), d.f.icon_toast_game_error).tq();
@@ -132,10 +132,10 @@ public class q extends a<CardPersonDynamicThreadData> {
                     }
                     TiebaStatic.log("c12333");
                     if (q.this.cbB.threadData.rO().live_status != 1) {
-                        q.this.abV();
+                        q.this.abU();
                         return;
                     } else {
-                        q.this.abU();
+                        q.this.abT();
                         return;
                     }
                 }
@@ -167,7 +167,7 @@ public class q extends a<CardPersonDynamicThreadData> {
                     view.setTag("1");
                     abt.a(view, q.this.cbB);
                 }
-                q.this.abN();
+                q.this.abM();
             }
         };
         this.caS = new View.OnClickListener() { // from class: com.baidu.tieba.card.q.10
@@ -378,7 +378,7 @@ public class q extends a<CardPersonDynamicThreadData> {
             VoiceData.VoiceModel voiceModel = voiceModelArr[0];
             this.caM.setVoiceModel(voiceModel);
             this.caM.setTag(voiceModel);
-            this.caM.bmf();
+            this.caM.bme();
             if (voiceModel != null) {
                 this.caM.nT(voiceModel.voice_status.intValue());
             }
@@ -396,7 +396,7 @@ public class q extends a<CardPersonDynamicThreadData> {
         this.cck.setVisibility(8);
         this.ccg.setVisibility(8);
         this.ccj.setVisibility(8);
-        this.cae.bEG();
+        this.cae.bEF();
         if (cardPersonDynamicThreadData.cer == 36) {
             this.caP.setVisibility(8);
         } else if (cardPersonDynamicThreadData.cer == 33) {
@@ -491,7 +491,7 @@ public class q extends a<CardPersonDynamicThreadData> {
                         @Override // com.baidu.tbadk.widget.layout.d
                         public void c(View view, int i2, boolean z) {
                             if (z) {
-                                q.this.abN();
+                                q.this.abM();
                             } else {
                                 q.this.a(view, linkedList, i2, bdVar);
                             }
@@ -522,7 +522,7 @@ public class q extends a<CardPersonDynamicThreadData> {
             this.ccm.setVisibility(8);
             this.ccl.setVisibility(8);
         }
-        abM();
+        abL();
         c(cardPersonDynamicThreadData);
     }
 
@@ -564,7 +564,7 @@ public class q extends a<CardPersonDynamicThreadData> {
         }
     }
 
-    private void abM() {
+    private void abL() {
         this.caM.setClickable(true);
         int childCount = this.caP.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -575,7 +575,7 @@ public class q extends a<CardPersonDynamicThreadData> {
         }
     }
 
-    public void abU() {
+    public void abT() {
         if (this.cbB != null && this.cbB.threadData != null && this.cbB.threadData.rO() != null) {
             if (!com.baidu.adp.lib.util.j.hh()) {
                 com.baidu.adp.lib.util.l.showToast(this.mPageContext.getPageActivity(), d.j.no_network_guide);
@@ -594,13 +594,13 @@ public class q extends a<CardPersonDynamicThreadData> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abV() {
+    public void abU() {
         if (this.cbB != null && this.cbB.threadData != null && this.cbB.threadData.rO() != null && this.cbB.threadData.rO().share_info != null) {
             if (!isHost()) {
                 k.jO(this.cbB.threadId);
             }
             if (this.cbB.threadData.rO().share_info.record_tid <= 0) {
-                abU();
+                abT();
                 return;
             }
             String valueOf = String.valueOf(this.cbB.threadData.rO().share_info.record_tid);
@@ -612,7 +612,7 @@ public class q extends a<CardPersonDynamicThreadData> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abN() {
+    public void abM() {
         if (this.cbB != null) {
             if (!isHost()) {
                 k.jO(this.cbB.threadId);
@@ -632,7 +632,7 @@ public class q extends a<CardPersonDynamicThreadData> {
         }
     }
 
-    private void abW() {
+    private void abV() {
         if (this.cbB != null && this.cbB.threadData != null && this.cbB.threadData.aaC != null) {
             PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.mPageContext.getPageActivity()).createCfgForPersonCenter(this.cbB.threadData.aaC.threadId, null, "person_page", 18005);
             createCfgForPersonCenter.setStartFrom(this.currentPageType);
@@ -665,7 +665,7 @@ public class q extends a<CardPersonDynamicThreadData> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.ccm) {
-            abW();
+            abV();
         }
     }
 

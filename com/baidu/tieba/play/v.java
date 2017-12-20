@@ -69,7 +69,7 @@ public class v {
         }
     }
 
-    public long bjI() {
+    public long bjH() {
         return this.cLW;
     }
 
@@ -77,7 +77,7 @@ public class v {
         return this.duration;
     }
 
-    public String bjJ() {
+    public String bjI() {
         return this.fRe;
     }
 }

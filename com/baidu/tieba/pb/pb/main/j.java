@@ -44,7 +44,7 @@ public class j {
 
     public j(PbModel pbModel, BaseActivity baseActivity) {
         this.byB = baseActivity;
-        aTZ();
+        aTY();
         this.byB.registerListener(this.eVW);
     }
 
@@ -52,7 +52,7 @@ public class j {
         this.eVV = aVar;
     }
 
-    public void aTZ() {
+    public void aTY() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/b/commit/tpointhide");
         tbHttpMessageTask.setIsNeedTbs(true);

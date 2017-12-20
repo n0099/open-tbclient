@@ -29,14 +29,14 @@ public class WriteMultiImgsActivity extends BaseActivity {
         this.hmy = false;
         this.hky = new g(getPageContext(), this.hmy, new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.WriteMultiImgsActivity.1
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void bHY() {
-                WriteMultiImgsActivity.this.hmz.bIU();
+            public void bHX() {
+                WriteMultiImgsActivity.this.hmz.bIT();
                 WriteMultiImgsActivity.this.hmz.on(true);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void bHZ() {
-                WriteMultiImgsActivity.this.hmz.bIV();
+            public void bHY() {
+                WriteMultiImgsActivity.this.hmz.bIU();
                 WriteMultiImgsActivity.this.hmz.on(false);
             }
 
@@ -46,16 +46,16 @@ public class WriteMultiImgsActivity extends BaseActivity {
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void bIa() {
-                WriteMultiImgsActivity.this.hmz.bIa();
+            public void bHZ() {
+                WriteMultiImgsActivity.this.hmz.bHZ();
             }
         });
         setContentView(this.hky.cwu);
         this.hmz = new h(getPageContext(), this.hky, bundle);
         if (this.hmy) {
-            if (this.hmz.bJa() != null) {
-                i = this.hmz.bJa().size();
-                i2 = this.hmz.bJa().size();
+            if (this.hmz.bIZ() != null) {
+                i = this.hmz.bIZ().size();
+                i2 = this.hmz.bIZ().size();
             } else {
                 i = 1;
             }
@@ -67,14 +67,21 @@ public class WriteMultiImgsActivity extends BaseActivity {
     protected void onSaveInstanceState(Bundle bundle) {
         if (this.hmz != null && this.hmz.hmL != null) {
             bundle.putInt("OutState_Current_Index", this.hmz.hmL.getCurrentIndex());
-            bundle.putInt("OutState_Write_Entrance", this.hmz.bIY());
-            bundle.putSerializable("OutState_Write_Info_Data", this.hmz.alI());
+            bundle.putInt("OutState_Write_Entrance", this.hmz.bIX());
+            bundle.putSerializable("OutState_Write_Info_Data", this.hmz.alH());
             this.hmz.hmL.of(true);
-            if (this.hmz.bJa() != null) {
-                bundle.putString("OutState_Write_Img_Info", this.hmz.bJa().toJsonString());
+            if (this.hmz.bIZ() != null) {
+                bundle.putString("OutState_Write_Img_Info", this.hmz.bIZ().toJsonString());
             }
         }
         super.onSaveInstanceState(bundle);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void bIT() {
+        if (this.hmz != null) {
+            this.hmz.bIT();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -84,28 +91,21 @@ public class WriteMultiImgsActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void bIV() {
-        if (this.hmz != null) {
-            this.hmz.bIV();
-        }
-    }
-
     public void a(boolean z, WriteImagesInfo writeImagesInfo) {
         if (this.hmz != null) {
-            if (1 == this.hmz.bIY()) {
-                ForumWriteData alI = this.hmz.alI();
-                if (alI != null) {
-                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this, 10, alI.forumId, alI.forumName, null, null, 0, alI.antiData, 13003, false, false, null, false, false, null, null, alI.prefixData, 0);
-                    writeActivityConfig.getIntent().putExtra("from", alI.mFrom);
-                    writeActivityConfig.setCallFrom(alI.writeCallFrom);
-                    writeActivityConfig.setForumLevel(alI.forumLevel);
-                    writeActivityConfig.setForumAvatar(alI.avatar);
-                    writeActivityConfig.setPrivateThread(alI.privateThread);
+            if (1 == this.hmz.bIX()) {
+                ForumWriteData alH = this.hmz.alH();
+                if (alH != null) {
+                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this, 10, alH.forumId, alH.forumName, null, null, 0, alH.antiData, 13003, false, false, null, false, false, null, null, alH.prefixData, 0);
+                    writeActivityConfig.getIntent().putExtra("from", alH.mFrom);
+                    writeActivityConfig.setCallFrom(alH.writeCallFrom);
+                    writeActivityConfig.setForumLevel(alH.forumLevel);
+                    writeActivityConfig.setForumAvatar(alH.avatar);
+                    writeActivityConfig.setPrivateThread(alH.privateThread);
                     writeActivityConfig.setWriteImagesInfo(writeImagesInfo);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
                 }
-            } else if (2 == this.hmz.bIY()) {
+            } else if (2 == this.hmz.bIX()) {
                 Intent intent = new Intent(this, WriteActivity.class);
                 intent.putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
                 intent.setFlags(536870912);

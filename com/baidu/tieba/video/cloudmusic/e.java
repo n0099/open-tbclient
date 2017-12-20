@@ -8,9 +8,9 @@ public interface e {
     public interface a {
         void a(CloudMusicData.MusicTagList.MusicList musicList, int i);
 
-        void and();
+        void anc();
 
-        void bkP();
+        void bkO();
 
         void c(CloudMusicData.MusicTagList musicTagList);
 
@@ -23,7 +23,7 @@ public interface e {
 
         void b(CloudMusicData.MusicTagList musicTagList);
 
-        void bBl();
+        void bBk();
 
         void nD(boolean z);
 

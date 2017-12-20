@@ -34,7 +34,7 @@ public class b extends BaseFragment {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != b.this.hfq && view == b.this.hfp && b.this.hfo != null && b.this.heY != null && b.this.hfk != null) {
-                if (b.this.heY.bGq()) {
+                if (b.this.heY.bGp()) {
                     b.this.hfk.showToast(d.j.album_choose_switch_tip);
                 } else if (b.this.hfo.vT(b.this.aES)) {
                     ImageFileInfo pC = b.this.hfo.pC(b.this.aES);
@@ -47,7 +47,7 @@ public class b extends BaseFragment {
                         b.this.c(b.this.hfp, true);
                         b.this.hfk.f(pC, true);
                     }
-                    b.this.bGl();
+                    b.this.bGk();
                 }
             }
         }
@@ -85,7 +85,7 @@ public class b extends BaseFragment {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.hfk = (AlbumActivity) getBaseFragmentActivity();
-        this.heY = this.hfk.bGa();
+        this.heY = this.hfk.bFZ();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -109,8 +109,8 @@ public class b extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bGl() {
-        this.hfk.bFY();
+    public void bGk() {
+        this.hfk.bFX();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -121,18 +121,18 @@ public class b extends BaseFragment {
         }
     }
 
-    private void bGm() {
-        List<ImageFileInfo> bGu;
+    private void bGl() {
+        List<ImageFileInfo> bGt;
         int currentIndex;
         if (this.heY == null && this.hfk != null) {
-            this.heY = this.hfk.bGa();
+            this.heY = this.hfk.bFZ();
         }
-        if (this.heY != null && (bGu = this.heY.bGu()) != null && (currentIndex = this.heY.getCurrentIndex()) >= 0) {
+        if (this.heY != null && (bGt = this.heY.bGt()) != null && (currentIndex = this.heY.getCurrentIndex()) >= 0) {
             this.aES = currentIndex;
             this.hfo = new c(this.hfk);
             this.aEy.setAdapter(this.hfo);
-            if (this.aES == 0 && bGu != null) {
-                ImageFileInfo imageFileInfo = (ImageFileInfo) v.c(bGu, this.aES);
+            if (this.aES == 0 && bGt != null) {
+                ImageFileInfo imageFileInfo = (ImageFileInfo) v.c(bGt, this.aES);
                 if (this.heY.isAdded(imageFileInfo)) {
                     c(this.hfp, true);
                 } else {
@@ -144,7 +144,7 @@ public class b extends BaseFragment {
                     this.hfs.setVisibility(0);
                 }
             }
-            this.hfo.setData(bGu);
+            this.hfo.setData(bGt);
             this.aEy.setCurrentItem(this.aES, false);
             nX(this.heY.isOriginalImg());
         }
@@ -158,11 +158,11 @@ public class b extends BaseFragment {
         }
     }
 
-    public View boN() {
+    public View boM() {
         return this.mBackBtn;
     }
 
-    public View bGn() {
+    public View bGm() {
         return this.hfr;
     }
 
@@ -184,7 +184,7 @@ public class b extends BaseFragment {
         if (imageView != null && this.hfk != null) {
             aj.c(imageView, z ? d.f.ic_post_edit_select_s : d.f.icon_image_clear_select);
             if (this.hfr != null) {
-                int v = this.heY != null ? v.v(this.heY.bGs()) : 0;
+                int v = this.heY != null ? v.v(this.heY.bGr()) : 0;
                 this.hfr.setText(this.hfk.getString(d.j.image_selected_list_count_max, new Object[]{Integer.valueOf(v), Integer.valueOf(this.heY.getMaxImagesAllowed())}));
                 this.hfr.setEnabled(v > 0);
             }
@@ -202,11 +202,11 @@ public class b extends BaseFragment {
         if (!isHidden()) {
             this.mNoDataView.setVisibility(8);
             this.aEy.setVisibility(0);
-            bGm();
+            bGl();
         }
     }
 
-    public View bGj() {
+    public View bGi() {
         return this.hfs;
     }
 

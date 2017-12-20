@@ -100,7 +100,7 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
             } else if (this.akH == 1) {
                 canvas.drawBitmap(this.mBmp, 0.0f, 0.0f, this.grq);
                 if (this.grx != null && !this.grx.isRunning()) {
-                    this.grx.bG(this);
+                    this.grx.bH(this);
                 }
             } else if (this.akH == 3) {
                 this.grw.setColor(aj.getColor(d.C0096d.cp_cont_e));
@@ -130,10 +130,10 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
     }
 
     @Override // com.baidu.tieba.story.b
-    public void bsr() {
+    public void bsq() {
         if (this.grx != null) {
             setMaskColor(2);
-            this.grx.bsA();
+            this.grx.bsz();
         }
     }
 
@@ -144,13 +144,13 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
     }
 
     @Override // com.baidu.tieba.story.b
-    public void bss() {
+    public void bsr() {
         setMaskColor(0);
         postInvalidate();
     }
 
     @Override // com.baidu.tieba.story.b
-    public void bsq() {
+    public void bsp() {
     }
 
     public void setValueFloat(float f) {
@@ -161,9 +161,9 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
         this.mColor = i;
     }
 
-    public void bsu() {
+    public void bst() {
         if (this.grx != null) {
-            this.grx.bsu();
+            this.grx.bst();
         }
     }
 

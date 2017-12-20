@@ -21,20 +21,20 @@ public class g {
         public int gVk = 16;
         public int gVr = 0;
 
-        public boolean bCW() {
+        public boolean bCV() {
             return this.gVr == 1 || this.gVr == 4 || this.gVr == 6 || this.gVr == 9;
         }
 
-        public boolean bCX() {
+        public boolean bCW() {
             return this.gVr == 3 || this.gVr == 4 || this.gVr == 8 || this.gVr == 9;
         }
 
-        public boolean bCY() {
+        public boolean bCX() {
             return this.gVr == 5 || this.gVr == 6 || this.gVr == 8 || this.gVr == 9;
         }
     }
 
-    public static void bCV() {
+    public static void bCU() {
         if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
             gVq = true;
         } else {

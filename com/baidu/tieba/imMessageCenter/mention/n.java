@@ -94,7 +94,7 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
         if (aVar instanceof f) {
             f fVar = (f) aVar;
             if (this.eac != null) {
-                this.eac.E(fVar.aEQ());
+                this.eac.E(fVar.aEP());
             }
         }
     }
@@ -261,7 +261,7 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
         }
     }
 
-    public void aEI() {
+    public void aEH() {
         if (this.eba != null) {
             this.eba.completePullRefreshPostDelayed(2000L);
         }
@@ -285,14 +285,14 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
                 }
             }
             if (aVar.isPullRefreshing()) {
-                aEJ();
-            } else {
                 aEI();
+            } else {
+                aEH();
             }
         }
     }
 
-    public void aEJ() {
+    public void aEI() {
         if (this.mPullView != null) {
             this.mPullView.a((h.b) null);
         }

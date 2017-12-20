@@ -16,7 +16,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public interface a {
         void ao(float f);
 
-        void bBw();
+        void bBv();
 
         void c(float f, float f2, int i);
 
@@ -94,7 +94,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
             case 1:
                 this.gQW = false;
                 if (this.gQV != null) {
-                    this.gQV.bBw();
+                    this.gQV.bBv();
                     break;
                 }
                 break;

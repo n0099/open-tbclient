@@ -53,7 +53,7 @@ public class a extends com.baidu.adp.base.c {
                 switch (i) {
                     case 0:
                         if (a.this.gSh != null) {
-                            a.this.gSh.bBD();
+                            a.this.gSh.bBC();
                             break;
                         }
                         break;
@@ -74,11 +74,11 @@ public class a extends com.baidu.adp.base.c {
         this.gTt = new b(this.mContext, this);
         this.gTu = new d(this.mContext, this, this.gCP);
         this.gTv = new c(this.mContext, this);
-        this.gTt.bL(this.mRootView);
-        this.gTu.bL(this.mRootView);
-        this.gTv.bL(this.mRootView);
+        this.gTt.bM(this.mRootView);
+        this.gTu.bM(this.mRootView);
+        this.gTv.bM(this.mRootView);
         initView();
-        bCp();
+        bCo();
     }
 
     private void initView() {
@@ -90,7 +90,7 @@ public class a extends com.baidu.adp.base.c {
         this.gTw = (FrameLayout) this.mRootView.findViewById(d.g.edit_container);
         this.gTw.addView(this.gTt.getRootView());
         this.byT = (FragmentTabWidget) this.mRootView.findViewById(d.g.tab_widget);
-        anb();
+        ana();
         SZ();
         this.gTw.addView(this.gTu.getRootView());
         this.gTw.addView(this.gTv.getRootView());
@@ -98,7 +98,7 @@ public class a extends com.baidu.adp.base.c {
         this.gTv.getRootView().setVisibility(8);
     }
 
-    private boolean bCo() {
+    private boolean bCn() {
         return Build.VERSION.SDK_INT >= 18;
     }
 
@@ -111,7 +111,7 @@ public class a extends com.baidu.adp.base.c {
             fragmentTabIndicator.setTextSize(0, this.gai.getDimension(d.e.fontsize34));
             this.byT.addView(fragmentTabIndicator, i);
         }
-        if (!bCo() && this.byT.getChildAt(1) != null) {
+        if (!bCn() && this.byT.getChildAt(1) != null) {
             this.byT.getChildAt(1).setVisibility(8);
         }
         this.byT.setDiverColor(this.gai.getColor(d.C0096d.cp_cont_b));
@@ -150,32 +150,32 @@ public class a extends com.baidu.adp.base.c {
                     }
                     a.this.mCurrentTabIndex = i2;
                     a.this.byT.a(a.this.mCurrentTabIndex, true, true);
+                    a.this.bCo();
                     a.this.bCp();
-                    a.this.bCq();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCp() {
+    public void bCo() {
         ak akVar = new ak("c12424");
         akVar.r("obj_locate", this.mCurrentTabIndex == 0 ? 1 : 3);
         TiebaStatic.log(akVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCq() {
+    public void bCp() {
         if (this.mCurrentTabIndex == 0) {
-            bCu();
-            bCs();
+            bCt();
+            bCr();
             return;
         }
         replay();
     }
 
     public void replay() {
-        bCu();
+        bCt();
         this.gTr.start();
         this.gTr.seekTo(0);
     }
@@ -193,7 +193,7 @@ public class a extends com.baidu.adp.base.c {
     }
 
     public void onPause() {
-        bCu();
+        bCt();
         this.gTt.onPause();
         this.gTu.onPause();
         this.gTv.onPause();
@@ -202,14 +202,14 @@ public class a extends com.baidu.adp.base.c {
     public void onResume() {
         this.gTr.onResume();
         if (this.mCurrentTabIndex != 0) {
-            this.gTr.bCA();
+            this.gTr.bCz();
         }
         this.gTt.onResume();
         this.gTu.onResume();
         this.gTv.onResume();
     }
 
-    public MaskVideoView bCr() {
+    public MaskVideoView bCq() {
         return this.gTr;
     }
 
@@ -248,7 +248,7 @@ public class a extends com.baidu.adp.base.c {
                         com.baidu.adp.lib.g.e.fP().postDelayed(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.a.2.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                a.this.gTt.bCD();
+                                a.this.gTt.bCC();
                             }
                         }, 200L);
                         if (Build.VERSION.SDK_INT >= 17) {
@@ -283,25 +283,25 @@ public class a extends com.baidu.adp.base.c {
         }
     }
 
-    public void bCs() {
+    public void bCr() {
         if (this.gTr != null) {
             this.gTr.seekTo(this.gTt.getCurrentPosition());
         }
     }
 
-    public void bCt() {
+    public void bCs() {
         if (this.gTr != null) {
             this.gTr.vu(this.gTt.getCurrentPosition());
         }
     }
 
-    public void bCu() {
+    public void bCt() {
         if (this.gTr != null) {
-            this.gTr.bCz();
+            this.gTr.bCy();
         }
     }
 
-    public void bCv() {
+    public void bCu() {
         if (this.gTr != null) {
             this.gTr.onPause();
         }
@@ -320,7 +320,7 @@ public class a extends com.baidu.adp.base.c {
         }
     }
 
-    private void anb() {
+    private void ana() {
         this.mNavigationBar.setCenterTextTitle(this.gai.getString(d.j.select_cover));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.a.4
             @Override // android.view.View.OnClickListener
@@ -331,9 +331,9 @@ public class a extends com.baidu.adp.base.c {
         aj.i(this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.gai.getString(d.j.select_cover_next), new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.gTt.bkv();
+                a.this.gTt.bku();
                 if (a.this.gSh != null) {
-                    a.this.gSh.bBA();
+                    a.this.gSh.bBz();
                 }
             }
         }), d.C0096d.cp_cont_f);
@@ -373,26 +373,26 @@ public class a extends com.baidu.adp.base.c {
         this.gTu.co(str, str2);
     }
 
-    public void bBF() {
+    public void bBE() {
         if (this.gSh != null) {
-            this.gSh.bBF();
+            this.gSh.bBE();
         }
+    }
+
+    public String bCv() {
+        return this.gTu.bCv();
     }
 
     public String bCw() {
         return this.gTu.bCw();
     }
 
-    public String bCx() {
-        return this.gTu.bCx();
-    }
-
     public boolean isMute() {
         return this.mIsMute;
     }
 
-    public boolean bCy() {
-        return this.gTu.bCy();
+    public boolean bCx() {
+        return this.gTu.bCx();
     }
 
     public View getRootView() {
@@ -413,8 +413,8 @@ public class a extends com.baidu.adp.base.c {
     }
 
     public void setGenMaskCoverListener(MaskVideoView.b bVar) {
-        if (bVar != null && bCr() != null) {
-            bCr().setGenMaskCoverListener(bVar);
+        if (bVar != null && bCq() != null) {
+            bCq().setGenMaskCoverListener(bVar);
         }
     }
 }

@@ -48,7 +48,7 @@ public class a {
         this.status = i;
     }
 
-    public int azi() {
+    public int azh() {
         return this.dIZ;
     }
 

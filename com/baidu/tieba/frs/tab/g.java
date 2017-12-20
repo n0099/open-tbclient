@@ -17,7 +17,7 @@ public class g implements a {
         @Override // com.baidu.tieba.frs.TabMenuPopView.a
         public void a(View view, au auVar) {
             if (g.this.cZL != null) {
-                g.this.cZL.aqB();
+                g.this.cZL.aqA();
             }
             g.this.cZO.kT(auVar.cKd);
         }
@@ -34,7 +34,7 @@ public class g implements a {
         if (context != null && eVar != null) {
             this.mContext = context;
             this.cZL = eVar;
-            this.cZO = eVar.aqC();
+            this.cZO = eVar.aqB();
             this.mContentView = LayoutInflater.from(this.mContext).inflate(d.h.tab_menu_multline_view, (ViewGroup) null);
             this.ayc = this.mContentView.findViewById(d.g.top_line);
             this.cZQ = (TabMenuPopView) this.mContentView.findViewById(d.g.categorycontainer);
@@ -73,7 +73,7 @@ public class g implements a {
     }
 
     @Override // com.baidu.tieba.frs.tab.a
-    public int aqz() {
+    public int aqy() {
         this.mContentView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         return this.mContentView.getMeasuredHeight();
     }

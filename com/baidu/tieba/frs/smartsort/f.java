@@ -18,7 +18,7 @@ public class f {
         this.cYN = jSONObject.optInt("sort_tabId");
     }
 
-    public JSONObject aqv() {
+    public JSONObject aqu() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);

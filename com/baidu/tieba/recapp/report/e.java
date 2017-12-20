@@ -59,16 +59,16 @@ public class e {
     }
 
     public static a c(l lVar, int i) {
-        if (lVar == null || lVar.bwK() == null) {
+        if (lVar == null || lVar.bwJ() == null) {
             return null;
         }
-        AppData bwK = lVar.bwK();
+        AppData bwJ = lVar.bwJ();
         a aVar = new a();
-        aVar.sV(com.baidu.adp.lib.g.b.g(bwK.pos_name, 0));
-        aVar.sb(bwK.ext_info);
+        aVar.sV(com.baidu.adp.lib.g.b.g(bwJ.pos_name, 0));
+        aVar.sb(bwJ.ext_info);
         aVar.setPageNumber(lVar.pageNumber);
         aVar.sU(i);
-        aVar.sd(bwK.price);
+        aVar.sd(bwJ.price);
         aVar.sf(lVar.UZ);
         aVar.sg(lVar.Va);
         aVar.sh(lVar.forumId);

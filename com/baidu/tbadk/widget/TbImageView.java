@@ -152,7 +152,7 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean a(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
-                    TbImageView.this.mGestureDetector.ba(view);
+                    TbImageView.this.mGestureDetector.bb(view);
                     return TbImageView.this.mGestureDetector.onDoubleTap(motionEvent);
                 }
                 return false;
@@ -170,7 +170,7 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
                         TbImageView.this.mOnClickListener.onClick(view);
                         return true;
                     } else if (TbImageView.this.mGestureDetector != null) {
-                        TbImageView.this.mGestureDetector.ba(view);
+                        TbImageView.this.mGestureDetector.bb(view);
                         return TbImageView.this.mGestureDetector.onSingleTapConfirmed(motionEvent);
                     } else {
                         return false;
@@ -291,7 +291,7 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean a(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
-                    TbImageView.this.mGestureDetector.ba(view);
+                    TbImageView.this.mGestureDetector.bb(view);
                     return TbImageView.this.mGestureDetector.onDoubleTap(motionEvent);
                 }
                 return false;
@@ -309,7 +309,7 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
                         TbImageView.this.mOnClickListener.onClick(view);
                         return true;
                     } else if (TbImageView.this.mGestureDetector != null) {
-                        TbImageView.this.mGestureDetector.ba(view);
+                        TbImageView.this.mGestureDetector.bb(view);
                         return TbImageView.this.mGestureDetector.onSingleTapConfirmed(motionEvent);
                     } else {
                         return false;

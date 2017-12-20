@@ -31,7 +31,7 @@ public class f {
         void nZ(boolean z);
     }
 
-    public static f bGw() {
+    public static f bGv() {
         if (hfC == null) {
             synchronized (f.class) {
                 if (hfC == null) {

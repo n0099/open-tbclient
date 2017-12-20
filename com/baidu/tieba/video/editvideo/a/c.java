@@ -138,7 +138,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    public int bBG() {
+    public int bBF() {
         return this.gRw;
     }
 

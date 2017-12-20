@@ -16,15 +16,15 @@ public class v extends bd {
         return gAV;
     }
 
-    public boolean bwn() {
+    public boolean bwm() {
         return this.gAY;
     }
 
-    public bf bwo() {
+    public bf bwn() {
         return this.gAW;
     }
 
-    public bi bwp() {
+    public bi bwo() {
         return this.gAX;
     }
 }

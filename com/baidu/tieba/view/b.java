@@ -55,7 +55,7 @@ public class b {
         return this.haB;
     }
 
-    public int bEH() {
+    public int bEG() {
         return this.haE;
     }
 
@@ -67,7 +67,7 @@ public class b {
         this.haF = cVar;
     }
 
-    public c bEI() {
+    public c bEH() {
         return this.haF;
     }
 
@@ -102,7 +102,7 @@ public class b {
         }
     }
 
-    public View bEJ() {
+    public View bEI() {
         if (!StringUtils.isNull(this.titleText)) {
             this.Sf.setText(this.titleText);
         } else {
@@ -142,8 +142,8 @@ public class b {
                     if (a.this.haJ != null) {
                         a.this.haJ.onClick();
                     }
-                    if (a.this.haG != null && a.this.haG.bEI() != null) {
-                        a.this.haG.bEI().iF(a.this.mId);
+                    if (a.this.haG != null && a.this.haG.bEH() != null) {
+                        a.this.haG.bEH().iF(a.this.mId);
                     }
                 }
             };
@@ -165,8 +165,8 @@ public class b {
                     if (a.this.haJ != null) {
                         a.this.haJ.onClick();
                     }
-                    if (a.this.haG != null && a.this.haG.bEI() != null) {
-                        a.this.haG.bEI().iF(a.this.mId);
+                    if (a.this.haG != null && a.this.haG.bEH() != null) {
+                        a.this.haG.bEH().iF(a.this.mId);
                     }
                 }
             };
@@ -194,7 +194,7 @@ public class b {
         public void onChangeSkinType() {
             aj.j(this.abT, this.haH);
             aj.i(this.abT, this.mTextColor);
-            aj.k(this.doW, this.haG.bEH());
+            aj.k(this.doW, this.haG.bEG());
         }
 
         private void initView() {

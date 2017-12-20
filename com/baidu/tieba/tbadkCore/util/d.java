@@ -19,7 +19,7 @@ public class d extends e {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory() != null) {
-                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().bxS();
+                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().bxR();
                 }
             }
         });
@@ -35,7 +35,7 @@ public class d extends e {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
                 if (this.gEt.size() >= this.gEv) {
-                    bfR();
+                    bfQ();
                 }
                 this.gEt.put(str, valueOf);
             }
@@ -74,7 +74,7 @@ public class d extends e {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.e
-    public void bxS() {
+    public void bxR() {
         synchronized (this) {
             this.gEw.clear();
             this.gEt.clear();

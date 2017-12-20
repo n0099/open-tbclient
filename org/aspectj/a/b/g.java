@@ -16,11 +16,11 @@ class g implements org.aspectj.lang.reflect.d {
         return this.fileName;
     }
 
-    public int bSS() {
+    public int bSR() {
         return this.line;
     }
 
     public String toString() {
-        return new StringBuffer().append(getFileName()).append(":").append(bSS()).toString();
+        return new StringBuffer().append(getFileName()).append(":").append(bSR()).toString();
     }
 }

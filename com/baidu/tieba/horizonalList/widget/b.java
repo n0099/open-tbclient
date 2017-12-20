@@ -21,7 +21,7 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long auM() {
+    public long auL() {
         return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.duf, this.dug) : ExpandableListView.getPackedPositionForGroup(this.duf);
     }
 
@@ -32,15 +32,15 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b r(int i, int i2, int i3, int i4) {
-        b auN = auN();
-        auN.type = i;
-        auN.duf = i2;
-        auN.dug = i3;
-        auN.duh = i4;
-        return auN;
+        b auM = auM();
+        auM.type = i;
+        auM.duf = i2;
+        auM.dug = i3;
+        auM.duh = i4;
+        return auM;
     }
 
-    private static b auN() {
+    private static b auM() {
         b bVar;
         synchronized (dub) {
             if (dub.size() > 0) {

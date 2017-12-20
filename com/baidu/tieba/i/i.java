@@ -7,6 +7,8 @@ public interface i {
 
     void a(b bVar);
 
+    void aNV();
+
     void aNW();
 
     void aNX();
@@ -20,8 +22,6 @@ public interface i {
     void aOb();
 
     void aOc();
-
-    void aOd();
 
     void g(int i, int i2, String str);
 

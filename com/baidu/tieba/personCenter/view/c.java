@@ -34,7 +34,7 @@ public class c {
 
     /* loaded from: classes.dex */
     public interface a {
-        void bt(View view);
+        void bu(View view);
     }
 
     public c(View view, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -85,12 +85,12 @@ public class c {
             }
             bottomLine.setLayoutParams(layoutParams);
         }
-        this.ftu.bbi();
+        this.ftu.bbh();
         this.ftu.setOnViewResponseListener(null);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public boolean atA() {
+    public boolean atz() {
         if (this.refreshView != null) {
             return this.refreshView.EO();
         }
@@ -102,7 +102,7 @@ public class c {
     }
 
     public void QD() {
-        if (!atA()) {
+        if (!atz()) {
             if (this.refreshView == null) {
                 this.refreshView = new g(this.mPageContext.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.c.1
                     @Override // android.view.View.OnClickListener
@@ -110,7 +110,7 @@ public class c {
                         if (j.gV()) {
                             c.this.Pr();
                             if (c.this.ftx != null) {
-                                c.this.ftx.bt(view);
+                                c.this.ftx.bu(view);
                             }
                         }
                     }
@@ -150,7 +150,7 @@ public class c {
 
     public void onDestroy() {
         if (this.ftt != null) {
-            this.ftt.bae();
+            this.ftt.bad();
         }
     }
 
@@ -158,15 +158,15 @@ public class c {
         this.ftu.z(i, z);
     }
 
-    public void bad() {
+    public void bac() {
         if (this.ftt != null) {
-            this.ftt.bad();
+            this.ftt.bac();
         }
     }
 
-    public void bae() {
+    public void bad() {
         if (this.ftt != null) {
-            this.ftt.bae();
+            this.ftt.bad();
         }
     }
 }

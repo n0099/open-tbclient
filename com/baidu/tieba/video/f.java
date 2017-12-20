@@ -33,7 +33,7 @@ public class f {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             f.this.gPP = IVideoConvertService.Stub.asInterface(iBinder);
             if (f.this.gPY) {
-                f.this.bBj();
+                f.this.bBi();
             }
         }
 
@@ -61,7 +61,7 @@ public class f {
     public void destroy() {
         this.gPX = true;
         abortConvert();
-        buc();
+        bub();
     }
 
     private void startService() {
@@ -76,14 +76,14 @@ public class f {
         }
     }
 
-    private void buc() {
+    private void bub() {
         if (this.gPP != null && this.mContext != null) {
             this.mContext.unbindService(this.gwy);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bBj() {
+    public void bBi() {
         int i = -1;
         try {
             this.gPP.setIVideoConvertListener(this.gPV);
@@ -94,7 +94,7 @@ public class f {
         }
         if (this.gPU != null) {
             if (i == 0) {
-                this.gPU.bBi();
+                this.gPU.bBh();
             } else {
                 this.gPU.vn(i);
             }
@@ -114,7 +114,7 @@ public class f {
             Lj();
             return;
         }
-        bBj();
+        bBi();
     }
 
     public boolean isConvertRunning() {
@@ -232,7 +232,7 @@ public class f {
         }
     }
 
-    public static boolean bBk() {
+    public static boolean bBj() {
         File file = new File(gPG);
         if (file != null) {
             if (file.exists() && !file.isDirectory()) {

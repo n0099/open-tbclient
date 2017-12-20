@@ -13,7 +13,7 @@ public class a {
     private a() {
     }
 
-    public static a atP() {
+    public static a atO() {
         return dpl;
     }
 

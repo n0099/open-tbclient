@@ -27,7 +27,7 @@ public class m {
                 }
                 m.this.x(downloadData);
                 if (m.this.gZb != null && m.this.gZc.equals(downloadData.getUrl())) {
-                    m.this.gZb.bBm();
+                    m.this.gZb.bBl();
                 }
             }
         }
@@ -68,7 +68,7 @@ public class m {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bBm();
+        void bBl();
 
         void cn(String str, String str2);
 
@@ -86,12 +86,12 @@ public class m {
         }
         if (this.gRZ == null) {
             this.gRZ = new HashMap<>();
-            bEt();
+            bEs();
         }
         return this.gRZ.get(dX);
     }
 
-    public void bEt() {
+    public void bEs() {
         if (!StringUtils.isNull(gYZ)) {
             if (this.gRZ == null) {
                 this.gRZ = new HashMap<>();

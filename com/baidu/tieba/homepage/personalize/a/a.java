@@ -32,11 +32,11 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar.acC() == null) {
+        if (aVar.acB() == null) {
             return null;
         }
-        aVar.acC().a(bVar);
-        s.abX().a(new ak("c10714").ac("obj_param3", com.baidu.tieba.card.k.abK()));
+        aVar.acB().a(bVar);
+        s.abW().a(new ak("c10714").ac("obj_param3", com.baidu.tieba.card.k.abJ()));
         return aVar.getView();
     }
 

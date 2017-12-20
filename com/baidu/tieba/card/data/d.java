@@ -44,7 +44,7 @@ public class d extends b implements r {
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean ack() {
+    public boolean acj() {
         return false;
     }
 
@@ -56,7 +56,7 @@ public class d extends b implements r {
     public void dX(boolean z) {
     }
 
-    public AdvertAppInfo acl() {
+    public AdvertAppInfo ack() {
         return this.cdC;
     }
 }

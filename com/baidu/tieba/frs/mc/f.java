@@ -39,10 +39,10 @@ public class f extends h {
             }
         };
         this.cOx.registerListener(this.anW);
-        this.cYw = aqh();
+        this.cYw = aqg();
     }
 
-    public final PraiseModel aqh() {
+    public final PraiseModel aqg() {
         if (this.cYw == null) {
             this.cYw = new PraiseModel(this.cOx.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.f.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
@@ -74,8 +74,8 @@ public class f extends h {
 
     public void kp(int i) {
         ArrayList<com.baidu.adp.widget.ListView.f> threadList;
-        k alF = this.cOx.alF();
-        if (alF != null && this.cHi != null && (threadList = alF.getThreadList()) != null) {
+        k alE = this.cOx.alE();
+        if (alE != null && this.cHi != null && (threadList = alE.getThreadList()) != null) {
             Iterator<com.baidu.adp.widget.ListView.f> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -95,8 +95,8 @@ public class f extends h {
                     }
                 }
             }
-            this.cHi.ame().b(threadList, alF);
-            this.cHi.ame().notifyDataSetChanged();
+            this.cHi.amd().b(threadList, alE);
+            this.cHi.amd().notifyDataSetChanged();
         }
     }
 

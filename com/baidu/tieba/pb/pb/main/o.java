@@ -50,7 +50,7 @@ public class o {
     public void pX(int i) {
         if (this.eTs != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-            httpMessage.addParam("thread_id", this.eTs.aUn());
+            httpMessage.addParam("thread_id", this.eTs.aUm());
             httpMessage.addParam("status", String.valueOf(i));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

@@ -46,27 +46,27 @@ public class l extends e<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entele
             public void a(View view, bd bdVar) {
                 if (view != null && bdVar != null) {
                     if (view.getId() == d.g.card_home_page_normal_thread_user_name || (view instanceof HeadImageView) || (view instanceof HeadPendantView)) {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 2);
                     } else if (view.getId() == d.g.card_divider_tv) {
                         com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.cYY, bdVar.rU());
                     } else if (view instanceof TbImageView) {
                         if (l.this.buT.aXD instanceof Boolean) {
                             if (((Boolean) l.this.buT.aXD).booleanValue()) {
-                                com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 1);
+                                com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 1);
                             } else {
-                                com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 3);
+                                com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 3);
                             }
                         }
                     } else if (view.getId() == d.g.card_home_page_normal_thread_abstract_voice) {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 5);
+                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 5);
                     } else if (view.getId() == d.g.card_frs_god_reply_layout) {
                         int i = 6;
-                        if (bdVar.sM() != null && bdVar.sM().bwY() != null && bdVar.sM().bwY().Jr() != null && bdVar.sM().bwY().Jr().size() > 0) {
+                        if (bdVar.sM() != null && bdVar.sM().bwX() != null && bdVar.sM().bwX().Jr() != null && bdVar.sM().bwX().Jr().size() > 0) {
                             i = bdVar.sM().gCv ? 9 : 8;
                         }
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, i);
+                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, i);
                     } else {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 1);
+                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 1);
                     }
                 }
             }
@@ -74,7 +74,7 @@ public class l extends e<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entele
         this.cNG = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.layout.b>() { // from class: com.baidu.tieba.frs.entelechy.a.l.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: anM */
+            /* renamed from: anL */
             public com.baidu.tbadk.widget.layout.b fI() {
                 return new com.baidu.tbadk.widget.layout.b(l.this.mPageContext.getPageActivity());
             }
@@ -162,14 +162,14 @@ public class l extends e<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entele
         if (bdVar != null && bdVar.ra()) {
             J(bdVar);
         }
-        if (aVar == null || aVar.acC() == null) {
+        if (aVar == null || aVar.acB() == null) {
             return null;
         }
-        com.baidu.tieba.frs.d.a(aVar.acC().abY(), this.cGO);
-        aVar.acC().a(bdVar);
-        aVar.acC().setForumName(this.mForumName);
-        aVar.acC().b(this.buT);
-        com.baidu.tieba.frs.e.b.aqw().a(cYY, bdVar);
+        com.baidu.tieba.frs.d.a(aVar.acB().abX(), this.cGO);
+        aVar.acB().a(bdVar);
+        aVar.acB().setForumName(this.mForumName);
+        aVar.acB().b(this.buT);
+        com.baidu.tieba.frs.e.b.aqv().a(cYY, bdVar);
         if (bdVar != null) {
             bdVar.su();
         }

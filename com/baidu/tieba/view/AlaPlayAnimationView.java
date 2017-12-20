@@ -33,7 +33,7 @@ public class AlaPlayAnimationView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bEG();
+        bEF();
     }
 
     public void startPlayAnimation() {
@@ -46,7 +46,7 @@ public class AlaPlayAnimationView extends ImageView {
         }
     }
 
-    public void bEG() {
+    public void bEF() {
         if (this.hao != null) {
             this.hao.setRepeatCount(-1);
             this.hao.cancel();

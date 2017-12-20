@@ -72,23 +72,23 @@ public class EnterForumModel extends BdBaseModel {
         return this.unique_id;
     }
 
-    public long ahq() {
+    public long ahp() {
         return this.ctU;
     }
 
-    public long ahr() {
+    public long ahq() {
         return this.ctS;
     }
 
-    public long ahs() {
+    public long ahr() {
         return this.ctT;
     }
 
-    public long aht() {
+    public long ahs() {
         return this.ctR;
     }
 
-    public com.baidu.tieba.enterForum.data.b ahu() {
+    public com.baidu.tieba.enterForum.data.b aht() {
         return this.ctO;
     }
 
@@ -108,11 +108,11 @@ public class EnterForumModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         cancelMessage();
-        ahv();
+        ahu();
         return true;
     }
 
-    private void ahv() {
+    private void ahu() {
         if (this.ctQ != null) {
             this.ctQ.destory();
             this.ctQ = null;
@@ -134,7 +134,7 @@ public class EnterForumModel extends BdBaseModel {
     }
 
     public boolean eD(boolean z) {
-        ahw();
+        ahv();
         return true;
     }
 
@@ -274,7 +274,7 @@ public class EnterForumModel extends BdBaseModel {
         }
     }
 
-    private void ahw() {
+    private void ahv() {
         new BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.data.b>() { // from class: com.baidu.tieba.enterForum.model.EnterForumModel.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -294,8 +294,8 @@ public class EnterForumModel extends BdBaseModel {
                     } catch (Exception e) {
                         bVar.av(false);
                     }
-                    if (bVar.isSuccess() && !bVar.agP()) {
-                        bVar.agN().agT();
+                    if (bVar.isSuccess() && !bVar.agO()) {
+                        bVar.agM().agS();
                     }
                 }
                 return bVar;

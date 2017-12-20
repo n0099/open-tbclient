@@ -15,7 +15,7 @@ public class f extends com.baidu.tbadk.editortools.emotiontool.a {
         return 1;
     }
 
-    public static synchronized f agG() {
+    public static synchronized f agF() {
         f fVar;
         synchronized (f.class) {
             fVar = csv;

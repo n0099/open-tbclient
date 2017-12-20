@@ -19,7 +19,7 @@ public class d {
         this.css = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c agy() {
+    public com.baidu.tbadk.editortools.emotiontool.c agx() {
         return this.css;
     }
 
@@ -27,7 +27,7 @@ public class d {
         this.csp = emotionGroupType;
     }
 
-    public EmotionGroupType agz() {
+    public EmotionGroupType agy() {
         return this.csp;
     }
 
@@ -43,7 +43,7 @@ public class d {
         this.column = i;
     }
 
-    public int agA() {
+    public int agz() {
         return this.column;
     }
 
@@ -51,7 +51,7 @@ public class d {
         this.csu = i;
     }
 
-    public int agB() {
+    public int agA() {
         return this.csu;
     }
 
@@ -59,7 +59,7 @@ public class d {
         this.cst = i;
     }
 
-    public int agC() {
+    public int agB() {
         return this.cst;
     }
 
@@ -67,7 +67,7 @@ public class d {
         this.csq = i;
     }
 
-    public int agD() {
+    public int agC() {
         return this.csq;
     }
 
@@ -75,7 +75,7 @@ public class d {
         this.startIndex = i;
     }
 
-    public int agE() {
+    public int agD() {
         return this.startIndex;
     }
 
@@ -95,7 +95,7 @@ public class d {
         this.csr = i;
     }
 
-    public int agF() {
+    public int agE() {
         return this.csr;
     }
 }

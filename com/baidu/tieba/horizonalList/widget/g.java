@@ -93,10 +93,10 @@ public class g {
                     break;
                 }
             case 1:
-                if (!this.duP.dva && !this.duP.auT() && !this.duP.auS()) {
+                if (!this.duP.dva && !this.duP.auS() && !this.duP.auR()) {
                     this.duP.finish();
                 }
-                if (!this.duQ.dva && !this.duQ.auT() && !this.duQ.auS()) {
+                if (!this.duQ.dva && !this.duQ.auS() && !this.duQ.auR()) {
                     this.duQ.finish();
                     break;
                 }
@@ -346,7 +346,7 @@ public class g {
         private void M(int i, int i2, int i3) {
             this.duX = mt(i3 == 0 ? i - i2 : i3);
             L(i, i2, i3);
-            auR();
+            auQ();
         }
 
         private void s(int i, int i2, int i3, int i4) {
@@ -375,7 +375,7 @@ public class g {
             }
         }
 
-        private void auR() {
+        private void auQ() {
             float abs = (this.duV * this.duV) / (Math.abs(this.duX) * 2.0f);
             float signum = Math.signum(this.duV);
             if (abs > this.dvb) {
@@ -392,7 +392,7 @@ public class g {
             this.mDuration = -((int) ((1000.0f * this.duV) / this.duX));
         }
 
-        boolean auS() {
+        boolean auR() {
             switch (this.mState) {
                 case 0:
                     if (this.mDuration < this.duY) {
@@ -400,7 +400,7 @@ public class g {
                         this.duV = (int) this.duW;
                         this.duX = mt(this.duV);
                         this.mStartTime += this.mDuration;
-                        auR();
+                        auQ();
                         break;
                     } else {
                         return false;
@@ -412,11 +412,11 @@ public class g {
                     K(this.duU, this.mStart, 0);
                     break;
             }
-            auT();
+            auS();
             return true;
         }
 
-        boolean auT() {
+        boolean auS() {
             long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.mStartTime;
             if (currentAnimationTimeMillis > this.mDuration) {
                 return false;

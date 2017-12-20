@@ -91,16 +91,16 @@ public class ak extends j.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (ak.this.fbj != null && ak.this.fbj.mType == com.baidu.tieba.pb.data.j.ePW && customResponsedMessage != null && getTag() == com.baidu.tieba.pb.data.j.ePW && (customResponsedMessage.getData() instanceof ar.a) && ak.this.mRootView != null && ak.this.fbf.aSI() && ak.this.faZ != null && ak.this.faZ.getVisibility() == 0) {
+                if (ak.this.fbj != null && ak.this.fbj.mType == com.baidu.tieba.pb.data.j.ePW && customResponsedMessage != null && getTag() == com.baidu.tieba.pb.data.j.ePW && (customResponsedMessage.getData() instanceof ar.a) && ak.this.mRootView != null && ak.this.fbf.aSH() && ak.this.faZ != null && ak.this.faZ.getVisibility() == 0) {
                     if (ak.this.mRootView == null || ak.this.mRootView.getParent() == null) {
                         ak.this.fbf.hideTip();
                         return;
                     }
-                    if (!ak.this.fbf.aSI() && !com.baidu.tieba.pb.pb.godreply.a.c.bP(ak.this.mRootView.getContext())) {
+                    if (!ak.this.fbf.aSH() && !com.baidu.tieba.pb.pb.godreply.a.c.bP(ak.this.mRootView.getContext())) {
                         ak.this.fbf.showTip(ak.this.faZ);
                     }
-                    if (ak.this.fbf.aSI()) {
-                        ak.this.fbf.bb(ak.this.faZ);
+                    if (ak.this.fbf.aSH()) {
+                        ak.this.fbf.bc(ak.this.faZ);
                     }
                 }
             }
@@ -182,7 +182,7 @@ public class ak extends j.a {
                         }
                     };
                     this.fbc.setOnClickListener(onClickListener);
-                    if (!com.baidu.tieba.pb.pb.godreply.a.c.bP(context) && this.faZ != null && this.faZ.getVisibility() == 0 && !this.fbf.aSI()) {
+                    if (!com.baidu.tieba.pb.pb.godreply.a.c.bP(context) && this.faZ != null && this.faZ.getVisibility() == 0 && !this.fbf.aSH()) {
                         this.fbf.E(onClickListener);
                         this.fbf.showTip(this.faZ);
                     }

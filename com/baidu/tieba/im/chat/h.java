@@ -87,7 +87,7 @@ public class h {
 
     public void a(com.baidu.adp.lib.c.a aVar) {
         for (e eVar : this.mAdapters) {
-            if (eVar.axo()) {
+            if (eVar.axn()) {
                 eVar.a(aVar);
             }
         }
@@ -95,7 +95,7 @@ public class h {
 
     public void setOnItemViewLongClickListener(b bVar) {
         for (e eVar : this.mAdapters) {
-            if (eVar.axn()) {
+            if (eVar.axm()) {
                 eVar.setOnItemViewLongClickListener(bVar);
             }
         }

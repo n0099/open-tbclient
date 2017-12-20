@@ -70,10 +70,10 @@ public class a {
             this.locate = str4;
             this.gCT = str5;
             this.Xh = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.efG = bxn();
+            this.efG = bxm();
         }
 
-        private ak bxn() {
+        private ak bxm() {
             ak akVar = new ak(this.key);
             if (!StringUtils.isNull(this.gCS)) {
                 akVar = akVar.ac("line", this.gCS);

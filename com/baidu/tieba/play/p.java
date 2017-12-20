@@ -73,7 +73,7 @@ public class p {
         }
     };
 
-    public void aHx() {
+    public void aHw() {
         if (this.mActivity != null) {
             if (this.mActivity.getRequestedOrientation() == 1) {
                 this.mActivity.setRequestedOrientation(0);

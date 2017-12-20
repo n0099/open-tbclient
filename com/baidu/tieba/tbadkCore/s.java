@@ -20,7 +20,7 @@ public class s implements View.OnTouchListener {
                 s.this.eQu = 0L;
             } else if (message.what == 1 && s.this.count == 1) {
                 if (s.this.gAL != null) {
-                    s.this.gAL.amp();
+                    s.this.gAL.amo();
                 }
                 s.this.count = 0;
                 s.this.eQt = 0L;
@@ -31,9 +31,9 @@ public class s implements View.OnTouchListener {
 
     /* loaded from: classes.dex */
     public interface a {
-        void amp();
+        void amo();
 
-        void amq();
+        void amp();
     }
 
     public s(a aVar) {
@@ -54,7 +54,7 @@ public class s implements View.OnTouchListener {
             } else if (this.count == 2) {
                 this.eQu = System.currentTimeMillis();
                 if (this.eQu - this.eQt < this.eQw) {
-                    this.gAL.amq();
+                    this.gAL.amp();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

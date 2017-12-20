@@ -87,7 +87,7 @@ public class b {
         }
     }
 
-    public g agN() {
+    public g agM() {
         return this.csN;
     }
 
@@ -99,7 +99,7 @@ public class b {
         this.csO = jVar;
     }
 
-    public List<com.baidu.tieba.enterForum.multiConcern.b> agO() {
+    public List<com.baidu.tieba.enterForum.multiConcern.b> agN() {
         return this.csP;
     }
 
@@ -115,7 +115,7 @@ public class b {
         return this.BI;
     }
 
-    public boolean agP() {
+    public boolean agO() {
         return System.currentTimeMillis() / com.baidu.tbadk.data.b.aAd.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.aAd.longValue();
     }
 

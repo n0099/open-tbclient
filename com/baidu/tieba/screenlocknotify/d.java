@@ -25,10 +25,10 @@ public class d {
         }
     }
 
-    public void bnf() {
+    public void bne() {
         try {
             this.gen.reenableKeyguard();
-            a.bna().gdZ++;
+            a.bmZ().gdZ++;
             if (this.gem != null) {
                 this.gem.release();
                 this.gem = null;
@@ -38,7 +38,7 @@ public class d {
         }
     }
 
-    public void bng() {
+    public void bnf() {
         try {
             if (this.gem == null) {
                 this.gem = this.gel.newWakeLock(268435462, "ScreenLockNotify");
@@ -47,15 +47,15 @@ public class d {
             if (this.gem != null) {
                 this.gem.acquire(10000L);
                 this.gen.disableKeyguard();
-                a.bna().gdW = 0;
-                a.bna().gea++;
+                a.bmZ().gdW = 0;
+                a.bmZ().gea++;
             }
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    public boolean bnh() {
+    public boolean bng() {
         try {
             return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.gek, new Object[0])).booleanValue();
         } catch (Throwable th) {

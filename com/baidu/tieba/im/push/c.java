@@ -31,7 +31,7 @@ public class c {
         MessageManager.getInstance().registerListener(this.dSx);
     }
 
-    public static c aCK() {
+    public static c aCJ() {
         if (dTv == null) {
             synchronized (c.class) {
                 if (dTv == null) {
@@ -74,11 +74,11 @@ public class c {
         return this.dTw;
     }
 
-    public Long aCL() {
-        return com.baidu.tieba.im.memorycache.b.aBP().aBZ().get(this.dTw);
+    public Long aCK() {
+        return com.baidu.tieba.im.memorycache.b.aBO().aBY().get(this.dTw);
     }
 
-    public synchronized List<Long> aCM() {
+    public synchronized List<Long> aCL() {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (Long l : this.dTx) {
@@ -89,7 +89,7 @@ public class c {
         return arrayList;
     }
 
-    public synchronized void aCN() {
+    public synchronized void aCM() {
         this.dTx.clear();
     }
 
@@ -117,7 +117,7 @@ public class c {
         }
     }
 
-    public synchronized boolean aCO() {
+    public synchronized boolean aCN() {
         boolean z;
         if (this.dTw > 0) {
             z = this.dTx.size() > 0;
@@ -142,7 +142,7 @@ public class c {
         return z;
     }
 
-    public synchronized String aCP() {
+    public synchronized String aCO() {
         String str;
         str = "";
         for (Long l : this.dTx) {

@@ -24,27 +24,27 @@ public class a {
         }
     }
 
-    public String asr() {
+    public String asq() {
         return this.mTitle;
     }
 
-    public String ass() {
+    public String asr() {
         return this.die;
     }
 
-    public String ast() {
+    public String ass() {
         return this.dif;
     }
 
-    public String asu() {
+    public String ast() {
         return this.dig;
     }
 
-    public String asv() {
+    public String asu() {
         return this.dih;
     }
 
-    public String asw() {
+    public String asv() {
         return this.dii;
     }
 
@@ -52,7 +52,7 @@ public class a {
         this.dii = str;
     }
 
-    public String asx() {
+    public String asw() {
         return this.dij;
     }
 

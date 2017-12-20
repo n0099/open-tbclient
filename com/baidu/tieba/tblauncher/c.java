@@ -77,7 +77,7 @@ public class c {
             FragmentTabHost.c cB = c.this.bhp.cB(i);
             if (cB.mType == 9) {
                 if (ax.aS(c.this.gGC.getPageContext().getPageActivity())) {
-                    c.this.gGC.apA();
+                    c.this.gGC.apz();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WRITE_THREAD_CLICK, Integer.valueOf(i)));
                 return false;
@@ -110,13 +110,13 @@ public class c {
     private Runnable fgT = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.4
         @Override // java.lang.Runnable
         public void run() {
-            c.this.aXq();
+            c.this.aXp();
         }
     };
     private View.OnClickListener fgU = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.c.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.byR();
+            c.this.byQ();
         }
     };
 
@@ -143,7 +143,7 @@ public class c {
                 } else {
                     TiebaStatic.log("kantie_entry");
                 }
-                c.this.byP();
+                c.this.byO();
                 if (c.this.bhp.getCurrentTabType() != c.this.bhp.cB(i).mType) {
                     c.this.bhp.setCurrentTab(i);
                 }
@@ -152,7 +152,7 @@ public class c {
                     c.this.bfN.setVisibility(0);
                 }
                 c.this.eGi = c.this.bhp.getCurrentTabType();
-                c.this.byN();
+                c.this.byM();
                 if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("enter_forum_edit_mode", false)) {
                     if (c.this.bhp.getCurrentTabType() != 3) {
                         if (c.this.bhp.getCurrentTabType() == 2) {
@@ -176,7 +176,7 @@ public class c {
             }
         });
         this.gGG = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("has_show_message_tab_tips", false);
-        anb();
+        ana();
         this.gGF = (TextView) this.gGC.findViewById(d.g.activity_prize_my_tip);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHOW_FLOATING_LAYER_MAINTAB, this.gGC.getPageContext()));
         switchNaviBarStatus(z);
@@ -225,11 +225,11 @@ public class c {
         }
     }
 
-    public void byL() {
+    public void byK() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("has_show_message_tab_tips", this.gGG);
     }
 
-    public boolean byM() {
+    public boolean byL() {
         return this.gGD != null && this.gGD.getVisibility() == 0;
     }
 
@@ -323,7 +323,7 @@ public class c {
         }
     }
 
-    public void byN() {
+    public void byM() {
         FragmentTabHost.c cC;
         if (this.bhp != null && (cC = this.bhp.cC(this.bhp.getCurrentTabType())) != null && cC.aeE != null && cC.aeE.Fa() != null) {
             String string = this.gGC.getPageContext().getString(cC.aeE.Fa().aHH);
@@ -333,7 +333,7 @@ public class c {
         }
     }
 
-    public void anb() {
+    public void ana() {
         this.mNavigationBar = (NavigationBar) this.gGC.findViewById(d.g.view_navigation_bar);
         if (this.mNavigationBar != null) {
             this.ear = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.h.maintab_title_layout, (View.OnClickListener) null).findViewById(d.g.title_textview);
@@ -431,7 +431,7 @@ public class c {
     }
 
     public void no(boolean z) {
-        if (byM()) {
+        if (byL()) {
             if (z) {
                 if (this.gGE.getVisibility() != 0) {
                     this.gGE.setVisibility(0);
@@ -485,7 +485,7 @@ public class c {
         }
     }
 
-    public boolean aOE() {
+    public boolean aOD() {
         return this.eGm;
     }
 
@@ -511,11 +511,11 @@ public class c {
         }
     }
 
-    public FragmentTabHost byO() {
+    public FragmentTabHost byN() {
         return this.bhp;
     }
 
-    public void byP() {
+    public void byO() {
         if (this.bhp != null) {
             if ((this.bhp.getCurrentTabType() == 8 || this.bhp.getCurrentTabType() == 3 || this.bhp.getCurrentTabType() == 2 || this.bhp.getCurrentTabType() == 15) && this.mNavigationBar != null) {
                 this.mNavigationBar.setVisibility(8);
@@ -531,7 +531,7 @@ public class c {
         }
     }
 
-    public void byQ() {
+    public void byP() {
         if (!this.gGI) {
             this.gGI = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_maintab_last_new_write_tips", false);
             if (!this.gGI) {
@@ -545,14 +545,14 @@ public class c {
         }
     }
 
-    public void byR() {
+    public void byQ() {
         this.mHandler.removeCallbacks(this.fgS);
         this.mHandler.removeCallbacks(this.fgT);
-        aXq();
+        aXp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXq() {
+    public void aXp() {
         g.a(this.gGH);
     }
 
@@ -575,23 +575,23 @@ public class c {
                 akVar.ac("obj_locate", "2");
                 TiebaStatic.log(akVar);
                 aVar2.dismiss();
-                com.baidu.tieba.h.a.atg();
+                com.baidu.tieba.h.a.atf();
             }
         });
         aVar.b(this.gGC.getPageContext()).th();
     }
 
     public void onDestroy() {
-        byL();
-        if (byO() != null) {
-            byO().reset();
+        byK();
+        if (byN() != null) {
+            byN().reset();
         }
-        byR();
+        byQ();
         if (this.cXB != null) {
             this.cXB.onDestroy();
         }
         if (this.cJa != null) {
-            this.cJa.and();
+            this.cJa.anc();
         }
     }
 

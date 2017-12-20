@@ -54,15 +54,15 @@ public class aa extends com.baidu.adp.base.c<PbActivity> {
         return this.mView;
     }
 
-    public TextView aVa() {
+    public TextView aUZ() {
         return this.eZi;
     }
 
-    public TextView aVi() {
+    public TextView aVh() {
         return this.eZt;
     }
 
-    public TextView aVj() {
+    public TextView aVi() {
         return this.eZB;
     }
 
@@ -70,47 +70,47 @@ public class aa extends com.baidu.adp.base.c<PbActivity> {
         return this.cip;
     }
 
-    public View aVk() {
+    public View aVj() {
         return this.eZF;
     }
 
-    public TextView aVl() {
+    public TextView aVk() {
         return this.eZD;
     }
 
-    public TextView aVm() {
+    public TextView aVl() {
         return this.eZx;
     }
 
-    public TextView aVn() {
+    public TextView aVm() {
         return this.eZv;
     }
 
-    public TextView aVo() {
+    public TextView aVn() {
         return this.eZA;
     }
 
-    public TextView aVp() {
+    public TextView aVo() {
         return this.eZu;
     }
 
-    public TextView aVq() {
+    public TextView aVp() {
         return this.eZw;
     }
 
-    public TextView aVr() {
+    public TextView aVq() {
         return this.eZy;
     }
 
-    public TextView aVs() {
+    public TextView aVr() {
         return this.eZz;
     }
 
-    public TextView aVt() {
+    public TextView aVs() {
         return this.eZC;
     }
 
-    public void aVu() {
+    public void aVt() {
         if (this.aHo == null) {
             this.aHo = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.aa.1
                 @Override // java.lang.Runnable
@@ -122,7 +122,7 @@ public class aa extends com.baidu.adp.base.c<PbActivity> {
         this.eZF.postDelayed(this.aHo, 200L);
     }
 
-    public void aVv() {
+    public void aVu() {
         this.eZF.setBackgroundColor(this.eZE.getResources().getColor(d.C0096d.common_color_10022));
     }
 
@@ -248,7 +248,7 @@ public class aa extends com.baidu.adp.base.c<PbActivity> {
         this.eZF.setOnClickListener(this.mClickListener);
     }
 
-    public void adm() {
+    public void adl() {
         com.baidu.tbadk.core.util.aj.k(this.eZG, d.C0096d.cp_bg_line_e);
         com.baidu.tbadk.core.util.aj.k(this.eZH, d.C0096d.cp_bg_line_e);
         com.baidu.tbadk.core.util.aj.j(this.cip, d.f.pb_more_pop_cancle_selector);

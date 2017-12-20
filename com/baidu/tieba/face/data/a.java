@@ -15,7 +15,7 @@ public class a {
         this.bSq = i;
     }
 
-    public int ahM() {
+    public int ahL() {
         return this.bOj;
     }
 
@@ -23,7 +23,7 @@ public class a {
         this.bOj = i;
     }
 
-    public List<EmotionImageData> ahN() {
+    public List<EmotionImageData> ahM() {
         return this.cvy;
     }
 

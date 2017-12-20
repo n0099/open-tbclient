@@ -51,7 +51,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                 }
                 InviteFriendListActivity.this.dYy = contacts;
                 if (InviteFriendListActivity.this.dYw != null) {
-                    InviteFriendListActivity.this.aEi();
+                    InviteFriendListActivity.this.aEh();
                 }
             }
         }
@@ -100,11 +100,11 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         initView();
         Om();
         if (z) {
-            aEh();
+            aEg();
         }
     }
 
-    private void aEh() {
+    private void aEg() {
         registerListener(new CustomMessageListener(CmdConfigCustom.CMD_PERSONAL_CHAT_INITED) { // from class: com.baidu.tieba.imMessageCenter.im.friend.InviteFriendListActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -126,14 +126,14 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.dYw.aEr();
+        this.dYw.aEq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.dYw.aEs();
+        this.dYw.aEr();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -156,7 +156,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     }
 
     private void Om() {
-        aEi();
+        aEh();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -167,7 +167,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
     }
 
-    public void aEi() {
+    public void aEh() {
         String trim;
         if (!isFinishing()) {
             if (this.dYy == null) {
@@ -178,11 +178,11 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                 }
                 return;
             }
-            String aEp = this.dYw.aEp();
-            if (aEp == null) {
+            String aEo = this.dYw.aEo();
+            if (aEo == null) {
                 trim = "";
             } else {
-                trim = aEp.trim();
+                trim = aEo.trim();
             }
             if (this.dYy.isEmpty() && trim.length() > 0) {
                 showToast(getPageContext().getString(d.j.invite_friend_no_data_now));
@@ -207,10 +207,10 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.dYw != null) {
-            this.dYw.aEv();
-            if (view.getId() == this.dYw.aEo()) {
+            this.dYw.aEu();
+            if (view.getId() == this.dYw.aEn()) {
                 showLoadingDialog();
-                this.dYx.nt(this.dYw.aEq());
+                this.dYx.nt(this.dYw.aEp());
             }
         }
     }
@@ -243,8 +243,8 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.dYw.aEn()) {
-            this.dYw.aEm();
+        if (i == 4 && this.dYw.aEm()) {
+            this.dYw.aEl();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

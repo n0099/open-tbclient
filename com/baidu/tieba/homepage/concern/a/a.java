@@ -40,7 +40,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                     } else {
                         akVar.r("obj_locate", 1);
                     }
-                    akVar.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.atN());
+                    akVar.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.atM());
                     TiebaStatic.log(akVar);
                 }
             }
@@ -68,10 +68,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (bVar.doG == null || aVar == null || StringUtils.isNull(bVar.doG.getName()) || StringUtils.isNull(bVar.doG.getUserId())) {
             return null;
         }
-        aVar.acC().a(bVar);
-        aVar.acC().b(this.dof);
-        aVar.acC().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        s.abX().a(new ak("c12353").f("uid", TbadkCoreApplication.getCurrentAccountId()).ac("obj_id", bVar.doG.getUserId()).r("obj_type", 4).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.atN()).ac("tid", bVar.cBz.getTid()));
+        aVar.acB().a(bVar);
+        aVar.acB().b(this.dof);
+        aVar.acB().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        s.abW().a(new ak("c12353").f("uid", TbadkCoreApplication.getCurrentAccountId()).ac("obj_id", bVar.doG.getUserId()).r("obj_type", 4).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.atM()).ac("tid", bVar.cBz.getTid()));
         return aVar.getView();
     }
 }

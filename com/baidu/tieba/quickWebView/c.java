@@ -53,7 +53,7 @@ public class c {
         }
     };
 
-    public static c bls() {
+    public static c blr() {
         if (fVT == null) {
             synchronized (c.class) {
                 if (fVT == null) {
@@ -67,7 +67,7 @@ public class c {
     private c() {
     }
 
-    public String blt() {
+    public String bls() {
         return this.fVU;
     }
 
@@ -105,13 +105,13 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: g */
         public b doInBackground(Void... voidArr) {
-            b blv = c.this.blv();
-            if (blv == null || TextUtils.isEmpty(blv.fVZ) || blv.fWa == null || blv.fWa.size() == 0) {
-                blv = c.this.blu();
+            b blu = c.this.blu();
+            if (blu == null || TextUtils.isEmpty(blu.fVZ) || blu.fWa == null || blu.fWa.size() == 0) {
+                blu = c.this.blt();
             }
-            if (blv != null && !TextUtils.isEmpty(blv.fVZ) && blv.fWa != null && blv.fWa.size() != 0) {
-                c.rL(blv.fWb);
-                return blv;
+            if (blu != null && !TextUtils.isEmpty(blu.fVZ) && blu.fWa != null && blu.fWa.size() != 0) {
+                c.rL(blu.fWb);
+                return blu;
             }
             return null;
         }
@@ -127,7 +127,7 @@ public class c {
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "read error", new Object[0]);
             } else {
                 c.this.fVX = bVar.fVZ;
-                d.blz().h(bVar.fWa);
+                d.bly().h(bVar.fWa);
                 str = bVar.fWb;
             }
             c.this.fVU = str;
@@ -141,7 +141,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public b blu() {
+    public b blt() {
         IOException e;
         String str;
         InputStream inputStream = null;
@@ -189,7 +189,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public b blv() {
+    public b blu() {
         String str;
         FileInputStream fileInputStream;
         String[] list;
@@ -396,7 +396,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void blw() {
+    public static void blv() {
         k.r(new File(fVW + "bdtbWCacheTemp"));
     }
 
@@ -425,7 +425,7 @@ public class c {
             FileInputStream fileInputStream;
             String str;
             String e;
-            c.blw();
+            c.blv();
             if (!j.hi()) {
                 return null;
             }
@@ -447,7 +447,7 @@ public class c {
                             str = c.fVW + "bdtbWCacheTemp/" + this.mVersion;
                             if (!com.baidu.tbadk.core.hybrid.s.T(str2, str)) {
                             }
-                            c.blw();
+                            c.blv();
                             return null;
                         }
                     } catch (Throwable th) {
@@ -476,14 +476,14 @@ public class c {
                     }
                 } else {
                     com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "md5 error", new Object[0]);
-                    c.blw();
+                    c.blv();
                     n.d(fileInputStream);
                     return null;
                 }
             } else {
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "download error", new Object[0]);
             }
-            c.blw();
+            c.blv();
             return null;
         }
     }

@@ -40,12 +40,12 @@ class f extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            bBQ();
-            if (bBS()) {
+            bBP();
+            if (bBR()) {
                 com.baidu.adp.lib.g.e.fP().post(new Runnable() { // from class: com.baidu.tieba.video.editvideo.b.f.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        f.this.bBP();
+                        f.this.bBO();
                     }
                 });
             }
@@ -53,7 +53,7 @@ class f extends Thread {
         }
     }
 
-    public void bBP() {
+    public void bBO() {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:172:0x01c1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -70,7 +70,7 @@ class f extends Thread {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void bBQ() throws Exception {
+    private void bBP() throws Exception {
         Throwable th;
         g gVar;
         MediaCodec mediaCodec;
@@ -86,7 +86,7 @@ class f extends Thread {
         MediaCodecInfo ue = ue("video/avc");
         if (ue != null) {
             try {
-                mediaExtractor2 = bBR();
+                mediaExtractor2 = bBQ();
                 try {
                     MediaFormat trackFormat = mediaExtractor2.getTrackFormat(c(mediaExtractor2));
                     int integer = trackFormat.getInteger("width");
@@ -411,7 +411,7 @@ class f extends Thread {
         }
     }
 
-    private MediaExtractor bBR() throws IOException {
+    private MediaExtractor bBQ() throws IOException {
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(this.gRC);
         return mediaExtractor;
@@ -467,8 +467,8 @@ class f extends Thread {
         MediaFormat mediaFormat2 = null;
         ByteBuffer[] byteBufferArr3 = outputBuffers2;
         boolean z7 = false;
-        while (!z4 && bBS()) {
-            if (z7 || !((mediaFormat2 == null || this.gRF.isStarted()) && bBS())) {
+        while (!z4 && bBR()) {
+            if (z7 || !((mediaFormat2 == null || this.gRF.isStarted()) && bBR())) {
                 z = z7;
             } else {
                 int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L);
@@ -489,7 +489,7 @@ class f extends Thread {
                     }
                 }
             }
-            if (!z6 && ((mediaFormat2 == null || this.gRF.isStarted()) && bBS())) {
+            if (!z6 && ((mediaFormat2 == null || this.gRF.isStarted()) && bBR())) {
                 int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L);
                 if (dequeueOutputBuffer == -1) {
                     z2 = z6;
@@ -511,8 +511,8 @@ class f extends Thread {
                         boolean z9 = bufferInfo.size != 0;
                         mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, z9);
                         if (z9) {
-                            hVar.bBX();
                             hVar.bBW();
+                            hVar.bBV();
                             gVar.setPresentationTime(bufferInfo.presentationTimeUs * 1000);
                             gVar.swapBuffers();
                         }
@@ -523,7 +523,7 @@ class f extends Thread {
                         }
                     }
                 }
-                if (z4 && ((mediaFormat2 == null || this.gRF.isStarted()) && bBS())) {
+                if (z4 && ((mediaFormat2 == null || this.gRF.isStarted()) && bBR())) {
                     int dequeueOutputBuffer2 = mediaCodec2.dequeueOutputBuffer(bufferInfo2, 10000L);
                     if (dequeueOutputBuffer2 == -1) {
                         mediaFormat = mediaFormat2;
@@ -568,7 +568,7 @@ class f extends Thread {
                     z3 = true;
                 }
                 if (!this.gRF.isStarted() && z3) {
-                    this.gRF.bBT();
+                    this.gRF.bBS();
                     if (this.gRF.start()) {
                         synchronized (this.gRF) {
                             while (!this.gRF.isStarted()) {
@@ -607,7 +607,7 @@ class f extends Thread {
             z3 = z5;
             i = i2;
             if (!this.gRF.isStarted()) {
-                this.gRF.bBT();
+                this.gRF.bBS();
                 if (this.gRF.start()) {
                 }
             }
@@ -621,7 +621,7 @@ class f extends Thread {
         }
     }
 
-    private boolean bBS() {
+    private boolean bBR() {
         return !Thread.currentThread().isInterrupted();
     }
 

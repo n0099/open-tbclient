@@ -34,21 +34,21 @@ public class e {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.ly(e.this.d(customResponsedMessage));
-            e.this.cIw.alo().ame().notifyDataSetChanged();
+            e.this.cIw.aln().amd().notifyDataSetChanged();
         }
     };
     private CustomMessageListener cYs = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.mc.e.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && e.this.cIw != null && e.this.cIw.alj() != null && e.this.cIw.alj().aoI() != null) {
+            if (customResponsedMessage != null && e.this.cIw != null && e.this.cIw.ali() != null && e.this.cIw.ali().aoH() != null) {
                 String str = (String) customResponsedMessage.getData();
-                e.this.e(str, e.this.cIw.alj().aoI().aRo().getBannerListData().getAllAdvertList());
-                e.this.f(str, e.this.cIw.alo().getListView().getData());
-                e.this.f(str, e.this.cIw.alk().apP().getDataList());
-                e.this.cIw.alj().lx(str);
-                if (e.this.cIw.alo() != null && e.this.cIw.alo().ame() != null) {
-                    e.this.cIw.alo().ame().notifyDataSetChanged();
+                e.this.e(str, e.this.cIw.ali().aoH().aRn().getBannerListData().getAllAdvertList());
+                e.this.f(str, e.this.cIw.aln().getListView().getData());
+                e.this.f(str, e.this.cIw.alj().apO().getDataList());
+                e.this.cIw.ali().lx(str);
+                if (e.this.cIw.aln() != null && e.this.cIw.aln().amd() != null) {
+                    e.this.cIw.aln().amd().notifyDataSetChanged();
                 }
             }
         }
@@ -74,10 +74,10 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(CustomResponsedMessage<?> customResponsedMessage) {
-        if (this.cIw != null && this.cIw.alj() != null && this.cIw.alj().aoI() != null) {
+        if (this.cIw != null && this.cIw.ali() != null && this.cIw.ali().aoH() != null) {
             final String d = d(customResponsedMessage);
-            if (!StringUtils.isNull(d) && this.cIw.alo() != null && this.cIw.alo().ame() != null) {
-                final View childAt = this.cIw.alo().getListView().getChildAt(a(d, this.cIw.alo().getListView()));
+            if (!StringUtils.isNull(d) && this.cIw.aln() != null && this.cIw.aln().amd() != null) {
+                final View childAt = this.cIw.aln().getListView().getChildAt(a(d, this.cIw.aln().getListView()));
                 if (childAt != null) {
                     a(childAt, new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.mc.e.1
                         @Override // android.view.animation.Animation.AnimationListener
@@ -92,15 +92,15 @@ public class e {
                         public void onAnimationEnd(Animation animation) {
                             e.this.ly(d);
                             childAt.setVisibility(8);
-                            if (e.this.cIw.alo() != null && e.this.cIw.alo().ame() != null) {
-                                e.this.cIw.alo().ame().notifyDataSetChanged();
+                            if (e.this.cIw.aln() != null && e.this.cIw.aln().amd() != null) {
+                                e.this.cIw.aln().amd().notifyDataSetChanged();
                             }
                         }
                     });
                     return;
                 }
                 ly(d);
-                this.cIw.alo().ame().notifyDataSetChanged();
+                this.cIw.aln().amd().notifyDataSetChanged();
             }
         }
     }
@@ -108,10 +108,10 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void ly(String str) {
         if (!StringUtils.isNull(str)) {
-            ArrayList<com.baidu.adp.widget.ListView.f> threadList = this.cIw.alj().aoI().getThreadList();
+            ArrayList<com.baidu.adp.widget.ListView.f> threadList = this.cIw.ali().aoH().getThreadList();
             d(str, threadList);
-            d(str, this.cIw.alo().getListView().getData());
-            this.cIw.alj().lw(str);
+            d(str, this.cIw.aln().getListView().getData());
+            this.cIw.ali().lw(str);
             if (threadList != null && threadList.size() < 5) {
                 this.cIw.OI();
             }

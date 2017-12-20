@@ -16,7 +16,7 @@ public class c {
     private a.InterfaceC0097a eSm = new a.InterfaceC0097a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
         @Override // com.baidu.tieba.e.a.InterfaceC0097a
         public void ag(int i, int i2) {
-            if (c.this.eSk.isActive() && !c.this.aSz() && c.this.eSk.aSv().aSF() && Math.abs(i2) > c.TOUCH_SLOP) {
+            if (c.this.eSk.isActive() && !c.this.aSy() && c.this.eSk.aSu().aSE() && Math.abs(i2) > c.TOUCH_SLOP) {
                 c.this.eSk.j(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -30,10 +30,10 @@ public class c {
 
         @Override // com.baidu.tieba.e.a.InterfaceC0097a
         public void ah(int i, int i2) {
-            if (c.this.eSk.isActive() && !c.this.aSz() && !c.this.aSA()) {
+            if (c.this.eSk.isActive() && !c.this.aSy() && !c.this.aSz()) {
                 c.this.jb(true);
                 c.this.setFullscreen(true);
-                c.this.eSk.aSv().k(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
+                c.this.eSk.aSu().k(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.jb(false);
@@ -61,13 +61,13 @@ public class c {
     }
 
     public void wB() {
-        d aSv = this.eSk.aSv();
-        if (aSv.aSC()) {
-            aSv.getListView().setOnTouchListener(this.eSn);
+        d aSu = this.eSk.aSu();
+        if (aSu.aSB()) {
+            aSu.getListView().setOnTouchListener(this.eSn);
         }
     }
 
-    public boolean aSz() {
+    public boolean aSy() {
         return this.eSi;
     }
 
@@ -75,7 +75,7 @@ public class c {
         this.eSi = z;
     }
 
-    public boolean aSA() {
+    public boolean aSz() {
         return this.eSj;
     }
 

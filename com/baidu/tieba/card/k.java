@@ -27,7 +27,7 @@ public class k {
         return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.to(str)) ? false : true;
     }
 
-    public static String abK() {
+    public static String abJ() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 

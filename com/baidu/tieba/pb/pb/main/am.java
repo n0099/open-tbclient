@@ -41,7 +41,7 @@ public class am {
 
     public void destroy() {
         if (this.fbo != null) {
-            this.fbo.adJ();
+            this.fbo.adI();
         }
     }
 

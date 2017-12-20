@@ -23,7 +23,7 @@ public class a {
         }
     }
 
-    public void bxy() {
+    public void bxx() {
         this.gDT.clear();
     }
 

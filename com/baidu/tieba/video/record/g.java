@@ -59,7 +59,7 @@ public class g extends GLSurfaceView implements h {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, com.baidu.tieba.i.k.class);
         com.baidu.tieba.i.k kVar = runTask != null ? (com.baidu.tieba.i.k) runTask.getData() : null;
         if (kVar != null) {
-            this.gCP = kVar.aOk();
+            this.gCP = kVar.aOj();
         }
         this.gWA = iVar;
         this.gWB = new b(context, this, this.gCP);
@@ -160,10 +160,10 @@ public class g extends GLSurfaceView implements h {
         if (this.gWB == null) {
             return;
         }
-        this.gWB.bDv();
+        this.gWB.bDu();
     }
 
-    public void bDs() {
+    public void bDr() {
         if (this.gWB == null) {
             return;
         }
@@ -188,12 +188,12 @@ public class g extends GLSurfaceView implements h {
         }
     }
 
-    public void bDt() {
+    public void bDs() {
         queueEvent(new Runnable() { // from class: com.baidu.tieba.video.record.g.1
             @Override // java.lang.Runnable
             public void run() {
                 if (g.this.gWB != null) {
-                    g.this.gWB.bDt();
+                    g.this.gWB.bDs();
                 }
             }
         });
@@ -256,7 +256,7 @@ public class g extends GLSurfaceView implements h {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void bDv() {
+        public void bDu() {
             this.gWQ.sendEmptyMessage(2);
         }
 
@@ -275,7 +275,7 @@ public class g extends GLSurfaceView implements h {
             this.gRV = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
             this.gWK = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
             this.gWN = this.gWK.createTextureObject();
-            bDt();
+            bDs();
             boolean unused = g.gWD = false;
         }
 
@@ -285,13 +285,13 @@ public class g extends GLSurfaceView implements h {
             this.gWM.gWG = i2;
         }
 
-        public void bDt() {
+        public void bDs() {
             if (this.gWL != null) {
                 faceunity.fuOnCameraChange();
                 this.gWL.release();
             }
             this.gWL = new SurfaceTexture(this.gWN);
-            bDw();
+            bDv();
         }
 
         public void setBeautyLevel(com.baidu.tieba.video.a aVar) {
@@ -366,7 +366,7 @@ public class g extends GLSurfaceView implements h {
                         this.gWM.gWI = false;
                     }
                     if (this.gWT != null && this.gWT.xe(2) && this.gWM.gWA != null) {
-                        this.gWU = this.gWM.gWA.bDz();
+                        this.gWU = this.gWM.gWA.bDy();
                         this.gWT.a(new c.b(new File(this.gWU), g.gWy, g.gWz, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END, null, this.gWL.getTimestamp()));
                     }
                     if (this.gWT != null && this.gWT.xe(1)) {
@@ -585,7 +585,7 @@ public class g extends GLSurfaceView implements h {
             });
         }
 
-        private void bDw() {
+        private void bDv() {
             if (this.gWM != null) {
                 Handler mainHandler = this.gWM.getMainHandler();
                 mainHandler.sendMessage(mainHandler.obtainMessage(1));

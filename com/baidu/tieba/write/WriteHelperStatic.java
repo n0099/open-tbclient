@@ -63,10 +63,10 @@ public class WriteHelperStatic {
                 }
             }
         });
-        atn();
+        atm();
     }
 
-    public static void atn() {
+    public static void atm() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.write.WriteHelperStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.d.a> run(CustomMessage<TbPageContext> customMessage) {

@@ -121,7 +121,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
             b.a aVar3 = view != null ? (b.a) view.getTag() : null;
             if (aVar3 == null) {
                 view = LayoutInflater.from(this.mContext).inflate(d.h.chat_list_item, viewGroup, false);
-                aVar3 = super.aK(view);
+                aVar3 = super.aL(view);
                 view.setTag(aVar3);
             }
             aj.j(aVar3.mLine, d.C0096d.cp_bg_line_b);

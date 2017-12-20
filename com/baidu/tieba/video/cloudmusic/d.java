@@ -6,9 +6,9 @@ public interface d {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void and();
+        void anc();
 
-        void bBo();
+        void bBn();
     }
 
     /* loaded from: classes2.dex */

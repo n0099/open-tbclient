@@ -4,7 +4,7 @@ public class c {
     private static volatile c dUP;
     private boolean isAcceptNotify;
 
-    public static c aDh() {
+    public static c aDg() {
         if (dUP == null) {
             synchronized (c.class) {
                 if (dUP == null) {

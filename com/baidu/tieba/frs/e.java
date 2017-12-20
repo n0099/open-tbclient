@@ -101,11 +101,11 @@ public abstract class e<T, V extends j.a> extends com.baidu.adp.widget.ListView.
         this.cGS = z;
     }
 
-    public boolean alc() {
+    public boolean alb() {
         return this.cGS;
     }
 
-    protected boolean ald() {
+    protected boolean alc() {
         return this.cGT;
     }
 }

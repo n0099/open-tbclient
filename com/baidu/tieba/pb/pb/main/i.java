@@ -10,7 +10,7 @@ public class i {
     private long eVT = 0;
     private long eVU = 0;
 
-    public static synchronized i aTY() {
+    public static synchronized i aTX() {
         i iVar;
         synchronized (i.class) {
             if (eVQ == null) {
@@ -22,10 +22,10 @@ public class i {
     }
 
     private i() {
-        akg();
+        akf();
     }
 
-    private void akg() {
+    private void akf() {
         if (this.eVR == null) {
             long currentTimeMillis = System.currentTimeMillis();
             this.eVR = com.baidu.tbadk.core.c.a.td().cO("tb.pb_mark");
@@ -78,7 +78,7 @@ public class i {
     public void a(String str, boolean z, byte[] bArr) {
         if (str != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            akg();
+            akf();
             if (z) {
                 this.eVR.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
@@ -95,7 +95,7 @@ public class i {
     public void m(String str, byte[] bArr) {
         if (bArr != null && str != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            akg();
+            akf();
             this.eVR.a(str, bArr, 2592000000L);
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             com.baidu.tbadk.k.m mVar = new com.baidu.tbadk.k.m();

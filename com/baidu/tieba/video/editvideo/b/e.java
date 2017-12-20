@@ -19,11 +19,11 @@ class e {
         this.gRM = new MediaMuxer(str, 0);
     }
 
-    public void bBT() {
+    public void bBS() {
         this.gRO = true;
     }
 
-    public void bBU() {
+    public void bBT() {
         this.gRP = true;
     }
 

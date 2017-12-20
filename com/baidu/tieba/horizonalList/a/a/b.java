@@ -18,7 +18,7 @@ public class b implements a {
         this.dtb = aVar;
     }
 
-    public boolean aux() {
+    public boolean auw() {
         return this.dtb != null;
     }
 

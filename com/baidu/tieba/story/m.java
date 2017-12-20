@@ -11,17 +11,17 @@ public class m {
     private int grE = 800;
     private b grF;
 
-    public void bsz() {
+    public void bsy() {
         if (this.grC != null) {
             this.grC.cancel();
             this.grC = null;
         }
     }
 
-    public void bG(View view) {
+    public void bH(View view) {
         if (this.grC == null || !this.grC.isStarted()) {
             if (this.grF != null) {
-                this.grF.bsq();
+                this.grF.bsp();
             }
             this.grC = ObjectAnimator.ofFloat(view, "rotation", 0.0f, 360.0f);
             this.grC.setRepeatCount(-1);
@@ -35,7 +35,7 @@ public class m {
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     if (m.this.grF != null) {
-                        m.this.grF.bsr();
+                        m.this.grF.bsq();
                     }
                 }
 
@@ -51,8 +51,8 @@ public class m {
         }
     }
 
-    public void bsA() {
-        bsz();
+    public void bsz() {
+        bsy();
         this.grD = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.grD.setRepeatCount(0);
         this.grD.setDuration(800L);
@@ -72,7 +72,7 @@ public class m {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                m.this.bsu();
+                m.this.bst();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -97,7 +97,7 @@ public class m {
         return true;
     }
 
-    public void bsu() {
+    public void bst() {
         if (this.grC != null) {
             this.grC.cancel();
         }

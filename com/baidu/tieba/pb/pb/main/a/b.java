@@ -39,19 +39,19 @@ public class b {
     private final Handler.Callback cKv = new Handler.Callback() { // from class: com.baidu.tieba.pb.pb.main.a.b.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            if ((message.what == 1 || message.what == 2) && b.this.amH()) {
+            if ((message.what == 1 || message.what == 2) && b.this.amG()) {
                 b.this.mHandler.sendEmptyMessageDelayed(message.what, 100L);
                 return true;
             }
             switch (message.what) {
                 case 1:
-                    b.this.amG();
+                    b.this.amF();
                     return true;
                 case 2:
-                    b.this.amE();
+                    b.this.amD();
                     return true;
                 case 3:
-                    b.this.amF();
+                    b.this.amE();
                     return true;
                 default:
                     return false;
@@ -79,11 +79,11 @@ public class b {
         this.cIW = view2;
         this.GN = view3;
         this.fgd = this.GN.findViewById(d.g.sticky_view);
-        amI();
+        amH();
         fe(false);
     }
 
-    private void aXe() {
+    private void aXd() {
         this.ffW = ObjectAnimator.ofFloat(this.fgc, "translationY", (-this.fgc.getMeasuredHeight()) + this.GN.getMeasuredHeight());
         this.ffW.setInterpolator(new LinearInterpolator());
         this.ffW.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.a.b.2
@@ -163,7 +163,7 @@ public class b {
         this.fgb.play(this.ffW).with(this.ffZ);
     }
 
-    private void aXf() {
+    private void aXe() {
         this.ffX = ObjectAnimator.ofFloat(this.fgc, "translationY", 0.0f);
         this.ffX.setInterpolator(new LinearInterpolator());
         this.ffX.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.pb.main.a.b.5
@@ -239,16 +239,16 @@ public class b {
         this.fga.play(this.ffX).with(this.ffY);
     }
 
-    public void amE() {
+    public void amD() {
         w(false, false);
     }
 
-    public void amF() {
+    public void amE() {
         w(false, true);
     }
 
     public void w(boolean z, boolean z2) {
-        if (this.fgc != null && this.fgc.getY() == 0.0f && !amH()) {
+        if (this.fgc != null && this.fgc.getY() == 0.0f && !amG()) {
             if (z2) {
                 this.fgc.setVisibility(8);
                 if (this.fgh) {
@@ -261,7 +261,7 @@ public class b {
             }
             this.fgc.setVisibility(0);
             if (this.fgb == null) {
-                aXe();
+                aXd();
             }
             if (this.fgb != null) {
                 this.fgb.cancel();
@@ -270,11 +270,11 @@ public class b {
         }
     }
 
-    public void amG() {
-        if (this.fgc != null && this.fgc.getY() < 0.0f && !amH()) {
+    public void amF() {
+        if (this.fgc != null && this.fgc.getY() < 0.0f && !amG()) {
             this.fgc.setVisibility(0);
             if (this.fga == null) {
-                aXf();
+                aXe();
             }
             if (this.fga != null) {
                 this.fga.cancel();
@@ -301,7 +301,7 @@ public class b {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean amH() {
+    public boolean amG() {
         return (this.fga != null && this.fga.isRunning()) || (this.fgb != null && this.fgb.isRunning());
     }
 
@@ -309,7 +309,7 @@ public class b {
         if (this.cKt) {
             if (this.ayF) {
                 fe(true);
-            } else if (this.fgc != null && !this.fgg && !this.fdK && aXg()) {
+            } else if (this.fgc != null && !this.fgg && !this.fdK && aXf()) {
                 Log.i("PbView", "hideFloatingView: startDragDown");
                 Hp();
             }
@@ -320,14 +320,14 @@ public class b {
         if (this.cKt) {
             if (this.ayF) {
                 fe(true);
-            } else if (this.fgc != null && !aXg()) {
+            } else if (this.fgc != null && !aXf()) {
                 Log.i("PbView", "showFloatingView: startDragUp");
                 Ho();
             }
         }
     }
 
-    public boolean aXg() {
+    public boolean aXf() {
         return this.fgc.getVisibility() == 0 && this.fgc.getY() >= 0.0f;
     }
 
@@ -341,10 +341,10 @@ public class b {
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         if (this.cKt && this.fgc != null && !this.fgg && !this.fdK && this.fgf) {
-            if (i > this.aNj && aXg()) {
+            if (i > this.aNj && aXf()) {
                 Log.i("PbView", "onScroll hideFloatingView");
                 hideFloatingView();
-            } else if (i < this.aNj && !aXg()) {
+            } else if (i < this.aNj && !aXf()) {
                 Log.i("PbView", "onScroll showFloatingView");
                 showFloatingView();
             }
@@ -389,7 +389,7 @@ public class b {
         return true;
     }
 
-    private void amI() {
+    private void amH() {
         if (this.cIW != null) {
             if (this.cKs && this.cIW.getLayoutParams() != null) {
                 ViewGroup.LayoutParams layoutParams = this.cIW.getLayoutParams();

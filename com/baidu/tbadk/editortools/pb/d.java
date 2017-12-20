@@ -120,8 +120,8 @@ public class d extends com.baidu.tbadk.editortools.f implements t.a {
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-                if (aVar != null && !StringUtils.isNull(aVar.bxz())) {
-                    d.this.a(2, true, aVar.bxz());
+                if (aVar != null && !StringUtils.isNull(aVar.bxy())) {
+                    d.this.a(2, true, aVar.bxy());
                 } else {
                     ga(null);
                 }
@@ -418,12 +418,12 @@ public class d extends com.baidu.tbadk.editortools.f implements t.a {
             this.mContext.showToast(d.j.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             DG();
-        } else if (this.aDD.bxH()) {
+        } else if (this.aDD.bxG()) {
             DE();
         } else {
             this.aDD.ng(false);
             a(1, true, (String) null);
-            this.aDD.bxF();
+            this.aDD.bxE();
         }
     }
 
@@ -452,12 +452,12 @@ public class d extends com.baidu.tbadk.editortools.f implements t.a {
 
     public void DH() {
         if (this.aDD.YJ()) {
-            if (this.aDD.bxH()) {
-                this.aDQ.a(com.baidu.tieba.tbadkCore.location.c.bxD().getLocationData());
+            if (this.aDD.bxG()) {
+                this.aDQ.a(com.baidu.tieba.tbadkCore.location.c.bxC().getLocationData());
                 return;
             }
             if (l.hy()) {
-                this.aDD.bxF();
+                this.aDD.bxE();
             }
             a(0, true, (String) null);
             return;
@@ -714,7 +714,7 @@ public class d extends com.baidu.tbadk.editortools.f implements t.a {
                 this.aDE.getWriteData().setVoice(null);
                 this.aDE.getWriteData().setVoiceDuringTime(-1);
             }
-            if (!this.aDE.byd()) {
+            if (!this.aDE.byc()) {
                 this.mContext.showToast(d.j.write_img_limit);
             } else if (this.aDM == null || !this.aDM.DA()) {
                 if (this.aDL != null) {

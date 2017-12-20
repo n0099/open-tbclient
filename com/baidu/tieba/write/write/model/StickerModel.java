@@ -42,7 +42,7 @@ public class StickerModel extends BdBaseModel {
         this.hnB = aVar;
     }
 
-    public void btY() {
+    public void btX() {
         if (j.gV()) {
             com.baidu.tieba.tbadkCore.a.a.a(309475, ResponseSocketGetStickerMessage.class, false, false);
             com.baidu.tieba.tbadkCore.a.a.a(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);

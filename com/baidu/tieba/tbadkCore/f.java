@@ -14,7 +14,7 @@ public class f implements com.baidu.adp.widget.ListView.f {
     private String url;
     private int weight;
 
-    public int aRT() {
+    public int aRS() {
         return this.ePR;
     }
 
@@ -58,11 +58,11 @@ public class f implements com.baidu.adp.widget.ListView.f {
         this.time = i;
     }
 
-    public String buM() {
+    public String buL() {
         return this.obj_id;
     }
 
-    public String aKZ() {
+    public String aKY() {
         return this.eug;
     }
 

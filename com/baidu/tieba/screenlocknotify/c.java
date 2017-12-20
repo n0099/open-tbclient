@@ -50,23 +50,23 @@ public class c extends BaseAdapter {
 
     public View a(e eVar, View view, ViewGroup viewGroup) {
         View inflate;
-        a bE;
+        a bF;
         if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
-            bE = (a) view.getTag();
+            bF = (a) view.getTag();
             inflate = view;
         } else {
             inflate = LayoutInflater.from(this.mContext).inflate(d.h.screenlock_show_item_view_4, viewGroup, false);
-            bE = bE(inflate);
-            inflate.setTag(bE);
+            bF = bF(inflate);
+            inflate.setTag(bF);
         }
         if (eVar == null) {
             return inflate;
         }
-        bE.geg.setText(eVar.title);
-        bE.geh.setText(eVar.content);
-        bE.gei.setDefaultErrorResource(d.f.screen_notify_default_bg);
-        bE.gei.setDefaultResource(d.f.screen_notify_default_bg);
-        bE.gei.startLoad(eVar.pic, 10, 0, 0, false);
+        bF.geg.setText(eVar.title);
+        bF.geh.setText(eVar.content);
+        bF.gei.setDefaultErrorResource(d.f.screen_notify_default_bg);
+        bF.gei.setDefaultResource(d.f.screen_notify_default_bg);
+        bF.gei.startLoad(eVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
@@ -89,7 +89,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    private a bE(View view) {
+    private a bF(View view) {
         a aVar = new a();
         aVar.geg = (TextView) view.findViewById(d.g.push_msg_title);
         aVar.geh = (TextView) view.findViewById(d.g.push_msg_content);

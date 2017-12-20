@@ -55,7 +55,7 @@ public class y {
         return akVar;
     }
 
-    public y bjL() {
+    public y bjK() {
         y yVar = new y();
         yVar.mLocate = this.mLocate;
         yVar.mType = this.mType;

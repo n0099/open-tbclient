@@ -46,10 +46,10 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, com.baidu.tieba.i.k.class);
         com.baidu.tieba.i.k kVar = runTask != null ? (com.baidu.tieba.i.k) runTask.getData() : null;
         if (kVar != null) {
-            this.gCP = kVar.aOk();
+            this.gCP = kVar.aOj();
         }
         if (this.gCP != null) {
-            this.gCP.aNS();
+            this.gCP.aNR();
         }
         this.gUA = new CustomMessageListener(CmdConfigCustom.CMD_VIDEO_WRITE_POST_SUCCESS) { // from class: com.baidu.tieba.write.album.l.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
         this.gRk = str;
         if (this.hgz != null && this.eIs != null) {
             if (this.hgz.videoDuration > 600000) {
-                bCK();
+                bCJ();
             } else if (this.hgC == null || !this.hgC.isConvertRunning()) {
                 String str2 = this.hgz.videoPath;
                 if (TextUtils.isEmpty(str2)) {
@@ -96,11 +96,11 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
                         vY(102);
                     }
                 } else if (com.baidu.tieba.video.f.tV(str2) >= 1500000) {
-                    if (com.baidu.tieba.video.f.bBk()) {
+                    if (com.baidu.tieba.video.f.bBj()) {
                         this.hgA = new File(com.baidu.tieba.video.f.gPG, "tieba_" + com.baidu.tieba.video.f.tU(str2) + "_tiebaconverting.mp4").getAbsolutePath();
                         this.hgC.setConvertType(1);
                         this.hgC.cm(str2, this.hgA);
-                        bCF();
+                        bCE();
                         this.gUs = false;
                         this.gUt = false;
                     }
@@ -111,7 +111,7 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
                             this.hgA = new File(com.baidu.tieba.video.f.gPG, "tieba_" + com.baidu.tieba.video.f.tU(str2) + "_tiebaconverting.mp4").getAbsolutePath();
                             this.hgC.setConvertType(2);
                             this.hgC.cm(str2, this.hgA);
-                            bCF();
+                            bCE();
                             this.gUs = false;
                             this.gUt = false;
                             return;
@@ -125,7 +125,7 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
         }
     }
 
-    private void bCK() {
+    private void bCJ() {
         com.baidu.tbadk.core.dialog.a a = new com.baidu.tbadk.core.dialog.a(this.eIs).cc(d.j.mv_local_video_too_long).a(d.j.group_create_private_isee, new a.b() { // from class: com.baidu.tieba.write.album.l.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -137,7 +137,7 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
         a.th();
     }
 
-    private void bCF() {
+    private void bCE() {
         RelativeLayout relativeLayout = (RelativeLayout) this.eIs.findViewById(d.g.parent);
         if (relativeLayout != null) {
             if (this.hgB == null) {
@@ -172,7 +172,7 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
         this.gUs = false;
         this.hgA = null;
         if (this.gCP != null) {
-            this.gCP.aNV();
+            this.gCP.aNU();
         }
     }
 
@@ -220,7 +220,7 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
     }
 
     @Override // com.baidu.tieba.video.c
-    public void bBi() {
+    public void bBh() {
     }
 
     @Override // com.baidu.tieba.video.c
@@ -270,7 +270,7 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
                 }
                 this.hgD = false;
                 this.gUs = false;
-                bCG();
+                bCF();
                 break;
             case 3:
                 this.hgD = false;
@@ -279,11 +279,11 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
                     this.hgA = this.hgA.replace("_tiebaconverting.mp4", ".mp4");
                     file.renameTo(new File(this.hgA));
                 }
-                bCG();
+                bCF();
                 if (!this.gUr) {
                     nG(true);
                     if (this.gCP != null) {
-                        this.gCP.aNV();
+                        this.gCP.aNU();
                         break;
                     }
                 }
@@ -291,14 +291,14 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
             case 4:
                 this.hgD = false;
                 this.gUs = false;
-                bCG();
+                bCF();
                 vY(104);
                 break;
             case 5:
                 this.hgD = false;
                 com.baidu.adp.lib.util.l.showToast(this.eIs, d.j.mv_local_video_compress_failed);
                 if (this.hgC != null && this.hgC.isConvertRunning()) {
-                    bCH();
+                    bCG();
                 }
                 vY(105);
                 break;
@@ -306,14 +306,14 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
         return true;
     }
 
-    private void bCG() {
+    private void bCF() {
         RelativeLayout relativeLayout = (RelativeLayout) this.eIs.findViewById(d.g.parent);
         if (relativeLayout != null && this.hgB.getParent() != null) {
             relativeLayout.removeView(this.hgB);
         }
     }
 
-    private void bCH() {
+    private void bCG() {
         if (this.hgC != null) {
             this.hgC.abortConvert();
         }
@@ -324,7 +324,7 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
                 file.delete();
             }
         }
-        bCG();
+        bCF();
         this.hgA = null;
     }
 
@@ -365,7 +365,7 @@ public class l implements Handler.Callback, com.baidu.tieba.video.c {
         }
     }
 
-    public boolean bGE() {
+    public boolean bGD() {
         return this.hgD;
     }
 }

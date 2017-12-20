@@ -9,7 +9,7 @@ public class a {
     private List<String> ffe;
     private SingleBarEmotionRecommendData fff;
 
-    public SingleBarEmotionRecommendData aXc() {
+    public SingleBarEmotionRecommendData aXb() {
         return this.fff;
     }
 
@@ -17,7 +17,7 @@ public class a {
         this.fff = singleBarEmotionRecommendData;
     }
 
-    public List<EmotionImageData> ahN() {
+    public List<EmotionImageData> ahM() {
         return this.cvy;
     }
 
@@ -25,7 +25,7 @@ public class a {
         this.cvy = list;
     }
 
-    public List<String> aXd() {
+    public List<String> aXc() {
         return this.ffe;
     }
 

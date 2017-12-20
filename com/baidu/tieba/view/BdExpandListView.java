@@ -45,7 +45,7 @@ public class BdExpandListView extends BdTypeListView {
         this.hav = z;
     }
 
-    public boolean bwc() {
+    public boolean bwb() {
         return this.hav;
     }
 

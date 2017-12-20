@@ -59,9 +59,9 @@ public class c {
     /* renamed from: com.faceunity.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0167c {
-        void bDU();
+        void bDT();
 
-        void bDV();
+        void bDU();
     }
 
     public boolean xe(int i) {
@@ -73,7 +73,7 @@ public class c {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, k.class);
         k kVar = runTask != null ? (k) runTask.getData() : null;
         if (kVar != null) {
-            this.gCP = kVar.aOk();
+            this.gCP = kVar.aOj();
         }
         this.hxc = null;
         this.hxd = new Object();
@@ -275,7 +275,7 @@ public class c {
         a(bVar.hxm, bVar.mWidth, bVar.mHeight, bVar.fQc, bVar.gPT);
         this.hxi = false;
         if (this.hwX != null) {
-            this.hwX.bDU();
+            this.hwX.bDT();
         }
     }
 
@@ -292,7 +292,7 @@ public class c {
                 this.hwR.drawFrame(this.mTextureId, fArr);
             }
             if (this.hwP != null) {
-                this.hwP.setPresentationTime(bMv() * 1000);
+                this.hwP.setPresentationTime(bMu() * 1000);
                 this.hwP.swapBuffers();
             }
         }
@@ -320,7 +320,7 @@ public class c {
         }
         this.hxg = false;
         if (this.hwX != null) {
-            this.hwX.bDV();
+            this.hwX.bDU();
         }
     }
 
@@ -459,11 +459,11 @@ public class c {
                         if (read > 0) {
                             allocateDirect.position(read);
                             allocateDirect.flip();
-                            c.this.hwU.a(allocateDirect, read, c.this.bMv());
-                            c.this.hwU.bMu();
+                            c.this.hwU.a(allocateDirect, read, c.this.bMu());
+                            c.this.hwU.bMt();
                         }
                     }
-                    c.this.hwU.a(null, 0, c.this.bMv());
+                    c.this.hwU.a(null, 0, c.this.bMu());
                     audioRecord.stop();
                     audioRecord.release();
                     c.this.hwU.release();
@@ -483,7 +483,7 @@ public class c {
         }
     }
 
-    protected long bMv() {
+    protected long bMu() {
         long nanoTime = System.nanoTime();
         if (this.hwY != 0) {
             if (this.hwZ == 0) {

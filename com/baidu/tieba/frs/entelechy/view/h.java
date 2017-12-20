@@ -325,20 +325,20 @@ public class h extends com.baidu.tieba.card.a<ar> {
                 if (abt() != null) {
                     abt().a(this.cPo.mRootView, this.cPn);
                 }
-                abP();
+                abO();
             }
         }
     }
 
-    private void abP() {
+    private void abO() {
         PhotoLiveActivityConfig pn;
         if (this.cPn != null) {
             com.baidu.tieba.card.k.jO(this.cPn.getTid());
-            if (!abQ()) {
+            if (!abP()) {
                 UtilHelper.showToast(this.mPageContext.getPageActivity(), d.j.plugin_config_not_found);
                 return;
             }
-            if (this.cPn.rS() > 0 && com.baidu.tieba.tbadkCore.util.f.bxV()) {
+            if (this.cPn.rS() > 0 && com.baidu.tieba.tbadkCore.util.f.bxU()) {
                 pn = new PhotoLiveActivityConfig.a(this.mPageContext.getPageActivity(), this.cPn.getTid()).cz("from_frs").bD(18003).cx(String.valueOf(this.cPn.rS())).pn();
             } else {
                 pn = new PhotoLiveActivityConfig.a(this.mPageContext.getPageActivity(), this.cPn.getTid()).cz("from_frs").bD(18003).pn();
@@ -373,7 +373,7 @@ public class h extends com.baidu.tieba.card.a<ar> {
         }
     }
 
-    private boolean abQ() {
+    private boolean abP() {
         return TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class);
     }
 

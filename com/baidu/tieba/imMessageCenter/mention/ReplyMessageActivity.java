@@ -41,7 +41,7 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
                 if (ReplyMessageActivity.this.ebk != null) {
-                    ReplyMessageActivity.this.ebk.adq();
+                    ReplyMessageActivity.this.ebk.adp();
                 }
             }
         }
@@ -59,9 +59,9 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
         this.ebl = new n(this);
         this.ebl.Qv();
         FQ().addEventDelegate(this);
-        this.ebk.adq();
+        this.ebk.adp();
         registerListener(this.eaj);
-        aES();
+        aER();
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
         this.cHh = getVoiceManager();
@@ -239,8 +239,8 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
         return this.eai;
     }
 
-    public void aEI() {
-        this.ebl.aEI();
+    public void aEH() {
+        this.ebl.aEH();
     }
 
     public void a(ErrorData errorData) {
@@ -249,8 +249,8 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
         }
     }
 
-    public void aEJ() {
-        this.ebl.aEJ();
+    public void aEI() {
+        this.ebl.aEI();
     }
 
     public void b(com.baidu.tbadk.mvc.d.b bVar) {
@@ -262,7 +262,7 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
     }
 
     public void PF() {
-        this.ebk.adr();
+        this.ebk.adq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -289,7 +289,7 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
         }
     }
 
-    private void aES() {
+    private void aER() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, new CustomMessageTask.CustomRunnable<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMessageActivity.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {

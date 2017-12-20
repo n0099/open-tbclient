@@ -221,7 +221,7 @@ public abstract class c extends a<com.baidu.tieba.card.data.l> {
                 k.jO(this.bZi.threadData.getId());
                 aby();
             }
-            PbActivityConfig addLocateParam = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(this.bZi.threadData, null, k.rl(), 18003, true, false, false).addLocateParam(this.bZi.acg());
+            PbActivityConfig addLocateParam = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(this.bZi.threadData, null, k.rl(), 18003, true, false, false).addLocateParam(this.bZi.acf());
             addLocateParam.setForumId(String.valueOf(this.bZi.threadData.getFid()));
             addLocateParam.setStartFrom(this.currentPageType);
             if (z) {

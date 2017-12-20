@@ -16,7 +16,7 @@ public class b {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bBm();
+        void bBl();
 
         void cn(String str, String str2);
 
@@ -26,7 +26,7 @@ public class b {
     private b() {
     }
 
-    public static b bCc() {
+    public static b bCb() {
         if (gSe == null) {
             synchronized (b.class) {
                 if (gSe == null) {
@@ -44,7 +44,7 @@ public class b {
         }
         if (this.gRZ == null) {
             this.gRZ = new HashMap<>();
-            bCd();
+            bCc();
             if (this.gRZ.size() > 0) {
                 return this.gRZ.get(dX);
             }
@@ -53,7 +53,7 @@ public class b {
         return this.gRZ.get(dX);
     }
 
-    public void bCd() {
+    public void bCc() {
         if (this.gRZ == null) {
             this.gRZ = new HashMap<>();
         } else {
@@ -97,7 +97,7 @@ public class b {
                             b.this.gSa = null;
                         }
                         if (aVar != null) {
-                            aVar.bBm();
+                            aVar.bBl();
                         }
                     }
                 }

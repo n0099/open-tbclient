@@ -33,7 +33,7 @@ public class e {
         }
     }
 
-    public void bwx() {
+    public void bww() {
         us(0);
     }
 

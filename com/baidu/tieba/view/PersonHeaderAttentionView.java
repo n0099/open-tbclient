@@ -81,7 +81,7 @@ public class PersonHeaderAttentionView extends LinearLayout implements f {
             }
         };
         init(context);
-        bEN();
+        bEM();
         onChangeSkinType(0);
     }
 
@@ -128,7 +128,7 @@ public class PersonHeaderAttentionView extends LinearLayout implements f {
             }
         };
         init(context);
-        bEN();
+        bEM();
         onChangeSkinType(0);
     }
 
@@ -175,7 +175,7 @@ public class PersonHeaderAttentionView extends LinearLayout implements f {
             }
         };
         init(context);
-        bEN();
+        bEM();
         onChangeSkinType(0);
     }
 
@@ -201,7 +201,7 @@ public class PersonHeaderAttentionView extends LinearLayout implements f {
         this.hbw.setVisibility(8);
     }
 
-    private void bEN() {
+    private void bEM() {
         this.del.setOnClickListener(this.bEV);
         this.hbq.setOnClickListener(this.bEV);
         this.ftm.setOnClickListener(this.bEV);

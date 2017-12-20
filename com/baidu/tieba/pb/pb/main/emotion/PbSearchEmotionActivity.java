@@ -59,9 +59,9 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         @Override // com.baidu.tieba.face.SearchEmotionModel.a
         public void a(String str, com.baidu.tieba.face.data.a aVar) {
             PbSearchEmotionActivity.this.hideProgressBar();
-            if (aVar == null || aVar.ahN() == null || aVar.ahN().isEmpty()) {
+            if (aVar == null || aVar.ahM() == null || aVar.ahM().isEmpty()) {
                 if (PbSearchEmotionActivity.this.mCurrentPage == 0) {
-                    PbSearchEmotionActivity.this.aPN();
+                    PbSearchEmotionActivity.this.aPM();
                     return;
                 }
                 return;
@@ -70,8 +70,8 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             if (PbSearchEmotionActivity.this.mCurrentPage == 1) {
                 PbSearchEmotionActivity.this.mEmotionList.clear();
             }
-            PbSearchEmotionActivity.this.mHasMore = aVar.ahM() != 0;
-            PbSearchEmotionActivity.this.mEmotionList.addAll(aVar.ahN());
+            PbSearchEmotionActivity.this.mHasMore = aVar.ahL() != 0;
+            PbSearchEmotionActivity.this.mEmotionList.addAll(aVar.ahM());
             if (PbSearchEmotionActivity.this.feV == null) {
                 PbSearchEmotionActivity.this.feV = new d(PbSearchEmotionActivity.this.mEmotionList);
                 PbSearchEmotionActivity.this.feV.cM(PbSearchEmotionActivity.this.feW);
@@ -80,7 +80,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             } else {
                 PbSearchEmotionActivity.this.feV.notifyDataSetChanged();
             }
-            PbSearchEmotionActivity.this.aPK();
+            PbSearchEmotionActivity.this.aPJ();
             l.a(PbSearchEmotionActivity.this.mActivity, PbSearchEmotionActivity.this.eJB);
         }
 
@@ -88,14 +88,14 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         public void onFail(int i, String str) {
             PbSearchEmotionActivity.this.hideProgressBar();
             if (PbSearchEmotionActivity.this.mCurrentPage == 1) {
-                PbSearchEmotionActivity.this.aPN();
+                PbSearchEmotionActivity.this.aPM();
             }
         }
     };
     private final BdListView.e mOnScrollToBottomListener = new BdListView.e() { // from class: com.baidu.tieba.pb.pb.main.emotion.PbSearchEmotionActivity.4
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            PbSearchEmotionActivity.this.aPM();
+            PbSearchEmotionActivity.this.aPL();
         }
     };
     private final a eUg = new a() { // from class: com.baidu.tieba.pb.pb.main.emotion.PbSearchEmotionActivity.5
@@ -158,14 +158,14 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         this.eIu = (BdListView) this.mActivity.findViewById(d.g.listview_emotion);
         this.eIu.setOnSrollToBottomListener(this.mOnScrollToBottomListener);
         this.eJB.setText("");
-        this.eJB.ahU();
+        this.eJB.ahT();
         ShowSoftKeyPadDelay(this.eJB, 200);
         this.mActivity.getWindow().setSoftInputMode(1);
-        aXb();
-        aPJ();
+        aXa();
+        aPI();
     }
 
-    private void aPJ() {
+    private void aPI() {
         this.eJE = (AutoLineWrapLayout) this.mActivity.findViewById(d.g.layout_hot_words);
         if (this.eJI == null || this.eJI.isEmpty()) {
             this.eJE.setVisibility(8);
@@ -200,7 +200,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         }
     }
 
-    private void aXb() {
+    private void aXa() {
         this.feT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.PbSearchEmotionActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -224,7 +224,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPM() {
+    public void aPL() {
         if (!j.hh()) {
             showToast(d.j.neterror);
         } else if (this.mHasMore) {
@@ -233,7 +233,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         }
     }
 
-    private void aPL() {
+    private void aPK() {
         this.eJE.setVisibility(0);
         this.eJC.setText(getResources().getString(d.j.hot_emotion));
         this.eJC.setVisibility(0);
@@ -244,7 +244,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPK() {
+    public void aPJ() {
         this.eIu.setVisibility(0);
         this.eJC.setText(getResources().getString(d.j.click_send_emotion));
         this.eJC.setVisibility(0);
@@ -255,7 +255,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPN() {
+    public void aPM() {
         if (this.mNoDataView == null) {
             this.mNoDataView = NoDataViewFactory.a(this.mActivity, this.feU, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.f(this.mActivity, d.e.ds320)), NoDataViewFactory.d.dq(d.j.no_search_emotion), null);
             this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -317,7 +317,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         }
         if (this.feV != null) {
             this.feV.removeListener();
-            this.feV.aPP();
+            this.feV.aPO();
             this.feV = null;
         }
     }
@@ -334,7 +334,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             if (this.feV != null) {
                 this.feV.notifyDataSetChanged();
             }
-            aPL();
+            aPK();
         }
     }
 }

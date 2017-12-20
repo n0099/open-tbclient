@@ -21,7 +21,7 @@ public class c {
         this.csF = viewEventCenter;
     }
 
-    public com.baidu.tieba.enterForum.b.d ahx() {
+    public com.baidu.tieba.enterForum.b.d ahw() {
         if (this.ctY == null) {
             return null;
         }
@@ -53,7 +53,7 @@ public class c {
     public void aG(List<f> list) {
         com.baidu.tieba.enterForum.b.d dVar;
         if (this.ctY != null && list != null && (dVar = this.ctY.get()) != null) {
-            dVar.ahK();
+            dVar.ahJ();
             aH(list);
         }
     }
@@ -83,7 +83,7 @@ public class c {
         com.baidu.tieba.enterForum.b.d dVar = this.ctY.get();
         if (dVar != null) {
             if (this.ctZ == null) {
-                ahy();
+                ahx();
             }
             dVar.setGridAdapterIfNeeded(this.ctZ);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
@@ -95,7 +95,7 @@ public class c {
         }
     }
 
-    private void ahy() {
+    private void ahx() {
         this.ctZ = new com.baidu.tieba.enterForum.a.b(this.abX, e.class, d.h.home_like_item_in_edit_grid, this.csF);
         this.ctZ.bR(false);
     }

@@ -21,7 +21,7 @@ public class c {
         return spannableStringBuilder;
     }
 
-    public static String aQS() {
+    public static String aQR() {
         if (TextUtils.isEmpty(eNs)) {
             eNs = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("nick_name_activity_link", "");
         }

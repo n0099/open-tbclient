@@ -34,7 +34,7 @@ public class c implements com.baidu.tieba.person.b {
     public PersonMoreData fso;
     private UserData mUserData;
 
-    private void bah() {
+    private void bag() {
         if (this.fsU != null) {
             this.fsT.add(this.fsU);
         } else if (this.mUserData != null) {
@@ -48,7 +48,7 @@ public class c implements com.baidu.tieba.person.b {
         }
     }
 
-    private void bai() {
+    private void bah() {
         this.fsT.add(new b());
         if (this.fsP == null) {
             this.fsP = U(d.f.icon_mine_list_collect, d.j.my_mark, 16);
@@ -168,9 +168,9 @@ public class c implements com.baidu.tieba.person.b {
             b(profileResIdl.data.uc_card);
             cQ(profileResIdl.data.url_map);
             this.fsT.add(this.fsS);
+            bag();
             bah();
-            bai();
-            com.baidu.tieba.m.a.bmN().mm(true);
+            com.baidu.tieba.m.a.bmM().mm(true);
         }
     }
 
@@ -184,9 +184,9 @@ public class c implements com.baidu.tieba.person.b {
             this.fsS = new e();
             this.fsS.ePs = this.mUserData;
             this.fsT.add(this.fsS);
+            bag();
             bah();
-            bai();
-            com.baidu.tieba.m.a.bmN().mm(true);
+            com.baidu.tieba.m.a.bmM().mm(true);
         }
     }
 

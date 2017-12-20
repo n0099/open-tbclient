@@ -63,7 +63,7 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
                 if (d.this.abt() != null) {
                     d.this.abt().a(view, d.this.doY);
                 }
-                d.this.abN();
+                d.this.abM();
             }
         };
         this.aod = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.d.3
@@ -136,12 +136,12 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
             }
             this.bZK.a(this.doY.metaData);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.doX.getLayoutParams();
-            String atO = this.doY.doG.atO();
-            if (StringUtils.isNull(atO)) {
+            String atN = this.doY.doG.atN();
+            if (StringUtils.isNull(atN)) {
                 this.doT.setVisibility(8);
             } else {
                 this.doT.setVisibility(0);
-                this.doT.setText(atO);
+                this.doT.setText(atN);
             }
             this.bkq = bVar.cBz;
             if (k.jP(this.bkq.getId())) {
@@ -173,7 +173,7 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void abN() {
+    public void abM() {
         if (this.doY != null && this.bkq != null) {
             k.jO(this.bkq.getId());
             aby();

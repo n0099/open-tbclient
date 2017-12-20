@@ -17,8 +17,8 @@ public class d extends c.b {
     }
 
     @Override // com.baidu.tieba.l.c.b, com.baidu.tieba.l.c
-    public JSONObject bjQ() {
-        JSONObject bjQ = super.bjQ();
+    public JSONObject bjP() {
+        JSONObject bjP = super.bjP();
         try {
             JSONObject jSONObject = new JSONObject();
             if (this.code != -4399) {
@@ -27,10 +27,10 @@ public class d extends c.b {
             if (!StringUtils.isNull(this.msg)) {
                 jSONObject.put(AddFriendActivityConfig.MSG, this.msg);
             }
-            bjQ.put("ext", jSONObject);
+            bjP.put("ext", jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return bjQ;
+        return bjP;
     }
 }

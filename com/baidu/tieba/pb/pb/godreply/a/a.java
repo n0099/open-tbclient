@@ -75,26 +75,26 @@ public class a {
             this.eSz.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
-                    a.this.aSH();
+                    a.this.aSG();
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    a.this.aSH();
+                    a.this.aSG();
                 }
             }).start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSH() {
+    public void aSG() {
         if (this.eSz != null && this.eSz.getParent() != null && this.eSz.getParent() == this.RT) {
             this.eSz.setVisibility(4);
         }
     }
 
-    public void bb(View view) {
-        if (aSI()) {
+    public void bc(View view) {
+        if (aSH()) {
             Context context = view.getContext();
             view.getLocationOnScreen(this.eSy);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eSz.getLayoutParams();
@@ -115,7 +115,7 @@ public class a {
         }
     }
 
-    public boolean aSI() {
+    public boolean aSH() {
         return this.eSz != null && this.eSz.getParent() != null && this.eSz.getParent() == this.RT && this.eSz.getVisibility() == 0;
     }
 

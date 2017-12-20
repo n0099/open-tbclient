@@ -20,7 +20,7 @@ public class a {
     private int mWidth;
     private WindowManager mWindowManager;
 
-    public static a ahl() {
+    public static a ahk() {
         if (ctL == null) {
             synchronized (a.class) {
                 if (ctL == null) {
@@ -48,7 +48,7 @@ public class a {
         ctL = null;
     }
 
-    public boolean ahm() {
+    public boolean ahl() {
         return this.ctK;
     }
 
@@ -70,21 +70,21 @@ public class a {
     }
 
     public void at(int i, int i2) {
-        ahn();
+        ahm();
         au(i, i2);
         if (this.mWindowManager != null) {
             this.mWindowManager.updateViewLayout(this.ctJ, this.ctI);
         }
     }
 
-    private void ahn() {
+    private void ahm() {
         if (!this.ctN) {
             BdLog.e("should do init first!");
         }
     }
 
     private void a(Context context, Bitmap bitmap, int i, int i2) {
-        ahn();
+        ahm();
         if (bitmap != null) {
             au(i, i2);
             this.ctJ = new ImageView(context);
@@ -118,7 +118,7 @@ public class a {
         return false;
     }
 
-    private void aho() {
+    private void ahn() {
         this.ctI = new WindowManager.LayoutParams();
         this.ctI.format = -3;
         this.ctI.gravity = 51;
@@ -130,13 +130,13 @@ public class a {
 
     private void au(int i, int i2) {
         if (this.ctI == null) {
-            aho();
+            ahn();
         }
         this.ctI.x = i - (this.mWidth / 2);
         this.ctI.y = (i2 - (this.mHeight / 2)) - this.ctM;
     }
 
-    public void ahp() {
+    public void aho() {
         if (this.ctJ != null) {
             if (this.mWindowManager != null) {
                 this.mWindowManager.removeView(this.ctJ);

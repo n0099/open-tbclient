@@ -193,7 +193,7 @@ public class a {
         this.cug.notifyDataSetChanged();
     }
 
-    public View ahB() {
+    public View ahA() {
         return this.aHP;
     }
 

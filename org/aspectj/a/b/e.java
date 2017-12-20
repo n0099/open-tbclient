@@ -27,7 +27,7 @@ public class e extends a implements org.aspectj.lang.reflect.c {
         if (hVar.hNk) {
             stringBuffer.append(" ");
         }
-        stringBuffer.append(hVar.e(bSN(), bSO()));
+        stringBuffer.append(hVar.e(bSM(), bSN()));
         stringBuffer.append(".");
         stringBuffer.append(getName());
         hVar.b(stringBuffer, getParameterTypes());

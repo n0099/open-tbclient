@@ -7,7 +7,7 @@ public class c implements f {
     public static final BdUniqueId frN = BdUniqueId.gen();
     private int frO = 0;
 
-    public int aZZ() {
+    public int aZY() {
         return this.frO;
     }
 

@@ -43,8 +43,8 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             return;
         }
         this.abq = new AlertDialog.Builder(this.mContext).create();
-        this.abq.setCanceledOnTouchOutside(aSo());
-        this.abq.setCancelable(aSp());
+        this.abq.setCanceledOnTouchOutside(aSn());
+        this.abq.setCancelable(aSo());
         this.abq.setOnKeyListener(this.abp);
         if (this.abo != null) {
             this.abq.setOnCancelListener(this.abo);

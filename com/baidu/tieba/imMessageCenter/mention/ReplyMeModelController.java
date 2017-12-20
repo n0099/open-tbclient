@@ -38,7 +38,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    ReplyMeModelController.this.eaU.aEI();
+                    ReplyMeModelController.this.eaU.aEH();
                 }
             }
         };
@@ -59,8 +59,8 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean adr() {
-        if (!this.eaW.wA() && this.ciA.FJ() && aEH()) {
+    public boolean adq() {
+        if (!this.eaW.wA() && this.ciA.FJ() && aEG()) {
             this.ciA.bO(true);
             this.ciA.bQ(true);
             this.eaV.g(this.dZZ);
@@ -74,7 +74,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean ee(boolean z) {
-        if (this.eaW.wA() || !aEH()) {
+        if (this.eaW.wA() || !aEG()) {
             return false;
         }
         this.dZZ = null;
@@ -84,22 +84,22 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
         return true;
     }
 
-    protected boolean aEH() {
+    protected boolean aEG() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
         if (this.eaa != null && this.eaa.eaG != null) {
             this.eaa.eaG.clear();
         }
-        this.eaU.aEI();
+        this.eaU.aEH();
         this.eaU.a(this.eaa);
         return false;
     }
 
-    public boolean adq() {
-        if (aEH()) {
+    public boolean adp() {
+        if (aEG()) {
             if (this.eaU != null) {
-                this.eaU.aEJ();
+                this.eaU.aEI();
             }
             this.eaX.a((com.baidu.tbadk.mvc.b.e) this.eaV);
             return true;
@@ -109,11 +109,11 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
 
     protected boolean a(l lVar, m mVar) {
         if (lVar.getUpdateType() != 4) {
-            this.eaa.aEQ().clear();
+            this.eaa.aEP().clear();
         }
         this.eaa.a(mVar);
-        if (mVar != null && mVar.aEQ() != null && mVar.aEQ().size() > 0) {
-            this.dZZ = mVar.aEQ().get(mVar.aEQ().size() - 1);
+        if (mVar != null && mVar.aEP() != null && mVar.aEP().size() > 0) {
+            this.dZZ = mVar.aEP().get(mVar.aEP().size() - 1);
             if (this.eaa.qy() != null) {
                 this.ciA.bP(this.eaa.qy().qu() == 1);
             } else {
@@ -154,7 +154,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<m> mvcHttpResponsedMessage, MvcHttpMessage<l, m> mvcHttpMessage, MvcNetMessage<l, m> mvcNetMessage) {
         m mVar;
-        this.eaU.aEI();
+        this.eaU.aEH();
         if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
             mVar = mvcHttpResponsedMessage.getData();
             r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
@@ -183,7 +183,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<m, ?> mvcSocketResponsedMessage, MvcSocketMessage<l, m> mvcSocketMessage, MvcNetMessage<l, m> mvcNetMessage) {
         m mVar;
-        this.eaU.aEI();
+        this.eaU.aEH();
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
             mVar = mvcSocketResponsedMessage.getData();
             r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;

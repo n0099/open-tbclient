@@ -60,7 +60,7 @@ public class VideoRecordButton extends FrameLayout {
         return this.IQ;
     }
 
-    public void bEE() {
+    public void bED() {
         if (this.han != null && this.han.isRunning()) {
             this.ham.cancel();
         }
@@ -71,7 +71,7 @@ public class VideoRecordButton extends FrameLayout {
         this.ham.start();
     }
 
-    public void bEF() {
+    public void bEE() {
         if (this.ham != null && this.ham.isRunning()) {
             this.ham.cancel();
         }
@@ -104,7 +104,7 @@ public class VideoRecordButton extends FrameLayout {
         this.hak.start();
     }
 
-    public void bEu() {
+    public void bEt() {
         if (this.hak != null && this.hak.isRunning()) {
             this.hak.cancel();
         }

@@ -53,11 +53,11 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> aVar) {
-        this.drQ = aVar.acC();
-        aVar.acC().a(hVar);
-        aVar.acC().b(this.cLz);
-        aVar.acC().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        s.abX().a(new ak("c11006"));
+        this.drQ = aVar.acB();
+        aVar.acB().a(hVar);
+        aVar.acB().b(this.cLz);
+        aVar.acB().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        s.abW().a(new ak("c11006"));
         return aVar.getView();
     }
 

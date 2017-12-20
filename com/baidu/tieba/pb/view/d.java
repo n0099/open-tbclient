@@ -33,7 +33,7 @@ public class d {
     private Runnable flI = new Runnable() { // from class: com.baidu.tieba.pb.view.d.1
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.flE && !d.this.flA.auL()) {
+            if (d.this.flE && !d.this.flA.auK()) {
                 Rect rect = new Rect();
                 d.this.flC.getGlobalVisibleRect(rect);
                 Rect rect2 = new Rect();
@@ -51,7 +51,7 @@ public class d {
                 d.this.flH.setLayoutParams(layoutParams2);
                 d.this.flH.invalidate();
                 d.this.flA.setVisibility(0);
-                d.this.flA.aYI();
+                d.this.flA.aYH();
                 d.this.flB = System.currentTimeMillis();
             }
         }
@@ -59,13 +59,13 @@ public class d {
     private Runnable flJ = new Runnable() { // from class: com.baidu.tieba.pb.view.d.2
         @Override // java.lang.Runnable
         public void run() {
-            d.this.aYH();
+            d.this.aYG();
         }
     };
     private ViewTreeObserver.OnGlobalLayoutListener flK = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.pb.view.d.3
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            if (d.this.flG == 2 && !d.this.flA.auL()) {
+            if (d.this.flG == 2 && !d.this.flA.auK()) {
                 d.this.mHandler.removeCallbacks(d.this.flJ);
                 d.this.mHandler.postDelayed(d.this.flJ, 200L);
             }
@@ -118,7 +118,7 @@ public class d {
         this.flC = view;
     }
 
-    public void bs(View view) {
+    public void bt(View view) {
         this.flD = view;
     }
 
@@ -162,11 +162,11 @@ public class d {
                             return true;
                         }
                         return true;
-                    } else if (this.flE || this.flA.auL()) {
-                        if (this.flA.auL()) {
+                    } else if (this.flE || this.flA.auK()) {
+                        if (this.flA.auK()) {
                             this.flA.getLocationOnScreen(new int[2]);
                             int by = this.flA.by((int) (motionEvent.getX() + iArr2[0]), (int) (iArr2[1] + motionEvent.getY()));
-                            this.flA.aYI();
+                            this.flA.aYH();
                             if (by != -1) {
                                 if (by == 1) {
                                     qB(1);
@@ -187,8 +187,8 @@ public class d {
                             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.view.d.5
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    d.this.aYH();
-                                    d.this.flA.aYK();
+                                    d.this.aYG();
+                                    d.this.flA.aYJ();
                                     d.this.flA.setVisibility(8);
                                 }
                             }, 700L);
@@ -206,7 +206,7 @@ public class d {
                                 this.mHandler.removeCallbacks(this.flI);
                                 return true;
                             }
-                            if (!this.flA.auL()) {
+                            if (!this.flA.auK()) {
                                 this.flI.run();
                             }
                             if (currentTimeMillis - this.flB > 800) {
@@ -267,7 +267,7 @@ public class d {
                 if (rect.top > 0 && rect.bottom > i) {
                     this.flC.getViewTreeObserver().addOnGlobalLayoutListener(this.flK);
                     this.flH.setVisibility(0);
-                    aYH();
+                    aYG();
                     return;
                 }
                 this.flC.getViewTreeObserver().removeGlobalOnLayoutListener(this.flK);
@@ -280,8 +280,8 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aYH() {
-        if (!this.flA.auL()) {
+    public void aYG() {
+        if (!this.flA.auK()) {
             int[] iArr = new int[2];
             this.flD.getLocationOnScreen(iArr);
             this.flH.setLayoutParams(new FrameLayout.LayoutParams(this.flD.getWidth(), this.flD.getHeight()));

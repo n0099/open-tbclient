@@ -1947,6 +1947,6 @@ public class UtilHelper {
     }
 
     public static boolean isGotoVideoMiddlePage() {
-        return com.baidu.adp.lib.b.d.eV().af("video_middle_page_two") == 1;
+        return com.baidu.adp.lib.b.d.eV().af("video_middle_page_three") == 1;
     }
 }

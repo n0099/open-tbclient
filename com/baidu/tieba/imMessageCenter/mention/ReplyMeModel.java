@@ -25,7 +25,7 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
         super(com.baidu.adp.base.i.Y(replyMessageActivity.getPageContext().getPageActivity()));
         this.eaQ = BdUniqueId.gen();
         this.eaR = replyMessageActivity;
-        aER();
+        aEQ();
     }
 
     public void a(long j, int i, String str, String str2) {
@@ -38,7 +38,7 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void aER() {
+    public void aEQ() {
         com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener

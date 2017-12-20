@@ -70,7 +70,7 @@ public class d {
         this.lastModified = j;
     }
 
-    public synchronized Bitmap bCS() {
+    public synchronized Bitmap bCR() {
         return this.thumbnailBitmap;
     }
 
@@ -82,7 +82,7 @@ public class d {
         this.hasLoaded = z;
     }
 
-    public boolean bCT() {
+    public boolean bCS() {
         return this.hasLoaded;
     }
 }

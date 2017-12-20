@@ -27,11 +27,11 @@ public class m {
     private ArrayList<PostData> eQk = new ArrayList<>();
     private int eQl = 1;
 
-    public Error aSb() {
+    public Error aSa() {
         return this.eQq;
     }
 
-    public PostData aSc() {
+    public PostData aSb() {
         return this.eQj;
     }
 
@@ -39,41 +39,41 @@ public class m {
         this.eQj = postData;
     }
 
-    public int aSd() {
+    public int aSc() {
         if (this.eQn == -1) {
             this.eQn = this.mCurrentPage;
         }
         return this.eQn;
     }
 
-    public int aSe() {
+    public int aSd() {
         return this.eQn;
     }
 
     public void a(m mVar, boolean z) {
         if (mVar != null) {
-            b(mVar.aSk());
-            this.eQn = mVar.KJ();
             b(mVar.aSj());
-            setPageSize(mVar.aSi());
+            this.eQn = mVar.KJ();
+            b(mVar.aSi());
+            setPageSize(mVar.aSh());
             R(mVar.Ox());
             setTotalCount(mVar.getTotalCount());
-            iM(mVar.aSh());
-            this.eQk.addAll(0, mVar.aSg());
+            iM(mVar.aSg());
+            this.eQk.addAll(0, mVar.aSf());
         }
     }
 
     public void b(m mVar, boolean z) {
         if (mVar != null) {
-            b(mVar.aSk());
             b(mVar.aSj());
-            d(mVar.aSc());
+            b(mVar.aSi());
+            d(mVar.aSb());
             R(mVar.Ox());
-            if (mVar.aSg() != null && mVar.aSg().size() > 0) {
+            if (mVar.aSf() != null && mVar.aSf().size() > 0) {
                 bY(mVar.KJ());
-                setPageSize(mVar.aSi());
+                setPageSize(mVar.aSh());
                 setTotalCount(mVar.getTotalCount());
-                iM(mVar.aSh());
+                iM(mVar.aSg());
             }
             int size = this.eQk.size();
             if (z && size % this.eQm != 0) {
@@ -81,21 +81,21 @@ public class m {
                     this.eQk.remove(this.eQk.size() - 1);
                 }
             }
-            this.eQk.addAll(mVar.aSg());
+            this.eQk.addAll(mVar.aSf());
         }
     }
 
     public void c(m mVar, boolean z) {
         if (mVar != null) {
-            b(mVar.aSk());
             b(mVar.aSj());
-            d(mVar.aSc());
+            b(mVar.aSi());
+            d(mVar.aSb());
             R(mVar.Ox());
-            if (mVar.aSg() != null && mVar.aSg().size() > 0) {
+            if (mVar.aSf() != null && mVar.aSf().size() > 0) {
                 bY(mVar.KJ());
-                setPageSize(mVar.aSi());
+                setPageSize(mVar.aSh());
                 setTotalCount(mVar.getTotalCount());
-                iM(mVar.aSh());
+                iM(mVar.aSg());
             }
             int size = this.eQk.size();
             if (z && size % this.eQm != 0) {
@@ -103,8 +103,8 @@ public class m {
                     this.eQk.remove(this.eQk.size() - 1);
                 }
             }
-            this.eQk.addAll(mVar.aSg());
-            aSf();
+            this.eQk.addAll(mVar.aSf());
+            aSe();
         }
     }
 
@@ -114,25 +114,25 @@ public class m {
 
     public void a(m mVar) {
         if (mVar != null) {
-            b(mVar.aSk());
             b(mVar.aSj());
-            d(mVar.aSc());
+            b(mVar.aSi());
+            d(mVar.aSb());
             R(mVar.Ox());
-            if (mVar.aSg() != null && mVar.aSg().size() > 0) {
+            if (mVar.aSf() != null && mVar.aSf().size() > 0) {
                 bY(mVar.KJ());
-                setPageSize(mVar.aSi());
+                setPageSize(mVar.aSh());
                 setTotalCount(mVar.getTotalCount());
-                iM(mVar.aSh());
-                this.eQn = (this.mCurrentPage - (((mVar.aSg().size() - 1) + this.eQm) / this.eQm)) + 1;
+                iM(mVar.aSg());
+                this.eQn = (this.mCurrentPage - (((mVar.aSf().size() - 1) + this.eQm) / this.eQm)) + 1;
                 if (this.eQn < 0) {
                     this.eQn = 0;
                 }
             }
-            this.eQk.addAll(mVar.aSg());
+            this.eQk.addAll(mVar.aSf());
         }
     }
 
-    public void aSf() {
+    public void aSe() {
         if (this.eQn < 0) {
             this.eQn = this.mCurrentPage;
         } else if (this.eQn > this.mCurrentPage) {
@@ -140,7 +140,7 @@ public class m {
         }
     }
 
-    public ArrayList<PostData> aSg() {
+    public ArrayList<PostData> aSf() {
         return this.eQk;
     }
 
@@ -148,7 +148,7 @@ public class m {
         this.eQk = arrayList;
     }
 
-    public int aSh() {
+    public int aSg() {
         return this.eQl;
     }
 
@@ -164,7 +164,7 @@ public class m {
         this.aEA = i;
     }
 
-    public int aSi() {
+    public int aSh() {
         return this.eQm;
     }
 
@@ -186,7 +186,7 @@ public class m {
         this.eQi = forumData;
     }
 
-    public ForumData aSj() {
+    public ForumData aSi() {
         return this.eQi;
     }
 
@@ -194,7 +194,7 @@ public class m {
         this.eQo = antiData;
     }
 
-    public AntiData aSk() {
+    public AntiData aSj() {
         return this.eQo;
     }
 
@@ -202,7 +202,7 @@ public class m {
         this.bkq = bdVar;
     }
 
-    public boolean aCD() {
+    public boolean aCC() {
         return (this.bkq == null || this.eQj == null || this.bkq.rv() == null || this.bkq.rv().getUserId() == null || this.eQj.rv() == null || this.eQj.rv().getUserId() == null || !this.bkq.rv().getUserId().equals(this.eQj.rv().getUserId())) ? false : true;
     }
 

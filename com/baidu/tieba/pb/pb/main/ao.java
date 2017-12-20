@@ -40,14 +40,14 @@ public class ao extends j.a {
 
     public void b(com.baidu.tieba.pb.data.l lVar) {
         if (lVar != null) {
-            if (lVar.aRW()) {
+            if (lVar.aRV()) {
                 if (lVar.eQa == 1) {
                     com.baidu.tbadk.core.util.aj.c(this.fbs, d.f.icon_floor_big_praised);
                 } else if (lVar.eQa == 3) {
                     com.baidu.tbadk.core.util.aj.c(this.fbs, d.f.icon_floor_trample);
                 } else if (lVar.eQa == 4) {
                     com.baidu.tbadk.core.util.aj.c(this.fbs, d.f.icon_floor_big_trample);
-                } else if (lVar.aRY() == 1) {
+                } else if (lVar.aRX() == 1) {
                     com.baidu.tbadk.core.util.aj.c(this.fbs, wI() ? d.f.icon_card_liked_n_xmas : d.f.icon_card_liked_n);
                 } else {
                     com.baidu.tbadk.core.util.aj.c(this.fbs, wI() ? d.f.icon_floor_bigpraised_xmas : d.f.icon_floor_bigpraised);
@@ -59,7 +59,7 @@ public class ao extends j.a {
                 com.baidu.tbadk.core.util.aj.i(this.fbu, d.C0096d.text_contf_50_color);
                 this.fbv.setBackgroundDrawable(com.baidu.tbadk.core.util.aj.getDrawable(d.f.bg_first_floor_praise_border_selector));
             }
-            aVE();
+            aVD();
             if (lVar.cLI > 0) {
                 if (com.baidu.tbadk.core.util.am.dU(com.baidu.tbadk.core.util.am.v(lVar.cLI)) >= 6) {
                     this.fby.setPadding((int) getView().getResources().getDimension(d.e.ds40), 0, (int) getView().getResources().getDimension(d.e.ds40), 0);
@@ -71,13 +71,13 @@ public class ao extends j.a {
             com.baidu.tbadk.core.util.aj.i(this.fbt, d.C0096d.cp_link_tip_c);
             this.fbs.setTag(d.g.pb_main_thread_praise_data, lVar);
             this.fbu.setTag(d.g.pb_main_thread_praise_data, lVar);
-            if (lVar.aSa()) {
+            if (lVar.aRZ()) {
                 com.baidu.tbadk.core.util.aj.k(this.dsF, d.C0096d.cp_bg_line_c);
                 this.dsF.setVisibility(0);
             } else {
                 this.dsF.setVisibility(8);
             }
-            if (lVar.aRV() <= 0 || com.baidu.tbadk.core.util.v.w(lVar.aRX())) {
+            if (lVar.aRU() <= 0 || com.baidu.tbadk.core.util.v.w(lVar.aRW())) {
                 this.fbt.setText(d.j.no_praise_tip);
                 this.fbu.setText(d.j.action_praise_default);
                 com.baidu.tbadk.core.util.aj.i(this.fbt, d.C0096d.cp_cont_f);
@@ -88,22 +88,22 @@ public class ao extends j.a {
                 return;
             }
             this.fbt.setTag(true);
-            this.fbt.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.count_main_thread_praise), com.baidu.tbadk.core.util.am.v(lVar.aRV())));
-            this.fbu.setText(com.baidu.tbadk.core.util.am.v(lVar.aRV()));
+            this.fbt.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.count_main_thread_praise), com.baidu.tbadk.core.util.am.v(lVar.aRU())));
+            this.fbu.setText(com.baidu.tbadk.core.util.am.v(lVar.aRU()));
         }
     }
 
-    private void aVE() {
+    private void aVD() {
         this.fbw.setBackgroundDrawable(com.baidu.tbadk.core.util.aj.getDrawable(d.f.bg_first_floor_praise_border_selector));
         com.baidu.tbadk.core.util.aj.j(this.fbx, d.f.icon_pb_first_floor_share_selector);
         com.baidu.tbadk.core.util.aj.i(this.fby, d.C0096d.text_contf_50_color);
     }
 
-    public void aVF() {
+    public void aVE() {
         this.mRootView.setPadding(0, com.baidu.adp.lib.util.l.f(getView().getContext(), d.e.tbds56), 0, 0);
     }
 
-    public void aVG() {
+    public void aVF() {
         this.mRootView.setPadding(0, 0, 0, 0);
     }
 }

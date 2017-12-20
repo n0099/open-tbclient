@@ -23,35 +23,35 @@ public class a {
         this.gRz = aVar;
     }
 
-    public boolean bBH() {
+    public boolean bBG() {
         return (this.gRz == null || "normal".equalsIgnoreCase(this.gRz.value)) ? false : true;
     }
 
     public void ud(String str) {
         if ((this.gRA == null || !this.gRA.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String bBK = bBK();
+            String bBJ = bBJ();
             String str2 = "normal";
             if (this.gRz != null) {
                 str2 = this.gRz.value;
             }
-            this.gRA = new b(this.mContext, str, bBK, str2);
+            this.gRA = new b(this.mContext, str, bBJ, str2);
             if (this.gRB != null) {
                 this.gRA.a(this.gRB);
             }
-            this.gRA.bBL();
+            this.gRA.bBK();
         }
     }
 
-    public boolean bBI() {
+    public boolean bBH() {
         if (this.gRA != null) {
             return this.gRA.isRunning();
         }
         return false;
     }
 
-    public void bBJ() {
+    public void bBI() {
         if (this.gRA != null) {
-            this.gRA.bBM();
+            this.gRA.bBL();
         }
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String bBK() {
+    private static String bBJ() {
         return com.baidu.tieba.video.b.gPB + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

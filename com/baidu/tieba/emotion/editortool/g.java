@@ -23,7 +23,7 @@ public class g {
     private static g csx = new g();
     private static BdAsyncTaskParallel csA = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
 
-    public static g agH() {
+    public static g agG() {
         return csx;
     }
 
@@ -39,7 +39,7 @@ public class g {
         }
     }
 
-    public void agI() {
+    public void agH() {
         new a().execute(new Void[0]);
     }
 
@@ -194,8 +194,8 @@ public class g {
     }
 
     public String k(String str, boolean z) {
-        if (!f.agG().isEmpty()) {
-            List<com.baidu.tbadk.editortools.emotiontool.c> groups = f.agG().getGroups();
+        if (!f.agF().isEmpty()) {
+            List<com.baidu.tbadk.editortools.emotiontool.c> groups = f.agF().getGroups();
             if (z) {
                 for (com.baidu.tbadk.editortools.emotiontool.c cVar : groups) {
                     if (cVar.fO(str)) {
@@ -219,7 +219,7 @@ public class g {
         }
     }
 
-    public ArrayList<com.baidu.tbadk.editortools.emotiontool.c> agJ() {
+    public ArrayList<com.baidu.tbadk.editortools.emotiontool.c> agI() {
         return this.csy;
     }
 

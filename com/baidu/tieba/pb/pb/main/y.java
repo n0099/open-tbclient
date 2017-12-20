@@ -24,34 +24,34 @@ public class y extends com.baidu.tbadk.core.dialog.b {
         this.eZp = false;
         this.abX = tbPageContext;
         this.cFv = onClickListener;
-        aVg();
+        aVf();
     }
 
-    public TextView aVa() {
+    public TextView aUZ() {
         return this.eZi;
     }
 
-    public TextView aVb() {
+    public TextView aVa() {
         return this.eZj;
     }
 
-    public TextView aVc() {
+    public TextView aVb() {
         return this.eZk;
     }
 
-    public TextView aVd() {
+    public TextView aVc() {
         return this.eZl;
     }
 
-    public TextView aVe() {
+    public TextView aVd() {
         return this.eZn;
     }
 
-    public TextView aVf() {
+    public TextView aVe() {
         return this.eZm;
     }
 
-    private void aVg() {
+    private void aVf() {
         a(new CharSequence[]{this.abX.getString(d.j.reply_current_floor), this.abX.getString(d.j.no_interesting), this.abX.getString(d.j.mark), this.abX.getString(d.j.mute), this.abX.getString(d.j.report_text), this.abX.getString(d.j.delete)}, new b.InterfaceC0061b() { // from class: com.baidu.tieba.pb.pb.main.y.1
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0061b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
@@ -62,23 +62,23 @@ public class y extends com.baidu.tbadk.core.dialog.b {
             }
         });
         d(this.abX);
-        this.eZm = bj(cl(0));
-        this.eZn = bj(cl(1));
-        this.eZi = bj(cl(2));
-        this.eZj = bj(cl(3));
-        this.eZk = bj(cl(4));
-        this.eZl = bj(cl(5));
+        this.eZm = bk(cl(0));
+        this.eZn = bk(cl(1));
+        this.eZi = bk(cl(2));
+        this.eZj = bk(cl(3));
+        this.eZk = bk(cl(4));
+        this.eZl = bk(cl(5));
     }
 
     public void showDialog() {
         tl();
     }
 
-    private TextView bj(View view) {
+    private TextView bk(View view) {
         return (TextView) view.findViewById(d.g.dialog_item_btn);
     }
 
-    private View bk(View view) {
+    private View bl(View view) {
         if (view == null) {
             return null;
         }
@@ -97,7 +97,7 @@ public class y extends com.baidu.tbadk.core.dialog.b {
         this.eZo = z;
     }
 
-    public boolean aVh() {
+    public boolean aVg() {
         return this.eZp;
     }
 
@@ -107,26 +107,26 @@ public class y extends com.baidu.tbadk.core.dialog.b {
 
     public void refreshUI() {
         View view;
-        TextView bj;
+        TextView bk;
         int itemCount = getItemCount();
         ArrayList arrayList = new ArrayList();
         boolean z = true;
         for (int i = itemCount - 1; i >= 0; i--) {
             View cl = cl(i);
             if (cl != null) {
-                TextView bj2 = bj(cl(i));
-                View bk = bk(cl(i));
-                if (bj2 != null) {
-                    if (bj2.getVisibility() == 8) {
-                        bk.setVisibility(8);
+                TextView bk2 = bk(cl(i));
+                View bl = bl(cl(i));
+                if (bk2 != null) {
+                    if (bk2.getVisibility() == 8) {
+                        bl.setVisibility(8);
                     } else {
                         arrayList.add(cl);
                         if (z) {
-                            bk.setVisibility(8);
+                            bl.setVisibility(8);
                             com.baidu.tbadk.core.util.aj.j(cl, d.f.dialog_single_button_bg_selector);
                             z = false;
                         } else {
-                            bk.setVisibility(0);
+                            bl.setVisibility(0);
                         }
                     }
                 }
@@ -138,7 +138,7 @@ public class y extends com.baidu.tbadk.core.dialog.b {
                 break;
             }
             View cl2 = cl(i2);
-            if (cl2 == null || (bj = bj(cl(i2))) == null || bj.getVisibility() != 0) {
+            if (cl2 == null || (bk = bk(cl(i2))) == null || bk.getVisibility() != 0) {
                 i2++;
             } else {
                 com.baidu.tbadk.core.util.aj.j(cl2, d.f.dialog_single_button_first_bg_selector);

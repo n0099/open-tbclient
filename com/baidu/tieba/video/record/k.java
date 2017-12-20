@@ -32,7 +32,7 @@ public class k implements j.a {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, com.baidu.tieba.i.k.class);
         com.baidu.tieba.i.k kVar = runTask != null ? (com.baidu.tieba.i.k) runTask.getData() : null;
         if (kVar != null) {
-            this.gCP = kVar.aOk();
+            this.gCP = kVar.aOj();
         }
         this.mContext = activity;
     }
@@ -48,7 +48,7 @@ public class k implements j.a {
                     a(obj, musicData);
                     return;
                 case 1:
-                    bjo();
+                    bjn();
                     return;
                 case 2:
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CloudMusicActivityConfig(this.mContext, 25032)));
@@ -59,7 +59,7 @@ public class k implements j.a {
         }
     }
 
-    public void bjo() {
+    public void bjn() {
         if (this.bdg != null) {
             if (this.bdg.isPlaying()) {
                 this.bdg.stop();
@@ -77,7 +77,7 @@ public class k implements j.a {
                 this.bdg.stop();
             }
             this.gUj = musicData.id;
-            String uf = com.baidu.tieba.video.editvideo.model.a.bBZ().uf(musicData.resource);
+            String uf = com.baidu.tieba.video.editvideo.model.a.bBY().uf(musicData.resource);
             if (TextUtils.isEmpty(uf)) {
                 if (obj instanceof d.a) {
                     final d.a aVar = (d.a) obj;
@@ -85,7 +85,7 @@ public class k implements j.a {
                     aVar.gRu.setDrawBorder(false);
                     aVar.gRu.invalidate();
                     this.mPosition = aVar.position;
-                    com.baidu.tieba.video.editvideo.model.a.bBZ().a(musicData.id, musicData.resource, new a.InterfaceC0148a() { // from class: com.baidu.tieba.video.record.k.1
+                    com.baidu.tieba.video.editvideo.model.a.bBY().a(musicData.id, musicData.resource, new a.InterfaceC0148a() { // from class: com.baidu.tieba.video.record.k.1
                         @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0148a
                         public void cn(String str, String str2) {
                             if (!TextUtils.isEmpty(str2)) {
@@ -109,7 +109,7 @@ public class k implements j.a {
                         }
 
                         @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0148a
-                        public void bBm() {
+                        public void bBl() {
                             aVar.gRu.setDrawBorder(true);
                             aVar.gRu.invalidate();
                             aVar.mProgressBar.setVisibility(4);
@@ -117,7 +117,7 @@ public class k implements j.a {
                     });
                     return;
                 }
-                com.baidu.tieba.video.editvideo.model.a.bBZ().a(musicData.id, musicData.resource, new a.InterfaceC0148a() { // from class: com.baidu.tieba.video.record.k.2
+                com.baidu.tieba.video.editvideo.model.a.bBY().a(musicData.id, musicData.resource, new a.InterfaceC0148a() { // from class: com.baidu.tieba.video.record.k.2
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0148a
                     public void cn(String str, String str2) {
                         if (!TextUtils.isEmpty(str2)) {
@@ -135,7 +135,7 @@ public class k implements j.a {
                     }
 
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0148a
-                    public void bBm() {
+                    public void bBl() {
                     }
                 });
                 return;
@@ -182,18 +182,18 @@ public class k implements j.a {
 
     private void b(String str, MusicData musicData) {
         this.gUe = null;
-        bjo();
+        bjn();
         if (str.startsWith("/")) {
             File file = new File(str);
             if (file.exists()) {
                 file.delete();
             }
-            com.baidu.tieba.video.editvideo.model.a.bBZ().bCa();
+            com.baidu.tieba.video.editvideo.model.a.bBY().bBZ();
         }
         a((Object) null, musicData);
     }
 
-    public String bDY() {
+    public String bDX() {
         return this.gUe;
     }
 
@@ -227,14 +227,14 @@ public class k implements j.a {
         }
     }
 
-    public void bDZ() {
+    public void bDY() {
         if (this.bdg != null && this.bdg.isPlaying()) {
             this.bdg.pause();
         }
     }
 
-    public void bEa() {
-        bjo();
+    public void bDZ() {
+        bjn();
     }
 
     public void co(String str, String str2) {

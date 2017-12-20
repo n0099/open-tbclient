@@ -72,17 +72,17 @@ public class g extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, l lVar, com.baidu.tieba.card.a.a<t> aVar) {
-        if (lVar == null || aVar == null || aVar.acC() == null) {
+        if (lVar == null || aVar == null || aVar.acB() == null) {
             return null;
         }
         this.bZi = lVar;
         lVar.iG(i + 1);
-        s.abX().a(lVar.jW("c12351"));
+        s.abW().a(lVar.jW("c12351"));
         be beVar = new be(lVar.Ox());
         beVar.stType = "personalize_page";
         beVar.aaF = 1;
         beVar.aaG = 4;
-        aVar.acC().a(beVar);
+        aVar.acB().a(beVar);
         return aVar.getView();
     }
 }

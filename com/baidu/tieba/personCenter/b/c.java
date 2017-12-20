@@ -15,7 +15,7 @@ public class c {
         this.mListView.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.personCenter.b.c.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
-                c.this.fsF.bae();
+                c.this.fsF.bad();
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
@@ -36,11 +36,11 @@ public class c {
         this.fsF.onChangeSkinType();
     }
 
-    public void bad() {
-        this.fsF.bad();
+    public void bac() {
+        this.fsF.bac();
     }
 
-    public void bae() {
-        this.fsF.bae();
+    public void bad() {
+        this.fsF.bad();
     }
 }

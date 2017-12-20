@@ -92,11 +92,11 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         setContentView(d.h.plugin_center_activity);
         this.csF = new ViewEventCenter();
         this.csF.addEventDelegate(this);
-        anb();
+        ana();
         Pg();
     }
 
-    private void anb() {
+    private void ana() {
         if (getIntent() != null) {
             this.mFromType = getIntent().getIntExtra(PluginCenterActivityConfig.KEY_FROM_TYPE, 0);
         }

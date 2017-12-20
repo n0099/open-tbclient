@@ -91,7 +91,7 @@ public class b {
         this.hdX = arrayList;
     }
 
-    public ArrayList<String> bFE() {
+    public ArrayList<String> bFD() {
         return this.hdX;
     }
 
@@ -105,7 +105,7 @@ public class b {
         this.bgColor = aj.getColor(this.hea);
     }
 
-    public int bFF() {
+    public int bFE() {
         return this.hec;
     }
 
@@ -113,7 +113,7 @@ public class b {
         this.hed = z;
     }
 
-    public boolean bFG() {
+    public boolean bFF() {
         return this.hed;
     }
 
@@ -121,7 +121,7 @@ public class b {
         this.hee = z;
     }
 
-    public boolean bFH() {
+    public boolean bFG() {
         return this.hee;
     }
 
@@ -129,7 +129,7 @@ public class b {
         this.hdY = str;
     }
 
-    public String bFI() {
+    public String bFH() {
         return this.hdY;
     }
 }

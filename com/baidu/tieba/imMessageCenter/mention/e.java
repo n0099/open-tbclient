@@ -217,17 +217,17 @@ public class e extends com.baidu.adp.base.c<g> implements h.b {
                         if (customMessage != null && imMessageCenterShowItemData != null) {
                             imMessageCenterShowItemData.setUnReadCount(0);
                             if (imMessageCenterShowItemData.getOwnerName().equals("2")) {
-                                com.baidu.tieba.im.db.d.azs().mG("apply_join_group");
+                                com.baidu.tieba.im.db.d.azr().mG("apply_join_group");
                             } else if (imMessageCenterShowItemData.getOwnerName().equals("3")) {
-                                com.baidu.tieba.im.db.d.azs().mG("group_intro_change");
-                                com.baidu.tieba.im.db.d.azs().mG("group_name_change");
-                                com.baidu.tieba.im.db.d.azs().mG("group_notice_change");
-                                com.baidu.tieba.im.db.d.azs().mG("group_level_up");
-                                com.baidu.tieba.im.db.d.azs().mG("dismiss_group");
-                                com.baidu.tieba.im.db.d.azs().mG("kick_out");
-                                com.baidu.tieba.im.db.d.azs().mG("group_activitys_change");
+                                com.baidu.tieba.im.db.d.azr().mG("group_intro_change");
+                                com.baidu.tieba.im.db.d.azr().mG("group_name_change");
+                                com.baidu.tieba.im.db.d.azr().mG("group_notice_change");
+                                com.baidu.tieba.im.db.d.azr().mG("group_level_up");
+                                com.baidu.tieba.im.db.d.azr().mG("dismiss_group");
+                                com.baidu.tieba.im.db.d.azr().mG("kick_out");
+                                com.baidu.tieba.im.db.d.azr().mG("group_activitys_change");
                             } else if (imMessageCenterShowItemData.getOwnerName().equals("6")) {
-                                com.baidu.tieba.im.db.d.azs().mG("live_notify");
+                                com.baidu.tieba.im.db.d.azr().mG("live_notify");
                             }
                         }
                         return null;
@@ -294,7 +294,7 @@ public class e extends com.baidu.adp.base.c<g> implements h.b {
         };
         this.dGt = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.mention.e.5
             @Override // com.baidu.tieba.im.chat.a.a
-            public void axy() {
+            public void axx() {
                 if (e.this.dXs != null && e.this.dXp != null) {
                     e.this.dXs.completePullRefreshPostDelayed(2000L);
                     if (e.this.dXp.getData() != null) {
@@ -326,7 +326,7 @@ public class e extends com.baidu.adp.base.c<g> implements h.b {
         }
     }
 
-    public void anW() {
+    public void anV() {
         if (this.eam != null) {
             this.eam.notifyDataSetChanged();
         }
@@ -340,14 +340,14 @@ public class e extends com.baidu.adp.base.c<g> implements h.b {
         this.dXy = 3;
         this.rootView = LayoutInflater.from(this.eal.getPageContext().getPageActivity()).inflate(d.h.chat_list_activity, (ViewGroup) null, false);
         initData();
-        at(this.rootView);
+        au(this.rootView);
         TiebaStatic.eventStat(this.eal.getPageContext().getPageActivity(), "enter_chatlist", "chatlistclick", 1, new Object[0]);
         registerListener();
-        adt();
+        ads();
         return this.rootView;
     }
 
-    protected void adt() {
+    protected void ads() {
         this.dXs.startPullRefresh();
         this.ean = isLogin();
         if (!this.ean) {
@@ -399,7 +399,7 @@ public class e extends com.baidu.adp.base.c<g> implements h.b {
         this.eal.registerListener(this.cIk);
     }
 
-    private void at(View view) {
+    private void au(View view) {
         this.cDX = (RelativeLayout) view.findViewById(d.g.chat_list);
         this.dXv = (ShutDownValidateTipView) view.findViewById(d.g.view_no_validate);
         this.dXv.setVisibility(8);
@@ -488,13 +488,13 @@ public class e extends com.baidu.adp.base.c<g> implements h.b {
 
     private void ht(boolean z) {
         if (z) {
-            aDQ();
+            aDP();
         } else {
-            aDR();
+            aDQ();
         }
     }
 
-    private void aDQ() {
+    private void aDP() {
         NoDataViewFactory.b bVar = null;
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
             bVar = NoDataViewFactory.b.a(new NoDataViewFactory.a(this.eal.getResources().getString(d.j.maintab_imcenter_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.13
@@ -510,7 +510,7 @@ public class e extends com.baidu.adp.base.c<g> implements h.b {
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void aDR() {
+    private void aDQ() {
         NoDataViewFactory.a aVar = new NoDataViewFactory.a(this.eal.getResources().getString(d.j.maintab_imcenter_unlogin_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.e.14
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -563,7 +563,7 @@ public class e extends com.baidu.adp.base.c<g> implements h.b {
 
     public void hj(boolean z) {
         if (z) {
-            if (aDS() && this.dXv.getVisibility() != 0) {
+            if (aDR() && this.dXv.getVisibility() != 0) {
                 this.dXv.setVisibility(0);
             }
         } else if (this.dXv.getVisibility() != 8) {
@@ -589,7 +589,7 @@ public class e extends com.baidu.adp.base.c<g> implements h.b {
         this.dXs.setVisibility(8);
     }
 
-    public boolean aDS() {
+    public boolean aDR() {
         return this.dXz;
     }
 

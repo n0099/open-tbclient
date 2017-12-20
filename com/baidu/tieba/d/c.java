@@ -33,15 +33,15 @@ public class c implements a.InterfaceC0094a {
         } else if (context instanceof BaseFragmentActivity) {
             this.mPageContext = ((BaseFragmentActivity) context).getPageContext();
         }
-        adL();
+        adK();
     }
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        adL();
+        adK();
     }
 
-    private void adL() {
+    private void adK() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, this.mPageContext), a.class);
         if (runTask != null) {
             this.ckd = (a) runTask.getData();
@@ -56,7 +56,7 @@ public class c implements a.InterfaceC0094a {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !g.isFastDoubleClick()) {
             this.cke = shareDialogConfig;
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.auF = adM();
+                shareDialogConfig.shareItem.auF = adL();
             }
             if (TbadkCoreApplication.isLogin() && this.ckd != null && !shareDialogConfig.mIsAlaLive) {
                 this.ckd.aK(null, null);
@@ -84,7 +84,7 @@ public class c implements a.InterfaceC0094a {
         }
     }
 
-    private Location adM() {
+    private Location adL() {
         if (ab.aH(this.mPageContext.getPageActivity())) {
             LocationManager locationManager = (LocationManager) this.mPageContext.getPageActivity().getApplication().getSystemService("location");
             Criteria criteria = new Criteria();

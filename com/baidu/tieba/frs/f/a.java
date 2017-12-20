@@ -31,8 +31,8 @@ public class a {
     }
 
     public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, FrsModelController frsModelController, List<com.baidu.adp.widget.ListView.f> list, int i) {
-        if (frsModelController != null && frsModelController.aoI() != null) {
-            a(bVar, frsModelController.aoI().aRo(), list, false, i);
+        if (frsModelController != null && frsModelController.aoH() != null) {
+            a(bVar, frsModelController.aoH().aRn(), list, false, i);
         }
     }
 

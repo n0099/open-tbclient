@@ -14,7 +14,7 @@ public class x {
     private x() {
     }
 
-    public static x bjK() {
+    public static x bjJ() {
         if (fRf == null) {
             synchronized (x.class) {
                 if (fRf == null) {

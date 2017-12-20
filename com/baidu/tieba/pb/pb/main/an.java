@@ -63,7 +63,7 @@ public class an extends m<com.baidu.tieba.pb.data.l, ao> {
             aoVar.fbs.setTag(d.g.pb_main_thread_praise_view, aoVar);
             if (this.fbp != null) {
                 this.fbp.setAnchorView(aoVar.fbs);
-                this.fbp.bs(((ao) this.viewholder).fbv);
+                this.fbp.bt(((ao) this.viewholder).fbv);
                 this.fbp.setOnTouchListener(this.aNm);
             } else {
                 aoVar.fbu.setOnClickListener(this.mClickListener);
@@ -73,9 +73,9 @@ public class an extends m<com.baidu.tieba.pb.data.l, ao> {
             aoVar.fby.setOnClickListener(this.mClickListener);
             aoVar.fbw.setOnClickListener(this.mClickListener);
             if (this.fbq) {
-                aoVar.aVG();
-            } else {
                 aoVar.aVF();
+            } else {
+                aoVar.aVE();
             }
         }
         return view;

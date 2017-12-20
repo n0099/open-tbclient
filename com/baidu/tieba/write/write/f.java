@@ -50,7 +50,7 @@ public class f {
         }
 
         @Override // com.baidu.tieba.write.write.e.a
-        public void bIT() {
+        public void bIS() {
             if (f.this.mWriteImagesInfo != null) {
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) f.this.abX.getPageActivity(), f.this.mWriteImagesInfo.toJsonString(), true, true);
                 albumActivityConfig.getIntent().putExtra("forum_id", f.this.mForumId);

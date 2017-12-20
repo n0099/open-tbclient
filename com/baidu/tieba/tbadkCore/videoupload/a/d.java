@@ -65,7 +65,7 @@ public class d implements b {
             VideoFinishResult videoFinishResult2 = new VideoFinishResult();
             videoFinishResult2.setVideoMd5(this.gEJ);
             videoFinishResult2.setVideoUrl(a2.baI);
-            bxX();
+            bxW();
             return videoFinishResult2;
         } else if (this.gEN) {
             return null;
@@ -94,7 +94,7 @@ public class d implements b {
                 VideoFinishResult videoFinishResult4 = new VideoFinishResult();
                 videoFinishResult4.setVideoUrl(b.videoUrl);
                 videoFinishResult4.setVideoMd5(this.gEJ);
-                bxX();
+                bxW();
                 return videoFinishResult4;
             } else if (this.gEN || (a = a(this.gEL, i, true, str2)) == null) {
                 return null;
@@ -103,7 +103,7 @@ public class d implements b {
                 if (a.gAi == 0) {
                     videoFinishResult5.setVideoUrl(a.baI);
                     videoFinishResult5.setVideoMd5(this.gEJ);
-                    bxX();
+                    bxW();
                 } else {
                     videoFinishResult5.setErrorNo(a.gAi);
                     videoFinishResult5.setUserMessage(a.mErrorMessage);
@@ -187,9 +187,9 @@ public class d implements b {
         }
     }
 
-    private void bxX() {
+    private void bxW() {
         if (this.gEP != null) {
-            this.gEP.aNT();
+            this.gEP.aNS();
         }
     }
 }

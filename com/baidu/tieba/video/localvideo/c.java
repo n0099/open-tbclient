@@ -106,7 +106,7 @@ public class c extends com.baidu.adp.base.c {
                         if (c.this.gUR != null) {
                             c.this.gUR.setVisibility(8);
                             BlurDrawable blurDrawable = new BlurDrawable(c.this.gUI);
-                            blurDrawable.init(12, 8, dVar.bCS());
+                            blurDrawable.init(12, 8, dVar.bCR());
                             if (blurDrawable != null && blurDrawable.getBlurredBitmap() == null && blurDrawable.drawBlur()) {
                                 c.this.gUR.setBackgroundDrawable(new BitmapDrawable(blurDrawable.getBlurredBitmap()));
                             }
@@ -150,7 +150,7 @@ public class c extends com.baidu.adp.base.c {
             }
 
             @Override // com.baidu.tieba.video.commonview.ExpandViewRelativeLayout.a
-            public void bBw() {
+            public void bBv() {
                 if (c.this.gUM.getTop() > c.this.gUW / 2) {
                     c.this.gVc = true;
                     c.this.gUO.start();
@@ -212,7 +212,7 @@ public class c extends com.baidu.adp.base.c {
         this.gUX = l.f(this.gUI, d.e.ds902);
     }
 
-    public boolean bCJ() {
+    public boolean bCI() {
         return this.gVb;
     }
 
@@ -226,7 +226,7 @@ public class c extends com.baidu.adp.base.c {
                 this.gUZ = dVar;
                 if (this.gUR != null) {
                     BlurDrawable blurDrawable = new BlurDrawable(this.gUI);
-                    blurDrawable.init(12, 8, dVar.bCS());
+                    blurDrawable.init(12, 8, dVar.bCR());
                     if (blurDrawable != null && blurDrawable.getBlurredBitmap() == null && blurDrawable.drawBlur()) {
                         this.gUR.setBackgroundDrawable(new BitmapDrawable(blurDrawable.getBlurredBitmap()));
                     }
@@ -235,7 +235,7 @@ public class c extends com.baidu.adp.base.c {
             }
             if (this.gUN != null) {
                 this.gUN.setData(list);
-                bCR();
+                bCQ();
                 return;
             }
             return;
@@ -243,7 +243,7 @@ public class c extends com.baidu.adp.base.c {
         l.showToast(TbadkCoreApplication.getInst(), d.j.no_local_video_tip);
     }
 
-    public void bCK() {
+    public void bCJ() {
         com.baidu.tbadk.core.dialog.a a = new com.baidu.tbadk.core.dialog.a(this.gUI).cc(d.j.mv_local_video_too_long).a(d.j.group_create_private_isee, new a.b() { // from class: com.baidu.tieba.video.localvideo.c.5
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -287,21 +287,21 @@ public class c extends com.baidu.adp.base.c {
         }
     }
 
-    public TextView bCL() {
+    public TextView bCK() {
         return this.cVo;
     }
 
-    public TextView bCM() {
+    public TextView bCL() {
         return this.gUP;
     }
 
-    public void bCN() {
+    public void bCM() {
         if (this.gUO != null && !StringUtils.isNull(this.gUQ)) {
             this.gUO.start();
         }
     }
 
-    public void bCO() {
+    public void bCN() {
         if (this.gUO != null && !StringUtils.isNull(this.gUQ)) {
             this.gUO.resume();
             this.gUO.seekTo(this.gUY);
@@ -311,29 +311,29 @@ public class c extends com.baidu.adp.base.c {
         }
     }
 
-    public void amL() {
+    public void amK() {
         this.gUY = this.gUO.getCurrentPosition();
         if (this.gUO != null) {
             this.gUO.pause();
         }
     }
 
-    public void amM() {
+    public void amL() {
         this.gUY = this.gUO.getCurrentPosition();
         if (this.gUO != null) {
             this.gUO.stopPlayback();
         }
     }
 
-    public String bCP() {
+    public String bCO() {
         return this.gUQ;
     }
 
-    public d bCQ() {
+    public d bCP() {
         return this.gUZ;
     }
 
-    private void bCR() {
+    private void bCQ() {
         if (!v.w(this.gVa)) {
             new BdAsyncTask<Void, Integer, Void>() { // from class: com.baidu.tieba.video.localvideo.c.6
                 /* JADX DEBUG: Method merged with bridge method */

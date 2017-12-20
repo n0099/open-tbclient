@@ -56,13 +56,13 @@ public class StoryPageActivityConfig extends IntentConfig {
             long longExtra2 = intent.getLongExtra("thread_id", -1L);
             this.mStoryModel = makeStoryModel(i.Y(getContext()));
             if (this.mStoryModel != null) {
-                return l.bsv().a(this.mStoryModel, arrayList, intExtra, longExtra, longExtra2, new f() { // from class: com.baidu.tbadk.core.atomData.StoryPageActivityConfig.1
+                return l.bsu().a(this.mStoryModel, arrayList, intExtra, longExtra, longExtra2, new f() { // from class: com.baidu.tbadk.core.atomData.StoryPageActivityConfig.1
                     @Override // com.baidu.tieba.story.f
                     public void a(int i, String str, MetaData metaData, List<UserStoryData> list) {
                         Class<?> intentClass = TbadkCoreApplication.getInst().getIntentClass(StoryPageActivityConfig.this.getConfig().getClass());
                         if (intentClass != null) {
                             StoryPageActivityConfig.this.savePreLoadData(list);
-                            l.bsv().d(metaData);
+                            l.bsu().d(metaData);
                             StoryPageActivityConfig.this.getConfig().setComponentClass(intentClass);
                             StoryPageActivityConfig.this.getConfig().run();
                             if (StoryPageActivityConfig.this.mDoneCallback != null) {
@@ -105,7 +105,7 @@ public class StoryPageActivityConfig extends IntentConfig {
         if (!v.w(list)) {
             for (UserStoryData userStoryData : list) {
                 if (userStoryData != null && userStoryData.storyUser != null) {
-                    l.bsv().a(userStoryData.storyUser.getUserIdLong(), userStoryData);
+                    l.bsu().a(userStoryData.storyUser.getUserIdLong(), userStoryData);
                 }
             }
         }

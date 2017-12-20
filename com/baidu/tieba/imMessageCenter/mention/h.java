@@ -10,19 +10,19 @@ public class h {
     private int chat = 0;
     private int eaC = 0;
 
-    public int aEK() {
+    public int aEJ() {
         return this.eaz;
     }
 
-    public int aEL() {
+    public int aEK() {
         return this.eaA;
     }
 
-    public int aEM() {
+    public int aEL() {
         return this.eaB;
     }
 
-    public int aEN() {
+    public int aEM() {
         return this.eaC;
     }
 

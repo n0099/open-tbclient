@@ -35,7 +35,7 @@ public class b {
         this.mFilterName = str3;
     }
 
-    public void bBL() {
+    public void bBK() {
         if (!this.wy) {
             this.wy = true;
             this.gRG = false;
@@ -56,17 +56,17 @@ public class b {
                 this.gRF = new e(this.gPR);
                 this.gRD = new f(this.mContext, this.gRC, this.mFilterName, this.gRF, this.gRB) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
-                    public void bBP() {
+                    public void bBO() {
                         b.this.gRG = true;
-                        b.this.bBN();
+                        b.this.bBM();
                     }
                 };
                 this.gRD.start();
                 this.gRE = new d(this.mContext, this.gRC, this.gRF, this.gRB) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
-                    public void bBP() {
+                    public void bBO() {
                         b.this.gRH = true;
-                        b.this.bBN();
+                        b.this.bBM();
                     }
                 };
                 this.gRE.start();
@@ -75,7 +75,7 @@ public class b {
         }
     }
 
-    public void bBM() {
+    public void bBL() {
         if (this.gRD != null) {
             this.gRD.interrupt();
             this.gRD = null;
@@ -87,15 +87,15 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bBN() {
+    public void bBM() {
         if (this.gRG && this.gRH && !this.gRI) {
             this.gRF.stop();
             this.gRI = true;
-            bBO();
+            bBN();
         }
     }
 
-    private void bBO() {
+    private void bBN() {
         if (this.gRB != null) {
             File file = new File(this.gPR);
             if (file.exists() && file.length() > 0) {

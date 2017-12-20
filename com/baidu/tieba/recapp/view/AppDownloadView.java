@@ -102,7 +102,7 @@ public class AppDownloadView extends LinearLayout {
                     aj.c(this.gcs, d.f.icon_download_play);
                     break;
             }
-            int am = a.blW().am(downloadData.getId(), downloadData.getName());
+            int am = a.blV().am(downloadData.getId(), downloadData.getName());
             if (am >= 0) {
                 ta(am);
             } else {
@@ -125,22 +125,22 @@ public class AppDownloadView extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bmI();
+        bmH();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bmH();
+        bmG();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            bmH();
+            bmG();
         } else {
-            bmI();
+            bmH();
         }
     }
 
@@ -155,7 +155,7 @@ public class AppDownloadView extends LinearLayout {
         aj.b(this.gct, d.C0096d.cp_cont_d, 1, i);
     }
 
-    private void bmH() {
+    private void bmG() {
         if (this.downloadListener != null) {
             MessageManager.getInstance().registerListener(this.downloadListener);
         }
@@ -164,7 +164,7 @@ public class AppDownloadView extends LinearLayout {
         }
     }
 
-    private void bmI() {
+    private void bmH() {
         if (this.downloadListener != null) {
             MessageManager.getInstance().unRegisterListener(this.downloadListener);
         }
@@ -201,7 +201,7 @@ public class AppDownloadView extends LinearLayout {
                         }
                         downloadData = null;
                         if (downloadData != null) {
-                            AppDownloadView.this.ta(a.blW().am(downloadData.getId(), downloadData.getName()));
+                            AppDownloadView.this.ta(a.blV().am(downloadData.getId(), downloadData.getName()));
                             AppDownloadView.this.postInvalidate();
                         }
                     }

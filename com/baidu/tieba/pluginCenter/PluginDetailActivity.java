@@ -59,7 +59,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         public void c(BdFileDownloadData bdFileDownloadData) {
             if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(PluginDetailActivity.this.fRI.package_name)) {
                 PluginDetailActivity.this.showToast(bdFileDownloadData.getStatusMsg());
-                PluginDetailActivity.this.bjR();
+                PluginDetailActivity.this.bjQ();
                 PluginDetailActivity.this.dva = true;
             }
         }
@@ -68,11 +68,11 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
             if (i == 0) {
                 PluginDetailActivity.this.showToast(PluginDetailActivity.this.getPageContext().getString(d.j.plugin_installation_finished));
-                PluginDetailActivity.this.bjR();
+                PluginDetailActivity.this.bjQ();
                 return;
             }
             PluginDetailActivity.this.showToast(PluginDetailActivity.this.getPageContext().getString(d.j.plugin_installation_failed) + str);
-            PluginDetailActivity.this.bjR();
+            PluginDetailActivity.this.bjQ();
         }
     };
     private final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.pluginCenter.PluginDetailActivity.5
@@ -80,7 +80,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.hh()) {
-                PluginDetailActivity.this.bjR();
+                PluginDetailActivity.this.bjQ();
             }
         }
     };
@@ -127,7 +127,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 this.fRI.display_name = "";
             }
             this.mName.setText(this.fRI.display_name);
-            bjR();
+            bjQ();
             if (this.fRI.newest != null) {
                 if (TextUtils.isEmpty(this.fRI.newest.change_log)) {
                     this.fRF.setText("");
@@ -145,7 +145,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bjR() {
+    public void bjQ() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PLUGIN_ENABLE_STATE_CHANGED));
         if (PluginPackageManager.js().bp(this.mPluginName) && PluginPackageManager.js().bn(this.mPluginName)) {
             this.bKj.setText(d.j.plugin_enabled);
@@ -191,22 +191,22 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public void onClick(View view) {
         if (view == this.fRH) {
             if (this.mStatus == 0 || this.mStatus == 1) {
-                bjS();
+                bjR();
             } else if (this.mStatus == 3) {
                 PluginPackageManager.js().bl(this.mPluginName);
-                bjR();
+                bjQ();
             } else if (this.mStatus == 2) {
                 PluginPackageManager.js().bm(this.mPluginName);
-                bjR();
+                bjQ();
             }
         }
     }
 
-    private void bjS() {
+    private void bjR() {
         if (!j.hh()) {
             showToast(d.j.neterror);
         } else if (j.hj()) {
-            bjT();
+            bjS();
         } else {
             aj.c(this.fRH, d.C0096d.cp_cont_d, 1);
             this.fRH.setEnabled(false);
@@ -214,7 +214,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    private void bjT() {
+    private void bjS() {
         String string;
         String string2;
         if (this.fRI != null && this.fRI.newest != null) {

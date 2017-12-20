@@ -45,12 +45,12 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(boolean z, com.baidu.tieba.frs.entelechy.b.d dVar, f fVar, j jVar, k kVar) {
         if (fVar != null && jVar != null && kVar != null && dVar != null && jVar.getListView() != null) {
-            fVar.aqQ();
+            fVar.aqP();
             if (z) {
                 dVar.a(jVar.getListView(), jVar.getListView().getHeaderViewsCount());
             }
-            if (kVar != null && kVar.aRo() != null) {
-                jVar.a(kVar.aRo().getFrsBannerData());
+            if (kVar != null && kVar.aRn() != null) {
+                jVar.a(kVar.aRn().getFrsBannerData());
             }
         }
     }
@@ -70,7 +70,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public void ax(View view) {
+    public void ay(View view) {
         view.setVisibility(8);
     }
 }

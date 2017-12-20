@@ -39,11 +39,11 @@ public class a {
         }
     }
 
-    public void bad() {
-        this.fsx.bad();
+    public void bac() {
+        this.fsx.bac();
     }
 
-    public void bae() {
+    public void bad() {
         this.fsx.destroy();
     }
 }

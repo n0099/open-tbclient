@@ -6,7 +6,7 @@ public class b {
     private com.baidu.tieba.write.a.b hhm = null;
     private c hhn = null;
 
-    public com.baidu.tieba.write.a.b bGQ() {
+    public com.baidu.tieba.write.a.b bGP() {
         return this.hhm;
     }
 
@@ -14,7 +14,7 @@ public class b {
         this.hhm = bVar;
     }
 
-    public c bGR() {
+    public c bGQ() {
         return this.hhn;
     }
 
